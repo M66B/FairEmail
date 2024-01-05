@@ -62,6 +62,9 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -132,7 +135,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private Group grpBackground;
     private Group grpTiles;
 
-    private final static String[] RESET_OPTIONS = new String[]{
+    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "notify_newest_first", "notify_summary",
             "notify_trash", "notify_junk", "notify_block_sender", "notify_archive", "notify_move",
             "notify_reply", "notify_reply_direct",
@@ -145,7 +148,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "wearable_preview",
             "notify_messaging",
             "biometrics_notify", "notify_open_folder", "background_service", "alert_once"
-    };
+    ));
 
     @Override
     @Nullable
@@ -801,6 +804,9 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (!RESET_OPTIONS.contains(key))
+            return;
+
         getMainHandler().removeCallbacks(update);
         getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
     }

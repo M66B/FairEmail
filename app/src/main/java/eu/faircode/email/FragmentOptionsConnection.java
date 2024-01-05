@@ -66,6 +66,8 @@ import java.security.KeyStore;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.net.SocketFactory;
@@ -124,7 +126,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private Group grpValidated;
     private Group grpCustomSsl;
 
-    private final static String[] RESET_OPTIONS = new String[]{
+    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "metered", "download", "download_limited", "roaming", "rlah",
             "download_headers", "download_eml", "download_plain",
             "require_validated", "require_validated_captive", "vpn_only",
@@ -134,7 +136,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             "ssl_update", "ssl_harden", "ssl_harden_strict", "cert_strict", "cert_transparency", "check_names",
             "open_safe", "http_redirect",
             "bouncy_castle", "bc_fips"
-    };
+    ));
 
     @Override
     @Nullable
@@ -665,6 +667,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (!RESET_OPTIONS.contains(key))
+            return;
+
         if ("timeout".equals(key))
             return;
         if ("dns_extra".equals(key))

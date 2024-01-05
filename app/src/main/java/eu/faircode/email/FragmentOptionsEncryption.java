@@ -75,6 +75,7 @@ import java.security.Security;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
@@ -117,12 +118,12 @@ public class FragmentOptionsEncryption extends FragmentBase
 
     static final int REQUEST_IMPORT_CERTIFICATE = 1;
 
-    private final static String[] RESET_OPTIONS = new String[]{
+    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "sign_default", "encrypt_default", "encrypt_auto",
             "auto_verify", "auto_decrypt", "auto_undecrypt",
             "openpgp_provider", "autocrypt", "autocrypt_mutual", "encrypt_subject",
             "sign_algo_smime", "encrypt_algo_smime", "check_certificate"
-    };
+    ));
 
     @Override
     @Nullable
@@ -625,6 +626,9 @@ public class FragmentOptionsEncryption extends FragmentBase
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (!RESET_OPTIONS.contains(key))
+            return;
+
         getMainHandler().removeCallbacks(update);
         getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
     }

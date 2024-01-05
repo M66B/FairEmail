@@ -51,6 +51,10 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class FragmentOptionsBehavior extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private View view;
     private ImageButton ibHelp;
@@ -113,7 +117,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
     final static int REQUEST_DEFAULT_FOLDER = 1;
 
-    private final static String[] RESET_OPTIONS = new String[]{
+    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "restore_on_launch", "sync_on_launch", "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
             "photo_picker", "default_snooze",
             "pull", "pull_all", "autoscroll", "quick_filter", "quick_scroll", "quick_actions", "swipe_sensitivity", "foldernav",
@@ -125,7 +129,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "reset_snooze", "auto_block_sender", "auto_hide_answer", "swipe_reply",
             "move_thread_all", "move_thread_sent",
             "default_folder"
-    };
+    ));
 
     @Override
     @Nullable
@@ -639,6 +643,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (!RESET_OPTIONS.contains(key))
+            return;
+
         if ("default_snooze".equals(key))
             return;
 

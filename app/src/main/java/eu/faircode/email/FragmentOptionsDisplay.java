@@ -60,6 +60,8 @@ import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class FragmentOptionsDisplay extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -202,7 +204,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
-    private final static String[] RESET_OPTIONS = new String[]{
+    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "theme", "startup",
             "date", "date_week", "date_fixed", "date_bold", "date_time", "group_category",
             "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_border", "shadow_highlight", "dividers",
@@ -226,7 +228,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "list_count", "bundled_fonts", "narrow_fonts", "parse_classes",
             "background_color", "text_color", "text_size", "text_font", "text_align", "text_titles",
             "authentication", "authentication_indicator"
-    };
+    ));
 
     @Override
     @Nullable
@@ -1435,6 +1437,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (!RESET_OPTIONS.contains(key))
+            return;
+
         if ("message_zoom".equals(key))
             return;
 

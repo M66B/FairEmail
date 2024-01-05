@@ -55,6 +55,8 @@ import androidx.webkit.WebViewFeature;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -113,7 +115,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
     private final static int BIP39_WORDS = 6;
 
-    private final static String[] RESET_OPTIONS = new String[]{
+    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "confirm_links", "sanitize_links", "adguard", "adguard_auto_update",
             "check_links_dbl", "confirm_files",
             "confirm_images", "ask_images", "html_always_images", "confirm_html", "ask_html",
@@ -124,7 +126,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             "generic_ua", "safe_browsing", "load_emoji",
             "disconnect_auto_update", "disconnect_links", "disconnect_images",
             "wipe_mnemonic"
-    };
+    ));
 
     @Override
     @Nullable
@@ -636,6 +638,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (!RESET_OPTIONS.contains(key))
+            return;
+
         getMainHandler().removeCallbacks(update);
         getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
     }

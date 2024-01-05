@@ -57,6 +57,8 @@ import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -121,7 +123,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swReplyMove;
     private SwitchCompat swReplyMoveInbox;
 
-    private final static String[] RESET_OPTIONS = new String[]{
+    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "keyboard", "keyboard_no_fullscreen",
             "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently", "suggest_account", "auto_identity",
             "send_reminders", "send_chips", "send_nav_color", "send_pending",
@@ -139,7 +141,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "receipt_default", "receipt_type", "receipt_legacy",
             "forward_new",
             "lookup_mx", "reply_move", "reply_move_inbox"
-    };
+    ));
 
     @Override
     @Nullable
@@ -742,6 +744,9 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (!RESET_OPTIONS.contains(key))
+            return;
+
         getMainHandler().removeCallbacks(update);
         getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
     }

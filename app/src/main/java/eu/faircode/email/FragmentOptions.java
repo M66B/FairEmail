@@ -477,7 +477,7 @@ public class FragmentOptions extends FragmentBase {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    static void reset(Context context, String[] options, Runnable confirmed) {
+    static void reset(Context context, List<String> options, Runnable confirmed) {
         new AlertDialog.Builder(context)
                 .setIcon(R.drawable.twotone_help_24)
                 .setTitle(R.string.title_setup_defaults)

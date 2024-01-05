@@ -46,6 +46,9 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.NumberFormat;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class FragmentOptionsIntegrations extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private View view;
@@ -88,13 +91,13 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
-    private final static String[] RESET_OPTIONS = new String[]{
+    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "lt_enabled", "lt_sentence", "lt_auto", "lt_picky", "lt_highlight", "lt_description", "lt_uri", "lt_user", "lt_key",
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
             "openai_enabled", "openai_uri", "openai_apikey", "openai_model", "openai_temperature", "openai_moderation"
-    };
+    ));
 
     @Override
     @Nullable
@@ -519,6 +522,9 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (!RESET_OPTIONS.contains(key))
+            return;
+
         if ("lt_uri".equals(key) ||
                 "lt_user".equals(key) ||
                 "lt_key".equals(key) ||
