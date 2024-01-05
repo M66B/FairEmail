@@ -229,7 +229,7 @@ public class DnsHelper {
                     });
 
             // https://github.com/MiniDNS/minidns/issues/102
-            if (client instanceof DnssecClient && !BuildConfig.PLAY_STORE_RELEASE)
+            if (client instanceof DnssecClient && dns_custom)
                 ((DnssecClient) client).setUseHardcodedDnsServers(false);
 
             Log.i("DNS query name=" + type + ":" + name);
