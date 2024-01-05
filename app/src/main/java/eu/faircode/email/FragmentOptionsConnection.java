@@ -94,6 +94,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swPreferIp4;
     private SwitchCompat swBindSocket;
     private SwitchCompat swStandaloneVpn;
+    private EditText etDns;
     private SwitchCompat swTcpKeepAlive;
     private SwitchCompat swSslUpdate;
     private SwitchCompat swSslHarden;
@@ -125,7 +126,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             "metered", "download", "download_limited", "roaming", "rlah",
             "download_headers", "download_eml", "download_plain",
             "require_validated", "require_validated_captive", "vpn_only",
-            "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive",
+            "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "dns_extra", "tcp_keep_alive",
             "ssl_update", "ssl_harden", "ssl_harden_strict", "cert_strict", "cert_transparency", "check_names",
             "open_safe", "http_redirect",
             "bouncy_castle", "bc_fips"
@@ -157,6 +158,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swPreferIp4 = view.findViewById(R.id.swPreferIp4);
         swBindSocket = view.findViewById(R.id.swBindSocket);
         swStandaloneVpn = view.findViewById(R.id.swStandaloneVpn);
+        etDns = view.findViewById(R.id.etDns);
         swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
         swSslUpdate = view.findViewById(R.id.swSslUpdate);
         swSslHarden = view.findViewById(R.id.swSslHarden);
@@ -332,6 +334,23 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("standalone_vpn", checked).apply();
+            }
+        });
+
+        etDns.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                prefs.edit().putString("dns_extra", s.toString()).apply();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
             }
         });
 
@@ -623,6 +642,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if ("timeout".equals(key))
             return;
+        if ("dns_extra".equals(key))
+            return;
 
         getMainHandler().removeCallbacks(update);
         getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
@@ -714,6 +735,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             swPreferIp4.setChecked(prefs.getBoolean("prefer_ip4", true));
             swBindSocket.setChecked(prefs.getBoolean("bind_socket", false));
             swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
+            etDns.setText(prefs.getString("dns_extra", null));
             swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
             swSslUpdate.setChecked(prefs.getBoolean("ssl_update", true));
             swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));

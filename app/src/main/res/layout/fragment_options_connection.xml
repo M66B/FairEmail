@@ -423,6 +423,31 @@
                     app:layout_constraintTop_toBottomOf="@id/swBindSocket"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvDns"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_dns"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swStandaloneVpn" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etDns"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDns" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swTcpKeepAlive"
                     android:layout_width="0dp"
@@ -432,7 +457,7 @@
                     android:text="@string/title_advanced_tcp_keep_alive"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swStandaloneVpn"
+                    app:layout_constraintTop_toBottomOf="@id/etDns"
                     app:switchPadding="12dp" />
 
                 <TextView

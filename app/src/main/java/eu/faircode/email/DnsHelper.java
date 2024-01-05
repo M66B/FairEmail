@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.DnsResolver;
 import android.net.LinkProperties;
@@ -28,6 +29,7 @@ import android.os.Build;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 import org.minidns.AbstractDnsClient;
 import org.minidns.DnsClient;
@@ -328,29 +330,6 @@ public class DnsHelper {
         }
     }
 
-    private static List<String> getDnsServers(Context context) {
-        List<String> result = new ArrayList<>();
-        result.add(DEFAULT_DNS);
-
-        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
-        if (cm == null)
-            return result;
-
-        Network active = ConnectionHelper.getActiveNetwork(context);
-        if (active == null)
-            return result;
-
-        LinkProperties props = cm.getLinkProperties(active);
-        if (props == null)
-            return result;
-
-        List<InetAddress> dns = props.getDnsServers();
-        for (int i = 0; i < dns.size(); i++)
-            result.add(i, dns.get(i).getHostAddress());
-
-        return result;
-    }
-
     static InetAddress getByName(Context context, String host) throws UnknownHostException {
         return InetAddress.getByName(host);
     }
@@ -382,6 +361,49 @@ public class DnsHelper {
         Logger.getLogger(clazz).removeHandler(handler);
         if (!verified)
             throw new CertificateException("DANE missing or invalid");
+    }
+
+    private static List<String> getDnsServers(Context context) {
+        List<String> result = new ArrayList<>();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String dns_extra = prefs.getString("dns_extra", null);
+        if (TextUtils.isEmpty(dns_extra))
+            return result;
+
+        String[] extras = dns_extra.replaceAll("\\s+", "").split(",");
+        for (String extra : extras)
+            if (ConnectionHelper.isNumericAddress(extra))
+                result.add(extra);
+            else
+                Log.w("DNS extra invalid=" + extra);
+
+        result.addAll(_getDnsServers(context));
+
+        return result;
+    }
+
+    private static List<String> _getDnsServers(Context context) {
+        List<String> result = new ArrayList<>();
+        result.add(DEFAULT_DNS);
+
+        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
+        if (cm == null)
+            return result;
+
+        Network active = ConnectionHelper.getActiveNetwork(context);
+        if (active == null)
+            return result;
+
+        LinkProperties props = cm.getLinkProperties(active);
+        if (props == null)
+            return result;
+
+        List<InetAddress> dns = props.getDnsServers();
+        for (int i = 0; i < dns.size(); i++)
+            result.add(i, dns.get(i).getHostAddress());
+
+        return result;
     }
 
     static void test(Context context) throws UnknownHostException {
