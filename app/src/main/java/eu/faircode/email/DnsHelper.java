@@ -246,7 +246,7 @@ public class DnsHelper {
                         result.add(new DnsRecord(ns.getTarget().toString()));
                     } else if (answer instanceof MX) {
                         MX mx = (MX) answer;
-                        result.add(new DnsRecord(mx.target.toString()));
+                        result.add(new DnsRecord(mx.target.toString(), 0, mx.priority, 0));
                     } else if (answer instanceof SRV) {
                         SRV srv = (SRV) answer;
                         result.add(new DnsRecord(srv.target.toString(), srv.port, srv.priority, srv.weight));
@@ -289,7 +289,7 @@ public class DnsHelper {
                 record.authentic = data.isAuthenticData();
             }
 
-            if ("srv".equals(type))
+            if ("mx".equals(type) || "srv".equals(type))
                 Collections.sort(result, new Comparator<DnsRecord>() {
                     @Override
                     public int compare(DnsRecord d1, DnsRecord d2) {
@@ -339,22 +339,23 @@ public class DnsHelper {
     }
 
     static void test(Context context) throws UnknownHostException {
-        log(lookup(context, "gmail.com", "ns"));
-        log(lookup(context, "gmail.com", "mx"));
-        log(lookup(context, "_imaps._tcp.gmail.com", "srv"));
-        log(lookup(context, "gmail.com", "txt"));
-        log(lookup(context, "outlook.office365.com", "a"));
-        log(lookup(context, "outlook.office365.com", "aaaa"));
-        log(lookup(context, "posteo.de", "a"));
-        log(lookup(context, "non.existent.tld", "a"));
-        log(lookup(context, "rubbish", "a"));
+        test(context, "gmail.com", "ns");
+        test(context, "gmail.com", "mx");
+        test(context, "_imaps._tcp.gmail.com", "srv");
+        test(context, "gmail.com", "txt");
+        test(context, "outlook.office365.com", "a");
+        test(context, "outlook.office365.com", "aaaa");
+        test(context, "posteo.de", "a");
+        test(context, "non.existent.tld", "a");
+        test(context, "rubbish", "a");
     }
 
-    static void log(DnsRecord[] records) {
-        if (records.length == 0)
-            Log.w("DNS no records");
+    private static void test(Context context, String name, String type) {
+        DnsRecord[] records = lookup(context, name, type);
+        Log.w("DNS test " + name + ":" + type);
         for (DnsRecord record : records)
-            Log.w("DNS " + record);
+            Log.w("- " + record);
+
     }
 
     static class DnsRecord {
