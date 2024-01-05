@@ -94,8 +94,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swPreferIp4;
     private SwitchCompat swBindSocket;
     private SwitchCompat swStandaloneVpn;
-    private EditText etDns;
     private SwitchCompat swDnsCustom;
+    private EditText etDnsExtra;
     private SwitchCompat swDnsSecure;
     private SwitchCompat swTcpKeepAlive;
     private SwitchCompat swSslUpdate;
@@ -162,8 +162,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swPreferIp4 = view.findViewById(R.id.swPreferIp4);
         swBindSocket = view.findViewById(R.id.swBindSocket);
         swStandaloneVpn = view.findViewById(R.id.swStandaloneVpn);
-        etDns = view.findViewById(R.id.etDns);
         swDnsCustom = view.findViewById(R.id.swDnsCustom);
+        etDnsExtra = view.findViewById(R.id.etDnsExtra);
         swDnsSecure = view.findViewById(R.id.swDnsSecure);
         swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
         swSslUpdate = view.findViewById(R.id.swSslUpdate);
@@ -343,7 +343,17 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             }
         });
 
-        etDns.addTextChangedListener(new TextWatcher() {
+        swDnsCustom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                DnsHelper.clear(buttonView.getContext());
+                prefs.edit().putBoolean("dns_custom", checked).apply();
+                etDnsExtra.setEnabled(checked || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
+                swDnsSecure.setEnabled(checked);
+            }
+        });
+
+        etDnsExtra.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // Do nothing
@@ -357,15 +367,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void afterTextChanged(Editable s) {
                 // Do nothing
-            }
-        });
-
-        swDnsCustom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
-                DnsHelper.clear(buttonView.getContext());
-                prefs.edit().putBoolean("dns_custom", checked).apply();
-                swDnsSecure.setEnabled(checked);
             }
         });
 
@@ -759,8 +760,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             swPreferIp4.setChecked(prefs.getBoolean("prefer_ip4", true));
             swBindSocket.setChecked(prefs.getBoolean("bind_socket", false));
             swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
-            etDns.setText(prefs.getString("dns_extra", null));
             swDnsCustom.setChecked(prefs.getBoolean("dns_custom", false));
+            etDnsExtra.setText(prefs.getString("dns_extra", null));
+            etDnsExtra.setEnabled(swDnsCustom.isEnabled() || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
             swDnsSecure.setChecked(prefs.getBoolean("dns_secure", false));
             swDnsSecure.setEnabled(swDnsCustom.isChecked());
             swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));

@@ -104,6 +104,7 @@ public class DnsHelper {
     @NonNull
     private static DnsRecord[] _lookup(Context context, String name, String type, int timeout) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean dns_custom = prefs.getBoolean("dns_custom", false);
         boolean dns_secure = prefs.getBoolean("dns_secure", false);
 
         String filter = null;
@@ -141,7 +142,7 @@ public class DnsHelper {
             ResolverApi resolver = DnssecResolverApi.INSTANCE;
             AbstractDnsClient client = resolver.getClient();
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && !dns_custom)
                 client.setDataSource(new AbstractDnsDataSource() {
                     private IOException ex;
                     private DnsQueryResult result;

@@ -423,10 +423,22 @@
                     app:layout_constraintTop_toBottomOf="@id/swBindSocket"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swDnsCustom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_dns_custom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swStandaloneVpn"
+                    app:switchPadding="12dp" />
+
                 <TextView
                     android:id="@+id/tvDns"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="48dp"
                     android:text="@string/title_advanced_dns"
@@ -434,10 +446,10 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swStandaloneVpn" />
+                    app:layout_constraintTop_toBottomOf="@id/swDnsCustom" />
 
                 <eu.faircode.email.EditTextPlain
-                    android:id="@+id/etDns"
+                    android:id="@+id/etDnsExtra"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="48dp"
@@ -449,17 +461,6 @@
                     app:layout_constraintTop_toBottomOf="@id/tvDns" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swDnsCustom"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_dns_custom"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etDns"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swDnsSecure"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -468,7 +469,7 @@
                     android:text="@string/title_advanced_dns_secure"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swDnsCustom"
+                    app:layout_constraintTop_toBottomOf="@id/etDnsExtra"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
