@@ -90,7 +90,7 @@ public class DnsHelper {
             String domain = UriHelper.getEmailDomain(email);
             if (domain == null)
                 continue;
-            DnsRecord[] records = _lookup(context, domain, "mx", CHECK_TIMEOUT);
+            DnsRecord[] records = _lookup(context, domain, "mx", CHECK_TIMEOUT, false);
             if (records.length == 0)
                 throw new UnknownHostException(domain);
         }
@@ -98,14 +98,13 @@ public class DnsHelper {
 
     @NonNull
     static DnsRecord[] lookup(Context context, String name, String type) {
-        return _lookup(context, name, type, LOOKUP_TIMEOUT);
+        return _lookup(context, name, type, LOOKUP_TIMEOUT, false);
     }
 
     @NonNull
-    private static DnsRecord[] _lookup(Context context, String name, String type, int timeout) {
+    private static DnsRecord[] _lookup(Context context, String name, String type, int timeout, boolean dns_secure) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dns_custom = prefs.getBoolean("dns_custom", false);
-        boolean dns_secure = prefs.getBoolean("dns_secure", false);
 
         String filter = null;
         int colon = type.indexOf(':');

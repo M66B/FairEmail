@@ -462,18 +462,6 @@
                     app:layout_constraintTop_toBottomOf="@id/tvDns" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swDnsSecure"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_dns_secure"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etDnsExtra"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swTcpKeepAlive"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -482,7 +470,7 @@
                     android:text="@string/title_advanced_tcp_keep_alive"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swDnsSecure"
+                    app:layout_constraintTop_toBottomOf="@id/etDnsExtra"
                     app:switchPadding="12dp" />
 
                 <TextView
