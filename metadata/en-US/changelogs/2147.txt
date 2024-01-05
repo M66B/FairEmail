@@ -10,7 +10,10 @@ Next version
 
 * Replaced javadns
 * Added account/identity option to enforce DANE, see the FAQ
-* A "dane" test version is available here
+* Small improvements and minor bug fixes
+* Updated translations
+
+Preview/test versions are available here.
 
 1.2147 - 2024-01-04
 
