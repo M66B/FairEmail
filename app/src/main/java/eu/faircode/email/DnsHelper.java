@@ -331,11 +331,37 @@ public class DnsHelper {
     }
 
     static InetAddress getByName(Context context, String host) throws UnknownHostException {
-        return InetAddress.getByName(host);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean dns_custom = prefs.getBoolean("dns_custom", BuildConfig.DEBUG);
+        if (!dns_custom)
+            return InetAddress.getByName(host);
+
+        if (ConnectionHelper.isNumericAddress(host))
+            return InetAddress.getByName(host);
+        return getAllByName(context, host)[0];
+
     }
 
     static InetAddress[] getAllByName(Context context, String host) throws UnknownHostException {
-        return InetAddress.getAllByName(host);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean dns_custom = prefs.getBoolean("dns_custom", BuildConfig.DEBUG);
+        if (!dns_custom)
+            return InetAddress.getAllByName(host);
+
+        List<InetAddress> result = new ArrayList<>();
+
+        boolean[] has46 = ConnectionHelper.has46(context);
+        if (has46[0])
+            for (DnsRecord a : lookup(context, host, "a"))
+                result.add(a.address);
+        if (has46[1])
+            for (DnsRecord aaaa : lookup(context, host, "aaaa"))
+                result.add(aaaa.address);
+
+        if (result.size() == 0)
+            throw new UnknownHostException(host);
+
+        return result.toArray(new InetAddress[0]);
     }
 
     static void verifyDane(X509Certificate[] chain, String server, int port) throws CertificateException {
