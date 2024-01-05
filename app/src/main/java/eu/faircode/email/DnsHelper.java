@@ -29,10 +29,12 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
+import org.minidns.AbstractDnsClient;
 import org.minidns.DnsClient;
 import org.minidns.dnsmessage.DnsMessage;
 import org.minidns.dnsqueryresult.DnsQueryResult;
 import org.minidns.dnsqueryresult.StandardDnsQueryResult;
+import org.minidns.dnssec.DnssecClient;
 import org.minidns.dnssec.DnssecResultNotAuthenticException;
 import org.minidns.dnssec.DnssecValidationFailedException;
 import org.minidns.dnsserverlookup.AbstractDnsServerLookupMechanism;
@@ -127,9 +129,10 @@ public class DnsHelper {
 
         try {
             ResolverApi resolver = DnssecResolverApi.INSTANCE;
+            AbstractDnsClient client = resolver.getClient();
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
-                resolver.getClient().setDataSource(new AbstractDnsDataSource() {
+                client.setDataSource(new AbstractDnsDataSource() {
                     private IOException ex;
                     private DnsQueryResult result;
 
@@ -196,7 +199,7 @@ public class DnsHelper {
                     }
                 });
 
-            resolver.getClient().getDataSource().setTimeout(timeout * 1000);
+            client.getDataSource().setTimeout(timeout * 1000);
 
             List<String> servers = getDnsServers(context);
             Log.i("DNS servers=" + TextUtils.join(",", servers));
@@ -213,6 +216,10 @@ public class DnsHelper {
                             return servers;
                         }
                     });
+
+            // https://github.com/MiniDNS/minidns/issues/102
+            if (client instanceof DnssecClient && !BuildConfig.PLAY_STORE_RELEASE)
+                ((DnssecClient) client).setUseHardcodedDnsServers(false);
 
             Log.i("DNS query name=" + type + ":" + name);
             ResolverResult<? extends Data> data = resolver.resolve(name, clazz);
