@@ -767,7 +767,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
             swDnsCustom.setChecked(prefs.getBoolean("dns_custom", false));
             etDnsExtra.setText(prefs.getString("dns_extra", null));
-            etDnsExtra.setEnabled(swDnsCustom.isEnabled() || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
+            etDnsExtra.setEnabled(swDnsCustom.isChecked() || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
             swDnsSecure.setChecked(prefs.getBoolean("dns_secure", false));
             swDnsSecure.setEnabled(swDnsCustom.isChecked());
             swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
