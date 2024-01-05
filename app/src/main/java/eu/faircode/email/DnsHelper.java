@@ -351,6 +351,14 @@ public class DnsHelper {
         return result;
     }
 
+    static InetAddress getByName(Context context, String host) throws UnknownHostException {
+        return InetAddress.getByName(host);
+    }
+
+    static InetAddress[] getAllByName(Context context, String host) throws UnknownHostException {
+        return InetAddress.getAllByName(host);
+    }
+
     static void verifyDane(X509Certificate[] chain, String server, int port) throws CertificateException {
         Handler handler = new Handler() {
             @Override

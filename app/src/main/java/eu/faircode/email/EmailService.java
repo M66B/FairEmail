@@ -623,7 +623,7 @@ public class EmailService implements AutoCloseable {
 
             String key = "dns." + host;
             try {
-                main = InetAddress.getByName(host);
+                main = DnsHelper.getByName(context, host);
                 EntityLog.log(context, EntityLog.Type.Network, "Main address=" + main);
                 prefs.edit().putString(key, main.getHostAddress()).apply();
             } catch (UnknownHostException ex) {
@@ -632,7 +632,7 @@ public class EmailService implements AutoCloseable {
                     throw ex;
                 else {
                     EntityLog.log(context, EntityLog.Type.Network, "Using " + key + "=" + last);
-                    main = InetAddress.getByName(last);
+                    main = DnsHelper.getByName(context, last);
                 }
             }
 
@@ -641,7 +641,7 @@ public class EmailService implements AutoCloseable {
                 boolean[] has46 = ConnectionHelper.has46(context);
                 if (has46[0])
                     try {
-                        for (InetAddress iaddr : InetAddress.getAllByName(host))
+                        for (InetAddress iaddr : DnsHelper.getAllByName(context, host))
                             if (iaddr instanceof Inet4Address) {
                                 main = iaddr;
                                 EntityLog.log(context, EntityLog.Type.Network, "Preferring=" + main);
@@ -729,7 +729,7 @@ public class EmailService implements AutoCloseable {
                         ex + "\n" + android.util.Log.getStackTraceString(ex));
                 try {
                     // Some devices resolve IPv6 addresses while not having IPv6 connectivity
-                    InetAddress[] iaddrs = InetAddress.getAllByName(host);
+                    InetAddress[] iaddrs = DnsHelper.getAllByName(context, host);
                     int ip4 = (main instanceof Inet4Address ? 1 : 0);
                     int ip6 = (main instanceof Inet6Address ? 1 : 0);
 

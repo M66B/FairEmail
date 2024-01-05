@@ -436,7 +436,7 @@ public class EmailProvider implements Parcelable {
 
         if (false) // Unsafe: the password could be sent to an unrelated email server
             try {
-                InetAddress iaddr = InetAddress.getByName(domain.toLowerCase(Locale.ROOT));
+                InetAddress iaddr = DnsHelper.getByName(context, domain.toLowerCase(Locale.ROOT));
                 List<String> commonNames =
                         ConnectionHelper.getCommonNames(context, domain.toLowerCase(Locale.ROOT), 443, SCAN_TIMEOUT);
                 EntityLog.log(context, "Website common names=" + TextUtils.join(",", commonNames));
@@ -450,7 +450,7 @@ public class EmailProvider implements Parcelable {
 
                     if (!altName.equalsIgnoreCase(domain))
                         try {
-                            InetAddress ialt = InetAddress.getByName(altName);
+                            InetAddress ialt = DnsHelper.getByName(context, altName);
                             if (!ialt.equals(iaddr)) {
                                 EntityLog.log(context, "Using website common name=" + altName);
                                 candidates.addAll(_fromDomain(context, altName.toLowerCase(Locale.ROOT), email, discover, intf));
@@ -509,7 +509,7 @@ public class EmailProvider implements Parcelable {
             for (DnsHelper.DnsRecord record : records)
                 try {
                     String target = record.response.toLowerCase(Locale.ROOT);
-                    InetAddress.getByName(target);
+                    DnsHelper.getByName(context, target);
 
                     EmailProvider mx1 = new EmailProvider(domain);
                     mx1.imap.score = 0;
@@ -1340,7 +1340,7 @@ public class EmailProvider implements Parcelable {
                 @Override
                 public Boolean call() {
                     try {
-                        for (InetAddress iaddr : InetAddress.getAllByName(host)) {
+                        for (InetAddress iaddr : DnsHelper.getAllByName(context, host)) {
                             InetSocketAddress address = new InetSocketAddress(iaddr, Server.this.port);
 
                             SocketFactory factory = (starttls
@@ -1380,7 +1380,7 @@ public class EmailProvider implements Parcelable {
                                                     String similar = name;
                                                     if (similar.startsWith("*."))
                                                         similar = similar.substring(2);
-                                                    InetAddress isimilar = InetAddress.getByName(similar);
+                                                    InetAddress isimilar = DnsHelper.getByName(context, similar);
                                                     if (iaddr.equals(isimilar)) {
                                                         score += 1;
                                                         EntityLog.log(context, "Similar " + similar + " host=" + host);
