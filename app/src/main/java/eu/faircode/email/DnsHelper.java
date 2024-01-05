@@ -24,7 +24,6 @@ import android.net.ConnectivityManager;
 import android.net.DnsResolver;
 import android.net.LinkProperties;
 import android.net.Network;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.TextUtils;
 
@@ -55,12 +54,10 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -326,25 +323,11 @@ public class DnsHelper {
         if (cm == null)
             return result;
 
-        LinkProperties props = null;
+        Network active = ConnectionHelper.getActiveNetwork(context);
+        if (active == null)
+            return result;
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            for (Network network : cm.getAllNetworks()) {
-                NetworkInfo ni = cm.getNetworkInfo(network);
-                if (ni != null && ni.isConnected()) {
-                    props = cm.getLinkProperties(network);
-                    Log.i("Old props=" + props);
-                    break;
-                }
-            }
-        else {
-            Network active = cm.getActiveNetwork();
-            if (active == null)
-                return result;
-            props = cm.getLinkProperties(active);
-            Log.i("New props=" + props);
-        }
-
+        LinkProperties props = cm.getLinkProperties(active);
         if (props == null)
             return result;
 
