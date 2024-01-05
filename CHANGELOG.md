@@ -4,7 +4,7 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
+### [Ypupiara](https://en.wikipedia.org/wiki/Ypupiara)
 
 ### Next version
 
@@ -14,6 +14,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 Preview/test versions are [available here](https://bitbucket.org/M66B/fairemail-test/downloads/).
+
+### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
 ### 1.2147 - 2024-01-04
 

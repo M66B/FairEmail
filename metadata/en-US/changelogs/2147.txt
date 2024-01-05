@@ -4,7 +4,7 @@ Changelog
 
 For support you can use the contact form.
 
-Wintonotitan
+Ypupiara
 
 Next version
 
@@ -14,6 +14,8 @@ Next version
 * Updated translations
 
 Preview/test versions are available here.
+
+Wintonotitan
 
 1.2147 - 2024-01-04
 
