@@ -97,6 +97,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swBindSocket;
     private SwitchCompat swStandaloneVpn;
     private SwitchCompat swDnsCustom;
+    private TextView tvDnsExtra;
     private EditText etDnsExtra;
     private SwitchCompat swTcpKeepAlive;
     private SwitchCompat swSslUpdate;
@@ -164,6 +165,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swBindSocket = view.findViewById(R.id.swBindSocket);
         swStandaloneVpn = view.findViewById(R.id.swStandaloneVpn);
         swDnsCustom = view.findViewById(R.id.swDnsCustom);
+        tvDnsExtra = view.findViewById(R.id.tvDnsExtra);
         etDnsExtra = view.findViewById(R.id.etDnsExtra);
         swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
         swSslUpdate = view.findViewById(R.id.swSslUpdate);
@@ -348,6 +350,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
                 DnsHelper.clear(buttonView.getContext());
                 prefs.edit().putBoolean("dns_custom", checked).apply();
+                tvDnsExtra.setEnabled(checked || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
                 etDnsExtra.setEnabled(checked || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
             }
         });
@@ -755,6 +758,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
             swDnsCustom.setChecked(prefs.getBoolean("dns_custom", false));
             etDnsExtra.setText(prefs.getString("dns_extra", null));
+            tvDnsExtra.setEnabled(swDnsCustom.isChecked() || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
             etDnsExtra.setEnabled(swDnsCustom.isChecked() || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
             swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
             swSslUpdate.setChecked(prefs.getBoolean("ssl_update", true));

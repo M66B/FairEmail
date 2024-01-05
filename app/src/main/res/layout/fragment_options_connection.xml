@@ -435,7 +435,7 @@
                     app:switchPadding="12dp" />
 
                 <TextView
-                    android:id="@+id/tvDns"
+                    android:id="@+id/tvDnsExtra"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -459,7 +459,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDns" />
+                    app:layout_constraintTop_toBottomOf="@id/tvDnsExtra" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swTcpKeepAlive"
