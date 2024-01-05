@@ -369,6 +369,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             }
         });
 
+        swDnsSecure.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         swDnsSecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
