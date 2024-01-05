@@ -333,11 +333,13 @@ public class DnsHelper {
     static InetAddress getByName(Context context, String host) throws UnknownHostException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dns_custom = prefs.getBoolean("dns_custom", BuildConfig.DEBUG);
+
         if (!dns_custom)
             return InetAddress.getByName(host);
 
         if (ConnectionHelper.isNumericAddress(host))
             return InetAddress.getByName(host);
+
         return getAllByName(context, host)[0];
 
     }
@@ -345,15 +347,18 @@ public class DnsHelper {
     static InetAddress[] getAllByName(Context context, String host) throws UnknownHostException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dns_custom = prefs.getBoolean("dns_custom", BuildConfig.DEBUG);
+
         if (!dns_custom)
             return InetAddress.getAllByName(host);
 
         List<InetAddress> result = new ArrayList<>();
 
         boolean[] has46 = ConnectionHelper.has46(context);
+
         if (has46[0])
             for (DnsRecord a : lookup(context, host, "a"))
                 result.add(a.address);
+
         if (has46[1])
             for (DnsRecord aaaa : lookup(context, host, "aaaa"))
                 result.add(aaaa.address);
@@ -394,15 +399,14 @@ public class DnsHelper {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String dns_extra = prefs.getString("dns_extra", null);
-        if (TextUtils.isEmpty(dns_extra))
-            return result;
-
-        String[] extras = dns_extra.replaceAll("\\s+", "").split(",");
-        for (String extra : extras)
-            if (ConnectionHelper.isNumericAddress(extra))
-                result.add(extra);
-            else
-                Log.w("DNS extra invalid=" + extra);
+        if (!TextUtils.isEmpty(dns_extra)) {
+            String[] extras = dns_extra.replaceAll("\\s+", "").split(",");
+            for (String extra : extras)
+                if (ConnectionHelper.isNumericAddress(extra))
+                    result.add(extra);
+                else
+                    Log.w("DNS extra invalid=" + extra);
+        }
 
         result.addAll(_getDnsServers(context));
 
@@ -434,7 +438,7 @@ public class DnsHelper {
 
     static void test(Context context) throws UnknownHostException {
         test(context, "gmail.com", "ns");
-        test(context, "gmail.com", "mx");
+        test(context, "web.de", "mx");
         test(context, "_imaps._tcp.gmail.com", "srv");
         test(context, "gmail.com", "txt");
         test(context, "outlook.office365.com", "a");
@@ -447,9 +451,10 @@ public class DnsHelper {
     private static void test(Context context, String name, String type) {
         DnsRecord[] records = lookup(context, name, type);
         Log.w("DNS test " + name + ":" + type);
+        if (records.length == 0)
+            Log.w("- no records");
         for (DnsRecord record : records)
             Log.w("- " + record);
-
     }
 
     static class DnsRecord {
