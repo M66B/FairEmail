@@ -5675,7 +5675,8 @@ FairEmail uses [this library](https://github.com/appmattus/certificatetransparen
 <a name="faq202"></a>
 **(202) What is DANE?**
 
-Please see [this Wikipedia article](https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities) about what DANE is.
+Please see [this article](https://github.com/internetstandards/toolbox-wiki/blob/main/DANE-for-SMTP-how-to.md) about what DANE is.
+Alternatively, see [this Wikipedia article](https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities).
 
 You can use [this tool](https://ssl-tools.net/tlsa-generator) to generate TSLA DNS records.
 
