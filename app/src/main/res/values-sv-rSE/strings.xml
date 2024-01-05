@@ -928,6 +928,8 @@
     <string name="title_encryption_none">Ingen (osäker)</string>
     <string name="title_allow_insecure">Tillåt osäkra anslutningar</string>
     <string name="title_insecure_remark">Osäkra anslutningar bör endast tillåtas på betrodda nätverk och aldrig på offentliga nätverk</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Tvinga DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Endast vissa e-postservrar stöder DANE och endast ett begränsat antal DNS-servrar stöder DNSSEC</string>
     <string name="title_notify_remark">Du kan aktivera det här för kontospecifika aviseringar</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Användarnamn</string>
