@@ -29,8 +29,6 @@ import com.appmattus.certificatetransparency.CTTrustManagerBuilder;
 import com.appmattus.certificatetransparency.VerificationResult;
 import com.appmattus.certificatetransparency.cache.AndroidDiskCache;
 
-import org.minidns.dane.DaneVerifier;
-
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.KeyStore;
@@ -41,9 +39,6 @@ import java.security.cert.CertificateExpiredException;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
 
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
@@ -130,30 +125,8 @@ public class SSLHelper {
                             throw new CertificateException(principal.getName(), ex);
                     }
 
-                    if (dane) {
-                        Handler handler = new Handler() {
-                            @Override
-                            public void publish(LogRecord record) {
-                                Log.w("DANE " + record.getMessage());
-                            }
-
-                            @Override
-                            public void flush() {
-                            }
-
-                            @Override
-                            public void close() throws SecurityException {
-                            }
-                        };
-                        String clazz = DaneVerifier.class.getName();
-                        Logger.getLogger(clazz).addHandler(handler);
-                        Log.w("DANE verify " + server + ":" + port);
-                        boolean verified = new DaneVerifier().verifyCertificateChain(chain, server, port);
-                        Log.w("DANE verified=" + verified + " " + server + ":" + port);
-                        Logger.getLogger(clazz).removeHandler(handler);
-                        if (!verified)
-                            throw new CertificateException("DANE missing or invalid");
-                    }
+                    if (dane)
+                        DnsHelper.verifyDane(chain, server, port);
 
                     // Check host name
                     if (check_names) {

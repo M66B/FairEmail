@@ -31,6 +31,7 @@ import androidx.annotation.NonNull;
 
 import org.minidns.AbstractDnsClient;
 import org.minidns.DnsClient;
+import org.minidns.dane.DaneVerifier;
 import org.minidns.dnsmessage.DnsMessage;
 import org.minidns.dnsqueryresult.DnsQueryResult;
 import org.minidns.dnsqueryresult.StandardDnsQueryResult;
@@ -55,6 +56,8 @@ import org.minidns.util.MultipleIoException;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -63,6 +66,9 @@ import java.util.Locale;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -343,6 +349,31 @@ public class DnsHelper {
             result.add(i, dns.get(i).getHostAddress());
 
         return result;
+    }
+
+    static void verifyDane(X509Certificate[] chain, String server, int port) throws CertificateException {
+        Handler handler = new Handler() {
+            @Override
+            public void publish(LogRecord record) {
+                Log.w("DANE " + record.getMessage());
+            }
+
+            @Override
+            public void flush() {
+            }
+
+            @Override
+            public void close() throws SecurityException {
+            }
+        };
+        String clazz = DaneVerifier.class.getName();
+        Logger.getLogger(clazz).addHandler(handler);
+        Log.w("DANE verify " + server + ":" + port);
+        boolean verified = new DaneVerifier().verifyCertificateChain(chain, server, port);
+        Log.w("DANE verified=" + verified + " " + server + ":" + port);
+        Logger.getLogger(clazz).removeHandler(handler);
+        if (!verified)
+            throw new CertificateException("DANE missing or invalid");
     }
 
     static void test(Context context) throws UnknownHostException {
