@@ -1608,6 +1608,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             throw new IllegalArgumentException(jmessage.getString("message"));
                         throw new IOException("HTTP " + status + ": " + response);
                     }
+                    if (status == HttpsURLConnection.HTTP_BAD_GATEWAY)
+                        throw new IOException("HTTP " + status);
                     if (status != HttpsURLConnection.HTTP_OK)
                         throw new IOException("HTTP " + status + ": " + response);
 
