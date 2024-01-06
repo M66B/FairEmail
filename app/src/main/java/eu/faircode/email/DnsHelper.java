@@ -59,8 +59,11 @@ import org.minidns.util.MultipleIoException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
+import java.net.Socket;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.security.cert.CertificateException;
@@ -80,6 +83,7 @@ import java.util.logging.Logger;
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSocketFactory;
 
 public class DnsHelper {
     // https://dns.watch/
@@ -150,10 +154,8 @@ public class DnsHelper {
             if (false) {
                 String private_dns = ConnectionHelper.getPrivateDnsServerName(context);
                 Log.w("DNS private=" + private_dns);
-                if (private_dns != null) {
-                    // https://datatracker.ietf.org/doc/html/rfc8484
-                    client.setDataSource(new DoHDataSource(private_dns));
-                }
+                if (private_dns != null)
+                    client.setDataSource(new DoTDataSource(private_dns));
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && !dns_custom)
                 client.setDataSource(new AndroidDataSource());
 
@@ -417,6 +419,57 @@ public class DnsHelper {
             Log.w("- " + record);
     }
 
+    static class DoTDataSource extends AbstractDnsDataSource {
+        private String host;
+
+        private DoTDataSource() {
+            super();
+        }
+
+        DoTDataSource(String host) {
+            super();
+            this.host = host;
+        }
+
+        @Override
+        public DnsQueryResult query(DnsMessage query, InetAddress address, int port) throws IOException {
+            // https://datatracker.ietf.org/doc/html/rfc7858
+            try (Socket socket = SSLSocketFactory.getDefault().createSocket(host, 853)) {
+                byte[] out = query.toArray();
+                OutputStream os = socket.getOutputStream();
+                os.write(out.length / 256);
+                os.write(out.length % 256);
+                os.write(out);
+
+                InputStream is = socket.getInputStream();
+                int hi = is.read();
+                int lo = is.read();
+                if (hi < 0 || lo < 0)
+                    throw new IOException("EOF");
+                int len = hi * 256 + lo;
+                byte[] in = new byte[len];
+                int i = 0;
+                while (i < len) {
+                    int r = is.read(in, i, len - i);
+                    if (r < 0)
+                        throw new IOException("EOF");
+                    i += r;
+                }
+
+                DnsMessage answer = new DnsMessage(in)
+                        .asBuilder()
+                        //.setResponseCode(DnsMessage.RESPONSE_CODE.getResponseCode(rcode))
+                        .build();
+
+                return new StandardDnsQueryResult(
+                        address, port,
+                        DnsQueryResult.QueryMethod.tcp,
+                        query,
+                        answer);
+            }
+        }
+    }
+
     static class DoHDataSource extends AbstractDnsDataSource {
         private String host;
 
@@ -431,6 +484,7 @@ public class DnsHelper {
 
         @Override
         public DnsQueryResult query(DnsMessage query, InetAddress address, int port) throws IOException {
+            // https://datatracker.ietf.org/doc/html/rfc8484
             HttpsURLConnection request = null;
             try {
                 URL url = new URL("https://" + host + "/dns-query?dns=" +
@@ -457,7 +511,7 @@ public class DnsHelper {
 
                 return new StandardDnsQueryResult(
                         address, port,
-                        DnsQueryResult.QueryMethod.udp,
+                        DnsQueryResult.QueryMethod.tcp,
                         query,
                         answer);
             } finally {
