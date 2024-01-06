@@ -86,6 +86,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tvPop" />
 
                 <TextView
+                    android:id="@+id/tvDnsRemark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_dnssec_remark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbDnsSec" />
+
+                <TextView
                     android:id="@+id/tvHost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -95,7 +107,7 @@
                     android:textColor="?android:textColorPrimary"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbDnsSec" />
+                    app:layout_constraintTop_toBottomOf="@id/tvDnsRemark" />
 
                 <eu.faircode.email.EditTextPlain
                     android:id="@+id/etHost"

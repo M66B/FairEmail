@@ -1188,6 +1188,7 @@
     <string name="title_provider">Provider</string>
     <string name="title_custom">Custom</string>
     <string name="title_dnssec">Enforce DNSSEC</string>
+    <string name="title_dnssec_remark">Only a limited number of DNS servers support DNSSEC</string>
     <string name="title_host">Host name</string>
     <string name="title_encryption">Encryption</string>
     <string name="title_encryption_ssl" translatable="false">SSL/TLS</string>
@@ -1196,7 +1197,7 @@
     <string name="title_allow_insecure">Allow insecure connections</string>
     <string name="title_insecure_remark">Insecure connections should only be allowed on trusted networks and never on public networks</string>
     <string name="title_dane">Enforce DANE</string>
-    <string name="title_dane_remark">Only some email servers support DANE and only a limited number of DNS servers support DNSSEC</string>
+    <string name="title_dane_remark">Only some email providers support DANE</string>
     <string name="title_notify_remark">You can enable this for account specific notifications</string>
     <string name="title_port">Port number</string>
     <string name="title_user">User name</string>
