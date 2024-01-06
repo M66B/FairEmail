@@ -63,6 +63,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.URL;
 import java.net.UnknownHostException;
@@ -434,7 +435,10 @@ public class DnsHelper {
         @Override
         public DnsQueryResult query(DnsMessage query, InetAddress address, int port) throws IOException {
             // https://datatracker.ietf.org/doc/html/rfc7858
-            try (Socket socket = SSLSocketFactory.getDefault().createSocket(host, 853)) {
+            try (Socket socket = SSLSocketFactory.getDefault().createSocket()) {
+                socket.connect(new InetSocketAddress(host, 853), timeout);
+                socket.setSoTimeout(timeout);
+
                 byte[] out = query.toArray();
                 OutputStream os = socket.getOutputStream();
                 os.write(out.length / 256);
@@ -492,8 +496,8 @@ public class DnsHelper {
                 request = (HttpsURLConnection) url.openConnection();
                 request.setRequestMethod("GET");
                 request.setRequestProperty("Content-Type", "application/dns-message");
-                request.setReadTimeout(timeout * 1000);
-                request.setConnectTimeout(timeout * 1000);
+                request.setReadTimeout(timeout);
+                request.setConnectTimeout(timeout);
                 request.setDoInput(true);
                 request.connect();
 
@@ -572,7 +576,7 @@ public class DnsHelper {
                     });
 
             try {
-                if (!sem.tryAcquire(timeout, TimeUnit.SECONDS))
+                if (!sem.tryAcquire(timeout, TimeUnit.MILLISECONDS))
                     ex = new IOException("timeout");
             } catch (InterruptedException e) {
                 ex = new IOException("interrupted");
