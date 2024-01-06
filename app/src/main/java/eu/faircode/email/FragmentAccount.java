@@ -1591,7 +1591,7 @@ public class FragmentAccount extends FragmentBase {
         outState.putInt("fair:provider", spProvider == null ? 0 : spProvider.getSelectedItemPosition());
         outState.putString("fair:certificate", certificate);
         outState.putString("fair:password", tilPassword == null ? null : tilPassword.getEditText().getText().toString());
-        outState.putInt("fair:advanced", grpAuthorize == null ? View.VISIBLE : grpAdvanced.getVisibility());
+        outState.putInt("fair:advanced", grpAdvanced == null ? View.VISIBLE : grpAdvanced.getVisibility());
         outState.putInt("fair:auth", auth);
         outState.putString("fair:authprovider", provider);
         outState.putString("fair:calendar", calendar);
