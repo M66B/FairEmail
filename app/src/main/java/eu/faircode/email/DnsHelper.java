@@ -455,8 +455,7 @@ public class DnsHelper {
 
                 byte[] out = query.toArray();
                 OutputStream os = socket.getOutputStream();
-                os.write(out.length / 256);
-                os.write(out.length % 256);
+                os.write(new byte[]{(byte) (out.length / 256), (byte) (out.length % 256)});
                 os.write(out);
 
                 InputStream is = socket.getInputStream();
