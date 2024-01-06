@@ -363,7 +363,7 @@ public class EmailService implements AutoCloseable {
 
     public void connect(EntityAccount account) throws MessagingException {
         connect(
-                account.host, account.port,
+                account.dnssec, account.host, account.port,
                 account.auth_type, account.provider,
                 account.user, account.password,
                 new ServiceAuthenticator.IAuthenticated() {
@@ -382,7 +382,7 @@ public class EmailService implements AutoCloseable {
 
     public void connect(EntityIdentity identity) throws MessagingException {
         connect(
-                identity.host, identity.port,
+                identity.dnssec, identity.host, identity.port,
                 identity.auth_type, identity.provider,
                 identity.user, identity.password,
                 new ServiceAuthenticator.IAuthenticated() {
@@ -400,15 +400,15 @@ public class EmailService implements AutoCloseable {
     }
 
     public void connect(
-            String host, int port,
+            boolean dnssec, String host, int port,
             int auth, String provider,
             String user, String password,
             String certificate, String fingerprint) throws MessagingException {
-        connect(host, port, auth, provider, user, password, null, certificate, fingerprint);
+        connect(dnssec, host, port, auth, provider, user, password, null, certificate, fingerprint);
     }
 
     private void connect(
-            String host, int port,
+            boolean dnssec, String host, int port,
             int auth, String provider,
             String user, String password,
             ServiceAuthenticator.IAuthenticated intf,
@@ -493,7 +493,7 @@ public class EmailService implements AutoCloseable {
                 properties.put("mail." + protocol + ".auth.xoauth2.two.line.authentication.format", "true");
 
             Log.i("Connecting to " + host + ":" + port + " auth=" + auth);
-            connect(host, port, auth, user, factory);
+            connect(dnssec, host, port, auth, user, factory);
         } catch (AuthenticationFailedException ex) {
             //if ("outlook.office365.com".equals(host) &&
             //        "AUTHENTICATE failed.".equals(ex.getMessage()))
@@ -511,7 +511,7 @@ public class EmailService implements AutoCloseable {
                     EntityLog.log(context, EntityLog.Type.Debug,
                             ex + "\n" + android.util.Log.getStackTraceString(ex));
                     authenticator.refreshToken(true);
-                    connect(host, port, auth, user, factory);
+                    connect(dnssec, host, port, auth, user, factory);
                 } catch (Exception ex1) {
                     Throwable cause = ex1.getCause();
                     if (cause == null)
@@ -602,7 +602,7 @@ public class EmailService implements AutoCloseable {
     }
 
     private void connect(
-            String host, int port, int auth, String user,
+            boolean dnssec, String host, int port, int auth, String user,
             SSLSocketFactoryService factory) throws MessagingException {
         Map<String, String> crumb = new HashMap<>();
         crumb.put("host", host);
@@ -623,7 +623,7 @@ public class EmailService implements AutoCloseable {
 
             String key = "dns." + host;
             try {
-                main = DnsHelper.getByName(context, host);
+                main = DnsHelper.getByName(context, host, dnssec);
                 EntityLog.log(context, EntityLog.Type.Network, "Main address=" + main);
                 prefs.edit().putString(key, main.getHostAddress()).apply();
             } catch (UnknownHostException ex) {
@@ -632,7 +632,7 @@ public class EmailService implements AutoCloseable {
                     throw ex;
                 else {
                     EntityLog.log(context, EntityLog.Type.Network, "Using " + key + "=" + last);
-                    main = DnsHelper.getByName(context, last);
+                    main = DnsHelper.getByName(context, last, dnssec);
                 }
             }
 
@@ -641,7 +641,7 @@ public class EmailService implements AutoCloseable {
                 boolean[] has46 = ConnectionHelper.has46(context);
                 if (has46[0])
                     try {
-                        for (InetAddress iaddr : DnsHelper.getAllByName(context, host))
+                        for (InetAddress iaddr : DnsHelper.getAllByName(context, host, dnssec))
                             if (iaddr instanceof Inet4Address) {
                                 main = iaddr;
                                 EntityLog.log(context, EntityLog.Type.Network, "Preferring=" + main);
@@ -729,7 +729,7 @@ public class EmailService implements AutoCloseable {
                         ex + "\n" + android.util.Log.getStackTraceString(ex));
                 try {
                     // Some devices resolve IPv6 addresses while not having IPv6 connectivity
-                    InetAddress[] iaddrs = DnsHelper.getAllByName(context, host);
+                    InetAddress[] iaddrs = DnsHelper.getAllByName(context, host, dnssec);
                     int ip4 = (main instanceof Inet4Address ? 1 : 0);
                     int ip6 = (main instanceof Inet6Address ? 1 : 0);
 

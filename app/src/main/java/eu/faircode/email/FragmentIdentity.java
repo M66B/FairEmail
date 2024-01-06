@@ -98,6 +98,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etDomain;
     private Button btnAutoConfig;
     private ContentLoadingProgressBar pbAutoConfig;
+    private CheckBox cbDnsSec;
     private EditText etHost;
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
@@ -206,6 +207,7 @@ public class FragmentIdentity extends FragmentBase {
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
         pbAutoConfig = view.findViewById(R.id.pbAutoConfig);
 
+        cbDnsSec = view.findViewById(R.id.cbDnsSec);
         etHost = view.findViewById(R.id.etHost);
         rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
@@ -776,6 +778,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("octetmime", cbOctetMime.isChecked());
         args.putString("max_size", etMaxSize.getText().toString());
         args.putLong("account", account == null ? -1 : account.id);
+        args.putBoolean("dnssec", cbDnsSec.isChecked());
         args.putString("host", etHost.getText().toString().trim().replace(" ", ""));
         args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -830,6 +833,7 @@ public class FragmentIdentity extends FragmentBase {
                 Integer color = args.getInt("color");
                 String signature = args.getString("signature");
 
+                boolean dnssec = args.getBoolean("dnssec");
                 String host = args.getString("host");
                 int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
@@ -974,6 +978,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.signature, signature))
                         return true;
+                    if (!Objects.equals(identity.dnssec, dnssec))
+                        return true;
                     if (!Objects.equals(identity.host, host))
                         return true;
                     if (!Objects.equals(identity.encryption, encryption))
@@ -1048,6 +1054,7 @@ public class FragmentIdentity extends FragmentBase {
 
                 boolean check = (synchronize && (identity == null ||
                         !identity.synchronize || identity.error != null ||
+                        dnssec != identity.dnssec ||
                         !host.equals(identity.host) ||
                         encryption != identity.encryption ||
                         insecure != identity.insecure ||
@@ -1078,7 +1085,7 @@ public class FragmentIdentity extends FragmentBase {
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.setUseIp(use_ip, ehlo);
                         iservice.connect(
-                                host, Integer.parseInt(port),
+                                dnssec, host, Integer.parseInt(port),
                                 auth, provider,
                                 user, password,
                                 certificate, fingerprint);
@@ -1107,6 +1114,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.color = color;
                     identity.signature = signature;
 
+                    identity.dnssec = dnssec;
                     identity.host = host;
                     identity.encryption = encryption;
                     identity.insecure = insecure;
@@ -1281,6 +1289,7 @@ public class FragmentIdentity extends FragmentBase {
                     if (signature == null)
                         signature = (identity == null ? null : identity.signature);
 
+                    cbDnsSec.setChecked(identity == null ? false : identity.dnssec);
                     etHost.setText(identity == null ? null : identity.host);
 
                     if (identity != null && identity.encryption == EmailService.ENCRYPTION_STARTTLS)

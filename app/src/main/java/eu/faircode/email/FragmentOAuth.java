@@ -821,7 +821,7 @@ public class FragmentOAuth extends FragmentBase {
                                     aprotocol, null, aencryption, false, false, false,
                                     EmailService.PURPOSE_CHECK, true)) {
                                 aservice.connect(
-                                        inbound.host, inbound.port,
+                                        false, inbound.host, inbound.port,
                                         AUTH_TYPE_OAUTH, provider.id,
                                         alt, state[0],
                                         null, null);
@@ -831,7 +831,7 @@ public class FragmentOAuth extends FragmentBase {
                                         iprotocol, null, iencryption, false, false, false,
                                         EmailService.PURPOSE_CHECK, true)) {
                                     iservice.connect(
-                                            provider.smtp.host, provider.smtp.port,
+                                            false, provider.smtp.host, provider.smtp.port,
                                             AUTH_TYPE_OAUTH, provider.id,
                                             alt, state[0],
                                             null, null);
@@ -896,7 +896,7 @@ public class FragmentOAuth extends FragmentBase {
                         aprotocol, null, aencryption, false, false, false,
                         EmailService.PURPOSE_CHECK, true)) {
                     aservice.connect(
-                            inbound.host, inbound.port,
+                            false, inbound.host, inbound.port,
                             AUTH_TYPE_OAUTH, provider.id,
                             sharedname == null ? username : sharedname, state[0],
                             null, null);
@@ -915,7 +915,7 @@ public class FragmentOAuth extends FragmentBase {
                             iprotocol, null, iencryption, false, false, false,
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.connect(
-                                provider.smtp.host, provider.smtp.port,
+                                false, provider.smtp.host, provider.smtp.port,
                                 AUTH_TYPE_OAUTH, provider.id,
                                 username, state[0],
                                 null, null);

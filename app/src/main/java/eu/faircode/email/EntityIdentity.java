@@ -68,6 +68,8 @@ public class EntityIdentity {
     public Integer color;
     public String signature;
     @NonNull
+    public Boolean dnssec = false;
+    @NonNull
     public String host; // SMTP
     @NonNull
     @ColumnInfo(name = "starttls")

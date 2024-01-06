@@ -72,6 +72,7 @@ public class FragmentPop extends FragmentBase {
     private ViewGroup view;
     private ScrollView scroll;
 
+    private CheckBox cbDnsSec;
     private EditText etHost;
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
@@ -152,6 +153,7 @@ public class FragmentPop extends FragmentBase {
         scroll = view.findViewById(R.id.scroll);
 
         // Get controls
+        cbDnsSec = view.findViewById(R.id.cbDnsSec);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
         rgEncryption = view.findViewById(R.id.rgEncryption);
@@ -391,6 +393,7 @@ public class FragmentPop extends FragmentBase {
         else
             encryption = EmailService.ENCRYPTION_SSL;
 
+        args.putBoolean("dnssec", cbDnsSec.isChecked());
         args.putString("host", etHost.getText().toString().trim().replace(" ", ""));
         args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -449,6 +452,7 @@ public class FragmentPop extends FragmentBase {
             protected Boolean onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
 
+                boolean dnssec = args.getBoolean("dnssec");
                 String host = args.getString("host");
                 int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
@@ -532,6 +536,8 @@ public class FragmentPop extends FragmentBase {
                     if (account == null)
                         return !TextUtils.isEmpty(host) && !TextUtils.isEmpty(user);
 
+                    if (!Objects.equals(account.dnssec, dnssec))
+                        return true;
                     if (!Objects.equals(account.host, host))
                         return true;
                     if (!Objects.equals(account.encryption, encryption))
@@ -596,6 +602,7 @@ public class FragmentPop extends FragmentBase {
                 boolean check = (synchronize && (account == null ||
                         !account.synchronize ||
                         account.error != null ||
+                        !account.dnssec.equals(dnssec) ||
                         !account.host.equals(host) ||
                         !account.encryption.equals(encryption) ||
                         !account.insecure.equals(insecure) ||
@@ -617,7 +624,7 @@ public class FragmentPop extends FragmentBase {
                             protocol, null, encryption, insecure, dane, false,
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.connect(
-                                host, Integer.parseInt(port),
+                                dnssec, host, Integer.parseInt(port),
                                 auth, null,
                                 user, password,
                                 null, null);
@@ -641,6 +648,7 @@ public class FragmentPop extends FragmentBase {
                         account = new EntityAccount();
 
                     account.protocol = EntityAccount.TYPE_POP;
+                    account.dnssec = dnssec;
                     account.host = host;
                     account.encryption = encryption;
                     account.insecure = insecure;
@@ -837,6 +845,7 @@ public class FragmentPop extends FragmentBase {
                         Log.e(ex);
                     }
 
+                    cbDnsSec.setChecked(account == null ? false : account.dnssec);
                     etHost.setText(account == null ? null : account.host);
                     etPort.setText(account == null ? null : Long.toString(account.port));
 

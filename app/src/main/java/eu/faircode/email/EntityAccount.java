@@ -74,6 +74,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @ColumnInfo(name = "pop")
     public Integer protocol = TYPE_IMAP;
     @NonNull
+    public Boolean dnssec = false;
+    @NonNull
     public String host; // POP3/IMAP
     @NonNull
     @ColumnInfo(name = "starttls")

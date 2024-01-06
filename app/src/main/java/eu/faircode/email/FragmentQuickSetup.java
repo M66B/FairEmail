@@ -439,7 +439,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                 Log.i("Trying with user=" + user);
                                 try {
                                     iservice.connect(
-                                            provider.imap.host, provider.imap.port,
+                                            false, provider.imap.host, provider.imap.port,
                                             AUTH_TYPE_PASSWORD, null,
                                             user, password,
                                             null, null);
@@ -448,7 +448,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                     imap_certificate = ex.getCertificate();
                                     imap_fingerprint = EntityCertificate.getKeyFingerprint(imap_certificate);
                                     iservice.connect(
-                                            provider.imap.host, provider.imap.port,
+                                            false, provider.imap.host, provider.imap.port,
                                             AUTH_TYPE_PASSWORD, null,
                                             user, password,
                                             null, imap_fingerprint);
@@ -545,7 +545,7 @@ public class FragmentQuickSetup extends FragmentBase {
                             iservice.setUseIp(provider.useip, null);
                             try {
                                 iservice.connect(
-                                        provider.smtp.host, provider.smtp.port,
+                                        false, provider.smtp.host, provider.smtp.port,
                                         AUTH_TYPE_PASSWORD, null,
                                         user, password,
                                         null, null);
@@ -553,7 +553,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                 smtp_certificate = ex.getCertificate();
                                 smtp_fingerprint = EntityCertificate.getKeyFingerprint(smtp_certificate);
                                 iservice.connect(
-                                        provider.smtp.host, provider.smtp.port,
+                                        false, provider.smtp.host, provider.smtp.port,
                                         AUTH_TYPE_PASSWORD, null,
                                         user, password,
                                         null, smtp_fingerprint);

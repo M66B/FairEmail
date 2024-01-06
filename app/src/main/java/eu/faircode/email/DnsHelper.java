@@ -113,7 +113,7 @@ public class DnsHelper {
     }
 
     @NonNull
-    private static DnsRecord[] _lookup(Context context, String name, String type, int timeout, boolean dns_secure) {
+    private static DnsRecord[] _lookup(Context context, String name, String type, int timeout, boolean dnssec) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dns_custom = prefs.getBoolean("dns_custom", false);
 
@@ -187,7 +187,7 @@ public class DnsHelper {
             data.throwIfErrorResponse();
 
             boolean secure = (data.getUnverifiedReasons() != null);
-            if (secure && dns_secure) {
+            if (secure && dnssec) {
                 DnssecResultNotAuthenticException ex = data.getDnssecResultNotAuthenticException();
                 if (ex != null)
                     throw ex;
@@ -293,24 +293,24 @@ public class DnsHelper {
         return getAllByName(context, host, false);
     }
 
-    static InetAddress getByName(Context context, String host, boolean secure) throws UnknownHostException {
+    static InetAddress getByName(Context context, String host, boolean dnssec) throws UnknownHostException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dns_custom = prefs.getBoolean("dns_custom", false);
 
-        if (!dns_custom)
+        if (!dns_custom && !dnssec)
             return InetAddress.getByName(host);
 
         if (ConnectionHelper.isNumericAddress(host))
             return InetAddress.getByName(host);
 
-        return getAllByName(context, host, secure)[0];
+        return getAllByName(context, host, dnssec)[0];
     }
 
-    static InetAddress[] getAllByName(Context context, String host, boolean secure) throws UnknownHostException {
+    static InetAddress[] getAllByName(Context context, String host, boolean dnssec) throws UnknownHostException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dns_custom = prefs.getBoolean("dns_custom", false);
 
-        if (!dns_custom)
+        if (!dns_custom && !dnssec)
             return InetAddress.getAllByName(host);
 
         List<InetAddress> result = new ArrayList<>();
@@ -318,11 +318,11 @@ public class DnsHelper {
         boolean[] has46 = ConnectionHelper.has46(context);
 
         if (has46[0])
-            for (DnsRecord a : _lookup(context, host, "a", LOOKUP_TIMEOUT, secure))
+            for (DnsRecord a : _lookup(context, host, "a", LOOKUP_TIMEOUT, dnssec))
                 result.add(a.address);
 
         if (has46[1])
-            for (DnsRecord aaaa : _lookup(context, host, "aaaa", LOOKUP_TIMEOUT, secure))
+            for (DnsRecord aaaa : _lookup(context, host, "aaaa", LOOKUP_TIMEOUT, dnssec))
                 result.add(aaaa.address);
 
         if (result.size() == 0)

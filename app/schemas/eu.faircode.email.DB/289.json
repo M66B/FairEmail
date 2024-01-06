@@ -1,12 +1,12 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 288,
+    "version": 289,
     "identityHash": "4cec816a440db77674127f7b1744967a",
     "entities": [
       {
         "tableName": "identity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `uuid` TEXT NOT NULL, `name` TEXT NOT NULL, `email` TEXT NOT NULL, `account` INTEGER NOT NULL, `display` TEXT, `color` INTEGER, `signature` TEXT, `host` TEXT NOT NULL, `starttls` INTEGER NOT NULL, `insecure` INTEGER NOT NULL, `dnssec` INTEGER NOT NULL, `dane` INTEGER NOT NULL, `port` INTEGER NOT NULL, `auth_type` INTEGER NOT NULL, `provider` TEXT, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `certificate` INTEGER NOT NULL, `certificate_alias` TEXT, `realm` TEXT, `fingerprint` TEXT, `use_ip` INTEGER NOT NULL, `ehlo` TEXT, `synchronize` INTEGER NOT NULL, `primary` INTEGER NOT NULL, `self` INTEGER NOT NULL, `sender_extra` INTEGER NOT NULL, `sender_extra_name` INTEGER NOT NULL, `reply_extra_name` INTEGER NOT NULL, `sender_extra_regex` TEXT, `replyto` TEXT, `cc` TEXT, `bcc` TEXT, `internal` TEXT, `uri` TEXT, `unicode` INTEGER NOT NULL, `octetmime` INTEGER NOT NULL, `plain_only` INTEGER NOT NULL, `sign_default` INTEGER NOT NULL, `encrypt_default` INTEGER NOT NULL, `encrypt` INTEGER NOT NULL, `receipt_type` INTEGER, `delivery_receipt` INTEGER NOT NULL, `read_receipt` INTEGER NOT NULL, `sensitivity` INTEGER NOT NULL, `store_sent` INTEGER NOT NULL, `sent_folder` INTEGER, `sign_key` INTEGER, `sign_key_alias` TEXT, `tbd` INTEGER, `state` TEXT, `error` TEXT, `last_connected` INTEGER, `max_size` INTEGER, `last_modified` INTEGER, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `uuid` TEXT NOT NULL, `name` TEXT NOT NULL, `email` TEXT NOT NULL, `account` INTEGER NOT NULL, `display` TEXT, `color` INTEGER, `signature` TEXT, `dnssec` INTEGER NOT NULL, `host` TEXT NOT NULL, `starttls` INTEGER NOT NULL, `insecure` INTEGER NOT NULL, `dane` INTEGER NOT NULL, `port` INTEGER NOT NULL, `auth_type` INTEGER NOT NULL, `provider` TEXT, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `certificate` INTEGER NOT NULL, `certificate_alias` TEXT, `realm` TEXT, `fingerprint` TEXT, `use_ip` INTEGER NOT NULL, `ehlo` TEXT, `synchronize` INTEGER NOT NULL, `primary` INTEGER NOT NULL, `self` INTEGER NOT NULL, `sender_extra` INTEGER NOT NULL, `sender_extra_name` INTEGER NOT NULL, `reply_extra_name` INTEGER NOT NULL, `sender_extra_regex` TEXT, `replyto` TEXT, `cc` TEXT, `bcc` TEXT, `internal` TEXT, `uri` TEXT, `unicode` INTEGER NOT NULL, `octetmime` INTEGER NOT NULL, `plain_only` INTEGER NOT NULL, `sign_default` INTEGER NOT NULL, `encrypt_default` INTEGER NOT NULL, `encrypt` INTEGER NOT NULL, `receipt_type` INTEGER, `delivery_receipt` INTEGER NOT NULL, `read_receipt` INTEGER NOT NULL, `sensitivity` INTEGER NOT NULL, `store_sent` INTEGER NOT NULL, `sent_folder` INTEGER, `sign_key` INTEGER, `sign_key_alias` TEXT, `tbd` INTEGER, `state` TEXT, `error` TEXT, `last_connected` INTEGER, `max_size` INTEGER, `last_modified` INTEGER, FOREIGN KEY(`account`) REFERENCES `account`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -57,6 +57,12 @@
             "notNull": false
           },
           {
+            "fieldPath": "dnssec",
+            "columnName": "dnssec",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
             "fieldPath": "host",
             "columnName": "host",
             "affinity": "TEXT",
@@ -71,12 +77,6 @@
           {
             "fieldPath": "insecure",
             "columnName": "insecure",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "dnssec",
-            "columnName": "dnssec",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -388,7 +388,7 @@
       },
       {
         "tableName": "account",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `uuid` TEXT NOT NULL, `pop` INTEGER NOT NULL, `host` TEXT NOT NULL, `starttls` INTEGER NOT NULL, `insecure` INTEGER NOT NULL, `dnssec` INTEGER NOT NULL, `dane` INTEGER NOT NULL, `port` INTEGER NOT NULL, `auth_type` INTEGER NOT NULL, `provider` TEXT, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `certificate` INTEGER NOT NULL, `certificate_alias` TEXT, `realm` TEXT, `fingerprint` TEXT, `name` TEXT, `category` TEXT, `signature` TEXT, `color` INTEGER, `calendar` TEXT, `synchronize` INTEGER NOT NULL, `ondemand` INTEGER NOT NULL, `poll_exempted` INTEGER NOT NULL, `primary` INTEGER NOT NULL, `notify` INTEGER NOT NULL, `summary` INTEGER NOT NULL, `browse` INTEGER NOT NULL, `leave_on_server` INTEGER NOT NULL, `client_delete` INTEGER NOT NULL, `leave_deleted` INTEGER NOT NULL, `leave_on_device` INTEGER NOT NULL, `max_messages` INTEGER, `auto_seen` INTEGER NOT NULL, `separator` INTEGER, `swipe_left` INTEGER, `swipe_right` INTEGER, `move_to` INTEGER, `poll_interval` INTEGER NOT NULL, `keep_alive_noop` INTEGER NOT NULL, `keep_alive_ok` INTEGER NOT NULL, `keep_alive_failed` INTEGER NOT NULL, `keep_alive_succeeded` INTEGER NOT NULL, `partial_fetch` INTEGER NOT NULL, `raw_fetch` INTEGER NOT NULL, `ignore_size` INTEGER NOT NULL, `use_date` INTEGER NOT NULL, `use_received` INTEGER NOT NULL, `prefix` TEXT, `unicode` INTEGER NOT NULL, `conditions` TEXT, `quota_usage` INTEGER, `quota_limit` INTEGER, `created` INTEGER, `tbd` INTEGER, `thread` INTEGER, `state` TEXT, `warning` TEXT, `error` TEXT, `last_connected` INTEGER, `backoff_until` INTEGER, `max_size` INTEGER, `capabilities` TEXT, `capability_idle` INTEGER, `capability_utf8` INTEGER, `capability_uidl` INTEGER, `last_modified` INTEGER, `order` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `uuid` TEXT NOT NULL, `pop` INTEGER NOT NULL, `dnssec` INTEGER NOT NULL, `host` TEXT NOT NULL, `starttls` INTEGER NOT NULL, `insecure` INTEGER NOT NULL, `dane` INTEGER NOT NULL, `port` INTEGER NOT NULL, `auth_type` INTEGER NOT NULL, `provider` TEXT, `user` TEXT NOT NULL, `password` TEXT NOT NULL, `certificate` INTEGER NOT NULL, `certificate_alias` TEXT, `realm` TEXT, `fingerprint` TEXT, `name` TEXT, `category` TEXT, `signature` TEXT, `color` INTEGER, `calendar` TEXT, `synchronize` INTEGER NOT NULL, `ondemand` INTEGER NOT NULL, `poll_exempted` INTEGER NOT NULL, `primary` INTEGER NOT NULL, `notify` INTEGER NOT NULL, `summary` INTEGER NOT NULL, `browse` INTEGER NOT NULL, `leave_on_server` INTEGER NOT NULL, `client_delete` INTEGER NOT NULL, `leave_deleted` INTEGER NOT NULL, `leave_on_device` INTEGER NOT NULL, `max_messages` INTEGER, `auto_seen` INTEGER NOT NULL, `separator` INTEGER, `swipe_left` INTEGER, `swipe_right` INTEGER, `move_to` INTEGER, `poll_interval` INTEGER NOT NULL, `keep_alive_noop` INTEGER NOT NULL, `keep_alive_ok` INTEGER NOT NULL, `keep_alive_failed` INTEGER NOT NULL, `keep_alive_succeeded` INTEGER NOT NULL, `partial_fetch` INTEGER NOT NULL, `raw_fetch` INTEGER NOT NULL, `ignore_size` INTEGER NOT NULL, `use_date` INTEGER NOT NULL, `use_received` INTEGER NOT NULL, `prefix` TEXT, `unicode` INTEGER NOT NULL, `conditions` TEXT, `quota_usage` INTEGER, `quota_limit` INTEGER, `created` INTEGER, `tbd` INTEGER, `thread` INTEGER, `state` TEXT, `warning` TEXT, `error` TEXT, `last_connected` INTEGER, `backoff_until` INTEGER, `max_size` INTEGER, `capabilities` TEXT, `capability_idle` INTEGER, `capability_utf8` INTEGER, `capability_uidl` INTEGER, `last_modified` INTEGER, `order` INTEGER)",
         "fields": [
           {
             "fieldPath": "id",
@@ -409,6 +409,12 @@
             "notNull": true
           },
           {
+            "fieldPath": "dnssec",
+            "columnName": "dnssec",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
             "fieldPath": "host",
             "columnName": "host",
             "affinity": "TEXT",
@@ -423,12 +429,6 @@
           {
             "fieldPath": "insecure",
             "columnName": "insecure",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "dnssec",
-            "columnName": "dnssec",
             "affinity": "INTEGER",
             "notNull": true
           },

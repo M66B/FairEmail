@@ -97,6 +97,7 @@ public class FragmentAccount extends FragmentBase {
     private Button btnAutoConfig;
     private ContentLoadingProgressBar pbAutoConfig;
 
+    private CheckBox cbDnsSec;
     private EditText etHost;
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
@@ -220,6 +221,7 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
         pbAutoConfig = view.findViewById(R.id.pbAutoConfig);
 
+        cbDnsSec = view.findViewById(R.id.cbDnsSec);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
         rgEncryption = view.findViewById(R.id.rgEncryption);
@@ -733,6 +735,7 @@ public class FragmentAccount extends FragmentBase {
 
         Bundle args = new Bundle();
         args.putLong("id", id);
+        args.putBoolean("dnssec", cbDnsSec.isChecked());
         args.putString("host", etHost.getText().toString().trim().replace(" ", ""));
         args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -779,6 +782,7 @@ public class FragmentAccount extends FragmentBase {
             @Override
             protected CheckResult onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
+                boolean dnssec = args.getBoolean("dnssec");
                 String host = args.getString("host");
                 int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
@@ -821,7 +825,7 @@ public class FragmentAccount extends FragmentBase {
                         protocol, realm, encryption, insecure, dane, unicode,
                         EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
-                            host, Integer.parseInt(port),
+                            dnssec, host, Integer.parseInt(port),
                             auth, provider,
                             user, password,
                             certificate, fingerprint);
@@ -944,6 +948,7 @@ public class FragmentAccount extends FragmentBase {
         else
             encryption = EmailService.ENCRYPTION_SSL;
 
+        args.putBoolean("dnssec", cbDnsSec.isChecked());
         args.putString("host", etHost.getText().toString().trim().replace(" ", ""));
         args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
@@ -1022,6 +1027,7 @@ public class FragmentAccount extends FragmentBase {
             protected Boolean onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
 
+                boolean dnssec = args.getBoolean("dnssec");
                 String host = args.getString("host");
                 int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
@@ -1116,6 +1122,8 @@ public class FragmentAccount extends FragmentBase {
                     if (account == null)
                         return !TextUtils.isEmpty(host) && !TextUtils.isEmpty(user);
 
+                    if (!Objects.equals(account.dnssec, dnssec))
+                        return true;
                     if (!Objects.equals(account.host, host))
                         return true;
                     if (!Objects.equals(account.encryption, encryption))
@@ -1221,6 +1229,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean check = (synchronize && (account == null ||
                         !account.synchronize ||
                         account.error != null ||
+                        !account.dnssec.equals(dnssec) ||
                         !account.host.equals(host) ||
                         !account.encryption.equals(encryption) ||
                         !account.insecure.equals(insecure) ||
@@ -1246,7 +1255,7 @@ public class FragmentAccount extends FragmentBase {
                             protocol, realm, encryption, insecure, dane, unicode,
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.connect(
-                                host, Integer.parseInt(port),
+                                dnssec, host, Integer.parseInt(port),
                                 auth, provider,
                                 user, password,
                                 certificate, fingerprint);
@@ -1288,6 +1297,7 @@ public class FragmentAccount extends FragmentBase {
                     if (account == null)
                         account = new EntityAccount();
 
+                    account.dnssec = dnssec;
                     account.host = host;
                     account.encryption = encryption;
                     account.insecure = insecure;
@@ -1656,6 +1666,8 @@ public class FragmentAccount extends FragmentBase {
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
+
+                    cbDnsSec.setChecked(account == null ? false : account.dnssec);
 
                     if (account != null) {
                         boolean found = false;

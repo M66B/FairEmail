@@ -483,7 +483,7 @@ public class FragmentGmail extends FragmentBase {
                         aprotocol, null, aencryption, false, false, false,
                         EmailService.PURPOSE_CHECK, true)) {
                     aservice.connect(
-                            inbound.host, inbound.port,
+                            false, inbound.host, inbound.port,
                             AUTH_TYPE_GMAIL, null,
                             user, password,
                             null, null);
@@ -501,7 +501,7 @@ public class FragmentGmail extends FragmentBase {
                         iprotocol, null, iencryption, false, false, false,
                         EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
-                            provider.smtp.host, provider.smtp.port,
+                            false, provider.smtp.host, provider.smtp.port,
                             AUTH_TYPE_GMAIL, null,
                             user, password,
                             null, null);
