@@ -27,6 +27,7 @@ import android.net.LinkProperties;
 import android.net.Network;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Base64;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -56,8 +57,11 @@ import org.minidns.record.TXT;
 import org.minidns.source.AbstractDnsDataSource;
 import org.minidns.util.MultipleIoException;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.InetAddress;
+import java.net.URL;
 import java.net.UnknownHostException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -75,6 +79,7 @@ import java.util.logging.Logger;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
+import javax.net.ssl.HttpsURLConnection;
 
 public class DnsHelper {
     // https://dns.watch/
@@ -142,7 +147,14 @@ public class DnsHelper {
             ResolverApi resolver = DnssecResolverApi.INSTANCE;
             AbstractDnsClient client = resolver.getClient();
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && !dns_custom)
+            if (false) {
+                String private_dns = ConnectionHelper.getPrivateDnsServerName(context);
+                Log.w("DNS private=" + private_dns);
+                if (private_dns != null) {
+                    // https://datatracker.ietf.org/doc/html/rfc8484
+                    client.setDataSource(new DoHDataSource(private_dns));
+                }
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && !dns_custom)
                 client.setDataSource(new AndroidDataSource());
 
             client.getDataSource().setTimeout(timeout * 1000);
@@ -403,6 +415,56 @@ public class DnsHelper {
             Log.w("- no records");
         for (DnsRecord record : records)
             Log.w("- " + record);
+    }
+
+    static class DoHDataSource extends AbstractDnsDataSource {
+        private String host;
+
+        private DoHDataSource() {
+            super();
+        }
+
+        DoHDataSource(String host) {
+            super();
+            this.host = host;
+        }
+
+        @Override
+        public DnsQueryResult query(DnsMessage query, InetAddress address, int port) throws IOException {
+            HttpsURLConnection request = null;
+            try {
+                URL url = new URL("https://" + host + "/dns-query?dns=" +
+                        Base64.encodeToString(query.toArray(), Base64.NO_PADDING | Base64.NO_WRAP));
+                request = (HttpsURLConnection) url.openConnection();
+                request.setRequestMethod("GET");
+                request.setRequestProperty("Content-Type", "application/dns-message");
+                request.setReadTimeout(timeout * 1000);
+                request.setConnectTimeout(timeout * 1000);
+                request.setDoInput(true);
+                request.connect();
+
+                int status = request.getResponseCode();
+                if (status != HttpURLConnection.HTTP_OK)
+                    throw new IOException("Error " + status + ": " + request.getResponseMessage());
+
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                bos.writeTo(request.getOutputStream());
+
+                DnsMessage answer = new DnsMessage(bos.toByteArray())
+                        .asBuilder()
+                        //.setResponseCode(DnsMessage.RESPONSE_CODE.getResponseCode(rcode))
+                        .build();
+
+                return new StandardDnsQueryResult(
+                        address, port,
+                        DnsQueryResult.QueryMethod.udp,
+                        query,
+                        answer);
+            } finally {
+                if (request != null)
+                    request.disconnect();
+            }
+        }
     }
 
     static class AndroidDataSource extends AbstractDnsDataSource {
