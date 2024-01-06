@@ -286,6 +286,14 @@ public class DnsHelper {
     }
 
     static InetAddress getByName(Context context, String host) throws UnknownHostException {
+        return getByName(context, host, false);
+    }
+
+    static InetAddress[] getAllByName(Context context, String host) throws UnknownHostException {
+        return getAllByName(context, host, false);
+    }
+
+    static InetAddress getByName(Context context, String host, boolean secure) throws UnknownHostException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dns_custom = prefs.getBoolean("dns_custom", false);
 
@@ -295,10 +303,10 @@ public class DnsHelper {
         if (ConnectionHelper.isNumericAddress(host))
             return InetAddress.getByName(host);
 
-        return getAllByName(context, host)[0];
+        return getAllByName(context, host, secure)[0];
     }
 
-    static InetAddress[] getAllByName(Context context, String host) throws UnknownHostException {
+    static InetAddress[] getAllByName(Context context, String host, boolean secure) throws UnknownHostException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dns_custom = prefs.getBoolean("dns_custom", false);
 
@@ -310,11 +318,11 @@ public class DnsHelper {
         boolean[] has46 = ConnectionHelper.has46(context);
 
         if (has46[0])
-            for (DnsRecord a : lookup(context, host, "a"))
+            for (DnsRecord a : _lookup(context, host, "a", LOOKUP_TIMEOUT, secure))
                 result.add(a.address);
 
         if (has46[1])
-            for (DnsRecord aaaa : lookup(context, host, "aaaa"))
+            for (DnsRecord aaaa : _lookup(context, host, "aaaa", LOOKUP_TIMEOUT, secure))
                 result.add(aaaa.address);
 
         if (result.size() == 0)
