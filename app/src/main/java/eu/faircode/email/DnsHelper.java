@@ -447,9 +447,12 @@ public class DnsHelper {
 
                 InputStream is = socket.getInputStream();
                 int hi = is.read();
-                int lo = is.read();
-                if (hi < 0 || lo < 0)
+                if (hi < 0)
                     throw new IOException("EOF");
+                int lo = is.read();
+                if (lo < 0)
+                    throw new IOException("EOF");
+
                 int len = hi * 256 + lo;
                 byte[] in = new byte[len];
                 int i = 0;
