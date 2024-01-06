@@ -721,6 +721,13 @@
                     app:constraint_referenced_ids="swValidated,tvValidatedHint,swVpnOnly" />
 
                 <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpCustomDns"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="
+                    swDnsCustom,tvDnsExtra,etDnsExtra" />
+
+                <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpCustomSsl"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
