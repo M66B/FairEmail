@@ -143,72 +143,7 @@ public class DnsHelper {
             AbstractDnsClient client = resolver.getClient();
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && !dns_custom)
-                client.setDataSource(new AbstractDnsDataSource() {
-                    private IOException ex;
-                    private DnsQueryResult result;
-
-                    @Override
-                    public DnsQueryResult query(DnsMessage query, InetAddress address, int port) throws IOException {
-                        Semaphore sem = new Semaphore(0);
-                        DnsResolver resolver = DnsResolver.getInstance();
-                        Log.i("DNS Android query=" + query);
-                        resolver.rawQuery(
-                                null,
-                                query.toArray(),
-                                DnsResolver.FLAG_EMPTY,
-                                new Executor() {
-                                    @Override
-                                    public void execute(Runnable command) {
-                                        command.run();
-                                    }
-                                },
-                                null,
-                                new DnsResolver.Callback<byte[]>() {
-                                    @Override
-                                    public void onAnswer(@NonNull byte[] bytes, int rcode) {
-                                        try {
-                                            DnsMessage answer = new DnsMessage(bytes)
-                                                    .asBuilder()
-                                                    .setResponseCode(DnsMessage.RESPONSE_CODE.getResponseCode(rcode))
-                                                    .build();
-                                            result = new StandardDnsQueryResult(
-                                                    address, port,
-                                                    DnsQueryResult.QueryMethod.udp,
-                                                    query,
-                                                    answer);
-                                        } catch (Throwable e) {
-                                            ex = new IOException(e.getMessage(), e);
-                                        } finally {
-                                            sem.release();
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onError(@NonNull DnsResolver.DnsException e) {
-                                        try {
-                                            ex = new IOException(e.getMessage(), e);
-                                        } finally {
-                                            sem.release();
-                                        }
-                                    }
-                                });
-
-                        try {
-                            if (!sem.tryAcquire(timeout, TimeUnit.SECONDS))
-                                ex = new IOException("timeout");
-                        } catch (InterruptedException e) {
-                            ex = new IOException("interrupted");
-                        }
-
-                        if (ex == null) {
-                            Log.i("DNS Android answer=" + result);
-                            return result;
-                        } else {
-                            Log.i(ex);
-                            throw ex;
-                        }
-                    }
-                });
+                client.setDataSource(new AndroidDataSource());
 
             client.getDataSource().setTimeout(timeout * 1000);
 
@@ -468,6 +403,73 @@ public class DnsHelper {
             Log.w("- no records");
         for (DnsRecord record : records)
             Log.w("- " + record);
+    }
+
+    static class AndroidDataSource extends AbstractDnsDataSource {
+        private IOException ex;
+        private DnsQueryResult result;
+
+        @Override
+        public DnsQueryResult query(DnsMessage query, InetAddress address, int port) throws IOException {
+            Semaphore sem = new Semaphore(0);
+            DnsResolver resolver = DnsResolver.getInstance();
+            Log.i("DNS Android query=" + query);
+            resolver.rawQuery(
+                    null,
+                    query.toArray(),
+                    DnsResolver.FLAG_EMPTY,
+                    new Executor() {
+                        @Override
+                        public void execute(Runnable command) {
+                            command.run();
+                        }
+                    },
+                    null,
+                    new DnsResolver.Callback<byte[]>() {
+                        @Override
+                        public void onAnswer(@NonNull byte[] bytes, int rcode) {
+                            try {
+                                DnsMessage answer = new DnsMessage(bytes)
+                                        .asBuilder()
+                                        .setResponseCode(DnsMessage.RESPONSE_CODE.getResponseCode(rcode))
+                                        .build();
+                                result = new StandardDnsQueryResult(
+                                        address, port,
+                                        DnsQueryResult.QueryMethod.udp,
+                                        query,
+                                        answer);
+                            } catch (Throwable e) {
+                                ex = new IOException(e.getMessage(), e);
+                            } finally {
+                                sem.release();
+                            }
+                        }
+
+                        @Override
+                        public void onError(@NonNull DnsResolver.DnsException e) {
+                            try {
+                                ex = new IOException(e.getMessage(), e);
+                            } finally {
+                                sem.release();
+                            }
+                        }
+                    });
+
+            try {
+                if (!sem.tryAcquire(timeout, TimeUnit.SECONDS))
+                    ex = new IOException("timeout");
+            } catch (InterruptedException e) {
+                ex = new IOException("interrupted");
+            }
+
+            if (ex == null) {
+                Log.i("DNS Android answer=" + result);
+                return result;
+            } else {
+                Log.i(ex);
+                throw ex;
+            }
+        }
     }
 
     static class DnsRecord {
