@@ -101,7 +101,7 @@ public class DnsHelper {
             String domain = UriHelper.getEmailDomain(email);
             if (domain == null)
                 continue;
-            DnsRecord[] records = _lookup(context, domain, "mx", CHECK_TIMEOUT, false);
+            DnsRecord[] records = _lookup(context, domain, "mx", CHECK_TIMEOUT);
             if (records.length == 0)
                 throw new UnknownHostException(domain);
         }
@@ -109,11 +109,25 @@ public class DnsHelper {
 
     @NonNull
     static DnsRecord[] lookup(Context context, String name, String type) {
-        return _lookup(context, name, type, LOOKUP_TIMEOUT, false);
+        return _lookup(context, name, type, LOOKUP_TIMEOUT);
     }
 
     @NonNull
-    private static DnsRecord[] _lookup(Context context, String name, String type, int timeout, boolean dnssec) {
+    private static DnsRecord[] _lookup(Context context, String name, String type, int timeout) {
+        try {
+            return _lookup(context, name, type, timeout, false);
+        } catch (Throwable ex) {
+            if (ex instanceof MultipleIoException ||
+                    ex instanceof ResolutionUnsuccessfulException)
+                Log.i(ex);
+            else
+                Log.e(ex);
+            return new DnsRecord[0];
+        }
+    }
+
+    @NonNull
+    private static DnsRecord[] _lookup(Context context, String name, String type, int timeout, boolean dnssec) throws IOException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dns_custom = prefs.getBoolean("dns_custom", false);
 
@@ -148,141 +162,130 @@ public class DnsHelper {
                 throw new IllegalArgumentException(type);
         }
 
-        try {
-            ResolverApi resolver = DnssecResolverApi.INSTANCE;
-            AbstractDnsClient client = resolver.getClient();
+        ResolverApi resolver = DnssecResolverApi.INSTANCE;
+        AbstractDnsClient client = resolver.getClient();
 
-            if (false) {
-                String private_dns = ConnectionHelper.getPrivateDnsServerName(context);
-                Log.w("DNS private=" + private_dns);
-                if (private_dns != null)
-                    client.setDataSource(new DoTDataSource(private_dns));
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && !dns_custom)
-                client.setDataSource(new AndroidDataSource());
+        if (false) {
+            String private_dns = ConnectionHelper.getPrivateDnsServerName(context);
+            Log.w("DNS private=" + private_dns);
+            if (private_dns != null)
+                client.setDataSource(new DoTDataSource(private_dns));
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && !dns_custom)
+            client.setDataSource(new AndroidDataSource());
 
-            client.getDataSource().setTimeout(timeout * 1000);
+        client.getDataSource().setTimeout(timeout * 1000);
 
-            List<String> servers = getDnsServers(context);
-            Log.i("DNS servers=" + TextUtils.join(",", servers));
+        List<String> servers = getDnsServers(context);
+        Log.i("DNS servers=" + TextUtils.join(",", servers));
 
-            DnsClient.addDnsServerLookupMechanism(
-                    new AbstractDnsServerLookupMechanism("FairEmail", 1) {
-                        @Override
-                        public boolean isAvailable() {
-                            return (servers.size() > 0);
-                        }
-
-                        @Override
-                        public List<String> getDnsServerAddresses() {
-                            return servers;
-                        }
-                    });
-
-            // https://github.com/MiniDNS/minidns/issues/102
-            if (client instanceof DnssecClient && dns_custom)
-                ((DnssecClient) client).setUseHardcodedDnsServers(false);
-
-            Log.i("DNS query name=" + type + ":" + name);
-            ResolverResult<? extends Data> data = resolver.resolve(name, clazz);
-            data.throwIfErrorResponse();
-
-            boolean secure = (data.getUnverifiedReasons() != null);
-            if (secure && dnssec) {
-                DnssecResultNotAuthenticException ex = data.getDnssecResultNotAuthenticException();
-                if (ex != null)
-                    throw ex;
-            }
-
-            List<DnsRecord> result = new ArrayList<>();
-
-            DnsMessage raw = data.getRawAnswer();
-            List<Record<? extends Data>> answers = (raw == null ? null : raw.answerSection);
-            Log.i("DNS answers=" + (answers == null ? "n/a" : answers.size()));
-            if (answers != null) {
-                Record.TYPE expectedType = data.getQuestion().type;
-                for (Record<? extends Data> record : answers) {
-                    if (record.type != expectedType) {
-                        Log.i("DNS skip=" + record);
-                        continue;
+        DnsClient.addDnsServerLookupMechanism(
+                new AbstractDnsServerLookupMechanism("FairEmail", 1) {
+                    @Override
+                    public boolean isAvailable() {
+                        return (servers.size() > 0);
                     }
 
-                    Data answer = record.getPayload();
-                    Log.i("DNS record=" + record + " answer=" + answer);
-
-                    if (answer instanceof NS) {
-                        NS ns = (NS) answer;
-                        result.add(new DnsRecord(ns.getTarget().toString()));
-                    } else if (answer instanceof MX) {
-                        MX mx = (MX) answer;
-                        result.add(new DnsRecord(mx.target.toString(), 0, mx.priority, 0));
-                    } else if (answer instanceof SRV) {
-                        SRV srv = (SRV) answer;
-                        result.add(new DnsRecord(srv.target.toString(), srv.port, srv.priority, srv.weight));
-                    } else if (answer instanceof TXT) {
-                        StringBuilder sb = new StringBuilder();
-                        TXT txt = (TXT) answer;
-                        for (String text : txt.getCharacterStrings()) {
-                            if (filter != null &&
-                                    (TextUtils.isEmpty(text) || !text.toLowerCase(Locale.ROOT).startsWith(filter)))
-                                continue;
-                            int i = 0;
-                            int slash = text.indexOf('\\', i);
-                            while (slash >= 0 && slash + 4 < text.length()) {
-                                String digits = text.substring(slash + 1, slash + 4);
-                                if (TextUtils.isDigitsOnly(digits)) {
-                                    int k = Integer.parseInt(digits);
-                                    text = text.substring(0, slash) + (char) k + text.substring(slash + 4);
-                                } else
-                                    i += 4;
-                                slash = text.indexOf('\\', i);
-                            }
-                            sb.append(text);
-                        }
-                        result.add(new DnsRecord(sb.toString(), 0));
-                    } else if (answer instanceof A) {
-                        A a = (A) answer;
-                        result.add(new DnsRecord(a.getInetAddress()));
-                    } else if (answer instanceof AAAA) {
-                        AAAA aaaa = (AAAA) answer;
-                        result.add(new DnsRecord(aaaa.getInetAddress()));
-                    } else
-                        throw new IllegalArgumentException(answer.getClass().getName());
-
-                }
-            }
-
-            for (DnsRecord record : result) {
-                record.query = name;
-                record.secure = secure;
-                record.authentic = data.isAuthenticData();
-            }
-
-            if ("mx".equals(type) || "srv".equals(type))
-                Collections.sort(result, new Comparator<DnsRecord>() {
                     @Override
-                    public int compare(DnsRecord d1, DnsRecord d2) {
-                        int o = Integer.compare(
-                                d1.priority == null ? 0 : d1.priority,
-                                d2.priority == null ? 0 : d2.priority);
-                        if (o == 0)
-                            o = Integer.compare(
-                                    d1.weight == null ? 0 : d1.weight,
-                                    d2.weight == null ? 0 : d2.weight);
-                        return o;
+                    public List<String> getDnsServerAddresses() {
+                        return servers;
                     }
                 });
 
-            return result.toArray(new DnsRecord[0]);
-        } catch (Throwable ex) {
-            if (ex instanceof MultipleIoException ||
-                    ex instanceof ResolutionUnsuccessfulException ||
-                    ex instanceof DnssecValidationFailedException ||
-                    ex instanceof DnssecResultNotAuthenticException)
-                Log.i(ex);
-            else
-                Log.e(ex);
-            return new DnsRecord[0];
+        // https://github.com/MiniDNS/minidns/issues/102
+        if (client instanceof DnssecClient && dns_custom)
+            ((DnssecClient) client).setUseHardcodedDnsServers(false);
+
+        Log.i("DNS query name=" + type + ":" + name);
+        ResolverResult<? extends Data> data = resolver.resolve(name, clazz);
+        data.throwIfErrorResponse();
+
+        boolean secure = (data.getUnverifiedReasons() != null);
+        if (secure && dnssec) {
+            DnssecResultNotAuthenticException ex = data.getDnssecResultNotAuthenticException();
+            if (ex != null)
+                throw ex;
         }
+
+        List<DnsRecord> result = new ArrayList<>();
+
+        DnsMessage raw = data.getRawAnswer();
+        List<Record<? extends Data>> answers = (raw == null ? null : raw.answerSection);
+        Log.i("DNS answers=" + (answers == null ? "n/a" : answers.size()));
+        if (answers != null) {
+            Record.TYPE expectedType = data.getQuestion().type;
+            for (Record<? extends Data> record : answers) {
+                if (record.type != expectedType) {
+                    Log.i("DNS skip=" + record);
+                    continue;
+                }
+
+                Data answer = record.getPayload();
+                Log.i("DNS record=" + record + " answer=" + answer);
+
+                if (answer instanceof NS) {
+                    NS ns = (NS) answer;
+                    result.add(new DnsRecord(ns.getTarget().toString()));
+                } else if (answer instanceof MX) {
+                    MX mx = (MX) answer;
+                    result.add(new DnsRecord(mx.target.toString(), 0, mx.priority, 0));
+                } else if (answer instanceof SRV) {
+                    SRV srv = (SRV) answer;
+                    result.add(new DnsRecord(srv.target.toString(), srv.port, srv.priority, srv.weight));
+                } else if (answer instanceof TXT) {
+                    StringBuilder sb = new StringBuilder();
+                    TXT txt = (TXT) answer;
+                    for (String text : txt.getCharacterStrings()) {
+                        if (filter != null &&
+                                (TextUtils.isEmpty(text) || !text.toLowerCase(Locale.ROOT).startsWith(filter)))
+                            continue;
+                        int i = 0;
+                        int slash = text.indexOf('\\', i);
+                        while (slash >= 0 && slash + 4 < text.length()) {
+                            String digits = text.substring(slash + 1, slash + 4);
+                            if (TextUtils.isDigitsOnly(digits)) {
+                                int k = Integer.parseInt(digits);
+                                text = text.substring(0, slash) + (char) k + text.substring(slash + 4);
+                            } else
+                                i += 4;
+                            slash = text.indexOf('\\', i);
+                        }
+                        sb.append(text);
+                    }
+                    result.add(new DnsRecord(sb.toString(), 0));
+                } else if (answer instanceof A) {
+                    A a = (A) answer;
+                    result.add(new DnsRecord(a.getInetAddress()));
+                } else if (answer instanceof AAAA) {
+                    AAAA aaaa = (AAAA) answer;
+                    result.add(new DnsRecord(aaaa.getInetAddress()));
+                } else
+                    throw new IllegalArgumentException(answer.getClass().getName());
+
+            }
+        }
+
+        for (DnsRecord record : result) {
+            record.query = name;
+            record.secure = secure;
+            record.authentic = data.isAuthenticData();
+        }
+
+        if ("mx".equals(type) || "srv".equals(type))
+            Collections.sort(result, new Comparator<DnsRecord>() {
+                @Override
+                public int compare(DnsRecord d1, DnsRecord d2) {
+                    int o = Integer.compare(
+                            d1.priority == null ? 0 : d1.priority,
+                            d2.priority == null ? 0 : d2.priority);
+                    if (o == 0)
+                        o = Integer.compare(
+                                d1.weight == null ? 0 : d1.weight,
+                                d2.weight == null ? 0 : d2.weight);
+                    return o;
+                }
+            });
+
+        return result.toArray(new DnsRecord[0]);
     }
 
     static InetAddress getByName(Context context, String host) throws UnknownHostException {
@@ -316,19 +319,22 @@ public class DnsHelper {
         List<InetAddress> result = new ArrayList<>();
 
         boolean[] has46 = ConnectionHelper.has46(context);
+        try {
+            if (has46[0])
+                for (DnsRecord a : _lookup(context, host, "a", LOOKUP_TIMEOUT, dnssec))
+                    result.add(a.address);
 
-        if (has46[0])
-            for (DnsRecord a : _lookup(context, host, "a", LOOKUP_TIMEOUT, dnssec))
-                result.add(a.address);
+            if (has46[1])
+                for (DnsRecord aaaa : _lookup(context, host, "aaaa", LOOKUP_TIMEOUT, dnssec))
+                    result.add(aaaa.address);
 
-        if (has46[1])
-            for (DnsRecord aaaa : _lookup(context, host, "aaaa", LOOKUP_TIMEOUT, dnssec))
-                result.add(aaaa.address);
+            if (result.size() == 0)
+                throw new UnknownHostException(host);
 
-        if (result.size() == 0)
-            throw new UnknownHostException(host);
-
-        return result.toArray(new InetAddress[0]);
+            return result.toArray(new InetAddress[0]);
+        } catch (IOException ex) {
+            throw new UnknownHostException(ex.getMessage());
+        }
     }
 
     static void verifyDane(X509Certificate[] chain, String server, int port) throws CertificateException {
