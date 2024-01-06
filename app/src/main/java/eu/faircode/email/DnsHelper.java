@@ -42,6 +42,7 @@ import org.minidns.dnssec.DnssecResultNotAuthenticException;
 import org.minidns.dnssec.DnssecValidationFailedException;
 import org.minidns.dnsserverlookup.AbstractDnsServerLookupMechanism;
 import org.minidns.hla.DnssecResolverApi;
+import org.minidns.hla.ResolutionUnsuccessfulException;
 import org.minidns.hla.ResolverApi;
 import org.minidns.hla.ResolverResult;
 import org.minidns.record.A;
@@ -324,6 +325,7 @@ public class DnsHelper {
             return result.toArray(new DnsRecord[0]);
         } catch (Throwable ex) {
             if (ex instanceof MultipleIoException ||
+                    ex instanceof ResolutionUnsuccessfulException ||
                     ex instanceof DnssecValidationFailedException ||
                     ex instanceof DnssecResultNotAuthenticException)
                 Log.i(ex);
