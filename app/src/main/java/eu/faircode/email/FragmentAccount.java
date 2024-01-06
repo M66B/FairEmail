@@ -101,6 +101,8 @@ public class FragmentAccount extends FragmentBase {
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
     private TextView tvInsecureRemark;
+    private CheckBox cbDane;
+
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
@@ -140,7 +142,6 @@ public class FragmentAccount extends FragmentBase {
     private CheckBox cbUnicode;
     private CheckBox cbUnmetered;
     private CheckBox cbVpnOnly;
-    private CheckBox cbDane;
 
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
@@ -224,6 +225,7 @@ public class FragmentAccount extends FragmentBase {
         rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
         tvInsecureRemark = view.findViewById(R.id.tvInsecureRemark);
+        cbDane = view.findViewById(R.id.cbDane);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
         tvAppPassword = view.findViewById(R.id.tvAppPassword);
@@ -261,7 +263,6 @@ public class FragmentAccount extends FragmentBase {
         cbUnicode = view.findViewById(R.id.cbUnicode);
         cbUnmetered = view.findViewById(R.id.cbUnmeteredOnly);
         cbVpnOnly = view.findViewById(R.id.cbVpnOnly);
-        cbDane = view.findViewById(R.id.cbDane);
 
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -1687,6 +1688,8 @@ public class FragmentAccount extends FragmentBase {
                         rgEncryption.check(R.id.radio_ssl);
 
                     cbInsecure.setChecked(account == null ? false : account.insecure);
+                    cbDane.setChecked(account == null ? false : account.dane);
+                    cbDane.setEnabled(!cbInsecure.isChecked());
 
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
@@ -1726,8 +1729,6 @@ public class FragmentAccount extends FragmentBase {
                     cbUnicode.setChecked(account == null ? false : account.unicode);
                     cbUnmetered.setChecked(jcondition.optBoolean("unmetered"));
                     cbVpnOnly.setChecked(jcondition.optBoolean("vpn_only"));
-                    cbDane.setChecked(account == null ? false : account.dane);
-                    cbDane.setEnabled(!cbInsecure.isChecked());
 
                     if (account != null && account.use_date)
                         rgDate.check(R.id.radio_date_header);

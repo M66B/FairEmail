@@ -76,6 +76,7 @@ public class FragmentPop extends FragmentBase {
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
     private TextView tvInsecureRemark;
+    private CheckBox cbDane;
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
@@ -107,7 +108,6 @@ public class FragmentPop extends FragmentBase {
     private EditText etInterval;
     private CheckBox cbUnmetered;
     private CheckBox cbVpnOnly;
-    private CheckBox cbDane;
 
     private ArrayAdapter<EntityFolder> adapterSwipe;
     private Spinner spLeft;
@@ -157,6 +157,7 @@ public class FragmentPop extends FragmentBase {
         rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
         tvInsecureRemark = view.findViewById(R.id.tvInsecureRemark);
+        cbDane = view.findViewById(R.id.cbDane);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
         tvPasswordStorage = view.findViewById(R.id.tvPasswordStorage);
@@ -186,7 +187,6 @@ public class FragmentPop extends FragmentBase {
         etInterval = view.findViewById(R.id.etInterval);
         cbUnmetered = view.findViewById(R.id.cbUnmeteredOnly);
         cbVpnOnly = view.findViewById(R.id.cbVpnOnly);
-        cbDane = view.findViewById(R.id.cbDane);
 
         spLeft = view.findViewById(R.id.spLeft);
         spRight = view.findViewById(R.id.spRight);
@@ -848,6 +848,8 @@ public class FragmentPop extends FragmentBase {
                         rgEncryption.check(R.id.radio_ssl);
 
                     cbInsecure.setChecked(account == null ? false : account.insecure);
+                    cbDane.setChecked(account == null ? false : account.dane);
+                    cbDane.setEnabled(!cbInsecure.isChecked());
 
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
@@ -880,8 +882,6 @@ public class FragmentPop extends FragmentBase {
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
                     cbUnmetered.setChecked(jcondition.optBoolean("unmetered"));
                     cbVpnOnly.setChecked(jcondition.optBoolean("vpn_only"));
-                    cbDane.setChecked(account == null ? false : account.dane);
-                    cbDane.setEnabled(!cbInsecure.isChecked());
 
                     cbIdentity.setChecked(account == null);
 
