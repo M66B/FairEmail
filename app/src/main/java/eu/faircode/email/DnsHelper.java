@@ -463,16 +463,11 @@ public class DnsHelper {
                     i += r;
                 }
 
-                DnsMessage answer = new DnsMessage(in)
-                        .asBuilder()
-                        //.setResponseCode(DnsMessage.RESPONSE_CODE.getResponseCode(rcode))
-                        .build();
-
                 return new StandardDnsQueryResult(
                         address, port,
                         DnsQueryResult.QueryMethod.tcp,
                         query,
-                        answer);
+                        new DnsMessage(in));
             }
         }
     }
@@ -511,16 +506,11 @@ public class DnsHelper {
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 bos.writeTo(request.getOutputStream());
 
-                DnsMessage answer = new DnsMessage(bos.toByteArray())
-                        .asBuilder()
-                        //.setResponseCode(DnsMessage.RESPONSE_CODE.getResponseCode(rcode))
-                        .build();
-
                 return new StandardDnsQueryResult(
                         address, port,
                         DnsQueryResult.QueryMethod.tcp,
                         query,
-                        answer);
+                        new DnsMessage(bos.toByteArray()));
             } finally {
                 if (request != null)
                     request.disconnect();
