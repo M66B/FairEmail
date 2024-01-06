@@ -420,7 +420,7 @@ public class DnsHelper {
             Log.w("- " + record);
     }
 
-    static class DoTDataSource extends AbstractDnsDataSource {
+    private static class DoTDataSource extends AbstractDnsDataSource {
         private String host;
 
         private DoTDataSource() {
@@ -472,7 +472,7 @@ public class DnsHelper {
         }
     }
 
-    static class DoHDataSource extends AbstractDnsDataSource {
+    private static class DoHDataSource extends AbstractDnsDataSource {
         private String host;
 
         private DoHDataSource() {
@@ -518,7 +518,7 @@ public class DnsHelper {
         }
     }
 
-    static class AndroidDataSource extends AbstractDnsDataSource {
+    private static class AndroidDataSource extends AbstractDnsDataSource {
         private IOException ex;
         private DnsQueryResult result;
 
