@@ -9,6 +9,7 @@ Ypupiara
 Next version
 
 * Replaced javadns
+* Added account/identity option to enforce DNSSEC
 * Added account/identity option to enforce DANE, see the FAQ
 * Small improvements and minor bug fixes
 * Updated translations
