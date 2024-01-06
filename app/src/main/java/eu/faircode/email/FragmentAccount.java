@@ -101,7 +101,6 @@ public class FragmentAccount extends FragmentBase {
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
     private TextView tvInsecureRemark;
-    private CheckBox cbDane;
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
@@ -141,6 +140,7 @@ public class FragmentAccount extends FragmentBase {
     private CheckBox cbUnicode;
     private CheckBox cbUnmetered;
     private CheckBox cbVpnOnly;
+    private CheckBox cbDane;
 
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
@@ -172,7 +172,6 @@ public class FragmentAccount extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
 
     private Group grpServer;
-    private Group grpAuthorize;
     private Group grpCalendar;
     private Group grpAdvanced;
     private Group grpFolders;
@@ -225,7 +224,6 @@ public class FragmentAccount extends FragmentBase {
         rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
         tvInsecureRemark = view.findViewById(R.id.tvInsecureRemark);
-        cbDane = view.findViewById(R.id.cbDane);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
         tvAppPassword = view.findViewById(R.id.tvAppPassword);
@@ -263,6 +261,7 @@ public class FragmentAccount extends FragmentBase {
         cbUnicode = view.findViewById(R.id.cbUnicode);
         cbUnmetered = view.findViewById(R.id.cbUnmeteredOnly);
         cbVpnOnly = view.findViewById(R.id.cbVpnOnly);
+        cbDane = view.findViewById(R.id.cbDane);
 
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -292,7 +291,6 @@ public class FragmentAccount extends FragmentBase {
         pbWait = view.findViewById(R.id.pbWait);
 
         grpServer = view.findViewById(R.id.grpServer);
-        grpAuthorize = view.findViewById(R.id.grpAuthorize);
         grpCalendar = view.findViewById(R.id.grpCalendar);
         grpAdvanced = view.findViewById(R.id.grpAdvanced);
         grpFolders = view.findViewById(R.id.grpFolders);
@@ -308,7 +306,6 @@ public class FragmentAccount extends FragmentBase {
                         auth == AUTH_TYPE_PASSWORD && "gmail".equals(provider.id)
                                 ? View.VISIBLE : View.GONE);
                 grpServer.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
-                grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 grpCalendar.setVisibility(position > 0 && !BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
 
                 btnAdvanced.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
@@ -666,7 +663,6 @@ public class FragmentAccount extends FragmentBase {
         tvInstructions.setMovementMethod(LinkMovementMethodCompat.getInstance());
 
         grpServer.setVisibility(View.GONE);
-        grpAuthorize.setVisibility(View.GONE);
         grpCalendar.setVisibility(View.GONE);
         grpAdvanced.setVisibility(View.GONE);
         grpFolders.setVisibility(View.GONE);
@@ -1691,8 +1687,6 @@ public class FragmentAccount extends FragmentBase {
                         rgEncryption.check(R.id.radio_ssl);
 
                     cbInsecure.setChecked(account == null ? false : account.insecure);
-                    cbDane.setChecked(account == null ? false : account.dane);
-                    cbDane.setEnabled(!cbInsecure.isChecked());
 
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);
@@ -1732,6 +1726,8 @@ public class FragmentAccount extends FragmentBase {
                     cbUnicode.setChecked(account == null ? false : account.unicode);
                     cbUnmetered.setChecked(jcondition.optBoolean("unmetered"));
                     cbVpnOnly.setChecked(jcondition.optBoolean("vpn_only"));
+                    cbDane.setChecked(account == null ? false : account.dane);
+                    cbDane.setEnabled(!cbInsecure.isChecked());
 
                     if (account != null && account.use_date)
                         rgDate.check(R.id.radio_date_header);

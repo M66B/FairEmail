@@ -48,198 +48,232 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPopSent" />
 
-        <TextView
-            android:id="@+id/tvHost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_host"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?android:textColorPrimary"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPopWarning" />
-
-        <eu.faircode.email.EditTextPlain
-            android:id="@+id/etHost"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardServer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="pop.domain.tld"
-            android:inputType="textUri"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHost" />
-
-        <!-- SSL/STARTTLS -->
-
-        <TextView
-            android:id="@+id/tvEncryption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_encryption"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etHost" />
-
-        <RadioGroup
-            android:id="@+id/rgEncryption"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="@color/background_warning"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEncryption">
+            app:layout_constraintTop_toBottomOf="@id/tvPopWarning">
 
-            <RadioButton
-                android:id="@+id/radio_ssl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_encryption_ssl" />
-
-            <RadioButton
-                android:id="@+id/radio_starttls"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_encryption_starttls" />
-
-            <RadioButton
-                android:id="@+id/radio_none"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_encryption_none"
-                android:textColor="?attr/colorWarning"
-                android:textStyle="bold" />
-        </RadioGroup>
-
-        <CheckBox
-            android:id="@+id/cbInsecure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_allow_insecure"
-            android:textColor="?attr/colorWarning"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rgEncryption" />
-
-        <TextView
-            android:id="@+id/tvInsecureRemark"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:drawableEnd="@drawable/twotone_info_24"
-            android:drawablePadding="6dp"
-            android:text="@string/title_insecure_remark"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbInsecure" />
-
-        <!-- port -->
-
-        <TextView
-            android:id="@+id/tvPort"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_port"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?android:textColorPrimary"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInsecureRemark" />
-
-        <eu.faircode.email.EditTextPlain
-            android:id="@+id/etPort"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="995"
-            android:inputType="number"
-            android:maxLength="5"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPort" />
-
-        <!-- user -->
-
-        <TextView
-            android:id="@+id/tvUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:labelFor="@+id/etUser"
-            android:text="@string/title_user"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?android:textColorPrimary"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etPort" />
-
-        <eu.faircode.email.EditTextPlain
-            android:id="@+id/etUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="username"
-            android:inputType="text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvUser" />
-
-        <!-- password -->
-
-        <TextView
-            android:id="@+id/tvPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_password"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="?android:textColorPrimary"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etUser" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPassword">
-
-            <com.google.android.material.textfield.TextInputEditText
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="password"
-                android:inputType="textPassword"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="12dp">
 
-        <TextView
-            android:id="@+id/tvCaseSensitive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/title_case_sensitive"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+                <TextView
+                    android:id="@+id/tvPop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_pop3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvPasswordStorage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:drawableEnd="@drawable/twotone_open_in_new_12"
-            android:drawablePadding="6dp"
-            android:text="@string/title_password_storage"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorLink"
-            app:drawableTint="?android:attr/textColorLink"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCaseSensitive" />
+                <TextView
+                    android:id="@+id/tvHost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_host"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:textColorPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPop" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etHost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="pop.domain.tld"
+                    android:inputType="textUri"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvHost" />
+
+                <!-- SSL/STARTTLS -->
+
+                <TextView
+                    android:id="@+id/tvEncryption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_encryption"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:textColorPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etHost" />
+
+                <RadioGroup
+                    android:id="@+id/rgEncryption"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvEncryption">
+
+                    <RadioButton
+                        android:id="@+id/radio_ssl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_encryption_ssl" />
+
+                    <RadioButton
+                        android:id="@+id/radio_starttls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_encryption_starttls" />
+
+                    <RadioButton
+                        android:id="@+id/radio_none"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_encryption_none"
+                        android:textColor="?attr/colorWarning"
+                        android:textStyle="bold" />
+                </RadioGroup>
+
+                <CheckBox
+                    android:id="@+id/cbInsecure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_allow_insecure"
+                    android:textColor="?attr/colorWarning"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgEncryption" />
+
+                <TextView
+                    android:id="@+id/tvInsecureRemark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:drawableEnd="@drawable/twotone_info_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_insecure_remark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbInsecure" />
+
+                <!-- port -->
+
+                <TextView
+                    android:id="@+id/tvPort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_port"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:textColorPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvInsecureRemark" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etPort"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="995"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPort" />
+
+                <!-- user -->
+
+                <TextView
+                    android:id="@+id/tvUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:labelFor="@+id/etUser"
+                    android:text="@string/title_user"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:textColorPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etPort" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="username"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvUser" />
+
+                <!-- password -->
+
+                <TextView
+                    android:id="@+id/tvPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_password"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:textColorPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etUser" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPassword">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="password"
+                        android:inputType="textPassword"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvCaseSensitive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_case_sensitive"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
+                <TextView
+                    android:id="@+id/tvPasswordStorage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_password_storage"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCaseSensitive" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
         <!-- name -->
 
@@ -247,11 +281,11 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:text="@string/title_account_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPasswordStorage" />
+            app:layout_constraintTop_toBottomOf="@id/cardServer" />
 
         <TextView
             android:id="@+id/tvNameRemark"

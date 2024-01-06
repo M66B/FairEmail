@@ -102,7 +102,6 @@ public class FragmentIdentity extends FragmentBase {
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
     private TextView tvInsecureRemark;
-    private CheckBox cbDane;
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
@@ -137,6 +136,7 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbUnicode;
     private CheckBox cbOctetMime;
     private EditText etMaxSize;
+    private CheckBox cbDane;
 
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
@@ -210,7 +210,6 @@ public class FragmentIdentity extends FragmentBase {
         rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
         tvInsecureRemark = view.findViewById(R.id.tvInsecureRemark);
-        cbDane = view.findViewById(R.id.cbDane);
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
@@ -245,6 +244,7 @@ public class FragmentIdentity extends FragmentBase {
         cbUnicode = view.findViewById(R.id.cbUnicode);
         cbOctetMime = view.findViewById(R.id.cbOctetMime);
         etMaxSize = view.findViewById(R.id.etMaxSize);
+        cbDane = view.findViewById(R.id.cbDane);
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
@@ -573,6 +573,7 @@ public class FragmentIdentity extends FragmentBase {
 
         // Initialize
         Helper.setViewsEnabled(view, false);
+
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);
 
@@ -1290,8 +1291,6 @@ public class FragmentIdentity extends FragmentBase {
                         rgEncryption.check(R.id.radio_ssl);
 
                     cbInsecure.setChecked(identity == null ? false : identity.insecure);
-                    cbDane.setChecked(identity == null ? false : identity.dane);
-                    cbDane.setEnabled(!cbInsecure.isChecked());
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
                     etUser.setText(identity == null ? null : identity.user);
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);
@@ -1332,6 +1331,8 @@ public class FragmentIdentity extends FragmentBase {
                     cbEncryptDefault.setChecked(identity != null && identity.encrypt_default);
                     cbUnicode.setChecked(identity != null && identity.unicode);
                     cbOctetMime.setChecked(identity != null && identity.octetmime);
+                    cbDane.setChecked(identity == null ? false : identity.dane);
+                    cbDane.setEnabled(!cbInsecure.isChecked());
 
                     auth = (identity == null ? AUTH_TYPE_PASSWORD : identity.auth_type);
                     provider = (identity == null ? null : identity.provider);
