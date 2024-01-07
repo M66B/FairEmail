@@ -18,7 +18,7 @@ Preview/test versions are [available here](https://bitbucket.org/M66B/fairemail-
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
-### 1.2147 - 2024-01-04
+### 1.2147 - 2024-01-04 *
 
 * Small improvements and minor bug fixes
 * Updated build tools
