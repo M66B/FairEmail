@@ -5588,6 +5588,13 @@ public class MessageHelper {
         return false;
     }
 
+    static boolean isNoReply(@NonNull List<Address> addresses) {
+        for (Address address : addresses)
+            if (isNoReply(address))
+                return true;
+        return false;
+    }
+
     static boolean isNoReply(Address address) {
         if (address instanceof InternetAddress) {
             String email = ((InternetAddress) address).getAddress();

@@ -7097,13 +7097,7 @@ public class FragmentCompose extends FragmentBase {
                             if (draft.bcc != null)
                                 recipients.addAll(Arrays.asList(draft.bcc));
 
-                            boolean noreply = false;
-                            for (Address recipient : recipients)
-                                if (MessageHelper.isNoReply(recipient)) {
-                                    noreply = true;
-                                    break;
-                                }
-                            args.putBoolean("remind_noreply", noreply);
+                            args.putBoolean("remind_noreply", MessageHelper.isNoReply(recipients));
 
                             if (identity != null && !TextUtils.isEmpty(identity.internal)) {
                                 boolean external = false;
