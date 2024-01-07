@@ -575,6 +575,28 @@
                     app:switchPadding="12dp" />
 
                 <TextView
+                    android:id="@+id/tvSeenDelay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_seen_delay"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swCollapseMultiple" />
+
+                <Spinner
+                    android:id="@+id/spSeenDelay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:entries="@array/undoNames"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSeenDelay" />
+
+                <TextView
                     android:id="@+id/tvAutoSeenHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -587,7 +609,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swCollapseMultiple" />
+                    app:layout_constraintTop_toBottomOf="@id/spSeenDelay" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swAutoClose"

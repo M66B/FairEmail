@@ -340,6 +340,7 @@ public class FragmentMessages extends FragmentBase
     private int actionbar_delete_id;
     private int actionbar_archive_id;
     private boolean actionbar_color;
+    private int seen_delay = 0;
     private boolean autoexpand;
     private boolean autoclose;
     private String onclose;
@@ -493,6 +494,7 @@ public class FragmentMessages extends FragmentBase
         actionbar_delete_id = (actionbar_swap ? R.id.action_archive : R.id.action_delete);
         actionbar_archive_id = (actionbar_swap ? R.id.action_delete : R.id.action_archive);
         actionbar_color = prefs.getBoolean("actionbar_color", false);
+        seen_delay = prefs.getInt("seen_delay", 0);
         autoexpand = prefs.getBoolean("autoexpand", true);
         autoclose = prefs.getBoolean("autoclose", true);
         onclose = (autoclose ? null : prefs.getString("onclose", null));
@@ -2546,7 +2548,7 @@ public class FragmentMessages extends FragmentBase
         @Override
         public void setExpanded(TupleMessageEx message, boolean value, boolean scroll) {
             // Prevent flicker
-            if (value && message.accountAutoSeen &&
+            if (value && message.accountAutoSeen && seen_delay == 0 &&
                     (message.uid != null || message.accountProtocol == EntityAccount.TYPE_POP)) {
                 message.unseen = 0;
                 message.ui_seen = true;
@@ -7601,13 +7603,11 @@ public class FragmentMessages extends FragmentBase
     }
 
     private void handleExpand(long id) {
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-
-        new SimpleTask<Void>() {
+        SimpleTask<Void> taskExpand = new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
+                boolean seen = args.getBoolean("seen");
 
                 Long reload = null;
 
@@ -7630,19 +7630,24 @@ public class FragmentMessages extends FragmentBase
                     if (!"connected".equals(account.state) && !account.isTransient(context))
                         reload = account.id;
 
-                    if (message.ui_unsnoozed)
-                        db.message().setMessageUnsnoozed(message.id, false);
+                    if (seen) {
+                        if (message.ui_unsnoozed)
+                            db.message().setMessageUnsnoozed(message.id, false);
 
-                    if (!account.auto_seen && !message.ui_ignored && message.ui_snoozed == null) {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        boolean notify_remove = prefs.getBoolean("notify_remove", true);
-                        if (notify_remove)
-                            db.message().setMessageUiIgnored(message.id, true);
+                        if (!account.auto_seen && !message.ui_ignored && message.ui_snoozed == null) {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            boolean notify_remove = prefs.getBoolean("notify_remove", true);
+                            if (notify_remove)
+                                db.message().setMessageUiIgnored(message.id, true);
+                        }
+
+                        if (account.protocol != EntityAccount.TYPE_IMAP || message.uid != null) {
+                            if (account.auto_seen)
+                                EntityOperation.queue(context, message, EntityOperation.SEEN, true);
+                        }
                     }
 
                     if (account.protocol != EntityAccount.TYPE_IMAP || message.uid != null) {
-                        if (account.auto_seen)
-                            EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                         if (!message.content)
                             EntityOperation.queue(context, message, EntityOperation.BODY);
                     }
@@ -7664,7 +7669,27 @@ public class FragmentMessages extends FragmentBase
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.setLog(false).execute(this, args, "messages:expand");
+        }.setLog(false);
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putBoolean("seen", seen_delay == 0);
+        taskExpand.execute(this, args, "messages:expand");
+
+        if (seen_delay == 0)
+            return;
+
+        view.postDelayed(new RunnableEx("seen_delay") {
+            @Override
+            public void delegate() {
+                if (values.containsKey("expanded") && values.get("expanded").contains(id)) {
+                    Bundle dargs = new Bundle();
+                    dargs.putLong("id", id);
+                    dargs.putBoolean("seen", true);
+                    taskExpand.execute(FragmentMessages.this, dargs, "messages:seen_delay");
+                }
+            }
+        }, seen_delay);
     }
 
     private void handleAutoClose() {
@@ -8437,6 +8462,9 @@ public class FragmentMessages extends FragmentBase
                     iProperties.refresh();
                     return;
                 }
+
+                if (expanded > 0)
+                    values.get("expanded").clear();
 
                 handleExit();
 

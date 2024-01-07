@@ -8,6 +8,7 @@ Ypupiara
 
 Next version
 
+* Added option to to delay automatically marking messages as read
 * Replaced javadns
 * Added account/identity option to enforce DNSSEC
 * Added account/identity option to enforce DANE, see the FAQ

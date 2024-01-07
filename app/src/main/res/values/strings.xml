@@ -688,6 +688,7 @@
     <string name="title_advanced_expand_all">Automatically expand all read messages</string>
     <string name="title_advanced_expand_one">Expand only one message at a time</string>
     <string name="title_advanced_collapse_multiple">Collapse messages in a conversation with multiple messages on \'back\'</string>
+    <string name="title_advanced_seen_delay">Delay automatically marking messages as read</string>
     <string name="title_advanced_autoclose">Automatically close conversations</string>
     <string name="title_advanced_autoclose_send">Automatically close conversations after sending messages</string>
     <string name="title_advanced_onclose">On closing a conversation</string>
