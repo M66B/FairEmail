@@ -12,6 +12,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Replaced [javadns](https://github.com/dnsjava/dnsjava) by [MiniDNS](https://github.com/MiniDNS/minidns)
 * Added account/identity options to enforce DNSSEC and/or DANE, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq202)
 * Small improvements and minor bug fixes
+* Updated [biweekly](https://github.com/mangstadt/biweekly)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 Preview/test versions are [available here](https://bitbucket.org/M66B/fairemail-test/downloads/).

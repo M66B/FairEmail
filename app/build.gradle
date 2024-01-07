@@ -553,7 +553,7 @@ dependencies {
     def openpgp_version = "12.0"
     def badge_version = "1.1.22"
     def bugsnag_version = "6.1.0"
-    def biweekly_version = "0.6.7"
+    def biweekly_version = "0.6.8"
     def vcard_version = "0.12.1"
     def relinker_version = "1.4.5"
     def markwon_version = "4.6.2"
@@ -742,12 +742,12 @@ dependencies {
 
     // https://github.com/mangstadt/biweekly
     // https://mvnrepository.com/artifact/net.sf.biweekly/biweekly
-    //implementation("net.sf.biweekly:biweekly:$biweekly_version") {
-    //    exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
-    //    exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'
-    //}
-    api "com.fasterxml.jackson.core:jackson-core:2.14.2"
-    api "com.fasterxml.jackson.core:jackson-databind:2.14.2"
+    implementation("net.sf.biweekly:biweekly:$biweekly_version") {
+        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
+        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'
+    }
+    //api "com.fasterxml.jackson.core:jackson-core:2.14.2"
+    //api "com.fasterxml.jackson.core:jackson-databind:2.14.2"
 
     // https://github.com/mangstadt/ez-vcard
     implementation("com.googlecode.ez-vcard:ez-vcard:$vcard_version") {

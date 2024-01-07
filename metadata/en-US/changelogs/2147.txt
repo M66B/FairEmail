@@ -12,6 +12,7 @@ Next version
 * Replaced javadns
 * Added account/identity options to enforce DNSSEC and/or DANE, see the FAQ
 * Small improvements and minor bug fixes
+* Updated biweekly
 * Updated translations
 
 Preview/test versions are available here.
