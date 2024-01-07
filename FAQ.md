@@ -5686,6 +5686,7 @@ You can use [this tool](https://ssl-tools.net/tlsa-generator) to generate TSLA D
 You can enable enforcing DNSSEC and/or DANA in the (advanced) account and identity settings (since version 1.2148).
 
 Note that only some email providers support DANE and that only a limited number of DNS servers support DNSSEC (January 2024: ~30%), which is required for DANE.
+An alternative is using Certificate Transparency, see the previous FAQ.
 
 <br>
 
