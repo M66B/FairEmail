@@ -31,6 +31,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteFullException;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
@@ -2593,8 +2594,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
                         long maxDelayed = (pollInterval > 0 && !account.isExempted(this)
                                 ? pollInterval * ACCOUNT_ERROR_AFTER_POLL : ACCOUNT_ERROR_AFTER) * 60 * 1000L;
-                        if (delayed > maxDelayed &&
-                                state.getBackoff() >= CONNECT_BACKOFF_ALARM_START * 60) {
+                        // android.database.sqlite.SQLiteFullException: database or disk is full (code 13 SQLITE_FULL)
+                        if (ex instanceof SQLiteFullException ||
+                                (delayed > maxDelayed &&
+                                        state.getBackoff() >= CONNECT_BACKOFF_ALARM_START * 60)) {
                             Log.i("Reporting sync error after=" + delayed);
                             Throwable warning = new Throwable(
                                     getString(R.string.title_no_sync,
