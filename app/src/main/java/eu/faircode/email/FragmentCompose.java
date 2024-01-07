@@ -5704,6 +5704,9 @@ public class FragmentCompose extends FragmentBase {
                                 data.draft.receipt_request = false;
                             }
 
+                            List<Address> recipients = data.draft.getAllRecipients();
+                            args.putBoolean("noreply", MessageHelper.isNoReply(recipients));
+
                         } else if ("forward".equals(action)) {
                             if (forward_new)
                                 data.draft.thread = data.draft.msgid; // new thread
@@ -6272,7 +6275,18 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(data.draft.revision > 1);
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(data.draft.revision < data.draft.revisions);
 
-            if (args.getBoolean("incomplete")) {
+            if (args.getBoolean("noreply")) {
+                final Snackbar snackbar = Snackbar.make(
+                                view, R.string.title_noreply_reminder, Snackbar.LENGTH_INDEFINITE)
+                        .setGestureInsetBottomIgnored(true);
+                snackbar.setAction(android.R.string.ok, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        snackbar.dismiss();
+                    }
+                });
+                snackbar.show();
+            } else if (args.getBoolean("incomplete")) {
                 final Snackbar snackbar = Snackbar.make(
                                 view, R.string.title_attachments_incomplete, Snackbar.LENGTH_INDEFINITE)
                         .setGestureInsetBottomIgnored(true);
