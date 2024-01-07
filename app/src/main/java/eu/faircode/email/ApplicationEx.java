@@ -277,6 +277,7 @@ public class ApplicationEx extends Application
 
         ContactInfo.init(this);
 
+        DnsHelper.init(this);
         DisconnectBlacklist.init(this);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {

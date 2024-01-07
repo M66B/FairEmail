@@ -92,6 +92,23 @@ public class DnsHelper {
     private static final int CHECK_TIMEOUT = 5; // seconds
     private static final int LOOKUP_TIMEOUT = 15; // seconds
 
+    static void init(Context context) {
+        DnsClient.addDnsServerLookupMechanism(
+                new AbstractDnsServerLookupMechanism("FairEmail", 1) {
+                    @Override
+                    public boolean isAvailable() {
+                        return true;
+                    }
+
+                    @Override
+                    public List<String> getDnsServerAddresses() {
+                        List<String> servers = getDnsServers(context);
+                        Log.i("DNS servers=" + TextUtils.join(",", servers));
+                        return servers;
+                    }
+                });
+    }
+
     static void checkMx(Context context, Address[] addresses) throws UnknownHostException {
         if (addresses == null)
             return;
@@ -175,22 +192,6 @@ public class DnsHelper {
             client.setDataSource(new AndroidDataSource());
 
         client.getDataSource().setTimeout(timeout * 1000);
-
-        List<String> servers = getDnsServers(context);
-        Log.i("DNS servers=" + TextUtils.join(",", servers));
-
-        DnsClient.addDnsServerLookupMechanism(
-                new AbstractDnsServerLookupMechanism("FairEmail", 1) {
-                    @Override
-                    public boolean isAvailable() {
-                        return (servers.size() > 0);
-                    }
-
-                    @Override
-                    public List<String> getDnsServerAddresses() {
-                        return servers;
-                    }
-                });
 
         // https://github.com/MiniDNS/minidns/issues/102
         if (client instanceof DnssecClient && dns_custom)
@@ -364,7 +365,7 @@ public class DnsHelper {
     }
 
     private static List<String> getDnsServers(Context context) {
-        List<String> result = new ArrayList<>();
+        List<String> result = new ArrayList<>(_getDnsServers(context));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String dns_extra = prefs.getString("dns_extra", null);
@@ -377,30 +378,33 @@ public class DnsHelper {
                     Log.w("DNS extra invalid=" + extra);
         }
 
-        result.addAll(_getDnsServers(context));
+        result.add(DEFAULT_DNS);
 
         return result;
     }
 
     private static List<String> _getDnsServers(Context context) {
         List<String> result = new ArrayList<>();
-        result.add(DEFAULT_DNS);
 
-        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
-        if (cm == null)
-            return result;
+        try {
+            ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
+            if (cm == null)
+                return result;
 
-        Network active = ConnectionHelper.getActiveNetwork(context);
-        if (active == null)
-            return result;
+            Network active = ConnectionHelper.getActiveNetwork(context);
+            if (active == null)
+                return result;
 
-        LinkProperties props = cm.getLinkProperties(active);
-        if (props == null)
-            return result;
+            LinkProperties props = cm.getLinkProperties(active);
+            if (props == null)
+                return result;
 
-        List<InetAddress> dns = props.getDnsServers();
-        for (int i = 0; i < dns.size(); i++)
-            result.add(i, dns.get(i).getHostAddress());
+            List<InetAddress> dns = props.getDnsServers();
+            for (int i = 0; i < dns.size(); i++)
+                result.add(dns.get(i).getHostAddress());
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
 
         return result;
     }
