@@ -746,8 +746,8 @@ dependencies {
         exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
         exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'
     }
-    //api "com.fasterxml.jackson.core:jackson-core:2.14.2"
-    //api "com.fasterxml.jackson.core:jackson-databind:2.14.2"
+    //api "com.fasterxml.jackson.core:jackson-core:2.16.1"
+    //api "com.fasterxml.jackson.core:jackson-databind:2.16.1"
 
     // https://github.com/mangstadt/ez-vcard
     implementation("com.googlecode.ez-vcard:ez-vcard:$vcard_version") {
