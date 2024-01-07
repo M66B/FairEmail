@@ -10,8 +10,7 @@ Next version
 
 * Added option to to delay automatically marking messages as read
 * Replaced javadns
-* Added account/identity option to enforce DNSSEC
-* Added account/identity option to enforce DANE, see the FAQ
+* Added account/identity options to enforce DNSSEC and/or DANE, see the FAQ
 * Small improvements and minor bug fixes
 * Updated translations
 
