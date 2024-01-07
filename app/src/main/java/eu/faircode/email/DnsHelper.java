@@ -118,7 +118,8 @@ public class DnsHelper {
             return _lookup(context, name, type, timeout, false);
         } catch (Throwable ex) {
             if (ex instanceof MultipleIoException ||
-                    ex instanceof ResolutionUnsuccessfulException)
+                    ex instanceof ResolutionUnsuccessfulException ||
+                    ex instanceof DnssecValidationFailedException)
                 Log.i(ex);
             else
                 Log.e(ex);
