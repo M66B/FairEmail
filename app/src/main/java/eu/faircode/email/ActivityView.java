@@ -774,8 +774,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void init() {
         Bundle args = new Bundle();
 
-        long account = getIntent().getLongExtra("account", -1);
-
         FragmentBase fragment;
         switch (startup) {
             case "accounts":
@@ -784,15 +782,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 break;
             case "folders":
                 fragment = new FragmentFolders();
-                args.putLong("account", account);
                 args.putBoolean("unified", true);
                 break;
             case "primary":
                 fragment = new FragmentFolders();
-                if (account < 0)
-                    args.putBoolean("primary", true);
-                else
-                    args.putLong("account", account);
+                args.putBoolean("primary", true);
                 break;
             default:
                 fragment = new FragmentMessages();
