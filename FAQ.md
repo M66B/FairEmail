@@ -413,7 +413,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(199) Can you add proxy support?](#faq199)
 * [(200) How can I use Adguard to remove tracking parameters?](#faq200)
 * [(201) What is certificate transparency?](#faq201)
-* [(202) What is DANE?](#faq202)
+* [(202) What is DNSSEC and what is DANE?](#faq202)
 
 [I have another question.](#get-support)
 
@@ -5674,18 +5674,18 @@ FairEmail uses [this library](https://github.com/appmattus/certificatetransparen
 <br>
 
 <a name="faq202"></a>
-**(202) What is DANE?**
+**(202) What is DNSSEC and what is DANE?**
+
+Please see [this Wikipedia article](https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions) about what DNSSEC is.
 
 Please see [this article](https://github.com/internetstandards/toolbox-wiki/blob/main/DANE-for-SMTP-how-to.md) about what DANE is.
 Alternatively, see [this Wikipedia article](https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities).
 
-You can use [this tool](https://ssl-tools.net/tlsa-generator) to generate TSLA DNS records.
+You can use [this tool](https://ssl-tools.net/tlsa-generator) to generate TSLA DNS records for DANE.
 
-You can enable enforcing DANA in the (advanced) account and identity settings (since version 1.2148).
+You can enable enforcing DNSSEC and/or DANA in the (advanced) account and identity settings (since version 1.2148).
 
-Note that only some email servers support DANE and that only a limited number of DNS servers support DNSSEC, which is required for DANE.
-
-Except for DANE, FairEmail won't enforce DNSSEC because adoption of DNSSEC is still limited (~30% at the start of 2024).
+Note that only some email providers support DANE and that only a limited number of DNS servers support DNSSEC (January 2024: ~30%), which is required for DANE.
 
 <br>
 
