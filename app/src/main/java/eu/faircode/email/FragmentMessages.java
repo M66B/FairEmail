@@ -7640,12 +7640,7 @@ public class FragmentMessages extends FragmentBase
                             db.message().setMessageUiIgnored(message.id, true);
                     }
 
-                    if (account.protocol != EntityAccount.TYPE_IMAP) {
-                        if (account.auto_seen)
-                            EntityOperation.queue(context, message, EntityOperation.SEEN, true);
-                        if (!message.content)
-                            EntityOperation.queue(context, message, EntityOperation.BODY);
-                    } else if (message.uid != null) {
+                    if (account.protocol != EntityAccount.TYPE_IMAP || message.uid != null) {
                         if (account.auto_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                         if (!message.content)
