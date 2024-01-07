@@ -349,6 +349,17 @@ public class EntityMessage implements Serializable {
         return addresses.toArray(new Address[0]);
     }
 
+    List<Address> getAllRecipients() {
+        List<Address> recipients = new ArrayList<>();
+        if (to != null)
+            recipients.addAll(Arrays.asList(to));
+        if (cc != null)
+            recipients.addAll(Arrays.asList(cc));
+        if (bcc != null)
+            recipients.addAll(Arrays.asList(bcc));
+        return recipients;
+    }
+
     boolean hasKeyword(@NonNull String value) {
         // https://tools.ietf.org/html/rfc5788
         if (keywords == null)
