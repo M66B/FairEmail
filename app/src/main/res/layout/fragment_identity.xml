@@ -261,7 +261,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="3dp"
             android:layout_marginTop="24dp"
-            app:cardBackgroundColor="@color/background_warning"
+            app:cardBackgroundColor="?attr/colorCardBackground"
             app:cardCornerRadius="6dp"
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -271,7 +271,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="6dp"
+                android:paddingHorizontal="12dp"
                 android:paddingVertical="12dp">
 
                 <TextView
@@ -280,6 +280,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/title_smtp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:textColorPrimary"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

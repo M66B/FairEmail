@@ -575,6 +575,7 @@ public class FragmentIdentity extends FragmentBase {
 
         // Initialize
         Helper.setViewsEnabled(view, false);
+        FragmentDialogTheme.setBackground(getContext(), view, false);
 
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);
