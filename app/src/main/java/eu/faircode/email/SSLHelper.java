@@ -87,6 +87,8 @@ public class SSLHelper {
 
         return new TrustManager[]{new X509TrustManager() {
             // openssl s_client -connect <host>
+            // openssl s_client -starttls imap -crlf -connect <host>
+            // openssl s_client -starttls smtp -crlf -connect <host>
 
             @Override
             public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
