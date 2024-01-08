@@ -464,9 +464,8 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
         if ("eula".equals(key)) {
             boolean eula = prefs.getBoolean(key, false);
             if (eula) {
-                // recreate is done without animation
-                finish();
-                startActivity(getIntent());
+                // recreate is done without animation, unfortunately
+                recreate();
             }
         }
     }
