@@ -346,9 +346,13 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
                 order = getMenuItems(menu, context, providers, order, true, debug);
 
-                SpannableString ss = new SpannableString(getString(R.string.title_setup_pop3));
-                ss.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ss.length(), 0);
-                menu.add(Menu.FIRST, R.string.title_setup_pop3, order++, ss);
+                SpannableString imap = new SpannableString(getString(R.string.title_setup_imap));
+                imap.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, imap.length(), 0);
+                menu.add(Menu.FIRST, R.string.title_setup_imap, order++, imap);
+
+                SpannableString pop3 = new SpannableString(getString(R.string.title_setup_pop3));
+                pop3.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, pop3.length(), 0);
+                menu.add(Menu.FIRST, R.string.title_setup_pop3, order++, pop3);
 
                 popupMenu.insertIcons(context);
 
@@ -381,7 +385,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                             lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP)
                                     .putExtra("title", itemId));
                             return true;
-                        } else if (itemId == R.string.title_setup_classic) {
+                        } else if (itemId == R.string.title_setup_imap) {
                             ibManual.setPressed(true);
                             ibManual.setPressed(false);
                             manual = true;

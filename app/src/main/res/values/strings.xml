@@ -230,6 +230,7 @@
     <string name="title_setup_google_sign_in">Sign in with Google</string>
     <string name="title_setup_other">Other provider</string>
     <string name="title_setup_inbound">Incoming email only (email cannot be sent!)</string>
+    <string name="title_setup_imap">IMAP account</string>
     <string name="title_setup_pop3">POP3 account</string>
     <string name="title_setup_oauth_permission">The email provider has approved OAuth only for the Play Store and GitHub version</string>
     <string name="title_setup_gmail_support">Authorizing Google accounts will work in the Play Store and GitHub version only because Android checks the digital app signature</string>
