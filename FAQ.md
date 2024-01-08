@@ -5681,12 +5681,19 @@ Please see [this Wikipedia article](https://en.wikipedia.org/wiki/Domain_Name_Sy
 Please see [this article](https://github.com/internetstandards/toolbox-wiki/blob/main/DANE-for-SMTP-how-to.md) about what DANE is.
 Alternatively, see [this Wikipedia article](https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities).
 
-You can use [this tool](https://ssl-tools.net/tlsa-generator) to generate TSLA DNS records for DANE.
+You can use [this tool](https://ssl-tools.net/tlsa-generator) to generate TLSA DNS records for DANE.
 
-You can enable enforcing DNSSEC and/or DANA in the (advanced) account and identity settings (since version 1.2148).
+You can enable enforcing DNSSEC and/or DANA in the (advanced) account and identity settings (since version 1.2149).
 
 Note that only some email providers support DANE and that only a limited number of DNS servers support DNSSEC (January 2024: ~30%), which is required for DANE.
+Most private DNS providers support DNSSEC, though. You can configure private DNS in the Android network settings.
 An alternative is using Certificate Transparency, see the previous FAQ.
+
+Email providers known to support DANE:
+
+* [Freenet.de](https://email.freenet.de/)
+* [Mailbox.org](https://mailbox.org/)
+* [Posteo.de](https://posteo.de/)
 
 <br>
 
