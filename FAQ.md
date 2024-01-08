@@ -5687,6 +5687,7 @@ You can enable enforcing DNSSEC and/or DANA in the (advanced) account and identi
 
 Note that only some email providers support DANE and that only a limited number of DNS servers support DNSSEC (January 2024: ~30%), which is required for DANE.
 Most private DNS providers support DNSSEC, though. You can configure private DNS in the Android network settings.
+To be sure that private DNS is being used, better configure a host name like *dns.google*, *1dot1dot1dot1.cloudflare-dns.com* or *dns.quad9.net*.
 An alternative is using Certificate Transparency, see the previous FAQ.
 
 Email providers known to support DANE:
