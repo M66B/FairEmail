@@ -218,6 +218,7 @@
     <string name="title_setup_wizard_new">I need a new email address</string>
     <string name="title_setup_manual">Manual setup and account options</string>
     <string name="title_setup_classic">Classic configuration</string>
+    <string name="title_setup_wizard_hint">The quick setup wizard for \"Other Provider\" above usually works too, and is easier than entering all the server data.</string>
     <string name="title_setup_documentation">Please see your email provider\'s documentation for the correct email server configuration</string>
     <string name="title_setup_account_remark">Receive email</string>
     <string name="title_setup_identity_remark">Send email</string>
