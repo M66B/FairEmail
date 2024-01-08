@@ -5681,7 +5681,7 @@ Please see [this Wikipedia article](https://en.wikipedia.org/wiki/Domain_Name_Sy
 Please see [this article](https://github.com/internetstandards/toolbox-wiki/blob/main/DANE-for-SMTP-how-to.md) about what DANE is.
 Alternatively, see [this Wikipedia article](https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities).
 
-You can use [this tool](https://ssl-tools.net/tlsa-generator) to generate TLSA DNS records for DANE.
+You can use [this tool](https://ssl-tools.net/tlsa-generator) to generate TLSA DNS records for DANE (select either PKIX-EE or DANE-EE).
 
 You can enable enforcing DNSSEC and/or DANA in the (advanced) account and identity settings (since version 1.2149).
 
