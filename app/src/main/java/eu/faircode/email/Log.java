@@ -759,6 +759,15 @@ public class Log {
              */
             return false;
 
+        if ("android.app.RemoteServiceException$BadForegroundServiceNotificationException".equals(ex.getClass().getName()))
+            /*
+                android.app.RemoteServiceException$BadForegroundServiceNotificationException: Bad notification(tag=null, id=100) posted from package eu.faircode.email, crashing app(uid=10122, pid=3370): Software rendering doesn't support hardware bitmaps
+                    at android.app.ActivityThread.throwRemoteServiceException(ActivityThread.java:1982)
+                    at android.app.ActivityThread.-$$Nest$mthrowRemoteServiceException(Unknown Source:0)
+                    at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2238)
+             */
+            return false;
+
         if ("android.view.WindowManager$BadTokenException".equals(ex.getClass().getName()))
             /*
                 android.view.WindowManager$BadTokenException: Unable to add window -- token android.os.BinderProxy@e9084db is not valid; is your activity running?
