@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ypupiara](https://en.wikipedia.org/wiki/Ypupiara)
 
-### Next version
+### 1.2149 - 2024-01-08
 
 * Added option to to delay automatically marking messages as read
 * Replaced [javadns](https://github.com/dnsjava/dnsjava) by [MiniDNS](https://github.com/MiniDNS/minidns)
@@ -15,9 +15,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Updated [biweekly](https://github.com/mangstadt/biweekly)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
-Preview/test versions are [available here](https://bitbucket.org/M66B/fairemail-test/downloads/).
-
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
+
+### 1.2148 - 2024-01-08 *
+
+* Fixed accepting EULA in some cases
+* Fixed unified/primary folders navigation
 
 ### 1.2147 - 2024-01-04 *
 
