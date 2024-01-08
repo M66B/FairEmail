@@ -438,6 +438,8 @@
     <string name="title_advanced_vpn_only">Yalnız VPN vasitəsilə bağlantı qurun</string>
     <string name="title_advanced_timeout">Bağlantı bitmə vaxtı (saniyə)</string>
     <string name="title_advanced_prefer_ip4">IPv6 əvəzinə IPv4 tərcih et</string>
+    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Tərcih edilən DNS server ünvanları (vergüllə ayrılmış)</string>
+    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Özəl DNS həlledici istifadə et</string>
     <string name="title_advanced_ssl_update">Güncəl SSL provayderini istifadə et</string>
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlam et</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 tələb et</string>
@@ -595,6 +597,7 @@
     <string name="title_advanced_expand_all">Bütün oxunan mesajları avtomatik genişləndir</string>
     <string name="title_advanced_expand_one">Bir dəfəyə yalnız bir mesajı genişləndir</string>
     <string name="title_advanced_collapse_multiple">Bir neçə mesajlı danışıqlardakı mesajları \"geri\" seçimində yığcamlaşdır</string>
+    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">Mesajların avtomatik oxundu olaraq işarələnməsi üzrə gecikmə</string>
     <string name="title_advanced_autoclose">Söhbətləri avtomatik bağla</string>
     <string name="title_advanced_autoclose_send">Mesajları göndərdikdən sonra danışıqları avtomatik bağla</string>
     <string name="title_advanced_onclose">Bir danışığı bağlayanda</string>
@@ -930,13 +933,15 @@
     <string name="title_aliases">Ləqəblər</string>
     <string name="title_provider">Provayder</string>
     <string name="title_custom">Xüsusi</string>
+    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Məcbur et: DNSSEC</string>
+    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Yalnız məhdud sayda DNS serveri DNSSEC-i dəstəkləyir</string>
     <string name="title_host">Host adı</string>
     <string name="title_encryption">Şifrələmə</string>
     <string name="title_encryption_none">Heç biri (güvənsiz)</string>
     <string name="title_allow_insecure">Güvənli olmayan bağlantılara icazə ver</string>
     <string name="title_insecure_remark">Güvənli olmayan bağlantılara, yalnız güvənli şəbəkələrdə icazə verilməli və heç vaxt ictimai şəbəkələrdə icazə verilməməlidir</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Məcbur et: DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Yalnız bəzi e-poçt serverləri DANE-i dəstəkləyir və yalnız limitli sayda DNS serveri DNSSEC-i dəstəkləyir</string>
+    <string name="title_dane">Məcbur et: DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Yalnız bəzi e-poçt provayderləri DANE-ni dəstəkləyir</string>
     <string name="title_notify_remark">Bunu, hesaba özəl bildirişlər üçün fəallaşdıra bilərsiniz</string>
     <string name="title_port">Port nömrəsi</string>
     <string name="title_user">İstifadəçi adı</string>

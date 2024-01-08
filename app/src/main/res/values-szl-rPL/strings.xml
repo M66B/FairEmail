@@ -465,6 +465,8 @@
     <string name="title_advanced_vpn_only">Połącz tylko przez VPN</string>
     <string name="title_advanced_timeout">Limit czasu połączenia (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Preferuj IPv4 nad IPv6</string>
+    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Preferowane adresy serwera DNS (oddzielone przecinkami)</string>
+    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Użyj własnego mechanizmu rozwiązywania DNS</string>
     <string name="title_advanced_ssl_update">Użyj zaktualizowanego dostawcy SSL</string>
     <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
     <string name="title_advanced_ssl_harden_strict">Wymagaj TLS 1.3</string>
@@ -622,6 +624,7 @@
     <string name="title_advanced_expand_all">Automatycznie rozwiń wszystkie przeczytane wiadomości</string>
     <string name="title_advanced_expand_one">Rozwiń tylko jedną wiadomość na raz</string>
     <string name="title_advanced_collapse_multiple">Zwiń wiadomości w konwersacji z wieloma wiadomościami przy \'wstecz\'</string>
+    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">Opóźnij automatyczne oznaczanie wiadomości jako przeczytane</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
     <string name="title_advanced_autoclose_send">Automatycznie zamykaj konwersacje po wysłaniu wiadomości</string>
     <string name="title_advanced_onclose">Przy zamykaniu konwersacji</string>
@@ -957,11 +960,14 @@
     <string name="title_aliases">Aliasy</string>
     <string name="title_provider">Dostawca</string>
     <string name="title_custom">Własne</string>
+    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Wymuś DNSSEC</string>
+    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Tylko ograniczona liczba serwerów DNS obsługuje DNSSEC</string>
     <string name="title_host">Nazwa hosta</string>
     <string name="title_encryption">Szyfrowanie</string>
     <string name="title_encryption_none">Brak (niebezpieczne)</string>
     <string name="title_allow_insecure">Zezwól na niezabezpieczone połączenia</string>
     <string name="title_insecure_remark">Niebezpieczne połączenia powinny być dozwolone tylko w zaufanych sieciach, a nigdy w sieciach publicznych</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Tylko niektórzy dostawcy poczty elektronicznej obsługują DANE</string>
     <string name="title_notify_remark">Można włączyć tę funkcję dla specyficznych powiadomień danego konta</string>
     <string name="title_port">Numer portu</string>
     <string name="title_user">Nazwa użytkownika</string>

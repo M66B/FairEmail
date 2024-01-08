@@ -934,8 +934,7 @@
     <string name="title_encryption_none">Ninguno (inseguro)</string>
     <string name="title_allow_insecure">Permitir conexiones inseguras</string>
     <string name="title_insecure_remark">Las conexiones inseguras sólo deberían permitirse con redes de confianza y nunca con redes públicas</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Forzar DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Sólo algunos servidores de correo electrónico soportan DANE y sólo un número limitado de servidores DNS soportan DNSSEC</string>
+    <string name="title_dane">Forzar DANE</string>
     <string name="title_notify_remark">Puedes activar esto para notificaciones específicas de la cuenta</string>
     <string name="title_port">Puerto</string>
     <string name="title_user">Nombre de usuario</string>

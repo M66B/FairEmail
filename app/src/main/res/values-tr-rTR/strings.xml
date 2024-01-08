@@ -436,6 +436,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_vpn_only">Yalnızca bir VPN aracılığıyla bağlanın</string>
     <string name="title_advanced_timeout">Bağlantı zaman aşımı (saniye)</string>
     <string name="title_advanced_prefer_ip4">IPv6 yerine IPv4\'ü tercih edin</string>
+    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Tercih edilen DNS sunucu adresleri (virgülle ayrılmış)</string>
+    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Özel DNS ayrıştırıcısu kullanma</string>
     <string name="title_advanced_ssl_update">Güncellenmiş SSL sağlayıcısı kullanın</string>
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlamlaştır</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 gerektir</string>
@@ -593,6 +595,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_expand_all">Tüm okunmuş mesajları otomatik olarak aç</string>
     <string name="title_advanced_expand_one">Bir kerede yalnızca bir mesaj genişlet</string>
     <string name="title_advanced_collapse_multiple">Birden fazla mesaj içeren sohbetlerdeki mesajları \'geri\' seçeneğinde daralt</string>
+    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">Mesajların otomatik olarak okundu olarak işaretlenmesini geciktirme</string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
     <string name="title_advanced_autoclose_send">Mesaj gönderdikten sonra konuşmaları otomatik olarak kapat</string>
     <string name="title_advanced_onclose">Bir konuşmayı kapatırken</string>
@@ -928,13 +931,15 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_aliases">Takma adlar</string>
     <string name="title_provider">Sağlayıcı</string>
     <string name="title_custom">Özel</string>
+    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">DNSSEC\'i Zorla</string>
+    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Yalnızca sınırlı sayıda DNS sunucusu DNSSEC\'i destekler</string>
     <string name="title_host">Sunucu adı</string>
     <string name="title_encryption">Şifreleme açık</string>
     <string name="title_encryption_none">Yok (güvenliksiz)</string>
     <string name="title_allow_insecure">Güvensiz bağlantılara izin ver</string>
     <string name="title_insecure_remark">Güvensiz bağlantılara sadece güvenilen ağlarda izin verilmelidir ve halka açık ağlarda asla izin verilmemelidir</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE\'i Zorla</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Yalnızca bazı e-posta sunucuları DANE\'yi ve yalnızca sınırlı sayıda DNS sunucusu DNSSEC\'i destekler</string>
+    <string name="title_dane">DANE\'i Zorla</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Yalnızca bazı e-posta sağlayıcıları DANE\'yi destekler</string>
     <string name="title_notify_remark">Bunu hesaba özel bildirimler için etkinleştirebilirsiniz</string>
     <string name="title_port">Port numarası</string>
     <string name="title_user">Kullanıcı adı</string>

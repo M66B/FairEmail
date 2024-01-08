@@ -439,6 +439,8 @@
     <string name="title_advanced_vpn_only">Nur über ein VPN verbinden</string>
     <string name="title_advanced_timeout">Zeitüberschreitung der Verbindung (Sekunden)</string>
     <string name="title_advanced_prefer_ip4">IPv4 gegenüber IPv6 bevorzugen</string>
+    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Bevorzugte DNS-Server-Adressen (Komma-getrennt)</string>
+    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Benutzerdefinierten DNS-Resolver verwenden</string>
     <string name="title_advanced_ssl_update">Aktualisierten SSL-Anbieter verwenden</string>
     <string name="title_advanced_ssl_harden">SSL-Verbindungen stärken</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 voraussetzen</string>
@@ -596,6 +598,7 @@
     <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch ausklappen</string>
     <string name="title_advanced_expand_one">Jeweils nur eine Nachricht ausklappen</string>
     <string name="title_advanced_collapse_multiple">Nachrichten in einer Unterhaltung mit mehreren Nachrichten bei »Zurück« zusammenklappen</string>
+    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">Verzögerung der automatischen Markierung von Nachrichten als gelesen</string>
     <string name="title_advanced_autoclose">Unterhaltungen automatisch schließen</string>
     <string name="title_advanced_autoclose_send">Unterhaltungen nach dem Senden von Nachrichten automatisch schließen</string>
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
@@ -896,7 +899,7 @@
     <string name="title_advanced_reply_name">Namen aus der empfangenen Nachricht kopieren</string>
     <string name="title_advanced_sender_regex">Regex zum Abgleichen des Benutzernamens von eingehenden E-Mail-Adressen</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
-    <string name="title_identity_internal">Interne Domainnamen (durch Kommata getrennt)</string>
+    <string name="title_identity_internal">Interne Domainnamen (durch Kommas getrennt)</string>
     <string name="title_identity_uri">Kontakt verknüpfen</string>
     <string name="title_identity_sensitivity">Standardvertraulichkeit</string>
     <string name="title_identity_unicode">UTF-8 in Nachrichtenkopfzeilen zulassen</string>
@@ -932,13 +935,15 @@
     <string name="title_aliases">Aliasse</string>
     <string name="title_provider">Anbieter</string>
     <string name="title_custom">Benutzerdefiniert</string>
+    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">DNSSEC erzwingen</string>
+    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Nur eine begrenzte Anzahl von DNS-Servern unterstützt DNSSEC</string>
     <string name="title_host">Hostname</string>
     <string name="title_encryption">Verschlüsselung</string>
     <string name="title_encryption_none">Keine (unsicher)</string>
     <string name="title_allow_insecure">Unsichere Verbindungen zulassen</string>
     <string name="title_insecure_remark">Unsichere Verbindungen sollten nur in vertrauenswürdigen Netzwerken und niemals in öffentlichen Netzwerken erlaubt werden</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE erzwingen</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Nur einige E-Mail-Server unterstützen DANE und nur eine begrenzte Anzahl von DNS-Servern unterstützen DNSSEC</string>
+    <string name="title_dane">DANE erzwingen</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Nur einige E-Mail-Anbieter unterstützen DANE</string>
     <string name="title_notify_remark">Sie können das für kontenspezifische Benachrichtigungen aktivieren</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Benutzername</string>

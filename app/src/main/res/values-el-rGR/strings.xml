@@ -932,8 +932,7 @@
     <string name="title_encryption_none">Καμία (μη ασφαλής)</string>
     <string name="title_allow_insecure">Να επιτρέπονται μη ασφαλείς συνδέσεις</string>
     <string name="title_insecure_remark">Μη ασφαλείς συνδέσεις θα πρέπει να επιτρέπονται μόνο σε έμπιστα δίκτυα και ουδέποτε σε δημόσια δίκτυα</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Επιβολή DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Μόνο μερικοί διακομιστές ηλ. ταχυδρομείου υποστηρίζουν DANE και μόνον ένας περιορισμένος αριθμός DNS διακομιστών υποστηρίζουν DNSSEC</string>
+    <string name="title_dane">Επιβολή DANE</string>
     <string name="title_notify_remark">Μπορείτε να το ενεργοποιήσετε για να λαμβάνετε ειδοποιήσεις που αφορούν ειδικά σε έναν λογαριασμό</string>
     <string name="title_port">Αριθμός θύρας</string>
     <string name="title_user">Όνομα χρήστη</string>

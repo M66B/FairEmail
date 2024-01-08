@@ -439,6 +439,8 @@
     <string name="title_advanced_vpn_only">Apenas conectar-se através de uma VPN</string>
     <string name="title_advanced_timeout">Tempo limite de ligação (em segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 sobre IPv6</string>
+    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Endereços dos servidores DNS preferidos (separados por vírgula)</string>
+    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Usar servidor DNS personalizado</string>
     <string name="title_advanced_ssl_update">Usar provedor SSL atualizado</string>
     <string name="title_advanced_ssl_harden">Reforçar ligações SSL</string>
     <string name="title_advanced_ssl_harden_strict">Requer TLS 1.3</string>
@@ -596,6 +598,7 @@
     <string name="title_advanced_expand_all">Expandir automaticamente todas as mensagens lidas</string>
     <string name="title_advanced_expand_one">Expandir apenas uma mensagem de cada vez</string>
     <string name="title_advanced_collapse_multiple">Esconder mensagens numa conversa com múltiplas mensagens ao \'voltar\'</string>
+    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">Atrasar a marcação automática de mensagens como lidas</string>
     <string name="title_advanced_autoclose">Fechar conversas automaticamente</string>
     <string name="title_advanced_autoclose_send">Fechar conversa automaticamente após o envio de mensagens</string>
     <string name="title_advanced_onclose">Ao fechar uma conversa</string>
@@ -931,13 +934,15 @@
     <string name="title_aliases">Pseudónimos</string>
     <string name="title_provider">Fornecedor</string>
     <string name="title_custom">Personalizado</string>
+    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Forçar DNSSEC</string>
+    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Apenas um número limitado de servidores DNS suportam DNSSEC</string>
     <string name="title_host">Nome do servidor</string>
     <string name="title_encryption">Encriptação</string>
     <string name="title_encryption_none">Nenhuma (insegura)</string>
     <string name="title_allow_insecure">Permitir ligações inseguras</string>
     <string name="title_insecure_remark">Ligações inseguras só devem ser permitidas em redes confiáveis e nunca em redes públicas</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Forçar DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Apenas alguns servidores de e-mail suportam DANE e apenas um número limitado de servidores DNS suportam DNSSEC</string>
+    <string name="title_dane">Forçar DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Só alguns provedores de e-mail suportam DANE</string>
     <string name="title_notify_remark">Pode activar isto para ter notificações de uma conta em específico</string>
     <string name="title_port">Número da porta</string>
     <string name="title_user">Nome de utilizador</string>

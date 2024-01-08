@@ -384,6 +384,8 @@
     <string name="title_advanced_vpn_only">اتصال تنها به وسیله وی‌پی‌ان</string>
     <string name="title_advanced_timeout">اتصال برقرار نشد (ثانیه)</string>
     <string name="title_advanced_prefer_ip4">ترجیح IPv4 به IPv6</string>
+    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">آدرس سرورهای DNS ترجیحی (جدا شده با ویرگول)</string>
+    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">استفاده از DNS resolver انتخابی</string>
     <string name="title_advanced_ssl_update">استفاده از ارائه‌دهنده اس‌اس‌ال به روز</string>
     <string name="title_advanced_ssl_harden">اتصالات SSL را محکم کن</string>
     <string name="title_advanced_cert_transparency">شفافیت گواهینامه</string>
@@ -503,6 +505,7 @@
     <string name="title_advanced_up_down">استفاده از کلیدهای بالا و پایین برای رفتن به مکالمات بعدی و قبلی</string>
     <string name="title_advanced_autoexpand">بسط دادن خودکار پیام‌ها</string>
     <string name="title_advanced_expand_all">همه پیام‌ها را خودکار گسترش بده</string>
+    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">علامت‌گذاری خودکار پیام‌ها به عنوان خوانده شده را به تاخیر بیانداز</string>
     <string name="title_advanced_autoclose">بستن خودکار مکالمات</string>
     <string name="title_advanced_onclose">هنگام بستن یک گفتگو</string>
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
@@ -650,11 +653,13 @@
     <string name="title_aliases">نام‌های مستعار</string>
     <string name="title_provider">فراهم کننده</string>
     <string name="title_custom">سفارشی</string>
+    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">اجبار به استفاده از DNSSEC</string>
+    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">تنها تعداد کمی از سرورهای DNS از DNSSEC پشتیبانی می‌کنند</string>
     <string name="title_host">نام میزبان</string>
     <string name="title_encryption">رمزنگاری</string>
     <string name="title_allow_insecure">اجازه اتصال ناامن</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">اعمال کردن DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">تنها تعداد کمی از سرورهای ایمیل از DANE پشتیبانی می‌کنند و تعداد محدودی از سرورهای DNS از DNSSEC</string>
+    <string name="title_dane">اعمال کردن DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">تنها تعدادی از ارائه‌دهنده‌های ایمیل از DANE پشتیبانی می‌کنند</string>
     <string name="title_notify_remark">می‌توانید این را برای نوتیفیکیشن‌های خاص حساب فعال کنید</string>
     <string name="title_port">شماره پورت</string>
     <string name="title_user">نام کاربری</string>

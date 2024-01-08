@@ -436,6 +436,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_vpn_only">Alleen via een VPN verbinden</string>
     <string name="title_advanced_timeout">Verbinding timeout (seconden)</string>
     <string name="title_advanced_prefer_ip4">Geef de voorkeur aan IPv4 boven IPv6</string>
+    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Voorkeurs DNS serveradressen (komma gescheiden)</string>
+    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Gebruik een aangepaste DNS-resolver</string>
     <string name="title_advanced_ssl_update">Bijgewerkte SSL-provider gebruiken</string>
     <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_ssl_harden_strict">Vereis TLS 1.3</string>
@@ -593,6 +595,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_expand_all">Automatisch alle gelezen berichten uitvouwen</string>
     <string name="title_advanced_expand_one">Vouw slechts één bericht per keer uit</string>
     <string name="title_advanced_collapse_multiple">Vouw berichten in een gesprek met meerdere berichten bij \'terug\' samen</string>
+    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">Vertraging voor het automatisch markeren van berichten als gelezen</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_autoclose_send">Gesprekken automatisch sluiten na het verzenden van berichten</string>
     <string name="title_advanced_onclose">Bij het sluiten van een gesprek</string>
@@ -927,13 +930,15 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_aliases">Aliassen</string>
     <string name="title_provider">Provider</string>
     <string name="title_custom">Aangepast</string>
+    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">DNSSEC afdwingen</string>
+    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Slechts een beperkt aantal DNS-servers ondersteunt DNSSEC</string>
     <string name="title_host">Hostnaam</string>
     <string name="title_encryption">Versleuteling</string>
     <string name="title_encryption_none">Geen (onveilig)</string>
     <string name="title_allow_insecure">Onveilige verbindingen toestaan</string>
     <string name="title_insecure_remark">Onveilige verbindingen mogen alleen worden toegestaan op vertrouwde netwerken en nooit op openbare netwerken</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE afdwingen</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Slechts enkele mailservers ondersteunen DANE en slechts een beperkt aantal DNS-servers ondersteunen DNSSEC</string>
+    <string name="title_dane">DANE afdwingen</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Slechts enkele mailaanbieders ondersteunen DANE</string>
     <string name="title_notify_remark">U kunt dit inschakelen voor account specifieke meldingen</string>
     <string name="title_port">Poortnummer</string>
     <string name="title_user">Gebruikersnaam</string>

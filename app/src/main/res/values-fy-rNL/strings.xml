@@ -933,8 +933,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_encryption_none">Gjin (ûnfeilich)</string>
     <string name="title_allow_insecure">Unfeilige ferbiningen tastean</string>
     <string name="title_insecure_remark">Unfeilige ferbiningen moatte allinnich tastien wurde op fertroude netwurken en nea op iepenbiere netwurken</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE ôftwinge</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Mar inkelde mailservers stypje DANE en mar in beheind tal DNS-servers stypje DNSSEC</string>
+    <string name="title_dane">DANE ôftwinge</string>
     <string name="title_notify_remark">Jo kinne dit ynskeakelje foar accountspesifike meldingen</string>
     <string name="title_port">Poartenûmer</string>
     <string name="title_user">Brûkersnamme</string>

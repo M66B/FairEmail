@@ -466,6 +466,8 @@
     <string name="title_advanced_vpn_only">Під’єднуватися тільки через VPN</string>
     <string name="title_advanced_timeout">Час очікування підключення (секунди)</string>
     <string name="title_advanced_prefer_ip4">Віддавати перевагу IPv4 над IPv6</string>
+    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Бажані адреси DNS-серверів (через кому)</string>
+    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Використовувати нетиповий DNS resolver</string>
     <string name="title_advanced_ssl_update">Використовувати оновленого SSL-провайдера</string>
     <string name="title_advanced_ssl_harden">Посилене SSL-з\'єднання</string>
     <string name="title_advanced_ssl_harden_strict">Вимагати TLS 1.3</string>
@@ -623,6 +625,7 @@
     <string name="title_advanced_expand_all">Автоматично розкривати всі прочитані повідомлення</string>
     <string name="title_advanced_expand_one">Розкривати лише одне повідомлення за раз</string>
     <string name="title_advanced_collapse_multiple">Згортати повідомлення в розмові з декількома повідомленнями при переході «Назад»</string>
+    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">Затримка автоматичного позначення повідомлень прочитаними</string>
     <string name="title_advanced_autoclose">Автоматично закривати розмови</string>
     <string name="title_advanced_autoclose_send">Автоматично закривати розмови після відправлення повідомлень</string>
     <string name="title_advanced_onclose">При закритті розмови</string>
@@ -957,13 +960,15 @@
     <string name="title_aliases">Псевдоніми</string>
     <string name="title_provider">Постачальник</string>
     <string name="title_custom">Власний</string>
+    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Примусово використовувати DNSSEC</string>
+    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Лише обмежена кількість DNS-серверів підтримує DNSSEC</string>
     <string name="title_host">Ім\'я хосту</string>
     <string name="title_encryption">Шифрування</string>
     <string name="title_encryption_none">Немає (незахищено)</string>
     <string name="title_allow_insecure">Дозволити незахищене з’єднання</string>
     <string name="title_insecure_remark">Небезпечні підключення повинні бути дозволені тільки в надійних мережах і ніколи в мережах спільного користування</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Примусово використовувати DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Не всі сервери електронної пошти підтримують DANE і лише невелика кількість DNS-серверів підтримують DNSSEC</string>
+    <string name="title_dane">Примусово використовувати DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Лише деякі поштові провайдери підтримують DANE</string>
     <string name="title_notify_remark">Ви можете ввімкнути цю функцію для сповіщень в певному обліковому записі</string>
     <string name="title_port">Номер порту</string>
     <string name="title_user">Ім\'я користувача</string>

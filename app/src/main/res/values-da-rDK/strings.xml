@@ -438,6 +438,8 @@
     <string name="title_advanced_vpn_only">Tilslut kun vha. VPN</string>
     <string name="title_advanced_timeout">Forbindelses-timeout (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Foretræk IPv4 frem for IPv6</string>
+    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Foretrukne DNS-serveradresser (kommasepareret)</string>
+    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Brug tilpasset DNS-opløser</string>
     <string name="title_advanced_ssl_update">Benyt opdateret SSL-udbyder</string>
     <string name="title_advanced_ssl_harden">Hærd SSL-forbindelser</string>
     <string name="title_advanced_ssl_harden_strict">Kræv TLS 1.3</string>
@@ -595,6 +597,7 @@
     <string name="title_advanced_expand_all">Auto-udvid alle læste beskeder</string>
     <string name="title_advanced_expand_one">Udvid kun én besked ad gangen</string>
     <string name="title_advanced_collapse_multiple">Sammenfold beskeder i en samtale med flere beskeder ved tryk på \'Tilbage\'</string>
+    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">Forsink automatisk markering af beskeder som læst</string>
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>
     <string name="title_advanced_autoclose_send">Luk automatisk samtaler efter beskedafsendelse</string>
     <string name="title_advanced_onclose">Ved lukning af i en samtale</string>
@@ -931,13 +934,15 @@
     <string name="title_aliases">Aliaser</string>
     <string name="title_provider">Udbyder</string>
     <string name="title_custom">Tilpasset</string>
+    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Håndhæv DNSSEC</string>
+    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Kun et begrænset antal DNS-servere understøtter DNSSEC</string>
     <string name="title_host">Værtsnavn</string>
     <string name="title_encryption">Kryptering</string>
     <string name="title_encryption_none">Ingen (usikker)</string>
     <string name="title_allow_insecure">Tillad usikre forbindelser</string>
     <string name="title_insecure_remark">Usikre forbindelser bør kun tillades på betroede netværk og aldrig på offentlige netværk</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Håndhæv DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Ikke alle e-mailservere understøtter DANE, og kun et begrænset antal DNS-servere understøtter DNSSEC</string>
+    <string name="title_dane">Håndhæv DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE understøttes ikke af alle e-mailudbydere</string>
     <string name="title_notify_remark">Dette kan aktivere for kontospecifikke notifikationer</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Brugernavn</string>

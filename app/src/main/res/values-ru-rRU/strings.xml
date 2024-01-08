@@ -963,8 +963,7 @@
     <string name="title_encryption_none">Нет (небезопасно)</string>
     <string name="title_allow_insecure">Разрешить небезопасные подключения</string>
     <string name="title_insecure_remark">Небезопасные соединения могут быть разрешены только в доверенных сетях и никогда в публичных сетях</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Принудительно использовать DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Только некоторые почтовые серверы поддерживают DANE и ограниченное число DNS-серверов поддерживают DNSSEC</string>
+    <string name="title_dane">Принудительно использовать DANE</string>
     <string name="title_notify_remark">Вы можете включить это для уведомлений конкретной учётной записи</string>
     <string name="title_port">Номер порта</string>
     <string name="title_user">Имя пользователя</string>
