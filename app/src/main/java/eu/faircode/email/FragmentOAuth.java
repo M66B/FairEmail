@@ -142,6 +142,7 @@ public class FragmentOAuth extends FragmentBase {
     private static final String FAIREMAIL_RANDOM = "fairemail.random";
     private static final String FAIREMAIL_EXPIRE = "fairemail.expire";
     private static final int MAILRU_TIMEOUT = 20 * 1000; // milliseconds
+    private static final long OAUTH_TIMEOUT = 20 * 60 * 1000L;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -426,7 +427,7 @@ public class FragmentOAuth extends FragmentBase {
                     Uri.parse(tokenEndpoint));
 
             int random = Math.abs(new SecureRandom().nextInt());
-            long expire = new Date().getTime() + 10 * 60 * 1000L;
+            long expire = new Date().getTime() + OAUTH_TIMEOUT;
             AuthState authState = new AuthState(serviceConfig);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String key = "oauth." + provider.id + (graph ? ":graph" : "");
