@@ -53,6 +53,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
         final CheckBox cbNotes = dview.findViewById(R.id.cbNotes);
         final CheckBox cbRule = dview.findViewById(R.id.cbRule);
         final CheckBox cbKeywords = dview.findViewById(R.id.cbKeywords);
+        final CheckBox cbLabels = dview.findViewById(R.id.cbLabels);
         final CheckBox cbSearch = dview.findViewById(R.id.cbSearch);
         final CheckBox cbSearchText = dview.findViewById(R.id.cbSearchText);
         final CheckBox cbTranslate = dview.findViewById(R.id.cbTranslate);
@@ -81,6 +82,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
         cbNotes.setChecked(prefs.getBoolean("button_notes", false));
         cbRule.setChecked(prefs.getBoolean("button_rule", false));
         cbKeywords.setChecked(prefs.getBoolean("button_keywords", false));
+        cbLabels.setChecked(prefs.getBoolean("button_labels", true));
         cbSearch.setChecked(prefs.getBoolean("button_search", false));
         cbSearchText.setChecked(prefs.getBoolean("button_search_text", false));
         cbTranslate.setChecked(prefs.getBoolean("button_translate", true));
@@ -112,6 +114,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
                         editor.putBoolean("button_notes", cbNotes.isChecked());
                         editor.putBoolean("button_rule", cbRule.isChecked());
                         editor.putBoolean("button_keywords", cbKeywords.isChecked());
+                        editor.putBoolean("button_labels", cbLabels.isChecked());
                         editor.putBoolean("button_search", cbSearch.isChecked());
                         editor.putBoolean("button_search_text", cbSearchText.isChecked());
                         editor.putBoolean("button_translate", cbTranslate.isChecked());

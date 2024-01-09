@@ -2318,6 +2318,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_move = prefs.getBoolean("button_move", true);
                     boolean button_copy = prefs.getBoolean("button_copy", false);
                     boolean button_keywords = prefs.getBoolean("button_keywords", false);
+                    boolean button_labels = prefs.getBoolean("button_labels", true);
                     boolean button_notes = prefs.getBoolean("button_notes", false);
                     boolean button_seen = prefs.getBoolean("button_seen", false);
                     boolean button_hide = prefs.getBoolean("button_hide", false);
@@ -2370,7 +2371,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibHide.setVisibility(tools && button_hide && !outbox ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibNotes.setVisibility(tools && button_notes && !outbox ? View.VISIBLE : View.GONE);
-                    ibLabels.setVisibility(tools && labels_header && labels ? View.VISIBLE : View.GONE);
+                    ibLabels.setVisibility(tools && labels_header && labels && button_labels ? View.VISIBLE : View.GONE);
                     ibKeywords.setVisibility(tools && button_keywords && keywords ? View.VISIBLE : View.GONE);
                     ibCopy.setVisibility(tools && button_copy && move ? View.VISIBLE : View.GONE);
                     ibMove.setVisibility(tools && button_move && move ? View.VISIBLE : View.GONE);
