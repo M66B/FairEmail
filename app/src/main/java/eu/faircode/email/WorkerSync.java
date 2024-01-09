@@ -73,7 +73,9 @@ public class WorkerSync extends Worker {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String user = prefs.getString("cloud_user", null);
         String password = prefs.getString("cloud_password", null);
-        boolean enabled = !(TextUtils.isEmpty(user) || TextUtils.isEmpty(password));
+        boolean enabled = !(TextUtils.isEmpty(BuildConfig.CLOUD_URI) ||
+                TextUtils.isEmpty(user) ||
+                TextUtils.isEmpty(password));
         Log.i("Cloud worker enabled=" + enabled);
         try {
             if (enabled) {
