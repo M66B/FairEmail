@@ -199,6 +199,7 @@
     <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
     <string name="title_setup_manual">Ручная настройка и параметры учётной записи</string>
     <string name="title_setup_classic">Классическая настройка</string>
+    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Мастер быстрой настройки для \"Другого провайдера\" обычно тоже работает и он проще, чем ввод всех данных сервера вручную.</string>
     <string name="title_setup_documentation">Ознакомьтесь с документацией почтового провайдера для правильной настройки сервера</string>
     <string name="title_setup_account_remark">Получение почты</string>
     <string name="title_setup_identity_remark">Отправка почты</string>
@@ -208,6 +209,7 @@
     <string name="title_setup_google_sign_in">Войти с помощью Google</string>
     <string name="title_setup_other">Другой провайдер</string>
     <string name="title_setup_inbound">Только входящая почта (отправка письма невозможна!)</string>
+    <string name="title_setup_imap">Учётная запись IMAP</string>
     <string name="title_setup_pop3">Учётная запись POP3</string>
     <string name="title_setup_oauth_permission">Провайдер электронной почты одобрил OAuth только для официальных версий приложения из Play Store и GitHub</string>
     <string name="title_setup_gmail_support">Авторизация учётных записей Google будет работать только в официальных версиях из Play Store и GitHub, так как Android проверяет подпись приложения</string>
@@ -465,6 +467,8 @@
     <string name="title_advanced_vpn_only">Подключаться только через VPN</string>
     <string name="title_advanced_timeout">Время ожидания подключения (сек.)</string>
     <string name="title_advanced_prefer_ip4">Предпочитать IPv4</string>
+    <string name="title_advanced_dns">Адреса предпочтительных DNS-серверов (через запятую)</string>
+    <string name="title_advanced_dns_custom">Использовать пользовательский DNS</string>
     <string name="title_advanced_ssl_update">Использовать обновлённый SSL-провайдер</string>
     <string name="title_advanced_ssl_harden">Усиленные SSL-подключения</string>
     <string name="title_advanced_ssl_harden_strict">Требовать TLS 1.3</string>
@@ -622,6 +626,7 @@
     <string name="title_advanced_expand_all">Автоматически разворачивать все прочитанные сообщения</string>
     <string name="title_advanced_expand_one">Разворачивать только одно сообщение за раз</string>
     <string name="title_advanced_collapse_multiple">Сворачивать сообщения в диалоге с несколькими сообщениями кнопкой \"назад\"</string>
+    <string name="title_advanced_seen_delay">Задержка автоматической пометки сообщений прочитанными</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_autoclose_send">Автоматически закрывать диалоги после отправки сообщений</string>
     <string name="title_advanced_onclose">При закрытии диалога</string>
@@ -958,12 +963,15 @@
     <string name="title_aliases">Псевдонимы</string>
     <string name="title_provider">Провайдер</string>
     <string name="title_custom">Пользовательское</string>
+    <string name="title_dnssec">Принудительно использовать DNSSEC</string>
+    <string name="title_dnssec_remark">DNSSEC поддерживает ограниченное количество DNS-серверов</string>
     <string name="title_host">Имя хоста</string>
     <string name="title_encryption">Шифрование</string>
     <string name="title_encryption_none">Нет (небезопасно)</string>
     <string name="title_allow_insecure">Разрешить небезопасные подключения</string>
     <string name="title_insecure_remark">Небезопасные соединения могут быть разрешены только в доверенных сетях и никогда в публичных сетях</string>
     <string name="title_dane">Принудительно использовать DANE</string>
+    <string name="title_dane_remark">DANE поддерживают только некоторые провайдеры электронной почты</string>
     <string name="title_notify_remark">Вы можете включить это для уведомлений конкретной учётной записи</string>
     <string name="title_port">Номер порта</string>
     <string name="title_user">Имя пользователя</string>

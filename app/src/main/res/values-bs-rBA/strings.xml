@@ -185,6 +185,7 @@
     <string name="title_setup_wizard_new">Potrebna je nova e-mail adresa</string>
     <string name="title_setup_manual">Ručno podešavanje i opcije za račun</string>
     <string name="title_setup_classic">Klasično podešavanje</string>
+    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Obično radi i gore navedeni čarobnjak za brze postavke za \"druge provajdere\", te je jednostavnije od unosa svih serverskih podataka.</string>
     <string name="title_setup_documentation">Molimo da provjerite dokumente od vašeg e-mail provajdera (poslužitelja) za tačno podešavanje e-mail servera</string>
     <string name="title_setup_account_remark">Prijem e-pošte</string>
     <string name="title_setup_identity_remark">Pošalji e-poštu</string>
@@ -194,6 +195,7 @@
     <string name="title_setup_google_sign_in">Prijavite se preko Google-a</string>
     <string name="title_setup_other">Drugi provajder</string>
     <string name="title_setup_inbound">Samo dolazna pošta (e-pošta se ne može poslati!)</string>
+    <string name="title_setup_imap">IMAP račun</string>
     <string name="title_setup_pop3">POP3 račun</string>
     <string name="title_setup_oauth_permission">E-mail provajder je odobrio OAuth provjeru saamo za verziju iz Play trgovine i GitHub-a</string>
     <string name="title_setup_gmail_support">Autorizacija Google računa radit će samo u verzijama Play trgovine i GitHub-a, jer Android provjerava digitalne potpise aplikacija</string>
@@ -452,6 +454,8 @@
     <string name="title_advanced_vpn_only">Poveži se samo putem VPN-a</string>
     <string name="title_advanced_timeout">Konekcija na isteku (sekunde)</string>
     <string name="title_advanced_prefer_ip4">Preferiraj IPv4 preko IPv6</string>
+    <string name="title_advanced_dns">Adrese preferiranog DNS servera (odvojene zarezom)</string>
+    <string name="title_advanced_dns_custom">Koristi prilagođeni DNS resolver</string>
     <string name="title_advanced_ssl_update">Koristi ažurirani SSL provajder</string>
     <string name="title_advanced_ssl_harden">Ojačaj SSL konekcije</string>
     <string name="title_advanced_ssl_harden_strict">Zahtjevaj TLS 1.3</string>
@@ -609,6 +613,7 @@
     <string name="title_advanced_expand_all">Automatski raširi sve pročitane poruke</string>
     <string name="title_advanced_expand_one">Raširi samo jednu poruku u datom trenutku</string>
     <string name="title_advanced_collapse_multiple">Suzi poruke u konverzacijama sa višestrukim porukama u pozadini</string>
+    <string name="title_advanced_seen_delay">Odgodi automatsko označavanje poruka kao pročitanih</string>
     <string name="title_advanced_autoclose">Automatski zatvori konverzacije</string>
     <string name="title_advanced_autoclose_send">Automatski zatvoriti konverzacije nakon slanja poruka</string>
     <string name="title_advanced_onclose">Pri zatvaranju konverzacija</string>
@@ -944,11 +949,15 @@
     <string name="title_aliases">Pseudonimi</string>
     <string name="title_provider">Provajder</string>
     <string name="title_custom">Prilagođen</string>
+    <string name="title_dnssec">Forsiraj DNSSEC</string>
+    <string name="title_dnssec_remark">Samo ograničen broj DNS servera podržava DNSSEC</string>
     <string name="title_host">Naziv hosta</string>
     <string name="title_encryption">Šifriranje</string>
     <string name="title_encryption_none">Nema (nesigurno)</string>
     <string name="title_allow_insecure">Dopusti nesigurne konekcije</string>
     <string name="title_insecure_remark">Nesigurne konekcije trebaju biti dopuštene samo na pouzdanim mrežama i nikada na javnim mrežama</string>
+    <string name="title_dane">Forsiraj DANE</string>
+    <string name="title_dane_remark">Samo neki e-mail provajderi podržavaju DANE</string>
     <string name="title_notify_remark">Možete omogućiti ovo za obavještenja specifična za račune</string>
     <string name="title_port">Broj porta</string>
     <string name="title_user">Korisničko ime</string>

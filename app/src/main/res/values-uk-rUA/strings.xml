@@ -41,7 +41,7 @@
         <item quantity="other">Повідомлення</item>
     </plurals>
     <string name="page_folders">Теки</string>
-    <string name="page_compose">Написати</string>
+    <string name="page_compose">Створити</string>
     <string name="tile_synchronize">Синхронізувати</string>
     <string name="tile_unseen">Нові повідомлення</string>
     <string name="shortcut_refresh">Оновити</string>
@@ -200,6 +200,7 @@
     <string name="title_setup_wizard_new">Мені потрібна нова адреса електронної пошти</string>
     <string name="title_setup_manual">Ручне налаштування та параметри облікових записів</string>
     <string name="title_setup_classic">Класична конфігурація</string>
+    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Майстер швидкого налаштування для «Іншого постачальника», наведений вище, зазвичай теж працює, і це простіше, ніж вводити всі дані сервера.</string>
     <string name="title_setup_documentation">Перегляньте документацію свого постачальника пошти для правильної конфігурації сервера електронної пошти</string>
     <string name="title_setup_account_remark">Отримання пошти</string>
     <string name="title_setup_identity_remark">Надсилання пошти</string>
@@ -209,6 +210,7 @@
     <string name="title_setup_google_sign_in">Увійти за допомогою Google</string>
     <string name="title_setup_other">Інші постачальники</string>
     <string name="title_setup_inbound">Тільки вхідна пошта (електронні листи не можуть бути надіслані!)</string>
+    <string name="title_setup_imap">Обліковий запис IMAP</string>
     <string name="title_setup_pop3">Обліковий запис POP3</string>
     <string name="title_setup_oauth_permission">Постачальник електронної пошти схвалив OAuth тільки для версій з Play Store та GitHub</string>
     <string name="title_setup_gmail_support">Авторизація облікових записів Google працюватиме тільки в версіях з Play Store та GitHub, тому що Android перевіряє цифровий підпис додатка</string>
@@ -466,8 +468,8 @@
     <string name="title_advanced_vpn_only">Під’єднуватися тільки через VPN</string>
     <string name="title_advanced_timeout">Час очікування підключення (секунди)</string>
     <string name="title_advanced_prefer_ip4">Віддавати перевагу IPv4 над IPv6</string>
-    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Бажані адреси DNS-серверів (через кому)</string>
-    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Використовувати нетиповий DNS resolver</string>
+    <string name="title_advanced_dns">Бажані адреси DNS-серверів (через кому)</string>
+    <string name="title_advanced_dns_custom">Використовувати нетиповий DNS resolver</string>
     <string name="title_advanced_ssl_update">Використовувати оновленого SSL-провайдера</string>
     <string name="title_advanced_ssl_harden">Посилене SSL-з\'єднання</string>
     <string name="title_advanced_ssl_harden_strict">Вимагати TLS 1.3</string>
@@ -625,7 +627,7 @@
     <string name="title_advanced_expand_all">Автоматично розкривати всі прочитані повідомлення</string>
     <string name="title_advanced_expand_one">Розкривати лише одне повідомлення за раз</string>
     <string name="title_advanced_collapse_multiple">Згортати повідомлення в розмові з декількома повідомленнями при переході «Назад»</string>
-    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">Затримка автоматичного позначення повідомлень прочитаними</string>
+    <string name="title_advanced_seen_delay">Затримка автоматичного позначення повідомлень прочитаними</string>
     <string name="title_advanced_autoclose">Автоматично закривати розмови</string>
     <string name="title_advanced_autoclose_send">Автоматично закривати розмови після відправлення повідомлень</string>
     <string name="title_advanced_onclose">При закритті розмови</string>
@@ -960,15 +962,15 @@
     <string name="title_aliases">Псевдоніми</string>
     <string name="title_provider">Постачальник</string>
     <string name="title_custom">Власний</string>
-    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Примусово використовувати DNSSEC</string>
-    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Лише обмежена кількість DNS-серверів підтримує DNSSEC</string>
+    <string name="title_dnssec">Примусово використовувати DNSSEC</string>
+    <string name="title_dnssec_remark">Лише обмежена кількість DNS-серверів підтримує DNSSEC</string>
     <string name="title_host">Ім\'я хосту</string>
     <string name="title_encryption">Шифрування</string>
     <string name="title_encryption_none">Немає (незахищено)</string>
     <string name="title_allow_insecure">Дозволити незахищене з’єднання</string>
     <string name="title_insecure_remark">Небезпечні підключення повинні бути дозволені тільки в надійних мережах і ніколи в мережах спільного користування</string>
     <string name="title_dane">Примусово використовувати DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Лише деякі поштові провайдери підтримують DANE</string>
+    <string name="title_dane_remark">Лише деякі поштові провайдери підтримують DANE</string>
     <string name="title_notify_remark">Ви можете ввімкнути цю функцію для сповіщень в певному обліковому записі</string>
     <string name="title_port">Номер порту</string>
     <string name="title_user">Ім\'я користувача</string>

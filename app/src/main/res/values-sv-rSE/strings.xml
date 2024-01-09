@@ -434,6 +434,8 @@
     <string name="title_advanced_vpn_only">Anslut endast via VPN</string>
     <string name="title_advanced_timeout">Timeout för anslutning (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Föredra IPv4 över IPv6</string>
+    <string name="title_advanced_dns">Föredragna DNS-serveradresser (kommaseparerade)</string>
+    <string name="title_advanced_dns_custom">Använd anpassad DNS-resolver</string>
     <string name="title_advanced_ssl_update">Använd uppdaterad SSL-leverantör</string>
     <string name="title_advanced_ssl_harden">Strikta SSL-anslutningar</string>
     <string name="title_advanced_ssl_harden_strict">Kräv TLS 1.3</string>
@@ -591,6 +593,7 @@
     <string name="title_advanced_expand_all">Expandera automatiskt alla lästa meddelanden</string>
     <string name="title_advanced_expand_one">Expandera endast ett meddelande åt gången</string>
     <string name="title_advanced_collapse_multiple">Kollapsa meddelanden i en konversation med flera meddelanden på \'back\'</string>
+    <string name="title_advanced_seen_delay">Fördröj automatiskt markering av meddelanden som lästa</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
     <string name="title_advanced_autoclose_send">Stäng konversationer automatiskt efter att ha skickat meddelanden</string>
     <string name="title_advanced_onclose">När du stänger en konversation</string>
@@ -923,12 +926,15 @@
     <string name="title_aliases">Alias</string>
     <string name="title_provider">Leverantör</string>
     <string name="title_custom">Anpassad</string>
+    <string name="title_dnssec">Tvinga DNSSEC</string>
+    <string name="title_dnssec_remark">Endast ett begränsat antal DNS-servrar stöder DNSSEC</string>
     <string name="title_host">Värdnamn</string>
     <string name="title_encryption">Kryptering</string>
     <string name="title_encryption_none">Ingen (osäker)</string>
     <string name="title_allow_insecure">Tillåt osäkra anslutningar</string>
     <string name="title_insecure_remark">Osäkra anslutningar bör endast tillåtas på betrodda nätverk och aldrig på offentliga nätverk</string>
     <string name="title_dane">Tvinga DANE</string>
+    <string name="title_dane_remark">Endast vissa e-postleverantörer stöder DANE</string>
     <string name="title_notify_remark">Du kan aktivera det här för kontospecifika aviseringar</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Användarnamn</string>

@@ -437,6 +437,7 @@
     <string name="title_advanced_vpn_only">Σύνδεση μόνο μέσω VPN</string>
     <string name="title_advanced_timeout">Χρονικό όριο σύνδεσης (δευτερόλεπτα)</string>
     <string name="title_advanced_prefer_ip4">Να προτιμάται IPv4 παρά IPv6</string>
+    <string name="title_advanced_dns">Διευθύνσεις προτιμώμενων διακομιστών DNS (χωρισμένες με κόμμα)</string>
     <string name="title_advanced_ssl_update">Χρήση ενημερωμένου παρόχου SSL</string>
     <string name="title_advanced_ssl_harden">Θωράκιση συνδέσεων SSL</string>
     <string name="title_advanced_ssl_harden_strict">Απαιτείται TLS 1.3</string>
@@ -594,6 +595,7 @@
     <string name="title_advanced_expand_all">Αυτόματη ανάπτυξη όλων των αναγνωσμένων μηνυμάτων</string>
     <string name="title_advanced_expand_one">Ανάπτυξη μόνο ενός μηνύματος κάθε φορά</string>
     <string name="title_advanced_collapse_multiple">Σύμπτυξη των μηνυμάτων σε μια συζήτηση με πολλαπλά μηνύματα, πατώντας \"πίσω\"</string>
+    <string name="title_advanced_seen_delay">Καθυστέρηση κατά τη σήμανση μηνυμάτων ως αναγνωσμένων</string>
     <string name="title_advanced_autoclose">Αυτόματη κλείσιμο των συζητήσεων</string>
     <string name="title_advanced_autoclose_send">Αυτόματο κλείσιμο συζητήσεων μετά την αποστολή μηνυμάτων</string>
     <string name="title_advanced_onclose">Κατά το κλείσιμο μιας συζήτησης</string>
@@ -927,12 +929,15 @@
     <string name="title_aliases">Ψευδώνυμα</string>
     <string name="title_provider">Πάροχος</string>
     <string name="title_custom">Προσαρμοσμένο</string>
+    <string name="title_dnssec">Επιβολή DNSSEC</string>
+    <string name="title_dnssec_remark">Μόνον ένας περιορισμένος αριθμός διακομιστών DNS υποστηρίζει DNSSEC</string>
     <string name="title_host">Όνομα εξυπηρετητή</string>
     <string name="title_encryption">Κρυπτογράφηση</string>
     <string name="title_encryption_none">Καμία (μη ασφαλής)</string>
     <string name="title_allow_insecure">Να επιτρέπονται μη ασφαλείς συνδέσεις</string>
     <string name="title_insecure_remark">Μη ασφαλείς συνδέσεις θα πρέπει να επιτρέπονται μόνο σε έμπιστα δίκτυα και ουδέποτε σε δημόσια δίκτυα</string>
     <string name="title_dane">Επιβολή DANE</string>
+    <string name="title_dane_remark">Μόνο μερικοί πάροχοι ηλ. ταχυδρομείου υποστηρίζουν DANE</string>
     <string name="title_notify_remark">Μπορείτε να το ενεργοποιήσετε για να λαμβάνετε ειδοποιήσεις που αφορούν ειδικά σε έναν λογαριασμό</string>
     <string name="title_port">Αριθμός θύρας</string>
     <string name="title_user">Όνομα χρήστη</string>

@@ -169,6 +169,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_wizard_new">Ik haw in nij e-mailadres nedich</string>
     <string name="title_setup_manual">Hânmjittich ynstelle en accountopsjes</string>
     <string name="title_setup_classic">Klassike konfiguraasje</string>
+    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">De flugge ynstallaasjewizard foar ‘Oare provider’ hjirboppe wurket meastentiids ek en is makliker as it ynfieren fan alle servergegevens.</string>
     <string name="title_setup_documentation">Besjoch de dokumintaasje fan jo e-mailprovider foar de krekte e-mailserverkonfiguraasje.</string>
     <string name="title_setup_account_remark">E-mailberjochten ûntfange</string>
     <string name="title_setup_identity_remark">E-mailberjochten ferstjoere</string>
@@ -178,6 +179,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_google_sign_in">Oanmelde mei Google</string>
     <string name="title_setup_other">Oare provider</string>
     <string name="title_setup_inbound">Allinnich ynkommende e-mail (e-mailberjochten kinne net ferstjoerd wurde!)</string>
+    <string name="title_setup_imap">IMAP-account</string>
     <string name="title_setup_pop3">POP3-account</string>
     <string name="title_setup_oauth_permission">De e-mailprovider hat OAuth allinnich goedkard foar de Play Store- en GitHub-ferzje</string>
     <string name="title_setup_gmail_support">Autorisearjen fan Google-accounts sil allinnich yn offisjele ferzjes wurkje omdat Android de app-hantekening kontrolearret</string>
@@ -436,6 +438,8 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_vpn_only">Allinnich fia in VPN ferbine</string>
     <string name="title_advanced_timeout">Timeout foar ferbining (sekonden)</string>
     <string name="title_advanced_prefer_ip4">Foarkar IPv4 boppe IPv6</string>
+    <string name="title_advanced_dns">Foarkar DNS-serveradressen (kommaskieden)</string>
+    <string name="title_advanced_dns_custom">Gebruik een aangepaste DNS-resolver</string>
     <string name="title_advanced_ssl_update">Bywurke SSL-provider brûke</string>
     <string name="title_advanced_ssl_harden">SSL-ferbiningen ferhurdzje</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 fereaskje</string>
@@ -593,6 +597,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_expand_all">Automatysk alle lêzen berjochten útklappe</string>
     <string name="title_advanced_expand_one">Mar ien berjocht tagelyk útklappe</string>
     <string name="title_advanced_collapse_multiple">Berjochten yn in petear mei meardere berjochten ynklappe by ‘tebek’</string>
+    <string name="title_advanced_seen_delay">Fertraging foar it automatysk as lêzen markearjen fan berichten</string>
     <string name="title_advanced_autoclose">Petearen automatysk slute</string>
     <string name="title_advanced_autoclose_send">Petearen automatysk slute nei it ferstjoeren fan berjochten</string>
     <string name="title_advanced_onclose">By it sluten fan in petear</string>
@@ -928,12 +933,15 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_aliases">Aliassen</string>
     <string name="title_provider">Provider</string>
     <string name="title_custom">Oanpast</string>
+    <string name="title_dnssec">DNSSEC ôftwinge</string>
+    <string name="title_dnssec_remark">Mar in beheind tal DNS-servers stipet DNSSEC</string>
     <string name="title_host">Hostnamme</string>
     <string name="title_encryption">Fersifering</string>
     <string name="title_encryption_none">Gjin (ûnfeilich)</string>
     <string name="title_allow_insecure">Unfeilige ferbiningen tastean</string>
     <string name="title_insecure_remark">Unfeilige ferbiningen moatte allinnich tastien wurde op fertroude netwurken en nea op iepenbiere netwurken</string>
     <string name="title_dane">DANE ôftwinge</string>
+    <string name="title_dane_remark">Mar inkelde mailproviders stypje DANE</string>
     <string name="title_notify_remark">Jo kinne dit ynskeakelje foar accountspesifike meldingen</string>
     <string name="title_port">Poartenûmer</string>
     <string name="title_user">Brûkersnamme</string>

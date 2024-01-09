@@ -171,6 +171,7 @@
     <string name="title_setup_wizard_new">Jeg behøver en ny e-mailadresse</string>
     <string name="title_setup_manual">Manuel opsætning og kontoindstillinger</string>
     <string name="title_setup_classic">Klassisk opsætning</string>
+    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Guiden til hurtig opsætning af \"Anden udbyder\" ovenfor virker normalt også og er nemmere end at angive alle serverdata.</string>
     <string name="title_setup_documentation">Tjek e-mailudbyderdokumentationen mht. korrekt e-mailserveropsætning</string>
     <string name="title_setup_account_remark">Modtag e-mail</string>
     <string name="title_setup_identity_remark">Send e-mail</string>
@@ -180,6 +181,7 @@
     <string name="title_setup_google_sign_in">Log ind med Google</string>
     <string name="title_setup_other">Anden udbyder</string>
     <string name="title_setup_inbound">Kun indgående e-mail (e-mail kan ikke sendes!)</string>
+    <string name="title_setup_imap">IMAP-konto</string>
     <string name="title_setup_pop3">POP3-konto</string>
     <string name="title_setup_oauth_permission">E-mailudbyderen har kun godkendt OAuth til Play Store- og GitHub-versioner</string>
     <string name="title_setup_gmail_support">Godkendelse af Google-konti fungerer kun i Play Store-versioner, da Android tjekker den digitale app-signatur</string>
@@ -438,8 +440,8 @@
     <string name="title_advanced_vpn_only">Tilslut kun vha. VPN</string>
     <string name="title_advanced_timeout">Forbindelses-timeout (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Foretræk IPv4 frem for IPv6</string>
-    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Foretrukne DNS-serveradresser (kommasepareret)</string>
-    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Brug tilpasset DNS-opløser</string>
+    <string name="title_advanced_dns">Foretrukne DNS-serveradresser (kommasepareret)</string>
+    <string name="title_advanced_dns_custom">Brug tilpasset DNS-opløser</string>
     <string name="title_advanced_ssl_update">Benyt opdateret SSL-udbyder</string>
     <string name="title_advanced_ssl_harden">Hærd SSL-forbindelser</string>
     <string name="title_advanced_ssl_harden_strict">Kræv TLS 1.3</string>
@@ -597,7 +599,7 @@
     <string name="title_advanced_expand_all">Auto-udvid alle læste beskeder</string>
     <string name="title_advanced_expand_one">Udvid kun én besked ad gangen</string>
     <string name="title_advanced_collapse_multiple">Sammenfold beskeder i en samtale med flere beskeder ved tryk på \'Tilbage\'</string>
-    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">Forsink automatisk markering af beskeder som læst</string>
+    <string name="title_advanced_seen_delay">Forsink automatisk markering af beskeder som læst</string>
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>
     <string name="title_advanced_autoclose_send">Luk automatisk samtaler efter beskedafsendelse</string>
     <string name="title_advanced_onclose">Ved lukning af i en samtale</string>
@@ -934,15 +936,15 @@
     <string name="title_aliases">Aliaser</string>
     <string name="title_provider">Udbyder</string>
     <string name="title_custom">Tilpasset</string>
-    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Håndhæv DNSSEC</string>
-    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Kun et begrænset antal DNS-servere understøtter DNSSEC</string>
+    <string name="title_dnssec">Håndhæv DNSSEC</string>
+    <string name="title_dnssec_remark">Kun et begrænset antal DNS-servere understøtter DNSSEC</string>
     <string name="title_host">Værtsnavn</string>
     <string name="title_encryption">Kryptering</string>
     <string name="title_encryption_none">Ingen (usikker)</string>
     <string name="title_allow_insecure">Tillad usikre forbindelser</string>
     <string name="title_insecure_remark">Usikre forbindelser bør kun tillades på betroede netværk og aldrig på offentlige netværk</string>
     <string name="title_dane">Håndhæv DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE understøttes ikke af alle e-mailudbydere</string>
+    <string name="title_dane_remark">DANE understøttes ikke af alle e-mailudbydere</string>
     <string name="title_notify_remark">Dette kan aktivere for kontospecifikke notifikationer</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Brugernavn</string>

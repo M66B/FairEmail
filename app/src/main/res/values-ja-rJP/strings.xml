@@ -157,6 +157,7 @@
     <string name="title_setup_wizard_new">新しいメールアドレスを取得する</string>
     <string name="title_setup_manual">手動セットアップとアカウントの設定</string>
     <string name="title_setup_classic">クラシカルな設定方法</string>
+    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">ほとんどの場合、上のクイックセットアップウィザードの「その他のプロバイダー」から、サーバーデータの入力を省略して簡単に設定できます。</string>
     <string name="title_setup_documentation">メールサーバー設定については、メールプロバイダーのドキュメントを参照してください</string>
     <string name="title_setup_account_remark">メールを受信</string>
     <string name="title_setup_identity_remark">メールを送信</string>
@@ -164,9 +165,10 @@
     <string name="title_setup_accounts">アカウント</string>
     <string name="title_setup_identities">ユーザー ID</string>
     <string name="title_setup_google_sign_in">Google でログイン</string>
-    <string name="title_setup_other">その他のプロバイダー (IMAP)</string>
+    <string name="title_setup_other">その他のプロバイダー</string>
     <string name="title_setup_inbound">メール受信のみ (送信できません！)</string>
-    <string name="title_setup_pop3">その他のプロバイダー (POP3)</string>
+    <string name="title_setup_imap">IMAP アカウント</string>
+    <string name="title_setup_pop3">POP3 アカウント</string>
     <string name="title_setup_oauth_permission">OAuth 認証はメールプロバイダーより Play ストア版と GitHub版でのみ承認されています</string>
     <string name="title_setup_gmail_support">Android がアプリの署名を確認するため、Google アカウントを認証する機能は Play ストア版と GitHub 版でのみ動作します</string>
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス権限を付与してください</string>
@@ -424,8 +426,8 @@
     <string name="title_advanced_vpn_only">VPN 経由でのみ接続する</string>
     <string name="title_advanced_timeout">接続タイムアウト (秒)</string>
     <string name="title_advanced_prefer_ip4">IPv6 より IPv4 を優先する</string>
-    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">優先 DNS サーバーアドレス (カンマ区切り)</string>
-    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">カスタム DNS リゾルバーを使用する</string>
+    <string name="title_advanced_dns">優先 DNS サーバーアドレス (カンマ区切り)</string>
+    <string name="title_advanced_dns_custom">カスタム DNS リゾルバーを使用する</string>
     <string name="title_advanced_ssl_update">更新された SSL プロバイダーを使用する</string>
     <string name="title_advanced_ssl_harden">より強固な SSL 接続</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 を要求する</string>
@@ -583,7 +585,7 @@
     <string name="title_advanced_expand_all">すべての既読メッセージを自動で展開する</string>
     <string name="title_advanced_expand_one">一度に 1 つのメッセージのみを展開する</string>
     <string name="title_advanced_collapse_multiple">複数のメッセージがある会話で「戻る」をタップしてメッセージを折りたたむ</string>
-    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">メッセージを自動で既読にするまでに遅延を入れる</string>
+    <string name="title_advanced_seen_delay">メッセージを自動で既読にするまでに遅延を入れる</string>
     <string name="title_advanced_autoclose">会話を自動で閉じる</string>
     <string name="title_advanced_autoclose_send">メッセージを送信したあと、自動で会話を閉じる</string>
     <string name="title_advanced_onclose">会話を閉じるとき</string>
@@ -919,13 +921,15 @@
     <string name="title_aliases">エイリアス</string>
     <string name="title_provider">プロバイダー</string>
     <string name="title_custom">カスタム</string>
-    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">DNSSEC を強制する</string>
+    <string name="title_dnssec">DNSSEC を強制する</string>
+    <string name="title_dnssec_remark">DNSSEC に対応した DNS サーバーは少数です</string>
     <string name="title_host">ホスト名</string>
     <string name="title_encryption">暗号化</string>
     <string name="title_encryption_none">なし (安全でない)</string>
     <string name="title_allow_insecure">保護されていない接続を許可する</string>
     <string name="title_insecure_remark">保護されていない接続は信頼できるネットワークでのみ許可し、パブリックネットワークでは許可しないでください</string>
     <string name="title_dane">DANE を強制する</string>
+    <string name="title_dane_remark">DANE に対応したメールプロバイダーは少数です</string>
     <string name="title_notify_remark">アカウント別の通知を有効にできます</string>
     <string name="title_port">ポート番号</string>
     <string name="title_user">ユーザー名</string>

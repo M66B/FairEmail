@@ -199,6 +199,7 @@
     <string name="title_setup_wizard_new">ארצה כתובת דוא״ל חדשה</string>
     <string name="title_setup_manual">הקמה ידנית ואפשרויות חשבון</string>
     <string name="title_setup_classic">הגדרות קלסיות</string>
+    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">אשף ההגדרה המהירה ל„ספק אחר” להלן בדרך כלל עובד גם כן והוא פשוט יותר ממילוי כל נתוני השרת.</string>
     <string name="title_setup_documentation">נא לעיין בתיעוד ספק הדוא״ל שלך לקבלת הגדרות שרת הדוא״ל הנכונות</string>
     <string name="title_setup_account_remark">קבלת דוא״ל</string>
     <string name="title_setup_identity_remark">שליחת דוא״ל</string>
@@ -208,6 +209,7 @@
     <string name="title_setup_google_sign_in">כניסה עם Google</string>
     <string name="title_setup_other">ספק אחר</string>
     <string name="title_setup_inbound">הודעות נכנסות בלבד (אי אפשר לשלוח הודעה בדוא״ל!)</string>
+    <string name="title_setup_imap">חשבון IMAP</string>
     <string name="title_setup_pop3">חשבון POP3</string>
     <string name="title_setup_oauth_permission">ספק הדוא״ל אישר OAuth רק לגרסאות שבחנות Play וב־GitHub</string>
     <string name="title_setup_gmail_support">אימות חשבונות Google יעבוד רק עם גרסה מחנות Play או מ־GitHub כיוון ש־Android בודק את חתימת היישומון</string>
@@ -466,8 +468,8 @@
     <string name="title_advanced_vpn_only">התחברות רק דרך VPN</string>
     <string name="title_advanced_timeout">זמן קצוב לחיבור (בשניות)</string>
     <string name="title_advanced_prefer_ip4">להעדיף IPv4 על פני IPv6</string>
-    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">כתובות שרתי DNS מועדפים (עם פסיקים בין לבין)</string>
-    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">להשתמש בפותר DNS בהתאמה אישית</string>
+    <string name="title_advanced_dns">כתובות שרתי DNS מועדפים (עם פסיקים בין לבין)</string>
+    <string name="title_advanced_dns_custom">להשתמש בפותר DNS בהתאמה אישית</string>
     <string name="title_advanced_ssl_update">להשתמש בספק SSL עדכני</string>
     <string name="title_advanced_ssl_harden">הקשחת חיבורי SSL</string>
     <string name="title_advanced_ssl_harden_strict">לדרוש TLS‎ 1.3</string>
@@ -625,7 +627,7 @@
     <string name="title_advanced_expand_all">להרחיב אוטומטית את כל ההודעות שנקראו</string>
     <string name="title_advanced_expand_one">להרחיב הודעה אחת כל פעם</string>
     <string name="title_advanced_collapse_multiple">צמצום הודעות בדיונים עם מגוון הודעות עם ‚חזרה’</string>
-    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">השהיית סימון אוטומטי של הודעות כנקראו</string>
+    <string name="title_advanced_seen_delay">השהיית סימון אוטומטי של הודעות כנקראו</string>
     <string name="title_advanced_autoclose">לסגור דיונים אוטומטית</string>
     <string name="title_advanced_autoclose_send">לסגור דיונים אוטומטית לאחר שליחת הודעות</string>
     <string name="title_advanced_onclose">עם סגירת דיון</string>
@@ -961,15 +963,15 @@
     <string name="title_aliases">כינויים</string>
     <string name="title_provider">ספק</string>
     <string name="title_custom">משלך</string>
-    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">אכיפת DNSSEC</string>
-    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">רק כמות מצומצמת של שרתי DNS תומכים ב־DNSSEC</string>
+    <string name="title_dnssec">אכיפת DNSSEC</string>
+    <string name="title_dnssec_remark">רק כמות מצומצמת של שרתי DNS תומכים ב־DNSSEC</string>
     <string name="title_host">שם מארח</string>
     <string name="title_encryption">הצפנה</string>
     <string name="title_encryption_none">ללא (בלתי מאובטח)</string>
     <string name="title_allow_insecure">לאפשר חיבורים מפוקפקים</string>
     <string name="title_insecure_remark">חיבורים בלתי מאובטחים/מפוקפקים יש לאפשר רק ברשתות מהימנות ואף פעם לא ברשתות ציבוריות</string>
     <string name="title_dane">אכיפת DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">רק חלק מספקי הדוא״ל תומכים ב־DANE</string>
+    <string name="title_dane_remark">רק חלק מספקי הדוא״ל תומכים ב־DANE</string>
     <string name="title_notify_remark">אפשר להפעיל את זה לקבלת התראות לחשבון מסוים</string>
     <string name="title_port">מספר פתחה</string>
     <string name="title_user">שם משתמש</string>

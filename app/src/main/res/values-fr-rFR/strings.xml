@@ -171,6 +171,7 @@
     <string name="title_setup_wizard_new">J\'ai besoin d\'une nouvelle adresse e-mail</string>
     <string name="title_setup_manual">Configuration manuelle et options des comptes</string>
     <string name="title_setup_classic">Configuration classique</string>
+    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">L\'assistant de configuration rapide pour un \"Autre fournisseur\" ci-dessus fonctionne également et est plus facile à utiliser que saisir toutes les données du serveur.</string>
     <string name="title_setup_documentation">Veuillez consulter la documentation de votre fournisseur de messagerie pour la configuration correcte du serveur de messagerie</string>
     <string name="title_setup_account_remark">Recevoir des e-mails</string>
     <string name="title_setup_identity_remark">Envoyer des e-mails</string>
@@ -180,6 +181,7 @@
     <string name="title_setup_google_sign_in">Se connecter avec Google</string>
     <string name="title_setup_other">Autre fournisseur</string>
     <string name="title_setup_inbound">Courrier entrant seulement (l\'e-mail ne peut pas être envoyé !)</string>
+    <string name="title_setup_imap">Compte IMAP</string>
     <string name="title_setup_pop3">Compte POP3</string>
     <string name="title_setup_oauth_permission">Le fournisseur de messagerie a approuvé OAuth uniquement pour les versions Play Store et GitHub</string>
     <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement avec les versions Play Store et GitHub parce qu\'Android vérifie la signature numérique de l\'application</string>
@@ -438,8 +440,8 @@
     <string name="title_advanced_vpn_only">Se connecter uniquement via un VPN</string>
     <string name="title_advanced_timeout">Délai d’expiration de la connexion (secondes)</string>
     <string name="title_advanced_prefer_ip4">Préférer IPv4 à IPv6</string>
-    <string name="title_advanced_dns" comment="title_advanced_dns&#10;Title for an option to configure extra, preferred DNS server addresses&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Adresses de serveurs DNS favoris (séparées par des virgules)</string>
-    <string name="title_advanced_dns_custom" comment="title_advanced_dns_custom&#10;Title for an option to use a custom DNS resolver instead of the Android DNS resolver&#10;https://en.wikipedia.org/wiki/Domain_Name_System">Utiliser un résolveur DNS personnalisé</string>
+    <string name="title_advanced_dns">Adresses de serveurs DNS favoris (séparées par des virgules)</string>
+    <string name="title_advanced_dns_custom">Utiliser un résolveur DNS personnalisé</string>
     <string name="title_advanced_ssl_update">Utiliser le fournisseur SSL mis à jour</string>
     <string name="title_advanced_ssl_harden">Renforcer les connexions SSL</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 requis</string>
@@ -597,7 +599,7 @@
     <string name="title_advanced_expand_all">Déplier automatiquement tous les messages lus</string>
     <string name="title_advanced_expand_one">Ne déplier qu’un seul message à la fois</string>
     <string name="title_advanced_collapse_multiple">Replier les multiples messages d’une conversation en faisant « Retour »</string>
-    <string name="title_advanced_seen_delay" comment="title_advanced_seen_delay&#10;Title for an option to configure the time to delay marking messages automatically read on opening/expanding messages.">Retarder le marquage automatique des messages comme lus</string>
+    <string name="title_advanced_seen_delay">Retarder le marquage automatique des messages comme lus</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_autoclose_send">Fermer automatiquement les conversations après l\'envoi de messages</string>
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
@@ -934,15 +936,15 @@
     <string name="title_aliases">Alias</string>
     <string name="title_provider">Fournisseur</string>
     <string name="title_custom">Personnalisé</string>
-    <string name="title_dnssec" comment="title_dnssec&#10;Title for account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Renforcer DNSSEC</string>
-    <string name="title_dnssec_remark" comment="title_dnssec_remark&#10;Remark below account/identity option to enforce DNSSEC&#10;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">Seul un nombre limité de serveurs DNS prennent en charge DNSSEC</string>
+    <string name="title_dnssec">Renforcer DNSSEC</string>
+    <string name="title_dnssec_remark">Seul un nombre limité de serveurs DNS prennent en charge DNSSEC</string>
     <string name="title_host">Nom d’hôte</string>
     <string name="title_encryption">Chiffrement</string>
     <string name="title_encryption_none">Aucun (non sécurisé)</string>
     <string name="title_allow_insecure">Autoriser les connexions non sécurisées</string>
     <string name="title_insecure_remark">Les connexions non sécurisées ne doivent être autorisées que sur des réseaux de confiance et jamais sur des réseaux publics</string>
     <string name="title_dane">Renforcer DANE</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark below account/identity option to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Seuls certains fournisseurs de messagerie supportent DANE</string>
+    <string name="title_dane_remark">Seuls certains fournisseurs de messagerie supportent DANE</string>
     <string name="title_notify_remark">Vous pouvez activer ceci pour avoir des notifications spécifiques par compte</string>
     <string name="title_port">Numéro de port</string>
     <string name="title_user">Nom d’utilisateur</string>

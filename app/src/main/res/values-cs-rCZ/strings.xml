@@ -199,6 +199,7 @@
     <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
     <string name="title_setup_manual">Ruční nastavení a možnosti účtu</string>
     <string name="title_setup_classic">Klasická konfigurace</string>
+    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Průvodce rychlým nastavením výše uvedeného \"Ostatní poskytovatele\" obvykle funguje a je snazší, než vkládat všechna data serveru.</string>
     <string name="title_setup_documentation">Pro správné nastavení e-mailového serveru si prosím přečtěte dokumentaci svého poskytovatele e-mailu</string>
     <string name="title_setup_account_remark">Příjem e-mailů</string>
     <string name="title_setup_identity_remark">Odesílání e-mailů</string>
@@ -208,6 +209,7 @@
     <string name="title_setup_google_sign_in">Přihlásit se pomocí Googlu</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_inbound">Pouze příchozí e-maily (e-mail nelze odeslat)</string>
+    <string name="title_setup_imap">IMAP účet</string>
     <string name="title_setup_pop3">POP3 účet</string>
     <string name="title_setup_oauth_permission">Poskytovatel e-mailu schválil OAuth pouze pro Google Play a GitHub verzi</string>
     <string name="title_setup_gmail_support">Autorizace účtů Google bude fungovat pouze v Google Play a GitHub verzi, protože Android kontroluje digitální podpis aplikace</string>
@@ -466,6 +468,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_vpn_only">Připojit pouze pomocí VPN</string>
     <string name="title_advanced_timeout">Časový limit připojení (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Upřednostňovat IPv4 před IPv6</string>
+    <string name="title_advanced_dns">Adresy preferovaných DNS serverů (oddělených čárkami)</string>
+    <string name="title_advanced_dns_custom">Použít vlastní DNS resolver</string>
     <string name="title_advanced_ssl_update">Použít aktualizovaného poskytovatele SSL</string>
     <string name="title_advanced_ssl_harden">Obrnit SSL připojení</string>
     <string name="title_advanced_ssl_harden_strict">Vyžadovat TLS 1.3</string>
@@ -623,6 +627,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_expand_all">Rozbalovat všechny přečtené zprávy automaticky</string>
     <string name="title_advanced_expand_one">Rozbalit vždy pouze jednu zprávu</string>
     <string name="title_advanced_collapse_multiple">Při pohybu \"zpět\" sbalit zprávy v konverzaci s vícero zprávami</string>
+    <string name="title_advanced_seen_delay">Zpoždění automatického označování zpráv jako přečtených</string>
     <string name="title_advanced_autoclose">Zavírat konverzace automaticky</string>
     <string name="title_advanced_autoclose_send">Automaticky zavřít konverzace po odeslání zpráv</string>
     <string name="title_advanced_onclose">Při zavření konverzace</string>
@@ -958,12 +963,15 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_aliases">Aliasy</string>
     <string name="title_provider">Poskytovatel</string>
     <string name="title_custom">Vlastní</string>
+    <string name="title_dnssec">Vynutit DNSSEC</string>
+    <string name="title_dnssec_remark">DNSSEC podporuje pouze omezený počet DNS serverů</string>
     <string name="title_host">Název hostitele</string>
     <string name="title_encryption">Šifrování</string>
     <string name="title_encryption_none">Žádné (nezabezpečené)</string>
     <string name="title_allow_insecure">Povolit nezabezpečené připojení</string>
     <string name="title_insecure_remark">Nezabezpečená připojení by měla být povolena pouze v důvěryhodných, a nikdy na veřejných sítích</string>
     <string name="title_dane">Vynutit DANE</string>
+    <string name="title_dane_remark">DANE podporují pouze někteří poskytovatelé e-mailu</string>
     <string name="title_notify_remark">Toto můžete povolit pro specifická upozornění účtu</string>
     <string name="title_port">Číslo portu</string>
     <string name="title_user">Uživatelské jméno</string>
