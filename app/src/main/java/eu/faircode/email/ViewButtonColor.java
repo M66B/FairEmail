@@ -21,7 +21,10 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -32,49 +35,69 @@ import androidx.core.graphics.ColorUtils;
 
 public class ViewButtonColor extends AppCompatButton {
     private int color = Color.TRANSPARENT;
+    private boolean circle = false;
+    private int colorSeparator;
 
     public ViewButtonColor(Context context) {
         super(context);
+        init(context);
     }
 
     public ViewButtonColor(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init(context);
     }
 
     public ViewButtonColor(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context);
+    }
+
+    private void init(Context context) {
+        this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
     }
 
     @Override
     public Parcelable onSaveInstanceState() {
         Parcelable superState = super.onSaveInstanceState();
-        return new SavedState(superState, this.color);
+        return new SavedState(superState, this.color, this.circle);
     }
 
     @Override
     public void onRestoreInstanceState(Parcelable state) {
         SavedState savedState = (SavedState) state;
         super.onRestoreInstanceState(savedState.getSuperState());
-        setColor(savedState.getColor());
+        setColor(savedState.getColor(), savedState.getCircle());
     }
 
     void setColor(Integer color) {
+        setColor(color, false);
+    }
+
+    void setColor(Integer color, boolean circle) {
         if (color == null)
             color = Color.TRANSPARENT;
         this.color = color;
+        this.circle = circle;
 
-        GradientDrawable background = new GradientDrawable();
-        background.setColor(color);
-        background.setStroke(
-                Helper.dp2pixels(getContext(), 1),
-                Helper.resolveColor(getContext(), R.attr.colorSeparator));
-        setBackground(background);
+        if (circle) {
+            ShapeDrawable shape = new ShapeDrawable(new OvalShape());
+            shape.setColorFilter(color == Color.TRANSPARENT ? colorSeparator : color, PorterDuff.Mode.SRC_ATOP);
+            setBackground(shape);
+        } else {
+            GradientDrawable background = new GradientDrawable();
+            background.setColor(color);
+            background.setStroke(
+                    Helper.dp2pixels(getContext(), 1),
+                    Helper.resolveColor(getContext(), R.attr.colorSeparator));
+            setBackground(background);
 
-        if (color == Color.TRANSPARENT)
-            setTextColor(Helper.resolveColor(getContext(), android.R.attr.textColorPrimary));
-        else {
-            double lum = ColorUtils.calculateLuminance(color);
-            setTextColor(lum < 0.5 ? Color.WHITE : Color.BLACK);
+            if (color == Color.TRANSPARENT)
+                setTextColor(Helper.resolveColor(getContext(), android.R.attr.textColorPrimary));
+            else {
+                double lum = ColorUtils.calculateLuminance(color);
+                setTextColor(lum < 0.5 ? Color.WHITE : Color.BLACK);
+            }
         }
     }
 
@@ -84,25 +107,33 @@ public class ViewButtonColor extends AppCompatButton {
 
     static class SavedState extends View.BaseSavedState {
         private int color;
+        private boolean circle;
 
-        private SavedState(Parcelable superState, int color) {
+        private SavedState(Parcelable superState, int color, boolean circle) {
             super(superState);
             this.color = color;
+            this.circle = circle;
         }
 
         private SavedState(Parcel in) {
             super(in);
-            color = in.readInt();
+            this.color = in.readInt();
+            this.circle = (in.readInt() != 0);
         }
 
         public int getColor() {
             return this.color;
         }
 
+        public boolean getCircle() {
+            return this.circle;
+        }
+
         @Override
         public void writeToParcel(Parcel destination, int flags) {
             super.writeToParcel(destination, flags);
             destination.writeInt(color);
+            destination.writeInt(circle ? 1 : 0);
         }
 
         public static final Parcelable.Creator<SavedState> CREATOR = new Creator<SavedState>() {

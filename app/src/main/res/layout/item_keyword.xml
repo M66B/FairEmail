@@ -68,11 +68,11 @@
         <eu.faircode.email.ViewButtonColor
             android:id="@+id/btnColor"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginStart="12dp"
+            android:layout_marginEnd="3dp"
             android:paddingHorizontal="6dp"
-            android:text="@string/title_select"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ibSave"
             app:layout_constraintTop_toTopOf="parent" />
