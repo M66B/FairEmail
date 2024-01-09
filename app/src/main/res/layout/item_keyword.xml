@@ -17,10 +17,10 @@
             android:layout_height="wrap_content"
             android:text="Keyword"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@+id/btnColor"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ibEdit"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btnColor" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/ibEdit"
@@ -33,22 +33,22 @@
             android:scaleType="fitCenter"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:tooltipText="@string/title_legend_edit"
-            app:layout_constraintBottom_toBottomOf="@+id/btnColor"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/cbKeyword"
-            app:layout_constraintTop_toTopOf="@+id/btnColor"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_edit_24" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etKeyword"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:imeOptions="actionDone"
             android:inputType="text"
             android:text="Title"
-            app:layout_constraintBottom_toBottomOf="@+id/btnColor"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ibSave"
             app:layout_constraintStart_toEndOf="@id/ibEdit"
-            app:layout_constraintTop_toTopOf="@+id/btnColor" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/ibSave"
@@ -60,9 +60,9 @@
             android:padding="6dp"
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_save"
-            app:layout_constraintBottom_toBottomOf="@+id/btnColor"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/etKeyword"
-            app:layout_constraintTop_toTopOf="@+id/btnColor"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_save_alt_24" />
 
         <eu.faircode.email.ViewButtonColor
@@ -73,6 +73,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="3dp"
             android:paddingHorizontal="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ibSave"
             app:layout_constraintTop_toTopOf="parent" />
