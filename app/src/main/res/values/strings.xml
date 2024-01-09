@@ -194,6 +194,7 @@
 
     <string name="title_edit_account">Edit account</string>
     <string name="title_edit_identity">Edit identity</string>
+    <string name="title_new_folder">New folder</string>
     <string name="title_edit_folder">Edit folder</string>
     <string name="title_disable_gmail">Disable Gmail app</string>
 
