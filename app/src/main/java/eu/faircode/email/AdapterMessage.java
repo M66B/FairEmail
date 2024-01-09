@@ -6118,7 +6118,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_unseen)
                     .setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen)
-                    .setIcon(message.ui_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24)
+                    .setIcon(message.ui_seen ? R.drawable.twotone_mail_24 : R.drawable.twotone_drafts_24)
                     .setEnabled(message.uid != null ||
                             message.accountProtocol != EntityAccount.TYPE_IMAP);
 
