@@ -1991,6 +1991,13 @@ Since the app needs to wait for responses of the email server, which requires th
 If you are comparing the battery usage of FairEmail with another email client, please make sure the other email client is set up similarly.
 For example, comparing always sync (push messages) and (infrequent) periodic checking for new messages is not a fair comparison.
 
+If you are comparing the battery usage of FairEmail with an app like Whatsapp,
+please understand that most apps use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) (FCM) for push messages,
+which means that no battery usage will be contributed to an app for push messages, but instead to the Google Play Services system component.
+Apart from the privacy concerns, it is not possible to use FCM for email because email servers do not support FCM.
+The only way would be to download all your messages to a third-party server first and use FCM to push notifications to the app.
+The privacy and security implications would be significant, though.
+
 Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage.
 Also, some email servers prematurely terminate idle connections, while [the standard](https://tools.ietf.org/html/rfc2177) says that an idle connection should be kept open for 29 minutes.
 In these cases you might want to synchronize periodically, for example each hour, instead of continuously.
