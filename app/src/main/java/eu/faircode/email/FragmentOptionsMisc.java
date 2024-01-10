@@ -2060,7 +2060,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if (!RESET_OPTIONS.contains(key))
+        if (!RESET_OPTIONS.contains(key) &&
+                !"last_cleanup".equals(key) &&
+                !"last_daily".equals(key))
             return;
 
         if ("last_cleanup".equals(key))

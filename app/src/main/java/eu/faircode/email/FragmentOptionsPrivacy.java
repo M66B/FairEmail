@@ -638,7 +638,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if (!RESET_OPTIONS.contains(key))
+        if (!RESET_OPTIONS.contains(key) &&
+                !"adguard_last".equals(key) &&
+                !"disconnect_last".equals(key))
             return;
 
         getMainHandler().removeCallbacks(update);
