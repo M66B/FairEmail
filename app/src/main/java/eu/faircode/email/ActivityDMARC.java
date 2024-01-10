@@ -154,7 +154,7 @@ public class ActivityDMARC extends ActivityBase {
                 if (ex instanceof NoStreamException)
                     ((NoStreamException) ex).report(ActivityDMARC.this);
                 else
-                    Log.unexpectedError(getSupportFragmentManager(), ex);
+                    Log.unexpectedError(getSupportFragmentManager(), ex, !(ex instanceof XmlPullParserException));
                 grpReady.setVisibility(View.VISIBLE);
             }
         }.execute(this, args, "dmarc:decode");
