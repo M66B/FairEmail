@@ -2738,31 +2738,37 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <p>Auto deletion will be done on a full sync only. For the inboxes, you can use <em>Force sync</em> in the three-dots overflow menu of the start screen. For other folders, you can long press the folder in the folder list of the account (<em>not</em> the navigation menu), and select <em>Synchronize now</em> in the pop-up menu. You can also pull down the messages list of any folder to sync it, and repeat this again within 30 seconds for a full sync.</p>
 <p><br></p>
 <p><a name="faq195"></a> <strong>(195) Why are all messages in the archive folder of Gmail?</strong></p>
+<p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq195">Google Translate</a></p>
 <p>The Gmail server stores all messages, except the messages in the draft, sent, trash and spam messages folder in the all messages’ folder (=archive folder). FairEmail is an email client, which basically displays what is on the email server, and therefore it will show these messages too.</p>
 <p>To be clear: FairEmail does not store the messages in the archive folder, unless you explicitly archive a message.</p>
 <p>This has advantages, though, because it makes searching in all messages easier.</p>
 <p><br></p>
 <p><a name="faq196"></a> <strong>(196) Can you add empty trash on leaving the app?</strong></p>
+<p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq196">Google Translate</a></p>
 <p>Besides that leaving an app is an ambiguous action, automatically deleting trashed messages is a risky action because deleted messages can’t be restored anymore. A message could accidentally be trashed, and you could switch to another app, which could be interpreted as leaving the app, and the message would be gone forever.</p>
 <p>Instead, you can configure auto-deletion of older messages, which is safer because the messages won’t be deleted immediately. For this, please tap on the account name in the navigation menu (left side menu) to go to the folder list of the account. In the folder list, long press the trash messages folder and select to edit the folder properties. Near the end of the properties screen, there is a checkbox to enable auto-deletion. You might want to change the number of days to keep messages on your device.</p>
 <p>Note that the reference time is the time the message was first stored on the device, not the date/time of the message itself.</p>
 <p><br></p>
 <p><a name="faq197"></a> <strong>(197) How can I print a message?</strong></p>
+<p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq197">Google Translate</a></p>
 <p>You can print a message, both to a PDF or a printer, by tapping on the horizontal three-dots button just above the message text near the left side. You might need to tap on the ‘&gt;’ button to show the message actions again.</p>
 <p>Note that you can configure a button for printing via the same pop-up menu.</p>
 <p>Printing is managed by Android for all apps. You should be able to select the paper size, etc. You might need to update or install a driver app for your printer via the Play Store.</p>
 <p>A message is printed as-is, which means that the sender of the message determines the margins, etc.</p>
 <p><br></p>
 <p><a name="faq198"></a> <strong>(198) Can you add spell checking?</strong></p>
+<p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq198">Google Translate</a></p>
 <p>Spell checking should be provided by the keyboard app for all other apps. Sometimes, particularly on ChromeOS, spell checking needs to be enabled in the settings.</p>
 <p>That said, LanguageTool, which can be enabled in the integration settings, is an excellent style and spell checker.</p>
 <p><br></p>
 <p><a name="faq199"></a> <strong>(199) Can you add proxy support?</strong></p>
+<p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq199">Google Translate</a></p>
 <p>In fact, (HTTP, HTTPS, SOCKS) proxy support was removed because it is not possible to let an app proxy DNS requests, or in other words, an in-app proxy will always leak host names and therefore give a false sense of security.</p>
 <p>If you want to proxy traffic, for example to use Tor, you should use an Android VPN-service based app, which is the only way to reliably proxy traffic.</p>
 <p>Please note that if you want to use a .onion address, you will need to disable private DNS in the Android network settings.</p>
 <p><br></p>
 <p><a name="faq200"></a> <strong>(200) How can I use Adguard to remove tracking parameters?</strong></p>
+<p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq200">Google Translate</a></p>
 <p>To use <a href="https://adguard.com/">Adguard</a> to remove tracking parameters from links:</p>
 <ol type="1">
 <li>Enable confirming links in the privacy-settings tab page</li>
@@ -2773,11 +2779,13 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <p>Note that the Adguard filter list contains over 2,000 entries, which takes a few moments to scan, visible as a short delay between tapping on a link and the link confirmation dialog box appearing.</p>
 <p><br></p>
 <p><a name="faq201"></a> <strong>(201) What is certificate transparency?</strong></p>
+<p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq201">Google Translate</a></p>
 <p>Please see <a href="https://certificate.transparency.dev/howctworks/">this article</a> about what certificate transparency is. Alternatively, see <a href="https://en.wikipedia.org/wiki/Certificate_Transparency">this Wikipedia article</a>.</p>
 <p>When certificate transparency is enabled in the connection-settings tab page of the app, the <a href="https://github.com/GoogleChrome/CertificateTransparency/blob/master/ct_policy.md">Chrome Certificate Transparency Policy</a> will be applied.</p>
 <p>FairEmail uses <a href="https://github.com/appmattus/certificatetransparency">this library</a> to implement certificate transparency via a custom trust manager.</p>
 <p><br></p>
 <p><a name="faq202"></a> <strong>(202) What is DNSSEC and what is DANE?</strong></p>
+<p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq202">Google Translate</a></p>
 <p>Please see <a href="https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">this Wikipedia article</a> about what DNSSEC is.</p>
 <p>Please see <a href="https://github.com/internetstandards/toolbox-wiki/blob/main/DANE-for-SMTP-how-to.md">this article</a> about what DANE is. Alternatively, see <a href="https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">this Wikipedia article</a>.</p>
 <p>You can use <a href="https://ssl-tools.net/tlsa-generator">this tool</a> to generate TLSA DNS records for DANE (select either PKIX-EE or DANE-EE).</p>

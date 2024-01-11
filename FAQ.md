@@ -5590,6 +5590,8 @@ You can also pull down the messages list of any folder to sync it, and repeat th
 <a name="faq195"></a>
 **(195) Why are all messages in the archive folder of Gmail?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq195)
+
 The Gmail server stores all messages, except the messages in the draft, sent, trash and spam messages folder in the all messages' folder (=archive folder).
 FairEmail is an email client, which basically displays what is on the email server, and therefore it will show these messages too.
 
@@ -5601,6 +5603,8 @@ This has advantages, though, because it makes searching in all messages easier.
 
 <a name="faq196"></a>
 **(196) Can you add empty trash on leaving the app?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq196)
 
 Besides that leaving an app is an ambiguous action, automatically deleting trashed messages is a risky action because deleted messages can't be restored anymore.
 A message could accidentally be trashed, and you could switch to another app, which could be interpreted as leaving the app, and the message would be gone forever.
@@ -5619,6 +5623,9 @@ Note that the reference time is the time the message was first stored on the dev
 <a name="faq197"></a>
 **(197) How can I print a message?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq197)
+
+
 You can print a message, both to a PDF or a printer, by tapping on the horizontal three-dots button just above the message text near the left side.
 You might need to tap on the '>' button to show the message actions again.
 
@@ -5634,6 +5641,8 @@ A message is printed as-is, which means that the sender of the message determine
 <a name="faq198"></a>
 **(198) Can you add spell checking?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq198)
+
 Spell checking should be provided by the keyboard app for all other apps.
 Sometimes, particularly on ChromeOS, spell checking needs to be enabled in the settings.
 
@@ -5643,6 +5652,8 @@ That said, LanguageTool, which can be enabled in the integration settings, is an
 
 <a name="faq199"></a>
 **(199) Can you add proxy support?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq199)
 
 In fact, (HTTP, HTTPS, SOCKS) proxy support was removed because it is not possible to let an app proxy DNS requests,
 or in other words, an in-app proxy will always leak host names and therefore give a false sense of security.
@@ -5656,6 +5667,8 @@ Please note that if you want to use a .onion address, you will need to disable p
 
 <a name="faq200"></a>
 **(200) How can I use Adguard to remove tracking parameters?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq200)
 
 To use [Adguard](https://adguard.com/) to remove tracking parameters from links:
 
@@ -5672,6 +5685,9 @@ visible as a short delay between tapping on a link and the link confirmation dia
 <a name="faq201"></a>
 **(201) What is certificate transparency?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq201)
+
+
 Please see [this article](https://certificate.transparency.dev/howctworks/) about what certificate transparency is.
 Alternatively, see [this Wikipedia article](https://en.wikipedia.org/wiki/Certificate_Transparency).
 
@@ -5684,6 +5700,8 @@ FairEmail uses [this library](https://github.com/appmattus/certificatetransparen
 
 <a name="faq202"></a>
 **(202) What is DNSSEC and what is DANE?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq202)
 
 Please see [this Wikipedia article](https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions) about what DNSSEC is.
 
