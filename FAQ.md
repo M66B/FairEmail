@@ -5695,12 +5695,13 @@ You can use [this tool](https://ssl-tools.net/tlsa-generator) to generate TLSA D
 You can enable enforcing DNSSEC and/or DANA in the (advanced) account and identity settings (since version 1.2149).
 
 Note that only some email providers support DANE and that only a limited number of DNS servers support DNSSEC (January 2024: ~30%), which is required for DANE.
-Most private DNS providers support DNSSEC, though. You can configure private DNS in the Android network settings.
+Most private DNS providers support DNSSEC, though. You can configure private DNS in the Android network settings (since Android 9).
 To be sure that private DNS is being used, better configure a host name like *dns.google*, *1dot1dot1dot1.cloudflare-dns.com* or *dns.quad9.net*.
 An alternative is using Certificate Transparency, see the previous FAQ.
 
 Email providers known to support DANE:
 
+* [Disroot.org](https://disroot.org/)
 * [Freenet.de](https://email.freenet.de/)
 * [Mailbox.org](https://mailbox.org/)
 * [Posteo.de](https://posteo.de/)
