@@ -79,6 +79,7 @@ public class EditTextCompose extends FixedEditText {
     private int quoteGap;
     private int quoteStripe;
     private boolean lt_description;
+    private boolean undo_manager;
 
     private int lastStart = -1;
     private int lastEnd = -1;
@@ -108,7 +109,7 @@ public class EditTextCompose extends FixedEditText {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.lt_description = prefs.getBoolean("lt_description", false);
-        boolean undo_manager = prefs.getBoolean("undo_manager", false);
+        this.undo_manager = prefs.getBoolean("undo_manager", false);
 
         addTextChangedListener(new TextWatcher() {
             private Integer replace;
@@ -326,9 +327,9 @@ public class EditTextCompose extends FixedEditText {
                         int id = item.getItemId();
                         if (id == android.R.id.pasteAsPlainText)
                             return insertPlain();
-                        else if (id == R.string.title_undo)
+                        else if (id == R.string.title_undo && undo_manager)
                             return EditTextCompose.super.onTextContextMenuItem(android.R.id.undo);
-                        else if (id == R.string.title_redo)
+                        else if (id == R.string.title_redo && undo_manager)
                             return EditTextCompose.super.onTextContextMenuItem(android.R.id.redo);
                         else if (id == R.string.title_insert_line)
                             return insertLine();
@@ -632,10 +633,10 @@ public class EditTextCompose extends FixedEditText {
                 });
 
                 return true;
-            } else if (id == android.R.id.undo) {
+            } else if (id == android.R.id.undo && undo_manager) {
                 canUndo = true;
                 return true;
-            } else if (id == android.R.id.redo) {
+            } else if (id == android.R.id.redo && undo_manager) {
                 canRedo = true;
                 return true;
             }
