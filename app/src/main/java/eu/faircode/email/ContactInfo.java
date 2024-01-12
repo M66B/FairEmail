@@ -976,7 +976,7 @@ public class ContactInfo {
             ContentObserver observer = new ContentObserver(ApplicationEx.getMainHandler()) {
                 @Override
                 public void onChange(boolean selfChange, Uri uri) {
-                    Log.i("Contact changed uri=" + uri);
+                    EntityLog.log(context, EntityLog.Type.Notification, "Contact changed uri=" + uri);
                     Helper.getSerialExecutor().submit(new Runnable() {
                         @Override
                         public void run() {
@@ -1003,7 +1003,7 @@ public class ContactInfo {
 
             try {
                 Uri uri = ContactsContract.CommonDataKinds.Email.CONTENT_URI;
-                Log.i("Observing uri=" + uri);
+                EntityLog.log(context, EntityLog.Type.Notification, "Observing uri=" + uri);
                 context.getContentResolver().registerContentObserver(uri, true, observer);
             } catch (SecurityException ex) {
                 Log.w(ex);
