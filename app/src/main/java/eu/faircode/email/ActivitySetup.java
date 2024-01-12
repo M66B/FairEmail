@@ -803,7 +803,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 else if (ACTION_IMPORT_CERTIFICATE.equals(action))
                     onImportCertificate(intent);
                 else if (ACTION_SETUP_REORDER.equals(action))
-                    onMenuOrder(R.string.title_setup_reorder_accounts, intent.getStringExtra("className"));
+                    onMenuOrder(
+                            intent.getIntExtra("title", -1),
+                            intent.getStringExtra("className"));
                 else if (ACTION_SETUP_MORE.equals(action))
                     onSetupMore(intent);
             }

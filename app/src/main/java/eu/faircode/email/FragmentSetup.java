@@ -778,6 +778,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             public void onClick(View v) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(v.getContext());
                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SETUP_REORDER)
+                        .putExtra("title", R.string.title_setup_reorder_accounts)
                         .putExtra("className", EntityAccount.class.getName()));
             }
         });
@@ -787,6 +788,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             public void onClick(View v) {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(v.getContext());
                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SETUP_REORDER)
+                        .putExtra("title", R.string.title_setup_reorder_folders)
                         .putExtra("className", TupleFolderSort.class.getName()));
             }
         });
