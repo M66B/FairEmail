@@ -831,7 +831,8 @@ public class ContactInfo {
                 Log.i("Using favicon=" + url);
                 return f;
             } catch (Throwable ex) {
-                if (ex.getCause() instanceof FileNotFoundException ||
+                if (ex instanceof FileNotFoundException ||
+                        ex.getCause() instanceof FileNotFoundException ||
                         ex.getCause() instanceof CertPathValidatorException)
                     Log.i(ex);
                 else
