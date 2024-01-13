@@ -136,6 +136,7 @@ public class Log {
             "java.net.SocketException",
             "java.net.SocketTimeoutException",
             "java.net.UnknownHostException",
+            "java.lang.InterruptedException",
 
             "javax.mail.AuthenticationFailedException",
             "javax.mail.internet.AddressException",
