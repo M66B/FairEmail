@@ -152,13 +152,26 @@
                 android:id="@+id/ibMessages"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginEnd="6dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_accessibility_unseen"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvFlaggedEnd"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:layout_goneMarginEnd="6dp"
                 app:srcCompat="@drawable/twotone_mail_outline_24" />
+
+            <ImageButton
+                android:id="@+id/ibFlaggedEnd"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_accessibility_flagged"
+                android:paddingHorizontal="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvFlaggedEnd"
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/twotone_star_24" />
 
             <ImageView
                 android:id="@+id/ivType"
@@ -217,13 +230,27 @@
                 android:id="@+id/ibSync"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginEnd="6dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/tile_synchronize"
                 app:layout_constraintBottom_toBottomOf="@id/tvType"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvFlaggedEnd"
                 app:layout_constraintTop_toTopOf="@+id/tvType"
+                app:layout_goneMarginEnd="6dp"
                 app:srcCompat="@drawable/twotone_sync_24" />
+
+            <TextView
+                android:id="@+id/tvFlaggedEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:minWidth="36dp"
+                android:paddingHorizontal="6dp"
+                android:text="123"
+                android:textAppearance="@android:style/TextAppearance.Small"
+                app:layout_constraintBottom_toBottomOf="@id/tvType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvType" />
 
             <TextView
                 android:id="@+id/tvKeywords"
@@ -296,7 +323,13 @@
                 android:id="@+id/grpFlagged"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="tvFlagged,ibFlagged" />
+                app:constraint_referenced_ids="tvKeywords,tvFlagged,ibFlagged" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpFlaggedEnd"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvFlaggedEnd,ibFlaggedEnd" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpExtended"

@@ -139,12 +139,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private TextView tvName;
         private TextView tvMessages;
         private ImageButton ibMessages;
+        private ImageButton ibFlaggedEnd;
 
         private ImageView ivType;
         private TextView tvType;
         private TextView tvTotal;
         private TextView tvAfter;
         private ImageButton ibSync;
+        private TextView tvFlaggedEnd;
 
         private TextView tvKeywords;
         private TextView tvFlagged;
@@ -154,6 +156,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private Button btnHelp;
 
         private Group grpFlagged;
+        private Group grpFlaggedEnd;
         private Group grpExtended;
 
         private TwoStateOwner powner = new TwoStateOwner(owner, "FolderPopup");
@@ -178,12 +181,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvName = itemView.findViewById(R.id.tvName);
             tvMessages = itemView.findViewById(R.id.tvMessages);
             ibMessages = itemView.findViewById(R.id.ibMessages);
+            ibFlaggedEnd = itemView.findViewById(R.id.ibFlaggedEnd);
 
             ivType = itemView.findViewById(R.id.ivType);
             tvType = itemView.findViewById(R.id.tvType);
             tvTotal = itemView.findViewById(R.id.tvTotal);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             ibSync = itemView.findViewById(R.id.ibSync);
+            tvFlaggedEnd = itemView.findViewById(R.id.tvFlaggedEnd);
 
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvFlagged = itemView.findViewById(R.id.tvFlagged);
@@ -193,6 +198,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             btnHelp = itemView.findViewById(R.id.btnHelp);
 
             grpFlagged = itemView.findViewById(R.id.grpFlagged);
+            grpFlaggedEnd = itemView.findViewById(R.id.grpFlaggedEnd);
             grpExtended = itemView.findViewById(R.id.grpExtended);
 
             if (vwColor != null)
@@ -207,12 +213,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvMessages.setOnClickListener(this);
             if (ibMessages != null)
                 ibMessages.setOnClickListener(this);
+            if (ibFlaggedEnd != null)
+                ibFlaggedEnd.setOnClickListener(this);
+            if (ibSync != null)
+                ibSync.setOnClickListener(this);
+            if (tvFlaggedEnd != null)
+                tvFlaggedEnd.setOnClickListener(this);
             if (tvFlagged != null)
                 tvFlagged.setOnClickListener(this);
             if (ibFlagged != null)
                 ibFlagged.setOnClickListener(this);
-            if (ibSync != null)
-                ibSync.setOnClickListener(this);
             if (btnHelp != null)
                 btnHelp.setOnClickListener(this);
         }
@@ -225,12 +235,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvMessages.setOnClickListener(null);
             if (ibMessages != null)
                 ibMessages.setOnClickListener(null);
+            if (ibFlaggedEnd != null)
+                ibFlaggedEnd.setOnClickListener(null);
+            if (ibSync != null)
+                ibSync.setOnClickListener(null);
+            if (tvFlaggedEnd != null)
+                tvFlaggedEnd.setOnClickListener(null);
             if (tvFlagged != null)
                 tvFlagged.setOnClickListener(null);
             if (ibFlagged != null)
                 ibFlagged.setOnClickListener(null);
-            if (ibSync != null)
-                ibSync.setOnClickListener(null);
             if (btnHelp != null)
                 btnHelp.setOnClickListener(null);
         }
@@ -416,13 +430,15 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 folder.accountProtocol == EntityAccount.TYPE_IMAP
                                 ? textColorPrimary : textColorSecondary));
                 ibSync.setEnabled(folder.last_sync != null);
+                tvFlaggedEnd.setText(NF.format(folder.flagged));
+                ibFlaggedEnd.setImageResource(folder.flagged == 0
+                        ? R.drawable.twotone_star_border_24 : R.drawable.twotone_star_24);
 
                 tvKeywords.setText(debug ?
                         (folder.separator == null ? "" : folder.separator + " ") +
                                 (folder.namespace == null ? "" : folder.namespace + " ") +
                                 (folder.flags == null ? null : TextUtils.join(" ", folder.flags) + " ") +
                                 TextUtils.join(" ", folder.keywords) : null);
-                tvKeywords.setVisibility(show_flagged ? View.VISIBLE : View.GONE);
 
                 tvFlagged.setText(NF.format(folder.flagged));
                 ibFlagged.setImageResource(folder.flagged == 0
@@ -433,7 +449,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 if (btnHelp != null)
                     btnHelp.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
 
-                grpFlagged.setVisibility(show_flagged ? View.VISIBLE : View.GONE);
+                grpFlagged.setVisibility(show_flagged && show_compact ? View.VISIBLE : View.GONE);
+                grpFlaggedEnd.setVisibility(show_flagged && !show_compact ? View.VISIBLE : View.GONE);
                 grpExtended.setVisibility(show_compact ? View.GONE : View.VISIBLE);
             }
         }
@@ -457,7 +474,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 } else if (show_flagged &&
                         (id == R.id.tvMessages || id == R.id.ibMessages)) {
                     onUnread(folder);
-                } else if (id == R.id.tvFlagged || id == R.id.ibFlagged) {
+                } else if (id == R.id.tvFlagged || id == R.id.ibFlagged ||
+                        id == R.id.ibFlaggedEnd || id == R.id.tvFlaggedEnd) {
                     onFlagged(folder);
                 } else if (id == R.id.ibSync) {
                     onLastSync(folder);
