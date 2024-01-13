@@ -178,7 +178,7 @@ public class GmailState {
             long acquired = jobject.getLong("acquired");
             return new GmailState(token, acquired);
         } catch (JSONException ex) {
-            Log.e(ex);
+            Log.i(ex);
             return new GmailState(password, new Date().getTime());
         }
     }
