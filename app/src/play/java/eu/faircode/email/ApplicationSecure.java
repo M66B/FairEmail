@@ -32,6 +32,8 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationSecure extends ApplicationEx implements ProviderInstaller.ProviderInstallListener {
     private static final CountDownLatch lock = new CountDownLatch(1);
 
+    private static final long WAIT_INSTALLED = 750L; // milliseconds
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -61,11 +63,11 @@ public class ApplicationSecure extends ApplicationEx implements ProviderInstalle
     public static boolean waitProviderInstalled() {
         Log.i("Security provider wait");
         try {
-            boolean succeeded = lock.await(500L, TimeUnit.MILLISECONDS);
+            boolean succeeded = lock.await(WAIT_INSTALLED, TimeUnit.MILLISECONDS);
             Log.i("Security provider wait succeeded=" + succeeded);
             return succeeded;
         } catch (InterruptedException ex) {
-            Log.e(ex);
+            Log.i(ex);
             return false;
         }
     }

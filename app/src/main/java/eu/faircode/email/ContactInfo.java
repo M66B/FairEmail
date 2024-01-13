@@ -177,7 +177,7 @@ public class ContactInfo {
 
         // Favicons
         Log.i("Cleanup avatars");
-        for (String type : new String[]{"favicons", "generated"}) {
+        for (String type : new String[]{"notcontact", "favicons", "generated"}) {
             File[] favicons = Helper.ensureExists(context, type).listFiles();
             if (favicons != null)
                 for (File file : favicons)
@@ -291,9 +291,10 @@ public class ContactInfo {
                 Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
             File dir = Helper.ensureExists(context, "notcontact");
             File file = new File(dir, ekey);
-            if (file.exists())
+            if (file.exists()) {
+                file.setLastModified(new Date().getTime());
                 Log.i("Contact negative cache key=" + ekey);
-            else {
+            } else {
                 ContentResolver resolver = context.getContentResolver();
                 Uri uri = Uri.withAppendedPath(
                         ContactsContract.CommonDataKinds.Email.CONTENT_LOOKUP_URI,
