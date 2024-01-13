@@ -6,6 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ypupiara](https://en.wikipedia.org/wiki/Ypupiara)
 
+### Next version
+
+* Added option to disable Gmail labels button
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2149 - 2024-01-08
 
 * Added option to to delay automatically marking messages as read
