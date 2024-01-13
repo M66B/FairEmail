@@ -200,7 +200,7 @@ public class ContactInfo {
         if (!files)
             return;
 
-        for (String type : new String[]{"favicons", "generated"}) {
+        for (String type : new String[]{"notcontact", "favicons", "generated"}) {
             final File dir = Helper.ensureExists(context, type);
             Helper.getParallelExecutor().submit(new Runnable() {
                 @Override
@@ -271,15 +271,7 @@ public class ContactInfo {
         ContactInfo info = new ContactInfo();
         info.email = address.getAddress();
 
-        // Maximum file name length: 255
-        // Maximum email address length: 320 (<local part = 64> @ <domain part = 255>)
-        final String ekey;
-        if (TextUtils.isEmpty(info.email))
-            ekey = null;
-        else
-            ekey = (info.email.length() > 255
-                    ? info.email.substring(0, 255)
-                    : info.email).toLowerCase(Locale.ROOT);
+        final String ekey = (TextUtils.isEmpty(info.email) ? null : getKey(info.email));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean avatars = prefs.getBoolean("avatars", true);
@@ -297,42 +289,51 @@ public class ContactInfo {
         if (!TextUtils.isEmpty(info.email) &&
                 (avatars || prefer_contact || distinguish_contacts) &&
                 Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
-            ContentResolver resolver = context.getContentResolver();
-            Uri uri = Uri.withAppendedPath(
-                    ContactsContract.CommonDataKinds.Email.CONTENT_LOOKUP_URI,
-                    Uri.encode(info.email.toLowerCase(Locale.ROOT)));
-            try (Cursor cursor = resolver.query(uri,
-                    new String[]{
-                            ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
-                            ContactsContract.Contacts.LOOKUP_KEY,
-                            ContactsContract.Contacts.DISPLAY_NAME
-                    },
-                    null, null, null)) {
+            File dir = Helper.ensureExists(context, "notcontact");
+            File file = new File(dir, ekey);
+            if (file.exists())
+                Log.i("Contact negative cache key=" + ekey);
+            else {
+                ContentResolver resolver = context.getContentResolver();
+                Uri uri = Uri.withAppendedPath(
+                        ContactsContract.CommonDataKinds.Email.CONTENT_LOOKUP_URI,
+                        Uri.encode(info.email.toLowerCase(Locale.ROOT)));
+                try (Cursor cursor = resolver.query(uri,
+                        new String[]{
+                                ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                                ContactsContract.Contacts.LOOKUP_KEY,
+                                ContactsContract.Contacts.DISPLAY_NAME
+                        },
+                        null, null, null)) {
 
-                if (cursor != null && cursor.moveToNext()) {
-                    int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                    int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
-                    int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+                    if (cursor != null && cursor.moveToNext()) {
+                        int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                        int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
+                        int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
 
-                    long contactId = cursor.getLong(colContactId);
-                    String lookupKey = cursor.getString(colLookupKey);
-                    Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+                        long contactId = cursor.getLong(colContactId);
+                        String lookupKey = cursor.getString(colLookupKey);
+                        Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
 
-                    if (avatars)
-                        try (InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
-                                resolver, lookupUri, false)) {
-                            info.bitmap = BitmapFactory.decodeStream(is);
-                            info.type = "contact";
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
+                        if (avatars)
+                            try (InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
+                                    resolver, lookupUri, false)) {
+                                info.bitmap = BitmapFactory.decodeStream(is);
+                                info.type = "contact";
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
 
-                    info.displayName = cursor.getString(colDisplayName);
-                    info.lookupUri = lookupUri;
-                    info.known = true;
+                        info.displayName = cursor.getString(colDisplayName);
+                        info.lookupUri = lookupUri;
+                        info.known = true;
+                    } else {
+                        file.createNewFile();
+                        Log.i("Contact negative cached key=" + ekey);
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
-            } catch (Throwable ex) {
-                Log.e(ex);
             }
         }
 
@@ -1019,6 +1020,14 @@ public class ContactInfo {
         }
     }
 
+    static String getKey(String email) {
+        // Maximum file name length: 255
+        // Maximum email address length: 320 (<local part = 64> @ <domain part = 255>)
+        return (email.length() > 255
+                ? email.substring(0, 255)
+                : email).toLowerCase(Locale.ROOT);
+    }
+
     static Uri getLookupUri(List<Address> addresses) {
         return getLookupUri(addresses.toArray(new Address[0]));
     }
@@ -1079,8 +1088,9 @@ public class ContactInfo {
 
         if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
             Log.i("Reading email/uri");
-            ContentResolver resolver = context.getContentResolver();
+            File dir = Helper.ensureExists(context, "notcontact");
 
+            ContentResolver resolver = context.getContentResolver();
             try (Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                     new String[]{
                             ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
@@ -1100,6 +1110,15 @@ public class ContactInfo {
                     lookup.uri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
                     lookup.displayName = displayName;
                     all.put(email.toLowerCase(Locale.ROOT), lookup);
+
+                    if (!TextUtils.isEmpty(email)) {
+                        String ekey = getKey(email);
+                        File file = new File(dir, ekey);
+                        if (file.exists()) {
+                            Log.i("Contact delete cached key=" + ekey);
+                            Helper.secureDelete(file);
+                        }
+                    }
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
