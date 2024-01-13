@@ -225,10 +225,9 @@ public class ServiceAuthenticator extends Authenticator {
             if (holder.error == null)
                 Log.i("OAuth refreshed provider=" + id + ":" + getAuthTypeName(auth_type) + " user=" + user);
             else {
-                Log.e(new Throwable("Token refresh failed" +
+                EntityLog.log(context, "Token refresh failed" +
                         " provider=" + id + ":" + getAuthTypeName(auth_type) +
-                        " error=" + holder.error.getMessage(),
-                        holder.error));
+                        " error=" + Log.formatThrowable(holder.error, false));
                 throw holder.error;
             }
         } catch (Exception ex) {
