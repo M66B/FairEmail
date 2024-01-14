@@ -176,6 +176,7 @@
     <string name="title_list_identities">זהויות</string>
     <string name="title_edit_account">עריכת חשבון</string>
     <string name="title_edit_identity">עריכת זהות</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">תיקייה חדשה</string>
     <string name="title_edit_folder">עריכת תיקייה</string>
     <string name="title_disable_gmail">השבתת יישומון Gmail</string>
     <string name="title_setup">הגדרות</string>
@@ -183,8 +184,8 @@
     <string name="title_setup_quick">הגדרה מהירה</string>
     <string name="title_setup_intro">הגדרת חשבון נמצאת במרחק שלושה צעדים ממך ולאחריה ניתן להתחיל לשלוח ולקבל הודעות דוא״ל</string>
     <string name="title_setup_simple">אין צורך לשנות אפשרויות אחרות כלשהן</string>
-    <string name="title_setup_issue">FairEmail פותח כדי לסייע לך להגן על הפרטיות שלך והוא מגלם בתוכו אלפי שעות עבודה. אם נתקלת בבעיה, נא ליצור אתי קשר תחילה לקבל תמיכה בטרם פרסום סקירה שלילית. אני מאוד שמח לעזור - באנגלית!</string>
-    <string name="title_setup_analytics">FairEmail לא מציג פרסומות ולא עוקב אחריך או מנתח את ההתנהגות שלך. Bugsnag משמש לדיווח על שגיאות והוא מושבת כבררת מחדל.</string>
+    <string name="title_setup_issue">‏FairEmail פותח כדי לסייע לך להגן על הפרטיות שלך והוא מגלם בתוכו אלפי שעות עבודה. אם נתקלת בבעיה, נא ליצור אתי קשר תחילה לקבל תמיכה בטרם פרסום סקירה שלילית. אני מאוד שמח לעזור - באנגלית!</string>
+    <string name="title_setup_analytics">‏FairEmail לא מציג פרסומות ולא עוקב אחריך או מנתח את ההתנהגות שלך. Bugsnag משמש לדיווח על שגיאות והוא מושבת כברירת מחדל.</string>
     <string name="title_setup_quick_accounts">הוספה או עריכה של חשבונות</string>
     <string name="title_setup_quick_support">חלק מהספקים מקשים על הוספת חשבון. אין טעם להאשים את FailEmail בכך, אך בהחלט ניתן לבקש תמיכה.</string>
     <string name="title_setup_quick_hint">כתובת הדוא״ל שמולאה משמשת לתשאל את שרת הדוא״ל ואת autoconfig.thunderbird.net לקבלת פרטי הגדרה</string>
@@ -199,7 +200,7 @@
     <string name="title_setup_wizard_new">ארצה כתובת דוא״ל חדשה</string>
     <string name="title_setup_manual">הקמה ידנית ואפשרויות חשבון</string>
     <string name="title_setup_classic">הגדרות קלסיות</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">אשף ההגדרה המהירה ל„ספק אחר” להלן בדרך כלל עובד גם כן והוא פשוט יותר ממילוי כל נתוני השרת.</string>
+    <string name="title_setup_wizard_hint">אשף ההגדרה המהירה ל„ספק אחר” להלן בדרך כלל עובד גם כן והוא פשוט יותר ממילוי כל נתוני השרת.</string>
     <string name="title_setup_documentation">נא לעיין בתיעוד ספק הדוא״ל שלך לקבלת הגדרות שרת הדוא״ל הנכונות</string>
     <string name="title_setup_account_remark">קבלת דוא״ל</string>
     <string name="title_setup_identity_remark">שליחת דוא״ל</string>
@@ -447,7 +448,7 @@
     <string name="title_advanced_reply_move">בעת מענה להודעה, המענה יישמר באותה התיקייה</string>
     <string name="title_advanced_reply_move_inbox">גם להודעות בדואר הנכנס</string>
     <string name="title_advanced_auto_link">ליצור קישורים אוטומטית</string>
-    <string name="title_advanced_plain_only">לשלוח טקסט פשוט בלבד כבררת מחדל</string>
+    <string name="title_advanced_plain_only">לשלוח טקסט פשוט בלבד כברירת מחדל</string>
     <string name="title_advanced_plain_only_reply">להפוך לטקסט פשוט אוטומטית בעת שליחת תגובה להודעה שהיא בטקסט פשוט בלבד</string>
     <string name="title_advanced_flow">‚שורות תחומות’ לטקסט פשוט</string>
     <string name="title_advanced_usenet_signature">לעקוב אחר מוסכמת החתימות של Usenet</string>
@@ -571,19 +572,19 @@
     <string name="title_advanced_attachments_alt">הצגת הקבצים המצורפים אחרי טקסט ההודעה</string>
     <string name="title_advanced_thumbnails">הצגת תמונות ממוזערות אחרי טקסט ההודעה</string>
     <string name="title_advanced_pdf_preview">הצגת תמונות ממוזערות של PDF</string>
-    <string name="title_advanced_message_text_zoom2">תקריב טקסט ההודעות כבררת מחדל: %1$s %%</string>
+    <string name="title_advanced_message_text_zoom2">תקריב טקסט ההודעות כברירת מחדל: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">התמקדות על טקסט ההודעה גם בעורך ההודעות</string>
     <string name="title_advanced_overview_mode">התאמת התקריב של ההודעות המקוריות לגודל המסך</string>
     <string name="title_advanced_hyphenation">להשתמש במיקוף אוטומטי</string>
     <string name="title_advanced_contrast">להשתמש בניגודיות גבוהה לטקסט ההודעות</string>
-    <string name="title_advanced_monospaced">להשתמש בגופן ברוחב אחיד לטקסט ההודעה כבררת מחדל</string>
+    <string name="title_advanced_monospaced">להשתמש בגופן ברוחב אחיד לטקסט ההודעה כברירת מחדל</string>
     <string name="title_advanced_monospaced_pre">להשתמש בטקסט ברוחב אחיד לטקסט שעוצב מראש</string>
     <string name="title_advanced_background_color">להשתמש בצבעי רקע</string>
     <string name="title_advanced_text_color">להשתמש בצבעי טקסט</string>
     <string name="title_advanced_text_size">להשתמש בגדלי טקסט</string>
     <string name="title_advanced_text_font">להשתמש בגופנים</string>
     <string name="title_advanced_text_align">להשתמש ביישור טקסט</string>
-    <string name="title_advanced_text_titles">הצגת {HTML titles}</string>
+    <string name="title_advanced_text_titles">הצגת {כותרות HTML}</string>
     <string name="title_advanced_text_separators">להשתמש בשורות מפרידות</string>
     <string name="title_advanced_collapse_quotes">צמצום טקסט מצוטט</string>
     <string name="title_advanced_image_placeholders">הצגת ממלאי מקום תמונות</string>
@@ -649,11 +650,11 @@
     <string name="title_advanced_swipe_reply">החלקת הודעות מורחבות לימין פותחת מענה</string>
     <string name="title_advanced_move_thread_all">בעת העברת דיון, להעביר את כל ההודעות</string>
     <string name="title_advanced_move_thread_sent">בעת העברת דיון, להעביר גם את ההודעות שנשלחו</string>
-    <string name="title_advanced_default_snooze">זמן בררת המחדל לדחיית/השהיית תזכורות</string>
+    <string name="title_advanced_default_snooze">זמן ברירת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_default_folder">בחירת תיקיית ברירת מחדל</string>
     <string name="title_advanced_notifications">ניהול התראות</string>
     <string name="title_advanced_notifications_delete">מחיקת ערוצי התראות</string>
-    <string name="title_advanced_notifications_default">ערוץ בררת מחדל</string>
+    <string name="title_advanced_notifications_default">ערוץ ברירת מחדל</string>
     <string name="title_advanced_notifications_service">ערוץ מעקב</string>
     <string name="title_advanced_notifications_newest_first">הצגת ההתראות החדשות ביותר בהתחלה</string>
     <string name="title_advanced_badge">הצגת סמל משגר עם מספר ההודעות החדשות</string>
@@ -703,7 +704,7 @@
     <string name="title_advanced_check_links_dbl">לבדוק קישורים חשודים מול רשימת שמות תחום חסומים</string>
     <string name="title_advanced_confirm_images">לא להציג תמונות כברירת מחדל</string>
     <string name="title_advanced_ask_images">אישור הצגת תמונות</string>
-    <string name="title_advanced_confirm_html">הצגת הודעות שעוצבו מחדש כבררת מחדל</string>
+    <string name="title_advanced_confirm_html">הצגת הודעות שעוצבו מחדש כברירת מחדל</string>
     <string name="title_advanced_ask_html">אישור הצגת ההודעות המקוריות</string>
     <string name="title_advanced_tracking">לנסות לזהות ולהשבית תמונות מעקב</string>
     <string name="title_advanced_hide_timezone">שליחת הודעות ללא פרטי אזור זמן</string>
@@ -728,8 +729,8 @@
     <string name="title_advanced_default_encryption">        שיטת ההצפנה כברירת מחדל (PGP או S/MIME) תאוחסן עבור כל זהות בנפרד לאחר שליחת הודעה חתומה או מוצפנת.
         אפשר לבחור את שיטת ההצפנה בטרם השליחה בחלונית אפשרויות השליחה (לחיצה ארוכה על כפתור השליחה).
     </string>
-    <string name="title_advanced_sign_default">חתימה כבררת מחדל</string>
-    <string name="title_advanced_encrypt_default">הצפנה כבררת מחדל</string>
+    <string name="title_advanced_sign_default">חתימה כברירת מחדל</string>
+    <string name="title_advanced_encrypt_default">הצפנה כברירת מחדל</string>
     <string name="title_advanced_encrypt_auto">להצפין אוטומטית כשכל מפתחות הנמענים זמינים</string>
     <string name="title_advanced_auto_verify">לאמת הודעות חתומות אוטומטית</string>
     <string name="title_advanced_auto_decrypt">פענוח הודעות אוטומטית</string>
@@ -742,7 +743,7 @@
     <string name="title_advanced_sign_algo">אלגוריתם חתימה</string>
     <string name="title_advanced_encrypt_algo">אלגוריתם הצפנה</string>
     <string name="title_advanced_remark_algo">        נא לשים לב שלא כל לקוחות הדוא״ל תומכים בכל האלגוריתמים.
-        האלגוריתמים כבררת המחדל SHA256 ו־AES128 בדרך כלל נתמכים.
+        האלגוריתמים כברירת המחדל SHA256 ו־AES128 בדרך כלל נתמכים.
     </string>
     <string name="title_advanced_check_certificate">לבדוק את המפתח הציבורי עם השליחה</string>
     <string name="title_advanced_manage_certificates">ניהול מפתחות ציבוריים</string>
@@ -889,7 +890,7 @@
     <string name="title_advanced_notify_car_hint">מחובר כלומר שמשהו מוקרן כגון מפה לניווט</string>
     <string name="title_advanced_notify_remove_hint">התראות על הודעות חשבות תמיד תוסרנה עם החלקה כלפי חוץ ועם סימון הודעות כנקראו</string>
     <string name="title_advanced_notify_manage_hint">יש לגעת בשם הערוץ כדי להגדיר את מאפייניו</string>
-    <string name="title_advanced_notify_manage_default_hint">כדי להגדיר את צלילי בררת המחדל וכו׳</string>
+    <string name="title_advanced_notify_manage_default_hint">כדי להגדיר את צלילי ברירת המחדל וכו׳.</string>
     <string name="title_advanced_notify_manage_service_hint">כדי להשבית את התראת ה‚מעקב’</string>
     <string name="title_advanced_notify_separate_hint">איך אפשר להגדיר התראות לחשבונות, תיקיות ומוענים?</string>
     <string name="title_advanced_notify_preview_all_hint">להתקנים לבישים שיכולים להציג את התוכן במלואו (עד 5,000 תווים)</string>
@@ -934,7 +935,7 @@
     <string name="title_identity_unicode_remark">רוב השרתים לא תומכים בזה</string>
     <string name="title_identity_octetmime">לאפשר 8BITMIME</string>
     <string name="title_identity_max_size">גודל ההודעה המרבי (מ״ב)</string>
-    <string name="title_identity_receipt">לבקש אישור שליחה/אישור כבררת מחדל</string>
+    <string name="title_identity_receipt">לבקש אישור שליחה/אישור כברירת מחדל</string>
     <string name="title_identity_receipt_legacy">להשתמש בכותרות בקשת קבלה מיושנות</string>
     <string name="title_identity_use_ip_hint">במקרה של ‚קבלת פנים שגויה’, ‚דורש כתובת תקפה’ או כל שגיאה דומה, כדאי לנסות לשנות את ההגדרה הזאת</string>
     <string name="title_identity_self_hint">מונע ממך להגיב לעצמך</string>
@@ -956,7 +957,7 @@
     <string name="title_account_notify">הפרדת התראות</string>
     <string name="title_account_left">החלקה שמאלה</string>
     <string name="title_account_right">החלקה ימינה</string>
-    <string name="title_account_move">העברה כבררת מחדל אל</string>
+    <string name="title_account_move">העברה כברירת מחדל אל</string>
     <string name="title_account_gmail">לסנכרון אמין של חשבון Gmail, עדיף להשתמש באשף ההגדרה המהיר ל־Gmail ככל שניתן</string>
     <string name="title_domain">שם תחום</string>
     <string name="title_autoconfig">קבלת הגדרות</string>
@@ -983,7 +984,7 @@
     <string name="title_use_ip">להשתמש בכתובת ה־IP המקומית במקום בשם המארח</string>
     <string name="title_ehlo">הזדהות HELO/EHLO משלך</string>
     <string name="title_primary">עיקרי</string>
-    <string name="title_primary_account">עיקרי (חשבון בררת המחדל)</string>
+    <string name="title_primary_account">עיקרי (חשבון ברירת המחדל)</string>
     <string name="title_primary_identity">עיקרי (זהות בררת המחדל)</string>
     <string name="title_self_identity">הסרת כתובת הדוא״ל בעת מענה</string>
     <string name="title_leave_on_server">להשאיר הודעות על השרת</string>
@@ -1019,7 +1020,7 @@
     <string name="title_no_inbox">לא נמצאה תיבת דואר נכנס</string>
     <string name="title_no_drafts">אין תיקיית טיוטות</string>
     <string name="title_no_junk_folder">לא נבחרה תיקיית ספאם לחשבון הזה</string>
-    <string name="title_default_composable">כתובת הדוא״ל כבררת מחדל נקבעת על ידי הזהות העיקרית של החשבון העיקרי</string>
+    <string name="title_default_composable">כתובת הדוא״ל כברירת מחדל נקבעת על ידי הזהות העיקרית של החשבון העיקרי</string>
     <string name="title_no_composable">שליחת דוא״ל דורשת הגדרת זהות ובחירה תיקיית טיוטות בהגדרות החשבון</string>
     <string name="title_no_standard">ספק זה משתמש בפרוטוקול דוא״ל קנייני ולכן אי אפשר להשתמש בלקוחות דוא״ל מגופי צד־שלישי</string>
     <string name="title_no_idle">ספק זה לא תומך בהודעות בדחיפה. מצב זה יעכב קבלת הודעות חדשות ויגביר את צריכת הסוללה.</string>
@@ -1261,6 +1262,7 @@
     <string name="title_move">העברה</string>
     <string name="title_copy_btn">העתקה</string>
     <string name="title_keywords_btn">מילות מפתח</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">תוויות (Gmail בלבד)</string>
     <string name="title_unsubscribe">ביטול מינוי</string>
     <string name="title_message_rule">יצירת כלל</string>
     <string name="title_no_junk">לא ספאם</string>
@@ -1859,7 +1861,7 @@
     <string name="title_legend_show_full">הצגת ההודעה המקורית</string>
     <string name="title_legend_show_reformatted">הצגת הודעה מעוצבת מחדש</string>
     <string name="title_legend_edit">עריכה</string>
-    <string name="title_legend_default_color">צבע בררת מחדל</string>
+    <string name="title_legend_default_color">צבע ברירת מחדל</string>
     <string name="title_legend_close_hint">סגירת רמז</string>
     <string name="title_legend_connection_state">מצב חיבור</string>
     <string name="title_legend_sync_state">מצב סנכרון</string>
@@ -1879,7 +1881,7 @@
     <string name="title_legend_s">בחירה/ביטול</string>
     <string name="title_legend_t">התמקדות על טקסט</string>
     <string name="title_hint_folder_actions">לחיצה ארוכה על תיקייה מציגה אפשרויות כגון הוספת התיקייה לתפריט הניווט לגישה מהירה</string>
-    <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כבררת מחדל</string>
+    <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כברירת מחדל</string>
     <string name="title_hint_airplane">מצב טיסה מופעל</string>
     <string name="title_hint_notifications">אין הרשאות להתראות</string>
     <string name="title_hint_notifications_remark">נדרשות הרשאות גם להתראות (חשבון). אפשר לכבות התראות על הודעות חדשות בהגדרות.</string>
@@ -1893,9 +1895,9 @@
     </string>
     <string name="title_hint_important">חשוב</string>
     <string name="title_hint_sync">משיכת הודעות עשויה לארוך זמן מה כתלות במהירות הספק, חיבור האינטרנט, המכשיר ומספר ההודעות. היישומון עשוי להגיב בכבדות בזמן משיכת ההודעות.</string>
-    <string name="title_hint_sync_note">כבררת מחדל, לא כל ההודעות תימשכנה כדי להגביל את ניצולת האחסון והסוללה. אפשר לשנות את זה בלחיצה ארוכה על תיקייה ברשימת התיקיות ובחירה ב‚משיכת הודעות נוספות’.</string>
-    <string name="title_hint_battery">מאחר ש־FairEmail כבררת מחדל תמיד מקבל הודעות, Android ידווח על FairEmail כפעיל תמיד. לכן זה עשוי להיראות כאילו FairEmail תמיד צורך סוללה למרות שזה לא המצב.</string>
-    <string name="title_hint_reformat">כבררת מחדל, FairEmail מעצבת מחדש הודעות למטרות פרטיות ואבטחה. כדי לצפות בהודעה המקורית, יש לגעת בסמל ‚מסך מלא’ מעל לטקסט ההודעה.</string>
+    <string name="title_hint_sync_note">כברירת מחדל, לא כל ההודעות תימשכנה כדי להגביל את ניצולת האחסון והסוללה. אפשר לשנות את זה בלחיצה ארוכה על תיקייה ברשימת התיקיות ובחירה ב‚משיכת הודעות נוספות’.</string>
+    <string name="title_hint_battery">מאחר ש־FairEmail כברירת מחדל תמיד מקבל הודעות, Android ידווח על FairEmail כפעיל תמיד. לכן זה עשוי להיראות כאילו FairEmail תמיד צורך סוללה למרות שזה לא המצב.</string>
+    <string name="title_hint_reformat">כברירת מחדל, FairEmail מעצבת מחדש הודעות למטרות פרטיות ואבטחה. כדי לצפות בהודעה המקורית, יש לגעת בסמל ‚מסך מלא’ מעל לטקסט ההודעה.</string>
     <string name="title_hint_design">העיצוב אינו מפריע אלא מאפשר יעילות גבוהה באופן מכוון. יש מגוון אפשרויות להתאים את המראה, אך לדאבוננו לא ניתן לדאוג לרווחתם של כולם בו־זמנית.</string>
     <string name="title_hint_junk">סינון הספאם צריך להתבצע מצד שרת הדוא״ל ולא ניתן לבצע אותו על מכשיר שמופעל על סוללה עם יכולות מוגבלות.</string>
     <string name="title_hint_junk_learn">העברת הודעות אל תיקיית הספאם וממנה, „מלמדת” את שרת הדוא״ל מה זה ספאם</string>
@@ -1914,7 +1916,7 @@
     <string name="title_remark_owner">המידע יתקבל דרך <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">כתובת ה־IP של הבעלים</string>
     <string name="title_default_apps">יישומוני ברירת מחדל</string>
-    <string name="title_reset_open">הגדרת או מחיקת יישומוני בררת מחדל</string>
+    <string name="title_reset_open">הגדרת או מחיקת יישומוני ברירת מחדל</string>
     <string name="title_select_app">בחירת יישומון</string>
     <string name="title_updated">עדכון לגרסה %1$s הזמינה</string>
     <string name="title_no_update">אין עדכון זמין</string>
@@ -1944,7 +1946,7 @@
     <string name="title_keep_current">לשמור על הנוכחי</string>
     <string name="title_executing">מופעל</string>
     <string name="title_completed">הושלם</string>
-    <string name="title_default_changed">בררת המחדל השתנתה</string>
+    <string name="title_default_changed">ברירת המחדל השתנתה</string>
     <string name="title_clipboard_copy">העתקה ללוח הגזירים</string>
     <string name="title_clipboard_copied">הועתק ללוח הגזירים</string>
     <string name="title_ask_what">לשאול מה לעשות</string>

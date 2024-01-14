@@ -146,6 +146,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_list_identities">Identiteiten</string>
     <string name="title_edit_account">Account bewurkje</string>
     <string name="title_edit_identity">Identiteit bewurkje</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Nije map</string>
     <string name="title_edit_folder">Map bewurkje</string>
     <string name="title_disable_gmail">Gmail-app útskeakelje</string>
     <string name="title_setup">Ynstellingen</string>
@@ -169,7 +170,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_wizard_new">Ik haw in nij e-mailadres nedich</string>
     <string name="title_setup_manual">Hânmjittich ynstelle en accountopsjes</string>
     <string name="title_setup_classic">Klassike konfiguraasje</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">De flugge ynstallaasjewizard foar ‘Oare provider’ hjirboppe wurket meastentiids ek en is makliker as it ynfieren fan alle servergegevens.</string>
+    <string name="title_setup_wizard_hint">De flugge ynstallaasjewizard foar ‘Oare provider’ hjirboppe wurket meastentiids ek en is makliker as it ynfieren fan alle servergegevens.</string>
     <string name="title_setup_documentation">Besjoch de dokumintaasje fan jo e-mailprovider foar de krekte e-mailserverkonfiguraasje.</string>
     <string name="title_setup_account_remark">E-mailberjochten ûntfange</string>
     <string name="title_setup_identity_remark">E-mailberjochten ferstjoere</string>
@@ -1228,6 +1229,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_move">Ferpleatse</string>
     <string name="title_copy_btn">Kopiearje</string>
     <string name="title_keywords_btn">Kaaiwurden</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Labels (allinnich foar Gmail)</string>
     <string name="title_unsubscribe">Ofmelde</string>
     <string name="title_message_rule">Regel meitsje</string>
     <string name="title_no_junk">Net net-winske</string>

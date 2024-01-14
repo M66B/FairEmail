@@ -148,6 +148,7 @@
     <string name="title_list_identities">Самоличности</string>
     <string name="title_edit_account">Редактиране на акаунта</string>
     <string name="title_edit_identity">Редактиране на самоличността</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Нова папка</string>
     <string name="title_edit_folder">Редактиране на папка</string>
     <string name="title_disable_gmail">Изключване на приложението Gmail</string>
     <string name="title_setup">Настройки</string>
@@ -171,7 +172,7 @@
     <string name="title_setup_wizard_new">Трябва ми друг адрес на е-поща</string>
     <string name="title_setup_manual">Ръчна настройка и възможности на акаунта</string>
     <string name="title_setup_classic">Класическо конфигуриране</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Вълшебникът за бърза настройка за \"Друг доставчик\" горе обикновено също работи, а и е по-лесно от ръчно въвеждане на всички данни на сървъра.</string>
+    <string name="title_setup_wizard_hint">Вълшебникът за бърза настройка за \"Друг доставчик\" горе обикновено също работи, а и е по-лесно от ръчно въвеждане на всички данни на сървъра.</string>
     <string name="title_setup_documentation">Прегледайте документацията на имейл доставчика си за правилна настройки на сървъра</string>
     <string name="title_setup_account_remark">Получаване на е-писмо</string>
     <string name="title_setup_identity_remark">Изпращане на е-писмо</string>
@@ -1187,6 +1188,7 @@
     <string name="title_print_images">Отпечатване на образите</string>
     <string name="title_print_images_remark">Тегленето на образи може да отнеме известно време</string>
     <string name="title_print_block_quotes">Отпечатване на редовете в блока с цитат</string>
+    <string name="title_print_margins">Добавяне на краищни полета</string>
     <string name="title_show_headers">Показване на заглавките</string>
     <string name="title_show_html">Показване на извора</string>
     <string name="title_raw_save">Запазване на необработено съобщение</string>
@@ -1230,6 +1232,7 @@
     <string name="title_move">Премести</string>
     <string name="title_copy_btn">Копиране</string>
     <string name="title_keywords_btn">Ключови думи</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Етикети (само за Gmail)</string>
     <string name="title_unsubscribe">Отписване</string>
     <string name="title_message_rule">Създай правило</string>
     <string name="title_no_junk">Не е спам</string>

@@ -177,6 +177,7 @@
     <string name="title_list_identities">Профілі</string>
     <string name="title_edit_account">Редагувати обліковий запис</string>
     <string name="title_edit_identity">Редагувати профіль</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Нова тека</string>
     <string name="title_edit_folder">Редагувати теку</string>
     <string name="title_disable_gmail">Вимкнути додаток Gmail</string>
     <string name="title_setup">Налаштування</string>
@@ -200,7 +201,7 @@
     <string name="title_setup_wizard_new">Мені потрібна нова адреса електронної пошти</string>
     <string name="title_setup_manual">Ручне налаштування та параметри облікових записів</string>
     <string name="title_setup_classic">Класична конфігурація</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Майстер швидкого налаштування для «Іншого постачальника», наведений вище, зазвичай теж працює, і це простіше, ніж вводити всі дані сервера.</string>
+    <string name="title_setup_wizard_hint">Майстер швидкого налаштування для «Іншого постачальника», наведений вище, зазвичай теж працює, і це простіше, ніж вводити всі дані сервера.</string>
     <string name="title_setup_documentation">Перегляньте документацію свого постачальника пошти для правильної конфігурації сервера електронної пошти</string>
     <string name="title_setup_account_remark">Отримання пошти</string>
     <string name="title_setup_identity_remark">Надсилання пошти</string>
@@ -1260,10 +1261,11 @@
     <string name="title_move">Перемістити</string>
     <string name="title_copy_btn">Копіювати</string>
     <string name="title_keywords_btn">Ключові слова</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Мітки (тільки для Gmail)</string>
     <string name="title_unsubscribe">Відписатися</string>
     <string name="title_message_rule">Створити правило</string>
     <string name="title_no_junk">Не спам</string>
-    <string name="title_edit_subject">Редагування теми &#8230;</string>
+    <string name="title_edit_subject">Редагувати тему &#8230;</string>
     <string name="title_move_to">Перемістити до &#8230;</string>
     <string name="title_move_to_folder">Перемістити до &#8230;</string>
     <string name="title_move_to_account">Перемістити в %1$s &#8230;</string>

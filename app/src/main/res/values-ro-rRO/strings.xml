@@ -103,6 +103,8 @@
         Blocarea unui domeniu de expeditor utilizează reguli de filtrare, ceea ce reprezintă o caracteristică profesională.
     </string>
     <string name="title_blocked_senders">Expeditori blocați</string>
+    <string name="title_unblock_all">Deblocați pe toți</string>
+    <string name="title_unblock_all_remark">Aceasta va reseta toate listele și opțiunile care ar putea duce la blocarea expeditorilor</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blochează expeditorul a %1$s mesaj?</item>
         <item quantity="few">Blochează expeditorul a %1$s mesaje?</item>
@@ -160,6 +162,7 @@
     <string name="title_list_identities">Identități</string>
     <string name="title_edit_account">Editare cont</string>
     <string name="title_edit_identity">Editare identitate</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Dosar nou</string>
     <string name="title_edit_folder">Editare dosar</string>
     <string name="title_disable_gmail">Dezactivați aplicația Gmail</string>
     <string name="title_setup">Setări</string>
@@ -183,6 +186,7 @@
     <string name="title_setup_wizard_new">Am nevoie de o nouă adresă de e-mail</string>
     <string name="title_setup_manual">Setări manuale și opțiuni cont</string>
     <string name="title_setup_classic">Configurare clasică</string>
+    <string name="title_setup_wizard_hint">Asistentul de configurare rapidă pentru \"Alt furnizor\" de mai sus funcționează de obicei și este mai ușor decât să introduceți toate datele serverului.</string>
     <string name="title_setup_documentation">Vă rugăm să consultaţi documentaţia furnizorului de e-mail pentru configuraţia corectă a serverului de e-mail</string>
     <string name="title_setup_account_remark">Primire e-mail</string>
     <string name="title_setup_identity_remark">Trimitere e-mail</string>
@@ -192,6 +196,7 @@
     <string name="title_setup_google_sign_in">Autentificare cu Google</string>
     <string name="title_setup_other">Alt furnizor</string>
     <string name="title_setup_inbound">Doar e-mail de intrare (e-mailul nu poate fi trimis!)</string>
+    <string name="title_setup_imap">Cont IMAP</string>
     <string name="title_setup_pop3">Cont POP3</string>
     <string name="title_setup_oauth_permission">Furnizorul de e-mail a aprobat OAuth doar pentru versiunea Play Store și GitHub</string>
     <string name="title_setup_gmail_support">Autorizarea conturilor Google va funcționa în versiunea Play Store și GitHub doar pentru că Android verifică semnătura digitală a aplicației</string>
@@ -449,10 +454,14 @@
     <string name="title_advanced_vpn_only">Conectați-vă numai prin intermediul unui VPN</string>
     <string name="title_advanced_timeout">Expirarea conexiunii (secunde)</string>
     <string name="title_advanced_prefer_ip4">Preferă IPv4 înaintea IPv6</string>
+    <string name="title_advanced_dns">Adrese server DNS preferate (separate prin virgulă)</string>
+    <string name="title_advanced_dns_custom">Folosiți un server DNS personalizat</string>
     <string name="title_advanced_ssl_update">Utilizați furnizorul SSL actualizat</string>
     <string name="title_advanced_ssl_harden">Întârire conexiuni SSL</string>
     <string name="title_advanced_ssl_harden_strict">Necesită TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificarea strictă a certificatelor</string>
+    <string name="title_advanced_cert_transparency">Transparenţa certificatului</string>
+    <string name="title_advanced_check_names">Verifică numele gazdei în raport cu certificatele serverului</string>
     <string name="title_advanced_open_safe">Deschideți numai conexiuni sigure</string>
     <string name="title_advanced_http_redirect">Permite redirectionarea conexiunii</string>
     <string name="title_advanced_bouncy_castle">Folosește furnizorul de socket securizat Bouncy Castle (JSSE)</string>
@@ -604,6 +613,7 @@
     <string name="title_advanced_expand_all">Extinde automat toate mesajele citate</string>
     <string name="title_advanced_expand_one">Extinde doar câte un mesaj odată</string>
     <string name="title_advanced_collapse_multiple">La apăsarea \'înapoi\' restrânge mesajele dintr-o conversație cu mai multe mesaje</string>
+    <string name="title_advanced_seen_delay">Întârziere marcare automată a mesajelor drept citite</string>
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
     <string name="title_advanced_autoclose_send">Închide automat conversațiile după trimiterea mesajelor</string>
     <string name="title_advanced_onclose">La închiderea conversației</string>
@@ -674,6 +684,8 @@
     <string name="title_advanced_confirm_files">Confirmă vizualizarea fișierelor</string>
     <string name="title_advanced_sanitize_links">Elimină implicit parametrii de urmărire</string>
     <string name="title_advanced_sanitize_links_hint">Doar la confirmarea legăturilor</string>
+    <string name="title_advanced_adguard">Utilizați lista de filtre AdGuard</string>
+    <string name="title_advanced_adguard_weekly">Descărcare automată săptămânală</string>
     <string name="title_advanced_check_links_dbl">Verificați listele de blocare a domeniilor pentru link-uri suspecte</string>
     <string name="title_advanced_confirm_images">Nu afișați nicio imagine în mod implicit</string>
     <string name="title_advanced_ask_images">Confirmă afișarea imaginilor</string>
@@ -871,6 +883,7 @@
     <string name="title_advanced_wearable_hint">Notificările sunt trimise la un dispozitiv portabil doar după ce textul mesajului a fost descărcat</string>
     <string name="title_advanced_messaging_hint">Acest lucru este necesar pentru suport Android Auto</string>
     <string name="title_advanced_move_hint">Dosarul țintă poate fi configurat în setările contului</string>
+    <string name="title_advanced_notify_sensitive_hint">Necesită dezactivarea notificărilor sensibile în setările Android</string>
     <string name="title_advanced_notify_no_grouping">Această versiune de Android nu suportă gruparea notificărilor</string>
     <string name="title_advanced_notify_no_channels">Această versiune de Android nu suportă canale de notificare</string>
     <string name="title_advanced_fts_hint">Activată îmbunătățește performanța de căutare, dar de asemenea crește folosirea bateriei și a spațiului de stocare</string>
@@ -936,11 +949,15 @@
     <string name="title_aliases">Aliasuri</string>
     <string name="title_provider">Furnizor</string>
     <string name="title_custom">Personalizat</string>
+    <string name="title_dnssec">Impune DNSSEC</string>
+    <string name="title_dnssec_remark">Doar un număr limitat de servere DNS suportă DNSSEC</string>
     <string name="title_host">Nume gazdă</string>
     <string name="title_encryption">Criptare</string>
     <string name="title_encryption_none">Nimic (nesigur)</string>
     <string name="title_allow_insecure">Permite conexiunea nesecurizate</string>
     <string name="title_insecure_remark">Conexiunile nesigure trebuie permise numai pe rețele de încredere și niciodată pe cele publice</string>
+    <string name="title_dane">Impune DANE</string>
+    <string name="title_dane_remark">Doar unii furnizori de e-mail acceptă DANE</string>
     <string name="title_notify_remark">Puteți activa aceasta pentru notificări specifice contului</string>
     <string name="title_port">Număr port</string>
     <string name="title_user">Nume utilizator</string>
@@ -1229,6 +1246,7 @@
     <string name="title_move">Mută</string>
     <string name="title_copy_btn">Copiere</string>
     <string name="title_keywords_btn">Cuvinte cheie</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etichete (doar Gmail)</string>
     <string name="title_unsubscribe">Dezabonare</string>
     <string name="title_message_rule">Creare regulă</string>
     <string name="title_no_junk">Nu este spam</string>

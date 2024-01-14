@@ -134,6 +134,7 @@
     <string name="title_list_identities">ユーザー ID</string>
     <string name="title_edit_account">アカウントを編集</string>
     <string name="title_edit_identity">ユーザー ID を編集</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">新しいフォルダー</string>
     <string name="title_edit_folder">フォルダーを編集</string>
     <string name="title_disable_gmail">Gmail アプリを無効にする</string>
     <string name="title_setup">設定</string>
@@ -157,7 +158,7 @@
     <string name="title_setup_wizard_new">新しいメールアドレスを取得する</string>
     <string name="title_setup_manual">手動セットアップとアカウントの設定</string>
     <string name="title_setup_classic">クラシカルな設定方法</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">ほとんどの場合、上のクイックセットアップウィザードの「その他のプロバイダー」から、サーバーデータの入力を省略して簡単に設定できます。</string>
+    <string name="title_setup_wizard_hint">ほとんどの場合、上のクイックセットアップウィザードの「その他のプロバイダー」から、サーバーデータの入力を省略して簡単に設定できます。</string>
     <string name="title_setup_documentation">メールサーバー設定については、メールプロバイダーのドキュメントを参照してください</string>
     <string name="title_setup_account_remark">メールを受信</string>
     <string name="title_setup_identity_remark">メールを送信</string>
@@ -1219,6 +1220,7 @@
     <string name="title_move">移動</string>
     <string name="title_copy_btn">コピー</string>
     <string name="title_keywords_btn">キーワード</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">ラベル (Gmail のみ)</string>
     <string name="title_unsubscribe">購読解除</string>
     <string name="title_message_rule">ルールを作成</string>
     <string name="title_no_junk">迷惑メールでないと報告</string>

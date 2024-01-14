@@ -147,6 +147,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_list_identities">Kimlikler</string>
     <string name="title_edit_account">Hesabı Düzenle</string>
     <string name="title_edit_identity">Kimliği düzenle</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Yeni klasör</string>
     <string name="title_edit_folder">Klasörü düzenle</string>
     <string name="title_disable_gmail">Gmail \'i devre dışı bırak</string>
     <string name="title_setup">Ayarlar</string>
@@ -170,7 +171,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_wizard_new">Yeni bir e-posta adresi istiyorum</string>
     <string name="title_setup_manual">Elle kurulum ve hesap ayarları</string>
     <string name="title_setup_classic">Klasik yapılandırma</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Yukarıdaki \"Diğer Sağlayıcı\" için hızlı kurulum sihirbazı da genellikle işe yarar ve tüm sunucu verilerini girmekten daha kolaydır.</string>
+    <string name="title_setup_wizard_hint">Yukarıdaki \"Diğer Sağlayıcı\" için hızlı kurulum sihirbazı da genellikle işe yarar ve tüm sunucu verilerini girmekten daha kolaydır.</string>
     <string name="title_setup_documentation">Doğru e-posta sunucusu yapılandırması için lütfen e-posta sağlayıcınızın belgelerine bakın</string>
     <string name="title_setup_account_remark">E-posta al</string>
     <string name="title_setup_identity_remark">E-posta gönder</string>
@@ -1227,6 +1228,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_move">Taşı</string>
     <string name="title_copy_btn">Kopyala</string>
     <string name="title_keywords_btn">Anahtar Sözcükler/Kelimeler</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etiketler (yalnızca Gmail)</string>
     <string name="title_unsubscribe">Abonelikten çık</string>
     <string name="title_message_rule">Kural oluştur</string>
     <string name="title_no_junk">Spam değil</string>

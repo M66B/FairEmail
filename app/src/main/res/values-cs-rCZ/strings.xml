@@ -176,6 +176,7 @@
     <string name="title_list_identities">Identity</string>
     <string name="title_edit_account">Upravit účet</string>
     <string name="title_edit_identity">Upravit identitu</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Nová složka</string>
     <string name="title_edit_folder">Upravit složku</string>
     <string name="title_disable_gmail">Zakázat aplikaci Gmail</string>
     <string name="title_setup">Nastavení</string>
@@ -199,7 +200,7 @@
     <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
     <string name="title_setup_manual">Ruční nastavení a možnosti účtu</string>
     <string name="title_setup_classic">Klasická konfigurace</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Průvodce rychlým nastavením výše uvedeného \"Ostatní poskytovatele\" obvykle funguje a je snazší, než vkládat všechna data serveru.</string>
+    <string name="title_setup_wizard_hint">Průvodce rychlým nastavením výše uvedeného \"Ostatní poskytovatele\" obvykle funguje a je snazší, než vkládat všechna data serveru.</string>
     <string name="title_setup_documentation">Pro správné nastavení e-mailového serveru si prosím přečtěte dokumentaci svého poskytovatele e-mailu</string>
     <string name="title_setup_account_remark">Příjem e-mailů</string>
     <string name="title_setup_identity_remark">Odesílání e-mailů</string>
@@ -1260,6 +1261,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_move">Přesunout</string>
     <string name="title_copy_btn">Kopírovat</string>
     <string name="title_keywords_btn">Klíčová slova</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Štítky (pouze Gmail)</string>
     <string name="title_unsubscribe">Odhlásit odběr</string>
     <string name="title_message_rule">Vytvořit pravidlo</string>
     <string name="title_no_junk">Není spam</string>

@@ -148,6 +148,7 @@
     <string name="title_list_identities">Kimliklər</string>
     <string name="title_edit_account">Hesaba düzəliş et</string>
     <string name="title_edit_identity">Kimliyə düzəliş et</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Yeni qovluq</string>
     <string name="title_edit_folder">Qovluğa düzəliş et</string>
     <string name="title_disable_gmail">Gmail tətbiqini sıradan çıxart</string>
     <string name="title_setup">Ayarlar</string>
@@ -171,6 +172,7 @@
     <string name="title_setup_wizard_new">Yeni bir e-poçt ünvanına ehtiyacım var</string>
     <string name="title_setup_manual">Əllə quraşdırma və hesab seçimləri</string>
     <string name="title_setup_classic">Klassik konfiqurasiya</string>
+    <string name="title_setup_wizard_hint">Yuxarıdakı \"Digər provayder\" üçün cəld quraşdırma sehrbazı da adətən işləyir və bütün server datasını daxil etməkdən daha asandır.</string>
     <string name="title_setup_documentation">Doğru e-poçt serverinin konfiqurasiyası üçün zəhmət olmasa e-poçt provayderinizin sənədləşdirməsinə baxın</string>
     <string name="title_setup_account_remark">E-poçt alma</string>
     <string name="title_setup_identity_remark">E-poçt göndərmə</string>
@@ -180,6 +182,7 @@
     <string name="title_setup_google_sign_in">Google ilə daxil ol</string>
     <string name="title_setup_other">Digər provayder</string>
     <string name="title_setup_inbound">Yalnız gələn e-poçt (e-poçt göndərilə bilməz!)</string>
+    <string name="title_setup_imap">IMAP hesabı</string>
     <string name="title_setup_pop3">POP3 hesabı</string>
     <string name="title_setup_oauth_permission">E-poçt provayderi, \"OAuth\"u yalnız Play Store və GitHub versiyaları üçün təsdiqlədi</string>
     <string name="title_setup_gmail_support">Google hesablarının səlahiyyətləndirilməsi, Android tətbiq imzalarını yoxladığı üçün yalnız Play Store və GitHub versiyalarında işləyəcək</string>
@@ -1231,6 +1234,7 @@
     <string name="title_move">Köçürt</string>
     <string name="title_copy_btn">Kopyala</string>
     <string name="title_keywords_btn">Açar sözlər</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etiketlər (yalnız Gmail)</string>
     <string name="title_unsubscribe">Abunəlikdən çıx</string>
     <string name="title_message_rule">Qayda yarat</string>
     <string name="title_no_junk">Spam deyil</string>

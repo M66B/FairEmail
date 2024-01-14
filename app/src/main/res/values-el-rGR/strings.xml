@@ -148,6 +148,7 @@
     <string name="title_list_identities">Ταυτότητες</string>
     <string name="title_edit_account">Επεξεργασία λογαριασμού</string>
     <string name="title_edit_identity">Επεξεργασία ταυτότητας</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Νέος φάκελος</string>
     <string name="title_edit_folder">Επεξεργασία φακέλου</string>
     <string name="title_disable_gmail">Απενεργοποίηση της εφαρμογής Gmail</string>
     <string name="title_setup">Ρυθμίσεις</string>
@@ -171,6 +172,7 @@
     <string name="title_setup_wizard_new">Χρειάζομαι μια νέα διεύθυνση ηλ. ταχυδρομείου</string>
     <string name="title_setup_manual">Χειροκίνητη ρύθμιση και επιλογές λογαριασμού</string>
     <string name="title_setup_classic">Κλασική διαρρύθμιση</string>
+    <string name="title_setup_wizard_hint">Ο παραπάνω οδηγός γρήγορης ρύθμισης για έναν \"Άλλο Πάροχο\" συνήθως είναι εξίσου λειτουργικός, αλλά και πιο εύχρηστος σε σύγκριση με την εισαγωγή όλων των δεδομένων του διακομιστή.</string>
     <string name="title_setup_documentation">Παρακαλούμε, συμβουλευτείτε τις οδηγίες του παρόχου του ηλ. ταχυδρομείου σας για τη σωστή ρύθμιση του διακομιστή μέιλ</string>
     <string name="title_setup_account_remark">Λήψη μηνυμάτων</string>
     <string name="title_setup_identity_remark">Αποστολή μηνυμάτων</string>
@@ -180,6 +182,7 @@
     <string name="title_setup_google_sign_in">Σύνδεση μέσω Google</string>
     <string name="title_setup_other">Άλλος πάροχος</string>
     <string name="title_setup_inbound">Μόνο εισερχόμενα μηνύματα (δεν μπορούν να αποστέλλονται μηνύματα!)</string>
+    <string name="title_setup_imap">Λογαριασμός IMAP</string>
     <string name="title_setup_pop3">Λογαριασμός POP3</string>
     <string name="title_setup_oauth_permission">Ο πάροχος ηλ. ταχυδρομείου έχει εγκρίνει OAuth μόνον για την έκδοση του Play Store και του GitHub</string>
     <string name="title_setup_gmail_support">Η εξουσιοδότηση λογαριασμών Google θα λειτουργήσει μόνον στην έκδοση του Play Store και του GitHub, επειδή το Android ελέγχει την ψηφιακή υπογραφή της εφαρμογής</string>
@@ -1226,6 +1229,7 @@
     <string name="title_move">Μετακίνηση</string>
     <string name="title_copy_btn">Αντιγραφή</string>
     <string name="title_keywords_btn">Λέξεις-κλειδιά</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Ετικέτες (μόνο στο Gmail)</string>
     <string name="title_unsubscribe">Κατάργηση συνδρομής</string>
     <string name="title_message_rule">Δημιουργία κανόνα</string>
     <string name="title_no_junk">Όχι ανεπιθύμητο</string>

@@ -176,6 +176,7 @@
     <string name="title_list_identities">Идентификаторы</string>
     <string name="title_edit_account">Изменить учётную запись</string>
     <string name="title_edit_identity">Изменить идентификатор</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Новая папка</string>
     <string name="title_edit_folder">Изменить папку</string>
     <string name="title_disable_gmail">Отключить приложение Gmail</string>
     <string name="title_setup">Настройки</string>
@@ -199,7 +200,7 @@
     <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
     <string name="title_setup_manual">Ручная настройка и параметры учётной записи</string>
     <string name="title_setup_classic">Классическая настройка</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Мастер быстрой настройки для \"Другого провайдера\" обычно тоже работает и он проще, чем ввод всех данных сервера вручную.</string>
+    <string name="title_setup_wizard_hint">Мастер быстрой настройки для \"Другого провайдера\" обычно тоже работает и он проще, чем ввод всех данных сервера вручную.</string>
     <string name="title_setup_documentation">Ознакомьтесь с документацией почтового провайдера для правильной настройки сервера</string>
     <string name="title_setup_account_remark">Получение почты</string>
     <string name="title_setup_identity_remark">Отправка почты</string>
@@ -1261,6 +1262,7 @@
     <string name="title_move">Переместить</string>
     <string name="title_copy_btn">Копировать</string>
     <string name="title_keywords_btn">Ключевые слова</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Метки (только Gmail)</string>
     <string name="title_unsubscribe">Отписаться</string>
     <string name="title_message_rule">Создать правило</string>
     <string name="title_no_junk">Не спам</string>

@@ -148,6 +148,7 @@
     <string name="title_list_identities">Identidades</string>
     <string name="title_edit_account">Editar cuenta</string>
     <string name="title_edit_identity">Editar identidad</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Nueva carpeta</string>
     <string name="title_edit_folder">Editar carpeta</string>
     <string name="title_disable_gmail">Desactivar aplicación de Gmail</string>
     <string name="title_setup">Ajustes</string>
@@ -171,6 +172,7 @@
     <string name="title_setup_wizard_new">Necesito una nueva dirección de correo electrónico</string>
     <string name="title_setup_manual">Configuración manual y opciones de cuenta</string>
     <string name="title_setup_classic">Configuración clásica</string>
+    <string name="title_setup_wizard_hint">El asistente de configuración rápida para \"Otro Proveedor\" de arriba normalmente funciona también, y es más fácil que introducir todos los datos del servidor.</string>
     <string name="title_setup_documentation">Por favor vea la documentación de su proveedor de correo electrónico para la correcta configuración del servidor de correo</string>
     <string name="title_setup_account_remark">Recibir correo electrónico</string>
     <string name="title_setup_identity_remark">Enviar correo electrónico</string>
@@ -180,6 +182,7 @@
     <string name="title_setup_google_sign_in">Iniciar sesión con Google</string>
     <string name="title_setup_other">Otro proveedor</string>
     <string name="title_setup_inbound">Sólo correo entrante (¡no se puede enviar el correo electrónico!)</string>
+    <string name="title_setup_imap">Cuenta IMAP</string>
     <string name="title_setup_pop3">Cuenta POP3</string>
     <string name="title_setup_oauth_permission">El proveedor de correo electrónico ha aprobado OAuth sólo para las versiones de Play Store y GitHub</string>
     <string name="title_setup_gmail_support">Autorizar cuentas de Google sólo funcionará en las versiones de Play Store y GitHub porque Android comprueba la firma digital de la aplicación</string>
@@ -437,6 +440,8 @@
     <string name="title_advanced_vpn_only">Conectar sólo a través de una VPN</string>
     <string name="title_advanced_timeout">Tiempo de espera de conexión (segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 sobre IPv6</string>
+    <string name="title_advanced_dns">Direcciones de servidores DNS preferidas (separadas por comas)</string>
+    <string name="title_advanced_dns_custom">Usar resolución DNS personalizada</string>
     <string name="title_advanced_ssl_update">Usar proveedor SSL actualizado</string>
     <string name="title_advanced_ssl_harden">Endurecer conexiones SSL</string>
     <string name="title_advanced_ssl_harden_strict">Requerir TLS 1.3</string>
@@ -594,6 +599,7 @@
     <string name="title_advanced_expand_all">Expandir automáticamente todos los mensajes leídos</string>
     <string name="title_advanced_expand_one">Expandir sólo un mensaje a la vez</string>
     <string name="title_advanced_collapse_multiple">Colapsar mensajes en una conversación con varios mensajes al ir \'atrás\'</string>
+    <string name="title_advanced_seen_delay">Demora para marcar mensajes como leídos automáticamente</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
     <string name="title_advanced_autoclose_send">Cerrar conversaciones automáticamente después de enviar mensajes</string>
     <string name="title_advanced_onclose">Al cerrar una conversación</string>
@@ -929,12 +935,15 @@
     <string name="title_aliases">Alias</string>
     <string name="title_provider">Proveedor</string>
     <string name="title_custom">Personalizado</string>
+    <string name="title_dnssec">Forzar DNSSEC</string>
+    <string name="title_dnssec_remark">Sólo un número limitado de servidores DNS soportan DNSSEC</string>
     <string name="title_host">Nombre de host</string>
     <string name="title_encryption">Cifrado</string>
     <string name="title_encryption_none">Ninguno (inseguro)</string>
     <string name="title_allow_insecure">Permitir conexiones inseguras</string>
     <string name="title_insecure_remark">Las conexiones inseguras sólo deberían permitirse con redes de confianza y nunca con redes públicas</string>
     <string name="title_dane">Forzar DANE</string>
+    <string name="title_dane_remark">Sólo algunos proveedores de correo electrónico soportan DANE</string>
     <string name="title_notify_remark">Puedes activar esto para notificaciones específicas de la cuenta</string>
     <string name="title_port">Puerto</string>
     <string name="title_user">Nombre de usuario</string>
@@ -1223,6 +1232,7 @@
     <string name="title_move">Mover</string>
     <string name="title_copy_btn">Copiar</string>
     <string name="title_keywords_btn">Palabras clave</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etiquetas (sólo Gmail)</string>
     <string name="title_unsubscribe">Darse de baja</string>
     <string name="title_message_rule">Crear regla</string>
     <string name="title_no_junk">No es Spam</string>

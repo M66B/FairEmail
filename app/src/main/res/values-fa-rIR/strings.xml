@@ -132,6 +132,7 @@
     <string name="title_list_identities">هویت‌ها</string>
     <string name="title_edit_account">ویرایش حساب</string>
     <string name="title_edit_identity">ویرایش هویت</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">پوشه جدید</string>
     <string name="title_edit_folder">ويرايش پوشه</string>
     <string name="title_disable_gmail">برنامه جیمیل را غیرفعال کن</string>
     <string name="title_setup">تنظیمات</string>
@@ -843,6 +844,7 @@
     <string name="title_spam">هرزنامه</string>
     <string name="title_move">انتقال</string>
     <string name="title_copy_btn">روگرفت</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">برچسب (فقط جیمیل)</string>
     <string name="title_unsubscribe">لغو اشتراک</string>
     <string name="title_message_rule">ساخت قانون</string>
     <string name="title_no_junk">هرزنامه نیست</string>

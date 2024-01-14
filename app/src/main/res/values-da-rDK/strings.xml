@@ -148,6 +148,7 @@
     <string name="title_list_identities">Identiteter</string>
     <string name="title_edit_account">Redigér konto</string>
     <string name="title_edit_identity">Redigér identitet</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Ny mappe</string>
     <string name="title_edit_folder">Redigér mappe</string>
     <string name="title_disable_gmail">Deaktivér Gmail-app</string>
     <string name="title_setup">Indstillinger</string>
@@ -171,7 +172,7 @@
     <string name="title_setup_wizard_new">Jeg behøver en ny e-mailadresse</string>
     <string name="title_setup_manual">Manuel opsætning og kontoindstillinger</string>
     <string name="title_setup_classic">Klassisk opsætning</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Guiden til hurtig opsætning af \"Anden udbyder\" ovenfor virker normalt også og er nemmere end at angive alle serverdata.</string>
+    <string name="title_setup_wizard_hint">Guiden til hurtig opsætning af \"Anden udbyder\" ovenfor virker normalt også og er nemmere end at angive alle serverdata.</string>
     <string name="title_setup_documentation">Tjek e-mailudbyderdokumentationen mht. korrekt e-mailserveropsætning</string>
     <string name="title_setup_account_remark">Modtag e-mail</string>
     <string name="title_setup_identity_remark">Send e-mail</string>
@@ -1234,6 +1235,7 @@
     <string name="title_move">Flyt</string>
     <string name="title_copy_btn">Kopiér</string>
     <string name="title_keywords_btn">Nøgleord</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etiketter (kun Gmail)</string>
     <string name="title_unsubscribe">Afmeld</string>
     <string name="title_message_rule">Opret regel</string>
     <string name="title_no_junk">Ikke spam</string>

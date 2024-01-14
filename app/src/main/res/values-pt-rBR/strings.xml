@@ -148,6 +148,7 @@
     <string name="title_list_identities">Identidades</string>
     <string name="title_edit_account">Editar conta</string>
     <string name="title_edit_identity">Editar identidade</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Nova pasta</string>
     <string name="title_edit_folder">Editar pasta</string>
     <string name="title_disable_gmail">Desabilitar o app Gmail</string>
     <string name="title_setup">Configurações</string>
@@ -171,7 +172,7 @@
     <string name="title_setup_wizard_new">Preciso de um novo endereço de e-mail</string>
     <string name="title_setup_manual">Opções manuais de configuração e conta</string>
     <string name="title_setup_classic">Configuração clássica</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">O assistente de configuração rápida para “Outro Provedor” acima geralmente também funciona e é mais fácil do que inserir todos os dados do servidor.</string>
+    <string name="title_setup_wizard_hint">O assistente de configuração rápida para “Outro Provedor” acima geralmente também funciona e é mais fácil do que inserir todos os dados do servidor.</string>
     <string name="title_setup_documentation">Por favor, veja a documentação do seu provedor de e-mail para a configuração correta do servidor de e-mail</string>
     <string name="title_setup_account_remark">Receber e-mail</string>
     <string name="title_setup_identity_remark">Enviar e-mail</string>
@@ -1231,6 +1232,7 @@
     <string name="title_move">Mover</string>
     <string name="title_copy_btn">Copiar</string>
     <string name="title_keywords_btn">Palavras-chave</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Rótulos (Gmail somente)</string>
     <string name="title_unsubscribe">Desinscrever</string>
     <string name="title_message_rule">Criar regra</string>
     <string name="title_no_junk">Não é spam</string>

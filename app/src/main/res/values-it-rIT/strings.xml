@@ -148,6 +148,7 @@
     <string name="title_list_identities">Identità</string>
     <string name="title_edit_account">Modifica profilo</string>
     <string name="title_edit_identity">Modifica identità</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Nuova cartella</string>
     <string name="title_edit_folder">Modifica cartella</string>
     <string name="title_disable_gmail">Disabilita l\'app di Gmail</string>
     <string name="title_setup">Impostazioni</string>
@@ -171,7 +172,7 @@
     <string name="title_setup_wizard_new">Mi serve un nuovo indirizzo email</string>
     <string name="title_setup_manual">Configurazione manuale e opzioni del profilo</string>
     <string name="title_setup_classic">Configurazione classica</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">La procedura guidata di configurazione rapida per un \"Altro provider\" sopra funziona di solito anche ed è più facile da usare che inserire tutti i dati del server.</string>
+    <string name="title_setup_wizard_hint">Solitamente, anche la procedura guidata di configurazione per un \"Altro fornitore\", di cui sopra, funziona, ed è più facile da utilizzare, rispetto all\'inserimento di tutti i dati del server.</string>
     <string name="title_setup_documentation">Sei pregato di consultare la documentazione del tuo provider email per la corretta configurazione del server email</string>
     <string name="title_setup_account_remark">Ricevi email</string>
     <string name="title_setup_identity_remark">Invia email</string>
@@ -1234,6 +1235,7 @@
     <string name="title_move">Sposta</string>
     <string name="title_copy_btn">Copia</string>
     <string name="title_keywords_btn">Parole chiave</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etichette (solo Gmail)</string>
     <string name="title_unsubscribe">Disiscriviti</string>
     <string name="title_message_rule">Crea una regola</string>
     <string name="title_no_junk">Non spam</string>

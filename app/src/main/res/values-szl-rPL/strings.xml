@@ -176,6 +176,7 @@
     <string name="title_list_identities">Tożsamości</string>
     <string name="title_edit_account">Edytuj konto</string>
     <string name="title_edit_identity">Edytuj tożsamość</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Nowy folder</string>
     <string name="title_edit_folder">Edytuj folder</string>
     <string name="title_disable_gmail">Wyłącz aplikację Gmail</string>
     <string name="title_setup">Ustawienia</string>
@@ -199,7 +200,7 @@
     <string name="title_setup_wizard_new">Potrzebujesz nowego adresu e-mail?</string>
     <string name="title_setup_manual">Ręczna konfiguracja i opcje konta</string>
     <string name="title_setup_classic">Konfiguracja klasyczna</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">Kreator szybkiej konfiguracji dla \"innego dostawcy\" powyżej zwykle również działa i jest łatwiejszy niż wprowadzanie wszystkich danych serwera.</string>
+    <string name="title_setup_wizard_hint">Kreator szybkiej konfiguracji dla \"innego dostawcy\" powyżej zwykle również działa i jest łatwiejszy niż wprowadzanie wszystkich danych serwera.</string>
     <string name="title_setup_documentation">Sprawdź dokumentację dostawcy poczty e-mail w celu uzyskania poprawnej konfiguracji serwera e-mail</string>
     <string name="title_setup_account_remark">Odbieranie wiadomości e-mail</string>
     <string name="title_setup_identity_remark">Wysyłanie wiadomości e-mail</string>
@@ -1258,6 +1259,7 @@
     <string name="title_move">Przenieś</string>
     <string name="title_copy_btn">Kopiuj</string>
     <string name="title_keywords_btn">Słowa kluczowe</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etykiety (tylko Gmail)</string>
     <string name="title_unsubscribe">Anuluj subskrypcję</string>
     <string name="title_message_rule">Utwórz regułę</string>
     <string name="title_no_junk">To nie jest spam</string>

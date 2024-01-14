@@ -147,6 +147,7 @@
     <string name="title_list_identities">Azonosítók</string>
     <string name="title_edit_account">Fiók szerkesztése</string>
     <string name="title_edit_identity">Azonosító szerkesztése</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Új mappa</string>
     <string name="title_edit_folder">Könyvtár szerkesztése</string>
     <string name="title_disable_gmail">Gmail alkalmazás letiltása</string>
     <string name="title_setup">Beállítások</string>
@@ -170,7 +171,7 @@
     <string name="title_setup_wizard_new">Új e-mail cím megadása</string>
     <string name="title_setup_manual">Kézi beállítás és fiók opciók</string>
     <string name="title_setup_classic">Klasszikus konfiguráció</string>
-    <string name="title_setup_wizard_hint" comment="title_setup_wizard_hint&#10;Remark at the top of the manual setup section in the main settings screen">A fenti \"Egyéb szolgáltató\" gyorsbeállítás varázsló általában szintén működik, és könnyebb, mint bevinni a kiszolgáló adatait.</string>
+    <string name="title_setup_wizard_hint">A fenti \"Egyéb szolgáltató\" gyorsbeállítás varázsló általában szintén működik, és könnyebb, mint bevinni a kiszolgáló adatait.</string>
     <string name="title_setup_documentation">Kérjük keresse fel az e-mail szolgáltatójának leírását a korrekt e-mail szerver konfigurációval kapcsolatban</string>
     <string name="title_setup_account_remark">E-mailek fogadása</string>
     <string name="title_setup_identity_remark">E-mailek küldése</string>
@@ -1228,6 +1229,7 @@
     <string name="title_move">Áthelyezés</string>
     <string name="title_copy_btn">Másolás</string>
     <string name="title_keywords_btn">Kulcsszavak</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Címkék (csak Gmail)</string>
     <string name="title_unsubscribe">Leiratkozás</string>
     <string name="title_message_rule">Szabály létrehozása</string>
     <string name="title_no_junk">Nem levélszemét</string>

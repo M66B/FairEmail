@@ -134,6 +134,7 @@
     <string name="title_list_identities">身份</string>
     <string name="title_edit_account">编辑账户</string>
     <string name="title_edit_identity">编辑身份</string>
+    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">新建文件夹</string>
     <string name="title_edit_folder">编辑文件夹</string>
     <string name="title_disable_gmail">禁用 Gmail 应用</string>
     <string name="title_setup">设置</string>
@@ -157,6 +158,7 @@
     <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>
     <string name="title_setup_manual">手动设置和更多账户选项</string>
     <string name="title_setup_classic">经典配置</string>
+    <string name="title_setup_wizard_hint">上方的“其他提供商”快速安装向导通常也能起作用，而且比输入所有服务器数据容易。</string>
     <string name="title_setup_documentation">请查看您的电子邮件提供商的文档以获取正确的电子邮件服务器配置</string>
     <string name="title_setup_account_remark">接收电子邮件</string>
     <string name="title_setup_identity_remark">发送电子邮件</string>
@@ -166,6 +168,7 @@
     <string name="title_setup_google_sign_in">使用 Google 账号登录</string>
     <string name="title_setup_other">其他提供商</string>
     <string name="title_setup_inbound">仅限收到的邮件（邮件不能发送！）</string>
+    <string name="title_setup_imap">IMAP 账户</string>
     <string name="title_setup_pop3">POP3 账户</string>
     <string name="title_setup_oauth_permission">电子邮件提供商仅批准了 Play 商店和 GitHub 版本使用 OAuth</string>
     <string name="title_setup_gmail_support">只有 Play 商店和 GitHub 版本才支持授权 Google 账户，因为 Android 会检查应用的数字签名</string>
@@ -1213,6 +1216,7 @@
     <string name="title_move">移动</string>
     <string name="title_copy_btn">复制</string>
     <string name="title_keywords_btn">关键词</string>
+    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">标签 (仅 Gmail)</string>
     <string name="title_unsubscribe">取消订阅</string>
     <string name="title_message_rule">创建规则</string>
     <string name="title_no_junk">不是垃圾邮件</string>
