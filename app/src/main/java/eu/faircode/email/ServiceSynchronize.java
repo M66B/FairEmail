@@ -1415,7 +1415,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     Collections.sort(folders, folders.get(0).getComparator(ServiceSynchronize.this));
                                 for (EntityFolder folder : folders)
                                     if (folder.poll ||
-                                            !account.poll_exempted ||
+                                            !account.isExempted(ServiceSynchronize.this) ||
                                             account.protocol == EntityAccount.TYPE_POP ||
                                             !BuildConfig.DEBUG)
                                         EntityOperation.poll(ServiceSynchronize.this, folder.id);
