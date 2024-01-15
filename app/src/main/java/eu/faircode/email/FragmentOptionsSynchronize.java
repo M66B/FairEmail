@@ -171,8 +171,9 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         spPollInterval = view.findViewById(R.id.spPollInterval);
         tvPollBattery = view.findViewById(R.id.tvPollBattery);
 
-        swSchedule = view.findViewById(R.id.swSchedule);
         rvExempted = view.findViewById(R.id.rvExempted);
+
+        swSchedule = view.findViewById(R.id.swSchedule);
         tvSchedulePro = view.findViewById(R.id.tvSchedulePro);
         tvScheduleStart = view.findViewById(R.id.tvScheduleStart);
         tvScheduleEnd = view.findViewById(R.id.tvScheduleEnd);
