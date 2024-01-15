@@ -326,7 +326,7 @@ public class DebugHelper {
         sb.append(String.format("Manufacturer: %s\r\n", Build.MANUFACTURER));
         sb.append(String.format("Model: %s\r\n", Build.MODEL));
         sb.append(String.format("Product: %s\r\n", Build.PRODUCT));
-        sb.append(String.format("Device: %s\r\n", Build.DEVICE));
+        sb.append(String.format("Device: %s Arc: %b\r\n", Build.DEVICE, Helper.isArc()));
         sb.append(String.format("Host: %s\r\n", Build.HOST));
         sb.append(String.format("Time: %s\r\n", new Date(Build.TIME).toString()));
         sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
