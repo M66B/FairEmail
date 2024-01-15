@@ -421,7 +421,7 @@
     <string name="title_advanced_optimize">Automatically optimize</string>
     <string name="title_advanced_always">Always receive messages for these accounts</string>
     <string name="title_advanced_poll_metered">Periodically check for new messages while on a metered network</string>
-    <string name="title_advanced_poll_unmetered">Periodically check for new messages while on a unmetered network</string>
+    <string name="title_advanced_poll_unmetered">Periodically check for new messages while on an unmetered network</string>
     <string name="title_advanced_schedule">Schedule</string>
     <string name="title_advanced_schedule_workdays">Workdays</string>
     <string name="title_advanced_schedule_weekend">Weekend</string>
