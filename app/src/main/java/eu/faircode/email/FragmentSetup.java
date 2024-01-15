@@ -1024,7 +1024,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         TextViewCompat.setCompoundDrawableTintList(tvDozeDone,
                 ColorStateList.valueOf(isIgnoring ? textColorPrimary : colorWarning));
 
-        btnDoze.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
+        btnDoze.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Helper.isArc());
         btnDoze.setCompoundDrawablesRelativeWithIntrinsicBounds(
                 0, 0, isIgnoring ? R.drawable.twotone_settings_24 : R.drawable.twotone_check_24, 0);
         btnDoze.setText(isIgnoring ? R.string.title_setup_manage : R.string.title_setup_grant);
