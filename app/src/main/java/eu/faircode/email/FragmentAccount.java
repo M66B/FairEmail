@@ -1444,17 +1444,11 @@ public class FragmentAccount extends FragmentBase {
                         }
                     }
 
-                    Map<String, EntityFolder> map = new HashMap<>();
-                    for (EntityFolder folder : folders) {
-                        EntityFolder f = db.folder().getFolderByName(account.id, folder.name);
-                        if (f != null)
-                            map.put(folder.name, f);
-                    }
-
                     db.folder().setFoldersUser(account.id);
 
                     for (EntityFolder folder : folders) {
-                        EntityFolder existing = map.get(folder.name);
+                        Log.i("Checking folder=" + folder.name + " type=" + folder.type);
+                        EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                         if (existing == null) {
                             folder.id = null;
                             folder.account = account.id;
