@@ -251,6 +251,30 @@
                     app:layout_constraintTop_toBottomOf="@id/tvExempted" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swPollMetered"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_poll_metered"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvExempted"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swPollUnmetered"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_poll_unmetered"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swPollMetered"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swSchedule"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -258,7 +282,7 @@
                     android:text="@string/title_advanced_schedule"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rvExempted"
+                    app:layout_constraintTop_toBottomOf="@id/swPollUnmetered"
                     app:switchPadding="12dp" />
 
                 <TextView
@@ -477,7 +501,7 @@
                     android:id="@+id/grpExempted"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvExempted,rvExempted" />
+                    app:constraint_referenced_ids="tvExempted,rvExempted,swPollMetered,swPollUnmetered" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

@@ -229,6 +229,18 @@ public class EntityAccount extends EntityOrder implements Serializable {
     }
 
     boolean isExempted(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean poll_metered = prefs.getBoolean("poll_metered", false);
+        boolean poll_unmetered = prefs.getBoolean("poll_unmetered", false);
+
+        if (poll_metered || poll_unmetered) {
+            ConnectionHelper.NetworkState state = ConnectionHelper.getNetworkState(context);
+            if (poll_metered && state.isConnected() && !state.isUnmetered())
+                return false;
+            if (poll_unmetered && state.isConnected() && state.isUnmetered())
+                return false;
+        }
+
         return this.poll_exempted;
     }
 

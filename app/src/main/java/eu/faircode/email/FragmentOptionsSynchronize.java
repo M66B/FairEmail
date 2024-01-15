@@ -82,6 +82,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private Spinner spPollInterval;
     private TextView tvPollBattery;
     private RecyclerView rvExempted;
+    private SwitchCompat swPollMetered;
+    private SwitchCompat swPollUnmetered;
     private SwitchCompat swSchedule;
     private TextView tvSchedulePro;
     private TextView tvScheduleStart;
@@ -132,6 +134,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
     private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "enabled", "poll_interval", "auto_optimize",
+            "poll_metered", "poll_unmetered",
             "schedule", "schedule_start", "schedule_end", "schedule_start_weekend", "schedule_end_weekend", "weekend",
             "sync_quick_imap", "sync_quick_pop",
             "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept",
@@ -172,6 +175,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         tvPollBattery = view.findViewById(R.id.tvPollBattery);
 
         rvExempted = view.findViewById(R.id.rvExempted);
+        swPollMetered = view.findViewById(R.id.swPollMetered);
+        swPollUnmetered = view.findViewById(R.id.swPollUnmetered);
 
         swSchedule = view.findViewById(R.id.swSchedule);
         tvSchedulePro = view.findViewById(R.id.tvSchedulePro);
@@ -368,6 +373,20 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         adapter = new AdapterAccountExempted(getViewLifecycleOwner(), getContext());
         rvExempted.setAdapter(adapter);
+
+        swPollMetered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("poll_metered", checked).apply();
+            }
+        });
+
+        swPollUnmetered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("poll_unmetered", checked).apply();
+            }
+        });
 
         swSchedule.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -706,6 +725,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 }
 
             tvPollBattery.setVisibility(pollInterval > 0 && pollInterval < 15 ? View.VISIBLE : View.GONE);
+            swPollMetered.setChecked(prefs.getBoolean("poll_metered", false));
+            swPollUnmetered.setChecked(prefs.getBoolean("poll_unmetered", false));
             grpExempted.setVisibility(pollInterval == 0 ? View.GONE : View.VISIBLE);
 
             swSchedule.setChecked(prefs.getBoolean("schedule", false) && pro);

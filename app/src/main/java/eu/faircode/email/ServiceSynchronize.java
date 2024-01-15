@@ -160,7 +160,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
     private static final List<String> PREF_EVAL = Collections.unmodifiableList(Arrays.asList(
-            "enabled", "poll_interval", "last_daily" // restart account(s)
+            "enabled", "poll_interval", "poll_metered", "poll_unmetered", "last_daily" // restart account(s)
     ));
 
     private static final List<String> PREF_RELOAD = Collections.unmodifiableList(Arrays.asList(
