@@ -2601,17 +2601,21 @@ class Core {
         Log.i("Local folder count=" + local.size() + " drafts=" + drafts);
 
         if (!drafts) {
-            EntityFolder d = new EntityFolder();
-            d.account = account.id;
-            d.name = context.getString(R.string.title_folder_local_drafts);
-            d.type = EntityFolder.DRAFTS;
-            d.local = true;
-            d.setProperties();
-            d.synchronize = false;
-            d.download = false;
-            d.sync_days = Integer.MAX_VALUE;
-            d.keep_days = Integer.MAX_VALUE;
-            db.folder().insertFolder(d);
+            String ldrafts = context.getString(R.string.title_folder_local_drafts);
+            EntityFolder d = db.folder().getFolderByName(account.id, ldrafts);
+            if (d == null) {
+                d = new EntityFolder();
+                d.account = account.id;
+                d.name = ldrafts;
+                d.type = EntityFolder.DRAFTS;
+                d.local = true;
+                d.setProperties();
+                d.synchronize = false;
+                d.download = false;
+                d.sync_days = Integer.MAX_VALUE;
+                d.keep_days = Integer.MAX_VALUE;
+                db.folder().insertFolder(d);
+            }
         }
 
         if (!sync_folders)
