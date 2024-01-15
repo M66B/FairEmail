@@ -5717,12 +5717,16 @@ Most private DNS providers support DNSSEC, though. You can configure private DNS
 To be sure that private DNS is being used, better configure a host name like *dns.google*, *1dot1dot1dot1.cloudflare-dns.com* or *dns.quad9.net*.
 An alternative is using Certificate Transparency, see the previous FAQ.
 
-Email providers known to support DANE:
+Some email providers known to support DANE:
 
 * [Disroot.org](https://disroot.org/)
 * [Freenet.de](https://email.freenet.de/)
 * [Mailbox.org](https://mailbox.org/)
 * [Posteo.de](https://posteo.de/)
+
+This is not a complete and exhaustive list.
+
+Please see [this article](https://www.zivver.com/blog/why-cisos-and-security-professionals-can-no-longer-rely-on-regular-email-for-the-sharing-of-personal-information) about why DANE is important.
 
 <br>
 
