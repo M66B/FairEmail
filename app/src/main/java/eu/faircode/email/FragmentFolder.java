@@ -256,7 +256,6 @@ public class FragmentFolder extends FragmentBase {
         grpImap.setVisibility(imap ? View.VISIBLE : View.GONE);
         tvParent.setText(parent);
         grpParent.setVisibility(parent == null ? View.GONE : View.VISIBLE);
-        cbCountUnread.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         cbAutoClassifySource.setVisibility(View.GONE);
         cbAutoClassifyTarget.setVisibility(View.GONE);
         tvAutoClassifyPro.setVisibility(View.GONE);
