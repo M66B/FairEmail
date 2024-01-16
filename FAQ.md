@@ -5452,7 +5452,7 @@ Cloud sync is an experimental feature. It is not available for the Play Store ve
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq190)
 
-OpenAI can only be used if configured and enabled, and the app does not use third-party libraries to avoid tracking when OpenAI is not used.
+OpenAI can only be used if configured and enabled.
 
 **Setup**
 
@@ -5497,6 +5497,8 @@ There is currently a [waitlist](https://openai.com/waitlist/gpt-4-api) for API G
 Please read the [privacy policy](https://openai.com/policies/privacy-policy) of OpenAI,
 and perhaps [this article](https://katedowninglaw.com/2023/03/10/openais-massive-data-grab/)
 and [this article](https://www.ncsc.gov.uk/blog-post/chatgpt-and-large-language-models-whats-the-risk) too.
+
+FairEmail does not use third-party libraries to avoid being tracked when OpenAI is not being used.
 
 <br>
 
