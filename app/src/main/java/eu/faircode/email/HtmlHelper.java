@@ -1234,9 +1234,20 @@ public class HtmlHelper {
             for (Element row : table.children()) {
                 row.tagName("div");
 
+                Elements cols = row.children();
+                if (cols.size() == 2 &&
+                        "th".equals(cols.get(0).tagName()) &&
+                        "td".equals(cols.get(1).tagName())) {
+                    for (Element col : cols) {
+                        col.attr("x-align", "left");
+                        col.attr("style",
+                                mergeStyles(col.attr("text-align"), "text-align: left;"));
+                    }
+                }
+
                 Element separate = null;
                 List<Node> merge = new ArrayList<>();
-                for (Element col : row.children()) {
+                for (Element col : cols) {
                     Element next = col.nextElementSibling();
 
                     // Get nodes with content
