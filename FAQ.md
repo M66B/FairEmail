@@ -5484,6 +5484,7 @@ Depending on the ChatGPT account (free or paid) there are usage limits. If you e
 *Error 429: Too Many Requests insufficient_quota: You exceeded your current quota, please check your plan and billing details*
 
 In this case, you'll either need to wait, or upgrade your ChatGPT plan.
+Please [see here](https://help.openai.com/en/articles/6843909-rate-limits-and-429-too-many-requests-errors) for details.
 
 <br>
 
