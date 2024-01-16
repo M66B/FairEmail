@@ -112,7 +112,7 @@
     <string name="title_junk_clear">Изчистване</string>
     <string name="title_junk_clear_hint">Ще се изтрият всички правила за блокиране на подател</string>
     <string name="title_notification_sending">Изпращане на съобщения</string>
-    <string name="title_notification_waiting">Изчаква се подходяща връзка</string>
+    <string name="title_notification_waiting">Чака се подходяща връзка</string>
     <string name="title_notification_idle">Празен</string>
     <string name="title_notification_failed">%1$s се провали</string>
     <string name="title_notification_alert">Предупреждение на сървъра: \'%1$s\'</string>
@@ -148,7 +148,7 @@
     <string name="title_list_identities">Самоличности</string>
     <string name="title_edit_account">Редактиране на акаунта</string>
     <string name="title_edit_identity">Редактиране на самоличността</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Нова папка</string>
+    <string name="title_new_folder">Нова папка</string>
     <string name="title_edit_folder">Редактиране на папка</string>
     <string name="title_disable_gmail">Изключване на приложението Gmail</string>
     <string name="title_setup">Настройки</string>
@@ -347,6 +347,8 @@
     <string name="title_advanced_when">Кога</string>
     <string name="title_advanced_optimize">Автоматично оптимизиране</string>
     <string name="title_advanced_always">Винаги да се получават известия за тези акаунти</string>
+    <string name="title_advanced_poll_metered">Периодична проверка за нови съобщения при връзка с мрежа с измерено потребление</string>
+    <string name="title_advanced_poll_unmetered">Периодична проверка за нови съобщения при връзка с мрежа с безмерено потребление</string>
     <string name="title_advanced_schedule">График</string>
     <string name="title_advanced_schedule_workdays">Работни дни</string>
     <string name="title_advanced_schedule_weekend">Уикенд</string>
@@ -805,7 +807,7 @@
     <string name="title_advanced_attach_new_hint">В противен случай добавете споделени адреси или файлове към текущата чернова на съобщението</string>
     <string name="title_advanced_usenet_hint">Вмъкнете \'-\' между текста и подписа</string>
     <string name="title_advanced_remove_signature_hint">Това може да доведе до премахване на премалко или премного текст</string>
-    <string name="title_advanced_metered_hint">Измерваните връзки обикновено са мобилен интернет или платени Wi-Fi точки</string>
+    <string name="title_advanced_metered_hint">Връзките на мрежи с измерено потребление обикновено са мобилен интернет или платени Wi-Fi точки за достъп</string>
     <string name="title_advanced_metered_warning">Деактивирането на тази опция ще деактивира получаването и изпращането на съобщения през мобилния интернет</string>
     <string name="title_advanced_rlah_hint">Ако не се допуска роуминг в рамките на ЕС</string>
     <string name="title_advanced_usage_hint">Това ще увеличи употребата на батерията, данните и мястото в хранилището</string>
@@ -1110,6 +1112,7 @@
     <string name="title_poll_folder">Проверявайте периодично, вместо непрекъснато синхронизиране</string>
     <string name="title_poll_folder_remark">Повечето имейл сървъри позволяват push известия само за шепа папки!</string>
     <string name="title_download_folder">Автоматично изтегляне на текста на съобщението и прикачените файлове</string>
+    <string name="title_count_unread">Добавяне на броя непрочетени съобщения към акаунта</string>
     <string name="title_notify_folder">Уведомяване при нови съобщения</string>
     <string name="title_auto_classify_source">Класифициране на новите съобщения в тази папка</string>
     <string name="title_auto_classify_target">Автоматично преместване на класифицираните съобщения в тази папка</string>
@@ -1232,7 +1235,7 @@
     <string name="title_move">Премести</string>
     <string name="title_copy_btn">Копиране</string>
     <string name="title_keywords_btn">Ключови думи</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Етикети (само за Gmail)</string>
+    <string name="title_labels_btn">Етикети (само за Gmail)</string>
     <string name="title_unsubscribe">Отписване</string>
     <string name="title_message_rule">Създай правило</string>
     <string name="title_no_junk">Не е спам</string>

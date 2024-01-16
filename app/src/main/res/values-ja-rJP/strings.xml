@@ -134,7 +134,7 @@
     <string name="title_list_identities">ユーザー ID</string>
     <string name="title_edit_account">アカウントを編集</string>
     <string name="title_edit_identity">ユーザー ID を編集</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">新しいフォルダー</string>
+    <string name="title_new_folder">新しいフォルダー</string>
     <string name="title_edit_folder">フォルダーを編集</string>
     <string name="title_disable_gmail">Gmail アプリを無効にする</string>
     <string name="title_setup">設定</string>
@@ -334,6 +334,8 @@
     <string name="title_advanced_when">同期</string>
     <string name="title_advanced_optimize">自動最適化</string>
     <string name="title_advanced_always">これらのアカウントのメッセージを常に受信</string>
+    <string name="title_advanced_poll_metered">従量課金制接続で新着メッセージを定期的に確認する</string>
+    <string name="title_advanced_poll_unmetered">定額制接続で新着メッセージを定期的に確認する</string>
     <string name="title_advanced_schedule">スケジュール</string>
     <string name="title_advanced_schedule_workdays">平日</string>
     <string name="title_advanced_schedule_weekend">週末</string>
@@ -1097,6 +1099,7 @@
     <string name="title_poll_folder">継続的な同期の代わりに定期的に確認する</string>
     <string name="title_poll_folder_remark">ほとんどのメールサーバーでは、一部のフォルダーに対してのみプッシュメッセージを許可しています</string>
     <string name="title_download_folder">本文と添付ファイルを自動でダウンロードする</string>
+    <string name="title_count_unread">未読メッセージ数をアカウントに追加する</string>
     <string name="title_notify_folder">新着メッセージを通知する</string>
     <string name="title_auto_classify_source">このフォルダーに新着メッセージを分類</string>
     <string name="title_auto_classify_target">このフォルダーに分類されたメッセージを自動で移動</string>
@@ -1220,7 +1223,7 @@
     <string name="title_move">移動</string>
     <string name="title_copy_btn">コピー</string>
     <string name="title_keywords_btn">キーワード</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">ラベル (Gmail のみ)</string>
+    <string name="title_labels_btn">ラベル (Gmail のみ)</string>
     <string name="title_unsubscribe">購読解除</string>
     <string name="title_message_rule">ルールを作成</string>
     <string name="title_no_junk">迷惑メールでないと報告</string>

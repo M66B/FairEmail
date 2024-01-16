@@ -176,7 +176,7 @@
     <string name="title_list_identities">זהויות</string>
     <string name="title_edit_account">עריכת חשבון</string>
     <string name="title_edit_identity">עריכת זהות</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">תיקייה חדשה</string>
+    <string name="title_new_folder">תיקייה חדשה</string>
     <string name="title_edit_folder">עריכת תיקייה</string>
     <string name="title_disable_gmail">השבתת יישומון Gmail</string>
     <string name="title_setup">הגדרות</string>
@@ -1262,7 +1262,7 @@
     <string name="title_move">העברה</string>
     <string name="title_copy_btn">העתקה</string>
     <string name="title_keywords_btn">מילות מפתח</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">תוויות (Gmail בלבד)</string>
+    <string name="title_labels_btn">תוויות (Gmail בלבד)</string>
     <string name="title_unsubscribe">ביטול מינוי</string>
     <string name="title_message_rule">יצירת כלל</string>
     <string name="title_no_junk">לא ספאם</string>

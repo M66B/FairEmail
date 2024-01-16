@@ -162,7 +162,7 @@
     <string name="title_list_identities">Identități</string>
     <string name="title_edit_account">Editare cont</string>
     <string name="title_edit_identity">Editare identitate</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Dosar nou</string>
+    <string name="title_new_folder">Dosar nou</string>
     <string name="title_edit_folder">Editare dosar</string>
     <string name="title_disable_gmail">Dezactivați aplicația Gmail</string>
     <string name="title_setup">Setări</string>
@@ -1246,7 +1246,7 @@
     <string name="title_move">Mută</string>
     <string name="title_copy_btn">Copiere</string>
     <string name="title_keywords_btn">Cuvinte cheie</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etichete (doar Gmail)</string>
+    <string name="title_labels_btn">Etichete (doar Gmail)</string>
     <string name="title_unsubscribe">Dezabonare</string>
     <string name="title_message_rule">Creare regulă</string>
     <string name="title_no_junk">Nu este spam</string>

@@ -162,7 +162,7 @@
     <string name="title_list_identities">Identiteti</string>
     <string name="title_edit_account">Uredi račun</string>
     <string name="title_edit_identity">Uredi identitet</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Novi folder</string>
+    <string name="title_new_folder">Novi folder</string>
     <string name="title_edit_folder">Uredi folder</string>
     <string name="title_disable_gmail">Onemogući Gmail aplikaciju</string>
     <string name="title_setup">Postavke</string>
@@ -1248,7 +1248,7 @@
     <string name="title_move">Premjesti</string>
     <string name="title_copy_btn">Kopiraj</string>
     <string name="title_keywords_btn">Ključne riječi</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Oznake (samo za Gmail)</string>
+    <string name="title_labels_btn">Oznake (samo za Gmail)</string>
     <string name="title_unsubscribe">Otkaži pretplatu</string>
     <string name="title_message_rule">Kreiraj pravilo</string>
     <string name="title_no_junk">Nije spam</string>

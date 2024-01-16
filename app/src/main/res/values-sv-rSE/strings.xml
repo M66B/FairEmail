@@ -148,7 +148,7 @@
     <string name="title_list_identities">Identiteter</string>
     <string name="title_edit_account">Redigera konto</string>
     <string name="title_edit_identity">Redigera identitet</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Ny mapp</string>
+    <string name="title_new_folder">Ny mapp</string>
     <string name="title_edit_folder">Redigera mapp</string>
     <string name="title_disable_gmail">Inaktivera Gmail-app</string>
     <string name="title_setup">Inställningar</string>
@@ -344,6 +344,8 @@
     <string name="title_advanced_when">När</string>
     <string name="title_advanced_optimize">Optimera automatiskt</string>
     <string name="title_advanced_always">Ta alltid emot meddelanden för dessa konton</string>
+    <string name="title_advanced_poll_metered">Sök regelbundet efter nya meddelanden när du befinner dig på ett nätverk med begränsad datamängd</string>
+    <string name="title_advanced_poll_unmetered">Kontrollera regelbundet nya meddelanden när du är på ett nätverk med obegränsad datamängd</string>
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_schedule_workdays">Vardagar</string>
     <string name="title_advanced_schedule_weekend">Helg</string>
@@ -1104,6 +1106,7 @@
     <string name="title_poll_folder">Kontrollera regelbundet istället för kontinuerlig synkronisering</string>
     <string name="title_poll_folder_remark">De flesta e-postservrar tillåter endast push-meddelanden för en handfull mappar!</string>
     <string name="title_download_folder">Hämta automatiskt meddelandetexter och bilagor</string>
+    <string name="title_count_unread">Lägg till antalet olästa meddelanden till kontot</string>
     <string name="title_notify_folder">Notifiera för nya meddelanden</string>
     <string name="title_auto_classify_source">Klassificera nya meddelanden i denna mapp</string>
     <string name="title_auto_classify_target">Flytta automatiskt klassificerade meddelanden till denna mapp</string>
@@ -1226,7 +1229,7 @@
     <string name="title_move">Flytta</string>
     <string name="title_copy_btn">Kopiera</string>
     <string name="title_keywords_btn">Nyckelord</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etiketter (endast Gmail)</string>
+    <string name="title_labels_btn">Etiketter (endast Gmail)</string>
     <string name="title_unsubscribe">Avbryt prenumeration</string>
     <string name="title_message_rule">Skapa regel</string>
     <string name="title_no_junk">Inte skräppost</string>

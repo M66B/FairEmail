@@ -148,7 +148,7 @@
     <string name="title_list_identities">Identità</string>
     <string name="title_edit_account">Modifica profilo</string>
     <string name="title_edit_identity">Modifica identità</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Nuova cartella</string>
+    <string name="title_new_folder">Nuova cartella</string>
     <string name="title_edit_folder">Modifica cartella</string>
     <string name="title_disable_gmail">Disabilita l\'app di Gmail</string>
     <string name="title_setup">Impostazioni</string>
@@ -348,6 +348,8 @@
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_optimize">Ottimizza automaticamente</string>
     <string name="title_advanced_always">Ricevi sempre i messaggi per questi profili</string>
+    <string name="title_advanced_poll_metered">Controlla periodicamente la presenza di nuovi messaggi su una rete a consumo</string>
+    <string name="title_advanced_poll_unmetered">Controlla periodicamente la presenza di nuovi messaggi su una rete non a consumo</string>
     <string name="title_advanced_schedule">Pianificazione</string>
     <string name="title_advanced_schedule_workdays">Giorni feriali</string>
     <string name="title_advanced_schedule_weekend">Fine settimana</string>
@@ -1112,6 +1114,7 @@
     <string name="title_poll_folder">Controlla periodicamente invece di sincronizzare continuamente</string>
     <string name="title_poll_folder_remark">Gran parte dei server email consentono i messaggi push solo per alcune cartelle!</string>
     <string name="title_download_folder">Scarica automaticamente testi e allegati dei messaggi</string>
+    <string name="title_count_unread">Aggiungi il numero di messaggi non letti al profilo</string>
     <string name="title_notify_folder">Notifica i nuovi messaggi</string>
     <string name="title_auto_classify_source">Classifica i nuovi messaggi in questa cartella</string>
     <string name="title_auto_classify_target">Sposta automaticamente i messaggi classificati in questa cartella</string>
@@ -1235,7 +1238,7 @@
     <string name="title_move">Sposta</string>
     <string name="title_copy_btn">Copia</string>
     <string name="title_keywords_btn">Parole chiave</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etichette (solo Gmail)</string>
+    <string name="title_labels_btn">Etichette (solo Gmail)</string>
     <string name="title_unsubscribe">Disiscriviti</string>
     <string name="title_message_rule">Crea una regola</string>
     <string name="title_no_junk">Non spam</string>

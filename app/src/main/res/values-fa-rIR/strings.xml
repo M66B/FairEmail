@@ -132,7 +132,7 @@
     <string name="title_list_identities">هویت‌ها</string>
     <string name="title_edit_account">ویرایش حساب</string>
     <string name="title_edit_identity">ویرایش هویت</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">پوشه جدید</string>
+    <string name="title_new_folder">پوشه جدید</string>
     <string name="title_edit_folder">ويرايش پوشه</string>
     <string name="title_disable_gmail">برنامه جیمیل را غیرفعال کن</string>
     <string name="title_setup">تنظیمات</string>
@@ -310,6 +310,8 @@
     <string name="title_advanced_when">هنگامی که</string>
     <string name="title_advanced_optimize">خودکار بهینه‌سازی کن</string>
     <string name="title_advanced_always">همیشه پیام‌ها را برای این حساب‌ها دریافت کن</string>
+    <string name="title_advanced_poll_metered">چک کردن متناوب برای پیام‌های جدید در زمان انصال به اینترنت با حجم محدود</string>
+    <string name="title_advanced_poll_unmetered">چک کردن متناوب برای پیام‌های جدید در زمان انصال به اینترنت با حجم نامحدود</string>
     <string name="title_advanced_schedule">زمان بندی</string>
     <string name="title_advanced_schedule_workdays">روزهای کاری</string>
     <string name="title_advanced_schedule_weekend">روزهای تعطیل</string>
@@ -752,6 +754,7 @@
     <string name="title_synchronize_folder">همگام سازی (دریافت پیام‌ها)</string>
     <string name="title_poll_folder">بررسی دوره‌ای به جای همگام سازی پیوسته</string>
     <string name="title_download_folder">دریافت خودکار متن پیام و پیوست</string>
+    <string name="title_count_unread">تعداد پیام‌های خوانده نشده را به حساب اضافه کن</string>
     <string name="title_notify_folder">آگاه‌سازی از پیام‌های جدید</string>
     <string name="title_sync_days">همگام سازی پیام‌ها (روزها)</string>
     <string name="title_sync_days_remark">افزایش مقدار این باعث افزایش مصرف باتری می‌شود</string>
@@ -844,7 +847,7 @@
     <string name="title_spam">هرزنامه</string>
     <string name="title_move">انتقال</string>
     <string name="title_copy_btn">روگرفت</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">برچسب (فقط جیمیل)</string>
+    <string name="title_labels_btn">برچسب (فقط جیمیل)</string>
     <string name="title_unsubscribe">لغو اشتراک</string>
     <string name="title_message_rule">ساخت قانون</string>
     <string name="title_no_junk">هرزنامه نیست</string>

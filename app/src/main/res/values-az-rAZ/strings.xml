@@ -148,7 +148,7 @@
     <string name="title_list_identities">Kimliklər</string>
     <string name="title_edit_account">Hesaba düzəliş et</string>
     <string name="title_edit_identity">Kimliyə düzəliş et</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Yeni qovluq</string>
+    <string name="title_new_folder">Yeni qovluq</string>
     <string name="title_edit_folder">Qovluğa düzəliş et</string>
     <string name="title_disable_gmail">Gmail tətbiqini sıradan çıxart</string>
     <string name="title_setup">Ayarlar</string>
@@ -348,6 +348,8 @@
     <string name="title_advanced_when">Nə vaxt</string>
     <string name="title_advanced_optimize">Avto-optimallaşdırma</string>
     <string name="title_advanced_always">Bu hesablar üçün mesajları həmişə al</string>
+    <string name="title_advanced_poll_metered">Ölçülmüş şəbəkədə olarkən yeni mesajları müntəzəm yoxla</string>
+    <string name="title_advanced_poll_unmetered">Ölçülməyən şəbəkədə olarkən yeni mesajları müntəzəm yoxla</string>
     <string name="title_advanced_schedule">Cədvəl</string>
     <string name="title_advanced_schedule_workdays">İş günləri</string>
     <string name="title_advanced_schedule_weekend">Həftəsonu</string>
@@ -1234,7 +1236,7 @@
     <string name="title_move">Köçürt</string>
     <string name="title_copy_btn">Kopyala</string>
     <string name="title_keywords_btn">Açar sözlər</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etiketlər (yalnız Gmail)</string>
+    <string name="title_labels_btn">Etiketlər (yalnız Gmail)</string>
     <string name="title_unsubscribe">Abunəlikdən çıx</string>
     <string name="title_message_rule">Qayda yarat</string>
     <string name="title_no_junk">Spam deyil</string>

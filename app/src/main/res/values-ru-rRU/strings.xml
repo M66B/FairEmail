@@ -176,7 +176,7 @@
     <string name="title_list_identities">Идентификаторы</string>
     <string name="title_edit_account">Изменить учётную запись</string>
     <string name="title_edit_identity">Изменить идентификатор</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Новая папка</string>
+    <string name="title_new_folder">Новая папка</string>
     <string name="title_edit_folder">Изменить папку</string>
     <string name="title_disable_gmail">Отключить приложение Gmail</string>
     <string name="title_setup">Настройки</string>
@@ -375,6 +375,8 @@
     <string name="title_advanced_when">Когда</string>
     <string name="title_advanced_optimize">Автоматическая оптимизация</string>
     <string name="title_advanced_always">Непрерывно получать сообщения с этих учётных записей</string>
+    <string name="title_advanced_poll_metered">Периодически проверять новые сообщения при лимитированном подключении</string>
+    <string name="title_advanced_poll_unmetered">Периодически проверять новые сообщения при безлимитном подключении</string>
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_schedule_workdays">Будни</string>
     <string name="title_advanced_schedule_weekend">Выходные</string>
@@ -1139,6 +1141,7 @@
     <string name="title_poll_folder">Периодическая проверка вместо непрерывной синхронизации</string>
     <string name="title_poll_folder_remark">Большинство почтовых серверов позволяют отправлять сообщения только для некоторых папок!</string>
     <string name="title_download_folder">Автоматически загружать текст сообщений и вложения</string>
+    <string name="title_count_unread">Добавлять количество непрочитанных сообщений к учётной записи</string>
     <string name="title_notify_folder">Уведомлять о новых сообщениях</string>
     <string name="title_auto_classify_source">Классифицировать новые сообщения в этой папке</string>
     <string name="title_auto_classify_target">Автоматически перемещать классифицированные сообщения в эту папку</string>
@@ -1262,7 +1265,7 @@
     <string name="title_move">Переместить</string>
     <string name="title_copy_btn">Копировать</string>
     <string name="title_keywords_btn">Ключевые слова</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Метки (только Gmail)</string>
+    <string name="title_labels_btn">Метки (только Gmail)</string>
     <string name="title_unsubscribe">Отписаться</string>
     <string name="title_message_rule">Создать правило</string>
     <string name="title_no_junk">Не спам</string>

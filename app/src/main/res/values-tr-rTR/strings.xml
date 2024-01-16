@@ -147,7 +147,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_list_identities">Kimlikler</string>
     <string name="title_edit_account">Hesabı Düzenle</string>
     <string name="title_edit_identity">Kimliği düzenle</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Yeni klasör</string>
+    <string name="title_new_folder">Yeni klasör</string>
     <string name="title_edit_folder">Klasörü düzenle</string>
     <string name="title_disable_gmail">Gmail \'i devre dışı bırak</string>
     <string name="title_setup">Ayarlar</string>
@@ -346,6 +346,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_when">Ne zaman</string>
     <string name="title_advanced_optimize">Otomatik olarak optimize et</string>
     <string name="title_advanced_always">Bu hesaplardan mesajları her zaman al</string>
+    <string name="title_advanced_poll_metered">Ölçülü bir ağdayken periyodik olarak yeni mesajları kontrol edin</string>
+    <string name="title_advanced_poll_unmetered">Ölçülmeyen bir ağdayken periyodik olarak yeni mesajları kontrol edin</string>
     <string name="title_advanced_schedule">Program</string>
     <string name="title_advanced_schedule_workdays">İş günleri</string>
     <string name="title_advanced_schedule_weekend">Haftasonu</string>
@@ -1107,6 +1109,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_poll_folder">Sürekli senkronizasyon yerine belirli aralıklarla kontrol et</string>
     <string name="title_poll_folder_remark">Çoğu e-posta sunucusu push mesajlarına yalnızca birkaç klasör için izin verir!</string>
     <string name="title_download_folder">İleti metinlerini ve eklerini otomatik olarak indir</string>
+    <string name="title_count_unread">Okunmamış mesaj sayısını hesaba ekleyin</string>
     <string name="title_notify_folder">Yeni iletileri bildir</string>
     <string name="title_auto_classify_source">Bu klasördeki yeni iletileri sınıflandır</string>
     <string name="title_auto_classify_target">Sınıflandırılmış iletileri otomatik olarak bu klasöre taşı</string>
@@ -1228,7 +1231,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_move">Taşı</string>
     <string name="title_copy_btn">Kopyala</string>
     <string name="title_keywords_btn">Anahtar Sözcükler/Kelimeler</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etiketler (yalnızca Gmail)</string>
+    <string name="title_labels_btn">Etiketler (yalnızca Gmail)</string>
     <string name="title_unsubscribe">Abonelikten çık</string>
     <string name="title_message_rule">Kural oluştur</string>
     <string name="title_no_junk">Spam değil</string>

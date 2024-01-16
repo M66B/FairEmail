@@ -148,7 +148,7 @@
     <string name="title_list_identities">Ταυτότητες</string>
     <string name="title_edit_account">Επεξεργασία λογαριασμού</string>
     <string name="title_edit_identity">Επεξεργασία ταυτότητας</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Νέος φάκελος</string>
+    <string name="title_new_folder">Νέος φάκελος</string>
     <string name="title_edit_folder">Επεξεργασία φακέλου</string>
     <string name="title_disable_gmail">Απενεργοποίηση της εφαρμογής Gmail</string>
     <string name="title_setup">Ρυθμίσεις</string>
@@ -347,6 +347,8 @@
     <string name="title_advanced_when">Πότε</string>
     <string name="title_advanced_optimize">Αυτόματη βελτιστοποίηση</string>
     <string name="title_advanced_always">Να λαμβάνονται πάντα τα μηνύματα για αυτούς τους λογαριασμούς</string>
+    <string name="title_advanced_poll_metered">Περιοδικός έλεγχος για νέα μηνύματα κατά τη χρήση δικτύου με ογκοχρέωση</string>
+    <string name="title_advanced_poll_unmetered">Περιοδικός έλεγχος για νέα μηνύματα κατά τη χρήση δικτύου χωρίς ογκοχρέωση</string>
     <string name="title_advanced_schedule">Χρονοδιάγραμμα</string>
     <string name="title_advanced_schedule_workdays">Εργάσιμες ημέρες</string>
     <string name="title_advanced_schedule_weekend">Σαββατοκύριακο</string>
@@ -1229,7 +1231,7 @@
     <string name="title_move">Μετακίνηση</string>
     <string name="title_copy_btn">Αντιγραφή</string>
     <string name="title_keywords_btn">Λέξεις-κλειδιά</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Ετικέτες (μόνο στο Gmail)</string>
+    <string name="title_labels_btn">Ετικέτες (μόνο στο Gmail)</string>
     <string name="title_unsubscribe">Κατάργηση συνδρομής</string>
     <string name="title_message_rule">Δημιουργία κανόνα</string>
     <string name="title_no_junk">Όχι ανεπιθύμητο</string>

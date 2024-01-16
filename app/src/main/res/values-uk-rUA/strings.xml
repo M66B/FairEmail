@@ -177,7 +177,7 @@
     <string name="title_list_identities">Профілі</string>
     <string name="title_edit_account">Редагувати обліковий запис</string>
     <string name="title_edit_identity">Редагувати профіль</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Нова тека</string>
+    <string name="title_new_folder">Нова тека</string>
     <string name="title_edit_folder">Редагувати теку</string>
     <string name="title_disable_gmail">Вимкнути додаток Gmail</string>
     <string name="title_setup">Налаштування</string>
@@ -376,6 +376,8 @@
     <string name="title_advanced_when">Коли</string>
     <string name="title_advanced_optimize">Автоматично оптимізувати</string>
     <string name="title_advanced_always">Завжди отримувати повідомлення для цих облікових записів</string>
+    <string name="title_advanced_poll_metered">Періодично перевіряти наявність нових повідомлень при підключенні до лімітованої мережі</string>
+    <string name="title_advanced_poll_unmetered">Періодично перевіряти наявність нових повідомлень при підключенні до безлімітної мережі</string>
     <string name="title_advanced_schedule">Розклад</string>
     <string name="title_advanced_schedule_workdays">Робочі дні</string>
     <string name="title_advanced_schedule_weekend">Вихідні</string>
@@ -458,7 +460,7 @@
     <string name="title_advanced_lookup_mx">Перевіряти адреси електронної пошти одержувача перед надсиланням</string>
     <string name="title_advanced_metered">Використовувати лімітовані підключення</string>
     <string name="title_advanced_download">Автоматично завантажувати повідомлення і вкладення при лімітованому з\'єднанні обсягом до</string>
-    <string name="title_advanced_download_limited">Застосовувати це також до нелімітованих підключень</string>
+    <string name="title_advanced_download_limited">Застосовувати це також до безлімітних підключень</string>
     <string name="title_advanced_roaming">Завантажувати повідомлення та вкладення у роумінгу</string>
     <string name="title_advanced_rlah">В роумінгу як вдома</string>
     <string name="title_advanced_download_headers">Завантажувати всі заголовки повідомлень</string>
@@ -1002,7 +1004,7 @@
     <string name="title_received_header">Використовувати заголовок «Received»</string>
     <string name="title_date_header">Використовувати заголовок «Date» (час відправлення)</string>
     <string name="title_date_remark">Зміни будуть застосовані тільки до нових повідомлень</string>
-    <string name="title_unmetered_only">Підключатися тільки через нелімітовані мережі</string>
+    <string name="title_unmetered_only">Підключатися тільки через безлімітні мережі</string>
     <string name="title_ignore_schedule">Синхронізувати також і за межами розкладу</string>
     <string name="title_related_identity">Додати пов\'язаний профіль (сервер SMTP)</string>
     <string name="title_check">Перевірити</string>
@@ -1138,6 +1140,7 @@
     <string name="title_poll_folder">Перевіряти періодично замість неперервної синхронізації</string>
     <string name="title_poll_folder_remark">Більшість серверів електронної пошти дозволяють push повідомлення тільки для невеликої кількості тек!</string>
     <string name="title_download_folder">Автоматично завантажувати тексти та вкладення</string>
+    <string name="title_count_unread">Додати до облікового запису кількість непрочитаних повідомлень</string>
     <string name="title_notify_folder">Сповіщати про нові повідомлення</string>
     <string name="title_auto_classify_source">Класифікувати нові повідомлення в цій теці</string>
     <string name="title_auto_classify_target">Автоматично переміщати класифіковані повідомлення в цю теку</string>
@@ -1261,7 +1264,7 @@
     <string name="title_move">Перемістити</string>
     <string name="title_copy_btn">Копіювати</string>
     <string name="title_keywords_btn">Ключові слова</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Мітки (тільки для Gmail)</string>
+    <string name="title_labels_btn">Мітки (тільки для Gmail)</string>
     <string name="title_unsubscribe">Відписатися</string>
     <string name="title_message_rule">Створити правило</string>
     <string name="title_no_junk">Не спам</string>
@@ -1842,8 +1845,8 @@
     <string name="title_legend_italic">Зробити текст курсивом</string>
     <string name="title_legend_underline">Підкреслити текст</string>
     <string name="title_legend_text_style">Встановити стиль тексту</string>
-    <string name="title_legend_metered">Підключення з тарифікацією</string>
-    <string name="title_legend_unmetered">Підключення нетарифіковане</string>
+    <string name="title_legend_metered">Підключення лімітоване</string>
+    <string name="title_legend_unmetered">Підключення безлімітне</string>
     <string name="title_legend_roaming">Роумінг</string>
     <string name="title_legend_expander">Розкривач</string>
     <string name="title_legend_avatar">Аватар</string>

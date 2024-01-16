@@ -176,7 +176,7 @@
     <string name="title_list_identities">Tożsamości</string>
     <string name="title_edit_account">Edytuj konto</string>
     <string name="title_edit_identity">Edytuj tożsamość</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Nowy folder</string>
+    <string name="title_new_folder">Nowy folder</string>
     <string name="title_edit_folder">Edytuj folder</string>
     <string name="title_disable_gmail">Wyłącz aplikację Gmail</string>
     <string name="title_setup">Ustawienia</string>
@@ -375,6 +375,8 @@
     <string name="title_advanced_when">Kiedy</string>
     <string name="title_advanced_optimize">Optymalizuj automatycznie</string>
     <string name="title_advanced_always">Zawsze odbieraj wiadomości z tych kont</string>
+    <string name="title_advanced_poll_metered">Okresowo sprawdzaj nowe wiadomości, gdy sieć jest mierzona</string>
+    <string name="title_advanced_poll_unmetered">Okresowo sprawdzaj nowe wiadomości, gdy sieć nie jest mierzona</string>
     <string name="title_advanced_schedule">Harmonogram</string>
     <string name="title_advanced_schedule_workdays">Dni pracujące</string>
     <string name="title_advanced_schedule_weekend">Weekend</string>
@@ -1137,6 +1139,7 @@
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
     <string name="title_poll_folder_remark">Większość serwerów e-mail pozwala na wysyłanie wiadomości tylko dla kilku folderów!</string>
     <string name="title_download_folder">Automatycznie pobieraj treści wiadomości i załączniki</string>
+    <string name="title_count_unread">Dodaj liczbę nieprzeczytanych wiadomości do konta</string>
     <string name="title_notify_folder">Powiadom o nowych wiadomościach</string>
     <string name="title_auto_classify_source">Klasyfikuj nowe wiadomości w tym folderze</string>
     <string name="title_auto_classify_target">Automatycznie przenoś wiadomości zaklasyfikowane do tego folderu</string>
@@ -1259,7 +1262,7 @@
     <string name="title_move">Przenieś</string>
     <string name="title_copy_btn">Kopiuj</string>
     <string name="title_keywords_btn">Słowa kluczowe</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etykiety (tylko Gmail)</string>
+    <string name="title_labels_btn">Etykiety (tylko Gmail)</string>
     <string name="title_unsubscribe">Anuluj subskrypcję</string>
     <string name="title_message_rule">Utwórz regułę</string>
     <string name="title_no_junk">To nie jest spam</string>

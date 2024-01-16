@@ -148,7 +148,7 @@
     <string name="title_list_identities">Identiteter</string>
     <string name="title_edit_account">Redigér konto</string>
     <string name="title_edit_identity">Redigér identitet</string>
-    <string name="title_new_folder" comment="title_new_folder&#10;Title for new folder dialog screen">Ny mappe</string>
+    <string name="title_new_folder">Ny mappe</string>
     <string name="title_edit_folder">Redigér mappe</string>
     <string name="title_disable_gmail">Deaktivér Gmail-app</string>
     <string name="title_setup">Indstillinger</string>
@@ -348,6 +348,8 @@
     <string name="title_advanced_when">Når</string>
     <string name="title_advanced_optimize">Optimér automatisk</string>
     <string name="title_advanced_always">Modtag altid beskeder til disse konti</string>
+    <string name="title_advanced_poll_metered">Tjek periodisk for nye beskeder, mens forbundet til forbrugsafregnet netværk</string>
+    <string name="title_advanced_poll_unmetered">Tjek periodisk for nye beskeder, mens forbundet til ikke-forbrugsafregnet netværk</string>
     <string name="title_advanced_schedule">Planlægning</string>
     <string name="title_advanced_schedule_workdays">Hverdage</string>
     <string name="title_advanced_schedule_weekend">Weekend</string>
@@ -1112,6 +1114,7 @@
     <string name="title_poll_folder">Tjek periodisk i stedet for kontinuerlig synkronisering</string>
     <string name="title_poll_folder_remark">De fleste e-mailservere tillader kun push-beskeder for en håndfuld mapper!</string>
     <string name="title_download_folder">Auto-download beskedtekst og vedhæftninger</string>
+    <string name="title_count_unread">Føj antallet af ulæste beskeder til kontoen</string>
     <string name="title_notify_folder">Notificér ved nye beskeder</string>
     <string name="title_auto_classify_source">\'Klassificér nye bskeder\' in denne mappe</string>
     <string name="title_auto_classify_target">Flyt automatisk klassificerede beskeder til denne mappe</string>
@@ -1235,7 +1238,7 @@
     <string name="title_move">Flyt</string>
     <string name="title_copy_btn">Kopiér</string>
     <string name="title_keywords_btn">Nøgleord</string>
-    <string name="title_labels_btn" comment="title_labels_btn&#10;Title for option to disable Gmail labels button">Etiketter (kun Gmail)</string>
+    <string name="title_labels_btn">Etiketter (kun Gmail)</string>
     <string name="title_unsubscribe">Afmeld</string>
     <string name="title_message_rule">Opret regel</string>
     <string name="title_no_junk">Ikke spam</string>
