@@ -1568,7 +1568,8 @@ public class HtmlHelper {
                                 if (start < pos || start > end) {
                                     Log.e("Autolink pos=" + pos +
                                             " start=" + start + " end=" + end +
-                                            " len=" + group.length() + "/" + text.length());
+                                            " len=" + group.length() + "/" + text.length() +
+                                            " text=" + text);
                                     return;
                                 }
 
