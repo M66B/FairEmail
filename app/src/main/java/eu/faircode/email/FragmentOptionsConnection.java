@@ -125,6 +125,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
     private Group grpValidated;
     private Group grpCustomDns;
+    private Group grpBC;
     private Group grpCustomSsl;
 
     private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
@@ -196,6 +197,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         grpValidated = view.findViewById(R.id.grpValidated);
         grpCustomDns = view.findViewById(R.id.grpCustomDns);
+        grpBC = view.findViewById(R.id.grpBC);
         grpCustomSsl = view.findViewById(R.id.grpCustomSsl);
 
         setOptions();
@@ -645,6 +647,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         tvNetworkMetered.setVisibility(View.GONE);
         tvNetworkRoaming.setVisibility(View.GONE);
         grpCustomDns.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        grpBC.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         grpCustomSsl.setVisibility(SSLHelper.customTrustManager() ? View.VISIBLE : View.GONE);
         cardDebug.setVisibility(View.GONE);
 

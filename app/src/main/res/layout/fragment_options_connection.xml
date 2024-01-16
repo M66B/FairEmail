@@ -728,6 +728,13 @@
                     swDnsCustom,tvDnsExtra,etDnsExtra" />
 
                 <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpBC"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="
+                    swBouncyCastle,swFipsMode,ibBouncyCastle" />
+
+                <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpCustomSsl"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
