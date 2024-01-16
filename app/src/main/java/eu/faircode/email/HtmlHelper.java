@@ -1946,7 +1946,10 @@ public class HtmlHelper {
                 result.put(key, baseParams.get(key));
         }
 
-        return TextUtils.join(";", result.values());
+        if (result.size() == 0)
+            return "";
+
+        return TextUtils.join(";", result.values()) + ";";
     }
 
     private static Integer getFontWeight(String value) {
