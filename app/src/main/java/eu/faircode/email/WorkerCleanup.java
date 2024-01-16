@@ -258,7 +258,7 @@ public class WorkerCleanup extends Worker {
             // Cleanup attachment files
             {
                 Log.breadcrumb("worker", "cleanup", "attachment files");
-                File[] attachments = new File(EntityAttachment.getRoot(context), "attachments").listFiles();
+                File[] attachments = EntityAttachment.getRoot(context).listFiles();
                 if (attachments != null)
                     for (File file : attachments)
                         if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
