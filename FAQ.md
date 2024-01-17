@@ -2730,7 +2730,7 @@ You can select one of these actions to apply to matching messages:
 * Mark as unread
 * Hide
 * Suppress notification
-* Silent notification
+* Silent notification (since version 1.2150)
 * Snooze
 * Add star
 * Set importance (local priority)
