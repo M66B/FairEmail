@@ -1650,6 +1650,7 @@
     <string name="title_rule_automation">Automatización</string>
     <string name="title_rule_delete">Borrar permanentemente</string>
     <string name="title_rule_sound">Reproducir sonido</string>
+    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Notificación silenciosa</string>
     <string name="title_rule_caption">Editar regla</string>
     <string name="title_rule_title">Regla aplicable a</string>
     <string name="title_rule_name">Nombre</string>

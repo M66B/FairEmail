@@ -1648,6 +1648,7 @@
     <string name="title_rule_automation">Automatizálás</string>
     <string name="title_rule_delete">Végleges törlés</string>
     <string name="title_rule_sound">Hang lejátszása</string>
+    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Csendes értesítés</string>
     <string name="title_rule_caption">Szabály szerkesztése</string>
     <string name="title_rule_title">A szabály érvényes erre</string>
     <string name="title_rule_name">Név</string>

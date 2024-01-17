@@ -1656,6 +1656,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_rule_automation">Automatização</string>
     <string name="title_rule_delete">Eliminar permanentemente</string>
     <string name="title_rule_sound">Reproduzir som</string>
+    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Notificação silenciosa</string>
     <string name="title_rule_caption">Editar regra</string>
     <string name="title_rule_title">Regra aplica-se a</string>
     <string name="title_rule_name">Nome</string>

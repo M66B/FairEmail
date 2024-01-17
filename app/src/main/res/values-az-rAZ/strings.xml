@@ -1113,6 +1113,7 @@
     <string name="title_poll_folder">Davamlı sinxronlaşdırma əvəzinə vaxtaşırı yoxlayın</string>
     <string name="title_poll_folder_remark">Əksər e-poçt serverləri, ani mesajlara yalnız bir neçə qovluq üçün icazə verir!</string>
     <string name="title_download_folder">Mesaj mətn və qoşmalarını avtomatik endir</string>
+    <string name="title_count_unread">Oxunmamış mesajların sayını hesaba əlavə et</string>
     <string name="title_notify_folder">Yeni mesajları bildir</string>
     <string name="title_auto_classify_source">Bu qovluqdakı yeni mesajları sinifləşdir</string>
     <string name="title_auto_classify_target">Sinifləşdirilmiş mesajları bu qovluğa avtomatik köçürt</string>

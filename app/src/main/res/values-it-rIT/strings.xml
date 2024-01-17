@@ -1656,6 +1656,7 @@
     <string name="title_rule_automation">Automazione</string>
     <string name="title_rule_delete">Elimina permanentemente</string>
     <string name="title_rule_sound">Riproduci suono</string>
+    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Notifica silenziosa</string>
     <string name="title_rule_caption">Modifica regola</string>
     <string name="title_rule_title">La regola si applica a</string>
     <string name="title_rule_name">Nome</string>

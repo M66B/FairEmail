@@ -1647,6 +1647,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_rule_automation">Automatisearring</string>
     <string name="title_rule_delete">Permanint fuortsmite</string>
     <string name="title_rule_sound">Lûd ôfspylje</string>
+    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Stille melding</string>
     <string name="title_rule_caption">Rigel bewurkje</string>
     <string name="title_rule_title">Regel jildt foar</string>
     <string name="title_rule_name">Namme</string>

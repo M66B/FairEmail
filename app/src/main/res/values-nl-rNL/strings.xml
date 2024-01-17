@@ -1627,7 +1627,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_seen">Markeer als gelezen</string>
     <string name="title_rule_unseen">Markeren als ongelezen</string>
     <string name="title_rule_hide">Verbergen</string>
-    <string name="title_rule_ignore">Melding onderdrukken</string>
+    <string name="title_rule_ignore">Onderdruk melding</string>
     <string name="title_rule_snooze">Sluimeren</string>
     <string name="title_rule_flag">Ster toevoegen</string>
     <string name="title_rule_importance">Stel belang in</string>
@@ -1642,6 +1642,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_delete">Definitief verwijderen</string>
     <string name="title_rule_sound">Speel geluid af</string>
+    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Stille melding</string>
     <string name="title_rule_caption">Bewerk regel</string>
     <string name="title_rule_title">Regel is van toepassing op</string>
     <string name="title_rule_name">Naam</string>

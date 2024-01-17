@@ -1680,6 +1680,7 @@
     <string name="title_rule_automation">Автоматизація</string>
     <string name="title_rule_delete">Видалити назавжди</string>
     <string name="title_rule_sound">Відтворити звук</string>
+    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Зробити сповіщення беззвучним</string>
     <string name="title_rule_caption">Редагувати правило</string>
     <string name="title_rule_title">Застосовується правило для</string>
     <string name="title_rule_name">Ім\'я</string>

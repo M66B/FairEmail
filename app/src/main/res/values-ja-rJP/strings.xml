@@ -1641,6 +1641,7 @@
     <string name="title_rule_automation">自動化</string>
     <string name="title_rule_delete">完全に削除する</string>
     <string name="title_rule_sound">音声を再生</string>
+    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">サイレント通知</string>
     <string name="title_rule_caption">ルールを編集</string>
     <string name="title_rule_title">ルールの適用先</string>
     <string name="title_rule_name">名前</string>

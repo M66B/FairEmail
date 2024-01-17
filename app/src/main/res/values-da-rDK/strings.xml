@@ -1656,6 +1656,7 @@
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_delete">Slet permanent</string>
     <string name="title_rule_sound">Afspil lyd</string>
+    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Tavse notifikationer</string>
     <string name="title_rule_caption">Redigér regel</string>
     <string name="title_rule_title">Regel gælder for</string>
     <string name="title_rule_name">Navn</string>
