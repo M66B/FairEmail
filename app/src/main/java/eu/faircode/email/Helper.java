@@ -1108,6 +1108,11 @@ public class Helper {
                 " isInstalled=" + isInstalled(context, open_with_pkg) +
                 " hasCustomTabs=" + hasCustomTabs(context, uri, open_with_pkg));
 
+        if ("file".equals(uri.getScheme())) {
+            reportNoViewer(context, uri, new SecurityException("Cannot open files"));
+            return;
+        }
+
         if (UriHelper.isHyperLink(uri))
             uri = UriHelper.fix(uri);
         else {
