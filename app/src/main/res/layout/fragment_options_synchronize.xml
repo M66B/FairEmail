@@ -250,6 +250,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvExempted" />
 
+                <TextView
+                    android:id="@+id/tvPollExempted"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_with_exceptions"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvExempted" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swPollMetered"
                     android:layout_width="0dp"
@@ -259,7 +272,7 @@
                     android:text="@string/title_advanced_poll_metered"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rvExempted"
+                    app:layout_constraintTop_toBottomOf="@id/tvPollExempted"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -501,7 +514,7 @@
                     android:id="@+id/grpExempted"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvExempted,rvExempted,swPollMetered,swPollUnmetered" />
+                    app:constraint_referenced_ids="tvExempted,rvExempted,tvPollExempted,swPollMetered,swPollUnmetered" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
