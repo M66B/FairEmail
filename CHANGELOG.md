@@ -8,8 +8,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Added rule action for silent notifications
+* Added rule action to silent notifications
 * Added option to disable Gmail labels button
+* Performance optimizations
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
