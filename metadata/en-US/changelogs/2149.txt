@@ -8,6 +8,7 @@ Ypupiara
 
 Next version
 
+* Added rule action for silent notifications
 * Added option to disable Gmail labels button
 * Small improvements and minor bug fixes
 * Updated AndroidX

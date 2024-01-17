@@ -1985,6 +1985,7 @@
     <string name="title_rule_automation">Automation</string>
     <string name="title_rule_delete">Delete permanently</string>
     <string name="title_rule_sound">Play sound</string>
+    <string name="title_rule_silent">Silent notification</string>
 
     <string name="title_rule_caption">Edit rule</string>
     <string name="title_rule_title">Rule applies to</string>

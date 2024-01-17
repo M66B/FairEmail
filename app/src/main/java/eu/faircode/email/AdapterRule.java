@@ -585,6 +585,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     return R.string.title_rule_notes;
                 case EntityRule.TYPE_URL:
                     return R.string.title_rule_url;
+                case EntityRule.TYPE_SILENT:
+                    return R.string.title_rule_silent;
                 default:
                     throw new IllegalArgumentException("Unknown action type=" + type);
             }

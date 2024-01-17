@@ -639,6 +639,7 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_rule_unseen)));
         actions.add(new Action(EntityRule.TYPE_HIDE, getString(R.string.title_rule_hide)));
         actions.add(new Action(EntityRule.TYPE_IGNORE, getString(R.string.title_rule_ignore)));
+        actions.add(new Action(EntityRule.TYPE_SILENT, getString(R.string.title_rule_silent)));
         if (BuildConfig.DEBUG)
             actions.add(new Action(EntityRule.TYPE_LOCAL_ONLY, getString(R.string.title_rule_local_only)));
         actions.add(new Action(EntityRule.TYPE_SNOOZE, getString(R.string.title_rule_snooze)));

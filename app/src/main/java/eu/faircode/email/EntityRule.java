@@ -133,6 +133,7 @@ public class EntityRule {
     static final int TYPE_LOCAL_ONLY = 17;
     static final int TYPE_NOTES = 18;
     static final int TYPE_URL = 19;
+    static final int TYPE_SILENT = 20;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -631,6 +632,8 @@ public class EntityRule {
                 return onActionNotes(context, message, jaction, html);
             case TYPE_URL:
                 return onActionUrl(context, message, jaction, html);
+            case TYPE_SILENT:
+                return onActionSilent(context, message, jaction);
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type + " name=" + name);
         }
@@ -718,6 +721,8 @@ public class EntityRule {
                 String url = jargs.optString("url");
                 if (TextUtils.isEmpty(url) || !Patterns.WEB_URL.matcher(url).matches())
                     throw new IllegalArgumentException(context.getString(R.string.title_rule_url_missing));
+                return;
+            case TYPE_SILENT:
                 return;
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type);
@@ -1481,6 +1486,14 @@ public class EntityRule {
                 connection.disconnect();
         }
 
+        return true;
+    }
+
+    private boolean onActionSilent(Context context, EntityMessage message, JSONObject jargs) {
+        DB db = DB.getInstance(context);
+        db.message().setMessageUiSilent(message.id, true);
+
+        message.ui_silent = true;
         return true;
     }
 
