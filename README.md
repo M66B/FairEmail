@@ -220,7 +220,7 @@ Online translations are supported by:
 
 Error reporting is sponsored by:
 
-![Bugsnag logo](/images/bugsnag_logo_navy.png)
+![Bugsnag logo](/images/bugsnag_logo.png)
 
 [Bugsnag](https://www.bugsnag.com/) monitors application stability
 and is used to [help improve FairEmail](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104).
