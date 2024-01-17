@@ -134,7 +134,7 @@
 <li>✔ <del>Notification settings per folder</del></li>
 <li>✔ <del>Select local images for signatures</del></li>
 <li>✔ <del>Show messages matched by a rule</del></li>
-<li>❌ <del><a href="https://tools.ietf.org/html/rfc5804">ManageSieve</a></del> (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)</li>
+<li>❌ <del><a href="https://tools.ietf.org/html/rfc5804">ManageSieve</a></del> (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own rules)</li>
 <li>✔ <del>Search for messages with/without attachments</del> (on-device only because IMAP doesn’t support searching for attachments)</li>
 <li>✔ <del>Search for a folder</del></li>
 <li>✔ <del>Search suggestions</del></li>
@@ -236,7 +236,7 @@
 <li><a href="#faq68"><del>(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?</del></a></li>
 <li><a href="#faq69">(69) Can you add auto scroll up on new message?</a></li>
 <li><a href="#faq70">(70) When will messages be auto expanded?</a></li>
-<li><a href="#faq71">(71) How do I use filter rules?</a></li>
+<li><a href="#faq71">(71) How do I use rules?</a></li>
 <li><a href="#faq72">(72) What are primary accounts/identities?</a></li>
 <li><a href="#faq73">(73) Is moving messages across accounts safe/efficient?</a></li>
 <li><a href="#faq74">(74) Why do I see duplicate messages?</a></li>
@@ -1405,9 +1405,9 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p>Duplicate (archived) messages, trashed messages and draft messages are not counted.</p>
 <p>Messages will automatically be marked read on expanding, unless this was disabled in the individual account settings.</p>
 <p><br /></p>
-<p><a name="faq71"></a> <strong>(71) How do I use filter rules?</strong></p>
+<p><a name="faq71"></a> <strong>(71) How do I use rules?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq71">Google Translate</a></p>
-<p>You can edit filter rules by long pressing a folder in the folder list of an account (tap the account name in the navigation/side menu).</p>
+<p>You can edit rules by long pressing a folder in the folder list of an account (tap the account name in the navigation/side menu).</p>
 <p>New rules will be applied to new messages received in the folder, not to existing messages. You can check the rule and apply the rule to existing messages or, alternatively, long press the rule in the rule list and select <em>Execute now</em>.</p>
 <p>You’ll need to give a rule a name and you’ll need to define the order in which a rule should be executed relative to other rules.</p>
 <p>You can disable a rule and you can stop processing other rules after a rule has been executed, which can be used to create a <em>not</em> condition.</p>
@@ -1537,7 +1537,7 @@ $$aligned$ (since version 1.2049)</code></pre>
 <p><br /></p>
 <p>In the three-dots <em>more</em> message menu there is an item to create a rule for a received message with the most common conditions filled in.</p>
 <p><br /></p>
-<p>If you want to set up archiving by week, month, year, etc, you can do this with filter rules with an absolute time condition on a ‘jump’ archive folder where archived messages are being moved to as a first step. The filter rules will move the messages to a (sub) archive folder as a second step.</p>
+<p>If you want to set up archiving by week, month, year, etc, you can do this with rules with an absolute time condition on a ‘jump’ archive folder where archived messages are being moved to as a first step. Such a rule will move the messages to a (sub) archive folder as a second step.</p>
 <p>The POP3 protocol does not support setting keywords and moving or copying messages.</p>
 <p><br /></p>
 <p>Since version 1.2061 it is possible to execute rules with an automation app, like for example Tasker.</p>
@@ -1589,7 +1589,7 @@ $$aligned$ (since version 1.2049)</code></pre>
 <p>Since version 1.1880 is is possible to exclude accounts from scheduling in the advanced account settings. This means you can synchronize a business account during business hours only and make an exception for personal accounts.</p>
 <p>Automation, see below, can be used for more advanced schedules, like for example multiple synchronization periods per day or different synchronization periods for different days.</p>
 <p>It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile, which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.</p>
-<p>It is also possible to create <a href="#faq71">filter rules</a> with a time condition and to snooze messages until the end time of the time condition. This way it is possible to <em>snooze</em> business related messages until the start of the business hours. This also means that the messages will be on your device for when there is (temporarily) no internet connection. How to:</p>
+<p>It is also possible to create <a href="#faq71">rules</a> with a time condition and to snooze messages until the end time of the time condition. This way it is possible to <em>snooze</em> business related messages until the start of the business hours. This also means that the messages will be on your device for when there is (temporarily) no internet connection. How to:</p>
 <ul>
 <li>Go to the folder list of an account by tapping on the account name in the navigation menu (left side menu)</li>
 <li>Long press the inbox in the folder list and select <em>Edit rules</em></li>
@@ -1600,6 +1600,7 @@ $$aligned$ (since version 1.2049)</code></pre>
 <li>Save the rule with the save button in the bottom action bar</li>
 </ul>
 <p>Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app, which could be used to (not) silence specific (business) notifications. Please <a href="https://support.google.com/android/answer/9069335">see here</a> for more information.</p>
+<p>Since version 1.2150 it is possible to create <a href="#faq71">rules</a> to silence specific new message notifications.</p>
 <p>For more complex schemes you could set one or more accounts to manual synchronization and send this command to FairEmail to check for new messages:</p>
 <pre><code>(adb shell) am start-foreground-service -a eu.faircode.email.POLL</code></pre>
 <p>For a specific account:</p>
@@ -1720,7 +1721,7 @@ Y1 OK CAPABILITY completed</code></pre>
 <p>If you are receiving a significant amount of spam, the first thing you should do is consider switching to another email provider. Some email servers excell at filtering spam, and others are really bad at it. Switching to another e-mail provider is no fun, but neither is wading through piles of spam on a daily basis.</p>
 <p>Spam filtering based on message headers might have been feasible, but unfortunately this technique is <a href="https://patents.google.com/patent/US7543076">patented by Microsoft</a>.</p>
 <p>Recent versions of FairEmail can filter spam to a certain extent using a message classifier. Please see <a href="#faq163">this FAQ</a> for more information about this.</p>
-<p>Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with <a href="#faq71">filter rules</a> too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.</p>
+<p>Of course you can report messages as spam with FairEmail, which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work. This can be done automatically with <a href="#faq71">rules</a> too. Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.</p>
 <p>Note that the POP3 protocol gives access to the inbox only. So, it is won’t be possible to report spam for POP3 accounts.</p>
 <p>Note that you should not delete spam messages, also not from the spam folder, because the email server uses the messages in the spam folder to “learn” what spam messages are.</p>
 <p>If you are wondering why a message was moved into the spam folder, these are all possible reasons:</p>
@@ -2017,7 +2018,7 @@ $NotDisplayed</code></pre>
 </ul>
 <p>It is probably a good idea to enable <em>Show keywords in message header</em> in the display settings.</p>
 <p>Note that the email server needs to support IMAP flags (keywords) for this feature.</p>
-<p>Filter rules will be applied to the received receipt, so it is possible to move/archive the receipt. See <a href="#faq71">this FAQ</a> for a header condition to recognize receipts.</p>
+<p>Rules will be applied to the received receipt, so it is possible to move/archive the receipt. See <a href="#faq71">this FAQ</a> for a header condition to recognize receipts.</p>
 <p><br /></p>
 <p><em>Block toolbar (version 1.1967+)</em></p>
 <p>When enabled in the three-dots overflow menu of the message editor, a toolbar to perform operations (align text, insert list, indent text, insert blockquote) on a block of text (consecutive non-empty lines) will be shown.</p>
@@ -2209,7 +2210,7 @@ $NotDisplayed</code></pre>
 <li>Long press the folder (inbox) in the folder list and select <em>Edit rules</em></li>
 <li>Add a rule with the big ‘plus’ button at the bottom right</li>
 <li>Configure a rule condition, select <em>Play sound</em> as rule action and select a sound</li>
-<li>For more information about filter rules, please <a href="#faq71">see here</a></li>
+<li>For more information about rules, please <a href="#faq71">see here</a></li>
 </ul>
 <p>The order of precendence is: conditional sound, sender sound, folder sound, account sound and (default) notification sound.</p>
 <p>Setting a notification sound for an account, folder or sender requires Android 8 Oreo or later and is a pro feature.</p>
@@ -2374,7 +2375,7 @@ $NotDisplayed</code></pre>
 </ul>
 <p>Classification is optimized to use as little resources as possible, but will inevitably use some extra battery power. This is also why only folders of the same account will be considered.</p>
 <p>You can delete all classification data by turning classification in the miscellaneous settings three times off. This will be necessary when classification for a folder is enabled or disabled (or when a folder is deleted) because classification is based on comparision.</p>
-<p><a href="#faq71">Filter rules</a> will be executed before classification. If one or more filter rules were executed for a message, message classification will be skipped because it is assumed that the message will be processed by the filter rules in this case.</p>
+<p><a href="#faq71">Rules</a> will be executed before classification. If one or more rules were executed for a message, message classification will be skipped because it is assumed that the message will be processed by the rules in this case.</p>
 <p>Message classification is a pro feature, except for the spam folder.</p>
 <p><br /></p>
 <p><a name="faq164"></a> <strong>(164) Can you add customizable themes?</strong></p>
@@ -2667,7 +2668,7 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <p>Cloud sync is based on a cloud account. You can register/login by entering a username and a password and using the <em>Login</em> button.</p>
 <p>A cloud sync account needs to be activated, which is to prevent misusing the cloud sync server. To activate a cloud sync account, use the <em>Activate</em> button to send an email to a special email address. The email needs to come from an address used to activate the pro features before. You’ll receive an email in response indicating whether the activation was succesful or not.</p>
 <p>The app will automatically synchronize once a day around 1:30 AM, provided there is an internet connection, otherwise synchronization will be postponed until after an internet connection becomes available. You can also manually synchronize with the opposite arrows button.</p>
-<p>Synchronization will currently add and update enabled accounts and identities only, but on the roadmap is synchronizing blocked senders and filter rules too.</p>
+<p>Synchronization will currently add and update enabled accounts and identities only, but on the roadmap is synchronizing blocked senders and rules too.</p>
 <p>Updating includes enabling/disabling accounts and identities.</p>
 <p>Existing accounts or identities will never be deleted</p>
 <p>Please note that accounts are only considered the same if they are cloud synced and never if the same account is configured on different devices.</p>

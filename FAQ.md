@@ -181,7 +181,7 @@ The cause might be [changes in Android 7 Nougat](https://ericsink.com/entries/sq
 * &#x2714; ~~Notification settings per folder~~
 * &#x2714; ~~Select local images for signatures~~
 * &#x2714; ~~Show messages matched by a rule~~
-* &#x274C; ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
+* &#x274C; ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own rules)
 * &#x2714; ~~Search for messages with/without attachments~~ (on-device only because IMAP doesn't support searching for attachments)
 * &#x2714; ~~Search for a folder~~
 * &#x2714; ~~Search suggestions~~
@@ -283,7 +283,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#faq68)
 * [(69) Can you add auto scroll up on new message?](#faq69)
 * [(70) When will messages be auto expanded?](#faq70)
-* [(71) How do I use filter rules?](#faq71)
+* [(71) How do I use rules?](#faq71)
 * [(72) What are primary accounts/identities?](#faq72)
 * [(73) Is moving messages across accounts safe/efficient?](#faq73)
 * [(74) Why do I see duplicate messages?](#faq74)
@@ -2654,11 +2654,11 @@ Messages will automatically be marked read on expanding, unless this was disable
 <br />
 
 <a name="faq71"></a>
-**(71) How do I use filter rules?**
+**(71) How do I use rules?**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq71)
 
-You can edit filter rules by long pressing a folder in the folder list of an account (tap the account name in the navigation/side menu).
+You can edit rules by long pressing a folder in the folder list of an account (tap the account name in the navigation/side menu).
 
 New rules will be applied to new messages received in the folder, not to existing messages.
 You can check the rule and apply the rule to existing messages or, alternatively, long press the rule in the rule list and select *Execute now*.
@@ -2875,8 +2875,8 @@ In the three-dots *more* message menu there is an item to create a rule for a re
 <br />
 
 If you want to set up archiving by week, month, year, etc,
-you can do this with filter rules with an absolute time condition on a 'jump' archive folder where archived messages are being moved to as a first step.
-The filter rules will move the messages to a (sub) archive folder as a second step.
+you can do this with rules with an absolute time condition on a 'jump' archive folder where archived messages are being moved to as a first step.
+Such a rule will move the messages to a (sub) archive folder as a second step.
 
 The POP3 protocol does not support setting keywords and moving or copying messages.
 
@@ -3011,7 +3011,7 @@ like for example multiple synchronization periods per day or different synchroni
 It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile,
 which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
 
-It is also possible to create [filter rules](#faq71) with a time condition and to snooze messages until the end time of the time condition.
+It is also possible to create [rules](#faq71) with a time condition and to snooze messages until the end time of the time condition.
 This way it is possible to *snooze* business related messages until the start of the business hours.
 This also means that the messages will be on your device for when there is (temporarily) no internet connection. How to:
 
@@ -3026,6 +3026,8 @@ This also means that the messages will be on your device for when there is (temp
 Note that recent Android versions allow overriding DND (Do Not Disturb) per notification channel and per app,
 which could be used to (not) silence specific (business) notifications.
 Please [see here](https://support.google.com/android/answer/9069335) for more information.
+
+Since version 1.2150 it is possible to create [rules](#faq71) to silence specific new message notifications.
 
 For more complex schemes you could set one or more accounts to manual synchronization
 and send this command to FairEmail to check for new messages:
@@ -3311,7 +3313,7 @@ Please see [this FAQ](#faq163) for more information about this.
 
 Of course you can report messages as spam with FairEmail,
 which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work.
-This can be done automatically with [filter rules](#faq71) too.
+This can be done automatically with [rules](#faq71) too.
 Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
 
 Note that the POP3 protocol gives access to the inbox only. So, it is won't be possible to report spam for POP3 accounts.
@@ -3985,7 +3987,7 @@ It is probably a good idea to enable *Show keywords in message header* in the di
 
 Note that the email server needs to support IMAP flags (keywords) for this feature.
 
-Filter rules will be applied to the received receipt, so it is possible to move/archive the receipt.
+Rules will be applied to the received receipt, so it is possible to move/archive the receipt.
 See [this FAQ](#faq71) for a header condition to recognize receipts.
 
 <br />
@@ -4422,7 +4424,7 @@ Conditional: (since version 1.1803; experimental)
 * Long press the folder (inbox) in the folder list and select *Edit rules*
 * Add a rule with the big 'plus' button at the bottom right
 * Configure a rule condition, select *Play sound* as rule action and select a sound
-* For more information about filter rules, please [see here](#faq71)
+* For more information about rules, please [see here](#faq71)
 
 The order of precendence is: conditional sound, sender sound, folder sound, account sound and (default) notification sound.
 
@@ -4810,9 +4812,9 @@ You can delete all classification data by turning classification in the miscella
 This will be necessary when classification for a folder is enabled or disabled (or when a folder is deleted)
 because classification is based on comparision.
 
-[Filter rules](#faq71) will be executed before classification.
-If one or more filter rules were executed for a message, message classification will be skipped
-because it is assumed that the message will be processed by the filter rules in this case.
+[Rules](#faq71) will be executed before classification.
+If one or more rules were executed for a message, message classification will be skipped
+because it is assumed that the message will be processed by the rules in this case.
 
 Message classification is a pro feature, except for the spam folder.
 
@@ -5431,7 +5433,7 @@ otherwise synchronization will be postponed until after an internet connection b
 You can also manually synchronize with the opposite arrows button.
 
 Synchronization will currently add and update enabled accounts and identities only,
-but on the roadmap is synchronizing blocked senders and filter rules too.
+but on the roadmap is synchronizing blocked senders and rules too.
 
 Updating includes enabling/disabling accounts and identities.
 
