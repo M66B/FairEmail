@@ -4659,10 +4659,6 @@ public class RecyclerView extends ViewGroup implements ScrollingView,
      */
     private void dispatchLayoutStep3() {
         mState.assertLayoutStep(State.STEP_ANIMATIONS);
-        if ((State.STEP_ANIMATIONS & mState.mLayoutStep) == 0) {
-            eu.faircode.email.Log.w(new Throwable("RecyclerView.dispatchLayoutStep3"));
-            return;
-        }
         startInterceptRequestLayout();
         onEnterLayoutOrScroll();
         mState.mLayoutStep = State.STEP_START;
