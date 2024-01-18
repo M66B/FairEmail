@@ -348,6 +348,7 @@
     <string name="title_advanced_when">Quand</string>
     <string name="title_advanced_optimize">Optimiser automatiquement</string>
     <string name="title_advanced_always">Recevoir les messages en continu pour ces comptes</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Avec les exceptions suivantes :</string>
     <string name="title_advanced_poll_metered">Vérifier périodiquement la présence de nouveaux messages sur un réseau limité</string>
     <string name="title_advanced_poll_unmetered">Vérifier périodiquement la présence de nouveaux messages sur un réseau non limité</string>
     <string name="title_advanced_schedule">Planification</string>
@@ -1656,7 +1657,7 @@
     <string name="title_rule_automation">Automatisation</string>
     <string name="title_rule_delete">Supprimer définitivement</string>
     <string name="title_rule_sound">Jouer un son</string>
-    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Notification silencieuse</string>
+    <string name="title_rule_silent">Notification silencieuse</string>
     <string name="title_rule_caption">Modifier la règle</string>
     <string name="title_rule_title">La règle s\'applique à</string>
     <string name="title_rule_name">Nom</string>

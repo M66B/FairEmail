@@ -376,6 +376,7 @@
     <string name="title_advanced_when">Коли</string>
     <string name="title_advanced_optimize">Автоматично оптимізувати</string>
     <string name="title_advanced_always">Завжди отримувати повідомлення для цих облікових записів</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">З такими винятками:</string>
     <string name="title_advanced_poll_metered">Періодично перевіряти наявність нових повідомлень при підключенні до лімітованої мережі</string>
     <string name="title_advanced_poll_unmetered">Періодично перевіряти наявність нових повідомлень при підключенні до безлімітної мережі</string>
     <string name="title_advanced_schedule">Розклад</string>
@@ -1680,7 +1681,7 @@
     <string name="title_rule_automation">Автоматизація</string>
     <string name="title_rule_delete">Видалити назавжди</string>
     <string name="title_rule_sound">Відтворити звук</string>
-    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Зробити сповіщення беззвучним</string>
+    <string name="title_rule_silent">Зробити сповіщення беззвучним</string>
     <string name="title_rule_caption">Редагувати правило</string>
     <string name="title_rule_title">Застосовується правило для</string>
     <string name="title_rule_name">Ім\'я</string>

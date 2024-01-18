@@ -348,6 +348,7 @@
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_optimize">Ottimizza automaticamente</string>
     <string name="title_advanced_always">Ricevi sempre i messaggi per questi profili</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Con le seguenti eccezioni:</string>
     <string name="title_advanced_poll_metered">Controlla periodicamente la presenza di nuovi messaggi su una rete a consumo</string>
     <string name="title_advanced_poll_unmetered">Controlla periodicamente la presenza di nuovi messaggi su una rete non a consumo</string>
     <string name="title_advanced_schedule">Pianificazione</string>
@@ -1656,7 +1657,7 @@
     <string name="title_rule_automation">Automazione</string>
     <string name="title_rule_delete">Elimina permanentemente</string>
     <string name="title_rule_sound">Riproduci suono</string>
-    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Notifica silenziosa</string>
+    <string name="title_rule_silent">Notifica silenziosa</string>
     <string name="title_rule_caption">Modifica regola</string>
     <string name="title_rule_title">La regola si applica a</string>
     <string name="title_rule_name">Nome</string>

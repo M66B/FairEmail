@@ -310,6 +310,7 @@
     <string name="title_advanced_when">هنگامی که</string>
     <string name="title_advanced_optimize">خودکار بهینه‌سازی کن</string>
     <string name="title_advanced_always">همیشه پیام‌ها را برای این حساب‌ها دریافت کن</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">به استثنای موارد زیر:</string>
     <string name="title_advanced_poll_metered">چک کردن متناوب برای پیام‌های جدید در زمان انصال به اینترنت با حجم محدود</string>
     <string name="title_advanced_poll_unmetered">چک کردن متناوب برای پیام‌های جدید در زمان انصال به اینترنت با حجم نامحدود</string>
     <string name="title_advanced_schedule">زمان بندی</string>
@@ -1132,6 +1133,7 @@
     <string name="title_rule_tts">متن به گفتار</string>
     <string name="title_rule_automation">خودکارسازی</string>
     <string name="title_rule_delete">حذف برای همیشه</string>
+    <string name="title_rule_silent">اعلان‌های بی‌صدا</string>
     <string name="title_rule_caption">ویرایش قانون</string>
     <string name="title_rule_title">قانون اعمال می‌شود بر</string>
     <string name="title_rule_name">نام</string>

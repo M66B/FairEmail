@@ -362,6 +362,9 @@
     <string name="title_advanced_when">Raspored</string>
     <string name="title_advanced_optimize">Automatski optimizuj</string>
     <string name="title_advanced_always">Uvijek primaj poruke s ovih računa</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Sa slijedećim izuzecima:</string>
+    <string name="title_advanced_poll_metered">Periodično provjeri nove poruke na mrežama s ograničenim paketom</string>
+    <string name="title_advanced_poll_unmetered">Periodično provjeri nove poruke na neograničenim mrežama</string>
     <string name="title_advanced_schedule">Raspored</string>
     <string name="title_advanced_schedule_workdays">Radni dani</string>
     <string name="title_advanced_schedule_weekend">Vikend</string>
@@ -1125,6 +1128,7 @@
     <string name="title_poll_folder">Provjeri povremeno umjesto stalnog sinhroniziranja</string>
     <string name="title_poll_folder_remark">Većina e-mail servera dopušta trenutna obavještenja samo za određene foldere!</string>
     <string name="title_download_folder">Automatski preuzmi tekst i priloge poruka</string>
+    <string name="title_count_unread">Dodaj broj nepročitanih poruka nazivu računa</string>
     <string name="title_notify_folder">Obavijesti kad stignu nove poruke</string>
     <string name="title_auto_classify_source">Klasifikuj nove poruke u ovom folderu</string>
     <string name="title_auto_classify_target">Automatski premjesti klasifikovane poruke u ovaj folder</string>
@@ -1666,6 +1670,7 @@
     <string name="title_rule_automation">Automatizacija</string>
     <string name="title_rule_delete">Trajno izbriši</string>
     <string name="title_rule_sound">Pokreni zvuk</string>
+    <string name="title_rule_silent">Tiha obavještenja</string>
     <string name="title_rule_caption">Uredi pravilo</string>
     <string name="title_rule_title">Pravilo se primjenjuje na</string>
     <string name="title_rule_name">Naziv</string>

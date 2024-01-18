@@ -348,6 +348,7 @@
     <string name="title_advanced_when">Når</string>
     <string name="title_advanced_optimize">Optimér automatisk</string>
     <string name="title_advanced_always">Modtag altid beskeder til disse konti</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Med flg. undtagelser:</string>
     <string name="title_advanced_poll_metered">Tjek periodisk for nye beskeder, mens forbundet til forbrugsafregnet netværk</string>
     <string name="title_advanced_poll_unmetered">Tjek periodisk for nye beskeder, mens forbundet til ikke-forbrugsafregnet netværk</string>
     <string name="title_advanced_schedule">Planlægning</string>
@@ -1656,7 +1657,7 @@
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_delete">Slet permanent</string>
     <string name="title_rule_sound">Afspil lyd</string>
-    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Tavse notifikationer</string>
+    <string name="title_rule_silent">Tavse notifikationer</string>
     <string name="title_rule_caption">Redigér regel</string>
     <string name="title_rule_title">Regel gælder for</string>
     <string name="title_rule_name">Navn</string>

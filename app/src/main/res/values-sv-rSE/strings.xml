@@ -1645,6 +1645,7 @@
     <string name="title_rule_automation">Automatisering</string>
     <string name="title_rule_delete">Ta bort permanent</string>
     <string name="title_rule_sound">Spela upp ljud</string>
+    <string name="title_rule_silent">Tyst avisering</string>
     <string name="title_rule_caption">Redigera regel</string>
     <string name="title_rule_title">Regeln gäller</string>
     <string name="title_rule_name">Namn</string>

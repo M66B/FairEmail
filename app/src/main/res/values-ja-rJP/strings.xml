@@ -334,6 +334,7 @@
     <string name="title_advanced_when">同期</string>
     <string name="title_advanced_optimize">自動最適化</string>
     <string name="title_advanced_always">これらのアカウントのメッセージを常に受信</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">以下の例外があります:</string>
     <string name="title_advanced_poll_metered">従量課金制接続で新着メッセージを定期的に確認する</string>
     <string name="title_advanced_poll_unmetered">定額制接続で新着メッセージを定期的に確認する</string>
     <string name="title_advanced_schedule">スケジュール</string>
@@ -1420,11 +1421,11 @@
     <string name="title_translate_configure">設定&#8230;</string>
     <string name="title_translate_key">キーを入力</string>
     <string name="title_translating">翻訳しています&#8230;</string>
-    <string name="title_translate_formal">書き言葉を使用</string>
-    <string name="title_translate_small">ソーステキストに小さなフォントを使用</string>
+    <string name="title_translate_formal">書き言葉を使用する</string>
+    <string name="title_translate_small">ソーステキストに小さなフォントを使用する</string>
     <string name="title_translate_replace">元テキストのを翻訳されたテキストに置き換える</string>
-    <string name="title_translate_highlight">翻訳済みのテキストをハイライト</string>
-    <string name="title_translate_html">書式を維持</string>
+    <string name="title_translate_highlight">翻訳済みのテキストをハイライトする</string>
+    <string name="title_translate_html">書式を維持する</string>
     <string name="title_translate_html_hint">より多くの文字数を利用します</string>
     <string name="title_translate_usage">利用文字数: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">テキストをタップして翻訳</string>
@@ -1641,7 +1642,7 @@
     <string name="title_rule_automation">自動化</string>
     <string name="title_rule_delete">完全に削除する</string>
     <string name="title_rule_sound">音声を再生</string>
-    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">サイレント通知</string>
+    <string name="title_rule_silent">サイレント通知</string>
     <string name="title_rule_caption">ルールを編集</string>
     <string name="title_rule_title">ルールの適用先</string>
     <string name="title_rule_name">名前</string>

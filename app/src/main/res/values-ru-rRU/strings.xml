@@ -375,6 +375,7 @@
     <string name="title_advanced_when">Когда</string>
     <string name="title_advanced_optimize">Автоматическая оптимизация</string>
     <string name="title_advanced_always">Непрерывно получать сообщения с этих учётных записей</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">За исключением:</string>
     <string name="title_advanced_poll_metered">Периодически проверять новые сообщения при лимитированном подключении</string>
     <string name="title_advanced_poll_unmetered">Периодически проверять новые сообщения при безлимитном подключении</string>
     <string name="title_advanced_schedule">Расписание</string>
@@ -1682,7 +1683,7 @@
     <string name="title_rule_automation">Автоматизация</string>
     <string name="title_rule_delete">Удалить окончательно</string>
     <string name="title_rule_sound">Воспроизвести звук</string>
-    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Тихое уведомление</string>
+    <string name="title_rule_silent">Тихое уведомление</string>
     <string name="title_rule_caption">Изменить правило</string>
     <string name="title_rule_title">Правило применяется к</string>
     <string name="title_rule_name">Название</string>

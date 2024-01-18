@@ -349,6 +349,7 @@
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_optimize">Optimizar automaticamente</string>
     <string name="title_advanced_always">Receber sempre mensagens para estas contas</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Com as seguintes excepções:</string>
     <string name="title_advanced_poll_metered">Periodicamente verificar novas mensagens enquanto estiver numa ligação limitada</string>
     <string name="title_advanced_poll_unmetered">Periodicamente verificar novas mensagens enquanto estiver numa ligação ilimitada</string>
     <string name="title_advanced_schedule">Agendamento</string>
@@ -1656,7 +1657,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_rule_automation">Automatização</string>
     <string name="title_rule_delete">Eliminar permanentemente</string>
     <string name="title_rule_sound">Reproduzir som</string>
-    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Notificação silenciosa</string>
+    <string name="title_rule_silent">Notificação silenciosa</string>
     <string name="title_rule_caption">Editar regra</string>
     <string name="title_rule_title">Regra aplica-se a</string>
     <string name="title_rule_name">Nome</string>

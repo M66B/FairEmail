@@ -346,6 +346,7 @@
     <string name="title_advanced_when">Mikor</string>
     <string name="title_advanced_optimize">Automatikus optimizálás</string>
     <string name="title_advanced_always">Mindig fogadjon értesítéseket e fiókokhoz</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Az alábbi kivételekkel:</string>
     <string name="title_advanced_poll_metered">Új üzenetek rendszeres ellenőrzése fizetős hálózaton</string>
     <string name="title_advanced_poll_unmetered">Új üzenetek rendszeres ellenőrzése nem fizetős hálózaton</string>
     <string name="title_advanced_schedule">Ütemezés</string>
@@ -1648,7 +1649,7 @@
     <string name="title_rule_automation">Automatizálás</string>
     <string name="title_rule_delete">Végleges törlés</string>
     <string name="title_rule_sound">Hang lejátszása</string>
-    <string name="title_rule_silent" comment="title_rule_silent&#10;Title for rule action to silence notifications">Csendes értesítés</string>
+    <string name="title_rule_silent">Csendes értesítés</string>
     <string name="title_rule_caption">Szabály szerkesztése</string>
     <string name="title_rule_title">A szabály érvényes erre</string>
     <string name="title_rule_name">Név</string>
