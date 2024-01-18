@@ -8,12 +8,14 @@ Ypupiara
 
 Next version
 
-* Added rule action to silence notifications
+* Added rule action to silence notifications, see the FAQ
 * Added option to disable Gmail labels button
 * Performance optimizations
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations
+
+You can download intermediate builds here.
 
 1.2149 - 2024-01-08
 
