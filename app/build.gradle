@@ -608,9 +608,7 @@ dependencies {
 
     // https://mvnrepository.com/artifact/androidx.recyclerview/recyclerview
     // https://mvnrepository.com/artifact/androidx.recyclerview/recyclerview-selection
-    //implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
-    implementation "androidx.customview:customview:1.1.0"
-    implementation "androidx.customview:customview-poolingcontainer:1.0.0"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
     //implementation "androidx.recyclerview:recyclerview-selection:1.1.0" // 1.2.0-alpha01
 
     // https://mvnrepository.com/artifact/androidx.coordinatorlayout/coordinatorlayout
