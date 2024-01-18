@@ -72,6 +72,7 @@ public class IPInfo {
         }
 
         // https://ipinfo.io/developers
+        // Possible alternative: https://www.ip2location.io/ip2location-documentation
 
         //{
         //  "ip": "8.8.8.8",
