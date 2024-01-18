@@ -109,7 +109,7 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparatorOptions"
         app:srcCompat="@drawable/expander3" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <eu.faircode.email.FixedRecyclerView
         android:id="@+id/rvAccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparatorAccount"
         app:srcCompat="@drawable/expander" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <eu.faircode.email.FixedRecyclerView
         android:id="@+id/rvUnified"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparatorUnified"
         app:srcCompat="@drawable/expander" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <eu.faircode.email.FixedRecyclerView
         android:id="@+id/rvSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -199,7 +199,7 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparatorSearch"
         app:srcCompat="@drawable/expander" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <eu.faircode.email.FixedRecyclerView
         android:id="@+id/rvMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
         app:layout_constraintTop_toBottomOf="@id/vSeparatorMenu"
         app:srcCompat="@drawable/expander" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <eu.faircode.email.FixedRecyclerView
         android:id="@+id/rvMenuExtra"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

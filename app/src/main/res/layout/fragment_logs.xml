@@ -7,7 +7,7 @@
     android:layout_marginHorizontal="3dp"
     tools:context="eu.faircode.email.ActivityView">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <eu.faircode.email.FixedRecyclerView
         android:id="@+id/rvLog"
         android:layout_width="0dp"
         android:layout_height="0dp"

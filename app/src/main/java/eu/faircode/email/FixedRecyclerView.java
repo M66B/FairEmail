@@ -59,6 +59,17 @@ public class FixedRecyclerView extends RecyclerView {
                 .getDrawable(androidx.recyclerview.R.styleable.RecyclerView_fastScrollHorizontalThumbDrawable);
         Drawable horizontalTrackDrawable = a
                 .getDrawable(androidx.recyclerview.R.styleable.RecyclerView_fastScrollHorizontalTrackDrawable);
+
+        if (verticalThumbDrawable == null)
+            verticalThumbDrawable = (StateListDrawable) context.getDrawable(R.drawable.scroll_thumb);
+        if (verticalTrackDrawable == null)
+            verticalTrackDrawable = context.getDrawable(R.drawable.scroll_track);
+
+        if (horizontalThumbDrawable == null)
+            horizontalThumbDrawable = (StateListDrawable) context.getDrawable(R.drawable.scroll_thumb);
+        if (horizontalTrackDrawable == null)
+            horizontalTrackDrawable = context.getDrawable(R.drawable.scroll_track);
+
         Resources resources = getContext().getResources();
         new FastScrollerEx(this, verticalThumbDrawable, verticalTrackDrawable,
                 horizontalThumbDrawable, horizontalTrackDrawable,

@@ -38,7 +38,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHintActions" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <eu.faircode.email.FixedRecyclerView
                 android:id="@+id/rvAccount"
                 android:layout_width="0dp"
                 android:layout_height="0dp"

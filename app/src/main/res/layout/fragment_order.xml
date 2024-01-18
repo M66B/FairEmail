@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="eu.faircode.email.ActivitySetup">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <eu.faircode.email.FixedRecyclerView
         android:id="@+id/rvOrder"
         android:layout_width="0dp"
         android:layout_height="0dp"

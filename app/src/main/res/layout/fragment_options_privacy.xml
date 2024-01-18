@@ -751,7 +751,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/swDisconnectLinks"
                     app:switchPadding="12dp" />
 
-                <androidx.recyclerview.widget.RecyclerView
+                <eu.faircode.email.FixedRecyclerView
                     android:id="@+id/rvDisconnect"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

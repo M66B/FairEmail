@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <eu.faircode.email.FixedRecyclerView
             android:id="@+id/rvAnswer"
             android:layout_width="0dp"
             android:layout_height="0dp"

@@ -18,7 +18,7 @@
         android:layout_gravity="start"
         android:background="?attr/colorDrawerBackground">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <eu.faircode.email.FixedRecyclerView
             android:id="@+id/rvMenu"
             android:layout_width="0dp"
             android:layout_height="0dp"

@@ -82,7 +82,7 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="cbInline,ibSaveAttachments,ibDownloadAttachments" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <eu.faircode.email.FixedRecyclerView
         android:id="@+id/rvAttachment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

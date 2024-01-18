@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:padding="12dp">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <eu.faircode.email.FixedRecyclerView
         android:id="@+id/rvKeyword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
