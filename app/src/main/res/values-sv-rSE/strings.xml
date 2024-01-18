@@ -344,6 +344,7 @@
     <string name="title_advanced_when">När</string>
     <string name="title_advanced_optimize">Optimera automatiskt</string>
     <string name="title_advanced_always">Ta alltid emot meddelanden för dessa konton</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Med följande undantag:</string>
     <string name="title_advanced_poll_metered">Sök regelbundet efter nya meddelanden när du befinner dig på ett nätverk med begränsad datamängd</string>
     <string name="title_advanced_poll_unmetered">Kontrollera regelbundet nya meddelanden när du är på ett nätverk med obegränsad datamängd</string>
     <string name="title_advanced_schedule">Schema</string>

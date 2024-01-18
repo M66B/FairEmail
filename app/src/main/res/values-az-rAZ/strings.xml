@@ -348,6 +348,7 @@
     <string name="title_advanced_when">Nə vaxt</string>
     <string name="title_advanced_optimize">Avto-optimallaşdırma</string>
     <string name="title_advanced_always">Bu hesablar üçün mesajları həmişə al</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Aşağıdakı istisnalarla:</string>
     <string name="title_advanced_poll_metered">Ölçülmüş şəbəkədə olarkən yeni mesajları müntəzəm yoxla</string>
     <string name="title_advanced_poll_unmetered">Ölçülməyən şəbəkədə olarkən yeni mesajları müntəzəm yoxla</string>
     <string name="title_advanced_schedule">Cədvəl</string>
@@ -1655,6 +1656,7 @@
     <string name="title_rule_automation">Avtomatlaşdırma</string>
     <string name="title_rule_delete">Birdəfəlik sil</string>
     <string name="title_rule_sound">Səs oxut</string>
+    <string name="title_rule_silent">Bildirişləri susdur</string>
     <string name="title_rule_caption">Qaydaya düzəliş et</string>
     <string name="title_rule_title">Qayda tətbiq olunur</string>
     <string name="title_rule_name">Ad</string>
