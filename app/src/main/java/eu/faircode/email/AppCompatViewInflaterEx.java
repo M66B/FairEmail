@@ -21,10 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -85,46 +82,16 @@ public class AppCompatViewInflaterEx extends AppCompatViewInflater {
          */
 
         if ("LinearLayout".equals(name))
-            return new LinearLayout(context, attrs) {
-                @Override
-                public boolean dispatchTouchEvent(MotionEvent ev) {
-                    try {
-                        return super.dispatchTouchEvent(ev);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                        return false;
-                    }
-                }
-            };
+            return new FixedLinearLayout(context, attrs);
 
         if ("RelativeLayout".equals(name))
-            return new RelativeLayout(context, attrs) {
-                @Override
-                public boolean dispatchTouchEvent(MotionEvent ev) {
-                    try {
-                        return super.dispatchTouchEvent(ev);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                        return false;
-                    }
-                }
-            };
+            return new FixedRelativeLayout(context, attrs);
 
         if ("FrameLayout".equals(name))
             return new FixedFrameLayout(context, attrs);
 
         if ("View".equals(name))
-            return new View(context, attrs) {
-                @Override
-                public boolean dispatchTouchEvent(MotionEvent ev) {
-                    try {
-                        return super.dispatchTouchEvent(ev);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                        return false;
-                    }
-                }
-            };
+            return new FixedView(context, attrs);
 
         if ("androidx.coordinatorlayout.widget.CoordinatorLayout".equals(name))
             return new FixedCoordinatorLayout(context, attrs);

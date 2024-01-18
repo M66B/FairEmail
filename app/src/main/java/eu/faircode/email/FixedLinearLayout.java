@@ -22,22 +22,25 @@ package eu.faircode.email;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.widget.LinearLayout;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-public class FixedCoordinatorLayout extends CoordinatorLayout {
-    public FixedCoordinatorLayout(@NonNull Context context) {
+public class FixedLinearLayout extends LinearLayout {
+    public FixedLinearLayout(Context context) {
         super(context);
     }
 
-    public FixedCoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public FixedLinearLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public FixedCoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public FixedLinearLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    public FixedLinearLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
     }
 
     @Override
@@ -45,17 +48,7 @@ public class FixedCoordinatorLayout extends CoordinatorLayout {
         try {
             return super.dispatchTouchEvent(ev);
         } catch (Throwable ex) {
-            Log.w(ex);
-            return false;
-        }
-    }
-
-    @Override
-    public boolean dispatchGenericMotionEvent(MotionEvent event) {
-        try {
-            return super.dispatchGenericMotionEvent(event);
-        } catch (Throwable ex) {
-            Log.w(ex);
+            Log.e(ex);
             return false;
         }
     }
