@@ -8,7 +8,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Added rule action to silent notifications
+* Added rule action to silence notifications
 * Added option to disable Gmail labels button
 * Performance optimizations
 * Small improvements and minor bug fixes
