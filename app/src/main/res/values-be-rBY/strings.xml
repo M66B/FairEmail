@@ -176,6 +176,7 @@
     <string name="title_list_identities">Ідэнтыфікатары</string>
     <string name="title_edit_account">Рэдагаваць уліковы запіс</string>
     <string name="title_edit_identity">Рэдагаваць ідэнтыфікатар</string>
+    <string name="title_new_folder">Новая папка</string>
     <string name="title_edit_folder">Рэдагаваць папку</string>
     <string name="title_disable_gmail">Адключыць праграму Gmail</string>
     <string name="title_setup">Налады</string>
@@ -199,6 +200,7 @@
     <string name="title_setup_wizard_new">Мне патрэбны новы адрас электроннай пошты</string>
     <string name="title_setup_manual">Ручное наладжванне і параметры ўліковага запісу</string>
     <string name="title_setup_classic">Класічная канфігурацыя</string>
+    <string name="title_setup_wizard_hint">Майстар хуткага наладжвання для \"Іншага правайдара\" вышэй звычайна таксама працуе, і з яго дапамогай працаваць прасцей, чым уводзіць усе даныя сервера самастойна.</string>
     <string name="title_setup_documentation">Правільную канфігурацыю сервера электроннай пошты глядзіце ў дакументацыі вашага правайдара электроннай пошты</string>
     <string name="title_setup_account_remark">Атрыманне эл. пошты</string>
     <string name="title_setup_identity_remark">Адпраўка эл. пошты</string>
@@ -208,6 +210,7 @@
     <string name="title_setup_google_sign_in">Увайсці праз Google</string>
     <string name="title_setup_other">Іншы правайдар</string>
     <string name="title_setup_inbound">Толькі ўваходная пошта (без магчымасці адпраўкі электроннай пошты!)</string>
+    <string name="title_setup_imap">Уліковы запіс IMAP</string>
     <string name="title_setup_pop3">Уліковы запіс POP3</string>
     <string name="title_setup_oauth_permission">Правайдар электроннай пошты ўхваліў OAuth толькі для версій з Крамы Play і GitHub</string>
     <string name="title_setup_gmail_support">Аўтарызацыя ўліковых запісаў Google будзе працаваць толькі ў версіях з Крамы Play і GitHub, так як Android правярае лічбавы подпіс праграмы</string>
@@ -374,6 +377,8 @@
     <string name="title_advanced_when">Калі</string>
     <string name="title_advanced_optimize">Аўтаматычная аптымізацыя</string>
     <string name="title_advanced_always">Заўсёды атрымліваць паведамленні для гэтых уліковых запісаў</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">З наступнымі выключэннямі:</string>
+    <string name="title_advanced_poll_metered">Перыядычна правяраць наяўнасць новых паведамленняў пры лімітаваным злучэнні</string>
     <string name="title_advanced_schedule">Расклад</string>
     <string name="title_advanced_schedule_workdays">Будні</string>
     <string name="title_advanced_schedule_weekend">Выхадныя</string>
