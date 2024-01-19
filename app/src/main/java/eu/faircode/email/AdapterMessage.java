@@ -8089,13 +8089,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("uid changed", next.id);
 
-                    if (prev.uid == null && next.uid != null) { // once only
+                    if (prev.uid == null && next.uid != null && // once only
+                            properties.getValue("expanded", next.id)) {
                         // Mark seen when needed
                         if (!Boolean.TRUE.equals(next.ui_seen) && next.accountAutoSeen)
                             EntityOperation.queue(context, next, EntityOperation.SEEN, true);
 
                         // Download body when needed
-                        if (!next.content && properties.getValue("expanded", next.id))
+                        if (!next.content)
                             EntityOperation.queue(context, next, EntityOperation.BODY);
                     }
                 }
