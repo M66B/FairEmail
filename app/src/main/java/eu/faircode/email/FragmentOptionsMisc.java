@@ -304,7 +304,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "identities_asked", "identities_primary_hint",
             "raw_asked", "all_read_asked", "delete_asked",
             "cc_bcc", "inline_image_hint", "compose_reference", "send_dialog",
-            "setup_reminder", "setup_advanced",
+            "setup_reminder", "was_ignoring", "setup_advanced",
             "signature_images_hint",
             "gmail_checked",
             "eml_auto_confirm",

@@ -5301,10 +5301,10 @@ public class FragmentMessages extends FragmentBase
         //boolean canSchedule = AlarmManagerCompatEx.canScheduleExactAlarms(context);
         boolean enabled = prefs.getBoolean("enabled", true);
         boolean reminder = prefs.getBoolean("setup_reminder", true);
-        boolean targeting =
-                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU);
+        boolean was_ignoring = prefs.getBoolean("was_ignoring", false);
+        boolean targeting = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU);
         grpBatteryOptimizations.setVisibility(
-                !isIgnoring && enabled && reminder && targeting ? View.VISIBLE : View.GONE);
+                !isIgnoring && enabled && reminder && !was_ignoring && targeting ? View.VISIBLE : View.GONE);
 
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);

@@ -1534,6 +1534,10 @@ public class Helper {
         return "Xiaomi".equalsIgnoreCase(Build.MANUFACTURER);
     }
 
+    static boolean isZte() {
+        return "ZTE".equalsIgnoreCase(Build.MANUFACTURER);
+    }
+
     static boolean isRedmiNote() {
         // Manufacturer: Xiaomi
         // Model: Redmi Note 8 Pro

@@ -1017,6 +1017,11 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(getContext()));
         boolean canScheduleExact = AlarmManagerCompatEx.canScheduleExactAlarms(getContext());
 
+        if (isIgnoring && !BuildConfig.DEBUG) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            prefs.edit().putBoolean("was_ignoring", true).apply();
+        }
+
         tvDozeDone.setText(isIgnoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setTextColor(isIgnoring ? textColorPrimary : colorWarning);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(
