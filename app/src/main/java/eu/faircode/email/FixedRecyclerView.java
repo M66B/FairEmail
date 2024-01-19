@@ -32,6 +32,9 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.FastScrollerEx;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Map;
+import java.util.WeakHashMap;
+
 public class FixedRecyclerView extends RecyclerView {
     public FixedRecyclerView(@NonNull Context context) {
         super(context);
@@ -208,23 +211,62 @@ public class FixedRecyclerView extends RecyclerView {
         }
     }
 
+    private Map<Runnable, Runnable> mapRunnable = new WeakHashMap<>();
+
     @Override
     public boolean post(Runnable action) {
-        return super.post(new RunnableEx("post") {
+        Runnable wrapped = new RunnableEx("post") {
             @Override
             protected void delegate() {
                 action.run();
             }
-        });
+        };
+        mapRunnable.put(action, wrapped);
+        return super.post(wrapped);
     }
 
     @Override
     public boolean postDelayed(Runnable action, long delayMillis) {
-        return super.postDelayed(new RunnableEx("postDelayed") {
+        Runnable wrapped = new RunnableEx("postDelayed") {
             @Override
             protected void delegate() {
                 action.run();
             }
-        }, delayMillis);
+        };
+        mapRunnable.put(action, wrapped);
+        return super.postDelayed(wrapped, delayMillis);
+    }
+
+    @Override
+    public void postOnAnimation(Runnable action) {
+        Runnable wrapped = new RunnableEx("postOnAnimation") {
+            @Override
+            protected void delegate() {
+                action.run();
+            }
+        };
+        mapRunnable.put(action, wrapped);
+        super.postOnAnimation(wrapped);
+    }
+
+    @Override
+    public void postOnAnimationDelayed(Runnable action, long delayMillis) {
+        Runnable wrapped = new RunnableEx("postOnAnimationDelayed") {
+            @Override
+            protected void delegate() {
+                action.run();
+            }
+        };
+        mapRunnable.put(action, wrapped);
+        super.postOnAnimationDelayed(wrapped, delayMillis);
+    }
+
+    @Override
+    public boolean removeCallbacks(Runnable action) {
+        Runnable wrapped = mapRunnable.get(action);
+        if (wrapped == null)
+            return super.removeCallbacks(action);
+        else
+            return super.removeCallbacks(wrapped);
     }
 }

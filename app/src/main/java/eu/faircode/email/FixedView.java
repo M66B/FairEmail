@@ -53,24 +53,4 @@ public class FixedView extends View {
             return false;
         }
     }
-
-    @Override
-    public boolean post(Runnable action) {
-        return super.post(new RunnableEx("post") {
-            @Override
-            protected void delegate() {
-                action.run();
-            }
-        });
-    }
-
-    @Override
-    public boolean postDelayed(Runnable action, long delayMillis) {
-        return super.postDelayed(new RunnableEx("postDelayed") {
-            @Override
-            protected void delegate() {
-                action.run();
-            }
-        }, delayMillis);
-    }
 }
