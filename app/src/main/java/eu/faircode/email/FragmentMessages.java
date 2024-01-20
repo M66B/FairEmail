@@ -2386,7 +2386,7 @@ public class FragmentMessages extends FragmentBase
                 }
 
                 if (force || reload)
-                    ServiceSynchronize.reload(context, null, true, "refresh");
+                    ServiceSynchronize.reload(context, null, force, "refresh");
                 else
                     ServiceSynchronize.eval(context, "refresh");
 
@@ -7660,7 +7660,7 @@ public class FragmentMessages extends FragmentBase
                 if (reload == null)
                     ServiceSynchronize.eval(context, "expand");
                 else
-                    ServiceSynchronize.reload(context, reload, true, "expand");
+                    ServiceSynchronize.reload(context, reload, false, "expand");
 
                 return null;
             }

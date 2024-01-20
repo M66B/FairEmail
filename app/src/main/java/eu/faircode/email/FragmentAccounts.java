@@ -516,7 +516,7 @@ public class FragmentAccounts extends FragmentBase {
                 }
 
                 if (force || reload)
-                    ServiceSynchronize.reload(context, null, true, "refresh");
+                    ServiceSynchronize.reload(context, null, force, "refresh");
                 else
                     ServiceSynchronize.eval(context, "refresh");
 

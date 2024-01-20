@@ -500,7 +500,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     if (reload == null)
                         ServiceSynchronize.eval(context, "attachment");
                     else
-                        ServiceSynchronize.reload(context, reload, true, "attachment");
+                        ServiceSynchronize.reload(context, reload, false, "attachment");
 
                     return null;
                 }

@@ -295,7 +295,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                             if (reload == null)
                                 ServiceSynchronize.eval(context, "image");
                             else
-                                ServiceSynchronize.reload(context, reload, true, "image");
+                                ServiceSynchronize.reload(context, reload, false, "image");
 
                             return null;
                         }
