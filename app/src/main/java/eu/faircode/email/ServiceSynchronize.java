@@ -3486,6 +3486,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     static void reload(Context context, Long account, boolean force, String reason) {
+        EntityLog.log(context, "### Reload account=" + account + " force=" + force + " reason=" + reason);
         start(context,
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("reload")
