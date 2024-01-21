@@ -14,7 +14,7 @@
     <string name="app_cake_required">کمترین مقدار فضای ذخیره‌سازی لازم: %1$s</string>
     <string name="app_updated">آخرین به روز رسانی: %1$s</string>
     <string name="app_download">در حال دانلود از %1$s</string>
-    <string name="channel_service">نظارت</string>
+    <string name="channel_service">Monitor</string>
     <string name="channel_send">ارسال</string>
     <string name="channel_notification">ایمیل</string>
     <string name="channel_progress">پیش رفتن</string>

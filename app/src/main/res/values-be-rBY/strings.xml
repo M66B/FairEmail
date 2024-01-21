@@ -379,6 +379,7 @@
     <string name="title_advanced_always">Заўсёды атрымліваць паведамленні для гэтых уліковых запісаў</string>
     <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">З наступнымі выключэннямі:</string>
     <string name="title_advanced_poll_metered">Перыядычна правяраць наяўнасць новых паведамленняў пры лімітаваным злучэнні</string>
+    <string name="title_advanced_poll_unmetered">Перыядычна правяраць наяўнасць новых паведамленняў пры безлімітным злучэнні</string>
     <string name="title_advanced_schedule">Расклад</string>
     <string name="title_advanced_schedule_workdays">Будні</string>
     <string name="title_advanced_schedule_weekend">Выхадныя</string>
@@ -472,6 +473,8 @@
     <string name="title_advanced_vpn_only">Ажыццяўляць злучэнне толькі праз VPN</string>
     <string name="title_advanced_timeout">Час чакання злучэння (секунды)</string>
     <string name="title_advanced_prefer_ip4">Аддаваць перавагу пратаколу IPv4 перад IPv6</string>
+    <string name="title_advanced_dns">Пажаданыя адрасы DNS-сервераў (падзеленыя коскамі)</string>
+    <string name="title_advanced_dns_custom">Выкарыстоўваць карыстальніцкі DNS</string>
     <string name="title_advanced_ssl_update">Выкарыстоўваць абноўлены SSL-правайдар</string>
     <string name="title_advanced_ssl_harden">Узмоцненыя SSL-злучэнні</string>
     <string name="title_advanced_ssl_harden_strict">Патрабаваць пратакол TLS 1.3</string>
@@ -629,6 +632,7 @@
     <string name="title_advanced_expand_all">Аўтаматычна разгортваць усе прачытаныя паведамленні</string>
     <string name="title_advanced_expand_one">Разгортваць толькі адно паведамленне за раз</string>
     <string name="title_advanced_collapse_multiple">Згортваць паведамленні ў размове з некалькімі паведамленнямі кнопкай \'назад\'</string>
+    <string name="title_advanced_seen_delay">Адтэрміноўка аўтаматычнага адзначэння паведамленняў як прачытаных</string>
     <string name="title_advanced_autoclose">Аўтаматычна закрываць размовы</string>
     <string name="title_advanced_autoclose_send">Аўтаматычна закрываць размовы пасля адпраўкі паведамленняў</string>
     <string name="title_advanced_onclose">Пры закрыцці размовы</string>
@@ -965,12 +969,15 @@
     <string name="title_aliases">Псеўданімы</string>
     <string name="title_provider">Правайдар</string>
     <string name="title_custom">Карыстальніцкае</string>
+    <string name="title_dnssec">Прымусова выкарыстоўваць DNSSEC</string>
+    <string name="title_dnssec_remark">Толькі абмежаваная колькасць DNS-сервераў падтрымлівае DNSSEC</string>
     <string name="title_host">Назва хоста</string>
     <string name="title_encryption">Шыфраванне</string>
     <string name="title_encryption_none">Няма (небяспечна)</string>
     <string name="title_allow_insecure">Дазволіць небяспечныя злучэнні</string>
     <string name="title_insecure_remark">Небяспечныя злучэнні могуць быць дазволены толькі ў давераных сетках і ніколі ў агульнадаступных сетках</string>
     <string name="title_dane">Прымусова выкарыстоўваць DANE</string>
+    <string name="title_dane_remark">Толькі некаторыя правайдары электроннай пошты падтрымліваюць DANE</string>
     <string name="title_notify_remark">Вы можаце ўключыць гэту опцыю для апавяшчэнняў пэўнага ўліковага запісу</string>
     <string name="title_port">Нумар порта</string>
     <string name="title_user">Імя карыстальніка</string>
@@ -1138,6 +1145,7 @@
     <string name="title_poll_folder">Перыядычная праверка замест пастаяннай сінхранізацыі</string>
     <string name="title_poll_folder_remark">Большасць паштовых сервераў дазваляюць адпраўляць апавяшчэнні толькі для невялікай колькасці папак!</string>
     <string name="title_download_folder">Аўтаматычная загрузка тэкстаў паведамленняў і ўкладанняў</string>
+    <string name="title_count_unread">Дадаваць колькасць непрачытаных паведамленняў да ўліковага запісу</string>
     <string name="title_notify_folder">Апавяшчаць пра новыя паведамленні</string>
     <string name="title_auto_classify_source">Класіфікаваць новыя паведамленні ў гэтай папцы</string>
     <string name="title_auto_classify_target">Аўтаматычна перамяшчаць сакрэтныя паведамленні ў гэту папку</string>
@@ -1261,6 +1269,7 @@
     <string name="title_move">Перамясціць</string>
     <string name="title_copy_btn">Капіраваць</string>
     <string name="title_keywords_btn">Ключавыя словы</string>
+    <string name="title_labels_btn">Ярлыкі (толькі Gmail)</string>
     <string name="title_unsubscribe">Адпісацца</string>
     <string name="title_message_rule">Стварыць правіла</string>
     <string name="title_no_junk">Не спам</string>
@@ -1678,6 +1687,7 @@
     <string name="title_rule_automation">Аўтаматызацыя</string>
     <string name="title_rule_delete">Выдаліць назаўсёды</string>
     <string name="title_rule_sound">Прайграць гук</string>
+    <string name="title_rule_silent">Бязгучныя апавяшчэнні</string>
     <string name="title_rule_caption">Рэдагаваць правіла</string>
     <string name="title_rule_title">Ужываць правіла да</string>
     <string name="title_rule_name">Імя</string>

@@ -347,6 +347,7 @@
     <string name="title_advanced_when">Πότε</string>
     <string name="title_advanced_optimize">Αυτόματη βελτιστοποίηση</string>
     <string name="title_advanced_always">Να λαμβάνονται πάντα τα μηνύματα για αυτούς τους λογαριασμούς</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Με τις ακόλουθες εξαιρέσεις:</string>
     <string name="title_advanced_poll_metered">Περιοδικός έλεγχος για νέα μηνύματα κατά τη χρήση δικτύου με ογκοχρέωση</string>
     <string name="title_advanced_poll_unmetered">Περιοδικός έλεγχος για νέα μηνύματα κατά τη χρήση δικτύου χωρίς ογκοχρέωση</string>
     <string name="title_advanced_schedule">Χρονοδιάγραμμα</string>
@@ -1109,6 +1110,7 @@
     <string name="title_poll_folder">Περιοδικός έλεγχος αντί για συνεχή συγχρονισμό</string>
     <string name="title_poll_folder_remark">Οι περισσότεροι διακομιστές ηλ. ταχυδρομείου επιτρέπουν μηνύματα ώθησης (push) μόνον για έναν πολύ μικρό αριθμό φακέλων!</string>
     <string name="title_download_folder">Αυτόματο κατέβασμα των κειμένων των μηνυμάτων και των συνημμένων</string>
+    <string name="title_count_unread">Προσθήκη του αριθμού μη αναγνωσμένων μηνυμάτων στον λογαριασμό</string>
     <string name="title_notify_folder">Να ειδοποιούμαι για νέα μηνύματα</string>
     <string name="title_auto_classify_source">Ταξινόμηση νέων μηνυμάτων σε αυτόν το φάκελο</string>
     <string name="title_auto_classify_target">Αυτόματη μετακίνηση ταξινομημένων μηνυμάτων σε αυτόν το φάκελο</string>
@@ -1647,6 +1649,7 @@
     <string name="title_rule_automation">Αυτοματοποίηση</string>
     <string name="title_rule_delete">Οριστική διαγραφή</string>
     <string name="title_rule_sound">Αναπαραγωγή ήχου</string>
+    <string name="title_rule_silent">Αθόρυβη ειδοποίηση</string>
     <string name="title_rule_caption">Επεξεργασία κανόνα</string>
     <string name="title_rule_title">Ο κανόνας εφαρμόζεται σε</string>
     <string name="title_rule_name">Όνομα</string>

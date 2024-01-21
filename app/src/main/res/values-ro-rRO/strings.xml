@@ -361,6 +361,9 @@
     <string name="title_advanced_when">Când</string>
     <string name="title_advanced_optimize">Optimizare automată</string>
     <string name="title_advanced_always">Primiți întotdeauna mesaje pentru aceste conturi</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Cu următoarele excepții:</string>
+    <string name="title_advanced_poll_metered">Verificare periodică pentru mesaje noi când este conectată o rețea contorizată</string>
+    <string name="title_advanced_poll_unmetered">Verificare periodică pentru mesaje noi când este conectată o rețea necontorizată</string>
     <string name="title_advanced_schedule">Programat</string>
     <string name="title_advanced_schedule_workdays">Zile de muncă</string>
     <string name="title_advanced_schedule_weekend">Sfârșit de săptămână</string>
@@ -1124,6 +1127,7 @@
     <string name="title_poll_folder">Verifică periodic în loc de a sincroniza în continuu</string>
     <string name="title_poll_folder_remark">Majoritatea serverelor de e-mail permit transmiterea de mesaje doar pentru câteva dosare!</string>
     <string name="title_download_folder">Descarcă mesajele text și atașamentele în mod automat</string>
+    <string name="title_count_unread">Adăugați numărul de mesaje necitite la cont</string>
     <string name="title_notify_folder">Notifică la mesaje noi</string>
     <string name="title_auto_classify_source">Clasifică mesajele noi în acest dosar</string>
     <string name="title_auto_classify_target">Mută automat mesajele clasificate în acest dosar</string>
@@ -1662,6 +1666,7 @@
     <string name="title_rule_automation">Automatizare</string>
     <string name="title_rule_delete">Șterge permanent</string>
     <string name="title_rule_sound">Redă sunet</string>
+    <string name="title_rule_silent">Notificare silențioasă</string>
     <string name="title_rule_caption">Editare regulă</string>
     <string name="title_rule_title">Regula se aplică la</string>
     <string name="title_rule_name">Nume</string>

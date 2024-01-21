@@ -376,6 +376,9 @@
     <string name="title_advanced_when">מתי</string>
     <string name="title_advanced_optimize">מיטוב אוטומטית</string>
     <string name="title_advanced_always">תמיד לקבל הודעות מהחשבונות האלו</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">עם החריגות הבאות:</string>
+    <string name="title_advanced_poll_metered">לבדוק מדי פעם אם יש הודעות חדשות גם ברשתות מוגבלות</string>
+    <string name="title_advanced_poll_unmetered">לבדוק מדי פעם אם יש הודעות חדשות ברשתות שאינן מוגבלות</string>
     <string name="title_advanced_schedule">לוח זמנים</string>
     <string name="title_advanced_schedule_workdays">ימי השבוע</string>
     <string name="title_advanced_schedule_weekend">סוף השבוע</string>
@@ -1139,6 +1142,7 @@
     <string name="title_poll_folder">לבדוק תקופתיות במקום לסנכרן באופן רציף</string>
     <string name="title_poll_folder_remark">רוב שרתי הדוא״ל מאפשרים הודעות דחיפה למגוון מצומצם של תיקיות בלבד!</string>
     <string name="title_download_folder">להוריד תוכני הודעות וקבצים מצורפים אוטומטית</string>
+    <string name="title_count_unread">להוסיף את מספר ההודעות שלא נקראו לחשבון</string>
     <string name="title_notify_folder">להודיע כשמתקבלות הודעות חדשות</string>
     <string name="title_auto_classify_source">לסווג הודעות חדשות בתיקיות הזאת</string>
     <string name="title_auto_classify_target">להעביר הודעות מסווגות לתיקייה הזאת</string>
@@ -1680,6 +1684,7 @@
     <string name="title_rule_automation">אוטומציה</string>
     <string name="title_rule_delete">מחיקה לצמיתות</string>
     <string name="title_rule_sound">השמעת צליל</string>
+    <string name="title_rule_silent">התראה שקטה</string>
     <string name="title_rule_caption">עריכת כלל</string>
     <string name="title_rule_title">הכלל חל על</string>
     <string name="title_rule_name">שם</string>

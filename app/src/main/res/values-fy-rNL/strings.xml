@@ -346,6 +346,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_when">Wannear</string>
     <string name="title_advanced_optimize">Automatysk optimalisearje</string>
     <string name="title_advanced_always">Untfang altyd berjochten foar dizze accounts</string>
+    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Mei de folgjende útsûnderingen:</string>
     <string name="title_advanced_poll_metered">Kontrolearje periodyk op nije berjochten op in gegevensbeheind netwurk</string>
     <string name="title_advanced_poll_unmetered">Kontrolearje periodyk op nije berjochten op in foar gegevens ûnbeheind netwurk</string>
     <string name="title_advanced_schedule">Skema</string>

@@ -973,6 +973,7 @@
     <string name="title_encryption_none">Brak (niebezpieczne)</string>
     <string name="title_allow_insecure">Zezwól na niezabezpieczone połączenia</string>
     <string name="title_insecure_remark">Niebezpieczne połączenia powinny być dozwolone tylko w zaufanych sieciach, a nigdy w sieciach publicznych</string>
+    <string name="title_dane">Wymuś DANE</string>
     <string name="title_dane_remark">Tylko niektórzy dostawcy poczty elektronicznej obsługują DANE</string>
     <string name="title_notify_remark">Można włączyć tę funkcję dla specyficznych powiadomień danego konta</string>
     <string name="title_port">Numer portu</string>
