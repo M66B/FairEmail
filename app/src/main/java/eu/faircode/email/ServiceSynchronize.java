@@ -2894,7 +2894,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (quota.resources != null)
                             for (Quota.Resource resource : quota.resources) {
                                 EntityLog.log(context, EntityLog.Type.Account, account,
-                                        account.name + " Quota " + resource.name + " " + resource.usage + "/" + resource.limit);
+                                        account.name + "quota " +
+                                                " root=\"" + quota.quotaRoot + "\"" +
+                                                " resource=\"" + resource.name + "\"" +
+                                                " " + resource.usage + "/" + resource.limit);
                                 // (STORAGE nnnnn 9999999999999999)
                                 if ("STORAGE".equalsIgnoreCase(resource.name)) {
                                     if (resource.usage * 1024 >= 0)
@@ -2903,6 +2906,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         limit = Math.max(limit == null ? 0L : limit, resource.limit * 1024);
                                 }
                             }
+                    EntityLog.log(context, EntityLog.Type.Account,
+                            account.name + " Quota" +
+                                    " records=" + quotas.length +
+                                    " usage=" + (usage == null ? null : Helper.humanReadableByteCount(usage)) +
+                                    " limit=" + (limit == null ? null : Helper.humanReadableByteCount(limit)) +
+                                    " " + (usage == null || limit == null ? "?" : 100 * usage / limit) + " %");
                     db.account().setAccountQuota(account.id, usage, limit);
                 }
             } else
