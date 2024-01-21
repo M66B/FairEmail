@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     tools:context="eu.faircode.email.ActivityView">
 
-    <eu.faircode.email.ScrollViewEx
+    <ScrollView
         android:id="@+id/scroll"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </eu.faircode.email.ScrollViewEx>
+    </ScrollView>
 
     <ImageButton
         android:id="@+id/ibCancel"

@@ -72,7 +72,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUpdated" />
 
-    <eu.faircode.email.ScrollViewEx
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -114,5 +114,5 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvContributors" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </eu.faircode.email.ScrollViewEx>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

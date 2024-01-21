@@ -211,7 +211,7 @@ public class FixedRecyclerView extends RecyclerView {
         }
     }
 
-    private Map<Runnable, Runnable> mapRunnable = new WeakHashMap<>();
+    private final Map<Runnable, Runnable> mapRunnable = new WeakHashMap<>();
 
     @Override
     public boolean post(Runnable action) {

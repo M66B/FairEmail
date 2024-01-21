@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="eu.faircode.email.BehaviorBottomPadding">
 
-        <eu.faircode.email.ScrollViewEx
+        <ScrollView
             android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -1430,7 +1430,7 @@
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="tvUrl,spUrlMethod,etUrl,tvUrlHint" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </eu.faircode.email.ScrollViewEx>
+        </ScrollView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"

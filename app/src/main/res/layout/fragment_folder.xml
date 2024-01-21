@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<eu.faircode.email.ScrollViewEx xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scroll"
@@ -467,4 +467,4 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="cbAutoDelete,tvAutoDeleteHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</eu.faircode.email.ScrollViewEx>
+</ScrollView>

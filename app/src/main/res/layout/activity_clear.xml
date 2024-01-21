@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="eu.faircode.email.ActivityClear">
 
-    <eu.faircode.email.ScrollViewEx
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -101,5 +101,5 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </eu.faircode.email.ScrollViewEx>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

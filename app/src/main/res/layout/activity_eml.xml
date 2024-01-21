@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="eu.faircode.email.ActivityEML">
 
-    <eu.faircode.email.ScrollViewEx
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -347,7 +347,7 @@
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="cardMessage,cardStructure" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </eu.faircode.email.ScrollViewEx>
+    </ScrollView>
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"

@@ -26,6 +26,9 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
+import java.util.Map;
+import java.util.WeakHashMap;
+
 public class FixedLinearLayout extends LinearLayout {
     public FixedLinearLayout(Context context) {
         super(context);
@@ -51,5 +54,40 @@ public class FixedLinearLayout extends LinearLayout {
             Log.e(ex);
             return false;
         }
+    }
+
+    private final Map<Runnable, Runnable> mapRunnable = new WeakHashMap<>();
+
+    @Override
+    public boolean post(Runnable action) {
+        Runnable wrapped = new RunnableEx("post") {
+            @Override
+            protected void delegate() {
+                action.run();
+            }
+        };
+        mapRunnable.put(action, wrapped);
+        return super.post(wrapped);
+    }
+
+    @Override
+    public boolean postDelayed(Runnable action, long delayMillis) {
+        Runnable wrapped = new RunnableEx("postDelayed") {
+            @Override
+            protected void delegate() {
+                action.run();
+            }
+        };
+        mapRunnable.put(action, wrapped);
+        return super.postDelayed(wrapped, delayMillis);
+    }
+
+    @Override
+    public boolean removeCallbacks(Runnable action) {
+        Runnable wrapped = mapRunnable.get(action);
+        if (wrapped == null)
+            return super.removeCallbacks(action);
+        else
+            return super.removeCallbacks(wrapped);
     }
 }

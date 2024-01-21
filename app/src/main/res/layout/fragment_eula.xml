@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<eu.faircode.email.ScrollViewEx xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -45,4 +45,4 @@
             app:layout_constraintStart_toEndOf="@id/btnCancel"
             app:layout_constraintTop_toBottomOf="@id/inEula" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</eu.faircode.email.ScrollViewEx>
+</ScrollView>

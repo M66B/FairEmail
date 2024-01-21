@@ -5,6 +5,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 
+import java.util.Map;
+import java.util.WeakHashMap;
+
 /*
     This file is part of FairEmail.
 
@@ -24,20 +27,20 @@ import android.widget.ScrollView;
     Copyright 2018-2024 by Marcel Bokhorst (M66B)
 */
 
-public class ScrollViewEx extends ScrollView {
-    public ScrollViewEx(Context context) {
+public class FixedScrollView extends ScrollView {
+    public FixedScrollView(Context context) {
         super(context);
     }
 
-    public ScrollViewEx(Context context, AttributeSet attrs) {
+    public FixedScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ScrollViewEx(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FixedScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public ScrollViewEx(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public FixedScrollView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
@@ -128,5 +131,40 @@ public class ScrollViewEx extends ScrollView {
             Log.w(ex);
             return false;
         }
+    }
+
+    private final Map<Runnable, Runnable> mapRunnable = new WeakHashMap<>();
+
+    @Override
+    public boolean post(Runnable action) {
+        Runnable wrapped = new RunnableEx("post") {
+            @Override
+            protected void delegate() {
+                action.run();
+            }
+        };
+        mapRunnable.put(action, wrapped);
+        return super.post(wrapped);
+    }
+
+    @Override
+    public boolean postDelayed(Runnable action, long delayMillis) {
+        Runnable wrapped = new RunnableEx("postDelayed") {
+            @Override
+            protected void delegate() {
+                action.run();
+            }
+        };
+        mapRunnable.put(action, wrapped);
+        return super.postDelayed(wrapped, delayMillis);
+    }
+
+    @Override
+    public boolean removeCallbacks(Runnable action) {
+        Runnable wrapped = mapRunnable.get(action);
+        if (wrapped == null)
+            return super.removeCallbacks(action);
+        else
+            return super.removeCallbacks(wrapped);
     }
 }

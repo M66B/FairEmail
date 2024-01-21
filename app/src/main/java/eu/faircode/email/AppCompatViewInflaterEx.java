@@ -90,6 +90,9 @@ public class AppCompatViewInflaterEx extends AppCompatViewInflater {
         if ("FrameLayout".equals(name))
             return new FixedFrameLayout(context, attrs);
 
+        if ("ScrollView".equals(name))
+            return new FixedScrollView(context, attrs);
+
         if ("View".equals(name))
             return new FixedView(context, attrs);
 
