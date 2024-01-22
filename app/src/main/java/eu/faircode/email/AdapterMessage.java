@@ -1412,7 +1412,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivImportance.setVisibility(View.VISIBLE);
             } else if (EntityMessage.PRIORITIY_LOW.equals(message.ui_importance)) {
                 ivImportance.setImageLevel(message.ui_importance);
-                ivImportance.setImageTintList(null);
+                ivImportance.setImageTintList(ColorStateList.valueOf(colorControlNormal));
                 ivImportance.setVisibility(View.VISIBLE);
             } else
                 ivImportance.setVisibility(View.GONE);
