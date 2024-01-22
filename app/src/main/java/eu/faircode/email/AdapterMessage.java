@@ -526,17 +526,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private ImageButton ibStoreMedia;
         private ImageButton ibShareImages;
-        private RecyclerView rvImage;
+        private RecyclerView rvMedia;
 
         private Group grpAddresses;
         private Group grpHeaders;
         private Group grpAction;
         private Group grpCalendar;
         private Group grpCalendarResponse;
-        private Group grpImages;
+        private Group grpMedia;
 
         private AdapterAttachment adapterAttachment;
-        private AdapterImage adapterImage;
+        private AdapterMedia adapterMedia;
 
         private TwoStateOwner cowner = new TwoStateOwner(owner, "MessageAttachments");
         private TwoStateOwner powner = new TwoStateOwner(owner, "MessagePopup");
@@ -956,20 +956,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibStoreMedia = vsBody.findViewById(R.id.ibStoreMedia);
             ibShareImages = vsBody.findViewById(R.id.ibShareImages);
-            rvImage = vsBody.findViewById(R.id.rvImage);
-            rvImage.setHasFixedSize(false);
+            rvMedia = vsBody.findViewById(R.id.rvMedia);
+            rvMedia.setHasFixedSize(false);
             StaggeredGridLayoutManager sglm =
                     new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-            rvImage.setLayoutManager(sglm);
-            adapterImage = new AdapterImage(parentFragment);
-            rvImage.setAdapter(adapterImage);
+            rvMedia.setLayoutManager(sglm);
+            adapterMedia = new AdapterMedia(parentFragment);
+            rvMedia.setAdapter(adapterMedia);
 
             grpAddresses = vsBody.findViewById(R.id.grpAddresses);
             grpHeaders = vsBody.findViewById(R.id.grpHeaders);
             grpAction = vsBody.findViewById(R.id.grpAction);
             grpCalendar = vsBody.findViewById(R.id.grpCalendar);
             grpCalendarResponse = vsBody.findViewById(R.id.grpCalendarResponse);
-            grpImages = vsBody.findViewById(R.id.grpImages);
+            grpMedia = vsBody.findViewById(R.id.grpMedia);
 
             if (large_buttons) {
                 int dp36 = Helper.dp2pixels(context, 42);
@@ -1734,7 +1734,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpAction.setVisibility(View.GONE);
             grpCalendar.setVisibility(View.GONE);
             grpCalendarResponse.setVisibility(View.GONE);
-            grpImages.setVisibility(View.GONE);
+            grpMedia.setVisibility(View.GONE);
 
             ivPlain.setVisibility(View.GONE);
             ibReceipt.setVisibility(View.GONE);
@@ -3682,18 +3682,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 bindCalendar(message, calendar);
 
             int iavailable = 0;
-            List<EntityAttachment> images = new ArrayList<>();
+            List<EntityAttachment> media = new ArrayList<>();
             if (thumbnails && bind_extras) {
                 for (EntityAttachment attachment : attachments)
                     if ((pdf_preview && attachment.isPDF()) ||
                             (attachment.isAttachment() && attachment.isImage())) {
-                        images.add(attachment);
+                        media.add(attachment);
                         if (attachment.available && !attachment.isPDF())
                             iavailable++;
                     }
             }
-            adapterImage.set(images);
-            grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
+            adapterMedia.set(media);
+            grpMedia.setVisibility(media.size() > 0 ? View.VISIBLE : View.GONE);
 
             ibStoreMedia.setVisibility(
                     iavailable > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q

@@ -55,7 +55,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> {
+public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> {
     private Fragment parentFragment;
     private final Context context;
     private final LayoutInflater inflater;
@@ -293,9 +293,9 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                             }
 
                             if (reload == null)
-                                ServiceSynchronize.eval(context, "image");
+                                ServiceSynchronize.eval(context, "media");
                             else
-                                ServiceSynchronize.reload(context, reload, false, "image");
+                                ServiceSynchronize.reload(context, reload, false, "media");
 
                             return null;
                         }
@@ -304,7 +304,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
-                    }.execute(context, owner, args, "image:fetch");
+                    }.execute(context, owner, args, "media:fetch");
                 }
             }
         }
@@ -325,7 +325,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         }
     }
 
-    AdapterImage(Fragment parentFragment) {
+    AdapterMedia(Fragment parentFragment) {
         this.parentFragment = parentFragment;
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
@@ -336,15 +336,15 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
-                Log.d(AdapterImage.this + " parent destroyed");
-                AdapterImage.this.parentFragment = null;
+                Log.d(AdapterMedia.this + " parent destroyed");
+                AdapterMedia.this.parentFragment = null;
                 owner.getLifecycle().removeObserver(this);
             }
         });
     }
 
     public void set(@NonNull List<EntityAttachment> attachments) {
-        Log.i("Set images=" + attachments.size());
+        Log.i("Set media=" + attachments.size());
 
         Collections.sort(attachments, new Comparator<EntityAttachment>() {
             @Override
@@ -433,7 +433,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(R.layout.item_image, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.item_media, parent, false));
     }
 
     @Override
@@ -447,7 +447,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
     }
 
     @Override
-    public void onViewRecycled(@NonNull AdapterImage.ViewHolder holder) {
+    public void onViewRecycled(@NonNull AdapterMedia.ViewHolder holder) {
         holder.ivImage.setImageDrawable(null);
     }
 }

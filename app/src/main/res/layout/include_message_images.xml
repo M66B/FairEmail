@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <View
-        android:id="@+id/vSeparatorImages"
+        android:id="@+id/vSeparatorMedia"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="3dp"
@@ -25,7 +25,7 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_save_all"
         app:layout_constraintEnd_toStartOf="@id/ibShareImages"
-        app:layout_constraintTop_toBottomOf="@+id/vSeparatorImages"
+        app:layout_constraintTop_toBottomOf="@+id/vSeparatorMedia"
         app:srcCompat="@drawable/twotone_photo_library_24" />
 
     <ImageButton
@@ -38,11 +38,11 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_share"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vSeparatorImages"
+        app:layout_constraintTop_toBottomOf="@+id/vSeparatorMedia"
         app:srcCompat="@drawable/twotone_share_24" />
 
     <eu.faircode.email.FixedRecyclerView
-        android:id="@+id/rvImage"
+        android:id="@+id/rvMedia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,8 +50,8 @@
         app:layout_constraintTop_toBottomOf="@id/ibShareImages" />
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpImages"
+        android:id="@+id/grpMedia"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorImages,rvImage" />
+        app:constraint_referenced_ids="vSeparatorMedia,rvMedia" />
 </androidx.constraintlayout.widget.ConstraintLayout>
