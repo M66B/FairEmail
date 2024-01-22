@@ -6,6 +6,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ypupiara](https://en.wikipedia.org/wiki/Ypupiara)
 
+### 1.2151 - 2024-01-22
+
+* Fixed crash on some devices
+
 ### 1.2150 - 2024-01-22
 
 * Added rule action to silence notifications, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq71)
