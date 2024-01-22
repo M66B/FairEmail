@@ -1004,7 +1004,8 @@ public class FragmentMessages extends FragmentBase
                         year0--;
                     int day0 = cal0.get(date_week ? Calendar.WEEK_OF_YEAR : Calendar.DAY_OF_YEAR);
                     int day1 = cal1.get(date_week ? Calendar.WEEK_OF_YEAR : Calendar.DAY_OF_YEAR);
-                    if (year0 == year1 && day0 == day1)
+                    if (year0 == year1 && day0 == day1 &&
+                            !EntityMessage.PRIORITIY_HIGH.equals(prev.importance))
                         dh = false;
                 }
 
