@@ -107,6 +107,11 @@ final class ViewAutoScroller extends AutoScroller {
 
         if (VERBOSE) Log.v(TAG, "Running in background using event location @ " + mLastLocation);
 
+        if (mLastLocation == null) {
+            eu.faircode.email.Log.w("ViewAutoScroller.mLastLocation is null");
+            return;
+        }
+
         // Compute the number of pixels the pointer's y-coordinate is past the view.
         // Negative values mean the pointer is at or before the top of the view, and
         // positive values mean that the pointer is at or after the bottom of the view. Note
