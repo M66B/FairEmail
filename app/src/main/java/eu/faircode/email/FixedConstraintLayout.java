@@ -123,7 +123,14 @@ public class FixedConstraintLayout extends ConstraintLayout {
         }
     }
 
-    private final Map<Runnable, Runnable> mapRunnable = new WeakHashMap<>();
+    private Map<Runnable, Runnable> mapRunnable = null;
+
+    @NonNull
+    private Map<Runnable, Runnable> getMapRunnable() {
+        if (mapRunnable == null)
+            mapRunnable = new WeakHashMap<>();
+        return mapRunnable;
+    }
 
     @Override
     public boolean post(Runnable action) {
@@ -133,7 +140,7 @@ public class FixedConstraintLayout extends ConstraintLayout {
                 action.run();
             }
         };
-        mapRunnable.put(action, wrapped);
+        getMapRunnable().put(action, wrapped);
         return super.post(wrapped);
     }
 
@@ -145,13 +152,13 @@ public class FixedConstraintLayout extends ConstraintLayout {
                 action.run();
             }
         };
-        mapRunnable.put(action, wrapped);
+        getMapRunnable().put(action, wrapped);
         return super.postDelayed(wrapped, delayMillis);
     }
 
     @Override
     public boolean removeCallbacks(Runnable action) {
-        Runnable wrapped = mapRunnable.get(action);
+        Runnable wrapped = getMapRunnable().get(action);
         if (wrapped == null)
             return super.removeCallbacks(action);
         else

@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 
+import androidx.annotation.NonNull;
+
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -133,7 +135,14 @@ public class FixedScrollView extends ScrollView {
         }
     }
 
-    private final Map<Runnable, Runnable> mapRunnable = new WeakHashMap<>();
+    private Map<Runnable, Runnable> mapRunnable = null;
+
+    @NonNull
+    private Map<Runnable, Runnable> getMapRunnable() {
+        if (mapRunnable == null)
+            mapRunnable = new WeakHashMap<>();
+        return mapRunnable;
+    }
 
     @Override
     public boolean post(Runnable action) {
@@ -143,7 +152,7 @@ public class FixedScrollView extends ScrollView {
                 action.run();
             }
         };
-        mapRunnable.put(action, wrapped);
+        getMapRunnable().put(action, wrapped);
         return super.post(wrapped);
     }
 
@@ -155,13 +164,13 @@ public class FixedScrollView extends ScrollView {
                 action.run();
             }
         };
-        mapRunnable.put(action, wrapped);
+        getMapRunnable().put(action, wrapped);
         return super.postDelayed(wrapped, delayMillis);
     }
 
     @Override
     public boolean removeCallbacks(Runnable action) {
-        Runnable wrapped = mapRunnable.get(action);
+        Runnable wrapped = getMapRunnable().get(action);
         if (wrapped == null)
             return super.removeCallbacks(action);
         else

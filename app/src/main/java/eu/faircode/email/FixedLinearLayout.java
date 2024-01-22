@@ -24,6 +24,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.Map;
@@ -56,7 +57,14 @@ public class FixedLinearLayout extends LinearLayout {
         }
     }
 
-    private final Map<Runnable, Runnable> mapRunnable = new WeakHashMap<>();
+    private Map<Runnable, Runnable> mapRunnable = null;
+
+    @NonNull
+    private Map<Runnable, Runnable> getMapRunnable() {
+        if (mapRunnable == null)
+            mapRunnable = new WeakHashMap<>();
+        return mapRunnable;
+    }
 
     @Override
     public boolean post(Runnable action) {
@@ -66,7 +74,7 @@ public class FixedLinearLayout extends LinearLayout {
                 action.run();
             }
         };
-        mapRunnable.put(action, wrapped);
+        getMapRunnable().put(action, wrapped);
         return super.post(wrapped);
     }
 
@@ -78,13 +86,13 @@ public class FixedLinearLayout extends LinearLayout {
                 action.run();
             }
         };
-        mapRunnable.put(action, wrapped);
+        getMapRunnable().put(action, wrapped);
         return super.postDelayed(wrapped, delayMillis);
     }
 
     @Override
     public boolean removeCallbacks(Runnable action) {
-        Runnable wrapped = mapRunnable.get(action);
+        Runnable wrapped = getMapRunnable().get(action);
         if (wrapped == null)
             return super.removeCallbacks(action);
         else
