@@ -23,6 +23,7 @@ import static androidx.room.ForeignKey.CASCADE;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.text.TextUtils;
 
@@ -101,6 +102,9 @@ public class EntityAttachment {
     @Ignore
     public boolean selected = false;
 
+    @Ignore
+    public MediaPlayer player = null;
+
     // Gmail sends inline images as attachments with a name and cid
 
     boolean isInline() {
@@ -114,6 +118,11 @@ public class EntityAttachment {
 
     boolean isImage() {
         return ImageHelper.isImage(getMimeType());
+    }
+
+    boolean isAudio() {
+        String type = getMimeType();
+        return (type != null && type.startsWith("audio/"));
     }
 
     boolean isPDF() {

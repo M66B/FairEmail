@@ -302,6 +302,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int message_zoom;
     private boolean attachments_alt;
     private boolean thumbnails;
+    private boolean pdf_preview;
+    private boolean audio_preview;
     private boolean contrast;
     private boolean hyphenation;
     private String display_font;
@@ -311,7 +313,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean authentication_indicator;
     private boolean infra;
     private boolean tld_flags;
-    private boolean pdf_preview;
 
     private boolean autoclose_unseen;
     private boolean collapse_marked;
@@ -3686,9 +3687,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (thumbnails && bind_extras) {
                 for (EntityAttachment attachment : attachments)
                     if ((pdf_preview && attachment.isPDF()) ||
+                            (audio_preview && attachment.isAudio()) ||
                             (attachment.isAttachment() && attachment.isImage())) {
                         media.add(attachment);
-                        if (attachment.available && !attachment.isPDF())
+                        if (attachment.available &&
+                                attachment.isAttachment() && attachment.isImage())
                             iavailable++;
                     }
             }
@@ -8036,6 +8039,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.message_zoom = prefs.getInt("message_zoom", 100);
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.thumbnails = prefs.getBoolean("thumbnails", true);
+        this.pdf_preview = prefs.getBoolean("pdf_preview", true);
+        this.audio_preview = prefs.getBoolean("audio_preview", false);
         this.contrast = prefs.getBoolean("contrast", false);
         this.hyphenation = prefs.getBoolean("hyphenation", false);
         this.display_font = prefs.getString("display_font", "");
@@ -8045,7 +8050,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.authentication_indicator = prefs.getBoolean("authentication_indicator", false);
         this.infra = prefs.getBoolean("infra", false);
         this.tld_flags = prefs.getBoolean("tld_flags", false);
-        this.pdf_preview = prefs.getBoolean("pdf_preview", true);
         this.language_detection = prefs.getBoolean("language_detection", false);
         this.autoclose_unseen = prefs.getBoolean("autoclose_unseen", false);
         this.collapse_marked = prefs.getBoolean("collapse_marked", true);

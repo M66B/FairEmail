@@ -2308,6 +2308,10 @@ public class Helper {
     }
 
     static String formatDuration(long ms) {
+        return formatDuration(ms, true);
+    }
+
+    static String formatDuration(long ms, boolean withFraction) {
         int sign = (ms < 0 ? -1 : 1);
         ms = Math.abs(ms);
         int days = (int) (ms / (24 * 3600 * 1000L));
@@ -2317,7 +2321,7 @@ public class Helper {
         return (sign < 0 ? "-" : "") +
                 (days > 0 ? days + " " : "") +
                 DateUtils.formatElapsedTime(seconds) +
-                (ms == 0 ? "" : "." + ms);
+                (ms == 0 || !withFraction ? "" : "." + ms);
     }
 
     static String formatNumber(Integer number, long max, NumberFormat nf) {

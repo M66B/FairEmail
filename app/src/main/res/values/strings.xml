@@ -637,6 +637,7 @@
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_thumbnails">Show image thumbnails after the message text</string>
     <string name="title_advanced_pdf_preview">Show PDF thumbnails</string>
+    <string name="title_advanced_audio_preview">Show embedded audio player</string>
     <string name="title_advanced_message_text_zoom2">Default message text zoom: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zoom message text also in the message editor</string>
     <string name="title_advanced_overview_mode">Zoom original messages to fit the screen</string>
