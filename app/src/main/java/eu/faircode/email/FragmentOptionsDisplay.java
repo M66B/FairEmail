@@ -1683,6 +1683,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swPdfPreview.setEnabled(swThumbnails.isChecked());
             swAudioPreview.setChecked(prefs.getBoolean("audio_preview", false));
             swAudioPreview.setEnabled(swThumbnails.isChecked());
+            swAudioPreview.setVisibility(prefs.getBoolean("experiments", false)
+                    ? View.VISIBLE : View.GONE);
 
             swListCount.setChecked(prefs.getBoolean("list_count", false));
             swBundledFonts.setChecked(prefs.getBoolean("bundled_fonts", true));

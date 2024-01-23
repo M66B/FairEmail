@@ -4003,6 +4003,12 @@ a toolbar to perform operations (align text, insert list, indent text, insert bl
 
 The subject of a received message can be edited, also on the email server, via the horizontal three-dots button just above the message text near the left side of the screen.
 
+<br />
+
+*Embedded audio player (1.2052+)*
+
+Allow enabling a minimal audio player as thumbnail for audio files in the display-settings tab page.
+
 <br>
 
 <a name="faq126"></a>
