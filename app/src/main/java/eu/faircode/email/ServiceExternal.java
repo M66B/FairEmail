@@ -47,7 +47,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
-public class ServiceExternal extends Service {
+public class ServiceExternal extends ServiceBase {
     private static final String ACTION_POLL = BuildConfig.APPLICATION_ID + ".POLL";
     private static final String ACTION_ENABLE = BuildConfig.APPLICATION_ID + ".ENABLE";
     private static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
