@@ -6710,7 +6710,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2024-01-06T15:12:04Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2024-01-23T15:14:10Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -7015,10 +7015,6 @@ baidu
 // banamex : Citigroup Inc.
 // https://www.iana.org/domains/root/db/banamex.html
 banamex
-
-// bananarepublic : The Gap, Inc.
-// https://www.iana.org/domains/root/db/bananarepublic.html
-bananarepublic
 
 // band : Dog Beach, LLC
 // https://www.iana.org/domains/root/db/band.html
@@ -9391,10 +9387,6 @@ olayan
 // olayangroup : Competrol (Luxembourg) Sarl
 // https://www.iana.org/domains/root/db/olayangroup.html
 olayangroup
-
-// oldnavy : The Gap, Inc.
-// https://www.iana.org/domains/root/db/oldnavy.html
-oldnavy
 
 // ollo : Dish DBS Corporation
 // https://www.iana.org/domains/root/db/ollo.html
