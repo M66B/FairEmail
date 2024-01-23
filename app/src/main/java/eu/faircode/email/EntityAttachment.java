@@ -102,9 +102,6 @@ public class EntityAttachment {
     @Ignore
     public boolean selected = false;
 
-    @Ignore
-    public MediaPlayer player = null;
-
     // Gmail sends inline images as attachments with a name and cid
 
     boolean isInline() {

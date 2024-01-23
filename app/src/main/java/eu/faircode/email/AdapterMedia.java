@@ -28,13 +28,10 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.pdf.PdfRenderer;
-import android.media.AudioAttributes;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
-import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,10 +92,10 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
         }
 
         private void showPlayerState(EntityAttachment attachment) {
-            if (attachment.player == null)
-                ivImage.setImageResource(R.drawable.twotone_play_arrow_48);
-            else
+            if (MediaPlayerHelper.isPlaying(attachment.getUri(context)))
                 ivImage.setImageResource(R.drawable.twotone_stop_48);
+            else
+                ivImage.setImageResource(R.drawable.twotone_play_arrow_48);
         }
 
         private void bindTo(EntityAttachment attachment) {
@@ -262,57 +259,20 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
             if (attachment.available) {
                 if (attachment.isAudio()) {
                     try {
-                        if (attachment.player == null) {
-                            final Runnable updateTime = new Runnable() {
-                                @Override
-                                public void run() {
-                                    MediaPlayer player = attachment.player;
-                                    tvProperties.setVisibility(player == null ? View.GONE : View.VISIBLE);
-                                    if (player != null) {
-                                        String pos = Helper.formatDuration(player.getCurrentPosition(), false);
-                                        String duration = Helper.formatDuration(player.getDuration());
-                                        tvProperties.setText(pos + " / " + duration);
-                                        view.postDelayed(this, 1000L);
-                                    }
-                                }
-                            };
-
-                            Uri uri = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, attachment.getFile(context), attachment.name);
-
-                            attachment.player = new MediaPlayer();
-                            attachment.player.setAudioAttributes(
-                                    new AudioAttributes.Builder()
-                                            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                                            .setUsage(AudioAttributes.USAGE_MEDIA)
-                                            .build()
-                            );
-                            attachment.player.setDataSource(context, uri);
-                            attachment.player.setWakeMode(context, PowerManager.PARTIAL_WAKE_LOCK);
-                            attachment.player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                                @Override
-                                public void onPrepared(MediaPlayer mp) {
-                                    mp.start();
-                                    // https://issuetracker.google.com/issues/36921987
-                                    if (BuildConfig.DEBUG)
-                                        view.postDelayed(updateTime, 500L);
-                                }
-                            });
-                            attachment.player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                                @Override
-                                public void onCompletion(MediaPlayer mp) {
-                                    attachment.player = null;
-                                    showPlayerState(attachment);
-                                }
-                            });
-                            attachment.player.prepareAsync();
-                        } else {
-                            attachment.player.stop();
-                            attachment.player = null;
-                        }
+                        Uri uri = attachment.getUri(context);
+                        if (MediaPlayerHelper.isPlaying(uri))
+                            MediaPlayerHelper.stopMusic(context);
+                        else
+                            MediaPlayerHelper.startMusic(context, uri,
+                                    new RunnableEx("player") {
+                                        @Override
+                                        public void delegate() {
+                                            showPlayerState(attachment);
+                                        }
+                                    });
 
                         showPlayerState(attachment);
                     } catch (Throwable ex) {
-                        attachment.player = null;
                         ivImage.setImageResource(R.drawable.twotone_warning_24);
                         Log.unexpectedError(parentFragment, ex);
                     }
@@ -411,15 +371,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
                 Log.d(AdapterMedia.this + " parent destroyed");
-                for (EntityAttachment attachment : items)
-                    if (attachment.player != null)
-                        try {
-                            attachment.player.stop();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        } finally {
-                            attachment.player = null;
-                        }
+                MediaPlayerHelper.stopMusic(context);
                 AdapterMedia.this.parentFragment = null;
                 owner.getLifecycle().removeObserver(this);
             }
