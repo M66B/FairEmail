@@ -44,7 +44,8 @@ jobs:
     - name: Check with Lint
       run: ./gradlew lintGithubRelease
     - name: Build with Gradle
-      run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease uploadBugsnagGithub-releaseMapping uploadBugsnagLarge-releaseMapping uploadBugsnagPlay-releaseMapping
+      #https://docs.bugsnag.com/build-integrations/gradle/#manual-upload
+      run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease uploadBugsnagGithub-releaseMapping uploadBugsnagLarge-releaseMapping uploadBugsnagPlay-releaseMapping uploadBugsnagNdkGithub-releaseMapping uploadBugsnagNdkLarge-releaseMapping uploadBugsnagNdkPlay-releaseMapping
     - name: Upload to BitBucket
       run: |
         ./gradlew upload -Ptarget=play-preview
