@@ -3802,7 +3802,7 @@ public class MessageHelper {
                         } else
                             Log.w(msg);
                     }
-                } catch (DecodingException ex) {
+                } catch (DecodingException | UnsupportedEncodingException ex) {
                     Log.e(ex);
                     warnings.add(Log.formatThrowable(ex, false));
                     return null;
