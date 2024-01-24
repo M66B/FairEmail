@@ -1691,9 +1691,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swThumbnails.setChecked(prefs.getBoolean("thumbnails", true));
             swPdfPreview.setChecked(prefs.getBoolean("pdf_preview", true));
             swPdfPreview.setEnabled(swThumbnails.isChecked());
-            swVideoPreview.setChecked(prefs.getBoolean("video_preview", false));
+            swVideoPreview.setChecked(prefs.getBoolean("video_preview", true));
             swVideoPreview.setEnabled(swThumbnails.isChecked());
-            swAudioPreview.setChecked(prefs.getBoolean("audio_preview", false));
+            swAudioPreview.setChecked(prefs.getBoolean("audio_preview", true));
             swAudioPreview.setEnabled(swThumbnails.isChecked());
 
             swListCount.setChecked(prefs.getBoolean("list_count", false));

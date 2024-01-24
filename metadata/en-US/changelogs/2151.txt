@@ -8,7 +8,8 @@ Ypupiara
 
 Next version
 
-* Added mini audio player (display-settings tab page)
+* Added mini audio player
+* Added video preview image
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated Public Suffix List

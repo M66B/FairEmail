@@ -8042,8 +8042,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.thumbnails = prefs.getBoolean("thumbnails", true);
         this.pdf_preview = prefs.getBoolean("pdf_preview", true);
-        this.video_preview = prefs.getBoolean("video_preview", false);
-        this.audio_preview = prefs.getBoolean("audio_preview", false);
+        this.video_preview = prefs.getBoolean("video_preview", true);
+        this.audio_preview = prefs.getBoolean("audio_preview", true);
         this.contrast = prefs.getBoolean("contrast", false);
         this.hyphenation = prefs.getBoolean("hyphenation", false);
         this.display_font = prefs.getString("display_font", "");
