@@ -3568,14 +3568,7 @@ class Core {
 
                         boolean needsHeaders = EntityRule.needsHeaders(message, rules);
                         List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
-                        String body;
-                        try {
-                            body = parts.getHtml(context, download_plain);
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                            message.error = Log.formatThrowable(ex, false);
-                            body = null;
-                        }
+                        String body = parts.getHtml(context, download_plain);
 
                         try {
                             db.beginTransaction();
@@ -3609,7 +3602,7 @@ class Core {
                         message.preview = HtmlHelper.getPreview(text);
                         message.language = HtmlHelper.getLanguage(context, message.subject, text);
                         db.message().setMessageContent(message.id,
-                                body != null,
+                                true,
                                 message.language,
                                 parts.isPlainOnly(download_plain),
                                 message.preview,
