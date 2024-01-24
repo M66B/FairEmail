@@ -20,7 +20,7 @@ package eu.faircode.email;
 */
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
-import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -1708,7 +1708,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 Log.e(ex);
 
                                 // Allow Android account manager to refresh the access token
-                                if (account.auth_type != AUTH_TYPE_PASSWORD &&
+                                if (account.auth_type == AUTH_TYPE_GMAIL &&
                                         state.getBackoff() <= CONNECT_BACKOFF_ALARM_START * 60)
                                     throw ex;
 
