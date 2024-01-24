@@ -893,6 +893,10 @@ public class ContactInfo {
     }
 
     private static int getSize(String sizes) {
+        int q = sizes.indexOf('?');
+        if (q >= 0)
+            sizes = sizes.substring(0, q);
+
         int max = 0;
         for (String size : sizes.split(" ")) {
             int min = Integer.MAX_VALUE;
