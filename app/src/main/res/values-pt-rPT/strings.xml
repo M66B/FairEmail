@@ -548,6 +548,8 @@
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas das imagens após o texto da mensagem</string>
     <string name="title_advanced_pdf_preview">Mostrar pré-visualização de PDF</string>
+    <string name="title_advanced_video_preview" comment="title_advanced_video_preview&#10;Title for option switch to enable/disable showing thumbnails for video files">Mostrar miniaturas de vídeo</string>
+    <string name="title_advanced_audio_preview">Mostrar mini reprodutor de áudio</string>
     <string name="title_advanced_message_text_zoom2">Zoom padrão do texto da mensagem %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Ampliar o texto da mensagem também no editor de mensagens</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para caber na tela</string>

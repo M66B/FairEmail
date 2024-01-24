@@ -269,7 +269,7 @@
     <string name="title_setup_password_chars">Parol, nəzarət və ya boşluq simvollarını ehtiva edir</string>
     <string name="title_setup_password_repeat">Parolu təkrarla</string>
     <string name="title_setup_password_missing">Parol əskikdir</string>
-    <string name="title_setup_password_different">Parollar uyğunlaşmır</string>
+    <string name="title_setup_password_different">Parollar uyuşmur</string>
     <string name="title_setup_password_invalid">Yanlış parol və ya zədələnmiş ayarlar faylı</string>
     <string name="title_setup_import_accounts">Hesabları və kimlikləri daxilə köçür</string>
     <string name="title_setup_import_delete">Əvvəlcə mövcud hesabları sil</string>
@@ -547,6 +547,8 @@
     <string name="title_advanced_attachments_alt">Mesaj mətnindən sonra qoşmaları göstər</string>
     <string name="title_advanced_thumbnails">Mesaj mətnindən sonra təsvir eskizlərini göstər</string>
     <string name="title_advanced_pdf_preview">PDF eskizlərini göstər</string>
+    <string name="title_advanced_video_preview" comment="title_advanced_video_preview&#10;Title for option switch to enable/disable showing thumbnails for video files">Video eskizlərini göstər</string>
+    <string name="title_advanced_audio_preview">Mini səs pleyerini göstər</string>
     <string name="title_advanced_message_text_zoom2">İlkin mesajın mətn yaxınlaşdırması: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Mesajın mətnini redaktorda da yaxınlaşdır</string>
     <string name="title_advanced_overview_mode">Orijinal mesajı tam ekrana qədər yaxınlaşdır</string>
@@ -633,7 +635,7 @@
     <string name="title_advanced_notifications_service">Müşahidə kanalı</string>
     <string name="title_advanced_notifications_newest_first">Əvvəlcə ən yeni bildirişləri göstər</string>
     <string name="title_advanced_badge">Başladıcı nişanını yeni mesaj sayı ilə göstər</string>
-    <string name="title_advanced_unseen_ignored">Yeni mesajların sayı ilə bildiriş sayının uyğun gəlməsinə icazə ver</string>
+    <string name="title_advanced_unseen_ignored">Yeni mesaj sayının bildiriş sayı ilə uyuşmasına icazə ver</string>
     <string name="title_advanced_notify_grouping">Bildirişləri qruplaşdır</string>
     <string name="title_advanced_notify_private">Cihaz kilidli ikən bildirişləri gizli saxla</string>
     <string name="title_advanced_notify_background">Bildirişləri yalnız arxaplanda olanda göstər</string>
@@ -901,7 +903,7 @@
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
     <string name="title_advanced_sender_name">Göndərənin ünvanına düzəliş ediləndə adı istifadə et</string>
     <string name="title_advanced_reply_name">Alınmış mesajdakı adı kopyala</string>
-    <string name="title_advanced_sender_regex">Gələn e-poçt ünvanlarının istifadəçi adını uyğunlaşdırmaq üçün normal ifadə</string>
+    <string name="title_advanced_sender_regex">Gələn e-poçt ünvanlarının istifadəçi adını uyuşdurmaq üçün normal ifadə</string>
     <string name="title_identity_reply_to">Cavablama ünvanı</string>
     <string name="title_identity_internal">Daxili domen adları (vergüllə ayrılan)</string>
     <string name="title_identity_uri">Kontaktı əlaqələndir</string>
@@ -1452,7 +1454,7 @@
     <string name="title_certificate_invalid">%1$s üçün ictimai açar yararsızdır</string>
     <string name="title_no_key">Şəxsi açar yoxdur</string>
     <string name="title_invalid_key">Yararsız şəxsi açar</string>
-    <string name="title_unknown_key">Şəxsi açar, şifrələmə açarı ilə uyğunlaşmır</string>
+    <string name="title_unknown_key">Şəxsi açar, heç bir şifrələmə açarı ilə uyuşmur</string>
     <string name="title_key_missing">%1$s üçün açar yoxdur</string>
     <string name="title_send_reminder_remark">Xatırladıcılar göndəriş ayarlarında yenidən fəallaşdırıla bilər</string>
     <string name="title_send_plain_text">Yalnız düz mətn</string>
@@ -1518,7 +1520,7 @@
     <string name="title_signature_certificate_invalid">Sertifikat zənciri yararsızdır</string>
     <string name="title_signature_sender">Göndərənin ünvanı</string>
     <string name="title_signature_email">İmzanın ünvanı</string>
-    <string name="title_signature_mismatch">Göndərənin və imzanın e-poçt ünvanları uyğunlaşmır</string>
+    <string name="title_signature_mismatch">Göndərənin e-poçt ünvanı və imzası uyuşmur</string>
     <string name="title_signature_algorithm">Alqoritm</string>
     <string name="title_signature_subject">Mövzu</string>
     <string name="title_signature_validity">Yararlılıq</string>
@@ -1718,8 +1720,8 @@
     <string name="title_rule_check">Yoxla</string>
     <string name="title_rule_no_headers">Başlıq şərtləri yoxlanıla bilmədi</string>
     <string name="title_rule_no_body">Mesaj mətni əlçatmazdır</string>
-    <string name="title_rule_matched">Uyğun mesajlar</string>
-    <string name="title_rule_no_matches">Uyğunlaşan mesaj yoxdur</string>
+    <string name="title_rule_matched">Uyuşan mesajlar</string>
+    <string name="title_rule_no_matches">Uyuşan mesaj yoxdur</string>
     <string name="title_rule_tts_ok">Quraşdırma hazırdır</string>
     <string name="title_rule_tts_setup">Quraşdırmanı yoxla</string>
     <string name="title_rule_tts_data">Səsli verilənləri quraşdır</string>
