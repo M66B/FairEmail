@@ -68,7 +68,9 @@ public class text_plain extends handler_base {
 	     * and this results in an IllegalArgumentException, rather than
 	     * the expected UnsupportedEncodingException.  Yikes.
 	     */
-	    throw new UnsupportedEncodingException(enc);
+	    //throw new UnsupportedEncodingException(enc);
+		is = new InputStreamReader(ds.getInputStream(),
+				eu.faircode.email.UnknownCharsetProvider.charsetForMime(getCharset(ds.getContentType())));
 	}
 
 	try {
@@ -125,7 +127,9 @@ public class text_plain extends handler_base {
 	     * and this results in an IllegalArgumentException, rather than
 	     * the expected UnsupportedEncodingException.  Yikes.
 	     */
-	    throw new UnsupportedEncodingException(enc);
+	    //throw new UnsupportedEncodingException(enc);
+		osw = new OutputStreamWriter(new NoCloseOutputStream(os),
+				eu.faircode.email.UnknownCharsetProvider.charsetForMime(getCharset(type)));
 	}
 
 	String s = (String)obj;
