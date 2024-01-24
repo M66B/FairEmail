@@ -4005,12 +4005,6 @@ The subject of a received message can be edited, also on the email server, via t
 
 <br />
 
-*Embedded audio player (1.2052+)*
-
-Allow enabling a minimal audio player as thumbnail for audio files in the display-settings tab page.
-
-<br>
-
 <a name="faq126"></a>
 **(126) Can message previews be sent to my smartwatch?**
 
