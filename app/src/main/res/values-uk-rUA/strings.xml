@@ -376,7 +376,7 @@
     <string name="title_advanced_when">Коли</string>
     <string name="title_advanced_optimize">Автоматично оптимізувати</string>
     <string name="title_advanced_always">Завжди отримувати повідомлення для цих облікових записів</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">З такими винятками:</string>
+    <string name="title_advanced_with_exceptions">З такими винятками:</string>
     <string name="title_advanced_poll_metered">Періодично перевіряти наявність нових повідомлень при підключенні до лімітованої мережі</string>
     <string name="title_advanced_poll_unmetered">Періодично перевіряти наявність нових повідомлень при підключенні до безлімітної мережі</string>
     <string name="title_advanced_schedule">Розклад</string>
@@ -575,6 +575,7 @@
     <string name="title_advanced_attachments_alt">Показувати вкладення після тексту повідомлення</string>
     <string name="title_advanced_thumbnails">Показувати ескізи зображень після повідомлення</string>
     <string name="title_advanced_pdf_preview">Показувати ескізи PDF-файлів</string>
+    <string name="title_advanced_audio_preview" comment="title_advanced_audio_preview&#10;Title for an option in the display-settings tab page to enable a mini embedded audio player (as thumbnail along other media).">Показувати мініаудіоплеєр</string>
     <string name="title_advanced_message_text_zoom2">Масштаб тексту повідомлень за замовчуванням: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Масштабувати текст повідомлення також і в редакторі повідомлень</string>
     <string name="title_advanced_overview_mode">Масштабувати оригінальні повідомлення відповідно до розміру екрана</string>

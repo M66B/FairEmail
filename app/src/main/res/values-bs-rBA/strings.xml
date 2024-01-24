@@ -362,7 +362,7 @@
     <string name="title_advanced_when">Raspored</string>
     <string name="title_advanced_optimize">Automatski optimizuj</string>
     <string name="title_advanced_always">Uvijek primaj poruke s ovih računa</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Sa slijedećim izuzecima:</string>
+    <string name="title_advanced_with_exceptions">Sa slijedećim izuzecima:</string>
     <string name="title_advanced_poll_metered">Periodično provjeri nove poruke na mrežama s ograničenim paketom</string>
     <string name="title_advanced_poll_unmetered">Periodično provjeri nove poruke na neograničenim mrežama</string>
     <string name="title_advanced_schedule">Raspored</string>

@@ -344,7 +344,7 @@
     <string name="title_advanced_when">När</string>
     <string name="title_advanced_optimize">Optimera automatiskt</string>
     <string name="title_advanced_always">Ta alltid emot meddelanden för dessa konton</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Med följande undantag:</string>
+    <string name="title_advanced_with_exceptions">Med följande undantag:</string>
     <string name="title_advanced_poll_metered">Sök regelbundet efter nya meddelanden när du befinner dig på ett nätverk med begränsad datamängd</string>
     <string name="title_advanced_poll_unmetered">Kontrollera regelbundet nya meddelanden när du är på ett nätverk med obegränsad datamängd</string>
     <string name="title_advanced_schedule">Schema</string>
@@ -543,6 +543,7 @@
     <string name="title_advanced_attachments_alt">Visa bilagor efter meddelandetexten</string>
     <string name="title_advanced_thumbnails">Visa miniatyrbilder efter meddelandetexten</string>
     <string name="title_advanced_pdf_preview">Visa PDF-miniatyrer</string>
+    <string name="title_advanced_audio_preview" comment="title_advanced_audio_preview&#10;Title for an option in the display-settings tab page to enable a mini embedded audio player (as thumbnail along other media).">Visa miniljudspelare</string>
     <string name="title_advanced_message_text_zoom2">Standard meddelandetext zoom: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zooma meddelandetext även i meddelanderedigeraren</string>
     <string name="title_advanced_overview_mode">Zooma originalmeddelanden för att passa skärmen</string>

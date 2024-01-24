@@ -377,7 +377,7 @@
     <string name="title_advanced_when">Калі</string>
     <string name="title_advanced_optimize">Аўтаматычная аптымізацыя</string>
     <string name="title_advanced_always">Заўсёды атрымліваць паведамленні для гэтых уліковых запісаў</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">З наступнымі выключэннямі:</string>
+    <string name="title_advanced_with_exceptions">З наступнымі выключэннямі:</string>
     <string name="title_advanced_poll_metered">Перыядычна правяраць наяўнасць новых паведамленняў пры лімітаваным злучэнні</string>
     <string name="title_advanced_poll_unmetered">Перыядычна правяраць наяўнасць новых паведамленняў пры безлімітным злучэнні</string>
     <string name="title_advanced_schedule">Расклад</string>

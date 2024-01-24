@@ -347,7 +347,7 @@
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_optimize">Otimizar automaticamente</string>
     <string name="title_advanced_always">Sempre receber mensagens para estas contas</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Com as seguintes exceções:</string>
+    <string name="title_advanced_with_exceptions">Com as seguintes exceções:</string>
     <string name="title_advanced_poll_metered">Verificar periodicamente novas mensagens enquanto estiver em uma rede limitada</string>
     <string name="title_advanced_poll_unmetered">Verificar periodicamente novas mensagens enquanto estiver em uma rede ilimitada</string>
     <string name="title_advanced_schedule">Programar</string>

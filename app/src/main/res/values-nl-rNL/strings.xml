@@ -346,7 +346,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_when">Wanneer</string>
     <string name="title_advanced_optimize">Automatisch optimaliseren</string>
     <string name="title_advanced_always">Ontvang altijd berichten voor deze accounts</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Met de volgende uitzonderingen:</string>
+    <string name="title_advanced_with_exceptions">Met de volgende uitzonderingen:</string>
     <string name="title_advanced_poll_metered">Periodiek controleren op nieuwe berichten op een gemeten netwerk</string>
     <string name="title_advanced_poll_unmetered">Periodiek controleren op nieuwe berichten op een ongemeten netwerk</string>
     <string name="title_advanced_schedule">Schema</string>
@@ -545,6 +545,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_thumbnails">Afbeeldingsminiaturen weergeven na de berichttekst</string>
     <string name="title_advanced_pdf_preview">PDF-miniaturen tonen</string>
+    <string name="title_advanced_audio_preview" comment="title_advanced_audio_preview&#10;Title for an option in the display-settings tab page to enable a mini embedded audio player (as thumbnail along other media).">Toon mini audiospeler</string>
     <string name="title_advanced_message_text_zoom2">Standaard berichttekst zoom: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zoom berichttekst ook in de berichteditor</string>
     <string name="title_advanced_overview_mode">Zoom oorspronkelijke berichten zodat ze op het scherm passen</string>

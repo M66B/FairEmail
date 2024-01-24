@@ -348,7 +348,7 @@
     <string name="title_advanced_when">Quand</string>
     <string name="title_advanced_optimize">Optimiser automatiquement</string>
     <string name="title_advanced_always">Recevoir les messages en continu pour ces comptes</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Avec les exceptions suivantes :</string>
+    <string name="title_advanced_with_exceptions">Avec les exceptions suivantes :</string>
     <string name="title_advanced_poll_metered">Vérifier périodiquement la présence de nouveaux messages sur un réseau limité</string>
     <string name="title_advanced_poll_unmetered">Vérifier périodiquement la présence de nouveaux messages sur un réseau non limité</string>
     <string name="title_advanced_schedule">Planification</string>
@@ -547,6 +547,7 @@
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_thumbnails">Afficher les vignettes des images après le texte du message</string>
     <string name="title_advanced_pdf_preview">Afficher les vignettes des fichiers PDF</string>
+    <string name="title_advanced_audio_preview" comment="title_advanced_audio_preview&#10;Title for an option in the display-settings tab page to enable a mini embedded audio player (as thumbnail along other media).">Afficher le mini-lecteur audio</string>
     <string name="title_advanced_message_text_zoom2">Zoom du texte du message par défaut : %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zoomer le texte du message également dans l\'éditeur de message</string>
     <string name="title_advanced_overview_mode">Zoomer sur les messages originaux pour les adapter à l\'écran</string>

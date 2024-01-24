@@ -376,7 +376,7 @@
     <string name="title_advanced_when">מתי</string>
     <string name="title_advanced_optimize">מיטוב אוטומטית</string>
     <string name="title_advanced_always">תמיד לקבל הודעות מהחשבונות האלו</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">עם החריגות הבאות:</string>
+    <string name="title_advanced_with_exceptions">עם החריגות הבאות:</string>
     <string name="title_advanced_poll_metered">לבדוק מדי פעם אם יש הודעות חדשות גם ברשתות מוגבלות</string>
     <string name="title_advanced_poll_unmetered">לבדוק מדי פעם אם יש הודעות חדשות ברשתות שאינן מוגבלות</string>
     <string name="title_advanced_schedule">לוח זמנים</string>

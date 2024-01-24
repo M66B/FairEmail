@@ -349,7 +349,7 @@
     <string name="title_advanced_when">Wann</string>
     <string name="title_advanced_optimize">Automatisch optimieren</string>
     <string name="title_advanced_always">Nachrichten für diese Konten immer empfangen</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Mit den folgenden Ausnahmen:</string>
+    <string name="title_advanced_with_exceptions">Mit den folgenden Ausnahmen:</string>
     <string name="title_advanced_poll_metered">Regelmäßig auf neue Nachrichten prüfen, während ein getaktetes Netzwerk verwendet wird</string>
     <string name="title_advanced_poll_unmetered">Regelmäßig auf neue Nachrichten prüfen, während ein nicht getaktetes Netzwerk verwendet wird</string>
     <string name="title_advanced_schedule">Zeitplan</string>

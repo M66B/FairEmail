@@ -375,7 +375,7 @@
     <string name="title_advanced_when">Kiedy</string>
     <string name="title_advanced_optimize">Optymalizuj automatycznie</string>
     <string name="title_advanced_always">Zawsze odbieraj wiadomości z tych kont</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Z następującymi wyjątkami:</string>
+    <string name="title_advanced_with_exceptions">Z następującymi wyjątkami:</string>
     <string name="title_advanced_poll_metered">Okresowo sprawdzaj nowe wiadomości, gdy sieć jest mierzona</string>
     <string name="title_advanced_poll_unmetered">Okresowo sprawdzaj nowe wiadomości, gdy sieć nie jest mierzona</string>
     <string name="title_advanced_schedule">Harmonogram</string>

@@ -347,7 +347,7 @@
     <string name="title_advanced_when">Кога</string>
     <string name="title_advanced_optimize">Автоматично оптимизиране</string>
     <string name="title_advanced_always">Винаги да се получават известия за тези акаунти</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Със следните изключения:</string>
+    <string name="title_advanced_with_exceptions">Със следните изключения:</string>
     <string name="title_advanced_poll_metered">Периодична проверка за нови съобщения при връзка с мрежа с измерено потребление</string>
     <string name="title_advanced_poll_unmetered">Периодична проверка за нови съобщения при връзка с мрежа с безмерено потребление</string>
     <string name="title_advanced_schedule">График</string>

@@ -347,7 +347,7 @@
     <string name="title_advanced_when">Πότε</string>
     <string name="title_advanced_optimize">Αυτόματη βελτιστοποίηση</string>
     <string name="title_advanced_always">Να λαμβάνονται πάντα τα μηνύματα για αυτούς τους λογαριασμούς</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Με τις ακόλουθες εξαιρέσεις:</string>
+    <string name="title_advanced_with_exceptions">Με τις ακόλουθες εξαιρέσεις:</string>
     <string name="title_advanced_poll_metered">Περιοδικός έλεγχος για νέα μηνύματα κατά τη χρήση δικτύου με ογκοχρέωση</string>
     <string name="title_advanced_poll_unmetered">Περιοδικός έλεγχος για νέα μηνύματα κατά τη χρήση δικτύου χωρίς ογκοχρέωση</string>
     <string name="title_advanced_schedule">Χρονοδιάγραμμα</string>

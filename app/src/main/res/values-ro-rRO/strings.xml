@@ -361,7 +361,7 @@
     <string name="title_advanced_when">Când</string>
     <string name="title_advanced_optimize">Optimizare automată</string>
     <string name="title_advanced_always">Primiți întotdeauna mesaje pentru aceste conturi</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Cu următoarele excepții:</string>
+    <string name="title_advanced_with_exceptions">Cu următoarele excepții:</string>
     <string name="title_advanced_poll_metered">Verificare periodică pentru mesaje noi când este conectată o rețea contorizată</string>
     <string name="title_advanced_poll_unmetered">Verificare periodică pentru mesaje noi când este conectată o rețea necontorizată</string>
     <string name="title_advanced_schedule">Programat</string>

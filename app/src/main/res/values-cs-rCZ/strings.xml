@@ -376,7 +376,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_when">Kdy</string>
     <string name="title_advanced_optimize">Automaticky optimalizovat</string>
     <string name="title_advanced_always">Neustále přijímat zprávy pro tyto účty</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">S těmito výjimkami:</string>
+    <string name="title_advanced_with_exceptions">S těmito výjimkami:</string>
     <string name="title_advanced_poll_metered">Pravidelně ověřovat nové zprávy v měřené síti</string>
     <string name="title_advanced_poll_unmetered">Pravidelně kontrolovat nové zprávy na neměřené síti</string>
     <string name="title_advanced_schedule">Plán</string>

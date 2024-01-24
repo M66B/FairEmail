@@ -346,7 +346,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_when">Ne zaman</string>
     <string name="title_advanced_optimize">Otomatik olarak optimize et</string>
     <string name="title_advanced_always">Bu hesaplardan mesajları her zaman al</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">Aşağıdaki istisnalar dışında:</string>
+    <string name="title_advanced_with_exceptions">Aşağıdaki istisnalar dışında:</string>
     <string name="title_advanced_poll_metered">Ölçülü bir ağdayken periyodik olarak yeni mesajları kontrol edin</string>
     <string name="title_advanced_poll_unmetered">Ölçülmeyen bir ağdayken periyodik olarak yeni mesajları kontrol edin</string>
     <string name="title_advanced_schedule">Program</string>
@@ -545,6 +545,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_thumbnails">İleti metninden sonra görsellerin önizlemelerini göster</string>
     <string name="title_advanced_pdf_preview">PDF küçük resimlerini göster</string>
+    <string name="title_advanced_audio_preview" comment="title_advanced_audio_preview&#10;Title for an option in the display-settings tab page to enable a mini embedded audio player (as thumbnail along other media).">Mini ses oynatıcısını göster</string>
     <string name="title_advanced_message_text_zoom2">Varsayılan mesaj metni yakınlaştırma: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Mesaj metnini mesaj düzenleyicide de yakınlaştırın</string>
     <string name="title_advanced_overview_mode">Orijinal mesajları ekrana sığacak şekilde yakınlaştırın</string>

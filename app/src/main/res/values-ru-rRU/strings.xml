@@ -375,7 +375,7 @@
     <string name="title_advanced_when">Когда</string>
     <string name="title_advanced_optimize">Автоматическая оптимизация</string>
     <string name="title_advanced_always">Непрерывно получать сообщения с этих учётных записей</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">За исключением:</string>
+    <string name="title_advanced_with_exceptions">За исключением:</string>
     <string name="title_advanced_poll_metered">Периодически проверять новые сообщения при лимитированном подключении</string>
     <string name="title_advanced_poll_unmetered">Периодически проверять новые сообщения при безлимитном подключении</string>
     <string name="title_advanced_schedule">Расписание</string>

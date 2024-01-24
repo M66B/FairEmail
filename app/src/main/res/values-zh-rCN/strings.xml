@@ -333,7 +333,7 @@
     <string name="title_advanced_when">何时</string>
     <string name="title_advanced_optimize">自动优化</string>
     <string name="title_advanced_always">总是接收这些账户的消息</string>
-    <string name="title_advanced_with_exceptions" comment="title_advanced_with_exceptions&#10;Remark above some options to make an exception to the rule">规则例外：</string>
+    <string name="title_advanced_with_exceptions">规则例外：</string>
     <string name="title_advanced_poll_metered">在按流量计费网络上定期检查新消息</string>
     <string name="title_advanced_poll_unmetered">在不按流量计费网络上定期检查新消息</string>
     <string name="title_advanced_schedule">计划任务</string>
