@@ -59,7 +59,7 @@ public class text_plain extends handler_base {
 	try {
 	    enc = getCharset(ds.getContentType());
 	    is = new InputStreamReader(ds.getInputStream(), enc);
-	} catch (IllegalArgumentException iex) {
+	} catch (UnsupportedEncodingException | IllegalArgumentException iex) {
 	    /*
 	     * An unknown charset of the form ISO-XXX-XXX will cause
 	     * the JDK to throw an IllegalArgumentException.  The
@@ -68,9 +68,12 @@ public class text_plain extends handler_base {
 	     * and this results in an IllegalArgumentException, rather than
 	     * the expected UnsupportedEncodingException.  Yikes.
 	     */
-	    //throw new UnsupportedEncodingException(enc);
-		is = new InputStreamReader(ds.getInputStream(),
-				eu.faircode.email.UnknownCharsetProvider.charsetForMime(getCharset(ds.getContentType())));
+		try {
+			is = new InputStreamReader(ds.getInputStream(),
+					eu.faircode.email.UnknownCharsetProvider.charsetForMime(getCharset(ds.getContentType())));
+		} catch (IllegalArgumentException ex) {
+			throw new UnsupportedEncodingException(enc);
+		}
 	}
 
 	try {
@@ -118,7 +121,7 @@ public class text_plain extends handler_base {
 	try {
 	    enc = getCharset(type);
 	    osw = new OutputStreamWriter(new NoCloseOutputStream(os), enc);
-	} catch (IllegalArgumentException iex) {
+	} catch (UnsupportedEncodingException | IllegalArgumentException iex) {
 	    /*
 	     * An unknown charset of the form ISO-XXX-XXX will cause
 	     * the JDK to throw an IllegalArgumentException.  The
@@ -127,9 +130,12 @@ public class text_plain extends handler_base {
 	     * and this results in an IllegalArgumentException, rather than
 	     * the expected UnsupportedEncodingException.  Yikes.
 	     */
-	    //throw new UnsupportedEncodingException(enc);
-		osw = new OutputStreamWriter(new NoCloseOutputStream(os),
-				eu.faircode.email.UnknownCharsetProvider.charsetForMime(getCharset(type)));
+		try {
+			osw = new OutputStreamWriter(new NoCloseOutputStream(os),
+					eu.faircode.email.UnknownCharsetProvider.charsetForMime(getCharset(type)));
+		} catch (IllegalArgumentException ex) {
+			throw new UnsupportedEncodingException(enc);
+		}
 	}
 
 	String s = (String)obj;
