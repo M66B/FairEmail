@@ -162,9 +162,9 @@ public class MediaPlayerHelper {
     }
 
     static void startMusic(Context context, Uri uri, Runnable onCompleted) throws IOException {
-        stopMusic(context);
-
         synchronized (lock) {
+            stopMusic(context);
+
             MediaPlayerHelper.uri = uri;
             MediaPlayerHelper.onCompleted = onCompleted;
 
