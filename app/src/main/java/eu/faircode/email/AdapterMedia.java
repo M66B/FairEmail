@@ -28,11 +28,13 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.pdf.PdfRenderer;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
+import android.util.Size;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -144,6 +146,11 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                                 Log.w(ex);
                                 return null;
                             }
+                        } else if (type != null && type.startsWith("video/")) {
+                            Bitmap bm = ThumbnailUtils.createVideoThumbnail(file, new Size(max, max), null);
+                            if (bm == null)
+                                return null;
+                            return new BitmapDrawable(context.getResources(), bm);
                         } else {
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             boolean webp = prefs.getBoolean("webp", true);

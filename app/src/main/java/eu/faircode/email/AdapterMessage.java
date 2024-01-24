@@ -303,6 +303,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean attachments_alt;
     private boolean thumbnails;
     private boolean pdf_preview;
+    private boolean video_preview;
     private boolean audio_preview;
     private boolean contrast;
     private boolean hyphenation;
@@ -3687,6 +3688,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (thumbnails && bind_extras) {
                 for (EntityAttachment attachment : attachments)
                     if ((pdf_preview && attachment.isPDF()) ||
+                            (video_preview && attachment.isVideo()) ||
                             (audio_preview && attachment.isAudio()) ||
                             (attachment.isAttachment() && attachment.isImage())) {
                         media.add(attachment);
@@ -8040,6 +8042,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.thumbnails = prefs.getBoolean("thumbnails", true);
         this.pdf_preview = prefs.getBoolean("pdf_preview", true);
+        this.video_preview = prefs.getBoolean("video_preview", false);
         this.audio_preview = prefs.getBoolean("audio_preview", false);
         this.contrast = prefs.getBoolean("contrast", false);
         this.hyphenation = prefs.getBoolean("hyphenation", false);
