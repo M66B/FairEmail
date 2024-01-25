@@ -11,6 +11,7 @@ Next version
 * Added mini audio player
 * Added video preview image
 * Small improvements and minor bug fixes
+* Updated libraries (JsonPath)
 * Updated AndroidX
 * Updated Public Suffix List
 * Updated translations
