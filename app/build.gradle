@@ -693,6 +693,7 @@ dependencies {
     playImplementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
 
     // https://github.com/appmattus/certificatetransparency
+    // https://mvnrepository.com/artifact/com.appmattus.certificatetransparency/certificatetransparency-android
     implementation "com.appmattus.certificatetransparency:certificatetransparency-android:$transparency_version"
 
     // https://developer.amazon.com/docs/in-app-purchasing/iap-get-started.html
