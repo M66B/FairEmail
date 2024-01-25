@@ -1613,8 +1613,11 @@ public class FragmentMessages extends FragmentBase
         ibBatchFlag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MoreResult result = (MoreResult) cardMore.getTag();
+                if (result == null)
+                    return;
                 boolean more_clear = prefs.getBoolean("more_clear", true);
-                onActionFlagSelection(true, Color.TRANSPARENT, null, more_clear);
+                onActionFlagSelection(result.unflagged, Color.TRANSPARENT, null, more_clear);
             }
         });
 
@@ -6913,6 +6916,10 @@ public class FragmentMessages extends FragmentBase
                         if (flag)
                             count++;
 
+                        boolean unflag = (more_flag && !flag && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.flagged);
+                        if (unflag)
+                            count++;
+
                         boolean flag_color = (more_flag_color && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && (result.unflagged || result.flagged));
                         if (flag_color)
                             count++;
@@ -6933,13 +6940,14 @@ public class FragmentMessages extends FragmentBase
                         if (seen)
                             count++;
 
+                        ibBatchFlag.setImageResource(unflag ? R.drawable.twotone_star_border_24 : R.drawable.twotone_star_24);
                         ibInbox.setImageResource(inJunk ? R.drawable.twotone_report_off_24 : R.drawable.twotone_inbox_24);
 
                         ibBatchSeen.setVisibility(seen ? View.VISIBLE : View.GONE);
                         ibBatchUnseen.setVisibility(unseen ? View.VISIBLE : View.GONE);
                         ibBatchSnooze.setVisibility(snooze ? View.VISIBLE : View.GONE);
                         ibBatchHide.setVisibility(hide ? View.VISIBLE : View.GONE);
-                        ibBatchFlag.setVisibility(flag ? View.VISIBLE : View.GONE);
+                        ibBatchFlag.setVisibility(flag || unflag ? View.VISIBLE : View.GONE);
                         ibBatchFlagColor.setVisibility(flag_color ? View.VISIBLE : View.GONE);
                         ibLowImportance.setVisibility(importance_low ? View.VISIBLE : View.GONE);
                         ibNormalImportance.setVisibility(importance_normal ? View.VISIBLE : View.GONE);
