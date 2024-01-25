@@ -354,14 +354,22 @@ public class DnsHelper {
             public void close() throws SecurityException {
             }
         };
+
         String clazz = DaneVerifier.class.getName();
-        Logger.getLogger(clazz).addHandler(handler);
-        Log.w("DANE verify " + server + ":" + port);
-        boolean verified = new DaneVerifier().verifyCertificateChain(chain, server, port);
-        Log.w("DANE verified=" + verified + " " + server + ":" + port);
-        Logger.getLogger(clazz).removeHandler(handler);
-        if (!verified)
-            throw new CertificateException("DANE missing or invalid");
+        try {
+            Logger.getLogger(clazz).addHandler(handler);
+            Log.w("DANE verify " + server + ":" + port);
+            boolean verified = new DaneVerifier().verifyCertificateChain(chain, server, port);
+            Log.w("DANE verified=" + verified + " " + server + ":" + port);
+            if (!verified)
+                throw new CertificateException("DANE missing or invalid");
+        } catch (CertificateException ex) {
+            throw ex;
+        } catch (Throwable ex) {
+            throw new CertificateException("DANE error", ex);
+        } finally {
+            Logger.getLogger(clazz).removeHandler(handler);
+        }
     }
 
     private static List<String> getDnsServers(Context context) {
