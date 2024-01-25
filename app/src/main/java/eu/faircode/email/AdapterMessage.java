@@ -4894,6 +4894,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         .append('\n');
                 sb.append("SMTP: ")
                         .append(message.auth == null ? "-" : (message.auth ? "✓" : "✗"));
+                if (check_mx)
+                    sb.append('\n')
+                            .append("MX: ")
+                            .append(message.mx == null ? "-" : (message.mx ? "✓" : "✗"));
             }
 
             if (native_dkim && !TextUtils.isEmpty(message.signedby)) {
