@@ -773,7 +773,8 @@ dependencies {
     implementation "io.github.everythingme:overscroll-decor-android:$overscroll_version"
 
     // https://www.bouncycastle.org/latest_releases.html
-    // https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on
+    // https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15to18
+    // https://mvnrepository.com/artifact/org.bouncycastle/bctls-jdk15to18
     implementation "org.bouncycastle:bcpkix-jdk15to18:$bouncycastle_version"
     implementation "org.bouncycastle:bctls-jdk15to18:$bouncycastle_version"
 
@@ -811,7 +812,7 @@ dependencies {
     implementation "com.github.seancfoley:ipaddress:$ipaddress_version"
 
     // https://mvnrepository.com/artifact/androidx.car.app/app?repo=google
-    // implementation "androidx.car.app:app:1.4.0-alpha01"
+    // implementation "androidx.car.app:app:1.4.0-rc02"
 
     // https://github.com/square/leakcanary
     // https://square.github.io/leakcanary/getting_started/
