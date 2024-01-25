@@ -526,6 +526,12 @@ public class EmailService implements AutoCloseable {
                             msg != null && msg.endsWith("Invalid credentials (Failure)"))
                         msg += "\n" + context.getString(R.string.title_service_token);
 
+                    if (auth == AUTH_TYPE_OAUTH) {
+                        Long expiration = authenticator.getAccessTokenExpirationTime();
+                        if (expiration != null && expiration < new Date().getTime())
+                            msg = "Access token expired at " + new Date(expiration) + "\n" + msg;
+                    }
+
                     Throwable c = ex1;
                     while (c != null) {
                         String m = c.getMessage();
