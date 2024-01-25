@@ -27,9 +27,9 @@ public class ServiceTileClear extends ServiceTileBase {
     public void onClick() {
         try {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
-                startActivityAndCollapse(ActivityClear.getIntent(getApplicationContext()));
+                startActivityAndCollapse(ActivityClear.getIntent(this));
             else
-                startActivityAndCollapse(ActivityClear.getPendingIntent(getApplicationContext()));
+                startActivityAndCollapse(ActivityClear.getPendingIntent(this));
         } catch (Throwable ex) {
             Log.e(ex);
         }
