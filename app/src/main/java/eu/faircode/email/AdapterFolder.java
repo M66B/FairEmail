@@ -829,12 +829,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 private void onActionSync(boolean children) {
                     Bundle args = new Bundle();
                     args.putLong("folder", folder.id);
+                    args.putLong("account", folder.account);
                     args.putBoolean("children", children);
 
                     new SimpleTask<Void>() {
                         @Override
                         protected Void onExecute(Context context, Bundle args) {
                             long fid = args.getLong("folder");
+                            long aid = args.getLong("account");
                             boolean children = args.getBoolean("children");
 
                             if (!ConnectionHelper.getNetworkState(context).isSuitable())
@@ -873,7 +875,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 db.endTransaction();
                             }
 
-                            ServiceSynchronize.eval(context, "refresh/folder");
+                            if (children)
+                                ServiceSynchronize.eval(context, "refresh/folder");
+                            else
+                                ServiceSynchronize.reload(context, aid, true, "refresh/folder");
 
                             if (!now)
                                 throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
