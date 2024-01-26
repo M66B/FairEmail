@@ -58,6 +58,7 @@ jobs:
       with:
         name: Mapping files
         path: app/build/outputs/mapping/**/mapping.txt
+    - uses: actions/upload-artifact@v4
       with:
         name: Native debug symbols
         path: app/build/outputs/native-debug-symbols/**/native-debug-symbols.zip
