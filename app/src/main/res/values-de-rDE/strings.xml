@@ -833,6 +833,7 @@
     <string name="title_advanced_split_hint">Dadurch wird der Bildschirm aufgeteilt</string>
     <string name="title_advanced_split_min_hint">Dies ist eine Voraussetzung für faltbare Geräte</string>
     <string name="title_advanced_threading_hint">Zusammengehörige Nachrichten gruppieren</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Nur im Kartenstil</string>
     <string name="title_advanced_highlight_hint">Die Akzentfarbe des Designs wird zur Hervorhebung verwendet</string>
     <string name="title_advanced_privacy_risk">Es könnte ein Datenschutzrisiko geben</string>
     <string name="title_advanced_name_email_hint">Namen werden nur angezeigt, wenn sie verfügbar sind</string>

@@ -829,6 +829,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_split_hint">Dit sil it skerm splitse yn dielen</string>
     <string name="title_advanced_split_min_hint">Dit is in kondysje, bedoeld foar opfâldbere apparaten</string>
     <string name="title_advanced_threading_hint">Relatearre berjochten groepearje</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Allinnich foar kaartstyl</string>
     <string name="title_advanced_highlight_hint">De aksintkleur fan it tema wurdt brûkt foar markearring</string>
     <string name="title_advanced_privacy_risk">Der is mooglik in privacyrisiko</string>
     <string name="title_advanced_name_email_hint">Nammen wurde allinnich toand wannear beskikber</string>

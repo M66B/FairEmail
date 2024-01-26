@@ -816,6 +816,7 @@
     <string name="title_advanced_split_hint">这将把屏幕分割成几部分</string>
     <string name="title_advanced_split_min_hint">这是一个用于可折叠设备的条件</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">仅用于卡片样式</string>
     <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
     <string name="title_advanced_privacy_risk">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">名称仅在可用时显示</string>

@@ -832,6 +832,7 @@
     <string name="title_advanced_split_hint">Dette opdeler skærmen i segmenter</string>
     <string name="title_advanced_split_min_hint">Dette er en betingelse beregnet til foldbare enheder</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Kun til kortstil</string>
     <string name="title_advanced_highlight_hint">Temaets accentfarve benyttes til fremhævning</string>
     <string name="title_advanced_privacy_risk">Der kan være en fortrolighedsrisiko</string>
     <string name="title_advanced_name_email_hint">Navne vises kun, hvis tilgængelige</string>

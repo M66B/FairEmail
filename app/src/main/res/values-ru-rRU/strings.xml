@@ -859,6 +859,7 @@
     <string name="title_advanced_split_hint">Экран будет разделён на части</string>
     <string name="title_advanced_split_min_hint">Это условие предназначено для складных устройств</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Только для карточного стиля</string>
     <string name="title_advanced_highlight_hint">Для подсветки будет использован цвет акцента темы</string>
     <string name="title_advanced_privacy_risk">Возможен риск нарушения конфиденциальности</string>
     <string name="title_advanced_name_email_hint">Имена будут показаны только при наличии</string>

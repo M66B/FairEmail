@@ -829,6 +829,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_split_hint">Bu, ekranı parçalara böler</string>
     <string name="title_advanced_split_min_hint">Bu, katlanabilir cihazlar için tasarlanmış bir durumdur</string>
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Yalnızca kart stili için</string>
     <string name="title_advanced_highlight_hint">Temanın vurgu rengi vurgulamak için kullanılacak</string>
     <string name="title_advanced_privacy_risk">Bir gizlilik riski olabilir</string>
     <string name="title_advanced_name_email_hint">Adlar yalnızca uygun olduğunda gösterilecektir</string>

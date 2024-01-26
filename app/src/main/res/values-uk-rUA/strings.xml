@@ -858,6 +858,7 @@
     <string name="title_advanced_split_hint">Це розділить екран на частини</string>
     <string name="title_advanced_split_min_hint">Ця умова стосується пристроїв із гнучким екраном</string>
     <string name="title_advanced_threading_hint">Групувати повідомлення, пов\'язані одне з одним</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Тільки для карткового стилю</string>
     <string name="title_advanced_highlight_hint">Колір акценту теми буде використаний для підсвічування</string>
     <string name="title_advanced_privacy_risk">Можливий ризик порушення приватності</string>
     <string name="title_advanced_name_email_hint">Імена показуватимуться лише за наявності</string>
