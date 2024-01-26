@@ -161,7 +161,7 @@ public class MediaPlayerHelper {
         }
     }
 
-    static void startMusic(Context context, Uri uri, Runnable onCompleted) throws IOException {
+    static void startMusic(Context context, LifecycleOwner owner, Uri uri, Runnable onCompleted) throws IOException {
         synchronized (lock) {
             stopMusic(context);
 
@@ -192,6 +192,14 @@ public class MediaPlayerHelper {
             });
             MediaPlayerHelper.player.prepareAsync();
         }
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                MediaPlayerHelper.stopMusic(context);
+                owner.getLifecycle().removeObserver(this);
+            }
+        });
     }
 
     static void stopMusic(Context context) {
