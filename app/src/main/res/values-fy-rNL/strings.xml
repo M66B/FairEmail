@@ -545,6 +545,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_attachments_alt">Bylagen nei de berjochttekst toane</string>
     <string name="title_advanced_thumbnails">Miniatuerôfbylding nei de berjochttekst toane</string>
     <string name="title_advanced_pdf_preview">PDF-miniatueren toane</string>
+    <string name="title_advanced_video_preview">Fideominiatueren toane</string>
     <string name="title_advanced_audio_preview">Mini-audiospiler toane</string>
     <string name="title_advanced_message_text_zoom2">Standert zoom berjochttekst: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Berjochttekst ek yn de berjochtbewurker zoome</string>

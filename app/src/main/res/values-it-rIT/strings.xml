@@ -547,7 +547,7 @@
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_thumbnails">Mostra miniature delle immagini dopo il testo del messaggio</string>
     <string name="title_advanced_pdf_preview">Mostra le miniature dei file PDF</string>
-    <string name="title_advanced_video_preview" comment="title_advanced_video_preview&#10;Title for option switch to enable/disable showing thumbnails for video files">Mostra le miniature dei video</string>
+    <string name="title_advanced_video_preview">Mostra le miniature dei video</string>
     <string name="title_advanced_audio_preview">Mostra mini lettore audio</string>
     <string name="title_advanced_message_text_zoom2">Ingrandimento predefinito del testo del messaggio %1$s%%</string>
     <string name="title_advanced_editor_text_zoom">Ingrandisci il testo del messaggio anche nell\'editor dei messaggi</string>
@@ -832,6 +832,7 @@
     <string name="title_advanced_split_hint">Questo dividerà lo schermo in parti</string>
     <string name="title_advanced_split_min_hint">Questa è una condizione destinata ai dispositivi pieghevoli</string>
     <string name="title_advanced_threading_hint">Raggruppa i messaggi correlati</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Solo per stile carta</string>
     <string name="title_advanced_highlight_hint">Il colore secondario del tema sarà usato per l\'evidenziazione</string>
     <string name="title_advanced_privacy_risk">Potrebbe esistere un rischio per la privacy</string>
     <string name="title_advanced_name_email_hint">I nomi saranno mostrati solo quando disponibili</string>

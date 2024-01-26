@@ -471,7 +471,7 @@
     <string name="title_advanced_attachments_alt">نمایش پیوست‌ها بعد از متن پیام</string>
     <string name="title_advanced_thumbnails">نمایش ریز عکس‌ها بعد از متن پیام</string>
     <string name="title_advanced_pdf_preview">نمایش ریز پی‌دی‌اف‌ها</string>
-    <string name="title_advanced_video_preview" comment="title_advanced_video_preview&#10;Title for option switch to enable/disable showing thumbnails for video files">نمایش ریز ویدئو‌ها</string>
+    <string name="title_advanced_video_preview">نمایش ریز ویدئو‌ها</string>
     <string name="title_advanced_audio_preview">نمایش پخش‌کننده صوتی کوچک</string>
     <string name="title_advanced_message_text_zoom2">بزرگ‌نمایی پیش‌فرض متن پیام: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">متن پیام را نیز در ویرایشگر پیام بزرگنمایی کنید</string>

@@ -547,7 +547,7 @@
     <string name="title_advanced_attachments_alt">Mesaj mətnindən sonra qoşmaları göstər</string>
     <string name="title_advanced_thumbnails">Mesaj mətnindən sonra təsvir eskizlərini göstər</string>
     <string name="title_advanced_pdf_preview">PDF eskizlərini göstər</string>
-    <string name="title_advanced_video_preview" comment="title_advanced_video_preview&#10;Title for option switch to enable/disable showing thumbnails for video files">Video eskizlərini göstər</string>
+    <string name="title_advanced_video_preview">Video eskizlərini göstər</string>
     <string name="title_advanced_audio_preview">Mini səs pleyerini göstər</string>
     <string name="title_advanced_message_text_zoom2">İlkin mesajın mətn yaxınlaşdırması: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Mesajın mətnini redaktorda da yaxınlaşdır</string>

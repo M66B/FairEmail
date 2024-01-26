@@ -548,7 +548,7 @@
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_thumbnails">Vorschaubilder nach dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_pdf_preview">PDF-Vorschaubilder anzeigen</string>
-    <string name="title_advanced_video_preview" comment="title_advanced_video_preview&#10;Title for option switch to enable/disable showing thumbnails for video files">Video-Vorschaubilder anzeigen</string>
+    <string name="title_advanced_video_preview">Video-Vorschaubilder anzeigen</string>
     <string name="title_advanced_audio_preview">Mini-Audio-Player anzeigen</string>
     <string name="title_advanced_message_text_zoom2">Standardgröße des Nachrichtentextes: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Größe des Nachrichtentextes auch im Verfassenfenster anpassen</string>

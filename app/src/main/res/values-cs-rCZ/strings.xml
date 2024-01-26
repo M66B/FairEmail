@@ -575,7 +575,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_attachments_alt">Zobrazit přílohy pod textem zprávy</string>
     <string name="title_advanced_thumbnails">Zobrazit náhledy obrázků pod textem zprávy</string>
     <string name="title_advanced_pdf_preview">Zobrazit náhledy PDF</string>
-    <string name="title_advanced_video_preview" comment="title_advanced_video_preview&#10;Title for option switch to enable/disable showing thumbnails for video files">Zobrazit náhledy videa</string>
+    <string name="title_advanced_video_preview">Zobrazit náhledy videa</string>
     <string name="title_advanced_audio_preview">Zobrazit mini audio přehrávač</string>
     <string name="title_advanced_message_text_zoom2">Výchozí zvětšení textu zprávy: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Změnit přiblížení textu zprávy také v editoru zpráv</string>

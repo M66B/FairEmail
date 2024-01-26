@@ -545,7 +545,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_thumbnails">Afbeeldingsminiaturen weergeven na de berichttekst</string>
     <string name="title_advanced_pdf_preview">Toon PDF-miniaturen</string>
-    <string name="title_advanced_video_preview" comment="title_advanced_video_preview&#10;Title for option switch to enable/disable showing thumbnails for video files">Toon video miniaturen</string>
+    <string name="title_advanced_video_preview">Toon video miniaturen</string>
     <string name="title_advanced_audio_preview">Toon mini-audiospeler</string>
     <string name="title_advanced_message_text_zoom2">Standaard berichttekst zoom: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zoom berichttekst ook in de berichteditor</string>
@@ -828,6 +828,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_split_hint">Dit zal het scherm opsplitsen in delen</string>
     <string name="title_advanced_split_min_hint">Dit is een conditie, bedoeld voor opvouwbare apparaten</string>
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Alleen voor kaartstijl</string>
     <string name="title_advanced_highlight_hint">De accentkleur van het thema wordt gebruikt voor markering</string>
     <string name="title_advanced_privacy_risk">Er is mogelijk een privacyrisico</string>
     <string name="title_advanced_name_email_hint">Namen worden alleen getoond wanneer beschikbaar</string>

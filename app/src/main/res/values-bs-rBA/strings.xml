@@ -561,6 +561,7 @@
     <string name="title_advanced_attachments_alt">Prikaži priloge poslije teksta poruke</string>
     <string name="title_advanced_thumbnails">Prikaži sličice fotografija poslije teksta poruke</string>
     <string name="title_advanced_pdf_preview">Prikaži PDF sličice</string>
+    <string name="title_advanced_video_preview">Prikaži video sličice</string>
     <string name="title_advanced_audio_preview">Prikaži mini zvučni plejer</string>
     <string name="title_advanced_message_text_zoom2">Zadani nivo zumiranja teksta: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zumiraj tekst poruke i u uređivaču poruka</string>

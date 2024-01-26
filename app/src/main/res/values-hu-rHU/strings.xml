@@ -545,7 +545,7 @@
     <string name="title_advanced_attachments_alt">Mellékletek megjelenítése a szöveg után</string>
     <string name="title_advanced_thumbnails">Képek bélyegképeinek megjelenítése a szöveg után</string>
     <string name="title_advanced_pdf_preview">PDF bélyegképek mutatása</string>
-    <string name="title_advanced_video_preview" comment="title_advanced_video_preview&#10;Title for option switch to enable/disable showing thumbnails for video files">Videó bélyegképek mutatása</string>
+    <string name="title_advanced_video_preview">Videó bélyegképek mutatása</string>
     <string name="title_advanced_audio_preview">Mini hanglejátszó mutatása</string>
     <string name="title_advanced_message_text_zoom2">Szöveg nagyítás alapértelmezett érték: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Az üzenetszerkesztőben is állítható a szöveg nagyítása</string>

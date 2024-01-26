@@ -575,7 +575,7 @@
     <string name="title_advanced_attachments_alt">Показувати вкладення після тексту повідомлення</string>
     <string name="title_advanced_thumbnails">Показувати ескізи зображень після повідомлення</string>
     <string name="title_advanced_pdf_preview">Показувати ескізи PDF-файлів</string>
-    <string name="title_advanced_video_preview" comment="title_advanced_video_preview&#10;Title for option switch to enable/disable showing thumbnails for video files">Показувати мініатюри відео</string>
+    <string name="title_advanced_video_preview">Показувати мініатюри відео</string>
     <string name="title_advanced_audio_preview">Показувати мініаудіоплеєр</string>
     <string name="title_advanced_message_text_zoom2">Масштаб тексту повідомлень за замовчуванням: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Масштабувати текст повідомлення також і в редакторі повідомлень</string>

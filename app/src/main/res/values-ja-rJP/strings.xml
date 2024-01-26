@@ -533,6 +533,7 @@
     <string name="title_advanced_attachments_alt">本文の後に添付ファイルを表示する</string>
     <string name="title_advanced_thumbnails">本文の後に画像サムネイルを表示する</string>
     <string name="title_advanced_pdf_preview">PDF のサムネイルを表示する</string>
+    <string name="title_advanced_video_preview">動画のサムネイルを表示する</string>
     <string name="title_advanced_audio_preview">ミニオーディオプレーヤーを表示する</string>
     <string name="title_advanced_message_text_zoom2">デフォルトの本文のテキスト拡大率: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">メッセージ編集画面でも、テキストを拡大する</string>
