@@ -13,10 +13,12 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    #https://github.com/actions/checkout
+    #https://github.com/actions/setup-java
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: set up JDK 17
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
@@ -52,11 +54,14 @@ jobs:
         ./gradlew upload -Ptarget=github-update
         ./gradlew upload -Ptarget=large-update
     #https://github.com/actions/upload-artifact
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: Mapping files
         path: app/build/outputs/mapping/**/mapping.txt
-    - uses: actions/upload-artifact@v3
+      with:
+        name: Native debug symbols
+        path: app/build/outputs/native-debug-symbols/**/native-debug-symbols.zip
+    - uses: actions/upload-artifact@v4
       with:
         name: APK files
         path: app/build/outputs/apk/**/release/*.apk
