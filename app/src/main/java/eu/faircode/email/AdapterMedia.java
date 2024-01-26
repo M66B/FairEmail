@@ -33,6 +33,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Size;
 import android.view.LayoutInflater;
@@ -148,12 +149,17 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                             }
                         } else if (type != null && type.startsWith("video/")) {
                             try {
-                                Bitmap bm = ThumbnailUtils.createVideoThumbnail(file, new Size(max, max), null);
+                                // https://developer.android.com/reference/android/media/ThumbnailUtils
+                                Bitmap bm;
+                                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
+                                    bm = ThumbnailUtils.createVideoThumbnail(file.getAbsolutePath(), MediaStore.Images.Thumbnails.MINI_KIND);
+                                else
+                                    bm = ThumbnailUtils.createVideoThumbnail(file, new Size(max, max), null);
                                 if (bm == null)
-                                    return null;
+                                    throw new IllegalArgumentException("Thumbnail generation failed");
                                 return new BitmapDrawable(context.getResources(), bm);
                             } catch (Throwable ex) {
-                                Log.i(ex);
+                                Log.w(ex);
                                 return context.getDrawable(R.drawable.twotone_ondemand_video_24);
                             }
                         } else {
