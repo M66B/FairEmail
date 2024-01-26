@@ -400,7 +400,7 @@ tasks.register('updateFAQ', Exec) {
 
 tasks.register('updatePrivacy', Exec) {
     workingDir "${rootDir}"
-    commandLine 'sh', '-c', 'pandoc --standalone --metadata title="FairEmail" --css=privacy.css PRIVACY.md -o privacy.html'
+    commandLine 'sh', '-c', 'pandoc --standalone --metadata title="FairEmail" -H privacy/header.html --css=privacy.css PRIVACY.md -o privacy/index.html'
 }
 
 tasks.register('updateCrowdin', Exec) {
