@@ -18,6 +18,16 @@ Error reports will automatically be deleted after one month, or earlier upon req
 
 Data will **never** be sold or shared in any way.
 
+<br>
+
+The <a href="https://play.google.com/store/apps/datasafety?id=eu.faircode.email">data safety</a> in the Play Store says:
+
+"*The developer says this app doesn't share user data with other companies or organizations.*".
+
+Unfortunately, there is no way to say that the app doesn't share data with the developer.
+Except for error reporting (explicitly opt-in) **no data will be shared with the developer**.
+It is important to note that collecting data on the device isn't synonymous with sending data off the device!
+
 <br />
 
 ### Overview
