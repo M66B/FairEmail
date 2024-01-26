@@ -31,7 +31,7 @@ Ypupiara
 
 1.2149 - 2024-01-08
 
-* Added option to to delay automatically marking messages as read
+* Added option to delay automatically marking messages as read
 * Replaced javadns
 * Added account/identity options to enforce DNSSEC and/or DANE, see the FAQ
 * Small improvements and minor bug fixes
