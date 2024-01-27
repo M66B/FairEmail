@@ -65,7 +65,6 @@ public class ServiceAuthenticator extends Authenticator {
     static final int AUTH_TYPE_OAUTH = 3;
     static final int AUTH_TYPE_GRAPH = 4;
 
-    static final long ADVANCE_REFRESH_TIME = 5 * 60 * 1000L;
     static final long MIN_REFRESH_INTERVAL = 15 * 60 * 1000L;
     static final long MIN_FORCE_REFRESH_INTERVAL = 15 * 60 * 1000L;
     static final int MAX_TOKEN_WAIT = 90; // seconds
@@ -162,7 +161,7 @@ public class ServiceAuthenticator extends Authenticator {
         try {
             long now = new Date().getTime();
             Long expiration = authState.getAccessTokenExpirationTime();
-            boolean needsRefresh = (expiration != null && expiration - ADVANCE_REFRESH_TIME < now);
+            boolean needsRefresh = (expiration != null && expiration < now);
 
             if (!needsRefresh && forceRefresh &&
                     expiration != null &&
