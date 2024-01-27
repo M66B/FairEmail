@@ -29,6 +29,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
+import android.util.Pair;
 
 import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.Lifecycle;
@@ -215,6 +216,17 @@ public class MediaPlayerHelper {
     static boolean isPlaying(Uri uri) {
         synchronized (lock) {
             return (Objects.equals(MediaPlayerHelper.uri, uri));
+        }
+    }
+
+    static Pair<Integer, Integer> getPosition(Uri uri) {
+        synchronized (lock) {
+            if (!isPlaying(uri))
+                return null;
+            return new Pair<>(
+                    MediaPlayerHelper.player.getCurrentPosition(),
+                    MediaPlayerHelper.player.getDuration()
+            );
         }
     }
 

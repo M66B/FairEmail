@@ -35,6 +35,7 @@ import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.util.Size;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -94,11 +95,13 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
             view.setOnLongClickListener(null);
         }
 
-        private void showPlayerState(EntityAttachment attachment) {
-            if (MediaPlayerHelper.isPlaying(attachment.getUri(context)))
+        private void showPlayerState(Uri uri) {
+            if (MediaPlayerHelper.isPlaying(uri))
                 ivImage.setImageResource(R.drawable.twotone_stop_48);
-            else
+            else {
                 ivImage.setImageResource(R.drawable.twotone_play_arrow_48);
+                tvProperties.setVisibility(View.GONE);
+            }
         }
 
         private void bindTo(EntityAttachment attachment) {
@@ -108,7 +111,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
 
             if (attachment.available) {
                 if (attachment.isAudio()) {
-                    showPlayerState(attachment);
+                    showPlayerState(attachment.getUri(context));
                     return;
                 }
 
@@ -281,16 +284,33 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                         Uri uri = attachment.getUri(context);
                         if (MediaPlayerHelper.isPlaying(uri))
                             MediaPlayerHelper.stopMusic(context);
-                        else
+                        else {
+                            Runnable updatePosition = new RunnableEx("updatePosition") {
+                                @Override
+                                protected void delegate() {
+                                    Pair<Integer, Integer> pos = MediaPlayerHelper.getPosition(uri);
+                                    if (pos != null) {
+                                        int at = (int) Math.round(pos.first / 1000.0) * 1000;
+                                        tvProperties.setText(
+                                                Helper.formatDuration(at, false) + " / " +
+                                                        Helper.formatDuration(pos.second, true));
+                                        view.postDelayed(this, 1000L);
+                                    }
+                                    tvProperties.setVisibility(pos == null ? View.GONE : View.VISIBLE);
+                                }
+                            };
+                            view.postDelayed(updatePosition, 1000L);
+
                             MediaPlayerHelper.startMusic(context, uri,
-                                    new RunnableEx("player") {
+                                    new RunnableEx("onCompleted") {
                                         @Override
                                         public void delegate() {
-                                            showPlayerState(attachment);
+                                            showPlayerState(uri);
                                         }
                                     });
+                        }
 
-                        showPlayerState(attachment);
+                        showPlayerState(uri);
                     } catch (Throwable ex) {
                         ivImage.setImageResource(R.drawable.twotone_warning_24);
                         Log.unexpectedError(parentFragment, ex);
