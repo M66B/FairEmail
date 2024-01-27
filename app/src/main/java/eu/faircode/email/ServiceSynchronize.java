@@ -2533,11 +2533,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             Long expirationTime = null;
                             if (!account.isTransient(this)) {
-                                expirationTime = iservice.getAccessTokenExpirationTime() -
-                                        ServiceAuthenticator.ADVANCE_REFRESH_TIME;
+                                expirationTime = iservice.getAccessTokenExpirationTime();
                                 if (expirationTime != null &&
                                         expirationTime < trigger &&
                                         expirationTime > new Date().getTime()) {
+                                    expirationTime += AuthState.EXPIRY_TIME_TOLERANCE_MS;
                                     EntityLog.log(this, "### " + account.name + " expedite keep alive" +
                                             " from " + new Date(trigger) + " to " + new Date(expirationTime));
                                     trigger = expirationTime;
