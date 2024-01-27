@@ -529,7 +529,7 @@ public class EmailService implements AutoCloseable {
                     if (auth == AUTH_TYPE_OAUTH) {
                         Long expiration = authenticator.getAccessTokenExpirationTime();
                         if (expiration != null && expiration < new Date().getTime())
-                            msg = "Access token expired at " + new Date(expiration) + "\n" + msg;
+                            msg = msg + "\n" + "Access token expired at " + new Date(expiration);
                     }
 
                     Throwable c = ex1;
