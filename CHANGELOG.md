@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ypupiara](https://en.wikipedia.org/wiki/Ypupiara)
 
-### 1.2153 - 2024-01-27
+### 1.2153 - 2024-01-27 *
 
 * Added mini audio player position
 * Added showing duration of audio/video files
