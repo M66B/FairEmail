@@ -859,6 +859,7 @@
     <string name="title_advanced_split_hint">יפצל את המסך לחלקים</string>
     <string name="title_advanced_split_min_hint">זה תנאי שמיועד למכשירים מתקפלים</string>
     <string name="title_advanced_threading_hint">קיבוץ הודעות שקשורות זו לזו</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">לסגנון כרטיסים בלבד</string>
     <string name="title_advanced_highlight_hint">הצבע המשני של ערכת הנושא ישמש להדגשה</string>
     <string name="title_advanced_privacy_risk">עלול להיות סיכון לפרטיות</string>
     <string name="title_advanced_name_email_hint">השמות יופיעו רק כשהם זמינים</string>

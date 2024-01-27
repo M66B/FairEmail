@@ -858,6 +858,7 @@
     <string name="title_advanced_split_hint">Spowoduje to podzielenie ekranu na części</string>
     <string name="title_advanced_split_min_hint">Jest to warunek przewidziany dla urządzeń składanych</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Tylko dla stylu karty</string>
     <string name="title_advanced_highlight_hint">Do podświetlenia zostanie użyty akcent kolorystyczny motywu</string>
     <string name="title_advanced_privacy_risk">Może istnieć ryzyko naruszenia prywatności</string>
     <string name="title_advanced_name_email_hint">Nazwy będą wyświetlane tylko wtedy, gdy będą dostępne</string>

@@ -832,6 +832,7 @@
     <string name="title_advanced_split_hint">Esta opção divide o ecrã em parcelas</string>
     <string name="title_advanced_split_min_hint">Esta é uma condição destinada a dispositivos dobráveis</string>
     <string name="title_advanced_threading_hint">Agrupar mensagens relacionadas entre si</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Somente para o estilo cartão</string>
     <string name="title_advanced_highlight_hint">A cor de ênfase do tema será usada para destaque</string>
     <string name="title_advanced_privacy_risk">Pode haver um risco de privacidade</string>
     <string name="title_advanced_name_email_hint">Os nomes só serão exibidos quando disponíveis</string>
