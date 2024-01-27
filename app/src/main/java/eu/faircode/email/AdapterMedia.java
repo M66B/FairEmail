@@ -282,7 +282,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                         if (MediaPlayerHelper.isPlaying(uri))
                             MediaPlayerHelper.stopMusic(context);
                         else
-                            MediaPlayerHelper.startMusic(context, owner, uri,
+                            MediaPlayerHelper.startMusic(context, uri,
                                     new RunnableEx("player") {
                                         @Override
                                         public void delegate() {
@@ -390,6 +390,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
                 Log.d(AdapterMedia.this + " parent destroyed");
+                MediaPlayerHelper.stopMusic(context);
                 AdapterMedia.this.parentFragment = null;
                 owner.getLifecycle().removeObserver(this);
             }
