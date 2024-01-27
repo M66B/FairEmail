@@ -7309,7 +7309,7 @@ public class FragmentCompose extends FragmentBase {
                         checkMx(acc, context);
                         checkMx(abcc, context);
                     } catch (UnknownHostException ex) {
-                        args.putString("mx_error", ex.getMessage());
+                        args.putString("mx_error", context.getString(R.string.title_no_server, ex.getMessage()));
                     }
                 } catch (Throwable ignored) {
                 }
