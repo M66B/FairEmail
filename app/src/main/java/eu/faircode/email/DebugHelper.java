@@ -1094,6 +1094,15 @@ public class DebugHelper {
 
                 boolean[] has46 = ConnectionHelper.has46(context);
 
+                boolean mx;
+                try {
+                    DnsHelper.checkMx(context, new Address[]{Log.myAddress()});
+                    mx = true;
+                } catch (Throwable ignored) {
+                    mx = false;
+                }
+
+                size += write(os, "MX=" + mx + "\r\n");
                 size += write(os, "Has IPv4=" + has46[0] + " IPv6=" + has46[1] + "\r\n");
                 size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n");
                 size += write(os, "Data saving=" + ConnectionHelper.isDataSaving(context) + "\r\n");
