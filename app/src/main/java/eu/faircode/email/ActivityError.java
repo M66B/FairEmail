@@ -42,6 +42,7 @@ public class ActivityError extends ActivityBase {
     private Button btnPassword;
     private ImageButton ibSetting;
     private ImageButton ibInfo;
+    private Button btnSupport;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class ActivityError extends ActivityBase {
         btnPassword = findViewById(R.id.btnPassword);
         ibSetting = findViewById(R.id.ibSetting);
         ibInfo = findViewById(R.id.ibInfo);
+        btnSupport = findViewById(R.id.btnSupport);
 
         load();
     }
@@ -170,6 +172,13 @@ public class ActivityError extends ActivityBase {
             @Override
             public void onClick(View view) {
                 Helper.viewFAQ(view.getContext(), isCertificateException ? 4 : faq);
+            }
+        });
+
+        btnSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Helper.getSupportUri(v.getContext(), "error"), false);
             }
         });
 
