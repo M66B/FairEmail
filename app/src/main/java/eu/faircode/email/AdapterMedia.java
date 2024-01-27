@@ -28,6 +28,7 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.pdf.PdfRenderer;
+import android.media.MediaMetadataRetriever;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
@@ -110,11 +111,6 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
             tvProperties.setVisibility(View.GONE);
 
             if (attachment.available) {
-                if (attachment.isAudio()) {
-                    showPlayerState(attachment.getUri(context));
-                    return;
-                }
-
                 Bundle args = new Bundle();
                 args.putSerializable("file", attachment.getFile(context));
                 args.putString("type", attachment.getMimeType());
@@ -131,6 +127,22 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                         File file = (File) args.getSerializable("file");
                         String type = args.getString("type");
                         int max = args.getInt("max");
+
+                        args.putLong("size", file.length());
+
+                        if (type != null &&
+                                (type.startsWith("audio/") || type.startsWith("video")))
+                            // https://developer.android.com/reference/android/media/MediaMetadataRetriever
+                            try (MediaMetadataRetriever ret = new MediaMetadataRetriever()) {
+                                ret.setDataSource(file.getAbsolutePath());
+
+                                String value = ret.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
+                                Integer duration = Helper.parseInt(value);
+                                if (duration != null)
+                                    args.putInt("duration", duration);
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
 
                         if ("application/pdf".equals(type)) {
                             // https://developer.android.com/reference/android/graphics/pdf/PdfRenderer
@@ -172,8 +184,6 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                             if ("image/webp".equalsIgnoreCase(type) && !webp)
                                 return context.getDrawable(R.drawable.twotone_image_not_supported_24);
 
-                            args.putLong("size", file.length());
-
                             try {
                                 BitmapFactory.Options options = new BitmapFactory.Options();
                                 options.inJustDecodeBounds = true;
@@ -208,7 +218,9 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
 
                     @Override
                     protected void onExecuted(Bundle args, Drawable image) {
-                        if (image == null) {
+                        if (attachment.isAudio())
+                            showPlayerState(attachment.getUri(context));
+                        else if (image == null) {
                             String type = args.getString("type");
                             if ("application/pdf".equals(type))
                                 ivImage.setImageResource(R.drawable.twotone_article_24);
@@ -249,8 +261,15 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                         long size = args.getLong("size");
                         if (size > 0) {
                             if (sb.length() > 0)
-                                sb.append(" \u2013 "); // –
+                                sb.append(' ');
                             sb.append(Helper.humanReadableByteCount(size));
+                        }
+
+                        int duration = args.getInt("duration");
+                        if (duration > 0) {
+                            if (sb.length() > 0)
+                                sb.append(' ');
+                            sb.append(Helper.formatDuration(duration));
                         }
 
                         if (sb.length() > 0) {
