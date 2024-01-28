@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.app.Notification;
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
