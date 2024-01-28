@@ -178,11 +178,12 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSyncExtra;
     private TextView tvSqliteCache;
     private SeekBar sbSqliteCache;
+    private ImageButton ibSqliteCache;
+    private SwitchCompat swOauthTabs;
     private TextView tvChunkSize;
     private SeekBar sbChunkSize;
     private TextView tvThreadRange;
     private SeekBar sbThreadRange;
-    private ImageButton ibSqliteCache;
     private SwitchCompat swAutoScroll;
     private SwitchCompat swUndoManager;
     private SwitchCompat swBrowserZoom;
@@ -274,6 +275,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "test1", "test2", "test3", "test4", "test5",
             "emergency_file", "work_manager", // "external_storage",
             "sqlite_integrity_check", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_auto_vacuum", "sqlite_sync_extra", "sqlite_cache",
+            "oauth_tabs",
             "chunk_size", "thread_range",
             "autoscroll_editor", "undo_manager",
             "browser_zoom", "fake_dark",
@@ -416,6 +418,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvSqliteCache = view.findViewById(R.id.tvSqliteCache);
         sbSqliteCache = view.findViewById(R.id.sbSqliteCache);
         ibSqliteCache = view.findViewById(R.id.ibSqliteCache);
+        swOauthTabs = view.findViewById(R.id.swOauthTabs);
         tvChunkSize = view.findViewById(R.id.tvChunkSize);
         sbChunkSize = view.findViewById(R.id.sbChunkSize);
         tvThreadRange = view.findViewById(R.id.tvThreadRange);
@@ -1218,6 +1221,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onClick(View v) {
                 prefs.edit().remove("debug").commit();
                 ApplicationEx.restart(v.getContext(), "sqlite_cache");
+            }
+        });
+
+        swOauthTabs.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton v, boolean checked) {
+                prefs.edit().putBoolean("oauth_tabs", checked).apply();
             }
         });
 
@@ -2295,6 +2305,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     NF.format(sqlite_cache),
                     Helper.humanReadableByteCount(cache_size * 1024L)));
             sbSqliteCache.setProgress(sqlite_cache);
+
+            swOauthTabs.setChecked(prefs.getBoolean("oauth_tabs", true));
 
             int chunk_size = prefs.getInt("chunk_size", Core.DEFAULT_CHUNK_SIZE);
             tvChunkSize.setText(getString(R.string.title_advanced_chunk_size, chunk_size));

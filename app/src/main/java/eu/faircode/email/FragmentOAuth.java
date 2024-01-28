@@ -387,11 +387,14 @@ public class FragmentOAuth extends FragmentBase {
             EmailProvider provider = EmailProvider.getProvider(context, id);
             EmailProvider.OAuth oauth = (graph ? provider.graph : provider.oauth);
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean oauth_tabs = prefs.getBoolean("oauth_tabs", true);
+
             AppAuthConfiguration.Builder appAuthConfig = new AppAuthConfiguration.Builder();
 
             AuthorizationService authService;
             try {
-                appAuthConfig.setBrowserMatcher(getBrowserMatcher(context, true, provider));
+                appAuthConfig.setBrowserMatcher(getBrowserMatcher(context, oauth_tabs, provider));
                 authService = new AuthorizationService(context, appAuthConfig.build());
             } catch (Throwable ex) {
                 /*
@@ -429,7 +432,6 @@ public class FragmentOAuth extends FragmentBase {
             int random = Math.abs(new SecureRandom().nextInt());
             long expire = new Date().getTime() + OAUTH_TIMEOUT;
             AuthState authState = new AuthState(serviceConfig);
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String key = "oauth." + provider.id + (graph ? ":graph" : "");
             JSONObject jauthstate = authState.jsonSerialize();
             jauthstate.put(FAIREMAIL_RANDOM, random);
