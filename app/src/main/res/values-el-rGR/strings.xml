@@ -444,6 +444,7 @@
     <string name="title_advanced_timeout">Χρονικό όριο σύνδεσης (δευτερόλεπτα)</string>
     <string name="title_advanced_prefer_ip4">Να προτιμάται IPv4 παρά IPv6</string>
     <string name="title_advanced_dns">Διευθύνσεις προτιμώμενων διακομιστών DNS (χωρισμένες με κόμμα)</string>
+    <string name="title_advanced_dns_custom">Χρήση προσαρμοσμένου επιλυτή DNS</string>
     <string name="title_advanced_ssl_update">Χρήση ενημερωμένου παρόχου SSL</string>
     <string name="title_advanced_ssl_harden">Θωράκιση συνδέσεων SSL</string>
     <string name="title_advanced_ssl_harden_strict">Απαιτείται TLS 1.3</string>
@@ -545,6 +546,8 @@
     <string name="title_advanced_attachments_alt">Να προβάλλονται τα συνημμένα μετά το κείμενο του μηνύματος</string>
     <string name="title_advanced_thumbnails">Να προβάλλονται οι μικρογραφίες μετά από το κείμενο του μηνύματος</string>
     <string name="title_advanced_pdf_preview">Να προβάλλονται οι μικρογραφίες των αρχείων PDF</string>
+    <string name="title_advanced_video_preview">Προβολή μικρογραφιών βίντεο</string>
+    <string name="title_advanced_audio_preview">Προβολή του μίνι προγράμματος αναπαραγωγής ήχου</string>
     <string name="title_advanced_message_text_zoom2">Μεγέθυνση κειμένου μηνύματος από προεπιλογή: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Μεγέθυνση του κειμένου του μηνύματος και κατά την επεξεργασία του μηνύματος</string>
     <string name="title_advanced_overview_mode">Μεγέθυνση αρχικού μηνύματος για προσαρμογή στην οθόνη</string>
@@ -825,6 +828,7 @@
     <string name="title_advanced_split_hint">Θα χωρίσει την οθόνη σε μέρη</string>
     <string name="title_advanced_split_min_hint">Αυτή είναι μια συνθήκη που αφορά αναδιπλούμενες συσκευές</string>
     <string name="title_advanced_threading_hint">Ομαδοποίηση των μηνυμάτων που σχετίζονται αναμεταξύ τους</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Μόνο για το στιλ κάρτας</string>
     <string name="title_advanced_highlight_hint">Το χρώμα έμφασης του θέματος θα χρησιμοποιηθεί για την επισήμανση</string>
     <string name="title_advanced_privacy_risk">Το προσωπικό σας απόρρητο μπορεί να τεθεί σε κίνδυνο</string>
     <string name="title_advanced_name_email_hint">Τα ονόματα θα εμφανίζονται μόνον όταν είναι διαθέσιμα</string>
