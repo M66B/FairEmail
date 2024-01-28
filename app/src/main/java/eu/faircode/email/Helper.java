@@ -2649,6 +2649,12 @@ public class Helper {
         return value;
     }
 
+    static String limit(String value, int max) {
+        if (TextUtils.isEmpty(value) || value.length() < max)
+            return value;
+        return value.substring(0, max);
+    }
+
     // Files
 
     static {

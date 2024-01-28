@@ -337,7 +337,8 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                 public void onClick(DialogInterface dialog, int which) {
                                     Uri uri = Helper.getSupportUri(ActivityMain.this, "Main:error")
                                             .buildUpon()
-                                            .appendQueryParameter("message", Log.formatThrowable(ex, false))
+                                            .appendQueryParameter("message",
+                                                    Helper.limit(Log.formatThrowable(ex, false), 384))
                                             .build();
                                     Helper.view(ActivityMain.this, uri, true);
                                 }

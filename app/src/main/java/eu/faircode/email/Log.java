@@ -1867,7 +1867,7 @@ public class Log {
                             if (!TextUtils.isEmpty(message))
                                 uri = uri
                                         .buildUpon()
-                                        .appendQueryParameter("message", "Unexpected: " + message)
+                                        .appendQueryParameter("message", Helper.limit(message, 384))
                                         .build();
                             Helper.view(context, uri, true);
                         }

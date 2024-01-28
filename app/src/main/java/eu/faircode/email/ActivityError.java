@@ -182,9 +182,6 @@ public class ActivityError extends ActivityBase {
             public void onClick(View v) {
                 StringBuilder sb = new StringBuilder();
 
-                sb.append(title)
-                        .append("\n");
-
                 sb.append("auth_type=")
                         .append(ServiceAuthenticator.getAuthTypeName(auth_type))
                         .append("\n");
@@ -198,6 +195,9 @@ public class ActivityError extends ActivityBase {
                     sb.append("provider=")
                             .append(provider)
                             .append("\n");
+
+                if (!TextUtils.isEmpty(message))
+                    sb.append(Helper.limit(message, 384));
 
                 Uri uri = Helper.getSupportUri(v.getContext(), "Sync:error")
                         .buildUpon()
