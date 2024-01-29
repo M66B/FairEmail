@@ -260,9 +260,7 @@ public class DnsHelper {
                 } else if (answer instanceof AAAA) {
                     AAAA aaaa = (AAAA) answer;
                     result.add(new DnsRecord(aaaa.getInetAddress()));
-                } else
-                    throw new IllegalArgumentException(answer.getClass().getName());
-
+                }
             }
         }
 
