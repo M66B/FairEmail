@@ -1102,6 +1102,11 @@ public class DebugHelper {
                     mx = false;
                 }
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean dns_custom = prefs.getBoolean("dns_custom", false);
+
+                size += write(os, "DNS custom=" + dns_custom +
+                        " servers=" + TextUtils.join(", ", DnsHelper.getDnsServers(context)) + "\r\n");
                 size += write(os, "MX=" + mx + "\r\n");
                 size += write(os, "Has IPv4=" + has46[0] + " IPv6=" + has46[1] + "\r\n");
                 size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n");
@@ -1115,7 +1120,6 @@ public class DebugHelper {
                             NetworkSecurityPolicy.getInstance().isCleartextTrafficPermitted() + "\r\n");
                 size += write(os, "\r\n");
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 int timeout = prefs.getInt("timeout", EmailService.DEFAULT_CONNECT_TIMEOUT);
                 boolean metered = prefs.getBoolean("metered", true);
                 int download = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);

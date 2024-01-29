@@ -372,7 +372,7 @@ public class DnsHelper {
         }
     }
 
-    private static List<String> getDnsServers(Context context) {
+    static List<String> getDnsServers(Context context) {
         List<String> result = new ArrayList<>(_getDnsServers(context));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
