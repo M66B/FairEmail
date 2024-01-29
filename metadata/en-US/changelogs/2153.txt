@@ -6,6 +6,11 @@ For support you can use the contact form.
 
 Ypupiara
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2153 - 2024-01-27 *
 
 * Added mini audio player position
