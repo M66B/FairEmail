@@ -1109,14 +1109,14 @@ public class FragmentRule extends FragmentBase {
     private void onScheduleStart(Bundle args) {
         int minutes = args.getInt("minutes", 0);
         tvScheduleHourStart.setTag(minutes);
-        tvScheduleHourStart.setText(formatHour(getContext(), minutes));
+        tvScheduleHourStart.setText(Helper.formatHour(getContext(), minutes));
         cbScheduleEnd.setChecked(true);
     }
 
     private void onScheduleEnd(Bundle args) {
         int minutes = args.getInt("minutes", 0);
         tvScheduleHourEnd.setTag(minutes);
-        tvScheduleHourEnd.setText(formatHour(getContext(), minutes));
+        tvScheduleHourEnd.setText(Helper.formatHour(getContext(), minutes));
         cbScheduleEnd.setChecked(true);
     }
 
@@ -1280,10 +1280,10 @@ public class FragmentRule extends FragmentBase {
                         spScheduleDayEnd.setSelection(end / (24 * 60));
 
                         tvScheduleHourStart.setTag(start % (24 * 60));
-                        tvScheduleHourStart.setText(formatHour(getContext(), start % (24 * 60)));
+                        tvScheduleHourStart.setText(Helper.formatHour(getContext(), start % (24 * 60)));
 
                         tvScheduleHourEnd.setTag(end % (24 * 60));
-                        tvScheduleHourEnd.setText(formatHour(getContext(), end % (24 * 60)));
+                        tvScheduleHourEnd.setText(Helper.formatHour(getContext(), end % (24 * 60)));
 
                         if (rule == null) {
                             for (int pos = 0; pos < adapterIdentity.getCount(); pos++)
@@ -1827,15 +1827,6 @@ public class FragmentRule extends FragmentBase {
         public String toString() {
             return name;
         }
-    }
-
-    private String formatHour(Context context, int minutes) {
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR_OF_DAY, minutes / 60);
-        cal.set(Calendar.MINUTE, minutes % 60);
-        cal.set(Calendar.SECOND, 0);
-        cal.set(Calendar.MILLISECOND, 0);
-        return Helper.getTimeInstance(context, SimpleDateFormat.SHORT).format(cal.getTime());
     }
 
     public static class TimePickerFragment extends FragmentDialogBase implements TimePickerDialog.OnTimeSetListener {

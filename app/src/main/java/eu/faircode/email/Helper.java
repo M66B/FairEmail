@@ -2307,6 +2307,15 @@ public class Helper {
             return DateUtils.getRelativeTimeSpanString(context, millis);
     }
 
+    static String formatHour(Context context, int minutes) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, minutes / 60);
+        cal.set(Calendar.MINUTE, minutes % 60);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return Helper.getTimeInstance(context, SimpleDateFormat.SHORT).format(cal.getTime());
+    }
+
     static String formatDuration(long ms) {
         return formatDuration(ms, true);
     }

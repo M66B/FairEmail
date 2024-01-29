@@ -167,9 +167,18 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                 if (jcondition.has("date"))
                     conditions.add(new Condition(context.getString(R.string.title_rule_time_abs),
                             null, null));
-                if (jcondition.has("schedule"))
+                if (jcondition.has("schedule")) {
+                    String range = null;
+                    JSONObject jschedule = jcondition.optJSONObject("schedule");
+                    if (jschedule != null && jschedule.has("start") && jschedule.has("end")) {
+                        int start = jschedule.getInt("start");
+                        int end = jschedule.getInt("end");
+                        range = Helper.formatHour(context, start % (24 * 60)) + " - " +
+                                Helper.formatHour(context, end % (24 * 60));
+                    }
                     conditions.add(new Condition(context.getString(R.string.title_rule_time_rel),
-                            null, null));
+                            range, null));
+                }
 
                 SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                 for (Condition condition : conditions) {
