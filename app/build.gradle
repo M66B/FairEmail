@@ -357,7 +357,7 @@ android {
     bugsnag {
         // https://docs.bugsnag.com/build-integrations/gradle/
         uploadJvmMappings = false // disables upload of ProGuard/DexGuard/R8 mapping files
-        uploadNdkMappings = true // disables upload of NDK mapping files
+        uploadNdkMappings = false // disables upload of NDK mapping files
         reportBuilds = false // disables upload of build metadata
         overwrite = true
         builderName = "M66B"
@@ -737,7 +737,7 @@ dependencies {
     // https://mvnrepository.com/artifact/com.bugsnag/bugsnag-android
     implementation("com.bugsnag:bugsnag-android:$bugsnag_version") {
         exclude group: "com.bugsnag", module: "bugsnag-plugin-android-anr"
-        //exclude group: "com.bugsnag", module: "bugsnag-plugin-android-ndk"
+        exclude group: "com.bugsnag", module: "bugsnag-plugin-android-ndk"
         exclude group: "com.bugsnag", module: "bugsnag-android-core"
     }
 

@@ -407,9 +407,9 @@ public class Log {
             config.setAutoTrackSessions(false);
 
             ErrorTypes etypes = new ErrorTypes();
-            etypes.setAnrs(BuildConfig.DEBUG);
-            etypes.setNdkCrashes(true);
             etypes.setUnhandledExceptions(true);
+            etypes.setAnrs(BuildConfig.DEBUG);
+            etypes.setNdkCrashes(false);
             config.setEnabledErrorTypes(etypes);
             config.setMaxBreadcrumbs(BuildConfig.PLAY_STORE_RELEASE ? 250 : 500);
 
