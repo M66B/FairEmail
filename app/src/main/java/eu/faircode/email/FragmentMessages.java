@@ -431,6 +431,7 @@ public class FragmentMessages extends FragmentBase
     static final int REQUEST_BLOCK_SENDERS = 28;
     static final int REQUEST_CALENDAR = 29;
     static final int REQUEST_EDIT_SUBJECT = 30;
+    private static final int REQUEST_ANSWER_SETTINGS = 31;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_VERIFYDECRYPT = BuildConfig.APPLICATION_ID + ".VERIFYDECRYPT";
@@ -4146,6 +4147,7 @@ public class FragmentMessages extends FragmentBase
 
     private void onMenuAnswerSettings() {
         FragmentDialogAnswerButton fragment = new FragmentDialogAnswerButton();
+        fragment.setTargetFragment(this, REQUEST_ANSWER_SETTINGS);
         fragment.show(getParentFragmentManager(), "dialog:answer");
     }
 
@@ -7604,9 +7606,10 @@ public class FragmentMessages extends FragmentBase
                 long id = values.get("expanded").get(0);
                 int pos = adapter.getPositionForKey(id);
                 TupleMessageEx message = adapter.getItemAtPosition(pos);
-                if (message != null && !EntityFolder.OUTBOX.equals(message.folderType))
+                if (message != null && !EntityFolder.OUTBOX.equals(message.folderType)) {
+                    updateAnswerIcon();
                     fabReply.show();
-                else
+                } else
                     fabReply.hide();
             } else
                 fabReply.hide();
@@ -7614,6 +7617,39 @@ public class FragmentMessages extends FragmentBase
 
         ibDown.setVisibility(quick_scroll && expanded > 0 ? View.VISIBLE : View.GONE);
         ibUp.setVisibility(quick_scroll && expanded > 0 ? View.VISIBLE : View.GONE);
+    }
+
+    private void updateAnswerIcon() {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String action = prefs.getString("answer_single", "menu");
+        switch (action) {
+            case "reply":
+                fabReply.setImageResource(R.drawable.twotone_reply_24);
+                break;
+            case "reply_all":
+                fabReply.setImageResource(R.drawable.twotone_reply_all_24);
+                break;
+            case "list":
+                fabReply.setImageResource(R.drawable.twotone_reorder_24);
+                break;
+            case "forward":
+                fabReply.setImageResource(R.drawable.twotone_forward_24);
+                break;
+            case "resend":
+                fabReply.setImageResource(R.drawable.twotone_redo_24);
+                break;
+            case "editasnew":
+                fabReply.setImageResource(R.drawable.twotone_add_24);
+                break;
+            case "move":
+                fabReply.setImageResource(R.drawable.twotone_drive_file_move_24);
+                break;
+            default:
+                fabReply.setImageResource(R.drawable.twotone_reply_24_options);
+        }
     }
 
     private void handleExpand(long id) {
@@ -8810,6 +8846,10 @@ public class FragmentMessages extends FragmentBase
                 case REQUEST_EDIT_SUBJECT:
                     if (resultCode == RESULT_OK)
                         onEditSubject(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_ANSWER_SETTINGS:
+                    if (resultCode == RESULT_OK)
+                        updateAnswerIcon();
                     break;
             }
         } catch (Throwable ex) {
