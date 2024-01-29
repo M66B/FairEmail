@@ -88,7 +88,8 @@ import javax.net.ssl.SSLSocketFactory;
 
 public class DnsHelper {
     // https://dns.watch/
-    private static final String DEFAULT_DNS = "84.200.69.80";
+    private static final String DEFAULT_DNS4 = "84.200.69.80";
+    private static final String DEFAULT_DNS6 = "2001:1608:10:25::1c04:b12f";
     private static final int CHECK_TIMEOUT = 5; // seconds
     private static final int LOOKUP_TIMEOUT = 15; // seconds
 
@@ -384,7 +385,8 @@ public class DnsHelper {
                     Log.w("DNS extra invalid=" + extra);
         }
 
-        result.add(DEFAULT_DNS);
+        result.add(DEFAULT_DNS4);
+        result.add(DEFAULT_DNS6);
 
         return result;
     }
