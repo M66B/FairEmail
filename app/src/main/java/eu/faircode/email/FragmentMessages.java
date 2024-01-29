@@ -10292,8 +10292,11 @@ public class FragmentMessages extends FragmentBase
                     return null;
 
                 ICalendar icalendar = CalendarHelper.parse(context, calendar.getFile(context));
-                VEvent event = icalendar.getEvents().get(0);
+                List<VEvent> events = icalendar.getEvents();
+                if (events == null || events.size() == 0)
+                    return null;
 
+                VEvent event = events.get(0);
                 int status = CalendarContract.Events.STATUS_TENTATIVE;
                 if (event.getStatus() != null &&
                         Status.CONFIRMED.equals(event.getStatus().getValue()))

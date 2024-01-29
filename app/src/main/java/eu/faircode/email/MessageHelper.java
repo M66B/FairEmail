@@ -4461,20 +4461,25 @@ public class MessageHelper {
                 File file = local.getFile(context);
                 ICalendar icalendar = CalendarHelper.parse(context, file);
 
-                Method method = icalendar.getMethod();
-                VEvent event = icalendar.getEvents().get(0);
+                List<VEvent> events = icalendar.getEvents();
+                if (events == null || events.size() == 0)
+                    EntityLog.log(context, "No events");
+                else {
+                    VEvent event = events.get(0);
 
-                // https://www.rfc-editor.org/rfc/rfc5546#section-3.2
-                if (method != null && method.isCancel())
-                    CalendarHelper.delete(context, event, message);
-                else if (method == null || method.isRequest()) {
-                    if (ical_tentative)
-                        CalendarHelper.insert(context, icalendar, event,
-                                CalendarContract.Events.STATUS_TENTATIVE, account, message);
-                    else
-                        EntityLog.log(context, "Tentative event not stored");
-                } else
-                    EntityLog.log(context, "Unknown event method=" + method.getValue());
+                    // https://www.rfc-editor.org/rfc/rfc5546#section-3.2
+                    Method method = icalendar.getMethod();
+                    if (method != null && method.isCancel())
+                        CalendarHelper.delete(context, event, message);
+                    else if (method == null || method.isRequest()) {
+                        if (ical_tentative)
+                            CalendarHelper.insert(context, icalendar, event,
+                                    CalendarContract.Events.STATUS_TENTATIVE, account, message);
+                        else
+                            EntityLog.log(context, "Tentative event not stored");
+                    } else
+                        EntityLog.log(context, "Unknown event method=" + method.getValue());
+                }
             } catch (Throwable ex) {
                 Log.w(ex);
                 db.attachment().setWarning(local.id, Log.formatThrowable(ex));
