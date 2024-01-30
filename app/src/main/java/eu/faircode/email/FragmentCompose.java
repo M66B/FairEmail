@@ -6861,6 +6861,8 @@ public class FragmentCompose extends FragmentBase {
                                 dirty = true;
                         }
 
+                    Log.i("Dirty=" + dirty + " id=" + draft.id);
+
                     if (draft.revision == null) {
                         draft.revision = 1;
                         draft.revisions = 1;
@@ -6997,6 +6999,7 @@ public class FragmentCompose extends FragmentBase {
 
                     if (silent) {
                         // Skip storing on the server, etc
+                        Log.i("Silent id=" + draft.id);
                         db.setTransactionSuccessful();
                         return draft;
                     }
@@ -7011,6 +7014,7 @@ public class FragmentCompose extends FragmentBase {
                     boolean needsEncryption = (dirty && !encrypted && shouldEncrypt);
                     boolean autosave = extras.getBoolean("autosave");
                     if (needsEncryption && !autosave) {
+                        Log.i("Need encryption id=" + draft.id);
                         args.putBoolean("needsEncryption", true);
                         db.setTransactionSuccessful();
                         return draft;
