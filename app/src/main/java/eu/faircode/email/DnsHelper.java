@@ -55,6 +55,7 @@ import org.minidns.record.Record;
 import org.minidns.record.SRV;
 import org.minidns.record.TXT;
 import org.minidns.source.AbstractDnsDataSource;
+import org.minidns.source.DnsDataSource;
 import org.minidns.util.MultipleIoException;
 
 import java.io.ByteArrayOutputStream;
@@ -194,6 +195,8 @@ public class DnsHelper {
 
         client.getDataSource().setTimeout(timeout * 1000);
 
+        client.setDataSource(new AuthoritiveDataSource(client.getDataSource()));
+
         // https://github.com/MiniDNS/minidns/issues/102
         if (client instanceof DnssecClient && dns_custom)
             ((DnssecClient) client).setUseHardcodedDnsServers(false);
@@ -207,8 +210,7 @@ public class DnsHelper {
         try {
             data.throwIfErrorResponse();
         } catch (Throwable ex) {
-            Log.e("DNS error message=" + ex.getMessage());
-            Log.e(ex);
+            Log.i("DNS error message=" + ex.getMessage());
             throw ex;
         }
 
@@ -625,6 +627,24 @@ public class DnsHelper {
                 Log.i(ex);
                 throw ex;
             }
+        }
+    }
+
+    private static class AuthoritiveDataSource extends AbstractDnsDataSource {
+        private final DnsDataSource delegate;
+
+        AuthoritiveDataSource(DnsDataSource delegate) {
+            this.delegate = delegate;
+        }
+
+        @Override
+        public DnsQueryResult query(DnsMessage message, InetAddress address, int port) throws IOException {
+            DnsQueryResult result = delegate.query(message, address, port);
+            DnsMessage answer = new DnsMessage(result.response.toArray())
+                    .asBuilder()
+                    .setRecursionAvailable(true)
+                    .build();
+            return new StandardDnsQueryResult(address, port, result.queryMethod, result.query, answer);
         }
     }
 
