@@ -55,7 +55,6 @@ import org.minidns.record.Record;
 import org.minidns.record.SRV;
 import org.minidns.record.TXT;
 import org.minidns.source.AbstractDnsDataSource;
-import org.minidns.source.DnsDataSource;
 import org.minidns.util.MultipleIoException;
 
 import java.io.ByteArrayOutputStream;
@@ -185,8 +184,6 @@ public class DnsHelper {
         ResolverApi resolver = DnssecResolverApi.INSTANCE;
         AbstractDnsClient client = resolver.getClient();
 
-        DnsDataSource dataSource = client.getDataSource();
-
         if (false) {
             String private_dns = ConnectionHelper.getPrivateDnsServerName(context);
             Log.w("DNS private=" + private_dns);
@@ -202,17 +199,7 @@ public class DnsHelper {
             ((DnssecClient) client).setUseHardcodedDnsServers(false);
 
         Log.i("DNS query name=" + type + ":" + name);
-        ResolverResult<? extends Data> data;
-        try {
-            data = resolver.resolve(name, clazz);
-        } catch (Throwable ex) {
-            Log.w(ex);
-            if (dataSource == null || dataSource == client.getDataSource())
-                throw ex;
-            Log.i("DNS retry custom");
-            client.setDataSource(dataSource);
-            data = resolver.resolve(name, clazz);
-        }
+        ResolverResult<? extends Data> data = resolver.resolve(name, clazz);
         Log.i("DNS resolved name=" + type + ":" + name +
                 " success=" + data.wasSuccessful() +
                 " rcode=" + data.getResponseCode());
@@ -220,7 +207,8 @@ public class DnsHelper {
         try {
             data.throwIfErrorResponse();
         } catch (Throwable ex) {
-            Log.w("DNS error message=" + ex.getMessage());
+            Log.e("DNS error message=" + ex.getMessage());
+            Log.e(ex);
             throw ex;
         }
 
