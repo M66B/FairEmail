@@ -200,9 +200,20 @@ public class DnsHelper {
 
         Log.i("DNS query name=" + type + ":" + name);
         ResolverResult<? extends Data> data = resolver.resolve(name, clazz);
-        data.throwIfErrorResponse();
+        Log.i("DNS resolved name=" + type + ":" + name +
+                " success=" + data.wasSuccessful() +
+                " rcode=" + data.getResponseCode());
+
+        try {
+            data.throwIfErrorResponse();
+        } catch (Throwable ex) {
+            Log.e("DNS error message=" + ex.getMessage());
+            Log.e(ex);
+            throw ex;
+        }
 
         boolean secure = (data.getUnverifiedReasons() != null);
+        Log.i("DNS secure=" + secure + " dnssec=" + dnssec);
         if (secure && dnssec) {
             DnssecResultNotAuthenticException ex = data.getDnssecResultNotAuthenticException();
             if (ex != null)
@@ -268,7 +279,12 @@ public class DnsHelper {
         for (DnsRecord record : result) {
             record.query = name;
             record.secure = secure;
-            record.authentic = data.isAuthenticData();
+            try {
+                record.authentic = data.isAuthenticData();
+            } catch (Throwable ex) {
+                Log.w(ex);
+                record.authentic = false;
+            }
         }
 
         if ("mx".equals(type) || "srv".equals(type))
@@ -568,6 +584,7 @@ public class DnsHelper {
                         @Override
                         public void onAnswer(@NonNull byte[] bytes, int rcode) {
                             try {
+                                Log.i("DNS rcode=" + rcode);
                                 DnsMessage answer = new DnsMessage(bytes)
                                         .asBuilder()
                                         .setResponseCode(DnsMessage.RESPONSE_CODE.getResponseCode(rcode))
