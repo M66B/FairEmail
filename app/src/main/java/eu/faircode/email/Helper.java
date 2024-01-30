@@ -1687,20 +1687,6 @@ public class Helper {
         }
     }
 
-    // 0=allowed, 1=denied
-    static Integer getMIUIAutostart(Context context) {
-        try {
-            @SuppressLint("PrivateApi")
-            Class<?> c = Class.forName("android.miui.AppOpsUtils");
-            Method m = c.getDeclaredMethod("getApplicationAutoStart", Context.class, String.class);
-            m.setAccessible(true);
-            return (Integer) m.invoke(null, context, context.getPackageName());
-        } catch (Throwable ex) {
-            Log.w(ex);
-            return null;
-        }
-    }
-
     static String getUiModeType(Context context) {
         try {
             UiModeManager uimm = Helper.getSystemService(context, UiModeManager.class);

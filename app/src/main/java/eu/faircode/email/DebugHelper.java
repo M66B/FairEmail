@@ -271,10 +271,7 @@ public class DebugHelper {
                 Build.VERSION.RELEASE, Build.VERSION.SDK_INT, Helper.getTargetSdk(context)));
 
         String miui = Helper.getMIUIVersion();
-        Integer autostart = (miui == null ? null : Helper.getMIUIAutostart(context));
-        sb.append(String.format("MIUI: %s autostart: %s\r\n",
-                miui == null ? "-" : miui,
-                autostart == null ? "?" : Boolean.toString(autostart == 0)));
+        sb.append(String.format("MIUI: %s\r\n", miui == null ? "-" : miui));
 
         boolean reporting = prefs.getBoolean("crash_reports", false);
         if (reporting || Log.isTestRelease()) {
