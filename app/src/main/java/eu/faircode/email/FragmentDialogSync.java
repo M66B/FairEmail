@@ -45,7 +45,8 @@ public class FragmentDialogSync extends FragmentDialogBase {
         String name = args.getString("name");
         String type = args.getString("type");
 
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_sync, null);
+        final Context context = getContext();
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_sync, null);
         final TextView tvFolder = view.findViewById(R.id.tvFolder);
         final EditText etMonths = view.findViewById(R.id.etMonths);
         final TextView tvRemark = view.findViewById(R.id.tvRemark);
@@ -54,7 +55,7 @@ public class FragmentDialogSync extends FragmentDialogBase {
             if (TextUtils.isEmpty(type))
                 tvFolder.setText(R.string.title_folder_unified);
             else
-                tvFolder.setText(EntityFolder.localizeType(getContext(), type));
+                tvFolder.setText(EntityFolder.localizeType(context, type));
         } else
             tvFolder.setText(name);
 
@@ -67,7 +68,7 @@ public class FragmentDialogSync extends FragmentDialogBase {
             }
         });
 
-        return new AlertDialog.Builder(getContext())
+        return new AlertDialog.Builder(context)
                 .setView(view)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
