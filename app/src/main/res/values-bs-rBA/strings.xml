@@ -845,6 +845,7 @@
     <string name="title_advanced_split_hint">Ovo će podijeliti ekran u dijelove</string>
     <string name="title_advanced_split_min_hint">Ovaj uvjet je namijenjen za sklopive uređaje</string>
     <string name="title_advanced_threading_hint">Grupiši poruke povezane jedne s drugima</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Samo za kartični stil</string>
     <string name="title_advanced_highlight_hint">Tematska boja za naglašavanje koristit će se za markiranje</string>
     <string name="title_advanced_privacy_risk">Moguće je da postoji rizik privatnosti</string>
     <string name="title_advanced_name_email_hint">Imena će se prikazivati samo kad su dostupna</string>
