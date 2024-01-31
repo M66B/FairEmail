@@ -199,19 +199,19 @@ public class DnsHelper {
             client.setDataSource(new AuthoritiveDataSource(client.getDataSource()));
 
         // https://github.com/MiniDNS/minidns/issues/102
-        if (client instanceof DnssecClient && dns_custom)
+        if (client instanceof DnssecClient)
             ((DnssecClient) client).setUseHardcodedDnsServers(false);
 
-        Log.i("DNS query name=" + type + ":" + name);
-        ResolverResult<? extends Data> data = resolver.resolve(name, clazz);
-        Log.i("DNS resolved name=" + type + ":" + name +
-                " success=" + data.wasSuccessful() +
-                " rcode=" + data.getResponseCode());
-
+        ResolverResult<? extends Data> data;
         try {
+            Log.i("DNS query name=" + type + ":" + name);
+            data = resolver.resolve(name, clazz);
+            Log.i("DNS resolved name=" + type + ":" + name +
+                    " success=" + data.wasSuccessful() +
+                    " rcode=" + data.getResponseCode());
             data.throwIfErrorResponse();
         } catch (Throwable ex) {
-            Log.i("DNS error message=" + ex.getMessage());
+            Log.w("DNS error message=" + ex.getMessage());
             throw ex;
         }
 
@@ -275,7 +275,9 @@ public class DnsHelper {
                 } else if (answer instanceof AAAA) {
                     AAAA aaaa = (AAAA) answer;
                     result.add(new DnsRecord(aaaa.getInetAddress()));
-                }
+                } else
+                    Log.e("DNS unexpected record=" +
+                            (answer == null ? null : answer.getClass().getName()));
             }
         }
 
@@ -391,10 +393,15 @@ public class DnsHelper {
     }
 
     static List<String> getDnsServers(Context context) {
-        List<String> result = new ArrayList<>(_getDnsServers(context));
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean dns_custom = prefs.getBoolean("dns_custom", false);
         String dns_extra = prefs.getString("dns_extra", null);
+
+        List<String> result = new ArrayList<>();
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q || dns_custom)
+            result.addAll(_getDnsServers(context));
+
         if (!TextUtils.isEmpty(dns_extra)) {
             String[] extras = dns_extra.replaceAll("\\s+", "").split(",");
             for (String extra : extras)
