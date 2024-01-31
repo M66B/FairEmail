@@ -9,6 +9,7 @@ Ypupiara
 Next version
 
 * Small improvements and minor bug fixes
+* Updated Public Suffix List
 * Updated translations
 
 1.2153 - 2024-01-27 *
