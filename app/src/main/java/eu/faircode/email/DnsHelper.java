@@ -195,7 +195,8 @@ public class DnsHelper {
 
         client.getDataSource().setTimeout(timeout * 1000);
 
-        client.setDataSource(new AuthoritiveDataSource(client.getDataSource()));
+        if (!dnssec)
+            client.setDataSource(new AuthoritiveDataSource(client.getDataSource()));
 
         // https://github.com/MiniDNS/minidns/issues/102
         if (client instanceof DnssecClient && dns_custom)
