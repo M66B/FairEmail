@@ -381,6 +381,7 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_legend_show_unsubscribe"
             app:srcCompat="@drawable/twotone_unsubscribe_24"
+            app:tint="?attr/colorAccent"
             tools:ignore="MissingConstraints" />
 
         <ImageButton
