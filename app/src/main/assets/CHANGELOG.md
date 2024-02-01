@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ypupiara](https://en.wikipedia.org/wiki/Ypupiara)
 
-### Next version
+### 1.2154 - 2024-02-01
 
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
