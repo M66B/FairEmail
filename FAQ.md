@@ -5760,9 +5760,10 @@ Changes in the past resulted too often in lots of complaints of other people.
 
 Requested features should:
 
-* be useful to most people
-* not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy-oriented, security-minded)
+* within the scope of the app
+* be useful to more than a few people
+* fit logically and consistently within the app
+* fit within the philosophy of the app (privacy-oriented, security-minded)
 * comply with common standards (IMAP, SMTP, etc.)
 * comply with the [Core app quality guidelines](https://developer.android.com/docs/quality-guidelines/core-app-quality)
 
