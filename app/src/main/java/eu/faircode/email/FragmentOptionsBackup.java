@@ -501,8 +501,13 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                 // Searches
                 JSONArray jsearches = new JSONArray();
-                for (EntitySearch search : db.search().getSearches())
+                for (EntitySearch search : db.search().getSearches()) {
+                    if (Objects.equals(search.name, context.getString(R.string.title_search_with_flagged)))
+                        continue;
+                    if (Objects.equals(search.name, context.getString(R.string.title_search_with_unseen)))
+                        continue;
                     jsearches.put(search.toJSON());
+                }
 
                 // Certificates
                 JSONArray jcertificates = new JSONArray();
