@@ -576,6 +576,8 @@
     <string name="title_advanced_attachments_alt">Паказваць укладанні пасля тэксту паведамлення</string>
     <string name="title_advanced_thumbnails">Паказваць мініяцюры выяў пасля тэксту паведамлення</string>
     <string name="title_advanced_pdf_preview">Паказваць мініяцюры PDF-файлаў</string>
+    <string name="title_advanced_video_preview">Паказваць мініяцюры відэафайлаў</string>
+    <string name="title_advanced_audio_preview">Паказваць міні-аўдыёпрайгравальнік</string>
     <string name="title_advanced_message_text_zoom2">Стандартны маштаб тэксту паведамлення: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Павялічваць тэкст паведамлення таксама ў рэдактары паведамленняў</string>
     <string name="title_advanced_overview_mode">Павялічваць маштаб арыгінальных паведамленняў пад памер экрана</string>
@@ -858,6 +860,7 @@
     <string name="title_advanced_split_hint">Гэта прывядзе да падзелу экрана на часткі</string>
     <string name="title_advanced_split_min_hint">Гэта ўмова прызначана для раскладных прылад</string>
     <string name="title_advanced_threading_hint">Групаваць паведамленні, звязаныя адно з адным</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Толькі для картачнага стылю</string>
     <string name="title_advanced_highlight_hint">Для падсветкі будзе выкарыстоўвацца акцэнтны колер тэмы</string>
     <string name="title_advanced_privacy_risk">Існуе рызыка парушэння канфідэнцыяльнасці</string>
     <string name="title_advanced_name_email_hint">Імёны будуць паказвацца толькі пры іх наяўнасці</string>
