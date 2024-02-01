@@ -812,8 +812,11 @@ public class EntityOperation {
                 List<EntityMessage> orphans = db.message().getDraftOrphans(folder.id);
                 if (orphans != null) {
                     EntityLog.log(context, "Draft orphans=" + orphans.size());
-                    for (EntityMessage orphan : orphans)
-                        EntityOperation.queue(context, orphan, EntityOperation.ADD);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean save_drafts = prefs.getBoolean("save_drafts", true);
+                    if (save_drafts)
+                        for (EntityMessage orphan : orphans)
+                            EntityOperation.queue(context, orphan, EntityOperation.ADD);
                 }
             }
         }
