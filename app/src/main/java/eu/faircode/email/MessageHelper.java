@@ -1792,7 +1792,7 @@ public class MessageHelper {
         }
 
         // https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-oxomsg/9e994fbb-b839-495f-84e3-2c8c02c7dd9b
-        if (BuildConfig.DEBUG)
+        if (BuildConfig.DEBUG && false)
             try {
                 String tindex = imessage.getHeader("Thread-Index", null);
                 if (tindex != null) {
@@ -1880,7 +1880,7 @@ public class MessageHelper {
                 }
         }
 
-        if (thread == null && !TextUtils.isEmpty(BuildConfig.DEV_DOMAIN)) {
+        if (thread == null && !TextUtils.isEmpty(BuildConfig.DEV_DOMAIN) && false) {
             String awsses = imessage.getHeader("X-SES-Outgoing", null);
             if (!TextUtils.isEmpty(awsses)) {
                 Address[] froms = getFrom();
