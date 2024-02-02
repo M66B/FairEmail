@@ -27,6 +27,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -70,6 +72,7 @@ public class ActivityWidget extends ActivityBase {
     private RadioButton rbNew;
     private CheckBox cbTop;
     private Spinner spFontSize;
+    private EditText etName;
     private Button btnSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -100,6 +103,7 @@ public class ActivityWidget extends ActivityBase {
         int layout = prefs.getInt("widget." + appWidgetId + ".layout", 1 /* new */);
         boolean top = prefs.getBoolean("widget." + appWidgetId + ".top", false);
         int size = prefs.getInt("widget." + appWidgetId + ".text_size", -1);
+        String name = prefs.getString("widget." + appWidgetId + ".name", null);
 
         daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
 
@@ -119,6 +123,7 @@ public class ActivityWidget extends ActivityBase {
         rbNew = findViewById(R.id.rbNew);
         cbTop = findViewById(R.id.cbTop);
         spFontSize = findViewById(R.id.spFontSize);
+        etName = findViewById(R.id.etName);
         btnSave = findViewById(R.id.btnSave);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
@@ -268,13 +273,17 @@ public class ActivityWidget extends ActivityBase {
                 int pos = spFontSize.getSelectedItemPosition();
 
                 SharedPreferences.Editor editor = prefs.edit();
-                if (folder == null || folder.id < 0) {
-                    if (account != null && account.id > 0)
-                        editor.putString("widget." + appWidgetId + ".name", account.name);
-                    else
-                        editor.remove("widget." + appWidgetId + ".name");
-                } else
-                    editor.putString("widget." + appWidgetId + ".name", folder.getDisplayName(ActivityWidget.this));
+                String name = etName.getText().toString();
+                if (TextUtils.isEmpty(name))
+                    if (folder == null || folder.id < 0) {
+                        if (account != null && account.id > 0)
+                            editor.putString("widget." + appWidgetId + ".name", account.name);
+                        else
+                            editor.remove("widget." + appWidgetId + ".name");
+                    } else
+                        editor.putString("widget." + appWidgetId + ".name", folder.getDisplayName(ActivityWidget.this));
+                else
+                    editor.putString("widget." + appWidgetId + ".name", name);
                 editor.putLong("widget." + appWidgetId + ".account", account == null ? -1L : account.id);
                 editor.putLong("widget." + appWidgetId + ".folder", folder == null ? -1L : folder.id);
                 editor.putBoolean("widget." + appWidgetId + ".daynight", cbDayNight.isChecked());
@@ -400,6 +409,7 @@ public class ActivityWidget extends ActivityBase {
         rbNew.setChecked(layout == 1);
         cbTop.setChecked(top);
         spFontSize.setSelection(size + 1);
+        etName.setText(name);
         updatePreview();
 
         grpReady.setVisibility(View.GONE);
