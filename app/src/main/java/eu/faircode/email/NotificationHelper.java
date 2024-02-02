@@ -326,12 +326,15 @@ class NotificationHelper {
 
         channel.setShowBadge(jchannel.getBoolean("badge"));
 
-        if (jchannel.has("sound") && !jchannel.isNull("sound")) {
-            Uri uri = Uri.parse(jchannel.getString("sound"));
-            Ringtone ringtone = RingtoneManager.getRingtone(context, uri);
-            if (ringtone != null)
-                channel.setSound(uri, Notification.AUDIO_ATTRIBUTES_DEFAULT);
-        }
+        if (jchannel.has("sound") && !jchannel.isNull("sound"))
+            try {
+                Uri uri = Uri.parse(jchannel.getString("sound"));
+                Ringtone ringtone = RingtoneManager.getRingtone(context, uri);
+                if (ringtone != null)
+                    channel.setSound(uri, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
         channel.enableLights(jchannel.getBoolean("light"));
         channel.enableVibration(jchannel.getBoolean("vibrate"));
