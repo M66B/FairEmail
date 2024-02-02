@@ -523,7 +523,10 @@ public class EntityRule {
 
                 if (cal_start.getTimeInMillis() > cal_end.getTimeInMillis())
                     if (all)
-                        cal_start.add(Calendar.DATE, -1);
+                        if (cal_end.getTimeInMillis() < message.received)
+                            cal_end.add(Calendar.DATE, 1);
+                        else
+                            cal_start.add(Calendar.DATE, -1);
                     else
                         cal_start.add(Calendar.HOUR_OF_DAY, -7 * 24);
 
