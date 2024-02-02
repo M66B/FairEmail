@@ -898,7 +898,9 @@ class NotificationHelper {
                             .setShowWhen(true)
                             .setSortKey(sortKey)
                             .setDeleteIntent(piIgnore)
-                            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                            .setPriority(EntityMessage.PRIORITIY_HIGH.equals(message.importance)
+                                    ? NotificationCompat.PRIORITY_HIGH
+                                    : NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_EMAIL)
                             .setVisibility(notify_private
                                     ? NotificationCompat.VISIBILITY_PRIVATE
