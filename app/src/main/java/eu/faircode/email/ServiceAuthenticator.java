@@ -24,9 +24,11 @@ import static eu.faircode.email.GmailState.TYPE_GOOGLE;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 import net.openid.appauth.AppAuthConfiguration;
 import net.openid.appauth.AuthState;
@@ -67,6 +69,7 @@ public class ServiceAuthenticator extends Authenticator {
 
     static final long MIN_REFRESH_INTERVAL = 15 * 60 * 1000L;
     static final long MIN_FORCE_REFRESH_INTERVAL = 15 * 60 * 1000L;
+    static final long FORCE_REFRESH_INTERVAL = 60 * 60 * 1000L;
     static final int MAX_TOKEN_WAIT = 90; // seconds
 
     ServiceAuthenticator(
@@ -160,6 +163,11 @@ public class ServiceAuthenticator extends Authenticator {
             throws MessagingException {
         try {
             long now = new Date().getTime();
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String key_last_force = "key_last_force:" + id + ":" + user;
+            long last_force = prefs.getLong(key_last_force, -1L);
+
             Long expiration = authState.getAccessTokenExpirationTime();
             boolean needsRefresh = (expiration != null && expiration < now);
 
@@ -167,6 +175,12 @@ public class ServiceAuthenticator extends Authenticator {
                     expiration != null &&
                     expiration - MIN_FORCE_REFRESH_INTERVAL < now)
                 needsRefresh = true;
+
+            if (!needsRefresh && forceRefresh &&
+                    (last_force < 0 || last_force + FORCE_REFRESH_INTERVAL > now)) {
+                needsRefresh = true;
+                prefs.edit().putLong(key_last_force, new Date().getTime()).apply();
+            }
 
             if (needsRefresh)
                 authState.setNeedsTokenRefresh(true);
@@ -176,7 +190,8 @@ public class ServiceAuthenticator extends Authenticator {
                     " user=" + user +
                     " expiration=" + (expiration == null ? null : new Date(expiration)) +
                     " need=" + needsRefresh + "/" + authState.getNeedsTokenRefresh() +
-                    " force=" + forceRefresh);
+                    " force=" + forceRefresh +
+                    " last=" + (last_force < 0 ? null : new Date(last_force)));
 
             ClientAuthentication clientAuth;
             EmailProvider provider = EmailProvider.getProvider(context, id);
@@ -222,9 +237,13 @@ public class ServiceAuthenticator extends Authenticator {
 
             authService.dispose();
 
-            if (holder.error == null)
-                Log.i("OAuth refreshed provider=" + id + ":" + getAuthTypeName(auth_type) + " user=" + user);
-            else {
+            if (holder.error == null) {
+                Long e = authState.getAccessTokenExpirationTime();
+                Log.i("OAuth refreshed" +
+                        " provider=" + id + ":" + getAuthTypeName(auth_type) +
+                        " user=" + user +
+                        " expiration=" + (e == null ? null : new Date(e)));
+            } else {
                 EntityLog.log(context, "Token refresh failed" +
                         " provider=" + id + ":" + getAuthTypeName(auth_type) +
                         " error=" + Log.formatThrowable(holder.error, false));
