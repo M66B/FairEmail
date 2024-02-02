@@ -31,6 +31,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.AudioAttributes;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -284,9 +285,16 @@ class NotificationHelper {
         jchannel.put("badge", channel.canShowBadge());
 
         Uri sound = channel.getSound();
-        if (sound != null)
+        if (sound != null) {
             jchannel.put("sound", sound.toString());
-        // audio attributes
+            AudioAttributes attr = channel.getAudioAttributes();
+            try {
+                jchannel.put("sound_content_type", attr.getContentType());
+                jchannel.put("sound_usage", attr.getUsage());
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
 
         jchannel.put("light", channel.shouldShowLights());
         // color
@@ -329,9 +337,25 @@ class NotificationHelper {
         if (jchannel.has("sound") && !jchannel.isNull("sound"))
             try {
                 Uri uri = Uri.parse(jchannel.getString("sound"));
+                AudioAttributes attr;
+                try {
+                    AudioAttributes.Builder builder = new AudioAttributes.Builder();
+                    if (jchannel.has("sound_content_type"))
+                        builder.setContentType(jchannel.getInt("sound_content_type"));
+                    else
+                        builder.setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION);
+                    if (jchannel.has("sound_usage"))
+                        builder.setUsage(jchannel.getInt("sound_usage"));
+                    else
+                        builder.setUsage(AudioAttributes.USAGE_NOTIFICATION);
+                    attr = builder.build();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    attr = Notification.AUDIO_ATTRIBUTES_DEFAULT;
+                }
                 Ringtone ringtone = RingtoneManager.getRingtone(context, uri);
                 if (ringtone != null)
-                    channel.setSound(uri, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+                    channel.setSound(uri, attr);
             } catch (Throwable ex) {
                 Log.e(ex);
             }
