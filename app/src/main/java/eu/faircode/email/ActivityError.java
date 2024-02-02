@@ -102,7 +102,9 @@ public class ActivityError extends ActivityBase {
         tvMessage.setMovementMethod(LinkMovementMethodCompat.getInstance());
         tvMessage.setText(message);
 
-        tvCertificate.setVisibility(isCertificateException ? View.VISIBLE : View.GONE);
+        tvCertificate.setVisibility(
+                isCertificateException && !SSLHelper.customTrustManager()
+                        ? View.VISIBLE : View.GONE);
 
         boolean password = (auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD);
 
