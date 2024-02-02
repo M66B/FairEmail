@@ -184,7 +184,7 @@ public class WidgetUnified extends AppWidgetProvider {
                 views.setInt(R.id.compose, "setColorFilter", fg);
             }
 
-            views.setViewVisibility(R.id.separator, separators ? View.VISIBLE : View.GONE);
+            views.setViewVisibility(R.id.separator, caption && separators ? View.VISIBLE : View.GONE);
 
             int dp6 = Helper.dp2pixels(context, 6);
             views.setViewPadding(R.id.content, dp6, 0, dp6, 0);
