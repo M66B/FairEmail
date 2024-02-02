@@ -8,6 +8,7 @@ Ypupiara
 
 Next version
 
+* Added title fields for count/unified widgets
 * Using high priority notifications for high importance messages
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
