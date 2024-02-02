@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Ypupiara
 
+Next version
+
+* Using high priority notifications for high importance messages
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2154 - 2024-02-01
 
 * Small improvements and minor bug fixes
