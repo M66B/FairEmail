@@ -270,17 +270,17 @@ public class ActivityWidgetUnified extends ActivityBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityWidgetUnified.this);
                 SharedPreferences.Editor editor = prefs.edit();
 
-                if (account != null && account.id > 0) {
-                    String name = etName.getText().toString();
-                    if (TextUtils.isEmpty(name))
+                String name = etName.getText().toString();
+                if (TextUtils.isEmpty(name))
+                    if (account != null && account.id > 0)
                         if (folder != null && folder.id > 0)
                             editor.putString("widget." + appWidgetId + ".name", folder.getDisplayName(ActivityWidgetUnified.this));
                         else
                             editor.putString("widget." + appWidgetId + ".name", account.name);
                     else
-                        editor.putString("widget." + appWidgetId + ".name", name);
-                } else
-                    editor.remove("widget." + appWidgetId + ".name");
+                        editor.remove("widget." + appWidgetId + ".name");
+                else
+                    editor.putString("widget." + appWidgetId + ".name", name);
 
                 int font = spFontSize.getSelectedItemPosition();
                 int padding = spPadding.getSelectedItemPosition();
