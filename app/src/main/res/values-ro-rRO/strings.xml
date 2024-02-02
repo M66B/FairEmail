@@ -560,6 +560,8 @@
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_thumbnails">Arată miniaturile imaginilor după textul mesajului</string>
     <string name="title_advanced_pdf_preview">Arată miniaturi PDF</string>
+    <string name="title_advanced_video_preview">Arată miniaturi video</string>
+    <string name="title_advanced_audio_preview">Arată mini audio player</string>
     <string name="title_advanced_message_text_zoom2">Zoom implicit al textului mesajului: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Măriți și textul mesajului în editorul de mesaje</string>
     <string name="title_advanced_overview_mode">Măriți mesajele originale pentru a se potrivi cu ecranul</string>
@@ -842,6 +844,7 @@
     <string name="title_advanced_split_hint">Aceasta va împărţi ecranul în mai multe părți</string>
     <string name="title_advanced_split_min_hint">Aceasta este o condiție destinată dispozitivelor pliabile</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
+    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Numai pentru stilul card</string>
     <string name="title_advanced_highlight_hint">Culoarea de accent a temei va fi folosită pentru evidențiere</string>
     <string name="title_advanced_privacy_risk">S-ar putea să existe un risc de confidențialitate</string>
     <string name="title_advanced_name_email_hint">Numele vor fi afișate numai atunci când sunt disponibile</string>
