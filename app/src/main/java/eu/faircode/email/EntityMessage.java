@@ -430,10 +430,12 @@ public class EntityMessage implements Serializable {
             return false;
         String email = ((InternetAddress) from[0]).getAddress();
         String domain = UriHelper.getEmailDomain(email);
+        if (TextUtils.isEmpty(domain))
+            return false;
         return "duck.com".equals(domain) ||
                 "simplelogin.co".equals(domain) ||
-                "mozmail.com".equals(domain) ||
-                "anonaddy.me".equals(domain);
+                "anonaddy.me".equals(domain) ||
+                domain.endsWith(".mozmail.com");
     }
 
     String[] checkFromDomain(Context context) {
