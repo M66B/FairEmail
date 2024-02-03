@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shortcut_refresh">Värskenda</string>
+    <string name="shortcut_setup">Seaded</string>
+    <string name="title_junk_clear">Tühjenda</string>
+    <string name="menu_setup">Seaded</string>
+    <string name="menu_legend">Legend</string>
+    <string name="menu_faq">Kasutajatugi</string>
+    <string name="menu_about">Info</string>
+    <string name="menu_pro">Pro funktsioonid</string>
+    <string name="title_agree">Nõustun</string>
+    <string name="title_disagree">Ei nõustu</string>
+    <string name="title_setup">Seaded</string>
+    <string name="title_setup_export">Ekspordi seaded</string>
+    <string name="title_setup_import">Impordi seaded</string>
+    <string name="title_setup_options">Valikud</string>
+    <string name="title_advanced_section_backup">Varunda</string>
+    <string name="title_advanced_caption_general">Üldine</string>
+    <string name="title_advanced_notify_action_delete">Kustuta</string>
+    <string name="title_advanced_cleanup">Puhasta</string>
+    <string name="title_delete">Kustuta</string>
+    <string name="title_rule_keyword_add">Lisa</string>
+    <string name="title_rule_keyword_delete">Kustuta</string>
+    <string name="title_rule_enabled">Lubatud</string>
+    <string name="title_legend_delete">Kustuta</string>
+    <string name="title_add">Lisa</string>
+    <string name="title_enabled">Lubatud</string>
+    <string name="title_reset">Lähtesta</string>
+    <string name="title_pro_purchase">Osta</string>
+    <string name="title_log_clear">Tühjenda</string>
+    <!-- Thunderbird -->
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <!-- https://www.bouncycastle.org/specifications.html -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="contactTypes">
+        <item>Recipient</item>
+        <item>Sender</item>
+        <item>Blokeeritud</item>
+        <item>Not blocked</item>
+    </string-array>
+    <string-array name="contactGroupTypes">
+        <item>Any</item>
+        <item>Home</item>
+        <item>Work</item>
+        <item>Muu</item>
+        <item>Mobile</item>
+    </string-array>
+</resources>

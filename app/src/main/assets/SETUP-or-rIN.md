@@ -6,7 +6,7 @@ Setting up FairEmail is fairly simple. ଯଦି ଆପଣ ଇମେଲ୍ ପ�
 
 An internet connection is required to set up accounts and identities.
 
-## Quick setup
+## ଦ୍ରୁତ ସେଟଅପ୍
 
 Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
 

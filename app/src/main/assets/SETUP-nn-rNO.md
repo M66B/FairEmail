@@ -6,7 +6,7 @@ Det er ganske enkelt å sette opp FairEmail. Du må legge til minst en konto for
 
 Det kreves en internettforbindelse for å konfigurere kontoer og identiteter.
 
-## Hurtigoppsett
+## Hurtig oppsett
 
 Bare velg riktig leverandør eller *Annen leverandør* og skriv inn navn, e-postadresse og passord og trykk *Sjekk*.
 
