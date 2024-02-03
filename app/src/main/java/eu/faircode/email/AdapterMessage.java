@@ -2769,14 +2769,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         message.blocklist != null && message.blocklist);
                 if (BuildConfig.DEBUG && headers instanceof SpannableStringBuilder) {
                     SpannableStringBuilder ssb = (SpannableStringBuilder) headers;
-                    ssb.append('\n')
-                            .append("TLS=").append(message.tls == null ? "-" : (message.tls ? "✓" : "✗"))
-                            .append(" DKIM=").append(message.dkim == null ? "-" : (message.dkim ? "✓" : "✗"))
-                            .append(" SPF=").append(message.spf == null ? "-" : (message.spf ? "✓" : "✗"))
-                            .append(" DMARC=").append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"))
-                            .append(" SMTP=").append(message.auth == null ? "-" : (message.auth ? "✓" : "✗"))
-                            .append(" BL=").append(message.blocklist == null ? "-" : (message.blocklist ? "✓" : "✗"))
-                            .append('\n');
+                    ssb.append('\n');
+                    ssb.append("TLS=").append(message.tls == null ? "-" : (message.tls ? "✓" : "✗"));
+                    ssb.append(" DKIM=").append(message.dkim == null ? "-" : (message.dkim ? "✓" : "✗"));
+                    ssb.append(" SPF=").append(message.spf == null ? "-" : (message.spf ? "✓" : "✗"));
+                    ssb.append(" DMARC=").append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"));
+                    if (message.auth != null)
+                        ssb.append(" SMTP=").append(message.auth ? "✓" : "✗");
+                    ssb.append(" BL=").append(message.blocklist == null ? "-" : (message.blocklist ? "✓" : "✗"));
+                    ssb.append('\n');
                 }
                 tvHeaders.setText(headers);
                 ibCopyHeaders.setVisibility(View.VISIBLE);
@@ -4892,8 +4893,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 sb.append("DMARC: ")
                         .append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"))
                         .append('\n');
-                sb.append("SMTP: ")
-                        .append(message.auth == null ? "-" : (message.auth ? "✓" : "✗"));
+                if (message.auth != null)
+                    sb.append("SMTP: ").append(message.auth ? "✓" : "✗");
                 if (check_mx)
                     sb.append('\n')
                             .append("MX: ")
