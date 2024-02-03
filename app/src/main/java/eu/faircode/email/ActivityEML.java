@@ -93,6 +93,7 @@ public class ActivityEML extends ActivityBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
+    private boolean draft;
     private boolean junk;
     private Uri uri;
     private MessageHelper.AttachmentPart apart;
@@ -103,8 +104,10 @@ public class ActivityEML extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (savedInstanceState != null)
+        if (savedInstanceState != null) {
+            draft = savedInstanceState.getBoolean("fair:draft");
             junk = savedInstanceState.getBoolean("fair:junk");
+        }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle("EML");
@@ -221,6 +224,7 @@ public class ActivityEML extends ActivityBase {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:draft", draft);
         outState.putBoolean("fair:junk", junk);
         super.onSaveInstanceState(outState);
     }
@@ -504,12 +508,23 @@ public class ActivityEML extends ActivityBase {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_draft)
+                .setVisible(BuildConfig.DEBUG)
+                .setChecked(draft);
         menu.findItem(R.id.menu_junk)
                 .setVisible(BuildConfig.DEBUG)
                 .setChecked(junk);
-        menu.findItem(R.id.menu_save).setIcon(junk
-                ? R.drawable.twotone_report_24
-                : R.drawable.twotone_move_to_inbox_24);
+
+        if (draft && BuildConfig.DEBUG)
+            menu.findItem(R.id.menu_save)
+                    .setIcon(R.drawable.twotone_drafts_24);
+        else if (junk && BuildConfig.DEBUG)
+            menu.findItem(R.id.menu_save)
+                    .setIcon(R.drawable.twotone_report_24);
+        else
+            menu.findItem(R.id.menu_save)
+                    .setIcon(R.drawable.twotone_move_to_inbox_24);
+
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -522,8 +537,16 @@ public class ActivityEML extends ActivityBase {
         } else if (itemId == R.id.menu_save) {
             onMenuSave();
             return true;
+        } else if (itemId == R.id.menu_draft) {
+            draft = !draft;
+            if (draft)
+                junk = false;
+            item.setChecked(draft);
+            invalidateOptionsMenu();
         } else if (itemId == R.id.menu_junk) {
             junk = !junk;
+            if (junk)
+                draft = false;
             item.setChecked(junk);
             invalidateOptionsMenu();
         }
@@ -542,7 +565,12 @@ public class ActivityEML extends ActivityBase {
 
     private void onSave(Bundle args) {
         args.putParcelable("uri", uri);
-        args.putBoolean("junk", junk);
+        if (draft && BuildConfig.DEBUG)
+            args.putString("type", EntityFolder.DRAFTS);
+        else if (junk && BuildConfig.DEBUG)
+            args.putString("type", EntityFolder.JUNK);
+        else
+            args.putString("type", EntityFolder.INBOX);
 
         new SimpleTask<String>() {
             private Toast toast = null;
@@ -562,15 +590,14 @@ public class ActivityEML extends ActivityBase {
             @Override
             protected String onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
-                boolean junk = args.getBoolean("junk");
+                String type = args.getString("type");
                 long aid = args.getLong("account");
 
                 DB db = DB.getInstance(context);
                 EntityAccount account = db.account().getAccount(aid);
                 if (account == null)
                     return null;
-                EntityFolder folder = db.folder().getFolderByType(account.id,
-                        junk ? EntityFolder.JUNK : EntityFolder.INBOX);
+                EntityFolder folder = db.folder().getFolderByType(account.id, type);
                 if (folder == null)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
 
