@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">FairEmail otsing</string>
+    <string name="app_send_self">Saada endale</string>
+    <string name="app_changelog">Muudatused</string>
+    <string name="app_welcome">FairEmail on avatud lähtekoodiga e-posti äpp, mis keskendub privaatsusele ja turvalisusele. Seetõttu võivad mõned asjad töötada tavapärasest teisiti.</string>
+    <string name="app_limitations">Näiteks vormindatakse vaikehäälestusena sõnumeid, et eemaldada ebaturvalised elemendid ja parandada loetavust, ning turvalisuseks tuleb linkide avamine kinnitada. Mõlemad saab soovikorral välja lülitada.</string>
+    <string name="app_unsupported">Selle seadme Androidi versiooni vead põhjustavad kokkujooksmist</string>
+    <string name="app_data_loss">Kõik andmed võivad kaotsi minna</string>
+    <string name="app_continue">Jätka siiski</string>
+    <string name="app_exit">Väljumiseks mine jälle \'tagasi\'</string>
+    <string name="app_cake">Jäänud ebapiisavalt talletusruumi</string>
+    <string name="app_cake_remaining">Seadmes jäänud talletusruum: %1$s</string>
+    <string name="app_cake_required">Miinimu vajalik talletusruum: %1$s</string>
+    <string name="app_updated">Viimati uuendatud: %1$s</string>
+    <string name="app_download">Laaditud kohast: %1$s</string>
+    <string name="channel_service">Jälgimine</string>
+    <string name="channel_send">Saada</string>
+    <string name="channel_notification">E-post</string>
+    <string name="channel_progress">Edenemine</string>
+    <string name="channel_update">Uuendused</string>
+    <string name="channel_announcements">Teavitused</string>
+    <string name="channel_warning">Hoiatused</string>
+    <string name="channel_error">Vead</string>
+    <string name="channel_alert">Serveri teated</string>
+    <string name="channel_group_contacts">Kontaktid</string>
+    <string name="channel_service_description">Kontode sünkroonimine ja jälgimine</string>
+    <string name="channel_send_description">Sõnumite saatmine</string>
+    <string name="channel_notification_description">Uute sõnumite teavitused</string>
     <string name="shortcut_refresh">Värskenda</string>
     <string name="shortcut_setup">Seaded</string>
     <string name="title_junk_clear">Tühjenda</string>
