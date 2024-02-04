@@ -4476,6 +4476,10 @@ which mostly involves signing a contract with binding terms and conditions.
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release
 because Android refuses to install ("*App was not installed*") the same app with a different signature for security reasons.
 
+At the start of 2024, the Play Store app started to update all apps, including apps not installed via the Play Store.
+Since the F-Droid build is signed by the F-Droid organization, which basically means the F-Droid build is another app, updating the F-Droid build will fail.
+Unfortunately, there is no way to resolve this.
+
 Note that the GitHub version will automatically check for updates.
 When desired, this can be turned off in the miscellaneous settings.
 
