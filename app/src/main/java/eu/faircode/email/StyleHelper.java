@@ -1816,17 +1816,6 @@ public class StyleHelper {
         return new CustomTypefaceSpan(family, getTypeface(family, context));
     }
 
-    static List<String> getTypeFaces(String family) {
-        List<String> faces = new ArrayList<>();
-        for (String face : family.split(","))
-            faces.add(face
-                    .trim()
-                    .toLowerCase(Locale.ROOT)
-                    .replace("'", "")
-                    .replace("\"", ""));
-        return faces;
-    }
-
     static Typeface getTypeface(String family, Context context) {
         if (TextUtils.isEmpty(family))
             return Typeface.DEFAULT;
@@ -1835,8 +1824,15 @@ public class StyleHelper {
         boolean bundled_fonts = prefs.getBoolean("bundled_fonts", true);
         boolean narrow_fonts = prefs.getBoolean("narrow_fonts", false);
 
+        List<String> faces = new ArrayList<>();
+        for (String face : family.split(","))
+            faces.add(face
+                    .trim()
+                    .toLowerCase(Locale.ROOT)
+                    .replace("'", "")
+                    .replace("\"", ""));
+
         try {
-            List<String> faces = getTypeFaces(family);
 
             if (faces.contains("fairemail"))
                 return ResourcesCompat.getFont(context.getApplicationContext(), R.font.fantasy);
