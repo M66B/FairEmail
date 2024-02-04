@@ -894,6 +894,12 @@ public class HtmlHelper {
                             if (!text_font)
                                 continue;
 
+                            if (!TextUtils.isEmpty(value)) {
+                                List<String> faces = StyleHelper.getTypeFaces(value);
+                                if (faces.contains("monospace"))
+                                    element.attr("x-plain", "true");
+                            }
+
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/font-family
                             sb.append(key).append(":").append(value).append(";");
                             break;
