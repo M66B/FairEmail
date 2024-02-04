@@ -530,12 +530,16 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         // Initialize
 
+        int icon = 0;
         if (UriHelper.isHyperLink(uri))
-            tvCaption.setCompoundDrawablesWithIntrinsicBounds(R.drawable.twotone_insert_link_45_24, 0, 0, 0);
+            icon = R.drawable.twotone_insert_link_45_24;
+        else if (UriHelper.isMail(uri))
+            icon = R.drawable.twotone_mail_24;
         else if (UriHelper.isPhoneNumber(uri))
-            tvCaption.setCompoundDrawablesWithIntrinsicBounds(R.drawable.twotone_call_24, 0, 0, 0);
+            icon = R.drawable.twotone_call_24;
         else if (UriHelper.isGeo(uri))
-            tvCaption.setCompoundDrawablesWithIntrinsicBounds(R.drawable.twotone_language_24, 0, 0, 0);
+            icon = R.drawable.twotone_language_24;
+        tvCaption.setCompoundDrawablesWithIntrinsicBounds(icon, 0, 0, 0);
 
         tvTitle.setText(title);
         tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);

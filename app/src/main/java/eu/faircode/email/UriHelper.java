@@ -544,6 +544,10 @@ public class UriHelper {
                         "https".equalsIgnoreCase(uri.getScheme())));
     }
 
+    static boolean isMail(Uri uri) {
+        return (uri.isOpaque() && "mailto".equalsIgnoreCase(uri.getScheme()));
+    }
+
     static boolean isPhoneNumber(Uri uri) {
         return (uri.isOpaque() && "tel".equalsIgnoreCase(uri.getScheme()));
     }
