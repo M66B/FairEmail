@@ -210,7 +210,7 @@ public class FragmentIdentities extends FragmentBase {
                 grpReady.setVisibility(View.VISIBLE);
 
                 if (identities.size() == 0) {
-                    fab.setCustomSize(Helper.dp2pixels(context, 2 * 56));
+                    fab.setCustomSize(Helper.dp2pixels(context, 3 * 56 / 2));
                     if (animator != null && !animator.isStarted())
                         animator.start();
                 } else {
