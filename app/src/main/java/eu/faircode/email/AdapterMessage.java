@@ -6361,7 +6361,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private boolean onOpenLink(Uri uri, String title, boolean always_confirm) {
             Log.i("Opening uri=" + uri + " title=" + title + " always confirm=" + always_confirm);
-            uri = Uri.parse(uri.toString().trim().replaceAll("\\s+", "+"));
+            if (UriHelper.isHyperLink(uri))
+                uri = Uri.parse(uri.toString().trim().replaceAll("\\s+", "+"));
 
             if (ProtectedContent.isProtectedContent(uri)) {
                 Bundle args = new Bundle();
