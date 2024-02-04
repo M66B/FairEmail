@@ -544,6 +544,14 @@ public class UriHelper {
                         "https".equalsIgnoreCase(uri.getScheme())));
     }
 
+    static boolean isPhoneNumber(Uri uri) {
+        return (uri.isOpaque() && "tel".equalsIgnoreCase(uri.getScheme()));
+    }
+
+    static boolean isGeo(Uri uri) {
+        return (uri.isOpaque() && "geo".equalsIgnoreCase(uri.getScheme()));
+    }
+
     static Uri fix(Uri uri) {
         if ((!"http".equals(uri.getScheme()) && "http".equalsIgnoreCase(uri.getScheme())) ||
                 (!"https".equals(uri.getScheme()) && "https".equalsIgnoreCase(uri.getScheme()))) {

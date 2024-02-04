@@ -15,6 +15,7 @@
             android:id="@+id/tvCaption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:drawablePadding="6dp"
             android:text="@string/title_open_link"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toStartOf="@+id/ibInfo"
