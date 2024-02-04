@@ -953,7 +953,7 @@ public class Helper {
             }
         };
 
-        ObjectAnimator animator = ObjectAnimator.ofFloat(fab, "alpha", 0.9f, 1.0f);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(fab, "alpha", 0.9f, 1.1f);
         animator.setDuration(750L);
         animator.setRepeatCount(ValueAnimator.INFINITE);
         animator.setRepeatMode(ValueAnimator.REVERSE);
