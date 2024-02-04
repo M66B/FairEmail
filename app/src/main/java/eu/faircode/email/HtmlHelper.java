@@ -1060,6 +1060,14 @@ public class HtmlHelper {
                                 else
                                     sb.append(key).append(':').append("hidden").append(';');
                             break;
+
+                        case "white-space":
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/white-space
+                            if ("pre".equals(value) ||
+                                    "pre-wrap".equals(value) ||
+                                    "break-spaces".equals(value))
+                                element.attr("x-plain", "true");
+                            break;
                     }
                 }
 
