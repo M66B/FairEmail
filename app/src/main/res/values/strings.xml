@@ -1459,6 +1459,7 @@
     <string name="title_new_message">New message</string>
     <string name="title_editasnew">Edit as new</string>
     <string name="title_edit_notes">Edit local notes</string>
+    <string name="title_edit_notes_remark">Local notes are not stored on the mail server and are therefore only available in this app on this device</string>
     <string name="title_create_rule">Create rule &#8230;</string>
     <string name="title_full_screen">Full screen</string>
     <string name="title_force_light">Force light theme</string>
