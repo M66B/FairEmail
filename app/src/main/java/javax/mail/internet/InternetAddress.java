@@ -1093,6 +1093,10 @@ public class InternetAddress extends Address implements Cloneable {
 			throw new AddressException("Nested group", s, index);
 		if (start == -1)
 		    start = index;
+		if (index + 1 < length) {
+			char nc = s.charAt(index + 1);
+			in_group = (nc == ';');
+		}
 		if (true) break;
 		if (parseHdr && !strict) {
 		    /*
