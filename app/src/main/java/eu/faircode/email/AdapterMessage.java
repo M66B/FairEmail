@@ -1448,7 +1448,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     else {
                         String email = ((InternetAddress) a[0]).getAddress();
                         String domain = UriHelper.getEmailDomain(email);
-                        String tld = UriHelper.getTld(context, domain);
+                        String tld = (domain == null ? "" : UriHelper.getTld(context, domain));
                         int resid = context.getResources().getIdentifier(
                                 "flag_" + tld, "drawable", context.getPackageName());
                         Drawable d = (resid > 0 ? context.getDrawable(resid) : null);
