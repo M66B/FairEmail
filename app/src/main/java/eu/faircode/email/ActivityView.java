@@ -737,9 +737,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }
 
-        if (getSupportFragmentManager().getFragments().size() == 0 &&
-                !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT))
-            init();
+        if (getSupportFragmentManager().getFragments().size() == 0) {
+            Intent intent = getIntent();
+            boolean search = (intent != null && intent.hasExtra(Intent.EXTRA_PROCESS_TEXT));
+            boolean standalone = (intent != null && intent.getBooleanExtra("standalone", false));
+            boolean unified = (intent != null &&
+                    ("unified".equals(intent.getAction()) ||
+                            ("folder:-1".equals(intent.getAction()) &&
+                                    intent.getLongExtra("account", 0) < 0 &&
+                                    intent.getStringExtra("type") == null)));
+            if (!search && !(standalone && !unified))
+                init();
+        }
 
         if (savedInstanceState != null)
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
@@ -1312,7 +1321,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             else {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
                 boolean double_back = prefs.getBoolean("double_back", false);
-                if (searching || !double_back)
+
+                Intent intent = getIntent();
+                boolean standalone = (intent != null && intent.getBooleanExtra("standalone", false));
+
+                if (searching || !double_back || standalone)
                     performBack();
                 else {
                     exit = true;
@@ -2051,7 +2064,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 long folder = intent.getLongExtra("widget_folder", -1);
                 String type = intent.getStringExtra("widget_type");
                 if (account > 0 && folder > 0 && !TextUtils.isEmpty(type)) {
-                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                    if (!intent.getBooleanExtra("standalone", false) &&
+                            getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                         getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                         Bundle args = new Bundle();

@@ -68,6 +68,7 @@ public class Widget extends AppWidgetProvider {
                     int layout = prefs.getInt("widget." + appWidgetId + ".layout", 0);
                     boolean top = prefs.getBoolean("widget." + appWidgetId + ".top", false);
                     int size = prefs.getInt("widget." + appWidgetId + ".text_size", -1);
+                    boolean standalone = prefs.getBoolean("widget." + appWidgetId + ".standalone", false);
                     int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
 
                     if (version <= 1550)
@@ -90,6 +91,7 @@ public class Widget extends AppWidgetProvider {
                         view.setAction("folder:" + folders.get(0).id);
                         view.putExtra("account", account);
                         view.putExtra("type", folders.get(0).type);
+                        view.putExtra("standalone", standalone);
                         view.putExtra("refresh", true);
                         view.putExtra("version", version);
                         view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -99,6 +101,7 @@ public class Widget extends AppWidgetProvider {
                         if (account < 0) {
                             Intent view = new Intent(context, ActivityView.class);
                             view.setAction("unified");
+                            view.putExtra("standalone", standalone);
                             view.putExtra("refresh", true);
                             view.putExtra("version", version);
                             view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -107,6 +110,7 @@ public class Widget extends AppWidgetProvider {
                         } else {
                             Intent view = new Intent(context, ActivityView.class);
                             view.setAction("folders:" + account);
+                            view.putExtra("standalone", standalone);
                             view.putExtra("refresh", true);
                             view.putExtra("version", version);
                             view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

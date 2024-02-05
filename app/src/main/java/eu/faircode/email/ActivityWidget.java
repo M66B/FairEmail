@@ -73,6 +73,7 @@ public class ActivityWidget extends ActivityBase {
     private CheckBox cbTop;
     private Spinner spFontSize;
     private EditText etName;
+    private CheckBox cbStandalone;
     private Button btnSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -104,6 +105,7 @@ public class ActivityWidget extends ActivityBase {
         boolean top = prefs.getBoolean("widget." + appWidgetId + ".top", false);
         int size = prefs.getInt("widget." + appWidgetId + ".text_size", -1);
         String name = prefs.getString("widget." + appWidgetId + ".name", null);
+        boolean standalone = prefs.getBoolean("widget." + appWidgetId + ".standalone", false);
 
         daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
 
@@ -124,6 +126,7 @@ public class ActivityWidget extends ActivityBase {
         cbTop = findViewById(R.id.cbTop);
         spFontSize = findViewById(R.id.spFontSize);
         etName = findViewById(R.id.etName);
+        cbStandalone = findViewById(R.id.cbStandalone);
         btnSave = findViewById(R.id.btnSave);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
@@ -296,6 +299,7 @@ public class ActivityWidget extends ActivityBase {
                     editor.putInt("widget." + appWidgetId + ".text_size", pos - 1);
                 else
                     editor.remove("widget." + appWidgetId + ".text_size");
+                editor.putBoolean("widget." + appWidgetId + ".standalone", cbStandalone.isChecked());
                 editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
                 editor.apply();
 
@@ -410,6 +414,7 @@ public class ActivityWidget extends ActivityBase {
         cbTop.setChecked(top);
         spFontSize.setSelection(size + 1);
         etName.setText(name);
+        cbStandalone.setChecked(standalone);
         updatePreview();
 
         grpReady.setVisibility(View.GONE);

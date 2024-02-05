@@ -78,6 +78,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private EditText etName;
     private CheckBox cbRefresh;
     private CheckBox cbCompose;
+    private CheckBox cbStandalone;
     private Button btnSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -122,6 +123,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         String name = prefs.getString("widget." + appWidgetId + ".name", null);
         boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
         boolean compose = prefs.getBoolean("widget." + appWidgetId + ".compose", false);
+        boolean standalone = prefs.getBoolean("widget." + appWidgetId + ".standalone", false);
 
         daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
 
@@ -149,6 +151,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         etName = findViewById(R.id.etName);
         cbRefresh = findViewById(R.id.cbRefresh);
         cbCompose = findViewById(R.id.cbCompose);
+        cbStandalone = findViewById(R.id.cbStandalone);
         btnSave = findViewById(R.id.btnSave);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
@@ -304,6 +307,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putBoolean("widget." + appWidgetId + ".caption", cbCaption.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".refresh", cbRefresh.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".compose", cbCompose.isChecked());
+                editor.putBoolean("widget." + appWidgetId + ".standalone", cbStandalone.isChecked());
                 editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
 
                 editor.apply();
@@ -441,6 +445,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         etName.setEnabled(caption);
         cbRefresh.setChecked(refresh);
         cbCompose.setChecked(compose);
+        cbStandalone.setChecked(standalone);
 
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);

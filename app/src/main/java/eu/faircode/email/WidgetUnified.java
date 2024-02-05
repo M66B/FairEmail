@@ -59,6 +59,7 @@ public class WidgetUnified extends AppWidgetProvider {
             boolean caption = prefs.getBoolean("widget." + appWidgetId + ".caption", true);
             boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
             boolean compose = prefs.getBoolean("widget." + appWidgetId + ".compose", false);
+            boolean standalone = prefs.getBoolean("widget." + appWidgetId + ".standalone", false);
             int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
 
             if (version <= 1550)
@@ -72,6 +73,7 @@ public class WidgetUnified extends AppWidgetProvider {
             view.setAction("folder:" + folder);
             view.putExtra("account", account);
             view.putExtra("type", type);
+            view.putExtra("standalone", standalone);
             view.putExtra("refresh", true);
             view.putExtra("version", version);
             view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -133,6 +135,7 @@ public class WidgetUnified extends AppWidgetProvider {
             thread.putExtra("widget_folder", folder);
             thread.putExtra("widget_type", type);
             thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(type));
+            thread.putExtra("standalone", standalone);
             thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent piItem = PendingIntentCompat.getActivity(
                     context, ActivityView.PI_WIDGET, thread, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
