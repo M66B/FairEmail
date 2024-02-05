@@ -5487,6 +5487,21 @@ public class MessageHelper {
         return result.toArray(new InternetAddress[0]);
     }
 
+    static Address[] removeGroups(Address[] addresses) {
+        if (addresses == null)
+            return null;
+
+        List<Address> result = new ArrayList<>();
+
+        for (Address address : addresses) {
+            if (address instanceof InternetAddress && ((InternetAddress) address).isGroup())
+                continue;
+            result.add(address);
+        }
+
+        return result.toArray(new Address[0]);
+    }
+
     static void getStructure(Part part, SpannableStringBuilder ssb, int level, int textColorLink) {
         try {
             Enumeration<Header> headers;
