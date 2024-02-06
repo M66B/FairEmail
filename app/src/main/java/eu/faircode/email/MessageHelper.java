@@ -5499,7 +5499,7 @@ public class MessageHelper {
             result.add(address);
         }
 
-        return (result.size() == 0 ? null : result.toArray(new Address[0]));
+        return result.toArray(new Address[0]);
     }
 
     static void getStructure(Part part, SpannableStringBuilder ssb, int level, int textColorLink) {
