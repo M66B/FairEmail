@@ -70,9 +70,13 @@ public class WidgetUnified extends AppWidgetProvider {
                 padding = 2; // Default medium
 
             Intent view = new Intent(context, ActivityView.class);
-            view.setAction("folder:" + folder);
-            view.putExtra("account", account);
-            view.putExtra("type", type);
+            if (account < 0 && folder < 0 && type == null)
+                view.setAction("unified");
+            else {
+                view.setAction("folder:" + folder);
+                view.putExtra("account", account);
+                view.putExtra("type", type);
+            }
             view.putExtra("standalone", standalone);
             view.putExtra("refresh", true);
             view.putExtra("version", version);

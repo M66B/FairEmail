@@ -741,11 +741,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             Intent intent = getIntent();
             boolean search = (intent != null && intent.hasExtra(Intent.EXTRA_PROCESS_TEXT));
             boolean standalone = (intent != null && intent.getBooleanExtra("standalone", false));
-            boolean unified = (intent != null &&
-                    ("unified".equals(intent.getAction()) ||
-                            ("folder:-1".equals(intent.getAction()) &&
-                                    intent.getLongExtra("account", 0) < 0 &&
-                                    intent.getStringExtra("type") == null)));
+            boolean unified = (intent != null && "unified".equals(intent.getAction()));
             if (!search && !(standalone && !unified))
                 init();
         }
