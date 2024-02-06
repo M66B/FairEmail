@@ -2087,6 +2087,7 @@
     <string name="title_legend_section_keyboard">Keyboard</string>
 
     <string name="title_legend_oauth">OAuth authorization</string>
+    <string name="title_legend_graph" translatable="false">Microsoft Graph</string>
     <string name="title_legend_folder_connected">Folder connected</string>
     <string name="title_legend_folder_disconnected">Folder disconnected</string>
     <string name="title_legend_download_on">Download message content automatically</string>

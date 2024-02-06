@@ -36,6 +36,29 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/ivGraph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_graph"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvGraph"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvGraph"
+            app:srcCompat="@drawable/twotone_hub_24" />
+
+        <TextView
+            android:id="@+id/tvGraph"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/title_legend_graph"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivGraph"
+            app:layout_constraintTop_toBottomOf="@id/tvOauth" />
+
+        <ImageView
             android:id="@+id/ivPrimaryConnected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,7 +79,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivPrimaryConnected"
-            app:layout_constraintTop_toBottomOf="@id/tvOauth" />
+            app:layout_constraintTop_toBottomOf="@id/tvGraph" />
 
         <ImageView
             android:id="@+id/ivPrimaryDisconnected"
