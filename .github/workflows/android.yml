@@ -50,8 +50,8 @@ jobs:
     - name: Upload to BitBucket
       run: |
         ./gradlew upload -Ptarget=play-preview
-        ./gradlew upload -Ptarget=github-update
-        ./gradlew upload -Ptarget=large-update
+        ./gradlew upload -Ptarget=github-snapshot
+        ./gradlew upload -Ptarget=large-snapshot
     #https://github.com/actions/upload-artifact
     - uses: actions/upload-artifact@v4
       with:
