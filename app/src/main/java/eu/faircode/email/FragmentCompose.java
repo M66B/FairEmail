@@ -5584,7 +5584,6 @@ public class FragmentCompose extends FragmentBase {
                         // - participation
 
                         ref.from = MessageHelper.removeGroups(ref.from);
-                        ref.reply = MessageHelper.removeGroups(ref.reply);
                         ref.to = MessageHelper.removeGroups(ref.to);
                         ref.cc = MessageHelper.removeGroups(ref.cc);
                         ref.bcc = MessageHelper.removeGroups(ref.bcc);
