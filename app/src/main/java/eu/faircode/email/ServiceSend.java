@@ -811,8 +811,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         EntityLog.log(this, line);
                 }
 
+                Address[] rcptto = MessageHelper.removeGroups(recipients.toArray(new Address[0]));
+
                 String via = "via " + ident.host + "/" + ident.user +
-                        " recipients=" + TextUtils.join(", ", recipients);
+                        " rcptto=" + TextUtils.join(", ", recipients);
 
                 iservice.setReporter(new TraceOutputStream.IReport() {
                     private int progress = -1;
@@ -837,7 +839,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 // Send message
                 EntityLog.log(this, "Sending " + via);
                 start = new Date().getTime();
-                iservice.getTransport().sendMessage(imessage, recipients.toArray(new Address[0]));
+                iservice.getTransport().sendMessage(imessage, rcptto);
                 end = new Date().getTime();
                 EntityLog.log(this, "Sent " + via + " elapse=" + (end - start) + " ms");
             } catch (MessagingException ex) {
