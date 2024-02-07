@@ -2408,6 +2408,11 @@
     <string name="title_keyword_label4">To do</string>
     <string name="title_keyword_label5">Later</string>
 
+    <string name="title_keyword_displayed">Displayed</string>
+    <string name="title_keyword_delivered">Delivered</string>
+    <string name="title_keyword_not_displayed">Not displayed</string>
+    <string name="title_keyword_not_delivered">Not delivered</string>
+
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d message</item>
         <item quantity="other">%1$d messages</item>

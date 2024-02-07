@@ -119,6 +119,14 @@ public class TupleKeyword {
                 return context.getString(R.string.title_keyword_label4);
             case "$label5": // Later
                 return context.getString(R.string.title_keyword_label5);
+            case MessageHelper.FLAG_DISPLAYED:
+                return context.getString(R.string.title_keyword_displayed);
+            case MessageHelper.FLAG_DELIVERED:
+                return context.getString(R.string.title_keyword_delivered);
+            case MessageHelper.FLAG_NOT_DISPLAYED:
+                return context.getString(R.string.title_keyword_not_displayed);
+            case MessageHelper.FLAG_NOT_DELIVERED:
+                return context.getString(R.string.title_keyword_not_delivered);
             default:
                 return keyword;
         }
@@ -136,6 +144,14 @@ public class TupleKeyword {
                 return Color.parseColor("#3333FF");
             case "$label5": // Later
                 return Color.parseColor("#993399");
+
+            case MessageHelper.FLAG_DISPLAYED:
+            case MessageHelper.FLAG_DELIVERED:
+                return Helper.resolveColor(context, R.attr.colorVerified);
+            case MessageHelper.FLAG_NOT_DISPLAYED:
+            case MessageHelper.FLAG_NOT_DELIVERED:
+                return Helper.resolveColor(context, androidx.appcompat.R.attr.colorError);
+
             default:
                 return null;
         }
