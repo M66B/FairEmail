@@ -57,10 +57,6 @@ public interface DaoAccount {
             "    FROM message" +
             "    JOIN folder ON folder.id = message.folder" +
             "    WHERE message.account = account.id" +
-            "    AND folder.type <> '" + EntityFolder.ARCHIVE + "'" +
-            "    AND folder.type <> '" + EntityFolder.TRASH + "'" +
-            "    AND folder.type <> '" + EntityFolder.JUNK + "'" +
-            "    AND folder.type <> '" + EntityFolder.DRAFTS + "'" +
             "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
             "    AND folder.count_unread" +
             "    AND NOT ui_seen" +
@@ -95,10 +91,6 @@ public interface DaoAccount {
             "    FROM message" +
             "    JOIN folder ON folder.id = message.folder" +
             "    WHERE message.account = account.id" +
-            "    AND folder.type <> '" + EntityFolder.ARCHIVE + "'" +
-            "    AND folder.type <> '" + EntityFolder.TRASH + "'" +
-            "    AND folder.type <> '" + EntityFolder.JUNK + "'" +
-            "    AND folder.type <> '" + EntityFolder.DRAFTS + "'" +
             "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
             "    AND folder.count_unread" +
             "    AND NOT ui_seen" +
