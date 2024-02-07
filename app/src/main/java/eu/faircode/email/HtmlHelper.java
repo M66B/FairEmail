@@ -924,7 +924,18 @@ public class HtmlHelper {
                                         String text = tnode.getWholeText();
                                         switch (value) {
                                             case "capitalize":
-                                                // TODO: capitalize
+                                                for (int i = 0; i < text.length(); ) {
+                                                    int codepoint = text.codePointAt(i);
+                                                    if (Character.isLetter(codepoint)) {
+                                                        tnode.text(text.substring(0, i) +
+                                                                text.substring(i, i + 1).toUpperCase(Locale.ROOT) +
+                                                                text.substring(i + 1));
+                                                        break;
+                                                    } else if (!Character.isWhitespace(codepoint))
+                                                        break;
+                                                    else
+                                                        i += Character.charCount(codepoint);
+                                                }
                                                 break;
                                             case "uppercase":
                                                 tnode.text(text.toUpperCase(Locale.ROOT));
