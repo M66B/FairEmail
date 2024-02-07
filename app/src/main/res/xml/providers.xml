@@ -756,7 +756,7 @@
     </provider>
     <provider
         name="Zoho"
-        documentation="You might need to use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
+        documentation="You might need to &lt;a href=&quot;https://www.zoho.com/mail/help/imap-access.html#EnableIMAP&quot;&gt;enable IMAP&lt;/a&gt; and use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
         domain="zoho\\.com"
         link="https://www.zoho.com/mail/help/imap-access.html"
         maxtls="1.2">
@@ -771,8 +771,8 @@
     </provider>
     <provider
         name="Zoho EU"
-        documentation="You might need to use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
-        domain="zohomail\\.eu"
+        documentation="You might need to &lt;a href=&quot;https://www.zoho.com/mail/help/imap-access.html#EnableIMAP&quot;&gt;enable IMAP&lt;/a&gt; and use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
+        domain="zohomail\\.eu,zoho\\.eu"
         link="https://www.zoho.eu/mail/help/imap-access.html"
         maxtls="1.2">
         <imap
@@ -786,7 +786,7 @@
     </provider>
     <provider
         name="Zoho AU"
-        documentation="You might need to use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
+        documentation="You might need to &lt;a href=&quot;https://www.zoho.com/mail/help/imap-access.html#EnableIMAP&quot;&gt;enable IMAP&lt;/a&gt; and use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
         domain="zohomail\\.com\\.au"
         maxtls="1.2">
         <imap
@@ -800,7 +800,7 @@
     </provider>
     <provider
         name="Zoho pro"
-        documentation="You might need to use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
+        documentation="You might need to &lt;a href=&quot;https://www.zoho.com/mail/help/imap-access.html#EnableIMAP&quot;&gt;enable IMAP&lt;/a&gt; and use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
         maxtls="1.2">
         <imap
             host="imappro.zoho.com"
