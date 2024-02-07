@@ -1484,8 +1484,34 @@ public class DebugHelper {
             PackageManager pm = context.getPackageManager();
 
             long size = 0;
+
+            boolean safOpen = false;
+            try {
+                Intent open = new Intent(Intent.ACTION_GET_CONTENT);
+                open.addCategory(Intent.CATEGORY_OPENABLE);
+                open.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                open.setType("*/*");
+                safOpen = (open.resolveActivity(pm) != null);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
+            boolean safCreate = false;
+            try {
+                Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+                create.addCategory(Intent.CATEGORY_OPENABLE);
+                create.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                create.setType("*/*");
+                create.putExtra(Intent.EXTRA_TITLE, "x.x");
+                Helper.openAdvanced(context, create);
+                safCreate = (create.resolveActivity(pm) != null);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
             File file = attachment.getFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                size += write(os, String.format("SAF open=%b create=%b\r\n", safOpen, safCreate));
                 size += write(os, String.format("Photo picker=%b\r\n", Helper.hasPhotoPicker()));
                 size += write(os, String.format("Double tap timeout=%d\r\n", ViewConfiguration.getDoubleTapTimeout()));
                 size += write(os, String.format("Long press timeout=%d\r\n", ViewConfiguration.getLongPressTimeout()));
