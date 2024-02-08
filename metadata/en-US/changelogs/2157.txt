@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Ypupiara
 
+Next version
+
+* Added barcode decoding
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2157 - 2024-02-08
 
 * Added widget option to show messages/folders standalone
