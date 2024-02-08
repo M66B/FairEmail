@@ -2412,6 +2412,7 @@
     <string name="title_keyword_delivered">Delivered</string>
     <string name="title_keyword_not_displayed">Not displayed</string>
     <string name="title_keyword_not_delivered">Not delivered</string>
+    <string name="title_keyword_complaint">Complaint</string>
 
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d message</item>
