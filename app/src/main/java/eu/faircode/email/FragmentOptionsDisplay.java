@@ -187,6 +187,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swPdfPreview;
     private SwitchCompat swVideoPreview;
     private SwitchCompat swAudioPreview;
+    private SwitchCompat swBarcodePreview;
 
     private SwitchCompat swListCount;
     private SwitchCompat swBundledFonts;
@@ -226,7 +227,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "hyphenation", "display_font", "contrast", "monospaced_pre",
             "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images", "button_extra",
-            "unzip", "attachments_alt", "thumbnails", "pdf_preview", "video_preview", "audio_preview",
+            "unzip", "attachments_alt", "thumbnails", "pdf_preview", "video_preview", "audio_preview", "barcode_preview",
             "list_count", "bundled_fonts", "narrow_fonts", "parse_classes",
             "background_color", "text_color", "text_size", "text_font", "text_align", "text_titles",
             "authentication", "authentication_indicator"
@@ -361,6 +362,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPdfPreview = view.findViewById(R.id.swPdfPreview);
         swVideoPreview = view.findViewById(R.id.swVideoPreview);
         swAudioPreview = view.findViewById(R.id.swAudioPreview);
+        swBarcodePreview = view.findViewById(R.id.swBarcodePreview);
 
         swListCount = view.findViewById(R.id.swListCount);
         swBundledFonts = view.findViewById(R.id.swBundledFonts);
@@ -1324,6 +1326,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 swPdfPreview.setEnabled(checked);
                 swVideoPreview.setEnabled(checked);
                 swAudioPreview.setEnabled(checked);
+                swBarcodePreview.setEnabled(checked);
             }
         });
 
@@ -1345,6 +1348,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("audio_preview", checked).apply();
+            }
+        });
+
+        swBarcodePreview.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("barcode_preview", checked).apply();
             }
         });
 
@@ -1695,6 +1705,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swVideoPreview.setEnabled(swThumbnails.isChecked());
             swAudioPreview.setChecked(prefs.getBoolean("audio_preview", true));
             swAudioPreview.setEnabled(swThumbnails.isChecked());
+            swBarcodePreview.setChecked(prefs.getBoolean("barcode_preview", true));
+            swBarcodePreview.setEnabled(swThumbnails.isChecked());
 
             swListCount.setChecked(prefs.getBoolean("list_count", false));
             swBundledFonts.setChecked(prefs.getBoolean("bundled_fonts", true));

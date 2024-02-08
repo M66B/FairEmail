@@ -25,6 +25,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.pdf.PdfRenderer;
@@ -35,7 +36,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.StyleSpan;
+import android.text.style.URLSpan;
 import android.util.Pair;
 import android.util.Size;
 import android.view.LayoutInflater;
@@ -45,6 +49,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.text.method.LinkMovementMethodCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -55,7 +60,16 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.NotFoundException;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.Result;
+import com.google.zxing.common.HybridBinarizer;
+
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -84,6 +98,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
             ivImage = itemView.findViewById(R.id.ivImage);
             tvCaption = itemView.findViewById(R.id.tvCaption);
             tvProperties = itemView.findViewById(R.id.tvProperties);
+            tvProperties.setMovementMethod(LinkMovementMethodCompat.getInstance());
         }
 
         private void wire() {
@@ -180,6 +195,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                         } else {
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             boolean webp = prefs.getBoolean("webp", true);
+                            boolean barcode_preview = prefs.getBoolean("barcode_preview", true);
 
                             if ("image/webp".equalsIgnoreCase(type) && !webp)
                                 return context.getDrawable(R.drawable.twotone_image_not_supported_24);
@@ -199,6 +215,24 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                             } catch (Throwable ex) {
                                 Log.w(ex);
                             }
+
+                            if (barcode_preview)
+                                try (InputStream is = new FileInputStream(file)) {
+                                    Bitmap bitmap = BitmapFactory.decodeStream(is);
+                                    int width = bitmap.getWidth(), height = bitmap.getHeight();
+                                    int[] pixels = new int[width * height];
+                                    bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+
+                                    RGBLuminanceSource source = new RGBLuminanceSource(width, height, pixels);
+                                    BinaryBitmap bBitmap = new BinaryBitmap(new HybridBinarizer(source));
+                                    MultiFormatReader reader = new MultiFormatReader();
+                                    Result result = reader.decode(bBitmap);
+                                    args.putString("barcode", result.getText());
+                                } catch (NotFoundException ex) {
+                                    Log.w(ex);
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
 
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
                                     !"image/svg+xml".equals(type) &&
@@ -233,47 +267,65 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                             ImageHelper.animate(context, image);
                         }
 
-                        StringBuilder sb = new StringBuilder();
+                        SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
                         int width = args.getInt("width");
                         int height = args.getInt("height");
                         if (width > 0 && height > 0)
-                            sb.append(width)
+                            ssb.append(Integer.toString(width))
                                     .append("\u00d7") // ×
-                                    .append(height);
+                                    .append(Integer.toString(height));
 
                         if (BuildConfig.DEBUG) {
                             String color = args.getString("color");
                             if (color != null) {
-                                if (sb.length() > 0)
-                                    sb.append(' ');
-                                sb.append(color);
+                                if (ssb.length() > 0)
+                                    ssb.append(' ');
+                                ssb.append(color);
                             }
 
                             String config = args.getString("config");
                             if (config != null) {
-                                if (sb.length() > 0)
-                                    sb.append(' ');
-                                sb.append(config);
+                                if (ssb.length() > 0)
+                                    ssb.append(' ');
+                                ssb.append(config);
                             }
                         }
 
                         long size = args.getLong("size");
                         if (size > 0) {
-                            if (sb.length() > 0)
-                                sb.append(' ');
-                            sb.append(Helper.humanReadableByteCount(size));
+                            if (ssb.length() > 0)
+                                ssb.append(' ');
+                            ssb.append(Helper.humanReadableByteCount(size));
                         }
 
                         int duration = args.getInt("duration");
                         if (duration > 0) {
-                            if (sb.length() > 0)
-                                sb.append(' ');
-                            sb.append(Helper.formatDuration(duration));
+                            if (ssb.length() > 0)
+                                ssb.append(' ');
+                            ssb.append(Helper.formatDuration(duration));
                         }
 
-                        if (sb.length() > 0) {
-                            tvProperties.setText(sb);
+                        String barcode = args.getString("barcode");
+                        if (!TextUtils.isEmpty(barcode)) {
+                            if (ssb.length() > 0)
+                                ssb.append('\n');
+                            int start = ssb.length();
+                            ssb.append(barcode);
+
+                            try {
+                                Uri uri = UriHelper.guessScheme(Uri.parse(barcode));
+                                if (UriHelper.isHyperLink(uri) || UriHelper.isMail(uri))
+                                    ssb.setSpan(new URLSpan(uri.toString()), start, ssb.length(), 0);
+                                else
+                                    ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                        }
+
+                        if (ssb.length() > 0) {
+                            tvProperties.setText(ssb);
                             tvProperties.setVisibility(View.VISIBLE);
                         }
                     }

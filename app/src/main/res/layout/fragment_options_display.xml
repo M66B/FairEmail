@@ -2084,6 +2084,18 @@
                     app:layout_constraintTop_toBottomOf="@id/swVideoPreview"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swBarcodePreview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_barcode_preview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAudioPreview"
+                    app:switchPadding="12dp" />
+
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpUnzip"
                     android:layout_width="0dp"
