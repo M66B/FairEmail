@@ -4468,6 +4468,8 @@ the F-Droid build, but **only if** the version number of the F-Droid build is th
 F-Droid builds irregularly, which can be problematic when there is an important update.
 Therefore you are advised to switch to the GitHub release.
 
+Note that developers have no control over F-Droid builds and the F-Droid infrastructure (apps, forums, etc.).
+
 OAuth access is available only for Play Store and Github releases
 because email providers permitted the use of OAuth for these releases only.
 The responsible for a release, for the F-Droid build this is the F-Droid organization, needs to ask for OAuth permissions,
