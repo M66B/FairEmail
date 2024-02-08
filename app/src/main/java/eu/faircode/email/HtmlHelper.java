@@ -1307,7 +1307,8 @@ public class HtmlHelper {
                             }
                         }
 
-                        if (lonely instanceof TextNode &&
+                        if (cols.size() > 1 &&
+                                lonely instanceof TextNode &&
                                 "\u00a0".equals(((TextNode) lonely).getWholeText()))
                             lonely.remove(); // -> column separator
                     }
