@@ -430,7 +430,7 @@ public class WorkerCleanup extends Worker {
                                 .setInitialDelay(CLEANUP_INTERVAL, TimeUnit.HOURS)
                                 .build();
                 WorkManager.getInstance(context)
-                        .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.UPDATE, workRequest);
+                        .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, workRequest);
 
                 Log.i("Queued " + getName());
             } else {
