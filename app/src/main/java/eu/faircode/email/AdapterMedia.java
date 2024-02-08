@@ -81,6 +81,8 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
     private final Context context;
     private final LayoutInflater inflater;
     private final LifecycleOwner owner;
+    private final int textColorTertiary;
+    private final int textColorLink;
 
     private List<EntityAttachment> items = new ArrayList<>();
 
@@ -318,26 +320,27 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
 
                         String barcode = args.getString("barcode");
                         if (!TextUtils.isEmpty(barcode)) {
-                            boolean link;
                             Uri uri;
                             try {
                                 uri = UriHelper.guessScheme(Uri.parse(barcode));
-                                link = UriHelper.isHyperLink(uri) || UriHelper.isMail(uri);
                             } catch (Throwable ex) {
-                                Log.e(ex);
+                                Log.w(ex);
                                 uri = null;
-                                link = false;
                             }
 
-                            tvContent.setTypeface(null, link ? Typeface.NORMAL : Typeface.BOLD);
+                            boolean openable = (uri != null &&
+                                    !TextUtils.isEmpty(uri.getScheme()) &&
+                                    !"tel".equals(uri.getScheme()));
+
+                            tvContent.setTypeface(null, openable ? Typeface.NORMAL : Typeface.BOLD);
                             int flags = tvContent.getPaintFlags();
-                            if (link)
+                            if (openable)
                                 flags |= Paint.UNDERLINE_TEXT_FLAG;
                             else
                                 flags &= ~Paint.UNDERLINE_TEXT_FLAG;
                             tvContent.setPaintFlags(flags);
-
-                            tvContent.setTag(link ? uri.toString() : null);
+                            tvContent.setTextColor(openable ? textColorLink : textColorTertiary);
+                            tvContent.setTag(openable ? uri.toString() : null);
                             tvContent.setText(barcode);
                             tvContent.setVisibility(View.VISIBLE);
                         }
@@ -499,6 +502,9 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
+
+        this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
+        this.textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
 
         setHasStableIds(true);
 
