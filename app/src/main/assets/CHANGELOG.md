@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ypupiara](https://en.wikipedia.org/wiki/Ypupiara)
 
-### Next version
+### 1.2157 - 2024-02-08
 
 * Added widget option to show messages/folders standalone
 * Small improvements and minor bug fixes
