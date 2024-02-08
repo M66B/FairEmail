@@ -1148,7 +1148,8 @@ public class HtmlHelper {
 
             if (TextUtils.isEmpty(p.text())) {
                 p.attr("x-line-before", "false");
-                p.attr("x-line-after", "true");
+                if (!"false".equals(p.attr("x-line-after")))
+                    p.attr("x-line-after", "true");
             } else
                 p.attr("x-paragraph", "true");
         }
