@@ -399,6 +399,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageView ivPlain;
         private ImageButton ibReceipt;
         private ImageView ivAutoSubmitted;
+        private ImageView ivList;
         private ImageView ivBrowsed;
         private ImageView ivRaw;
 
@@ -809,6 +810,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivPlain = vsBody.findViewById(R.id.ivPlain);
             ibReceipt = vsBody.findViewById(R.id.ibReceipt);
             ivAutoSubmitted = vsBody.findViewById(R.id.ivAutoSubmitted);
+            ivList = vsBody.findViewById(R.id.ivList);
             ivBrowsed = vsBody.findViewById(R.id.ivBrowsed);
             ivRaw = vsBody.findViewById(R.id.ivRaw);
 
@@ -1741,6 +1743,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivPlain.setVisibility(View.GONE);
             ibReceipt.setVisibility(View.GONE);
             ivAutoSubmitted.setVisibility(View.GONE);
+            ivList.setVisibility(View.GONE);
             ivBrowsed.setVisibility(View.GONE);
             ivRaw.setVisibility(View.GONE);
 
@@ -2577,6 +2580,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibReceipt.setVisibility(message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
             ibReceipt.setImageTintList(ColorStateList.valueOf(message.ui_answered ? colorControlNormal : colorError));
             ivAutoSubmitted.setVisibility(show_addresses && message.auto_submitted != null && message.auto_submitted ? View.VISIBLE : View.GONE);
+            ivList.setVisibility(message.list_post != null && message.list_post.length > 0 ? View.VISIBLE : View.GONE);
             ivBrowsed.setVisibility(show_addresses && message.ui_browsed ? View.VISIBLE : View.GONE);
             ivRaw.setVisibility(BuildConfig.DEBUG && Boolean.TRUE.equals(message.raw) ? View.VISIBLE : View.GONE);
 

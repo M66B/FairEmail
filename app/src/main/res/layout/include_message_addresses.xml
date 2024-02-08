@@ -58,12 +58,23 @@
         app:srcCompat="@drawable/twotone_person_off_24" />
 
     <eu.faircode.email.ViewImageHint
+        android:id="@+id/ivList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_by_list"
+        app:layout_constraintStart_toEndOf="@id/ivAutoSubmitted"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
+        app:srcCompat="@drawable/twotone_list_24"
+        app:tint="?attr/colorError" />
+
+    <eu.faircode.email.ViewImageHint
         android:id="@+id/ivBrowsed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_browsed"
-        app:layout_constraintStart_toEndOf="@id/ivAutoSubmitted"
+        app:layout_constraintStart_toEndOf="@id/ivList"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/twotone_playlist_add_24" />
 
@@ -129,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="ivPlain,ibReceipt,ivAutoSubmitted,ivBrowsed,ivRaw,ibSearchContact,ibNotifyContact,ibPinContact,ibAddContact" />
+        app:constraint_referenced_ids="ivPlain,ibReceipt,ivAutoSubmitted,ivList,ivBrowsed,ivRaw,ibSearchContact,ibNotifyContact,ibPinContact,ibAddContact" />
 
     <TextView
         android:id="@+id/tvSignedByTitle"
