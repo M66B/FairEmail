@@ -308,6 +308,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "raw_asked", "all_read_asked", "delete_asked",
             "cc_bcc", "inline_image_hint", "compose_reference", "send_dialog",
             "setup_reminder", "was_ignoring", "setup_advanced",
+            "notifications_reminder", "datasaver_reminder",
             "signature_images_hint",
             "gmail_checked",
             "eml_auto_confirm",
@@ -316,8 +317,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "redmi_note",
             "accept_space", "accept_unsupported",
             "junk_hint",
-            "last_update_check", "last_announcement_check",
-            "notifications_reminder"
+            "last_update_check", "last_announcement_check"
     };
 
     @Override

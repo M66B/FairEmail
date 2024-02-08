@@ -249,6 +249,7 @@ public class FragmentMessages extends FragmentBase
     private TextView tvAirplane;
     private TextView tvNotifications;
     private TextView tvBatteryOptimizations;
+    private TextView tvDataSaver;
     private TextView tvSupport;
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
@@ -273,6 +274,7 @@ public class FragmentMessages extends FragmentBase
     private Group grpAirplane;
     private Group grpNotifications;
     private Group grpBatteryOptimizations;
+    private Group grpDataSaver;
     private Group grpSupport;
     private Group grpHintSupport;
     private Group grpHintSwipe;
@@ -568,6 +570,7 @@ public class FragmentMessages extends FragmentBase
         tvAirplane = view.findViewById(R.id.tvAirplane);
         tvNotifications = view.findViewById(R.id.tvNotifications);
         tvBatteryOptimizations = view.findViewById(R.id.tvBatteryOptimizations);
+        tvDataSaver = view.findViewById(R.id.tvDataSaver);
         tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
@@ -593,6 +596,7 @@ public class FragmentMessages extends FragmentBase
         grpAirplane = view.findViewById(R.id.grpAirplane);
         grpNotifications = view.findViewById(R.id.grpNotifications);
         grpBatteryOptimizations = view.findViewById(R.id.grpBatteryOptimizations);
+        grpDataSaver = view.findViewById(R.id.grpDataSaver);
         grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
@@ -663,6 +667,13 @@ public class FragmentMessages extends FragmentBase
                 Intent intent = new Intent(v.getContext(), ActivitySetup.class)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 v.getContext().startActivity(intent);
+            }
+        });
+
+        tvDataSaver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new FragmentDialogDataSaver().show(getParentFragmentManager(), "datasaver");
             }
         });
 
@@ -1944,6 +1955,7 @@ public class FragmentMessages extends FragmentBase
         grpAirplane.setVisibility(View.GONE);
         grpNotifications.setVisibility(View.GONE);
         grpBatteryOptimizations.setVisibility(View.GONE);
+        grpDataSaver.setVisibility(View.GONE);
         tvNoEmail.setVisibility(View.GONE);
         tvNoEmailHint.setVisibility(View.GONE);
         etSearch.setVisibility(View.GONE);
@@ -5335,6 +5347,7 @@ public class FragmentMessages extends FragmentBase
 
         prefs.registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(prefs, "notifications_reminder");
+        onSharedPreferenceChanged(prefs, "datasaver_reminder");
         onSharedPreferenceChanged(prefs, "pro");
 
         if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER) {
@@ -5398,6 +5411,14 @@ public class FragmentMessages extends FragmentBase
                 prefs.edit().remove("notifications_reminder").apply();
             boolean notifications_reminder = prefs.getBoolean("notifications_reminder", true);
             grpNotifications.setVisibility(canNotify || !notifications_reminder ? View.GONE : View.VISIBLE);
+        }
+
+        if (grpDataSaver != null &&
+                ("enabled".equals(key) || "datasaver_reminder".equals(key))) {
+            boolean enabled = prefs.getBoolean("enabled", true);
+            boolean isDataSaving = ConnectionHelper.isDataSaving(getContext());
+            boolean datasaver_reminder = prefs.getBoolean(key, true);
+            grpDataSaver.setVisibility(enabled && isDataSaving && datasaver_reminder ? View.VISIBLE : View.GONE);
         }
 
         if (grpSupport != null &&
