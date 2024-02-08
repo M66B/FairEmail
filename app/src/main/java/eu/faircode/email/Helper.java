@@ -2218,7 +2218,7 @@ public class Helper {
         return getDateInstance(context, SimpleDateFormat.MEDIUM);
     }
 
-    private static DateFormat getDateInstance(Context context, int style) {
+    static DateFormat getDateInstance(Context context, int style) {
         return SimpleDateFormat.getDateInstance(style);
     }
 
@@ -2240,7 +2240,7 @@ public class Helper {
         return SimpleDateFormat.getDateTimeInstance(dateStyle, timeStyle);
     }
 
-    private static String getTimePattern(Context context, int style) {
+    static String getTimePattern(Context context, int style) {
         // https://issuetracker.google.com/issues/37054851
         boolean is24Hour = android.text.format.DateFormat.is24HourFormat(context);
         String skeleton = (is24Hour ? "Hm" : "hm");

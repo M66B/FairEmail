@@ -1516,6 +1516,34 @@ public class DebugHelper {
                 size += write(os, String.format("Double tap timeout=%d\r\n", ViewConfiguration.getDoubleTapTimeout()));
                 size += write(os, String.format("Long press timeout=%d\r\n", ViewConfiguration.getLongPressTimeout()));
 
+                String s = Helper.getTimePattern(context, SimpleDateFormat.SHORT);
+                String m = Helper.getTimePattern(context, SimpleDateFormat.MEDIUM);
+
+                size += write(os, String.format("Time 24h=%b\r\n",
+                        android.text.format.DateFormat.is24HourFormat(context)));
+                size += write(os, String.format("Time short format=%s time=%s\r\n", s,
+                        new SimpleDateFormat(s).format(now)));
+                size += write(os, String.format("Time medium format=%s time=%s\r\n", m,
+                        new SimpleDateFormat(m).format(now)));
+                size += write(os, String.format("Time short=%s\r\n",
+                        Helper.getTimeInstance(context, SimpleDateFormat.SHORT).format(now)));
+                size += write(os, String.format("Time medium=%s\r\n",
+                        Helper.getTimeInstance(context, SimpleDateFormat.MEDIUM).format(now)));
+                size += write(os, String.format("Time long=%s\r\n",
+                        Helper.getTimeInstance(context, SimpleDateFormat.LONG).format(now)));
+                size += write(os, String.format("Date short=%s\r\n",
+                        Helper.getDateInstance(context, SimpleDateFormat.SHORT).format(now)));
+                size += write(os, String.format("Date medium=%s\r\n",
+                        Helper.getDateInstance(context, SimpleDateFormat.MEDIUM).format(now)));
+                size += write(os, String.format("Date long=%s\r\n",
+                        Helper.getDateInstance(context, SimpleDateFormat.LONG).format(now)));
+                size += write(os, String.format("Date/time short=%s\r\n",
+                        Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT).format(now)));
+                size += write(os, String.format("Date/time medium=%s\r\n",
+                        Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM).format(now)));
+                size += write(os, String.format("Date/time long=%s\r\n",
+                        Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG).format(now)));
+
                 for (Class<?> cls : new Class[]{
                         ActivitySendSelf.class,
                         ActivitySearch.class,
