@@ -859,7 +859,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_split_hint">Rozdělí obrazovku na více částí</string>
     <string name="title_advanced_split_min_hint">To je podmínka určená pro skládací zařízení</string>
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Pouze pro styl karty</string>
+    <string name="title_advanced_indentation_hint">Pouze pro styl karty</string>
     <string name="title_advanced_highlight_hint">Pro zvýrazňování bude použita sekundární barva motivu</string>
     <string name="title_advanced_privacy_risk">Může dojít k ohrožení soukromí</string>
     <string name="title_advanced_name_email_hint">Jména budou zobrazena pouze jsou-li k dispozici</string>
@@ -1212,6 +1212,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_new_message">Nová zpráva</string>
     <string name="title_editasnew">Upravit jako novou</string>
     <string name="title_edit_notes">Upravit místní poznámky</string>
+    <string name="title_edit_notes_remark">Místní poznámky nejsou uloženy na poštovním serveru, a proto jsou dostupné pouze v této aplikaci na tomto zařízení</string>
     <string name="title_create_rule">Vytvořit pravidlo &#8230;</string>
     <string name="title_full_screen">Celá obrazovka</string>
     <string name="title_force_light">Vynutit světlý motiv</string>
@@ -2056,6 +2057,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_widget_background">Barva pozadí</string>
     <string name="title_widget_icon">Barva ikony</string>
     <string name="title_widget_day_night">Sledovat tmavý motiv systému</string>
+    <string name="title_widget_standalone">Otevřít obsah samostatně</string>
     <string name="title_compat_dark">Google odstranil tmavý režim pro verze Androidu nižší než 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Důležité</string>

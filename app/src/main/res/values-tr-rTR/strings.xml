@@ -829,7 +829,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_split_hint">Bu, ekranı parçalara böler</string>
     <string name="title_advanced_split_min_hint">Bu, katlanabilir cihazlar için tasarlanmış bir durumdur</string>
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Yalnızca kart stili için</string>
+    <string name="title_advanced_indentation_hint">Yalnızca kart stili için</string>
     <string name="title_advanced_highlight_hint">Temanın vurgu rengi vurgulamak için kullanılacak</string>
     <string name="title_advanced_privacy_risk">Bir gizlilik riski olabilir</string>
     <string name="title_advanced_name_email_hint">Adlar yalnızca uygun olduğunda gösterilecektir</string>
@@ -2029,6 +2029,10 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_keyword_label3">Kişisel</string>
     <string name="title_keyword_label4">Yapılacaklar</string>
     <string name="title_keyword_label5">Daha sonra</string>
+    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Görüntüleniyor</string>
+    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Teslim edildi</string>
+    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Görüntülenmiyor</string>
+    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">Teslim edilmedi</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d mesaj</item>
         <item quantity="other">%1$d mesaj</item>

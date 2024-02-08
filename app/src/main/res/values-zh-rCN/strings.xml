@@ -816,7 +816,7 @@
     <string name="title_advanced_split_hint">这将把屏幕分割成几部分</string>
     <string name="title_advanced_split_min_hint">这是一个用于可折叠设备的条件</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">仅用于卡片样式</string>
+    <string name="title_advanced_indentation_hint">仅用于卡片样式</string>
     <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
     <string name="title_advanced_privacy_risk">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">名称仅在可用时显示</string>
@@ -1167,6 +1167,7 @@
     <string name="title_new_message">新消息</string>
     <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_edit_notes">编辑本地备注</string>
+    <string name="title_edit_notes_remark">本地笔记不保存在邮件服务器上，因此仅在此设备上的应用中可用。</string>
     <string name="title_create_rule">创建规则 &#8230;</string>
     <string name="title_full_screen">全屏</string>
     <string name="title_force_light">强制使用浅色主题</string>
@@ -2010,6 +2011,7 @@
     <string name="title_widget_background">背景颜色</string>
     <string name="title_widget_icon">图标颜色</string>
     <string name="title_widget_day_night">跟随系统主题</string>
+    <string name="title_widget_standalone">单独打开内容</string>
     <string name="title_compat_dark">谷歌移除了安卓 10 之前的暗黑模式</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">重要</string>
@@ -2017,6 +2019,10 @@
     <string name="title_keyword_label3">个人</string>
     <string name="title_keyword_label4">待办事项</string>
     <string name="title_keyword_label5">稍后再说</string>
+    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">已显示</string>
+    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">已送达</string>
+    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">未显示</string>
+    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">未送达</string>
     <plurals name="title_accessibility_messages">
         <item quantity="other">%1$d 条消息</item>
     </plurals>

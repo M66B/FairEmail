@@ -829,7 +829,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_split_hint">Dit sil it skerm splitse yn dielen</string>
     <string name="title_advanced_split_min_hint">Dit is in kondysje, bedoeld foar opfâldbere apparaten</string>
     <string name="title_advanced_threading_hint">Relatearre berjochten groepearje</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Allinnich foar kaartstyl</string>
+    <string name="title_advanced_indentation_hint">Allinnich foar kaartstyl</string>
     <string name="title_advanced_highlight_hint">De aksintkleur fan it tema wurdt brûkt foar markearring</string>
     <string name="title_advanced_privacy_risk">Der is mooglik in privacyrisiko</string>
     <string name="title_advanced_name_email_hint">Nammen wurde allinnich toand wannear beskikber</string>
@@ -1180,6 +1180,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_new_message">Nij berjocht</string>
     <string name="title_editasnew">As nij bewurkje</string>
     <string name="title_edit_notes">Lokale notysjes bewurkje</string>
+    <string name="title_edit_notes_remark">Lokale notysjes wurde net bewarre op de mailserver en binne dêrom allinnich beskikber yn dizze app op dit apparaat</string>
     <string name="title_create_rule">Regel meitsje&#8230;</string>
     <string name="title_full_screen">Folslein skerm</string>
     <string name="title_force_light">Ljocht tema forsearje</string>
@@ -2023,6 +2024,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_widget_background">Eftergrûnkleur</string>
     <string name="title_widget_icon">Piktogramkleur</string>
     <string name="title_widget_day_night">Donker systeemtema folgje</string>
+    <string name="title_widget_standalone">De ynhâld selsstannich iepenje</string>
     <string name="title_compat_dark">Google hat de donkere modus fuortsmiten foar Android-ferzjes foar ferzje 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Wichtich</string>

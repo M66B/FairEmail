@@ -832,7 +832,7 @@
     <string name="title_advanced_split_hint">Dette opdeler skærmen i segmenter</string>
     <string name="title_advanced_split_min_hint">Dette er en betingelse beregnet til foldbare enheder</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Kun til kortstil</string>
+    <string name="title_advanced_indentation_hint">Kun til kortstil</string>
     <string name="title_advanced_highlight_hint">Temaets accentfarve benyttes til fremhævning</string>
     <string name="title_advanced_privacy_risk">Der kan være en fortrolighedsrisiko</string>
     <string name="title_advanced_name_email_hint">Navne vises kun, hvis tilgængelige</string>
@@ -1186,6 +1186,7 @@
     <string name="title_new_message">Ny besked</string>
     <string name="title_editasnew">Redigér som ny</string>
     <string name="title_edit_notes">Redigér lokale notater</string>
+    <string name="title_edit_notes_remark">Lokale notater gemmes ikke på mail-serveren og er derfor kun tilgængelige i denne app på denne enhed</string>
     <string name="title_create_rule">Opret regel &#8230;</string>
     <string name="title_full_screen">Fuldskærm</string>
     <string name="title_force_light">Gennemtving lyst tema</string>
@@ -2033,6 +2034,7 @@
     <string name="title_widget_background">Baggrundsfarve</string>
     <string name="title_widget_icon">Ikonfarve</string>
     <string name="title_widget_day_night">Følg mørkt systemtema</string>
+    <string name="title_widget_standalone">Åbn som selvstændigt indhold</string>
     <string name="title_compat_dark">Google understøtter nu kun mørk tilstand fra og med Android 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Vigtigt</string>
@@ -2040,6 +2042,10 @@
     <string name="title_keyword_label3">Personlig</string>
     <string name="title_keyword_label4">Resterer</string>
     <string name="title_keyword_label5">Senere</string>
+    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Vist</string>
+    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Levert</string>
+    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Ikke vist</string>
+    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">Ikke leveret</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d besked</item>
         <item quantity="other">%1$d beskeder</item>

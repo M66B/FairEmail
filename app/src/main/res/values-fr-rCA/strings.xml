@@ -832,7 +832,7 @@
     <string name="title_advanced_split_hint">Ceci divisera l\'écran en plusieurs parties</string>
     <string name="title_advanced_split_min_hint">Ceci est une condition destinée aux appareils pliables</string>
     <string name="title_advanced_threading_hint">Regrouper les messages liés les uns aux autres</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Pour le style carte uniquement</string>
+    <string name="title_advanced_indentation_hint">Pour le style carte uniquement</string>
     <string name="title_advanced_highlight_hint">La couleur d’accentuation du thème sera utilisée pour la surbrillance</string>
     <string name="title_advanced_privacy_risk">Ceci pourrait présenter un risque pour la confidentialité</string>
     <string name="title_advanced_name_email_hint">Les noms ne seront affichés que s\'ils sont disponibles</string>
@@ -1186,6 +1186,7 @@
     <string name="title_new_message">Nouveau message</string>
     <string name="title_editasnew">Modifier comme nouveau message</string>
     <string name="title_edit_notes">Modifier les notes locales</string>
+    <string name="title_edit_notes_remark">Les notes locales ne sont pas stockées sur le serveur de messagerie et ne sont donc disponibles que dans cette application sur cet appareil</string>
     <string name="title_create_rule">Créer une règle&#8230;</string>
     <string name="title_full_screen">Plein écran</string>
     <string name="title_force_light">Forcer le thème clair</string>
@@ -2033,6 +2034,7 @@
     <string name="title_widget_background">Couleur d\'arrière-plan</string>
     <string name="title_widget_icon">Couleur de l\'icône</string>
     <string name="title_widget_day_night">Utiliser le thème sombre du système</string>
+    <string name="title_widget_standalone">Ouvrir le contenu de façon autonome</string>
     <string name="title_compat_dark">Google a supprimé le mode sombre dans les versions d\'Android inférieures à la version 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Important</string>
@@ -2040,6 +2042,10 @@
     <string name="title_keyword_label3">Personnel</string>
     <string name="title_keyword_label4">À faire</string>
     <string name="title_keyword_label5">Plus tard</string>
+    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Vu</string>
+    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Délivré</string>
+    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Non vu</string>
+    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">Non délivré</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d message</item>
         <item quantity="other">%1$d messages</item>

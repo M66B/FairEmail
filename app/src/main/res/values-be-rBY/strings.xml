@@ -860,7 +860,7 @@
     <string name="title_advanced_split_hint">Гэта прывядзе да падзелу экрана на часткі</string>
     <string name="title_advanced_split_min_hint">Гэта ўмова прызначана для раскладных прылад</string>
     <string name="title_advanced_threading_hint">Групаваць паведамленні, звязаныя адно з адным</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Толькі для картачнага стылю</string>
+    <string name="title_advanced_indentation_hint">Толькі для картачнага стылю</string>
     <string name="title_advanced_highlight_hint">Для падсветкі будзе выкарыстоўвацца акцэнтны колер тэмы</string>
     <string name="title_advanced_privacy_risk">Існуе рызыка парушэння канфідэнцыяльнасці</string>
     <string name="title_advanced_name_email_hint">Імёны будуць паказвацца толькі пры іх наяўнасці</string>

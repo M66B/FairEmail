@@ -830,7 +830,7 @@
     <string name="title_advanced_split_hint">Esto dividirá la pantalla en partes</string>
     <string name="title_advanced_split_min_hint">Esta es una condición destinada a dispositivos plegables</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Solo para estilo de tarjeta</string>
+    <string name="title_advanced_indentation_hint">Solo para estilo de tarjeta</string>
     <string name="title_advanced_highlight_hint">El color de acento del tema se utilizará para resaltar</string>
     <string name="title_advanced_privacy_risk">Puede haber un riesgo para la privacidad</string>
     <string name="title_advanced_name_email_hint">Los nombres sólo se mostrarán cuando estén disponibles</string>
@@ -1183,6 +1183,7 @@
     <string name="title_new_message">Nuevo mensaje</string>
     <string name="title_editasnew">Editar como nuevo</string>
     <string name="title_edit_notes">Editar notas locales</string>
+    <string name="title_edit_notes_remark">Las notas locales no se almacenan en el servidor de correo y por lo tanto sólo están disponibles en esta aplicación en este dispositivo</string>
     <string name="title_create_rule">Crear regla &#8230;</string>
     <string name="title_full_screen">Pantalla completa</string>
     <string name="title_force_light">Forzar tema claro</string>
@@ -2026,6 +2027,7 @@
     <string name="title_widget_background">Color de fondo</string>
     <string name="title_widget_icon">Color del icono</string>
     <string name="title_widget_day_night">Seguir tema oscuro del sistema</string>
+    <string name="title_widget_standalone">Abrir el contenido independiente</string>
     <string name="title_compat_dark">Google eliminó el modo oscuro para versiones de Android anteriores a la versión 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Importante</string>
@@ -2033,6 +2035,10 @@
     <string name="title_keyword_label3">Personal</string>
     <string name="title_keyword_label4">Pendiente</string>
     <string name="title_keyword_label5">Más tarde</string>
+    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Mostrado</string>
+    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Entregado</string>
+    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">No mostrado</string>
+    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">No entregado</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d mensaje</item>
         <item quantity="other">%1$d mensajes</item>

@@ -858,7 +858,7 @@
     <string name="title_advanced_split_hint">Spowoduje to podzielenie ekranu na części</string>
     <string name="title_advanced_split_min_hint">Jest to warunek przewidziany dla urządzeń składanych</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Tylko dla stylu karty</string>
+    <string name="title_advanced_indentation_hint">Tylko dla stylu karty</string>
     <string name="title_advanced_highlight_hint">Do podświetlenia zostanie użyty akcent kolorystyczny motywu</string>
     <string name="title_advanced_privacy_risk">Może istnieć ryzyko naruszenia prywatności</string>
     <string name="title_advanced_name_email_hint">Nazwy będą wyświetlane tylko wtedy, gdy będą dostępne</string>
@@ -1211,6 +1211,7 @@
     <string name="title_new_message">Nowa wiadomość</string>
     <string name="title_editasnew">Edytuj jako nową</string>
     <string name="title_edit_notes">Edytuj lokalne notatki</string>
+    <string name="title_edit_notes_remark">Lokalne notatki nie są przechowywane na serwerze pocztowym i dlatego są dostępne tylko w tej aplikacji, na tym urządzeniu</string>
     <string name="title_create_rule">Utwórz regułę &#8230;</string>
     <string name="title_full_screen">Pełny ekran</string>
     <string name="title_force_light">Wymuś jasny motyw</string>
@@ -2055,6 +2056,7 @@
     <string name="title_widget_background">Kolor tła</string>
     <string name="title_widget_icon">Kolor ikony</string>
     <string name="title_widget_day_night">Podążaj za ciemnym motywem systemowym</string>
+    <string name="title_widget_standalone">Otwórz zawartość w trybie autonomicznym</string>
     <string name="title_compat_dark">Google usunęło tryb ciemny dla Androida przed wersją 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Ważne</string>
@@ -2062,6 +2064,10 @@
     <string name="title_keyword_label3">Osobiste</string>
     <string name="title_keyword_label4">Do zrobienia</string>
     <string name="title_keyword_label5">Później</string>
+    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Wyświetlono</string>
+    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Dostarczono</string>
+    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Nie wyświetlono</string>
+    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">Nie dostarczono</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d wiadomość</item>
         <item quantity="few">%1$d wiadomości</item>

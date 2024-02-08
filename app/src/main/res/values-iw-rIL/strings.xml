@@ -859,7 +859,7 @@
     <string name="title_advanced_split_hint">יפצל את המסך לחלקים</string>
     <string name="title_advanced_split_min_hint">זה תנאי שמיועד למכשירים מתקפלים</string>
     <string name="title_advanced_threading_hint">קיבוץ הודעות שקשורות זו לזו</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">לסגנון כרטיסים בלבד</string>
+    <string name="title_advanced_indentation_hint">לסגנון כרטיסים בלבד</string>
     <string name="title_advanced_highlight_hint">הצבע המשני של ערכת הנושא ישמש להדגשה</string>
     <string name="title_advanced_privacy_risk">עלול להיות סיכון לפרטיות</string>
     <string name="title_advanced_name_email_hint">השמות יופיעו רק כשהם זמינים</string>
@@ -1213,6 +1213,7 @@
     <string name="title_new_message">הודעה חדשה</string>
     <string name="title_editasnew">עריכה כחדש</string>
     <string name="title_edit_notes">עריכת הערות מקומיות</string>
+    <string name="title_edit_notes_remark">הערות מקומיות לא מאוחסנות בשרת הדוא״ל ולכן זמינות רק ביישומון הזה במכשיר הזה</string>
     <string name="title_create_rule">יצירת כלל &#8230;</string>
     <string name="title_full_screen">מסך מלא</string>
     <string name="title_force_light">אילוץ ערכת נושא בהירה</string>
@@ -2060,6 +2061,7 @@
     <string name="title_widget_background">צבע הרקע</string>
     <string name="title_widget_icon">צבע הסמל</string>
     <string name="title_widget_day_night">התחקות אחר ערכת העיצוב הכהה של המערכת</string>
+    <string name="title_widget_standalone">פתיחת התוכן עצמאית</string>
     <string name="title_compat_dark">Google הסירה מצב כהה לגרסאות Android שקדמו ל־10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">חשוב</string>

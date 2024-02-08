@@ -828,7 +828,7 @@
     <string name="title_advanced_split_hint">Θα χωρίσει την οθόνη σε μέρη</string>
     <string name="title_advanced_split_min_hint">Αυτή είναι μια συνθήκη που αφορά αναδιπλούμενες συσκευές</string>
     <string name="title_advanced_threading_hint">Ομαδοποίηση των μηνυμάτων που σχετίζονται αναμεταξύ τους</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Μόνο για το στιλ κάρτας</string>
+    <string name="title_advanced_indentation_hint">Μόνο για το στιλ κάρτας</string>
     <string name="title_advanced_highlight_hint">Το χρώμα έμφασης του θέματος θα χρησιμοποιηθεί για την επισήμανση</string>
     <string name="title_advanced_privacy_risk">Το προσωπικό σας απόρρητο μπορεί να τεθεί σε κίνδυνο</string>
     <string name="title_advanced_name_email_hint">Τα ονόματα θα εμφανίζονται μόνον όταν είναι διαθέσιμα</string>

@@ -832,7 +832,7 @@
     <string name="title_advanced_split_hint">Esta opção divide o ecrã em parcelas</string>
     <string name="title_advanced_split_min_hint">Esta é uma condição destinada a dispositivos dobráveis</string>
     <string name="title_advanced_threading_hint">Agrupar mensagens relacionadas entre si</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Somente para o estilo cartão</string>
+    <string name="title_advanced_indentation_hint">Somente para o estilo cartão</string>
     <string name="title_advanced_highlight_hint">A cor de ênfase do tema será usada para destaque</string>
     <string name="title_advanced_privacy_risk">Pode haver um risco de privacidade</string>
     <string name="title_advanced_name_email_hint">Os nomes só serão exibidos quando disponíveis</string>
@@ -1186,6 +1186,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_new_message">Nova mensagem</string>
     <string name="title_editasnew">Editar como novo</string>
     <string name="title_edit_notes">Editar as notas locais</string>
+    <string name="title_edit_notes_remark">Notas locais não são guardadas no servidor de email, só estão disponíveis nesta aplicação, neste dispositivo</string>
     <string name="title_create_rule">Criar regra &#8230;</string>
     <string name="title_full_screen">Ecrã inteiro</string>
     <string name="title_force_light">Forçar o tema claro</string>
@@ -2033,6 +2034,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_widget_background">Cor do fundo</string>
     <string name="title_widget_icon">Cor do ícone</string>
     <string name="title_widget_day_night">Adoptar o tema escuro do sistema</string>
+    <string name="title_widget_standalone">Abrir o conteúdo autonomamente</string>
     <string name="title_compat_dark">A Google removeu o modo escuro para versões do Android antes da versão 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Importante</string>
@@ -2040,6 +2042,10 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_keyword_label3">Pessoal</string>
     <string name="title_keyword_label4">Pendente</string>
     <string name="title_keyword_label5">Mais tarde</string>
+    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Mostrado</string>
+    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Entregue</string>
+    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Não mostrado</string>
+    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">Não entregue</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d mensagem</item>
         <item quantity="other">%1$d mensagens</item>

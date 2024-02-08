@@ -830,7 +830,7 @@
     <string name="title_advanced_split_hint">Това ще раздели екрана на части</string>
     <string name="title_advanced_split_min_hint">Това е условие предназначено за сгъваеми устройства</string>
     <string name="title_advanced_threading_hint">Групови съобщения, свързани помежду си</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Само за картов стил</string>
+    <string name="title_advanced_indentation_hint">Само за картов стил</string>
     <string name="title_advanced_highlight_hint">Акцентираният цвят на темата ще бъде използван за подчертаване</string>
     <string name="title_advanced_privacy_risk">Възможно е да съществува риск за поверителността</string>
     <string name="title_advanced_name_email_hint">Имената ще се показват само, когато са налични</string>

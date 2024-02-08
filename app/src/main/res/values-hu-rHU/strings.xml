@@ -828,7 +828,7 @@
     <string name="title_advanced_split_hint">Ez el fogja osztani a képernyőt részekre</string>
     <string name="title_advanced_split_min_hint">Ez a kondíció az összecsukható eszközökhöz készült</string>
     <string name="title_advanced_threading_hint">Egymáshoz kapcsolódó üzenetek csoportosítása</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Csak kártya stílus használatakor</string>
+    <string name="title_advanced_indentation_hint">Csak kártya stílus használatakor</string>
     <string name="title_advanced_highlight_hint">A téma kiemelőszíne a kiemeléshez lesz használva</string>
     <string name="title_advanced_privacy_risk">Adatvédelmi szempontból aggályos a használata</string>
     <string name="title_advanced_name_email_hint">Név csak akkor jelenik meg, ha elérhető</string>
@@ -1180,6 +1180,7 @@
     <string name="title_new_message">Új üzenet</string>
     <string name="title_editasnew">Szerkesztés újként</string>
     <string name="title_edit_notes">Helyi jegyzetek szerkesztése</string>
+    <string name="title_edit_notes_remark">A helyi jegyzetek nem a levelező kiszolgálón tárolódnak, ezért csak ebben az alkalmazásban, ezen az eszközön érhetők ek</string>
     <string name="title_create_rule">Szabály létrehozása &#8230;</string>
     <string name="title_full_screen">Teljes képernyő</string>
     <string name="title_force_light">Világos téma erőltetése</string>
@@ -2024,6 +2025,7 @@
     <string name="title_widget_background">Háttérszín</string>
     <string name="title_widget_icon">Ikonszín</string>
     <string name="title_widget_day_night">Igazodás a sötét rendszertémához</string>
+    <string name="title_widget_standalone">Tartalom megnyitása önmagában</string>
     <string name="title_compat_dark">A Google eltávolította a sötét témát az Android 10 előtti verziókból</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Fontos</string>

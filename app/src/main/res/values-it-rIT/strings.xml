@@ -832,7 +832,7 @@
     <string name="title_advanced_split_hint">Questo dividerà lo schermo in parti</string>
     <string name="title_advanced_split_min_hint">Questa è una condizione destinata ai dispositivi pieghevoli</string>
     <string name="title_advanced_threading_hint">Raggruppa i messaggi correlati</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Solo per stile carta</string>
+    <string name="title_advanced_indentation_hint">Solo per stile carta</string>
     <string name="title_advanced_highlight_hint">Il colore secondario del tema sarà usato per l\'evidenziazione</string>
     <string name="title_advanced_privacy_risk">Potrebbe esistere un rischio per la privacy</string>
     <string name="title_advanced_name_email_hint">I nomi saranno mostrati solo quando disponibili</string>
@@ -1186,6 +1186,7 @@
     <string name="title_new_message">Nuovo messaggio</string>
     <string name="title_editasnew">Modifica come nuovo</string>
     <string name="title_edit_notes">Modifica le note locali</string>
+    <string name="title_edit_notes_remark">Le note locali non sono memorizzate sul server email e sono quindi disponibili solo in questa app su questo dispositivo</string>
     <string name="title_create_rule">Crea regola&#8230;</string>
     <string name="title_full_screen">Schermo intero</string>
     <string name="title_force_light">Forza tema chiaro</string>
@@ -2033,6 +2034,7 @@
     <string name="title_widget_background">Colore di sfondo</string>
     <string name="title_widget_icon">Colore dell\'icona</string>
     <string name="title_widget_day_night">Applica il tema scuro di sistema</string>
+    <string name="title_widget_standalone">Apri il contenuto autonomamente</string>
     <string name="title_compat_dark">Google ha rimosso la modalità scura per le versioni Android prima della versione 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Importante</string>
@@ -2040,6 +2042,10 @@
     <string name="title_keyword_label3">Personale</string>
     <string name="title_keyword_label4">Da fare</string>
     <string name="title_keyword_label5">Più tardi</string>
+    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Visualizzato</string>
+    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Consegnato</string>
+    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Non visualizzato</string>
+    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">Non consegnato</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d messaggio</item>
         <item quantity="other">%1$d messaggi</item>

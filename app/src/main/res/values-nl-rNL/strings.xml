@@ -828,7 +828,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_split_hint">Dit zal het scherm opsplitsen in delen</string>
     <string name="title_advanced_split_min_hint">Dit is een conditie, bedoeld voor opvouwbare apparaten</string>
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Alleen voor kaartstijl</string>
+    <string name="title_advanced_indentation_hint">Alleen voor kaartstijl</string>
     <string name="title_advanced_highlight_hint">De accentkleur van het thema wordt gebruikt voor markering</string>
     <string name="title_advanced_privacy_risk">Er is mogelijk een privacyrisico</string>
     <string name="title_advanced_name_email_hint">Namen worden alleen getoond wanneer beschikbaar</string>
@@ -1179,6 +1179,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_new_message">Nieuw bericht</string>
     <string name="title_editasnew">Bewerken als nieuw</string>
     <string name="title_edit_notes">Lokale notities bewerken</string>
+    <string name="title_edit_notes_remark">Lokale notities worden niet opgeslagen op de mailserver en zijn daarom alleen beschikbaar in deze app op dit apparaat</string>
     <string name="title_create_rule">Maak regel &#8230;</string>
     <string name="title_full_screen">Volledig scherm</string>
     <string name="title_force_light">Forceer licht thema</string>
@@ -2017,6 +2018,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_background">Achtergrondkleur</string>
     <string name="title_widget_icon">Pictogramkleur</string>
     <string name="title_widget_day_night">Volg donker systeemthema</string>
+    <string name="title_widget_standalone">De inhoud zelfstandig openen</string>
     <string name="title_compat_dark">Google heeft de donkere modus verwijderd voor Android-versies vóór versie 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Belangrijk</string>
@@ -2024,6 +2026,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_keyword_label3">Persoonlijk</string>
     <string name="title_keyword_label4">Te doen</string>
     <string name="title_keyword_label5">Later</string>
+    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Getoond</string>
+    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Afgeleverd</string>
+    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Niet getoond</string>
+    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">Niet afgeleverd</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d bericht</item>
         <item quantity="other">%1$d berichten</item>

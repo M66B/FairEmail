@@ -817,7 +817,7 @@
     <string name="title_advanced_split_hint">画面をパーツごとに分割します</string>
     <string name="title_advanced_split_min_hint">これは折りたたみ端末向けの条件です</string>
     <string name="title_advanced_threading_hint">互いに関連するメッセージをグループ化します</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">カード形式のみ</string>
+    <string name="title_advanced_indentation_hint">カード形式のみ</string>
     <string name="title_advanced_highlight_hint">テーマのアクセントカラーをハイライトカラーに使用します</string>
     <string name="title_advanced_privacy_risk">プライバシーリスクがあるかもしれません</string>
     <string name="title_advanced_name_email_hint">名前は利用可能な場合のみ表示されます</string>

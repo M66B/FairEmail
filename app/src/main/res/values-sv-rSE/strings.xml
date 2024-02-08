@@ -823,7 +823,7 @@
     <string name="title_advanced_split_hint">Detta kommer att dela upp skärmen i delar</string>
     <string name="title_advanced_split_min_hint">Detta är ett villkor för ihopfällbara enheter</string>
     <string name="title_advanced_threading_hint">Gruppera meddelanden relaterade till varandra</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Endast för kortstil</string>
+    <string name="title_advanced_indentation_hint">Endast för kortstil</string>
     <string name="title_advanced_highlight_hint">Accentfärgen på temat kommer att användas för markering</string>
     <string name="title_advanced_privacy_risk">Det kan finnas en integritetsrisk</string>
     <string name="title_advanced_name_email_hint">Namnen visas endast när de är tillgängliga</string>

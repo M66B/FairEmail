@@ -205,7 +205,7 @@
     <string name="title_setup_documentation">Перегляньте документацію свого постачальника пошти для правильної конфігурації сервера електронної пошти</string>
     <string name="title_setup_account_remark">Отримання пошти</string>
     <string name="title_setup_identity_remark">Надсилання пошти</string>
-    <string name="title_setup_account_identity_hint">Ви можете налаштувати ім\'я, колір та дії, що виконуватимуться при проведенні пальцем, в налаштуваннях облікового запису та налаштувати підпис в налаштуваннях профілів</string>
+    <string name="title_setup_account_identity_hint">Ви можете налаштувати назву, колір та дії, що виконуватимуться при проведенні пальцем, в налаштуваннях облікового запису та налаштувати підпис в налаштуваннях профілів</string>
     <string name="title_setup_accounts">Облікові записи</string>
     <string name="title_setup_identities">Профілі</string>
     <string name="title_setup_google_sign_in">Увійти за допомогою Google</string>
@@ -858,7 +858,7 @@
     <string name="title_advanced_split_hint">Це розділить екран на частини</string>
     <string name="title_advanced_split_min_hint">Ця умова стосується пристроїв із гнучким екраном</string>
     <string name="title_advanced_threading_hint">Групувати повідомлення, пов\'язані одне з одним</string>
-    <string name="title_advanced_indentation_hint" comment="title_advanced_indentation_hint&#10;Remark for options that are available when using the card style only, and not when using the tabular style.">Тільки для карткового стилю</string>
+    <string name="title_advanced_indentation_hint">Тільки для карткового стилю</string>
     <string name="title_advanced_highlight_hint">Колір акценту теми буде використаний для підсвічування</string>
     <string name="title_advanced_privacy_risk">Можливий ризик порушення приватності</string>
     <string name="title_advanced_name_email_hint">Імена показуватимуться лише за наявності</string>
@@ -1130,7 +1130,7 @@
     <string name="title_sort_unread_atop">Сортувати, непрочитані зверху</string>
     <string name="title_search_folder">Шукати теку</string>
     <string name="title_apply_to_all">Застосувати до всіх</string>
-    <string name="title_edit_account_name">Редагувати ім\'я облікового запису</string>
+    <string name="title_edit_account_name">Редагувати назву облікового запису</string>
     <string name="title_edit_account_color">Змінити колір облікового запису</string>
     <string name="title_hide_folder">Сховати теку</string>
     <string name="title_hide_seen_folder">Приховати теку, якщо всі повідомлення прочитані</string>
@@ -1212,6 +1212,7 @@
     <string name="title_new_message">Нове повідомлення</string>
     <string name="title_editasnew">Редагувати як нове</string>
     <string name="title_edit_notes">Редагувати локальні нотатки</string>
+    <string name="title_edit_notes_remark">Локальні нотатки не зберігаються на сервері електронної пошти й тому вони доступні лише в цьому додатку на цьому пристрої</string>
     <string name="title_create_rule">Створити правило &#8230;</string>
     <string name="title_full_screen">На весь екран</string>
     <string name="title_force_light">Примусова світла тема</string>
@@ -2050,13 +2051,14 @@
     <string name="title_widget_count_top">Показувати кількість непрочитаних зверху</string>
     <string name="title_widget_subject_lines">Максимальна кількість рядків в темі</string>
     <string name="title_widget_avatars">Показувати аватари контактів</string>
-    <string name="title_widget_account_name">Показати ім\'я облікового запису</string>
+    <string name="title_widget_account_name">Показувати назву облікового запису</string>
     <string name="title_widget_caption">Показувати заголовок</string>
     <string name="title_widget_refresh">Показувати кнопку оновлення повідомлень</string>
-    <string name="title_widget_compose">Показати кнопку створення нового повідомлення</string>
+    <string name="title_widget_compose">Показувати кнопку створення нового повідомлення</string>
     <string name="title_widget_background">Колір тла</string>
     <string name="title_widget_icon">Колір іконки</string>
     <string name="title_widget_day_night">Використовувати системну темну тему</string>
+    <string name="title_widget_standalone">Відкривати вміст відокремлено</string>
     <string name="title_compat_dark">Google прибирав темний режим для версій Android до 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важливо</string>
@@ -2064,6 +2066,10 @@
     <string name="title_keyword_label3">Особисте</string>
     <string name="title_keyword_label4">До виконання</string>
     <string name="title_keyword_label5">Відкладено</string>
+    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Переглянуто</string>
+    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Доставлено</string>
+    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Не переглянуто</string>
+    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">Не доставлено</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d повідомлення</item>
         <item quantity="few">%1$d повідомлення</item>
