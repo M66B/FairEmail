@@ -234,7 +234,8 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                                     BinaryBitmap bBitmap = new BinaryBitmap(new HybridBinarizer(source));
                                     MultiFormatReader reader = new MultiFormatReader();
                                     Result result = reader.decode(bBitmap);
-                                    args.putString("barcode", result.getText());
+                                    args.putString("barcode_text", result.getText());
+                                    args.putString("barcode_format", result.getBarcodeFormat().name());
                                 } catch (NotFoundException ex) {
                                     Log.w(ex);
                                 } catch (Throwable ex) {
@@ -313,16 +314,25 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                             sb.append(Helper.formatDuration(duration));
                         }
 
+                        if (BuildConfig.DEBUG) {
+                            String barcode_format = args.getString("barcode_format");
+                            if (!TextUtils.isEmpty(barcode_format)) {
+                                if (sb.length() > 0)
+                                    sb.append(' ');
+                                sb.append(barcode_format);
+                            }
+                        }
+
                         if (sb.length() > 0) {
                             tvProperties.setText(sb);
                             tvProperties.setVisibility(View.VISIBLE);
                         }
 
-                        String barcode = args.getString("barcode");
-                        if (!TextUtils.isEmpty(barcode)) {
+                        String barcode_text = args.getString("barcode_text");
+                        if (!TextUtils.isEmpty(barcode_text)) {
                             Uri uri;
                             try {
-                                uri = UriHelper.guessScheme(Uri.parse(barcode));
+                                uri = UriHelper.guessScheme(Uri.parse(barcode_text));
                             } catch (Throwable ex) {
                                 Log.w(ex);
                                 uri = null;
@@ -341,7 +351,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                             tvContent.setPaintFlags(flags);
                             tvContent.setTextColor(openable ? textColorLink : textColorTertiary);
                             tvContent.setTag(openable ? uri.toString() : null);
-                            tvContent.setText(barcode);
+                            tvContent.setText(barcode_text);
                             tvContent.setVisibility(View.VISIBLE);
                         }
                     }
