@@ -6772,7 +6772,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             for (EntityMessage m : db.message().getMessagesByMsgId(message.account, ref))
                                 map.put(m.msgid, m);
 
-                    return new ArrayList(map.values());
+                    return new ArrayList<>(map.values());
                 }
 
                 @Override
@@ -7466,7 +7466,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onExecute(Context context, Bundle args) {
-                        Long id = args.getLong("id");
+                        long id = args.getLong("id");
 
                         DB db = DB.getInstance(context);
                         try {
