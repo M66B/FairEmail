@@ -25,6 +25,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -90,6 +91,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
         private final ImageView ivImage;
         private final TextView tvCaption;
         private final TextView tvProperties;
+        private final TextView tvContent;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -98,17 +100,19 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
             ivImage = itemView.findViewById(R.id.ivImage);
             tvCaption = itemView.findViewById(R.id.tvCaption);
             tvProperties = itemView.findViewById(R.id.tvProperties);
-            tvProperties.setMovementMethod(LinkMovementMethodCompat.getInstance());
+            tvContent = itemView.findViewById(R.id.tvContent);
         }
 
         private void wire() {
             view.setOnClickListener(this);
             view.setOnLongClickListener(this);
+            tvContent.setOnClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
             view.setOnLongClickListener(null);
+            tvContent.setOnClickListener(null);
         }
 
         private void showPlayerState(Uri uri) {
@@ -124,6 +128,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
             tvCaption.setText(attachment.name);
             tvCaption.setVisibility(TextUtils.isEmpty(attachment.name) ? View.GONE : View.VISIBLE);
             tvProperties.setVisibility(View.GONE);
+            tvContent.setVisibility(View.GONE);
 
             if (attachment.available) {
                 Bundle args = new Bundle();
@@ -267,66 +272,74 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                             ImageHelper.animate(context, image);
                         }
 
-                        SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+                        StringBuilder sb = new StringBuilder();
 
                         int width = args.getInt("width");
                         int height = args.getInt("height");
                         if (width > 0 && height > 0)
-                            ssb.append(Integer.toString(width))
+                            sb.append(width)
                                     .append("\u00d7") // ×
-                                    .append(Integer.toString(height));
+                                    .append(height);
 
                         if (BuildConfig.DEBUG) {
                             String color = args.getString("color");
                             if (color != null) {
-                                if (ssb.length() > 0)
-                                    ssb.append(' ');
-                                ssb.append(color);
+                                if (sb.length() > 0)
+                                    sb.append(' ');
+                                sb.append(color);
                             }
 
                             String config = args.getString("config");
                             if (config != null) {
-                                if (ssb.length() > 0)
-                                    ssb.append(' ');
-                                ssb.append(config);
+                                if (sb.length() > 0)
+                                    sb.append(' ');
+                                sb.append(config);
                             }
                         }
 
                         long size = args.getLong("size");
                         if (size > 0) {
-                            if (ssb.length() > 0)
-                                ssb.append(' ');
-                            ssb.append(Helper.humanReadableByteCount(size));
+                            if (sb.length() > 0)
+                                sb.append(' ');
+                            sb.append(Helper.humanReadableByteCount(size));
                         }
 
                         int duration = args.getInt("duration");
                         if (duration > 0) {
-                            if (ssb.length() > 0)
-                                ssb.append(' ');
-                            ssb.append(Helper.formatDuration(duration));
+                            if (sb.length() > 0)
+                                sb.append(' ');
+                            sb.append(Helper.formatDuration(duration));
+                        }
+
+                        if (sb.length() > 0) {
+                            tvProperties.setText(sb);
+                            tvProperties.setVisibility(View.VISIBLE);
                         }
 
                         String barcode = args.getString("barcode");
                         if (!TextUtils.isEmpty(barcode)) {
-                            if (ssb.length() > 0)
-                                ssb.append('\n');
-                            int start = ssb.length();
-                            ssb.append(barcode);
-
+                            boolean link;
+                            Uri uri;
                             try {
-                                Uri uri = UriHelper.guessScheme(Uri.parse(barcode));
-                                if (UriHelper.isHyperLink(uri) || UriHelper.isMail(uri))
-                                    ssb.setSpan(new URLSpan(uri.toString()), start, ssb.length(), 0);
-                                else
-                                    ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                                uri = UriHelper.guessScheme(Uri.parse(barcode));
+                                link = UriHelper.isHyperLink(uri) || UriHelper.isMail(uri);
                             } catch (Throwable ex) {
                                 Log.e(ex);
+                                uri = null;
+                                link = false;
                             }
-                        }
 
-                        if (ssb.length() > 0) {
-                            tvProperties.setText(ssb);
-                            tvProperties.setVisibility(View.VISIBLE);
+                            tvContent.setTypeface(null, link ? Typeface.NORMAL : Typeface.BOLD);
+                            int flags = tvContent.getPaintFlags();
+                            if (link)
+                                flags |= Paint.UNDERLINE_TEXT_FLAG;
+                            else
+                                flags &= ~Paint.UNDERLINE_TEXT_FLAG;
+                            tvContent.setPaintFlags(flags);
+
+                            tvContent.setTag(link ? uri.toString() : null);
+                            tvContent.setText(barcode);
+                            tvContent.setVisibility(View.VISIBLE);
                         }
                     }
 
@@ -347,6 +360,18 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
+
+            if (view.getId() == R.id.tvContent && view.getTag() instanceof String) {
+                Bundle args = new Bundle();
+                args.putParcelable("uri", Uri.parse((String) view.getTag()));
+                args.putString("title", ((TextView) view).getText().toString());
+                args.putBoolean("always_confirm", true);
+
+                FragmentDialogOpenLink fragment = new FragmentDialogOpenLink();
+                fragment.setArguments(args);
+                fragment.show(parentFragment.getParentFragmentManager(), "open:barcode");
+                return;
+            }
 
             EntityAttachment attachment = items.get(pos);
             if (attachment.available) {
