@@ -331,7 +331,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private BroadcastReceiver connectionChangedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i("Received intent=" + intent +
+            Log.i("Received " + intent +
                     " " + TextUtils.join(" ", Log.getExtras(intent.getExtras())));
             checkConnectivity();
         }

@@ -2984,7 +2984,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private final BroadcastReceiver connectionChangedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i("Received intent=" + intent +
+            Log.i("Received " + intent +
                     " " + TextUtils.join(" ", Log.getExtras(intent.getExtras())));
 
             if (Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(intent.getAction())) {
@@ -3013,7 +3013,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         @Override
         @RequiresApi(api = Build.VERSION_CODES.N)
         public void onReceive(Context context, Intent intent) {
-            Log.i("Received intent=" + intent +
+            Log.i("Received " + intent +
                     " " + TextUtils.join(" ", Log.getExtras(intent.getExtras())));
 
             ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
