@@ -223,9 +223,11 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                                 Log.w(ex);
                             }
 
-                            if (barcode_preview)
+                            // https://github.com/zxing/zxing/wiki/Frequently-Asked-Questions#developers
+                            if (barcode_preview &&
+                                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                                 try (InputStream is = new FileInputStream(file)) {
-                                    Bitmap bitmap = BitmapFactory.decodeStream(is);
+                                    Bitmap bitmap = ImageHelper.getScaledBitmap(is, file.getAbsolutePath(), type, max);
                                     int width = bitmap.getWidth(), height = bitmap.getHeight();
                                     int[] pixels = new int[width * height];
                                     bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
