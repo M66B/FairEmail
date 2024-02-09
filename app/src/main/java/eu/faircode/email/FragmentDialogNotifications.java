@@ -25,6 +25,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.style.RelativeSizeSpan;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,10 +39,17 @@ public class FragmentDialogNotifications extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final Context context = getContext();
 
+        SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+        ssb.append(context.getString(R.string.title_hint_notifications_remark));
+        ssb.append("\n\n");
+        int start = ssb.length();
+        ssb.append(context.getString(R.string.title_hint_dismiss));
+        ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
+
         return new AlertDialog.Builder(context)
                 .setIcon(R.drawable.twotone_notifications_off_24)
                 .setTitle(R.string.title_hint_notifications)
-                .setMessage(R.string.title_hint_notifications_remark)
+                .setMessage(ssb)
                 .setPositiveButton(R.string.title_fix, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
