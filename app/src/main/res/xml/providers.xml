@@ -1125,7 +1125,7 @@
     </provider>
     <provider
         name="OVH"
-        domain="ovh\\..*"
+        domain="ovh\\.net,.*\\.ovh"
         link="https://docs.ovh.com/fr/emails/mail-mutualise-guide-configuration-dun-telephone-mobile-sous-android-version-51/#rappel-des-parametres-pop-imap_1">
         <imap
             host="ssl0.ovh.net"
