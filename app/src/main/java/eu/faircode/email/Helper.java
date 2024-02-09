@@ -3536,18 +3536,12 @@ public class Helper {
 
     // Miscellaneous
 
-    static void gc() {
-        gc(false);
-    }
-
-    static void gc(boolean force) {
-        if (force || BuildConfig.DEBUG) {
+    static void gc(String reason) {
+        try {
+            Log.i("GC " + reason);
             Runtime.getRuntime().gc();
-            try {
-                Thread.sleep(50);
-            } catch (InterruptedException ex) {
-                Log.e(ex);
-            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 

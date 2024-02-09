@@ -411,9 +411,9 @@ class Core {
                                     break;
 
                                 case EntityOperation.SYNC:
-                                    Helper.gc();
+                                    Helper.gc("Sync start");
                                     onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, (POP3Store) istore, state);
-                                    Helper.gc();
+                                    Helper.gc("Sync end");
                                     break;
 
                                 case EntityOperation.PURGE:
@@ -501,9 +501,9 @@ class Core {
                                     break;
 
                                 case EntityOperation.SYNC:
-                                    Helper.gc();
+                                    Helper.gc("Sync start");
                                     onSynchronizeMessages(context, jargs, account, folder, (IMAPStore) istore, (IMAPFolder) ifolder, state);
-                                    Helper.gc();
+                                    Helper.gc("Sync end");
                                     break;
 
                                 case EntityOperation.SUBSCRIBE:

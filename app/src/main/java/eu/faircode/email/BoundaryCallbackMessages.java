@@ -173,7 +173,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                Helper.gc();
+                Helper.gc("Boundary start");
 
                 int free = Log.getFreeMemMb();
                 Map<String, String> crumb = new HashMap<>();
@@ -228,7 +228,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 } finally {
                     state.queued.decrementAndGet();
                     Log.i("Boundary queued -" + state.queued.get());
-                    Helper.gc();
+                    Helper.gc("Boundary end");
 
                     crumb.put("queued", Integer.toString(state.queued.get()));
                     Log.breadcrumb("Boundary done", crumb);
@@ -994,7 +994,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             ifolder = null;
             imessages = null;
 
-            Helper.gc();
+            Helper.gc("Boundary reset");
         }
     }
 
