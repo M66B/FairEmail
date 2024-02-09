@@ -5414,12 +5414,52 @@ public class FragmentMessages extends FragmentBase
         }
 
         if (grpDataSaver != null &&
-                ("enabled".equals(key) || "datasaver_reminder".equals(key))) {
-            boolean enabled = prefs.getBoolean("enabled", true);
-            boolean isDataSaving = ConnectionHelper.isDataSaving(getContext());
-            boolean datasaver_reminder = prefs.getBoolean(key, true);
-            grpDataSaver.setVisibility(enabled && isDataSaving && datasaver_reminder ? View.VISIBLE : View.GONE);
-        }
+                ("enabled".equals(key) || "datasaver_reminder".equals(key)))
+            new SimpleTask<Boolean>() {
+                @Override
+                protected Boolean onExecute(Context context, Bundle args) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+                    boolean isDataSaving = ConnectionHelper.isDataSaving(getContext());
+                    if (!isDataSaving) {
+                        prefs.edit().putBoolean("datasaver_reminder", true).apply();
+                        return false;
+                    }
+
+                    boolean enabled = prefs.getBoolean("enabled", true);
+                    boolean reminder = prefs.getBoolean("datasaver_reminder", true);
+
+                    if (!enabled || !reminder)
+                        return false;
+
+                    DB db = DB.getInstance(context);
+                    List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
+                    if (accounts == null || accounts.size() == 0)
+                        return false;
+
+                    boolean ondemand = true;
+                    for (EntityAccount account : accounts)
+                        if (!account.ondemand) {
+                            ondemand = false;
+                            break;
+                        }
+
+                    if (ondemand)
+                        return false;
+
+                    return true;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Boolean show) {
+                    grpDataSaver.setVisibility(Boolean.TRUE.equals(show) ? View.VISIBLE : View.GONE);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    grpDataSaver.setVisibility(View.GONE);
+                }
+            }.serial().execute(this, new Bundle(), "datasaver");
 
         if (grpSupport != null &&
                 ("pro".equals(key) || "banner_hidden".equals(key))) {
