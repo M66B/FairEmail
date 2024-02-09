@@ -5410,56 +5410,23 @@ public class FragmentMessages extends FragmentBase
             if (canNotify)
                 prefs.edit().remove("notifications_reminder").apply();
             boolean notifications_reminder = prefs.getBoolean("notifications_reminder", true);
-            grpNotifications.setVisibility(canNotify || !notifications_reminder ? View.GONE : View.VISIBLE);
+            grpNotifications.setVisibility(
+                    !canNotify && notifications_reminder
+                            ? View.VISIBLE : View.GONE);
         }
 
         if (grpDataSaver != null &&
-                ("enabled".equals(key) || "datasaver_reminder".equals(key)))
-            new SimpleTask<Boolean>() {
-                @Override
-                protected Boolean onExecute(Context context, Bundle args) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                ("enabled".equals(key) || "datasaver_reminder".equals(key))) {
+            boolean isDataSaving = ConnectionHelper.isDataSaving(getContext());
+            if (!isDataSaving)
+                prefs.edit().remove("datasaver_reminder").apply();
 
-                    boolean isDataSaving = ConnectionHelper.isDataSaving(getContext());
-                    if (!isDataSaving) {
-                        prefs.edit().putBoolean("datasaver_reminder", true).apply();
-                        return false;
-                    }
-
-                    boolean enabled = prefs.getBoolean("enabled", true);
-                    boolean reminder = prefs.getBoolean("datasaver_reminder", true);
-
-                    if (!enabled || !reminder)
-                        return false;
-
-                    DB db = DB.getInstance(context);
-                    List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
-                    if (accounts == null || accounts.size() == 0)
-                        return false;
-
-                    boolean ondemand = true;
-                    for (EntityAccount account : accounts)
-                        if (!account.ondemand) {
-                            ondemand = false;
-                            break;
-                        }
-
-                    if (ondemand)
-                        return false;
-
-                    return true;
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, Boolean show) {
-                    grpDataSaver.setVisibility(Boolean.TRUE.equals(show) ? View.VISIBLE : View.GONE);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    grpDataSaver.setVisibility(View.GONE);
-                }
-            }.serial().execute(this, new Bundle(), "datasaver");
+            boolean enabled = prefs.getBoolean("enabled", true);
+            boolean datasaver_reminder = prefs.getBoolean("datasaver_reminder", true);
+            grpDataSaver.setVisibility(
+                    isDataSaving && enabled && datasaver_reminder
+                            ? View.VISIBLE : View.GONE);
+        }
 
         if (grpSupport != null &&
                 ("pro".equals(key) || "banner_hidden".equals(key))) {

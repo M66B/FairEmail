@@ -8,7 +8,7 @@ Ypupiara
 
 Next version
 
-* Added barcode decoding (requires Android 7+)
+* Added image barcode decoding (requires Android 7+)
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
 * Updated translations
