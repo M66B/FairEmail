@@ -27,6 +27,8 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.SpannableStringBuilder;
+import android.text.style.RelativeSizeSpan;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,16 +41,29 @@ public class FragmentDialogDataSaver extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final Context context = getContext();
 
+        SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+        ssb.append(context.getString(R.string.title_hint_data_saver));
+        ssb.append("\n\n");
+        int start = ssb.length();
+        ssb.append(context.getString(R.string.title_hint_dismiss));
+        ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
+
+        Intent saver = new Intent(
+                Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS,
+                Uri.parse("package:" + BuildConfig.APPLICATION_ID));
+
+        Intent settings = (saver.resolveActivity(context.getPackageManager()) == null
+                ? new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                Uri.parse("package:" + BuildConfig.APPLICATION_ID))
+                : saver);
+
         return new AlertDialog.Builder(context)
                 .setIcon(R.drawable.twotone_data_saver_off_24)
                 .setTitle(R.string.title_setup_data)
-                .setMessage(R.string.title_hint_data_saver)
+                .setMessage(ssb)
                 .setPositiveButton(R.string.title_fix, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent settings = new Intent(
-                                Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS,
-                                Uri.parse("package:" + BuildConfig.APPLICATION_ID));
                         context.startActivity(settings);
                     }
                 })
