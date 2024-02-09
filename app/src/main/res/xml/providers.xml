@@ -2238,4 +2238,17 @@
             tokenEndpoint="http://reg.163.com/open/oauth2/token.do" />
         <!-- https://reg.163.com/help/help_oauth2.html -->
     </provider>
+    <provider
+        name="Private-Mail"
+        domain="privatemail\\.com"
+        link="https://privatemail.com/">
+        <imap
+            host="smtp.privatemail.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.privatemail.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
