@@ -2973,7 +2973,8 @@ public class HtmlHelper {
         return ssb.toString();
     }
 
-    static Spanned highlightHeaders(Context context, Address[] from, Address[] to, Long time, String headers, boolean blocklist) {
+    static SpannableStringBuilder highlightHeaders(
+            Context context, Address[] from, Address[] to, Long time, String headers, boolean blocklist, boolean withReceived) {
         SpannableStringBuilder ssb = new SpannableStringBuilderEx(headers.replaceAll("\\t", " "));
         int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
         int colorVerified = Helper.resolveColor(context, R.attr.colorVerified);
@@ -2991,156 +2992,154 @@ public class HtmlHelper {
             index += line.length() + 1;
         }
 
-        ssb.append("\n\uFFFC"); // Object replacement character
-        ssb.setSpan(new LineSpan(colorSeparator, stroke, 0), ssb.length() - 1, ssb.length(), 0);
-        ssb.append('\n');
+        if (withReceived) {
+            ssb.append("\n\uFFFC"); // Object replacement character
+            ssb.setSpan(new LineSpan(colorSeparator, stroke, 0), ssb.length() - 1, ssb.length(), 0);
+            ssb.append('\n');
 
-        try {
-            // https://datatracker.ietf.org/doc/html/rfc2821#section-4.4
-            final DateFormat DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.MEDIUM);
-
-            MailDateFormat mdf = new MailDateFormat();
-            ByteArrayInputStream bis = new ByteArrayInputStream(headers.getBytes());
-            InternetHeaders iheaders = new InternetHeaders(bis, true);
-
-            Date tx = null;
-
-            String dh = iheaders.getHeader("Date", null);
             try {
-                if (dh != null)
-                    tx = mdf.parse(dh);
-            } catch (ParseException ex) {
+                // https://datatracker.ietf.org/doc/html/rfc2821#section-4.4
+                final DateFormat DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.MEDIUM);
+
+                MailDateFormat mdf = new MailDateFormat();
+                ByteArrayInputStream bis = new ByteArrayInputStream(headers.getBytes());
+                InternetHeaders iheaders = new InternetHeaders(bis, true);
+
+                Date tx = null;
+
+                String dh = iheaders.getHeader("Date", null);
+                try {
+                    if (dh != null)
+                        tx = mdf.parse(dh);
+                } catch (ParseException ex) {
+                    Log.w(ex);
+                }
+
+                if (tx != null) {
+                    ssb.append('\n');
+                    int s = ssb.length();
+                    ssb.append(DTF.format(tx));
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+                }
+
+                if (from != null) {
+                    ssb.append('\n');
+                    int s = ssb.length();
+                    ssb.append("from");
+                    ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+                    ssb.append(' ').append(MessageHelper.formatAddresses(from, true, false));
+                }
+
+                if (tx != null || from != null)
+                    ssb.append('\n');
+
+                Date rx = null;
+                String[] received = iheaders.getHeader("Received");
+                if (received != null && received.length > 0) {
+                    for (int i = received.length - 1; i >= 0; i--) {
+                        ssb.append('\n');
+                        String h = MimeUtility.unfold(received[i]);
+
+                        int semi = h.lastIndexOf(';');
+                        if (semi > 0) {
+                            rx = mdf.parse(h, new ParsePosition(semi + 1));
+                            h = h.substring(0, semi);
+                        }
+
+                        int s = ssb.length();
+                        ssb.append('#').append(Integer.toString(received.length - i));
+                        if (rx != null) {
+                            ssb.append(' ').append(DTF.format(rx));
+                            if (tx != null)
+                                ssb.append(" \u0394")
+                                        .append(Helper.formatDuration(rx.getTime() - tx.getTime()));
+                        }
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+
+                        if (blocklist && i == received.length - 1) {
+                            Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_flag_24);
+
+                            int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
+                            d.setBounds(0, 0, iconSize, iconSize);
+                            d.setTint(colorWarning);
+
+                            ssb.append(" \uFFFC"); // Object replacement character
+                            ssb.setSpan(new ImageSpan(d), ssb.length() - 1, ssb.length(), 0);
+
+                            if (!TextUtils.isEmpty(BuildConfig.MXTOOLBOX_URI)) {
+                                final String header = received[i];
+                                ClickableSpan click = new ClickableSpan() {
+                                    @Override
+                                    public void onClick(@NonNull View widget) {
+                                        DnsBlockList.show(widget.getContext(), header);
+                                    }
+                                };
+                                ssb.setSpan(click, ssb.length() - 1, ssb.length(), 0);
+                            }
+                        }
+
+                        ssb.append('\n');
+
+                        int j = 0;
+                        boolean p = false;
+                        String[] w = h.split("\\s+");
+                        while (j < w.length) {
+                            if (w[j].startsWith("("))
+                                p = true;
+
+                            if (j > 0)
+                                ssb.append(' ');
+
+                            s = ssb.length();
+                            ssb.append(w[j]);
+                            if (!p && MessageHelper.RECEIVED_WORDS.contains(w[j].toLowerCase(Locale.ROOT))) {
+                                ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
+                                ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+                            }
+
+                            if (w[j].endsWith(")"))
+                                p = false;
+
+                            j++;
+                        }
+
+                        Boolean tls = MessageHelper.isTLS(h, i == received.length - 1);
+                        ssb.append(" TLS=");
+                        int t = ssb.length();
+                        ssb.append(tls == null ? "?" : Boolean.toString(tls));
+                        if (tls != null)
+                            ssb.setSpan(new ForegroundColorSpan(tls ? colorVerified : colorWarning), t, ssb.length(), 0);
+
+                        ssb.append("\n");
+                    }
+                }
+
+                if (time != null) {
+                    ssb.append('\n');
+                    int s = ssb.length();
+                    ssb.append(DTF.format(time));
+                    if (rx != null)
+                        ssb.append(" \u0394")
+                                .append(Helper.formatDuration(time - rx.getTime()));
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+                }
+
+                if (to != null) {
+                    ssb.append('\n');
+                    int s = ssb.length();
+                    ssb.append("to");
+                    ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+                    ssb.append(' ').append(MessageHelper.formatAddresses(to, true, false));
+                }
+
+                if (time != null || to != null)
+                    ssb.append('\n');
+            } catch (Throwable ex) {
                 Log.w(ex);
             }
-
-            if (tx != null) {
-                ssb.append('\n');
-                int s = ssb.length();
-                ssb.append(DTF.format(tx));
-                ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
-            }
-
-            if (from != null) {
-                ssb.append('\n');
-                int s = ssb.length();
-                ssb.append("from");
-                ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
-                ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
-                ssb.append(' ').append(MessageHelper.formatAddresses(from, true, false));
-            }
-
-            if (tx != null || from != null)
-                ssb.append('\n');
-
-            Date rx = null;
-            String[] received = iheaders.getHeader("Received");
-            if (received != null && received.length > 0) {
-                for (int i = received.length - 1; i >= 0; i--) {
-                    ssb.append('\n');
-                    String h = MimeUtility.unfold(received[i]);
-
-                    int semi = h.lastIndexOf(';');
-                    if (semi > 0) {
-                        rx = mdf.parse(h, new ParsePosition(semi + 1));
-                        h = h.substring(0, semi);
-                    }
-
-                    int s = ssb.length();
-                    ssb.append('#').append(Integer.toString(received.length - i));
-                    if (rx != null) {
-                        ssb.append(' ').append(DTF.format(rx));
-                        if (tx != null)
-                            ssb.append(" \u0394")
-                                    .append(Helper.formatDuration(rx.getTime() - tx.getTime()));
-                    }
-                    ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
-
-                    if (blocklist && i == received.length - 1) {
-                        Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_flag_24);
-
-                        int iconSize = context.getResources().getDimensionPixelSize(R.dimen.menu_item_icon_size);
-                        d.setBounds(0, 0, iconSize, iconSize);
-                        d.setTint(colorWarning);
-
-                        ssb.append(" \uFFFC"); // Object replacement character
-                        ssb.setSpan(new ImageSpan(d), ssb.length() - 1, ssb.length(), 0);
-
-                        if (!TextUtils.isEmpty(BuildConfig.MXTOOLBOX_URI)) {
-                            final String header = received[i];
-                            ClickableSpan click = new ClickableSpan() {
-                                @Override
-                                public void onClick(@NonNull View widget) {
-                                    DnsBlockList.show(widget.getContext(), header);
-                                }
-                            };
-                            ssb.setSpan(click, ssb.length() - 1, ssb.length(), 0);
-                        }
-                    }
-
-                    ssb.append('\n');
-
-                    int j = 0;
-                    boolean p = false;
-                    String[] w = h.split("\\s+");
-                    while (j < w.length) {
-                        if (w[j].startsWith("("))
-                            p = true;
-
-                        if (j > 0)
-                            ssb.append(' ');
-
-                        s = ssb.length();
-                        ssb.append(w[j]);
-                        if (!p && MessageHelper.RECEIVED_WORDS.contains(w[j].toLowerCase(Locale.ROOT))) {
-                            ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
-                            ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
-                        }
-
-                        if (w[j].endsWith(")"))
-                            p = false;
-
-                        j++;
-                    }
-
-                    Boolean tls = MessageHelper.isTLS(h, i == received.length - 1);
-                    ssb.append(" TLS=");
-                    int t = ssb.length();
-                    ssb.append(tls == null ? "?" : Boolean.toString(tls));
-                    if (tls != null)
-                        ssb.setSpan(new ForegroundColorSpan(tls ? colorVerified : colorWarning), t, ssb.length(), 0);
-
-                    ssb.append("\n");
-                }
-            }
-
-            if (time != null) {
-                ssb.append('\n');
-                int s = ssb.length();
-                ssb.append(DTF.format(time));
-                if (rx != null)
-                    ssb.append(" \u0394")
-                            .append(Helper.formatDuration(time - rx.getTime()));
-                ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
-            }
-
-            if (to != null) {
-                ssb.append('\n');
-                int s = ssb.length();
-                ssb.append("to");
-                ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
-                ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
-                ssb.append(' ').append(MessageHelper.formatAddresses(to, true, false));
-            }
-
-            if (time != null || to != null)
-                ssb.append('\n');
-        } catch (Throwable ex) {
-            Log.w(ex);
         }
-
-        ssb.append("\n\uFFFC"); // Object replacement character
-        ssb.setSpan(new LineSpan(colorSeparator, stroke, 0), ssb.length() - 1, ssb.length(), 0);
-        ssb.append('\n');
 
         return ssb;
     }

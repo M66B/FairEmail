@@ -87,7 +87,7 @@ public class ActivityDSN extends ActivityBase {
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
 
-        new SimpleTask<Result>() {
+        new SimpleTask<Spanned>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 pbWait.setVisibility(View.VISIBLE);
@@ -99,12 +99,10 @@ public class ActivityDSN extends ActivityBase {
             }
 
             @Override
-            protected Result onExecute(Context context, Bundle args) throws Throwable {
+            protected Spanned onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
 
                 NoStreamException.check(uri, context);
-
-                Result result = new Result();
 
                 ContentResolver resolver = context.getContentResolver();
                 try (InputStream is = resolver.openInputStream(uri)) {
@@ -112,22 +110,18 @@ public class ActivityDSN extends ActivityBase {
                         throw new FileNotFoundException(uri.toString());
 
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                    byte[] buffer = new byte[Helper.BUFFER_SIZE];
-                    int length;
-                    while ((length = is.read(buffer)) != -1)
-                        bos.write(buffer, 0, length);
+                    Helper.copy(is, bos);
 
-                    String headers = MessageHelper.decodeMime(bos.toString(StandardCharsets.UTF_8.name()));
-                    result.headers = HtmlHelper.highlightHeaders(context,
-                            null, null, null, headers, false);
+                    String headers = bos.toString(StandardCharsets.UTF_8.name());
+                    headers = MessageHelper.decodeMime(headers);
+                    return HtmlHelper.highlightHeaders(context,
+                            null, null, null, headers, false, false);
                 }
-
-                return result;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Result result) {
-                tvHeaders.setText(result.headers);
+            protected void onExecuted(Bundle args, Spanned result) {
+                tvHeaders.setText(result);
                 grpReady.setVisibility(View.VISIBLE);
             }
 
@@ -139,9 +133,5 @@ public class ActivityDSN extends ActivityBase {
                     Log.unexpectedError(getSupportFragmentManager(), ex, false);
             }
         }.execute(this, args, "disposition:decode");
-    }
-
-    private class Result {
-        Spanned headers;
     }
 }

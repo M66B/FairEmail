@@ -2768,11 +2768,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             if (show_headers && message.headers != null) {
-                Spanned headers = HtmlHelper.highlightHeaders(context,
+                SpannableStringBuilder ssb = HtmlHelper.highlightHeaders(context,
                         message.from, message.to, message.received, message.headers,
-                        message.blocklist != null && message.blocklist);
-                if (BuildConfig.DEBUG && headers instanceof SpannableStringBuilder) {
-                    SpannableStringBuilder ssb = (SpannableStringBuilder) headers;
+                        message.blocklist != null && message.blocklist, true);
+                if (BuildConfig.DEBUG) {
+                    float stroke = context.getResources().getDisplayMetrics().density;
+
+                    ssb.append("\n\uFFFC"); // Object replacement character
+                    ssb.setSpan(new LineSpan(colorSeparator, stroke, 0), ssb.length() - 1, ssb.length(), 0);
+                    ssb.append('\n');
+
                     ssb.append('\n');
                     ssb.append("TLS=").append(message.tls == null ? "-" : (message.tls ? "✓" : "✗"));
                     ssb.append(" DKIM=").append(message.dkim == null ? "-" : (message.dkim ? "✓" : "✗"));
@@ -2783,7 +2788,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ssb.append(" BL=").append(message.blocklist == null ? "-" : (message.blocklist ? "✓" : "✗"));
                     ssb.append('\n');
                 }
-                tvHeaders.setText(headers);
+
+                tvHeaders.setText(ssb);
                 ibCopyHeaders.setVisibility(View.VISIBLE);
             } else {
                 tvHeaders.setText(null);

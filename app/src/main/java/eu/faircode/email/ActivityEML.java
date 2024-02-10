@@ -328,7 +328,11 @@ public class ActivityEML extends ActivityBase {
                     result.structure = ssb;
 
                     result.headers = HtmlHelper.highlightHeaders(context,
-                            helper.getFrom(), helper.getTo(), helper.getReceivedHeader(), helper.getHeaders(), false);
+                            helper.getFrom(),
+                            helper.getTo(),
+                            helper.getReceivedHeader(),
+                            helper.getHeaders(),
+                            false, false);
 
                     return result;
                 }
