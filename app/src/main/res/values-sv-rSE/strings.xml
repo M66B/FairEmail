@@ -1176,6 +1176,7 @@
     <string name="title_new_message">Nytt meddelande</string>
     <string name="title_editasnew">Redigera som ny</string>
     <string name="title_edit_notes">Redigera lokala anteckningar</string>
+    <string name="title_edit_notes_remark">Lokala anteckningar lagras inte på e-postservern och är därför endast tillgängliga i denna app på denna enhet</string>
     <string name="title_create_rule">Skapa regel &#8230;</string>
     <string name="title_full_screen">Helskärm</string>
     <string name="title_force_light">Tvinga ljust tema</string>
@@ -2027,6 +2028,10 @@
     <string name="title_keyword_label3">Personligt</string>
     <string name="title_keyword_label4">Att göra</string>
     <string name="title_keyword_label5">Senare</string>
+    <string name="title_keyword_displayed">Visat</string>
+    <string name="title_keyword_delivered">Levererat</string>
+    <string name="title_keyword_not_displayed">Inte visat</string>
+    <string name="title_keyword_not_delivered">Inte levererat</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d meddelande</item>
         <item quantity="other">%1$d meddelanden</item>

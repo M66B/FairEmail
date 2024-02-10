@@ -547,6 +547,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_pdf_preview">Toon PDF-miniaturen</string>
     <string name="title_advanced_video_preview">Toon video miniaturen</string>
     <string name="title_advanced_audio_preview">Toon mini-audiospeler</string>
+    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">Toon barcode inhoud</string>
     <string name="title_advanced_message_text_zoom2">Standaard berichttekst zoom: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zoom berichttekst ook in de berichteditor</string>
     <string name="title_advanced_overview_mode">Zoom oorspronkelijke berichten zodat ze op het scherm passen</string>
@@ -1788,6 +1789,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_legend_plain_only">Is alleen platte tekst</string>
     <string name="title_legend_receipt">Ontvangstbevestiging gevraagd</string>
     <string name="title_legend_auto_submitted">Werd automatisch verzonden</string>
+    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">Verzonden door een lijst</string>
     <string name="title_legend_attachment">Heeft bijlagen</string>
     <string name="title_legend_flagged">Is favoriet</string>
     <string name="title_legend_contacts">Contacten beheren</string>
@@ -1854,6 +1856,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_hint_notifications">Geen meldingsrechten</string>
     <string name="title_hint_notifications_remark">Meldingsrechten zijn vereist voor (account) meldingen. Meldingen voor nieuwe berichten kunnen worden uitgeschakeld in de instellingen.</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaties nog steeds ingeschakeld</string>
+    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">Als gegevensbesparing is ingeschakeld, kan de app niet op de achtergrond synchroniseren en kunnen er verbindingsfouten optreden.</string>
+    <string name="title_hint_dismiss" comment="title_hint_dismiss&#10;Remark in a dialog box to say that dismissing the dialog box will result in suppressing the notice that triggered the dialog box">U kunt dit dialoogvenster sluiten om de melding te verwijderen.</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veegacties kunnen worden geconfigureerd in de accountinstellingen</string>
     <string name="title_hint_message_selection">Druk lang op een bericht om meerdere berichten te selecteren; Hou vast en veeg omhoog of omlaag om meer berichten te selecteren</string>
@@ -2026,10 +2030,11 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_keyword_label3">Persoonlijk</string>
     <string name="title_keyword_label4">Te doen</string>
     <string name="title_keyword_label5">Later</string>
-    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Getoond</string>
-    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Afgeleverd</string>
-    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Niet getoond</string>
-    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">Niet afgeleverd</string>
+    <string name="title_keyword_displayed">Getoond</string>
+    <string name="title_keyword_delivered">Afgeleverd</string>
+    <string name="title_keyword_not_displayed">Niet getoond</string>
+    <string name="title_keyword_not_delivered">Niet afgeleverd</string>
+    <string name="title_keyword_complaint" comment="title_keyword_complaint&#10;Default title for keyword indicating that there was a complaint about an email">Klacht</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d bericht</item>
         <item quantity="other">%1$d berichten</item>

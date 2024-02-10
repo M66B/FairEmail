@@ -1197,6 +1197,7 @@
     <string name="title_new_message">Mesaj nou</string>
     <string name="title_editasnew">Editare ca nou</string>
     <string name="title_edit_notes">Editează notele locale</string>
+    <string name="title_edit_notes_remark">Notele locale nu sunt stocate pe serverul de mail și, prin urmare, sunt disponibile numai în această aplicație pe acest dispozitiv</string>
     <string name="title_create_rule">Creare regulă &#8230;</string>
     <string name="title_full_screen">Ecran complet</string>
     <string name="title_force_light">Tema forțată a luminii</string>
@@ -2041,6 +2042,7 @@
     <string name="title_widget_background">Culoare fundal</string>
     <string name="title_widget_icon">Culoare pictogramă</string>
     <string name="title_widget_day_night">Urmați tema sistemului întunecat</string>
+    <string name="title_widget_standalone">Deschide conținutul în mod autonom</string>
     <string name="title_compat_dark">Google a eliminat modul întunecat pentru versiunile de Android anterioare versiunii 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Important</string>
@@ -2048,6 +2050,10 @@
     <string name="title_keyword_label3">Personal</string>
     <string name="title_keyword_label4">De făcut</string>
     <string name="title_keyword_label5">Mai târziu</string>
+    <string name="title_keyword_displayed">Afișat</string>
+    <string name="title_keyword_delivered">Livrat</string>
+    <string name="title_keyword_not_displayed">Nu a fost afișat</string>
+    <string name="title_keyword_not_delivered">Nu a fost livrat</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d mesaj</item>
         <item quantity="few">%1$d mesaje</item>

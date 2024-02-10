@@ -1183,6 +1183,7 @@
     <string name="title_new_message">Ново съобщение</string>
     <string name="title_editasnew">Редактирай като нов</string>
     <string name="title_edit_notes">Редактиране на локалните бележки</string>
+    <string name="title_edit_notes_remark">Локалните бележки не се пазят на сървъра на имейла и следователно са налични само в това приложение на това устройство</string>
     <string name="title_create_rule">Създай правило &#8230;</string>
     <string name="title_full_screen">Цял екран</string>
     <string name="title_force_light">Налагам светла тема</string>
@@ -2029,6 +2030,7 @@
     <string name="title_widget_background">Цвят на фона</string>
     <string name="title_widget_icon">Цвят на иконата</string>
     <string name="title_widget_day_night">Следване на тъмната системна тема</string>
+    <string name="title_widget_standalone">Самостоятелно отваряне на съдържанието</string>
     <string name="title_compat_dark">Google премахна тъмния режим за версиите на Android преди версия 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важно</string>
@@ -2036,6 +2038,10 @@
     <string name="title_keyword_label3">Личен</string>
     <string name="title_keyword_label4">Да се направи</string>
     <string name="title_keyword_label5">По-късно</string>
+    <string name="title_keyword_displayed">Онагледено</string>
+    <string name="title_keyword_delivered">Доставено</string>
+    <string name="title_keyword_not_displayed">Не е онагледено</string>
+    <string name="title_keyword_not_delivered">Не е доставено</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d съобщение</item>
         <item quantity="other">%1$d съобщения</item>

@@ -548,6 +548,7 @@
     <string name="title_advanced_pdf_preview">Mostrar miniaturas de PDF</string>
     <string name="title_advanced_video_preview">Mostrar miniaturas de vídeos</string>
     <string name="title_advanced_audio_preview">Mostrar mini player de áudio</string>
+    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">Mostrar conteúdo do código de barras</string>
     <string name="title_advanced_message_text_zoom2">Zoom padrão da mensagem: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Amplie o texto da mensagem também no editor de mensagens</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para adequar à tela</string>
@@ -1183,6 +1184,7 @@
     <string name="title_new_message">Nova mensagem</string>
     <string name="title_editasnew">Editar como novo</string>
     <string name="title_edit_notes">Editar notas locais</string>
+    <string name="title_edit_notes_remark">As notas locais não são armazenadas no servidor de e-mail e, portanto, só estão disponíveis neste aplicativo neste dispositivo</string>
     <string name="title_create_rule">Criar regra &#8230;</string>
     <string name="title_full_screen">Tela cheia</string>
     <string name="title_force_light">Forçar tema claro</string>
@@ -1797,6 +1799,7 @@
     <string name="title_legend_plain_only">Apenas texto simples</string>
     <string name="title_legend_receipt">Recibo solicitado</string>
     <string name="title_legend_auto_submitted">Enviada automaticamente</string>
+    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">Enviado por uma lista</string>
     <string name="title_legend_attachment">Possui anexo</string>
     <string name="title_legend_flagged">É favorito</string>
     <string name="title_legend_contacts">Gerenciar contatos</string>
@@ -1863,6 +1866,8 @@
     <string name="title_hint_notifications">Sem permissões de notificação</string>
     <string name="title_hint_notifications_remark">As permissões de notificação também são necessárias para alerta (de conta). As notificações de novas mensagens podem ser desativadas nas configurações.</string>
     <string name="title_hint_battery_optimizations">Otimizações de bateria continuam ativadas</string>
+    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">Se a economia de dados estiver ativada, o aplicativo não poderá sincronizar em segundo plano e poderão ocorrer erros de conexão.</string>
+    <string name="title_hint_dismiss" comment="title_hint_dismiss&#10;Remark in a dialog box to say that dismissing the dialog box will result in suppressing the notice that triggered the dialog box">Você pode descartar esta caixa de diálogo para remover o aviso.</string>
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para a lixeira; Deslize para a direita para o arquivo (se disponível); As ações de deslize podem ser configuradas nas configurações da conta</string>
     <string name="title_hint_message_selection">Pressione uma mensagem para começar a selecionar múltiplas mensagens; segure e deslize para cima ou para baixo para selecionar mais mensagens</string>
@@ -2028,6 +2033,7 @@
     <string name="title_widget_background">Cor de fundo</string>
     <string name="title_widget_icon">Cor do ícone</string>
     <string name="title_widget_day_night">Seguir o tema escuro do sistema</string>
+    <string name="title_widget_standalone">Abra o conteúdo de forma independente</string>
     <string name="title_compat_dark">A Google removeu o modo escuro para versões do Android anteriores a versão 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Importante</string>
@@ -2035,6 +2041,11 @@
     <string name="title_keyword_label3">Pessoal</string>
     <string name="title_keyword_label4">Para fazer</string>
     <string name="title_keyword_label5">Mais tarde</string>
+    <string name="title_keyword_displayed">Exibida</string>
+    <string name="title_keyword_delivered">Entregue</string>
+    <string name="title_keyword_not_displayed">Não exibida</string>
+    <string name="title_keyword_not_delivered">Não entregue</string>
+    <string name="title_keyword_complaint" comment="title_keyword_complaint&#10;Default title for keyword indicating that there was a complaint about an email">Reclamação</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d mensagem</item>
         <item quantity="other">%1$d mensagens</item>

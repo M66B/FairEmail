@@ -550,6 +550,7 @@
     <string name="title_advanced_pdf_preview">Mostrar pré-visualização de PDF</string>
     <string name="title_advanced_video_preview">Mostrar miniaturas de vídeo</string>
     <string name="title_advanced_audio_preview">Mostrar mini reprodutor de áudio</string>
+    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">Mostrar conteúdo do código de barras</string>
     <string name="title_advanced_message_text_zoom2">Zoom padrão do texto da mensagem %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Ampliar o texto da mensagem também no editor de mensagens</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para caber na tela</string>
@@ -1802,6 +1803,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_legend_plain_only">Apenas texto simples</string>
     <string name="title_legend_receipt">Recibo solicitado</string>
     <string name="title_legend_auto_submitted">Foi enviado automaticamente</string>
+    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">Enviado por uma lista</string>
     <string name="title_legend_attachment">Contém anexo(s)</string>
     <string name="title_legend_flagged">É favorito</string>
     <string name="title_legend_contacts">Gerir contactos</string>
@@ -1868,6 +1870,8 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_hint_notifications">Sem permissão de notificação</string>
     <string name="title_hint_notifications_remark">Permissões de notificação são também necessárias para alertas de (conta). Notificações para novas mensagens podem ser desativadas nas configurações.</string>
     <string name="title_hint_battery_optimizations">Otimizações da bateria continuam ativadas</string>
+    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">Se a economia de dados estiver ativada, a app não será capaz de sincronizar em segundo plano e poderão ocorrer erros de ligação.</string>
+    <string name="title_hint_dismiss" comment="title_hint_dismiss&#10;Remark in a dialog box to say that dismissing the dialog box will result in suppressing the notice that triggered the dialog box">Pode dispensar esta caixa de diálogo para remover a notificação.</string>
     <string name="title_hint_support">Se tiver alguma questão ou um problema, por favor utilize o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para o lixo; Deslize para a direita para o arquivo (se disponível); As acções de deslizar pode ser configuradas nas definições de conta</string>
     <string name="title_hint_message_selection">Seleccione mensagens ao tocar prolongadamente numa mensagem; Para seleccionar várias mensagens de seguida, toque sem soltar numa mensagem e deslize para cima ou para baixo</string>
@@ -2042,10 +2046,11 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_keyword_label3">Pessoal</string>
     <string name="title_keyword_label4">Pendente</string>
     <string name="title_keyword_label5">Mais tarde</string>
-    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Mostrado</string>
-    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Entregue</string>
-    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Não mostrado</string>
-    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">Não entregue</string>
+    <string name="title_keyword_displayed">Mostrado</string>
+    <string name="title_keyword_delivered">Entregue</string>
+    <string name="title_keyword_not_displayed">Não mostrado</string>
+    <string name="title_keyword_not_delivered">Não entregue</string>
+    <string name="title_keyword_complaint" comment="title_keyword_complaint&#10;Default title for keyword indicating that there was a complaint about an email">Reclamação</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d mensagem</item>
         <item quantity="other">%1$d mensagens</item>

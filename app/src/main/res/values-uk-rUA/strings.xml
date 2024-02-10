@@ -2066,10 +2066,10 @@
     <string name="title_keyword_label3">Особисте</string>
     <string name="title_keyword_label4">До виконання</string>
     <string name="title_keyword_label5">Відкладено</string>
-    <string name="title_keyword_displayed" comment="title_keyword_displayed&#10;Text to indicate a read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Переглянуто</string>
-    <string name="title_keyword_delivered" comment="title_keyword_delivered&#10;Text to indicate a delivery receipt was received for a sent message.">Доставлено</string>
-    <string name="title_keyword_not_displayed" comment="title_keyword_not_displayed&#10;Text to indicate a not-read receipt was received for a sent message.&#10;Note that &quot;displayed&quot; is more correct than &quot;read&quot; because you can't be sure the recipient actually read and understood the message completely">Не переглянуто</string>
-    <string name="title_keyword_not_delivered" comment="title_keyword_not_delivered&#10;Text to indicate a non-delivery receipt was received for a sent message.">Не доставлено</string>
+    <string name="title_keyword_displayed">Переглянуто</string>
+    <string name="title_keyword_delivered">Доставлено</string>
+    <string name="title_keyword_not_displayed">Не переглянуто</string>
+    <string name="title_keyword_not_delivered">Не доставлено</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d повідомлення</item>
         <item quantity="few">%1$d повідомлення</item>

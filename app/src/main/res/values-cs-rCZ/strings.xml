@@ -577,6 +577,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_pdf_preview">Zobrazit náhledy PDF</string>
     <string name="title_advanced_video_preview">Zobrazit náhledy videa</string>
     <string name="title_advanced_audio_preview">Zobrazit mini audio přehrávač</string>
+    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">Zobrazit obsah čárového kódu</string>
     <string name="title_advanced_message_text_zoom2">Výchozí zvětšení textu zprávy: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Změnit přiblížení textu zprávy také v editoru zpráv</string>
     <string name="title_advanced_overview_mode">Přizpůsobit zobrazení původních zpráv šířce obrazovky</string>
@@ -1826,6 +1827,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_legend_plain_only">Je pouze prostý text</string>
     <string name="title_legend_receipt">Potvrzení o přečtení bylo vyžádáno</string>
     <string name="title_legend_auto_submitted">Byl automaticky odeslán</string>
+    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">Odesláno ze seznamu</string>
     <string name="title_legend_attachment">Má přílohu</string>
     <string name="title_legend_flagged">Je oblíbené</string>
     <string name="title_legend_contacts">Spravovat kontakty</string>
@@ -1892,6 +1894,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_hint_notifications">Žádná oprávnění pro oznámení</string>
     <string name="title_hint_notifications_remark">Oprávnění k notifikacím jsou vyžadována také pro upozornění pro (účet). Upozornění pro nové zprávy mohou být vypnuta v nastavení.</string>
     <string name="title_hint_battery_optimizations">Optimalizace baterie je stále povolena</string>
+    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">Pokud je spořič dat aktivní, aplikace nebude moci synchronizovat na pozadí a může dojít k chybám připojení.</string>
+    <string name="title_hint_dismiss" comment="title_hint_dismiss&#10;Remark in a dialog box to say that dismissing the dialog box will result in suppressing the notice that triggered the dialog box">Pro odstranění oznámení můžete toto dialogové okno odmítnout.</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (je-li k dispozici); Akce tažením lze změnit v nastavení účtu</string>
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>
@@ -2065,6 +2069,11 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_keyword_label3">Osobní</string>
     <string name="title_keyword_label4">K vyřízení</string>
     <string name="title_keyword_label5">Později</string>
+    <string name="title_keyword_displayed">Zobrazeno</string>
+    <string name="title_keyword_delivered">Doručeno</string>
+    <string name="title_keyword_not_displayed">Nezobrazeno</string>
+    <string name="title_keyword_not_delivered">Nedoručeno</string>
+    <string name="title_keyword_complaint" comment="title_keyword_complaint&#10;Default title for keyword indicating that there was a complaint about an email">Stížnost</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d zpráva</item>
         <item quantity="few">%1$d zprávy</item>

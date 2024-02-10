@@ -2055,6 +2055,10 @@
     <string name="title_keyword_label3">Lično</string>
     <string name="title_keyword_label4">Za uraditi</string>
     <string name="title_keyword_label5">Kasnije</string>
+    <string name="title_keyword_displayed">Pogledano</string>
+    <string name="title_keyword_delivered">Dostavljeno</string>
+    <string name="title_keyword_not_displayed">Nije pogledano</string>
+    <string name="title_keyword_not_delivered">Nije dostavljeno</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d poruka</item>
         <item quantity="few">%1$d poruke</item>

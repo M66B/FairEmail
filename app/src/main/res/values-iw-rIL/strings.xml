@@ -577,6 +577,7 @@
     <string name="title_advanced_pdf_preview">הצגת תמונות ממוזערות של PDF</string>
     <string name="title_advanced_video_preview">הצגת תמונות ממוזערות של סרטונים</string>
     <string name="title_advanced_audio_preview">הצגת נגן שמע קטן</string>
+    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">הצגת תוכן ברקוד</string>
     <string name="title_advanced_message_text_zoom2">תקריב טקסט ההודעות כברירת מחדל: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">התמקדות על טקסט ההודעה גם בעורך ההודעות</string>
     <string name="title_advanced_overview_mode">התאמת התקריב של ההודעות המקוריות לגודל המסך</string>
@@ -1829,6 +1830,7 @@
     <string name="title_legend_plain_only">בטקסט פשוט בלבד</string>
     <string name="title_legend_receipt">התבקש אישור</string>
     <string name="title_legend_auto_submitted">נשלח אוטומטית</string>
+    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">נשלח על ידי רשימה</string>
     <string name="title_legend_attachment">יש קבצים מצורפים</string>
     <string name="title_legend_flagged">האם מועדף</string>
     <string name="title_legend_contacts">ניהול אנשי קשר</string>
@@ -1895,6 +1897,8 @@
     <string name="title_hint_notifications">אין הרשאות להתראות</string>
     <string name="title_hint_notifications_remark">נדרשות הרשאות גם להתראות (חשבון). אפשר לכבות התראות על הודעות חדשות בהגדרות.</string>
     <string name="title_hint_battery_optimizations">מיטובי סוללה עדיין פעילים</string>
+    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">אם מצב חיסכון בסוללה פעיל, היישומון לא יוכל להסתנכרן ברקע ועלולות לצוץ שגיאות בחיבור.</string>
+    <string name="title_hint_dismiss" comment="title_hint_dismiss&#10;Remark in a dialog box to say that dismissing the dialog box will result in suppressing the notice that triggered the dialog box">אפשר להתעלם מהחלונית הסרת כדי להסיר את ההתראה.</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
     <string name="title_hint_message_selection">לחיצה ארוכה על הודעה מתחילה בחירה במגוון הודעות, יש להחזיק ולהחליק כלפי מעלה או מטה כדי לבחור הודעות נוספות</string>
@@ -2069,6 +2073,11 @@
     <string name="title_keyword_label3">אישי</string>
     <string name="title_keyword_label4">לביצוע</string>
     <string name="title_keyword_label5">אחר כך</string>
+    <string name="title_keyword_displayed">הוצג</string>
+    <string name="title_keyword_delivered">נמסר</string>
+    <string name="title_keyword_not_displayed">לא הוצג</string>
+    <string name="title_keyword_not_delivered">לא נמסר</string>
+    <string name="title_keyword_complaint" comment="title_keyword_complaint&#10;Default title for keyword indicating that there was a complaint about an email">תלונה</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">הודעה</item>
         <item quantity="two">%1$d הודעות</item>

@@ -535,6 +535,7 @@
     <string name="title_advanced_pdf_preview">PDF のサムネイルを表示する</string>
     <string name="title_advanced_video_preview">動画のサムネイルを表示する</string>
     <string name="title_advanced_audio_preview">ミニオーディオプレーヤーを表示する</string>
+    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">バーコードを表示する</string>
     <string name="title_advanced_message_text_zoom2">デフォルトの本文のテキスト拡大率: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">メッセージ編集画面でも、テキストを拡大する</string>
     <string name="title_advanced_overview_mode">画面に合わせて元のメッセージを拡大する</string>
@@ -1171,6 +1172,7 @@
     <string name="title_new_message">新着メッセージ</string>
     <string name="title_editasnew">新規として編集</string>
     <string name="title_edit_notes">ローカルメモを編集</string>
+    <string name="title_edit_notes_remark">ローカルノートはメールサーバーに保存されず、この端末でのみ利用できます</string>
     <string name="title_create_rule">ルールを作成&#8230;</string>
     <string name="title_full_screen">全画面表示</string>
     <string name="title_force_light">ライトテーマを強制</string>
@@ -1786,6 +1788,7 @@
     <string name="title_legend_plain_only">プレーンテキストのみのメッセージ</string>
     <string name="title_legend_receipt">開封確認メッセージが要求されたメッセージ</string>
     <string name="title_legend_auto_submitted">自動送信されたメッセージ</string>
+    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">リストから送信</string>
     <string name="title_legend_attachment">添付ファイルあり</string>
     <string name="title_legend_flagged">お気に入り</string>
     <string name="title_legend_contacts">連絡先を管理</string>
@@ -1852,6 +1855,8 @@
     <string name="title_hint_notifications">通知が許可されていません</string>
     <string name="title_hint_notifications_remark">(アカウントの) アラートにも通知の権限が必要です。新着メッセージの通知は設定でオフにもできます。</string>
     <string name="title_hint_battery_optimizations">まだ電池最適化が有効です</string>
+    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">データセーバーが有効になっている場合、アプリはバックグラウンドで同期できなくなり、接続エラーが発生する可能性があります。</string>
+    <string name="title_hint_dismiss" comment="title_hint_dismiss&#10;Remark in a dialog box to say that dismissing the dialog box will result in suppressing the notice that triggered the dialog box">このダイアログボックスを閉じて通知を削除できます。</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてごみ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>
     <string name="title_hint_message_selection">メッセージを長押しして、複数のメッセージを選択します。そのまま上または下にスワイプすると、まとめてメッセージを選択できます</string>
@@ -2018,6 +2023,7 @@
     <string name="title_widget_background">背景色</string>
     <string name="title_widget_icon">アイコンの色</string>
     <string name="title_widget_day_night">システムのダークテーマに従う</string>
+    <string name="title_widget_standalone">戻るボタンですぐにウィジェットへ戻る</string>
     <string name="title_compat_dark">Android 10 以前では Google によりダークモードが取り除かれました</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">重要</string>
@@ -2025,6 +2031,11 @@
     <string name="title_keyword_label3">プライベート</string>
     <string name="title_keyword_label4">ToDo</string>
     <string name="title_keyword_label5">後で</string>
+    <string name="title_keyword_displayed">開封済み</string>
+    <string name="title_keyword_delivered">配信済み</string>
+    <string name="title_keyword_not_displayed">未開封</string>
+    <string name="title_keyword_not_delivered">未配信</string>
+    <string name="title_keyword_complaint" comment="title_keyword_complaint&#10;Default title for keyword indicating that there was a complaint about an email">報告</string>
     <plurals name="title_accessibility_messages">
         <item quantity="other">メッセージ %1$d 通</item>
     </plurals>
