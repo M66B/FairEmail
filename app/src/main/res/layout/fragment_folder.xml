@@ -278,9 +278,10 @@
             android:id="@+id/tvSyncDays"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:text="@string/title_sync_days"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAutoClassifyPro" />
 
@@ -322,9 +323,10 @@
             android:id="@+id/tvKeepDays"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:text="@string/title_keep_days"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etSyncDays" />
 
@@ -360,6 +362,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etKeepDays" />
 
+        <TextView
+            android:id="@+id/tvKeepRemark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_synchronize_more_hint3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbKeepAll" />
+
         <CheckBox
             android:id="@+id/cbAutoDelete"
             android:layout_width="wrap_content"
@@ -367,7 +381,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_auto_delete"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbKeepAll" />
+            app:layout_constraintTop_toBottomOf="@id/tvKeepRemark" />
 
         <TextView
             android:id="@+id/tvAutoDeleteHint"
@@ -410,7 +424,7 @@
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:drawableEnd="@drawable/twotone_save_alt_24"
             android:drawablePadding="6dp"
             android:tag="disable"

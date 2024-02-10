@@ -2186,6 +2186,8 @@ public class Helper {
     // https://issuetracker.google.com/issues/37054851
 
     static String getPrintableString(String value) {
+        if (TextUtils.isEmpty(value))
+            return value;
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < value.length(); i++) {
             char kar = value.charAt(i);
