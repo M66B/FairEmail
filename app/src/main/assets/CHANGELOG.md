@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ypupiara](https://en.wikipedia.org/wiki/Ypupiara)
 
-### Next version
+### 1.2158 - 2024-02-10
 
 * Added image barcode decoding (requires Android 7+)
 * Small improvements and minor bug fixes
