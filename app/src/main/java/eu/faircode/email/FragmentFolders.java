@@ -1252,7 +1252,8 @@ public class FragmentFolders extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex, false);
+                boolean report = !(ex instanceof IllegalArgumentException);
+                Log.unexpectedError(getParentFragmentManager(), ex, report, 71);
             }
         }.execute(this, args, "folder:rules");
     }

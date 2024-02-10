@@ -478,7 +478,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, false);
+                            boolean report = !(ex instanceof IllegalArgumentException);
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex, report, 71);
                         }
                     }.execute(context, owner, args, "rule:execute");
                 }

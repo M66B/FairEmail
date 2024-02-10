@@ -137,7 +137,7 @@ public class FragmentDialogRuleCheck extends FragmentDialogBase {
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         boolean report = !(ex instanceof IllegalArgumentException);
-                        Log.unexpectedError(getParentFragmentManager(), ex, report);
+                        Log.unexpectedError(getParentFragmentManager(), ex, report, 71);
                     }
                 }.execute(FragmentDialogRuleCheck.this, args, "rule:execute");
             }
@@ -200,7 +200,7 @@ public class FragmentDialogRuleCheck extends FragmentDialogBase {
                     tvNoMessages.setText(new ThrowableWrapper(ex).getSafeMessage());
                     tvNoMessages.setVisibility(View.VISIBLE);
                 } else
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex, 71);
             }
         }.execute(this, args, "rule:check");
 
