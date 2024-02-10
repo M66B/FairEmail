@@ -2251,4 +2251,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Forward Email"
+        documentation="Sending email requires &lt;a href='https://forwardemail.net/private-business-email?pricing=true'&gt;a subscription&lt;/a&gt;."
+        link="https://forwardemail.net/faq#what-are-your-imap-server-configuration-settings">
+        <imap
+            host="imap.forwardemail.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.forwardemail.net"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
