@@ -1843,8 +1843,11 @@ public class Log {
             final Context context = getContext();
             LayoutInflater inflater = LayoutInflater.from(context);
             View dview = inflater.inflate(R.layout.dialog_unexpected, null);
+            TextView tvCaption = dview.findViewById(R.id.tvCaption);
             TextView tvError = dview.findViewById(R.id.tvError);
             Button btnHelp = dview.findViewById(R.id.btnHelp);
+
+            tvCaption.setText(report ? R.string.title_unexpected_error : R.string.title_setup_error);
 
             String message = Log.formatThrowable(ex, false);
             tvError.setText(message);
