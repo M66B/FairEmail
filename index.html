@@ -1573,25 +1573,31 @@ selecting <em>Search email</em> in the copy/paste popup menu.</p>
 accounts, searching in the folder list will search in the associated
 account only and searching in a folder will search in that folder
 only.</p>
-<p>Messages will be searched for on the device first. You can download
-more messages on the device via the three-dots overflow menu in the
-start screen. There will be an action button with a search again icon at
-the bottom to continue searching on the server. You can select in which
-folder to continue the search.</p>
+<p>Messages will be searched for on the device first, unless you use a
+complex expression, see below.</p>
+<p><br></p>
+<p>You can download more messages on the device via the three-dots
+overflow menu in the start screen. There will be an action button with a
+search again icon at the bottom to continue searching on the server. You
+can select in which folder to continue the search.</p>
+<p><br></p>
 <p>The IMAP protocol doesn’t support searching in more than one folder
 at the same time. Searching on the server is an expensive operation,
 therefore it is not possible to select multiple folders.</p>
 <p>The POP3 protocol doesn’t support searching on the server at all.</p>
-<p>Searching local messages is case insensitive and on partial text. The
-message text of local messages will not be searched if the message text
-was not downloaded yet. Searching on the server might be case sensitive
-or case insensitive and might be on partial text or whole words,
-depending on the provider.</p>
+<p><br></p>
+<p>Searching local (on-device) messages is case insensitive and on
+partial text. The message text of local messages will not be searched if
+the message text was not downloaded yet. Searching on the server might
+be case sensitive or case insensitive and might be on partial text or
+whole words, depending on the provider.</p>
+<p><br></p>
 <p>Some servers cannot handle searching in the message text when there
 are a large number of messages. For this case there is an option to
 disable searching in the message text. Since version 1.1888 a popup
 message will be shown and the search will automatically be retried
 without searching in the message text.</p>
+<p><br></p>
 <p>It is possible to use Gmail search operators by prefixing a search
 command with <em>raw:</em>. If you configured just one Gmail account,
 you can start a raw search directly on the server by searching from the
@@ -1601,6 +1607,7 @@ of the Gmail account you want to search in. Please <a
 href="https://support.google.com/mail/answer/7190">see here</a> for the
 possible search operators. For example:</p>
 <p><code>raw:larger:10M</code></p>
+<p><br></p>
 <p>Searching through a large number of messages on the device is not
 very fast because of two limitations:</p>
 <ul>
@@ -1617,21 +1624,17 @@ expensive process.</p>
 <p>In the <em>miscellaneous settings</em> you can enable <em>Build
 search index</em> to significantly increase the speed of searching on
 the device, but be aware that this will increase battery and storage
-space usage. The search index is based on words in all message parts, so
-searching for partial text and searching in specific messages parts
-(from, subject, text, etc) is not possible.</p>
+space usage. The search index is based on <ins>whole</ins> words in all
+message parts, so searching for partial text and searching in specific
+messages parts (from, subject, text, etc) is not possible.</p>
 <p>Note that only messages for which the message text was downloaded
 will be indexed. In the connection settings can be configured up to
 which size messages texts will be downloaded automatically when using a
 metered connection (generally mobile data or paid WiFi). In the folder
 properties (long press on a folder in the folder list of an account)
 downloading of messages texts can be enabled/disabled.</p>
-<p>Searching using the search index is by default AND, so searching for
-<em>apple orange</em> will search for apple AND orange. Words separated
-by commas result in searching for OR, so for example <em>apple,
-orange</em> will search for apple OR orange. Both can be combined, so
-searching for <em>apple, orange banana</em> will search for apple OR
-(orange AND banana). Using the search index is a pro feature.</p>
+<p>Using the search index is a pro feature.</p>
+<p><br /></p>
 <p>Since version 1.1315 it is possible to use search expressions like
 this:</p>
 <pre><code>apple +banana -cherry ?nuts</code></pre>
@@ -1645,13 +1648,14 @@ to:&lt;email address&gt;
 cc:&lt;email address&gt;
 bcc:&lt;email address&gt;
 keyword:&lt;keyword&gt;</code></pre>
-<p>There should be no space between the prefix and the search term,
-which will be applied as an AND-condition.</p>
+<p>There should be <ins>no space</ins> between the prefix and the search
+term, which will be applied as an AND-condition.</p>
 <p>Only AND conditions (+) and NOT conditions (-) can be used for
 on-device searching (since version 1.1981). If you try to use other
 search expressions, you get the error <em>Select a folder for a complex
 search</em>, which means that a folder in an account’s folder list must
 be selected in order to perform the search on the server.</p>
+<p><br></p>
 <p>Since version 1.1733 it is possible to save searches, which means
 that a named entry in the navigation menu will be created to repeat the
 same search later. You can save a search after searching by tapping on

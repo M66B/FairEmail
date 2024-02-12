@@ -1138,23 +1138,34 @@ Searching in the unified inbox will search in all folders of all accounts,
 searching in the folder list will search in the associated account only
 and searching in a folder will search in that folder only.
 
-Messages will be searched for on the device first.
+Messages will be searched for on the device first, unless you use a complex expression, see below.
+
+<br>
+
 You can download more messages on the device via the three-dots overflow menu in the start screen.
 There will be an action button with a search again icon at the bottom to continue searching on the server.
 You can select in which folder to continue the search.
+
+<br>
 
 The IMAP protocol doesn't support searching in more than one folder at the same time.
 Searching on the server is an expensive operation, therefore it is not possible to select multiple folders.
 
 The POP3 protocol doesn't support searching on the server at all.
 
-Searching local messages is case insensitive and on partial text.
+<br>
+
+Searching local (on-device) messages is case insensitive and on partial text.
 The message text of local messages will not be searched if the message text was not downloaded yet.
 Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
+
+<br>
 
 Some servers cannot handle searching in the message text when there are a large number of messages.
 For this case there is an option to disable searching in the message text.
 Since version 1.1888 a popup message will be shown and the search will automatically be retried without searching in the message text.
+
+<br>
 
 It is possible to use Gmail search operators by prefixing a search command with *raw:*.
 If you configured just one Gmail account, you can start a raw search directly on the server by searching from the unified inbox.
@@ -1166,6 +1177,8 @@ Please [see here](https://support.google.com/mail/answer/7190) for the possible 
 raw:larger:10M
 ``
 
+<br>
+
 Searching through a large number of messages on the device is not very fast because of two limitations:
 
 * [sqlite](https://www.sqlite.org/), the database engine of Android has a record size limit, preventing message texts from being stored in the database
@@ -1176,7 +1189,7 @@ to check if the searched text is contained in the file, which is a relatively ex
 
 In the *miscellaneous settings* you can enable *Build search index* to significantly increase the speed of searching on the device,
 but be aware that this will increase battery and storage space usage.
-The search index is based on words in all message parts,
+The search index is based on <ins>whole</ins> words in all message parts,
 so searching for partial text and searching in specific messages parts (from, subject, text, etc) is not possible.
 
 Note that only messages for which the message text was downloaded will be indexed.
@@ -1184,10 +1197,9 @@ In the connection settings can be configured up to which size messages texts wil
 when using a metered connection (generally mobile data or paid WiFi).
 In the folder properties (long press on a folder in the folder list of an account) downloading of messages texts can be enabled/disabled.
 
-Searching using the search index is by default AND, so searching for *apple orange* will search for apple AND orange.
-Words separated by commas result in searching for OR, so for example *apple, orange* will search for apple OR orange.
-Both can be combined, so searching for *apple, orange banana* will search for apple OR (orange AND banana).
 Using the search index is a pro feature.
+
+<br />
 
 Since version 1.1315 it is possible to use search expressions like this:
 
@@ -1211,11 +1223,13 @@ bcc:<email address>
 keyword:<keyword>
 ```
 
-There should be no space between the prefix and the search term, which will be applied as an AND-condition.
+There should be <ins>no space</ins> between the prefix and the search term, which will be applied as an AND-condition.
 
 Only AND conditions (+) and NOT conditions (-) can be used for on-device searching (since version 1.1981).
 If you try to use other search expressions, you get the error *Select a folder for a complex search*,
 which means that a folder in an account's folder list must be selected in order to perform the search on the server.
+
+<br>
 
 Since version 1.1733 it is possible to save searches, which means that a named entry in the navigation menu will be created to repeat the same search later.
 You can save a search after searching by tapping on the save button in the top action bar.
