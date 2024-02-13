@@ -1683,6 +1683,12 @@ public class FragmentCompose extends FragmentBase {
     @Override
     public void onDestroyView() {
         adapter = null;
+
+        // ChipDrawable context leak
+        etTo.setText(null);
+        etCc.setText(null);
+        etBcc.setText(null);
+
         super.onDestroyView();
     }
 
