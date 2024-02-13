@@ -8,6 +8,7 @@ Ypupiara
 
 Next version
 
+* Added optional reply/answer quick action
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
 * Updated translations
