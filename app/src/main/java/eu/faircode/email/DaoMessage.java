@@ -507,7 +507,7 @@ public interface DaoMessage {
             " AND NOT (message.ui_seen OR message.ui_ignored OR message.ui_hide)")
     int countNotifying(long folder);
 
-    @Query("SELECT message.*" +
+    String FETCH_MESSAGE = "SELECT message.*" +
             ", account.pop AS accountProtocol, account.name AS accountName, account.category AS accountCategory, identity.color AS accountColor" +
             ", account.notify AS accountNotify, account.summary AS accountSummary, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, NULL AS folderInheritedType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
@@ -528,8 +528,13 @@ public interface DaoMessage {
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
-            " WHERE message.id = :id")
+            " WHERE message.id = :id";
+
+    @Query(FETCH_MESSAGE)
     LiveData<TupleMessageEx> liveMessage(long id);
+
+    @Query(FETCH_MESSAGE)
+    TupleMessageEx getMessageEx(long id);
 
     @Query("SELECT message.keywords AS selected, folder.keywords AS available" +
             " FROM message" +

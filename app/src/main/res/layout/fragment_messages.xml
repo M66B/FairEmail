@@ -617,6 +617,20 @@
             android:paddingEnd="6dp">
 
             <ImageButton
+                android:id="@+id/ibAnswer"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_reply"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tooltipText="@string/title_reply"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_reply_24_options"
+                app:tint="@color/action_foreground" />
+
+            <ImageButton
                 android:id="@+id/ibBatchSeen"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -625,7 +639,7 @@
                 android:padding="6dp"
                 android:scaleType="fitCenter"
                 android:tooltipText="@string/title_seen"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ibAnswer"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_drafts_24"
                 app:tint="@color/action_foreground" />

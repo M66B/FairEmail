@@ -32,6 +32,19 @@
             app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
         <CheckBox
+            android:id="@+id/cbAnswer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_reply_24_options"
+            android:drawablePadding="6dp"
+            android:text="@string/title_reply"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHint" />
+
+        <CheckBox
             android:id="@+id/cbSeen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -42,7 +55,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHint" />
+            app:layout_constraintTop_toBottomOf="@id/cbAnswer" />
 
         <CheckBox
             android:id="@+id/cbUnseen"

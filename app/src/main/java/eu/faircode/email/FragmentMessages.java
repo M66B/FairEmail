@@ -287,6 +287,7 @@ public class FragmentMessages extends FragmentBase
     private FloatingActionButton fabMore;
     private TextView tvSelectedCount;
     private CardView cardMore;
+    private ImageButton ibAnswer;
     private ImageButton ibBatchSeen;
     private ImageButton ibBatchUnseen;
     private ImageButton ibBatchSnooze;
@@ -610,6 +611,7 @@ public class FragmentMessages extends FragmentBase
         fabMore = view.findViewById(R.id.fabMore);
         tvSelectedCount = view.findViewById(R.id.tvSelectedCount);
         cardMore = view.findViewById(R.id.cardMore);
+        ibAnswer = view.findViewById(R.id.ibAnswer);
         ibBatchSeen = view.findViewById(R.id.ibBatchSeen);
         ibBatchUnseen = view.findViewById(R.id.ibBatchUnseen);
         ibBatchSnooze = view.findViewById(R.id.ibBatchSnooze);
@@ -1591,6 +1593,16 @@ public class FragmentMessages extends FragmentBase
             int dp71 = Helper.dp2pixels(getContext(), 56 /* FAB width */ + 15 /* FAB padding */);
             ((ViewGroup.MarginLayoutParams) cardMore.getLayoutParams()).setMarginEnd(dp71);
         }
+
+        ibAnswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MoreResult result = (MoreResult) cardMore.getTag();
+                if (result == null || result.single == null || !result.single.content)
+                    return;
+                onReply(result.single, null, v);
+            }
+        });
 
         ibBatchSeen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -6876,6 +6888,7 @@ public class FragmentMessages extends FragmentBase
                     @Override
                     protected void onExecuted(Bundle args, MoreResult result) {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean more_answer = prefs.getBoolean("more_answer", false);
                         boolean more_seen = prefs.getBoolean("more_seen", true);
                         boolean more_unseen = prefs.getBoolean("more_unseen", false);
                         boolean more_snooze = prefs.getBoolean("more_snooze", false);
@@ -6970,9 +6983,13 @@ public class FragmentMessages extends FragmentBase
                         if (seen)
                             count++;
 
+                        boolean answer = (more_answer && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS &&
+                                result.single != null && result.single.content);
+
                         ibBatchFlag.setImageResource(unflag ? R.drawable.twotone_star_border_24 : R.drawable.twotone_star_24);
                         ibInbox.setImageResource(inJunk ? R.drawable.twotone_report_off_24 : R.drawable.twotone_inbox_24);
 
+                        ibAnswer.setVisibility(answer ? View.VISIBLE : View.GONE);
                         ibBatchSeen.setVisibility(seen ? View.VISIBLE : View.GONE);
                         ibBatchUnseen.setVisibility(unseen ? View.VISIBLE : View.GONE);
                         ibBatchSnooze.setVisibility(snooze ? View.VISIBLE : View.GONE);
@@ -10897,6 +10914,7 @@ public class FragmentMessages extends FragmentBase
         List<Long> folders;
         List<EntityAccount> imapAccounts;
         EntityAccount copyto;
+        TupleMessageEx single;
 
         boolean canInbox() {
             if (read_only)
@@ -11032,6 +11050,9 @@ public class FragmentMessages extends FragmentBase
                         else
                             result.hidden = true;
                 }
+
+                if (ids.length == 1)
+                    result.single = db.message().getMessageEx(id);
             }
 
             for (EntityAccount account : accounts.values()) {
