@@ -157,13 +157,19 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 if (TextUtils.isEmpty(typed))
                     return cursor;
 
+                int i = 0;
+
+                String keyword = TupleKeyword.getKeyword(context, typed.toString());
+                if (!TextUtils.isEmpty(keyword))
+                    cursor.addRow(new Object[]{i++ + 1, keyword});
+
                 if (cbSearchIndex.isEnabled() && cbSearchIndex.isChecked()) {
                     SQLiteDatabase db = Fts4DbHelper.getInstance(context);
                     List<String> suggestions = Fts4DbHelper.getSuggestions(
                             db,
                             typed + "%",
                             MAX_SUGGESTIONS);
-                    for (int i = 0; i < suggestions.size(); i++)
+                    for (; i < suggestions.size(); i++)
                         cursor.addRow(new Object[]{i + 1, suggestions.get(i)});
                     return cursor;
                 }
