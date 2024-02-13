@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Ypupiara
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
 1.2158 - 2024-02-10
 
 * Added image barcode decoding (requires Android 7+)
