@@ -119,6 +119,7 @@
     <string name="title_blocked_senders">Blocked senders</string>
     <string name="title_unblock_all">Unblock all</string>
     <string name="title_unblock_all_remark">This will reset all lists and options that could result in blocking senders</string>
+    <string name="title_unblock_all_hint">Note that the app cannot prevent the email server from moving messages to the spam folder!</string>
 
     <plurals name="title_ask_block_sender">
         <item quantity="one">Block sender of %1$s message?</item>
