@@ -1289,14 +1289,14 @@ public class Helper {
         String base;
         String locale = (english ? null : getFAQLocale());
         if (locale == null)
-            base = "https://email.faircode.eu/faq";
+            base = "https://m66b.github.io/FairEmail/";
         else
             base = "https://email.faircode.eu/docs/FAQ-" + locale + ".md";
 
         if (question == 0)
             view(context, Uri.parse(base + "#top"), "text/html", false, false);
         else
-            view(context, Uri.parse(base + "#user-content-faq" + question), "text/html", false, false);
+            view(context, Uri.parse(base + "#faq" + question), "text/html", false, false);
     }
 
     static Uri getPrivacyUri(Context context) {
