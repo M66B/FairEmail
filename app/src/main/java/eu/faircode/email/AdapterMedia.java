@@ -232,7 +232,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                                     BinaryBitmap bBitmap = new BinaryBitmap(new HybridBinarizer(source));
                                     MultiFormatReader reader = new MultiFormatReader();
                                     Result result = reader.decode(bBitmap);
-                                    args.putString("barcode_text", Helper.getPrintableString(result.getText()));
+                                    args.putString("barcode_text", Helper.getPrintableString(result.getText(), false));
                                     args.putString("barcode_format", result.getBarcodeFormat().name());
                                 } catch (NotFoundException ex) {
                                     Log.w(ex);

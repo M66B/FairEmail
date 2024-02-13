@@ -625,9 +625,9 @@ public class Log {
                         if (element instanceof Long)
                             elements[i] = element + " (0x" + Long.toHexString((Long) element) + ")";
                         else if (element instanceof Spanned)
-                            elements[i] = "(span:" + Helper.getPrintableString(element.toString()) + ")";
+                            elements[i] = "(span:" + Helper.getPrintableString(element.toString(), true) + ")";
                         else
-                            elements[i] = (element == null ? "<null>" : Helper.getPrintableString(element.toString()));
+                            elements[i] = (element == null ? "<null>" : Helper.getPrintableString(element.toString(), true));
                     }
                     value = TextUtils.join(",", elements);
                     if (length > 10)
@@ -636,7 +636,7 @@ public class Log {
                 } else if (v instanceof Long)
                     value = v + " (0x" + Long.toHexString((Long) v) + ")";
                 else if (v instanceof Spanned)
-                    value = "(span:" + Helper.getPrintableString(v.toString()) + ")";
+                    value = "(span:" + Helper.getPrintableString(v.toString(), true) + ")";
                 else if (v instanceof Bundle)
                     value = "{" + TextUtils.join(" ", getExtras((Bundle) v)) + "}";
 

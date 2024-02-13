@@ -2177,28 +2177,29 @@ public class Helper {
         return df.format(sign * bytes / Math.pow(unit, exp)) + " " + pre + "B";
     }
 
-    static boolean isPrintableChar(char c) {
-        Character.UnicodeBlock block = Character.UnicodeBlock.of(c);
+    static boolean isPrintableChar(int codepoint) {
+        Character.UnicodeBlock block = Character.UnicodeBlock.of(codepoint);
         if (block == null || block == Character.UnicodeBlock.SPECIALS)
             return false;
-        return !Character.isISOControl(c);
+        return !Character.isISOControl(codepoint);
     }
     // https://issuetracker.google.com/issues/37054851
 
-    static String getPrintableString(String value) {
+    static String getPrintableString(String value, boolean debug) {
         if (TextUtils.isEmpty(value))
             return value;
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < value.length(); i++) {
-            char kar = value.charAt(i);
-            if (kar == '\n')
+        for (int i = 0; i < value.length(); ) {
+            int codepoint = value.codePointAt(i);
+            if (debug && codepoint == 10)
                 result.append('|');
-            else if (kar == ' ')
+            else if (debug && codepoint == 32)
                 result.append('_');
-            else if (!Helper.isPrintableChar(kar) || kar == '\u00a0')
-                result.append('{').append(Integer.toHexString(kar)).append('}');
+            else if (!Helper.isPrintableChar(codepoint) || codepoint == 160)
+                result.append('{').append(Integer.toHexString(codepoint)).append('}');
             else
-                result.append(kar);
+                result.append(Character.toChars(codepoint));
+            i += Character.charCount(codepoint);
         }
         return result.toString();
     }
