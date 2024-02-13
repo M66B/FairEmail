@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
@@ -105,6 +106,44 @@ public class TupleKeyword {
         }
 
         return result;
+    }
+
+    static String getKeyword(Context context, String title) {
+        if (TextUtils.isEmpty(title))
+            return title;
+
+        if (title.equals(context.getString(R.string.title_keyword_label1)))
+            return "$label1";
+        if (title.equals(context.getString(R.string.title_keyword_label2)))
+            return "$label2";
+        if (title.equals(context.getString(R.string.title_keyword_label3)))
+            return "$label3";
+        if (title.equals(context.getString(R.string.title_keyword_label4)))
+            return "$label4";
+        if (title.equals(context.getString(R.string.title_keyword_label5)))
+            return "$label5";
+
+        if (title.equals(context.getString(R.string.title_keyword_displayed)))
+            return MessageHelper.FLAG_DISPLAYED;
+        if (title.equals(context.getString(R.string.title_keyword_delivered)))
+            return MessageHelper.FLAG_DELIVERED;
+        if (title.equals(context.getString(R.string.title_keyword_not_displayed)))
+            return MessageHelper.FLAG_NOT_DISPLAYED;
+        if (title.equals(context.getString(R.string.title_keyword_not_delivered)))
+            return MessageHelper.FLAG_NOT_DELIVERED;
+        if (title.equals(context.getString(R.string.title_keyword_complaint)))
+            return MessageHelper.FLAG_COMPLAINT;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        for (String key : prefs.getAll().keySet())
+            if (key != null && key.startsWith("kwtitle.") &&
+                    title.equals(prefs.getString(key, null))) {
+                int dot = key.indexOf('.');
+                if (dot >= 0)
+                    return key.substring(dot + 1);
+            }
+
+        return title;
     }
 
     static String getDefaultKeywordAlias(Context context, String keyword) {
