@@ -62,6 +62,7 @@ import java.net.UnknownHostException;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.PrivateKey;
+import java.security.cert.CertPathValidatorException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -725,7 +726,9 @@ public class EmailService implements AutoCloseable {
             boolean ioError = false;
             Throwable ce = ex;
             while (ce != null) {
-                if (factory != null && ce instanceof CertificateException)
+                if (factory != null &&
+                        (ce instanceof CertificateException ||
+                                ce instanceof CertPathValidatorException))
                     throw new UntrustedException(ex, factory.certificate);
                 if (ce instanceof IOException)
                     ioError = true;
