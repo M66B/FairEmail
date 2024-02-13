@@ -5653,6 +5653,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
                 public void onDestroyed() {
                     try {
+                        onViewRecycled(ViewHolder.this);
                         dialog.dismiss();
                         owner.getLifecycle().removeObserver(this);
                     } catch (Throwable ex) {
