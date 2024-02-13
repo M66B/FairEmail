@@ -945,6 +945,7 @@
     <string name="title_advanced_webp" translatable="false">WebP</string>
     <string name="title_advanced_animate" translatable="false">Animate images (GIF, etc.)</string>
     <string name="title_advanced_easy_correct" translatable="false">Easy correct</string>
+    <string name="title_advanced_paste_plain" translatable="false">Add paste as plain text</string>
     <string name="title_advanced_infra" translatable="false">Show infrastructure</string>
     <string name="title_advanced_tld_flags" translatable="false">Show TLD flags</string>
     <string name="title_advanced_json_ld" translatable="false">Show Linked Data (JSON-LD)</string>

@@ -290,8 +290,11 @@ public class EditTextCompose extends FixedEditText {
                 @Override
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                     try {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        boolean paste_plain = prefs.getBoolean("paste_plain", false);
+
                         int order = 1000;
-                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O || paste_plain)
                             menu.add(Menu.CATEGORY_SECONDARY, android.R.id.pasteAsPlainText, order++, getTitle(R.string.title_paste_plain));
                         if (undo_manager && can(android.R.id.undo))
                             menu.add(Menu.CATEGORY_SECONDARY, R.string.title_undo, order++, getTitle(R.string.title_undo));
