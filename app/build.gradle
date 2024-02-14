@@ -395,7 +395,7 @@ preBuild.dependsOn copyChangelog
 
 tasks.register('updateFAQ', Exec) {
     workingDir "${rootDir}"
-    commandLine 'sh', '-c', 'pandoc --standalone FAQ.md -o index.html'
+    commandLine 'sh', '-c', 'pandoc --standalone --metadata-file FAQ.yaml FAQ.md -o index.html'
 }
 
 tasks.register('updatePrivacy', Exec) {
