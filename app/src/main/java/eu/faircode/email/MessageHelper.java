@@ -3486,6 +3486,9 @@ public class MessageHelper {
 
     static byte[] decodeWord(String word, String encoding, String charset) throws IOException {
         String e = encoding.trim();
+        if (e.equalsIgnoreCase("B"))
+            while (word.startsWith("="))
+                word = word.substring(1);
         ByteArrayInputStream bis = new ByteArrayInputStream(ASCIIUtility.getBytes(word));
 
         InputStream is;
