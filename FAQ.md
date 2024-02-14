@@ -5820,7 +5820,7 @@ Note that there are already more features and options in FairEmail than in any o
 
 <br />
 
-GitHub issues are disabled due to frequent misusage.
+**GitHub issues and GitHub pull requests are disabled due to frequent misusage.**
 
 <br />
 
