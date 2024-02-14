@@ -563,6 +563,7 @@
     <string name="title_advanced_pdf_preview">Prikaži PDF sličice</string>
     <string name="title_advanced_video_preview">Prikaži video sličice</string>
     <string name="title_advanced_audio_preview">Prikaži mini zvučni plejer</string>
+    <string name="title_advanced_barcode_preview">Prikaži sadržaj bar koda</string>
     <string name="title_advanced_message_text_zoom2">Zadani nivo zumiranja teksta: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zumiraj tekst poruke i u uređivaču poruka</string>
     <string name="title_advanced_overview_mode">Zumiraj originalne poruke da popune ekran</string>
@@ -1815,6 +1816,7 @@
     <string name="title_legend_plain_only">Samo običan tekst</string>
     <string name="title_legend_receipt">Zatražena je potvrda</string>
     <string name="title_legend_auto_submitted">Automatski poslano</string>
+    <string name="title_legend_by_list">Poslano s liste</string>
     <string name="title_legend_attachment">S prilogom</string>
     <string name="title_legend_flagged">Favorit</string>
     <string name="title_legend_contacts">Upravljaj kontaktima</string>
@@ -1881,6 +1883,8 @@
     <string name="title_hint_notifications">Nema dozvola za notifikacije</string>
     <string name="title_hint_notifications_remark">Dozvole za obavještenja su neophodne i za upozorenja računa. Obavještenja za nove poruke mogu se isključiti u postavkama.</string>
     <string name="title_hint_battery_optimizations">Optimizacije baterije su još uključene</string>
+    <string name="title_hint_data_saver">Ako je omogućena ušteda podataka, aplikacija neće moći sinhronizovati sadržaj u pozadini pa su moguće greške u konekciji.</string>
+    <string name="title_hint_dismiss">Možete odbaciti ovaj dijaloški okvir kako bi uklonili obavijest.</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevucite lijevo za otpad; Prevucite desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>
@@ -2059,6 +2063,7 @@
     <string name="title_keyword_delivered">Dostavljeno</string>
     <string name="title_keyword_not_displayed">Nije pogledano</string>
     <string name="title_keyword_not_delivered">Nije dostavljeno</string>
+    <string name="title_keyword_complaint">Žalba</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d poruka</item>
         <item quantity="few">%1$d poruke</item>

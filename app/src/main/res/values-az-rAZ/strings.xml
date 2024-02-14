@@ -549,6 +549,7 @@
     <string name="title_advanced_pdf_preview">PDF eskizlərini göstər</string>
     <string name="title_advanced_video_preview">Video eskizlərini göstər</string>
     <string name="title_advanced_audio_preview">Mini səs pleyerini göstər</string>
+    <string name="title_advanced_barcode_preview">Barkod məzmununu göstər</string>
     <string name="title_advanced_message_text_zoom2">İlkin mesajın mətn yaxınlaşdırması: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Mesajın mətnini redaktorda da yaxınlaşdır</string>
     <string name="title_advanced_overview_mode">Orijinal mesajı tam ekrana qədər yaxınlaşdır</string>
@@ -831,6 +832,7 @@
     <string name="title_advanced_split_hint">Bu, ekranı hissələrə ayıracaq</string>
     <string name="title_advanced_split_min_hint">Bu, qatlana bilən cihazlar üçün nəzərdə tutulmuş bir şərtdir</string>
     <string name="title_advanced_threading_hint">Bir-biri ilə əlaqəli qrup mesajları</string>
+    <string name="title_advanced_indentation_hint">Yalnız kart stili üçün</string>
     <string name="title_advanced_highlight_hint">Temanın vurğu rəngi, vurğulamaq üçün istifadə olunacaq</string>
     <string name="title_advanced_privacy_risk">Bir gizlilik riski ola bilər</string>
     <string name="title_advanced_name_email_hint">Adlar, yalnız mövcud olanda göstəriləcək</string>
@@ -1184,6 +1186,7 @@
     <string name="title_new_message">Yeni mesaj</string>
     <string name="title_editasnew">Yeni kimi düzəliş et</string>
     <string name="title_edit_notes">Yerli qeydlərə düzəliş et</string>
+    <string name="title_edit_notes_remark">Yerli (daxili) notlar poçt serverində saxlanılmmır və buna görə də yalnız bu cihazdakı bu tətbiqdə əlçatandır</string>
     <string name="title_create_rule">Qayda yarat &#8230;</string>
     <string name="title_full_screen">Tam ekran</string>
     <string name="title_force_light">Məcburi açıq tema</string>
@@ -1799,6 +1802,7 @@
     <string name="title_legend_plain_only">Yalnız düz mətndir</string>
     <string name="title_legend_receipt">Bildiriş tələb et</string>
     <string name="title_legend_auto_submitted">Avtomatik göndərildi</string>
+    <string name="title_legend_by_list">Bir siyahı tərəfindən göndərildi</string>
     <string name="title_legend_attachment">Qoşması var</string>
     <string name="title_legend_flagged">Sevimlilərdədir</string>
     <string name="title_legend_contacts">Əlaqələri idarə et</string>
@@ -1865,6 +1869,8 @@
     <string name="title_hint_notifications">Bildiriş icazəsi yoxdur</string>
     <string name="title_hint_notifications_remark">(Hesab) xəbərdarlıqları üçün bildiriş icazələri tələb olunur. Yeni mesajlar üçün bildirişlər ayarlarında söndürülə bilər.</string>
     <string name="title_hint_battery_optimizations">Batareya optimallaşdırma hələ də fəaldır</string>
+    <string name="title_hint_data_saver">İnternetə qənaət fəal olsa, tətbiq arxaplanda sinxronlaşdırıla bilməyəcək və bağlantı xətaları baş verə bilər.</string>
+    <string name="title_hint_dismiss">Bildirişi silmək üçün bu dialoq qutusunu bağlaya bilərsiniz.</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantıya atmaq üçün sola sürüşdürün; (əgər varsa) arxivləmək üçün sağa; Sürüşdürmə əməliyyatları hesab ayarlarında konfiqurasiya edilə bilər</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın; daha çox mesaj seçmək üçün basıb yuxarı və ya aşağı sürüşdürün</string>
@@ -2031,6 +2037,7 @@
     <string name="title_widget_background">Arxaplan rəngi</string>
     <string name="title_widget_icon">Nişan rəngi</string>
     <string name="title_widget_day_night">Sistemin qaranlıq temasına uyğunlaşma</string>
+    <string name="title_widget_standalone">Məzmunu müstəqil aç</string>
     <string name="title_compat_dark">Google, Android 10-dan əvvəlki versiyalar üçün qaranlıq rejimi çıxartdı</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Vacib</string>
@@ -2038,6 +2045,11 @@
     <string name="title_keyword_label3">Şəxsi</string>
     <string name="title_keyword_label4">Edilməli</string>
     <string name="title_keyword_label5">Sonra</string>
+    <string name="title_keyword_displayed">Görüntüləndi</string>
+    <string name="title_keyword_delivered">Çatdırıldı</string>
+    <string name="title_keyword_not_displayed">Görüntülənmədi</string>
+    <string name="title_keyword_not_delivered">Çatdırılmadı</string>
+    <string name="title_keyword_complaint">Şikayət</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d mesaj</item>
         <item quantity="other">%1$d mesaj</item>

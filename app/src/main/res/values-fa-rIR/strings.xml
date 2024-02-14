@@ -90,6 +90,7 @@
     <string name="title_blocked_senders">فرستندگان مسدود شده</string>
     <string name="title_unblock_all">آنبلاک کردن همه</string>
     <string name="title_unblock_all_remark">با این کار تمام لیست‌ها و گزینه‌هایی که می‌توانند منجر به مسدود کردن فرستندگان شوند، ریست می‌شوند</string>
+    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">متوجه این موضوع باشید که اپلیکیشن نمی‌تواند سرور ایمیل را از فرستادن پیام‌ها به پوشه اسپم باز دارد!</string>
     <string name="title_junk_filter">از فیلتر هرزنامه محلی استفاده کنید</string>
     <string name="title_junk_filter_hint">این می تواند استفاده از باتری را افزایش دهد و پیام ها را به صورت نادرست به عنوان اسپم علامت گذاری کند</string>
     <string name="title_junk_blocklist">از فهرست‌های انسداد هرزنامه استفاده کن</string>
@@ -473,7 +474,7 @@
     <string name="title_advanced_pdf_preview">نمایش ریز پی‌دی‌اف‌ها</string>
     <string name="title_advanced_video_preview">نمایش ریز ویدئو‌ها</string>
     <string name="title_advanced_audio_preview">نمایش پخش‌کننده صوتی کوچک</string>
-    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">نمایش محتویات بارکد</string>
+    <string name="title_advanced_barcode_preview">نمایش محتویات بارکد</string>
     <string name="title_advanced_message_text_zoom2">بزرگ‌نمایی پیش‌فرض متن پیام: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">متن پیام را نیز در ویرایشگر پیام بزرگنمایی کنید</string>
     <string name="title_advanced_overview_mode">بزرگنمایی پیام‌های اصلی متناسب با اندازه صفحه</string>
@@ -1229,7 +1230,7 @@
     <string name="title_legend_forwarded">هدایت شده</string>
     <string name="title_legend_plain_only">فقط متن ساده</string>
     <string name="title_legend_receipt">رسید درخواست شد</string>
-    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">فرستاده شده با لیست</string>
+    <string name="title_legend_by_list">فرستاده شده با لیست</string>
     <string name="title_legend_attachment">پیوست دارد</string>
     <string name="title_legend_flagged">مورد علاقه</string>
     <string name="title_legend_contacts">مدیریت مخاطبین</string>
@@ -1286,8 +1287,8 @@
     <string name="title_hint_folder_sync">برای محدود کردن مصرف دیتا و باتری تمامی پوشه‌ها و پیام‌ها به صورت پیش‌فرض همگام سازی نخواهند شد</string>
     <string name="title_hint_airplane">حالت هواپیما روشن است</string>
     <string name="title_hint_notifications">اجازه اعلان داده نشده</string>
-    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">اگر کاهنده مصرف داده فعال باشد، برنامه نمی‌تواند در پس‌زمینه همگام‌سازی شود و ممکن است خطاهای اتصال رخ دهد.</string>
-    <string name="title_hint_dismiss" comment="title_hint_dismiss&#10;Remark in a dialog box to say that dismissing the dialog box will result in suppressing the notice that triggered the dialog box">برای حذف اعلان، می‌توانید این کادر محاوره‌ای را رد کنید.</string>
+    <string name="title_hint_data_saver">اگر کاهنده مصرف داده فعال باشد، برنامه نمی‌تواند در پس‌زمینه همگام‌سازی شود و ممکن است خطاهای اتصال رخ دهد.</string>
+    <string name="title_hint_dismiss">برای حذف اعلان، می‌توانید این کادر محاوره‌ای را رد کنید.</string>
     <string name="title_hint_support">اگر سوال یا مشکلی دارید لطفا از قسمت پشتیبانی برای کمک گرفتن استفاده کنید</string>
     <string name="title_hint_message_actions">برای حذف به چپ بکشید؛ برای بایگانی به راست بکشید (اگر در دسترس باشد)؛ کنش‌های کشیدن می‌تواند در تنظیمات حساب پیکربندی شوند</string>
     <string name="title_hint_important">مهم</string>
@@ -1399,7 +1400,7 @@
     <string name="title_keyword_label3">شخصی</string>
     <string name="title_keyword_label4">برای انجام</string>
     <string name="title_keyword_label5">بعدا</string>
-    <string name="title_keyword_complaint" comment="title_keyword_complaint&#10;Default title for keyword indicating that there was a complaint about an email">شکایت</string>
+    <string name="title_keyword_complaint">شکایت</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d پیام</item>
         <item quantity="other">%1$d پیام</item>

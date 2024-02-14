@@ -116,6 +116,7 @@
     <string name="title_blocked_senders">Zablokowani nadawcy</string>
     <string name="title_unblock_all">Odblokuj wszystkich</string>
     <string name="title_unblock_all_remark">Spowoduje to zresetowanie wszystkich list i opcji, które mogłyby skutkować zablokowaniem nadawców</string>
+    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Pamiętaj, że aplikacja nie może uniemożliwić serwerowi e-mail przenoszenia wiadomości do folderu Spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Zablokować nadawcę %1$s wiadomości?</item>
         <item quantity="few">Zablokować nadawcę %1$s wiadomości?</item>
@@ -576,7 +577,7 @@
     <string name="title_advanced_pdf_preview">Wyświetlaj miniatury plików PDF</string>
     <string name="title_advanced_video_preview">Wyświetlaj miniatury plików wideo</string>
     <string name="title_advanced_audio_preview">Pokaż mini odtwarzacz audio</string>
-    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">Wyświetlaj zawartość kodów kreskowych</string>
+    <string name="title_advanced_barcode_preview">Wyświetlaj zawartość kodów kreskowych</string>
     <string name="title_advanced_message_text_zoom2">Domyślne powiększenie tekstu wiadomości: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Powiększ tekst wiadomości również w edytorze wiadomości</string>
     <string name="title_advanced_overview_mode">Powiększ oryginalne wiadomości, aby dopasować je do ekranu</string>
@@ -1169,7 +1170,7 @@
     <string name="title_months_all">Wszystkie</string>
     <string name="title_folder_unified">Wspólna skrzynka</string>
     <string name="title_folder_inbox">Odebrane</string>
-    <string name="title_folder_outbox">Wysyłane</string>
+    <string name="title_folder_outbox">Wychodzące</string>
     <string name="title_folder_all">Archiwum</string>
     <string name="title_folder_drafts">Wersje Robocze</string>
     <string name="title_folder_trash">Kosz</string>
@@ -1790,7 +1791,7 @@
     <string name="title_legend_closing">Zamykanie</string>
     <string name="title_legend_unified">Wspólna skrzynka / konto podstawowe</string>
     <string name="title_legend_inbox">Odebrane</string>
-    <string name="title_legend_outbox">Wysyłane</string>
+    <string name="title_legend_outbox">Wychodzące</string>
     <string name="title_legend_drafts">Wersje Robocze</string>
     <string name="title_legend_sent">Wysłane</string>
     <string name="title_legend_archive">Archiwum</string>
@@ -1827,7 +1828,7 @@
     <string name="title_legend_plain_only">Tylko jako zwykły tekst</string>
     <string name="title_legend_receipt">Zażądano potwierdzenia</string>
     <string name="title_legend_auto_submitted">Został wysłany automatycznie</string>
-    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">Wysłano z listy adresowej</string>
+    <string name="title_legend_by_list">Wysłano z listy adresowej</string>
     <string name="title_legend_attachment">Zawiera załącznik</string>
     <string name="title_legend_flagged">Ulubiona</string>
     <string name="title_legend_contacts">Zarządzaj kontaktami</string>
@@ -1894,8 +1895,8 @@
     <string name="title_hint_notifications">Brak uprawnień dla powiadomień</string>
     <string name="title_hint_notifications_remark">Uprawnienia powiadomień są również wymagane dla ostrzeżeń dotyczących konta. Powiadomienia dla nowych wiadomości mogą być wyłączone w ustawieniach.</string>
     <string name="title_hint_battery_optimizations">Optymalizacja baterii jest nadal włączona</string>
-    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">Jeśli oszczędzanie danych jest włączone, aplikacja nie będzie w stanie wykonywać synchronizacji w tle i mogą wystąpić błędy z połączeniem.</string>
-    <string name="title_hint_dismiss" comment="title_hint_dismiss&#10;Remark in a dialog box to say that dismissing the dialog box will result in suppressing the notice that triggered the dialog box">Możesz odrzucić to okno dialogowe, aby usunąć to powiadomienie.</string>
+    <string name="title_hint_data_saver">Jeśli oszczędzanie danych jest włączone, aplikacja nie będzie w stanie wykonywać synchronizacji w tle i mogą wystąpić błędy z połączeniem.</string>
+    <string name="title_hint_dismiss">Możesz odrzucić to okno dialogowe, aby usunąć to powiadomienie.</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
     <string name="title_hint_message_selection">Naciśnij długo wiadomość, aby rozpocząć wybieranie wielu wiadomości; Przytrzymaj i przeciągnij w górę lub w dół, aby wybrać więcej wiadomości</string>
@@ -2072,7 +2073,7 @@
     <string name="title_keyword_delivered">Dostarczono</string>
     <string name="title_keyword_not_displayed">Nie wyświetlono</string>
     <string name="title_keyword_not_delivered">Nie dostarczono</string>
-    <string name="title_keyword_complaint" comment="title_keyword_complaint&#10;Default title for keyword indicating that there was a complaint about an email">Skarga</string>
+    <string name="title_keyword_complaint">Skarga</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d wiadomość</item>
         <item quantity="few">%1$d wiadomości</item>

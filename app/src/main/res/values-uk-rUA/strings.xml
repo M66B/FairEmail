@@ -116,6 +116,7 @@
     <string name="title_blocked_senders">Заблоковані відправники</string>
     <string name="title_unblock_all">Розблокувати всіх</string>
     <string name="title_unblock_all_remark">Це призведе до скидання всіх списків і опцій, що може призвести до блокування відправників</string>
+    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Зверніть увагу, що застосунок не може запобігти пересуванню сервером електронної пошти листів в теку «Спам»!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Заблокувати відправника %1$s повідомлення?</item>
         <item quantity="few">Заблокувати відправників %1$s повідомлень?</item>
@@ -577,6 +578,7 @@
     <string name="title_advanced_pdf_preview">Показувати ескізи PDF-файлів</string>
     <string name="title_advanced_video_preview">Показувати мініатюри відео</string>
     <string name="title_advanced_audio_preview">Показувати мініаудіоплеєр</string>
+    <string name="title_advanced_barcode_preview">Показувати штрихкоди</string>
     <string name="title_advanced_message_text_zoom2">Масштаб тексту повідомлень за замовчуванням: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Масштабувати текст повідомлення також і в редакторі повідомлень</string>
     <string name="title_advanced_overview_mode">Масштабувати оригінальні повідомлення відповідно до розміру екрана</string>
@@ -1826,6 +1828,7 @@
     <string name="title_legend_plain_only">Містить тільки простий текст</string>
     <string name="title_legend_receipt">Містить запит на відправлення підтвердження про прочитання</string>
     <string name="title_legend_auto_submitted">Відправлено автоматично</string>
+    <string name="title_legend_by_list">Відправлено через список розсилки</string>
     <string name="title_legend_attachment">Є вкладення</string>
     <string name="title_legend_flagged">Є обраним</string>
     <string name="title_legend_contacts">Керування контактами</string>
@@ -1892,6 +1895,8 @@
     <string name="title_hint_notifications">Немає дозволів для сповіщень</string>
     <string name="title_hint_notifications_remark">Дозволи на показ сповіщень також необхідні для попереджень (зокрема щодо облікових записів). Сповіщення про нові повідомлення можна вимкнути в налаштуваннях.</string>
     <string name="title_hint_battery_optimizations">Оптимізація батареї все ще увімкнена</string>
+    <string name="title_hint_data_saver">Якщо увімкнений режим заощадження даних, застосунок не зможе здійснювати синхронізацію у фоновому режимі та можуть виникнути помилки підключення.</string>
+    <string name="title_hint_dismiss">Ви можете відхилити це діалогове вікно, щоб видалити сповіщення.</string>
     <string name="title_hint_support">Якщо у вас є питання або проблема, будь ласка, використовуйте меню підтримки для отримання допомоги</string>
     <string name="title_hint_message_actions">Проведіть ліворуч для переміщення в кошик; проведіть праворуч щоб архівувати (якщо доступно); ці дії можна налаштувати в налаштуваннях облікового запису</string>
     <string name="title_hint_message_selection">Довго натисніть на повідомлення, щоб почати вибирати кілька повідомлень; Натиснувши потягніть вгору або вниз, щоб обрати більше повідомлень</string>
@@ -2070,6 +2075,7 @@
     <string name="title_keyword_delivered">Доставлено</string>
     <string name="title_keyword_not_displayed">Не переглянуто</string>
     <string name="title_keyword_not_delivered">Не доставлено</string>
+    <string name="title_keyword_complaint">Скарга</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d повідомлення</item>
         <item quantity="few">%1$d повідомлення</item>

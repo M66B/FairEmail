@@ -93,6 +93,7 @@
     <string name="title_blocked_senders">Tiltott küldők</string>
     <string name="title_unblock_all">Összes tiltás feloldása</string>
     <string name="title_unblock_all_remark">Így minden listát és beállítást, mellyel feladókat tilthat le, alaphelyzetbe állít</string>
+    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Vegye figyelembe, hogy az alkalmazás nem tudja megakadályozni, hogy a szerver az üzeneteket a levélszemét mappába tegye!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Letiltja az üzenet küldőjét?</item>
         <item quantity="other">Letiltja az %1$s üzenet küldőjét?</item>
@@ -547,7 +548,7 @@
     <string name="title_advanced_pdf_preview">PDF bélyegképek mutatása</string>
     <string name="title_advanced_video_preview">Videó bélyegképek mutatása</string>
     <string name="title_advanced_audio_preview">Mini hanglejátszó mutatása</string>
-    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">Vonalkód tartalom mutatása</string>
+    <string name="title_advanced_barcode_preview">Vonalkód tartalom mutatása</string>
     <string name="title_advanced_message_text_zoom2">Szöveg nagyítás alapértelmezett érték: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Az üzenetszerkesztőben is állítható a szöveg nagyítása</string>
     <string name="title_advanced_overview_mode">Eredeti üzenetek kinagyítására teljes képernyőre</string>
@@ -1795,7 +1796,7 @@
     <string name="title_legend_plain_only">Csak sima szöveg</string>
     <string name="title_legend_receipt">Tértivény kérelmezve</string>
     <string name="title_legend_auto_submitted">Automatikusan el lett küldve</string>
-    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">Levelezőlistáról küldve</string>
+    <string name="title_legend_by_list">Levelezőlistáról küldve</string>
     <string name="title_legend_attachment">Rendelkezik melléklettel</string>
     <string name="title_legend_flagged">Kedvenc</string>
     <string name="title_legend_contacts">Névjegyzék kezelése</string>
@@ -1862,7 +1863,8 @@
     <string name="title_hint_notifications">Nincs értesítési engedély</string>
     <string name="title_hint_notifications_remark">Az értesítések engedélyezése szükséges a (fiók) riasztásokhoz is. Az új üzenet értesítések kikapcsolhatók a beállításokban.</string>
     <string name="title_hint_battery_optimizations">Az akku-optimalizáció még mindig be van kapcsolva</string>
-    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">Az adatkorlátozás bekapcsolása esetén az alkalmazás nem tud szinkronizálni a háttérben, és kapcsolati hibák jelentkezhetnek.</string>
+    <string name="title_hint_data_saver">Az adatkorlátozás bekapcsolása esetén az alkalmazás nem tud szinkronizálni a háttérben, és kapcsolati hibák jelentkezhetnek.</string>
+    <string name="title_hint_dismiss">A párbeszéd ablakot bezárva, a figyelmeztetést is kikapcsolja.</string>
     <string name="title_hint_support">Ha kérdésed vagy problémád van, használd a támogatási menüt segítségért</string>
     <string name="title_hint_message_actions">Törlés balra csúsztatásra; Archiválás jobbra csúsztatásra (ha elérhető); A csúsztatáshoz tartozó műveletek módosíthatóak a fiók beállításai között</string>
     <string name="title_hint_message_selection">Tarts hosszan egy üzenetet több üzenet kiválasztásának elkezdéséhez; Tartsd és görgess fel vagy le több üzenet kiválasztásához</string>
@@ -2040,6 +2042,7 @@
     <string name="title_keyword_delivered">Kézbesítve</string>
     <string name="title_keyword_not_displayed">Nem nyitották meg</string>
     <string name="title_keyword_not_delivered">Nincs kézbesítve</string>
+    <string name="title_keyword_complaint">Panasz</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d üzenet</item>
         <item quantity="other">%1$d üzenetek</item>

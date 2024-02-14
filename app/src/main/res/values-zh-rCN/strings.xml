@@ -534,7 +534,7 @@
     <string name="title_advanced_pdf_preview">显示 PDF 缩略图</string>
     <string name="title_advanced_video_preview">显示视频缩略图</string>
     <string name="title_advanced_audio_preview">显示迷你音频播放器</string>
-    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">显示条形码内容</string>
+    <string name="title_advanced_barcode_preview">显示条形码内容</string>
     <string name="title_advanced_message_text_zoom2">默认消息文本缩放： %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">同时也在邮件编辑窗中缩放内容文本</string>
     <string name="title_advanced_overview_mode">缩放原始消息以适应屏幕</string>
@@ -1168,7 +1168,7 @@
     <string name="title_new_message">新消息</string>
     <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_edit_notes">编辑本地备注</string>
-    <string name="title_edit_notes_remark">本地笔记不保存在邮件服务器上，因此仅在此设备上的应用中可用。</string>
+    <string name="title_edit_notes_remark">本地备注不保存在邮件服务器上，因此只能在本机本应用中使用</string>
     <string name="title_create_rule">创建规则 &#8230;</string>
     <string name="title_full_screen">全屏</string>
     <string name="title_force_light">强制使用浅色主题</string>
@@ -1782,7 +1782,7 @@
     <string name="title_legend_plain_only">仅纯文本</string>
     <string name="title_legend_receipt">已请求回执</string>
     <string name="title_legend_auto_submitted">已自动发送</string>
-    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">由列表发送</string>
+    <string name="title_legend_by_list">通过列表发送</string>
     <string name="title_legend_attachment">含附件</string>
     <string name="title_legend_flagged">已被收藏</string>
     <string name="title_legend_contacts">管理联系人</string>
@@ -1849,8 +1849,8 @@
     <string name="title_hint_notifications">无通知权限</string>
     <string name="title_hint_notifications_remark">(账户) 提醒也需要通知权限。新消息的通知可以在设置中关闭。</string>
     <string name="title_hint_battery_optimizations">电池优化仍已启用</string>
-    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">如果启用数据节省，应用将无法在后台同步，可能发生连接错误。</string>
-    <string name="title_hint_dismiss" comment="title_hint_dismiss&#10;Remark in a dialog box to say that dismissing the dialog box will result in suppressing the notice that triggered the dialog box">您可以关闭此对话框来删除消息。</string>
+    <string name="title_hint_data_saver">如果启用数据节省，应用将无法在后台同步，可能发生连接错误。</string>
+    <string name="title_hint_dismiss">您可以关闭此对话框来删除消息。</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑移动到回收站；向右滑存档（如果支持） ；可在账户设置中配置滑动操作</string>
     <string name="title_hint_message_selection">长按进行多选；按住的同时并上下滑动可选择多个邮件</string>
@@ -2027,7 +2027,7 @@
     <string name="title_keyword_delivered">已送达</string>
     <string name="title_keyword_not_displayed">未显示</string>
     <string name="title_keyword_not_delivered">未送达</string>
-    <string name="title_keyword_complaint" comment="title_keyword_complaint&#10;Default title for keyword indicating that there was a complaint about an email">检举</string>
+    <string name="title_keyword_complaint">检举</string>
     <plurals name="title_accessibility_messages">
         <item quantity="other">%1$d 条消息</item>
     </plurals>

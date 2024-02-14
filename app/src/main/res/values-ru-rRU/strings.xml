@@ -116,6 +116,7 @@
     <string name="title_blocked_senders">Заблокированные отправители</string>
     <string name="title_unblock_all">Разблокировать всех</string>
     <string name="title_unblock_all_remark">Будут сброшены все списки и параметры, выполняющие блокировку отправителей</string>
+    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Обратите внимание, что приложение не может помешать серверу электронной почты перемещать сообщения в папку со спамом!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Заблокировать отправителя %1$s сообщения?</item>
         <item quantity="few">Заблокировать отправителя %1$s сообщений?</item>
@@ -576,6 +577,7 @@
     <string name="title_advanced_pdf_preview">Показывать миниатюры PDF</string>
     <string name="title_advanced_video_preview">Показывать миниатюры видео</string>
     <string name="title_advanced_audio_preview">Показывать мини-аудиопроигрыватель</string>
+    <string name="title_advanced_barcode_preview">Показывать содержимое штрих-кода</string>
     <string name="title_advanced_message_text_zoom2">Масштаб текста сообщения по умолчанию: %1$s%%</string>
     <string name="title_advanced_editor_text_zoom">Масштабировать текст сообщения в редакторе</string>
     <string name="title_advanced_overview_mode">Изменять масштаб исходных сообщений к размеру экрана</string>
@@ -1828,6 +1830,7 @@
     <string name="title_legend_plain_only">Только простой текст</string>
     <string name="title_legend_receipt">Запрошено уведомление</string>
     <string name="title_legend_auto_submitted">Отправлено автоматически</string>
+    <string name="title_legend_by_list">Отправлено списком</string>
     <string name="title_legend_attachment">Имеет вложение</string>
     <string name="title_legend_flagged">Избранное</string>
     <string name="title_legend_contacts">Управление контактами</string>
@@ -1894,6 +1897,8 @@
     <string name="title_hint_notifications">Отсутствует разрешение на отображение уведомлений</string>
     <string name="title_hint_notifications_remark">Разрешения на уведомления также необходимы для предупреждений (учётной записи). Уведомления о новых сообщениях можно отключить в настройках.</string>
     <string name="title_hint_battery_optimizations">Оптимизация энергопотребления всё ещё включена</string>
+    <string name="title_hint_data_saver">Если включена функция экономии данных, приложение не сможет синхронизироваться в фоновом режиме, и могут возникать ошибки подключения.</string>
+    <string name="title_hint_dismiss">Можно закрыть диалоговое окно, чтобы удалить уведомление.</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи.</string>
     <string name="title_hint_message_actions">Смахните влево, чтобы поместить в корзину; смахните вправо, чтобы поместить в архив (если имеется); действия жестов можно изменить в настройках учётной записи.</string>
     <string name="title_hint_message_selection">Длительное нажатие на сообщение начинает выбор нескольких сообщений; удерживайте нажатие и смахните вверх или вниз, чтобы выбрать больше сообщений.</string>
@@ -2072,6 +2077,7 @@
     <string name="title_keyword_delivered">Доставлено</string>
     <string name="title_keyword_not_displayed">Не просмотрено</string>
     <string name="title_keyword_not_delivered">Не доставлено</string>
+    <string name="title_keyword_complaint">Жалоба</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d сообщение</item>
         <item quantity="few">%1$d сообщения</item>

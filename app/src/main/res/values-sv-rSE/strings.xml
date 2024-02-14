@@ -544,6 +544,7 @@
     <string name="title_advanced_thumbnails">Visa miniatyrbilder efter meddelandetexten</string>
     <string name="title_advanced_pdf_preview">Visa PDF-miniatyrer</string>
     <string name="title_advanced_audio_preview">Visa miniljudspelare</string>
+    <string name="title_advanced_barcode_preview">Visa streckkodsinnehåll</string>
     <string name="title_advanced_message_text_zoom2">Standard meddelandetext zoom: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zooma meddelandetext även i meddelanderedigeraren</string>
     <string name="title_advanced_overview_mode">Zooma originalmeddelanden för att passa skärmen</string>
@@ -1790,6 +1791,7 @@
     <string name="title_legend_plain_only">Är endast oformaterad text</string>
     <string name="title_legend_receipt">Kvitto begärdes</string>
     <string name="title_legend_auto_submitted">Skickades automatiskt</string>
+    <string name="title_legend_by_list">Skickat från en lista</string>
     <string name="title_legend_attachment">Har bilaga</string>
     <string name="title_legend_flagged">Är favorit</string>
     <string name="title_legend_contacts">Hantera kontakter</string>
@@ -1856,6 +1858,8 @@
     <string name="title_hint_notifications">Inga aviseringsbehörigheter</string>
     <string name="title_hint_notifications_remark">Aviseringsbehörigheter krävs för (konto) varningar också. Aviseringar för nya meddelanden kan stängas av i inställningarna.</string>
     <string name="title_hint_battery_optimizations">Batterioptimeringar är fortfarande aktiverade</string>
+    <string name="title_hint_data_saver">Om dataspararen är aktiverad kommer appen inte att kunna synkronisera i bakgrunden och anslutningsfel kan uppstå.</string>
+    <string name="title_hint_dismiss">Du kan avfärda denna dialogruta för att ta bort meddelandet.</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_message_actions">Dra åt vänster för att kasta; Svep åt höger för att arkivera (om tillgängligt); Svepåtgärderna kan konfigureras i kontoinställningarna</string>
     <string name="title_hint_message_selection">Långt tryck på ett meddelande för att börja välja flera meddelanden; håll och svep uppåt eller nedåt för att välja fler meddelanden</string>
@@ -2032,6 +2036,7 @@
     <string name="title_keyword_delivered">Levererat</string>
     <string name="title_keyword_not_displayed">Inte visat</string>
     <string name="title_keyword_not_delivered">Inte levererat</string>
+    <string name="title_keyword_complaint">Klagomål</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d meddelande</item>
         <item quantity="other">%1$d meddelanden</item>

@@ -548,6 +548,7 @@
     <string name="title_advanced_pdf_preview">Показване на миниобраз на PDF</string>
     <string name="title_advanced_video_preview">Показване на миниобраз на видео</string>
     <string name="title_advanced_audio_preview">Показване на дребен звуковъзпроизводител</string>
+    <string name="title_advanced_barcode_preview">Показване на съдържанието на баркода</string>
     <string name="title_advanced_message_text_zoom2">Подразбиращ се мащаб на текста на съобщение: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Мащабиране на текста на съобщението в редактора</string>
     <string name="title_advanced_overview_mode">Мащабиране на първообразните съобщения към размера на екрана</string>
@@ -1798,6 +1799,7 @@
     <string name="title_legend_plain_only">Само обикновен текст</string>
     <string name="title_legend_receipt">Беше поискана разписка</string>
     <string name="title_legend_auto_submitted">Беше автоматично изпратено</string>
+    <string name="title_legend_by_list">Изпратено от списък</string>
     <string name="title_legend_attachment">Има прикачен файл</string>
     <string name="title_legend_flagged">Е любима</string>
     <string name="title_legend_contacts">Управление на контакти</string>
@@ -1864,6 +1866,8 @@
     <string name="title_hint_notifications">Няма позволения за известия</string>
     <string name="title_hint_notifications_remark">Позволенията за известия се изискват също за предупреждение (акаунта). Известията за нови съобщения може да се изключат в настройките.</string>
     <string name="title_hint_battery_optimizations">Оптимизирането на батерията все още е включено</string>
+    <string name="title_hint_data_saver">Ако пестенето на данни е включено, то приложението няма да може да синхронизира на заден план и може да възникне грешка при свързване.</string>
+    <string name="title_hint_dismiss">Може да отхвърлите този диалогов прозорец, за да премахнете известието.</string>
     <string name="title_hint_support">Ако имате въпрос или проблем, то използвайте менюто поддръжка, за да получите помощ</string>
     <string name="title_hint_message_actions">Прелистване наляво за изхвърляне в кошчето; Прелистване надясно за архивирне (ако е налично); Действията по прелистване може да се конфигурират в настройките на акаунта</string>
     <string name="title_hint_message_selection">Натиснете и задръжте по дълго върху съобщението, за да започнете да избирате няколко съобщения; Задръжте и прекарайте пръст нагоре или надолу, за да изберете няколко съобщения</string>
@@ -2042,6 +2046,7 @@
     <string name="title_keyword_delivered">Доставено</string>
     <string name="title_keyword_not_displayed">Не е онагледено</string>
     <string name="title_keyword_not_delivered">Не е доставено</string>
+    <string name="title_keyword_complaint">Оплакване</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d съобщение</item>
         <item quantity="other">%1$d съобщения</item>

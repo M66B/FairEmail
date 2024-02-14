@@ -93,6 +93,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_blocked_senders">Engellenmiş gönderenler</string>
     <string name="title_unblock_all">Tüm engelleri kaldır</string>
     <string name="title_unblock_all_remark">Bu, gönderenlerin engellenmesine neden olabilecek tüm listeleri ve seçenekleri sıfırlayacaktır</string>
+    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Uygulamanın e-posta sunucusunun iletileri spam klasörüne taşımasını engelleyemeyeceğini unutmayın!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">%1$s iletisinin göndericisi engellensin mi?</item>
         <item quantity="other">%1$s iletisinin göndericisi engellensin mi?</item>
@@ -547,7 +548,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_pdf_preview">PDF küçük resimlerini göster</string>
     <string name="title_advanced_video_preview">Video küçük resimlerini göster</string>
     <string name="title_advanced_audio_preview">Mini ses oynatıcısını göster</string>
-    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">Barkod içeriğini göster</string>
+    <string name="title_advanced_barcode_preview">Barkod içeriğini göster</string>
     <string name="title_advanced_message_text_zoom2">Varsayılan mesaj metni yakınlaştırma: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Mesaj metnini mesaj düzenleyicide de yakınlaştırın</string>
     <string name="title_advanced_overview_mode">Orijinal mesajları ekrana sığacak şekilde yakınlaştırın</string>
@@ -1793,7 +1794,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_legend_plain_only">Sadece düz metin mi</string>
     <string name="title_legend_receipt">Alındı belgesi istendi</string>
     <string name="title_legend_auto_submitted">Otomatik olarak gönderildi</string>
-    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">Bir liste tarafından gönderildi</string>
+    <string name="title_legend_by_list">Bir liste tarafından gönderildi</string>
     <string name="title_legend_attachment">Eki var</string>
     <string name="title_legend_flagged">Sık kullanılan</string>
     <string name="title_legend_contacts">Rehberi yönet</string>
@@ -1860,8 +1861,8 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_hint_notifications">Bildirim izni yok</string>
     <string name="title_hint_notifications_remark">(Hesap) uyarıları için de bildirim izinleri gereklidir. Yeni mesajlara ilişkin bildirimler ayarlardan kapatılabilir.</string>
     <string name="title_hint_battery_optimizations">Pil optimizasyonu halen etkin</string>
-    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">Veri tasarrufu etkinleştirilirse, uygulama arka planda senkronizasyon yapamaz ve bağlantı hataları oluşabilir.</string>
-    <string name="title_hint_dismiss" comment="title_hint_dismiss&#10;Remark in a dialog box to say that dismissing the dialog box will result in suppressing the notice that triggered the dialog box">Bildirimi kaldırmak için bu iletişim kutusunu kapatabilirsiniz.</string>
+    <string name="title_hint_data_saver">Veri tasarrufu etkinleştirilirse, uygulama arka planda senkronizasyon yapamaz ve bağlantı hataları oluşabilir.</string>
+    <string name="title_hint_dismiss">Bildirimi kaldırmak için bu iletişim kutusunu kapatabilirsiniz.</string>
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp için sola kaydırın; Arşiv için sağa kaydırın (mevcut ise); Kaydırma eylemleri hesap ayarlarından yapılandırılabilir</string>
     <string name="title_hint_message_selection">Birden fazla ileti seçmeye başlamak için bir mesaja uzun basın; basılı tutarak ve yukarı veya aşağı kaydırın ve iletileri seçin</string>
@@ -2039,7 +2040,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_keyword_delivered">Teslim edildi</string>
     <string name="title_keyword_not_displayed">Görüntülenmiyor</string>
     <string name="title_keyword_not_delivered">Teslim edilmedi</string>
-    <string name="title_keyword_complaint" comment="title_keyword_complaint&#10;Default title for keyword indicating that there was a complaint about an email">Şikâyet</string>
+    <string name="title_keyword_complaint">Şikâyet</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d mesaj</item>
         <item quantity="other">%1$d mesaj</item>

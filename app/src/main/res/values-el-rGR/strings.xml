@@ -548,6 +548,7 @@
     <string name="title_advanced_pdf_preview">Να προβάλλονται οι μικρογραφίες των αρχείων PDF</string>
     <string name="title_advanced_video_preview">Προβολή μικρογραφιών βίντεο</string>
     <string name="title_advanced_audio_preview">Προβολή του μίνι προγράμματος αναπαραγωγής ήχου</string>
+    <string name="title_advanced_barcode_preview">Προβολή του περιεχομένου του γραμμοκώδικα</string>
     <string name="title_advanced_message_text_zoom2">Μεγέθυνση κειμένου μηνύματος από προεπιλογή: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Μεγέθυνση του κειμένου του μηνύματος και κατά την επεξεργασία του μηνύματος</string>
     <string name="title_advanced_overview_mode">Μεγέθυνση αρχικού μηνύματος για προσαρμογή στην οθόνη</string>
@@ -1181,6 +1182,7 @@
     <string name="title_new_message">Νέο μήνυμα</string>
     <string name="title_editasnew">Επεξεργασία ως νέου</string>
     <string name="title_edit_notes">Επεξεργασία τοπικών σημειώσεων</string>
+    <string name="title_edit_notes_remark">Οι τοπικές σημειώσεις δεν αποθηκεύονται στον διακομιστή αλληλογραφίας και, επομένως, είναι διαθέσιμες μόνο σε αυτή την εφαρμογή σε αυτή τη συσκευή</string>
     <string name="title_create_rule">Δημιουργία κανόνα &#8230;</string>
     <string name="title_full_screen">Πλήρης οθόνη</string>
     <string name="title_force_light">Υποχρεωτικό φωτεινό θέμα</string>
@@ -1794,6 +1796,7 @@
     <string name="title_legend_plain_only">Είναι μόνο απλό κείμενο</string>
     <string name="title_legend_receipt">Έγινε αίτημα αποδεικτικού</string>
     <string name="title_legend_auto_submitted">Απεστάλη αυτόματα</string>
+    <string name="title_legend_by_list">Στάλθηκε από λίστα</string>
     <string name="title_legend_attachment">Έχει συνημμένο</string>
     <string name="title_legend_flagged">Στα αγαπημένα</string>
     <string name="title_legend_contacts">Διαχείριση επαφών</string>
@@ -1860,6 +1863,8 @@
     <string name="title_hint_notifications">Δεν έχει δοθεί καμία άδεια ειδοποιήσεων</string>
     <string name="title_hint_notifications_remark">Άδειες ειδοποίησης απαιτούνται επίσης και για τις ειδοποιήσεις λογαριασμού. Οι ειδοποιήσεις για νέα μηνύματα μπορούν να απενεργοποιηθούν στις ρυθμίσεις.</string>
     <string name="title_hint_battery_optimizations">Οι βελτιστοποιήσεις μπαταρίας είναι ακόμη ενεργοποιημένες</string>
+    <string name="title_hint_data_saver">Εάν είναι ενεργοποιημένη η εξοικονόμηση δεδομένων, η εφαρμογή δεν θα μπορεί να συγχρονίζει στο παρασκήνιο και ενδέχεται να προκύπτουν σφάλματα σύνδεσης.</string>
+    <string name="title_hint_dismiss">Μπορείτε να απορρίψετε αυτό το παράθυρο διαλόγου, για να αφαιρέσετε την ειδοποίηση.</string>
     <string name="title_hint_support">Αν έχετε μία ερώτηση ή ένα πρόβλημα, παρακαλώ χρησιμοποιήστε το μενού \"Υποστήριξη\" για να λάβετε βοήθεια</string>
     <string name="title_hint_message_actions">Σάρωση αριστερά για απορρίμματα• σάρωση δεξιά για αρχειοθέτηση (αν είναι διαθέσιμη)• μπορείτε να ρυθμίσετε τις ενέργειες σάρωσης στις ρυθμίσεις του λογαριασμού</string>
     <string name="title_hint_message_selection">Πατήστε παρατεταμένα σε ένα μήνυμα για να αρχίσετε να επιλέγετε πολλαπλά μηνύματα. Συνεχίστε το πάτημα και σύρετε προς τα πάνω ή κάτω για να επιλέξετε περισσότερα μηνύματα</string>
@@ -2025,6 +2030,7 @@
     <string name="title_widget_background">Χρώμα φόντου</string>
     <string name="title_widget_icon">Χρώμα εικονιδίου</string>
     <string name="title_widget_day_night">Σύμφωνα με το σκούρο θέμα συστήματος</string>
+    <string name="title_widget_standalone">Άνοιγμα του περιεχομένου αυτόνομα</string>
     <string name="title_compat_dark">Η Google έχει αφαιρέσει το σκούρο θέμα σε εκδόσεις Android προγενέστερες από την έκδοση 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Σημαντικό</string>
@@ -2032,6 +2038,11 @@
     <string name="title_keyword_label3">Προσωπικά</string>
     <string name="title_keyword_label4">Εργασίες</string>
     <string name="title_keyword_label5">Αργότερα</string>
+    <string name="title_keyword_displayed">Προβλήθηκε</string>
+    <string name="title_keyword_delivered">Παραδόθηκε</string>
+    <string name="title_keyword_not_displayed">Δεν προβλήθηκε</string>
+    <string name="title_keyword_not_delivered">Δεν παραδόθηκε</string>
+    <string name="title_keyword_complaint">Καταγγελία</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d μήνυμα</item>
         <item quantity="other">%1$d μηνύματα</item>

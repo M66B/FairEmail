@@ -94,6 +94,7 @@
     <string name="title_blocked_senders">Remitentes bloqueados</string>
     <string name="title_unblock_all">Desbloquear todos</string>
     <string name="title_unblock_all_remark">Esto restablecerá todas las listas y opciones que podrían resultar en el bloqueo de remitentes</string>
+    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">¡Tenga en cuenta que la aplicación no puede evitar que el servidor de correo mueva mensajes a la carpeta de correo no deseado!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">¿Bloquear remitente de %1$s mensaje?</item>
         <item quantity="other">¿Bloquear remitente de %1$s mensajes?</item>
@@ -548,7 +549,7 @@
     <string name="title_advanced_pdf_preview">Mostrar miniaturas de PDF</string>
     <string name="title_advanced_video_preview">Mostrar miniaturas de vídeo</string>
     <string name="title_advanced_audio_preview">Mostrar mini reproductor de audio</string>
-    <string name="title_advanced_barcode_preview" comment="title_advanced_barcode_preview&#10;Title for an option to disable showing the content of barcode images">Mostrar contenido de código de barras</string>
+    <string name="title_advanced_barcode_preview">Mostrar contenido de código de barras</string>
     <string name="title_advanced_message_text_zoom2">Zoom por defecto del texto del mensaje: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Agrandar el texto del mensaje también en el editor de mensajes</string>
     <string name="title_advanced_overview_mode">Hacer zoom en mensajes originales para ajustarse a la pantalla</string>
@@ -1797,7 +1798,7 @@
     <string name="title_legend_plain_only">Sólo es texto plano</string>
     <string name="title_legend_receipt">Se solicitó confirmación de lectura</string>
     <string name="title_legend_auto_submitted">Se envió automáticamente</string>
-    <string name="title_legend_by_list" comment="title_legend_by_list&#10;Title for legend icon that indicates a message was sent by an email list&#10;https://en.m.wikipedia.org/wiki/Mailing_list">Enviado por una lista</string>
+    <string name="title_legend_by_list">Enviado por una lista</string>
     <string name="title_legend_attachment">Tiene adjunto</string>
     <string name="title_legend_flagged">Es favorito</string>
     <string name="title_legend_contacts">Administrar contactos</string>
@@ -1864,8 +1865,8 @@
     <string name="title_hint_notifications">Sin permisos de notificación</string>
     <string name="title_hint_notifications_remark">Los permisos de notificación también son necesarios para las alertas (de cuenta). Las notificaciones de nuevos mensajes pueden desactivarse en la configuración.</string>
     <string name="title_hint_battery_optimizations">Optimizaciones de uso de batería habilitadas</string>
-    <string name="title_hint_data_saver" comment="title_hint_data_saver&#10;Text in a dialog box telling why the Android datasaver should be disabled">Si el ahorro de datos está habilitado, la aplicación no podrá sincronizar en segundo plano y pueden producirse errores de conexión.</string>
-    <string name="title_hint_dismiss" comment="title_hint_dismiss&#10;Remark in a dialog box to say that dismissing the dialog box will result in suppressing the notice that triggered the dialog box">Puede descartar este diálogo para eliminar el aviso.</string>
+    <string name="title_hint_data_saver">Si el ahorro de datos está habilitado, la aplicación no podrá sincronizar en segundo plano y pueden producirse errores de conexión.</string>
+    <string name="title_hint_dismiss">Puede descartar este diálogo para eliminar el aviso.</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Desliza a la izquierda para enviar a la papelera; Desliza a la derecha para archivar (si está disponible); las acciones de deslizamiento pueden configurarse en la configuración de la cuenta</string>
     <string name="title_hint_message_selection">Mantenga pulsado un mensaje para empezar a seleccionar varios mensajes; mantenga pulsado y deslice hacia arriba o abajo para seleccionar más mensajes</string>
@@ -2043,7 +2044,7 @@
     <string name="title_keyword_delivered">Entregado</string>
     <string name="title_keyword_not_displayed">No mostrado</string>
     <string name="title_keyword_not_delivered">No entregado</string>
-    <string name="title_keyword_complaint" comment="title_keyword_complaint&#10;Default title for keyword indicating that there was a complaint about an email">Queja</string>
+    <string name="title_keyword_complaint">Queja</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d mensaje</item>
         <item quantity="other">%1$d mensajes</item>
