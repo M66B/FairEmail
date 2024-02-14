@@ -5858,10 +5858,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionUnsubscribe(TupleMessageEx message) {
-            Uri uri = Uri.parse(message.unsubscribe);
-            onOpenLink(uri,
-                    context.getString(R.string.title_legend_show_unsubscribe),
-                    EntityFolder.JUNK.equals(message.folderType));
+            if (message.unsubscribe.startsWith(MessageHelper.ONE_CLICK_UNSUBSCRIBE)) {
+                Bundle args = new Bundle();
+                args.putString("uri", message.unsubscribe.substring(MessageHelper.ONE_CLICK_UNSUBSCRIBE.length()));
+                args.putString("from", MessageHelper.formatAddresses(message.from));
+
+                FragmentDialogUnsubscribe fragment = new FragmentDialogUnsubscribe();
+                fragment.setArguments(args);
+                fragment.show(parentFragment.getParentFragmentManager(), "unsubscribe");
+            } else {
+                Uri uri = Uri.parse(message.unsubscribe);
+                onOpenLink(uri,
+                        context.getString(R.string.title_legend_show_unsubscribe),
+                        EntityFolder.JUNK.equals(message.folderType));
+            }
         }
 
         private void onActionVerifyDecrypt(TupleMessageEx message, boolean auto) {

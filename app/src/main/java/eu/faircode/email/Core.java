@@ -3429,8 +3429,6 @@ class Core {
                         String[] authentication = helper.getAuthentication();
                         MessageHelper.MessageParts parts = helper.getMessageParts();
 
-                        Pair<String, Boolean> unsubscribe = helper.getListUnsubscribe();
-
                         EntityMessage message = new EntityMessage();
                         message.account = folder.account;
                         message.folder = folder.id;
@@ -3464,7 +3462,7 @@ class Core {
                         message.bcc = helper.getBcc();
                         message.reply = helper.getReply();
                         message.list_post = helper.getListPost();
-                        message.unsubscribe = (unsubscribe == null ? null : unsubscribe.first);
+                        message.unsubscribe = helper.getListUnsubscribe();
                         message.headers = helper.getHeaders();
                         message.infrastructure = helper.getInfrastructure();
                         message.subject = helper.getSubject();
@@ -4567,8 +4565,6 @@ class Core {
             String[] authentication = helper.getAuthentication();
             MessageHelper.MessageParts parts = helper.getMessageParts();
 
-            Pair<String, Boolean> unsubscribe = helper.getListUnsubscribe();
-
             message = new EntityMessage();
             message.account = folder.account;
             message.folder = folder.id;
@@ -4615,7 +4611,7 @@ class Core {
             message.bcc = helper.getBcc();
             message.reply = helper.getReply();
             message.list_post = helper.getListPost();
-            message.unsubscribe = (unsubscribe == null ? null : unsubscribe.first);
+            message.unsubscribe = helper.getListUnsubscribe();
             message.autocrypt = helper.getAutocrypt();
             if (download_headers)
                 message.headers = helper.getHeaders();

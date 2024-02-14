@@ -182,6 +182,7 @@ public class MessageHelper {
     static final int DEFAULT_THREAD_RANGE = 7; // 2^7 = 128 days
     static final int MAX_UNZIP_COUNT = 20;
     static final long MAX_UNZIP_SIZE = 10 * 1024 * 1024L;
+    static final String ONE_CLICK_UNSUBSCRIBE = "oneclick:";
 
     static final List<String> UNZIP_FORMATS = Collections.unmodifiableList(Arrays.asList(
             "zip", "gz", "tar.gz"
@@ -2761,7 +2762,7 @@ public class MessageHelper {
         }
     }
 
-    Pair<String, Boolean> getListUnsubscribe() throws MessagingException {
+    String getListUnsubscribe() throws MessagingException {
         ensureHeaders();
 
         try {
@@ -2777,12 +2778,12 @@ public class MessageHelper {
                 return null;
 
             // https://datatracker.ietf.org/doc/html/rfc8058
-            boolean onclick = false;
+            boolean oneclick = false;
             String post = imessage.getHeader("List-Unsubscribe-Post", null);
             if (post != null) {
                 post = MimeUtility.unfold(post);
                 post = decodeMime(post);
-                onclick = "List-Unsubscribe=One-Click".equalsIgnoreCase(post.trim());
+                oneclick = "List-Unsubscribe=One-Click".equalsIgnoreCase(post.trim());
             }
 
             String link = null;
@@ -2828,10 +2829,13 @@ public class MessageHelper {
                 e = list.indexOf('>', s + 1);
             }
 
+            if (true || link != null && !link.startsWith("https://"))
+                oneclick = false;
+
             if (link != null)
-                return new Pair<>(link, onclick);
+                return (oneclick ? ONE_CLICK_UNSUBSCRIBE : "") + link;
             if (mailto != null)
-                return new Pair<>(mailto, onclick);
+                return mailto;
 
             if (!BuildConfig.PLAY_STORE_RELEASE)
                 Log.i(new IllegalArgumentException("List-Unsubscribe: " + list));
