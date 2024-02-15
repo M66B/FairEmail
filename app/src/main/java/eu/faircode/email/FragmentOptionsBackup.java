@@ -1705,7 +1705,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         final Context context = getContext();
         Intent intent = (export ? getIntentExport(context) : getIntentImport(context));
         PackageManager pm = context.getPackageManager();
-        if (intent.resolveActivity(pm) == null) { //  // system/GET_CONTENT whitelisted
+        if (intent.resolveActivity(pm) == null) { // system/GET_CONTENT whitelisted
             Log.unexpectedError(getParentFragmentManager(),
                     new IllegalArgumentException(context.getString(R.string.title_no_saf)), 25);
             return;

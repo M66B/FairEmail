@@ -232,7 +232,7 @@ public class OpenAI {
     }
 
     static class Message {
-        private final String role; //  // system, user, assistant
+        private final String role; // system, user, assistant
         private final String content;
 
         public Message(String role, String content) {
