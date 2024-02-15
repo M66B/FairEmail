@@ -2238,8 +2238,17 @@ public class MessageHelper {
             }
 
             // https://datatracker.ietf.org/doc/html/rfc6376/
-            String[] headers = amessage.getHeader(DKIM_SIGNATURE);
-            if (headers == null || headers.length < 1)
+            List<String> headers = new ArrayList<>();
+
+            String[] dkim_headers = amessage.getHeader(DKIM_SIGNATURE);
+            if (dkim_headers != null && dkim_headers.length > 0)
+                headers.addAll(Arrays.asList(dkim_headers));
+
+            String[] arc_headers = amessage.getHeader(ARC_MESSAGE_SIGNATURE);
+            if (arc_headers != null && arc_headers.length > 0)
+                headers.addAll(Arrays.asList(arc_headers));
+
+            if (headers.size() == 0)
                 return signers;
 
             for (String header : headers) {
@@ -2275,9 +2284,9 @@ public class MessageHelper {
                     else
                         throw new IllegalArgumentException(n);
 
-                    headers = amessage.getHeader(n);
-                    if (headers != null) {
-                        for (String header : headers) {
+                    String[] aheaders = amessage.getHeader(n);
+                    if (aheaders != null) {
+                        for (String header : aheaders) {
                             Map<String, String> kv = getKeyValues(MimeUtility.unfold(header));
                             Integer i = Helper.parseInt(kv.get("i"));
                             if (i == null || map.containsKey(i)) {
