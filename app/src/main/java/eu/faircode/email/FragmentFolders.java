@@ -1517,169 +1517,181 @@ public class FragmentFolders extends FragmentBase {
                     while ((line.value = br.readLine()) != null) {
                         line.value += "\n";
 
-                        MimeMessage imessage = new MimeMessage(isession, new InputStream() {
-                            private int i = 0;
+                        try {
+                            MimeMessage imessage = new MimeMessage(isession, new InputStream() {
+                                private int i = 0;
 
-                            @Override
-                            public int read() throws IOException {
-                                if (line.value == null)
-                                    return -1;
-
-                                if (i >= line.value.length()) {
-                                    line.value = br.readLine();
+                                @Override
+                                public int read() throws IOException {
                                     if (line.value == null)
                                         return -1;
-                                    if (line.value.startsWith(">From "))
-                                        line.value = line.value.substring(1);
-                                    line.value += "\n";
-                                    i = 0;
+
+                                    if (i >= line.value.length()) {
+                                        line.value = br.readLine();
+                                        if (line.value == null)
+                                            return -1;
+                                        if (line.value.startsWith(">From "))
+                                            line.value = line.value.substring(1);
+                                        line.value += "\n";
+                                        i = 0;
+                                    }
+
+                                    if (line.value.startsWith("From "))
+                                        return -1;
+
+                                    return line.value.charAt(i++);
+                                }
+                            });
+
+                            MessageHelper helper = new MessageHelper(imessage, context);
+
+                            String msgid = helper.getPOP3MessageID();
+
+                            int count = db.message().countMessageByMsgId(folder.id, msgid, true);
+                            if (count == 1) {
+                                EntityLog.log(context, "Import: message exists msgid=" + msgid);
+                                continue;
+                            }
+
+                            Long sent = helper.getSent();
+                            long received = helper.getPOP3Received();
+
+                            String[] authentication = helper.getAuthentication();
+                            MessageHelper.MessageParts parts = helper.getMessageParts();
+
+                            EntityMessage message = new EntityMessage();
+                            message.account = folder.account;
+                            message.folder = folder.id;
+                            message.uid = null;
+                            message.msgid = msgid;
+                            message.hash = helper.getHash();
+                            message.references = TextUtils.join(" ", helper.getReferences());
+                            message.inreplyto = helper.getInReplyTo();
+                            message.deliveredto = helper.getDeliveredTo();
+                            message.thread = helper.getThreadId(context, account.id, folder.id, 0, received);
+                            message.priority = helper.getPriority();
+                            message.sensitivity = helper.getSensitivity();
+                            message.auto_submitted = helper.getAutoSubmitted();
+                            message.receipt_request = helper.getReceiptRequested();
+                            message.receipt_to = helper.getReceiptTo();
+                            message.bimi_selector = helper.getBimiSelector();
+                            message.tls = helper.getTLS();
+                            message.dkim = MessageHelper.getAuthentication("dkim", authentication);
+                            message.spf = MessageHelper.getAuthentication("spf", authentication);
+                            if (message.spf == null && helper.getSPF())
+                                message.spf = true;
+                            message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+                            message.auth = MessageHelper.getAuthentication("auth", authentication);
+                            message.smtp_from = helper.getMailFrom(authentication);
+                            message.return_path = helper.getReturnPath();
+                            message.submitter = helper.getSubmitter();
+                            message.from = helper.getFrom();
+                            message.to = helper.getTo();
+                            message.cc = helper.getCc();
+                            message.bcc = helper.getBcc();
+                            message.reply = helper.getReply();
+                            message.list_post = helper.getListPost();
+                            message.unsubscribe = helper.getListUnsubscribe();
+                            message.headers = helper.getHeaders();
+                            message.infrastructure = helper.getInfrastructure();
+                            message.subject = helper.getSubject();
+                            message.size = parts.getBodySize();
+                            message.total = helper.getSize();
+                            message.content = false;
+                            message.encrypt = parts.getEncryption();
+                            message.ui_encrypt = message.encrypt;
+                            message.received = received;
+                            message.sent = sent;
+                            message.seen = true;
+                            message.answered = false;
+                            message.flagged = false;
+                            message.flags = null;
+                            message.keywords = new String[0];
+                            message.ui_seen = true;
+                            message.ui_answered = false;
+                            message.ui_flagged = false;
+                            message.ui_hide = false;
+                            message.ui_found = false;
+                            message.ui_ignored = true;
+                            message.ui_browsed = false;
+                            message.ui_busy = Long.MAX_VALUE;
+
+                            if (message.deliveredto != null)
+                                try {
+                                    Address deliveredto = new InternetAddress(message.deliveredto);
+                                    if (MessageHelper.equalEmail(new Address[]{deliveredto}, message.to))
+                                        message.deliveredto = null;
+                                } catch (AddressException ex) {
+                                    Log.w(ex);
                                 }
 
-                                if (line.value.startsWith("From "))
-                                    return -1;
+                            if (MessageHelper.equalEmail(message.submitter, message.from))
+                                message.submitter = null;
 
-                                return line.value.charAt(i++);
-                            }
-                        });
+                            if (message.size == null && message.total != null)
+                                message.size = message.total;
 
-                        MessageHelper helper = new MessageHelper(imessage, context);
+                            EntityIdentity identity = Core.matchIdentity(context, folder, message);
+                            message.identity = (identity == null ? null : identity.id);
 
-                        String msgid = helper.getPOP3MessageID();
+                            message.sender = MessageHelper.getSortKey(message.from);
+                            Uri lookupUri = ContactInfo.getLookupUri(message.from);
+                            message.avatar = (lookupUri == null ? null : lookupUri.toString());
 
-                        int count = db.message().countMessageByMsgId(folder.id, msgid, true);
-                        if (count == 1)
-                            continue;
+                            message.from_domain = (message.checkFromDomain(context) == null);
 
-                        Long sent = helper.getSent();
-                        long received = helper.getPOP3Received();
-
-                        String[] authentication = helper.getAuthentication();
-                        MessageHelper.MessageParts parts = helper.getMessageParts();
-
-                        EntityMessage message = new EntityMessage();
-                        message.account = folder.account;
-                        message.folder = folder.id;
-                        message.uid = null;
-                        message.msgid = msgid;
-                        message.hash = helper.getHash();
-                        message.references = TextUtils.join(" ", helper.getReferences());
-                        message.inreplyto = helper.getInReplyTo();
-                        message.deliveredto = helper.getDeliveredTo();
-                        message.thread = helper.getThreadId(context, account.id, folder.id, 0, received);
-                        message.priority = helper.getPriority();
-                        message.sensitivity = helper.getSensitivity();
-                        message.auto_submitted = helper.getAutoSubmitted();
-                        message.receipt_request = helper.getReceiptRequested();
-                        message.receipt_to = helper.getReceiptTo();
-                        message.bimi_selector = helper.getBimiSelector();
-                        message.tls = helper.getTLS();
-                        message.dkim = MessageHelper.getAuthentication("dkim", authentication);
-                        message.spf = MessageHelper.getAuthentication("spf", authentication);
-                        if (message.spf == null && helper.getSPF())
-                            message.spf = true;
-                        message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
-                        message.auth = MessageHelper.getAuthentication("auth", authentication);
-                        message.smtp_from = helper.getMailFrom(authentication);
-                        message.return_path = helper.getReturnPath();
-                        message.submitter = helper.getSubmitter();
-                        message.from = helper.getFrom();
-                        message.to = helper.getTo();
-                        message.cc = helper.getCc();
-                        message.bcc = helper.getBcc();
-                        message.reply = helper.getReply();
-                        message.list_post = helper.getListPost();
-                        message.unsubscribe = helper.getListUnsubscribe();
-                        message.headers = helper.getHeaders();
-                        message.infrastructure = helper.getInfrastructure();
-                        message.subject = helper.getSubject();
-                        message.size = parts.getBodySize();
-                        message.total = helper.getSize();
-                        message.content = false;
-                        message.encrypt = parts.getEncryption();
-                        message.ui_encrypt = message.encrypt;
-                        message.received = received;
-                        message.sent = sent;
-                        message.seen = true;
-                        message.answered = false;
-                        message.flagged = false;
-                        message.flags = null;
-                        message.keywords = new String[0];
-                        message.ui_seen = true;
-                        message.ui_answered = false;
-                        message.ui_flagged = false;
-                        message.ui_hide = false;
-                        message.ui_found = false;
-                        message.ui_ignored = true;
-                        message.ui_browsed = false;
-                        message.ui_busy = Long.MAX_VALUE;
-
-                        if (message.deliveredto != null)
                             try {
-                                Address deliveredto = new InternetAddress(message.deliveredto);
-                                if (MessageHelper.equalEmail(new Address[]{deliveredto}, message.to))
-                                    message.deliveredto = null;
-                            } catch (AddressException ex) {
+                                db.beginTransaction();
+
+                                message.id = db.message().insertMessage(message);
+                                EntityLog.log(context, account.name + " Import added id=" + message.id +
+                                        " msgid=" + message.msgid);
+
+                                int sequence = 1;
+                                for (EntityAttachment attachment : parts.getAttachments()) {
+                                    Log.i(account.name + " Import attachment seq=" + sequence +
+                                            " name=" + attachment.name + " type=" + attachment.type +
+                                            " cid=" + attachment.cid + " pgp=" + attachment.encryption +
+                                            " size=" + attachment.size);
+                                    attachment.message = message.id;
+                                    attachment.sequence = sequence++;
+                                    attachment.id = db.attachment().insertAttachment(attachment);
+                                }
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            String body = parts.getHtml(context, false);
+
+                            File file = message.getFile(context);
+                            Helper.writeText(file, body);
+                            String text = HtmlHelper.getFullText(body);
+                            message.preview = HtmlHelper.getPreview(text);
+                            message.language = HtmlHelper.getLanguage(context, message.subject, text);
+                            db.message().setMessageContent(message.id,
+                                    true,
+                                    message.language,
+                                    parts.isPlainOnly(false),
+                                    message.preview,
+                                    parts.getWarnings(message.warning));
+
+                            try {
+                                for (EntityAttachment attachment : parts.getAttachments())
+                                    if (attachment.subsequence == null)
+                                        parts.downloadAttachment(context, attachment, folder);
+                            } catch (Throwable ex) {
                                 Log.w(ex);
                             }
-
-                        if (MessageHelper.equalEmail(message.submitter, message.from))
-                            message.submitter = null;
-
-                        if (message.size == null && message.total != null)
-                            message.size = message.total;
-
-                        EntityIdentity identity = Core.matchIdentity(context, folder, message);
-                        message.identity = (identity == null ? null : identity.id);
-
-                        message.sender = MessageHelper.getSortKey(message.from);
-                        Uri lookupUri = ContactInfo.getLookupUri(message.from);
-                        message.avatar = (lookupUri == null ? null : lookupUri.toString());
-
-                        message.from_domain = (message.checkFromDomain(context) == null);
-
-                        try {
-                            db.beginTransaction();
-
-                            message.id = db.message().insertMessage(message);
-                            EntityLog.log(context, account.name + " Import added id=" + message.id +
-                                    " msgid=" + message.msgid);
-
-                            int sequence = 1;
-                            for (EntityAttachment attachment : parts.getAttachments()) {
-                                Log.i(account.name + " Import attachment seq=" + sequence +
-                                        " name=" + attachment.name + " type=" + attachment.type +
-                                        " cid=" + attachment.cid + " pgp=" + attachment.encryption +
-                                        " size=" + attachment.size);
-                                attachment.message = message.id;
-                                attachment.sequence = sequence++;
-                                attachment.id = db.attachment().insertAttachment(attachment);
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        String body = parts.getHtml(context, false);
-
-                        File file = message.getFile(context);
-                        Helper.writeText(file, body);
-                        String text = HtmlHelper.getFullText(body);
-                        message.preview = HtmlHelper.getPreview(text);
-                        message.language = HtmlHelper.getLanguage(context, message.subject, text);
-                        db.message().setMessageContent(message.id,
-                                true,
-                                message.language,
-                                parts.isPlainOnly(false),
-                                message.preview,
-                                parts.getWarnings(message.warning));
-
-                        try {
-                            for (EntityAttachment attachment : parts.getAttachments())
-                                if (attachment.subsequence == null)
-                                    parts.downloadAttachment(context, attachment, folder);
                         } catch (Throwable ex) {
-                            Log.w(ex);
+                            Log.e(ex);
+
+                            EntityLog.log(context, "Import error=" + Log.formatThrowable(ex, false));
+
+                            // Resync
+                            while (line.value != null && !line.value.startsWith("From "))
+                                line.value = br.readLine();
                         }
 
                         if (line.value == null)
