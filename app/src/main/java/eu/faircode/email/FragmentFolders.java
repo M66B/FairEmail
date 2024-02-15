@@ -1300,11 +1300,20 @@ public class FragmentFolders extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
 
+                DB db = DB.getInstance(context);
+                EntityFolder folder = db.folder().getFolder(fid);
+                if (folder == null)
+                    return null;
+                EntityAccount account = db.account().getAccount(folder.account);
+                if (account == null)
+                    return null;
+
                 NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(context, "progress")
                                 .setSmallIcon(R.drawable.twotone_archive_24)
                                 .setContentTitle(getString(R.string.title_export_messages))
+                                .setContentText(account.name + ":" + folder.name)
                                 .setAutoCancel(false)
                                 .setShowWhen(false)
                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
@@ -1313,7 +1322,6 @@ public class FragmentFolders extends FragmentBase {
                                 .setLocalOnly(true)
                                 .setOngoing(true);
 
-                DB db = DB.getInstance(context);
                 List<Long> ids = db.message().getMessageIdsByFolder(fid);
                 if (ids == null)
                     return null;
@@ -1489,6 +1497,7 @@ public class FragmentFolders extends FragmentBase {
                         new NotificationCompat.Builder(context, "progress")
                                 .setSmallIcon(R.drawable.twotone_unarchive_24)
                                 .setContentTitle(getString(R.string.title_import_messages))
+                                .setContentText(account.name + ":" + folder.name)
                                 .setAutoCancel(false)
                                 .setShowWhen(false)
                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
