@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ypupiara](https://en.wikipedia.org/wiki/Ypupiara)
 
-### Next version
+### 1.2159 - 2024-02-15
 
 * Added optional reply/answer quick action
 * Small improvements and minor bug fixes
