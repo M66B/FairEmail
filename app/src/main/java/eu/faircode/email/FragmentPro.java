@@ -240,8 +240,10 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
                 post(new RunnableEx("pro:disconnected") {
                     @Override
                     public void delegate() {
-                        ivConnected.setImageResource(R.drawable.twotone_cloud_off_24);
-                        ivConnected.setVisibility(View.VISIBLE);
+                        if (ivConnected != null) {
+                            ivConnected.setImageResource(R.drawable.twotone_cloud_off_24);
+                            ivConnected.setVisibility(View.VISIBLE);
+                        }
                     }
                 });
             }
