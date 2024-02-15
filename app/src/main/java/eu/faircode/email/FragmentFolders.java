@@ -69,12 +69,15 @@ import com.google.android.material.snackbar.Snackbar;
 import org.json.JSONException;
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -86,9 +89,11 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Properties;
 
+import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -127,8 +132,9 @@ public class FragmentFolders extends FragmentBase {
     static final int REQUEST_DELETE_FOLDER = 3;
     static final int REQUEST_EXECUTE_RULES = 4;
     static final int REQUEST_EXPORT_MESSAGES = 5;
-    static final int REQUEST_EDIT_ACCOUNT_NAME = 6;
-    static final int REQUEST_EDIT_ACCOUNT_COLOR = 7;
+    static final int REQUEST_IMPORT_MESSAGES = 6;
+    static final int REQUEST_EDIT_ACCOUNT_NAME = 7;
+    static final int REQUEST_EDIT_ACCOUNT_COLOR = 8;
 
     private static final long EXPORT_PROGRESS_INTERVAL = 5000L; // milliseconds
 
@@ -997,6 +1003,10 @@ public class FragmentFolders extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         onExportMessages(data.getData());
                     break;
+                case REQUEST_IMPORT_MESSAGES:
+                    if (resultCode == RESULT_OK && data != null)
+                        onImportMessages(data.getData());
+                    break;
                 case REQUEST_EDIT_ACCOUNT_NAME:
                     if (resultCode == RESULT_OK && data != null)
                         onEditAccountName(data.getBundleExtra("args"));
@@ -1293,7 +1303,7 @@ public class FragmentFolders extends FragmentBase {
                 NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(context, "progress")
-                                .setSmallIcon(R.drawable.baseline_get_app_white_24)
+                                .setSmallIcon(R.drawable.twotone_archive_24)
                                 .setContentTitle(getString(R.string.title_export_messages))
                                 .setAutoCancel(false)
                                 .setShowWhen(false)
@@ -1428,7 +1438,264 @@ public class FragmentFolders extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                boolean report = !(ex instanceof IllegalArgumentException);
+                Log.unexpectedError(getParentFragmentManager(), ex, report);
+            }
+        }.setKeepAwake(true).execute(this, args, "folder:export");
+    }
+
+    private void onImportMessages(Uri uri) {
+        long id = getArguments().getLong("selected_folder", -1L);
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putParcelable("uri", uri);
+
+        new SimpleTask<Void>() {
+            private Toast toast = null;
+
+            @Override
+            protected void onPreExecute(Bundle args) {
+                toast = ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG);
+                toast.show();
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                if (toast != null)
+                    toast.cancel();
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long fid = args.getLong("id");
+                Uri uri = args.getParcelable("uri");
+
+                if (!"content".equals(uri.getScheme())) {
+                    Log.w("Import uri=" + uri);
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
+
+                DB db = DB.getInstance(context);
+                EntityFolder folder = db.folder().getFolder(fid);
+                if (folder == null)
+                    return null;
+                EntityAccount account = db.account().getAccount(folder.account);
+                if (account == null)
+                    return null;
+
+                NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
+                NotificationCompat.Builder builder =
+                        new NotificationCompat.Builder(context, "progress")
+                                .setSmallIcon(R.drawable.twotone_unarchive_24)
+                                .setContentTitle(getString(R.string.title_import_messages))
+                                .setAutoCancel(false)
+                                .setShowWhen(false)
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                .setCategory(NotificationCompat.CATEGORY_PROGRESS)
+                                .setVisibility(NotificationCompat.VISIBILITY_SECRET)
+                                .setLocalOnly(true)
+                                .setOngoing(true)
+                                .setProgress(0, 0, true);
+                nm.notify("import", NotificationHelper.NOTIFICATION_TAGGED, builder.build());
+
+                Properties props = MessageHelper.getSessionProperties(true);
+                Session isession = Session.getInstance(props, null);
+
+                // https://www.ietf.org/rfc/rfc4155.txt (Appendix A)
+                // http://qmail.org./man/man5/mbox.html
+                ContentResolver resolver = context.getContentResolver();
+                InputStream is = resolver.openInputStream(uri);
+                if (is == null)
+                    throw new FileNotFoundException(uri.toString());
+
+                try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+                    final ObjectHolder<String> line = new ObjectHolder<>(br.readLine());
+                    if (line.value == null || !line.value.startsWith("From "))
+                        throw new IllegalArgumentException("Invalid mbox file");
+
+                    while ((line.value = br.readLine()) != null) {
+                        line.value += "\n";
+
+                        MimeMessage imessage = new MimeMessage(isession, new InputStream() {
+                            private int i = 0;
+
+                            @Override
+                            public int read() throws IOException {
+                                if (line.value == null)
+                                    return -1;
+
+                                if (i >= line.value.length()) {
+                                    line.value = br.readLine();
+                                    if (line.value == null)
+                                        return -1;
+                                    if (line.value.startsWith(">From "))
+                                        line.value = line.value.substring(1);
+                                    line.value += "\n";
+                                    i = 0;
+                                }
+
+                                if (line.value.startsWith("From "))
+                                    return -1;
+
+                                return line.value.charAt(i++);
+                            }
+                        });
+
+                        MessageHelper helper = new MessageHelper(imessage, context);
+
+                        String msgid = helper.getPOP3MessageID();
+                        Long sent = helper.getSent();
+                        long received = helper.getPOP3Received();
+
+                        String[] authentication = helper.getAuthentication();
+                        MessageHelper.MessageParts parts = helper.getMessageParts();
+
+                        EntityMessage message = new EntityMessage();
+                        message.account = folder.account;
+                        message.folder = folder.id;
+                        message.uid = null;
+                        message.msgid = msgid;
+                        message.hash = helper.getHash();
+                        message.references = TextUtils.join(" ", helper.getReferences());
+                        message.inreplyto = helper.getInReplyTo();
+                        message.deliveredto = helper.getDeliveredTo();
+                        message.thread = helper.getThreadId(context, account.id, folder.id, 0, received);
+                        message.priority = helper.getPriority();
+                        message.sensitivity = helper.getSensitivity();
+                        message.auto_submitted = helper.getAutoSubmitted();
+                        message.receipt_request = helper.getReceiptRequested();
+                        message.receipt_to = helper.getReceiptTo();
+                        message.bimi_selector = helper.getBimiSelector();
+                        message.tls = helper.getTLS();
+                        message.dkim = MessageHelper.getAuthentication("dkim", authentication);
+                        message.spf = MessageHelper.getAuthentication("spf", authentication);
+                        if (message.spf == null && helper.getSPF())
+                            message.spf = true;
+                        message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+                        message.auth = MessageHelper.getAuthentication("auth", authentication);
+                        message.smtp_from = helper.getMailFrom(authentication);
+                        message.return_path = helper.getReturnPath();
+                        message.submitter = helper.getSubmitter();
+                        message.from = helper.getFrom();
+                        message.to = helper.getTo();
+                        message.cc = helper.getCc();
+                        message.bcc = helper.getBcc();
+                        message.reply = helper.getReply();
+                        message.list_post = helper.getListPost();
+                        message.unsubscribe = helper.getListUnsubscribe();
+                        message.headers = helper.getHeaders();
+                        message.infrastructure = helper.getInfrastructure();
+                        message.subject = helper.getSubject();
+                        message.size = parts.getBodySize();
+                        message.total = helper.getSize();
+                        message.content = false;
+                        message.encrypt = parts.getEncryption();
+                        message.ui_encrypt = message.encrypt;
+                        message.received = received;
+                        message.sent = sent;
+                        message.seen = true;
+                        message.answered = false;
+                        message.flagged = false;
+                        message.flags = null;
+                        message.keywords = new String[0];
+                        message.ui_seen = true;
+                        message.ui_answered = false;
+                        message.ui_flagged = false;
+                        message.ui_hide = false;
+                        message.ui_found = false;
+                        message.ui_ignored = true;
+                        message.ui_browsed = false;
+                        message.ui_busy = Long.MAX_VALUE;
+
+                        if (message.deliveredto != null)
+                            try {
+                                Address deliveredto = new InternetAddress(message.deliveredto);
+                                if (MessageHelper.equalEmail(new Address[]{deliveredto}, message.to))
+                                    message.deliveredto = null;
+                            } catch (AddressException ex) {
+                                Log.w(ex);
+                            }
+
+                        if (MessageHelper.equalEmail(message.submitter, message.from))
+                            message.submitter = null;
+
+                        if (message.size == null && message.total != null)
+                            message.size = message.total;
+
+                        EntityIdentity identity = Core.matchIdentity(context, folder, message);
+                        message.identity = (identity == null ? null : identity.id);
+
+                        message.sender = MessageHelper.getSortKey(message.from);
+                        Uri lookupUri = ContactInfo.getLookupUri(message.from);
+                        message.avatar = (lookupUri == null ? null : lookupUri.toString());
+
+                        message.from_domain = (message.checkFromDomain(context) == null);
+
+                        try {
+                            db.beginTransaction();
+
+                            message.id = db.message().insertMessage(message);
+                            EntityLog.log(context, account.name + " Import added id=" + message.id +
+                                    " msgid=" + message.msgid);
+
+                            int sequence = 1;
+                            for (EntityAttachment attachment : parts.getAttachments()) {
+                                Log.i(account.name + " Import attachment seq=" + sequence +
+                                        " name=" + attachment.name + " type=" + attachment.type +
+                                        " cid=" + attachment.cid + " pgp=" + attachment.encryption +
+                                        " size=" + attachment.size);
+                                attachment.message = message.id;
+                                attachment.sequence = sequence++;
+                                attachment.id = db.attachment().insertAttachment(attachment);
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        String body = parts.getHtml(context, false);
+
+                        File file = message.getFile(context);
+                        Helper.writeText(file, body);
+                        String text = HtmlHelper.getFullText(body);
+                        message.preview = HtmlHelper.getPreview(text);
+                        message.language = HtmlHelper.getLanguage(context, message.subject, text);
+                        db.message().setMessageContent(message.id,
+                                true,
+                                message.language,
+                                parts.isPlainOnly(false),
+                                message.preview,
+                                parts.getWarnings(message.warning));
+
+                        try {
+                            for (EntityAttachment attachment : parts.getAttachments())
+                                if (attachment.subsequence == null)
+                                    parts.downloadAttachment(context, attachment, folder);
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+
+                        if (line.value == null)
+                            break;
+                    }
+                } finally {
+                    nm.cancel("import", NotificationHelper.NOTIFICATION_TAGGED);
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                boolean report = !(ex instanceof IllegalArgumentException);
+                Log.unexpectedError(getParentFragmentManager(), ex, report);
             }
         }.setKeepAwake(true).execute(this, args, "folder:export");
     }

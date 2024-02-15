@@ -5193,7 +5193,7 @@ class Core {
         });
     }
 
-    private static EntityIdentity matchIdentity(Context context, EntityFolder folder, EntityMessage message) {
+    static EntityIdentity matchIdentity(Context context, EntityFolder folder, EntityMessage message) {
         if (EntityFolder.DRAFTS.equals(folder.type))
             return null;
 

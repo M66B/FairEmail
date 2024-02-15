@@ -671,8 +671,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             }
 
             if (folder.accountProtocol == EntityAccount.TYPE_POP ||
-                    (folder.selectable && (debug || BuildConfig.DEBUG)))
+                    (folder.selectable && (debug || BuildConfig.DEBUG))) {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_export_messages, order++, R.string.title_export_messages);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_import_messages, order++, R.string.title_import_messages);
+            }
 
             if (!folder.selectable)
                 popupMenu.getMenu()
@@ -794,6 +796,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         return true;
                     } else if (itemId == R.string.title_export_messages) {
                         onActionExportMessages();
+                        return true;
+                    } else if (itemId == R.string.title_import_messages) {
+                        onActionImportMessages();
                         return true;
                     } else if (itemId == R.string.title_edit_properties) {
                         onActionEditProperties();
@@ -1285,7 +1290,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     intent.putExtra(Intent.EXTRA_TITLE, filename);
                     Helper.openAdvanced(context, intent);
 
-                    if (intent.resolveActivity(context.getPackageManager()) == null) { //  // system/GET_CONTENT whitelisted
+                    if (intent.resolveActivity(context.getPackageManager()) == null) { // system/GET_CONTENT whitelisted
                         Log.unexpectedError(parentFragment.getParentFragmentManager(),
                                 new IllegalArgumentException(context.getString(R.string.title_no_saf)), 25);
                         return;
@@ -1296,6 +1301,28 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     parentFragment.startActivityForResult(
                             Helper.getChooser(context, intent),
                             FragmentFolders.REQUEST_EXPORT_MESSAGES);
+                }
+
+                private void onActionImportMessages() {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    prefs.edit().putBoolean("debug", false).apply();
+
+                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                    intent.addCategory(Intent.CATEGORY_OPENABLE);
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    intent.setType("*/*");
+
+                    if (intent.resolveActivity(context.getPackageManager()) == null) { // system/GET_CONTENT whitelisted
+                        Log.unexpectedError(parentFragment.getParentFragmentManager(),
+                                new IllegalArgumentException(context.getString(R.string.title_no_saf)), 25);
+                        return;
+                    }
+
+                    parentFragment.getArguments().putLong("selected_folder", folder.id);
+
+                    parentFragment.startActivityForResult(
+                            Helper.getChooser(context, intent),
+                            FragmentFolders.REQUEST_IMPORT_MESSAGES);
                 }
 
                 private void onActionEditProperties() {
