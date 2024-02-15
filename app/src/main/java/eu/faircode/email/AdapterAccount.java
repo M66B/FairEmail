@@ -91,7 +91,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private int textColorTertiary;
     private boolean debug;
 
-    private List<TupleAccountEx> items = new ArrayList<>();
+    private List<TupleAccountFolder> items = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
     private DateFormat DTF;
@@ -196,133 +196,191 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             btnHelp.setOnClickListener(null);
         }
 
-        private void bindTo(TupleAccountEx account) {
-            view.setActivated(account.tbd != null);
-            view.setAlpha(account.synchronize ? 1.0f : Helper.LOW_LIGHT);
-            vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
-            vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
+        private void bindTo(TupleAccountFolder account) {
+            if (account.folderName == null) {
+                view.setActivated(account.tbd != null);
+                view.setAlpha(account.synchronize ? 1.0f : Helper.LOW_LIGHT);
+                vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
+                vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
-            ivSync.setImageResource(account.synchronize ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
-            ivSync.setContentDescription(context.getString(account.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
+                ivSync.setImageResource(account.synchronize ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
+                ivSync.setContentDescription(context.getString(account.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
+                ivSync.setVisibility(View.VISIBLE);
 
-            ivOAuth.setImageDrawable(ContextCompat.getDrawable(context, account.auth_type == AUTH_TYPE_GMAIL
-                    ? R.drawable.twotone_android_24 : R.drawable.twotone_security_24));
-            ivOAuth.setVisibility(
-                    settings && account.auth_type != AUTH_TYPE_PASSWORD ? View.VISIBLE : View.GONE);
-            ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
-            ivNotify.setVisibility(account.notify ? View.VISIBLE : View.GONE);
+                ivOAuth.setImageDrawable(ContextCompat.getDrawable(context, account.auth_type == AUTH_TYPE_GMAIL
+                        ? R.drawable.twotone_android_24 : R.drawable.twotone_security_24));
+                ivOAuth.setVisibility(
+                        settings && account.auth_type != AUTH_TYPE_PASSWORD ? View.VISIBLE : View.GONE);
+                ivPrimary.setVisibility(account.primary ? View.VISIBLE : View.GONE);
+                ivNotify.setVisibility(account.notify ? View.VISIBLE : View.GONE);
 
-            if (settings) {
-                tvName.setText(account.name);
-                tvName.setTextColor(account.protocol == EntityAccount.TYPE_IMAP
-                        ? textColorSecondary : colorWarning);
-            } else {
-                if (account.unseen > 0)
-                    tvName.setText(context.getString(R.string.title_name_count, account.name, NF.format(account.unseen)));
-                else
+                if (settings) {
                     tvName.setText(account.name);
+                    tvName.setTextColor(account.protocol == EntityAccount.TYPE_IMAP
+                            ? textColorSecondary : colorWarning);
+                } else {
+                    if (account.unseen > 0)
+                        tvName.setText(context.getString(R.string.title_name_count, account.name, NF.format(account.unseen)));
+                    else
+                        tvName.setText(account.name);
+
+                    tvName.setTypeface(account.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+                    tvName.setTextColor(account.unseen > 0 ? colorUnread : textColorSecondary);
+                }
+
+                StringBuilder user = new StringBuilder(account.user);
+                if (account.provider != null && (BuildConfig.DEBUG || debug))
+                    user.append(" (").append(account.provider).append(')');
+                tvUser.setText(user);
+                tvUser.setVisibility(View.VISIBLE);
+
+                if ("connected".equals(account.state)) {
+                    ivState.setImageResource(R.drawable.twotone_cloud_done_24);
+                    ivState.setContentDescription(context.getString(R.string.title_legend_connected));
+                } else if ("connecting".equals(account.state)) {
+                    ivState.setImageResource(R.drawable.twotone_cloud_queue_24);
+                    ivState.setContentDescription(context.getString(R.string.title_legend_connecting));
+                } else if ("closing".equals(account.state)) {
+                    ivState.setImageResource(R.drawable.twotone_cancel_24);
+                    ivState.setContentDescription(context.getString(R.string.title_legend_closing));
+                } else {
+                    if (account.backoff_until == null) {
+                        ivState.setImageResource(R.drawable.twotone_cloud_off_24);
+                        ivState.setContentDescription(context.getString(R.string.title_legend_disconnected));
+                    } else {
+                        ivState.setImageResource(R.drawable.twotone_update_24);
+                        ivState.setContentDescription(context.getString(R.string.title_legend_backoff));
+                    }
+                }
+                ivState.setVisibility(account.synchronize || account.state != null ? View.VISIBLE : View.INVISIBLE);
+
+                tvHost.setText(String.format("%s:%d/%s",
+                        account.host,
+                        account.port,
+                        EmailService.getEncryptionName(account.encryption)));
+                tvHost.setTextColor(account.insecure ? colorWarning : textColorTertiary);
+                tvHost.setVisibility(View.VISIBLE);
+
+                tvCreated.setVisibility(debug ? View.VISIBLE : View.GONE);
+                tvCreated.setText(context.getString(R.string.title_created_at,
+                        account.created == null ? null : DTF.format(account.created)));
+                tvLast.setVisibility(compact ? View.GONE : View.VISIBLE);
+                tvLast.setText(context.getString(R.string.title_last_connected,
+                        (account.last_connected == null ? "-" : DTF.format(account.last_connected)) +
+                                (BuildConfig.DEBUG ?
+                                        "/" + (account.last_modified == null ? "-" : DTF.format(account.last_modified)) +
+                                                " " + account.poll_interval +
+                                                "/" + account.keep_alive_ok +
+                                                "/" + account.keep_alive_failed +
+                                                "/" + account.keep_alive_succeeded : "")));
+
+                tvBackoff.setText(context.getString(R.string.title_backoff_until,
+                        account.backoff_until == null ? "-" : DTF.format(account.backoff_until)));
+                tvBackoff.setVisibility(account.backoff_until == null || !settings ? View.GONE : View.VISIBLE);
+
+                Integer percent = account.getQuotaPercentage();
+                boolean warning = (percent != null && percent > EntityAccount.QUOTA_WARNING);
+
+                tvUsage.setText(settings || percent == null ? null : NF.format(percent) + "%");
+                tvUsage.setVisibility(settings || percent == null || (compact && !warning) ? View.GONE : View.VISIBLE);
+                tvQuota.setText(context.getString(R.string.title_storage_quota,
+                        (account.quota_usage == null ? "-" : Helper.humanReadableByteCount(account.quota_usage)),
+                        (account.quota_limit == null ? "-" : Helper.humanReadableByteCount(account.quota_limit))));
+                tvQuota.setVisibility(settings && (account.quota_usage != null || account.quota_limit != null) ? View.VISIBLE : View.GONE);
+
+                tvUsage.setTextColor(warning ? colorWarning : textColorSecondary);
+                tvUsage.setTypeface(warning ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+
+                tvQuota.setTextColor(warning ? colorWarning : textColorSecondary);
+                tvQuota.setTypeface(warning ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+
+                tvMaxSize.setText(account.max_size == null ? null : Helper.humanReadableByteCount(account.max_size));
+                tvMaxSize.setVisibility(settings && account.max_size != null && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+                if (tvMaxSize.getVisibility() == View.VISIBLE)
+                    tvQuota.setVisibility(View.VISIBLE);
+
+                tvId.setText(account.id + "/" + account.uuid);
+                tvId.setVisibility(settings && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+
+                tvCapabilities.setText(account.capabilities);
+
+                tvCapabilities.setVisibility(settings && (debug || BuildConfig.DEBUG) &&
+                        !TextUtils.isEmpty(account.capabilities) ? View.VISIBLE : View.GONE);
+
+                tvIdentity.setVisibility(account.identities > 0 || !settings ? View.GONE : View.VISIBLE);
+                tvDrafts.setVisibility(account.drafts != null || !settings ? View.GONE : View.VISIBLE);
+                tvSent.setVisibility(account.protocol != EntityAccount.TYPE_IMAP ||
+                        account.sent != null || !settings ? View.GONE : View.VISIBLE);
+
+                tvWarning.setText(account.warning);
+                tvWarning.setVisibility(account.warning == null || !settings ? View.GONE : View.VISIBLE);
+
+                tvError.setText(account.error);
+                tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
+                btnHelp.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
+
+                ibInbox.setVisibility(settings ? View.GONE : View.VISIBLE);
+                grpSettings.setVisibility(settings ? View.VISIBLE : View.GONE);
+            } else {
+                view.setActivated(account.tbd != null);
+                view.setAlpha(account.synchronize ? 1.0f : Helper.LOW_LIGHT);
+                vwColor.setBackgroundColor(account.folderColor == null ? Color.TRANSPARENT : account.folderColor);
+                vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
+
+                ivSync.setVisibility(View.GONE);
+
+                ivOAuth.setVisibility(View.GONE);
+                ivPrimary.setVisibility(View.GONE);
+                ivNotify.setVisibility(View.GONE);
+
+                if (account.unseen > 0)
+                    tvName.setText(context.getString(R.string.title_name_count,
+                            account.getName(context), NF.format(account.unseen)));
+                else
+                    tvName.setText(account.getName(context));
 
                 tvName.setTypeface(account.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
                 tvName.setTextColor(account.unseen > 0 ? colorUnread : textColorSecondary);
+
+                tvUser.setVisibility(View.GONE);
+
+                ivState.setVisibility(View.GONE);
+
+                tvHost.setVisibility(View.GONE);
+
+                tvCreated.setVisibility(View.GONE);
+                tvLast.setVisibility(View.GONE);
+
+                tvBackoff.setVisibility(View.GONE);
+
+                tvUsage.setVisibility(View.GONE);
+                tvQuota.setVisibility(View.GONE);
+
+                tvMaxSize.setVisibility(View.GONE);
+
+                tvId.setVisibility(View.GONE);
+
+                tvCapabilities.setVisibility(View.GONE);
+
+                tvIdentity.setVisibility(View.GONE);
+                tvDrafts.setVisibility(View.GONE);
+                tvSent.setVisibility(View.GONE);
+
+                tvWarning.setVisibility(View.GONE);
+
+                tvError.setVisibility(View.GONE);
+                btnHelp.setVisibility(View.GONE);
+
+                ibInbox.setVisibility(View.GONE);
+                grpSettings.setVisibility(View.GONE);
             }
-
-            StringBuilder user = new StringBuilder(account.user);
-            if (account.provider != null && (BuildConfig.DEBUG || debug))
-                user.append(" (").append(account.provider).append(')');
-            tvUser.setText(user);
-
-            if ("connected".equals(account.state)) {
-                ivState.setImageResource(R.drawable.twotone_cloud_done_24);
-                ivState.setContentDescription(context.getString(R.string.title_legend_connected));
-            } else if ("connecting".equals(account.state)) {
-                ivState.setImageResource(R.drawable.twotone_cloud_queue_24);
-                ivState.setContentDescription(context.getString(R.string.title_legend_connecting));
-            } else if ("closing".equals(account.state)) {
-                ivState.setImageResource(R.drawable.twotone_cancel_24);
-                ivState.setContentDescription(context.getString(R.string.title_legend_closing));
-            } else {
-                if (account.backoff_until == null) {
-                    ivState.setImageResource(R.drawable.twotone_cloud_off_24);
-                    ivState.setContentDescription(context.getString(R.string.title_legend_disconnected));
-                } else {
-                    ivState.setImageResource(R.drawable.twotone_update_24);
-                    ivState.setContentDescription(context.getString(R.string.title_legend_backoff));
-                }
-            }
-            ivState.setVisibility(account.synchronize || account.state != null ? View.VISIBLE : View.INVISIBLE);
-
-            tvHost.setText(String.format("%s:%d/%s",
-                    account.host,
-                    account.port,
-                    EmailService.getEncryptionName(account.encryption)));
-            tvHost.setTextColor(account.insecure ? colorWarning : textColorTertiary);
-            tvCreated.setVisibility(debug ? View.VISIBLE : View.GONE);
-            tvCreated.setText(context.getString(R.string.title_created_at,
-                    account.created == null ? null : DTF.format(account.created)));
-            tvLast.setVisibility(compact ? View.GONE : View.VISIBLE);
-            tvLast.setText(context.getString(R.string.title_last_connected,
-                    (account.last_connected == null ? "-" : DTF.format(account.last_connected)) +
-                            (BuildConfig.DEBUG ?
-                                    "/" + (account.last_modified == null ? "-" : DTF.format(account.last_modified)) +
-                                            " " + account.poll_interval +
-                                            "/" + account.keep_alive_ok +
-                                            "/" + account.keep_alive_failed +
-                                            "/" + account.keep_alive_succeeded : "")));
-
-            tvBackoff.setText(context.getString(R.string.title_backoff_until,
-                    account.backoff_until == null ? "-" : DTF.format(account.backoff_until)));
-            tvBackoff.setVisibility(account.backoff_until == null || !settings ? View.GONE : View.VISIBLE);
-
-            Integer percent = account.getQuotaPercentage();
-            boolean warning = (percent != null && percent > EntityAccount.QUOTA_WARNING);
-
-            tvUsage.setText(settings || percent == null ? null : NF.format(percent) + "%");
-            tvUsage.setVisibility(settings || percent == null || (compact && !warning) ? View.GONE : View.VISIBLE);
-            tvQuota.setText(context.getString(R.string.title_storage_quota,
-                    (account.quota_usage == null ? "-" : Helper.humanReadableByteCount(account.quota_usage)),
-                    (account.quota_limit == null ? "-" : Helper.humanReadableByteCount(account.quota_limit))));
-            tvQuota.setVisibility(settings && (account.quota_usage != null || account.quota_limit != null) ? View.VISIBLE : View.GONE);
-
-            tvUsage.setTextColor(warning ? colorWarning : textColorSecondary);
-            tvUsage.setTypeface(warning ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-
-            tvQuota.setTextColor(warning ? colorWarning : textColorSecondary);
-            tvQuota.setTypeface(warning ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-
-            tvMaxSize.setText(account.max_size == null ? null : Helper.humanReadableByteCount(account.max_size));
-            tvMaxSize.setVisibility(settings && account.max_size != null && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-            if (tvMaxSize.getVisibility() == View.VISIBLE)
-                tvQuota.setVisibility(View.VISIBLE);
-
-            tvId.setText(account.id + "/" + account.uuid);
-            tvId.setVisibility(settings && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-
-            tvCapabilities.setText(account.capabilities);
-
-            tvCapabilities.setVisibility(settings && (debug || BuildConfig.DEBUG) &&
-                    !TextUtils.isEmpty(account.capabilities) ? View.VISIBLE : View.GONE);
-
-            tvIdentity.setVisibility(account.identities > 0 || !settings ? View.GONE : View.VISIBLE);
-            tvDrafts.setVisibility(account.drafts != null || !settings ? View.GONE : View.VISIBLE);
-            tvSent.setVisibility(account.protocol != EntityAccount.TYPE_IMAP ||
-                    account.sent != null || !settings ? View.GONE : View.VISIBLE);
-
-            tvWarning.setText(account.warning);
-            tvWarning.setVisibility(account.warning == null || !settings ? View.GONE : View.VISIBLE);
-
-            tvError.setText(account.error);
-            tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
-            btnHelp.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
-
-            ibInbox.setVisibility(settings ? View.GONE : View.VISIBLE);
-            grpSettings.setVisibility(settings ? View.VISIBLE : View.GONE);
         }
 
         @Override
         public void onClick(View view) {
             if (view.getId() == R.id.btnHelp) {
                 int pos = getAdapterPosition();
-                TupleAccountEx account = (pos == RecyclerView.NO_POSITION ? null : items.get(pos));
+                TupleAccountFolder account = (pos == RecyclerView.NO_POSITION ? null : items.get(pos));
                 if (account == null)
                     Helper.viewFAQ(context, 22);
                 else {
@@ -345,7 +403,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            TupleAccountEx account = items.get(pos);
+            TupleAccountFolder account = items.get(pos);
             if (account.tbd != null)
                 return;
 
@@ -383,10 +441,17 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 }.execute(context, owner, args, "account:inbox");
             } else {
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                lbm.sendBroadcast(
-                        new Intent(settings ? ActivitySetup.ACTION_EDIT_ACCOUNT : ActivityView.ACTION_VIEW_FOLDERS)
-                                .putExtra("id", account.id)
-                                .putExtra("protocol", account.protocol));
+                if (account.folderName == null)
+                    lbm.sendBroadcast(
+                            new Intent(settings ? ActivitySetup.ACTION_EDIT_ACCOUNT : ActivityView.ACTION_VIEW_FOLDERS)
+                                    .putExtra("id", account.id)
+                                    .putExtra("protocol", account.protocol));
+                else
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                    .putExtra("account", account.id)
+                                    .putExtra("folder", account.folderId)
+                                    .putExtra("type", account.folderType));
             }
         }
 
@@ -396,8 +461,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            final TupleAccountEx account = items.get(pos);
-            if (account.tbd != null)
+            final TupleAccountFolder account = items.get(pos);
+            if (account.tbd != null || account.folderName != null)
                 return false;
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
@@ -811,7 +876,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
         this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.MEDIUM);
 
-        setHasStableIds(true);
+        setHasStableIds(false);
 
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -823,8 +888,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         });
     }
 
-    public void set(@NonNull List<TupleAccountEx> accounts) {
+    public void set(@NonNull List<TupleAccountFolder> accounts) {
         Log.i("Set accounts=" + accounts.size());
+
+        if (accounts.size() > 0)
+            TupleAccountFolder.sort(accounts, true, context);
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, accounts), false);
 
@@ -865,10 +933,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     }
 
     private static class DiffCallback extends DiffUtil.Callback {
-        private List<TupleAccountEx> prev = new ArrayList<>();
-        private List<TupleAccountEx> next = new ArrayList<>();
+        private List<TupleAccountFolder> prev = new ArrayList<>();
+        private List<TupleAccountFolder> next = new ArrayList<>();
 
-        DiffCallback(List<TupleAccountEx> prev, List<TupleAccountEx> next) {
+        DiffCallback(List<TupleAccountFolder> prev, List<TupleAccountFolder> next) {
             this.prev.addAll(prev);
             this.next.addAll(next);
         }
@@ -885,15 +953,15 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            TupleAccountEx f1 = prev.get(oldItemPosition);
-            TupleAccountEx f2 = next.get(newItemPosition);
+            TupleAccountFolder f1 = prev.get(oldItemPosition);
+            TupleAccountFolder f2 = next.get(newItemPosition);
             return f1.id.equals(f2.id);
         }
 
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            TupleAccountEx f1 = prev.get(oldItemPosition);
-            TupleAccountEx f2 = next.get(newItemPosition);
+            TupleAccountFolder f1 = prev.get(oldItemPosition);
+            TupleAccountFolder f2 = next.get(newItemPosition);
             return f1.equals(f2);
         }
     }
@@ -903,7 +971,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         return items.get(position).id;
     }
 
-    public TupleAccountEx getItemAtPosition(int pos) {
+    public TupleAccountFolder getItemAtPosition(int pos) {
         if (pos >= 0 && pos < items.size())
             return items.get(pos);
         else
@@ -923,7 +991,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        TupleAccountEx account = items.get(position);
+        TupleAccountFolder account = items.get(position);
         holder.powner.recreate(account == null ? null : account.id);
 
         holder.unwire();

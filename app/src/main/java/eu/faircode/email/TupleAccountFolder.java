@@ -21,9 +21,18 @@ package eu.faircode.email;
 
 import android.content.Context;
 
+import java.text.Collator;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class TupleAccountFolder extends EntityAccount {
+    public int identities; // synchronizing
+    public Long drafts;
+    public Long sent;
+
     public Long folderId;
     public Character folderSeparator;
     public String folderType;
@@ -58,11 +67,76 @@ public class TupleAccountFolder extends EntityAccount {
         return folderName.substring(s + 1);
     }
 
+    static void sort(List<TupleAccountFolder> accounts, boolean nav_categories, Context context) {
+        final Collator collator = Collator.getInstance(Locale.getDefault());
+        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+        Collections.sort(accounts, new Comparator<TupleAccountFolder>() {
+            @Override
+            public int compare(TupleAccountFolder a1, TupleAccountFolder a2) {
+                // Account
+
+                if (nav_categories) {
+                    int c = collator.compare(
+                            a1.category == null ? "" : a1.category,
+                            a2.category == null ? "" : a2.category);
+                    if (c != 0)
+                        return c;
+                }
+
+                int a = Integer.compare(
+                        a1.order == null ? -1 : a1.order,
+                        a2.order == null ? -1 : a2.order);
+                if (a != 0)
+                    return a;
+
+                int p = -Boolean.compare(a1.primary, a2.primary);
+                if (p != 0)
+                    return p;
+
+                int n = collator.compare(a1.name, a2.name);
+                if (n != 0)
+                    return n;
+
+                // Folder
+
+                int o = Integer.compare(
+                        a1.folderOrder == null ? -1 : a1.folderOrder,
+                        a2.folderOrder == null ? -1 : a2.folderOrder);
+                if (o != 0)
+                    return o;
+
+                int t1 = EntityFolder.FOLDER_SORT_ORDER.indexOf(a1.folderType);
+                int t2 = EntityFolder.FOLDER_SORT_ORDER.indexOf(a2.folderType);
+                int t = Integer.compare(t1, t2);
+                if (t != 0)
+                    return t;
+
+                int s = -Boolean.compare(a1.folderSync, a2.folderSync);
+                if (s != 0)
+                    return s;
+
+                if (a1.folderName == null && a2.folderName == null)
+                    return 0;
+                else if (a1.folderName == null)
+                    return -1;
+                else if (a2.folderName == null)
+                    return 1;
+
+                return collator.compare(a1.getName(context), a2.getName(context));
+            }
+        });
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof TupleAccountFolder) {
             TupleAccountFolder other = (TupleAccountFolder) obj;
             return (super.equals(obj) &&
+                    this.identities == other.identities &&
+                    Objects.equals(this.drafts, other.drafts) &&
+                    Objects.equals(this.sent, other.sent) &&
+
                     Objects.equals(this.folderId, other.folderId) &&
                     Objects.equals(this.folderSeparator, other.folderSeparator) &&
                     Objects.equals(this.folderType, other.folderType) &&

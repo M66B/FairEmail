@@ -1006,7 +1006,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         DB db = DB.getInstance(this);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        db.account().liveAccountFolder().observe(owner, new Observer<List<TupleAccountFolder>>() {
+        db.account().liveAccountFolder(false).observe(owner, new Observer<List<TupleAccountFolder>>() {
             @Override
             public void onChanged(@Nullable List<TupleAccountFolder> accounts) {
                 if (accounts == null)

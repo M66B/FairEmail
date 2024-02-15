@@ -50,34 +50,11 @@ public interface DaoAccount {
     LiveData<List<EntityAccount>> liveSynchronizingAccounts();
 
     @Query("SELECT account.*" +
-            ", (SELECT COUNT(DISTINCT" +
-            "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
-            "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
-            "   ELSE message.id END)" +
-            "    FROM message" +
-            "    JOIN folder ON folder.id = message.folder" +
-            "    WHERE message.account = account.id" +
-            "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
-            "    AND folder.count_unread" +
-            "    AND NOT ui_seen" +
-            "    AND NOT ui_hide) AS unseen" +
             ", (SELECT COUNT(identity.id)" +
             "    FROM identity" +
             "    WHERE identity.account = account.id" +
             "    AND identity.synchronize) AS identities" +
             ", drafts.id AS drafts, sent.id AS sent" +
-            " FROM account" +
-            " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
-            " LEFT JOIN folder AS sent ON sent.account = account.id AND sent.type = '" + EntityFolder.SENT + "'" +
-            " WHERE :all OR account.synchronize" +
-            " GROUP BY account.id" +
-            " ORDER BY account.category COLLATE NOCASE" +
-            ", account.`order`" +
-            ", account.`primary` DESC" +
-            ", account.name COLLATE NOCASE")
-    LiveData<List<TupleAccountEx>> liveAccountsEx(boolean all);
-
-    @Query("SELECT account.*" +
             ", NULL AS folderId, NULL AS folderSeparator" +
             ", NULL AS folderType, -1 AS folderOrder" +
             ", NULL AS folderName, NULL AS folderDisplay, NULL AS folderColor" +
@@ -96,11 +73,14 @@ public interface DaoAccount {
             "    AND NOT ui_seen" +
             "    AND NOT ui_hide) AS unseen" +
             " FROM account" +
-            " WHERE account.synchronize" +
+            " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
+            " LEFT JOIN folder AS sent ON sent.account = account.id AND sent.type = '" + EntityFolder.SENT + "'" +
+            " WHERE (:settings OR account.synchronize)" +
 
             " UNION " +
 
             " SELECT account.*" +
+            ", 0 AS identities, 0 AS drafts, 0 AS sent" +
             ", folder.id AS folderId, folder.separator AS folderSeparator" +
             ", folder.type AS folderType, folder.`order` AS folderOrder" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.color AS folderColor" +
@@ -120,10 +100,10 @@ public interface DaoAccount {
             " FROM account" +
             " JOIN folder ON folder.account = account.id" +
             " LEFT JOIN operation ON operation.folder = folder.id AND operation.state = 'executing'" +
-            " WHERE account.synchronize" +
-            " AND folder.navigation" +
+            " WHERE (:settings OR account.synchronize)" +
+            " AND NOT :settings AND folder.navigation" +
             " GROUP BY folder.id")
-    LiveData<List<TupleAccountFolder>> liveAccountFolder();
+    LiveData<List<TupleAccountFolder>> liveAccountFolder(boolean settings);
 
     @Query("SELECT account.*" +
             ", SUM(folder.synchronize) AS folders" +
