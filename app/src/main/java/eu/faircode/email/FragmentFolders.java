@@ -1545,6 +1545,11 @@ public class FragmentFolders extends FragmentBase {
                         MessageHelper helper = new MessageHelper(imessage, context);
 
                         String msgid = helper.getPOP3MessageID();
+
+                        int count = db.message().countMessageByMsgId(folder.id, msgid, true);
+                        if (count == 1)
+                            continue;
+
                         Long sent = helper.getSent();
                         long received = helper.getPOP3Received();
 
