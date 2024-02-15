@@ -105,6 +105,7 @@
     <string name="title_blocked_senders">Blokirani pošiljaoci</string>
     <string name="title_unblock_all">Odblokiraj sve</string>
     <string name="title_unblock_all_remark">Ovo će resetovati sve liste i opcije za blokiranje pošiljaoca</string>
+    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Imajte na umu da aplikacija ne može spriječiti e-mail server da premješta poruke u folder za spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokirati pošiljaoca %1$s poruke?</item>
         <item quantity="few">Blokirati pošiljaoca %1$s poruke?</item>

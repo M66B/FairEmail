@@ -94,6 +94,7 @@
     <string name="title_blocked_senders">Remetentes bloqueados</string>
     <string name="title_unblock_all">Desbloquear todos</string>
     <string name="title_unblock_all_remark">Isto redefinirá todas as listas e opções que podem resultar no bloqueio de remetentes</string>
+    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Note que a aplicação, não pode impedir que o servidor de e-mail, mova mensagens para a pasta de spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloquear o remetente de %1$s mensagem?</item>
         <item quantity="other">Bloquear o remetente de %1$s mensagens?</item>

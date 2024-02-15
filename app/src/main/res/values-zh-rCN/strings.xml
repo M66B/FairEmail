@@ -83,6 +83,7 @@
     <string name="title_blocked_senders">屏蔽的发件人</string>
     <string name="title_unblock_all">全部取消拦截</string>
     <string name="title_unblock_all_remark">这将重置可能导致拦截发件人的所有列表和选项</string>
+    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">请注意，应用无法阻止邮件服务器将信件移动到垃圾邮件文件夹！</string>
     <plurals name="title_ask_block_sender">
         <item quantity="other">屏蔽 %1$s 封邮件的发件人？</item>
     </plurals>
