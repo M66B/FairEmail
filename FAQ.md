@@ -2466,6 +2466,7 @@ but even Google's Chrome cannot handle this.
 * Did you know that you can insert the email addresses of an Android contact group via the three dots overflow menu?
 * Did you know that if you select text and reply, only the selected text will be quoted? (this works for reformatted messages only because of [this issue](https://issuetracker.google.com/issues/36939405))
 * Did you know that you can long press the trash icons (both in the message and the bottom action bar) to permanently delete a message or conversation? (version 1.1368+)
+* Did you know that you can long press the archive button in the bottom action bar to move a conversation? (version 1.2160+)
 * Did you know that you can long press the send action to show the send dialog, even if it was disabled?
 * Did you know that you can long press the full screen icon to show the original message text only?
 * Did you know that you can long press the answer button to reply to the sender? (since version 1.1562; since version 1.1839 you can configure the action in the send settings)
