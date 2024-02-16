@@ -718,7 +718,7 @@
     <string name="title_advanced_auto_block_sender">Automatically block the sender when reporting spam</string>
     <string name="title_advanced_auto_hide_answer">Automatically hide the answer button when scrolling</string>
     <string name="title_advanced_swipe_reply">Swipe expanded messages to the right to reply</string>
-    <string name="title_advanced_move_thread_all">When moving a conversation, move all messages</string>
+    <string name="title_advanced_move_thread_all">When moving selected conversations, move all messages</string>
     <string name="title_advanced_move_thread_sent">When moving a conversation, also move sent messages</string>
     <string name="title_advanced_default_snooze">Default snooze/delay time</string>
     <string name="title_advanced_default_folder">Select default folder</string>
