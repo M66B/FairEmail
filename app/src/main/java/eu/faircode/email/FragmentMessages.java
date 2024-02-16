@@ -2237,20 +2237,7 @@ public class FragmentMessages extends FragmentBase
                             if (offset < 0 && dx > height / 8) {
                                 otriggered.value = true;
 
-                                Bundle args = new Bundle();
-                                args.putInt("icon", R.drawable.twotone_drive_file_move_24);
-                                args.putString("title", getString(R.string.title_move_to_folder));
-                                args.putLong("account", account);
-                                args.putString("thread", thread);
-                                args.putLong("id", id);
-                                args.putBoolean("move_thread_sent", move_thread_sent);
-                                args.putBoolean("filter_archive", filter_archive);
-                                args.putLongArray("disabled", new long[]{folder});
-
-                                FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
-                                fragment.setArguments(args);
-                                fragment.setTargetFragment(FragmentMessages.this, REQUEST_THREAD_MOVE);
-                                fragment.show(getParentFragmentManager(), "overscroll:move");
+                                moveThread();
                             }
                         }
                     }
@@ -7607,6 +7594,15 @@ public class FragmentMessages extends FragmentBase
                             .setVisible(data.archivable);
                     bottom_navigation.setVisibility(View.VISIBLE);
 
+                    bottom_navigation.findViewById(actionbar_archive_id)
+                            .setOnLongClickListener(new View.OnLongClickListener() {
+                                @Override
+                                public boolean onLongClick(View v) {
+                                    moveThread();
+                                    return true;
+                                }
+                            });
+
                     bottom_navigation.findViewById(actionbar_delete_id)
                             .setOnLongClickListener(new View.OnLongClickListener() {
                                 @Override
@@ -7917,6 +7913,23 @@ public class FragmentMessages extends FragmentBase
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "messages:navigate");
+    }
+
+    private void moveThread() {
+        Bundle args = new Bundle();
+        args.putInt("icon", R.drawable.twotone_drive_file_move_24);
+        args.putString("title", getString(R.string.title_move_to_folder));
+        args.putLong("account", account);
+        args.putString("thread", thread);
+        args.putLong("id", id);
+        args.putBoolean("move_thread_sent", move_thread_sent);
+        args.putBoolean("filter_archive", filter_archive);
+        args.putLongArray("disabled", new long[]{folder});
+
+        FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_THREAD_MOVE);
+        fragment.show(getParentFragmentManager(), "messages:move:thread");
     }
 
     private void moveAsk(final ArrayList<MessageTarget> result, boolean undo) {
