@@ -6,6 +6,16 @@ For support you can use the contact form.
 
 Ypupiara
 
+Next version
+
+* Added showing folders in the accounts start screen
+* Added automatic deletion of old local contacts
+* Added importing of mbox files into POP3 folders
+* Added long press links to open confirmation dialog box
+* Added long press archive / bottom action bar to move conversations
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2159 - 2024-02-15
 
 * Added optional reply/answer quick action
