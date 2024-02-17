@@ -300,7 +300,11 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 if (clipboard == null)
                     return;
 
-                ClipData clip = ClipData.newPlainText(title, etLink.getText().toString());
+                String link = etLink.getText().toString();
+                if (link.startsWith("mailto:"))
+                    link = link.substring("mailto:".length());
+
+                ClipData clip = ClipData.newPlainText(title, link);
                 clipboard.setPrimaryClip(clip);
 
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
