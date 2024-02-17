@@ -126,7 +126,8 @@ public class FragmentDialogExport extends FragmentDialogBase {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    btnOk.performClick();
+                    if (btnOk.isEnabled())
+                        btnOk.performClick();
                     return true;
                 } else
                     return false;
