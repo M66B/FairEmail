@@ -621,6 +621,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                         private boolean onClick(MotionEvent event) {
+                            return onClick(event, false);
+                        }
+
+                        @Override
+                        public void onLongPress(@NonNull MotionEvent event) {
+                            onClick(event, true);
+                        }
+
+                        private boolean onClick(MotionEvent event, boolean longClick) {
                             Spannable buffer = (Spannable) tvBody.getText();
                             int off = Helper.getOffset(tvBody, buffer, event);
 
@@ -635,7 +644,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     Uri uri = Uri.parse(image[0].getSource());
                                     if (UriHelper.isHyperLink(uri)) {
                                         ripple(event);
-                                        if (onOpenLink(uri, null, EntityFolder.JUNK.equals(message.folderType)))
+                                        if (onOpenLink(uri, null,
+                                                longClick || EntityFolder.JUNK.equals(message.folderType)))
                                             return true;
                                     }
                                 }
@@ -654,7 +664,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     title = null;
 
                                 ripple(event);
-                                if (onOpenLink(uri, title, EntityFolder.JUNK.equals(message.folderType)))
+                                if (onOpenLink(uri, title,
+                                        longClick || EntityFolder.JUNK.equals(message.folderType)))
                                     return true;
                             }
 
@@ -665,17 +676,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     return true;
 
                                 ripple(event);
-                                onOpenImage(message.id, image[0].getSource(), EntityFolder.JUNK.equals(message.folderType));
+                                onOpenImage(message.id, image[0].getSource(),
+                                        longClick || EntityFolder.JUNK.equals(message.folderType));
                                 return true;
                             }
 
-                            DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
-                            if (ddss.length > 0) {
-                                int f = buffer.getSpanFlags(ddss[0]);
-                                properties.setValue("quotes", message.id, (f & Spanned.SPAN_USER) == 0);
-                                properties.setHeight(message.id, null);
-                                bindBody(message, false);
-                                return true;
+                            if (!longClick) {
+                                DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
+                                if (ddss.length > 0) {
+                                    int f = buffer.getSpanFlags(ddss[0]);
+                                    properties.setValue("quotes", message.id, (f & Spanned.SPAN_USER) == 0);
+                                    properties.setHeight(message.id, null);
+                                    bindBody(message, false);
+                                    return true;
+                                }
                             }
 
                             return false;
