@@ -29,8 +29,10 @@ import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -41,6 +43,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -73,6 +76,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSuggestFrequently;
     private SwitchCompat swSuggestAccount;
     private SwitchCompat swAutoIdentity;
+    private EditText etAutoDeleteAge;
+    private EditText etAutoDeleteFreq;
     private Button btnLocalContacts;
     private SwitchCompat swSendChips;
     private SwitchCompat swNavColor;
@@ -126,6 +131,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "keyboard", "keyboard_no_fullscreen",
             "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently", "suggest_account", "auto_identity",
+            "purge_contact_age", "purge_contact_freq",
             "send_reminders", "send_chips", "send_nav_color", "send_pending",
             "save_revisions", "auto_save_paragraph", "auto_save_dot", "discard_delete",
             "send_delayed",
@@ -162,6 +168,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestFrequently = view.findViewById(R.id.swSuggestFrequently);
         swSuggestAccount = view.findViewById(R.id.swSuggestAccount);
         swAutoIdentity = view.findViewById(R.id.swAutoIdentity);
+        etAutoDeleteAge = view.findViewById(R.id.etAutoDeleteAge);
+        etAutoDeleteFreq = view.findViewById(R.id.etAutoDeleteFreq);
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         swSendChips = view.findViewById(R.id.swSendChips);
         swNavColor = view.findViewById(R.id.swNavColor);
@@ -301,6 +309,48 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("auto_identity", checked).apply();
                 swPrefixCount.setEnabled(checked);
+            }
+        });
+
+        etAutoDeleteAge.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Integer months = Helper.parseInt(s.toString());
+                if (months == null)
+                    prefs.edit().remove("purge_contact_age").apply();
+                else
+                    prefs.edit().putInt("purge_contact_age", months).apply();
+            }
+        });
+
+        etAutoDeleteFreq.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Integer months = Helper.parseInt(s.toString());
+                if (months == null)
+                    prefs.edit().remove("purge_contact_freq").apply();
+                else
+                    prefs.edit().putInt("purge_contact_freq", months).apply();
             }
         });
 
@@ -746,6 +796,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if (!RESET_OPTIONS.contains(key))
             return;
+        if ("purge_contact_age".equals(key) || "purge_contact_freq".equals(key))
+            return;
 
         getMainHandler().removeCallbacks(update);
         getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
@@ -780,6 +832,9 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+            int purge_contact_age = prefs.getInt("purge_contact_age", 0);
+            int purge_contact_freq = prefs.getInt("purge_contact_freq", 0);
+
             swKeyboard.setChecked(prefs.getBoolean("keyboard", true));
             swKeyboardNoFullscreen.setChecked(prefs.getBoolean("keyboard_no_fullscreen", false));
             swSuggestNames.setChecked(prefs.getBoolean("suggest_names", true));
@@ -791,6 +846,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             swSuggestAccount.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
             swAutoIdentity.setChecked(prefs.getBoolean("auto_identity", false));
             swAutoIdentity.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
+            etAutoDeleteAge.setText(purge_contact_age > 0 ? Integer.toString(purge_contact_age) : null);
+            etAutoDeleteFreq.setText(purge_contact_freq > 0 ? Integer.toString(purge_contact_freq) : null);
             swSendChips.setChecked(prefs.getBoolean("send_chips", true));
             swNavColor.setChecked(prefs.getBoolean("send_nav_color", false));
             swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));

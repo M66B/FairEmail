@@ -232,6 +232,67 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swAutoIdentity" />
 
+                <TextView
+                    android:id="@+id/tvAutoDeleteLocal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_auto_delete_local"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAutoIdentity" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etAutoDeleteAge"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:gravity="right"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAutoDeleteLocal" />
+
+                <TextView
+                    android:id="@+id/tvAutoDeleteAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/title_months"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@id/etAutoDeleteAge"
+                    app:layout_constraintStart_toEndOf="@id/etAutoDeleteAge"
+                    app:layout_constraintTop_toTopOf="@id/etAutoDeleteAge" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etAutoDeleteFreq"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:gravity="right"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etAutoDeleteAge" />
+
+                <TextView
+                    android:id="@+id/tvAutoDeleteFreq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="×"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@id/etAutoDeleteFreq"
+                    app:layout_constraintStart_toEndOf="@id/etAutoDeleteFreq"
+                    app:layout_constraintTop_toTopOf="@id/etAutoDeleteFreq" />
+
                 <Button
                     android:id="@+id/btnLocalContacts"
                     style="?android:attr/buttonStyleSmall"
@@ -243,7 +304,7 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_setup_manage"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAutoIdentity" />
+                    app:layout_constraintTop_toBottomOf="@id/etAutoDeleteFreq" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swSendChips"

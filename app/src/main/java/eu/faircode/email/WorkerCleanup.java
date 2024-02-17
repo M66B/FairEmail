@@ -47,8 +47,6 @@ public class WorkerCleanup extends Worker {
     private static final int CLEANUP_INTERVAL = 4; // hours
     private static final long KEEP_FILES_DURATION = 3600 * 1000L; // milliseconds
     private static final long KEEP_IMAGES_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
-    private static final long KEEP_CONTACTS_DURATION = 365 * 24 * 3600 * 1000L; // milliseconds
-    private static final int KEEP_CONTACTS_COUNT = 10000;
 
     private static final Semaphore semaphore = new Semaphore(1);
 
@@ -336,17 +334,24 @@ public class WorkerCleanup extends Worker {
                     Fts4DbHelper.optimize(sdb);
             }
 
-            Log.breadcrumb("worker", "cleanup", "contacts");
-            try {
-                db.beginTransaction();
-                int contacts = db.contact().countContacts();
-                int deleted = (contacts < KEEP_CONTACTS_COUNT ? 0 :
-                        db.contact().deleteContacts(now - KEEP_CONTACTS_DURATION));
-                db.setTransactionSuccessful();
-                Log.i("Contacts=" + contacts + " deleted=" + deleted);
-            } finally {
-                db.endTransaction();
-            }
+            int purge_contact_age = prefs.getInt("purge_contact_age", 0);
+            int purge_contact_freq = prefs.getInt("purge_contact_freq", 0);
+
+            Log.breadcrumb("worker", "cleanup", "contacts" +
+                    " age=" + purge_contact_age +
+                    " freq=" + purge_contact_freq);
+            if (purge_contact_age > 0 && purge_contact_freq > 0)
+                try {
+                    db.beginTransaction();
+                    int contacts = db.contact().countContacts();
+                    int deleted = db.contact().deleteContacts(
+                            now - purge_contact_age * 30 * 24 * 3600 * 1000L,
+                            purge_contact_freq);
+                    db.setTransactionSuccessful();
+                    Log.i("Contacts=" + contacts + " deleted=" + deleted);
+                } finally {
+                    db.endTransaction();
+                }
 
             if (sqlite_analyze) {
                 // https://sqlite.org/lang_analyze.html

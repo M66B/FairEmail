@@ -460,6 +460,7 @@
     <string name="title_advanced_suggest_received">Suggest addresses found in received messages</string>
     <string name="title_advanced_suggest_frequently">Sort suggested addresses on frequency of use</string>
     <string name="title_advanced_suggest_account">Limit suggestions to current account</string>
+    <string name="title_advanced_auto_delete_local">Automatically delete local contacts older than and less used than:</string>
     <string name="title_advanced_alt_re_fwd">Alternative reply/forward prefix</string>
     <string name="title_advanced_send_chips">Show address bubbles</string>
     <string name="title_advanced_send_nav_color">Use the identity color for the bottom action bar</string>
