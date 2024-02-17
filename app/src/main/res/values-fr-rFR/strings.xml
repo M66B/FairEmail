@@ -94,7 +94,7 @@
     <string name="title_blocked_senders">Expéditeurs bloqués</string>
     <string name="title_unblock_all">Tout débloquer</string>
     <string name="title_unblock_all_remark">Ceci réinitialisera toutes les listes et options pouvant provoquer le blocage des expéditeurs</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Notez que l\'application ne peut pas empêcher le serveur de messagerie de déplacer des messages vers le dossier des indésirables !</string>
+    <string name="title_unblock_all_hint">Notez que l\'application ne peut pas empêcher le serveur de messagerie de déplacer des messages vers le dossier des indésirables !</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloquer l\'expéditeur de %1$s message ?</item>
         <item quantity="other">Bloquer l\'expéditeur de %1$s messages ?</item>
@@ -386,6 +386,7 @@
     <string name="title_advanced_suggest_received">Suggérer les adresses trouvées dans les messages reçus</string>
     <string name="title_advanced_suggest_frequently">Trier les adresses suggérées par fréquence d’utilisation</string>
     <string name="title_advanced_suggest_account">Limiter les suggestions au compte actuel</string>
+    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Supprimer automatiquement les contacts locaux plus anciens et moins utilisés que :</string>
     <string name="title_advanced_alt_re_fwd">Préfixe alternatif de réponse/transfert</string>
     <string name="title_advanced_send_chips">Afficher les bulles d\'adresse</string>
     <string name="title_advanced_send_nav_color">Utiliser la couleur d\'identité pour la barre d\'action du bas</string>
@@ -627,7 +628,7 @@
     <string name="title_advanced_auto_block_sender">Bloquer automatiquement l\'expéditeur lors du signalement de courrier indésirable</string>
     <string name="title_advanced_auto_hide_answer">Masquer automatiquement le bouton de réponse lors du défilement</string>
     <string name="title_advanced_swipe_reply">Balayer vers la droite les messages dépliés pour répondre</string>
-    <string name="title_advanced_move_thread_all">Lors du déplacement d\'une conversation, déplacer tous les messages</string>
+    <string name="title_advanced_move_thread_all">Lors du déplacement des conversations sélectionnées, déplacer tous les messages</string>
     <string name="title_advanced_move_thread_sent">Lors du déplacement d\'une conversation, déplacer également les messages envoyés</string>
     <string name="title_advanced_default_snooze">Durée de report par défaut</string>
     <string name="title_advanced_default_folder">Sélectionner le dossier par défaut</string>
@@ -1068,6 +1069,7 @@
     <string name="title_edit_rules">Modifier les règles</string>
     <string name="title_execute_rules">Exécuter les règles</string>
     <string name="title_export_messages">Exporter les messages</string>
+    <string name="title_import_messages">Importer des messages</string>
     <string name="title_create_channel">Créer un canal de notification</string>
     <string name="title_edit_channel">Modifier un canal de notification</string>
     <string name="title_delete_channel">Supprimer un canal de notification</string>

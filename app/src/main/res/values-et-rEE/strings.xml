@@ -86,7 +86,7 @@
     <string name="title_blocked_senders">Blokeeritud saatjad</string>
     <string name="title_unblock_all">Kõik blokeerimata</string>
     <string name="title_unblock_all_remark">See lähtestab kõik loetelud ja valikud, mis võivad saatjaid blokeerida</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Pane tähele, et äpp ei saa takistada meiliserveril sõnumeid spämmi kausta viimast!</string>
+    <string name="title_unblock_all_hint">Pane tähele, et äpp ei saa takistada meiliserveril sõnumeid spämmi kausta viimast!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokeeri %1$s sõnumi saatja?</item>
         <item quantity="other">Blokeeri %1$s sõnumi saatja?</item>
@@ -378,6 +378,7 @@
     <string name="title_advanced_suggest_received">Soovita saadud kirjadest leitud aadresse</string>
     <string name="title_advanced_suggest_frequently">Soovitatud aadressite sortimine kasutussageduse järgi</string>
     <string name="title_advanced_suggest_account">Soovituste piiramine hetke kontoga</string>
+    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Automaatkustuta kohalikud kontaktid, mis on vanemad kui ja kasutatud vähem kui:</string>
     <string name="title_advanced_alt_re_fwd">Alternatiivne vasta/edasta eesliides</string>
     <string name="title_advanced_send_chips">Näita aadressimulli</string>
     <string name="title_advanced_send_nav_color">Kasuta identiteedi värvi alumisel tegevuste ribal</string>
@@ -451,28 +452,54 @@
     <string name="title_advanced_manage_connectivity">Ühenduvuse haldamine</string>
     <string name="title_advanced_caption_general">Üldine</string>
     <string name="title_advanced_caption_navigation">Navigeerimine</string>
+    <string name="title_advanced_caption_list">Loetelu</string>
     <string name="title_advanced_caption_conversation">Vestlus</string>
     <string name="title_advanced_caption_message">Sõnum</string>
+    <string name="title_advanced_caption_message_header">Sõnumi päis</string>
+    <string name="title_advanced_caption_message_body">Sõnumi sisu</string>
     <string name="title_advanced_caption_file">Fail</string>
     <string name="title_advanced_caption_integrations">Lõimimised</string>
+    <string name="title_advanced_portrait">Portreevaade</string>
+    <string name="title_advanced_landscape">Maastikvaade</string>
+    <string name="title_advanced_two_row">Kasuta kaht rida</string>
+    <string name="title_advanced_two_col">Kasuta kaht veergu</string>
+    <string name="title_advanced_min_screen_size">Ekraani miinimumsuurus ekraani poolitamiseks</string>
     <string name="title_advanced_close_pane">Ahenda read või veerud vestluse sulgemisel</string>
     <string name="title_advanced_open_pane">Alusta kahe veeru või kahe reaga</string>
+    <string name="title_advanced_column_width">Sõnumi veeru laius / rea kõrgus: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Peida sõnumite kerimisel ülemine vahendiriba</string>
+    <string name="title_advanced_nav_options">Näita navigeerimismenüü valikuid</string>
+    <string name="title_advanced_nav_categories">Näita navigeerimismenüüs kontode kategooriaid</string>
+    <string name="title_advanced_nav_pin">Kinnita navigeerimismenüü</string>
     <string name="title_advanced_nav_hide_title">Peida navigeerimismenüü valikud?</string>
     <string name="title_advanced_nav_hide_message">Saad häälestuse näitamise seadetes uuesti sisse lülitada</string>
-    <string name="title_advanced_nav_unseen_drafts">Näita liikumismenüüs lugemata mustandite arvu</string>
+    <string name="title_advanced_nav_last_sync">Näita navigeerimismenüül viimast sünkroonimise aega</string>
+    <string name="title_advanced_nav_message_count">Näita navigeerimismenüüs seadmes talletatud sõnumite arvu</string>
+    <string name="title_advanced_nav_unseen_drafts">Näita navigatsioonimenüüs lugemata mustandite arvu</string>
     <string name="title_advanced_nav_pinned_count">Näita lugemata sõnumite arvu kinnitatud navigatsioonimenüüs</string>
     <string name="title_advanced_startup">Näita avaekraanil</string>
+    <string name="title_advanced_cards">Kasuta tabeli stiili asemel kaardistiili</string>
+    <string name="title_advanced_category">Konto kategooriat saab häälestada peamise seadete ekraani täpsemate võimaluste kaudu</string>
+    <string name="title_advanced_cards_beige">Kasuta kaardistiili kasutamisel beeži tausta (ainult heledad teemad)</string>
+    <string name="title_advanced_tabular_background">Kasuta tabeli stiili kasutamisel taustavärvina kaardivärvi</string>
     <string name="title_advanced_cards_shadow">Kaardistiili puhul kasuta lugemata sõnumitel varju</string>
     <string name="title_advanced_cards_shadow_border">Näita raami</string>
+    <string name="title_advanced_cards_shadow_highlight">Kasuta aktsendivärvi asemel esiletõstuvärvi</string>
     <string name="title_advanced_date_header">Rühmita kuupäeva järgi</string>
     <string name="title_advanced_date_week">Rühmita nädala järgi, mitte päeva</string>
     <string name="title_advanced_date_fixed">Näita ülal fikseeritud kuupäevapäist</string>
     <string name="title_advanced_date_bold">Näita kuupäeva rasvasena</string>
     <string name="title_advanced_date_time">Näita alati mõlemat, kuupäeva ja kellaaega</string>
+    <string name="title_advanced_threading">Vestluste lõimed</string>
     <string name="title_advanced_threading_unread">Näita lugemata sõnumite arvu vestlustes</string>
     <string name="title_advanced_indentation">Vastuvõetud/saadud sõnumite vasak/parempoolne taane vestlustes</string>
     <string name="title_advanced_highlight_unread">Tõsta lugemata sõnumid esile</string>
+    <string name="title_advanced_avatars">Näita kontakti fotot</string>
+    <string name="title_advanced_bimi_unverified">Kontrollimata saatja</string>
+    <string name="title_advanced_bimi_verified">Kontrollitud saatja</string>
+    <string name="title_advanced_gravatars">Näita Gravatare</string>
+    <string name="title_advanced_libravatars">Näita Libravatare</string>
+    <string name="title_advanced_favicons">Näita favicone</string>
     <string name="title_advanced_color_saturation">Küllastatus: %1$s %%</string>
     <string name="title_advanced_color_value">Heledus: %1$s %%</string>
     <string name="title_advanced_name_email">Näita nimesid ja e-postiaadresse</string>
@@ -519,6 +546,9 @@
     <string name="title_advanced_text_align">Kasuta teksti joondust</string>
     <string name="title_advanced_collapse_quotes">Ahenda tsiteeritud tekst</string>
     <string name="title_advanced_images_inline">Näita reasiseseid pilte automaatselt</string>
+    <string name="title_advanced_seekbar">Näita vestluse suhtelist asukohta punktiga</string>
+    <string name="title_advanced_actionbar">Näita vestluse tegevusriba</string>
+    <string name="title_advanced_actionbar_color">Näita vestluse tegevusriba taustavärvina konto värvi</string>
     <string name="title_advanced_category_header">Rühmita konto kategooria järgi</string>
     <string name="title_advanced_list_count">Näita ülemisel tegevusribal sõnumite või vestluste arvu</string>
     <string name="title_advanced_authentication_indicator">Näita autentimise oleku tähist</string>
@@ -533,10 +563,14 @@
     <string name="title_advanced_volumenav">Helitugevus üles/alla järgmisele/eelmisele vestlusele minekuks</string>
     <string name="title_advanced_up_down">Järgmise/eelmise vestluse jaoks kasuta üles/alla noolt</string>
     <string name="title_advanced_reversed">Ümberpööratud liikumise suund</string>
+    <string name="title_advanced_swipe_close">Pühi vestluse sulgemiseks alla</string>
+    <string name="title_advanced_swipe_move">Pühi vestluse liigutamiseks üles</string>
+    <string name="title_advanced_expand_first">Ava vestluse lugemisel esimene sõnum automaatselt</string>
     <string name="title_advanced_collapse_multiple">Ahenda sõnumid vestluses, kus on palju sõnumeid taustal</string>
     <string name="title_advanced_seen_delay">Viivita sõnumite automaatselt loetuks märkimist</string>
     <string name="title_advanced_autoclose">Sule vestlused automaatselt</string>
     <string name="title_advanced_autoclose_send">Sulge vestlus peale sõnumi saatmist automaatselt</string>
+    <string name="title_advanced_onclose">Vestluse sulgemisel</string>
     <string name="title_advanced_autoclose_unread">Sule vestlused sõnumi mitteloetuks märkimisel</string>
     <string name="title_advanced_collapse_marked">Ahenda sõnumid, mis on käsitsi märgitud loetuks või lugemata</string>
     <string name="title_advanced_quick_filter">Näita mittehäirivaid kiirfiltreerimise ikoone</string>
@@ -544,9 +578,12 @@
     <string name="title_advanced_star_snoozed">Lisa tukastanud sõnumitele automaatselt tärn</string>
     <string name="title_advanced_auto_important">Muuda kõik tärniga sõnumid automaatselt oluliseks</string>
     <string name="title_advanced_auto_hide_answer">Peida vastamisikoon rullimise ajal automaatselt</string>
-    <string name="title_advanced_move_thread_all">Vestluse liigutamisel liiguta kõiki sõnumeid</string>
+    <string name="title_advanced_swipe_reply">Pühi vastamiseks laiendatud sõnumil paremale</string>
+    <string name="title_advanced_move_thread_all">Valitud vestluste liigutamisel liiguta kõiki sõnumeid</string>
     <string name="title_advanced_move_thread_sent">Vestluse liigutamisel liiguta ka saadetud sõnumeid</string>
+    <string name="title_advanced_default_folder">Vali vaikekaust</string>
     <string name="title_advanced_notify_suppress_in_call">Viivita kõne ajal teavitusi</string>
+    <string name="title_advanced_notify_ascii">Vaid ASCII tekst</string>
     <string name="title_advanced_notify_action_delete">Kustuta</string>
     <string name="title_advanced_notify_action_move">Vii</string>
     <string name="title_advanced_notify_action_seen">Loetud</string>
@@ -562,18 +599,25 @@
     <string name="title_advanced_default_encryption">        Pärast allkirjastatud või krüpteeritud sõnumi saatmist salvestatakse identiteedi kohta vaikimisi krüpteerimismeetod (PGP või S/MIME).
         Krüpteerimismeetodi saab valida enne saatmist saatmisvalikute dialoogiboksis (vajutage pikalt nuppu saatmine).
     </string>
+    <string name="title_advanced_send_self">Lisa endale saatmine Androidi jagamismenüüsse</string>
     <string name="title_advanced_sort_answers">Sordi vastamismalle kasutamissageduse alusel</string>
+    <string name="title_advanced_shortcuts">Näita sagedasti kasutatud kontakte Androidi jagamismenüüs</string>
     <string name="title_advanced_send">\"Saada\" integratsioon</string>
     <string name="title_advanced_crash_reports">Saada vearaporteid</string>
+    <string name="title_advanced_cleanup_attachments">Kustuta vanade sõnumite manused</string>
     <string name="title_advanced_cleanup">Puhasta</string>
     <string name="title_advanced_more">Rohkem valikuid</string>
+    <string name="title_advanced_main_log">Põhilogimine</string>
     <string name="title_advanced_poll_hint">Uute sõnumite perioodiline kontrollimine võrdleb iga kord kohalikke ja kaugsõnumeid, mis on kallis toiming. See võib põhjustada täiendavat akukasutust, eriti kui sõnumeid on palju. Alati vastu võtmine hoiab selle ära, jälgides pidevalt muutusi.</string>
     <string name="title_advanced_optimize_hint">Säästmaks aku kasutamist võib see muuta sünkroonimise sagedust, sõltuvalt meiliserverite võimekusest ja käitumisest</string>
     <string name="title_advanced_deleted_unseen">Kui keelatud, säilitatakse lugemata kirjad seadmes igavesti</string>
     <string name="title_advanced_check_authentication_hint">See kontrollib DKIM-, SPF- ja DMARC-meiliserveri autentimise tulemusi</string>
     <string name="title_advanced_sync_delay_hint">See aeglustab sõnumite sünkroonimist</string>
+    <string name="title_advanced_suggest_local_hint">Lisaks Androidi pakutavatele kontaktidele. Kontaktandmed salvestatakse uute saadetud või vastuvõetud sõnumite puhul vaid siis, kui see on lubatud.</string>
     <string name="title_advanced_auto_identity_hint">See valib uute sõnumite saaja valimisel viimati kasutatud identiteedi</string>
+    <string name="title_advanced_send_reminders_hint">Näita hoiatust, kui sõnum on tühi või puudub teema või sõnumilt võib puududa manus</string>
     <string name="title_advanced_write_below_hint">Vastuvõtja võib vastusest ilma jääda, näiteks kui pikem sõnum kärbitakse</string>
+    <string name="title_advanced_attach_new_hint">Muul juhul lisa jagatud aadressid või failid praegusele mustandsõnumile</string>
     <string name="title_advanced_metered_hint">Mõõdetavad ühendused on tavaliselt mobiilühendused või tasulised Wi-Fi ühendused</string>
     <string name="title_advanced_metered_warning">Selle valiku keelamisel keelatakse mobiilside ühenduse korral ka sõnumite saamine ja saatmine</string>
     <string name="title_advanced_roaming_hint">Sõnumite päised hangitakse alati rändluse ajal. Rändluse ajal interneti kasutamise keelamiseks saab kasutada seadme rändlusseadistust.</string>
@@ -587,10 +631,12 @@
         Saad tühistada valimisdialoogi, et vaikekaust taastada (harilikult allalaadimiste kaust).
     </string>
     <string name="title_advanced_autoexpand_hint">Ava sõnum automaatselt, kui vestluses on ainult üks sõnum või ainult üks lugemata sõnum</string>
+    <string name="title_advanced_expandall_hint">Kui laiendatud on mitu sõnumit, ei näidata vastamise nuppu, sest on ebaselge, millisele neist nupp rakenduks</string>
     <string name="title_advanced_autoclose_hint">Sule vestlused automaatselt, kui kõik sõnumid on arhiivitud, saadetud või saadetud prügisse</string>
     <string name="title_advanced_bcc_hint">Aadressi ei näidata, kuid lisatakse saatmisel</string>
     <string name="title_advanced_uri">Valitud kontakti üksikasju kasutatakse vCard manuste jaoks</string>
     <string name="title_advanced_e2e_encryption">Otspunktkrüpteerimise valikud</string>
+    <string name="title_advanced_cleanup_attachments_hint">Käsitsi puhastamisel eemaldatakse manused sõnumitelt, mida enam ei sünkroonita</string>
     <string name="title_advanced_create_alias">Loo alias</string>
     <string name="title_create_folder">Loo kaust</string>
     <string name="title_create_folder_name">Kausta nimi</string>
@@ -648,6 +694,8 @@
         The limiting factor is usually the speed of the device\'s internal storage space.
     </string>
     <string name="title_synchronize_more_hint3">Pea meeles, et suure hulga sõnumite (kümme tuhat või rohkem) salvestamine seadmesse võib põhjustada viivitusi, sest sisemine salvestusruum ei ole lõpmatult kiire.</string>
+    <string name="title_download_batch_enable">Laadi alla tekst ja manused</string>
+    <string name="title_download_batch_disable">Laadi vaid päised</string>
     <string name="title_insert_contact">Lisa kontakt</string>
     <string name="title_edit_contact">Muuda kontakti</string>
     <string name="title_delete_contact">Kustuta kontakt?</string>
@@ -670,9 +718,11 @@
     <string name="title_hide_folder">Peida kaust</string>
     <string name="title_hide_seen_folder">Peida kaust, kui kõik sõnumid on loetud</string>
     <string name="title_unified_folder">Näita ühendatud sisendkastis</string>
+    <string name="title_navigation_folder">Näita navigeerimismenüüs</string>
     <string name="title_navigation_folder_hide">Peida navigeerimismenüült</string>
     <string name="title_unified_inbox_add">Lisa ühendatud sisendkasti</string>
     <string name="title_unified_inbox_delete">Kustuta ühendatud sisendkastist</string>
+    <string name="title_download_folder">Laadi automaatselt alla sõnumi tekst ja manused</string>
     <string name="title_count_unread">Lisa kontole lugemata sõnumite arv</string>
     <string name="title_inbox_root_hint">        Mõned teenusepakkujad nõuavad sisendkausta alla uute kaustade loomist.
         Sellisel juhul saad kaustade loetelus pikalt vajutada sisendkastil ning valida \"Loo alamkaust\".
@@ -696,10 +746,12 @@
     <string name="title_create_rule">Loo reegel &#8230;</string>
     <string name="title_full_screen">Täisekraan</string>
     <string name="title_force_light">Jõusta hele kujundus</string>
+    <string name="title_share">Jaga</string>
     <string name="title_raw_save">Salvesta toorsõnum</string>
     <string name="title_raw_send">Saada manusena</string>
     <string name="title_raw_send_message">Sõnum</string>
     <string name="title_raw_send_thread">Vestlus</string>
+    <string name="title_show_inline">Näita sõnumisiseseid manuseid</string>
     <string name="title_save_all">Salvesta kõik</string>
     <string name="title_save_eml">Salvesta toorsõnumi fail</string>
     <string name="title_save_file">Salvesta fail</string>
@@ -743,10 +795,12 @@
     <string name="title_complex_search">Vali kompleksotsingu jaoks kaust</string>
     <string name="title_monospaced_pre">Püsisamm &lt;pre&gt;</string>
     <string name="title_raw_saved">Toorsõnum salvestatud</string>
+    <string name="title_attachment_eml">Manustatud sõnum</string>
     <string name="title_attachment_saved">Manus salvestatud</string>
     <string name="title_attachments_saved">Manused salvestatud</string>
     <string name="title_attachments_incomplete">Mõnesid pilte või manuseid ei laaditud alla ja neid ei saa lisada</string>
     <string name="title_ask_save">Salvestada muudatused?</string>
+    <string name="title_ask_delete_attachments">Eemalda kõik manused?</string>
     <string name="title_ask_show_html">Algse sõnumi näitamine võib lekitada privaatsustundlikku infot</string>
     <string name="title_ask_show_html_remark">Esialgse sõnumi kuvamine tumedal taustal ei ole võimalik, kuna see võib muuta tumedad tekstid ja pildid nähtamatuks</string>
     <string name="title_ask_show_html_images">Alati näita algse sõnumi näitamisel pilte</string>
@@ -763,6 +817,7 @@
     <string name="title_to">Saaja:</string>
     <string name="title_reply_to">Vasta saajale:</string>
     <string name="title_subject">Teema:</string>
+    <string name="title_attachment">Manus:</string>
     <string name="title_body_hint">Sinu sõnum</string>
     <string name="title_body_hint_style">Vali teksti, et seda vormingada</string>
     <string name="title_save">Salvesta</string>
@@ -793,6 +848,7 @@
     <string name="title_add_image_select_remark">Androidi fotovalija ei edasta enam faili nimesid</string>
     <string name="title_add_image_select">Vali fail</string>
     <string name="title_add_attachment">Lisa manus</string>
+    <string name="title_attachment_file">Manusta fail</string>
     <string name="title_attachment_photo">Tee pilt</string>
     <string name="title_attachment_audio">Salvesta heli</string>
     <string name="title_show_addresses">Näita CC/BCC</string>
@@ -805,8 +861,11 @@
     <string name="title_from_missing">Saatja puudub</string>
     <string name="title_noreply_reminder">Saatmine mittevastatavale aadressile</string>
     <string name="title_external_reminder">Saatmine välisaadressile</string>
+    <string name="title_attachment_keywords">manus,manuse,manused, manusena</string>
     <string name="title_attachment_reminder">Kas kavatsesid lisada manuse?</string>
+    <string name="title_attachment_warning">Potentsiaalselt ohtlik: %1$s</string>
     <string name="title_attachment_filename">Mõned teised meilikliendid ei suuda käsitleda 60 märgist pikemaid failinimesid</string>
+    <string name="title_attachments_missing">Kõik manused pole alla laaditud</string>
     <string name="title_draft_saved">Mustand salvestatud</string>
     <string name="title_ask_send_via">Saada sõnum saajale %1$s kontolt %2$s?</string>
     <string name="title_queued">Sõnumi saatmine</string>
@@ -818,9 +877,11 @@
     <string name="title_search_more">Rohkem valikuid</string>
     <string name="title_search_with_unseen">Lugemata</string>
     <string name="title_search_with_flagged">Tärniga</string>
+    <string name="title_search_with_attachments">Manusega (vaid seadmes)</string>
     <string name="title_search_device_first">Otsi kõigepealt seadmest</string>
     <string name="title_search_flag_unseen">lugemata</string>
     <string name="title_search_flag_flagged">tärniga</string>
+    <string name="title_search_flag_attachments">manused</string>
     <string name="title_search_flag_size">suurus &gt; %1$s</string>
     <string name="title_search_device">Otsi seadmes</string>
     <string name="title_search_server">Otsi serveris</string>
@@ -845,8 +906,10 @@
     <string name="title_sort_on_order">Järjestus</string>
     <string name="title_sort_on_applied">Rakendatud kordade arv</string>
     <string name="title_sort_on_last_applied">Viimati rakendatud</string>
+    <string name="title_filter">Filtreeri</string>
     <string name="title_filter_seen">Loetud</string>
     <string name="title_filter_unflagged">Tärn eemaldatud</string>
+    <string name="title_filter_deleted">Kustutatud</string>
     <string name="title_compact">Kompaktne vaade</string>
     <string name="title_zoom">Teksti suurus</string>
     <string name="title_select_all">Vali kõik</string>
@@ -872,11 +935,15 @@
     <string name="title_rule_enabled">Lubatud</string>
     <string name="title_rule_sender">Saatja sisaldab</string>
     <string name="title_rule_sender_known">Saatja on kontakt</string>
+    <string name="title_rule_attachments">On manuseid</string>
+    <string name="title_rule_thread">Kõik samas vestluses ja kaustas olevad sõnumid</string>
     <string name="title_rule_identity">Identiteet</string>
     <string name="title_rule_forward_to">Edasta saajale</string>
     <string name="title_rule_resend">Taassaada</string>
     <string name="title_rule_attached">Manusta toorsõnumi fail</string>
+    <string name="title_rule_with_attachments">Manustega</string>
     <string name="title_rule_identity_missing">Identiteet puudub</string>
+    <string name="title_rule_automation_hint">See saadab kavatsuse \'%1$s\' koos lisadega \'%2$s\'</string>
     <string name="title_rule_url_hint">Saad kasutada järgmisi kohatähiseid: %1$s</string>
     <string name="title_legend_section_folders">Kaustad</string>
     <string name="title_legend_section_compose">Loo</string>
@@ -887,6 +954,8 @@
     <string name="title_legend_zoom">Muuda teksti suurust</string>
     <string name="title_legend_browsed">Sirviti või otsiti</string>
     <string name="title_legend_forwarded">Oli edastatud</string>
+    <string name="title_legend_by_list">Saadetud listi kaudu</string>
+    <string name="title_legend_attachment">On manus</string>
     <string name="title_legend_search">Otsi saatjat</string>
     <string name="title_legend_hide">Peida sisu</string>
     <string name="title_legend_link">Lisa link</string>
@@ -909,6 +978,7 @@
     <string name="title_legend_c">Loo</string>
     <string name="title_legend_n">Järgmine</string>
     <string name="title_legend_p">Eelmine</string>
+    <string name="title_hint_folder_actions">Kaustal pikalt vajutamine avab valikud. Näiteks kausta lisamine navigeerimismenüsse, et seda hõlpsamalt avada</string>
     <string name="title_hint_dismiss">Hülga see dialoogikast, et teade eemaldada.</string>
     <string name="title_hint_message_junk">        E-postiklient sisuliselt näitab meiliserveris olevaid kirju.
         Meiliserver vastutab rämpsposti filtreerimise eest, mitte e-postiklient.
@@ -956,20 +1026,28 @@
     <!-- Thunderbird -->
     <string name="title_keyword_displayed">Näidatud</string>
     <string name="title_keyword_not_displayed">Pole näidatud</string>
+    <string name="title_accessibility_accounts">Kontod</string>
     <string name="title_accessibility_folders">Kaustad</string>
     <string name="title_accessibility_searches">Otsingud</string>
+    <string name="title_accessibility_menus">Menüüd</string>
+    <string name="title_accessibility_extras">Lisad</string>
     <string name="title_accessibility_collapsed">Ahendatud</string>
+    <string name="title_accessibility_expanded">Laiendatud</string>
     <string name="title_accessibility_seen">Loetud</string>
     <string name="title_accessibility_unseen">Lugemata</string>
     <string name="title_accessibility_flagged">Starred</string>
     <string name="title_accessibility_unflagged">Ilma tärnita</string>
     <string name="title_accessibility_collapse">Ahenda</string>
     <string name="title_accessibility_show_authentication_result">Näita autentimise tulemust</string>
+    <string name="title_accessibility_answered">Vastatud</string>
     <string name="title_accessibility_scroll_down">Rulli alla</string>
     <string name="title_accessibility_scroll_up">Rulli üles</string>
+    <string name="title_accessibility_filter_out_seen">Lülita sõnumite loetuse filtrit</string>
     <string name="title_accessibility_filter_out_unflagged">Lülita tärniga sõnumite filtrit</string>
+    <string name="title_accessibility_filter_out_snoozed">Lülita uinakul sõnumite filtrit</string>
     <string name="title_accessibility_show_addresses">Näita aadresse</string>
     <string name="title_accessibility_hide_addresses">Peida aadressid</string>
+    <string name="title_accessibility_attachment">Manus</string>
     <string name="title_accessibility_from">Saatja</string>
     <string-array name="startupNames">
         <item>Ühendatud sisendkast</item>

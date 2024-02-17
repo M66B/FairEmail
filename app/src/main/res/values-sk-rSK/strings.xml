@@ -621,7 +621,6 @@
     <string name="title_advanced_auto_block_sender">Automatické blokovanie odosielateľa pri nahlasovaní spamu</string>
     <string name="title_advanced_auto_hide_answer">Automatické skrytie tlačidla odpovede pri posúvaní</string>
     <string name="title_advanced_swipe_reply">Odpovedať švihnutím rozbalených správ vpravo</string>
-    <string name="title_advanced_move_thread_all">Pri presunutí konverzácie sa presunú všetky správy</string>
     <string name="title_advanced_move_thread_sent">Pri presunutí konverzácie sa presunú aj odoslané správy</string>
     <string name="title_advanced_default_snooze">Predvolený čas odloženia</string>
     <string name="title_advanced_default_folder">Vyberte predvolený priečinok</string>

@@ -93,7 +93,7 @@
     <string name="title_blocked_senders">Tiltott küldők</string>
     <string name="title_unblock_all">Összes tiltás feloldása</string>
     <string name="title_unblock_all_remark">Így minden listát és beállítást, mellyel feladókat tilthat le, alaphelyzetbe állít</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Vegye figyelembe, hogy az alkalmazás nem tudja megakadályozni, hogy a szerver az üzeneteket a levélszemét mappába tegye!</string>
+    <string name="title_unblock_all_hint">Vegye figyelembe, hogy az alkalmazás nem tudja megakadályozni, hogy a szerver az üzeneteket a levélszemét mappába tegye!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Letiltja az üzenet küldőjét?</item>
         <item quantity="other">Letiltja az %1$s üzenet küldőjét?</item>
@@ -384,6 +384,7 @@
     <string name="title_advanced_suggest_received">Fogadott üzenetekben szereplő címek felajánlása</string>
     <string name="title_advanced_suggest_frequently">A felajánlott címek rendezése gyakoriság alapján</string>
     <string name="title_advanced_suggest_account">Csak az aktuális fiókhoz javasoljon</string>
+    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Automatikusan törölje le a helyi kapcsolatokat, ha régebbiek mint, illetve ritkábban használták, mint:</string>
     <string name="title_advanced_alt_re_fwd">Alternatív válasz/továbbítás előtag</string>
     <string name="title_advanced_send_chips">Cím buborékok megjelenítése</string>
     <string name="title_advanced_send_nav_color">Az identitás színét alkalmazza az alsó műveletek sávra</string>
@@ -625,7 +626,7 @@
     <string name="title_advanced_auto_block_sender">Küldő automatikus letiltása levélszemét jelentésekor</string>
     <string name="title_advanced_auto_hide_answer">Válaszgomb automatikus elrejtése görgetéskor</string>
     <string name="title_advanced_swipe_reply">Jobbra húzva a kiterjesztett üzenetet válaszolhat</string>
-    <string name="title_advanced_move_thread_all">Beszélgetés áthelyezésekor az összes üzenetet helyezze át</string>
+    <string name="title_advanced_move_thread_all">A kiválasztott beszélgetés mozgatasakor, az összes üzenetét helyezze át</string>
     <string name="title_advanced_move_thread_sent">Beszélgetés áthelyezésekor az elküldött üzeneteket is helyezze át</string>
     <string name="title_advanced_default_snooze">Alapértelmezett elhalasztás/késleltetés időtartama</string>
     <string name="title_advanced_default_folder">Válassza ki az alapértelmezett mappát</string>
@@ -1063,6 +1064,7 @@
     <string name="title_edit_rules">Szabályok szerkesztése</string>
     <string name="title_execute_rules">Szabályok végrehajtása</string>
     <string name="title_export_messages">Üzenetek exportálása</string>
+    <string name="title_import_messages">Fontos üzenetek</string>
     <string name="title_create_channel">Értesítési csatorna létrehozása</string>
     <string name="title_edit_channel">Értesítési csatorna szerkesztése</string>
     <string name="title_delete_channel">Értesítési csatorna törlése</string>

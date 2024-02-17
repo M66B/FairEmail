@@ -116,7 +116,7 @@
     <string name="title_blocked_senders">Zablokowani nadawcy</string>
     <string name="title_unblock_all">Odblokuj wszystkich</string>
     <string name="title_unblock_all_remark">Spowoduje to zresetowanie wszystkich list i opcji, które mogłyby skutkować zablokowaniem nadawców</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Pamiętaj, że aplikacja nie może uniemożliwić serwerowi e-mail przenoszenia wiadomości do folderu Spam!</string>
+    <string name="title_unblock_all_hint">Pamiętaj, że aplikacja nie może uniemożliwić serwerowi e-mail przenoszenia wiadomości do folderu Spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Zablokować nadawcę %1$s wiadomości?</item>
         <item quantity="few">Zablokować nadawcę %1$s wiadomości?</item>
@@ -654,7 +654,7 @@
     <string name="title_advanced_auto_block_sender">Automatycznie blokuj nadawcę podczas zgłaszania spamu</string>
     <string name="title_advanced_auto_hide_answer">Automatycznie ukryj przycisk odpowiedzi podczas przewijania</string>
     <string name="title_advanced_swipe_reply">Przesuń rozszerzone wiadomości w prawo, aby odpowiedzieć</string>
-    <string name="title_advanced_move_thread_all">Podczas przenoszenia konwersacji, przenoś wszystkie wiadomości</string>
+    <string name="title_advanced_move_thread_all">Podczas przenoszenia wybranych konwersacji, przenoś wszystkie wiadomości</string>
     <string name="title_advanced_move_thread_sent">Podczas przenoszenia konwersacji, przeniesione zostaną również wysłane wiadomości</string>
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia/opóźnienia</string>
     <string name="title_advanced_default_folder">Wybierz folder domyślny</string>
@@ -1094,6 +1094,7 @@
     <string name="title_edit_rules">Edytuj reguły</string>
     <string name="title_execute_rules">Wykonaj reguły</string>
     <string name="title_export_messages">Eksportuj wiadomości</string>
+    <string name="title_import_messages">Importuj wiadomości</string>
     <string name="title_create_channel">Utwórz kanał powiadomień</string>
     <string name="title_edit_channel">Edytuj kanał powiadomień</string>
     <string name="title_delete_channel">Usuń kanał powiadomień</string>

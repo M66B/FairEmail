@@ -92,6 +92,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_blocked_senders">Blokkearre ôfstjoerders</string>
     <string name="title_unblock_all">Alle deblokkearje</string>
     <string name="title_unblock_all_remark">Dit sil alle listen en opsjes, dy\'t resultearje kinne yn it blokkearjen fan de ôfstjoerders, werstelle</string>
+    <string name="title_unblock_all_hint">De app kin net foarkomme dat de mailserver berjohten nei de net-winske-map ferpleatst!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Ofstjoerder fan %1$s berjocht blokkearje?</item>
         <item quantity="other">Ofstjoerder fan %1$s berjochten blokkearje?</item>
@@ -547,6 +548,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_pdf_preview">PDF-miniatueren toane</string>
     <string name="title_advanced_video_preview">Fideominiatueren toane</string>
     <string name="title_advanced_audio_preview">Mini-audiospiler toane</string>
+    <string name="title_advanced_barcode_preview">Barkoadeynhâld toane</string>
     <string name="title_advanced_message_text_zoom2">Standert zoom berjochttekst: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Berjochttekst ek yn de berjochtbewurker zoome</string>
     <string name="title_advanced_overview_mode">Zoom orizjinele berjochten om op it skerm te passen</string>
@@ -623,7 +625,6 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_auto_block_sender">By it rapportearjen fan net-winske de ôfstjoerder automatysk blokkearje</string>
     <string name="title_advanced_auto_hide_answer">Antwurdknop automatysk ferstopje by skowen</string>
     <string name="title_advanced_swipe_reply">Fei útklapte berjochten nei rjochts om te beäntwurdzjen</string>
-    <string name="title_advanced_move_thread_all">Wannear’t in petear ferpleatst wurdt, alle berjochten ferpleatse</string>
     <string name="title_advanced_move_thread_sent">Wannear’t in petear ferpleatst wurdt, ek ferstjoerde berjochten ferpleatse</string>
     <string name="title_advanced_default_snooze">Standert slommerdoer/fertragingstiid</string>
     <string name="title_advanced_default_folder">Standert map selektearje</string>
@@ -1793,6 +1794,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_legend_plain_only">Is allinnich platte tekst</string>
     <string name="title_legend_receipt">Untfangstbefêstiging is oanfrege</string>
     <string name="title_legend_auto_submitted">Is automatysk ferstjoerd</string>
+    <string name="title_legend_by_list">Troch in list ferstjoerd</string>
     <string name="title_legend_attachment">Befettet bylagen</string>
     <string name="title_legend_flagged">Is favoryt</string>
     <string name="title_legend_contacts">Kontakten beheare</string>
@@ -1859,6 +1861,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_hint_notifications">Gjin meldingsrjochten</string>
     <string name="title_hint_notifications_remark">Meldingsrjochten binne fereaske foar (account)meldingen. Meldingen foar nije berjochten kinne útskeakele wurde yn de ynstellingen.</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaasjes noch hieltyd ynskeakele</string>
+    <string name="title_hint_data_saver">As gegevensbesparring ynskeakele is, kin de app net op de eftergrûn syngronisearje en kinne der ferbiningsflaters barre.</string>
+    <string name="title_hint_dismiss">Jo kinne dit dialoochfienster slute om de melding fuort te smiten.</string>
     <string name="title_hint_support">As jo in fraach of in probleem hawwe, brûk dan it stipemenu om help te krijen</string>
     <string name="title_hint_message_actions">Fei links nei jiskefet; Fei rjochts nei argyf (as beskikber); De fei-aksjes kinne ynsteld wurde yn de accountynstellingen</string>
     <string name="title_hint_message_selection">Druk lang op in berjocht om meardere berjochten te selektearjen; Hâld en swipe omheech of omleech om mear berjochten te selektearjen</string>
@@ -2032,6 +2036,11 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_keyword_label3">Persoanlik</string>
     <string name="title_keyword_label4">Te dwaan</string>
     <string name="title_keyword_label5">Letter</string>
+    <string name="title_keyword_displayed">Toand</string>
+    <string name="title_keyword_delivered">Oflevere</string>
+    <string name="title_keyword_not_displayed">Net toand</string>
+    <string name="title_keyword_not_delivered">Net ôflevere</string>
+    <string name="title_keyword_complaint">Klacht</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d berjocht</item>
         <item quantity="other">%1$d berjochten</item>

@@ -626,7 +626,7 @@
     <string name="title_advanced_auto_block_sender">Blokér automatisk afsenderen ved spamanmeldelse</string>
     <string name="title_advanced_auto_hide_answer">Skjul automatisk svarknappen, når der rulles</string>
     <string name="title_advanced_swipe_reply">Stryg udvidede beskeder til højre for at besvare</string>
-    <string name="title_advanced_move_thread_all">Når en samtale flyttes, flyt alle beskeder</string>
+    <string name="title_advanced_move_thread_all">Når valgte samtaler flyttes, flyt alle beskeder</string>
     <string name="title_advanced_move_thread_sent">Når en samtale flyttes, flyt også sendte beskeder</string>
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_default_folder">Vælg standardmappe</string>
@@ -1067,6 +1067,7 @@
     <string name="title_edit_rules">Redigér regler</string>
     <string name="title_execute_rules">Eksekvere regler</string>
     <string name="title_export_messages">Eksportere beskeder</string>
+    <string name="title_import_messages">Importere beskeder</string>
     <string name="title_create_channel">Opret notifikationskanal</string>
     <string name="title_edit_channel">Redigér notifikationskanal</string>
     <string name="title_delete_channel">Slet notifikationskanal</string>

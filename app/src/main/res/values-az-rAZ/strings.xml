@@ -94,6 +94,7 @@
     <string name="title_blocked_senders">Əngəllənən göndərənlər</string>
     <string name="title_unblock_all">Hamısını əngəldən çıxart</string>
     <string name="title_unblock_all_remark">Bu, göndərənlərin əngəllənməsi ilə nəticənə biləcək bütün siyahıları və seçimləri sıfırlayacaq</string>
+    <string name="title_unblock_all_hint">Unutmayın ki, tətbiq, e-poçt serverinin mesajları spam qovluğuna daşımasını əngəlləyə bilməz!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">%1$s mesajı göndərən əngəllənsin?</item>
         <item quantity="other">%1$s mesajı göndərən əngəllənsin?</item>
@@ -385,6 +386,7 @@
     <string name="title_advanced_suggest_received">Alınan mesajlarda tapılan ünvanları təklif et</string>
     <string name="title_advanced_suggest_frequently">Təklif edilən ünvanları istifadə tezliyinə görə sırala</string>
     <string name="title_advanced_suggest_account">Təklifləri hazırkı hesabla məhdudlaşdır</string>
+    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Bu tarixdən daha köhnə və daha az istifadə edilən daxili kontaktları avtomatik sil:</string>
     <string name="title_advanced_alt_re_fwd">Alternativ cavab/yönləndirmə prefiksi</string>
     <string name="title_advanced_send_chips">Ünvan şarlarını göstər</string>
     <string name="title_advanced_send_nav_color">Alt əməliyyat sətri üçün kimlik rəngini istifadə et</string>
@@ -626,7 +628,7 @@
     <string name="title_advanced_auto_block_sender">Spam bildirirkən göndərəni avtomatik əngəllə</string>
     <string name="title_advanced_auto_hide_answer">Sürüşdürərkən cavablandırma düyməsini avtomatik gizlət</string>
     <string name="title_advanced_swipe_reply">Genişləndirilmiş mesajları cavablandırmaq üçün sağa sürüşdür</string>
-    <string name="title_advanced_move_thread_all">Bir danışığı daşıyanda, bütün mesajları da daşı</string>
+    <string name="title_advanced_move_thread_all">Seçilmiş danışıqlar daşınanda, bütün mesajları daşı</string>
     <string name="title_advanced_move_thread_sent">Bir danışıq daşınanda, göndərilmiş mesajlar da daşınır</string>
     <string name="title_advanced_default_snooze">İlkin ertələmə/gecikmə vaxtı</string>
     <string name="title_advanced_default_folder">İlkin qovluğu seçin</string>
@@ -1066,6 +1068,7 @@
     <string name="title_edit_rules">Qaydaya düzəliş et</string>
     <string name="title_execute_rules">Qaydaları icra et</string>
     <string name="title_export_messages">Mesajları xaricə köçür</string>
+    <string name="title_import_messages">Mesajları daxilə köçür</string>
     <string name="title_create_channel">Bildiriş kanalını yarat</string>
     <string name="title_edit_channel">Bildiriş kanalına düzəliş et</string>
     <string name="title_delete_channel">Bildiriş kanalını sil</string>

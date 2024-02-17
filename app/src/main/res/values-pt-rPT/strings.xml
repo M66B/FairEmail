@@ -94,7 +94,7 @@
     <string name="title_blocked_senders">Remetentes bloqueados</string>
     <string name="title_unblock_all">Desbloquear todos</string>
     <string name="title_unblock_all_remark">Isto redefinirá todas as listas e opções que podem resultar no bloqueio de remetentes</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Note que a aplicação, não pode impedir que o servidor de e-mail, mova mensagens para a pasta de spam!</string>
+    <string name="title_unblock_all_hint">Note que a aplicação, não pode impedir que o servidor de e-mail, mova mensagens para a pasta de spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloquear o remetente de %1$s mensagem?</item>
         <item quantity="other">Bloquear o remetente de %1$s mensagens?</item>
@@ -387,6 +387,7 @@
     <string name="title_advanced_suggest_received">Sugerir endereços encontrados nas mensagens recebidas</string>
     <string name="title_advanced_suggest_frequently">Ordenar endereços sugeridos por frequência de uso</string>
     <string name="title_advanced_suggest_account">Limitar sugestões à conta atual</string>
+    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Apagar automaticamente contactos locais mais antigos e menos usados que:</string>
     <string name="title_advanced_alt_re_fwd">Prefixo alternativo de resposta/encaminhamento</string>
     <string name="title_advanced_send_chips">Mostrar endereços separados em balões</string>
     <string name="title_advanced_send_nav_color">Use a cor de identidade para a barra de ação inferior</string>
@@ -628,7 +629,7 @@
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente quando denunciar spam</string>
     <string name="title_advanced_auto_hide_answer">Ocultar automaticamente o botão de resposta ao rolar</string>
     <string name="title_advanced_swipe_reply">Deslizar para a direita para responder em mensagens expandidas</string>
-    <string name="title_advanced_move_thread_all">Ao mover uma conversa, mover todas as mensagens</string>
+    <string name="title_advanced_move_thread_all">Quando mover conversas selecionadas, mover todas as mensagens</string>
     <string name="title_advanced_move_thread_sent">Ao mover uma conversa, também mover mensagens enviadas</string>
     <string name="title_advanced_default_snooze">Tempo pré-definido de repetição/adiamento</string>
     <string name="title_advanced_default_folder">Selecione a pasta padrão</string>
@@ -1068,6 +1069,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_edit_rules">Editar regras</string>
     <string name="title_execute_rules">Executar regras</string>
     <string name="title_export_messages">Exportar mensagens</string>
+    <string name="title_import_messages">Importar mensagens</string>
     <string name="title_create_channel">Criar canal de notificação</string>
     <string name="title_edit_channel">Editar canal de notificação</string>
     <string name="title_delete_channel">Eliminar canal de notificação</string>

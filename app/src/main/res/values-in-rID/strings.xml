@@ -610,7 +610,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_auto_block_sender">Otomatis blok pengirim saat melaporkan spam</string>
     <string name="title_advanced_auto_hide_answer">Otomatis sembunyikan tombol jawab saat scroll</string>
     <string name="title_advanced_swipe_reply">Usap ke kanan pesan yang dibentangkan untuk balas</string>
-    <string name="title_advanced_move_thread_all">Saat memindahkan percakapan, pindahkan semua pesan</string>
     <string name="title_advanced_move_thread_sent">Saat memindahkan percakapan, pindahkan juga pesan terkirim</string>
     <string name="title_advanced_default_snooze">Waktu tunda/jeda bawaan</string>
     <string name="title_advanced_default_folder">Pilih folder default</string>

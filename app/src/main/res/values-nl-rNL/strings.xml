@@ -93,7 +93,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_blocked_senders">Geblokkeerde afzenders</string>
     <string name="title_unblock_all">Deblokkeer alles</string>
     <string name="title_unblock_all_remark">Dit zal alle lijsten en opties herstellen die kunnen resulteren in het blokkeren van de afzenders</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">De app kan niet voorkomen dat de mailserver berichten naar de spammap verplaatst!</string>
+    <string name="title_unblock_all_hint">De app kan niet voorkomen dat de mailserver berichten naar de spammap verplaatst!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokkeer afzender van één bericht?</item>
         <item quantity="other">Blokkeer de afzender van %1$s berichten?</item>
@@ -384,6 +384,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_suggest_received">Suggereer adressen gevonden in ontvangen berichten</string>
     <string name="title_advanced_suggest_frequently">Sorteer voorgestelde adressen op gebruiksfrequentie</string>
     <string name="title_advanced_suggest_account">Suggesties beperken tot huidige account</string>
+    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Verwijder automatisch lokale contacten ouder dan en minder gebruikt dan:</string>
     <string name="title_advanced_alt_re_fwd">Alternatief antwoord/doorsturen voorvoegsel</string>
     <string name="title_advanced_send_chips">Toon adresballonnen</string>
     <string name="title_advanced_send_nav_color">Gebruik de identiteitskleur voor de onderste actiebalk</string>
@@ -625,7 +626,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_auto_block_sender">Blokkeer de afzender automatisch bij het rapporteren van spam</string>
     <string name="title_advanced_auto_hide_answer">Automatisch de antwoordknop verbergen bij scrollen</string>
     <string name="title_advanced_swipe_reply">Veeg uitgevouwde berichten naar rechts om te beantwoorden</string>
-    <string name="title_advanced_move_thread_all">Wanneer een gesprek wordt verplaatst, verplaats alle berichten</string>
+    <string name="title_advanced_move_thread_all">Bij het verplaatsen van geselecteerde gesprekken, alle berichten verplaatsen</string>
     <string name="title_advanced_move_thread_sent">Wanneer een gesprek wordt verplaatst, verplaats ook verzonden berichten</string>
     <string name="title_advanced_default_snooze">Standaard sluimer/vertragingstijd</string>
     <string name="title_advanced_default_folder">Selecteer standaard map</string>
@@ -1062,6 +1063,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_edit_rules">Bewerk regels</string>
     <string name="title_execute_rules">Voer regels uit</string>
     <string name="title_export_messages">Exporteer berichten</string>
+    <string name="title_import_messages">Importeer berichten</string>
     <string name="title_create_channel">Meldingskanaal maken</string>
     <string name="title_edit_channel">Meldingskanaal wijzigen</string>
     <string name="title_delete_channel">Meldingskanaal verwijderen</string>

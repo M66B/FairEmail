@@ -116,7 +116,7 @@
     <string name="title_blocked_senders">Zablokovaní odesílatelé</string>
     <string name="title_unblock_all">Odblokovat vše</string>
     <string name="title_unblock_all_remark">Tímto resetujete všechny seznamy a možnosti, které mohou mít za následek blokování odesílatelů</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Upozorňujeme, že aplikace nemůže zabránit e-mailovému serveru v přesunu zpráv do složky spam!</string>
+    <string name="title_unblock_all_hint">Upozorňujeme, že aplikace nemůže zabránit e-mailovému serveru v přesunu zpráv do složky spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokovat odesílatele %1$s zprávy?</item>
         <item quantity="few">Blokovat odesílatele %1$s zpráv?</item>
@@ -414,6 +414,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
     <string name="title_advanced_suggest_frequently">Řadit navrhované adresy dle četnosti použití</string>
     <string name="title_advanced_suggest_account">Omezit návrhy na aktuální účet</string>
+    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Automaticky smazat místní kontakty starší a méně používané než:</string>
     <string name="title_advanced_alt_re_fwd">Alternativní adresa pro odpovědi/přeposílání</string>
     <string name="title_advanced_send_chips">Zobrazit bubliny s kontakty</string>
     <string name="title_advanced_send_nav_color">Použít barvu identity pro dolní panel akcí</string>
@@ -655,7 +656,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_auto_block_sender">Automaticky zablokovat odesílatele při hlášení spamu</string>
     <string name="title_advanced_auto_hide_answer">Automaticky skrýt tlačítko odpovědi při posouvání</string>
     <string name="title_advanced_swipe_reply">Přejeďte rozbalené zprávy doprava pro odpověď</string>
-    <string name="title_advanced_move_thread_all">Při přesunu konverzace přesuňte všechny zprávy</string>
+    <string name="title_advanced_move_thread_all">Při přesunu vybraných konverzací přesuňte všechny zprávy</string>
     <string name="title_advanced_move_thread_sent">Při přesunu konverzace také přesunout odeslané zprávy</string>
     <string name="title_advanced_default_snooze">Výchozí doba odložení/zpoždění</string>
     <string name="title_advanced_default_folder">Vybrat výchozí složku</string>
@@ -1095,6 +1096,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_edit_rules">Upravit pravidla</string>
     <string name="title_execute_rules">Provést pravidla</string>
     <string name="title_export_messages">Exportovat zprávy</string>
+    <string name="title_import_messages">Importovat zprávy</string>
     <string name="title_create_channel">Vytvořit kanál oznámení</string>
     <string name="title_edit_channel">Upravit kanál oznámení</string>
     <string name="title_delete_channel">Smazat kanál oznámení</string>

@@ -116,7 +116,7 @@
     <string name="title_blocked_senders">שולחים חסומים</string>
     <string name="title_unblock_all">שחרור של הכול</string>
     <string name="title_unblock_all_remark">פעולה זו תאפס את כל הרשימות והאפשרויות שיכולות לגרום לחסימת מוענים</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">נא לשים לב שהיישומון לא יכול למנוע משרת דוא״ל להעביר הודעות לתיקיית הספאם!</string>
+    <string name="title_unblock_all_hint">נא לשים לב שהיישומון לא יכול למנוע משרת דוא״ל להעביר הודעות לתיקיית הספאם!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">לחסום את מוען ההודעה?</item>
         <item quantity="two">לחסום את מוען %1$s ההודעות?</item>
@@ -655,7 +655,7 @@
     <string name="title_advanced_auto_block_sender">לחסום את השולח אוטומטית בעת דיווח על ספאם</string>
     <string name="title_advanced_auto_hide_answer">להסתיר את כפתור המענה אוטומטית בעת הגלילה</string>
     <string name="title_advanced_swipe_reply">החלקת הודעות מורחבות לימין פותחת מענה</string>
-    <string name="title_advanced_move_thread_all">בעת העברת דיון, להעביר את כל ההודעות</string>
+    <string name="title_advanced_move_thread_all">בעת העברת הדיונים הנבחרים, להעביר את כל ההודעות</string>
     <string name="title_advanced_move_thread_sent">בעת העברת דיון, להעביר גם את ההודעות שנשלחו</string>
     <string name="title_advanced_default_snooze">זמן ברירת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_default_folder">בחירת תיקיית ברירת מחדל</string>
@@ -1095,6 +1095,7 @@
     <string name="title_edit_rules">עריכת כללים</string>
     <string name="title_execute_rules">הפעלת כללים</string>
     <string name="title_export_messages">ייצוא הודעות</string>
+    <string name="title_import_messages">ייבוא הודעות</string>
     <string name="title_create_channel">יצירת ערוץ התראות</string>
     <string name="title_edit_channel">עריכת ערוץ התראות</string>
     <string name="title_delete_channel">מחיקת ערוץ התראות</string>

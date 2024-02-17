@@ -105,6 +105,7 @@
     <string name="title_blocked_senders">Expeditori blocați</string>
     <string name="title_unblock_all">Deblocați pe toți</string>
     <string name="title_unblock_all_remark">Aceasta va reseta toate listele și opțiunile care ar putea duce la blocarea expeditorilor</string>
+    <string name="title_unblock_all_hint">Țineți cont că aplicația nu poate împiedica serverul de e-mail să mute mesaje în folderul spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blochează expeditorul a %1$s mesaj?</item>
         <item quantity="few">Blochează expeditorul a %1$s mesaje?</item>
@@ -639,7 +640,6 @@
     <string name="title_advanced_auto_block_sender">Blochează automat expeditorul când raportezi spam-ul</string>
     <string name="title_advanced_auto_hide_answer">Ascunde automat butonul de răspuns la derulare</string>
     <string name="title_advanced_swipe_reply">Glisați mesajele extinse spre dreapta pentru a răspunde</string>
-    <string name="title_advanced_move_thread_all">Când mutați o conversație, mutați toate mesajele</string>
     <string name="title_advanced_move_thread_sent">Atunci când mutați o conversație, mutați și mesajele trimise</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare/prelungire</string>
     <string name="title_advanced_default_folder">Selectați directorul implicit</string>

@@ -600,7 +600,6 @@
     <string name="title_advanced_auto_block_sender">Estä lähettäjä ilmoittaessa roskapostista</string>
     <string name="title_advanced_auto_hide_answer">Piilota vastauspainike vieritettäessä</string>
     <string name="title_advanced_swipe_reply">Vastaa pyyhkäisemällä laajennetut viestit oikealle</string>
-    <string name="title_advanced_move_thread_all">Siirrä kaikki viestit, kun keskustelu siirretään</string>
     <string name="title_advanced_move_thread_sent">Siirrä myös lähetetyt viestit, kun keskustelu siirretään</string>
     <string name="title_advanced_default_snooze">Torkun/viiveen oletusaika</string>
     <string name="title_advanced_default_folder">Valitse oletuskansio</string>

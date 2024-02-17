@@ -94,6 +94,7 @@
     <string name="title_blocked_senders">Блокирани податели</string>
     <string name="title_unblock_all">Разблокиране на всички</string>
     <string name="title_unblock_all_remark">Това ще занули всички списъци и възможности, което може да доведе до блокиране на податели</string>
+    <string name="title_unblock_all_hint">Имайте предвид, че приложението не може да предотврати сървъра на имейл от преместването на съобщения в папката спам!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Блокирате ли подателя на %1$s съобщение?</item>
         <item quantity="other">Блокирате ли подателя на %1$s съобщения?</item>
@@ -384,6 +385,7 @@
     <string name="title_advanced_suggest_received">Предложи адреси, намерени в получени съобщения</string>
     <string name="title_advanced_suggest_frequently">Сортиране на предложените адреси по използваемост</string>
     <string name="title_advanced_suggest_account">Ограничаване на предложенията за текущия акаунт</string>
+    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Самодейно изтриване на локални контакти по-стари от и по-малко употребявани от:</string>
     <string name="title_advanced_alt_re_fwd">Алтернативен префикс за отговор/препращане</string>
     <string name="title_advanced_send_chips">Показване на адресни мехурчета</string>
     <string name="title_advanced_send_nav_color">Употреба на цвят за самоличност за долната лента с действия</string>
@@ -625,7 +627,7 @@
     <string name="title_advanced_auto_block_sender">Автоматично блокиране на подателя, докладвайки спам</string>
     <string name="title_advanced_auto_hide_answer">Автоматично скриване на бутон за отговор, превъртайки</string>
     <string name="title_advanced_swipe_reply">Прелистете надясно на разширените съобщения за отговор</string>
-    <string name="title_advanced_move_thread_all">Премествайки разговор, премествате всички съобщения</string>
+    <string name="title_advanced_move_thread_all">При преместване на избрани разговори, преместват се всички съобщения</string>
     <string name="title_advanced_move_thread_sent">Премествайки разговора, преместват се и изпратените съобщения</string>
     <string name="title_advanced_default_snooze">Време за отлагане/закъснение по подразбиране</string>
     <string name="title_advanced_default_folder">Изберете подразбираща се папка</string>
@@ -1065,6 +1067,7 @@
     <string name="title_edit_rules">Редактиране на правилата</string>
     <string name="title_execute_rules">Извършване на правилата</string>
     <string name="title_export_messages">Износ на съобщения</string>
+    <string name="title_import_messages">Внасяне на съобщения</string>
     <string name="title_create_channel">Създаване на канал за известия</string>
     <string name="title_edit_channel">Редактиране на канал за известия</string>
     <string name="title_delete_channel">Изтриване на канал за известия</string>

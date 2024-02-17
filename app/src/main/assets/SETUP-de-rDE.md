@@ -30,7 +30,7 @@ Zur Verwendung von Alias-Adressen bitte [diese F&A](https://github.com/M66B/Fair
 
 ## Berechtigungen erteilen, um auf Kontaktinformationen zugreifen zu können
 
-Wenn Sie E-Mail-Adressen nachsehen, Kontaktfotos anzeigen lassen möchten usw., müssen Sie FairEmail die Berechtigung zum Lesen von Kontaktinformationen erteilen. Einfach auf *Berechtigungen erteilen* tippen und *Zulassen* auswählen.
+Wenn Sie E-Mail-Adressen nachschlagen, Kontaktfotos anzeigen lassen möchten usw., müssen Sie FairEmail die Berechtigung zum Lesen von Kontaktinformationen erteilen. Einfach auf *Berechtigungen erteilen* tippen und *Zulassen* auswählen.
 
 ## Akkuoptimierungen einrichten, um E-Mails fortlaufend zu erhalten
 

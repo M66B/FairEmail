@@ -94,6 +94,7 @@
     <string name="title_blocked_senders">Remetentes bloqueados</string>
     <string name="title_unblock_all">Desbloquear todos</string>
     <string name="title_unblock_all_remark">Isso redefinirá todas as listas e opções que poderiam resultar no bloqueio de remetentes</string>
+    <string name="title_unblock_all_hint">Observe que o aplicativo não pode impedir que o servidor de e-mail mova mensagens para a pasta de spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloquear remetente da %1$s mensagem?</item>
         <item quantity="other">Bloquear remetentes das %1$s mensagens?</item>
@@ -625,7 +626,7 @@
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente ao denunciar spam</string>
     <string name="title_advanced_auto_hide_answer">Ocultar automaticamente o botão de resposta ao rolar</string>
     <string name="title_advanced_swipe_reply">Deslize as mensagens expandidas para a direita para responder</string>
-    <string name="title_advanced_move_thread_all">Ao mover uma conversa, mova todas as mensagens</string>
+    <string name="title_advanced_move_thread_all">Ao mover conversas selecionadas, mova todas as mensagens</string>
     <string name="title_advanced_move_thread_sent">Ao mover uma conversa, mova também as mensagens enviadas</string>
     <string name="title_advanced_default_snooze">Tempo de soneca/atraso padrão</string>
     <string name="title_advanced_default_folder">Selecionar pasta padrão</string>
@@ -1065,6 +1066,7 @@
     <string name="title_edit_rules">Editar regras</string>
     <string name="title_execute_rules">Executar regras</string>
     <string name="title_export_messages">Exportar mensagens</string>
+    <string name="title_import_messages">Importar mensagens</string>
     <string name="title_create_channel">Criar canal de notificação</string>
     <string name="title_edit_channel">Editar canal de notificação</string>
     <string name="title_delete_channel">Excluir canal de notificação</string>

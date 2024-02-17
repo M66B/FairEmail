@@ -29,7 +29,7 @@
     <string name="channel_notification_description">新着メッセージ通知</string>
     <string name="channel_progress_description">長時間実行中のアクティビティの進捗通知</string>
     <plurals name="page_conversation">
-        <item quantity="other">会話</item>
+        <item quantity="other">会話スレッド</item>
     </plurals>
     <plurals name="page_message">
         <item quantity="other">メッセージ</item>
@@ -83,7 +83,7 @@
     <string name="title_blocked_senders">ブロックした差出人</string>
     <string name="title_unblock_all">すべてブロック解除</string>
     <string name="title_unblock_all_remark">送信者をブロックするリストとオプションをすべてリセットします</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">アプリは、メールサーバーによる迷惑メールフォルダーへのメッセージ移動を停止できません！</string>
+    <string name="title_unblock_all_hint">アプリは、メールサーバーによる迷惑メールフォルダーへのメッセージ移動を停止できません！</string>
     <plurals name="title_ask_block_sender">
         <item quantity="other">メッセージ %1$s 通の差出人をブロックしますか？</item>
     </plurals>
@@ -372,6 +372,7 @@
     <string name="title_advanced_suggest_received">メッセージを受信したことのあるアドレスを候補に表示する</string>
     <string name="title_advanced_suggest_frequently">候補に表示するアドレスを使用頻度で並べ替える</string>
     <string name="title_advanced_suggest_account">表示される候補を現在のアカウントに関連するものに制限する</string>
+    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">作成または最後の使用から次の期間より経過したローカルの連絡先を自動で削除する:</string>
     <string name="title_advanced_alt_re_fwd">返信/転送のプレフィックスを変更する</string>
     <string name="title_advanced_send_chips">アドレスバルーンを表示する</string>
     <string name="title_advanced_send_nav_color">下部のボタンアクションバーをユーザー ID の色にする</string>
@@ -416,7 +417,7 @@
     <string name="title_advanced_usenet_signature">Usenet の署名ルールに従う</string>
     <string name="title_advanced_remove_signatures">識別した署名を削除する</string>
     <string name="title_advanced_receipt">要求する確認メッセージの種類</string>
-    <string name="title_advanced_forward_new">転送するときに新しい会話を開始する</string>
+    <string name="title_advanced_forward_new">転送するときは新しい会話スレッドを開始する</string>
     <string name="title_advanced_lookup_mx">送信する前に宛先のメールアドレスを確認する</string>
     <string name="title_advanced_metered">従量課金制接続を使用する</string>
     <string name="title_advanced_download">従量課金制接続で自動ダウンロードするメッセージと添付ファイルの大きさの上限</string>
@@ -447,7 +448,7 @@
     <string name="title_advanced_caption_navigation">ナビゲーションメニュー</string>
     <string name="title_advanced_caption_checks">確認</string>
     <string name="title_advanced_caption_list">一覧</string>
-    <string name="title_advanced_caption_conversation">会話</string>
+    <string name="title_advanced_caption_conversation">会話スレッド</string>
     <string name="title_advanced_caption_message">メッセージ</string>
     <string name="title_advanced_caption_message_header">見出し</string>
     <string name="title_advanced_caption_message_body">本文</string>
@@ -458,7 +459,7 @@
     <string name="title_advanced_two_row">2 行に分割する</string>
     <string name="title_advanced_two_col">2 列に分割する</string>
     <string name="title_advanced_min_screen_size">画面を分割するときの最小画面サイズ</string>
-    <string name="title_advanced_close_pane">会話を閉じるときに、行または列を閉じる</string>
+    <string name="title_advanced_close_pane">会話スレッドを閉じるときに、行または列を閉じる</string>
     <string name="title_advanced_open_pane">2 行または 2 列の表示から開始する</string>
     <string name="title_advanced_column_width">本文の列の幅 / 行の高さ: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">メッセージをスクロールするとき上部ツールバーを隠す</string>
@@ -485,9 +486,9 @@
     <string name="title_advanced_date_fixed">日付を上部に固定表示する</string>
     <string name="title_advanced_date_bold">日付を太字で表示する</string>
     <string name="title_advanced_date_time">日付と時間を常に表示する</string>
-    <string name="title_advanced_threading">会話スレッド</string>
-    <string name="title_advanced_threading_unread">会話内の未読メッセージ数を表示する</string>
-    <string name="title_advanced_indentation">会話の中の受信/送信メッセージの左/右インデント</string>
+    <string name="title_advanced_threading">会話をスレッド化する</string>
+    <string name="title_advanced_threading_unread">会話スレッド内の未読メッセージ数を表示する</string>
+    <string name="title_advanced_indentation">会話スレッドの中の受信/送信メッセージの左/右インデント</string>
     <string name="title_advanced_highlight_unread">未読メッセージをハイライト表示する</string>
     <string name="title_advanced_color_stripe">カラーストライプを表示する</string>
     <string name="title_advanced_color_stripe_wide">幅広のカラーストライプを使用する</string>
@@ -555,13 +556,13 @@
     <string name="title_advanced_image_placeholders">画像のプレースホルダーを表示する</string>
     <string name="title_advanced_images_inline">インライン画像を自動で表示する</string>
     <string name="title_advanced_button_extra">メッセージの下部に追加ボタンを表示する</string>
-    <string name="title_advanced_seekbar">ドットで相対的な会話の位置を表示する</string>
-    <string name="title_advanced_actionbar">会話アクションバーを表示する</string>
+    <string name="title_advanced_seekbar">ドットで相対的な会話スレッドの位置を表示する</string>
+    <string name="title_advanced_actionbar">会話スレッド アクションバーを表示する</string>
     <string name="title_advanced_actionbar_swap">ごみ箱とアーカイブのボタンを入れ替える</string>
-    <string name="title_advanced_actionbar_color">会話アクションバーの背景色としてアカウントの色を使用する</string>
+    <string name="title_advanced_actionbar_color">会話スレッド アクションバーの背景色としてアカウントの色を使用する</string>
     <string name="title_advanced_category_header">アカウントのカテゴリーでグループ化する</string>
     <string name="title_advanced_navbar_colorize">Android ナビゲーションバーに色を付ける</string>
-    <string name="title_advanced_list_count">上部アクションバーにメッセージ数または会話数を表示する</string>
+    <string name="title_advanced_list_count">上部アクションバーにメッセージ数または会話スレッド数を表示する</string>
     <string name="title_advanced_bundled_fonts">バンドルされたフォントを使用する</string>
     <string name="title_advanced_narrow_fonts">幅狭フォントを使用する</string>
     <string name="title_advanced_parse_classes">スタイルシートを解析する</string>
@@ -582,22 +583,22 @@
     <string name="title_advanced_pull_all">すべてのフォルダーを同期する</string>
     <string name="title_advanced_autoscroll">新着メッセージを受信したら一番上にスクロールする</string>
     <string name="title_advanced_double_tap">ダブルタップでメッセージを既読/未読にする</string>
-    <string name="title_advanced_swipenav">右/左にスワイプして前/後の会話に移動する</string>
-    <string name="title_advanced_volumenav">音量を下/上して前/後の会話に移動する</string>
-    <string name="title_advanced_up_down">上/下の矢印で前/後の会話に移動する</string>
+    <string name="title_advanced_swipenav">右/左にスワイプして前/後の会話スレッドに移動する</string>
+    <string name="title_advanced_volumenav">音量を下/上して前/後の会話スレッドに移動する</string>
+    <string name="title_advanced_up_down">上/下の矢印で前/後の会話スレッドに移動する</string>
     <string name="title_advanced_reversed">ナビゲーション方向を逆にする</string>
-    <string name="title_advanced_swipe_close">下にスワイプして会話を閉じる</string>
-    <string name="title_advanced_swipe_move">上にスワイプして会話を移動する</string>
+    <string name="title_advanced_swipe_close">下にスワイプして会話スレッドを閉じる</string>
+    <string name="title_advanced_swipe_move">上にスワイプして会話スレッドを移動する</string>
     <string name="title_advanced_autoexpand">メッセージを自動で展開する</string>
-    <string name="title_advanced_expand_first">会話が既読のとき、最初のメッセージを自動で展開する</string>
+    <string name="title_advanced_expand_first">会話スレッドが既読のとき、最初のメッセージを自動で展開する</string>
     <string name="title_advanced_expand_all">すべての既読メッセージを自動で展開する</string>
     <string name="title_advanced_expand_one">一度に 1 つのメッセージのみを展開する</string>
-    <string name="title_advanced_collapse_multiple">複数のメッセージがある会話で「戻る」をタップしてメッセージを折りたたむ</string>
+    <string name="title_advanced_collapse_multiple">複数のメッセージがある会話スレッドで「戻る」をタップしてメッセージを折りたたむ</string>
     <string name="title_advanced_seen_delay">メッセージを自動で既読にするまでに遅延を入れる</string>
-    <string name="title_advanced_autoclose">会話を自動で閉じる</string>
-    <string name="title_advanced_autoclose_send">メッセージを送信したあと、自動で会話を閉じる</string>
-    <string name="title_advanced_onclose">会話を閉じるとき</string>
-    <string name="title_advanced_autoclose_unread">未読としてマークしたときに会話を閉じる</string>
+    <string name="title_advanced_autoclose">会話スレッドを自動で閉じる</string>
+    <string name="title_advanced_autoclose_send">メッセージを送信したあと、自動で会話スレッドを閉じる</string>
+    <string name="title_advanced_onclose">会話スレッドを閉じるとき</string>
+    <string name="title_advanced_autoclose_unread">未読としてマークしたときに会話スレッドを閉じる</string>
     <string name="title_advanced_collapse_marked">手動で既読または未読としてマークされたメッセージを折りたたむ</string>
     <string name="title_advanced_undo">「元に戻す」を表示する時間</string>
     <string name="title_advanced_quick_filter">目立たないクイックフィルターアイコンを表示する</string>
@@ -613,8 +614,8 @@
     <string name="title_advanced_auto_block_sender">メッセージを迷惑メールとして報告したとき、差出人を自動でブロックする</string>
     <string name="title_advanced_auto_hide_answer">スクロール時に返信ボタンを隠す</string>
     <string name="title_advanced_swipe_reply">展開したメッセージを右にスワイプして返信する</string>
-    <string name="title_advanced_move_thread_all">会話を移動するとき、すべてのメッセージを移動する</string>
-    <string name="title_advanced_move_thread_sent">会話を移動するとき、送信済みメッセージも移動する</string>
+    <string name="title_advanced_move_thread_all">選択した会話スレッドを移動するとき、すべてのメッセージを移動する</string>
+    <string name="title_advanced_move_thread_sent">会話スレッドを移動するとき、送信済みメッセージも移動する</string>
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ/遅延時間</string>
     <string name="title_advanced_default_folder">デフォルトのフォルダーを選択</string>
     <string name="title_advanced_notifications">通知を管理</string>
@@ -699,7 +700,7 @@
     <string name="title_advanced_encrypt_auto">すべての宛先の鍵が有効なときは自動で暗号化する</string>
     <string name="title_advanced_auto_verify">デジタル署名されたメッセージを自動で検証する</string>
     <string name="title_advanced_auto_decrypt">暗号化されたメッセージを自動で復号する</string>
-    <string name="title_advanced_auto_undo_decrypt">会話の終了時に復号を元に戻す</string>
+    <string name="title_advanced_auto_undo_decrypt">会話スレッドの終了時に復号を元に戻す</string>
     <string name="title_advanced_openpgp">OpenPGP プロバイダー</string>
     <string name="title_advanced_autocrypt">Autocrypt を使用する</string>
     <string name="title_advanced_autocrypt_mutual">Autocrypt Mutual (相互) モード</string>
@@ -836,10 +837,10 @@
         選択ダイアログをキャンセルしてデフォルトのフォルダー (ほとんどは 「Download フォルダー」) を復元できます。
     </string>
     <string name="title_advanced_restore_on_launch_hint">%1$d 分以内にランチャーアイコンからアプリを再起動したとき、最後の状態を復元します</string>
-    <string name="title_advanced_autoexpand_hint">会話内のメッセージが 1 つだけ、または未読メッセージが 1 つだけの場合に自動でメッセージを開きます</string>
+    <string name="title_advanced_autoexpand_hint">会話スレッド内のメッセージが 1 つだけ、または未読メッセージが 1 つだけの場合に自動でメッセージを開きます</string>
     <string name="title_advanced_expandall_hint">複数のメッセージが展開されている場合、ボタンがどのメッセージに適用されるかが明確でないため、返信ボタンは表示されません</string>
     <string name="title_advanced_autoseen_hint">展開したメッセージを自動で既読にする機能は、アカウント設定の詳細設定から無効にできます</string>
-    <string name="title_advanced_autoclose_hint">すべてのメッセージがアーカイブ、送信、または削除されたときに自動で会話を閉じます</string>
+    <string name="title_advanced_autoclose_hint">すべてのメッセージがアーカイブ、送信、または削除されたときに自動で会話スレッドを閉じます</string>
     <string name="title_advanced_sender_hint">ほとんどのプロバイダーは差出人アドレスの編集を許可しません</string>
     <string name="title_advanced_bcc_hint">アドレスは表示されませんが送信するときに追加されます</string>
     <string name="title_advanced_internal_hint">別のドメインに送信するときに警告が表示されます</string>
@@ -1053,6 +1054,7 @@
     <string name="title_edit_rules">ルールを編集</string>
     <string name="title_execute_rules">ルールを実行</string>
     <string name="title_export_messages">メッセージをエクスポート</string>
+    <string name="title_import_messages">メッセージをインポート</string>
     <string name="title_create_channel">通知チャンネルを作成</string>
     <string name="title_edit_channel">通知チャンネルを編集</string>
     <string name="title_delete_channel">通知チャンネルを削除</string>
@@ -1192,7 +1194,7 @@
     <string name="title_raw_save">元のメッセージを保存</string>
     <string name="title_raw_send">添付ファイルとして送信</string>
     <string name="title_raw_send_message">メッセージ</string>
-    <string name="title_raw_send_thread">会話</string>
+    <string name="title_raw_send_thread">会話スレッド</string>
     <string name="title_manage_keywords">キーワードを管理</string>
     <string name="title_manage_labels">Gmail ラベルを管理</string>
     <string name="title_add_keyword">キーワードを追加</string>
@@ -1597,7 +1599,7 @@
     <string name="title_select_all">すべて選択</string>
     <string name="title_select_found">検索結果をすべて選択</string>
     <string name="title_mark_all_read">すべて既読にする</string>
-    <string name="title_view_thread">会話を見る</string>
+    <string name="title_view_thread">会話スレッドを見る</string>
     <string name="title_force_sync">強制同期</string>
     <string name="title_force_send">強制送信</string>
     <string name="title_language_all">すべて</string>
@@ -1682,7 +1684,7 @@
     <string name="title_rule_schedule_end">時間条件の終わりから</string>
     <string name="title_rule_folder">フォルダー</string>
     <string name="title_rule_folder_create">サブフォルダーを作成</string>
-    <string name="title_rule_thread">同じ会話内またはフォルダー内のすべてのメッセージ</string>
+    <string name="title_rule_thread">同じ会話スレッド内またはフォルダー内のすべてのメッセージ</string>
     <string name="title_rule_identity">ユーザー ID</string>
     <string name="title_rule_template">返信テンプレート</string>
     <string name="title_rule_answer_subject">テンプレート名を件名として使用</string>
@@ -1692,7 +1694,7 @@
     <string name="title_rule_attached">元のメッセージファイルを添付</string>
     <string name="title_rule_cc">CC アドレスへ返信</string>
     <string name="title_rule_with_attachments">添付ファイルも含める</string>
-    <string name="title_rule_answer_remark">自動返信のループを回避するために、それぞれの会話に対して 1 度だけ返信します</string>
+    <string name="title_rule_answer_remark">自動返信のループを回避するために、それぞれの会話スレッドに対して 1 度だけ返信します</string>
     <string name="title_rule_name_missing">ルール名を入力してください</string>
     <string name="title_rule_condition_missing">条件を入力してください</string>
     <string name="title_rule_folder_missing">フォルダーがありません</string>
@@ -1766,8 +1768,8 @@
     <string name="title_legend_sync_keep">同期する日数/メッセージを保持する日数</string>
     <string name="title_legend_download_fetch">ダウンロードされたメッセージ/フェッチされた見出し</string>
     <string name="title_legend_stop">ルールの処理を停止</string>
-    <string name="title_legend_thread">会話</string>
-    <string name="title_legend_bookmark">最後に開かれた会話</string>
+    <string name="title_legend_thread">会話スレッド</string>
+    <string name="title_legend_bookmark">最後に開かれた会話スレッド</string>
     <string name="title_legend_zoom">文字サイズを変更</string>
     <string name="title_legend_draft">下書きあり</string>
     <string name="title_legend_priority">重要度が高い</string>
@@ -2113,8 +2115,8 @@
     </string-array>
     <string-array name="onCloseNames">
         <item>何もしない</item>
-        <item>前の会話に移動</item>
-        <item>次の会話に移動</item>
+        <item>前の会話スレッドに移動</item>
+        <item>次の会話スレッドに移動</item>
     </string-array>
     <string-array name="resizeNames">
         <item>極小</item>

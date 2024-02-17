@@ -83,7 +83,7 @@
     <string name="title_blocked_senders">屏蔽的发件人</string>
     <string name="title_unblock_all">全部取消拦截</string>
     <string name="title_unblock_all_remark">这将重置可能导致拦截发件人的所有列表和选项</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">请注意，应用无法阻止邮件服务器将信件移动到垃圾邮件文件夹！</string>
+    <string name="title_unblock_all_hint">请注意，应用无法阻止邮件服务器将信件移动到垃圾邮件文件夹！</string>
     <plurals name="title_ask_block_sender">
         <item quantity="other">屏蔽 %1$s 封邮件的发件人？</item>
     </plurals>
@@ -612,7 +612,7 @@
     <string name="title_advanced_auto_block_sender">报告垃圾邮件时自动屏蔽发件人</string>
     <string name="title_advanced_auto_hide_answer">在滚动时自动隐藏回复按钮</string>
     <string name="title_advanced_swipe_reply">右滑展开的邮件进行回复</string>
-    <string name="title_advanced_move_thread_all">移动对话时，移动所有消息</string>
+    <string name="title_advanced_move_thread_all">移动选中的对话时，移动所有消息</string>
     <string name="title_advanced_move_thread_sent">移动会话时也移动已发送的邮件</string>
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
     <string name="title_advanced_default_folder">选择默认文件夹</string>
@@ -1051,6 +1051,7 @@
     <string name="title_edit_rules">编辑规则</string>
     <string name="title_execute_rules">执行规则</string>
     <string name="title_export_messages">导出消息</string>
+    <string name="title_import_messages">导入消息</string>
     <string name="title_create_channel">创建通知通道</string>
     <string name="title_edit_channel">编辑通知通道</string>
     <string name="title_delete_channel">删除通知通道</string>

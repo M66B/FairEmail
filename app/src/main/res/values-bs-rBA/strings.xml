@@ -105,7 +105,7 @@
     <string name="title_blocked_senders">Blokirani pošiljaoci</string>
     <string name="title_unblock_all">Odblokiraj sve</string>
     <string name="title_unblock_all_remark">Ovo će resetovati sve liste i opcije za blokiranje pošiljaoca</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Imajte na umu da aplikacija ne može spriječiti e-mail server da premješta poruke u folder za spam!</string>
+    <string name="title_unblock_all_hint">Imajte na umu da aplikacija ne može spriječiti e-mail server da premješta poruke u folder za spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokirati pošiljaoca %1$s poruke?</item>
         <item quantity="few">Blokirati pošiljaoca %1$s poruke?</item>
@@ -641,7 +641,7 @@
     <string name="title_advanced_auto_block_sender">Automatski blokiraj pošiljaoca kada se prijavljuje spam</string>
     <string name="title_advanced_auto_hide_answer">Automatski sakrij dugme za odgovor prilikom pomjeranja</string>
     <string name="title_advanced_swipe_reply">Prstom prevucite proširene poruke na desno za odgovor</string>
-    <string name="title_advanced_move_thread_all">Pri premještanju konverzacije, premjesti sve poruke</string>
+    <string name="title_advanced_move_thread_all">Pri premještanju označenih konverzacija, premjesti sve poruke</string>
     <string name="title_advanced_move_thread_sent">Pri premještanju konverzacije, premjesti i poslane poruke</string>
     <string name="title_advanced_default_snooze">Zadano vrijeme odlaganja/odgađanja</string>
     <string name="title_advanced_default_folder">Izaberite zadani folder</string>
@@ -1081,6 +1081,7 @@
     <string name="title_edit_rules">Uredi pravila</string>
     <string name="title_execute_rules">Izvrši pravila</string>
     <string name="title_export_messages">Izvezi poruke</string>
+    <string name="title_import_messages">Uvezi poruke</string>
     <string name="title_create_channel">Kreiraj kanal obavještenja</string>
     <string name="title_edit_channel">Uredi kanal obavještenja</string>
     <string name="title_delete_channel">Izbriši kanal obavještenja</string>

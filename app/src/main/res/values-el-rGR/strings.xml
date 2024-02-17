@@ -94,6 +94,7 @@
     <string name="title_blocked_senders">Αποκλεισμένοι αποστολείς</string>
     <string name="title_unblock_all">Άρση αποκλεισμού για όλους</string>
     <string name="title_unblock_all_remark">Θα επαναφέρει όλες τις λίστες και τις επιλογές που θα μπορούσαν να οδηγήσουν σε αποκλεισμό αποστολέων</string>
+    <string name="title_unblock_all_hint">Σημειώστε πως η εφαρμογή δεν μπορεί να εμποδίσει τον διακομιστή ηλεκτρονικού ταχυδρομείου να μετακινεί μηνύματα στον φάκελο ανεπιθύμητης αλληλογραφίας!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Αποκλεισμός αποστολέα του %1$s μηνύματος;</item>
         <item quantity="other">Αποκλεισμός αποστολέα των %1$s μηνυμάτων;</item>
@@ -625,7 +626,6 @@
     <string name="title_advanced_auto_block_sender">Αυτόματος αποκλεισμός του αποστολέα κατά την αναφορά μηνύματος ως ανεπιθύμητου</string>
     <string name="title_advanced_auto_hide_answer">Αυτόματη απόκρυψη του κουμπιού απάντησης κατά την κύλιση</string>
     <string name="title_advanced_swipe_reply">Σύρετε προς τα δεξιά τα αναπτυγμένα μηνύματα για να απαντήσετε</string>
-    <string name="title_advanced_move_thread_all">Κατά τη μετακίνηση μιας συζήτησης, να μετακινούνται όλα τα μηνύματα</string>
     <string name="title_advanced_move_thread_sent">Κατά τη μετακίνηση μιας συζήτησης, να μετακινούνται επίσης και τα απεσταλμένα μηνύματα</string>
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής/καθυστέρησης</string>
     <string name="title_advanced_default_folder">Επιλογή προεπιλεγμένου φακέλου</string>

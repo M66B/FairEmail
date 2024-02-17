@@ -90,7 +90,7 @@
     <string name="title_blocked_senders">فرستندگان مسدود شده</string>
     <string name="title_unblock_all">آنبلاک کردن همه</string>
     <string name="title_unblock_all_remark">با این کار تمام لیست‌ها و گزینه‌هایی که می‌توانند منجر به مسدود کردن فرستندگان شوند، ریست می‌شوند</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">متوجه این موضوع باشید که اپلیکیشن نمی‌تواند سرور ایمیل را از فرستادن پیام‌ها به پوشه اسپم باز دارد!</string>
+    <string name="title_unblock_all_hint">متوجه این موضوع باشید که اپلیکیشن نمی‌تواند سرور ایمیل را از فرستادن پیام‌ها به پوشه اسپم باز دارد!</string>
     <string name="title_junk_filter">از فیلتر هرزنامه محلی استفاده کنید</string>
     <string name="title_junk_filter_hint">این می تواند استفاده از باتری را افزایش دهد و پیام ها را به صورت نادرست به عنوان اسپم علامت گذاری کند</string>
     <string name="title_junk_blocklist">از فهرست‌های انسداد هرزنامه استفاده کن</string>
@@ -519,6 +519,7 @@
     <string name="title_advanced_onclose">هنگام بستن یک گفتگو</string>
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
     <string name="title_advanced_autounstar">هنگام انتقال پیام‌ها ستاره‌ها را خودکار از پیام‌ها حذف کن</string>
+    <string name="title_advanced_move_thread_all">هنگام جابجا کردن مکالمات انتخابی، کل پیام‌ها منتقل شود</string>
     <string name="title_advanced_move_thread_sent">به هنگام انتقال یک مکالمه، پیام‌های ارسالی را هم منتقل کن</string>
     <string name="title_advanced_notifications">مدیریت اعلان‌ها</string>
     <string name="title_advanced_notifications_default">کانال پیش‌فرض</string>
@@ -728,6 +729,7 @@
     <string name="title_empty_spam">خالی کردن هرزنامه</string>
     <string name="title_edit_properties">ویرایش ویژگی‌ها</string>
     <string name="title_edit_rules">ویرایش دستورات</string>
+    <string name="title_import_messages">درون‌برد پیام‌ها</string>
     <string name="title_create_channel">کانال اعلان بساز</string>
     <string name="title_edit_channel">ویرایش کانال اعلان</string>
     <string name="title_delete_channel">حذف کانال اعلان</string>

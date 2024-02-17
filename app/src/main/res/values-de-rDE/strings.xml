@@ -95,7 +95,7 @@
     <string name="title_blocked_senders">Gesperrte Absender</string>
     <string name="title_unblock_all">Alle entsperren</string>
     <string name="title_unblock_all_remark">Dadurch werden alle Listen und Optionen zurückgesetzt, die zum Sperren von Absendern führen könnten</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Beachten Sie, dass die App nicht verhindern kann, dass der E-Mail-Server Nachrichten in den Spam-Ordner verschiebt!</string>
+    <string name="title_unblock_all_hint">Bitte beachten, dass die App nicht verhindern kann, dass der E-Mail-Server Nachrichten in den Spam-Ordner verschiebt!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Absender von %1$s Nachricht sperren?</item>
         <item quantity="other">Absender von %1$s Nachrichten sperren?</item>
@@ -387,6 +387,7 @@
     <string name="title_advanced_suggest_received">Adressen aus empfangenen Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Verwendungshäufigkeit sortieren</string>
     <string name="title_advanced_suggest_account">Vorschläge auf aktuelles Konto begrenzen</string>
+    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Lokale Kontakte automatisch löschen, die älter sind als und weniger verwendet als:</string>
     <string name="title_advanced_alt_re_fwd">Alternative Präfixe für »Antworten« bzw. »Weiterleiten«</string>
     <string name="title_advanced_send_chips">Adressblasen anzeigen</string>
     <string name="title_advanced_send_nav_color">Identitätsfarbe für die untere Aktionsleiste verwenden</string>
@@ -404,7 +405,7 @@
     <string name="title_advanced_auto_save_dot">Entwurf nach jedem Satz automatisch speichern</string>
     <string name="title_advanced_compose_color">Standard-Textfarbe</string>
     <string name="title_advanced_compose_font">Standardschriftart</string>
-    <string name="title_advanced_compose_monospaced">Festbreitenschriftart für unformatierte Textnachrichten verwenden</string>
+    <string name="title_advanced_compose_monospaced">Festbreitenschriftart für Nachrichten im einfachen Text verwenden</string>
     <string name="title_advanced_auto_identity">Identitäten für neue Nachrichten automatisch auswählen</string>
     <string name="title_advanced_prefix_once">»Re:« und »Fwd:« nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_prefix_count">Zähler zum Antwortpräfix hinzufügen</string>
@@ -425,9 +426,9 @@
     <string name="title_advanced_reply_move">Beim Antworten auf eine Nachricht die Antwort im selben Ordner speichern</string>
     <string name="title_advanced_reply_move_inbox">Auch für Nachrichten im Posteingang</string>
     <string name="title_advanced_auto_link">Links automatisch erstellen</string>
-    <string name="title_advanced_plain_only">Standardmäßig nur unformatierten Text senden</string>
-    <string name="title_advanced_plain_only_reply">Nur beim Antworten auf eine unformatierte Textnachricht automatisch unformatierten Text verwenden</string>
-    <string name="title_advanced_flow">Format fließend für unformatierten Text</string>
+    <string name="title_advanced_plain_only">Standardmäßig nur einfachen Text senden</string>
+    <string name="title_advanced_plain_only_reply">Beim Antworten auf eine Nachricht im einfachen Text automatisch einfachen Text verwenden</string>
+    <string name="title_advanced_flow">»format flowed« für einfachen Text</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
     <string name="title_advanced_receipt">Wenn eine Bestätigung angefordert wird, dann</string>
@@ -440,7 +441,7 @@
     <string name="title_advanced_rlah">Roaming wie zu Hause</string>
     <string name="title_advanced_download_headers">Alle Kopfzeilen der Nachricht herunterladen</string>
     <string name="title_advanced_download_eml">Rohnachrichtendateien herunterladen</string>
-    <string name="title_advanced_download_plain">Standardmäßig nur unformatierte Textteile herunterladen (falls verfügbar)</string>
+    <string name="title_advanced_download_plain">Standardmäßig nur Abschnitte im einfachen Text herunterladen (falls verfügbar)</string>
     <string name="title_advanced_validated">Erfordert eine validierte (geprüfte) Verbindung</string>
     <string name="title_advanced_validated_captive">Erfordert eine geprüfte Captive-Portal-Verbindung</string>
     <string name="title_advanced_vpn_only">Nur über ein VPN verbinden</string>
@@ -696,7 +697,7 @@
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_autolock">Sperren bei ausgeschaltetem Bildschirm</string>
     <string name="title_advanced_autolock_nav">Beim Verlassen der App sperren</string>
-    <string name="title_advanced_generic_user_agent">Allgemeine Browser-Kennung verwenden</string>
+    <string name="title_advanced_generic_user_agent">Allgemeinen User Agent verwenden</string>
     <string name="title_advanced_load_emoji">Aktualisierte Emoji von Google-Play-Diensten laden</string>
     <string name="title_advanced_disconnect_auto_update">Listen wöchentlich automatisch aktualisieren</string>
     <string name="title_advanced_disconnect_links">Listen verwenden, um vor Verfolgungslinks zu warnen</string>
@@ -843,7 +844,7 @@
     <string name="title_advanced_preview_lines_hint">Maximal %s Zeichen</string>
     <string name="title_advanced_preview_issue">Der Bildlauf kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_overview_mode_hint">Das kann zu einer sehr kleinen Schrift führen</string>
-    <string name="title_advanced_monospaced_pre_hint">Unformatierte Textnachrichten werden als vorformatiert betrachtet</string>
+    <string name="title_advanced_monospaced_pre_hint">Nachrichten im einfachen Text werden als vorformatiert betrachtet</string>
     <string name="title_advanced_placeholders_hint">Das gilt nur für umformatierte Nachrichten</string>
     <string name="title_advanced_inline_hint">Eingebettete Bilder sind in der Nachricht enthaltene Bilder</string>
     <string name="compressed">Der Inhalt von komprimierten Dateien (%1$s) mit mehr als %2$s Dateien oder mit Dateien größer als %3$s wird nicht angezeigt</string>
@@ -865,7 +866,7 @@
     <string name="title_advanced_display_hidden_hint">Das kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
     <string name="title_advanced_display_autolock_nav_hint">Es wird eine Wartezeit von %1$d Sekunden geben</string>
-    <string name="title_advanced_user_agent_hint">Einige Server akzeptieren keine generischen User-Agent-Angaben</string>
+    <string name="title_advanced_user_agent_hint">Einige Server akzeptieren keine allgemeine User-Agent-Zeichenkette</string>
     <string name="title_advanced_safe_browsing_hint">Der Google-Server erfährt, welche Adressen nachgeschlagen werden</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
@@ -904,7 +905,7 @@
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
     <string name="title_identity_tenant_hint">Dieses Feld sollte in den meisten Fällen leer bleiben</string>
-    <string name="title_identity_color_hint">Identitätsfarben haben Vorrang vor Ordner- und Kontofarben</string>
+    <string name="title_identity_color_hint">Identitätsfarben haben gegenüber Ordner- und Kontofarben Vorrang</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_sender_name">Namen verwenden, wenn die Absenderadresse bearbeitet wurde</string>
     <string name="title_advanced_reply_name">Namen aus der empfangenen Nachricht kopieren</string>
@@ -1069,6 +1070,7 @@
     <string name="title_edit_rules">Regeln bearbeiten</string>
     <string name="title_execute_rules">Regeln ausführen</string>
     <string name="title_export_messages">Nachrichten exportieren</string>
+    <string name="title_import_messages">Nachrichten importieren</string>
     <string name="title_create_channel">Benachrichtigungskanal erstellen</string>
     <string name="title_edit_channel">Benachrichtigungskanal bearbeiten</string>
     <string name="title_delete_channel">Benachrichtigungskanal löschen</string>
@@ -1463,7 +1465,7 @@
     <string name="title_unknown_key">Der private Schlüssel passt zu keinem der verwendeten Schlüssel</string>
     <string name="title_key_missing">Kein Schlüssel für %1$s</string>
     <string name="title_send_reminder_remark">Erinnerungen können in den Sendeeinstellungen wieder aktiviert werden</string>
-    <string name="title_send_plain_text">Nur unformatierter Text</string>
+    <string name="title_send_plain_text">Nur einfacher Text</string>
     <string name="title_send_dsn">Statusbericht</string>
     <string name="title_send_receipt">Bestätigung anfordern</string>
     <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Programme ignorieren Empfangsbestätigungen</string>
@@ -1503,7 +1505,7 @@
     <string name="title_resync">Neu synchronisieren</string>
     <string name="title_charset">Zeichenkodierung</string>
     <string name="title_charset_auto">Automatisch</string>
-    <string name="title_alternative_text">Unformatierten Text laden</string>
+    <string name="title_alternative_text">Einfachen Text laden</string>
     <string name="title_alternative_html">HTML laden</string>
     <string name="title_no_openpgp">OpenKeychain wurde nicht gefunden</string>
     <string name="title_no_openpgp_remark">PGP-Ende-zu-Ende-Verschlüsselung muss zuerst konfiguriert werden</string>
@@ -1912,7 +1914,7 @@
     <string name="title_yes">Ja</string>
     <string name="title_no">Nein</string>
     <string name="title_later">Später</string>
-    <string name="title_paste_plain">Als unformatierten Text einfügen</string>
+    <string name="title_paste_plain">Als einfachen Text einfügen</string>
     <string name="title_undo">Rückgängig</string>
     <string name="title_redo">Wiederherstellen</string>
     <string name="title_insert_line">Linie einfügen</string>

@@ -94,7 +94,7 @@
     <string name="title_blocked_senders">Blockerade avsändare</string>
     <string name="title_unblock_all">Avblockera alla</string>
     <string name="title_unblock_all_remark">Detta kommer att återställa alla listor och alternativ som kan resultera i blockering av avsändare</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Observera att appen inte kan förhindra att e-postservern flyttar meddelanden till skräppostmappen!</string>
+    <string name="title_unblock_all_hint">Observera att appen inte kan förhindra att e-postservern flyttar meddelanden till skräppostmappen!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blockera avsändare av %1$s meddelande?</item>
         <item quantity="other">Blockera avsändare av %1$s meddelanden?</item>
@@ -622,7 +622,6 @@
     <string name="title_advanced_auto_block_sender">Blockera avsändaren automatiskt vid rapportering av skräppost</string>
     <string name="title_advanced_auto_hide_answer">Dölj svarsknappen automatiskt när du skrollar</string>
     <string name="title_advanced_swipe_reply">Svep expanderade meddelanden till höger för att svara</string>
-    <string name="title_advanced_move_thread_all">Flytta alla meddelanden när en konversation flyttas</string>
     <string name="title_advanced_move_thread_sent">När en konversation flyttas, flytta också skickade meddelanden</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_default_folder">Välj standardmapp</string>

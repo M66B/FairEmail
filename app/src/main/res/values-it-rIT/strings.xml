@@ -94,7 +94,7 @@
     <string name="title_blocked_senders">Mittenti bloccati</string>
     <string name="title_unblock_all">Sblocca tutti</string>
     <string name="title_unblock_all_remark">Questo ripristinerà tutti gli elenchi e le opzioni che potrebbero risultare nel blocco dei mittenti</string>
-    <string name="title_unblock_all_hint" comment="title_unblock_all_hint&#10;Remark for the unblock all dialog box">Nota che l\'app non può impedire al server email di spostare messaggi nella cartella di spam!</string>
+    <string name="title_unblock_all_hint">Nota che l\'app non può impedire al server dell\'email di spostare messaggi nella cartella dello spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloccare il mittente di %1$s messaggio?</item>
         <item quantity="other">Bloccare il mittente di %1$s messaggi?</item>
@@ -386,6 +386,7 @@
     <string name="title_advanced_suggest_received">Suggerisci indirizzi trovati nei messaggi ricevuti</string>
     <string name="title_advanced_suggest_frequently">Ordina gli indirizzi suggeriti per frequenza d\'uso</string>
     <string name="title_advanced_suggest_account">Limita i suggerimenti al profilo corrente</string>
+    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Elimina automaticamente i contatti locali più vecchi e meno utilizzati di:</string>
     <string name="title_advanced_alt_re_fwd">Prefisso alternativo di risposta/inoltro</string>
     <string name="title_advanced_send_chips">Mostra le bolle degli indirizzi</string>
     <string name="title_advanced_send_nav_color">Utilizza il colore dell\'identità per la barra delle azioni inferiore</string>
@@ -627,7 +628,7 @@
     <string name="title_advanced_auto_block_sender">Blocca automaticamente il mittente alla segnalazione di spam</string>
     <string name="title_advanced_auto_hide_answer">Nascondi automaticamente il pulsante di risposta durante lo scorrimento</string>
     <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
-    <string name="title_advanced_move_thread_all">Spostando una conversazione, sposta tutti i messaggi</string>
+    <string name="title_advanced_move_thread_all">Spostando le conversazioni selezionate, sposta tutti i messaggi</string>
     <string name="title_advanced_move_thread_sent">Spostando una conversazione, sposta anche i messaggi inviati</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_default_folder">Seleziona la cartella predefinita</string>
@@ -834,7 +835,7 @@
     <string name="title_advanced_split_hint">Questo dividerà lo schermo in parti</string>
     <string name="title_advanced_split_min_hint">Questa è una condizione destinata ai dispositivi pieghevoli</string>
     <string name="title_advanced_threading_hint">Raggruppa i messaggi correlati</string>
-    <string name="title_advanced_indentation_hint">Solo per stile carta</string>
+    <string name="title_advanced_indentation_hint">Soltanto per lo stile della carta</string>
     <string name="title_advanced_highlight_hint">Il colore secondario del tema sarà usato per l\'evidenziazione</string>
     <string name="title_advanced_privacy_risk">Potrebbe esistere un rischio per la privacy</string>
     <string name="title_advanced_name_email_hint">I nomi saranno mostrati solo quando disponibili</string>
@@ -1068,6 +1069,7 @@
     <string name="title_edit_rules">Modifica le regole</string>
     <string name="title_execute_rules">Esegui le regole</string>
     <string name="title_export_messages">Esporta i messaggi</string>
+    <string name="title_import_messages">Importa messaggi</string>
     <string name="title_create_channel">Crea un canale di notifica</string>
     <string name="title_edit_channel">Modifica il canale di notifica</string>
     <string name="title_delete_channel">Elimina il canale di notifica</string>
@@ -1188,7 +1190,7 @@
     <string name="title_new_message">Nuovo messaggio</string>
     <string name="title_editasnew">Modifica come nuovo</string>
     <string name="title_edit_notes">Modifica le note locali</string>
-    <string name="title_edit_notes_remark">Le note locali non sono memorizzate sul server email e sono quindi disponibili solo in questa app su questo dispositivo</string>
+    <string name="title_edit_notes_remark">Le note locali non sono memorizzate sul server dell\'email, quindi sono disponibili soltanto in quest\'app, su questo dispositivo</string>
     <string name="title_create_rule">Crea regola&#8230;</string>
     <string name="title_full_screen">Schermo intero</string>
     <string name="title_force_light">Forza tema chiaro</string>
@@ -1804,7 +1806,7 @@
     <string name="title_legend_plain_only">È solo testo semplice</string>
     <string name="title_legend_receipt">La conferma è stata richiesta</string>
     <string name="title_legend_auto_submitted">Inviato automaticamente</string>
-    <string name="title_legend_by_list">Inviato da una lista</string>
+    <string name="title_legend_by_list">Inviato da un elenco</string>
     <string name="title_legend_attachment">Ha allegato</string>
     <string name="title_legend_flagged">È preferito</string>
     <string name="title_legend_contacts">Gestisci contatti</string>
@@ -1871,8 +1873,8 @@
     <string name="title_hint_notifications">Nessun\'autorizzazione di notifica</string>
     <string name="title_hint_notifications_remark">Le autorizzazioni di notifica sono necessarie anche per gli avvisi (profilo). Le notifiche per i nuovi messaggi possono essere disattivate nelle impostazioni.</string>
     <string name="title_hint_battery_optimizations">Le ottimizzazioni della batteria sono ancora abilitate</string>
-    <string name="title_hint_data_saver">Se il risparmio dati è abilitato, l\'app non sarà in grado di sincronizzare in background e potrebbero verificarsi errori di connessione.</string>
-    <string name="title_hint_dismiss">Puoi rimuovere questa finestra di dialogo per rimuovere l\'avviso.</string>
+    <string name="title_hint_data_saver">Se il risparmio dei dati è abilitato, l\'app non potrà sincronizzarsi in background e potrebbero verificarsi degli errori di connessione.</string>
+    <string name="title_hint_dismiss">Puoi ignorare questa finestra per rimuovere l\'avviso.</string>
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>
     <string name="title_hint_message_selection">Tieni premuto un messaggio per iniziare a selezionare più messaggi: Tieni premuto e scorri in su o in giù per selezionare più messaggi</string>
