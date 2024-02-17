@@ -2994,12 +2994,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 }
 
                                 @Override
-                                public boolean onOpenLink(String url) {
+                                public boolean onOpenLink(String url, boolean always) {
                                     if (parentFragment == null)
                                         return false;
 
                                     Uri uri = Uri.parse(url);
-                                    return ViewHolder.this.onOpenLink(uri, null, EntityFolder.JUNK.equals(message.folderType));
+                                    return ViewHolder.this.onOpenLink(uri, null,
+                                            always || EntityFolder.JUNK.equals(message.folderType));
                                 }
 
                                 @Override

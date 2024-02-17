@@ -187,7 +187,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Log.i("Open url=" + url);
-                return intf.onOpenLink(url);
+                return intf.onOpenLink(url, false);
             }
 
             @Override
@@ -312,21 +312,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
                     type == HitTestResult.GEO_TYPE ||
                     type == HitTestResult.EMAIL_TYPE ||
                     type == HitTestResult.SRC_ANCHOR_TYPE ||
-                    type == HitTestResult.EDIT_TEXT_TYPE) {
-                ClipboardManager clipboard = Helper.getSystemService(context, ClipboardManager.class);
-                if (clipboard == null)
-                    return false;
-
-                String title = context.getString(R.string.app_name);
-
-                ClipData clip = ClipData.newPlainText(title, extra);
-                clipboard.setPrimaryClip(clip);
-
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
-                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
-
-                return true;
-            }
+                    type == HitTestResult.EDIT_TEXT_TYPE)
+                return intf.onOpenLink(extra, true);
 
             if (type == WebView.HitTestResult.IMAGE_TYPE ||
                     type == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
@@ -502,7 +489,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         void onScrollChange(int dx, int dy, int scrollX, int scrollY);
 
-        boolean onOpenLink(String url);
+        boolean onOpenLink(String url, boolean always);
 
         void onUserInterAction();
     }
