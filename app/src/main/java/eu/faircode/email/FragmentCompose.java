@@ -2348,7 +2348,10 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuMarkdown() {
         markdown = !markdown;
-        onAction(R.id.menu_save, "Markdown");
+        Bundle args = new Bundle();
+        args.putBoolean("markdown", true);
+        args.putBoolean("show", true);
+        onAction(R.id.menu_save, args, "Markdown");
     }
 
     private void setCompact(boolean compact) {
@@ -6716,7 +6719,7 @@ public class FragmentCompose extends FragmentBase {
 
             boolean dirty = false;
             String body;
-            if (markdown) {
+            if (markdown ^ extras.getBoolean("markdown")) {
                 MutableDataSet options = new MutableDataSet();
                 options.set(Parser.EXTENSIONS, Arrays.asList(
                         TablesExtension.create(),
@@ -6726,8 +6729,11 @@ public class FragmentCompose extends FragmentBase {
                 String html = renderer.render(parser.parse(spanned.toString()));
 
                 Document doc = JsoupEx.parse(html);
-                doc.body().attr("markdown", "true");
+                doc.body().attr("markdown", Boolean.toString(markdown));
                 body = doc.html();
+
+                if (markdown != extras.getBoolean("markdown"))
+                    dirty = true;
             } else
                 body = HtmlHelper.toHtml(spanned, context);
 
