@@ -6726,7 +6726,9 @@ public class FragmentCompose extends FragmentBase {
                         StrikethroughExtension.create()));
                 Parser parser = Parser.builder(options).build();
                 HtmlRenderer renderer = HtmlRenderer.builder(options).build();
-                String html = renderer.render(parser.parse(spanned.toString()));
+
+                String text = spanned.toString().replace('\u00a0', ' ');
+                String html = renderer.render(parser.parse(text));
 
                 Document doc = JsoupEx.parse(html);
                 doc.body().attr("markdown", Boolean.toString(markdown));
