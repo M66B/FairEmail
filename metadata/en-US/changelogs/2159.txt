@@ -13,6 +13,7 @@ Next version
 * Added importing of mbox files into POP3 folders
 * Added long press links to open confirmation dialog box
 * Added long press archive / bottom action bar to move conversations
+* Added experimental markdown support to the message editor
 * Small improvements and minor bug fixes
 * Updated translations
 
