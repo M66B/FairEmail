@@ -55,3 +55,4 @@ FairEmail uses parts or all of:
 * [AG Filters Registry](https://github.com/AdguardTeam/FiltersRegistry). [GNU Lesser General Public License Version 3](https://github.com/AdguardTeam/FiltersRegistry/blob/master/LICENSE).
 * [Certificate transparency for Android and JVM](https://github.com/appmattus/certificatetransparency). Copyright 2023 Appmattus Limited. [Apache License 2.0](https://github.com/appmattus/certificatetransparency/blob/main/LICENSE.md).
 * [ZXing](https://github.com/zxing/zxing). Copyright (C) 2014 ZXing authors. [Apache License 2.0](https://github.com/zxing/zxing/blob/master/LICENSE).
+* [https://github.com/vsch/flexmark-java](flexmark-java). Copyright (c) 2015-2016, Atlassian Pty Ltd. Copyright (c) 2016-2018, Vladimir Schneider. [BSD-2-Clause license](https://github.com/vsch/flexmark-java/blob/master/LICENSE.txt).

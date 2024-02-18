@@ -79,6 +79,13 @@
             android:icon="@drawable/outline_unfold_less_24"
             android:title="@string/title_compact"
             app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_markdown"
+            android:checkable="true"
+            android:icon="@drawable/twotone_data_array_24"
+            android:title="@string/title_markdown"
+            app:showAsAction="never" />
     </group>
 
     <group android:id="@+id/group_operations">

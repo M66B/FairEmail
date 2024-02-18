@@ -136,6 +136,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
+import com.vladsch.flexmark.ext.gfm.strikethrough.StrikethroughExtension;
+import com.vladsch.flexmark.ext.tables.TablesExtension;
+import com.vladsch.flexmark.html.HtmlRenderer;
+import com.vladsch.flexmark.html2md.converter.FlexmarkHtmlConverter;
+import com.vladsch.flexmark.parser.Parser;
+import com.vladsch.flexmark.util.data.MutableDataSet;
 
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.cert.jcajce.JcaCertStore;
@@ -227,6 +233,9 @@ import javax.mail.util.ByteArrayDataSource;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Organizer;
+import io.noties.markwon.Markwon;
+import io.noties.markwon.editor.MarkwonEditor;
+import io.noties.markwon.editor.MarkwonEditorTextWatcher;
 
 public class FragmentCompose extends FragmentBase {
     private enum State {NONE, LOADING, LOADED}
@@ -280,6 +289,7 @@ public class FragmentCompose extends FragmentBase {
 
     private ContentResolver resolver;
     private AdapterAttachment adapter;
+    private MarkwonEditorTextWatcher markwonWatcher;
 
     private boolean autoscroll_editor;
     private int compose_color;
@@ -291,6 +301,7 @@ public class FragmentCompose extends FragmentBase {
     private boolean style = false;
     private boolean media = true;
     private boolean compact = false;
+    private boolean markdown = false;
     private int zoom = 0;
     private boolean nav_color;
     private boolean lt_enabled;
@@ -1119,6 +1130,19 @@ public class FragmentCompose extends FragmentBase {
         invalidateOptionsMenu();
         Helper.setViewsEnabled(view, false);
 
+        // https://noties.io/Markwon/docs/v4/editor/
+        try {
+            final Markwon markwon = Markwon.create(getContext());
+            final MarkwonEditor editor = MarkwonEditor.create(markwon);
+            markwonWatcher = MarkwonEditorTextWatcher.withPreRender(
+                    editor,
+                    Helper.getParallelExecutor(),
+                    etBody);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            markwonWatcher = null;
+        }
+
         final DB db = DB.getInstance(getContext());
 
         SimpleCursorAdapter cadapter = new SimpleCursorAdapter(
@@ -1936,6 +1960,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_style).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_media).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_compact).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_markdown).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_manage_android_contacts).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_manage_local_contacts).setEnabled(state == State.LOADED);
@@ -1992,6 +2017,7 @@ public class FragmentCompose extends FragmentBase {
         boolean send_chips = prefs.getBoolean("send_chips", true);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
+        boolean experiments = prefs.getBoolean("experiments", false);
 
         menu.findItem(R.id.menu_save_drafts).setChecked(save_drafts);
         menu.findItem(R.id.menu_send_chips).setChecked(send_chips);
@@ -2000,6 +2026,8 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_style).setChecked(style);
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
+        menu.findItem(R.id.menu_markdown).setChecked(markdown);
+        menu.findItem(R.id.menu_markdown).setVisible(experiments);
 
         View image = media_bar.findViewById(R.id.menu_image);
         if (image != null)
@@ -2082,6 +2110,9 @@ public class FragmentCompose extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_compact) {
             onMenuCompact();
+            return true;
+        } else if (itemId == R.id.menu_markdown) {
+            onMenuMarkdown();
             return true;
         } else if (itemId == R.id.menu_contact_group) {
             onMenuContactGroup();
@@ -2313,6 +2344,11 @@ public class FragmentCompose extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("compose_compact", compact).apply();
         setCompact(compact);
+    }
+
+    private void onMenuMarkdown() {
+        markdown = !markdown;
+        onAction(R.id.menu_save, "Markdown");
     }
 
     private void setCompact(boolean compact) {
@@ -4990,6 +5026,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("subject", etSubject.getText().toString().trim());
         args.putCharSequence("loaded", (Spanned) etBody.getTag());
         args.putCharSequence("spanned", etBody.getText());
+        args.putBoolean("markdown", markdown);
         args.putBoolean("signature", cbSignature.isChecked());
         args.putBoolean("empty", isEmpty());
         args.putBoolean("notext", notext);
@@ -6171,6 +6208,9 @@ public class FragmentCompose extends FragmentBase {
                         Elements ref = doc.select("div[fairemail=reference]");
                         ref.remove();
 
+                        boolean markdown = Boolean.parseBoolean(doc.body().attr("markdown"));
+                        args.putBoolean("markdown", markdown);
+
                         File refFile = data.draft.getRefFile(context);
                         if (refFile.exists()) {
                             ref.html(Helper.readText(refFile));
@@ -6243,6 +6283,7 @@ public class FragmentCompose extends FragmentBase {
             working = data.draft.id;
             dsn = (data.draft.dsn != null && !EntityMessage.DSN_NONE.equals(data.draft.dsn));
             encrypt = data.draft.ui_encrypt;
+            markdown = args.getBoolean("markdown");
             invalidateOptionsMenu();
 
             subject = data.draft.subject;
@@ -6665,6 +6706,7 @@ public class FragmentCompose extends FragmentBase {
             String subject = args.getString("subject");
             Spanned loaded = (Spanned) args.getCharSequence("loaded");
             Spanned spanned = (Spanned) args.getCharSequence("spanned");
+            boolean markdown = args.getBoolean("markdown");
             boolean signature = args.getBoolean("signature");
             boolean empty = args.getBoolean("empty");
             boolean notext = args.getBoolean("notext");
@@ -6673,7 +6715,22 @@ public class FragmentCompose extends FragmentBase {
             boolean silent = extras.getBoolean("silent");
 
             boolean dirty = false;
-            String body = HtmlHelper.toHtml(spanned, context);
+            String body;
+            if (markdown) {
+                MutableDataSet options = new MutableDataSet();
+                options.set(Parser.EXTENSIONS, Arrays.asList(
+                        TablesExtension.create(),
+                        StrikethroughExtension.create()));
+                Parser parser = Parser.builder(options).build();
+                HtmlRenderer renderer = HtmlRenderer.builder(options).build();
+                String html = renderer.render(parser.parse(spanned.toString()));
+
+                Document doc = JsoupEx.parse(html);
+                doc.body().attr("markdown", "true");
+                body = doc.html();
+            } else
+                body = HtmlHelper.toHtml(spanned, context);
+
             EntityMessage draft;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -7581,12 +7638,15 @@ public class FragmentCompose extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", draft.id);
         args.putBoolean("show_images", show_images);
+        args.putBoolean("markdown", markdown);
 
         new SimpleTask<Spanned[]>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 // Needed to get width for images
                 grpBody.setVisibility(View.VISIBLE);
+                if (markwonWatcher != null)
+                    etBody.removeTextChangedListener(markwonWatcher);
             }
 
             @Override
@@ -7602,12 +7662,18 @@ public class FragmentCompose extends FragmentBase {
                 Helper.setViewsEnabled(view, true);
 
                 invalidateOptionsMenu();
+
+                if (markdown && markwonWatcher != null) {
+                    etBody.addTextChangedListener(markwonWatcher);
+                    markwonWatcher.afterTextChanged(etBody.getText());
+                }
             }
 
             @Override
             protected Spanned[] onExecute(final Context context, Bundle args) throws Throwable {
                 final long id = args.getLong("id");
                 final boolean show_images = args.getBoolean("show_images", false);
+                final boolean markdown = args.getBoolean("markdown", false);
 
                 int colorPrimary = Helper.resolveColor(context, androidx.appcompat.R.attr.colorPrimary);
                 final int colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
@@ -7624,34 +7690,40 @@ public class FragmentCompose extends FragmentBase {
                 Elements ref = doc.select("div[fairemail=reference]");
                 ref.remove();
 
-                HtmlHelper.clearAnnotations(doc); // Legacy left-overs
+                Spanned spannedBody;
+                if (markdown) {
+                    MutableDataSet options = new MutableDataSet();
+                    spannedBody = new SpannableStringBuilder(FlexmarkHtmlConverter.builder(options).build().convert(doc.html()));
+                } else {
+                    HtmlHelper.clearAnnotations(doc); // Legacy left-overs
 
-                doc = HtmlHelper.sanitizeCompose(context, doc.html(), true);
+                    doc = HtmlHelper.sanitizeCompose(context, doc.html(), true);
 
-                Spanned spannedBody = HtmlHelper.fromDocument(context, doc, new HtmlHelper.ImageGetterEx() {
-                    @Override
-                    public Drawable getDrawable(Element element) {
-                        return ImageHelper.decodeImage(context,
-                                id, element, true, zoom, 1.0f, etBody);
+                    spannedBody = HtmlHelper.fromDocument(context, doc, new HtmlHelper.ImageGetterEx() {
+                        @Override
+                        public Drawable getDrawable(Element element) {
+                            return ImageHelper.decodeImage(context,
+                                    id, element, true, zoom, 1.0f, etBody);
+                        }
+                    }, null);
+
+                    SpannableStringBuilder bodyBuilder = new SpannableStringBuilderEx(spannedBody);
+                    QuoteSpan[] bodySpans = bodyBuilder.getSpans(0, bodyBuilder.length(), QuoteSpan.class);
+                    for (QuoteSpan quoteSpan : bodySpans) {
+                        QuoteSpan q;
+                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                            q = new QuoteSpan(colorBlockquote);
+                        else
+                            q = new QuoteSpan(colorBlockquote, quoteStripe, quoteGap);
+                        bodyBuilder.setSpan(q,
+                                bodyBuilder.getSpanStart(quoteSpan),
+                                bodyBuilder.getSpanEnd(quoteSpan),
+                                bodyBuilder.getSpanFlags(quoteSpan));
+                        bodyBuilder.removeSpan(quoteSpan);
                     }
-                }, null);
 
-                SpannableStringBuilder bodyBuilder = new SpannableStringBuilderEx(spannedBody);
-                QuoteSpan[] bodySpans = bodyBuilder.getSpans(0, bodyBuilder.length(), QuoteSpan.class);
-                for (QuoteSpan quoteSpan : bodySpans) {
-                    QuoteSpan q;
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-                        q = new QuoteSpan(colorBlockquote);
-                    else
-                        q = new QuoteSpan(colorBlockquote, quoteStripe, quoteGap);
-                    bodyBuilder.setSpan(q,
-                            bodyBuilder.getSpanStart(quoteSpan),
-                            bodyBuilder.getSpanEnd(quoteSpan),
-                            bodyBuilder.getSpanFlags(quoteSpan));
-                    bodyBuilder.removeSpan(quoteSpan);
+                    spannedBody = bodyBuilder;
                 }
-
-                spannedBody = bodyBuilder;
 
                 Spanned spannedRef = null;
                 if (!ref.isEmpty()) {
