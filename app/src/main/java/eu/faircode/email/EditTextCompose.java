@@ -43,6 +43,7 @@ import android.view.ActionMode;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
@@ -80,9 +81,6 @@ public class EditTextCompose extends FixedEditText {
     private int quoteStripe;
     private boolean lt_description;
     private boolean undo_manager;
-
-    private int lastStart = -1;
-    private int lastEnd = -1;
 
     public EditTextCompose(Context context) {
         super(context);
@@ -505,20 +503,13 @@ public class EditTextCompose extends FixedEditText {
     }
 
     @Override
-    protected void onSelectionChanged(int selStart, int selEnd) {
-        super.onSelectionChanged(selStart, selEnd);
-        if (selectionListener != null)
-            selectionListener.onSelected(hasSelection());
-
-        int start = -1;
-        int end = -1;
-        Editable edit = getText();
-        if (lt_description && selStart >= 0 && edit != null) {
-            SuggestionSpanEx[] suggestions = edit.getSpans(selStart, selEnd, SuggestionSpanEx.class);
-            if (suggestions != null && suggestions.length > 0) {
-                start = edit.getSpanStart(suggestions[0]);
-                end = edit.getSpanEnd(suggestions[0]);
-                if (start != lastStart && end != lastEnd) {
+    public boolean onTouchEvent(MotionEvent event) {
+        if (lt_description && event.getAction() == MotionEvent.ACTION_DOWN) {
+            Editable edit = getText();
+            if (edit != null) {
+                int off = Helper.getOffset(this, edit, event);
+                SuggestionSpanEx[] suggestions = edit.getSpans(off, off, SuggestionSpanEx.class);
+                if (suggestions != null && suggestions.length > 0) {
                     String description = suggestions[0].getDescription();
                     if (!TextUtils.isEmpty(description))
                         ToastEx.makeText(getContext(), description, Toast.LENGTH_LONG).show();
@@ -526,8 +517,7 @@ public class EditTextCompose extends FixedEditText {
             }
         }
 
-        lastStart = start;
-        lastEnd = end;
+        return super.onTouchEvent(event);
     }
 
     @Override
