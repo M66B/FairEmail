@@ -503,6 +503,13 @@ public class EditTextCompose extends FixedEditText {
     }
 
     @Override
+    protected void onSelectionChanged(int selStart, int selEnd) {
+        super.onSelectionChanged(selStart, selEnd);
+        if (selectionListener != null)
+            selectionListener.onSelected(hasSelection());
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (lt_description && event.getAction() == MotionEvent.ACTION_DOWN) {
             Editable edit = getText();
