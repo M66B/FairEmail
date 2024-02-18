@@ -7701,7 +7701,11 @@ public class FragmentCompose extends FragmentBase {
                 Spanned spannedBody;
                 if (markdown) {
                     MutableDataSet options = new MutableDataSet();
-                    spannedBody = new SpannableStringBuilder(FlexmarkHtmlConverter.builder(options).build().convert(doc.html()));
+                    // HtmlConverterCoreNodeRenderer
+                    // options.set(FlexmarkHtmlConverter.LISTS_END_ON_DOUBLE_BLANK, false);
+                    String text = FlexmarkHtmlConverter.builder(options).build().convert(doc.html());
+                    text = text.replaceAll("\n.*<!-- -->\n\n", "");
+                    spannedBody = new SpannableStringBuilder(text);
                 } else {
                     HtmlHelper.clearAnnotations(doc); // Legacy left-overs
 
