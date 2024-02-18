@@ -30,7 +30,7 @@ FairEmail might be for you if you value your privacy.
 ## Main features
 
 * Fully featured
-* 100 % [open source](https://github.com/M66B/FairEmail/blob/master/LICENSE)
+* 100% [open source](https://github.com/M66B/FairEmail/blob/master/LICENSE)
 * [Privacy oriented](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md)
 * Unlimited accounts
 * Unlimited email addresses
@@ -42,13 +42,13 @@ FairEmail might be for you if you value your privacy.
 * Common text style options (size, color, lists, etc)
 * Battery friendly
 * Low data usage
-* Small (<25 MB)
+* Small (<30 MB)
 * Material design (including dark/black theme)
 * Maintained and supported
 
 This app is deliberately minimalistic by design, so you can concentrate on reading and writing messages.
 
-This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new emails.
+This app starts a foreground service with a low-priority status bar notification to make sure you'll never miss new emails.
 
 ## Privacy features
 
@@ -68,8 +68,8 @@ This app starts a foreground service with a low priority status bar notification
 
 ## Secure
 
-* No data storage on third party servers
-* Using open standards (IMAP, POP3, SMTP, OpenPGP, S/MIME, etc)
+* No data storage on third-party servers
+* Using open standards (IMAP, POP3, SMTP, OpenPGP, S/MIME, etc.)
 * Safe message view (styling, scripting and unsafe HTML removed)
 * Confirm opening links, images and attachments
 * No special permissions required
