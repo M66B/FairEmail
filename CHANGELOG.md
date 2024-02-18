@@ -211,7 +211,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### 1.2132 - 2023-12-01
 
 * Added basic support for [Linked Data](https://json-ld.org/) (GitHub version only)
-* Added date/time placeholders for keyword rules (see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
+* Added date/time placeholders for keyword rules (see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq71))
 * Added option to disable saving revisions for undo/redo
 * Small improvements and minor bug fixes
 * Updated build tools
@@ -326,7 +326,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2115 - 2023-10-30
 
-* Added option to disable storing invitations tentatively, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq186)
+* Added option to disable storing invitations tentatively, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186)
 * Fixed time zone of some calendar events
 * Small improvements and minor bug fixes
 * Updated libraries, including [JSoup](https://jsoup.org/news/) and [Material Components](https://github.com/material-components/material-components-android)
@@ -633,7 +633,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2072 - 2023-05-29
 
-* Fixed [badge count](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq106)
+* Fixed [badge count](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq106)
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
@@ -714,7 +714,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### 1.2061 - 2023-04-10
 
 * Added filter rule groups (stop processing per group)
-* Added executing of filter rules by automation apps, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71)
+* Added executing of filter rules by automation apps, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq71)
 * Improved auto-discovery via DNS SRV records
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
@@ -774,7 +774,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Added weekend scheduling (receive-settings tab page)
 * Added reply template sorting options
 * Added display option to vertically align keywords, preview, and notes
-* Improved [OpenAI (ChatGPT) integration](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq190)
+* Improved [OpenAI (ChatGPT) integration](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq190)
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
@@ -782,7 +782,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2052 - 2023-03-08
 
-* Added experimental [OpenAI (ChatGPT) integration](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq190)
+* Added experimental [OpenAI (ChatGPT) integration](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq190)
 * Small improvements and minor bug fixes
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
@@ -910,7 +910,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2031 - 2023-01-24
 
-* Added [cloud sync](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq189) to synchronize accounts across devices
+* Added [cloud sync](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq189) to synchronize accounts across devices
 * Added "*Don't ask again*" for mailto links
 * Added inserting image links
 * Added menu item to check HTML syntax of a signature
@@ -1107,7 +1107,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 * Added OAuth for AOL (quick setup wizard)
 * Added change password button (main settings/extras section)
-* Added support for LanguageTool premium features, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq180)
+* Added support for LanguageTool premium features, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq180)
 * Added optional unified inbox navigation menu item (when the inboxes and unified folders diverge)
 * Added zipping attachments in the message composer (long press attached file)
 * Small improvements and minor bug fixes
@@ -1131,8 +1131,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.1996 - 2022-11-04
 
-* Added auto storing iCalendar invitations, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq186)
-* Added Jsoup selector conditions, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71)
+* Added auto storing iCalendar invitations, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186)
+* Added Jsoup selector conditions, [see the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq71)
 * Small improvements and minor bug fixes
 * Updated translations
 
@@ -1170,7 +1170,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.1990 - 2022-10-23
 
-* Added decryption of protected content, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq184)
+* Added decryption of protected content, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq184)
 * Fixed British English translation again
 * Small improvements and minor bug fixes
 * Updated translations
@@ -1188,7 +1188,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.1987 - 2022-10-21
 
-* Improved settings file encryption, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq36)
+* Improved settings file encryption, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq36)
 * Small improvements and minor bug fixes
 * Updated translations
 
@@ -1202,7 +1202,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.1985 - 2022-10-18
 
-* Added password protected content, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq184)
+* Added password protected content, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq184)
 * Small improvements and minor bug fixes
 * Updated translations
 
@@ -1227,21 +1227,21 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.1981 - 2022-10-13
 
-* Added AND (+) and NOT (-) search terms to on-device searching, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13)
-* Added filter conditions to match signed/encrypted messages, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71)
+* Added AND (+) and NOT (-) search terms to on-device searching, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq13)
+* Added filter conditions to match signed/encrypted messages, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq71)
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
 * Updated translations
 
 ### 1.1980 - 2022-10-10
 
-* Added *cc:*, *bcc:* search prefixes, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13)
+* Added *cc:*, *bcc:* search prefixes, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq13)
 * Small improvements and minor bug fixes
 * Updated translations
 
 ### 1.1979 - 2022-10-09
 
-* Added *from:*, *to:* and *keyword:* search prefixes, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13)
+* Added *from:*, *to:* and *keyword:* search prefixes, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq13)
 * Fixed orphan message files
 * Small improvements and minor bug fixes
 * Updated translations
