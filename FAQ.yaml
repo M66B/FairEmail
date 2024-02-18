@@ -1,8 +1,7 @@
 ---
 header-includes: |
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/ic_launcher-web.png">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
+    body { font-family: Arial, sans-serif; }
   </style>
 ---
