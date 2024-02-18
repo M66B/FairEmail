@@ -775,8 +775,8 @@ dependencies {
     // https://github.com/vsch/flexmark-java
     // https://mvnrepository.com/artifact/com.vladsch.flexmark/flexmark
     //implementation "com.vladsch.flexmark:flexmark:$flexmark_version"
-    implementation "com.vladsch.flexmark:flexmark-ext-tables:$flexmark_version"
-    implementation "com.vladsch.flexmark:flexmark-html2md-converter:$flexmark_version"
+    //implementation "com.vladsch.flexmark:flexmark-ext-tables:$flexmark_version"
+    //implementation "com.vladsch.flexmark:flexmark-html2md-converter:$flexmark_version"
 
     // // https://github.com/QuadFlask/colorpicker
     //implementation "com.github.QuadFlask:colorpicker:$colorpicker_version"

@@ -4025,12 +4025,6 @@ The subject of a received message can be edited, also on the email server, via t
 
 <br />
 
-*Markdown (1.2160+)*
-
-The message editor can be switched to markdown mode via the three-dots overflow menu.
-
-<br />
-
 <a name="faq126"></a>
 **(126) Can message previews be sent to my smartwatch?**
 

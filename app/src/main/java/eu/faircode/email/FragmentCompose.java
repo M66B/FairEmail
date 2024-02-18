@@ -136,12 +136,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
-import com.vladsch.flexmark.ext.gfm.strikethrough.StrikethroughExtension;
-import com.vladsch.flexmark.ext.tables.TablesExtension;
-import com.vladsch.flexmark.html.HtmlRenderer;
-import com.vladsch.flexmark.html2md.converter.FlexmarkHtmlConverter;
-import com.vladsch.flexmark.parser.Parser;
-import com.vladsch.flexmark.util.data.MutableDataSet;
 
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.cert.jcajce.JcaCertStore;
@@ -2027,7 +2021,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_markdown).setChecked(markdown);
-        menu.findItem(R.id.menu_markdown).setVisible(experiments);
+        menu.findItem(R.id.menu_markdown).setVisible(false && experiments);
 
         View image = media_bar.findViewById(R.id.menu_image);
         if (image != null)
@@ -6719,7 +6713,8 @@ public class FragmentCompose extends FragmentBase {
 
             boolean dirty = false;
             String body;
-            if (markdown ^ extras.getBoolean("markdown")) {
+            if (false && (markdown ^ extras.getBoolean("markdown"))) {
+/*
                 MutableDataSet options = new MutableDataSet();
                 options.set(Parser.EXTENSIONS, Arrays.asList(
                         TablesExtension.create(),
@@ -6736,6 +6731,7 @@ public class FragmentCompose extends FragmentBase {
 
                 if (markdown != extras.getBoolean("markdown"))
                     dirty = true;
+ */
             } else
                 body = HtmlHelper.toHtml(spanned, context);
 
@@ -7699,13 +7695,15 @@ public class FragmentCompose extends FragmentBase {
                 ref.remove();
 
                 Spanned spannedBody;
-                if (markdown) {
+                if (false && markdown) {
+/*
                     MutableDataSet options = new MutableDataSet();
                     // HtmlConverterCoreNodeRenderer
                     // options.set(FlexmarkHtmlConverter.LISTS_END_ON_DOUBLE_BLANK, false);
                     String text = FlexmarkHtmlConverter.builder(options).build().convert(doc.html());
                     text = text.replaceAll("\n.*<!-- -->\n\n", "");
                     spannedBody = new SpannableStringBuilder(text);
+ */
                 } else {
                     HtmlHelper.clearAnnotations(doc); // Legacy left-overs
 
