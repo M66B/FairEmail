@@ -4,9 +4,9 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### [Ypupiara](https://en.wikipedia.org/wiki/Ypupiara)
+### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### Next version
+### 1.2160 - 2024-02-19
 
 * Added showing folders in the accounts start screen
 * Added automatic deletion of old local contacts
@@ -15,6 +15,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Added long press archive / bottom action bar to move conversations
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
+
+### [Ypupiara](https://en.wikipedia.org/wiki/Ypupiara)
 
 ### 1.2159 - 2024-02-15
 
