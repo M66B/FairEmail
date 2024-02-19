@@ -160,8 +160,6 @@ import org.bouncycastle.operator.RuntimeOperatorException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.bouncycastle.util.Store;
-import org.commonmark.node.Node;
-import org.commonmark.renderer.html.HtmlRenderer;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -6718,16 +6716,8 @@ public class FragmentCompose extends FragmentBase {
             boolean dirty = false;
             String body;
             if (markdown ^ extras.getBoolean("markdown")) {
-                // Markdown to HTML
                 String text = spanned.toString().replace('\u00a0', ' ');
-
-                Markwon markwon = Markwon.builder(context)
-                        .usePlugin(HtmlPlugin.create())
-                        .build();
-                Node document = markwon.parse(text);
-
-                HtmlRenderer renderer = HtmlRenderer.builder().build();
-                String html = renderer.render(document);
+                String html = Markdown.toHtml(text);
 
                 Document doc = JsoupEx.parse(html);
                 doc.body().attr("markdown", Boolean.toString(markdown));
@@ -7699,8 +7689,8 @@ public class FragmentCompose extends FragmentBase {
 
                 Spanned spannedBody;
                 if (markdown) {
-                    // TODO: HTML to Markdown
-                    spannedBody = new SpannableStringBuilder(doc.html());
+                    String md = Markdown.fromHtml(doc);
+                    spannedBody = new SpannableStringBuilder(md);
                 } else {
                     HtmlHelper.clearAnnotations(doc); // Legacy left-overs
 

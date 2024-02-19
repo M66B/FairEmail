@@ -69,8 +69,6 @@ import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.commonmark.parser.Parser;
-import org.commonmark.renderer.html.HtmlRenderer;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -3995,13 +3993,10 @@ public class MessageHelper {
                     }
                 } else if (h.isMarkdown()) {
                     try {
-                        Parser p = Parser.builder().build();
-                        org.commonmark.node.Node d = p.parse(result);
-                        HtmlRenderer r = HtmlRenderer.builder().build();
-                        result = r.render(d);
+                        result = Markdown.toHtml(result);
                     } catch (Throwable ex) {
                         Log.e(ex);
-                        result = HtmlHelper.formatPlainText(Log.formatThrowable(ex));
+                        result = HtmlHelper.formatPlainText(result);
                     }
                 } else if (h.isPatch()) {
                     result = "<hr>" +
