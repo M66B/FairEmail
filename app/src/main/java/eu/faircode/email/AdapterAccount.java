@@ -84,6 +84,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
+    private int dp24;
     private int colorStripeWidth;
     private int colorWarning;
     private int colorUnread;
@@ -197,6 +198,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         }
 
         private void bindTo(TupleAccountFolder account) {
+            int start = (account.folderName == null ? 0 : dp24);
+            view.setPaddingRelative(start, 0, 0, 0);
+
             if (account.folderName == null) {
                 view.setActivated(account.tbd != null);
                 view.setAlpha(account.synchronize ? 1.0f : Helper.LOW_LIGHT);
@@ -862,6 +866,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
+
+        this.dp24 = Helper.dp2pixels(context, 24);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
