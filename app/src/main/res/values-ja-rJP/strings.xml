@@ -372,7 +372,7 @@
     <string name="title_advanced_suggest_received">メッセージを受信したことのあるアドレスを候補に表示する</string>
     <string name="title_advanced_suggest_frequently">候補に表示するアドレスを使用頻度で並べ替える</string>
     <string name="title_advanced_suggest_account">表示される候補を現在のアカウントに関連するものに制限する</string>
-    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">作成または最後の使用から次の期間より経過したローカルの連絡先を自動で削除する:</string>
+    <string name="title_advanced_auto_delete_local">作成または最後の使用から次の期間より経過したローカルの連絡先を自動で削除する:</string>
     <string name="title_advanced_alt_re_fwd">返信/転送のプレフィックスを変更する</string>
     <string name="title_advanced_send_chips">アドレスバルーンを表示する</string>
     <string name="title_advanced_send_nav_color">下部のボタンアクションバーをユーザー ID の色にする</string>

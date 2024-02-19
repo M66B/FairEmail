@@ -384,7 +384,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_suggest_received">Alınmış iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_frequently">Önerilen adresleri kullanım sıklığına göre sıralayın</string>
     <string name="title_advanced_suggest_account">Önerileri mevcut hesapla sınırla</string>
-    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Daha eski ve daha az kullanılan yerel kişileri otomatik olarak silin:</string>
+    <string name="title_advanced_auto_delete_local">Daha eski ve daha az kullanılan yerel kişileri otomatik olarak silin:</string>
     <string name="title_advanced_alt_re_fwd">Alternatif yanıt/iletme öneki</string>
     <string name="title_advanced_send_chips">Adres balonlarını göster</string>
     <string name="title_advanced_send_nav_color">Alttaki eylem çubuğu için kimlik rengini kullanın</string>

@@ -378,7 +378,7 @@
     <string name="title_advanced_suggest_received">Soovita saadud kirjadest leitud aadresse</string>
     <string name="title_advanced_suggest_frequently">Soovitatud aadressite sortimine kasutussageduse järgi</string>
     <string name="title_advanced_suggest_account">Soovituste piiramine hetke kontoga</string>
-    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Automaatkustuta kohalikud kontaktid, mis on vanemad kui ja kasutatud vähem kui:</string>
+    <string name="title_advanced_auto_delete_local">Automaatkustuta kohalikud kontaktid, mis on vanemad kui ja kasutatud vähem kui:</string>
     <string name="title_advanced_alt_re_fwd">Alternatiivne vasta/edasta eesliides</string>
     <string name="title_advanced_send_chips">Näita aadressimulli</string>
     <string name="title_advanced_send_nav_color">Kasuta identiteedi värvi alumisel tegevuste ribal</string>

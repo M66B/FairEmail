@@ -384,6 +384,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_suggest_received">Adressen fûn yn ûntfangen berjochten foarstelle</string>
     <string name="title_advanced_suggest_frequently">Sortearje foarstelle adressen op gebrûksfrekwinsje</string>
     <string name="title_advanced_suggest_account">Suggestjes beheine ta aktuele account</string>
+    <string name="title_advanced_auto_delete_local">Automatysk lokale kontakten fuortsmite âlder as en minder brûkt as:</string>
     <string name="title_advanced_alt_re_fwd">Alternatyf antwurd/trochstjoere foarfoechsel</string>
     <string name="title_advanced_send_chips">Adresballonnen toane</string>
     <string name="title_advanced_send_nav_color">Brûk de identiteitskleur foar de ûnderste aksjebalke</string>
@@ -625,6 +626,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_auto_block_sender">By it rapportearjen fan net-winske de ôfstjoerder automatysk blokkearje</string>
     <string name="title_advanced_auto_hide_answer">Antwurdknop automatysk ferstopje by skowen</string>
     <string name="title_advanced_swipe_reply">Fei útklapte berjochten nei rjochts om te beäntwurdzjen</string>
+    <string name="title_advanced_move_thread_all">By it ferpleatsen fan selektearre petearen, alle berjochten ferpleatse</string>
     <string name="title_advanced_move_thread_sent">Wannear’t in petear ferpleatst wurdt, ek ferstjoerde berjochten ferpleatse</string>
     <string name="title_advanced_default_snooze">Standert slommerdoer/fertragingstiid</string>
     <string name="title_advanced_default_folder">Standert map selektearje</string>
@@ -1062,6 +1064,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_edit_rules">Rigel bewurkje</string>
     <string name="title_execute_rules">Rigels útfiere</string>
     <string name="title_export_messages">Berjochten eksportearje</string>
+    <string name="title_import_messages">Berjochten ymportearje</string>
     <string name="title_create_channel">Meldingskanaal oanmeitsje</string>
     <string name="title_edit_channel">Meldingskanaal bewurkje</string>
     <string name="title_delete_channel">Meldingskanaal fuortsmite</string>

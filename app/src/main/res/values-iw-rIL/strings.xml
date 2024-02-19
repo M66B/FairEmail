@@ -414,6 +414,7 @@
     <string name="title_advanced_suggest_received">להציע כתובות שנמצאו בהודעות שהתקבלו</string>
     <string name="title_advanced_suggest_frequently">סידור הכתובות המוצעות לפי תדירות השימוש</string>
     <string name="title_advanced_suggest_account">הגבלת הצעות לחשבון הנוכחי</string>
+    <string name="title_advanced_auto_delete_local">למחוק אוטומטית את אנשי הקשר המקומיים שהם ותיקים ופחות בשימוש עד כדי כך:</string>
     <string name="title_advanced_alt_re_fwd">קידומת חלופית לתגובה/העברה</string>
     <string name="title_advanced_send_chips">הצגת בועיות כתובות</string>
     <string name="title_advanced_send_nav_color">להשתמש בצבע הזהות לסרגל הפעולות התחתון</string>

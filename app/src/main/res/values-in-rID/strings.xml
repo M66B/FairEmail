@@ -83,6 +83,7 @@
     <string name="title_blocked_senders">Pengirim yang diblokir</string>
     <string name="title_unblock_all">Buka semua blokir</string>
     <string name="title_unblock_all_remark">Ini akan mengatur ulang semua daftar dan opsi yang dapat mengakibatkan pemblokiran pengirim</string>
+    <string name="title_unblock_all_hint">Perhatikan bahwa aplikasi ini tidak dapat mencegah server email memindahkan pesan ke folder spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="other">Blokir pengirim %1$s pesan?</item>
     </plurals>
@@ -369,6 +370,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_suggest_received">Sarankan alamat yang ditemukan dalam pesan yang diterima</string>
     <string name="title_advanced_suggest_frequently">Urutkan alamat yang disarankan pada frekuensi penggunaan</string>
     <string name="title_advanced_suggest_account">Batasi saran untuk akun saat ini</string>
+    <string name="title_advanced_auto_delete_local">Secara otomatis menghapus kontak lokal yang lebih tua dari dan digunakan lebih sedikit dari:</string>
     <string name="title_advanced_alt_re_fwd">Awalan balasan/meneruskan cadangan</string>
     <string name="title_advanced_send_chips">Tampilkan bubbles alamat</string>
     <string name="title_advanced_send_nav_color">Gunakan warna penanda untuk bilah tindakan bagian bawah</string>
@@ -610,6 +612,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_auto_block_sender">Otomatis blok pengirim saat melaporkan spam</string>
     <string name="title_advanced_auto_hide_answer">Otomatis sembunyikan tombol jawab saat scroll</string>
     <string name="title_advanced_swipe_reply">Usap ke kanan pesan yang dibentangkan untuk balas</string>
+    <string name="title_advanced_move_thread_all">Saat memindahkan percakapan yang dipilih, pindahkan semua pesan</string>
     <string name="title_advanced_move_thread_sent">Saat memindahkan percakapan, pindahkan juga pesan terkirim</string>
     <string name="title_advanced_default_snooze">Waktu tunda/jeda bawaan</string>
     <string name="title_advanced_default_folder">Pilih folder default</string>
@@ -1047,6 +1050,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_edit_rules">Ubah aturan</string>
     <string name="title_execute_rules">Menjalankan peraturan</string>
     <string name="title_export_messages">Ekspor pesan</string>
+    <string name="title_import_messages">Impor pesan</string>
     <string name="title_create_channel">Buat saluran pemberitahuan / notifikasi</string>
     <string name="title_edit_channel">Ubah saluran pemberitahuan / notifikasi</string>
     <string name="title_delete_channel">Hapus saluran pemberitahuan / notifikasi</string>

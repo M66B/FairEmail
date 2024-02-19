@@ -399,6 +399,7 @@
     <string name="title_advanced_suggest_received">Sugerează adrese găsite în mesajele primite</string>
     <string name="title_advanced_suggest_frequently">Sortați adresele sugerate în funcție de frecvența de utilizare</string>
     <string name="title_advanced_suggest_account">Limitează sugestiile la contul curent</string>
+    <string name="title_advanced_auto_delete_local">Șterge automat contactele locale mai vechi sau cele utilizate mai puțin de:</string>
     <string name="title_advanced_alt_re_fwd">Prefix alternativ de răspuns/întârziere</string>
     <string name="title_advanced_send_chips">Afișați bule de adrese</string>
     <string name="title_advanced_send_nav_color">Utilizați culoarea de identitate pentru bara de acțiune de jos</string>
@@ -640,6 +641,7 @@
     <string name="title_advanced_auto_block_sender">Blochează automat expeditorul când raportezi spam-ul</string>
     <string name="title_advanced_auto_hide_answer">Ascunde automat butonul de răspuns la derulare</string>
     <string name="title_advanced_swipe_reply">Glisați mesajele extinse spre dreapta pentru a răspunde</string>
+    <string name="title_advanced_move_thread_all">La mutarea conversațiilor selectate, mutați toate mesajele</string>
     <string name="title_advanced_move_thread_sent">Atunci când mutați o conversație, mutați și mesajele trimise</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare/prelungire</string>
     <string name="title_advanced_default_folder">Selectați directorul implicit</string>
@@ -1079,6 +1081,7 @@
     <string name="title_edit_rules">Editare reguli</string>
     <string name="title_execute_rules">Execută regulile</string>
     <string name="title_export_messages">Exportă mesajele</string>
+    <string name="title_import_messages">Importă mesaje</string>
     <string name="title_create_channel">Creare canal de notificare</string>
     <string name="title_edit_channel">Editare canal de notificare</string>
     <string name="title_delete_channel">Șterge canal de notificare</string>

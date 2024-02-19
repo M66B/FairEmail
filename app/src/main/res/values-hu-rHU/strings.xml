@@ -384,7 +384,7 @@
     <string name="title_advanced_suggest_received">Fogadott üzenetekben szereplő címek felajánlása</string>
     <string name="title_advanced_suggest_frequently">A felajánlott címek rendezése gyakoriság alapján</string>
     <string name="title_advanced_suggest_account">Csak az aktuális fiókhoz javasoljon</string>
-    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Automatikusan törölje le a helyi kapcsolatokat, ha régebbiek mint, illetve ritkábban használták, mint:</string>
+    <string name="title_advanced_auto_delete_local">Automatikusan törölje le a helyi kapcsolatokat, ha régebbiek mint, illetve ritkábban használták, mint:</string>
     <string name="title_advanced_alt_re_fwd">Alternatív válasz/továbbítás előtag</string>
     <string name="title_advanced_send_chips">Cím buborékok megjelenítése</string>
     <string name="title_advanced_send_nav_color">Az identitás színét alkalmazza az alsó műveletek sávra</string>

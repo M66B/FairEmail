@@ -386,7 +386,7 @@
     <string name="title_advanced_suggest_received">Alınan mesajlarda tapılan ünvanları təklif et</string>
     <string name="title_advanced_suggest_frequently">Təklif edilən ünvanları istifadə tezliyinə görə sırala</string>
     <string name="title_advanced_suggest_account">Təklifləri hazırkı hesabla məhdudlaşdır</string>
-    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Bu tarixdən daha köhnə və daha az istifadə edilən daxili kontaktları avtomatik sil:</string>
+    <string name="title_advanced_auto_delete_local">Bu tarixdən daha köhnə və daha az istifadə edilən daxili kontaktları avtomatik sil:</string>
     <string name="title_advanced_alt_re_fwd">Alternativ cavab/yönləndirmə prefiksi</string>
     <string name="title_advanced_send_chips">Ünvan şarlarını göstər</string>
     <string name="title_advanced_send_nav_color">Alt əməliyyat sətri üçün kimlik rəngini istifadə et</string>

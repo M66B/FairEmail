@@ -385,6 +385,7 @@
     <string name="title_advanced_suggest_received">Sugerir direcciones encontradas en mensajes recibidos</string>
     <string name="title_advanced_suggest_frequently">Ordenar direcciones sugeridas por frecuencia de uso</string>
     <string name="title_advanced_suggest_account">Limitar sugerencias a la cuenta actual</string>
+    <string name="title_advanced_auto_delete_local">Eliminar automáticamente los contactos locales más antiguos que y utilizados menos de:</string>
     <string name="title_advanced_alt_re_fwd">Prefijo alternativo de respuesta/reenvío</string>
     <string name="title_advanced_send_chips">Mostrar burbujas de dirección</string>
     <string name="title_advanced_send_nav_color">Usar el color de identidad para la barra de acción inferior</string>

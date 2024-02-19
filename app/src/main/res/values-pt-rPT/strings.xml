@@ -387,7 +387,7 @@
     <string name="title_advanced_suggest_received">Sugerir endereços encontrados nas mensagens recebidas</string>
     <string name="title_advanced_suggest_frequently">Ordenar endereços sugeridos por frequência de uso</string>
     <string name="title_advanced_suggest_account">Limitar sugestões à conta atual</string>
-    <string name="title_advanced_auto_delete_local" comment="title_advanced_auto_delete_local&#10;Title for options in the send-settings tab page to configure auto-delete of old and less frequently used local contacts.">Apagar automaticamente contactos locais mais antigos e menos usados que:</string>
+    <string name="title_advanced_auto_delete_local">Apagar automaticamente contactos locais mais antigos e menos usados que:</string>
     <string name="title_advanced_alt_re_fwd">Prefixo alternativo de resposta/encaminhamento</string>
     <string name="title_advanced_send_chips">Mostrar endereços separados em balões</string>
     <string name="title_advanced_send_nav_color">Use a cor de identidade para a barra de ação inferior</string>
