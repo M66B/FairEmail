@@ -160,6 +160,8 @@ import org.bouncycastle.operator.RuntimeOperatorException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.bouncycastle.util.Store;
+import org.commonmark.node.Node;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -230,6 +232,7 @@ import biweekly.property.Organizer;
 import io.noties.markwon.Markwon;
 import io.noties.markwon.editor.MarkwonEditor;
 import io.noties.markwon.editor.MarkwonEditorTextWatcher;
+import io.noties.markwon.html.HtmlPlugin;
 
 public class FragmentCompose extends FragmentBase {
     private enum State {NONE, LOADING, LOADED}
@@ -2021,7 +2024,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_markdown).setChecked(markdown);
-        menu.findItem(R.id.menu_markdown).setVisible(false && experiments);
+        menu.findItem(R.id.menu_markdown).setVisible(BuildConfig.DEBUG && experiments);
 
         View image = media_bar.findViewById(R.id.menu_image);
         if (image != null)
@@ -6205,7 +6208,8 @@ public class FragmentCompose extends FragmentBase {
                         Elements ref = doc.select("div[fairemail=reference]");
                         ref.remove();
 
-                        boolean markdown = Boolean.parseBoolean(doc.body().attr("markdown"));
+                        boolean markdown = (BuildConfig.DEBUG &&
+                                Boolean.parseBoolean(doc.body().attr("markdown")));
                         args.putBoolean("markdown", markdown);
 
                         File refFile = data.draft.getRefFile(context);
@@ -6713,17 +6717,17 @@ public class FragmentCompose extends FragmentBase {
 
             boolean dirty = false;
             String body;
-            if (false && (markdown ^ extras.getBoolean("markdown"))) {
-/*
-                MutableDataSet options = new MutableDataSet();
-                options.set(Parser.EXTENSIONS, Arrays.asList(
-                        TablesExtension.create(),
-                        StrikethroughExtension.create()));
-                Parser parser = Parser.builder(options).build();
-                HtmlRenderer renderer = HtmlRenderer.builder(options).build();
-
+            if (markdown ^ extras.getBoolean("markdown")) {
+                // Markdown to HTML
                 String text = spanned.toString().replace('\u00a0', ' ');
-                String html = renderer.render(parser.parse(text));
+
+                Markwon markwon = Markwon.builder(context)
+                        .usePlugin(HtmlPlugin.create())
+                        .build();
+                Node document = markwon.parse(text);
+
+                HtmlRenderer renderer = HtmlRenderer.builder().build();
+                String html = renderer.render(document);
 
                 Document doc = JsoupEx.parse(html);
                 doc.body().attr("markdown", Boolean.toString(markdown));
@@ -6731,7 +6735,6 @@ public class FragmentCompose extends FragmentBase {
 
                 if (markdown != extras.getBoolean("markdown"))
                     dirty = true;
- */
             } else
                 body = HtmlHelper.toHtml(spanned, context);
 
@@ -7695,15 +7698,9 @@ public class FragmentCompose extends FragmentBase {
                 ref.remove();
 
                 Spanned spannedBody;
-                if (false && markdown) {
-/*
-                    MutableDataSet options = new MutableDataSet();
-                    // HtmlConverterCoreNodeRenderer
-                    // options.set(FlexmarkHtmlConverter.LISTS_END_ON_DOUBLE_BLANK, false);
-                    String text = FlexmarkHtmlConverter.builder(options).build().convert(doc.html());
-                    text = text.replaceAll("\n.*<!-- -->\n\n", "");
-                    spannedBody = new SpannableStringBuilder(text);
- */
+                if (markdown) {
+                    // TODO: HTML to Markdown
+                    spannedBody = new SpannableStringBuilder(doc.html());
                 } else {
                     HtmlHelper.clearAnnotations(doc); // Legacy left-overs
 
