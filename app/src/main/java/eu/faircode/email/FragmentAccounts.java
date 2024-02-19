@@ -58,12 +58,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 public class FragmentAccounts extends FragmentBase {
@@ -72,6 +69,7 @@ public class FragmentAccounts extends FragmentBase {
     private boolean cards;
     private boolean dividers;
     private boolean compact;
+    private boolean show_folders;
 
     private ViewGroup view;
     private SwipeRefreshLayout swipeRefresh;
@@ -97,6 +95,7 @@ public class FragmentAccounts extends FragmentBase {
         cards = prefs.getBoolean("cards", true);
         dividers = prefs.getBoolean("dividers", true);
         compact = prefs.getBoolean("compact_accounts", false) && !settings;
+        show_folders = prefs.getBoolean("folders_accounts", true) && !settings;
     }
 
     @Override
@@ -222,7 +221,7 @@ public class FragmentAccounts extends FragmentBase {
         };
         rvAccount.addItemDecoration(categoryDecorator);
 
-        adapter = new AdapterAccount(this, settings, compact);
+        adapter = new AdapterAccount(this, settings, compact, show_folders);
         rvAccount.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -359,6 +358,8 @@ public class FragmentAccounts extends FragmentBase {
         menu.findItem(R.id.menu_outbox).setVisible(!settings);
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_compact).setVisible(!settings);
+        menu.findItem(R.id.menu_show_folders).setChecked(show_folders);
+        menu.findItem(R.id.menu_show_folders).setVisible(!settings);
         menu.findItem(R.id.menu_theme).setVisible(!settings);
         menu.findItem(R.id.menu_force_sync).setVisible(!settings);
 
@@ -379,6 +380,9 @@ public class FragmentAccounts extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_compact) {
             onMenuCompact();
+            return true;
+        } else if (itemId == R.id.menu_show_folders) {
+            onMenuShowFolders();
             return true;
         } else if (itemId == R.id.menu_theme) {
             onMenuTheme();
@@ -431,6 +435,16 @@ public class FragmentAccounts extends FragmentBase {
                 }
             }
         });
+    }
+
+    private void onMenuShowFolders() {
+        show_folders = !show_folders;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("folders_accounts", show_folders).apply();
+
+        invalidateOptionsMenu();
+        adapter.setShowFolders(show_folders);
     }
 
     private void onMenuTheme() {
