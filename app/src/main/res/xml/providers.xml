@@ -2264,4 +2264,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="M-net"
+        domain="mnet-mail\\.de,mnet-online\\.de"
+        link="https://www.m-net.de/hilfe-service/anleitungen/webmailer/">
+        <imap
+            host="imap.mnet-online.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.mnet-online.de"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
