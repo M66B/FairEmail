@@ -496,6 +496,19 @@ public class ConnectionHelper {
         return false;
     }
 
+    static boolean isAborted(Throwable ex) {
+        while (ex != null) {
+            String msg = ex.getMessage();
+            if (msg != null &&
+                    (msg.contains("Connection reset by peer") ||
+                            msg.contains("Connection closed by peer")))
+                return true;
+            ex = ex.getCause();
+        }
+
+        return false;
+    }
+
     static boolean isMaxConnections(Throwable ex) {
         while (ex != null) {
             if (isMaxConnections(ex.getMessage()))

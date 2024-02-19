@@ -37,6 +37,7 @@ import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailSSLProvider;
+import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
@@ -591,6 +592,9 @@ public class EmailService implements AutoCloseable {
              */
             if (ex.getMessage() != null && ex.getMessage().contains("Command Error. 10"))
                 throw new AuthenticationFailedException(context.getString(R.string.title_service_error10), ex);
+
+            if (ConnectionHelper.isAborted(ex))
+                throw new MessagingException("The server or network actively aborted the connection", ex);
 
             if (purpose == PURPOSE_CHECK) {
                 if (port == 995 && !("pop3".equals(protocol) || "pop3s".equals(protocol)))
