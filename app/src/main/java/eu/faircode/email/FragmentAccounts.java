@@ -95,7 +95,7 @@ public class FragmentAccounts extends FragmentBase {
         cards = prefs.getBoolean("cards", true);
         dividers = prefs.getBoolean("dividers", true);
         compact = prefs.getBoolean("compact_accounts", false) && !settings;
-        show_folders = prefs.getBoolean("folders_accounts", true) && !settings;
+        show_folders = prefs.getBoolean("folders_accounts", false) && !settings;
     }
 
     @Override
