@@ -69,7 +69,6 @@ import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
-import com.sun.mail.imap.IMAPFolder;
 
 import org.json.JSONObject;
 
@@ -81,8 +80,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
-import javax.mail.Folder;
 
 public class FragmentAccount extends FragmentBase {
     private ViewGroup view;
@@ -834,31 +831,11 @@ public class FragmentAccount extends FragmentBase {
                             iservice.hasCapability("UTF8=ACCEPT") ||
                                     iservice.hasCapability("UTF8=ONLY");
 
-                    for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
-                        // Check folder attributes
-                        String fullName = ifolder.getFullName();
-                        String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                        Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs));
-                        String type = EntityFolder.getType(attrs, fullName, true);
-
-                        boolean selectable = true;
-                        for (String attr : attrs)
-                            if (attr.equalsIgnoreCase("\\NoSelect")) {
-                                selectable = false;
-                                break;
-                            }
-                        selectable = selectable && ((ifolder.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
-
-                        if (type != null && selectable) {
-                            // Create entry
-                            EntityFolder folder = db.folder().getFolderByName(id, fullName);
-                            if (folder == null)
-                                folder = new EntityFolder(fullName, type);
-                            result.folders.add(folder);
-
-                            Log.i(folder.name + " id=" + folder.id +
-                                    " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
-                        }
+                    for (EntityFolder f : iservice.getFolders()) {
+                        EntityFolder folder = db.folder().getFolderByName(id, f.name);
+                        if (folder == null)
+                            folder = new EntityFolder(f.name, f.type);
+                        result.folders.add(folder);
                     }
 
                     EntityFolder.guessTypes(result.folders);
@@ -1259,24 +1236,17 @@ public class FragmentAccount extends FragmentBase {
                                 user, password,
                                 certificate, fingerprint);
 
-                        for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
-                            // Check folder attributes
-                            String fullName = ifolder.getFullName();
-                            String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                            Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs));
-                            String type = EntityFolder.getType(attrs, fullName, true);
-
-                            if (EntityFolder.INBOX.equals(type)) {
+                        for (EntityFolder f : iservice.getFolders())
+                            if (EntityFolder.INBOX.equals(f.type)) {
                                 inbox = new EntityFolder();
-                                inbox.name = fullName;
-                                inbox.type = type;
+                                inbox.name = f.name;
+                                inbox.type = f.type;
                                 inbox.synchronize = true;
                                 inbox.unified = true;
                                 inbox.notify = true;
                                 inbox.sync_days = EntityFolder.DEFAULT_SYNC;
                                 inbox.keep_days = EntityFolder.DEFAULT_KEEP;
                             }
-                        }
                     }
                 }
 
