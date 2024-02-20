@@ -19,16 +19,29 @@ package eu.faircode.email;
     Copyright 2018-2024 by Marcel Bokhorst (M66B)
 */
 
+import org.commonmark.Extension;
+import org.commonmark.ext.gfm.strikethrough.StrikethroughExtension;
+import org.commonmark.ext.gfm.tables.TablesExtension;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.jsoup.nodes.Document;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Markdown {
     static String toHtml(String markdown) {
-        Parser p = Parser.builder().build();
+        List<Extension> extensions = Arrays.asList(
+                TablesExtension.create(),
+                StrikethroughExtension.create());
+        Parser p = Parser.builder()
+                .extensions(extensions)
+                .build();
         Node d = p.parse(markdown);
-        HtmlRenderer r = HtmlRenderer.builder().build();
+        HtmlRenderer r = HtmlRenderer.builder()
+                .extensions(extensions)
+                .build();
         return r.render(d);
     }
 
