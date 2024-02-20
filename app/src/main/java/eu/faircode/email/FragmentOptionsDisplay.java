@@ -1552,7 +1552,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swShadowHighlight.setEnabled(swShadow.isEnabled() && swShadow.isChecked());
             swTabularDividers.setChecked(prefs.getBoolean("dividers", true));
             swTabularDividers.setEnabled(!swCards.isChecked());
-            swTabularUnreadBg.setChecked(prefs.getBoolean("tabular_unread_bg", false));
+            swTabularUnreadBg.setChecked(prefs.getBoolean("tabular_unread_bg", true));
             swTabularUnreadBg.setEnabled(!swCards.isChecked());
             swPortrait2.setChecked(prefs.getBoolean("portrait2", false));
             swPortrait2c.setChecked(prefs.getBoolean("portrait2c", false) && !swPortrait2.isChecked());

@@ -851,6 +851,9 @@ public class ApplicationEx extends Application
             // https://support.google.com/faqs/answer/6346016
             if (!prefs.contains("cert_strict"))
                 editor.putBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE);
+        } else if (version < 2162) {
+            if (!BuildConfig.DEBUG)
+                editor.putBoolean("tabular_unread_bg", false);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
