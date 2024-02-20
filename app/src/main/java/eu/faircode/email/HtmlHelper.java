@@ -540,7 +540,7 @@ public class HtmlHelper {
             sheets = parseStyles(parsed.head().select("style"));
 
         Safelist safelist = Safelist.relaxed()
-                .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt", "mark", "address")
+                .addTags("hr", "abbr", "big", "font", "dfn", "ins", "del", "s", "tt", "mark", "address")
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
                 .addAttributes("span", "dir")
@@ -3887,12 +3887,15 @@ public class HtmlHelper {
                             case "s":
                             case "del":
                             case "strike":
+                                // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
                                 setSpan(ssb, new StrikethroughSpan(), start, ssb.length());
                                 break;
                             case "title":
                                 // Signature, etc
                                 break;
                             case "u":
+                            case "ins":
+                                // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
                                 setSpan(ssb, new UnderlineSpan(), start, ssb.length());
                                 break;
                             default:
