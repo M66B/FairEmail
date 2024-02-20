@@ -529,8 +529,8 @@ public abstract class DB extends RoomDatabase {
                                     "account",
                                     SQLiteDatabase.CONFLICT_ABORT,
                                     cv,
-                                    "host = ?",
-                                    new Object[]{"mail.m-online.net"});
+                                    "host = ? AND (port = ? OR port = ?)",
+                                    new Object[]{"mail.m-online.net", 143, 993});
                             if (rows > 0)
                                 EntityLog.log(context, "M-net updated");
                         } catch (Throwable ex) {
