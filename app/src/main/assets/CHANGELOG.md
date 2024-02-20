@@ -9,11 +9,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### Next version
 
 * Added [experimental](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq125) support for composing messages with [Markdown](https://en.wikipedia.org/wiki/Markdown)
+* Added option to enable showing folders on the accounts start screen (three-dots overflow menu)
 * Small improvements and minor bug fixes
 
 ### 1.2160 - 2024-02-19
 
-* Added showing folders in the accounts start screen
+* Added showing folders on the accounts start screen
 * Added automatic deletion of old local contacts
 * Added importing of mbox files into POP3 folders
 * Added long press links to open confirmation dialog box
