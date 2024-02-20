@@ -3,6 +3,7 @@ package eu.faircode.email;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 import android.app.ActivityManager;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -521,6 +522,17 @@ public abstract class DB extends RoomDatabase {
                                 dropTriggers(db);
 
                             createTriggers(db);
+
+                            ContentValues cv = new ContentValues();
+                            cv.put("host", "imap.mnet-online.de");
+                            int rows = db.update(
+                                    "account",
+                                    SQLiteDatabase.CONFLICT_ABORT,
+                                    cv,
+                                    "host = ?",
+                                    new Object[]{"mail.m-online.net"});
+                            if (rows > 0)
+                                EntityLog.log(context, "M-net updated");
                         } catch (Throwable ex) {
                             /*
                                 at eu.faircode.email.DB$6.onOpen(DB.java:522)
