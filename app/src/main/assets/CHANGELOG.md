@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### Next version
+### 1.2161 - 2024-02-20
 
 * Added [experimental](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq125) support for composing messages with [Markdown](https://en.wikipedia.org/wiki/Markdown)
 * Added option to enable showing folders on the accounts start screen (three-dots overflow menu)
