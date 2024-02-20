@@ -6206,8 +6206,7 @@ public class FragmentCompose extends FragmentBase {
                         Elements ref = doc.select("div[fairemail=reference]");
                         ref.remove();
 
-                        boolean markdown = (BuildConfig.DEBUG &&
-                                Boolean.parseBoolean(doc.body().attr("markdown")));
+                        boolean markdown = Boolean.parseBoolean(doc.body().attr("markdown"));
                         args.putBoolean("markdown", markdown);
 
                         File refFile = data.draft.getRefFile(context);
