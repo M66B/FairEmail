@@ -19,13 +19,14 @@ package eu.faircode.email;
     Copyright 2018-2024 by Marcel Bokhorst (M66B)
 */
 
+import com.vladsch.flexmark.html2md.converter.FlexmarkHtmlConverter;
+
 import org.commonmark.Extension;
 import org.commonmark.ext.gfm.strikethrough.StrikethroughExtension;
 import org.commonmark.ext.gfm.tables.TablesExtension;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
-import org.jsoup.nodes.Document;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,7 +48,10 @@ public class Markdown {
     }
 
     static String fromHtml(String html) {
-        // TODO: HTML to Markdown
-        throw new IllegalArgumentException("Not implemented");
+        // https://github.com/vsch/flexmark-java/wiki/Extensions#html-to-markdown
+        String markdown = FlexmarkHtmlConverter.builder()
+                .build()
+                .convert(html);
+        return markdown.replaceAll("\n\n\\s+<!-- -->\n", "");
     }
 }
