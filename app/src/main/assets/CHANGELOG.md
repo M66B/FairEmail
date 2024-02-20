@@ -6,6 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
+### Next version
+
+* Added *experimental* support for composing messages with [Markdown](https://en.wikipedia.org/wiki/Markdown)
+* Small improvements and minor bug fixes
+
 ### 1.2160 - 2024-02-19
 
 * Added showing folders in the accounts start screen
