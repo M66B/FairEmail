@@ -3730,8 +3730,14 @@ public class HtmlHelper {
                             case "h4":
                             case "h5":
                             case "h6":
-                                // Font size is already set
                                 setSpan(ssb, new StyleSpan(Typeface.BOLD), start, ssb.length());
+                                int hsize = tag.charAt(1) - '0';
+                                if (hsize == 1)
+                                    setSpan(ssb, new RelativeSizeSpan(FONT_XLARGE), start, ssb.length());
+                                else if (hsize == 2)
+                                    setSpan(ssb, new RelativeSizeSpan(FONT_LARGE), start, ssb.length());
+                                else if (hsize > 3)
+                                    setSpan(ssb, new RelativeSizeSpan(FONT_SMALL), start, ssb.length());
                                 break;
                             case "hr":
                                 // Suppress successive lines
