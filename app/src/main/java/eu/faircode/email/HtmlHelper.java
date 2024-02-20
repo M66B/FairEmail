@@ -540,12 +540,14 @@ public class HtmlHelper {
             sheets = parseStyles(parsed.head().select("style"));
 
         Safelist safelist = Safelist.relaxed()
-                .addTags("hr", "abbr", "big", "font", "dfn", "ins", "del", "s", "tt", "mark", "address")
+                .addTags("hr", "abbr", "big", "font", "dfn", "ins", "del", "s", "tt", "mark", "address", "input")
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
                 .addAttributes("span", "dir")
                 .addAttributes("li", "dir")
                 .addAttributes("div", "x-plain")
+                .addAttributes("input", "type")
+                .addAttributes("input", "checked")
                 .removeTags("col", "colgroup")
                 .removeTags("thead", "tbody", "tfoot")
                 .addAttributes("td", "width")
@@ -3780,6 +3782,12 @@ public class HtmlHelper {
                                     ssb.insert(start, "\uFFFC"); // Object replacement character
                                     setSpan(ssb, new ImageSpanEx(d, element), start, start + 1);
                                 }
+                                break;
+                            case "input":
+                                String type = element.attr("type");
+                                boolean checked = element.hasAttr("checked");
+                                if ("checkbox".equalsIgnoreCase(type))
+                                    ssb.append(checked ? "\u2611" : "\u2610");
                                 break;
                             case "li":
                                 if (start == 0 || ssb.charAt(start - 1) != '\n')
