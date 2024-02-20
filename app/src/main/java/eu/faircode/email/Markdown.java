@@ -20,6 +20,8 @@ package eu.faircode.email;
 */
 
 import com.vladsch.flexmark.html2md.converter.FlexmarkHtmlConverter;
+import com.vladsch.flexmark.util.data.DataHolder;
+import com.vladsch.flexmark.util.data.MutableDataSet;
 
 import org.commonmark.Extension;
 import org.commonmark.ext.gfm.strikethrough.StrikethroughExtension;
@@ -49,7 +51,10 @@ public class Markdown {
 
     static String fromHtml(String html) {
         // https://github.com/vsch/flexmark-java/wiki/Extensions#html-to-markdown
-        String markdown = FlexmarkHtmlConverter.builder()
+        DataHolder options = new MutableDataSet()
+                .set(FlexmarkHtmlConverter.SETEXT_HEADINGS, false)
+                .toImmutable();
+        String markdown = FlexmarkHtmlConverter.builder(options)
                 .build()
                 .convert(html);
         return markdown.replaceAll("\n\n\\s+<!-- -->\n", "");
