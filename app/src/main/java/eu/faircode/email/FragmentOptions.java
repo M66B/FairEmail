@@ -140,7 +140,7 @@ public class FragmentOptions extends FragmentBase {
             "check_authentication", "check_tls", "check_reply_domain", "check_mx", "check_blocklist",
             "send_pending",
             "startup", "answer_single",
-            "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_border", "shadow_highlight", "dividers",
+            "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_border", "shadow_highlight", "dividers", "tabular_unread_bg",
             "portrait2", "portrait2c", "portrait_min_size", "landscape", "landscape_min_size",
             "column_width",
             "hide_toolbar", "nav_categories", "nav_last_sync", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",

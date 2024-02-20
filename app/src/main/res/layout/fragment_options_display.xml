@@ -315,6 +315,19 @@
                     app:layout_constraintTop_toBottomOf="@id/swShadowHighlight"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swTabularUnreadBg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_tabular_unread_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swTabularDividers"
+                    app:switchPadding="12dp" />
+
                 <TextView
                     android:id="@+id/tvPortrait"
                     android:layout_width="0dp"
@@ -326,7 +339,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swTabularDividers" />
+                    app:layout_constraintTop_toBottomOf="@id/swTabularUnreadBg" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swPortrait2"

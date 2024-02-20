@@ -262,6 +262,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean shadow_unread;
     private boolean shadow_border;
     private boolean shadow_highlight;
+    private boolean tabular_unread_bg;
     private boolean threading;
     private boolean threading_unread;
     private boolean indentation;
@@ -2015,7 +2016,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     int fg = (shadow_highlight ? colorUnreadHighlight : colorAccent);
                     color = ColorUtils.blendARGB(colorCardBackground, fg, 0.125f);
                 }
-            } else if (split)
+            } else if (!cards && tabular_unread_bg && message.unseen > 0)
+                color = ColorUtils.setAlphaComponent(colorSeparator, 127);
+            else if (split)
                 color = ColorUtils.setAlphaComponent(textColorHighlightInverse, 127);
             else if (flags_background && flagged && !expanded)
                 color = ColorUtils.setAlphaComponent(mcolor, 127);
@@ -8038,6 +8041,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.shadow_unread = prefs.getBoolean("shadow_unread", false);
         this.shadow_border = prefs.getBoolean("shadow_border", true);
         this.shadow_highlight = prefs.getBoolean("shadow_highlight", false);
+        this.tabular_unread_bg = prefs.getBoolean("tabular_unread_bg", false);
         this.threading = prefs.getBoolean("threading", true);
         this.threading_unread = threading && prefs.getBoolean("threading_unread", false);
         this.indentation = prefs.getBoolean("indentation", false);
