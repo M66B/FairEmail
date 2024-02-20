@@ -594,7 +594,7 @@ public class EmailService implements AutoCloseable {
                 throw new AuthenticationFailedException(context.getString(R.string.title_service_error10), ex);
 
             if (ConnectionHelper.isAborted(ex))
-                throw new MessagingException("The server or network actively aborted the connection", ex);
+                throw new MessagingException(context.getString(R.string.title_service_abort), ex);
 
             if (purpose == PURPOSE_CHECK) {
                 if (port == 995 && !("pop3".equals(protocol) || "pop3s".equals(protocol)))
