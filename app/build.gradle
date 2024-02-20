@@ -774,6 +774,8 @@ dependencies {
     // https://github.com/commonmark/commonmark-java
     // https://mvnrepository.com/artifact/org.commonmark
     implementation "org.commonmark:commonmark:$commonmark_version";
+    implementation "org.commonmark:commonmark-ext-ins:$commonmark_version";
+    implementation "org.commonmark:commonmark-ext-task-list-items:$commonmark_version";
     implementation "org.commonmark:commonmark-ext-gfm-tables:$commonmark_version";
     implementation "org.commonmark:commonmark-ext-gfm-strikethrough:$commonmark_version";
 

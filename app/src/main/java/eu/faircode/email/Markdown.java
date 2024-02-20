@@ -26,6 +26,8 @@ import com.vladsch.flexmark.util.data.MutableDataSet;
 import org.commonmark.Extension;
 import org.commonmark.ext.gfm.strikethrough.StrikethroughExtension;
 import org.commonmark.ext.gfm.tables.TablesExtension;
+import org.commonmark.ext.ins.InsExtension;
+import org.commonmark.ext.task.list.items.TaskListItemsExtension;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -37,6 +39,8 @@ public class Markdown {
     static String toHtml(String markdown) {
         markdown = markdown.replace('\u00a0', ' ');
         List<Extension> extensions = Arrays.asList(
+                InsExtension.create(),
+                TaskListItemsExtension.create(),
                 TablesExtension.create(),
                 StrikethroughExtension.create());
         Parser p = Parser.builder()
