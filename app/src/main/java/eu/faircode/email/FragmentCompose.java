@@ -6715,18 +6715,21 @@ public class FragmentCompose extends FragmentBase {
 
             boolean dirty = false;
             String body;
-            if (markdown ^ extras.getBoolean("markdown")) {
-                String text = spanned.toString().replace('\u00a0', ' ');
-                String html = Markdown.toHtml(text);
-
+            boolean convertMarkdown = extras.getBoolean("markdown");
+            if (markdown) {
+                String html = (convertMarkdown
+                        ? HtmlHelper.toHtml(spanned, context)
+                        : Markdown.toHtml(spanned.toString()));
                 Document doc = JsoupEx.parse(html);
                 doc.body().attr("markdown", Boolean.toString(markdown));
                 body = doc.html();
-
-                if (markdown != extras.getBoolean("markdown"))
-                    dirty = true;
-            } else
-                body = HtmlHelper.toHtml(spanned, context);
+            } else {
+                body = (convertMarkdown
+                        ? Markdown.toHtml(spanned.toString())
+                        : HtmlHelper.toHtml(spanned, context));
+            }
+            if (markdown ^ convertMarkdown)
+                dirty = true;
 
             EntityMessage draft;
 
@@ -7689,7 +7692,7 @@ public class FragmentCompose extends FragmentBase {
 
                 Spanned spannedBody;
                 if (markdown) {
-                    String md = Markdown.fromHtml(doc);
+                    String md = Markdown.fromHtml(doc.body().html());
                     spannedBody = new SpannableStringBuilder(md);
                 } else {
                     HtmlHelper.clearAnnotations(doc); // Legacy left-overs

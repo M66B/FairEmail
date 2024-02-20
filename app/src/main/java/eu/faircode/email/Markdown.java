@@ -32,6 +32,7 @@ import java.util.List;
 
 public class Markdown {
     static String toHtml(String markdown) {
+        markdown = markdown.replace('\u00a0', ' ');
         List<Extension> extensions = Arrays.asList(
                 TablesExtension.create(),
                 StrikethroughExtension.create());
@@ -45,7 +46,7 @@ public class Markdown {
         return r.render(d);
     }
 
-    static String fromHtml(Document d) {
+    static String fromHtml(String html) {
         // TODO: HTML to Markdown
         throw new IllegalArgumentException("Not implemented");
     }
