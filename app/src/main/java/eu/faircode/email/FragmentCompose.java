@@ -2022,7 +2022,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_markdown).setChecked(markdown);
-        menu.findItem(R.id.menu_markdown).setVisible(BuildConfig.DEBUG && experiments);
+        menu.findItem(R.id.menu_markdown).setVisible(experiments);
 
         View image = media_bar.findViewById(R.id.menu_image);
         if (image != null)
