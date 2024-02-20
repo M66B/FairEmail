@@ -3953,6 +3953,8 @@ Reformatting and displaying such messages will take too long. You can try to use
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq125)
 
+Experimental features can be enabled in the miscellaneous-settings tab page.
+
 *Send hard bounce (version 1.1477+)*
 
 Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
