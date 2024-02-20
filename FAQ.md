@@ -3955,6 +3955,8 @@ Reformatting and displaying such messages will take too long. You can try to use
 
 Experimental features can be enabled in the miscellaneous-settings tab page.
 
+<br />
+
 *Send hard bounce (version 1.1477+)*
 
 Send a [Delivery Status Notification](https://tools.ietf.org/html/rfc3464) (=hard bounce) via the reply/answer menu.
