@@ -369,7 +369,10 @@ public class EditTextCompose extends FixedEditText {
                     int start = getSelectionStart();
                     if (start < 0)
                         start = 0;
-                    getText().insert(start, text.toString());
+                    String plain = text.toString();
+                    getText().insert(start, plain);
+
+                    StyleHelper.markAsInserted(getText(), start, start + plain.length());
 
                     return true;
                 }
@@ -611,6 +614,8 @@ public class EditTextCompose extends FixedEditText {
                                             getText().insert(start, ssb);
                                         else
                                             getText().replace(start, end, ssb);
+
+                                        StyleHelper.markAsInserted(getText(), start, start + ssb.length());
                                     } catch (Throwable ex) {
                                         Log.e(ex);
                                         /*
@@ -633,6 +638,14 @@ public class EditTextCompose extends FixedEditText {
                 });
 
                 return true;
+            } else if (id == android.R.id.pasteAsPlainText) {
+                int start = getSelectionStart();
+                int length = length();
+                boolean pasted = super.onTextContextMenuItem(id);
+                int end = start + length() - length;
+                if (pasted && start >= 0 && end > start)
+                    StyleHelper.markAsInserted(getText(), start, end);
+                return pasted;
             } else if (id == android.R.id.undo && undo_manager) {
                 canUndo = true;
                 return true;
