@@ -8,7 +8,7 @@ Zby
 
 Next version
 
-* Added *experimental* support for composing messages with Markdown
+* Added experimental
 * Small improvements and minor bug fixes
 
 1.2160 - 2024-02-19

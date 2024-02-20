@@ -8,7 +8,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Added *experimental* support for composing messages with [Markdown](https://en.wikipedia.org/wiki/Markdown)
+* Added [experimental](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq125) support for composing messages with [Markdown](https://en.wikipedia.org/wiki/Markdown)
 * Small improvements and minor bug fixes
 
 ### 1.2160 - 2024-02-19
