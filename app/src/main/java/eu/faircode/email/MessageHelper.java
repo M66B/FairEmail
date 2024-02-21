@@ -3993,6 +3993,10 @@ public class MessageHelper {
                     }
                 } else if (h.isMarkdown()) {
                     try {
+                        if (cs == null ||
+                                StandardCharsets.US_ASCII.equals(cs) ||
+                                StandardCharsets.ISO_8859_1.equals(cs))
+                            result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
                         result = Markdown.toHtml(result);
                     } catch (Throwable ex) {
                         Log.e(ex);
