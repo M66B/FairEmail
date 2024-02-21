@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Zby
 
+Next version
+
+* Added option for a gray background color for unread messages when using table style
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2161 - 2024-02-20
 
 * Added experimental
