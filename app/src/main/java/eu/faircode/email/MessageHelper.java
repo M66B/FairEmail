@@ -3580,6 +3580,10 @@ public class MessageHelper {
                     "text/x-patch".equalsIgnoreCase(contentType.getBaseType());
         }
 
+        boolean isLog() {
+            return "text/x-log".equalsIgnoreCase(contentType.getBaseType());
+        }
+
         boolean isReport() {
             String ct = contentType.getBaseType();
             return (Report.isDeliveryStatus(ct) ||
@@ -4002,7 +4006,7 @@ public class MessageHelper {
                         Log.e(ex);
                         result = HtmlHelper.formatPlainText(result);
                     }
-                } else if (h.isPatch()) {
+                } else if (h.isPatch() || h.isLog()) {
                     result = "<hr>" +
                             "<pre style=\"font-family: monospace; font-size:small;\">" +
                             HtmlHelper.formatPlainText(result) +
@@ -5133,7 +5137,8 @@ public class MessageHelper {
 
                 if ("text/markdown".equalsIgnoreCase(ct) ||
                         "text/x-diff".equalsIgnoreCase(ct) ||
-                        "text/x-patch".equalsIgnoreCase(ct))
+                        "text/x-patch".equalsIgnoreCase(ct) ||
+                        "text/x-log".equalsIgnoreCase(ct))
                     parts.extra.add(new PartHolder(part, contentType));
 
                 if (Report.isDeliveryStatus(ct) ||
