@@ -387,7 +387,7 @@
     <string name="title_advanced_suggest_received">Adressen aus empfangenen Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Verwendungshäufigkeit sortieren</string>
     <string name="title_advanced_suggest_account">Vorschläge auf aktuelles Konto begrenzen</string>
-    <string name="title_advanced_auto_delete_local">Lokale Kontakte automatisch löschen, die älter sind als und weniger verwendet als:</string>
+    <string name="title_advanced_auto_delete_local">Lokale Kontakte automatisch löschen, die älter sind und weniger verwendet wurden als:</string>
     <string name="title_advanced_alt_re_fwd">Alternative Präfixe für »Antworten« bzw. »Weiterleiten«</string>
     <string name="title_advanced_send_chips">Adressblasen anzeigen</string>
     <string name="title_advanced_send_nav_color">Identitätsfarbe für die untere Aktionsleiste verwenden</string>

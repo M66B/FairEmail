@@ -116,6 +116,7 @@
     <string name="title_blocked_senders">Заблакіраваныя адпраўнікi</string>
     <string name="title_unblock_all">Разблакіраваць усе</string>
     <string name="title_unblock_all_remark">Гэта прывядзе да скідвання ўсіх спісаў і параметраў і ў выніку — да блакіроўкі адпраўнікоў</string>
+    <string name="title_unblock_all_hint">Звярніце ўвагу, што праграма не можа забараніць серверу электроннай пошты перамяшчаць паведамленні ў папку са спамам!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Заблакіраваць адпраўніка %1$s паведамлення?</item>
         <item quantity="few">Заблакіраваць адпраўніка %1$s паведамленняў?</item>
@@ -414,6 +415,7 @@
     <string name="title_advanced_suggest_received">Прапаноўваць адрасы, знойдзеныя ў атрыманых паведамленнях</string>
     <string name="title_advanced_suggest_frequently">Сартаваць прапанаваныя адрасы паводле частаты выкарыстання</string>
     <string name="title_advanced_suggest_account">Абмежаванне прапаноў для бягучага ўліковага запісу</string>
+    <string name="title_advanced_auto_delete_local">Аўтаматычна выдаляць лакальныя кантакты, якія старэйшыя за, і якія выкарыстоўваліся менш за:</string>
     <string name="title_advanced_alt_re_fwd">Альтэрнатыўны прэфікс для адказу/перанакіравання</string>
     <string name="title_advanced_send_chips">Паказаць карткі адрасоў</string>
     <string name="title_advanced_send_nav_color">Выкарыстоўваць колер ідэнтыфікатара для ніжняй панэлі дзеянняў</string>
@@ -578,6 +580,7 @@
     <string name="title_advanced_pdf_preview">Паказваць мініяцюры PDF-файлаў</string>
     <string name="title_advanced_video_preview">Паказваць мініяцюры відэафайлаў</string>
     <string name="title_advanced_audio_preview">Паказваць міні-аўдыёпрайгравальнік</string>
+    <string name="title_advanced_barcode_preview">Паказаць змест штрыхкода</string>
     <string name="title_advanced_message_text_zoom2">Стандартны маштаб тэксту паведамлення: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Павялічваць тэкст паведамлення таксама ў рэдактары паведамленняў</string>
     <string name="title_advanced_overview_mode">Павялічваць маштаб арыгінальных паведамленняў пад памер экрана</string>
@@ -654,6 +657,7 @@
     <string name="title_advanced_auto_block_sender">Аўтаматычна блакіраваць адпраўніка пры паведамленні пра спам</string>
     <string name="title_advanced_auto_hide_answer">Аўтаматычна хаваць кнопку адказу пры пракручванні</string>
     <string name="title_advanced_swipe_reply">Для адказу правядзіце пальцам управа па разгорнутым паведамленні</string>
+    <string name="title_advanced_move_thread_all">Пры перамяшчэнні выбраных размоў перамяшчаць усе паведамленні</string>
     <string name="title_advanced_move_thread_sent">Пры перамяшчэнні размовы таксама перамяшчаць адпраўленыя паведамленні</string>
     <string name="title_advanced_default_snooze">Час адкладання/затрымкі па змаўчанні</string>
     <string name="title_advanced_default_folder">Выбраць папку па змаўчанні</string>
@@ -1095,6 +1099,7 @@
     <string name="title_edit_rules">Рэдагаваць правілы</string>
     <string name="title_execute_rules">Выканаць правілы</string>
     <string name="title_export_messages">Экспартаваць паведамленні</string>
+    <string name="title_import_messages">Імпартаваць паведамленні</string>
     <string name="title_create_channel">Стварыць канал апавяшчэнняў</string>
     <string name="title_edit_channel">Рэдагаваць канал апавяшчэнняў</string>
     <string name="title_delete_channel">Выдаліць канал апавяшчэнняў</string>
@@ -1215,6 +1220,7 @@
     <string name="title_new_message">Новае паведамленне</string>
     <string name="title_editasnew">Рэдагаваць як новы</string>
     <string name="title_edit_notes">Рэдагаваць лакальныя нататкі</string>
+    <string name="title_edit_notes_remark">Лакальныя нататкі не захоўваюцца на паштовым серверы і таму даступныя толькі ў гэтай праграме на гэтай прыладзе</string>
     <string name="title_create_rule">Стварыць правіла &#8230;</string>
     <string name="title_full_screen">На ўвесь экран</string>
     <string name="title_force_light">Прымусовае выкарыстанне светлай тэмы</string>
@@ -1830,6 +1836,7 @@
     <string name="title_legend_plain_only">Мае толькі звычайны тэкст</string>
     <string name="title_legend_receipt">Запытана апавяшчэнне аб прачытанні</string>
     <string name="title_legend_auto_submitted">Было адпраўлена аўтаматычна</string>
+    <string name="title_legend_by_list">Адпраўлена праз спіс рассылкі</string>
     <string name="title_legend_attachment">Змяшчае ўкладанні</string>
     <string name="title_legend_flagged">Пазначанае</string>
     <string name="title_legend_contacts">Кіраванне кантактамі</string>
@@ -1896,6 +1903,8 @@
     <string name="title_hint_notifications">Няма дазволаў на апавяшчэнні</string>
     <string name="title_hint_notifications_remark">Дазволы на апавяшчэнні таксама патрабуюцца для папярэджанняў (для ўліковага запісу). Апавяшчэнні аб новых паведамленнях можна адключыць у наладах.</string>
     <string name="title_hint_battery_optimizations">Аптцміўацыя батарэі ўсё яшчэ ўключана</string>
+    <string name="title_hint_data_saver">Пры ўключаным рэжыме эканоміі даных праграма не зможа сінхранізавацца ў фоне і могуць узнікнуць памылкі злучэння.</string>
+    <string name="title_hint_dismiss">Вы можаце закрыць гэта дыялогавае акно, каб схаваць гэту падказку.</string>
     <string name="title_hint_support">Калі ў вас ёсць пытанне або праблема, калі ласка, па дапамогу звяртайцеся праз меню падтрымкі</string>
     <string name="title_hint_message_actions">Для выдалення правядзіце пальцам улева; Для архівацыі (калі даступна) правядзіце пальцам управа; Жэсты можна наладзіць у наладах уліковага запісу</string>
     <string name="title_hint_message_selection">Для выбару некалькіх паведамленняў націсніце і на паведамленне і ўтрымлівайце, а затым правядзіце пальцам уверх або ўніз і выберыце неабходныя паведамленні</string>
@@ -2062,6 +2071,7 @@
     <string name="title_widget_background">Колер фону</string>
     <string name="title_widget_icon">Колер значка</string>
     <string name="title_widget_day_night">Выкарыстоўваць цёмную сістэмную тэму</string>
+    <string name="title_widget_standalone">Адкрыць змест адасоблена</string>
     <string name="title_compat_dark">Google выдаліў цёмны рэжым для версій Android да версіі 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важнае</string>
@@ -2069,6 +2079,11 @@
     <string name="title_keyword_label3">Персанальны</string>
     <string name="title_keyword_label4">Выканаць</string>
     <string name="title_keyword_label5">Пазней</string>
+    <string name="title_keyword_displayed">Прагледжана</string>
+    <string name="title_keyword_delivered">Дастаўлена</string>
+    <string name="title_keyword_not_displayed">Не прагледжана</string>
+    <string name="title_keyword_not_delivered">Не дастаўлена</string>
+    <string name="title_keyword_complaint">Скарга</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d паведамленне</item>
         <item quantity="few">%1$d паведамленні</item>
