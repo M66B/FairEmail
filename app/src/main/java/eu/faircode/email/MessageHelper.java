@@ -3718,6 +3718,7 @@ public class MessageHelper {
 
             parts.addAll(extra);
 
+            boolean first = true;
             for (PartHolder h : parts) {
 /*
                 int size = h.part.getSize();
@@ -4001,13 +4002,13 @@ public class MessageHelper {
                                 StandardCharsets.US_ASCII.equals(cs) ||
                                 StandardCharsets.ISO_8859_1.equals(cs))
                             result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-                        result = Markdown.toHtml(result);
+                        result = (first ? "" : "<br><hr>") + Markdown.toHtml(result);
                     } catch (Throwable ex) {
                         Log.e(ex);
                         result = HtmlHelper.formatPlainText(result);
                     }
                 } else if (h.isPatch() || h.isLog()) {
-                    result = "<hr>" +
+                    result = (first ? "" : "<br><hr>") +
                             "<pre style=\"font-family: monospace; font-size:small;\">" +
                             HtmlHelper.formatPlainText(result) +
                             "</pre>";
@@ -4048,6 +4049,7 @@ public class MessageHelper {
                     Log.w("Unexpected content type=" + h.contentType);
 
                 sb.append(result);
+                first = false;
             }
 
             return sb.toString();
