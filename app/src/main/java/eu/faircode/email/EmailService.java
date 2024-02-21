@@ -593,9 +593,6 @@ public class EmailService implements AutoCloseable {
             if (ex.getMessage() != null && ex.getMessage().contains("Command Error. 10"))
                 throw new AuthenticationFailedException(context.getString(R.string.title_service_error10), ex);
 
-            if (ConnectionHelper.isAborted(ex))
-                throw new MessagingException(context.getString(R.string.title_service_abort), ex);
-
             if (purpose == PURPOSE_CHECK) {
                 if (port == 995 && !("pop3".equals(protocol) || "pop3s".equals(protocol)))
                     throw new MessagingException(context.getString(R.string.title_service_port), ex);

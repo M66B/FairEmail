@@ -1758,6 +1758,9 @@ public class Log {
                 ex.getCause() instanceof UnknownHostException)
             ex = new Throwable("Email server address lookup failed", ex);
 
+        if (ConnectionHelper.isAborted(ex))
+            ex = new Throwable("The server or network actively disconnected the connection", ex);
+
         StringBuilder sb = new StringBuilder();
         if (BuildConfig.DEBUG)
             sb.append(new ThrowableWrapper(ex).toSafeString());
