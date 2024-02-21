@@ -37,6 +37,8 @@ import java.util.List;
 
 public class Markdown {
     static String toHtml(String markdown) {
+        // https://github.com/commonmark/commonmark-java#usage
+        // https://github.com/commonmark/commonmark-java/issues/294
         markdown = markdown.replace('\u00a0', ' ');
         List<Extension> extensions = Arrays.asList(
                 InsExtension.create(),
