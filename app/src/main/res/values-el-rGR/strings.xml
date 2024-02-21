@@ -385,6 +385,7 @@
     <string name="title_advanced_suggest_received">Προτείνονται διευθύνσεις που βρέθηκαν σε μηνύματα που έχουν ληφθεί</string>
     <string name="title_advanced_suggest_frequently">Ταξινόμηση των προτεινόμενων διευθύνσεων με βάση τη συχνότητα που χρησιμοποιούνται</string>
     <string name="title_advanced_suggest_account">Περιορισμός των προτεινόμενων στον τρέχοντα λογαριασμό</string>
+    <string name="title_advanced_auto_delete_local">Να διαγράφονται αυτόματα οι τοπικές επαφές που είναι παλαιότερες από και χρησιμοποιούνται λιγότερο από:</string>
     <string name="title_advanced_alt_re_fwd">Εναλλακτικό πρόθεμα απάντησης/προώθησης</string>
     <string name="title_advanced_send_chips">Προβολή διευθύνσεων μέσα σε φυσαλίδες</string>
     <string name="title_advanced_send_nav_color">Χρήση του χρώματος ταυτότητας για την κάτω γραμμή ενεργειών</string>
@@ -626,6 +627,7 @@
     <string name="title_advanced_auto_block_sender">Αυτόματος αποκλεισμός του αποστολέα κατά την αναφορά μηνύματος ως ανεπιθύμητου</string>
     <string name="title_advanced_auto_hide_answer">Αυτόματη απόκρυψη του κουμπιού απάντησης κατά την κύλιση</string>
     <string name="title_advanced_swipe_reply">Σύρετε προς τα δεξιά τα αναπτυγμένα μηνύματα για να απαντήσετε</string>
+    <string name="title_advanced_move_thread_all">Κατά τη μετακίνηση της επιλεγμένης συζήτησης, να μετακινούνται όλα τα μηνύματα</string>
     <string name="title_advanced_move_thread_sent">Κατά τη μετακίνηση μιας συζήτησης, να μετακινούνται επίσης και τα απεσταλμένα μηνύματα</string>
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής/καθυστέρησης</string>
     <string name="title_advanced_default_folder">Επιλογή προεπιλεγμένου φακέλου</string>
@@ -1063,6 +1065,7 @@
     <string name="title_edit_rules">Επεξεργασία κανόνων</string>
     <string name="title_execute_rules">Εκτέλεση κανόνων</string>
     <string name="title_export_messages">Εξαγωγή μηνυμάτων</string>
+    <string name="title_import_messages">Εισαγωγή μηνυμάτων</string>
     <string name="title_create_channel">Δημιουργία καναλιού ειδοποιήσεων</string>
     <string name="title_edit_channel">Επεξεργασία καναλιού ειδοποιήσεων</string>
     <string name="title_delete_channel">Διαγραφή καναλιού ειδοποιήσεων</string>
