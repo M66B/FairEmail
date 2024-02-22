@@ -7759,11 +7759,11 @@ public class FragmentCompose extends FragmentBase {
                 markdown = args.getBoolean("markdown");
                 invalidateOptionsMenu();
 
-                if (markwonWatcher != null)
+                if (markwonWatcher != null) {
+                    etBody.removeTextChangedListener(markwonWatcher);
                     if (markdown)
                         etBody.addTextChangedListener(markwonWatcher);
-                    else
-                        etBody.removeTextChangedListener(markwonWatcher);
+                }
 
                 etBody.setText(text[0]);
                 etBody.setTag(text[0]);
