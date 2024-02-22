@@ -414,6 +414,7 @@ public class EditTextCompose extends FixedEditText {
                                                     int start = getSelectionStart();
                                                     if (start < 0)
                                                         start = 0;
+                                                    int at = start;
 
                                                     Editable edit = getText();
 
@@ -426,6 +427,8 @@ public class EditTextCompose extends FixedEditText {
                                                     edit.insert(start, ssb);
 
                                                     setSelection(start + ssb.length());
+
+                                                    StyleHelper.markAsInserted(getText(), at, at + (start - at) + ssb.length());
                                                 } catch (Throwable ex) {
                                                     Log.e(ex);
                                                 }
