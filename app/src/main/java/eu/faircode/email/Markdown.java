@@ -63,6 +63,8 @@ public class Markdown {
         String markdown = FlexmarkHtmlConverter.builder(options)
                 .build()
                 .convert(html);
-        return markdown.replaceAll("\n\n\\s+<!-- -->\n", "");
+        return markdown
+                .replaceAll("(?m)^( *)(\\d+)\\.( +)", "$1$2\\\\.$3")
+                .replaceAll("\n\n\\s+<!-- -->\n", "");
     }
 }
