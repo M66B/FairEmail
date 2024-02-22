@@ -2343,6 +2343,8 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuMarkdown() {
         markdown = !markdown;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("markdown", markdown).apply();
 
         Bundle args = new Bundle();
         args.putBoolean("markdown", true);
@@ -5610,6 +5612,10 @@ public class FragmentCompose extends FragmentBase {
                                 document.body().append(d.body().html());
                             }
                         }
+
+                        boolean markdown = prefs.getBoolean("markdown", false);
+                        if (markdown)
+                            document.body().attr("markdown", Boolean.toString(markdown));
 
                         data.draft.signature = prefs.getBoolean("signature_new", true);
                         addSignature(context, document, data.draft, selected);
