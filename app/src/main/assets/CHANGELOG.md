@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### Next version
+### 1.2162 - 2024-02-22
 
 * Added option for a gray background color for unread messages when using table style
 * Small improvements and minor bug fixes
