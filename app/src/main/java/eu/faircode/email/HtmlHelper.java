@@ -1122,8 +1122,8 @@ public class HtmlHelper {
         for (Element h : hs)
             if (!"false".equals(h.attr("x-line-before")))
                 h.attr("x-line-before", "true");
-        if (text_size) {
-            if (text_separators && view)
+        if (text_size && view) {
+            if (text_separators)
                 for (Element h : hs)
                     h.appendElement("hr")
                             .attr("x-block", "true");
