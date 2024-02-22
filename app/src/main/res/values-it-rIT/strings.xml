@@ -495,6 +495,7 @@
     <string name="title_advanced_cards_shadow_border">Mostra bordo</string>
     <string name="title_advanced_cards_shadow_highlight">Usa il colore d\'evidenziazione invece del colore secondario</string>
     <string name="title_advanced_tabular_dividers">Usa le linee divisorie usando lo stile tabulare</string>
+    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Mostra un colore di sfondo grigio per i messaggi non letti usando lo stile tabulare</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_date_week">Raggruppa per settimana invece che per giorno</string>
     <string name="title_advanced_date_fixed">Mostra l\'intestazione a data fissa in cima</string>

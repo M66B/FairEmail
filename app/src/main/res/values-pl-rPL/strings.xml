@@ -522,6 +522,7 @@
     <string name="title_advanced_cards_shadow_border">Pokaż obramowanie</string>
     <string name="title_advanced_cards_shadow_highlight">Użyj koloru podświetlenia zamiast koloru akcentu</string>
     <string name="title_advanced_tabular_dividers">Używaj linii oddzielających podczas używania stylu tabelarycznego</string>
+    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Używanie szarego koloru tła dla nieprzeczytanych wiadomości podczas korzystania ze stylu tabeli</string>
     <string name="title_advanced_date_header">Grupuj według daty</string>
     <string name="title_advanced_date_week">Grupuj według tygodnia zamiast dnia</string>
     <string name="title_advanced_date_fixed">Pokaż stały nagłówek daty na górze</string>

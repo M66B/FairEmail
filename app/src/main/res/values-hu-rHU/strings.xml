@@ -493,6 +493,7 @@
     <string name="title_advanced_cards_shadow_border">Keret mutatása</string>
     <string name="title_advanced_cards_shadow_highlight">Kiemelt színek használata pasztell színek helyett</string>
     <string name="title_advanced_tabular_dividers">Táblázatos elrendezésnél használjon elválasztó vonalakat</string>
+    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Az olvasatlan üzeneteknek legyen szürke a háttere táblázat stílus használatakor</string>
     <string name="title_advanced_date_header">Csoportosítás dátum szerint</string>
     <string name="title_advanced_date_week">Csoportosítás nap helyett hét szerint</string>
     <string name="title_advanced_date_fixed">Fixált dátum mutatása a felső fejlécben</string>

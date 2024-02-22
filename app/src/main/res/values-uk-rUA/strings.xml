@@ -523,6 +523,7 @@
     <string name="title_advanced_cards_shadow_border">Показувати рамку</string>
     <string name="title_advanced_cards_shadow_highlight">Використовувати колір підсвітки замість кольору акценту</string>
     <string name="title_advanced_tabular_dividers">Роздільні лінії під час використання табличного стилю</string>
+    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Використовувати сірий колір фону для непрочитаних повідомлень при використанні табличного стилю</string>
     <string name="title_advanced_date_header">Групувати за датою</string>
     <string name="title_advanced_date_week">Групувати за тижнем замість дня</string>
     <string name="title_advanced_date_fixed">Показувати зверху зафіксований заголовок з датою</string>

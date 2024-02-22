@@ -522,6 +522,7 @@
     <string name="title_advanced_cards_shadow_border">Показывать рамку</string>
     <string name="title_advanced_cards_shadow_highlight">Использовать цвет подсветки вместо цвета акцента</string>
     <string name="title_advanced_tabular_dividers">Разделительные линии при использовании стиля с табуляцией</string>
+    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Использовать серый цвет фона для непрочитанных сообщений при использовании стиля таблицы</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_date_week">Группировать по неделям вместо дней</string>
     <string name="title_advanced_date_fixed">Показывать постоянный заголовок с датой вверху</string>

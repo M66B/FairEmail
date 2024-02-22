@@ -494,6 +494,7 @@
     <string name="title_advanced_cards_shadow_border">Показване на граница</string>
     <string name="title_advanced_cards_shadow_highlight">Употреба на цвят на подсветка вместо цвят на акцента</string>
     <string name="title_advanced_tabular_dividers">Употреба на разделителни линии, използвайки табличен стил</string>
+    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Употреба на сив цвят на фон за непрочетени съобщения, употребявайки табличен стил</string>
     <string name="title_advanced_date_header">Групиране по дата</string>
     <string name="title_advanced_date_week">Групиране по седмица вместо по ден</string>
     <string name="title_advanced_date_fixed">Показване на фиксирана дата на заглавката най-отгоре</string>
