@@ -53,8 +53,10 @@ public class TupleOperationEx extends EntityOperation {
         if (offline)
             priority += 20; // connect folder is expensive
 
-        if (!EntityFolder.INBOX.equals(folderType)) // prioritize inbox
+        if (EntityFolder.USER.equals(folderType)) // prioritize system folders
             priority += 100;
+        else if (!EntityFolder.INBOX.equals(folderType)) // prioritize inbox
+            priority += 50;
 
         return priority;
     }
