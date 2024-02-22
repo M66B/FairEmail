@@ -2343,6 +2343,7 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuMarkdown() {
         markdown = !markdown;
+
         Bundle args = new Bundle();
         args.putBoolean("markdown", true);
         args.putBoolean("show", true);
@@ -6206,9 +6207,6 @@ public class FragmentCompose extends FragmentBase {
                         Elements ref = doc.select("div[fairemail=reference]");
                         ref.remove();
 
-                        boolean markdown = Boolean.parseBoolean(doc.body().attr("markdown"));
-                        args.putBoolean("markdown", markdown);
-
                         File refFile = data.draft.getRefFile(context);
                         if (refFile.exists()) {
                             ref.html(Helper.readText(refFile));
@@ -6281,7 +6279,6 @@ public class FragmentCompose extends FragmentBase {
             working = data.draft.id;
             dsn = (data.draft.dsn != null && !EntityMessage.DSN_NONE.equals(data.draft.dsn));
             encrypt = data.draft.ui_encrypt;
-            markdown = args.getBoolean("markdown");
             invalidateOptionsMenu();
 
             subject = data.draft.subject;
@@ -6722,12 +6719,11 @@ public class FragmentCompose extends FragmentBase {
                 Document doc = JsoupEx.parse(html);
                 doc.body().attr("markdown", Boolean.toString(markdown));
                 body = doc.html();
-            } else {
+            } else
                 body = (convertMarkdown
                         ? Markdown.toHtml(spanned.toString())
                         : HtmlHelper.toHtml(spanned, context));
-            }
-            if (markdown ^ convertMarkdown)
+            if (convertMarkdown)
                 dirty = true;
 
             EntityMessage draft;
@@ -7637,15 +7633,12 @@ public class FragmentCompose extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", draft.id);
         args.putBoolean("show_images", show_images);
-        args.putBoolean("markdown", markdown);
 
         new SimpleTask<Spanned[]>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 // Needed to get width for images
                 grpBody.setVisibility(View.VISIBLE);
-                if (markwonWatcher != null)
-                    etBody.removeTextChangedListener(markwonWatcher);
             }
 
             @Override
@@ -7661,18 +7654,12 @@ public class FragmentCompose extends FragmentBase {
                 Helper.setViewsEnabled(view, true);
 
                 invalidateOptionsMenu();
-
-                if (markdown && markwonWatcher != null) {
-                    etBody.addTextChangedListener(markwonWatcher);
-                    markwonWatcher.afterTextChanged(etBody.getText());
-                }
             }
 
             @Override
             protected Spanned[] onExecute(final Context context, Bundle args) throws Throwable {
                 final long id = args.getLong("id");
                 final boolean show_images = args.getBoolean("show_images", false);
-                final boolean markdown = args.getBoolean("markdown", false);
 
                 int colorPrimary = Helper.resolveColor(context, androidx.appcompat.R.attr.colorPrimary);
                 final int colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
@@ -7688,6 +7675,9 @@ public class FragmentCompose extends FragmentBase {
                 doc.select("div[fairemail=signature]").remove();
                 Elements ref = doc.select("div[fairemail=reference]");
                 ref.remove();
+
+                boolean markdown = Boolean.parseBoolean(doc.body().attr("markdown"));
+                args.putBoolean("markdown", markdown);
 
                 Spanned spannedBody;
                 if (markdown) {
@@ -7760,6 +7750,15 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Spanned[] text) {
+                markdown = args.getBoolean("markdown");
+                invalidateOptionsMenu();
+
+                if (markwonWatcher != null)
+                    if (markdown)
+                        etBody.addTextChangedListener(markwonWatcher);
+                    else
+                        etBody.removeTextChangedListener(markwonWatcher);
+
                 etBody.setText(text[0]);
                 etBody.setTag(text[0]);
 
