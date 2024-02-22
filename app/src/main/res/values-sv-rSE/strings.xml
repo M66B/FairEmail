@@ -382,6 +382,7 @@
     <string name="title_advanced_suggest_received">Föreslå adresser som finns i mottagna meddelanden</string>
     <string name="title_advanced_suggest_frequently">Sortera föreslagna adresser vid användningsfrekvens</string>
     <string name="title_advanced_suggest_account">Begränsa förslag till nuvarande konto</string>
+    <string name="title_advanced_auto_delete_local">Ta automatiskt bort lokala kontakter äldre än och använd färre än:</string>
     <string name="title_advanced_alt_re_fwd">Alternativt svar-/vidarebefordringsprefix</string>
     <string name="title_advanced_send_chips">Visa adressbubblor</string>
     <string name="title_advanced_send_nav_color">Använd identitetsfärgen för den nedre åtgärdsfältet</string>
@@ -490,6 +491,7 @@
     <string name="title_advanced_cards_shadow_border">Visa ram</string>
     <string name="title_advanced_cards_shadow_highlight">Använd markeringsfärg istället för accentfärg</string>
     <string name="title_advanced_tabular_dividers">Använd avdelare när du använder tabulär stil</string>
+    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Använd en grå bakgrundsfärg för olästa meddelanden när du använder tabellstil</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_date_week">Gruppera efter vecka istället för dag</string>
     <string name="title_advanced_date_fixed">Visa fast datumrubrik högst upp</string>
@@ -622,6 +624,7 @@
     <string name="title_advanced_auto_block_sender">Blockera avsändaren automatiskt vid rapportering av skräppost</string>
     <string name="title_advanced_auto_hide_answer">Dölj svarsknappen automatiskt när du skrollar</string>
     <string name="title_advanced_swipe_reply">Svep expanderade meddelanden till höger för att svara</string>
+    <string name="title_advanced_move_thread_all">När du flyttar valda konversationer, flytta alla meddelanden</string>
     <string name="title_advanced_move_thread_sent">När en konversation flyttas, flytta också skickade meddelanden</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_default_folder">Välj standardmapp</string>
@@ -1058,6 +1061,7 @@
     <string name="title_edit_rules">Redigera regler</string>
     <string name="title_execute_rules">Kör regler</string>
     <string name="title_export_messages">Exportera meddelanden</string>
+    <string name="title_import_messages">Importera meddelanden</string>
     <string name="title_create_channel">Skapa aviseringskanal</string>
     <string name="title_edit_channel">Redigera aviseringskanal</string>
     <string name="title_delete_channel">Ta bort aviseringskanal</string>
