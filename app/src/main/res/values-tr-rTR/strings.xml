@@ -493,6 +493,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_cards_shadow_border">Çerçeveyi göster</string>
     <string name="title_advanced_cards_shadow_highlight">Vurgu rengi yerine vurgu rengi kullanın</string>
     <string name="title_advanced_tabular_dividers">Tablo stilini kullanırken ayırıcı çizgiler kullan</string>
+    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Tablo stilini kullanırken okunmamış mesajlar için gri bir arka plan rengi kullanın</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_date_week">Gün yerine haftaya göre gruplandır</string>
     <string name="title_advanced_date_fixed">Sabit tarih başlığını üstte göster</string>

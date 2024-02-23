@@ -508,6 +508,7 @@
     <string name="title_advanced_cards_shadow_border">Arată chenarul</string>
     <string name="title_advanced_cards_shadow_highlight">Utilizați culoarea de evidențiere în loc de culoarea de accent</string>
     <string name="title_advanced_tabular_dividers">Utilizați linii despărțitoare atunci când utilizați stilul tabelar</string>
+    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Folosește o culoare gri de fundal pentru mesajele necitite când se folosește stilul tabel</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_date_week">Grupare pe săptămână în loc de zi</string>
     <string name="title_advanced_date_fixed">Afișați antetul cu dată fixă în partea de sus</string>

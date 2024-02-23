@@ -494,6 +494,7 @@
     <string name="title_advanced_cards_shadow_border">Προβολή περιγράμματος</string>
     <string name="title_advanced_cards_shadow_highlight">Χρήση του χρώματος επισήμανσης αντί του χρώματος έμφασης</string>
     <string name="title_advanced_tabular_dividers">Χρήση διαχωριστικών γραμμών κατά τη χρήση στιλ πίνακα</string>
+    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Να χρησιμοποιείται ένα γκρι χρώμα φόντου για τα μη αναγνωσμένα μηνύματα κατά τη χρήση του στιλ πίνακα</string>
     <string name="title_advanced_date_header">Ομαδοποίηση κατά ημερομηνία</string>
     <string name="title_advanced_date_week">Ομαδοποίηση ανά εβδομάδα αντί ανά ημέρα</string>
     <string name="title_advanced_date_fixed">Προβολή κεφαλίδας σταθερής ημερομηνίας στην κορυφή</string>
