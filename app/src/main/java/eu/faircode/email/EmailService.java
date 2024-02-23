@@ -37,7 +37,6 @@ import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailSSLProvider;
-import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;

@@ -230,7 +230,6 @@ import biweekly.property.Organizer;
 import io.noties.markwon.Markwon;
 import io.noties.markwon.editor.MarkwonEditor;
 import io.noties.markwon.editor.MarkwonEditorTextWatcher;
-import io.noties.markwon.html.HtmlPlugin;
 
 public class FragmentCompose extends FragmentBase {
     private enum State {NONE, LOADING, LOADED}
