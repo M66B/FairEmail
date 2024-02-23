@@ -256,6 +256,7 @@ public class FragmentCompose extends FragmentBase {
     private TextView tvResend;
     private TextView tvPlainTextOnly;
     private EditTextCompose etBody;
+    private ImageView ivMarkdown;
     private TextView tvNoInternet;
     private TextView tvSignature;
     private CheckBox cbSignature;
@@ -414,6 +415,7 @@ public class FragmentCompose extends FragmentBase {
         tvResend = view.findViewById(R.id.tvResend);
         tvPlainTextOnly = view.findViewById(R.id.tvPlainTextOnly);
         etBody = view.findViewById(R.id.etBody);
+        ivMarkdown = view.findViewById(R.id.ivMarkdown);
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
         cbSignature = view.findViewById(R.id.cbSignature);
@@ -1102,6 +1104,7 @@ public class FragmentCompose extends FragmentBase {
         tvPlainTextOnly.setVisibility(View.GONE);
         etBody.setText(null);
         etBody.setHint(null);
+        ivMarkdown.setVisibility(View.GONE);
 
         grpHeader.setVisibility(View.GONE);
         grpExtra.setVisibility(View.GONE);
@@ -7777,6 +7780,7 @@ public class FragmentCompose extends FragmentBase {
                 etBody.setHint(hint);
 
                 grpBody.setVisibility(View.VISIBLE);
+                ivMarkdown.setVisibility(markdown ? View.VISIBLE : View.GONE);
 
                 cbSignature.setChecked(draft.signature);
                 tvSignature.setAlpha(draft.signature ? 1.0f : Helper.LOW_LIGHT);

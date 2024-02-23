@@ -348,6 +348,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPlainTextOnly" />
 
+                <ImageView
+                    android:id="@+id/ivMarkdown"
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/title_markdown"
+                    android:tooltipText="@string/title_markdown"
+                    app:layout_constraintBottom_toBottomOf="@id/etBody"
+                    app:layout_constraintEnd_toEndOf="@id/etBody"
+                    app:srcCompat="@drawable/twotone_data_array_24"
+                    app:tint="?attr/colorSeparator" />
+
                 <TextView
                     android:id="@+id/tvNoInternet"
                     android:layout_width="wrap_content"
