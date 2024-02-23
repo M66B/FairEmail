@@ -52,7 +52,12 @@ public class Markdown {
         HtmlRenderer r = HtmlRenderer.builder()
                 .extensions(extensions)
                 .build();
-        return r.render(d);
+        String html = r.render(d);
+        if (BuildConfig.DEBUG) {
+            Log.i("Markdown md=" + markdown.replace('\n', '|'));
+            Log.i("Markdown html=" + markdown.replace('\n', '|'));
+        }
+        return html;
     }
 
     static String fromHtml(String html) {
@@ -63,6 +68,10 @@ public class Markdown {
         String markdown = FlexmarkHtmlConverter.builder(options)
                 .build()
                 .convert(html);
+        if (BuildConfig.DEBUG) {
+            Log.i("Markdown html=" + markdown.replace('\n', '|'));
+            Log.i("Markdown md=" + markdown.replace('\n', '|'));
+        }
         return markdown
                 .replaceAll("(?m)^( *)(\\d+)\\.( +)", "$1$2\\\\.$3")
                 .replaceAll("\n\n\\s+<!-- -->\n", "");
