@@ -6959,6 +6959,7 @@ public class FragmentCompose extends FragmentBase {
                             Helper.writeText(draft.getFile(context, draft.revision), c.html());
 
                             d = JsoupEx.parse(extras.getString("html"));
+                            d.body().attr("markdown", Boolean.toString(markdown));
 
                             if (extras.getBoolean("refdelete"))
                                 addSignature(context, d, draft, identity);
