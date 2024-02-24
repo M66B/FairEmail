@@ -196,7 +196,6 @@ public class Helper {
     static final int BUFFER_SIZE = 8192; // Same as in Files class
     static final long MIN_REQUIRED_SPACE = 100 * 1000L * 1000L;
     static final long AUTH_AUTOCANCEL_TIMEOUT = 60 * 1000L; // milliseconds
-    static final int AUTH_AUTOLOCK_GRACE = 15; // seconds
     static final int PIN_FAILURE_DELAY = 3; // seconds
     static final long PIN_FAILURE_DELAY_MAX = 20 * 60 * 1000L; // milliseconds
     static final float BNV_LUMINANCE_THRESHOLD = 0.7f;
@@ -3095,7 +3094,7 @@ public class Helper {
                 return true;
 
             if (autolock_nav && pausing)
-                last_authentication = now - biometrics_timeout + AUTH_AUTOLOCK_GRACE * 1000L;
+                last_authentication = now - biometrics_timeout + biometrics_timeout;
             else
                 last_authentication = now;
             prefs.edit().putLong("last_authentication", last_authentication).apply();
