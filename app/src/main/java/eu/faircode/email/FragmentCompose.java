@@ -256,6 +256,7 @@ public class FragmentCompose extends FragmentBase {
     private TextView tvPlainTextOnly;
     private EditTextCompose etBody;
     private ImageView ivMarkdown;
+    private ImageButton ibTemplate;
     private TextView tvNoInternet;
     private TextView tvSignature;
     private CheckBox cbSignature;
@@ -415,6 +416,7 @@ public class FragmentCompose extends FragmentBase {
         tvPlainTextOnly = view.findViewById(R.id.tvPlainTextOnly);
         etBody = view.findViewById(R.id.etBody);
         ivMarkdown = view.findViewById(R.id.ivMarkdown);
+        ibTemplate = view.findViewById(R.id.ibTemplate);
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
         cbSignature = view.findViewById(R.id.cbSignature);
@@ -812,6 +814,14 @@ public class FragmentCompose extends FragmentBase {
                     } finally {
                         inserted = false;
                     }
+            }
+        });
+
+        ibTemplate.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        ibTemplate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMenuAnswerInsert(v);
             }
         });
 
