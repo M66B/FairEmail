@@ -74,6 +74,7 @@ public class Markdown {
         }
         return markdown
                 .replaceAll("(?m)^( *)(\\d+)\\.( +)", "$1$2\\\\.$3")
+                .replaceAll("<br />", "")
                 .replaceAll("\n\n\\s+<!-- -->\n", "");
     }
 }
