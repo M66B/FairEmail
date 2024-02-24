@@ -3838,6 +3838,9 @@ Note that:
 
 Please [see here](https://support.google.com/googleplay/answer/4646404) about how to add, remove, or edit your Google Play payment method.
 
+Sometimes the Play Store assigns a purchase incorrectly to another Google account configured on the device, resulting in the purchase not being recognized anymore.
+Some people reported that force stopping the Play Store app / Google Play Services, clearing the data and the cache, and starting the Play Store again resolves this problem.
+
 If you cannot restore a purchase,
 please contact me via [this contact form](https://contact.faircode.eu/?product=fairemailsupport),
 mentioning the email address of the Google account used for the purchase.
