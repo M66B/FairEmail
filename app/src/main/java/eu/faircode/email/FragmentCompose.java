@@ -5386,6 +5386,7 @@ public class FragmentCompose extends FragmentBase {
             boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
             boolean suggest_received = prefs.getBoolean("suggest_received", false);
             boolean forward_new = prefs.getBoolean("forward_new", true);
+            boolean markdown = prefs.getBoolean("markdown", false);
 
             Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
 
@@ -5614,10 +5615,6 @@ public class FragmentCompose extends FragmentBase {
                                 document.body().append(d.body().html());
                             }
                         }
-
-                        boolean markdown = prefs.getBoolean("markdown", false);
-                        if (markdown)
-                            document.body().attr("markdown", Boolean.toString(markdown));
 
                         data.draft.signature = prefs.getBoolean("signature_new", true);
                         addSignature(context, document, data.draft, selected);
@@ -6005,6 +6002,9 @@ public class FragmentCompose extends FragmentBase {
                             addSignature(context, document, data.draft, selected);
                         }
                     }
+
+                    if (markdown)
+                        document.body().attr("markdown", Boolean.toString(markdown));
 
                     EntityFolder drafts = db.folder().getFolderByType(selected.account, EntityFolder.DRAFTS);
                     if (drafts == null)
