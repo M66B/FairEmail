@@ -1474,7 +1474,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(Network network) {
-            view.post(new Runnable() {
+            getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
                     updateInternet(true);
@@ -1484,7 +1484,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
         @Override
         public void onLost(@NonNull Network network) {
-            view.post(new Runnable() {
+            getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
                     updateInternet(false);
