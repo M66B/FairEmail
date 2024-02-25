@@ -71,6 +71,21 @@ public class DnsBlockList {
                     "127.0.1.106", // abused legit botnet C&C
             }),
 
+            new BlockList(false, "UCEPROTECT/Level 1", "dnsbl-1.uceprotect.net", true, new String[]{
+                    // https://www.uceprotect.net/en/index.php?m=6&s=11
+                    "127.0.0.2",
+            }),
+
+            new BlockList(false, "UCEPROTECT/Level 2", "dnsbl-2.uceprotect.net", true, new String[]{
+                    // https://www.uceprotect.net/en/index.php?m=6&s=11
+                    "127.0.0.2",
+            }),
+
+            new BlockList(false, "UCEPROTECT/Level 3", "dnsbl-3.uceprotect.net", true, new String[]{
+                    // https://www.uceprotect.net/en/index.php?m=6&s=11
+                    "127.0.0.2",
+            }),
+
             new BlockList(false, "Spamcop", "bl.spamcop.net", true, new String[]{
                     // https://www.spamcop.net/fom-serve/cache/291.html
                     "127.0.0.2",
