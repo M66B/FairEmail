@@ -2274,7 +2274,7 @@ public class Helper {
             try {
                 if (condensed && thisYear && thisMonth && thisDay)
                     return getTimeInstance(context, SimpleDateFormat.SHORT).format(millis);
-                String skeleton = (thisYear ? "M-d" : "yyyy-M-d");
+                String skeleton = (thisYear ? "MMM-d" : "yyyy-M-d");
                 if (withTime) {
                     boolean is24Hour = android.text.format.DateFormat.is24HourFormat(context);
                     skeleton += (is24Hour ? " Hm" : " hm");
