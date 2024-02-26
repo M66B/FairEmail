@@ -76,6 +76,7 @@ public interface DaoAccount {
             " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
             " LEFT JOIN folder AS sent ON sent.account = account.id AND sent.type = '" + EntityFolder.SENT + "'" +
             " WHERE (:settings OR account.synchronize)" +
+            " GROUP BY account.id" +
 
             " UNION " +
 
