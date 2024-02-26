@@ -4983,10 +4983,17 @@ public class FragmentCompose extends FragmentBase {
             if (!saved && isEmpty())
                 onAction(R.id.action_delete, "empty");
             else {
+                boolean finish = EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt) ||
+                        EntityMessage.PGP_ENCRYPTONLY.equals(encrypt) ||
+                        EntityMessage.PGP_SIGNENCRYPT.equals(encrypt);
+
                 Bundle extras = new Bundle();
                 extras.putBoolean("autosave", true);
+                extras.putBoolean("finish", finish);
                 onAction(R.id.action_save, extras, "exit");
-                finish();
+
+                if (!finish)
+                    finish();
             }
         } else
             finish();
@@ -7094,7 +7101,8 @@ public class FragmentCompose extends FragmentBase {
                             (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt) && action == R.id.action_send);
                     boolean needsEncryption = (dirty && !encrypted && shouldEncrypt);
                     boolean autosave = extras.getBoolean("autosave");
-                    if (needsEncryption && !autosave) {
+                    boolean finish = extras.getBoolean("finish");
+                    if (needsEncryption && (!autosave || finish)) {
                         Log.i("Need encryption id=" + draft.id);
                         args.putBoolean("needsEncryption", true);
                         db.setTransactionSuccessful();
@@ -7481,11 +7489,16 @@ public class FragmentCompose extends FragmentBase {
 
             } else if (action == R.id.action_save) {
                 boolean autosave = extras.getBoolean("autosave");
-                setFocus(
-                        args.getInt("focus"),
-                        args.getInt("start", -1),
-                        args.getInt("end", -1),
-                        args.getBoolean("ime") && !autosave);
+                boolean finish = extras.getBoolean("finish");
+
+                if (finish)
+                    finish();
+                else
+                    setFocus(
+                            args.getInt("focus"),
+                            args.getInt("start", -1),
+                            args.getInt("end", -1),
+                            args.getBoolean("ime") && !autosave);
 
             } else if (action == R.id.action_check) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
