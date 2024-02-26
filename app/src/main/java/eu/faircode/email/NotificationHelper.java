@@ -703,8 +703,7 @@ class NotificationHelper {
         String sound = prefs.getString("sound", null);
         boolean alert_once = prefs.getBoolean("alert_once", true);
         boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-        boolean delete_confirmation = prefs.getBoolean("delete_confirmation", true);
-
+        boolean delete_notification = prefs.getBoolean("delete_notification", false);
 
         // Get contact info
         Map<Long, Address[]> messageFrom = new HashMap<>();
@@ -1073,8 +1072,8 @@ class NotificationHelper {
             List<NotificationCompat.Action> wactions = new ArrayList<>();
 
             if (notify_trash &&
-                    perform_expunge &&
-                    message.accountProtocol == EntityAccount.TYPE_IMAP) {
+                    !delete_notification &&
+                    message.accountProtocol == EntityAccount.TYPE_IMAP && perform_expunge) {
                 EntityFolder folder = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
                 if (folder != null && !folder.id.equals(message.folder)) {
                     Intent trash = new Intent(context, ServiceUI.class)
@@ -1094,7 +1093,7 @@ class NotificationHelper {
                     wactions.add(actionTrash.build());
                 }
             } else if (notify_trash &&
-                    (!delete_confirmation ||
+                    (delete_notification ||
                             (message.accountProtocol == EntityAccount.TYPE_POP && message.accountLeaveDeleted) ||
                             (message.accountProtocol == EntityAccount.TYPE_IMAP && !perform_expunge))) {
                 Intent delete = new Intent(context, ServiceUI.class)
@@ -1104,7 +1103,7 @@ class NotificationHelper {
                         context, ServiceUI.PI_DELETE, delete, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionDelete = new NotificationCompat.Action.Builder(
                         R.drawable.twotone_delete_forever_24,
-                        context.getString(R.string.title_advanced_notify_action_delete),
+                        context.getString(R.string.title_delete_permanently),
                         piDelete)
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_DELETE)
                         .setShowsUserInterface(false)
