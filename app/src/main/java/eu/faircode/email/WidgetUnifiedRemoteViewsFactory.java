@@ -23,6 +23,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -186,8 +187,10 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     @Override
     public RemoteViews getViewAt(int position) {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.item_widget_unified);
+        int ivFrom = (subject_top ? R.id.ivSubject : R.id.ivFrom);
         int idFrom = (subject_top ? R.id.tvSubject : R.id.tvFrom);
         int idTime = (subject_top ? R.id.tvAccount : R.id.tvTime);
+        int ivSubject = (subject_top ? R.id.ivFrom : R.id.ivSubject);
         int idSubject = (subject_top ? R.id.tvFrom : R.id.tvSubject);
         int idAccount = (subject_top ? R.id.tvTime : R.id.tvAccount);
 
@@ -195,8 +198,13 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             font = 1; // Default small
 
         int sp = WidgetUnified.getFontSizeSp(font);
+        int cpx = (int) (sp * context.getResources().getDisplayMetrics().scaledDensity);
+        views.setViewLayoutHeight(ivFrom, cpx, TypedValue.COMPLEX_UNIT_PX);
+        views.setViewLayoutWidth(ivFrom, cpx, TypedValue.COMPLEX_UNIT_PX);
         views.setTextViewTextSize(idFrom, TypedValue.COMPLEX_UNIT_SP, sp);
         views.setTextViewTextSize(idTime, TypedValue.COMPLEX_UNIT_SP, sp);
+        views.setViewLayoutHeight(ivSubject, cpx, TypedValue.COMPLEX_UNIT_PX);
+        views.setViewLayoutWidth(ivSubject, cpx, TypedValue.COMPLEX_UNIT_PX);
         views.setTextViewTextSize(idSubject, TypedValue.COMPLEX_UNIT_SP, sp);
         views.setTextViewTextSize(idAccount, TypedValue.COMPLEX_UNIT_SP, sp);
 
@@ -266,6 +274,16 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
             if (!daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", 0);
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                views.setViewVisibility(ivFrom, View.GONE);
+                views.setViewVisibility(ivSubject, message.attachments > 0 ? View.VISIBLE : View.GONE);
+                views.setColorStateList(ivSubject, "setImageTintList",
+                        ColorStateList.valueOf(message.ui_seen ? colorWidgetRead : colorWidgetUnread));
+            } else {
+                views.setViewVisibility(ivFrom, View.GONE);
+                views.setViewVisibility(ivSubject, View.GONE);
             }
 
             if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

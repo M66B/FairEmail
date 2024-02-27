@@ -40,6 +40,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/ivFrom"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:paddingEnd="3dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/twotone_attachment_24"
+                    android:tint="?android:textColorPrimary" />
+
                 <TextView
                     android:id="@+id/tvFrom"
                     android:layout_width="0dp"
@@ -66,6 +75,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivSubject"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:paddingEnd="3dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/twotone_attachment_24"
+                    android:tint="?android:textColorPrimary" />
 
                 <TextView
                     android:id="@+id/tvSubject"
