@@ -50,11 +50,11 @@ public class TupleIdentityView {
         if (obj instanceof TupleIdentityView) {
             TupleIdentityView other = (TupleIdentityView) obj;
             return (this.id.equals(other.id) &&
-                    this.name.equals(other.name) &&
-                    this.email.equals(other.email) &&
+                    Objects.equals(this.name, other.name) &&
+                    Objects.equals(this.email, other.email) &&
                     Objects.equals(this.display, other.display) &&
                     Objects.equals(this.color, other.color) &&
-                    this.synchronize.equals(other.synchronize));
+                    Objects.equals(this.synchronize, other.synchronize));
         } else
             return false;
     }
