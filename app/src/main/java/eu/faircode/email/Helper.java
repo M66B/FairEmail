@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2024 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOWED;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
@@ -1936,11 +1937,16 @@ public class Helper {
     }
 
     static Bundle getBackgroundActivityOptions() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
             return null;
-        ActivityOptions options = ActivityOptions.makeBasic();
-        options.setPendingIntentBackgroundActivityLaunchAllowed(true);
-        return options.toBundle();
+        else {
+            ActivityOptions options = ActivityOptions.makeBasic();
+            if (Build.VERSION.SDK_INT == Build.VERSION_CODES.TIRAMISU)
+                options.setPendingIntentBackgroundActivityLaunchAllowed(true);
+            else
+                options.setPendingIntentBackgroundActivityStartMode(MODE_BACKGROUND_ACTIVITY_START_ALLOWED);
+            return options.toBundle();
+        }
     }
 
     static Fragment recreateFragment(Fragment fragment, FragmentManager fm) {
