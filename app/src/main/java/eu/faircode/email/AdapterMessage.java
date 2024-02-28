@@ -6402,137 +6402,154 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private boolean onOpenLink(Uri uri, String title, boolean always_confirm) {
             Log.i("Opening uri=" + uri + " title=" + title + " always confirm=" + always_confirm);
-            if (UriHelper.isHyperLink(uri))
-                uri = Uri.parse(uri.toString().trim().replaceAll("\\s+", "+"));
-
-            if (ProtectedContent.isProtectedContent(uri)) {
-                Bundle args = new Bundle();
-                args.putParcelable("uri", uri);
-
-                FragmentDialogBase dialog = new ProtectedContent.FragmentDialogDecrypt();
-                dialog.setArguments(args);
-                dialog.show(parentFragment.getParentFragmentManager(), "decrypt");
-                return true;
-            }
 
             try {
-                String url = uri.getQueryParameter("url");
-                if (!TextUtils.isEmpty(url)) {
-                    Uri alt = Uri.parse(url);
-                    if (isActivate(alt))
-                        uri = alt;
-                }
+                if (UriHelper.isHyperLink(uri))
+                    uri = Uri.parse(uri.toString().trim().replaceAll("\\s+", "+"));
 
-                Uri sanitized = UriHelper.sanitize(context, uri);
-                if (sanitized != null && isActivate(sanitized))
-                    uri = sanitized;
-                else if (title != null) {
-                    Uri alt = Uri.parse(title);
-                    if (isActivate(alt))
-                        uri = alt;
-                }
-            } catch (Throwable ignored) {
-            }
-
-            if (isActivate(uri)) {
-                try {
-                    if (ActivityBilling.activatePro(context, uri))
-                        ToastEx.makeText(context, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
-                    else
-                        ToastEx.makeText(context, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
-                } catch (NoSuchAlgorithmException ex) {
-                    Log.e(ex);
-                    ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
-                }
-            } else {
-                String scheme = uri.getScheme();
-                if ("full".equals(scheme)) {
-                    TupleMessageEx message = getMessage();
-                    if (message != null)
-                        onShow(message, true);
-                    return (message != null);
-                } else if ("external".equals(scheme)) {
-                    TupleMessageEx message = getMessage();
-                    if (message == null)
-                        return false;
-
+                if (ProtectedContent.isProtectedContent(uri)) {
                     Bundle args = new Bundle();
-                    args.putLong("id", message.id);
+                    args.putParcelable("uri", uri);
 
-                    new SimpleTask<Uri>() {
-                        @Override
-                        protected Uri onExecute(Context context, Bundle args) throws Throwable {
-                            long id = args.getLong("id");
-
-                            File source = EntityMessage.getFile(context, id);
-
-                            File dir = Helper.ensureExists(context, "shared");
-                            File target = new File(dir, id + ".html");
-
-                            Helper.copy(source, target);
-
-                            return FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, target);
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, Uri uri) {
-                            Helper.share(context, uri, "text/html", null);
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                        }
-                    }.execute(context, owner, args, "message:external");
-
+                    FragmentDialogBase dialog = new ProtectedContent.FragmentDialogDecrypt();
+                    dialog.setArguments(args);
+                    dialog.show(parentFragment.getParentFragmentManager(), "decrypt");
                     return true;
                 }
 
-                if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
-                    return false;
-
-                boolean confirm_links = prefs.getBoolean("confirm_links", true);
-
-                String chost = FragmentDialogOpenLink.getConfirmHost(uri);
-                boolean confirm_link = (chost == null || prefs.getBoolean(chost + ".confirm_link", true));
-                if (always_confirm || (confirm_links && confirm_link)) {
-                    Bundle args = new Bundle();
-                    args.putParcelable("uri", uri);
-                    args.putString("title", title);
-                    args.putBoolean("always_confirm", always_confirm);
-
-                    FragmentDialogOpenLink fragment = new FragmentDialogOpenLink();
-                    fragment.setArguments(args);
-                    fragment.show(parentFragment.getParentFragmentManager(), "open:link");
-                } else {
-                    boolean link_view = prefs.getBoolean(chost + ".link_view", false);
-                    boolean link_sanitize = prefs.getBoolean(chost + ".link_sanitize", false);
-
-                    if (link_sanitize && UriHelper.isHyperLink(uri)) {
-                        Uri sanitized = UriHelper.sanitize(context, uri);
-                        if (sanitized != null)
-                            uri = sanitized;
-                        Log.i("Open sanitized=" + uri);
+                try {
+                    String url = uri.getQueryParameter("url");
+                    if (!TextUtils.isEmpty(url)) {
+                        Uri alt = Uri.parse(url);
+                        if (isActivate(alt))
+                            uri = alt;
                     }
 
-                    if (link_view) {
-                        Log.i("Open view=" + uri);
-                        Intent view = new Intent(Intent.ACTION_VIEW, UriHelper.fix(uri));
-                        Intent chooser = Intent.createChooser(view, context.getString(R.string.title_select_app));
-                        try {
-                            context.startActivity(chooser);
-                        } catch (ActivityNotFoundException ex) {
-                            Log.w(ex);
-                            Helper.view(context, uri, true, true);
-                        }
+                    Uri sanitized = UriHelper.sanitize(context, uri);
+                    if (sanitized != null && isActivate(sanitized))
+                        uri = sanitized;
+                    else if (title != null) {
+                        Uri alt = Uri.parse(title);
+                        if (isActivate(alt))
+                            uri = alt;
+                    }
+                } catch (Throwable ignored) {
+                }
+
+                if (isActivate(uri)) {
+                    try {
+                        if (ActivityBilling.activatePro(context, uri))
+                            ToastEx.makeText(context, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
+                        else
+                            ToastEx.makeText(context, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
+                    } catch (NoSuchAlgorithmException ex) {
+                        Log.e(ex);
+                        ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    String scheme = uri.getScheme();
+                    if ("full".equals(scheme)) {
+                        TupleMessageEx message = getMessage();
+                        if (message != null)
+                            onShow(message, true);
+                        return (message != null);
+                    } else if ("external".equals(scheme)) {
+                        TupleMessageEx message = getMessage();
+                        if (message == null)
+                            return false;
+
+                        Bundle args = new Bundle();
+                        args.putLong("id", message.id);
+
+                        new SimpleTask<Uri>() {
+                            @Override
+                            protected Uri onExecute(Context context, Bundle args) throws Throwable {
+                                long id = args.getLong("id");
+
+                                File source = EntityMessage.getFile(context, id);
+
+                                File dir = Helper.ensureExists(context, "shared");
+                                File target = new File(dir, id + ".html");
+
+                                Helper.copy(source, target);
+
+                                return FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, target);
+                            }
+
+                            @Override
+                            protected void onExecuted(Bundle args, Uri uri) {
+                                Helper.share(context, uri, "text/html", null);
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                            }
+                        }.execute(context, owner, args, "message:external");
+
+                        return true;
+                    }
+
+                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                        return false;
+
+                    boolean confirm_links = prefs.getBoolean("confirm_links", true);
+
+                    String chost = FragmentDialogOpenLink.getConfirmHost(uri);
+                    boolean confirm_link = (chost == null || prefs.getBoolean(chost + ".confirm_link", true));
+                    if (always_confirm || (confirm_links && confirm_link)) {
+                        Bundle args = new Bundle();
+                        args.putParcelable("uri", uri);
+                        args.putString("title", title);
+                        args.putBoolean("always_confirm", always_confirm);
+
+                        FragmentDialogOpenLink fragment = new FragmentDialogOpenLink();
+                        fragment.setArguments(args);
+                        fragment.show(parentFragment.getParentFragmentManager(), "open:link");
                     } else {
-                        boolean tabs = prefs.getBoolean("open_with_tabs", true);
-                        Helper.view(context, UriHelper.guessScheme(uri), !tabs, !tabs);
+                        boolean link_view = prefs.getBoolean(chost + ".link_view", false);
+                        boolean link_sanitize = prefs.getBoolean(chost + ".link_sanitize", false);
+
+                        if (link_sanitize && UriHelper.isHyperLink(uri)) {
+                            Uri sanitized = UriHelper.sanitize(context, uri);
+                            if (sanitized != null)
+                                uri = sanitized;
+                            Log.i("Open sanitized=" + uri);
+                        }
+
+                        if (link_view) {
+                            Log.i("Open view=" + uri);
+                            Intent view = new Intent(Intent.ACTION_VIEW, UriHelper.fix(uri));
+                            Intent chooser = Intent.createChooser(view, context.getString(R.string.title_select_app));
+                            try {
+                                context.startActivity(chooser);
+                            } catch (ActivityNotFoundException ex) {
+                                Log.w(ex);
+                                Helper.view(context, uri, true, true);
+                            }
+                        } else {
+                            boolean tabs = prefs.getBoolean("open_with_tabs", true);
+                            Helper.view(context, UriHelper.guessScheme(uri), !tabs, !tabs);
+                        }
                     }
                 }
-            }
 
-            return true;
+                return true;
+            } catch (Throwable ex) {
+                /*
+                    Exception java.lang.NullPointerException:
+                      at eu.faircode.email.AdapterMessage$ViewHolder.onOpenLink (AdapterMessage.java:6506)
+                      at eu.faircode.email.AdapterMessage$ViewHolder.access$900 (AdapterMessage.java:354)
+                      at eu.faircode.email.AdapterMessage$ViewHolder$2$1.onClick (AdapterMessage.java:670)
+                      at eu.faircode.email.AdapterMessage$ViewHolder$2$1.onLongPress (AdapterMessage.java:632)
+                      at android.view.GestureDetector.dispatchLongPress (GestureDetector.java:1014)
+                      at android.view.GestureDetector.-$$Nest$mdispatchLongPress
+                      at android.view.GestureDetector$GestureHandler.handleMessage (GestureDetector.java:358)
+                      at android.os.Handler.dispatchMessage (Handler.java:106)
+                 */
+                Log.e(ex);
+                return false;
+            }
         }
 
         private boolean isActivate(Uri uri) {
