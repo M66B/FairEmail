@@ -5342,7 +5342,7 @@ Send is only available in non-Play Store versions of the app (since version 1.19
 
 Password protected content is a simple, yet secure form of end-to-end encryption that requires no configuration.
 
-How to use: select some text by long pressing it, and in the style toolbar at the bottom tap on the *<ins>A</ins>*-button and select *Password protect* in the pop-up menu.
+How to use: select some text by long pressing it, and in the style toolbar at the bottom tap on the padlock-button and select *Password protect* in the pop-up menu.
 This will replace the selected content with a link that the recipient can click to decrypt the content on a dedicated static web page.
 
 Password protected content is sent as a [URI fragment](https://en.wikipedia.org/wiki/URI_fragment) and decrypted in the browser with JavaScript.
