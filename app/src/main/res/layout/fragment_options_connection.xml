@@ -302,6 +302,20 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swDownloadPlain" />
 
+                <TextView
+                    android:id="@+id/tvPlainRemark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_plain_remark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPlainHint" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swValidated"
                     android:layout_width="0dp"
@@ -310,7 +324,7 @@
                     android:text="@string/title_advanced_validated"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvPlainHint"
+                    app:layout_constraintTop_toBottomOf="@id/tvPlainRemark"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
