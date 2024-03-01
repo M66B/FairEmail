@@ -5523,10 +5523,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvReformatted.setVisibility(View.GONE);
             }
 
+            boolean junk = EntityFolder.JUNK.equals(message.folderType);
+
             boolean current = properties.getValue(full ? "full" : "images", message.id);
             boolean asked = properties.getValue(full ? "full_asked" : "images_asked", message.id);
-            boolean confirm = prefs.getBoolean(full ? "confirm_html" : "confirm_images", true);
-            boolean ask = prefs.getBoolean(full ? "ask_html" : "ask_images", true);
+            boolean confirm = prefs.getBoolean(full ? "confirm_html" : "confirm_images", true) || junk;
+            boolean ask = prefs.getBoolean(full ? "ask_html" : "ask_images", true) || junk;
             if (current || asked || !confirm || !ask) {
                 if (current && message.from != null) {
                     SharedPreferences.Editor editor = prefs.edit();
@@ -5549,11 +5551,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             View dview = LayoutInflater.from(context).inflate(
                     full ? R.layout.dialog_show_full : R.layout.dialog_show_images, null);
+            CheckBox cbAlwaysImages = dview.findViewById(R.id.cbAlwaysImages); // Full only
             CheckBox cbNotAgainSender = dview.findViewById(R.id.cbNotAgainSender);
             CheckBox cbNotAgainDomain = dview.findViewById(R.id.cbNotAgainDomain);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
-            if (message.from == null || message.from.length == 0) {
+            if (junk) {
+                if (full)
+                    cbAlwaysImages.setVisibility(View.GONE);
+                cbNotAgainSender.setVisibility(View.GONE);
+                cbNotAgainDomain.setVisibility(View.GONE);
+                cbNotAgain.setVisibility(View.GONE);
+            } else if (message.from == null || message.from.length == 0) {
                 cbNotAgainSender.setVisibility(View.GONE);
                 cbNotAgainDomain.setVisibility(View.GONE);
             } else {
@@ -5592,7 +5601,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (full) {
                 TextView tvDark = dview.findViewById(R.id.tvDark);
-                CheckBox cbAlwaysImages = dview.findViewById(R.id.cbAlwaysImages);
 
                 cbAlwaysImages.setChecked(prefs.getBoolean("html_always_images", false));
 
@@ -5622,7 +5630,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             // TODO: dialog fragment
-            final Dialog dialog = new AlertDialog.Builder(context)
+            final AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -5630,35 +5638,40 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             properties.setValue(full ? "full" : "images", message.id, true);
                             properties.setValue(full ? "full_asked" : "images_asked", message.id, true);
 
-                            SharedPreferences.Editor editor = prefs.edit();
-                            if (message.from != null)
-                                for (Address sender : message.from) {
-                                    String from = ((InternetAddress) sender).getAddress();
-                                    if (TextUtils.isEmpty(from))
-                                        continue;
-                                    int at = from.indexOf('@');
-                                    String domain = (at < 0 ? from : from.substring(at));
-                                    editor.putBoolean(from + (full ? ".show_full" : ".show_images"),
-                                            cbNotAgainSender.isChecked());
-                                    editor.putBoolean(domain + (full ? ".show_full" : ".show_images"),
-                                            cbNotAgainSender.isChecked() && cbNotAgainDomain.isChecked());
-                                }
-                            editor.putBoolean(full ? "ask_html" : "ask_images", !cbNotAgain.isChecked());
-                            editor.apply();
+                            if (!junk) {
+                                SharedPreferences.Editor editor = prefs.edit();
+                                if (message.from != null)
+                                    for (Address sender : message.from) {
+                                        String from = ((InternetAddress) sender).getAddress();
+                                        if (TextUtils.isEmpty(from))
+                                            continue;
+                                        int at = from.indexOf('@');
+                                        String domain = (at < 0 ? from : from.substring(at));
+                                        editor.putBoolean(from + (full ? ".show_full" : ".show_images"),
+                                                cbNotAgainSender.isChecked());
+                                        editor.putBoolean(domain + (full ? ".show_full" : ".show_images"),
+                                                cbNotAgainSender.isChecked() && cbNotAgainDomain.isChecked());
+                                    }
+                                editor.putBoolean(full ? "ask_html" : "ask_images", !cbNotAgain.isChecked());
+                                editor.apply();
+                            }
 
                             onShowConfirmed(message, full, true);
                         }
                     })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .setNeutralButton(R.string.title_setup, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            context.startActivity(new Intent(context, ActivitySetup.class)
-                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                                    .putExtra("tab", "privacy"));
-                        }
-                    })
-                    .create();
+                    .setNegativeButton(android.R.string.cancel, null);
+
+            if (!EntityFolder.JUNK.equals(message.folderType))
+                builder.setNeutralButton(R.string.title_setup, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        context.startActivity(new Intent(context, ActivitySetup.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                .putExtra("tab", "privacy"));
+                    }
+                });
+
+            Dialog dialog = builder.create();
 
             owner.getLifecycle().addObserver(new LifecycleObserver() {
                 @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
@@ -5797,13 +5810,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionOpenFull(final TupleMessageEx message) {
+            boolean junk = EntityFolder.JUNK.equals(message.folderType);
             boolean open_full_confirmed = prefs.getBoolean("open_full_confirmed", false);
-            if (open_full_confirmed)
+            if (open_full_confirmed && !junk)
                 onActionOpenFullConfirmed(message);
             else {
                 LayoutInflater inflater = LayoutInflater.from(context);
                 View dview = inflater.inflate(R.layout.dialog_ask_full, null, false);
                 final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+                cbNotAgain.setVisibility(junk ? View.GONE : View.VISIBLE);
 
                 new AlertDialog.Builder(context)
                         .setView(dview)
