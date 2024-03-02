@@ -2168,14 +2168,16 @@ $NotDisplayed</code></pre>
 <p>The confusing Microsoft specific server error <em>User is authenticated but not connected</em> might occur if:</p>
 <ul>
 <li>External access is administratively disabled, please see <a href="https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules">this article</a> about how an administrator can enable it again</li>
+<li>Access by third-party apps is administratively disabled or allowed for specific apps only</li>
+<li>IMAP is administratively disabled, please see <a href="https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/pop3-and-imap4/enable-or-disable-pop3-or-imap4-access">this article</a> about how an administrator can enable it again</li>
 <li>SMTP is administratively disabled, please see <a href="https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission">this article</a> about how an administrator can enable it again</li>
+<li>A security policy is blocking the login, for example because only specific network connections are allowed, please see <a href="https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules">this article</a> about how an administrator can enable it again</li>
 <li>Required server components are disabled, please see <a href="https://learn.microsoft.com/en-us/exchange/troubleshoot/user-and-shared-mailboxes/pop3-imap-owa-activesync-office-365">this article</a> about enabling IMAP, MAPI, etc.</li>
 <li>Push messages are enabled for too many folders: see <a href="#faq23">this FAQ</a> for more information and a workaround</li>
 <li>There were too many login attempts in a too short time, for example by using multiple email clients at the same time</li>
 <li>The wrong account was selected in the Microsoft account selector, for example an account with a different email address or a personal instead of a business account</li>
 <li>An ad blocker or DNS changer is being used</li>
 <li>Devices in another time zone are connected to the same account</li>
-<li>A security policy is blocking the login, for example because only specific network connections are allowed</li>
 <li>There is a problem with the Exchange server license: it might be expired or for another server edition</li>
 <li>An alias email address is being used as username instead of the primary email address</li>
 <li>An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain</li>

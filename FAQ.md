@@ -4300,14 +4300,16 @@ Note that FairEmail does support replying to calendar invites (a pro feature) an
 The confusing Microsoft specific server error *User is authenticated but not connected* might occur if:
 
 * External access is administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) about how an administrator can enable it again
+* Access by third-party apps is administratively disabled or allowed for specific apps only
+* IMAP is administratively disabled, please see [this article](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/pop3-and-imap4/enable-or-disable-pop3-or-imap4-access) about how an administrator can enable it again
 * SMTP is administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how an administrator can enable it again
+* A security policy is blocking the login, for example because only specific network connections are allowed, please see [this article](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) about how an administrator can enable it again
 * Required server components are disabled, please see [this article](https://learn.microsoft.com/en-us/exchange/troubleshoot/user-and-shared-mailboxes/pop3-imap-owa-activesync-office-365) about enabling IMAP, MAPI, etc.
 * Push messages are enabled for too many folders: see [this FAQ](#faq23) for more information and a workaround
 * There were too many login attempts in a too short time, for example by using multiple email clients at the same time
 * The wrong account was selected in the Microsoft account selector, for example an account with a different email address or a personal instead of a business account
 * An ad blocker or DNS changer is being used
 * Devices in another time zone are connected to the same account
-* A security policy is blocking the login, for example because only specific network connections are allowed
 * There is a problem with the Exchange server license: it might be expired or for another server edition
 * An alias email address is being used as username instead of the primary email address
 * An incorrect login scheme is being used for a shared mailbox: the right scheme is *username@domain\SharedMailboxAlias*
