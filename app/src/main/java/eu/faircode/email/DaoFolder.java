@@ -402,6 +402,12 @@ public interface DaoFolder {
     @Query("UPDATE folder SET last_sync_count = :last_sync_count WHERE id = :id AND NOT (last_sync_count IS :last_sync_count)")
     int setFolderLastSyncCount(long id, Integer last_sync_count);
 
+    @Query("UPDATE folder SET last_view = :last_view" +
+            " WHERE (id = :folder" +
+            "   OR (type = :type AND type <> '" + EntityFolder.OUTBOX + "')" +
+            "   OR (account = :account AND :folder IS NULL AND :type IS NULL AND unified))")
+    int setFolderLastView(Long account, Long folder, String type, long last_view);
+
     @Query("UPDATE folder SET read_only = :read_only WHERE id = :id AND NOT (read_only IS :read_only)")
     int setFolderReadOnly(long id, boolean read_only);
 

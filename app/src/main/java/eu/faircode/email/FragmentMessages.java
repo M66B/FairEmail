@@ -5351,35 +5351,50 @@ public class FragmentMessages extends FragmentBase
 
         if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER) {
             boolean notify_clear = prefs.getBoolean("notify_clear", false);
-            if (notify_clear) {
-                Bundle args = new Bundle();
-                args.putLong("folder", folder);
-                args.putString("type", type);
 
-                new SimpleTask<Void>() {
-                    @Override
-                    protected Void onExecute(Context context, Bundle args) {
-                        long folder = args.getLong("folder");
-                        String type = args.getString("type");
+            Bundle args = new Bundle();
+            args.putLong("folder", folder);
+            args.putString("type", type);
+            args.putBoolean("notify_clear", notify_clear);
 
-                        DB db = DB.getInstance(context);
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long folder = args.getLong("folder");
+                    String type = args.getString("type");
+                    boolean notify_clear = args.getBoolean("notify_clear");
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
                         if (folder < 0) {
                             List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
                             if (accounts != null)
-                                for (EntityAccount account : accounts)
-                                    db.message().ignoreAll(account.id, null, type);
-                        } else
-                            db.message().ignoreAll(null, folder, type);
+                                for (EntityAccount account : accounts) {
+                                    if (notify_clear)
+                                        db.message().ignoreAll(account.id, null, type);
+                                    db.folder().setFolderLastView(account.id, null, type, new Date().getTime());
+                                }
+                        } else {
+                            if (notify_clear)
+                                db.message().ignoreAll(null, folder, type);
+                            db.folder().setFolderLastView(null, folder, type, new Date().getTime());
+                        }
 
-                        return null;
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
                     }
 
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex);
-                    }
-                }.execute(this, args, "messages:ignore");
-            }
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(this, args, "messages:ignore");
         }
     }
 

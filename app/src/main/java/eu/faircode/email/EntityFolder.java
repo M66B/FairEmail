@@ -150,6 +150,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Long last_sync;
     public Long last_sync_foreground;
     public Integer last_sync_count; // POP3
+    public Long last_view;
 
     static final String INBOX = "Inbox";
     static final String OUTBOX = "Outbox";
