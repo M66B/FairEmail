@@ -49,6 +49,7 @@
   },
   {
     "include": [
+      "*://trk.pmsrv.co/v2/trk?*",
       "*://trk.pm-srv.co/v2/trk?*"
     ],
     "exclude": [
@@ -404,6 +405,7 @@
   },
   {
     "include": [
+      "*://streak-link.com/*",
       "*://streaklinks.com/*"
     ],
     "exclude": [
