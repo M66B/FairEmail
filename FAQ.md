@@ -4765,6 +4765,8 @@ A complicating factor is that not all email servers support [UID EXPUNGE](https:
 Since version 1.1485 it is possible to temporarily enable debug mode in the miscellaneous settings to disable auto expunging messages.
 Note that messages with a *\Deleted* flag will not be shown if auto EXPUNGE is enabled.
 
+In the debug panel, it is also possible to disable permanent delete confirmation and enable permanent delete from notifications (since version 1.2163).
+
 <br />
 
 <a name="faq161"></a>
