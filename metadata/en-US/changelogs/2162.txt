@@ -9,6 +9,8 @@ Zby
 Next version
 
 * Small improvements and minor bug fixes
+* Updated build tools
+* Updated Public Suffix List
 * Updated translations
 
 1.2162 - 2024-02-22 *
