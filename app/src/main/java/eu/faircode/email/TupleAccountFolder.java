@@ -46,6 +46,7 @@ public class TupleAccountFolder extends EntityAccount {
     public int executing;
     public int messages;
     public int unseen;
+    public int unexposed;
 
     public String getName(Context context) {
         if (folderName == null)

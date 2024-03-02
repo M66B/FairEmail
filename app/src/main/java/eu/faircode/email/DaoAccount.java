@@ -72,6 +72,16 @@ public interface DaoAccount {
             "    AND folder.count_unread" +
             "    AND NOT ui_seen" +
             "    AND NOT ui_hide) AS unseen" +
+            ", (SELECT COUNT(DISTINCT" +
+            "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
+            "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
+            "   ELSE message.id END)" +
+            "    FROM message" +
+            "    JOIN folder ON folder.id = message.folder" +
+            "    WHERE message.account = account.id" +
+            "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
+            "    AND message.received > folder.last_view" +
+            "    AND NOT ui_hide) AS unexposed" +
             " FROM account" +
             " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
             " LEFT JOIN folder AS sent ON sent.account = account.id AND sent.type = '" + EntityFolder.SENT + "'" +
@@ -98,6 +108,14 @@ public interface DaoAccount {
             "    WHERE message.folder = folder.id" +
             "    AND NOT ui_seen" +
             "    AND NOT ui_hide) AS unseen" +
+            ", (SELECT COUNT(DISTINCT" +
+            "   CASE WHEN NOT message.hash IS NULL THEN message.hash" +
+            "   WHEN NOT message.msgid IS NULL THEN message.msgid" +
+            "   ELSE message.id END)" +
+            "    FROM message" +
+            "    WHERE message.folder = folder.id" +
+            "    AND message.received > folder.last_view" +
+            "    AND NOT ui_hide) AS unexposed" +
             " FROM account" +
             " JOIN folder ON folder.account = account.id" +
             " LEFT JOIN operation ON operation.folder = folder.id AND operation.state = 'executing'" +
