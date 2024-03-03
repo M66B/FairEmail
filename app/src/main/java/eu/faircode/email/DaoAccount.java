@@ -80,7 +80,8 @@ public interface DaoAccount {
             "    JOIN folder ON folder.id = message.folder" +
             "    WHERE message.account = account.id" +
             "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
-            "    AND message.received > folder.last_view" +
+            "    AND folder.count_unread" +
+            "    AND NOT ui_seen AND message.received > folder.last_view" +
             "    AND NOT ui_hide) AS unexposed" +
             " FROM account" +
             " LEFT JOIN folder AS drafts ON drafts.account = account.id AND drafts.type = '" + EntityFolder.DRAFTS + "'" +
@@ -114,7 +115,7 @@ public interface DaoAccount {
             "   ELSE message.id END)" +
             "    FROM message" +
             "    WHERE message.folder = folder.id" +
-            "    AND message.received > folder.last_view" +
+            "    AND NOT message.ui_seen AND message.received > folder.last_view" +
             "    AND NOT ui_hide) AS unexposed" +
             " FROM account" +
             " JOIN folder ON folder.account = account.id" +
