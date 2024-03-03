@@ -87,7 +87,9 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
                     this.unseen == other.unseen &&
                     this.unexposed == other.unexposed &&
                     this.flagged == other.flagged &&
-                    this.executing == other.executing);
+                    this.executing == other.executing &&
+                    this.indentation == other.indentation &&
+                    this.childs_unseen == other.childs_unseen);
         } else
             return false;
     }
