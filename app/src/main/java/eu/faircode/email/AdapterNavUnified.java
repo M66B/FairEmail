@@ -57,6 +57,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     private boolean nav_unseen_drafts;
     private int colorUnread;
     private int textColorSecondary;
+    private boolean show_unexposed;
 
     private boolean expanded = true;
     private List<TupleFolderUnified> items = new ArrayList<>();
@@ -130,10 +131,16 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
                     ? context.getString(R.string.title_folder_unified)
                     : EntityFolder.localizeType(context, folder.type));
 
-            if (count == 0)
+            int unexposed = (show_unexposed ? folder.unexposed : 0);
+            if (count > 0 || unexposed > 0) {
+                StringBuilder sb = new StringBuilder();
+                if (count > 0)
+                    sb.append(NF.format(count));
+                if (unexposed > 0)
+                    sb.append('\u2B51');
+                tvItem.setText(context.getString(R.string.title_name_count, name, sb));
+            } else
                 tvItem.setText(name);
-            else
-                tvItem.setText(context.getString(R.string.title_name_count, name, NF.format(count)));
 
             tvItem.setTextColor(count == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
@@ -217,6 +224,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+        this.show_unexposed = prefs.getBoolean("show_unexposed", false);
     }
 
     public void set(@NonNull List<TupleFolderUnified> folders, boolean expanded) {
