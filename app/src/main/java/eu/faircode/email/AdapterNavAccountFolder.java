@@ -60,6 +60,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
     private boolean nav_count_pinned;
     private boolean nav_unseen_drafts;
     private boolean nav_categories;
+    private boolean show_unexposed;
 
     private int dp6;
     private int dp12;
@@ -155,10 +156,17 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
                 ivItem.setColorFilter(color);
 
             String name = account.getName(context);
-            if (count == 0)
+            int unexposed = (show_unexposed ? account.unexposed : 0);
+            if (count == 0 && unexposed == 0)
                 tvItem.setText(name);
-            else
-                tvItem.setText(context.getString(R.string.title_name_count, name, NF.format(count)));
+            else {
+                StringBuilder sb = new StringBuilder();
+                if (count > 0)
+                    sb.append(NF.format(count));
+                if (unexposed > 0)
+                    sb.append('\u207A');
+                tvItem.setText(context.getString(R.string.title_name_count, name, sb));
+            }
 
             tvItem.setTextColor(count == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
@@ -287,6 +295,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
         this.nav_count_pinned = prefs.getBoolean("nav_count_pinned", false);
         this.nav_unseen_drafts = prefs.getBoolean("nav_unseen_drafts", false);
         this.nav_categories = prefs.getBoolean("nav_categories", false);
+        this.show_unexposed = prefs.getBoolean("show_unexposed", false);
 
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));

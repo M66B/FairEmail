@@ -91,6 +91,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private int colorUnread;
     private int textColorSecondary;
     private int textColorTertiary;
+    private boolean show_unexposed;
     private boolean debug;
 
     private List<TupleAccountFolder> all = new ArrayList<>();
@@ -225,9 +226,15 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     tvName.setTextColor(account.protocol == EntityAccount.TYPE_IMAP
                             ? textColorSecondary : colorWarning);
                 } else {
-                    if (account.unseen > 0)
-                        tvName.setText(context.getString(R.string.title_name_count, account.name, NF.format(account.unseen)));
-                    else
+                    int unexposed = (show_unexposed ? account.unexposed : 0);
+                    if (account.unseen > 0 || unexposed > 0) {
+                        StringBuilder sb = new StringBuilder();
+                        if (account.unseen > 0)
+                            sb.append(NF.format(account.unseen));
+                        if (unexposed > 0)
+                            sb.append('\u207A');
+                        tvName.setText(context.getString(R.string.title_name_count, account.name, sb));
+                    } else
                         tvName.setText(account.name);
 
                     tvName.setTypeface(account.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
@@ -881,6 +888,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
+        this.show_unexposed = prefs.getBoolean("show_unexposed", false);
         this.debug = prefs.getBoolean("debug", false);
 
         this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.MEDIUM);

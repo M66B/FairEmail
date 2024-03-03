@@ -143,7 +143,7 @@ public class FragmentOptions extends FragmentBase {
             "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_border", "shadow_highlight", "dividers", "tabular_unread_bg",
             "portrait2", "portrait2c", "portrait_min_size", "landscape", "landscape_min_size",
             "column_width",
-            "hide_toolbar", "nav_categories", "nav_last_sync", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
+            "hide_toolbar", "nav_categories", "nav_last_sync", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "show_unexposed", "navbar_colorize",
             "indentation", "date", "date_week", "date_fixed", "date_bold", "date_time", "threading", "threading_unread",
             "show_filtered",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",

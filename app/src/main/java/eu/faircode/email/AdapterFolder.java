@@ -109,6 +109,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private int colorUnread;
     private int colorControlNormal;
     private int colorSeparator;
+    private boolean show_unexposed;
     private boolean debug;
 
     private String search = null;
@@ -345,11 +346,20 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             int cunseen = (folder.collapsed ? folder.childs_unseen : 0);
             int unseen = folder.unseen + cunseen;
-            if (unseen > 0)
+            int unexposed = (show_unexposed ? folder.unexposed : 0);
+
+            if (unseen > 0 || unexposed > 0) {
+                StringBuilder sb = new StringBuilder();
+                if (unseen > 0) {
+                    if (cunseen > 0)
+                        sb.append('\u25BE');
+                    sb.append(NF.format(unseen));
+                }
+                if (unexposed > 0)
+                    sb.append('\u207A');
                 tvName.setText(context.getString(R.string.title_name_count,
-                        folder.getDisplayName(context, folder.parent_ref == null ? null : folder.parent_ref),
-                        (cunseen > 0 ? "▾" : "") + NF.format(unseen)));
-            else
+                        folder.getDisplayName(context, folder.parent_ref), sb));
+            } else
                 tvName.setText(folder.getDisplayName(context, folder.parent_ref));
 
             tvName.setTypeface(unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
@@ -1463,6 +1473,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.colorControlNormal = Helper.resolveColor(context, androidx.appcompat.R.attr.colorControlNormal);
         this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
+        this.show_unexposed = prefs.getBoolean("show_unexposed", false);
         this.debug = prefs.getBoolean("debug", false);
 
         setHasStableIds(true);

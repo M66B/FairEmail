@@ -665,6 +665,17 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swShowUnexposed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_show_unexposed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swNavPinnedCount"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNavBarColorize"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -672,7 +683,7 @@
                     android:text="@string/title_advanced_navbar_colorize"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swNavPinnedCount"
+                    app:layout_constraintTop_toBottomOf="@id/swShowUnexposed"
                     app:switchPadding="12dp" />
 
                 <TextView
