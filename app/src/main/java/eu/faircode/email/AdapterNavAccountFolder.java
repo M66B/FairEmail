@@ -164,7 +164,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
                 if (count > 0)
                     sb.append(NF.format(count));
                 if (unexposed > 0)
-                    sb.append('\u207A');
+                    sb.append('\u2B51');
                 tvItem.setText(context.getString(R.string.title_name_count, name, sb));
             }
 

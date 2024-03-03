@@ -571,7 +571,7 @@
     <string name="title_advanced_nav_message_count">Show number of locally stored messages in the navigation menu</string>
     <string name="title_advanced_nav_unseen_drafts">Show number of unread drafts in the navigation menu</string>
     <string name="title_advanced_nav_pinned_count">Show the number of unread messages in the pinned navigation menu</string>
-    <string name="title_advanced_show_unexposed">Show a small plus sign for accounts/folders with unseen messages</string>
+    <string name="title_advanced_show_unexposed">Show a star for accounts/folders with unseen messages</string>
     <string name="title_advanced_startup">Show on start screen</string>
     <string name="title_advanced_cards">Use card style instead of tabular style</string>
     <string name="title_advanced_category">The account category can be configured in the advanced account options via the main settings screen</string>

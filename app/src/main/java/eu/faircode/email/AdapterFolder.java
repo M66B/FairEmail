@@ -356,7 +356,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     sb.append(NF.format(unseen));
                 }
                 if (unexposed > 0)
-                    sb.append('\u207A');
+                    sb.append('\u2B51');
                 tvName.setText(context.getString(R.string.title_name_count,
                         folder.getDisplayName(context, folder.parent_ref), sb));
             } else

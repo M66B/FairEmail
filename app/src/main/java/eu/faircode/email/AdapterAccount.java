@@ -232,7 +232,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                         if (account.unseen > 0)
                             sb.append(NF.format(account.unseen));
                         if (unexposed > 0)
-                            sb.append('\u207A');
+                            sb.append('\u2B51');
                         tvName.setText(context.getString(R.string.title_name_count, account.name, sb));
                     } else
                         tvName.setText(account.name);
