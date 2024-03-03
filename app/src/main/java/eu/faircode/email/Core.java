@@ -4001,6 +4001,8 @@ class Core {
                     List<Message> deleted = new ArrayList<>();
                     for (int i = 0; i < imessages.length; i++) {
                         state.ensureRunning("Sync/IMAP/delete");
+                        if (!ifolder.isOpen())
+                            throw new FolderClosedException(ifolder);
 
                         try {
                             if (perform_expunge && imessages[i].isSet(Flags.Flag.DELETED))
