@@ -697,7 +697,6 @@
     <string name="title_advanced_display_harmful_hint">停用此選項可能損害您的隱私</string>
     <string name="title_advanced_display_hidden_hint">這可能會產生異樣的外觀和雙重的文字</string>
     <string name="title_advanced_display_pin_hint">PIN 碼驗證優先於生物特徵辨識驗證</string>
-    <string name="title_advanced_display_autolock_nav_hint">會有一個 %1$d 秒的延緩時間</string>
     <string name="title_advanced_safe_browsing_hint">Google 伺服器知道有哪些地址正在被查詢</string>
     <string name="title_advanced_badge_hint">僅可用於支援的主畫面應用程式</string>
     <string name="title_advanced_notify_action_hint">至多可以顯示三個動作</string>

@@ -513,6 +513,7 @@
     <string name="title_advanced_nav_message_count">Показывать количество сохранённых локально сообщений в меню навигации</string>
     <string name="title_advanced_nav_unseen_drafts">Показывать количество непрочитанных черновиков в меню навигации</string>
     <string name="title_advanced_nav_pinned_count">Показывать количество непрочитанных сообщений в закреплённом меню навигации</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Показывать метку избранного для учётных записей/папок с недавно полученными непрочитанными сообщениями</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
     <string name="title_advanced_category">Категория учётной записи может быть настроена в дополнительных настройках, которые можно открыть через главный экран настроек</string>
@@ -522,7 +523,7 @@
     <string name="title_advanced_cards_shadow_border">Показывать рамку</string>
     <string name="title_advanced_cards_shadow_highlight">Использовать цвет подсветки вместо цвета акцента</string>
     <string name="title_advanced_tabular_dividers">Разделительные линии при использовании стиля с табуляцией</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Использовать серый цвет фона для непрочитанных сообщений при использовании стиля таблицы</string>
+    <string name="title_advanced_tabular_unread_bg">Использовать серый цвет фона для непрочитанных сообщений при использовании стиля таблицы</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_date_week">Группировать по неделям вместо дней</string>
     <string name="title_advanced_date_fixed">Показывать постоянный заголовок с датой вверху</string>
@@ -848,6 +849,7 @@
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
     <string name="title_advanced_usage_hint">Увеличится расход заряда батареи, трафика и места в хранилище</string>
     <string name="title_advanced_plain_hint">Включение уменьшит использование данных, но сообщения будут показаны без стиля</string>
+    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Текстовая часть не всегда содержит полное сообщение!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Включение может вызвать проблемы подключения на некоторых устройствах и увеличить использование батареи</string>
     <string name="title_advanced_validate_hint">Может привести к тому, что сообщения не синхронизируются, например, при использовании VPN, а также в других ситуациях</string>
     <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания подключения. Ещё большие значения могут увеличить расход аккумулятора.</string>
@@ -892,7 +894,6 @@
     <string name="title_advanced_display_harmful_hint">Отключение может навредить вашей конфиденциальности</string>
     <string name="title_advanced_display_hidden_hint">Может вызвать странное отображение и дублирование текста</string>
     <string name="title_advanced_display_pin_hint">PIN-код имеет приоритет над биометрической аутентификацией</string>
-    <string name="title_advanced_display_autolock_nav_hint">Время задержки до выполнения %1$d сек.</string>
     <string name="title_advanced_user_agent_hint">Некоторые серверы не принимают типовую строку UserAgent</string>
     <string name="title_advanced_safe_browsing_hint">Сервер Google знает, какие адреса запрашиваются</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых рабочих столах</string>

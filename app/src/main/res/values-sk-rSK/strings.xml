@@ -840,7 +840,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_display_harmful_hint">Vypnutie tejto možnosti môže narušiť Vaše súkromie</string>
     <string name="title_advanced_display_hidden_hint">Môže spôsobiť podivný vzhľad a duplikované texty</string>
     <string name="title_advanced_display_pin_hint">PIN má prednosť pred biometrickou autentifikáciou</string>
-    <string name="title_advanced_display_autolock_nav_hint">Použije sa tolerancia %1$d sekúnd</string>
     <string name="title_advanced_user_agent_hint">Niektoré servery neakceptujú všeobecnú hodnotu user agent</string>
     <string name="title_advanced_safe_browsing_hint">Informácia o vyhľadávaných adresách je uložená na serveroch spoločnosti Google</string>
     <string name="title_advanced_badge_hint">Dostupné len na podporovaných launcheroch</string>

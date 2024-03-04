@@ -94,6 +94,7 @@
     <string name="title_blocked_senders">Blokerede afsendere</string>
     <string name="title_unblock_all">Afblokér alle</string>
     <string name="title_unblock_all_remark">Dette nulstiller alle lister og indstillinger, som potentielt kan blokere afsendere</string>
+    <string name="title_unblock_all_hint">Bemærk venligst, at app\'en ikke kan forhindre e-mailserveren i at flytte beskeder til spam-mappen!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokér afsenderen af %1$s besked?</item>
         <item quantity="other">Blokér afsenderen af %1$s beskeder?</item>
@@ -485,6 +486,7 @@
     <string name="title_advanced_nav_message_count">Vis antal lokalt gemte beskeder i navigationsmenuen</string>
     <string name="title_advanced_nav_unseen_drafts">Vis antallet af ulæste udkast i navigeringsmenuen</string>
     <string name="title_advanced_nav_pinned_count">Vis antallet af ulæste udkast i den fastgjorte navigeringsmenu</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Vis en stjerne for konti/mapper med nyligt modtagne, ulæste beskeder</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
     <string name="title_advanced_category">Kontokategorien kan opsættes i de avancerede kontoindstillinger via hovedindstillingsskærmen</string>
@@ -494,7 +496,7 @@
     <string name="title_advanced_cards_shadow_border">Vis kant</string>
     <string name="title_advanced_cards_shadow_highlight">Brug fremhævningsfarve i stedet for accentfarve</string>
     <string name="title_advanced_tabular_dividers">Brug skillelinjer ifm. tabelform</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Anvend grå baggrundsfarve til ulæste meddelelser ved brug af tabelstil</string>
+    <string name="title_advanced_tabular_unread_bg">Anvend grå baggrundsfarve til ulæste meddelelser ved brug af tabelstil</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
     <string name="title_advanced_date_week">Gruppér efter uge i stedet for dag</string>
     <string name="title_advanced_date_fixed">Vis fast datohoved øverst</string>
@@ -820,6 +822,7 @@
     <string name="title_advanced_rlah_hint">Antager ingen roaming inden for EU</string>
     <string name="title_advanced_usage_hint">Dette vil forøge batteri-, data- samt lagerpladsforbrug</string>
     <string name="title_advanced_plain_hint">Aktivering af dette reducerer dataforbruget, men beskeder vises uden styling</string>
+    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Den rene tekstdel indeholder ikke altid den fulde besked!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering af dette kan forårsage forbindelsesproblemer på visse enheder samt øge strømforbruget</string>
     <string name="title_advanced_validate_hint">Dette kan betyde, at beskeder i visse situationer ikke synkes, bl.a. ved brug af VPN</string>
     <string name="title_advanced_timeout_hint">Læse-/skrive-timeout indstilles til det dobbelte af forbindelses-timeout. Højere værdier vil resultere i øget batteriforbrug.</string>
@@ -864,7 +867,6 @@
     <string name="title_advanced_display_harmful_hint">Deaktivering af denne indstilling kan være skadelig for din datafortrolighed</string>
     <string name="title_advanced_display_hidden_hint">Dette kan resultere i underligt udseende/dobbelte tekster</string>
     <string name="title_advanced_display_pin_hint">PIN-kode har forrang frem for biometrisk godkendelse</string>
-    <string name="title_advanced_display_autolock_nav_hint">Respitperioden udgør %1$d sek</string>
     <string name="title_advanced_user_agent_hint">Nogle servere accepterer ikke en generisk brugeragentstreng</string>
     <string name="title_advanced_safe_browsing_hint">Google-serveren ved, hvilke adresser, som bliver slået op</string>
     <string name="title_advanced_badge_hint">Kun tilgængelig i understøttede launchers</string>

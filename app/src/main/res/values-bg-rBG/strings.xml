@@ -485,6 +485,7 @@
     <string name="title_advanced_nav_message_count">Показване на броя локално съхранени съобщения в менюто навигация</string>
     <string name="title_advanced_nav_unseen_drafts">Показване на броя на непрочетените чернови в менюто за навигиране</string>
     <string name="title_advanced_nav_pinned_count">Показване на броя непрочетени съобщения в менюто закачени на навигиране</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Показване на звезда за акаунти/папки с новополучени непрочетени съобщения</string>
     <string name="title_advanced_startup">Показване на началния екран</string>
     <string name="title_advanced_cards">Употреба на картов стил вместо табличен стил</string>
     <string name="title_advanced_category">Категорията на акаунта може да се конфигурира в опциите за напреднали на акаунта чрез главния екран с настройки</string>
@@ -494,7 +495,7 @@
     <string name="title_advanced_cards_shadow_border">Показване на граница</string>
     <string name="title_advanced_cards_shadow_highlight">Употреба на цвят на подсветка вместо цвят на акцента</string>
     <string name="title_advanced_tabular_dividers">Употреба на разделителни линии, използвайки табличен стил</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Употреба на сив цвят на фон за непрочетени съобщения, употребявайки табличен стил</string>
+    <string name="title_advanced_tabular_unread_bg">Употреба на сив цвят на фон за непрочетени съобщения, употребявайки табличен стил</string>
     <string name="title_advanced_date_header">Групиране по дата</string>
     <string name="title_advanced_date_week">Групиране по седмица вместо по ден</string>
     <string name="title_advanced_date_fixed">Показване на фиксирана дата на заглавката най-отгоре</string>
@@ -863,7 +864,6 @@
     <string name="title_advanced_display_harmful_hint">Деактивирането на тази опция може да бъде вредно за поверителността ви</string>
     <string name="title_advanced_display_hidden_hint">Това може да доведе до странен изглед и размазан текст</string>
     <string name="title_advanced_display_pin_hint">ПИН има предимство пред удостоверяването с биометрични данни</string>
-    <string name="title_advanced_display_autolock_nav_hint">Ще има време на забавяне от %1$d сек.</string>
     <string name="title_advanced_user_agent_hint">Някои сървъри не приемат общия низ \"user agent\"</string>
     <string name="title_advanced_safe_browsing_hint">Сървърите на Google знаят кои адреси се търсят</string>
     <string name="title_advanced_badge_hint">Предлага се само на поддържани начални екрани</string>

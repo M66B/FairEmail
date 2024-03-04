@@ -514,6 +514,7 @@
     <string name="title_advanced_nav_message_count">Показувати кількість локально збережених повідомлень в меню навігації</string>
     <string name="title_advanced_nav_unseen_drafts">Показувати кількість непрочитаних чернеток у меню навігації</string>
     <string name="title_advanced_nav_pinned_count">Показувати кількість непрочитаних повідомлень у закріпленому навігаційному меню</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Показувати зірочку для аккаунтів/папок, що мають нещодавно отримані непрочитані повідомлення</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати картковий стиль замість табличного стилю</string>
     <string name="title_advanced_category">Категорії облікового запису можна налаштувати у розширених налаштуваннях облікового запису, що знаходяться на головному екрані налаштувань</string>
@@ -523,7 +524,7 @@
     <string name="title_advanced_cards_shadow_border">Показувати рамку</string>
     <string name="title_advanced_cards_shadow_highlight">Використовувати колір підсвітки замість кольору акценту</string>
     <string name="title_advanced_tabular_dividers">Роздільні лінії під час використання табличного стилю</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Використовувати сірий колір фону для непрочитаних повідомлень при використанні табличного стилю</string>
+    <string name="title_advanced_tabular_unread_bg">Використовувати сірий колір фону для непрочитаних повідомлень при використанні табличного стилю</string>
     <string name="title_advanced_date_header">Групувати за датою</string>
     <string name="title_advanced_date_week">Групувати за тижнем замість дня</string>
     <string name="title_advanced_date_fixed">Показувати зверху зафіксований заголовок з датою</string>
@@ -847,6 +848,7 @@
     <string name="title_advanced_rlah_hint">Мається на увазі відсутність роумінгу в межах ЄС</string>
     <string name="title_advanced_usage_hint">Це збільшить використання акумулятора, даних та місця для зберігання</string>
     <string name="title_advanced_plain_hint">Увімкнення цієї опції обмежить використання даних, але повідомлення будуть показуватись без стилізації</string>
+    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Частина повідомлення з простим текстом не завжди містить це повідомлення в повному обсязі!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Увімкнення цієї опції може викликати проблеми з підключенням на деяких пристроях і може збільшити використання акумулятора</string>
     <string name="title_advanced_validate_hint">Це може призвести до того, що повідомлення можуть бути не синхронізовані, наприклад, при використанні VPN, але також і в інших ситуаціях</string>
     <string name="title_advanced_timeout_hint">Тайм-аут читання/запису буде встановлено у розмірі, у два рази більшому за тайм-аут підключення. Вищі значення призведуть до збільшення використання заряду акумулятора.</string>
@@ -891,7 +893,6 @@
     <string name="title_advanced_display_harmful_hint">Вимкнення цієї опції може зашкодити вашій конфіденційності</string>
     <string name="title_advanced_display_hidden_hint">Це може призвести до дивного вигляду та подвоєння текстів</string>
     <string name="title_advanced_display_pin_hint">PIN-код має пріоритет над біометричною автентифікацією</string>
-    <string name="title_advanced_display_autolock_nav_hint">Час затримки становитиме %1$d секунд</string>
     <string name="title_advanced_user_agent_hint">Деякі сервери не приймають рядок «user-agent»</string>
     <string name="title_advanced_safe_browsing_hint">Сервер Google знає, на які адреси ви звертались</string>
     <string name="title_advanced_badge_hint">Доступно лише для підтримуваних лаунчерів</string>

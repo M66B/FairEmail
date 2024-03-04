@@ -893,7 +893,6 @@
     <string name="title_advanced_display_harmful_hint">Адключэнне гэтай опцыі можа нашкодзіць вашай канфідэнцыяльнасці</string>
     <string name="title_advanced_display_hidden_hint">Уключэнне гэтай опцыі можа прывесці да дзіўнага выгляду і падвойных тэкстаў</string>
     <string name="title_advanced_display_pin_hint">PIN-код мае прыярытэт перад біяметрычнай аўтэнтыфікацыяй</string>
-    <string name="title_advanced_display_autolock_nav_hint">Час затрымкі да выканання: %1$d секунд</string>
     <string name="title_advanced_user_agent_hint">Некаторыя серверы не прымаюць радок са звычайным значэннем карыстальніцкага агента</string>
     <string name="title_advanced_safe_browsing_hint">Сервер Google будзе ведаць, якія адрасы запытваюцца</string>
     <string name="title_advanced_badge_hint">Даступна толькі для распаўсюджаных сістэмных абалонак</string>

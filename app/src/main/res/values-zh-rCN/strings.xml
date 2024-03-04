@@ -371,6 +371,7 @@
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
     <string name="title_advanced_suggest_account">仅当前账户使用建议</string>
+    <string name="title_advanced_auto_delete_local">自动删除符合条件的本地联系人，这些联系人在应用中的存在时长超过指定时间且使用次数少于指定数目：</string>
     <string name="title_advanced_alt_re_fwd">替代回复/转发前缀</string>
     <string name="title_advanced_send_chips">卡片化显示地址</string>
     <string name="title_advanced_send_nav_color">将身份颜色用于底部操作栏</string>
@@ -470,6 +471,7 @@
     <string name="title_advanced_nav_message_count">在导航菜单中显示本地存储消息的数量</string>
     <string name="title_advanced_nav_unseen_drafts">在导航菜单中显示未读草稿的数量</string>
     <string name="title_advanced_nav_pinned_count">在固定导航菜单中显示未读邮件的数量</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">对有新接收到的未读消息的账户/文件夹显示星标</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
     <string name="title_advanced_category">账户类别可以通过主设置屏幕在高级账户选项中配置</string>
@@ -479,6 +481,7 @@
     <string name="title_advanced_cards_shadow_border">显示边框</string>
     <string name="title_advanced_cards_shadow_highlight">使用高亮色而不是强调色</string>
     <string name="title_advanced_tabular_dividers">使用表格样式时使用分隔线</string>
+    <string name="title_advanced_tabular_unread_bg">使用表格风格时未读消息使用灰色背景色</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_date_week">按星期而不是按日分组</string>
     <string name="title_advanced_date_fixed">在顶部显示固定日期标题</string>
@@ -803,6 +806,7 @@
     <string name="title_advanced_rlah_hint">假设欧盟境内不存在漫游</string>
     <string name="title_advanced_usage_hint">这将增加电池、数据和存储空间的使用</string>
     <string name="title_advanced_plain_hint">启用此选项将限制数据使用量，但邮件将不会显示样式</string>
+    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">纯文本部分并不总是包含完整信息！</string>
     <string name="title_advanced_tcp_keep_alive_hint">启用此功能可能会导致某些设备出现连接问题，并可能会增加电池使用量</string>
     <string name="title_advanced_validate_hint">这可能导致消息停止同步，例如使用 VPN 或其他某些情况下</string>
     <string name="title_advanced_timeout_hint">读/写超时时间将翻倍，值越高将越耗电</string>
@@ -847,7 +851,6 @@
     <string name="title_advanced_display_harmful_hint">禁用此选项可能会危害您的隐私</string>
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
     <string name="title_advanced_display_pin_hint">PIN码优先于生物验证</string>
-    <string name="title_advanced_display_autolock_nav_hint">将会有 %1$d 秒的宽限时间</string>
     <string name="title_advanced_user_agent_hint">某些服务器不接受通用的 user agent 字符串</string>
     <string name="title_advanced_safe_browsing_hint">Google 服务器知道被查找的地址</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>

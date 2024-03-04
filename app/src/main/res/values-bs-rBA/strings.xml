@@ -500,6 +500,7 @@
     <string name="title_advanced_nav_message_count">Prikaži broj lokalno spašenih poruka u navigacijskom meniju</string>
     <string name="title_advanced_nav_unseen_drafts">Prikaži broj nepročitanih nacrta u navigacijskom meniju</string>
     <string name="title_advanced_nav_pinned_count">Prikaži broj nepročitanih poruka u fiksiranom navigacijskom meniju</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Prikaži zvjezdicu za račune/foldere s novim nepročitanim porukama</string>
     <string name="title_advanced_startup">Prikaži na početnom ekranu</string>
     <string name="title_advanced_cards">Koristi kartični stil umjesto tabelarnog</string>
     <string name="title_advanced_category">Kategorije računa mogu se podesiti u naprednim postavkama računa, kroz glavni prozor postavki</string>
@@ -509,6 +510,7 @@
     <string name="title_advanced_cards_shadow_border">Prikaži granicu</string>
     <string name="title_advanced_cards_shadow_highlight">Koristi boju markiranja umjesto boje naglašavanja</string>
     <string name="title_advanced_tabular_dividers">Koristi razdjelne linije kod tabelarnog stila</string>
+    <string name="title_advanced_tabular_unread_bg">Koristi sivu boju pozadine za nepročitane poruke u tabelarnom stilu</string>
     <string name="title_advanced_date_header">Grupiši po datumu</string>
     <string name="title_advanced_date_week">Grupisanje prema sedmici umjesto danu</string>
     <string name="title_advanced_date_fixed">Prikaži na vrhu fiksno zaglavlje s datumom</string>
@@ -833,6 +835,7 @@
     <string name="title_advanced_rlah_hint">Pretpostavka da nema roaminga unutar EU</string>
     <string name="title_advanced_usage_hint">Ovo će povećati potrošnju baterije, podataka i skladišnog prostora</string>
     <string name="title_advanced_plain_hint">Omogućavanje ove opcije ograničit će potrošnju podataka, ali će se poruke onda prikazivati bez stila</string>
+    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Dio običnog teksta ne sadrži uvijek cijelu poruku!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Omogućavanje ove opcije može uzrokovati probleme s konekcijom na nekim uređajima i povećati potrošnju baterije</string>
     <string name="title_advanced_validate_hint">Ovo može rezultirati u zaustavljanju sinhronizacije poruka, npr. kada se koristi VPN, ali i u drugim situacijama</string>
     <string name="title_advanced_timeout_hint">Vrijeme isteka čitanja/pisanja bit će postavljeno na dvostruku vrijednost vremena isteka konekcije. Više vrijednosti će rezultirati u većoj potrošnji baterije.</string>
@@ -877,7 +880,6 @@
     <string name="title_advanced_display_harmful_hint">Isključivanje ove opcije može biti štetno po vašu privatnost</string>
     <string name="title_advanced_display_hidden_hint">Ovo može rezultirati u čudnom izgledu i duplim tekstovima</string>
     <string name="title_advanced_display_pin_hint">PIN ima prednost naspram biometrijske provjere</string>
-    <string name="title_advanced_display_autolock_nav_hint">Bit će dodatno vrijeme od %1$d sekunde/i</string>
     <string name="title_advanced_user_agent_hint">Neki serveri ne prihvataju generički string korisničkog agenta</string>
     <string name="title_advanced_safe_browsing_hint">Google-ov server zna koje adrese se pregledaju</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim launcher-ima</string>

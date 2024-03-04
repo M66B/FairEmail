@@ -522,7 +522,7 @@
     <string name="title_advanced_cards_shadow_border">Pokaż obramowanie</string>
     <string name="title_advanced_cards_shadow_highlight">Użyj koloru podświetlenia zamiast koloru akcentu</string>
     <string name="title_advanced_tabular_dividers">Używaj linii oddzielających podczas używania stylu tabelarycznego</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Używanie szarego koloru tła dla nieprzeczytanych wiadomości podczas korzystania ze stylu tabeli</string>
+    <string name="title_advanced_tabular_unread_bg">Używanie szarego koloru tła dla nieprzeczytanych wiadomości podczas korzystania ze stylu tabeli</string>
     <string name="title_advanced_date_header">Grupuj według daty</string>
     <string name="title_advanced_date_week">Grupuj według tygodnia zamiast dnia</string>
     <string name="title_advanced_date_fixed">Pokaż stały nagłówek daty na górze</string>
@@ -891,7 +891,6 @@
     <string name="title_advanced_display_harmful_hint">Wyłączenie tej opcji może być szkodliwe dla prywatności</string>
     <string name="title_advanced_display_hidden_hint">Może to powodować dziwne i podwójne teksty</string>
     <string name="title_advanced_display_pin_hint">PIN ma pierwszeństwo przed uwierzytelnianiem biometrycznym</string>
-    <string name="title_advanced_display_autolock_nav_hint">Czas karencji wynosi %1$d sekund</string>
     <string name="title_advanced_user_agent_hint">Niektóre serwery nie akceptują ogólnego ciągu \"user agent\"</string>
     <string name="title_advanced_safe_browsing_hint">Serwer Google wie, które adresy są wyszukiwane</string>
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>

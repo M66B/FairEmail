@@ -723,7 +723,6 @@
     <string name="title_advanced_display_harmful_hint">Desactivar esta opción pode ser contraproducente para a súa privacidade</string>
     <string name="title_advanced_display_hidden_hint">Isto pode resultar en textos duplicados e con aspecto raro</string>
     <string name="title_advanced_display_pin_hint">O PIN ten preferencia sobre a autenticación biométrica</string>
-    <string name="title_advanced_display_autolock_nav_hint">Haberá un período de gracia de %1$d segundos</string>
     <string name="title_advanced_safe_browsing_hint">O servidor de Google sabe que enderezos se están a buscar</string>
     <string name="title_advanced_badge_hint">Só dispoñible en lanzadores soportados</string>
     <string name="title_advanced_notify_action_hint">Mostraranse tres accións como máximo</string>

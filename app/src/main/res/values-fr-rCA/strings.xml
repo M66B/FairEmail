@@ -486,6 +486,7 @@
     <string name="title_advanced_nav_message_count">Afficher le nombre de messages stockés localement dans le menu de navigation</string>
     <string name="title_advanced_nav_unseen_drafts">Afficher le nombre de brouillons non lus dans le menu de navigation</string>
     <string name="title_advanced_nav_pinned_count">Afficher le nombre de messages non lus dans le menu de navigation épinglé</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Afficher une étoile de suivi pour les comptes/dossiers avec des messages non lus reçus récemment</string>
     <string name="title_advanced_startup">Afficher sur l’écran de démarrage</string>
     <string name="title_advanced_cards">Utiliser le style carte au lieu du style tableau</string>
     <string name="title_advanced_category">La catégorie d\'un compte peut être configurée dans les options avancées du compte via l\'écran des paramètres principaux</string>
@@ -495,7 +496,7 @@
     <string name="title_advanced_cards_shadow_border">Afficher la bordure</string>
     <string name="title_advanced_cards_shadow_highlight">Utiliser la couleur de surbrillance au lieu de la couleur d\'accentuation</string>
     <string name="title_advanced_tabular_dividers">Afficher des lignes de séparation lors de l\'utilisation du style tableau</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Afficher une couleur de fond grise pour les messages non lus lors de l\'utilisation du style tableau</string>
+    <string name="title_advanced_tabular_unread_bg">Afficher une couleur de fond grise pour les messages non lus lors de l\'utilisation du style tableau</string>
     <string name="title_advanced_date_header">Regrouper par date</string>
     <string name="title_advanced_date_week">Regrouper par semaine et non par jour</string>
     <string name="title_advanced_date_fixed">Afficher l\'en-tête de la date fixe en haut</string>
@@ -821,6 +822,7 @@
     <string name="title_advanced_rlah_hint">Considérer qu’il n’y a pas d’itinérance au sein de l’UE</string>
     <string name="title_advanced_usage_hint">Ceci augmentera l\'utilisation de la pile, des données et de l\'espace de stockage</string>
     <string name="title_advanced_plain_hint">Activer ceci limitera l\'utilisation des données mais les messages seront affichés sans style</string>
+    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">La partie texte brut ne contient pas toujours le message complet!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Activer ceci peut provoquer des problèmes de connexion sur certains appareils et peut augmenter l\'utilisation de la pile</string>
     <string name="title_advanced_validate_hint">Ceci peut entraîner la non-synchronisation des messages, par exemple lors de l\'utilisation d\'un RPV mais aussi dans d\'autres situations</string>
     <string name="title_advanced_timeout_hint">Le délai d’expiration de la connexion sera doublé s’il reste encore des opérations de lecture/écriture. Des valeurs plus élevées entraîneront une utilisation acrue de la pile.</string>
@@ -865,7 +867,6 @@
     <string name="title_advanced_display_harmful_hint">La désactivation de cette option peut nuire à votre vie privée</string>
     <string name="title_advanced_display_hidden_hint">Ceci peut engendrer des problèmes d’affichage et de dédoublement du texte</string>
     <string name="title_advanced_display_pin_hint">Le code NIP a la priorité sur l’authentification biométrique</string>
-    <string name="title_advanced_display_autolock_nav_hint">Il y aura un délai de grâce de %1$d secondes</string>
     <string name="title_advanced_user_agent_hint">Certains serveurs n\'acceptent pas une chaîne d\'agent utilisateur générique</string>
     <string name="title_advanced_safe_browsing_hint">Le serveur Google a connaissance des adresses qui sont recherchées</string>
     <string name="title_advanced_badge_hint">Disponible uniquement sur les lanceurs pris en charge</string>

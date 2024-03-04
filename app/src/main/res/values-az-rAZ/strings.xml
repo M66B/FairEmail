@@ -486,6 +486,7 @@
     <string name="title_advanced_nav_message_count">Naviqasiya menyusunda yerli yaddaşda saxlanılmış mesaj sayını göstər</string>
     <string name="title_advanced_nav_unseen_drafts">Naviqasiya menyusunda oxunmamış qaralamaların sayını göstər</string>
     <string name="title_advanced_nav_pinned_count">Sancaqlanmış naviqasiya menyusunda oxunmamış mesajların sayını göstər</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Yeni alınan oxunmamış mesajların olduğu hesablar/qovluqlar üçün bir ulduz göstər</string>
     <string name="title_advanced_startup">Başlanğıc ekranında göstər</string>
     <string name="title_advanced_cards">Cədvəl stili əvəzinə kart stilini istifadə et</string>
     <string name="title_advanced_category">Hesab kateqoriyası, əsas ayarlar ekranı vasitəsilə qabaqcıl hesab seçimlərində konfiqurasiya edilə bilər</string>
@@ -495,7 +496,7 @@
     <string name="title_advanced_cards_shadow_border">Haşiyəni göstər</string>
     <string name="title_advanced_cards_shadow_highlight">Rəngi vurğulamaq əvəzinə vurğu rəngini istifadə et</string>
     <string name="title_advanced_tabular_dividers">Cədvəl stilini istifadə edərkən ayırıcı xətləri də istifadə et</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Cədvəl stilini istifadə edərkən oxunmamış mesajlar üçün boz arxaplan rəngi istifadə edin</string>
+    <string name="title_advanced_tabular_unread_bg">Cədvəl stilini istifadə edərkən oxunmamış mesajlar üçün boz arxaplan rəngi istifadə edin</string>
     <string name="title_advanced_date_header">Tarixə görə qruplaşdır</string>
     <string name="title_advanced_date_week">Gün əvəzinə həftəyə görə qruplaşdır</string>
     <string name="title_advanced_date_fixed">Sabit tarix başlığını üstdə göstər</string>
@@ -820,6 +821,7 @@
     <string name="title_advanced_rlah_hint">AB daxilində roaminqdə olmadığını hesab et</string>
     <string name="title_advanced_usage_hint">Bu, batareya, verilənlər və anbar sahəsi istifadəsini artıracaq</string>
     <string name="title_advanced_plain_hint">Bunu fəallaşdırmaq verilənlər istifadəsini məhdudlaşdıracaq, ancaq mesajlar stil olmadan görünəcək</string>
+    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Düz mətn hissəsi həmişə tam mesajı ehtiva etmir!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Bunu fəallaşdırmaq, bəzi cihazlarda bağlantı problemlərinə və batareya istifadəsinin artmasına səbəb ola bilər</string>
     <string name="title_advanced_validate_hint">Bu, məsələn bir VPN istifadə edəndə və digər hallarda mesajların sinxronlaşdırılmaması ilə nəticələnə bilər</string>
     <string name="title_advanced_timeout_hint">Oxuma/yazma üçün bitmə vaxtı, bağlantı üçün bitmə vaxtının iki qatına ayarlanacaq. Yüksək dəyərlər, daha çox batareya istifadəsi ilə nəticələnəcək.</string>
@@ -864,7 +866,6 @@
     <string name="title_advanced_display_harmful_hint">Bu seçimi sıradan çıxartmaq, gizliliyiniz üçün zərərli ola bilər</string>
     <string name="title_advanced_display_hidden_hint">Bu, qəribə görünən və təkrarlanan mətnlərə səbəb ola bilər</string>
     <string name="title_advanced_display_pin_hint">PIN, biometrik kimlik doğrulamasından əvvəl gəlir</string>
-    <string name="title_advanced_display_autolock_nav_hint">%1$d saniyəlik əlavə bir müddət olacaq</string>
     <string name="title_advanced_user_agent_hint">Bəzi istifadəçilər ümumi istifadəçi agent sətrini qəbul etmir</string>
     <string name="title_advanced_safe_browsing_hint">Google serveri, hansı ünvanların axtarıldığını bilir</string>
     <string name="title_advanced_badge_hint">Yalnız dəstəklənən başladıcılarda əlçatandır</string>

@@ -846,7 +846,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_display_harmful_hint">Menonaktifkan opsi ini akan membahayakan privasi anda</string>
     <string name="title_advanced_display_hidden_hint">Hasil ini akan terlihat aneh dan teks berganda</string>
     <string name="title_advanced_display_pin_hint">PIN memiliki hak lebih tinggi dibandungan autentikasi biometrik</string>
-    <string name="title_advanced_display_autolock_nav_hint">Akan terdapat jeda waktu %1$d detik</string>
     <string name="title_advanced_user_agent_hint">Beberapa server tidak menerima string agen pengguna generik</string>
     <string name="title_advanced_safe_browsing_hint">Sarver Google akan mendeteksi, dan mengetahui alamat yang akan dicari</string>
     <string name="title_advanced_badge_hint">Hanya tersedia di peluncur yang terdukung</string>

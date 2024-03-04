@@ -710,7 +710,6 @@
     <string name="title_advanced_display_harmful_hint">Việc tắt cái này có thể có hại cho sự riêng tư của bạn</string>
     <string name="title_advanced_display_hidden_hint">Cái này có thể dẫn đến văn bản trông kỳ quặc và văn bản đôi</string>
     <string name="title_advanced_display_pin_hint">Mã PIN được ưu tiên trước xác thực sinh trắc học</string>
-    <string name="title_advanced_display_autolock_nav_hint">Sẽ có thời gian cuối là %1$d giây</string>
     <string name="title_advanced_user_agent_hint">Một số máy chủ không chấp nhận chuỗi người dùng chung chung</string>
     <string name="title_advanced_safe_browsing_hint">Máy chủ Google biết các địa chỉ nào đang được tra cứu</string>
     <string name="title_advanced_badge_hint">Chỉ có trên các launcher được hỗ trợ</string>

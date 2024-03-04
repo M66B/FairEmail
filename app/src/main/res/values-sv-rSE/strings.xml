@@ -482,6 +482,7 @@
     <string name="title_advanced_nav_message_count">Visa antalet lokalt lagrade meddelanden i navigeringsmenyn</string>
     <string name="title_advanced_nav_unseen_drafts">Visa antal olästa utkast i navigeringsmenyn</string>
     <string name="title_advanced_nav_pinned_count">Visa antalet olästa meddelanden i navigeringsmenyn</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Visa en stjärna för konton/mappar med nyligen mottagna olästa meddelanden</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_cards">Använd kortstil istället för tabellstil</string>
     <string name="title_advanced_category">Kontokategorin kan konfigureras i de avancerade kontoalternativen via huvudinställningsskärmen</string>
@@ -491,7 +492,7 @@
     <string name="title_advanced_cards_shadow_border">Visa ram</string>
     <string name="title_advanced_cards_shadow_highlight">Använd markeringsfärg istället för accentfärg</string>
     <string name="title_advanced_tabular_dividers">Använd avdelare när du använder tabulär stil</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Använd en grå bakgrundsfärg för olästa meddelanden när du använder tabellstil</string>
+    <string name="title_advanced_tabular_unread_bg">Använd en grå bakgrundsfärg för olästa meddelanden när du använder tabellstil</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_date_week">Gruppera efter vecka istället för dag</string>
     <string name="title_advanced_date_fixed">Visa fast datumrubrik högst upp</string>
@@ -546,6 +547,7 @@
     <string name="title_advanced_attachments_alt">Visa bilagor efter meddelandetexten</string>
     <string name="title_advanced_thumbnails">Visa miniatyrbilder efter meddelandetexten</string>
     <string name="title_advanced_pdf_preview">Visa PDF-miniatyrer</string>
+    <string name="title_advanced_video_preview">Visa miniatyrer för video</string>
     <string name="title_advanced_audio_preview">Visa miniljudspelare</string>
     <string name="title_advanced_barcode_preview">Visa streckkodsinnehåll</string>
     <string name="title_advanced_message_text_zoom2">Standard meddelandetext zoom: %1$s %%</string>
@@ -812,6 +814,7 @@
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
     <string name="title_advanced_usage_hint">Det här kommer att öka användningen av batteri, data och lagringsutrymme</string>
     <string name="title_advanced_plain_hint">Aktivering av detta kommer att begränsa dataanvändningen, men meddelanden kommer att visas utan formatering</string>
+    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Den oformaterade textdelen innehåller inte alltid hela meddelandet!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering av detta kan orsaka anslutningsproblem på vissa enheter och kan öka batterianvändningen</string>
     <string name="title_advanced_validate_hint">Detta kan resultera i att meddelanden inte synkroniseras, till exempel vid användning av VPN, men även i andra situationer</string>
     <string name="title_advanced_timeout_hint">Tidsgräns för läs/skriva kommer att ställas in på den dubbla av anslutningens tidsgräns. Högre värden kommer att resultera i mer batterianvändning.</string>
@@ -856,7 +859,6 @@
     <string name="title_advanced_display_harmful_hint">Inaktivera detta alternativ kan vara skadligt för din integritet</string>
     <string name="title_advanced_display_hidden_hint">Detta kan resultera i udda utseende och dubbla texter</string>
     <string name="title_advanced_display_pin_hint">En PIN-kod har företräde framför biometrisk autentisering</string>
-    <string name="title_advanced_display_autolock_nav_hint">Det kommer att finnas en nådetid på %1$d sekunder</string>
     <string name="title_advanced_user_agent_hint">Vissa servrar accepterar inte en generisk användaragentsträng</string>
     <string name="title_advanced_safe_browsing_hint">Googles server vet vilka adresser som det görs uppslag för</string>
     <string name="title_advanced_badge_hint">Endast tillgänglig på programstartare som stöds</string>
@@ -2029,6 +2031,7 @@
     <string name="title_widget_background">Bakgrundsfärg</string>
     <string name="title_widget_icon">Ikonfärg</string>
     <string name="title_widget_day_night">Följ mörkt systemtema</string>
+    <string name="title_widget_standalone">Öppna innehållet fristående</string>
     <string name="title_compat_dark">Google tog bort mörkt läge för Android före version 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Viktigt</string>

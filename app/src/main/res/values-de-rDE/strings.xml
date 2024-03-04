@@ -487,6 +487,7 @@
     <string name="title_advanced_nav_message_count">Anzahl der lokal gespeicherten Nachrichten im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_unseen_drafts">Anzahl ungelesener Entwürfe im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_pinned_count">Anzahl ungelesener Nachrichten im angehefteten Navigationsmenü anzeigen</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Stern für Konten/Ordner mit neu empfangenen ungelesenen Nachrichten anzeigen</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen:</string>
     <string name="title_advanced_cards">Kartenstil statt Tabellenstil verwenden</string>
     <string name="title_advanced_category">Die Kontokategorie kann in den erweiterten Kontooptionen über die Grundeinstellungen konfiguriert werden</string>
@@ -496,7 +497,7 @@
     <string name="title_advanced_cards_shadow_border">Rahmen anzeigen</string>
     <string name="title_advanced_cards_shadow_highlight">Hervorhebungsfarbe statt Akzentfarbe verwenden</string>
     <string name="title_advanced_tabular_dividers">Beim Tabellenstil Trennlinien verwenden</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Beim Tabellenstil eine graue Hintergrundfarbe für ungelesene Nachrichten verwenden</string>
+    <string name="title_advanced_tabular_unread_bg">Beim Tabellenstil eine graue Hintergrundfarbe für ungelesene Nachrichten verwenden</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
     <string name="title_advanced_date_week">Nach Woche statt nach Tag gruppieren</string>
     <string name="title_advanced_date_fixed">Feste Datumskopfzeile oben anzeigen</string>
@@ -807,7 +808,7 @@
     <string name="title_advanced_folder_nav_hint">Damit kehren Sie von einer Nachrichtenliste immer zur Ordnerliste des betreffenden Kontos zurück.</string>
     <string name="title_advanced_pull_all_hint">Beim Herunterziehen der Ordner- oder Kontenliste</string>
     <string name="title_advanced_suggest_names_hint">Wenn deaktiviert, werden nur E-Mail-Adressen bei der Auswahl von Kontakten verwendet</string>
-    <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
+    <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten. Kontaktdaten werden nur für neu gesendete oder empfangene Nachrichten gespeichert, wenn es aktiviert ist.</string>
     <string name="title_advanced_suggest_account_hint">Das betrifft nur lokale Kontakte, weil Kontakte im Android-Adressbuch nicht mit bestimmten Konten verknüpft sind</string>
     <string name="title_advanced_auto_identity_hint">Dadurch wird die zuletzt verwendete Identität, die für den letzten ausgewählten Empfänger einer neuen Nachricht benutzt wurde, verwendet</string>
     <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
@@ -822,6 +823,7 @@
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
     <string name="title_advanced_usage_hint">Das erhöht den Akku-, Daten- und Speicherplatzverbrauch</string>
     <string name="title_advanced_plain_hint">Das Aktivieren dieser Funktion reduziert den Datenverbrauch, aber Nachrichten werden ohne Formatierung angezeigt</string>
+    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Abschnitte im einfachen Text enthalten nicht immer die gesamte Nachricht!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Das Aktivieren dieser Funktion kann bei einigen Geräten zu Verbindungsproblemen führen und den Akkuverbrauch erhöhen</string>
     <string name="title_advanced_validate_hint">Dies kann dazu führen, dass Nachrichten nicht synchronisiert werden, zum Beispiel bei der Verwendung eines VPN, aber auch in anderen Situationen</string>
     <string name="title_advanced_timeout_hint">Die Zeitüberschreitung beim Lesen oder Schreiben wird auf das Doppelte der Verbindungszeitüberschreitung festgelegt. Höhere Werte führen zu einem höheren Akkuverbrauch.</string>
@@ -866,7 +868,6 @@
     <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
     <string name="title_advanced_display_hidden_hint">Das kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
-    <string name="title_advanced_display_autolock_nav_hint">Es wird eine Wartezeit von %1$d Sekunden geben</string>
     <string name="title_advanced_user_agent_hint">Einige Server akzeptieren keine allgemeine User-Agent-Zeichenkette</string>
     <string name="title_advanced_safe_browsing_hint">Der Google-Server erfährt, welche Adressen nachgeschlagen werden</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>

@@ -795,7 +795,6 @@
     <string name="title_advanced_display_harmful_hint">Onemogočanje te možnosti lahko škoduje vaši zasebnosti.</string>
     <string name="title_advanced_display_hidden_hint">To lahko povzroči čuden videz besedila ali dvojno besedilo.</string>
     <string name="title_advanced_display_pin_hint">PIN ima prednost pred biometrično overitvijo.</string>
-    <string name="title_advanced_display_autolock_nav_hint">Zakasnitveni čas bo %1$d s.</string>
     <string name="title_advanced_user_agent_hint">Nekater strežniki ne sprejemajo splošnega niza za uporabnišega posrednika.</string>
     <string name="title_advanced_safe_browsing_hint">Googlov strežnik ve, kateri naslovi se iščejo.</string>
     <string name="title_advanced_badge_hint">Na voljo samo v podprtih zaganjalnikih.</string>

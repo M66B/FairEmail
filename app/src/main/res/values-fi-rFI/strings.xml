@@ -826,7 +826,6 @@
     <string name="title_advanced_display_harmful_hint">Tämän käytöstä poistaminen voi olla haitallista yksityisyydellesi</string>
     <string name="title_advanced_display_hidden_hint">Saattaa näyttää omituiselta ja tekstejä voi näkyä kahteen kertaan</string>
     <string name="title_advanced_display_pin_hint">PIN on ensisijainen ennen biometristä tunnistautumista</string>
-    <string name="title_advanced_display_autolock_nav_hint">Käytössä on %1$d sekunnin viive</string>
     <string name="title_advanced_user_agent_hint">Jotkin palvelimet eivät hyväksy geneerisiä käyttäjäagenttimerkkijonoja</string>
     <string name="title_advanced_safe_browsing_hint">Google-palvelin tietää, mitä osoitteita haetaan</string>
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>

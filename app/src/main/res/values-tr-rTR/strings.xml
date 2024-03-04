@@ -484,6 +484,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_nav_message_count">Navigasyon menüsünde yerel olarak saklanan mesajların sayısını göster</string>
     <string name="title_advanced_nav_unseen_drafts">Gezinme menüsünde okunmamış taslak sayısını göster</string>
     <string name="title_advanced_nav_pinned_count">Sabitlenmiş gezinme menüsünde okunmamış mesajların sayısını göster</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Yeni alınan okunmamış mesajların bulunduğu hesaplar/klasörler için bir yıldız gösterin</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>
     <string name="title_advanced_category">Hesap kategorisi, ayarlar ana ekranındaki gelişmiş hesap opsiyonlarından ayarlanabilir</string>
@@ -493,7 +494,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_cards_shadow_border">Çerçeveyi göster</string>
     <string name="title_advanced_cards_shadow_highlight">Vurgu rengi yerine vurgu rengi kullanın</string>
     <string name="title_advanced_tabular_dividers">Tablo stilini kullanırken ayırıcı çizgiler kullan</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Tablo stilini kullanırken okunmamış mesajlar için gri bir arka plan rengi kullanın</string>
+    <string name="title_advanced_tabular_unread_bg">Tablo stilini kullanırken okunmamış mesajlar için gri bir arka plan rengi kullanın</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_date_week">Gün yerine haftaya göre gruplandır</string>
     <string name="title_advanced_date_fixed">Sabit tarih başlığını üstte göster</string>
@@ -627,6 +628,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_auto_block_sender">Spam bildirirken göndereni otomatik olarak engelle</string>
     <string name="title_advanced_auto_hide_answer">Kaydırma sırasında yanıt düğmesini otomatik olarak gizle</string>
     <string name="title_advanced_swipe_reply">Genişletilmiş mesajları yanıtlamak için sağa kaydırın</string>
+    <string name="title_advanced_move_thread_all">Seçili konuşmaları taşırken, tüm mesajları taşı</string>
     <string name="title_advanced_move_thread_sent">Bir görüşmeyi taşırken, gönderilen mesajları da taşıyın</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
     <string name="title_advanced_default_folder">Varsayılan klasörü seçin</string>
@@ -817,6 +819,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
     <string name="title_advanced_usage_hint">Bu pil, veri ve depolama alanı kullanımını artıracaktır</string>
     <string name="title_advanced_plain_hint">Bunu etkinleştirmek veri kullanımını sınırlayacaktır, ancak mesajlar stil olmadan gösterilecektir</string>
+    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Düz metin kısmı her zaman mesajın tamamını içermez!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Bunu etkinleştirmek bazı cihazlarda bağlantı sorunlarına neden olabilir ve pil kullanımını artırabilir</string>
     <string name="title_advanced_validate_hint">Bu, örneğin bir VPN kullanırken değil, diğer durumlarda da mesajların senkronize edilmemesine neden olabilir</string>
     <string name="title_advanced_timeout_hint">Okuma / yazma zaman aşımı, bağlantı zaman aşımının iki katına ayarlanacaktır. Daha yüksek değerler daha fazla pil kullanımına neden olacaktır.</string>
@@ -861,7 +864,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_display_harmful_hint">Bu seçeneği devre dışı bırakmak gizliliğiniz için zararlı olabilir</string>
     <string name="title_advanced_display_hidden_hint">Bu tuhaf görünümlü ve tekrarlanmış metinlere neden olabilir</string>
     <string name="title_advanced_display_pin_hint">PIN, biyometrik kimlik doğrulamasından önceliklidir</string>
-    <string name="title_advanced_display_autolock_nav_hint">%1$d saniyelik bir ek süre olacak</string>
     <string name="title_advanced_user_agent_hint">Bazı sunucular, genel bir kullanıcı aracısı dizesini kabul etmez</string>
     <string name="title_advanced_safe_browsing_hint">Google sunucusu hangi adreslerin arandığını bilir</string>
     <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>

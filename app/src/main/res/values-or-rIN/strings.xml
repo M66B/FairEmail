@@ -346,7 +346,6 @@
     <string name="title_advanced_date_hint">ସମୟାନୁସାର ସଜାଯାଇଥିଲେ ହି ବାର୍ତ୍ତାଗୁଡ଼ିକ ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରାଯିବ</string>
     <string name="title_advanced_highlight_hint">ଥିମର ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ହାଇଲାଇଟ୍ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହେବ</string>
     <string name="title_advanced_expandall_hint">ଏକାଧିକ ବାର୍ତ୍ତା ସମ୍ପ୍ରସାରଣ ହୋଇଥିବା ବେଳେ ଉତ୍ତର ବଟନ୍ ଦେଖାଯିବ ନାହିଁ କାରଣ ବଟନ୍ କେଉଁ ବାର୍ତ୍ତା ପାଇଁ ପ୍ରଯୁଜ୍ୟ ତାହା ଅସ୍ପଷ୍ଟ ଅଟେ</string>
-    <string name="title_advanced_display_autolock_nav_hint">%1$d ସେକେଣ୍ଡର ଅନୁଗ୍ରହ ସମୟ ରହିବ</string>
     <string name="title_advanced_move_hint">ଆକାଉଣ୍ଟ୍ ସେଟିଂସରେ ଲକ୍ଷ୍ୟସ୍ଥଳ ଫୋଲ୍ଡର୍ ଵିନ୍ୟାସ କରାଯାଇପାରିବ</string>
     <string name="title_advanced_notify_no_grouping">ଏହି ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣ ବିଜ୍ଞପ୍ତି ଗୋଷ୍ଠୀକରଣକୁ ସମର୍ଥନ କରେନାହିଁ</string>
     <string name="title_advanced_english_hint">ଏହା ଆପ୍ କୁ ପୁନଃଆରମ୍ଭ କରିବ</string>

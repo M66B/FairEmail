@@ -481,7 +481,7 @@
     <string name="title_advanced_cards_shadow_border">境界を表示する</string>
     <string name="title_advanced_cards_shadow_highlight">アクセントカラーの代わりにハイライトカラーを使用する</string>
     <string name="title_advanced_tabular_dividers">表形式のとき、区切り線を表示する</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">表形式のとき、未読メッセージにグレーのバックグラウンドカラーを使用する</string>
+    <string name="title_advanced_tabular_unread_bg">表形式のとき、未読メッセージにグレーのバックグラウンドカラーを使用する</string>
     <string name="title_advanced_date_header">日付でグループ化する</string>
     <string name="title_advanced_date_week">日付ではなく週でグループ化する</string>
     <string name="title_advanced_date_fixed">日付を上部に固定表示する</string>
@@ -850,7 +850,6 @@
     <string name="title_advanced_display_harmful_hint">無効にするとあなたのプライバシーを危険にさらす可能性があります</string>
     <string name="title_advanced_display_hidden_hint">奇妙な見た目になったり、二重にテキストが生成される可能性があります</string>
     <string name="title_advanced_display_pin_hint">PIN を生体認証よりも優先します</string>
-    <string name="title_advanced_display_autolock_nav_hint">%1$d 秒の猶予時間があります</string>
     <string name="title_advanced_user_agent_hint">一部のサーバーは一般化されたユーザーエージェント文字列を受け付けません</string>
     <string name="title_advanced_safe_browsing_hint">Google のサーバーは、どのアドレスが検索されたか知ることができます</string>
     <string name="title_advanced_badge_hint">対応しているランチャーでのみ利用できます</string>

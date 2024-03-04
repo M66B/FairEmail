@@ -496,7 +496,7 @@
     <string name="title_advanced_cards_shadow_border">Mostrar contorno</string>
     <string name="title_advanced_cards_shadow_highlight">Usar a cor destacada em vez da cor de ênfase</string>
     <string name="title_advanced_tabular_dividers">Usar linhas do divisor quando o estilo tabular seja utilizado</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Use cor de fundo cinza para mensagens não lidas quando usar estilo de tabela</string>
+    <string name="title_advanced_tabular_unread_bg">Use cor de fundo cinza para mensagens não lidas quando usar estilo de tabela</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_date_week">Agrupar por semana em vez de dia</string>
     <string name="title_advanced_date_fixed">Mostrar cabeçalho de data fixo no topo</string>
@@ -865,7 +865,6 @@
     <string name="title_advanced_display_harmful_hint">A desactivação desta opção pode ser lesiva para a sua privacidade</string>
     <string name="title_advanced_display_hidden_hint">Pode resultar em textos mal formatados e em duplicado</string>
     <string name="title_advanced_display_pin_hint">O PIN tem prioridade relativamente à autenticação biométrica</string>
-    <string name="title_advanced_display_autolock_nav_hint">Haverá um tempo de carência de %1$d segundos</string>
     <string name="title_advanced_user_agent_hint">Alguns servidores não aceitam um texto genérico para o \'user agent\'</string>
     <string name="title_advanced_safe_browsing_hint">O servidor do Google reconhece quais endereços estão a ser visitados</string>
     <string name="title_advanced_badge_hint">Disponível apenas em launchers suportados</string>

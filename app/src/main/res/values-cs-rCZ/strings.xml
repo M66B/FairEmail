@@ -523,7 +523,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_cards_shadow_border">Zobrazit ohraničení</string>
     <string name="title_advanced_cards_shadow_highlight">Použít barvu zvýraznění namísto kontrastní barvy</string>
     <string name="title_advanced_tabular_dividers">Použít dělicí čáry při použití stylu tabulky</string>
-    <string name="title_advanced_tabular_unread_bg" comment="title_advanced_tabular_unread_bg&#10;Title for option on display-setting tab page">Použít šedou barvu pozadí pro nepřečtené zprávy, pokud používáte styl tabulky</string>
+    <string name="title_advanced_tabular_unread_bg">Použít šedou barvu pozadí pro nepřečtené zprávy, pokud používáte styl tabulky</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_date_week">Seskupit podle týdne namísto dne</string>
     <string name="title_advanced_date_fixed">Zobrazit nahoře datovou hlavičku</string>
@@ -892,7 +892,6 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_display_harmful_hint">Zákazem této volby můžete uškodit svému soukromí</string>
     <string name="title_advanced_display_hidden_hint">Může mít za následek neobvykle vypadající a zdvojené texty</string>
     <string name="title_advanced_display_pin_hint">PIN má přednost před biometrickým ověřením</string>
-    <string name="title_advanced_display_autolock_nav_hint">Doba odkladu bude %1$d vteřin</string>
     <string name="title_advanced_user_agent_hint">Některé servery nepřijímají řetězec generických uživatelských agentů</string>
     <string name="title_advanced_safe_browsing_hint">Google server ví, které adresy jsou vyhledávány</string>
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
