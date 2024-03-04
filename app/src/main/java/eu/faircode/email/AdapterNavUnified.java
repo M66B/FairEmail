@@ -243,6 +243,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
                     f.folders += type.folders;
                     f.messages += type.messages;
                     f.unseen += type.unseen;
+                    f.unexposed += type.unexposed;
 
                     if (Objects.equals(f.color, type.color) ||
                             (f.color == null && f.folders == type.folders)) {
@@ -256,6 +257,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
                 unified.folders += type.folders;
                 unified.messages += type.messages;
                 unified.unseen += type.unseen;
+                unified.unexposed = type.unexposed;
 
                 if (Objects.equals(unified.color, type.color) ||
                         (unified.color == null && unified.folders == type.folders)) {
