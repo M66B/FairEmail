@@ -8,6 +8,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Added option to show a star for accounts/folders with newly received unread messages (since last viewed)
+* Added [UceProtect](https://www.uceprotect.net/en/) blocklists (receive-settings tab page)
 * Small improvements and minor bug fixes
 * Updated build tools
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)

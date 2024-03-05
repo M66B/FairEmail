@@ -8,6 +8,8 @@ Zby
 
 Next version
 
+* Added option to show a star for accounts/folders with newly received unread messages (since last viewed)
+* Added UceProtect
 * Small improvements and minor bug fixes
 * Updated build tools
 * Updated Public Suffix List
