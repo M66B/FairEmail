@@ -199,14 +199,16 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
         int sp = WidgetUnified.getFontSizeSp(font);
         int cpx = (int) (sp * context.getResources().getDisplayMetrics().scaledDensity);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             views.setViewLayoutHeight(ivFrom, cpx, TypedValue.COMPLEX_UNIT_PX);
-        views.setViewLayoutWidth(ivFrom, cpx, TypedValue.COMPLEX_UNIT_PX);
+            views.setViewLayoutWidth(ivFrom, cpx, TypedValue.COMPLEX_UNIT_PX);
+        }
         views.setTextViewTextSize(idFrom, TypedValue.COMPLEX_UNIT_SP, sp);
         views.setTextViewTextSize(idTime, TypedValue.COMPLEX_UNIT_SP, sp);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             views.setViewLayoutHeight(ivSubject, cpx, TypedValue.COMPLEX_UNIT_PX);
-        views.setViewLayoutWidth(ivSubject, cpx, TypedValue.COMPLEX_UNIT_PX);
+            views.setViewLayoutWidth(ivSubject, cpx, TypedValue.COMPLEX_UNIT_PX);
+        }
         views.setTextViewTextSize(idSubject, TypedValue.COMPLEX_UNIT_SP, sp);
         views.setTextViewTextSize(idAccount, TypedValue.COMPLEX_UNIT_SP, sp);
 
