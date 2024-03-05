@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### Next version
+### 1.2163 - 2024-03-05
 
 * Added option to show a star for accounts/folders with newly received unread messages (since last viewed)
 * Added [UceProtect](https://www.uceprotect.net/en/) blocklists (receive-settings tab page)
