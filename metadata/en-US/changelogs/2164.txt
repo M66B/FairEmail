@@ -6,6 +6,10 @@ For support you can use the contact form.
 
 Zby
 
+1.2165 - 2024-03-05
+
+* Fixed widget incompatibility (< Android 11)
+
 1.2164 - 2024-03-05
 
 * Fixed widget incompatibility
