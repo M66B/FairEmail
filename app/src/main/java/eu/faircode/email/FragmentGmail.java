@@ -204,6 +204,7 @@ public class FragmentGmail extends FragmentBase {
                         Log.e("newChooseAccountIntent unavailable");
                     startActivityForResult(intent, ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
                 } catch (Throwable ex) {
+                    Log.e(ex);
                     if (ex instanceof IllegalArgumentException)
                         tvError.setText(new ThrowableWrapper(ex).getSafeMessage());
                     else
