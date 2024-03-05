@@ -822,14 +822,22 @@ public class MessageHelper {
         return new InternetAddress(email, name, StandardCharsets.UTF_8.name());
     }
 
-    static String limitReferences(String references) {
-        int maxlen = MAX_HEADER_LENGTH - "References: ".length();
+    static String limitReferences(String ref) {
+        final int maxlen = MAX_HEADER_LENGTH - "References: ".length();
+
+        String references = ref.trim();
         int sp = references.indexOf(' ');
         while (references.length() > maxlen && sp > 0) {
             Log.i("Dropping reference=" + references.substring(0, sp));
-            references = references.substring(sp);
+            references = references.substring(sp).trim();
             sp = references.indexOf(' ');
         }
+
+        if (references.length() > maxlen) {
+            Log.e("Too long References=" + Helper.getPrintableString(references, true));
+            references = "";
+        }
+
         return references;
     }
 
