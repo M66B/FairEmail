@@ -484,6 +484,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_nav_message_count">Toan it tal lokaal bewarre berjochten yn it navigaasjemenu</string>
     <string name="title_advanced_nav_unseen_drafts">Toan it tal net lêzen berjochten yn it navigaasjemenu</string>
     <string name="title_advanced_nav_pinned_count">Toan it tal net lêzen berjochten yn it fêstsette navigaasjemenu</string>
+    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Toan in stjer foar accounts/mappen mei nij ûntfongen net-lêzen berjochten</string>
     <string name="title_advanced_startup">Op it startskerm toane</string>
     <string name="title_advanced_cards">Brûk kaartstyl yn stee fan tabelstyl</string>
     <string name="title_advanced_category">De accountkategory kin konfigurearre wurde yn de avansearre accountopsjes fia it haadynstellingenskerm</string>
@@ -493,6 +494,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_cards_shadow_border">Râne toane</string>
     <string name="title_advanced_cards_shadow_highlight">Markearkleur yn stee fan aksintkleur brûke</string>
     <string name="title_advanced_tabular_dividers">Skiedingslinen by brûken fan tabelstyl brûke</string>
+    <string name="title_advanced_tabular_unread_bg">Brûk in grize eftergrûnkleur foar net- lêzen berjochten by gebrûk fan tabelstyl</string>
     <string name="title_advanced_date_header">Op datum groepearje</string>
     <string name="title_advanced_date_week">Op wike yn stee fan dei groepearje</string>
     <string name="title_advanced_date_fixed">Fêste datumkoptekst boppe oan toane</string>
@@ -817,6 +819,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_rlah_hint">Utgeande fan gjin ‘roaming’ binnen de EU</string>
     <string name="title_advanced_usage_hint">Dit sil gebrûk fan de batterij, gegevens en opslachromte ferheegje</string>
     <string name="title_advanced_plain_hint">Dit ynskeakelje sil it gegevensgebrûk beheine, mar berjochten sille werjûn wurde sûnder opmaak</string>
+    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">It plattetekstdiel befettet net altyd it folsleine berjocht!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Dit ynskeakelje kin ferbiningsproblemen feroarsaakje op guon apparaten en kin it batterijferbrûk ferheegje</string>
     <string name="title_advanced_validate_hint">Dit kin resultearje yn berjochten dy’t net syngronisearje, bygelyks as jo in VPN brûke, mar ek yn oare situaasjes</string>
     <string name="title_advanced_timeout_hint">De time-out foar lêzen/skriuwen wurdt ynsteld op it dûbele fan de time-out foar ferbining. Hegere wearden sille resultearje yn mear batterijgebrûk.</string>
