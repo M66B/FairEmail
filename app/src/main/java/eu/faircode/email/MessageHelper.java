@@ -457,7 +457,7 @@ public class MessageHelper {
                             }
                             break;
                         case "references":
-                            imessage.setHeader("References", value);
+                            imessage.setHeader("References", limitReferences(value));
                             break;
                         case "in-reply-to":
                             imessage.setHeader("In-Reply-To", value);
