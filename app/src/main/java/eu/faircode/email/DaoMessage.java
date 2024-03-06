@@ -116,6 +116,7 @@ public interface DaoMessage {
             "  END" +
             ", CASE" +
             "   WHEN 'unread' = :sort2 THEN SUM(1 - message.ui_seen) = 0" +
+            "   WHEN 'starred' = :sort2 THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
             "   ELSE 0" +
             "  END" +
             ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
@@ -194,6 +195,7 @@ public interface DaoMessage {
             "  END" +
             ", CASE" +
             "   WHEN 'unread' = :sort2 THEN SUM(1 - message.ui_seen) = 0" +
+            "   WHEN 'starred' = :sort2 THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
             "   ELSE 0" +
             "  END" +
             ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
