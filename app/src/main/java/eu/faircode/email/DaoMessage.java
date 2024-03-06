@@ -104,21 +104,25 @@ public interface DaoMessage {
             " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(message.importance, 1) END" +
             ", CASE WHEN :group_category THEN account.category ELSE '' END COLLATE NOCASE" +
             ", CASE" +
-            "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
-            "   WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
-            "   WHEN 'priority' = :sort THEN -IFNULL(message.priority, 1)" +
-            "   WHEN 'sender' = :sort THEN LOWER(message.sender)" +
-            "   WHEN 'subject' = :sort THEN LOWER(message.subject)" +
-            "   WHEN 'size' = :sort THEN -SUM(message.total)" +
-            "   WHEN 'attachments' = :sort THEN -SUM(message.attachments)" +
-            "   WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
+            "   WHEN 'unread' = :sort1 THEN SUM(1 - message.ui_seen) = 0" +
+            "   WHEN 'starred' = :sort1 THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
+            "   WHEN 'priority' = :sort1 THEN -IFNULL(message.priority, 1)" +
+            "   WHEN 'sender' = :sort1 THEN LOWER(message.sender)" +
+            "   WHEN 'subject' = :sort1 THEN LOWER(message.subject)" +
+            "   WHEN 'size' = :sort1 THEN -SUM(message.total)" +
+            "   WHEN 'attachments' = :sort1 THEN -SUM(message.attachments)" +
+            "   WHEN 'snoozed' = :sort1 THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
+            "   ELSE 0" +
+            "  END" +
+            ", CASE" +
+            "   WHEN 'unread' = :sort2 THEN SUM(1 - message.ui_seen) = 0" +
             "   ELSE 0" +
             "  END" +
             ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
     DataSource.Factory<Integer, TupleMessageEx> pagedUnified(
             String type,
             boolean threading, boolean group_category,
-            String sort, boolean ascending,
+            String sort1, String sort2, boolean ascending,
             boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed, boolean filter_deleted, String filter_language,
             boolean found,
             boolean debug);
@@ -178,20 +182,24 @@ public interface DaoMessage {
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0 OR " + is_outbox + ")" +
             " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(message.importance, 1) END" +
             ", CASE" +
-            "   WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
-            "   WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
-            "   WHEN 'priority' = :sort THEN -IFNULL(message.priority, 1)" +
-            "   WHEN 'sender' = :sort THEN LOWER(message.sender)" +
-            "   WHEN 'subject' = :sort THEN LOWER(message.subject)" +
-            "   WHEN 'size' = :sort THEN -SUM(message.total)" +
-            "   WHEN 'attachments' = :sort THEN -SUM(message.attachments)" +
-            "   WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
+            "   WHEN 'unread' = :sort1 THEN SUM(1 - message.ui_seen) = 0" +
+            "   WHEN 'starred' = :sort1 THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
+            "   WHEN 'priority' = :sort1 THEN -IFNULL(message.priority, 1)" +
+            "   WHEN 'sender' = :sort1 THEN LOWER(message.sender)" +
+            "   WHEN 'subject' = :sort1 THEN LOWER(message.subject)" +
+            "   WHEN 'size' = :sort1 THEN -SUM(message.total)" +
+            "   WHEN 'attachments' = :sort1 THEN -SUM(message.attachments)" +
+            "   WHEN 'snoozed' = :sort1 THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
+            "   ELSE 0" +
+            "  END" +
+            ", CASE" +
+            "   WHEN 'unread' = :sort2 THEN SUM(1 - message.ui_seen) = 0" +
             "   ELSE 0" +
             "  END" +
             ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(
             long folder, boolean threading,
-            String sort, boolean ascending,
+            String sort1, String sort2, boolean ascending,
             boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed, boolean filter_deleted, String filter_language,
             boolean found,
             boolean debug);

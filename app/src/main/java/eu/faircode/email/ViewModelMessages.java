@@ -124,7 +124,7 @@ public class ViewModelMessages extends ViewModel {
                                     args.type,
                                     args.threading,
                                     args.group_category,
-                                    args.sort, args.ascending,
+                                    args.sort1, args.sort2, args.ascending,
                                     args.filter_seen,
                                     args.filter_unflagged,
                                     args.filter_unknown,
@@ -146,7 +146,7 @@ public class ViewModelMessages extends ViewModel {
                     builder = new LivePagedListBuilder<>(
                             db.message().pagedFolder(
                                     args.folder, args.threading,
-                                    args.sort, args.ascending,
+                                    args.sort1, args.sort2, args.ascending,
                                     args.filter_seen,
                                     args.filter_unflagged,
                                     args.filter_unknown,
@@ -184,7 +184,7 @@ public class ViewModelMessages extends ViewModel {
                                 db.message().pagedUnified(
                                         null,
                                         args.threading, false,
-                                        "time", false,
+                                        "time", "", false,
                                         false, false, false, false, false,
                                         null,
                                         true,
@@ -194,7 +194,7 @@ public class ViewModelMessages extends ViewModel {
                         builder = new LivePagedListBuilder<>(
                                 db.message().pagedFolder(
                                         args.folder, args.threading,
-                                        "time", false,
+                                        "time", "", false,
                                         false, false, false, false, false,
                                         null,
                                         true,
@@ -508,7 +508,8 @@ public class ViewModelMessages extends ViewModel {
 
         private boolean threading;
         private boolean group_category;
-        private String sort;
+        private String sort1;
+        private String sort2;
         private boolean ascending;
         private boolean filter_seen;
         private boolean filter_unflagged;
@@ -540,7 +541,10 @@ public class ViewModelMessages extends ViewModel {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             this.group_category = prefs.getBoolean("group_category", false);
-            this.sort = prefs.getString(FragmentMessages.getSort(context, viewType, type), "time");
+            String sort = prefs.getString(FragmentMessages.getSort(context, viewType, type), "time");
+            String[] sorts = sort.split("\\+");
+            this.sort1 = sorts[0];
+            this.sort2 = (sorts.length > 1 ? sorts[1] : "");
             this.ascending = prefs.getBoolean(FragmentMessages.getSortOrder(context, viewType, type), outbox);
             this.filter_seen = prefs.getBoolean(FragmentMessages.getFilter(context, "seen", viewType, type), false);
             this.filter_unflagged = prefs.getBoolean(FragmentMessages.getFilter(context, "unflagged", viewType, type), false);
@@ -569,7 +573,8 @@ public class ViewModelMessages extends ViewModel {
 
                         this.threading == other.threading &&
                         this.group_category == other.group_category &&
-                        Objects.equals(this.sort, other.sort) &&
+                        Objects.equals(this.sort1, other.sort1) &&
+                        Objects.equals(this.sort2, other.sort2) &&
                         this.ascending == other.ascending &&
                         this.filter_seen == other.filter_seen &&
                         this.filter_unflagged == other.filter_unflagged &&
@@ -591,7 +596,7 @@ public class ViewModelMessages extends ViewModel {
                     " criteria=" + criteria + ":" + server + "" +
                     " threading=" + threading +
                     " category=" + group_category +
-                    " sort=" + sort + ":" + ascending +
+                    " sort=" + sort1 + "/" + sort2 + ":" + ascending +
                     " filter seen=" + filter_seen +
                     " unflagged=" + filter_unflagged +
                     " unknown=" + filter_unknown +

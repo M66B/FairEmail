@@ -5943,6 +5943,7 @@ public class FragmentMessages extends FragmentBase
                 menu.findItem(R.id.menu_sort_on_unread).setVisible(false);
                 menu.findItem(R.id.menu_sort_on_priority).setVisible(false);
                 menu.findItem(R.id.menu_sort_on_starred).setVisible(false);
+                menu.findItem(R.id.menu_sort_on_starred_unread).setVisible(false);
                 menu.findItem(R.id.menu_sort_on_sender).setVisible(false);
                 menu.findItem(R.id.menu_sort_on_subject).setVisible(false);
                 menu.findItem(R.id.menu_sort_on_size).setVisible(false);
@@ -5960,6 +5961,8 @@ public class FragmentMessages extends FragmentBase
                 menu.findItem(R.id.menu_sort_on_unread).setChecked(true);
             else if ("starred".equals(sort))
                 menu.findItem(R.id.menu_sort_on_starred).setChecked(true);
+            else if ("starred+unread".equals(sort))
+                menu.findItem(R.id.menu_sort_on_starred_unread).setChecked(true);
             else if ("priority".equals(sort))
                 menu.findItem(R.id.menu_sort_on_priority).setChecked(true);
             else if ("sender".equals(sort))
@@ -6103,6 +6106,10 @@ public class FragmentMessages extends FragmentBase
         } else if (itemId == R.id.menu_sort_on_starred) {
             item.setChecked(true);
             onMenuSort("starred");
+            return true;
+        } else if (itemId == R.id.menu_sort_on_starred_unread) {
+            item.setChecked(true);
+            onMenuSort("starred+unread");
             return true;
         } else if (itemId == R.id.menu_sort_on_priority) {
             item.setChecked(true);
