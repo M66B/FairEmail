@@ -905,6 +905,7 @@
     <string name="title_advanced_autostart" translatable="false">Autostart app</string>
     <string name="title_advanced_emergency" translatable="false">Write emergency file</string>
     <string name="title_advanced_work_manager" translatable="false">Initialize work manager</string>
+    <string name="title_advanced_task_description" translatable="false">Set task description</string>
     <string name="title_advanced_external_storage" translatable="false">Use external storage</string>
     <string name="title_advanced_integrity" translatable="false">sqlite integrity check</string>
     <string name="title_advanced_wal" translatable="false">sqlite WAL</string>
