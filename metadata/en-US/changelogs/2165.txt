@@ -10,6 +10,7 @@ Next version
 
 * Added sorting on starred and unread messages
 * Small improvements and minor bug fixes
+* Updated Public Suffix List
 * Updated translations
 
 1.2165 - 2024-03-05
