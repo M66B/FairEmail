@@ -95,6 +95,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private static final long RETRY_WAIT = 5000L; // milliseconds
     private static final int CONNECTIVITY_DELAY = 5000; // milliseconds
     private static final int PROGRESS_UPDATE_INTERVAL = 1000; // milliseconds
+    private static final long STOP_DELAY = 2500L;
 
     static final int PI_SEND = 1;
     static final int PI_FIX = 2;
@@ -109,6 +110,13 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
         PowerManager pm = Helper.getSystemService(this, PowerManager.class);
         wlOutbox = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":send");
+
+        final Runnable quit = new RunnableEx("send:quit") {
+            @Override
+            protected void delegate() {
+                stopSelf();
+            }
+        };
 
         // Observe unsent count
         DB db = DB.getInstance(this);
@@ -128,8 +136,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         Log.w(ex);
                     }
 
+                    getMainHandler().removeCallbacks(quit);
                     if (unsent == null || unsent.count == 0)
-                        stopSelf();
+                        getMainHandler().postDelayed(quit, STOP_DELAY);
                 }
             }
         });
