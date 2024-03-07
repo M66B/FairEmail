@@ -19,16 +19,19 @@ package eu.faircode.email;
     Copyright 2018-2024 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -42,8 +45,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.MenuCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
@@ -353,6 +358,7 @@ public class FragmentAccounts extends FragmentBase {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_delete).setVisible(settings);
         menu.findItem(R.id.menu_search).setVisible(!settings);
         menu.findItem(R.id.menu_unified).setVisible(!settings);
         menu.findItem(R.id.menu_outbox).setVisible(!settings);
@@ -369,7 +375,10 @@ public class FragmentAccounts extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.menu_search) {
+        if (itemId == R.id.menu_delete) {
+            onMenuDelete();
+            return true;
+        } else if (itemId == R.id.menu_search) {
             onMenuSearch();
             return true;
         } else if (itemId == R.id.menu_unified) {
@@ -392,6 +401,16 @@ public class FragmentAccounts extends FragmentBase {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onMenuDelete() {
+        Bundle args = new Bundle();
+        args.putBoolean("all", true);
+
+        FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, ActivitySetup.REQUEST_DELETE_ACCOUNT);
+        fragment.show(getParentFragmentManager(), "accounts:delete");
     }
 
     private void onMenuSearch() {
@@ -457,11 +476,74 @@ public class FragmentAccounts extends FragmentBase {
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case ActivitySetup.REQUEST_DELETE_ACCOUNT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDeleteAccount(data.getBundleExtra("args"));
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (Helper.hasPermissions(getContext(), permissions)) {
             btnGrant.setVisibility(View.GONE);
             ServiceSynchronize.reload(getContext(), null, false, "Permissions regranted");
         }
+    }
+
+    private void onDeleteAccount(Bundle args) {
+        long account = args.getLong("account");
+        String name = args.getString("name");
+
+        final Context context = getContext();
+
+        Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_warning_24);
+        d.mutate();
+        d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
+
+        new AlertDialog.Builder(context)
+                .setIcon(d)
+                .setTitle(name)
+                .setMessage(R.string.title_account_delete)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Bundle args = new Bundle();
+                        args.putLong("id", account);
+
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                long id = args.getLong("id");
+
+                                DB db = DB.getInstance(context);
+                                db.account().deleteAccount(id);
+
+                                return null;
+                            }
+
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Log.unexpectedError(getParentFragmentManager(), ex);
+                            }
+                        }.execute(FragmentAccounts.this, args, "setup:delete");
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing
+                    }
+                })
+                .show();
     }
 
     private void onSwipeRefresh() {
