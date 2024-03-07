@@ -472,6 +472,7 @@
     <string name="title_advanced_nav_message_count">ナビゲーションメニューにローカルに保存されたメッセージの数を表示する</string>
     <string name="title_advanced_nav_unseen_drafts">ナビゲーションメニューに未読の下書きの数を表示する</string>
     <string name="title_advanced_nav_pinned_count">ピン留めしたナビゲーションメニューに未読の数を表示する</string>
+    <string name="title_advanced_show_unexposed">新着の未読メッセージがあるアカウント/フォルダーに星印を表示する</string>
     <string name="title_advanced_startup">スタート画面の表示</string>
     <string name="title_advanced_cards">表形式の代わりにカード形式を使用する</string>
     <string name="title_advanced_category">アカウントのカテゴリーは、メイン設定のアカウントの詳細オプションから設定できます</string>
@@ -806,6 +807,7 @@
     <string name="title_advanced_rlah_hint">EU 加盟国の SIM カードで加盟国のネットワークを使用する場合、ローミングではないとみなします</string>
     <string name="title_advanced_usage_hint">これによりバッテリー使用量、データ使用量、ストレージ使用量が増加します</string>
     <string name="title_advanced_plain_hint">有効にするとデータ使用量が制限されますが、スタイルを設定せずにメッセージが表示されます</string>
+    <string name="title_advanced_plain_remark">常に完全な内容がプレーンテキスト部分に含まれないことがあります！</string>
     <string name="title_advanced_tcp_keep_alive_hint">有効にすると、一部の端末で接続の問題が発生したりバッテリー使用量が増加したりする可能性があります</string>
     <string name="title_advanced_validate_hint">これにより、VPN を使用している場合や、その他の状況でメッセージが同期されない可能性があります</string>
     <string name="title_advanced_timeout_hint">読み取り/書き込みタイムアウトは接続タイムアウトの 2 倍に設定されます。値を大きくするとバッテリーの使用量が増加します</string>
@@ -1572,6 +1574,8 @@
     <string name="title_sort_on_time">時間</string>
     <string name="title_sort_on_unread">未読</string>
     <string name="title_sort_on_starred">スター付き</string>
+    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">未読、スター付き</string>
+    <string name="title_sort_on_starred_unread">スター付き、未読</string>
     <string name="title_sort_on_priority">重要度</string>
     <string name="title_sort_on_sender">差出人</string>
     <string name="title_sort_on_subject">件名</string>

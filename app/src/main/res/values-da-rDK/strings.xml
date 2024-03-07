@@ -486,7 +486,7 @@
     <string name="title_advanced_nav_message_count">Vis antal lokalt gemte beskeder i navigationsmenuen</string>
     <string name="title_advanced_nav_unseen_drafts">Vis antallet af ulæste udkast i navigeringsmenuen</string>
     <string name="title_advanced_nav_pinned_count">Vis antallet af ulæste udkast i den fastgjorte navigeringsmenu</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Vis en stjerne for konti/mapper med nyligt modtagne, ulæste beskeder</string>
+    <string name="title_advanced_show_unexposed">Vis en stjerne for konti/mapper med nyligt modtagne, ulæste beskeder</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Brug kortstil i stedet for tabelform</string>
     <string name="title_advanced_category">Kontokategorien kan opsættes i de avancerede kontoindstillinger via hovedindstillingsskærmen</string>
@@ -822,7 +822,7 @@
     <string name="title_advanced_rlah_hint">Antager ingen roaming inden for EU</string>
     <string name="title_advanced_usage_hint">Dette vil forøge batteri-, data- samt lagerpladsforbrug</string>
     <string name="title_advanced_plain_hint">Aktivering af dette reducerer dataforbruget, men beskeder vises uden styling</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Den rene tekstdel indeholder ikke altid den fulde besked!</string>
+    <string name="title_advanced_plain_remark">Den rene tekstdel indeholder ikke altid den fulde besked!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering af dette kan forårsage forbindelsesproblemer på visse enheder samt øge strømforbruget</string>
     <string name="title_advanced_validate_hint">Dette kan betyde, at beskeder i visse situationer ikke synkes, bl.a. ved brug af VPN</string>
     <string name="title_advanced_timeout_hint">Læse-/skrive-timeout indstilles til det dobbelte af forbindelses-timeout. Højere værdier vil resultere i øget batteriforbrug.</string>
@@ -1589,6 +1589,8 @@
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Ulæst</string>
     <string name="title_sort_on_starred">Stjernemarkeret</string>
+    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Ulæste, stjernemarkerede</string>
+    <string name="title_sort_on_starred_unread">Stjernemarkerede, ulæste</string>
     <string name="title_sort_on_priority">Prioritet</string>
     <string name="title_sort_on_sender">Afsender</string>
     <string name="title_sort_on_subject">Emne</string>

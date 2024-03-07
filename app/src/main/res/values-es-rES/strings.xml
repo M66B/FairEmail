@@ -485,7 +485,7 @@
     <string name="title_advanced_nav_message_count">Mostrar el número de mensajes almacenados localmente en el menú de navegación</string>
     <string name="title_advanced_nav_unseen_drafts">Mostrar número de borradores sin leer en el menú de navegación</string>
     <string name="title_advanced_nav_pinned_count">Mostrar el número de mensajes no leídos en el menú de navegación fijado</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Mostrar una estrella para cuentas o carpetas con mensajes no leídos recibidos recientemente</string>
+    <string name="title_advanced_show_unexposed">Mostrar una estrella para cuentas o carpetas con mensajes no leídos recibidos recientemente</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
     <string name="title_advanced_cards">Usar estilo de tarjeta en lugar del estilo tabular</string>
     <string name="title_advanced_category">La categoría de la cuenta puede configurarse en las opciones avanzadas de la cuenta a través de la pantalla de configuración principal</string>
@@ -820,7 +820,7 @@
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
     <string name="title_advanced_usage_hint">Esto aumentará el uso de batería, datos y espacio de almacenamiento</string>
     <string name="title_advanced_plain_hint">Activar esto limitará el uso de datos, pero los mensajes se mostrarán sin estilizar</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">¡La parte de texto plano no siempre contiene el mensaje completo!</string>
+    <string name="title_advanced_plain_remark">¡La parte de texto plano no siempre contiene el mensaje completo!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Activar esto puede causar problemas de conexión en algunos dispositivos y puede aumentar el uso de la batería</string>
     <string name="title_advanced_validate_hint">Esto puede ocasionar que no sincronicen los mensajes, por ejemplo cuando se utiliza una VPN, pero también en otras situaciones</string>
     <string name="title_advanced_timeout_hint">El tiempo de espera de lectura/escritura se establecerá al doble del tiempo de espera de conexión. Valores más altos resultarán en un mayor uso de la batería.</string>
@@ -1583,6 +1583,8 @@
     <string name="title_sort_on_time">Tiempo</string>
     <string name="title_sort_on_unread">No leído</string>
     <string name="title_sort_on_starred">Destacado</string>
+    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">No leído, destacado</string>
+    <string name="title_sort_on_starred_unread">Destacado, no leído</string>
     <string name="title_sort_on_priority">Prioridad</string>
     <string name="title_sort_on_sender">Remitente</string>
     <string name="title_sort_on_subject">Asunto</string>

@@ -514,7 +514,7 @@
     <string name="title_advanced_nav_message_count">להציג את מספר ההודעות שמאוחסנות מקומית בתפריט הניווט</string>
     <string name="title_advanced_nav_unseen_drafts">להציג את מספר הטיוטות שלא נקראו בתפריט הניווט</string>
     <string name="title_advanced_nav_pinned_count">להציג את מספר ההודעות שלא נקראו בתפריט הניווט הנעוץ</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">הצגת כוכב לחשבונות/תיקיות עם הודעות חדשות שהתקבלו וטרם נקראו</string>
+    <string name="title_advanced_show_unexposed">הצגת כוכב לחשבונות/תיקיות עם הודעות חדשות שהתקבלו וטרם נקראו</string>
     <string name="title_advanced_startup">הצגה במסך הפתיחה</string>
     <string name="title_advanced_cards">להשתמש בסגנון כרטיסים במקום בסגנון לשוניות</string>
     <string name="title_advanced_category">ניתן להגדיר את קטגוריית החשבון באפשרויות המתקדמות של החשבון דרך מסך ההגדרות הראשי</string>
@@ -849,7 +849,7 @@
     <string name="title_advanced_rlah_hint">להניח שאין נדידה בתוך אירופה</string>
     <string name="title_advanced_usage_hint">יגדיל את צריכת הסוללה, הנתונים ואת נפח האחסון</string>
     <string name="title_advanced_plain_hint">הפעלת האפשרות תגביל את השימוש בנתונים אך הודעות תופענה ללא עיצוב</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">החלק עם הטקסט הפשוט לא תמיד מכיל את ההודעה המלאה!</string>
+    <string name="title_advanced_plain_remark">החלק עם הטקסט הפשוט לא תמיד מכיל את ההודעה המלאה!</string>
     <string name="title_advanced_tcp_keep_alive_hint">הפעלת אפשרות זו יכולה לגרום לתקלות תקשורת בחלק מהמכשירים ועלולה להגביר את צריכת הסוללה</string>
     <string name="title_advanced_validate_hint">יכול לגרום לכך שהודעות לא תסתנכרנה, למשל בעת שימוש ב־VPN, אך גם במקרים אחרים</string>
     <string name="title_advanced_timeout_hint">תום זמן קריאה/כתיבה יוגדר להיות כפול מהזמן המוקצב לחיבור. ערכים גבוהים יותר יובילו לצריכה גבוהה יותר של סוללה.</string>
@@ -1616,6 +1616,7 @@
     <string name="title_sort_on_time">שעה</string>
     <string name="title_sort_on_unread">לא נקרא</string>
     <string name="title_sort_on_starred">סימון בכוכב</string>
+    <string name="title_sort_on_starred_unread">מסומן בכוכב, לא נקרא</string>
     <string name="title_sort_on_priority">עדיפות</string>
     <string name="title_sort_on_sender">מוען</string>
     <string name="title_sort_on_subject">נושא</string>

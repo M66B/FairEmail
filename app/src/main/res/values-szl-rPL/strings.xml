@@ -513,7 +513,7 @@
     <string name="title_advanced_nav_message_count">Pokaż liczbę lokalnie przechowywanych wiadomości w menu nawigacji</string>
     <string name="title_advanced_nav_unseen_drafts">Pokaż liczbę nieprzeczytanych szkiców w menu nawigacji</string>
     <string name="title_advanced_nav_pinned_count">Pokaż liczbę nieprzeczytanych wiadomości w przypiętym menu nawigacji</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Pokaż gwiazdkę dla kont/folderów z nowo otrzymanymi, nieprzeczytanymi wiadomościami</string>
+    <string name="title_advanced_show_unexposed">Pokaż gwiazdkę dla kont/folderów z nowo otrzymanymi, nieprzeczytanymi wiadomościami</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>
     <string name="title_advanced_category">Kategoria konta może być skonfigurowana w zaawansowanych opcjach konta na ekranie ustawień głównych</string>
@@ -848,7 +848,7 @@
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
     <string name="title_advanced_usage_hint">Zwiększy to zużycie baterii, danych i przestrzeni dyskowej</string>
     <string name="title_advanced_plain_hint">Włączenie tej opcji ograniczy wykorzystanie danych, ale wiadomości będą wyświetlane bez stylizacji</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Część tekstowa nie zawsze zawiera pełną wiadomość!</string>
+    <string name="title_advanced_plain_remark">Część tekstowa nie zawsze zawiera pełną wiadomość!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Włączenie tej funkcji może powodować problemy z połączeniem na niektórych urządzeniach i może zwiększyć zużycie baterii</string>
     <string name="title_advanced_validate_hint">Może to skutkować brakiem synchronizacji wiadomości, na przykład podczas korzystania z VPN, ale również w innych sytuacjach</string>
     <string name="title_advanced_timeout_hint">Limit czasu odczytu/zapisu zostanie ustawiony na dwukrotność limitu czasu połączenia. Wyższe wartości spowodują większe zużycie baterii.</string>
@@ -1612,6 +1612,8 @@
     <string name="title_sort_on_time">Czas</string>
     <string name="title_sort_on_unread">Nieprzeczytane</string>
     <string name="title_sort_on_starred">Oznaczona</string>
+    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Nieprzeczytane, z gwiazdką</string>
+    <string name="title_sort_on_starred_unread">Z gwiazdką, nieprzeczytane</string>
     <string name="title_sort_on_priority">Priorytet</string>
     <string name="title_sort_on_sender">Nadawca</string>
     <string name="title_sort_on_subject">Temat</string>

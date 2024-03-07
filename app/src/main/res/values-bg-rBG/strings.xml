@@ -485,7 +485,7 @@
     <string name="title_advanced_nav_message_count">Показване на броя локално съхранени съобщения в менюто навигация</string>
     <string name="title_advanced_nav_unseen_drafts">Показване на броя на непрочетените чернови в менюто за навигиране</string>
     <string name="title_advanced_nav_pinned_count">Показване на броя непрочетени съобщения в менюто закачени на навигиране</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Показване на звезда за акаунти/папки с новополучени непрочетени съобщения</string>
+    <string name="title_advanced_show_unexposed">Показване на звезда за акаунти/папки с новополучени непрочетени съобщения</string>
     <string name="title_advanced_startup">Показване на началния екран</string>
     <string name="title_advanced_cards">Употреба на картов стил вместо табличен стил</string>
     <string name="title_advanced_category">Категорията на акаунта може да се конфигурира в опциите за напреднали на акаунта чрез главния екран с настройки</string>
@@ -820,7 +820,7 @@
     <string name="title_advanced_rlah_hint">Ако не се допуска роуминг в рамките на ЕС</string>
     <string name="title_advanced_usage_hint">Това ще увеличи употребата на батерията, данните и мястото в хранилището</string>
     <string name="title_advanced_plain_hint">Включването на това ще ограничи употребата на данните, но съобщенията ще се показват без стил</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Частта с прост текст на съобщението не винаги съдържа пълното съобщение!</string>
+    <string name="title_advanced_plain_remark">Частта с прост текст на съобщението не винаги съдържа пълното съобщение!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Включването на това може да причини проблеми с връзката в някои устройства и да увеличи употребата на батерията</string>
     <string name="title_advanced_validate_hint">Може да доведе до това, че съобщенията не се синхронизират, например, употребявайки VPN, но също в други ситуации</string>
     <string name="title_advanced_timeout_hint">Времето за четене/запис ще бъде зададено двойно на времето за изчакване на връзката. По-високите стойности ще доведат до по-голяма консумация на батерията.</string>

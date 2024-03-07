@@ -482,7 +482,7 @@
     <string name="title_advanced_nav_message_count">Visa antalet lokalt lagrade meddelanden i navigeringsmenyn</string>
     <string name="title_advanced_nav_unseen_drafts">Visa antal olästa utkast i navigeringsmenyn</string>
     <string name="title_advanced_nav_pinned_count">Visa antalet olästa meddelanden i navigeringsmenyn</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Visa en stjärna för konton/mappar med nyligen mottagna olästa meddelanden</string>
+    <string name="title_advanced_show_unexposed">Visa en stjärna för konton/mappar med nyligen mottagna olästa meddelanden</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_cards">Använd kortstil istället för tabellstil</string>
     <string name="title_advanced_category">Kontokategorin kan konfigureras i de avancerade kontoalternativen via huvudinställningsskärmen</string>
@@ -814,7 +814,7 @@
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
     <string name="title_advanced_usage_hint">Det här kommer att öka användningen av batteri, data och lagringsutrymme</string>
     <string name="title_advanced_plain_hint">Aktivering av detta kommer att begränsa dataanvändningen, men meddelanden kommer att visas utan formatering</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Den oformaterade textdelen innehåller inte alltid hela meddelandet!</string>
+    <string name="title_advanced_plain_remark">Den oformaterade textdelen innehåller inte alltid hela meddelandet!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering av detta kan orsaka anslutningsproblem på vissa enheter och kan öka batterianvändningen</string>
     <string name="title_advanced_validate_hint">Detta kan resultera i att meddelanden inte synkroniseras, till exempel vid användning av VPN, men även i andra situationer</string>
     <string name="title_advanced_timeout_hint">Tidsgräns för läs/skriva kommer att ställas in på den dubbla av anslutningens tidsgräns. Högre värden kommer att resultera i mer batterianvändning.</string>
@@ -1578,6 +1578,7 @@
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Olästa</string>
     <string name="title_sort_on_starred">Stjärnmärkta</string>
+    <string name="title_sort_on_starred_unread">Stjärnmärkta, olästa</string>
     <string name="title_sort_on_priority">Prioritet</string>
     <string name="title_sort_on_sender">Avsändaren</string>
     <string name="title_sort_on_subject">Ämne</string>

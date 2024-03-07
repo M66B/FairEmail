@@ -514,7 +514,7 @@
     <string name="title_advanced_nav_message_count">Показувати кількість локально збережених повідомлень в меню навігації</string>
     <string name="title_advanced_nav_unseen_drafts">Показувати кількість непрочитаних чернеток у меню навігації</string>
     <string name="title_advanced_nav_pinned_count">Показувати кількість непрочитаних повідомлень у закріпленому навігаційному меню</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Показувати зірочку для аккаунтів/папок, що мають нещодавно отримані непрочитані повідомлення</string>
+    <string name="title_advanced_show_unexposed">Показувати зірочку для аккаунтів/папок, що мають нещодавно отримані непрочитані повідомлення</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати картковий стиль замість табличного стилю</string>
     <string name="title_advanced_category">Категорії облікового запису можна налаштувати у розширених налаштуваннях облікового запису, що знаходяться на головному екрані налаштувань</string>
@@ -848,7 +848,7 @@
     <string name="title_advanced_rlah_hint">Мається на увазі відсутність роумінгу в межах ЄС</string>
     <string name="title_advanced_usage_hint">Це збільшить використання акумулятора, даних та місця для зберігання</string>
     <string name="title_advanced_plain_hint">Увімкнення цієї опції обмежить використання даних, але повідомлення будуть показуватись без стилізації</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Частина повідомлення з простим текстом не завжди містить це повідомлення в повному обсязі!</string>
+    <string name="title_advanced_plain_remark">Частина повідомлення з простим текстом не завжди містить це повідомлення в повному обсязі!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Увімкнення цієї опції може викликати проблеми з підключенням на деяких пристроях і може збільшити використання акумулятора</string>
     <string name="title_advanced_validate_hint">Це може призвести до того, що повідомлення можуть бути не синхронізовані, наприклад, при використанні VPN, але також і в інших ситуаціях</string>
     <string name="title_advanced_timeout_hint">Тайм-аут читання/запису буде встановлено у розмірі, у два рази більшому за тайм-аут підключення. Вищі значення призведуть до збільшення використання заряду акумулятора.</string>
@@ -1613,6 +1613,8 @@
     <string name="title_sort_on_time">Час</string>
     <string name="title_sort_on_unread">Непрочитані</string>
     <string name="title_sort_on_starred">Обрані</string>
+    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Непрочитані, обрані</string>
+    <string name="title_sort_on_starred_unread">Обрані, непрочитані</string>
     <string name="title_sort_on_priority">Пріоритет</string>
     <string name="title_sort_on_sender">Відправник</string>
     <string name="title_sort_on_subject">Тема</string>

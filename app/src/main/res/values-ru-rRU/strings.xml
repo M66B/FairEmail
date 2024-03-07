@@ -513,7 +513,7 @@
     <string name="title_advanced_nav_message_count">Показывать количество сохранённых локально сообщений в меню навигации</string>
     <string name="title_advanced_nav_unseen_drafts">Показывать количество непрочитанных черновиков в меню навигации</string>
     <string name="title_advanced_nav_pinned_count">Показывать количество непрочитанных сообщений в закреплённом меню навигации</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Показывать метку избранного для учётных записей/папок с недавно полученными непрочитанными сообщениями</string>
+    <string name="title_advanced_show_unexposed">Показывать метку избранного для учётных записей/папок с недавно полученными непрочитанными сообщениями</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
     <string name="title_advanced_category">Категория учётной записи может быть настроена в дополнительных настройках, которые можно открыть через главный экран настроек</string>
@@ -849,7 +849,7 @@
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
     <string name="title_advanced_usage_hint">Увеличится расход заряда батареи, трафика и места в хранилище</string>
     <string name="title_advanced_plain_hint">Включение уменьшит использование данных, но сообщения будут показаны без стиля</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Текстовая часть не всегда содержит полное сообщение!</string>
+    <string name="title_advanced_plain_remark">Текстовая часть не всегда содержит полное сообщение!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Включение может вызвать проблемы подключения на некоторых устройствах и увеличить использование батареи</string>
     <string name="title_advanced_validate_hint">Может привести к тому, что сообщения не синхронизируются, например, при использовании VPN, а также в других ситуациях</string>
     <string name="title_advanced_timeout_hint">Время ожидания для чтения/записи будет установлено в два раза больше времени ожидания подключения. Ещё большие значения могут увеличить расход аккумулятора.</string>
@@ -1615,6 +1615,8 @@
     <string name="title_sort_on_time">Время</string>
     <string name="title_sort_on_unread">Не прочитано</string>
     <string name="title_sort_on_starred">Избранные</string>
+    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Не прочитано, избранное</string>
+    <string name="title_sort_on_starred_unread">Избранное, не прочитано</string>
     <string name="title_sort_on_priority">Приоритет</string>
     <string name="title_sort_on_sender">Отправитель</string>
     <string name="title_sort_on_subject">Тема</string>

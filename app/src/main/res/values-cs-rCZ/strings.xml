@@ -514,7 +514,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_nav_message_count">Zobrazit počet místně uložených zpráv v navigačním menu</string>
     <string name="title_advanced_nav_unseen_drafts">Zobrazit počet nepřečtených konceptů v navigačním menu</string>
     <string name="title_advanced_nav_pinned_count">Zobrazit počet nepřečtených zpráv v připnutém navigačním menu</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Zobrazit hvězdičku pro účty/složky s nově přijatými nepřečtenými zprávami</string>
+    <string name="title_advanced_show_unexposed">Zobrazit hvězdičku pro účty/složky s nově přijatými nepřečtenými zprávami</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
     <string name="title_advanced_category">Kategorie účtu může být nakonfigurována v pokročilých možnostech účtu prostřednictvím hlavní obrazovky nastavení</string>
@@ -849,7 +849,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
     <string name="title_advanced_usage_hint">Zvýší využití baterie, dat a úložného prostoru</string>
     <string name="title_advanced_plain_hint">Pomocí této volby omezíte využití dat, zprávy však budou zobrazeny bez specifického formátování</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Část zprávy v prostém textu ne vždy obsahuje celou zprávu!</string>
+    <string name="title_advanced_plain_remark">Část zprávy v prostém textu ne vždy obsahuje celou zprávu!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Povolení této funkce může způsobit problémy s připojením na některých zařízeních a může zvýšit využití baterie</string>
     <string name="title_advanced_validate_hint">Může vést k nesynchronizovaným zprávám, například při použití VPN, ale i v jiných situacích</string>
     <string name="title_advanced_timeout_hint">Časový limit čtení/zápisu bude nastaven na dvojnásobek časového limitu připojení. Vyšší hodnoty povedou k větší spotřebě baterie.</string>
@@ -1613,6 +1613,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_sort_on_time">Čas</string>
     <string name="title_sort_on_unread">Nepřečteno</string>
     <string name="title_sort_on_starred">S hvězdičkou</string>
+    <string name="title_sort_on_starred_unread">S hvězdičkou, nepřečtené</string>
     <string name="title_sort_on_priority">Priorita</string>
     <string name="title_sort_on_sender">Odesílatel</string>
     <string name="title_sort_on_subject">Předmět</string>

@@ -484,7 +484,7 @@
     <string name="title_advanced_nav_message_count">Mutassa a helyileg elmentett üzeneteket a navigációs menüben</string>
     <string name="title_advanced_nav_unseen_drafts">Elküldetlen piszkozatok számának megjelenítése a navigációs menüben</string>
     <string name="title_advanced_nav_pinned_count">Olvasatlan üzenetek számának mutatása a kitűzött navigációs menüben</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Csillaggal jelölje az újonnan érkezett, olvasatlan üzeneketet tartalmazó fiókokat/mappákat</string>
+    <string name="title_advanced_show_unexposed">Csillaggal jelölje az újonnan érkezett, olvasatlan üzeneketet tartalmazó fiókokat/mappákat</string>
     <string name="title_advanced_startup">Megjelenítés a kezdőképernyőn</string>
     <string name="title_advanced_cards">A kártyás stílus használata a tabuláris stílus helyett</string>
     <string name="title_advanced_category">A fiókkategória beállítható az Alapbeállítások oldal Haladó fiókbeállításoknál</string>
@@ -818,7 +818,7 @@
     <string name="title_advanced_rlah_hint">Roaming figyelmen kívül hagyása az EU-n belül</string>
     <string name="title_advanced_usage_hint">Ez megnöveli az akkumulátor, adat és tárhely használatot</string>
     <string name="title_advanced_plain_hint">Ezen opció bekapcsolása csökkenti az adathasználatot, de az üzenetek formázás nélkül fognak megjelenni</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Az egyszerű szöveges rész nem mindig tartalmazza a teljes üzenetet!</string>
+    <string name="title_advanced_plain_remark">Az egyszerű szöveges rész nem mindig tartalmazza a teljes üzenetet!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Bekapcsolása esetén okozhat csatlakozási problémákat egyes eszközökön, és megnövelheti az akksi fogyasztást</string>
     <string name="title_advanced_validate_hint">Ez azt eredményezheti, hogy nem szinkronizálják az üzeneteket, például VPN használatakor, de más helyzetekben is</string>
     <string name="title_advanced_timeout_hint">Az olvasás/írás időtúllépés be lesz állítva a kapcsolat időtúllépés duplájára. Nagyobb értékek több akkumulátor használatot eredményezhetnek.</string>
@@ -1581,6 +1581,7 @@
     <string name="title_sort_on_time">Idő</string>
     <string name="title_sort_on_unread">Olvasatlan</string>
     <string name="title_sort_on_starred">Csillagozott</string>
+    <string name="title_sort_on_starred_unread">Csillagozott, olvasatlan</string>
     <string name="title_sort_on_priority">Prioritás</string>
     <string name="title_sort_on_sender">Feladó</string>
     <string name="title_sort_on_subject">Tárgy</string>

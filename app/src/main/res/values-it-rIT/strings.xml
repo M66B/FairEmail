@@ -486,7 +486,7 @@
     <string name="title_advanced_nav_message_count">Mostra il numero di messaggi memorizzati localmente nel menu di navigazione</string>
     <string name="title_advanced_nav_unseen_drafts">Mostra il numero di bozze non lette nel menu di navigazione</string>
     <string name="title_advanced_nav_pinned_count">Mostra il numero di messaggi non letti nel menu di navigazione fissato</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Mostra una stella per profili/cartelle con messaggi non letti ricevuti recentemente</string>
+    <string name="title_advanced_show_unexposed">Mostra una stella per profili/cartelle con messaggi non letti ricevuti recentemente</string>
     <string name="title_advanced_startup">Mostra sulla schermata iniziale</string>
     <string name="title_advanced_cards">Usa stile della carta invece dello stile tabulare</string>
     <string name="title_advanced_category">La categoria del profilo è configurabile nelle opzioni avanzate del profilo tramite la schermata delle impostazioni principali</string>
@@ -822,7 +822,7 @@
     <string name="title_advanced_rlah_hint">Presumi che non ci sia roaming nell\'UE</string>
     <string name="title_advanced_usage_hint">Questo aumenterà l\'uso di batteria, dati e spazio d\'archiviazione</string>
     <string name="title_advanced_plain_hint">Abilitarlo limiterà l\'uso dei dati, ma i messaggi saranno mostrati senza stilizzazione</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">La parte testo semplice non contiene sempre il messaggio completo!</string>
+    <string name="title_advanced_plain_remark">La parte testo semplice non contiene sempre il messaggio completo!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Abilitarlo può causare problemi di connessione su alcuni dispositivi e può aumentare l\'uso della batteria</string>
     <string name="title_advanced_validate_hint">Questo può risultare nel non sincronizzare i messaggi, ad esempio usando una VPN, ma anche altre situazioni</string>
     <string name="title_advanced_timeout_hint">Il timeout di lettura/scrittura sarà impostato al doppio del timeout di connessione. Valori superiori risulteranno in un maggiore uso della batteria.</string>
@@ -1589,6 +1589,8 @@
     <string name="title_sort_on_time">Ora</string>
     <string name="title_sort_on_unread">Non letti</string>
     <string name="title_sort_on_starred">Stellati</string>
+    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Non letti, stellati</string>
+    <string name="title_sort_on_starred_unread">Stellati, non letti</string>
     <string name="title_sort_on_priority">Priorità</string>
     <string name="title_sort_on_sender">Mittente</string>
     <string name="title_sort_on_subject">Oggetto</string>

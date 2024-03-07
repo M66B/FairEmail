@@ -499,7 +499,7 @@
     <string name="title_advanced_nav_message_count">Afișarea numărului de mesaje stocate local în meniul de navigare</string>
     <string name="title_advanced_nav_unseen_drafts">Afișarea numărului de ciorne necitite în meniul de navigare</string>
     <string name="title_advanced_nav_pinned_count">Afișarea numărului de mesaje necitite în meniul de navigare fixat</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Arată o stea pentru conturi/dosare cu mesaje necitite primite recent</string>
+    <string name="title_advanced_show_unexposed">Arată o stea pentru conturi/dosare cu mesaje necitite primite recent</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Folosește stilul carduri în loc de cel tabular</string>
     <string name="title_advanced_category">Categoria contului poate fi configurată în opțiunile avansate ale contului prin intermediul ecranului principal de setări</string>
@@ -834,7 +834,7 @@
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
     <string name="title_advanced_usage_hint">Acest lucru va crește utilizarea bateriei, a datelor și a spațiului de stocare</string>
     <string name="title_advanced_plain_hint">Activarea acestei opțiuni va limita utilizarea datelor, dar mesajele vor fi afișate fără stilizare</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Textul simplu nu conține întotdeauna mesajul complet!</string>
+    <string name="title_advanced_plain_remark">Textul simplu nu conține întotdeauna mesajul complet!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Activarea acesteia poate cauza probleme de conexiune pe unele dispozitive și poate crește utilizarea bateriei</string>
     <string name="title_advanced_validate_hint">Acest lucru poate duce la nesincronizarea mesajelor, de exemplu atunci când se utilizează un VPN, dar și în alte situații</string>
     <string name="title_advanced_timeout_hint">Timpul de expirare a citirii/scrierii va fi setat la dublul intervalului de expirare a conexiunii. Valori mai mari au ca rezultat o utilizare mai mare a bateriei.</string>
@@ -1598,6 +1598,7 @@
     <string name="title_sort_on_time">Dată</string>
     <string name="title_sort_on_unread">Necitit</string>
     <string name="title_sort_on_starred">Cu stea</string>
+    <string name="title_sort_on_starred_unread">Cu stea, necitit</string>
     <string name="title_sort_on_priority">Prioritate</string>
     <string name="title_sort_on_sender">Expeditor</string>
     <string name="title_sort_on_subject">Subiect</string>

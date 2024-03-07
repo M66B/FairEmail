@@ -484,7 +484,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_nav_message_count">Toon aantal lokaal opgeslagen berichten in het navigatiemenu</string>
     <string name="title_advanced_nav_unseen_drafts">Toon het aantal ongelezen concepten in het navigatiemenu</string>
     <string name="title_advanced_nav_pinned_count">Toon het aantal ongelezen berichten in het vastgezette navigatiemenu</string>
-    <string name="title_advanced_show_unexposed" comment="title_advanced_show_unexposed&#10;Title for an option that causes a star to be shown after the number of unread messages when new messages were received after the last time the message list was shown">Toon een ster voor accounts/mappen met nieuw ontvangen ongelezen berichten</string>
+    <string name="title_advanced_show_unexposed">Toon een ster voor accounts/mappen met nieuw ontvangen ongelezen berichten</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>
     <string name="title_advanced_category">De accountcategorie kan worden geconfigureerd in de geavanceerde accountopties via het hoofdinstellingen scherm</string>
@@ -818,7 +818,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_rlah_hint">Veronderstel geen roaming binnen de EU</string>
     <string name="title_advanced_usage_hint">Dit zal het gebruik van de batterij, gegevens en opslagruimte verhogen</string>
     <string name="title_advanced_plain_hint">Dit inschakelen zal het gegevensgebruik beperken, maar berichten zullen worden weergegeven zonder opmaak</string>
-    <string name="title_advanced_plain_remark" comment="title_advanced_plain_remark&#10;Remark for the option that causes the plain text only part of messages to be downloaded only">Het platte tekstdeel bevat niet altijd het volledige bericht!</string>
+    <string name="title_advanced_plain_remark">Het platte tekstdeel bevat niet altijd het volledige bericht!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Dit inschakelen kan verbindingsproblemen veroorzaken op sommige apparaten en kan het batterijverbruik verhogen</string>
     <string name="title_advanced_validate_hint">Dit kan resulteren in het niet synchroniseren van berichten, bijvoorbeeld bij het gebruik van een VPN, maar ook in andere situaties</string>
     <string name="title_advanced_timeout_hint">De lees/schrijf time-out wordt ingesteld op de dubbele waarde van de verbinding time-out. Hogere waarden zullen leiden tot meer batterijgebruik.</string>
@@ -1576,6 +1576,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_sort_on_time">Tijd</string>
     <string name="title_sort_on_unread">Ongelezen</string>
     <string name="title_sort_on_starred">Met ster</string>
+    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Ongelezen, met ster</string>
+    <string name="title_sort_on_starred_unread">Met ster, ongelezen</string>
     <string name="title_sort_on_priority">Prioriteit</string>
     <string name="title_sort_on_sender">Afzender</string>
     <string name="title_sort_on_subject">Onderwerp</string>
