@@ -499,6 +499,8 @@
     <string name="title_advanced_discard_delete">On discard draft, permanently delete draft</string>
     <string name="title_advanced_reply_move">On replying to a message, save the reply in the same folder</string>
     <string name="title_advanced_reply_move_inbox">Also for messages in the inbox</string>
+    <string name="title_advanced_send_retry_max">Maximum send attempts</string>
+    <string name="title_advanced_send_retry_hint">Sending will be retried on connectivity changes</string>
 
     <string name="title_advanced_auto_link">Automatically create links</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>
