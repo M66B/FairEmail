@@ -175,6 +175,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             }
         });
 
+        lastActive = ConnectionHelper.getActiveNetwork(this);
         lastSuitable = ConnectionHelper.getNetworkState(this).isSuitable();
         if (lastSuitable)
             owner.start();
