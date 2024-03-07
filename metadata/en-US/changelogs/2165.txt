@@ -10,6 +10,7 @@ Next version
 
 * Added sorting on unread/starred and starred/unread messages
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated Public Suffix List
 * Updated translations
 
