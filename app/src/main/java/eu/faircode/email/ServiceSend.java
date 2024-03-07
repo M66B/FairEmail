@@ -464,8 +464,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         Log.e(outbox.name, ex);
                         EntityLog.log(this, "Send " + Log.formatThrowable(ex, false));
 
-                        boolean unrecoverable = (op.tries > RETRY_MAX ||
-                                ex instanceof OutOfMemoryError ||
+                        boolean unrecoverable = (ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
                                 ex instanceof FileNotFoundException ||
                                 (ex instanceof AuthenticationFailedException && !ConnectionHelper.isIoError(ex)) ||
@@ -525,7 +524,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                             }
                         }
 
-                        if (unrecoverable) {
+                        if (op.tries >= RETRY_MAX || unrecoverable) {
                             Log.w("Unrecoverable");
                             db.operation().deleteOperation(op.id);
                             ops.remove(op);
