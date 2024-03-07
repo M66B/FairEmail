@@ -470,13 +470,13 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                                 (ex instanceof AuthenticationFailedException && !ConnectionHelper.isIoError(ex)) ||
                                 ex instanceof SendFailedException ||
                                 ex instanceof IllegalArgumentException);
+                        int tries_left = (unrecoverable ? 0 : RETRY_MAX - op.tries);
 
                         db.operation().setOperationError(op.id, Log.formatThrowable(ex));
                         if (message != null) {
                             db.message().setMessageError(message.id, Log.formatThrowable(ex));
 
                             try {
-                                int tries_left = (unrecoverable ? 0 : RETRY_MAX - op.tries);
                                 NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
                                 if (NotificationHelper.areNotificationsEnabled(nm)) {
                                     NotificationCompat.Builder builder = getNotificationError(
@@ -524,11 +524,13 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                             }
                         }
 
-                        if (op.tries >= RETRY_MAX || unrecoverable) {
-                            Log.w("Unrecoverable");
+                        if (tries_left <= 0) {
+                            Log.w("Send tries left=" + tries_left +
+                                    " unrecoverable=" + unrecoverable);
                             db.operation().deleteOperation(op.id);
                             ops.remove(op);
                         } else {
+                            Log.i("Send retry wait");
                             Thread.sleep(RETRY_WAIT);
                             throw ex;
                         }
