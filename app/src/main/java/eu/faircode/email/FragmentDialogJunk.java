@@ -84,6 +84,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final TextView tvJunkHint = view.findViewById(R.id.tvJunkHint);
         final CheckBox cbBlockSender = view.findViewById(R.id.cbBlockSender);
         final CheckBox cbBlockDomain = view.findViewById(R.id.cbBlockDomain);
+        final TextView tvBlockDomainHint = view.findViewById(R.id.tvBlockDomainHint);
         final ImageButton ibMore = view.findViewById(R.id.ibMore);
         final TextView tvMore = view.findViewById(R.id.tvMore);
         final CheckBox cbJunkFilter = view.findViewById(R.id.cbJunkFilter);
@@ -94,7 +95,6 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         final Button btnClear = view.findViewById(R.id.btnClear);
         final ImageButton ibRules = view.findViewById(R.id.ibRules);
         final ImageButton ibManage = view.findViewById(R.id.ibManage);
-        final Group grpBlockDomain = view.findViewById(R.id.grpBlockDomain);
         final Group grpFilter = view.findViewById(R.id.grpFilter);
         final Group grpManage = view.findViewById(R.id.grpManage);
 
@@ -393,7 +393,8 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         tvBlocklist.setText(TextUtils.join(", ", DnsBlockList.getNamesEnabled(context)));
 
         cbBlockSender.setVisibility(View.VISIBLE);
-        grpBlockDomain.setVisibility(domains.size() > 0 ? View.VISIBLE : View.GONE);
+        cbBlockDomain.setVisibility(domains.size() > 0 ? View.VISIBLE : View.GONE);
+        tvBlockDomainHint.setVisibility(domains.size() > 0 && !ActivityBilling.isPro(context) ? View.VISIBLE : View.GONE);
         grpFilter.setVisibility(View.GONE);
         grpManage.setVisibility(View.GONE);
 
