@@ -425,6 +425,8 @@
     <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>
     <string name="title_advanced_reply_move">Beim Antworten auf eine Nachricht die Antwort im selben Ordner speichern</string>
     <string name="title_advanced_reply_move_inbox">Auch für Nachrichten im Posteingang</string>
+    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Maximale Sendeversuche</string>
+    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">Bei Verbindungsänderungen wird der Sendeversuch wiederholt</string>
     <string name="title_advanced_auto_link">Links automatisch erstellen</string>
     <string name="title_advanced_plain_only">Standardmäßig nur einfachen Text senden</string>
     <string name="title_advanced_plain_only_reply">Beim Antworten auf eine Nachricht im einfachen Text automatisch einfachen Text verwenden</string>
@@ -823,7 +825,7 @@
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
     <string name="title_advanced_usage_hint">Das erhöht den Akku-, Daten- und Speicherplatzverbrauch</string>
     <string name="title_advanced_plain_hint">Das Aktivieren dieser Funktion reduziert den Datenverbrauch, aber Nachrichten werden ohne Formatierung angezeigt</string>
-    <string name="title_advanced_plain_remark">Der reine Textteil enthält nicht immer die vollständige Nachricht!</string>
+    <string name="title_advanced_plain_remark">Der einfache Textteil enthält nicht immer die vollständige Nachricht!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Das Aktivieren dieser Funktion kann bei einigen Geräten zu Verbindungsproblemen führen und den Akkuverbrauch erhöhen</string>
     <string name="title_advanced_validate_hint">Dies kann dazu führen, dass Nachrichten nicht synchronisiert werden, zum Beispiel bei der Verwendung eines VPN, aber auch in anderen Situationen</string>
     <string name="title_advanced_timeout_hint">Die Zeitüberschreitung beim Lesen oder Schreiben wird auf das Doppelte der Verbindungszeitüberschreitung festgelegt. Höhere Werte führen zu einem höheren Akkuverbrauch.</string>
@@ -1590,7 +1592,7 @@
     <string name="title_sort_on_time">Datum/Uhrzeit</string>
     <string name="title_sort_on_unread">Ungelesen</string>
     <string name="title_sort_on_starred">Markiert</string>
-    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Ungelesen, markiert</string>
+    <string name="title_sort_on_unread_starred">Ungelesen, markiert</string>
     <string name="title_sort_on_starred_unread">Markiert, ungelesen</string>
     <string name="title_sort_on_priority">Priorität</string>
     <string name="title_sort_on_sender">Absender</string>

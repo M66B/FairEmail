@@ -452,6 +452,8 @@
     <string name="title_advanced_discard_delete">Видаляти чернетку назавжди при відкиданні</string>
     <string name="title_advanced_reply_move">Зберігати повідомлення-відповідь у тій самій теці</string>
     <string name="title_advanced_reply_move_inbox">Також для вхідних повідомлень</string>
+    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Максимальна кількість спроб надсилання</string>
+    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">При зміні підключення буде повторна спроба надсилання</string>
     <string name="title_advanced_auto_link">Автоматично створювати посилання</string>
     <string name="title_advanced_plain_only">Надсилати повідомлення за замовчуванням як простий текст</string>
     <string name="title_advanced_plain_only_reply">Автоматично використовувати простий текст тільки при відповіді на повідомлення, які містять тільки простий текст</string>
@@ -1613,7 +1615,7 @@
     <string name="title_sort_on_time">Час</string>
     <string name="title_sort_on_unread">Непрочитані</string>
     <string name="title_sort_on_starred">Обрані</string>
-    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Непрочитані, обрані</string>
+    <string name="title_sort_on_unread_starred">Непрочитані, обрані</string>
     <string name="title_sort_on_starred_unread">Обрані, непрочитані</string>
     <string name="title_sort_on_priority">Пріоритет</string>
     <string name="title_sort_on_sender">Відправник</string>

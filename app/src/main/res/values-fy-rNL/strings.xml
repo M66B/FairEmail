@@ -1581,6 +1581,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_sort_on_time">Tiid</string>
     <string name="title_sort_on_unread">Net lêzen</string>
     <string name="title_sort_on_starred">Mei stjer</string>
+    <string name="title_sort_on_unread_starred">Net-lêzen, mei stjer</string>
     <string name="title_sort_on_starred_unread">Mei stjer, net-lêzen</string>
     <string name="title_sort_on_priority">Prioriteit</string>
     <string name="title_sort_on_sender">Ofstjoerder</string>

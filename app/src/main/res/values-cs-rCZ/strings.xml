@@ -452,6 +452,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej natrvalo smazat</string>
     <string name="title_advanced_reply_move">Při odpovědi na zprávu uložit odpověď do stejné složky</string>
     <string name="title_advanced_reply_move_inbox">Také pro zprávy v Doručených</string>
+    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Maximální počet pokusů o odeslání</string>
+    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">Odesílání se bude opakovat při změně konektivity</string>
     <string name="title_advanced_auto_link">Automaticky vytvářet odkazy</string>
     <string name="title_advanced_plain_only">Automaticky odeslat pouze prostý text</string>
     <string name="title_advanced_plain_only_reply">Automaticky použít prostý text pouze při odpovědi na zprávu v režimu vynucení prostého textu</string>
@@ -1613,6 +1615,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_sort_on_time">Čas</string>
     <string name="title_sort_on_unread">Nepřečteno</string>
     <string name="title_sort_on_starred">S hvězdičkou</string>
+    <string name="title_sort_on_unread_starred">Nepřečtené, přídání do položek s hvězdičkou</string>
     <string name="title_sort_on_starred_unread">S hvězdičkou, nepřečtené</string>
     <string name="title_sort_on_priority">Priorita</string>
     <string name="title_sort_on_sender">Odesílatel</string>

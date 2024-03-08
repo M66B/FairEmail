@@ -452,6 +452,8 @@
     <string name="title_advanced_discard_delete">השלכת טיוטה מוחקת אותה לצמיתות</string>
     <string name="title_advanced_reply_move">בעת מענה להודעה, המענה יישמר באותה התיקייה</string>
     <string name="title_advanced_reply_move_inbox">גם להודעות בדואר הנכנס</string>
+    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">כמות ניסיונות השליחה המרבית</string>
+    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">יתבצע ניסיון לשלוח מחדש בעת שינויים בחיבור</string>
     <string name="title_advanced_auto_link">ליצור קישורים אוטומטית</string>
     <string name="title_advanced_plain_only">לשלוח טקסט פשוט בלבד כברירת מחדל</string>
     <string name="title_advanced_plain_only_reply">להפוך לטקסט פשוט אוטומטית בעת שליחת תגובה להודעה שהיא בטקסט פשוט בלבד</string>
@@ -1616,6 +1618,7 @@
     <string name="title_sort_on_time">שעה</string>
     <string name="title_sort_on_unread">לא נקרא</string>
     <string name="title_sort_on_starred">סימון בכוכב</string>
+    <string name="title_sort_on_unread_starred">לא נקרא, מסומן בכוכב</string>
     <string name="title_sort_on_starred_unread">מסומן בכוכב, לא נקרא</string>
     <string name="title_sort_on_priority">עדיפות</string>
     <string name="title_sort_on_sender">מוען</string>

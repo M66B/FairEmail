@@ -451,6 +451,8 @@
     <string name="title_advanced_discard_delete">При отказе от черновика удалять его безвозвратно</string>
     <string name="title_advanced_reply_move">При ответе на сообщение сохранять ответ в той же папке</string>
     <string name="title_advanced_reply_move_inbox">Также для сообщений во \"Входящих\"</string>
+    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Максимальное количество попыток отправки</string>
+    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">Отправка повторится при изменении подключения</string>
     <string name="title_advanced_auto_link">Автоматическое создание ссылок</string>
     <string name="title_advanced_plain_only">Отправлять простым текстом по умолчанию</string>
     <string name="title_advanced_plain_only_reply">Автоматически использовать обычный текст только при ответе на сообщение с обычным текстом</string>
@@ -1615,7 +1617,7 @@
     <string name="title_sort_on_time">Время</string>
     <string name="title_sort_on_unread">Не прочитано</string>
     <string name="title_sort_on_starred">Избранные</string>
-    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Не прочитано, избранное</string>
+    <string name="title_sort_on_unread_starred">Не прочитано, избранное</string>
     <string name="title_sort_on_starred_unread">Избранное, не прочитано</string>
     <string name="title_sort_on_priority">Приоритет</string>
     <string name="title_sort_on_sender">Отправитель</string>

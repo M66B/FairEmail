@@ -374,6 +374,8 @@
     <string name="title_advanced_signature_forward">هنگام هدایت کردن از امضا استفاده کن</string>
     <string name="title_advanced_discard_delete">هنگام دورانداختن پیش‌نویس، پیش‌نویس را برای همیشه حذف کن</string>
     <string name="title_advanced_reply_move_inbox">همچنین برای پیام‌های درون صندوق ورودی</string>
+    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">حداکثر تلاش ارسال</string>
+    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">پس از تغییرات ارتباطی، مجددا برای ارسال تلاش خواهد شد</string>
     <string name="title_advanced_auto_link">ایجاد خودکار لینک</string>
     <string name="title_advanced_plain_only">فقط متن ساده را به صورت پیش‌فرض بفرست</string>
     <string name="title_advanced_flow">\'قالب جریان\' برای متن ساده</string>
@@ -1085,7 +1087,7 @@
     <string name="title_sort_on_time">زمان</string>
     <string name="title_sort_on_unread">خوانده نشده</string>
     <string name="title_sort_on_starred">ستاره دار</string>
-    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">خوانده نشده، ستاره‌دار</string>
+    <string name="title_sort_on_unread_starred">خوانده نشده، ستاره‌دار</string>
     <string name="title_sort_on_starred_unread">ستاره‌دار، خوانده نشده</string>
     <string name="title_sort_on_priority">اولويت</string>
     <string name="title_sort_on_sender">فرستنده</string>

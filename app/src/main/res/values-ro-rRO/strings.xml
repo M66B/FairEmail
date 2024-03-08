@@ -1598,6 +1598,7 @@
     <string name="title_sort_on_time">Dată</string>
     <string name="title_sort_on_unread">Necitit</string>
     <string name="title_sort_on_starred">Cu stea</string>
+    <string name="title_sort_on_unread_starred">Necitit, fără stea</string>
     <string name="title_sort_on_starred_unread">Cu stea, necitit</string>
     <string name="title_sort_on_priority">Prioritate</string>
     <string name="title_sort_on_sender">Expeditor</string>

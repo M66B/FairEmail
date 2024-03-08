@@ -408,6 +408,8 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_discard_delete">Hapus draf secara permanen ketika membuangnya</string>
     <string name="title_advanced_reply_move">Pada saat membalas pesan, simpan balasan dalam folder yang sama</string>
     <string name="title_advanced_reply_move_inbox">Juga untuk pesan dalam kotak masuk</string>
+    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Upaya pengiriman maksimum</string>
+    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">Pengiriman akan dicoba kembali saat terjadi perubahan konektivitas</string>
     <string name="title_advanced_auto_link">Secara otomatis membuat tautan</string>
     <string name="title_advanced_plain_only">Kirim teks biasa hanya secara bawaan</string>
     <string name="title_advanced_plain_only_reply">Teks biasa secara otomatis hanya saat membalas pesan hanya teks biasa</string>
@@ -1563,6 +1565,8 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_sort_on_time">Waktu</string>
     <string name="title_sort_on_unread">Belum dibaca</string>
     <string name="title_sort_on_starred">Berbintang</string>
+    <string name="title_sort_on_unread_starred">Belum dibaca, dibintangi</string>
+    <string name="title_sort_on_starred_unread">Dibintangi, belum dibaca</string>
     <string name="title_sort_on_priority">Prioritas</string>
     <string name="title_sort_on_sender">Pengirim</string>
     <string name="title_sort_on_subject">Subjek</string>

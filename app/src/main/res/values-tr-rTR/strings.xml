@@ -422,6 +422,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_discard_delete">Taslak gönderildiğinde taslağı kalıcı olarak sil</string>
     <string name="title_advanced_reply_move">Bir mesajı yanıtlarken, yanıtı aynı klasöre kaydedin</string>
     <string name="title_advanced_reply_move_inbox">Ayrıca gelen kutusundaki mesajlar için</string>
+    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Maksimum gönderme denemesi</string>
+    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">Bağlantı değişikliklerinde gönderme yeniden denenecektir</string>
     <string name="title_advanced_auto_link">Otomatik olarak bağlantı oluşturun</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_plain_only_reply">Yalnızca düz metin mesajına yanıt verirken otomatik olarak yalnızca düz metin</string>
@@ -1579,7 +1581,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_sort_on_time">Zaman</string>
     <string name="title_sort_on_unread">Okunmadı</string>
     <string name="title_sort_on_starred">Yıldızlı</string>
-    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Okunmamış, yıldızlı</string>
+    <string name="title_sort_on_unread_starred">Okunmamış, yıldızlı</string>
     <string name="title_sort_on_starred_unread">Yıldızlı, okunmamış</string>
     <string name="title_sort_on_priority">Öncelik</string>
     <string name="title_sort_on_sender">Gönderen</string>

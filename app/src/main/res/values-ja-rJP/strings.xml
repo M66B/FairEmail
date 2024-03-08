@@ -410,6 +410,8 @@
     <string name="title_advanced_discard_delete">下書きを破棄とき完全に削除する</string>
     <string name="title_advanced_reply_move">メッセージに返信したときに返信を同じフォルダーに保存する</string>
     <string name="title_advanced_reply_move_inbox">受信トレイにあるメッセージにも適用する</string>
+    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">送信試行回数の上限</string>
+    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">接続が変更されると送信を再試行します</string>
     <string name="title_advanced_auto_link">自動でリンクを作成する</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみ送信する</string>
     <string name="title_advanced_plain_only_reply">プレーンテキストのみのメッセージにはプレーンテキストのみで返信する</string>
@@ -960,8 +962,8 @@
     <string name="title_client_delete">ダウンロードしたメッセージをアクティブに削除</string>
     <string name="title_leave_deleted">削除したメッセージをサーバーに残す</string>
     <string name="title_leave_on_device">端末にメッセージを残す</string>
-    <string name="title_max_messages">ダウンロードするメッセージの最大数 (空白にするとすべてダウンロードします)</string>
-    <string name="title_max_messages_keep">これは、端末に保存されるメッセージの最大数です</string>
+    <string name="title_max_messages">ダウンロードするメッセージ件数の上限 (空白にするとすべてダウンロードします)</string>
+    <string name="title_max_messages_keep">これは、端末に保存されるメッセージ件数の上限です</string>
     <string name="title_max_messages_remark">        正の数を入力すると、最後からメッセージをダウンロードします (推奨)
         負の数を入力すると、最初からメッセージをダウンロードします (一般的でない)
     </string>
@@ -1574,7 +1576,7 @@
     <string name="title_sort_on_time">時間</string>
     <string name="title_sort_on_unread">未読</string>
     <string name="title_sort_on_starred">スター付き</string>
-    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">未読、スター付き</string>
+    <string name="title_sort_on_unread_starred">未読、スター付き</string>
     <string name="title_sort_on_starred_unread">スター付き、未読</string>
     <string name="title_sort_on_priority">重要度</string>
     <string name="title_sort_on_sender">差出人</string>
@@ -2021,7 +2023,7 @@
     <string name="title_widget_separator_lines">区切り線を表示する</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>
     <string name="title_widget_count_top">未読件数を上部に表示する</string>
-    <string name="title_widget_subject_lines">件名の最大行数</string>
+    <string name="title_widget_subject_lines">件名の行数の上限</string>
     <string name="title_widget_avatars">連絡先のアバターを表示する</string>
     <string name="title_widget_account_name">アカウント名を表示する</string>
     <string name="title_widget_caption">件名を表示する</string>

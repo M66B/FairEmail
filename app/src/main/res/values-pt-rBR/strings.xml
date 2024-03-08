@@ -1585,6 +1585,7 @@
     <string name="title_sort_on_time">Data</string>
     <string name="title_sort_on_unread">Não lida</string>
     <string name="title_sort_on_starred">Com estrela</string>
+    <string name="title_sort_on_unread_starred">Não lido, marcado com estrela</string>
     <string name="title_sort_on_starred_unread">Com estrela, não lido</string>
     <string name="title_sort_on_priority">Prioridade</string>
     <string name="title_sort_on_sender">Remetente</string>

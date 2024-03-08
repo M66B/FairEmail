@@ -1585,6 +1585,8 @@
     <string name="title_sort_on_time">Време</string>
     <string name="title_sort_on_unread">Непрочетени</string>
     <string name="title_sort_on_starred">Със звезда</string>
+    <string name="title_sort_on_unread_starred">Непрочетено, озвездено</string>
+    <string name="title_sort_on_starred_unread">Озвездено, непрочетено</string>
     <string name="title_sort_on_priority">Приоритет</string>
     <string name="title_sort_on_sender">Подател</string>
     <string name="title_sort_on_subject">Тема</string>

@@ -424,6 +424,8 @@
     <string name="title_advanced_discard_delete">Scartando la bozza, eliminala permanentemente</string>
     <string name="title_advanced_reply_move">Alla risposta a un messaggio, salvala nella stessa cartella</string>
     <string name="title_advanced_reply_move_inbox">Anche per i messaggi nella posta in arrivo</string>
+    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Numero massimo di tentativi di invio</string>
+    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">L\'invio sarà riprovato sulle modifiche di connettività</string>
     <string name="title_advanced_auto_link">Crea automaticamente i link</string>
     <string name="title_advanced_plain_only">Invia testo semplice di default</string>
     <string name="title_advanced_plain_only_reply">Testo semplice automatico soltanto alla risposta a un messaggio di solo testo semplice</string>
@@ -1589,7 +1591,7 @@
     <string name="title_sort_on_time">Ora</string>
     <string name="title_sort_on_unread">Non letti</string>
     <string name="title_sort_on_starred">Stellati</string>
-    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Non letti, stellati</string>
+    <string name="title_sort_on_unread_starred">Non letti, stellati</string>
     <string name="title_sort_on_starred_unread">Stellati, non letti</string>
     <string name="title_sort_on_priority">Priorità</string>
     <string name="title_sort_on_sender">Mittente</string>

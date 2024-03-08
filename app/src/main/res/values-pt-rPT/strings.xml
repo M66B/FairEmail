@@ -425,6 +425,8 @@
     <string name="title_advanced_discard_delete">Ao descartar um rascunho, elimina-lo permanentemente</string>
     <string name="title_advanced_reply_move">Ao responder a uma mensagem, guarde a resposta na mesma pasta</string>
     <string name="title_advanced_reply_move_inbox">Também para as mensagens na caixa de entrada</string>
+    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Número máximo de tentativas de envio</string>
+    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">O envio será novamente tentado quando ocorrerem alterações de ligação</string>
     <string name="title_advanced_auto_link">Criar ligações automaticamente</string>
     <string name="title_advanced_plain_only">Enviar texto simples por omissão</string>
     <string name="title_advanced_plain_only_reply">Texto puro automaticamente apenas quando responder a uma mensagem de texto puro</string>
@@ -1589,7 +1591,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_sort_on_time">Data</string>
     <string name="title_sort_on_unread">Não lida</string>
     <string name="title_sort_on_starred">Com estrela</string>
-    <string name="title_sort_on_unread_starred" comment="title_sort_on_unread_starred&#10;&#10;Title for menu item to sort on unread messages first, and after that on starred messages.&#10;&#10;Please ensure that the translation for &quot;unread&quot; and &quot;starred&quot; match those of the menu items for sorting on &quot;unread&quot; or &quot;starred&quot; messages only. You can search for &quot;sort_on&quot; at the top left.&#10;&#10;Please keep a comma between &quot;unread&quot; and &quot;starred&quot;, which is meant to indicate &quot;first this, then that&quot;.">Não lido, favorito</string>
+    <string name="title_sort_on_unread_starred">Não lido, favorito</string>
     <string name="title_sort_on_starred_unread">Favorito, não lido</string>
     <string name="title_sort_on_priority">Prioridade</string>
     <string name="title_sort_on_sender">Remetente</string>
