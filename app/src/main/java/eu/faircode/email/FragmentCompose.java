@@ -6374,7 +6374,8 @@ public class FragmentCompose extends FragmentBase {
 
             db.attachment().liveAttachments(data.draft.id).observe(getViewLifecycleOwner(),
                     new Observer<List<EntityAttachment>>() {
-                        private Integer count = null;
+                        private Integer last_count = null;
+                        private Integer last_available = null;
 
                         @Override
                         public void onChanged(@Nullable List<EntityAttachment> attachments) {
@@ -6415,37 +6416,88 @@ public class FragmentCompose extends FragmentBase {
                             ibRemoveAttachments.setVisibility(attachments.size() > 2 ? View.VISIBLE : View.GONE);
                             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
+                            int available = 0;
                             boolean downloading = false;
                             for (EntityAttachment attachment : attachments) {
                                 if (attachment.isEncryption())
                                     continue;
                                 if (attachment.progress != null)
                                     downloading = true;
+                                if (attachment.available)
+                                    available++;
                             }
 
-                            Log.i("Attachments=" + attachments.size() + " downloading=" + downloading);
+                            Log.i("Attachments=" + last_count + "/" + attachments.size() +
+                                    " downloading=" + downloading +
+                                    " available=" + last_available + "/" + available);
 
                             rvAttachment.setTag(downloading);
                             checkInternet();
 
-                            if (count != null && count > attachments.size()) {
+                            if ((last_count != null && last_count > attachments.size()) ||
+                                    (last_available != null && last_available < available)) {
                                 boolean updated = false;
                                 Editable edit = etBody.getEditableText();
 
                                 ImageSpan[] spans = edit.getSpans(0, edit.length(), ImageSpan.class);
-                                for (int i = 0; i < spans.length && !updated; i++) {
+                                for (int i = 0; i < spans.length; i++) {
                                     ImageSpan span = spans[i];
                                     String source = span.getSource();
                                     if (source != null && source.startsWith("cid:")) {
                                         String cid = "<" + source.substring(4) + ">";
                                         boolean found = false;
+                                        boolean downloaded = false;
                                         for (EntityAttachment attachment : attachments)
                                             if (cid.equals(attachment.cid)) {
                                                 found = true;
+                                                downloaded = attachment.available;
                                                 break;
                                             }
 
-                                        if (!found) {
+                                        if (found) {
+                                            if (downloaded) {
+                                                Bundle args = new Bundle();
+                                                args.putLong("id", working);
+                                                args.putString("source", source);
+                                                args.putInt("zoom", zoom);
+
+                                                new SimpleTask<Drawable>() {
+                                                    @Override
+                                                    protected Drawable onExecute(Context context, Bundle args) throws Throwable {
+                                                        long id = args.getLong("id");
+                                                        String source = args.getString("source");
+                                                        int zoom = args.getInt("zoom");
+                                                        return ImageHelper.decodeImage(context, id, source, true, zoom, 1.0f, etBody);
+                                                    }
+
+                                                    @Override
+                                                    protected void onExecuted(Bundle args, Drawable d) {
+                                                        String source = args.getString("source");
+                                                        Editable edit = etBody.getEditableText();
+                                                        ImageSpan[] spans = edit.getSpans(0, edit.length(), ImageSpan.class);
+                                                        for (int i = 0; i < spans.length; i++) {
+                                                            ImageSpan span = spans[i];
+                                                            if (source != null && source.equals(span.getSource())) {
+                                                                int start = edit.getSpanStart(span);
+                                                                int end = edit.getSpanEnd(span);
+                                                                edit.removeSpan(span);
+                                                                if (d == null)
+                                                                    edit.delete(start, end);
+                                                                else
+                                                                    edit.setSpan(new ImageSpan(d, source), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                                                etBody.setText(edit);
+                                                                break;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    protected void onException(Bundle args, Throwable ex) {
+                                                        // Ignored
+                                                    }
+                                                }.execute(FragmentCompose.this, args, "attachment:downloaded");
+                                            }
+                                        } else {
                                             updated = true;
                                             int start = edit.getSpanStart(span);
                                             int end = edit.getSpanEnd(span);
@@ -6459,7 +6511,8 @@ public class FragmentCompose extends FragmentBase {
                                     etBody.setText(edit);
                             }
 
-                            count = attachments.size();
+                            last_count = attachments.size();
+                            last_available = available;
                         }
                     });
 
