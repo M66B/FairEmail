@@ -2108,7 +2108,7 @@ public class FragmentAccount extends FragmentBase {
 
         EntityFolder seen = new EntityFolder();
         seen.id = EntityMessage.SWIPE_ACTION_SEEN;
-        seen.name = context.getString(R.string.title_seen);
+        seen.name = context.getString(R.string.title_seen_unseen);
         folders.add(seen);
 
         EntityFolder snooze = new EntityFolder();
