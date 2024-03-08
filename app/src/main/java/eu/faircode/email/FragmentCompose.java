@@ -6372,11 +6372,13 @@ public class FragmentCompose extends FragmentBase {
 
             DB db = DB.getInstance(getContext());
 
+            Map<Long, EntityAttachment> map = new HashMap<>();
+            if (last_attachments != null)
+                for (EntityAttachment attachment : last_attachments)
+                    map.put(attachment.id, attachment);
+
             db.attachment().liveAttachments(data.draft.id).observe(getViewLifecycleOwner(),
                     new Observer<List<EntityAttachment>>() {
-                        private Integer last_count = null;
-                        private Integer last_available = null;
-
                         @Override
                         public void onChanged(@Nullable List<EntityAttachment> attachments) {
                             if (attachments == null)
@@ -6416,46 +6418,35 @@ public class FragmentCompose extends FragmentBase {
                             ibRemoveAttachments.setVisibility(attachments.size() > 2 ? View.VISIBLE : View.GONE);
                             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
-                            int available = 0;
                             boolean downloading = false;
                             for (EntityAttachment attachment : attachments) {
                                 if (attachment.isEncryption())
                                     continue;
                                 if (attachment.progress != null)
                                     downloading = true;
-                                if (attachment.available)
-                                    available++;
                             }
-
-                            Log.i("Attachments=" + last_count + "/" + attachments.size() +
-                                    " downloading=" + downloading +
-                                    " available=" + last_available + "/" + available);
 
                             rvAttachment.setTag(downloading);
                             checkInternet();
 
-                            if ((last_count != null && last_count > attachments.size()) ||
-                                    (last_available != null && last_available < available)) {
-                                boolean updated = false;
-                                Editable edit = etBody.getEditableText();
+                            boolean updated = false;
+                            Editable edit = etBody.getEditableText();
+                            ImageSpan[] spans = edit.getSpans(0, edit.length(), ImageSpan.class);
+                            if (spans == null)
+                                spans = new ImageSpan[0];
 
-                                ImageSpan[] spans = edit.getSpans(0, edit.length(), ImageSpan.class);
-                                for (int i = 0; i < spans.length; i++) {
-                                    ImageSpan span = spans[i];
-                                    String source = span.getSource();
-                                    if (source != null && source.startsWith("cid:")) {
-                                        String cid = "<" + source.substring(4) + ">";
-                                        boolean found = false;
-                                        boolean downloaded = false;
-                                        for (EntityAttachment attachment : attachments)
+                            for (EntityAttachment attachment : attachments) {
+                                EntityAttachment prev = map.get(attachment.id);
+                                if (prev == null) // New attachment
+                                    continue;
+                                map.remove(attachment.id);
+
+                                if (!prev.available && attachment.available) // Attachment downloaded
+                                    for (ImageSpan span : spans) {
+                                        String source = span.getSource();
+                                        if (source != null && source.startsWith("cid:")) {
+                                            String cid = "<" + source.substring(4) + ">";
                                             if (cid.equals(attachment.cid)) {
-                                                found = true;
-                                                downloaded = attachment.available;
-                                                break;
-                                            }
-
-                                        if (found) {
-                                            if (downloaded) {
                                                 Bundle args = new Bundle();
                                                 args.putLong("id", working);
                                                 args.putString("source", source);
@@ -6475,8 +6466,7 @@ public class FragmentCompose extends FragmentBase {
                                                         String source = args.getString("source");
                                                         Editable edit = etBody.getEditableText();
                                                         ImageSpan[] spans = edit.getSpans(0, edit.length(), ImageSpan.class);
-                                                        for (int i = 0; i < spans.length; i++) {
-                                                            ImageSpan span = spans[i];
+                                                        for (ImageSpan span : spans)
                                                             if (source != null && source.equals(span.getSource())) {
                                                                 int start = edit.getSpanStart(span);
                                                                 int end = edit.getSpanEnd(span);
@@ -6488,7 +6478,6 @@ public class FragmentCompose extends FragmentBase {
                                                                 etBody.setText(edit);
                                                                 break;
                                                             }
-                                                        }
                                                     }
 
                                                     @Override
@@ -6496,23 +6485,35 @@ public class FragmentCompose extends FragmentBase {
                                                         // Ignored
                                                     }
                                                 }.execute(FragmentCompose.this, args, "attachment:downloaded");
+
+                                                break;
                                             }
-                                        } else {
+                                        }
+                                    }
+                            }
+
+                            for (EntityAttachment removed : map.values())
+                                for (ImageSpan span : spans) {
+                                    String source = span.getSource();
+                                    if (source != null && source.startsWith("cid:")) {
+                                        String cid = "<" + source.substring(4) + ">";
+                                        if (cid.equals(removed.cid)) {
                                             updated = true;
                                             int start = edit.getSpanStart(span);
                                             int end = edit.getSpanEnd(span);
                                             edit.removeSpan(span);
                                             edit.delete(start, end);
+                                            break;
                                         }
                                     }
                                 }
 
-                                if (updated)
-                                    etBody.setText(edit);
-                            }
+                            if (updated)
+                                etBody.setText(edit);
 
-                            last_count = attachments.size();
-                            last_available = available;
+                            map.clear();
+                            for (EntityAttachment attachment : attachments)
+                                map.put(attachment.id, attachment);
                         }
                     });
 
