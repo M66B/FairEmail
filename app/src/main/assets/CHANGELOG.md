@@ -6,9 +6,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### Next version
+### 1.2167 - 2024-03-09
 
 * Fixed showing images in external drafts in some cases
+* Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2166 - 2024-03-08
