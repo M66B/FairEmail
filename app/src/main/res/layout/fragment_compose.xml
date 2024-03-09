@@ -360,18 +360,6 @@
                     app:srcCompat="@drawable/twotone_data_array_24"
                     app:tint="?attr/colorSeparator" />
 
-                <ImageButton
-                    android:id="@+id/ibTemplate"
-                    android:layout_width="36dp"
-                    android:layout_height="wrap_content"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/menu_answers"
-                    android:padding="3dp"
-                    android:tooltipText="@string/menu_answers"
-                    app:layout_constraintBottom_toBottomOf="@id/etBody"
-                    app:layout_constraintEnd_toEndOf="@id/etBody"
-                    app:srcCompat="@drawable/twotone_text_snippet_24" />
-
                 <TextView
                     android:id="@+id/tvNoInternet"
                     android:layout_width="wrap_content"
