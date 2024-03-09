@@ -633,10 +633,18 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);
 
+        if (!DnsHelper.hasDnsSec()) {
+            Helper.hide(cbDnsSec);
+            Helper.hide(view.findViewById(R.id.tvDnsRemark));
+            Helper.hide(cbDane);
+            Helper.hide(view.findViewById(R.id.tvDaneRemark));
+        }
+
         if (!SSLHelper.customTrustManager()) {
             Helper.hide(cbInsecure);
             Helper.hide(tvInsecureRemark);
             Helper.hide(cbDane);
+            Helper.hide(view.findViewById(R.id.tvDaneRemark));
         }
 
         if (id < 0)

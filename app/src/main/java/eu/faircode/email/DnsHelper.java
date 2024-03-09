@@ -322,6 +322,9 @@ public class DnsHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dns_custom = prefs.getBoolean("dns_custom", false);
 
+        if (!hasDnsSec())
+            dnssec = false;
+
         if (!dns_custom && !dnssec)
             return InetAddress.getByName(host);
 
@@ -334,6 +337,9 @@ public class DnsHelper {
     static InetAddress[] getAllByName(Context context, String host, boolean dnssec) throws UnknownHostException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dns_custom = prefs.getBoolean("dns_custom", false);
+
+        if (!hasDnsSec())
+            dnssec = false;
 
         if (!dns_custom && !dnssec)
             return InetAddress.getAllByName(host);
@@ -360,6 +366,9 @@ public class DnsHelper {
     }
 
     static void verifyDane(X509Certificate[] chain, String server, int port) throws CertificateException {
+        if (!hasDnsSec())
+            return;
+
         Handler handler = new Handler() {
             @Override
             public void publish(LogRecord record) {
@@ -450,6 +459,11 @@ public class DnsHelper {
             if (key != null && key.startsWith("dns."))
                 editor.remove(key);
         editor.apply();
+    }
+
+    static boolean hasDnsSec() {
+        // DNSSEC causes crashes in libc
+        return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
     }
 
     static void test(Context context) throws UnknownHostException {
