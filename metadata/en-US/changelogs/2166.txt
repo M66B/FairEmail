@@ -6,6 +6,11 @@ For support you can use the contact form.
 
 Zby
 
+Next version
+
+* Fixed showing images in external drafts in some cases
+* Updated translations
+
 1.2166 - 2024-03-08
 
 * Added sorting on unread/starred and starred/unread messages
