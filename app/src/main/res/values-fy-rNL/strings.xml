@@ -422,6 +422,8 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_discard_delete">By fuortsmiten fan in konsept, it konsept definityf fuotsmite</string>
     <string name="title_advanced_reply_move">Bewarje, by it beäntwurdzjen fan in berjocht, it antwurd yn deselde map</string>
     <string name="title_advanced_reply_move_inbox">Ek foar berjochten yn Postfek YN</string>
+    <string name="title_advanced_send_retry_max">Maksimaal tal ferstjoerbesykjen</string>
+    <string name="title_advanced_send_retry_hint">Ferstjoeren sil opnij probearre wurde by wizigingen yn de ferbining</string>
     <string name="title_advanced_auto_link">Automatysk keppelingen meitsje</string>
     <string name="title_advanced_plain_only">Ferstjoer standert platte tekst</string>
     <string name="title_advanced_plain_only_reply">Automatysk allinnich platte tekst by beäntwurdzjen fan in berjocht mei allinnich platte tekst</string>
@@ -1166,6 +1168,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">As lêzen markearje</string>
     <string name="title_unseen">As net lêzen markearje</string>
+    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Markearje as lêzen/net-lêzen</string>
     <string name="title_toggle_seen">Lêzen/Net-lêzen</string>
     <string name="title_hide">Ferstopje</string>
     <string name="title_unhide">Toane</string>

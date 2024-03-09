@@ -425,8 +425,8 @@
     <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>
     <string name="title_advanced_reply_move">Beim Antworten auf eine Nachricht die Antwort im selben Ordner speichern</string>
     <string name="title_advanced_reply_move_inbox">Auch für Nachrichten im Posteingang</string>
-    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Maximale Sendeversuche</string>
-    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">Bei Verbindungsänderungen wird der Sendeversuch wiederholt</string>
+    <string name="title_advanced_send_retry_max">Maximale Sendeversuche</string>
+    <string name="title_advanced_send_retry_hint">Bei Verbindungsänderungen wird der Sendeversuch wiederholt</string>
     <string name="title_advanced_auto_link">Links automatisch erstellen</string>
     <string name="title_advanced_plain_only">Standardmäßig nur einfachen Text senden</string>
     <string name="title_advanced_plain_only_reply">Beim Antworten auf eine Nachricht im einfachen Text automatisch einfachen Text verwenden</string>
@@ -444,8 +444,8 @@
     <string name="title_advanced_download_headers">Alle Kopfzeilen der Nachricht herunterladen</string>
     <string name="title_advanced_download_eml">Rohnachrichtendateien herunterladen</string>
     <string name="title_advanced_download_plain">Standardmäßig nur Abschnitte im einfachen Text herunterladen (falls verfügbar)</string>
-    <string name="title_advanced_validated">Erfordert eine validierte (geprüfte) Verbindung</string>
-    <string name="title_advanced_validated_captive">Erfordert eine geprüfte Captive-Portal-Verbindung</string>
+    <string name="title_advanced_validated">Validierte (geprüfte) Verbindung voraussetzen</string>
+    <string name="title_advanced_validated_captive">Validierte Captive-Portal-Verbindung voraussetzen</string>
     <string name="title_advanced_vpn_only">Nur über ein VPN verbinden</string>
     <string name="title_advanced_timeout">Zeitüberschreitung der Verbindung (Sekunden)</string>
     <string name="title_advanced_prefer_ip4">IPv4 gegenüber IPv6 bevorzugen</string>
@@ -601,7 +601,7 @@
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_pull_all">Alle Ordner synchronisieren</string>
     <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten nach oben scrollen</string>
-    <string name="title_advanced_double_tap">Doppelt antippen, um eine Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
+    <string name="title_advanced_double_tap">Nachricht durch Doppeltippen als gelesen/ungelesen markieren</string>
     <string name="title_advanced_swipenav">Nach links/rechts wischen, um nächste/vorige Unterhaltung anzuzeigen</string>
     <string name="title_advanced_volumenav">Lautstärke hoch/runter, um zur nächsten/vorherigen Unterhaltung zu wechseln</string>
     <string name="title_advanced_up_down">Pfeile nach oben/unten verwenden, um zur nächsten/vorherigen Unterhaltung zu wechseln</string>
@@ -806,7 +806,7 @@
     <string name="title_advanced_check_tls_hint">Dies zeigt ein grünes Schild, sofern eine Nachricht von allen Servern sicher übermittelt wurde</string>
     <string name="title_advanced_check_reply_hint">Überprüft, ob die Domain des Absenders und die Antwort-An-Adresse identisch sind</string>
     <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS-MX-Einträge vorhanden sind</string>
-    <string name="title_advanced_sync_delay_hint">Dadurch wird die Synchronisierung von Nachrichten verlangsamt</string>
+    <string name="title_advanced_sync_delay_hint">Dadurch wird die Synchronisation von Nachrichten verlangsamt</string>
     <string name="title_advanced_folder_nav_hint">Dadurch kehren Sie von einer Nachrichtenliste immer zur Ordnerliste des zugehörigen Kontos zurück</string>
     <string name="title_advanced_pull_all_hint">Beim Herunterziehen der Ordner- oder Kontenliste</string>
     <string name="title_advanced_suggest_names_hint">Wenn deaktiviert, werden nur E-Mail-Adressen bei der Auswahl von Kontakten verwendet</string>
@@ -867,7 +867,7 @@
     <string name="title_advanced_internal_hint">Beim Senden an eine andere Domain wird ein Warnhinweis ausgegeben</string>
     <string name="title_advanced_uri">Die Details des ausgewählten Kontakts werden für vCard-Anhänge verwendet</string>
     <string name="title_advanced_e2e_encryption">Optionen für Ende-zu-Ende-Verschlüsselung</string>
-    <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
+    <string name="title_advanced_display_harmful_hint">Das Deaktivieren dieser Option könnte Ihre Privatsphäre beeinträchtigen</string>
     <string name="title_advanced_display_hidden_hint">Das kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
     <string name="title_advanced_user_agent_hint">Einige Server akzeptieren keine allgemeine User-Agent-Zeichenkette</string>
@@ -1175,6 +1175,7 @@
     <string name="title_subject_forward_alt">Wg: %1$s</string>
     <string name="title_seen">Als gelesen kennzeichnen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
+    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Als gelesen/ungelesen markieren</string>
     <string name="title_toggle_seen">Gelesen/Ungelesen</string>
     <string name="title_hide">Ausblenden</string>
     <string name="title_unhide">Anzeigen</string>
@@ -2052,7 +2053,7 @@
     <string name="title_compat_dark">Google hat den dunklen Modus für Android-Versionen vor der Version 10 entfernt</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Wichtig</string>
-    <string name="title_keyword_label2">Arbeit</string>
+    <string name="title_keyword_label2">Dienstlich</string>
     <string name="title_keyword_label3">Persönlich</string>
     <string name="title_keyword_label4">Zu erledigen</string>
     <string name="title_keyword_label5">Später</string>
@@ -2262,7 +2263,7 @@
     <string-array name="contactGroupTypes">
         <item>Beliebig(e)</item>
         <item>Privat</item>
-        <item>Geschäftlich</item>
+        <item>Dienstlich</item>
         <item>Andere</item>
         <item>Mobil</item>
     </string-array>

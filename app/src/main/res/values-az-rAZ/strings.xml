@@ -424,6 +424,8 @@
     <string name="title_advanced_discard_delete">Qaralamanı ləğv edəndə, onu birdəfəlik sil</string>
     <string name="title_advanced_reply_move">Bir mesaja cavab verəndə, cavabı eyni qovluqda saxla</string>
     <string name="title_advanced_reply_move_inbox">Həmçinin gələn qutusundakı mesajlar üçün</string>
+    <string name="title_advanced_send_retry_max">Maksimum göndərmə cəhdi</string>
+    <string name="title_advanced_send_retry_hint">Bağlantı dəyişəndə yenidən göndərməyə çalışılacaq</string>
     <string name="title_advanced_auto_link">Bağlantıları avtomatik yarat</string>
     <string name="title_advanced_plain_only">İlkin olaraq yalnız düz mətn göndər</string>
     <string name="title_advanced_plain_only_reply">Yalnız düz mətn mesajına cavab verərkən avtomatik olaraq yalnız düz mətn</string>
@@ -1171,6 +1173,7 @@
     <string name="title_subject_forward_alt">Ynlndr: %1$s</string>
     <string name="title_seen">Oxundu kimi işarələ</string>
     <string name="title_unseen">Oxunmadı kimi işarələ</string>
+    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Oxundu/oxunmadı işarələ</string>
     <string name="title_toggle_seen">Oxumanı aç/bağla</string>
     <string name="title_hide">Gizlət</string>
     <string name="title_unhide">Göstər</string>
@@ -1588,6 +1591,7 @@
     <string name="title_sort_on_time">Vaxt</string>
     <string name="title_sort_on_unread">Oxunmadı</string>
     <string name="title_sort_on_starred">Ulduzlu</string>
+    <string name="title_sort_on_unread_starred">Oxunmamış, ulduzlu</string>
     <string name="title_sort_on_starred_unread">Ulduzlu, oxunmamış</string>
     <string name="title_sort_on_priority">Əhəmiyyət</string>
     <string name="title_sort_on_sender">Göndərən</string>

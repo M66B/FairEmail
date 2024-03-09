@@ -424,8 +424,8 @@
     <string name="title_advanced_discard_delete">Scartando la bozza, eliminala permanentemente</string>
     <string name="title_advanced_reply_move">Alla risposta a un messaggio, salvala nella stessa cartella</string>
     <string name="title_advanced_reply_move_inbox">Anche per i messaggi nella posta in arrivo</string>
-    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Numero massimo di tentativi di invio</string>
-    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">L\'invio sarà riprovato sulle modifiche di connettività</string>
+    <string name="title_advanced_send_retry_max">Tentativi di invio massimi</string>
+    <string name="title_advanced_send_retry_hint">Ritenta l\'invio al cambiare della connettività</string>
     <string name="title_advanced_auto_link">Crea automaticamente i link</string>
     <string name="title_advanced_plain_only">Invia testo semplice di default</string>
     <string name="title_advanced_plain_only_reply">Testo semplice automatico soltanto alla risposta a un messaggio di solo testo semplice</string>
@@ -488,7 +488,7 @@
     <string name="title_advanced_nav_message_count">Mostra il numero di messaggi memorizzati localmente nel menu di navigazione</string>
     <string name="title_advanced_nav_unseen_drafts">Mostra il numero di bozze non lette nel menu di navigazione</string>
     <string name="title_advanced_nav_pinned_count">Mostra il numero di messaggi non letti nel menu di navigazione fissato</string>
-    <string name="title_advanced_show_unexposed">Mostra una stella per profili/cartelle con messaggi non letti ricevuti recentemente</string>
+    <string name="title_advanced_show_unexposed">Mostra una stella per i profili/le cartelle con messaggi non letti appena ricevuti</string>
     <string name="title_advanced_startup">Mostra sulla schermata iniziale</string>
     <string name="title_advanced_cards">Usa stile della carta invece dello stile tabulare</string>
     <string name="title_advanced_category">La categoria del profilo è configurabile nelle opzioni avanzate del profilo tramite la schermata delle impostazioni principali</string>
@@ -498,7 +498,7 @@
     <string name="title_advanced_cards_shadow_border">Mostra bordo</string>
     <string name="title_advanced_cards_shadow_highlight">Usa il colore d\'evidenziazione invece del colore secondario</string>
     <string name="title_advanced_tabular_dividers">Usa le linee divisorie usando lo stile tabulare</string>
-    <string name="title_advanced_tabular_unread_bg">Mostra un colore di sfondo grigio per i messaggi non letti usando lo stile tabulare</string>
+    <string name="title_advanced_tabular_unread_bg">Utilizza un colore di sfondo grigio per i messaggi non letti, utilizzando lo stile a tabella</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_date_week">Raggruppa per settimana invece che per giorno</string>
     <string name="title_advanced_date_fixed">Mostra l\'intestazione a data fissa in cima</string>
@@ -824,7 +824,7 @@
     <string name="title_advanced_rlah_hint">Presumi che non ci sia roaming nell\'UE</string>
     <string name="title_advanced_usage_hint">Questo aumenterà l\'uso di batteria, dati e spazio d\'archiviazione</string>
     <string name="title_advanced_plain_hint">Abilitarlo limiterà l\'uso dei dati, ma i messaggi saranno mostrati senza stilizzazione</string>
-    <string name="title_advanced_plain_remark">La parte testo semplice non contiene sempre il messaggio completo!</string>
+    <string name="title_advanced_plain_remark">La parte in testo semplice non contiene sempre il messaggio completo!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Abilitarlo può causare problemi di connessione su alcuni dispositivi e può aumentare l\'uso della batteria</string>
     <string name="title_advanced_validate_hint">Questo può risultare nel non sincronizzare i messaggi, ad esempio usando una VPN, ma anche altre situazioni</string>
     <string name="title_advanced_timeout_hint">Il timeout di lettura/scrittura sarà impostato al doppio del timeout di connessione. Valori superiori risulteranno in un maggiore uso della batteria.</string>
@@ -1174,6 +1174,7 @@
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Segna come letto</string>
     <string name="title_unseen">Segna come non letto</string>
+    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Segna letto/non letto</string>
     <string name="title_toggle_seen">Attiva/disattiva lettura</string>
     <string name="title_hide">Nascondi</string>
     <string name="title_unhide">Mostra</string>
@@ -1591,8 +1592,8 @@
     <string name="title_sort_on_time">Ora</string>
     <string name="title_sort_on_unread">Non letti</string>
     <string name="title_sort_on_starred">Stellati</string>
-    <string name="title_sort_on_unread_starred">Non letti, stellati</string>
-    <string name="title_sort_on_starred_unread">Stellati, non letti</string>
+    <string name="title_sort_on_unread_starred">Non letti, preferiti</string>
+    <string name="title_sort_on_starred_unread">Preferiti, non letti</string>
     <string name="title_sort_on_priority">Priorità</string>
     <string name="title_sort_on_sender">Mittente</string>
     <string name="title_sort_on_subject">Oggetto</string>

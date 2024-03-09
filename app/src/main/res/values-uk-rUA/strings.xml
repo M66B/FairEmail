@@ -232,7 +232,7 @@
     <string name="title_setup_select_account">Обрати обліковий запис</string>
     <string name="title_setup_instructions">Інструкції з встановлення</string>
     <string name="title_setup_no_settings">Не знайдено налаштувань для домену \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Спробуйте, вручну, налаштувати обліковий запис за допомогою налаштувань, що надаються провайдером електронної пошти</string>
+    <string name="title_setup_no_settings_hint">Спробуйте вручну налаштувати обліковий запис за допомогою налаштувань, що надаються провайдером електронної пошти</string>
     <string name="title_setup_no_auth_hint">Будь ласка, двічі перевірте свою електронну адресу і пароль та переконайтеся, що для вашого облікового запису увімкнений зовнішній доступ (IMAP/SMTP)</string>
     <string name="title_setup_app_password_hint">Цей постачальник вимагає пароль для додатків замість пароля для облікового запису. Будь ласка, перевірте інструкції вашого постачальника.</string>
     <string name="title_setup_no_inbox">Вхідних повідомлень не знайдено</string>
@@ -452,8 +452,8 @@
     <string name="title_advanced_discard_delete">Видаляти чернетку назавжди при відкиданні</string>
     <string name="title_advanced_reply_move">Зберігати повідомлення-відповідь у тій самій теці</string>
     <string name="title_advanced_reply_move_inbox">Також для вхідних повідомлень</string>
-    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Максимальна кількість спроб надсилання</string>
-    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">При зміні підключення буде повторна спроба надсилання</string>
+    <string name="title_advanced_send_retry_max">Максимальна кількість спроб надсилання</string>
+    <string name="title_advanced_send_retry_hint">При зміні підключення буде повторна спроба надсилання</string>
     <string name="title_advanced_auto_link">Автоматично створювати посилання</string>
     <string name="title_advanced_plain_only">Надсилати повідомлення за замовчуванням як простий текст</string>
     <string name="title_advanced_plain_only_reply">Автоматично використовувати простий текст тільки при відповіді на повідомлення, які містять тільки простий текст</string>
@@ -800,7 +800,7 @@
     <string name="title_advanced_beta">Перевірити наявність тестових версій на BitBucket</string>
     <string name="title_advanced_changelog">Показувати список змін після оновлення</string>
     <string name="title_advanced_announcements">Перевірити на оголошення</string>
-    <string name="title_advanced_experiments">Спробуйте експериментальні функції</string>
+    <string name="title_advanced_experiments">Спробувати експериментальні функції</string>
     <string name="title_advanced_crash_reports">Надсилати звіти про помилки</string>
     <string name="title_advanced_cleanup_attachments">Видаляти вкладення для старих повідомлень</string>
     <string name="title_advanced_cleanup">Очистити</string>
@@ -1200,6 +1200,7 @@
     <string name="title_subject_forward_alt">Fw: %1$s</string>
     <string name="title_seen">Позначити як прочитане</string>
     <string name="title_unseen">Позначити як непрочитане</string>
+    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Позначити (не-)/прочитаним</string>
     <string name="title_toggle_seen">Перемкнути статус прочитання</string>
     <string name="title_hide">Приховати</string>
     <string name="title_unhide">Показати</string>

@@ -424,8 +424,8 @@
     <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>
     <string name="title_advanced_reply_move">Ved beskedbesvarelse, gem svaret i pågældende mappe</string>
     <string name="title_advanced_reply_move_inbox">Også for beskeder i indbakken</string>
-    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Maks. afsendelsesforsøg</string>
-    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">Afsendelse forsøges igen ved forbindelsesændringer</string>
+    <string name="title_advanced_send_retry_max">Maks. afsendelsesforsøg</string>
+    <string name="title_advanced_send_retry_hint">Afsendelse forsøges igen ved forbindelsesændringer</string>
     <string name="title_advanced_auto_link">Opret links automatisk</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
     <string name="title_advanced_plain_only_reply">Brug automatisk ren tekst ved besvarelse af en ren tekst besked</string>

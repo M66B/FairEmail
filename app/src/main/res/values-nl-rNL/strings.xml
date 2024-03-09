@@ -422,8 +422,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept definitief verwijderen</string>
     <string name="title_advanced_reply_move">Sla bij het beantwoorden van een bericht het antwoord op in dezelfde map</string>
     <string name="title_advanced_reply_move_inbox">Ook voor berichten in de inbox</string>
-    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Maximaal aantal verzendpogingen</string>
-    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">Verzenden zal opnieuw worden geprobeerd bij wijzigingen in de connectiviteit</string>
+    <string name="title_advanced_send_retry_max">Maximaal aantal verzendpogingen</string>
+    <string name="title_advanced_send_retry_hint">Verzenden zal opnieuw worden geprobeerd bij wijzigingen in de connectiviteit</string>
     <string name="title_advanced_auto_link">Automatisch koppelingen maken</string>
     <string name="title_advanced_plain_only">Verzend standaard platte tekst</string>
     <string name="title_advanced_plain_only_reply">Automatisch alleen platte tekst bij het beantwoorden van een bericht met alleen platte tekst</string>
@@ -1167,6 +1167,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Markeer als gelezen</string>
     <string name="title_unseen">Markeer als ongelezen</string>
+    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Markeer als ge/ongelezen</string>
     <string name="title_toggle_seen">Lezen omschakelen</string>
     <string name="title_hide">Verbergen</string>
     <string name="title_unhide">Tonen</string>

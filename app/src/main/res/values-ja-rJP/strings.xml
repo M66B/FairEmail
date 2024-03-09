@@ -410,8 +410,8 @@
     <string name="title_advanced_discard_delete">下書きを破棄とき完全に削除する</string>
     <string name="title_advanced_reply_move">メッセージに返信したときに返信を同じフォルダーに保存する</string>
     <string name="title_advanced_reply_move_inbox">受信トレイにあるメッセージにも適用する</string>
-    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">送信試行回数の上限</string>
-    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">接続が変更されると送信を再試行します</string>
+    <string name="title_advanced_send_retry_max">送信試行回数の上限</string>
+    <string name="title_advanced_send_retry_hint">接続が変更されると送信を再試行します</string>
     <string name="title_advanced_auto_link">自動でリンクを作成する</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみ送信する</string>
     <string name="title_advanced_plain_only_reply">プレーンテキストのみのメッセージにはプレーンテキストのみで返信する</string>

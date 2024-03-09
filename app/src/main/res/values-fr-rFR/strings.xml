@@ -424,8 +424,8 @@
     <string name="title_advanced_discard_delete">Lors de l’abandon d’un brouillon, le supprimer définitivement</string>
     <string name="title_advanced_reply_move">Lors de la réponse à un message, enregistrer la réponse dans le même dossier</string>
     <string name="title_advanced_reply_move_inbox">Également pour les messages dans la boîte de réception</string>
-    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Nombre maximum de tentatives d\'envoi</string>
-    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">L\'envoi sera tenté de nouveau en cas de changement de connectivité</string>
+    <string name="title_advanced_send_retry_max">Nombre maximum de tentatives d\'envoi</string>
+    <string name="title_advanced_send_retry_hint">L\'envoi sera tenté de nouveau en cas de changement de connectivité</string>
     <string name="title_advanced_auto_link">Créer automatiquement des liens</string>
     <string name="title_advanced_plain_only">Envoyer uniquement le texte brut par défaut</string>
     <string name="title_advanced_plain_only_reply">Texte brut automatique uniquement en réponse à un message en texte brut exclusivement</string>
@@ -1174,6 +1174,7 @@
     <string name="title_subject_forward_alt">Tr: %1$s</string>
     <string name="title_seen">Marquer comme lu</string>
     <string name="title_unseen">Marquer comme non lu</string>
+    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Marquer lu/non lu</string>
     <string name="title_toggle_seen">Marquer lu/non lu</string>
     <string name="title_hide">Masquer</string>
     <string name="title_unhide">Afficher</string>

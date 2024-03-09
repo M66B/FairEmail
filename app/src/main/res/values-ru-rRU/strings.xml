@@ -451,8 +451,8 @@
     <string name="title_advanced_discard_delete">При отказе от черновика удалять его безвозвратно</string>
     <string name="title_advanced_reply_move">При ответе на сообщение сохранять ответ в той же папке</string>
     <string name="title_advanced_reply_move_inbox">Также для сообщений во \"Входящих\"</string>
-    <string name="title_advanced_send_retry_max" comment="title_advanced_send_retry_max&#10;Title for an option to configure the number of times sending a message will be retried">Максимальное количество попыток отправки</string>
-    <string name="title_advanced_send_retry_hint" comment="title_advanced_send_retry_hint&#10;Remark to tell when sending will be attempted again">Отправка повторится при изменении подключения</string>
+    <string name="title_advanced_send_retry_max">Максимальное количество попыток отправки</string>
+    <string name="title_advanced_send_retry_hint">Отправка повторится при изменении подключения</string>
     <string name="title_advanced_auto_link">Автоматическое создание ссылок</string>
     <string name="title_advanced_plain_only">Отправлять простым текстом по умолчанию</string>
     <string name="title_advanced_plain_only_reply">Автоматически использовать обычный текст только при ответе на сообщение с обычным текстом</string>
@@ -1201,6 +1201,7 @@
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>
     <string name="title_unseen">Отметить как непрочитанное</string>
+    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Пометить прочитанным/непрочитанным</string>
     <string name="title_toggle_seen">Прочитано/непрочитано</string>
     <string name="title_hide">Скрыть</string>
     <string name="title_unhide">Показать</string>

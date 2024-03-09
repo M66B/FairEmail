@@ -437,6 +437,8 @@
     <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>
     <string name="title_advanced_reply_move">Când răspundeți la un mesaj, salvați răspunsul în același dosar</string>
     <string name="title_advanced_reply_move_inbox">De asemenea, pentru mesajele din primite</string>
+    <string name="title_advanced_send_retry_max">Încercări maxime de trimitere</string>
+    <string name="title_advanced_send_retry_hint">Trimiterea va fi reîncercată la schimbarea conectivității</string>
     <string name="title_advanced_auto_link">Creează automat adrese</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_plain_only_reply">Setează automat text simplu doar când se răspunde la un mesaj cu text simplu</string>
@@ -1183,6 +1185,7 @@
     <string name="title_subject_forward_alt">Redir: %1$s</string>
     <string name="title_seen">Marcare ca citit</string>
     <string name="title_unseen">Marcare ca necitit</string>
+    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Marcat citit/necitit</string>
     <string name="title_toggle_seen">Comutare citire</string>
     <string name="title_hide">Ascunde</string>
     <string name="title_unhide">Arată</string>
