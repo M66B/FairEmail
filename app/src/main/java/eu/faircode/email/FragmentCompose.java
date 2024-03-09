@@ -6429,91 +6429,95 @@ public class FragmentCompose extends FragmentBase {
                             rvAttachment.setTag(downloading);
                             checkInternet();
 
-                            boolean updated = false;
-                            Editable edit = etBody.getEditableText();
-                            ImageSpan[] spans = edit.getSpans(0, edit.length(), ImageSpan.class);
-                            if (spans == null)
-                                spans = new ImageSpan[0];
+                            try {
+                                boolean updated = false;
+                                Editable edit = etBody.getEditableText();
+                                ImageSpan[] spans = edit.getSpans(0, edit.length(), ImageSpan.class);
+                                if (spans == null)
+                                    spans = new ImageSpan[0];
 
-                            for (EntityAttachment attachment : attachments) {
-                                EntityAttachment prev = map.get(attachment.id);
-                                if (prev == null) // New attachment
-                                    continue;
-                                map.remove(attachment.id);
+                                for (EntityAttachment attachment : attachments) {
+                                    EntityAttachment prev = map.get(attachment.id);
+                                    if (prev == null) // New attachment
+                                        continue;
+                                    map.remove(attachment.id);
 
-                                if (!prev.available && attachment.available) // Attachment downloaded
+                                    if (!prev.available && attachment.available) // Attachment downloaded
+                                        for (ImageSpan span : spans) {
+                                            String source = span.getSource();
+                                            if (source != null && source.startsWith("cid:")) {
+                                                String cid = "<" + source.substring(4) + ">";
+                                                if (cid.equals(attachment.cid)) {
+                                                    Bundle args = new Bundle();
+                                                    args.putLong("id", working);
+                                                    args.putString("source", source);
+                                                    args.putInt("zoom", zoom);
+
+                                                    new SimpleTask<Drawable>() {
+                                                        @Override
+                                                        protected Drawable onExecute(Context context, Bundle args) throws Throwable {
+                                                            long id = args.getLong("id");
+                                                            String source = args.getString("source");
+                                                            int zoom = args.getInt("zoom");
+                                                            return ImageHelper.decodeImage(context, id, source, true, zoom, 1.0f, etBody);
+                                                        }
+
+                                                        @Override
+                                                        protected void onExecuted(Bundle args, Drawable d) {
+                                                            String source = args.getString("source");
+                                                            Editable edit = etBody.getEditableText();
+                                                            ImageSpan[] spans = edit.getSpans(0, edit.length(), ImageSpan.class);
+                                                            for (ImageSpan span : spans)
+                                                                if (source != null && source.equals(span.getSource())) {
+                                                                    int start = edit.getSpanStart(span);
+                                                                    int end = edit.getSpanEnd(span);
+                                                                    edit.removeSpan(span);
+                                                                    if (d == null)
+                                                                        edit.delete(start, end);
+                                                                    else
+                                                                        edit.setSpan(new ImageSpan(d, source), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                                                    etBody.setText(edit);
+                                                                    break;
+                                                                }
+                                                        }
+
+                                                        @Override
+                                                        protected void onException(Bundle args, Throwable ex) {
+                                                            // Ignored
+                                                        }
+                                                    }.execute(FragmentCompose.this, args, "attachment:downloaded");
+
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                }
+
+                                for (EntityAttachment removed : map.values())
                                     for (ImageSpan span : spans) {
                                         String source = span.getSource();
                                         if (source != null && source.startsWith("cid:")) {
                                             String cid = "<" + source.substring(4) + ">";
-                                            if (cid.equals(attachment.cid)) {
-                                                Bundle args = new Bundle();
-                                                args.putLong("id", working);
-                                                args.putString("source", source);
-                                                args.putInt("zoom", zoom);
-
-                                                new SimpleTask<Drawable>() {
-                                                    @Override
-                                                    protected Drawable onExecute(Context context, Bundle args) throws Throwable {
-                                                        long id = args.getLong("id");
-                                                        String source = args.getString("source");
-                                                        int zoom = args.getInt("zoom");
-                                                        return ImageHelper.decodeImage(context, id, source, true, zoom, 1.0f, etBody);
-                                                    }
-
-                                                    @Override
-                                                    protected void onExecuted(Bundle args, Drawable d) {
-                                                        String source = args.getString("source");
-                                                        Editable edit = etBody.getEditableText();
-                                                        ImageSpan[] spans = edit.getSpans(0, edit.length(), ImageSpan.class);
-                                                        for (ImageSpan span : spans)
-                                                            if (source != null && source.equals(span.getSource())) {
-                                                                int start = edit.getSpanStart(span);
-                                                                int end = edit.getSpanEnd(span);
-                                                                edit.removeSpan(span);
-                                                                if (d == null)
-                                                                    edit.delete(start, end);
-                                                                else
-                                                                    edit.setSpan(new ImageSpan(d, source), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                                                etBody.setText(edit);
-                                                                break;
-                                                            }
-                                                    }
-
-                                                    @Override
-                                                    protected void onException(Bundle args, Throwable ex) {
-                                                        // Ignored
-                                                    }
-                                                }.execute(FragmentCompose.this, args, "attachment:downloaded");
-
+                                            if (cid.equals(removed.cid)) {
+                                                updated = true;
+                                                int start = edit.getSpanStart(span);
+                                                int end = edit.getSpanEnd(span);
+                                                edit.removeSpan(span);
+                                                edit.delete(start, end);
                                                 break;
                                             }
                                         }
                                     }
+
+                                if (updated)
+                                    etBody.setText(edit);
+
+                                map.clear();
+                                for (EntityAttachment attachment : attachments)
+                                    map.put(attachment.id, attachment);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
                             }
-
-                            for (EntityAttachment removed : map.values())
-                                for (ImageSpan span : spans) {
-                                    String source = span.getSource();
-                                    if (source != null && source.startsWith("cid:")) {
-                                        String cid = "<" + source.substring(4) + ">";
-                                        if (cid.equals(removed.cid)) {
-                                            updated = true;
-                                            int start = edit.getSpanStart(span);
-                                            int end = edit.getSpanEnd(span);
-                                            edit.removeSpan(span);
-                                            edit.delete(start, end);
-                                            break;
-                                        }
-                                    }
-                                }
-
-                            if (updated)
-                                etBody.setText(edit);
-
-                            map.clear();
-                            for (EntityAttachment attachment : attachments)
-                                map.put(attachment.id, attachment);
                         }
                     });
 
