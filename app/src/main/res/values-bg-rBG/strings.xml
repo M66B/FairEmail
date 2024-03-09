@@ -423,6 +423,8 @@
     <string name="title_advanced_discard_delete">При отказване на чернова за постоянно изтрий черновата</string>
     <string name="title_advanced_reply_move">Отговаряйки на съобщение, запазване на отговора в същата папка</string>
     <string name="title_advanced_reply_move_inbox">Също за входящите съобщения</string>
+    <string name="title_advanced_send_retry_max">Максимум брой опити за изпращане</string>
+    <string name="title_advanced_send_retry_hint">Изпращането ще се пробва пак при промени в свързаността</string>
     <string name="title_advanced_auto_link">Автоматично сътворение на връзки</string>
     <string name="title_advanced_plain_only">Изпращане на обикновен текст по подразбиране</string>
     <string name="title_advanced_plain_only_reply">Автоматична употреба на прост текст само при отговор на съобщението с прост текст</string>
@@ -1169,6 +1171,7 @@
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Отбелязвам като прочетено</string>
     <string name="title_unseen">Отбелязвам като непрочетено</string>
+    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Означаване прочетено/непрочетено</string>
     <string name="title_toggle_seen">Прочетено/непрочетено</string>
     <string name="title_hide">Скриване</string>
     <string name="title_unhide">Показване</string>

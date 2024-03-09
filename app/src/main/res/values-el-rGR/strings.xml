@@ -423,6 +423,8 @@
     <string name="title_advanced_discard_delete">Οριστική διαγραφή ενός προχείρου όταν αυτό απορρίπτεται</string>
     <string name="title_advanced_reply_move">Κατά την απάντηση ενός μηνύματος, να αποθηκεύεται η απάντηση μέσα στον ίδιο φάκελο</string>
     <string name="title_advanced_reply_move_inbox">Το ίδιο για τα μηνύματα στα εισερχόμενα</string>
+    <string name="title_advanced_send_retry_max">Μέγιστος αριθμός προσπαθειών αποστολής</string>
+    <string name="title_advanced_send_retry_hint">Εκ νέου απόπειρα αποστολής σε περίπτωση αλλαγής σύνδεσης</string>
     <string name="title_advanced_auto_link">Αυτόματη δημιουργία συνδέσμων</string>
     <string name="title_advanced_plain_only">Αποστολή απλού κειμένου από προεπιλογή</string>
     <string name="title_advanced_plain_only_reply">Αυτόματη χρήση μόνο απλού κειμένου κατά την απάντηση σε μήνυμα που έχει μόνο απλό κείμενο</string>
@@ -485,6 +487,7 @@
     <string name="title_advanced_nav_message_count">Να προβάλλεται ο αριθμός των τοπικά αποθηκευμένων μηνυμάτων στο μενού πλοήγησης</string>
     <string name="title_advanced_nav_unseen_drafts">Να προβάλλεται ο αριθμός των μη αναγνωσμένων προχείρων στο μενού πλοήγησης</string>
     <string name="title_advanced_nav_pinned_count">Να προβάλλεται ο αριθμός των μη αναγνωσμένων μηνυμάτων στο καρφιτσωμένο μενού πλοήγησης</string>
+    <string name="title_advanced_show_unexposed">Προβολή ενός αστεριού για λογαριασμούς/φακέλους με μηνύματα που λήφθηκαν πρόσφατα και δεν έχουν αναγνωσθεί</string>
     <string name="title_advanced_startup">Εμφάνιση στην οθόνη έναρξης</string>
     <string name="title_advanced_cards">Προβολή σε στιλ κάρτας αντί σε στιλ πίνακα</string>
     <string name="title_advanced_category">Η κατηγορία λογαριασμού μπορεί να ρυθμιστεί στις επιλογές λογαριασμού για προχωρημένους, μέσω της οθόνης των κυρίων ρυθμίσεων</string>
@@ -817,6 +820,7 @@
     <string name="title_advanced_rlah_hint">Υπό την προϋπόθεση ότι δεν λαμβάνει χώρα περιαγωγή εντός της ΕΕ</string>
     <string name="title_advanced_usage_hint">Θα αυξήσει τη χρήση μπαταρίας, δεδομένων και χώρου αποθήκευσης</string>
     <string name="title_advanced_plain_hint">Εάν ενεργοποιηθεί, θα περιοριστεί η χρήση δεδομένων, αλλά τα μηνύματα θα προβάλλονται χωρίς μορφοποίηση</string>
+    <string name="title_advanced_plain_remark">Το τμήμα απλού κειμένου δεν περιέχει πάντα το πλήρες μήνυμα!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Αν ενεργοποιηθεί, μπορεί να προκαλέσει προβλήματα σύνδεσης σε ορισμένες συσκευές και ίσως αυξήσει την κατανάλωση μπαταρίας</string>
     <string name="title_advanced_validate_hint">Μπορεί να οδηγήσει σε μη συγχρονισμό μηνυμάτων, για παράδειγμα όταν χρησιμοποιείτε VPN, αλλά και σε άλλες περιπτώσεις</string>
     <string name="title_advanced_timeout_hint">Το χρονικό όριο για τις διαδικασίες ανάγνωσης/εγγραφής θα τεθεί στο διπλάσιο από εκείνο για τη λήξη της σύνδεσης. Υψηλότερες τιμές συνεπάγονται μεγαλύτερη χρήση μπαταρίας.</string>
@@ -1165,6 +1169,7 @@
     <string name="title_subject_forward_alt">Πρθ: %1$s</string>
     <string name="title_seen">Σήμανση ως αναγνωσμένου</string>
     <string name="title_unseen">Σήμανση ως μη αναγνωσμένου</string>
+    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Αναγνωσμένο/μη αναγνωσμένο</string>
     <string name="title_toggle_seen">(Μη) αναγνωσμένο</string>
     <string name="title_hide">Απόκρυψη</string>
     <string name="title_unhide">Προβολή</string>
@@ -1580,6 +1585,8 @@
     <string name="title_sort_on_time">Ημερομηνία</string>
     <string name="title_sort_on_unread">Μη αναγνωσμένα</string>
     <string name="title_sort_on_starred">Με αστέρι</string>
+    <string name="title_sort_on_unread_starred">Μη αναγνωσμένα, με αστέρι</string>
+    <string name="title_sort_on_starred_unread">Με αστέρι, μη αναγνωσμένα</string>
     <string name="title_sort_on_priority">Προτεραιότητα</string>
     <string name="title_sort_on_sender">Αποστολέα</string>
     <string name="title_sort_on_subject">Θέμα</string>
