@@ -388,6 +388,7 @@
 <li><a href="#faq200">(200) How can I use Adguard to remove tracking parameters?</a></li>
 <li><a href="#faq201">(201) What is certificate transparency?</a></li>
 <li><a href="#faq202">(202) What is DNSSEC and what is DANE?</a></li>
+<li><a href="#faq203">(203) Where is my sent message?</a></li>
 </ul>
 <p><a href="#get-support">I have another question.</a></p>
 <p><a name="faq1"></a> <strong>(1) Which permissions are needed and why?</strong></p>
@@ -2846,6 +2847,15 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 </ul>
 <p>This is not a complete and exhaustive list.</p>
 <p>Please see <a href="https://www.zivver.com/blog/why-cisos-and-security-professionals-can-no-longer-rely-on-regular-email-for-the-sharing-of-personal-information">this article</a> about why DANE is important.</p>
+<p><br></p>
+<p><a name="faq203"></a> <strong>(203) Where is my sent message?</strong></p>
+<p>When you write a message, it will be stored in the draft messages folder.</p>
+<p>When you send a message, it will be in the outbox first and later in the sent messages folder.</p>
+<p>The outbox is a queue of messages to be transferred to the email server of your email provider. After a message has been transferred to the email server, it will be stored in the sent messages folder.</p>
+<p>The sent messages folder can be selected in the account settings: navigation menu (left side menu) &gt; Settings &gt; Manual setup and account options &gt; Accounts &gt; tap the account.</p>
+<p>The email server will take care of sending the message to the recipient.</p>
+<p>If a message could not be sent to the recipient, you’ll in most cases receive a non-delivery notification message, a special email, indicating the reason, like user (email address) unknown. FairEmail will decode non-delivery notification messages, so you can see all the details.</p>
+<p>Basically, an outgoing message is either in the draft messages folder, the outbox, or the sent messages folder.</p>
 <p><br></p>
 <h2>
 <a name="get-support"></a>Get support

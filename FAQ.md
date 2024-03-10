@@ -414,6 +414,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(200) How can I use Adguard to remove tracking parameters?](#faq200)
 * [(201) What is certificate transparency?](#faq201)
 * [(202) What is DNSSEC and what is DANE?](#faq202)
+* [(203) Where is my sent message?](#faq203)
 
 [I have another question.](#get-support)
 
@@ -5777,6 +5778,28 @@ Some email providers known to support DANE for client-to-server traffic:
 This is not a complete and exhaustive list.
 
 Please see [this article](https://www.zivver.com/blog/why-cisos-and-security-professionals-can-no-longer-rely-on-regular-email-for-the-sharing-of-personal-information) about why DANE is important.
+
+<br>
+
+<a name="faq203"></a>
+**(203) Where is my sent message?**
+
+When you write a message, it will be stored in the draft messages folder.
+
+When you send a message, it will be in the outbox first and later in the sent messages folder.
+
+The outbox is a queue of messages to be transferred to the email server of your email provider.
+After a message has been transferred to the email server, it will be stored in the sent messages folder.
+
+The sent messages folder can be selected in the account settings: navigation menu (left side menu) > Settings > Manual setup and account options > Accounts > tap the account.
+
+The email server will take care of sending the message to the recipient.
+
+If a message could not be sent to the recipient, you'll in most cases receive a non-delivery notification message,
+a special email, indicating the reason, like user (email address) unknown.
+FairEmail will decode non-delivery notification messages, so you can see all the details.
+
+Basically, an outgoing message is either in the draft messages folder, the outbox, or the sent messages folder.
 
 <br>
 
