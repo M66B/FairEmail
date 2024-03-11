@@ -4700,6 +4700,11 @@ public class FragmentMessages extends FragmentBase
                                 ids.add(threaded.id);
                     }
 
+                    if (ids.size() == 1) {
+                        EntityMessage message = db.message().getMessage(ids.get(0));
+                        args.putString("remark", message == null ? null : message.getRemark());
+                    }
+
                     db.setTransactionSuccessful();
                 } finally {
                     db.endTransaction();
@@ -4713,6 +4718,7 @@ public class FragmentMessages extends FragmentBase
                 Bundle aargs = new Bundle();
                 aargs.putString("question", getResources()
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
+                aargs.putString("remark", args.getString("remark"));
                 aargs.putString("accept", getString(R.string.title_ask_delete_accept));
                 aargs.putInt("faq", 160);
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
@@ -5052,6 +5058,11 @@ public class FragmentMessages extends FragmentBase
                             result.add(threaded.id);
                     }
 
+                    if (result.size() == 1) {
+                        EntityMessage message = db.message().getMessage(result.get(0));
+                        args.putString("remark", message == null ? null : message.getRemark());
+                    }
+
                     db.setTransactionSuccessful();
                 } finally {
                     db.endTransaction();
@@ -5072,6 +5083,7 @@ public class FragmentMessages extends FragmentBase
                 } else {
                     aargs.putString("question", getResources()
                             .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
+                    aargs.putString("remark", args.getString("remark"));
                     aargs.putString("accept", getString(R.string.title_ask_delete_accept));
                 }
                 aargs.putInt("faq", 160);

@@ -126,17 +126,6 @@ public class TupleMessageEx extends EntityMessage {
         this.keyword_titles = titles.toArray(new String[0]);
     }
 
-    String getRemark() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(MessageHelper.formatAddresses(from));
-        if (!TextUtils.isEmpty(subject)) {
-            if (sb.length() > 0)
-                sb.append('\n');
-            sb.append(subject);
-        }
-        return sb.toString();
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof TupleMessageEx) {

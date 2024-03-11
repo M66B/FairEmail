@@ -360,6 +360,17 @@ public class EntityMessage implements Serializable {
         return recipients;
     }
 
+    String getRemark() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(MessageHelper.formatAddresses(from));
+        if (!TextUtils.isEmpty(subject)) {
+            if (sb.length() > 0)
+                sb.append('\n');
+            sb.append(subject);
+        }
+        return sb.toString();
+    }
+
     boolean hasKeyword(@NonNull String value) {
         // https://tools.ietf.org/html/rfc5788
         if (keywords == null)
