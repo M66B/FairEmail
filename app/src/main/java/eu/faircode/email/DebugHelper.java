@@ -275,10 +275,9 @@ public class DebugHelper {
         sb.append(String.format("MIUI: %s\r\n", miui == null ? "-" : miui));
 
         boolean reporting = prefs.getBoolean("crash_reports", false);
-        if (reporting || Log.isTestRelease()) {
-            String uuid = prefs.getString("uuid", null);
-            sb.append(String.format("Bugsnag UUID: %s\r\n", uuid == null ? "-" : uuid));
-        }
+        String uuid = (reporting || Log.isTestRelease()
+                ? prefs.getString("uuid", null) : null);
+        sb.append(String.format("Bugsnag UUID: %s\r\n", uuid == null ? "-" : uuid));
 
         try {
             ApplicationInfo app = pm.getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
