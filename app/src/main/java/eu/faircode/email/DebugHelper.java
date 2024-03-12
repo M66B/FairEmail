@@ -73,6 +73,7 @@ import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.biometric.BiometricManager;
 import androidx.browser.customtabs.CustomTabsClient;
 import androidx.browser.customtabs.CustomTabsServiceConnection;
 import androidx.emoji2.text.EmojiCompat;
@@ -1543,6 +1544,11 @@ public class DebugHelper {
                         Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM).format(now)));
                 size += write(os, String.format("Date/time long=%s\r\n",
                         Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG).format(now)));
+
+                BiometricManager bm = BiometricManager.from(context);
+                boolean secure = (bm.canAuthenticate(BiometricManager.Authenticators.DEVICE_CREDENTIAL)
+                        == BiometricManager.BIOMETRIC_SUCCESS);
+                size += write(os, String.format("Device credentials allowed=%b\r\n", secure));
 
                 for (Class<?> cls : new Class[]{
                         ActivitySendSelf.class,
