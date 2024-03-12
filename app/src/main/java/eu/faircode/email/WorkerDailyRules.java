@@ -154,7 +154,6 @@ public class WorkerDailyRules extends Worker {
                 delay = cal.getTimeInMillis() - now;
 
                 EntityLog.log(context, EntityLog.Type.Rules, "Queuing " + getName() + " delay=" + (delay / (60 * 1000L)) + "m");
-                WorkManager.getInstance(context).cancelUniqueWork(getName());
                 PeriodicWorkRequest.Builder builder =
                         new PeriodicWorkRequest.Builder(WorkerDailyRules.class, 1, TimeUnit.DAYS)
                                 .setInitialDelay(delay, TimeUnit.MILLISECONDS);
