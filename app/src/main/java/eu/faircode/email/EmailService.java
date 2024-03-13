@@ -332,6 +332,10 @@ public class EmailService implements AutoCloseable {
         properties.put("mail." + protocol + ".ignorebodystructuresize", Boolean.toString(enabled));
     }
 
+    void setSendPartial(boolean enabled) {
+        properties.put("mail." + protocol + ".sendpartial", Boolean.toString(enabled));
+    }
+
     void setUseIp(boolean enabled, String host) {
         this.useip = enabled;
         this.ehlo = host;

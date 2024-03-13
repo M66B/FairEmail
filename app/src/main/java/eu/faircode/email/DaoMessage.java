@@ -32,6 +32,8 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import javax.mail.Address;
+
 @Dao
 public interface DaoMessage {
 
@@ -761,6 +763,15 @@ public interface DaoMessage {
     @Query("UPDATE message SET fts = :fts WHERE id = :id AND NOT (fts IS :fts)")
     int setMessageFts(long id, boolean fts);
 
+    @Query("UPDATE message SET `to` = :to WHERE id = :id AND NOT (`to` IS :to)")
+    int setMessageTo(long id, String to);
+
+    @Query("UPDATE message SET `cc` = :cc WHERE id = :id AND NOT (`cc` IS :cc)")
+    int setMessageCc(long id, String cc);
+
+    @Query("UPDATE message SET `bcc` = :bcc WHERE id = :id AND NOT (`bcc` IS :bcc)")
+    int setMessageBcc(long id, String bcc);
+
     @Query("UPDATE message SET received = :received WHERE id = :id AND NOT (received IS :received)")
     int setMessageReceived(long id, long received);
 
@@ -836,6 +847,9 @@ public interface DaoMessage {
             " WHERE id = :id" +
             " AND (NOT (received IS :sent) OR NOT (sent IS :sent))")
     int setMessageSent(long id, Long sent);
+
+    @Query("UPDATE message SET warning = :warning WHERE id = :id AND NOT (warning IS :warning)")
+    int setMessageWarning(long id, String warning);
 
     @Query("UPDATE message SET error = :error WHERE id = :id AND NOT (error IS :error)")
     int setMessageError(long id, String error);

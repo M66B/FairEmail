@@ -128,6 +128,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swReplyMove;
     private SwitchCompat swReplyMoveInbox;
     private EditText etSendRetryMax;
+    private SwitchCompat swSendPartial;
 
     private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "keyboard", "keyboard_no_fullscreen",
@@ -148,7 +149,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "receipt_default", "receipt_type", "receipt_legacy",
             "forward_new",
             "lookup_mx", "reply_move", "reply_move_inbox",
-            "send_retry_max"
+            "send_retry_max", "send_partial"
     ));
 
     @Override
@@ -222,6 +223,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swReplyMove = view.findViewById(R.id.swReplyMove);
         swReplyMoveInbox = view.findViewById(R.id.swReplyMoveInbox);
         etSendRetryMax = view.findViewById(R.id.etSendRetryMax);
+        swSendPartial = view.findViewById(R.id.swSendPartial);
 
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext(), false);
 
@@ -786,6 +788,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swSendPartial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("send_partial", checked).apply();
+            }
+        });
+
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
 
@@ -968,6 +977,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             int send_retry_max = prefs.getInt("send_retry_max", 0);
             etSendRetryMax.setText(send_retry_max > 0 ? Integer.toString(send_retry_max) : null);
             etSendRetryMax.setHint(Integer.toString(ServiceSend.RETRY_MAX_DEFAULT));
+
+            swSendPartial.setChecked(prefs.getBoolean("send_partial", false));
         } catch (Throwable ex) {
             Log.e(ex);
         }

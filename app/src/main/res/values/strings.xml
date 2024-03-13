@@ -501,6 +501,9 @@
     <string name="title_advanced_reply_move_inbox">Also for messages in the inbox</string>
     <string name="title_advanced_send_retry_max">Maximum send attempts</string>
     <string name="title_advanced_send_retry_hint">Sending will be retried on connectivity changes</string>
+    <string name="title_advanced_send_partial">Allow sending to some recipients</string>
+    <string name="title_advanced_send_partial_hint">If some addresses are invalid, a message will still be sent to the other addresses</string>
+    <string name="title_advanced_sent_partially">The message was not sent to all recipients</string>
 
     <string name="title_advanced_auto_link">Automatically create links</string>
     <string name="title_advanced_plain_only">Send plain text only by default</string>

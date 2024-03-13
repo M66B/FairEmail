@@ -5677,6 +5677,25 @@ public class MessageHelper {
         return false;
     }
 
+    static Address[] removeAddresses(Address[] addresses, List<Address> removes) {
+        if (addresses == null || addresses.length == 0)
+            return new Address[0];
+
+        List<Address> result = new ArrayList<>();
+        for (Address address : addresses) {
+            boolean found = false;
+            for (Address remove : removes)
+                if (equalEmail(address, remove)) {
+                    found = true;
+                    break;
+                }
+            if (!found)
+                result.add(address);
+        }
+
+        return result.toArray(new Address[0]);
+    }
+
     static boolean equalEmail(Address a1, Address a2) {
         String email1 = ((InternetAddress) a1).getAddress();
         String email2 = ((InternetAddress) a2).getAddress();

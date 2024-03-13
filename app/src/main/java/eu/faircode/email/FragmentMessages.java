@@ -3040,10 +3040,17 @@ public class FragmentMessages extends FragmentBase
                 swipes.left_type = null;
             } else if (EntityFolder.OUTBOX.equals(message.folderType)) {
                 swipes = new TupleAccountSwipes();
-                swipes.swipe_right = 0L;
-                swipes.right_type = EntityFolder.DRAFTS;
-                swipes.swipe_left = 0L;
-                swipes.left_type = EntityFolder.DRAFTS;
+                if (message.warning == null) {
+                    swipes.swipe_right = 0L;
+                    swipes.right_type = EntityFolder.DRAFTS;
+                    swipes.swipe_left = 0L;
+                    swipes.left_type = EntityFolder.DRAFTS;
+                } else {
+                    swipes.swipe_right = EntityMessage.SWIPE_ACTION_DELETE;
+                    swipes.right_type = null;
+                    swipes.swipe_left = EntityMessage.SWIPE_ACTION_DELETE;
+                    swipes.left_type = null;
+                }
             } else {
                 swipes = accountSwipes.get(message.account);
                 if (swipes == null)
@@ -3200,7 +3207,10 @@ public class FragmentMessages extends FragmentBase
                 }
 
                 if (EntityFolder.OUTBOX.equals(message.folderType)) {
-                    ActivityCompose.undoSend(message.id, getContext(), getViewLifecycleOwner(), getParentFragmentManager());
+                    if (message.warning == null)
+                        ActivityCompose.undoSend(message.id, getContext(), getViewLifecycleOwner(), getParentFragmentManager());
+                    else
+                        onDelete(message.id);
                     return;
                 }
 
