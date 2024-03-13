@@ -854,6 +854,9 @@ public class ApplicationEx extends Application
         } else if (version < 2162) {
             if (!BuildConfig.DEBUG)
                 editor.putBoolean("tabular_unread_bg", false);
+        } else if (version < 2168) {
+            if (Helper.isGoogle())
+                editor.putBoolean("mod", true);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

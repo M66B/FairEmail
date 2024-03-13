@@ -19,6 +19,11 @@
     <string name="app_download">Downloaded from: %1$s</string>
     <string name="app_dmarc" translatable="false">DMARC</string>
 
+    <string name="app_mod1">
+        The March security update is causing \'App not responding\' messages, exclusively on Google Pixel devices.
+        Please do not blame the app for this, only Google can solve this!
+    </string>
+
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">Email</string>

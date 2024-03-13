@@ -270,6 +270,39 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHintJunk" />
 
+            <TextView
+                android:id="@+id/tvMod"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="36dp"
+                android:padding="6dp"
+                android:text="Message of the day"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toStartOf="@+id/ibMod"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintJunk" />
+
+            <ImageButton
+                android:id="@+id/ibMod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_legend_close_hint"
+                android:padding="9dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvMod"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvMod"
+                app:srcCompat="@drawable/twotone_close_24" />
+
+            <View
+                android:id="@+id/vSeparatorMod"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMod" />
+
             <include
                 android:id="@+id/inGroup"
                 layout="@layout/item_group"
@@ -277,7 +310,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintJunk" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorMod" />
 
             <eu.faircode.email.ViewTextDelayed
                 android:id="@+id/tvNoEmail"
@@ -558,6 +591,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="tvHintJunk,ibHintJunk,vSeparatorHintJunk" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpMod"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvMod,ibMod,vSeparatorMod" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpReady"
