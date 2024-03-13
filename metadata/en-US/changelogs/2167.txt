@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Zby
 
+Next version
+
+* Added option to allow sending to some recipients (ignoring invalid addresses, etc.)
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2167 - 2024-03-09
 
 * Fixed showing images in external drafts in some cases
