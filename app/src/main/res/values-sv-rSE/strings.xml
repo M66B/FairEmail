@@ -420,6 +420,8 @@
     <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
     <string name="title_advanced_reply_move">När du svarar på ett meddelande, spara svaret i samma mapp</string>
     <string name="title_advanced_reply_move_inbox">Även för meddelanden i inkorgen</string>
+    <string name="title_advanced_send_retry_max">Maximalt antal sändningsförsök</string>
+    <string name="title_advanced_send_retry_hint">Sändning kommer att återupptas vid ändringar av anslutning</string>
     <string name="title_advanced_auto_link">Skapa länkar automatiskt</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_plain_only_reply">Använd textformat automatiskt när du svarar på ett meddelande i textformat</string>
@@ -1163,6 +1165,7 @@
     <string name="title_subject_forward_alt">Vb: %1$s</string>
     <string name="title_seen">Märk som läst</string>
     <string name="title_unseen">Märk som oläst</string>
+    <string name="title_seen_unseen">Markera som läst/oläst</string>
     <string name="title_toggle_seen">Växla lästa</string>
     <string name="title_hide">Dölj</string>
     <string name="title_unhide">Visa</string>
@@ -1578,6 +1581,7 @@
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Olästa</string>
     <string name="title_sort_on_starred">Stjärnmärkta</string>
+    <string name="title_sort_on_unread_starred">Olästa, stjärnmärkta</string>
     <string name="title_sort_on_starred_unread">Stjärnmärkta, olästa</string>
     <string name="title_sort_on_priority">Prioritet</string>
     <string name="title_sort_on_sender">Avsändaren</string>

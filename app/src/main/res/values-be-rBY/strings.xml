@@ -14,6 +14,9 @@
     <string name="app_cake_required">Мінімальна патрэбны памер сховішча: %1$s</string>
     <string name="app_updated">Апошняе абнаўленне: %1$s</string>
     <string name="app_download">Спампавана з %1$s</string>
+    <string name="app_mod1">        Сакавіцкае абнаўленне сістэмы бяспекі выводзіць апавяшчэнне «Праграма не адказвае» выключна на прыладах Google Pixel.
+         Калі ласка, не абвінавачвайце праграму ў гэтым, толькі Google можа вырашыць гэтую праблему!
+    </string>
     <string name="channel_service">Маніторынг</string>
     <string name="channel_send">Адправіць</string>
     <string name="channel_notification">Электронная пошта</string>
@@ -453,6 +456,11 @@
     <string name="title_advanced_discard_delete">Пры адмове ад чарнавіка выдаляць яго канчаткова</string>
     <string name="title_advanced_reply_move">Пры адказе на ​​паведамленне захоўваць адказ у той жа папцы</string>
     <string name="title_advanced_reply_move_inbox">Таксама для ўваходных паведамленняў</string>
+    <string name="title_advanced_send_retry_max">Максімальная колькасць спроб адпраўкі</string>
+    <string name="title_advanced_send_retry_hint">Адпраўка будзе паўторана пры змене злучэння</string>
+    <string name="title_advanced_send_partial">Ігнараваць несапраўдныя адрасы пры адпраўцы</string>
+    <string name="title_advanced_send_partial_hint">Калі некаторыя адрасы несапраўдныя, паведамленне ўсё роўна будзе адпраўлена на іншыя адрасы</string>
+    <string name="title_advanced_sent_partially">Паведамленне было адпраўлена не ўсім атрымальнікам</string>
     <string name="title_advanced_auto_link">Аўтаматычна ствараць спасылкі</string>
     <string name="title_advanced_plain_only">Па змаўчанні адпраўляць толькі звычайны тэкст</string>
     <string name="title_advanced_plain_only_reply">Аўтаматычна выкарыстоўваць толькі звычайны тэкст пры адказе на паведамленне са звычайным тэкстам</string>
@@ -515,6 +523,7 @@
     <string name="title_advanced_nav_message_count">Паказваць колькасць лакальна захаваных паведамленняў у меню навігацыі</string>
     <string name="title_advanced_nav_unseen_drafts">Паказваць колькасць непрачытаных чарнавікоў у меню навігацыі</string>
     <string name="title_advanced_nav_pinned_count">Паказваць колькасць непрачытаных паведамленняў у замацаваным меню навігацыі</string>
+    <string name="title_advanced_show_unexposed">Паказваць пазнакі для ўліковых запісаў/папак з нядаўна атрыманымі непрачытанымі паведамленнямі</string>
     <string name="title_advanced_startup">Паказваць на стартавым экране</string>
     <string name="title_advanced_cards">Выкарыстоўваць картачны стыль замест таблічнага</string>
     <string name="title_advanced_category">Катэгорыю ўліковага запісу можна наладзіць у дадатковых параметрах уліковага запісу на галоўным экране налад</string>
@@ -524,6 +533,7 @@
     <string name="title_advanced_cards_shadow_border">Паказваць рамку</string>
     <string name="title_advanced_cards_shadow_highlight">Выкарыстоўваць колер падсветкі замест колеру акцэнту</string>
     <string name="title_advanced_tabular_dividers">Выкарыстоўваць раздзяляльныя лініі пры выкарыстанні таблічнага стылю</string>
+    <string name="title_advanced_tabular_unread_bg">Выкарыстоўваць шэры колер фону для непрачытаных паведамленняў пры выкарыстанні таблічнага стылю</string>
     <string name="title_advanced_date_header">Групаваць паводле даты</string>
     <string name="title_advanced_date_week">Групаваць паводле тыдняў, а не паводле дзён</string>
     <string name="title_advanced_date_fixed">Паказваць фіксаваны загаловак з датай зверху</string>
@@ -848,6 +858,7 @@
     <string name="title_advanced_rlah_hint">Улічваць адсутнасць роўмінгу ў ЕС</string>
     <string name="title_advanced_usage_hint">Гэта опцыя прывядзе да павелічэння выкарыстання батарэі, даных і месца для захоўвання</string>
     <string name="title_advanced_plain_hint">Уключэнне гэтай опцыі абмяжуе выкарыстанне даных, але паведамленні будуць паказвацца без стылізацыі</string>
+    <string name="title_advanced_plain_remark">Частка звычайнага тэксту не заўсёды змяшчае поўнае паведамленне!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Уключэнне гэтай опцыі можа выклікаць праблемы са злучэннем на некаторых прыладах і павялічыць расход батарэі</string>
     <string name="title_advanced_validate_hint">Гэта можа прывесці да збою сінхранізацыі паведамленняў, напрыклад, пры выкарыстанні VPN, а таксама ў іншых сітуацыях</string>
     <string name="title_advanced_timeout_hint">Час чакання чытання/запісу будзе ўдвая перавышаць час чакання злучэння. Больш высокія значэнні прывядуць да большага выкарыстання батарэі.</string>
@@ -1199,6 +1210,7 @@
     <string name="title_subject_forward_alt">Прсл.: %1$s</string>
     <string name="title_seen">Пазначыць як прачытанае</string>
     <string name="title_unseen">Пазначыць як непрачытанае</string>
+    <string name="title_seen_unseen">Пазначыць прачытаным/непрачытаным</string>
     <string name="title_toggle_seen">Прачытанае/непрачытанае</string>
     <string name="title_hide">Схаваць</string>
     <string name="title_unhide">Паказаць</string>
@@ -1616,6 +1628,8 @@
     <string name="title_sort_on_time">Часу</string>
     <string name="title_sort_on_unread">Стану (непрачытаныя)</string>
     <string name="title_sort_on_starred">Пазнакі</string>
+    <string name="title_sort_on_unread_starred">Непрачытаныя, пазначаныя</string>
+    <string name="title_sort_on_starred_unread">Пазначаныя, непрачытаныя</string>
     <string name="title_sort_on_priority">Прыярытэту</string>
     <string name="title_sort_on_sender">Адпраўніка</string>
     <string name="title_sort_on_subject">Тэмы</string>

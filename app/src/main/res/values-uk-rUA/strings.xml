@@ -14,6 +14,9 @@
     <string name="app_cake_required">Мінімальний потрібний розмір сховища: %1$s</string>
     <string name="app_updated">Останнє оновлення: %1$s</string>
     <string name="app_download">Завантажено з: %1$s</string>
+    <string name="app_mod1">        Березневе оновлення безпеки спричиняє виникнення повідомлення «Програма не відповідає». Це відбувається виключно на пристроях Google Pixel.
+         Будь ласка, не звинувачуйте програму в цьому. Тільки Google може розв\'язати цю проблему!
+    </string>
     <string name="channel_service">Монітор</string>
     <string name="channel_send">Надсилання</string>
     <string name="channel_notification">Повідомлення</string>
@@ -454,6 +457,9 @@
     <string name="title_advanced_reply_move_inbox">Також для вхідних повідомлень</string>
     <string name="title_advanced_send_retry_max">Максимальна кількість спроб надсилання</string>
     <string name="title_advanced_send_retry_hint">При зміні підключення буде повторна спроба надсилання</string>
+    <string name="title_advanced_send_partial">Ігнорувати некоректні адреси під час відправлення</string>
+    <string name="title_advanced_send_partial_hint">Якщо деякі адреси невірні, повідомлення все одно буде відправлено на інші адреси</string>
+    <string name="title_advanced_sent_partially">Повідомлення не було відправлено усім отримувачам</string>
     <string name="title_advanced_auto_link">Автоматично створювати посилання</string>
     <string name="title_advanced_plain_only">Надсилати повідомлення за замовчуванням як простий текст</string>
     <string name="title_advanced_plain_only_reply">Автоматично використовувати простий текст тільки при відповіді на повідомлення, які містять тільки простий текст</string>
@@ -1200,7 +1206,7 @@
     <string name="title_subject_forward_alt">Fw: %1$s</string>
     <string name="title_seen">Позначити як прочитане</string>
     <string name="title_unseen">Позначити як непрочитане</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Позначити (не-)/прочитаним</string>
+    <string name="title_seen_unseen">Позначити (не-)/прочитаним</string>
     <string name="title_toggle_seen">Перемкнути статус прочитання</string>
     <string name="title_hide">Приховати</string>
     <string name="title_unhide">Показати</string>

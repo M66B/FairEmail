@@ -14,6 +14,9 @@
     <string name="app_cake_required">Spazio di archiviazione minimo necessario: %1$s</string>
     <string name="app_updated">Ultimo aggiornamento: %1$s</string>
     <string name="app_download">Scaricata da: %1$s</string>
+    <string name="app_mod1">        L\'aggiornamento di sicurezza di marzo sta causando messaggi \'App non risponde\', esclusivamente su dispositivi Google Pixel.
+        Per favore non incolpare l\'app per questo, solo Google può risolvere questo!
+    </string>
     <string name="channel_service">Monitoraggio</string>
     <string name="channel_send">Invia</string>
     <string name="channel_notification">Email</string>
@@ -426,6 +429,9 @@
     <string name="title_advanced_reply_move_inbox">Anche per i messaggi nella posta in arrivo</string>
     <string name="title_advanced_send_retry_max">Tentativi di invio massimi</string>
     <string name="title_advanced_send_retry_hint">Ritenta l\'invio al cambiare della connettività</string>
+    <string name="title_advanced_send_partial">Ignora indirizzi non validi quando invi</string>
+    <string name="title_advanced_send_partial_hint">Se alcuni indirizzi non sono validi, il messaggio sarà comunque inviato agli altri indirizzi</string>
+    <string name="title_advanced_sent_partially">Il messaggio non è stato inviato a tutti i destinatari</string>
     <string name="title_advanced_auto_link">Crea automaticamente i link</string>
     <string name="title_advanced_plain_only">Invia testo semplice di default</string>
     <string name="title_advanced_plain_only_reply">Testo semplice automatico soltanto alla risposta a un messaggio di solo testo semplice</string>
@@ -1174,7 +1180,7 @@
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Segna come letto</string>
     <string name="title_unseen">Segna come non letto</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Segna letto/non letto</string>
+    <string name="title_seen_unseen">Segna letto/non letto</string>
     <string name="title_toggle_seen">Attiva/disattiva lettura</string>
     <string name="title_hide">Nascondi</string>
     <string name="title_unhide">Mostra</string>

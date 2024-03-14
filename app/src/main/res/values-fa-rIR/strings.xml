@@ -14,6 +14,9 @@
     <string name="app_cake_required">کمترین مقدار فضای ذخیره‌سازی لازم: %1$s</string>
     <string name="app_updated">آخرین به روز رسانی: %1$s</string>
     <string name="app_download">در حال دانلود از %1$s</string>
+    <string name="app_mod1">        به‌ روزرسانی امنیتی مارس باعث به وجود آمدن پیغام \'اپلیکیشن پاسخگو نیست\' بر روی دستگاه‌های پیکسل گوگل شده است.
+        لطفا اپلیکیشن را مقصر این مشکل ندانید، فقط گوگل می‌تواند این را برطرف کند!
+    </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">ارسال</string>
     <string name="channel_notification">ایمیل</string>
@@ -376,6 +379,9 @@
     <string name="title_advanced_reply_move_inbox">همچنین برای پیام‌های درون صندوق ورودی</string>
     <string name="title_advanced_send_retry_max">حداکثر تلاش ارسال</string>
     <string name="title_advanced_send_retry_hint">پس از تغییرات ارتباطی، مجددا برای ارسال تلاش خواهد شد</string>
+    <string name="title_advanced_send_partial">نادیده گرفتن آدرس‌های نامعتبر به هنگام ارسال</string>
+    <string name="title_advanced_send_partial_hint">اگر تعدادی از آدرس‌ها نامعتبر باشند، همچنان پیامی به مابقی نشانی‌ها فرستاده خواهد شد</string>
+    <string name="title_advanced_sent_partially">این پیام به همه گیرندگان فرستاده نشده</string>
     <string name="title_advanced_auto_link">ایجاد خودکار لینک</string>
     <string name="title_advanced_plain_only">فقط متن ساده را به صورت پیش‌فرض بفرست</string>
     <string name="title_advanced_flow">\'قالب جریان\' برای متن ساده</string>
@@ -806,7 +812,7 @@
     <string name="title_subject_forward_alt">هدایت: %1$s</string>
     <string name="title_seen">علامت زدن به عنوان خوانده شده</string>
     <string name="title_unseen">علامت زدن به عنوان خوانده نشده</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">علامت‌گذاری به‌عنوان خوانده شده/خوانده نشده</string>
+    <string name="title_seen_unseen">علامت‌گذاری به‌عنوان خوانده شده/خوانده نشده</string>
     <string name="title_hide">پنهان کردن</string>
     <string name="title_unhide">نمایش</string>
     <string name="title_flag">افزودن ستاره</string>

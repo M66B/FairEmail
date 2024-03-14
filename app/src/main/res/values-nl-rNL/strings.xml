@@ -14,6 +14,7 @@
     <string name="app_cake_required">Minimum vereiste opslagruimte: %1$s</string>
     <string name="app_updated">Laatst bijgewerkt: %1$s</string>
     <string name="app_download">Gedownload van: %1$s</string>
+    <string name="app_mod1">De beveiligingsupdate van maart veroorzaakt \'App reageert niet\'-meldingen, uitsluitend op Google Pixel-apparaten. Geef a.u.b. niet de app de schuld, alleen Google kan dit oplossen!</string>
     <string name="channel_service">Bewaken</string>
     <string name="channel_send">Verzenden</string>
     <string name="channel_notification">E-mail</string>
@@ -424,6 +425,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_reply_move_inbox">Ook voor berichten in de inbox</string>
     <string name="title_advanced_send_retry_max">Maximaal aantal verzendpogingen</string>
     <string name="title_advanced_send_retry_hint">Verzenden zal opnieuw worden geprobeerd bij wijzigingen in de connectiviteit</string>
+    <string name="title_advanced_send_partial">Ongeldige adressen bij verzenden negeren</string>
+    <string name="title_advanced_send_partial_hint">Als sommige adressen ongeldig zijn, wordt er toch een bericht naar de andere adressen gestuurd</string>
+    <string name="title_advanced_sent_partially">Het bericht is niet naar alle ontvangers verzonden</string>
     <string name="title_advanced_auto_link">Automatisch koppelingen maken</string>
     <string name="title_advanced_plain_only">Verzend standaard platte tekst</string>
     <string name="title_advanced_plain_only_reply">Automatisch alleen platte tekst bij het beantwoorden van een bericht met alleen platte tekst</string>
@@ -1167,7 +1171,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Markeer als gelezen</string>
     <string name="title_unseen">Markeer als ongelezen</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Markeer als ge/ongelezen</string>
+    <string name="title_seen_unseen">Markeer als ge/ongelezen</string>
     <string name="title_toggle_seen">Lezen omschakelen</string>
     <string name="title_hide">Verbergen</string>
     <string name="title_unhide">Tonen</string>

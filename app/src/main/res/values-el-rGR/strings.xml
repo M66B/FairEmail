@@ -1169,7 +1169,7 @@
     <string name="title_subject_forward_alt">Πρθ: %1$s</string>
     <string name="title_seen">Σήμανση ως αναγνωσμένου</string>
     <string name="title_unseen">Σήμανση ως μη αναγνωσμένου</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Αναγνωσμένο/μη αναγνωσμένο</string>
+    <string name="title_seen_unseen">Αναγνωσμένο/μη αναγνωσμένο</string>
     <string name="title_toggle_seen">(Μη) αναγνωσμένο</string>
     <string name="title_hide">Απόκρυψη</string>
     <string name="title_unhide">Προβολή</string>

@@ -14,6 +14,9 @@
     <string name="app_cake_required">נפח האחסון המזערי הנחוץ: %1$s</string>
     <string name="app_updated">עדכון אחרון: %1$s</string>
     <string name="app_download">מקור ההורדה: %1$s</string>
+    <string name="app_mod1">        עדכון האבטחה של מרץ גורם להודעות ‚היישומון לא מגיב’, באופן בלעדי על מכשירי Google Pixel.
+        נא לא להאשים בכך את היישומון, רק Google יכולים לפתור את זה!
+    </string>
     <string name="channel_service">מעקב</string>
     <string name="channel_send">שליחה</string>
     <string name="channel_notification">דוא״ל</string>
@@ -454,6 +457,9 @@
     <string name="title_advanced_reply_move_inbox">גם להודעות בדואר הנכנס</string>
     <string name="title_advanced_send_retry_max">כמות ניסיונות השליחה המרבית</string>
     <string name="title_advanced_send_retry_hint">יתבצע ניסיון לשלוח מחדש בעת שינויים בחיבור</string>
+    <string name="title_advanced_send_partial">התעלמות מכתובות שגויות בעת השליחה</string>
+    <string name="title_advanced_send_partial_hint">אם חלק מהנמענים שגויים, עדיין תישלח הודעה לכתובות האחרות</string>
+    <string name="title_advanced_sent_partially">ההודעה לא נשלחה לכל הנמענים</string>
     <string name="title_advanced_auto_link">ליצור קישורים אוטומטית</string>
     <string name="title_advanced_plain_only">לשלוח טקסט פשוט בלבד כברירת מחדל</string>
     <string name="title_advanced_plain_only_reply">להפוך לטקסט פשוט אוטומטית בעת שליחת תגובה להודעה שהיא בטקסט פשוט בלבד</string>
@@ -1201,7 +1207,7 @@
     <string name="title_subject_forward_alt">העברה: %1$s</string>
     <string name="title_seen">סימון כנקרא</string>
     <string name="title_unseen">סימון כלא נקרא</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">סימון נקרא/לא נקרא</string>
+    <string name="title_seen_unseen">סימון נקרא/לא נקרא</string>
     <string name="title_toggle_seen">החלפת מצב קריאה</string>
     <string name="title_hide">הסתרה</string>
     <string name="title_unhide">הצגה</string>

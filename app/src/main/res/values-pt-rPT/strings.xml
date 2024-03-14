@@ -14,6 +14,9 @@
     <string name="app_cake_required">Espaço mínimo de armazenamento necessário: %1$s</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Descarregada via: %1$s</string>
+    <string name="app_mod1">A atualização de segurança de maio está mostrando a mensagem  de erro \'App não responde\', exclusivamente nos dispositivos Google Pixel.
+        Por favor, não culpe a app por isso, só a Google pode resolver esse problema!
+    </string>
     <string name="channel_service">Monitorização</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>
@@ -427,6 +430,9 @@
     <string name="title_advanced_reply_move_inbox">Também para as mensagens na caixa de entrada</string>
     <string name="title_advanced_send_retry_max">Número máximo de tentativas de envio</string>
     <string name="title_advanced_send_retry_hint">O envio será novamente tentado quando ocorrerem alterações de ligação</string>
+    <string name="title_advanced_send_partial">Ignorar endereços inválidos ao enviar</string>
+    <string name="title_advanced_send_partial_hint">Mesmo que alguns endereços sejam inválidos, uma mensagem ainda será enviada para os outros endereços</string>
+    <string name="title_advanced_sent_partially">A mensagem não foi enviada para todos os destinatários</string>
     <string name="title_advanced_auto_link">Criar ligações automaticamente</string>
     <string name="title_advanced_plain_only">Enviar texto simples por omissão</string>
     <string name="title_advanced_plain_only_reply">Texto puro automaticamente apenas quando responder a uma mensagem de texto puro</string>
@@ -1174,7 +1180,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Marcar como lida</string>
     <string name="title_unseen">Marcar como não lida</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Marcar como lido/não lido</string>
+    <string name="title_seen_unseen">Marcar como lido/não lido</string>
     <string name="title_toggle_seen">Alternar estado de leitura</string>
     <string name="title_hide">Esconder</string>
     <string name="title_unhide">Mostrar</string>

@@ -14,6 +14,9 @@
     <string name="app_cake_required">Минимально необходимое место: %1$s</string>
     <string name="app_updated">Последнее обновление: %1$s</string>
     <string name="app_download">Загружено из: %1$s</string>
+    <string name="app_mod1">        Мартовское обновление безопасности приводит к появлению сообщений \"Приложение не отвечает\" на устройствах Google Pixel.
+        Пожалуйста, не вините за это приложение, данную проблему может решить только Google!
+    </string>
     <string name="channel_service">Отслеживание</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Эл. почта</string>
@@ -453,6 +456,9 @@
     <string name="title_advanced_reply_move_inbox">Также для сообщений во \"Входящих\"</string>
     <string name="title_advanced_send_retry_max">Максимальное количество попыток отправки</string>
     <string name="title_advanced_send_retry_hint">Отправка повторится при изменении подключения</string>
+    <string name="title_advanced_send_partial">Игнорировать неправильные адреса при отправке</string>
+    <string name="title_advanced_send_partial_hint">Если некоторые адреса недействительны, сообщение всё равно будет отправлено другим адресатам</string>
+    <string name="title_advanced_sent_partially">Сообщение не было отправлено всем получателям</string>
     <string name="title_advanced_auto_link">Автоматическое создание ссылок</string>
     <string name="title_advanced_plain_only">Отправлять простым текстом по умолчанию</string>
     <string name="title_advanced_plain_only_reply">Автоматически использовать обычный текст только при ответе на сообщение с обычным текстом</string>
@@ -1201,7 +1207,7 @@
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>
     <string name="title_unseen">Отметить как непрочитанное</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Пометить прочитанным/непрочитанным</string>
+    <string name="title_seen_unseen">Пометить прочитанным/непрочитанным</string>
     <string name="title_toggle_seen">Прочитано/непрочитано</string>
     <string name="title_hide">Скрыть</string>
     <string name="title_unhide">Показать</string>

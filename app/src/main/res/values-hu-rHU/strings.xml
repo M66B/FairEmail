@@ -422,6 +422,9 @@
     <string name="title_advanced_discard_delete">Piszkozat végleges törlése annak elvetésekor</string>
     <string name="title_advanced_reply_move">Válaszadáskor a választ az eredeti üzenet mappájába mentse</string>
     <string name="title_advanced_reply_move_inbox">A beérkező üzenetek mappa esetén is</string>
+    <string name="title_advanced_send_retry_max">Maximális küldési kísérlet</string>
+    <string name="title_advanced_send_partial_hint">Néhány cím érvénytelensége esetén is küldje el az üzenetet a többi címre</string>
+    <string name="title_advanced_sent_partially">Az üzenetet nem küldtük el minden címzettnek</string>
     <string name="title_advanced_auto_link">Automatikus link létrehozása</string>
     <string name="title_advanced_plain_only">Nyers szöveg alapértelmezett küldése</string>
     <string name="title_advanced_plain_only_reply">Egyszerű szöveg automatikus használata csak akkor, ha a megválaszolt üzenet is egyszerű szövegű</string>
@@ -1166,6 +1169,7 @@
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Megjelölés olvasottként</string>
     <string name="title_unseen">Megjelölés olvasatlanként</string>
+    <string name="title_seen_unseen">Olvas-ott/atlan</string>
     <string name="title_toggle_seen">Megjelölés olvasottként</string>
     <string name="title_hide">Elrejtés</string>
     <string name="title_unhide">Megjelenítés</string>
@@ -1581,6 +1585,7 @@
     <string name="title_sort_on_time">Idő</string>
     <string name="title_sort_on_unread">Olvasatlan</string>
     <string name="title_sort_on_starred">Csillagozott</string>
+    <string name="title_sort_on_unread_starred">Olvasatlan, csillagozva</string>
     <string name="title_sort_on_starred_unread">Csillagozott, olvasatlan</string>
     <string name="title_sort_on_priority">Prioritás</string>
     <string name="title_sort_on_sender">Feladó</string>

@@ -164,7 +164,7 @@
     <string name="title_setup_wizard_multiple">Võlurit saab kasutada mitu korda, et seadistada mitu kontot</string>
     <string name="title_setup_wizard_new">Ma vajan uut e-postiaadressi</string>
     <string name="title_setup_manual">Käsitsi seadistamine ja konto valikud</string>
-    <string name="title_setup_classic">Tavaline häälestamine</string>
+    <string name="title_setup_classic">Tavaline seadistus</string>
     <string name="title_setup_wizard_hint">Ülal olev kiirseadistamise võlur \"Muu teenusepakkuja\" toimib tavaliselt samuti ja on lihtsam kui kõigi serveriandmete sisestamine.</string>
     <string name="title_setup_documentation">Palun vaata meiliserveri õiget häälestust oma e-posti pakkuja dokumentatsioonist</string>
     <string name="title_setup_account_remark">Kirja saamine</string>
@@ -185,8 +185,8 @@
     <string name="title_setup_gmail_max">Veateate \"Oled sisse logitud maksimaalsele arvule kontodele\" korral pead veebilehitsejas välja logima kõikidest Google\'i kontodest.</string>
     <string name="title_setup_gmail_on_device">Miks ma pean valima seadmesisese konto?</string>
     <string name="title_setup_gmail_password">Ma tahan autoriseerida kontot parooliga ja mitte seadmes oleva kontoga</string>
-    <string name="title_setup_office_auth">Vea \'AUTHENTICATE failed\' põhjuseks võib olla, et IMAP/SMTP on süsteemi administraatori poolt keelatud</string>
-    <string name="title_setup_office_auth_5_7_3">Palun proovi kiirseadistamise võlurit \"Other provider\".</string>
+    <string name="title_setup_office_auth">Vea \"AUTHENTICATE failed\" põhjuseks võib olla, et IMAP/SMTP on süsteemi administraatori poolt keelatud</string>
+    <string name="title_setup_office_auth_5_7_3">Palun proovi kiirseadistamise võlurit \"Muu teenusepakkuja\".</string>
     <string name="title_setup_oauth_rationale">Autoriseeri ligipääs %1$s kontole</string>
     <string name="title_setup_oauth_update">Autoriseeri uuesti olemasolev konto (muul juhul loo uus konto)</string>
     <string name="title_setup_oauth_updated">Konto autoriseering on uuendatud</string>
@@ -242,7 +242,7 @@
     <string name="title_setup_done">Valmis</string>
     <string name="title_setup_still">Jätkuvalt teha</string>
     <string name="title_setup_error">Viga</string>
-    <string name="title_setup_manual_setup">Käsitsi häälestamine</string>
+    <string name="title_setup_manual_setup">Käsitsi seadistamine</string>
     <string name="title_setup_pop">Kasuta POP3 (pole soovitatav)</string>
     <string name="title_setup_recent">Kasuta mitme epostikliendi puhul \"viimatist\"</string>
     <string name="title_setup_configuring">Konto häälestamine &#8230;</string>
@@ -318,7 +318,7 @@
     <string name="title_check_gmail_password">Mõned su Gmaili kontod võivad lõpetada töö peale 30. Maid 2022</string>
     <string name="title_check_outlook_oauth">Su Outlooki kontod jätkavad toimimist peale 1. oktoobrit 2022</string>
     <string name="title_check_outlook_password">Mõned su Outlooki kontod võivad lõpetada töö peale 1. oktoobrit 2022</string>
-    <string name="title_advanced_hint_title">Rohkem täpsemaid valikuid</string>
+    <string name="title_advanced_hint_title">Veel täpsemaid valikuid</string>
     <string name="title_advanced_hint_message">        Liigud edasijõudnute valikute juurde.
         Kõigil valikutel on tavaliselt kasutatavad vaikeväärtused, mida ei ole vaja muuta, kui sul ei ole teistsuguseid eelistusi.
     </string>
@@ -770,7 +770,7 @@
     <string name="title_advanced_cleanup_attachments">Kustuta vanade sõnumite manused</string>
     <string name="title_advanced_cleanup">Puhasta</string>
     <string name="title_advanced_app">Äpi seaded</string>
-    <string name="title_advanced_more">Rohkem valikuid</string>
+    <string name="title_advanced_more">Veel valikuid</string>
     <string name="title_advanced_main_log">Põhilogimine</string>
     <string name="title_advanced_main_log_mem">Logi mälukasutust</string>
     <string name="title_advanced_protocol">Protokolli logimine</string>
@@ -1098,7 +1098,7 @@
     <string name="title_folder_name">Kausta nimi</string>
     <string name="title_display_name">Näidatav nimi</string>
     <string name="title_show_folders">Näita peidetud kaustu</string>
-    <string name="title_show_flagged">Show starred message countNäita tärniga sõnumite arvu</string>
+    <string name="title_show_flagged">Näita tärniga sõnumite arvu</string>
     <string name="title_subscribed_only">Vaid tellitud</string>
     <string name="title_sort_unread_atop">Sordi lugemata üles</string>
     <string name="title_search_folder">Otsi kausta</string>
@@ -1126,7 +1126,7 @@
     <string name="title_keep_days">Hoia sõnumeid (päeva)</string>
     <string name="title_keep_days_remark">Vanad sõnumid eemaldatakse seadmest, kuid jäävad serverisse</string>
     <string name="title_keep_all">Hoia kõik sõnumid</string>
-    <string name="title_poll_system">Määra süsteemi kaustu perioodiliselt uusi sõnumeid kontrollima</string>
+    <string name="title_poll_system">Määra süsteemikaustu perioodiliselt uusi sõnumeid kontrollima</string>
     <string name="title_poll_user">Määra kasutajakaustu perioodiliselt uusi sõnumeid kontrollima</string>
     <string name="title_auto_trash">Liiguta vanad sõnumid automaatselt prügisse</string>
     <string name="title_auto_delete">Kustuta vanad sõnumid automaatselt jäädavalt</string>
@@ -1165,7 +1165,7 @@
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Märgi loetuks</string>
     <string name="title_unseen">Märgi mitteloetuks</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Märgi loetuks/lugemata</string>
+    <string name="title_seen_unseen">Märgi loetuks/lugemata</string>
     <string name="title_toggle_seen">Lülita loetust</string>
     <string name="title_hide">Peida</string>
     <string name="title_unhide">Näita</string>
@@ -1280,12 +1280,23 @@
     <string name="title_no_viewer_search">Otsi äppi</string>
     <string name="title_no_recorder">Ühtegi sobivat salvestusäppi pole saadaval</string>
     <string name="title_no_camera">Pole sobivat kaameraäppi</string>
-    <string name="title_no_stream_help">Selle saab lahendada, valides faili moodsama failihalduri abil või andes loa failide lugemiseks</string>
+    <string name="title_no_saf">Talletusruumile juurdepääsu raamistik pole saadaval</string>
+    <string name="title_no_stream">FairEmailil pole õigust seda faili otse lugeda</string>
+    <string name="title_no_stream_help">Probleemi saab lahendada, valides faili moodsama failihalduri abil või andes loa failide lugemiseks</string>
+    <string name="title_no_permissions">Faili valimiseks kasutatud äpp ei taganud õigust faili lugeda</string>
+    <string name="title_no_internet">Pole internetiühendust või see on ebasobiv</string>
+    <string name="title_no_connection">Ühe või mitme kontoga ühenduse loomine &#8230;</string>
+    <string name="title_no_folder">Kausta pole olemas</string>
+    <string name="title_no_format">Algselt saadud sõnum kaasatakse</string>
     <string name="title_no_search">Selle konto jaoks pole serveris otsimine saadaval</string>
     <string name="title_complex_search">Vali kompleksotsingu jaoks kaust</string>
     <string name="title_too_large">Sõnum on täielikuks ümbervormindamiseks liiga suur</string>
     <string name="title_truncated">Sõnum on täielikult näitamiseks liiga suur</string>
     <string name="title_insufficient_memory">Sõnum on liiga suur saadaoleva mälu jaoks (%1$d)</string>
+    <string name="title_show_full">Näita kogu sõnumit</string>
+    <string name="title_fullscreen">Näita täisekraanil</string>
+    <string name="title_fit_width">Sobita laius</string>
+    <string name="title_disable_widths">Keela laiused</string>
     <string name="title_monospaced_pre">Püsisamm &lt;pre&gt;</string>
     <string name="title_unused_inline">Kasutamata tekstisisesed pildid eemaldatakse saatmisel</string>
     <string name="title_accross_remark">Kontode vahel liigutatavad sõnumid laaditakse uuesti alla põhjustades täiendavat andmekasutust</string>
@@ -1295,7 +1306,10 @@
     <string name="title_attachments_saved">Manused salvestatud</string>
     <string name="title_attachments_incomplete">Mõnesid pilte või manuseid ei laaditud alla ja neid ei saa lisada</string>
     <string name="title_ask_save">Salvestada muudatused?</string>
+    <string name="title_ask_delete">Kas kustutada sõnum jäädavalt?</string>
+    <string name="title_ask_delete_accept">Ma mõistan, et sõnumite jäädav kustutamine on tagasivõtmatu</string>
     <string name="title_ask_delete_answer">Kustutada vastamismall jäädavalt?</string>
+    <string name="title_ask_delete_rule">Kustutada reegel jäädavalt?</string>
     <string name="title_ask_delete_attachments">Eemalda kõik manused?</string>
     <string name="title_ask_discard">Loobud mustandist?</string>
     <string name="title_ask_show_html">Algse sõnumi näitamine võib lekitada privaatsustundlikku infot</string>
@@ -1303,19 +1317,43 @@
     <string name="title_ask_show_html_images">Alati näita algse sõnumi näitamisel pilte</string>
     <string name="title_ask_show_image">Piltide näitamine võib lekitada privaatsustundlikku infot</string>
     <string name="title_ask_show_image_hint">Jälitamispildina tuvastatud pilte ei näidata</string>
+    <string name="title_ask_show_amp">Näidata sõnumi AMP-versiooni?</string>
     <string name="title_ask_show_amp_hint">AMP-sõnumid on loodud olema interaktiivsed ning suhestuma internetiga ning seetõttu on need juba oma loomuse tõttu sobivad sinu jälgimiseks</string>
+    <string name="title_ask_view_file">Vaadata faili %1$s ?</string>
     <string name="title_ask_delete_local">Kustuta kohalikud sõnumid? Kaugserverisse jäävad sõnumid alles.</string>
     <string name="title_ask_help">Aita FairEmaili paremaks teha</string>
     <string name="title_ask_reporting">Saata vearaporteid?</string>
+    <string name="title_reporting_why">Vigadest teatamine aitab muuta FairEmaili paremaks</string>
+    <string name="title_ask_review">Palun hinda FairEmaili</string>
+    <string name="title_ask_review_rationale">        Oled FairEmaili kasutanud juba mõnda aega.
+        Oleksime tänulikud, kui saaksid FairEmaili Play Store\'is hinnata.
+    </string>
+    <string name="title_need_help">Ma vajan abi</string>
+    <string name="title_ask_once">See teade ilmub vaid korra, kui ei valita \"Hiljem\"</string>
+    <string name="title_third_party">Kasutad kolmanda osapoole versiooni</string>
+    <string name="title_expand_warning">Selle sõnumi laiendamine laadib alla %1$s</string>
+    <string name="title_download_message">Allalaadimine &#8230;</string>
     <string name="title_reformatted">        See on ümbervormindatud sõnumi vaade.
         You can tap on the &#x26F6; icon to view the original message and to hide this message.
         Reformatting messages takes some time, depending on the size of the message and the speed of your device.
     </string>
     <string name="title_compose">Loo</string>
+    <string name="title_submitter">Saatnud:</string>
+    <string name="title_signed_by">Allakirjutanud:</string>
     <string name="title_delivered_to">Toimetatud kohta:</string>
+    <string name="title_from">Saatja:</string>
     <string name="title_to">Saaja:</string>
     <string name="title_reply_to">Vasta saajale:</string>
+    <string name="title_cc">Koopia:</string>
+    <string name="title_bcc">P-koopia:</string>
     <string name="title_recipients">%1$d saajat</string>
+    <string name="title_via_identity">Läbi:</string>
+    <string name="title_sent">Saadetud:</string>
+    <string name="title_received">Saabunud:</string>
+    <string name="title_date">Kuupäev:</string>
+    <string name="title_stored">Talletatud:</string>
+    <string name="title_size">Suurus:</string>
+    <string name="title_language">Keel:</string>
     <string name="title_subject">Teema:</string>
     <string name="title_attachment">Manus:</string>
     <string name="title_body_hint">Sinu sõnum</string>
@@ -1328,6 +1366,9 @@
     <string name="title_send_via">Saada kontolt</string>
     <string name="title_send_at">Saada saajale &#8230;</string>
     <string name="title_send_auto_archive">Arhiivi vastatud sõnum</string>
+    <string name="title_send_encryption">Krüpteering</string>
+    <string name="title_send_priority">Tähtsus</string>
+    <string name="title_send_sensitivity">Tundlikkus</string>
     <string name="title_no_server">Serverit ei leitud kohast \'%1$s\'</string>
     <string name="title_style">Laad</string>
     <string name="title_style_bold">Rasvane</string>
@@ -1341,23 +1382,41 @@
     <string name="title_style_size_xlarge">Väga suur</string>
     <string name="title_style_align">Joondus</string>
     <string name="title_style_align_start">Algus</string>
+    <string name="title_style_align_center">Keskel</string>
+    <string name="title_style_align_end">Lõpus</string>
     <string name="title_style_list">Loetelu</string>
     <string name="title_style_list_bullets">Mummud</string>
     <string name="title_style_list_numbered">Nummerdatud</string>
+    <string name="title_style_list_level_increase">Suurenda taanet</string>
+    <string name="title_style_list_level_decrease">Vähenda taanet</string>
+    <string name="title_style_font">Font</string>
+    <string name="title_style_font_default">Vaikimisi</string>
+    <string name="title_style_blockquote">Blokktsitaat</string>
+    <string name="title_style_indentation">Taane</string>
+    <string name="title_style_mark">Esiletõst</string>
+    <string name="title_style_subscript">Allindeks</string>
+    <string name="title_style_superscript">Ülaindeks</string>
+    <string name="title_style_strikethrough">Läbikriipsutus</string>
     <string name="title_style_protect">Parooliga kaitsmine</string>
+    <string name="title_style_protected">Kaitstud sisu</string>
     <string name="title_style_protect_size">Tekst on liiga pikk</string>
     <string name="title_style_clear">Eemalda vorming</string>
     <string name="title_style_setting_keep_selection">Säilita valik</string>
     <string name="title_style_link">Lisa link</string>
+    <string name="title_style_link_address">Aadress</string>
     <string name="title_style_link_image">Lisa pildina</string>
+    <string name="title_style_link_title">Tiitel</string>
     <string name="title_style_link_metadata">Hangi tiitel</string>
     <string name="title_style_link_metadata_remark">See hangib sisestatud aadressilt tiitli</string>
+    <string name="title_style_link_send_dlimit">Allalaadimispiir (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Ajapiir (%1$s)</string>
     <string name="title_add_image">Lisa pilt</string>
     <string name="title_add_image_inline">Lisa juurde</string>
     <string name="title_add_image_attach">Manusta</string>
     <string name="title_add_image_resize">Muuda suurust</string>
     <string name="title_add_image_privacy">Eemalda privaatsustundlik info</string>
     <string name="title_add_image_privacy_remark">Geograafilised asukohad, seerianumbrid, failinimed jne.</string>
+    <string name="title_add_resize_pixels">&lt; %1$d pikslit</string>
     <string name="title_add_image_resize_remark">Suuruse muutmine on lubatud: %1$s</string>
     <string name="title_add_image_select_remark">Androidi fotovalija ei edasta enam faili nimesid</string>
     <string name="title_add_image_select">Vali fail</string>
@@ -1377,12 +1436,44 @@
     <string name="title_insert_template">Sisesta mall</string>
     <string name="title_create_template">Loo mall</string>
     <string name="title_select_default_identity">Vali vaikeaadress</string>
+    <string name="title_translate">Tõlgi</string>
+    <string name="title_translate_configure">Häälestamine &#8230;</string>
     <string name="title_translate_key">Sisesta võti</string>
+    <string name="title_translating">Tõlkimine &#8230;</string>
+    <string name="title_translate_formal">Kasuta ametlikku vormi</string>
+    <string name="title_translate_small">Kasuta lähteteksti puhul väikest fonti</string>
+    <string name="title_translate_replace">Asenda lähtetekst tõlgitud tekstiga</string>
+    <string name="title_translate_highlight">Tõsta tõlgitav tekst esile</string>
     <string name="title_translate_html">Säilita vorming</string>
+    <string name="title_translate_html_hint">See kasutab rohkem märke</string>
+    <string name="title_translate_usage">Kasutus: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Toksa teksti, mida tõlkida</string>
+    <string name="title_suggestions_check">Kontrollimine &#8230;</string>
+    <string name="title_suggestions_none">Pole soovitusi</string>
     <string name="title_edit_plain_text">Muuda lihttekstina</string>
     <string name="title_edit_formatted_text">Muuda ümbervormindatud tekstina</string>
+    <string name="title_select_certificate">Vali avalik võti</string>
+    <string name="title_certificate_missing">Pole avalikku võtit %1$s jaoks</string>
+    <string name="title_certificate_invalid">%1$s avalik võti on sobimatu</string>
+    <string name="title_no_key">Pole privaatvõtit</string>
+    <string name="title_invalid_key">Sobimatu privaatvõti</string>
+    <string name="title_unknown_key">Privaatvõti ei vasta ühelegi krüpteerimisvõtmele</string>
+    <string name="title_key_missing">Pole võtit %1$s jaoks</string>
+    <string name="title_send_reminder_remark">Meeldetuletusi saab uuesti lubada saatmisseadetes</string>
+    <string name="title_send_plain_text">Vaid lihttekst</string>
     <string name="title_send_dsn">Oleku raport</string>
+    <string name="title_send_receipt">Taotle saamiskinnitust</string>
+    <string name="title_send_receipt_remark">Enamik teenusepakkujaid ja e-postikliente eiravad kättesaamiskinnituse taotlusi</string>
+    <string name="title_vt_unknown">See fail pole veel VirusTotalile tuttav</string>
+    <string name="title_vt_summary">%1$s antiviirust raporteerib sellest failist kui pahatahtlikust</string>
+    <string name="title_vt_report">Täisraport</string>
+    <string name="title_vt_upload">Üles laadimine</string>
+    <string name="title_vt_analyzing">VirusTotal analüüsib faili. See võib võtta veidi aega &#8230;</string>
     <string name="title_from_missing">Saatja puudub</string>
+    <string name="title_pgp_reminder">Saadaval PGP-võtmed</string>
+    <string name="title_smime_reminder">Saadaval S/MIME-võtmed</string>
+    <string name="title_to_missing">Saaja puudub</string>
+    <string name="title_extra_missing">Kasutajanimi puudub</string>
     <string name="title_noreply_reminder">Saatmine mittevastatavale aadressile</string>
     <string name="title_external_reminder">Saatmine välisaadressile</string>
     <string name="title_subject_reminder">Teema on tühi</string>
@@ -1391,16 +1482,29 @@
     <string name="title_attachment_reminder">Kas kavatsesid lisada manuse?</string>
     <string name="title_attachment_warning">Potentsiaalselt ohtlik: %1$s</string>
     <string name="title_attachment_filename">Mõned teised meilikliendid ei suuda käsitleda 60 märgist pikemaid failinimesid</string>
+    <string name="title_plain_reminder">Kogu vorming läheb kaotsi</string>
+    <string name="title_dsn_reminder">Hard bounce\'id kahjustavad algse saatja reputatsiooni!</string>
     <string name="title_size_reminder">Sõnum (%1$s) suurem kui serveri limiit (%2$s)</string>
     <string name="title_attachments_missing">Kõik manused pole alla laaditud</string>
+    <string name="title_dialog_hint">Selle dialoogi saab jälle lubada ülemisel tegevusmenüül oleva kolme punkti menüü kaudu</string>
     <string name="title_draft_deleted">Mustandist loobuti</string>
     <string name="title_draft_saved">Mustand salvestatud</string>
     <string name="title_ask_send_via">Saada sõnum saajale %1$s kontolt %2$s?</string>
     <string name="title_queued">Sõnumi saatmine</string>
     <string name="title_queued_at">Sõnum saadetakse %1$s paiku</string>
+    <string name="title_sign">Allkirjasta</string>
+    <string name="title_verify">Kontrolli</string>
+    <string name="title_encrypt">Krüpteeri</string>
+    <string name="title_decrypt">Dekrüpteeri</string>
+    <string name="title_reset_message_questions">Lähtesta linkide küsimused</string>
     <string name="title_resync">Taassünkrooni</string>
+    <string name="title_charset">Kodeering</string>
+    <string name="title_charset_auto">Automaatne</string>
+    <string name="title_alternative_text">Laadi lihttekst</string>
+    <string name="title_alternative_html">Laadi HTML</string>
     <string name="title_signed_data">Sõnumi näitamiseks kontrolli allkirja</string>
     <string name="title_not_encrypted">Sõnum pole signeeritud ega krüpteeritud</string>
+    <string name="title_reset_selected_keys">Lähtesta valitud võtmed</string>
     <string name="title_signature_none">Sõnum on allkirjastamata</string>
     <string name="title_signature_valid">Sõnumi allkiri on kehtiv</string>
     <string name="title_signature_valid_from">Sõnumi allkiri kehtiv: %1$s</string>
@@ -1419,17 +1523,36 @@
     <string name="title_signature_outdated">See avalik võti ei kehti hetkel</string>
     <string name="title_signature_store">Talletamine</string>
     <string name="title_search">Otsi</string>
+    <string name="title_search_for_hint">Sisesta tekst</string>
+    <string name="title_search_hint">        Esimesena toimub otsing seadmes.
+        Selleks et otsida ka serveris, toksa nuppu \"Otsi uuesti\".
+    </string>
+    <string name="title_search_hint_fts">Otsimisindeksi kasutamisel: ainult täissõnad</string>
     <string name="title_search_index_hint">Otsimine otsimisindeksi kaudu on kiire, kuid leitakse vaid terviksõnu.</string>
     <string name="title_search_text_hint">Teksti otsimine sõnumitest, kui sõnumeid on palju, ei pruugi mõnes serveris toimida</string>
+    <string name="title_search_text_unsupported">\"%s\" tähendab, et meiliserver ei toeta sõnumi tekstist otsimist</string>
     <string name="title_search_size_hint">Sõnumite otsimine suuruse järgi, kui sõnumeid on palju, ei pruugi mõnes serveris toimida</string>
-    <string name="title_search_more">Rohkem valikuid</string>
+    <string name="title_search_more">Veel valikuid</string>
+    <string name="title_search_use_index">Otsimisindeksi kasutamine</string>
+    <string name="title_search_in_senders">Saatjatest (kellelt)</string>
+    <string name="title_search_in_recipients">Saajatest (kellele, koopia)</string>
+    <string name="title_search_in_subject">Teemast</string>
+    <string name="title_search_in_keywords">Märksõnadest (kui toetatud)</string>
     <string name="title_search_in_message">Sõnumi tekstis</string>
     <string name="title_search_in_notes">Kohalikest märkmetest</string>
+    <string name="title_search_in_filenames">Failinimedest (ainult seadmes olevad)</string>
+    <string name="title_search_with">Otsingu piiramine</string>
     <string name="title_search_with_unseen">Lugemata</string>
     <string name="title_search_with_flagged">Tärniga</string>
     <string name="title_search_with_hidden">Peidetud (vaid seadmes)</string>
+    <string name="title_search_with_encrypted">Krüpteeritud (vaid seadmes olev)</string>
     <string name="title_search_with_attachments">Manusega (vaid seadmes)</string>
+    <string name="title_search_with_size">Sõnum on suurem kui</string>
+    <string name="title_search_in_trash">Prügist</string>
     <string name="title_search_in_junk">Spämmist</string>
+    <string name="title_search_with_range">Ajavahemik</string>
+    <string name="title_search_with_before">Enne</string>
+    <string name="title_search_with_after">Peale</string>
     <string name="title_search_device_first">Otsi kõigepealt seadmest</string>
     <string name="title_search_flag_unseen">lugemata</string>
     <string name="title_search_flag_flagged">tärniga</string>
@@ -1441,6 +1564,7 @@
     <string name="title_search_flag_size">suurus &gt; %1$s</string>
     <string name="title_search_device">Otsi seadmes</string>
     <string name="title_search_server">Otsi serveris</string>
+    <string name="title_search_server_wait">Serveri järel ootamine</string>
     <string name="title_search_in">Otsi kohas</string>
     <string name="title_search_sender">Otsi saatjat</string>
     <string name="title_search_delete">Kustutada salvestatud otsing?</string>
@@ -1452,6 +1576,8 @@
     <string name="title_sort_on_time">Aeg</string>
     <string name="title_sort_on_unread">Lugemata</string>
     <string name="title_sort_on_starred">Tärniga</string>
+    <string name="title_sort_on_unread_starred">Lugemata, tärniga</string>
+    <string name="title_sort_on_starred_unread">Tärniga, lugemata</string>
     <string name="title_sort_on_priority">Tähtsus</string>
     <string name="title_sort_on_sender">Saatja</string>
     <string name="title_sort_on_subject">Teema</string>
@@ -1469,9 +1595,12 @@
     <string name="title_filter_unknown">Saatjad tundmatud</string>
     <string name="title_filter_hidden">Peidetud</string>
     <string name="title_filter_deleted">Kustutatud</string>
+    <string name="title_filter_duplicates">Duplikaadid</string>
+    <string name="title_filter_trash">Prügis</string>
     <string name="title_compact">Kompaktne vaade</string>
     <string name="title_zoom">Teksti suurus</string>
     <string name="title_padding">Polstri suurus</string>
+    <string name="title_large_buttons">Suuremad nupud</string>
     <string name="title_select_language">Keele valimine</string>
     <string name="title_select_all">Vali kõik</string>
     <string name="title_select_found">Vali leitud</string>
@@ -1501,21 +1630,38 @@
     <string name="title_answer_receipt">Kasuta lugemiskinnitusena</string>
     <string name="title_answer_hide">Peida menüüst</string>
     <string name="title_answer_text">Malli tekst</string>
+    <string name="title_answer_placeholder">Kohatäide</string>
     <string name="title_answer_placeholder_name">Saatja täisnimi</string>
     <string name="title_answer_placeholder_email">Saatja e-postiaadress</string>
     <string name="title_answer_placeholder_firstname">Saatja eesnimi</string>
     <string name="title_answer_placeholder_lastname">Saatja perenimi</string>
+    <string name="title_answer_placeholder_date">Hetke kuupäev</string>
+    <string name="title_answer_placeholder_weekday">Nädalapäev</string>
+    <string name="title_rule_noop">Pole tegevust</string>
     <string name="title_rule_seen">Märgi loetuks</string>
     <string name="title_rule_unseen">Märgi mitteloetuks</string>
     <string name="title_rule_hide">Peida</string>
+    <string name="title_rule_ignore">Summuta teavitus</string>
+    <string name="title_rule_snooze">Tukasta</string>
     <string name="title_rule_flag">Lisa tärn</string>
     <string name="title_rule_importance">Määra tähtsus</string>
+    <string name="title_rule_keyword">Märksõna</string>
     <string name="title_rule_keyword_add">Lisa</string>
     <string name="title_rule_keyword_delete">Kustuta</string>
     <string name="title_rule_notes">Kohalikud märkmed</string>
     <string name="title_rule_move">Vii</string>
+    <string name="title_rule_copy">Kopeeri (silt)</string>
     <string name="title_rule_answer">Vasta/edasta</string>
+    <string name="title_rule_tts">Kõnesüntesaator</string>
+    <string name="title_rule_automation">Automatiseerimine</string>
     <string name="title_rule_delete">Kustuta jäädavalt</string>
+    <string name="title_rule_sound">Mängi heli</string>
+    <string name="title_rule_silent">Hääletu teavitus</string>
+    <string name="title_rule_caption">Reegel</string>
+    <string name="title_rule_title">Reegli rakendamiskoht</string>
+    <string name="title_rule_name">Nimi</string>
+    <string name="title_rule_group">Rühm</string>
+    <string name="title_rule_order">Järjestus</string>
     <string name="title_rule_enabled">Lubatud</string>
     <string name="title_rule_sender">Saatja sisaldab</string>
     <string name="title_rule_sender_known">Saatja on kontakt</string>
@@ -1537,9 +1683,14 @@
     <string name="title_rule_automation_hint">See saadab kavatsuse \'%1$s\' koos lisadega \'%2$s\'</string>
     <string name="title_rule_notes_missing">Pole kohalikke märkmeid</string>
     <string name="title_rule_url_hint">Saad kasutada järgmisi kohatähiseid: %1$s</string>
+    <string name="title_rule_check">Kontrolli</string>
+    <string name="title_rule_no_headers">Päiste tingimusi ei saa kontrollida</string>
+    <string name="title_rule_tts_setup">Kontrolli seadistust</string>
+    <string name="title_code_pretty">Tähistustega kujundus</string>
     <string name="title_legend_section_folders">Kaustad</string>
     <string name="title_legend_section_messages">Sõnumid</string>
     <string name="title_legend_section_compose">Loo</string>
+    <string name="title_legend_section_keyboard">Klaviatuur</string>
     <string name="title_legend_folder_connected">Kaust ühendatud</string>
     <string name="title_legend_folder_disconnected">Kaust ühendamata</string>
     <string name="title_legend_download_on">Laadi sõnumi sisu automaatselt alla</string>
@@ -1561,7 +1712,10 @@
     <string name="title_legend_attachment">On manus</string>
     <string name="title_legend_contacts">Halda kontakte</string>
     <string name="title_legend_search">Otsi saatjat</string>
+    <string name="title_legend_view">Vaata sisu</string>
     <string name="title_legend_hide">Peida sisu</string>
+    <string name="title_legend_original">Vaata algset sõnumit</string>
+    <string name="title_legend_reformatted">Vaata ümbervormindatud sõnumit</string>
     <string name="title_legend_pick">Vali kontakt</string>
     <string name="title_legend_cc">Näita CC/BCC</string>
     <string name="title_legend_link">Lisa link</string>
@@ -1606,6 +1760,7 @@
     <string name="title_legend_n">Järgmine</string>
     <string name="title_legend_p">Eelmine</string>
     <string name="title_hint_folder_actions">Kaustal pikalt vajutamine avab valikud. Näiteks kausta lisamine navigeerimismenüsse, et seda hõlpsamalt avada</string>
+    <string name="title_hint_notifications_remark">Ka (konto)hoiatusteadete jaoks on vaja teavitamisõigusi. Uute sõnumite teavitused saab seadetes välja lülitada.</string>
     <string name="title_hint_dismiss">Hülga see dialoogikast, et teade eemaldada.</string>
     <string name="title_hint_message_selection">Vajuta pikalt sõnumil, et alustada mitme sõnumi valimist. Hoia ja pühi üles või alla, et valida rohkem sõnumeid</string>
     <string name="title_hint_message_junk">        E-postiklient sisuliselt näitab meiliserveris olevaid kirju.
@@ -1613,6 +1768,7 @@
         Kui saad väga palju spämmi, palun võta ühendust oma teenusepakkujaga ja ära süüdista äppi!
     </string>
     <string name="title_hint_sync_note">Vaikimisi ei laadita kõiki sõnumeid, et piirata talletusruumi, aku ja andmemahu kasutamist. Saad muuta seda vajutades kkaustade loetelus pikalt kaustal ning valides Hangi rohkem sõnumeid.</string>
+    <string name="title_hint_reformat">Privaatsuseks ja turvalisuseks ümbervormindab FairEmail sõnumeid vaikimisi. Et näha algset sõnumit, toksa sõnumi teksti kohal olevat täisekraani ikooni.</string>
     <string name="title_hint_junk">Spämmi filtreerimine peaks toimuma meiliserveris ja seda ei saa usaldusväärselt teha piiratud võimalustega akutoitel töötava seadme abil.</string>
     <string name="title_hint_junk_learn">Liigutades sõnumeid spämmi kausta ja sealt välja, õpib meiliserver, mis spämm on</string>
     <string name="title_hint_eml">See on kokkuvõte toorsõnumi faili sisust. Kogu sisu vaatamiseks salvesta toorsõnum tegevusriba salvestamise ikooni abil.</string>
@@ -1620,9 +1776,11 @@
     <string name="title_suspicious_link">See on kahtlane link</string>
     <string name="title_link_http">Liiklust ei krüpteerita</string>
     <string name="title_link_https">Liiklus krüpteeritakse</string>
+    <string name="title_sanitize_link">Eemalda jälgimisparameetrid</string>
     <string name="title_insecure_link">See link on ebaturvaline</string>
     <string name="title_check_owner">Kontrolli omanikku</string>
     <string name="title_yes">Jah</string>
+    <string name="title_later">Hiljem</string>
     <string name="title_redo">Uuesti</string>
     <string name="title_lt_delete">Eemalda sõna</string>
     <string name="title_add">Lisa</string>
@@ -1681,9 +1839,11 @@
     <string name="title_pro_google">FairEmail algatab küll Play poe ostu, kuid lõppkokkuvõttes juhib Google kogu ostuprotsessi. Seega ära palun süüdista probleemide korral rakendust!</string>
     <string name="title_pro_hide">Peida väikesed sõnumid %1$d nädalaks</string>
     <string name="title_pro_hint">Pro-funktsioonide ostmine võimaldab kasutada kõiki praeguseid ja tulevasi pro-funktsioone, hoiab äpi hooldatuna ja arenduses.</string>
+    <string name="title_pro_restore">Kuidas ma saan ostu taastada (teises seadmes)?</string>
     <string name="title_pro_activated">Kõik pro-funktsioonid on aktiveeritud</string>
     <string name="title_pro_valid">Kõik pro-funktsioonid aktiveeritud</string>
     <string name="title_pro_support">FairEmail vajab sinu abi. Koputa, et osta pro-funktsioone, et projekti jätkata või see sõnum välja lülitada.</string>
+    <string name="title_unexpected_error">Ootamatu viga</string>
     <string name="title_log_clear">Tühjenda</string>
     <string name="title_rules_search_hint">Otsitav nimi või tingimus</string>
     <string name="title_rules_delete_all">Kustuta kõik reeglid</string>
@@ -1709,6 +1869,7 @@
     <string name="title_widget_icon">Ikooni värv</string>
     <string name="title_widget_day_night">Järgi süsteemi tumedat teemat</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label5">Hiljem</string>
     <string name="title_keyword_displayed">Näidatud</string>
     <string name="title_keyword_not_displayed">Pole näidatud</string>
     <plurals name="title_accessibility_messages">
@@ -1727,7 +1888,9 @@
     <string name="title_accessibility_flagged">Starred</string>
     <string name="title_accessibility_unflagged">Ilma tärnita</string>
     <string name="title_accessibility_collapse">Ahenda</string>
+    <string name="title_accessibility_view_contact">Vaata kontakti</string>
     <string name="title_accessibility_show_authentication_result">Näita autentimise tulemust</string>
+    <string name="title_accessibility_view_help">Vaata abi</string>
     <string name="title_accessibility_answered">Vastatud</string>
     <string name="title_accessibility_scroll_down">Rulli alla</string>
     <string name="title_accessibility_scroll_up">Rulli üles</string>
@@ -1786,11 +1949,18 @@
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="biometricsTimeoutNames">
+        <item>Üks minut</item>
+        <item>2 minutit</item>
+        <item>5 minutit</item>
+        <item>10 minutit</item>
+        <item>20 minutit</item>
+    </string-array>
     <string-array name="ellipsizeNames">
         <item>Algusest</item>
-        <item>In the middle</item>
-        <item>At the end</item>
-        <item>Show untruncated</item>
+        <item>Keskel</item>
+        <item>Lõpust</item>
+        <item>Näita lühendamata</item>
     </string-array>
     <string name="title_size_tiny">Tilluke</string>
     <string-array name="receiptNames">
@@ -1811,30 +1981,52 @@
         <item>S/MIME sign-only</item>
         <item>S/MIME sign+encrypt</item>
     </string-array>
+    <string-array name="sizeNames">
+        <item>0 B</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>5 MB</item>
+        <item>10 MB</item>
+        <item>20 MB</item>
+        <item>50 MB</item>
+    </string-array>
     <string-array name="undoNames">
-        <item>Off</item>
-        <item>2.5 s</item>
+        <item>Väljas</item>
+        <item>2,5 s</item>
         <item>5 s</item>
-        <item>7.5 s</item>
+        <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
-        <item>Cursive</item>
-        <item>Serif</item>
-        <item>Sans-serif</item>
+        <item>Kaldkiri</item>
+        <item>Seriif</item>
+        <item>Sans-seriif</item>
         <item>Püsisamm</item>
         <item>Fantasy</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Vaid nimi</item>
+        <item>Vaid e-post</item>
+        <item>Nimi ja e-post</item>
+    </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="minScreenSizes">
+        <item>Väike</item>
+        <item>Keskmine</item>
+        <item>Suur</item>
+        <item>Eriti suur</item>
+    </string-array>
     <string-array name="contactTypes">
-        <item>Recipient</item>
+        <item>Saaja</item>
         <item>Saatja</item>
         <item>Blokeeritud</item>
-        <item>Not blocked</item>
+        <item>Pole blokeeritud</item>
     </string-array>
     <string-array name="contactGroupTypes">
         <item>Mistahes</item>

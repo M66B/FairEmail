@@ -14,6 +14,8 @@
     <string name="app_cake_required">Minimum gerekli depolama alanı: %1$s</string>
     <string name="app_updated">Son güncelleme %1$s</string>
     <string name="app_download">Şuradan indirildi: %1$s</string>
+    <string name="app_mod1">........ Mart güvenlik güncellemesi, yalnızca Google Pixel cihazlarında \'Uygulama yanıt vermiyor\' mesajlarına neden oluyor.
+........ Lütfen bunun için suçlamayın, bunu yalnızca Google çözebilir!!    </string>
     <string name="channel_service">Monitör</string>
     <string name="channel_send">Gönder</string>
     <string name="channel_notification">e-posta</string>
@@ -424,6 +426,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_reply_move_inbox">Ayrıca gelen kutusundaki mesajlar için</string>
     <string name="title_advanced_send_retry_max">Maksimum gönderme denemesi</string>
     <string name="title_advanced_send_retry_hint">Bağlantı değişikliklerinde gönderme yeniden denenecektir</string>
+    <string name="title_advanced_send_partial">Gönderirken geçersiz adresleri yoksay</string>
+    <string name="title_advanced_send_partial_hint">Bazı adresler geçersizse, diğer adreslere yine de bir mesaj gönderilecektir</string>
+    <string name="title_advanced_sent_partially">Mesaj tüm alıcılara gönderilmedi</string>
     <string name="title_advanced_auto_link">Otomatik olarak bağlantı oluşturun</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_plain_only_reply">Yalnızca düz metin mesajına yanıt verirken otomatik olarak yalnızca düz metin</string>
@@ -1167,7 +1172,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_subject_forward_alt">İlet: %1$s</string>
     <string name="title_seen">Okundu olarak işaretle</string>
     <string name="title_unseen">Okunmadı olarak işaretle</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Okundu/okunmadı olarak işaretle</string>
+    <string name="title_seen_unseen">Okundu/okunmadı olarak işaretle</string>
     <string name="title_toggle_seen">Okumayı aç/kapat</string>
     <string name="title_hide">Gizle</string>
     <string name="title_unhide">Göster</string>

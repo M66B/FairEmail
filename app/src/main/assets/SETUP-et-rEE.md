@@ -1,41 +1,41 @@
-# Setup help
+# Seadistamise abi
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+FairEmaili algseadistamine on üsna lihtne. Pead lisama vähemalt ühe konto, et saada kirju, ja vähemalt ühe identiteedi, kui soovid kirju saata. Kiirseadistaja lisab enamike suurte teenusepakkujate jaoks ühe tegevusega nii konto kui ka identiteedi.
 
-## Requirements
+## Nõuded
 
-An internet connection is required to set up accounts and identities.
+Kontode ja identiteetide algseadistamiseks on vajalik internetiühendus.
 
-## Quick setup
+## Kiirseadistamine
 
-Just select the appropriate provider or *Other provider* and enter your name, email address and password and tap *Check*.
+Vali vastav teenusepakkuja või *Muu teenusepakkuja* ja sisesta oma nimi, e-postiaadress ja salasõna and tap *Check*.
 
-This will work for most email providers.
+See töötab enamike e-posti teenusepakkujate puhul.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+Kui kiirseadistamine ei toimi, pead seadistama konto ja identiteedi käsitsi. Loe juhiseid allpool.
 
-## Set up account - to receive email
+## Seadista konto, et saada e-kirju
 
-To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Konto lisamiseks toksa *Käsitsi seadistamine ja Veel valikuid*, toksa *Kontod* ja toksa "pluss" button at the bottom and select IMAP (or POP3). Vali loetelust teenusepakkuja, sisesta kasutajanimi, mis on enamasti su e-postiaadress, ja sisesta oma salasõna. Toksa *Kontrolli*, et FairEmail ühenduks meiliserveriga ja hangiks süsteemikaustade loetelu. Pärast süsteemikaustade valiku üle vaatamist saad konto lisada, toksates *Salvesta*.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Kui su teenusepakkuja pole teenusepakkujate loetelus, olemas on neid tuhandeid, vali *Kohandatud*. Sisesta domeeni nimi, näiteks *gmail.com* ja toksa *Hangi seaded*. Kui su teenusepakkuja toetab [automaatset tuvastamist](https://tools.ietf.org/html/rfc6186), täidab FairEmail hostinime ja pordinumbri. Vastasel juhul leia oma teenusepakkuja seadistamisjuhenditest õige IMAPi hostinimi, pordi number ja krüpteerimisprotokoll (SSL/TLS või STARTTLS) Rohkem sellest vaata palun [siit](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Set up identity - to send email
+## Seadista identiteet - et saata e-kirju
 
-Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Sarnaselt toksa identiteedi lisamiseks valikut *Käsitsi seadistamine ja Veel valikuid*, toksa valikut *Identiteedid* ja allosas toksa nuppu "pluss". Sisesta nimi, mida peaks näidatama sinu saadetavate e-kirjade saatja aadressi juures, ja vali lingitav konto. Toksa *Salvesta*, et identiteet lisada.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
+Kui konto seadistati käsitsi, pead tõenäoliselt ka identiteedi käsitsi häälestama. Sisesta domeeni nimi, näiteks *gmail.com*, ja toksa *Hangi seaded*. Kui su teenusepakkuja toetab [automaatset tuvastamist](https://tools.ietf.org/html/rfc6186), täidab FairEmail hostinime ja pordinumbri. Vastasel juhul leia oma teenusepakkuja seadistamisjuhenditest õige SMTP hostinimi, pordi number ja krüpteerimisprotokoll (SSL/TLS või STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Aliaste kasutamise kohta vaata [seda KKK-d](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9).
 
-## Grant permissions - to access contact information
+## Võimalda õigused - et pääseda ligi kontaktide infole
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+Kui soovid otsida e-posti aadresse, näha kontaktide fotosid jne, pead andma FairEmailile loa kontaktandmete lugemiseks. Toksa lihtsalt *Taga* ja vali *Luba*.
 
-## Setup battery optimizations - to continuously receive emails
+## Seadista aku optimeerimine - et saada e-kirju katkestusteta
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Manage* and follow the instructions.
+Uuemates Androidi versioonides lülitab Android rakendused puhkeolekusse, kui ekraan on olnud mõnda aega välja lülitatud, et vähendada aku tarbimist. Kui soovid saada kirju ilma viivituseta, peaksid FairEmaili jaoks aku optimeerimise välja lülitama. Toksa *Halda* ja järgi juhiseid.
 
-## Questions or problems
+## Küsimused või probleemid
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for help.
+Kui sul on küsimus või probleem, vaata palun [abiks siia](https://github.com/M66B/FairEmail/blob/master/FAQ.md).

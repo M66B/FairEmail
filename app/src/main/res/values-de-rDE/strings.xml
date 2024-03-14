@@ -14,6 +14,9 @@
     <string name="app_cake_required">Minimaler erforderlicher Speicherplatz: %1$s</string>
     <string name="app_updated">Letzte Aktualisierung: %1$s</string>
     <string name="app_download">Heruntergeladen von: %1$s</string>
+    <string name="app_mod1">        Die März-Sicherheitsaktualisierung verursacht die Fehlermeldung »App reagiert nicht« und betrifft ausschließlich Google-Pixel-Geräte.
+        Bitte machen Sie nicht die App dafür verantwortlich – nur Google kann das Problem beheben!
+    </string>
     <string name="channel_service">Überwachen</string>
     <string name="channel_send">Senden</string>
     <string name="channel_notification">Neue E-Mail</string>
@@ -420,18 +423,21 @@
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_new">Signatur für neue Nachrichten verwenden</string>
     <string name="title_advanced_signature_reply">Signatur beim Antworten verwenden</string>
-    <string name="title_advanced_signature_reply_once">Nur bei der ersten Antwort (in einer Unterhaltung)</string>
-    <string name="title_advanced_signature_forward">Signatur beim Weiterleiten hinzufügen</string>
+    <string name="title_advanced_signature_reply_once">Nur bei der ersten Antwort</string>
+    <string name="title_advanced_signature_forward">Signatur beim Weiterleiten verwenden</string>
     <string name="title_advanced_discard_delete">Entwürfe beim Verwerfen dauerhaft löschen</string>
     <string name="title_advanced_reply_move">Beim Antworten auf eine Nachricht die Antwort im selben Ordner speichern</string>
     <string name="title_advanced_reply_move_inbox">Auch für Nachrichten im Posteingang</string>
     <string name="title_advanced_send_retry_max">Maximale Sendeversuche</string>
     <string name="title_advanced_send_retry_hint">Bei Verbindungsänderungen wird der Sendeversuch wiederholt</string>
+    <string name="title_advanced_send_partial">Ungültige Adressen beim Senden ignorieren</string>
+    <string name="title_advanced_send_partial_hint">Sollten einige Adressen ungültig sein, wird dennoch eine Nachricht an die anderen Adressen gesendet</string>
+    <string name="title_advanced_sent_partially">Die Nachricht wurde nicht an alle Empfänger gesendet</string>
     <string name="title_advanced_auto_link">Links automatisch erstellen</string>
     <string name="title_advanced_plain_only">Standardmäßig nur einfachen Text senden</string>
     <string name="title_advanced_plain_only_reply">Beim Antworten auf eine Nachricht im einfachen Text automatisch einfachen Text verwenden</string>
     <string name="title_advanced_flow">»format flowed« für einfachen Text</string>
-    <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
+    <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention befolgen</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
     <string name="title_advanced_receipt">Wenn eine Bestätigung angefordert wird, dann</string>
     <string name="title_advanced_forward_new">Beim Weiterleiten eine neue Unterhaltung beginnen</string>
@@ -443,7 +449,7 @@
     <string name="title_advanced_rlah">Roaming wie zu Hause</string>
     <string name="title_advanced_download_headers">Alle Kopfzeilen der Nachricht herunterladen</string>
     <string name="title_advanced_download_eml">Rohnachrichtendateien herunterladen</string>
-    <string name="title_advanced_download_plain">Standardmäßig nur Abschnitte im einfachen Text herunterladen (falls verfügbar)</string>
+    <string name="title_advanced_download_plain">Standardmäßig nur einfache Textteile herunterladen (falls verfügbar)</string>
     <string name="title_advanced_validated">Validierte (geprüfte) Verbindung voraussetzen</string>
     <string name="title_advanced_validated_captive">Validierte Captive-Portal-Verbindung voraussetzen</string>
     <string name="title_advanced_vpn_only">Nur über ein VPN verbinden</string>
@@ -787,20 +793,20 @@
     <string name="title_advanced_log_info">Fehlerprotokollierung</string>
     <string name="title_advanced_debug">Fehlersuchmodus</string>
     <string name="title_advanced_manual_hint">Wenn der Nachrichtenempfang deaktiviert ist, ist es immer noch möglich, Nachrichten manuell zu empfangen, indem Sie die Nachrichtenliste nach unten ziehen</string>
-    <string name="title_advanced_poll_battery">Dies kann zu einem hohen Akkuverbrauch führen!</string>
+    <string name="title_advanced_poll_battery">Das kann zu einem hohen Akkuverbrauch führen!</string>
     <string name="title_advanced_poll_hint">Bei der regelmäßigen Überprüfung auf neue Nachrichten werden jedes Mal lokale und entfernte Nachrichten verglichen, was ein aufwendiger Vorgang ist, der zu einem zusätzlichen Akkuverbrauch führen kann, insbesondere wenn viele Nachrichten vorhanden sind. Nachrichten immer empfangen verhindert das durch fortlaufendes Verfolgen von Änderungen.</string>
     <string name="title_advanced_optimize_hint">Das kann die Synchronisationshäufigkeit ändern, um den Akkuverbrauch zu verringern, abhängig von den Fähigkeiten und dem Verhalten des E-Mail-Servers</string>
     <string name="title_advanced_schedule_hint">Auf eine Zeit tippen, um eine Zeit festzulegen</string>
     <string name="title_advanced_schedule_ignore">Zeitpläne können in den erweiterten Kontoeinstellungen deaktiviert werden</string>
-    <string name="title_advanced_quick_sync_hint">Dies reduziert den Datenverbrauch, aber neue Nachrichten könnten verpasst werden, wenn der E-Mail-Server die Standards nicht einhält</string>
+    <string name="title_advanced_quick_sync_hint">Dadurch wird der Datenverbrauch verringert, aber neue Nachrichten könnten verpasst werden, wenn der E-Mail-Server die Standards nicht befolgt</string>
     <string name="title_advanced_no_date_hint">Einige Anbieter speichern Nachrichten mit einem unbekannten, ungültigen oder zukünftigen Datum als Nachrichten ohne Datum</string>
     <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen das nicht ordnungsgemäß, was möglicherweise zur Synchronisation keiner oder aller Nachrichten führen kann</string>
     <string name="title_advanced_data_usage">Dadurch kann ein hoher Datenverbrauch entstehen!</string>
     <string name="title_advanced_deleted_unseen">Wenn deaktiviert, bleiben ungelesene Nachrichten dauerhaft auf dem Gerät erhalten</string>
-    <string name="title_advanced_sync_kept_hint">Dies überträgt zusätzliche Daten und verbraucht zusätzliche Akkuladung, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
+    <string name="title_advanced_sync_kept_hint">Dadurch werden zusätzliche Daten übertragen und zusätzliche Akkuladung verbraucht, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
     <string name="title_advanced_gmail_thread_hint">Das betrifft nur neu empfangene Nachrichten und kann bestehende Gruppen beschädigen</string>
     <string name="title_advanced_subject_threading_hint">Nur Nachrichten, die in den letzten %1$d Stunden empfangen wurden</string>
-    <string name="title_advanced_sync_folders_hint">Das Deaktivieren dieser Funktion verringert den Daten- und Akkuverbrauch etwas, deaktiviert aber auch das Aktualisieren der Ordnerliste</string>
+    <string name="title_advanced_sync_folders_hint">Das Deaktivieren dieser Option verringert den Daten- und Akkuverbrauch etwas, deaktiviert aber auch das Aktualisieren der Ordnerliste</string>
     <string name="title_advanced_poll_folders_hint">Synchronisiert die Ordnerliste regelmäßig und zusätzlich nach der Verbindung mit einem Konto</string>
     <string name="title_advanced_check_authentication_hint">Damit werden die Ergebnisse der DKIM-, SPF- und DMARC-Authentifizierung geprüft, wie sie vom E-Mail-Server durchgeführt werden</string>
     <string name="title_advanced_check_tls_hint">Dies zeigt ein grünes Schild, sofern eine Nachricht von allen Servern sicher übermittelt wurde</string>
@@ -829,7 +835,7 @@
     <string name="title_advanced_tcp_keep_alive_hint">Das Aktivieren dieser Funktion kann bei einigen Geräten zu Verbindungsproblemen führen und den Akkuverbrauch erhöhen</string>
     <string name="title_advanced_validate_hint">Dadurch könnten Nachrichten nicht synchronisiert werden, zum Beispiel beim Verwenden eines VPNs, aber auch in anderen Situationen</string>
     <string name="title_advanced_timeout_hint">Die Zeitüberschreitung beim Lesen oder Schreiben wird auf das Doppelte der Verbindungszeitüberschreitung festgelegt. Höhere Werte führen zu einem höheren Akkuverbrauch.</string>
-    <string name="title_advanced_cert_strict_hint">Durch das Deaktivieren dieser Option wird die Überprüfung der Serverzertifikate gelockert</string>
+    <string name="title_advanced_cert_strict_hint">Das Deaktivieren dieser Option sorgt für eine weniger strenge Überprüfung von Serverzertifikaten</string>
     <string name="title_advanced_ssl_harden_hint">Das Aktivieren dieser Funktion deaktiviert schwache SSL-Protokolle und Chiffren, was zu Verbindungsproblemen führen kann</string>
     <string name="title_advanced_open_safe_hint">Das Aktivieren dieser Funktion erfordert eine sichere Verbindung zum Herunterladen von Bildern usw.</string>
     <string name="title_advanced_roaming_hint">Die Kopfzeilen der Nachrichten werden beim Roaming immer abgerufen. Sie können die Roaming-Einstellung des Geräts verwenden, um das Internet während des Roamings zu deaktivieren.</string>
@@ -933,7 +939,7 @@
     <string name="title_account_category">Kategorie</string>
     <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>
     <string name="title_account_interval_hint">Häufigkeit der Aktualisierung der Verbindung für Push-Nachrichten oder Häufigkeit der Überprüfung auf neue Nachrichten</string>
-    <string name="title_account_noop_hint">Dies wird die Verbindung aktiver aktualisieren, aber auch mehr Akkuleistung verbrauchen</string>
+    <string name="title_account_noop_hint">Dadurch wird die Verbindung aktiver aktualisiert, aber auch zusätzliche Akkuladung verbraucht</string>
     <string name="title_account_partial_fetch_hint">Nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen deaktivieren</string>
     <string name="title_account_raw_fetch_hint">Das Aktivieren dieser Funktion erhöht den Akku- und Datenverbrauch</string>
     <string name="title_color">Farbe</string>
@@ -1175,7 +1181,7 @@
     <string name="title_subject_forward_alt">Wg: %1$s</string>
     <string name="title_seen">Als gelesen kennzeichnen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Als gelesen/ungelesen markieren</string>
+    <string name="title_seen_unseen">Als gelesen/ungelesen markieren</string>
     <string name="title_toggle_seen">Gelesen/Ungelesen</string>
     <string name="title_hide">Ausblenden</string>
     <string name="title_unhide">Anzeigen</string>
@@ -1525,10 +1531,10 @@
     <string name="title_signature_none">Nicht signierte Nachricht</string>
     <string name="title_signature_valid">Gültige Nachrichtensignatur</string>
     <string name="title_signature_valid_from">Nachrichtensignatur gültig: %1$s</string>
-    <string name="title_signature_unconfirmed">Die Signatur der Nachricht ist zwar gültig, aber nicht bestätigt</string>
-    <string name="title_signature_unconfirmed_from">Nachrichtensignatur gültig aber nicht bestätigt: %1$s</string>
+    <string name="title_signature_unconfirmed">Gültige, aber nicht bestätigte Nachrichtensignatur</string>
+    <string name="title_signature_unconfirmed_from">Gültige, aber nicht bestätigte Nachrichtensignatur: %1$s</string>
     <string name="title_signature_invalid">Ungültige Nachrichtensignatur</string>
-    <string name="title_signature_invalid_reason">Nachrichtensignatur ungültig: %1$s</string>
+    <string name="title_signature_invalid_reason">Ungültige Nachrichtensignatur: %1$s</string>
     <string name="title_signature_key_missing">Schlüssel für die Signaturüberprüfung fehlt</string>
     <string name="title_signature_certificate_invalid">Zertifikatskette ungültig</string>
     <string name="title_signature_sender">E-Mail-Adresse des Absenders</string>
@@ -1893,7 +1899,7 @@
     <string name="title_hint_important">Wichtig</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen – abhängig von der Geschwindigkeit des Anbieters, der Internetverbindung, des Geräts und der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
     <string name="title_hint_sync_note">Standardmäßig werden nicht alle Nachrichten heruntergeladen, um Speicherplatz, Akku- und Datenverbrauch zu begrenzen. Sie können dies ändern, indem Sie lange auf einen Ordner in der Ordnerliste drücken und »Weitere Nachrichten abrufen« auswählen.</string>
-    <string name="title_hint_battery">Da FairEmail standardmäßig immer bereit ist, Nachrichten zu erhalten, meldet Android FairEmail als immer aktiv. Daher mag es so aussehen, als ob FairEmail immer Akkuleistung verbraucht, aber das ist nicht der Fall.</string>
+    <string name="title_hint_battery">Da FairEmail standardmäßig immer bereit ist, Nachrichten zu erhalten, meldet Android FairEmail als immer aktiv. Daher mag es so aussehen, als ob FairEmail immer Akkuladung verbraucht, aber das ist nicht der Fall.</string>
     <string name="title_hint_reformat">Standardmäßig formatiert FairEmail Nachrichten aus Datenschutz- und Sicherheitsgründen neu. Um die Originalnachricht anzuzeigen, tippen Sie über dem Nachrichtentext auf das Vollbildsymbol »Original anzeigen«.</string>
     <string name="title_hint_design">Das Design ist bewusst nicht ablenkend, sondern sehr funktional gestaltet. Es gibt viele Optionen, um das Erscheinungsbild anzupassen, aber bitte haben Sie Verständnis dafür, dass es unmöglich ist, alle zufriedenzustellen.</string>
     <string name="title_hint_junk">Das Filtern von Spam sollte durch den E-Mail-Server erfolgen und kann auf einem akkubetriebenen Gerät mit begrenzten Kapazitäten nicht zuverlässig durchgeführt werden.</string>

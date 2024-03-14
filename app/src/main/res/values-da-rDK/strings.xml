@@ -14,6 +14,9 @@
     <string name="app_cake_required">Krævet minimum af lagerplads: %1$s</string>
     <string name="app_updated">Senest opdateret: %1$s</string>
     <string name="app_download">Downloadet fra: %1$s</string>
+    <string name="app_mod1">        Marts-sikkerhedsopdateringen forårsager \'App svarer ikke\'-meddelelser udelukkende på Google Pixel-enheder.
+        Bebrejd dog ikke appen for dette, da kun Google kan løse problemet!
+    </string>
     <string name="channel_service">Monitorering</string>
     <string name="channel_send">Send</string>
     <string name="channel_notification">E-mail</string>
@@ -426,6 +429,9 @@
     <string name="title_advanced_reply_move_inbox">Også for beskeder i indbakken</string>
     <string name="title_advanced_send_retry_max">Maks. afsendelsesforsøg</string>
     <string name="title_advanced_send_retry_hint">Afsendelse forsøges igen ved forbindelsesændringer</string>
+    <string name="title_advanced_send_partial">Ignorér ugyldige adresser ved afsendelse</string>
+    <string name="title_advanced_send_partial_hint">Er nogle adresser ugyldige, sendes en besked stadig til de øvrige adresser</string>
+    <string name="title_advanced_sent_partially">Beskeden blev ikke sendt til alle modtagere</string>
     <string name="title_advanced_auto_link">Opret links automatisk</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
     <string name="title_advanced_plain_only_reply">Brug automatisk ren tekst ved besvarelse af en ren tekst besked</string>

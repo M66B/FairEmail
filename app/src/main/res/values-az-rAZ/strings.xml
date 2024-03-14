@@ -1173,7 +1173,7 @@
     <string name="title_subject_forward_alt">Ynlndr: %1$s</string>
     <string name="title_seen">Oxundu kimi işarələ</string>
     <string name="title_unseen">Oxunmadı kimi işarələ</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Oxundu/oxunmadı işarələ</string>
+    <string name="title_seen_unseen">Oxundu/oxunmadı işarələ</string>
     <string name="title_toggle_seen">Oxumanı aç/bağla</string>
     <string name="title_hide">Gizlət</string>
     <string name="title_unhide">Göstər</string>

@@ -14,6 +14,9 @@
     <string name="app_cake_required">最低限必要な空き容量: %1$s</string>
     <string name="app_updated">最終更新: %1$s</string>
     <string name="app_download">ダウンロード元: %1$s</string>
+    <string name="app_mod1">        3 月のセキュリティアップデートにより、Google Pixel でのみ「アプリが応答しません」というメッセージが表示されるようになりました。
+        この問題を解決できるのは Google のみのため、アプリを非難しないでください！
+    </string>
     <string name="channel_service">モニター</string>
     <string name="channel_send">送信</string>
     <string name="channel_notification">メール</string>
@@ -412,6 +415,9 @@
     <string name="title_advanced_reply_move_inbox">受信トレイにあるメッセージにも適用する</string>
     <string name="title_advanced_send_retry_max">送信試行回数の上限</string>
     <string name="title_advanced_send_retry_hint">接続が変更されると送信を再試行します</string>
+    <string name="title_advanced_send_partial">複数の宛先へ送信するとき、無効なアドレスを無視する</string>
+    <string name="title_advanced_send_partial_hint">一部のメールアドレスが無効な場合でも、その他のアドレスにメッセージを送信します</string>
+    <string name="title_advanced_sent_partially">一部の宛先にはメッセージを送信できませんでした</string>
     <string name="title_advanced_auto_link">自動でリンクを作成する</string>
     <string name="title_advanced_plain_only">デフォルトでプレーンテキストのみ送信する</string>
     <string name="title_advanced_plain_only_reply">プレーンテキストのみのメッセージにはプレーンテキストのみで返信する</string>
@@ -1159,6 +1165,7 @@
     <string name="title_subject_forward_alt">FW: %1$s</string>
     <string name="title_seen">既読にする</string>
     <string name="title_unseen">未読にする</string>
+    <string name="title_seen_unseen">既読/未読にする</string>
     <string name="title_toggle_seen">既読/未読の切り替え</string>
     <string name="title_hide">非表示にする</string>
     <string name="title_unhide">表示</string>

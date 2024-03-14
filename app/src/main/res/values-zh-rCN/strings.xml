@@ -14,6 +14,9 @@
     <string name="app_cake_required">需要的最小存储空间： %1$s</string>
     <string name="app_updated">上次更新：%1$s</string>
     <string name="app_download">下载自：%1$s</string>
+    <string name="app_mod1">        2024年3月的安全更新导致出现“应用未响应”消息，只有 Google Pixel 设备有这个问题。
+        请不要将这一问题怪罪在 FairEmail 身上，只有 Google 才能解决这个问题！
+    </string>
     <string name="channel_service">监控</string>
     <string name="channel_send">发送</string>
     <string name="channel_notification">电子邮件</string>
@@ -409,6 +412,11 @@
     <string name="title_advanced_discard_delete">舍弃草稿时将其永久删除</string>
     <string name="title_advanced_reply_move">回复邮件时，将回复保存在相同文件夹中</string>
     <string name="title_advanced_reply_move_inbox">也适用于收件箱中的消息</string>
+    <string name="title_advanced_send_retry_max">最大发送尝试次数</string>
+    <string name="title_advanced_send_retry_hint">连接更改时将重新尝试发送</string>
+    <string name="title_advanced_send_partial">发送时忽略无效地址</string>
+    <string name="title_advanced_send_partial_hint">即使某些地址无效，仍将发送消息到其他地址</string>
+    <string name="title_advanced_sent_partially">消息未发送到所有收件人</string>
     <string name="title_advanced_auto_link">自动创建链接</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_plain_only_reply">仅在回复纯文本消息时自动使用纯文本</string>
@@ -1153,6 +1161,7 @@
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
+    <string name="title_seen_unseen">标为已读/未读</string>
     <string name="title_toggle_seen">切换已读状态</string>
     <string name="title_hide">隐藏</string>
     <string name="title_unhide">显示</string>
@@ -1568,6 +1577,7 @@
     <string name="title_sort_on_time">时间</string>
     <string name="title_sort_on_unread">未读</string>
     <string name="title_sort_on_starred">星标</string>
+    <string name="title_sort_on_unread_starred">未读，星标</string>
     <string name="title_sort_on_starred_unread">星标，未读</string>
     <string name="title_sort_on_priority">优先级</string>
     <string name="title_sort_on_sender">发件人</string>

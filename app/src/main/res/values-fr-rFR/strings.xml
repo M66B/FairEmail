@@ -14,6 +14,9 @@
     <string name="app_cake_required">Espace de stockage minimum requis : %1$s</string>
     <string name="app_updated">Dernière mise à jour : %1$s</string>
     <string name="app_download">Téléchargé depuis : %1$s</string>
+    <string name="app_mod1">        La mise à jour de sécurité de mars provoque l\'apparition de messages \"L\'application ne répond pas\" exclusivement sur les appareils Google Pixel.
+        Veuillez ne pas blâmer cette application, seul Google peut résoudre ceci !
+    </string>
     <string name="channel_service">Surveillance</string>
     <string name="channel_send">Envoi</string>
     <string name="channel_notification">E-mail</string>
@@ -426,6 +429,9 @@
     <string name="title_advanced_reply_move_inbox">Également pour les messages dans la boîte de réception</string>
     <string name="title_advanced_send_retry_max">Nombre maximum de tentatives d\'envoi</string>
     <string name="title_advanced_send_retry_hint">L\'envoi sera tenté de nouveau en cas de changement de connectivité</string>
+    <string name="title_advanced_send_partial">Ignorer les adresses invalides lors de l\'envoi</string>
+    <string name="title_advanced_send_partial_hint">Si certaines adresses sont invalides, le message sera quand même envoyé aux autres adresses</string>
+    <string name="title_advanced_sent_partially">Le message n\'a pas été envoyé à tous les destinataires</string>
     <string name="title_advanced_auto_link">Créer automatiquement des liens</string>
     <string name="title_advanced_plain_only">Envoyer uniquement le texte brut par défaut</string>
     <string name="title_advanced_plain_only_reply">Texte brut automatique uniquement en réponse à un message en texte brut exclusivement</string>
@@ -1174,7 +1180,7 @@
     <string name="title_subject_forward_alt">Tr: %1$s</string>
     <string name="title_seen">Marquer comme lu</string>
     <string name="title_unseen">Marquer comme non lu</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Marquer lu/non lu</string>
+    <string name="title_seen_unseen">Marquer lu/non lu</string>
     <string name="title_toggle_seen">Marquer lu/non lu</string>
     <string name="title_hide">Masquer</string>
     <string name="title_unhide">Afficher</string>

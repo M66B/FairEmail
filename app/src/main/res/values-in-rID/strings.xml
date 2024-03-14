@@ -14,6 +14,9 @@
     <string name="app_cake_required">Ruang penyimpanan minimum yang dibutuhkan: %1$s</string>
     <string name="app_updated">Pembaharuan terakhir: %1$s</string>
     <string name="app_download">Mengunduh dari: %1$s</string>
+    <string name="app_mod1">        Pembaruan keamanan Bulan Maret memunculkan pesan \'Aplikasi tidak merespons\', khususnya pada perangkat Google Pixel.
+        Mohon jangan salahkan aplikasi dalam hal ini, hanya Google yang dapat memperbaikinya!
+    </string>
     <string name="channel_service">Pemantauan</string>
     <string name="channel_send">Kirim</string>
     <string name="channel_notification">Surel</string>
@@ -410,6 +413,9 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_reply_move_inbox">Juga untuk pesan dalam kotak masuk</string>
     <string name="title_advanced_send_retry_max">Upaya pengiriman maksimum</string>
     <string name="title_advanced_send_retry_hint">Pengiriman akan dicoba kembali saat terjadi perubahan konektivitas</string>
+    <string name="title_advanced_send_partial">Abaikan alamat yang tidak valid saat mengirim</string>
+    <string name="title_advanced_send_partial_hint">Jika beberapa alamat tidak valid, pesan akan tetap dikirimkan ke alamat lainnya</string>
+    <string name="title_advanced_sent_partially">Pesan tidak terkirim ke semua penerima</string>
     <string name="title_advanced_auto_link">Secara otomatis membuat tautan</string>
     <string name="title_advanced_plain_only">Kirim teks biasa hanya secara bawaan</string>
     <string name="title_advanced_plain_only_reply">Teks biasa secara otomatis hanya saat membalas pesan hanya teks biasa</string>
@@ -1151,7 +1157,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Tandai sudah dibaca</string>
     <string name="title_unseen">Tandai belum dibaca</string>
-    <string name="title_seen_unseen" comment="title_seen_unseen&#10;Title for (swipe) action to toggle the read/unread status of a message&#10;Please try to keep it short, so it fits in a pop-up menu, like &quot;Mark un/read&quot;.">Tandai telah/belum dibaca</string>
+    <string name="title_seen_unseen">Tandai telah/belum dibaca</string>
     <string name="title_toggle_seen">Alihkan ke mode baca</string>
     <string name="title_hide">Sembunyikan</string>
     <string name="title_unhide">Tampilkan</string>
