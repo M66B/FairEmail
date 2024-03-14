@@ -6,9 +6,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### Next version
+### 1.2168 - 2024-03-14
 
-* Added option to allow sending to some recipients (ignoring invalid addresses, etc.)
+* Added option to ignore invalid addresses when sending
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
