@@ -224,16 +224,18 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                                 try (InputStream is = new FileInputStream(file)) {
                                     Bitmap bitmap = ImageHelper.getScaledBitmap(is, file.getAbsolutePath(), type, max);
-                                    int width = bitmap.getWidth(), height = bitmap.getHeight();
-                                    int[] pixels = new int[width * height];
-                                    bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+                                    if (bitmap != null) {
+                                        int width = bitmap.getWidth(), height = bitmap.getHeight();
+                                        int[] pixels = new int[width * height];
+                                        bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
 
-                                    RGBLuminanceSource source = new RGBLuminanceSource(width, height, pixels);
-                                    BinaryBitmap bBitmap = new BinaryBitmap(new HybridBinarizer(source));
-                                    MultiFormatReader reader = new MultiFormatReader();
-                                    Result result = reader.decode(bBitmap);
-                                    args.putString("barcode_text", Helper.getPrintableString(result.getText(), false));
-                                    args.putString("barcode_format", result.getBarcodeFormat().name());
+                                        RGBLuminanceSource source = new RGBLuminanceSource(width, height, pixels);
+                                        BinaryBitmap bBitmap = new BinaryBitmap(new HybridBinarizer(source));
+                                        MultiFormatReader reader = new MultiFormatReader();
+                                        Result result = reader.decode(bBitmap);
+                                        args.putString("barcode_text", Helper.getPrintableString(result.getText(), false));
+                                        args.putString("barcode_format", result.getBarcodeFormat().name());
+                                    }
                                 } catch (NotFoundException ex) {
                                     Log.i(ex);
                                 } catch (Throwable ex) {
