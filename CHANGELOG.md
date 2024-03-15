@@ -6,7 +6,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### 1.2168 - 2024-03-14
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2168 - 2024-03-14 *
 
 * Added option to ignore invalid addresses when sending
 * Small improvements and minor bug fixes
