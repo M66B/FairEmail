@@ -14,6 +14,9 @@
     <string name="app_cake_required">Miinimu vajalik talletusruum: %1$s</string>
     <string name="app_updated">Viimati uuendatud: %1$s</string>
     <string name="app_download">Laaditud kohast: %1$s</string>
+    <string name="app_mod1">        Märtsi turvaparandus põhjustab teateid \"Rakendus ei vasta\", ainult Google Pixel seadmetes.
+        Palun ära süüdista selles äppi. Vaid Google saab selle parandada!
+    </string>
     <string name="channel_service">Jälgimine</string>
     <string name="channel_send">Saatmine</string>
     <string name="channel_notification">E-post</string>
@@ -418,6 +421,9 @@
     <string name="title_advanced_reply_move_inbox">Ka sisendkasti sõnumite puhul</string>
     <string name="title_advanced_send_retry_max">Maksimum saatmiskatseid</string>
     <string name="title_advanced_send_retry_hint">Saatmist üritatakse uuesti ühenduse muutumisel</string>
+    <string name="title_advanced_send_partial">Ignoreeri saatmisel vigaseid aadresse</string>
+    <string name="title_advanced_send_partial_hint">Kui mõni aadress on vigane, saadetakse sõnum teistele aadressitele ikkagi</string>
+    <string name="title_advanced_sent_partially">Sõnumit ei saadetud kõigile saajatele</string>
     <string name="title_advanced_auto_link">Loo lingid automaatselt</string>
     <string name="title_advanced_plain_only">Saada vaikimisi vaid lihttekst</string>
     <string name="title_advanced_plain_only_reply">Vaid lihttekstis sõnumile vastamisel automaatselt vaid lihttekst</string>
@@ -1502,9 +1508,16 @@
     <string name="title_charset_auto">Automaatne</string>
     <string name="title_alternative_text">Laadi lihttekst</string>
     <string name="title_alternative_html">Laadi HTML</string>
+    <string name="title_no_openpgp">Ei leidnud OpenKeychaini</string>
+    <string name="title_no_openpgp_remark">Kõigepealt tuleb häälestada PGP otspunktkrüpteerimine</string>
+    <string name="title_user_interaction">Üle kandmine OpenKeychaini</string>
+    <string name="title_padlock">Kasuta sõnumi dekrüpteerimiseks Padlocki</string>
     <string name="title_signed_data">Sõnumi näitamiseks kontrolli allkirja</string>
     <string name="title_not_encrypted">Sõnum pole signeeritud ega krüpteeritud</string>
+    <string name="title_no_sign_key">Allkirjavõtit pole valitud</string>
+    <string name="title_reset_sign_key">Lähtesta allkirjavõti</string>
     <string name="title_reset_selected_keys">Lähtesta valitud võtmed</string>
+    <string name="title_reset_selected_keys_hint">Saab kasutada uue sertifikaadi vms puhul.</string>
     <string name="title_signature_none">Sõnum on allkirjastamata</string>
     <string name="title_signature_valid">Sõnumi allkiri on kehtiv</string>
     <string name="title_signature_valid_from">Sõnumi allkiri kehtiv: %1$s</string>
@@ -1663,6 +1676,8 @@
     <string name="title_rule_group">Rühm</string>
     <string name="title_rule_order">Järjestus</string>
     <string name="title_rule_enabled">Lubatud</string>
+    <string name="title_rule_daily">Kord päevas (vaid)</string>
+    <string name="title_rule_age">Sõnumid vanemad kui (päeva)</string>
     <string name="title_rule_sender">Saatja sisaldab</string>
     <string name="title_rule_sender_known">Saatja on kontakt</string>
     <string name="title_rule_attachments">On manuseid</string>
@@ -1686,6 +1701,9 @@
     <string name="title_rule_check">Kontrolli</string>
     <string name="title_rule_no_headers">Päiste tingimusi ei saa kontrollida</string>
     <string name="title_rule_tts_setup">Kontrolli seadistust</string>
+    <string name="title_rule_tts_data">Paigalda hääle andmed</string>
+    <string name="title_rule_tts_prefix">Uus sõnum</string>
+    <string name="title_rule_tts_from">Kellelt</string>
     <string name="title_code_pretty">Tähistustega kujundus</string>
     <string name="title_legend_section_folders">Kaustad</string>
     <string name="title_legend_section_messages">Sõnumid</string>
@@ -1695,7 +1713,10 @@
     <string name="title_legend_folder_disconnected">Kaust ühendamata</string>
     <string name="title_legend_download_on">Laadi sõnumi sisu automaatselt alla</string>
     <string name="title_legend_disconnected">Ühendamata</string>
+    <string name="title_legend_connecting">Ühendumine</string>
     <string name="title_legend_connected">Ühendatud</string>
+    <string name="title_legend_backoff">Ootamine peale nurjumist</string>
+    <string name="title_legend_quota">Postkast peaaegu täis</string>
     <string name="title_legend_unified">Ühendatud sisendkast / põhikonto</string>
     <string name="title_legend_junk">Spämm</string>
     <string name="title_legend_similar">Otsi sarnaseid sõnumeid</string>

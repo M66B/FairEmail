@@ -14,6 +14,9 @@
     <string name="app_cake_required">Spațiu minim necesar de stocare: %1$s</string>
     <string name="app_updated">Ultima actualizare: %1$s</string>
     <string name="app_download">Descărcat de la: %1$s</string>
+    <string name="app_mod1">        Actualizarea de securitate din martie provoacă mesaje de tip \"Aplicația nu răspunde\", exclusiv pe dispozitivele Google Pixel.
+        Vă rugăm să nu dați vina pe aplicație pentru acest lucru, doar Google poate rezolva asta!
+    </string>
     <string name="channel_service">Ecran</string>
     <string name="channel_send">Trimite</string>
     <string name="channel_notification">E-mail</string>
@@ -439,6 +442,9 @@
     <string name="title_advanced_reply_move_inbox">De asemenea, pentru mesajele din primite</string>
     <string name="title_advanced_send_retry_max">Încercări maxime de trimitere</string>
     <string name="title_advanced_send_retry_hint">Trimiterea va fi reîncercată la schimbarea conectivității</string>
+    <string name="title_advanced_send_partial">Ignoră adresele incorecte la trimitere</string>
+    <string name="title_advanced_send_partial_hint">Dacă unele adrese nu sunt valide, mesajul va fi trimis totuși la celelalte adrese</string>
+    <string name="title_advanced_sent_partially">Mesajul nu a fost trimis tuturor destinatarilor</string>
     <string name="title_advanced_auto_link">Creează automat adrese</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_plain_only_reply">Setează automat text simplu doar când se răspunde la un mesaj cu text simplu</string>

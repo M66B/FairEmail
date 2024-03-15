@@ -14,6 +14,9 @@
     <string name="app_cake_required">Tələb olunan minimum anbar sahəsi: %1$s</string>
     <string name="app_updated">Son güncəlləmə: %1$s</string>
     <string name="app_download">%1$s üzərindən endirildi</string>
+    <string name="app_mod1">        Mart ayı güvənlik güncəlləməsi, xüsusilə Google Pixel cihazlarında \"Tətbiq cavab vermir\" mesajına səbəb olur.
+        Lütfən nəzərə alın ki, bu, tətbiqdən qaynaqlanan məsələ deyil, bunu yalnız Google həll edə bilər!
+    </string>
     <string name="channel_service">Müşahidə</string>
     <string name="channel_send">Göndər</string>
     <string name="channel_notification">E-poçt</string>
@@ -426,6 +429,9 @@
     <string name="title_advanced_reply_move_inbox">Həmçinin gələn qutusundakı mesajlar üçün</string>
     <string name="title_advanced_send_retry_max">Maksimum göndərmə cəhdi</string>
     <string name="title_advanced_send_retry_hint">Bağlantı dəyişəndə yenidən göndərməyə çalışılacaq</string>
+    <string name="title_advanced_send_partial">Göndərəndə yararsız ünvanları yox say</string>
+    <string name="title_advanced_send_partial_hint">Bəzi ünvanlar yararsız olsa da, digər ünvanlara mesaj göndərilməyə davam ediləcək</string>
+    <string name="title_advanced_sent_partially">Mesaj bütün alıcılara göndərilmədi</string>
     <string name="title_advanced_auto_link">Bağlantıları avtomatik yarat</string>
     <string name="title_advanced_plain_only">İlkin olaraq yalnız düz mətn göndər</string>
     <string name="title_advanced_plain_only_reply">Yalnız düz mətn mesajına cavab verərkən avtomatik olaraq yalnız düz mətn</string>

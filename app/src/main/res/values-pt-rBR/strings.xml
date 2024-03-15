@@ -14,6 +14,9 @@
     <string name="app_cake_required">Espaço mínimo de armazenamento necessário: %1$s</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Baixado de: %1$s</string>
+    <string name="app_mod1">        A atualização de segurança de março está causando mensagens de ‘aplicativo não responde’, exclusivamente em dispositivos Google Pixel.
+        Por favor, não culpe o aplicativo por isso, só o Google pode resolver isso!
+    </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>

@@ -14,6 +14,9 @@
     <string name="app_cake_required">Minimalno zahtijevani skladišni prostor: %1$s</string>
     <string name="app_updated">Posljednje ažuriranje: %1$s</string>
     <string name="app_download">Preuzeto sa: %1$s</string>
+    <string name="app_mod1">        Martovsko sigurnosno ažuriranje uzrok je porukama \'Aplikacija ne reaguje\', ekskluzivno na Google Pixel uređajima.
+        Molimo da ne krivite aplikaciju zbog ovog, samo Google može riješiti ovaj problem!
+    </string>
     <string name="channel_service">Monitoring</string>
     <string name="channel_send">Slanje</string>
     <string name="channel_notification">E-pošta</string>
@@ -438,6 +441,11 @@
     <string name="title_advanced_discard_delete">Pri odbacivanju nacrta, trajno izbriši nacrt</string>
     <string name="title_advanced_reply_move">Pri odgovaranju na poruku, sačuvaj odgovor u isti folder</string>
     <string name="title_advanced_reply_move_inbox">Također za poruke u inbox-u</string>
+    <string name="title_advanced_send_retry_max">Maks. broj pokušaja slanja</string>
+    <string name="title_advanced_send_retry_hint">Slanje će biti ponovo pokušano kada se promijeni konekcija</string>
+    <string name="title_advanced_send_partial">Ignoriši nevažeće adrese prilikom slanja</string>
+    <string name="title_advanced_send_partial_hint">Ako samo neke adrese nisu važeće, poruka će se ipak poslati na ostale adrese</string>
+    <string name="title_advanced_sent_partially">Poruka nije poslana svim primaocima</string>
     <string name="title_advanced_auto_link">Automatski kreiraj linkove (hiperveze)</string>
     <string name="title_advanced_plain_only">Pošalji običan tekst po zadanom</string>
     <string name="title_advanced_plain_only_reply">Automatski odgovori običnim tekstom na poruku samo s običnim tekstom</string>
@@ -1185,6 +1193,7 @@
     <string name="title_subject_forward_alt">Pro: %1$s</string>
     <string name="title_seen">Oznaci kao pročitano</string>
     <string name="title_unseen">Označi kao nepročitano</string>
+    <string name="title_seen_unseen">Označi kao pročitano/nepročitano</string>
     <string name="title_toggle_seen">Zamjeni status čitanja</string>
     <string name="title_hide">Sakrij</string>
     <string name="title_unhide">Prikaži</string>
@@ -1602,6 +1611,8 @@
     <string name="title_sort_on_time">Vremenu</string>
     <string name="title_sort_on_unread">Nepročitano</string>
     <string name="title_sort_on_starred">Favoritima</string>
+    <string name="title_sort_on_unread_starred">Nepročitano, favoriti</string>
+    <string name="title_sort_on_starred_unread">Favoriti, nepročitano</string>
     <string name="title_sort_on_priority">Prioritet</string>
     <string name="title_sort_on_sender">Pošiljalac</string>
     <string name="title_sort_on_subject">Predmet</string>
