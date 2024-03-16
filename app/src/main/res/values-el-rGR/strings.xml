@@ -14,6 +14,9 @@
     <string name="app_cake_required">Ελάχιστος απαιτούμενος χώρος αποθήκευσης: %1$s</string>
     <string name="app_updated">Τελευταία ενημέρωση: %1$s</string>
     <string name="app_download">Λήφθηκε από: %1$s</string>
+    <string name="app_mod1">        Η ενημέρωση ασφαλείας του Μαρτίου προκαλεί μηνύματα: \"Η εφαρμογή δεν ανταποκρίνεται\", αποκλειστικά σε συσκευές Google Pixel.
+        Παρακαλούμε, μην κατηγορείτε την εφαρμογή για αυτό, μόνο η Google μπορεί να το επιλύσει!
+    </string>
     <string name="channel_service">Παρακολούθηση</string>
     <string name="channel_send">Αποστολή</string>
     <string name="channel_notification">E-mail</string>
@@ -425,6 +428,9 @@
     <string name="title_advanced_reply_move_inbox">Το ίδιο για τα μηνύματα στα εισερχόμενα</string>
     <string name="title_advanced_send_retry_max">Μέγιστος αριθμός προσπαθειών αποστολής</string>
     <string name="title_advanced_send_retry_hint">Εκ νέου απόπειρα αποστολής σε περίπτωση αλλαγής σύνδεσης</string>
+    <string name="title_advanced_send_partial">Να αγνοούνται οι μη έγκυρες διευθύνσεις κατά την αποστολή</string>
+    <string name="title_advanced_send_partial_hint">Εάν κάποιες διευθύνσεις δεν είναι έγκυρες, ένα μήνυμα θα εξακολουθεί να αποστέλλεται στις άλλες διευθύνσεις</string>
+    <string name="title_advanced_sent_partially">Το μήνυμα δεν εστάλη σε όλους τους παραλήπτες</string>
     <string name="title_advanced_auto_link">Αυτόματη δημιουργία συνδέσμων</string>
     <string name="title_advanced_plain_only">Αποστολή απλού κειμένου από προεπιλογή</string>
     <string name="title_advanced_plain_only_reply">Αυτόματη χρήση μόνο απλού κειμένου κατά την απάντηση σε μήνυμα που έχει μόνο απλό κείμενο</string>

@@ -1678,10 +1678,26 @@
     <string name="title_rule_enabled">Lubatud</string>
     <string name="title_rule_daily">Kord päevas (vaid)</string>
     <string name="title_rule_age">Sõnumid vanemad kui (päeva)</string>
+    <string name="title_rule_stop">Peale selle reegli täitmist lõpeta reeglite töötlemine</string>
+    <string name="title_rule_stop_remark">Kui reegel on rühma osa, lõpetatakse kõigi selle rühma reeglite töötlemine</string>
     <string name="title_rule_sender">Saatja sisaldab</string>
     <string name="title_rule_sender_known">Saatja on kontakt</string>
+    <string name="title_rule_recipient">Saaja sisaldab</string>
+    <string name="title_rule_subject">Teema sisaldab</string>
     <string name="title_rule_attachments">On manuseid</string>
+    <string name="title_rule_header">Päis sisaldab</string>
+    <string name="title_rule_body">Tekst sisaldab</string>
+    <string name="title_rule_skip_quotes">Jäta osundatud tekst vahele</string>
+    <string name="title_rule_body_remark">Selle tingimuse kasutamine põhjustab alati sõnumi teksti alla laadimise, mis võib aeglustada sõnumite loetelu sünkroonimist</string>
+    <string name="title_rule_time_abs">Absoluutne aeg (saabunud) ajavahemikul</string>
+    <string name="title_rule_time_after">Saabunud peale</string>
+    <string name="title_rule_time_before">Saabunud enne</string>
+    <string name="title_rule_time_rel">Suhteline aeg (saabunud) ajavahemikul</string>
+    <string name="title_rule_time_every_day">Iga päev</string>
     <string name="title_rule_younger">Sõnumid uuemad kui (tundi)</string>
+    <string name="title_rule_regex">Reg. avaldis</string>
+    <string name="title_rule_and">JA</string>
+    <string name="title_rule_action">Tegevus</string>
     <string name="title_rule_hours">Tundi</string>
     <string name="title_rule_folder_create">Loo alamkaust</string>
     <string name="title_rule_thread">Kõik samas vestluses ja kaustas olevad sõnumid</string>
@@ -1890,9 +1906,16 @@
     <string name="title_widget_icon">Ikooni värv</string>
     <string name="title_widget_day_night">Järgi süsteemi tumedat teemat</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label1">Oluline</string>
+    <string name="title_keyword_label2">Töö</string>
+    <string name="title_keyword_label3">Isiklik</string>
+    <string name="title_keyword_label4">Teha</string>
     <string name="title_keyword_label5">Hiljem</string>
     <string name="title_keyword_displayed">Näidatud</string>
+    <string name="title_keyword_delivered">Kättetoimetatud</string>
     <string name="title_keyword_not_displayed">Pole näidatud</string>
+    <string name="title_keyword_not_delivered">Pole kättetoimetatud</string>
+    <string name="title_keyword_complaint">Kaebus</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d sõnum</item>
         <item quantity="other">%1$d sõnumit</item>
@@ -1909,19 +1932,24 @@
     <string name="title_accessibility_flagged">Starred</string>
     <string name="title_accessibility_unflagged">Ilma tärnita</string>
     <string name="title_accessibility_collapse">Ahenda</string>
+    <string name="title_accessibility_expand">Laienda</string>
     <string name="title_accessibility_view_contact">Vaata kontakti</string>
     <string name="title_accessibility_show_authentication_result">Näita autentimise tulemust</string>
+    <string name="title_accessibility_show_snooze_time">Näita tukastamise aega</string>
     <string name="title_accessibility_view_help">Vaata abi</string>
+    <string name="title_accessibility_selected">Valitud</string>
     <string name="title_accessibility_answered">Vastatud</string>
     <string name="title_accessibility_scroll_down">Rulli alla</string>
     <string name="title_accessibility_scroll_up">Rulli üles</string>
     <string name="title_accessibility_filter_out_seen">Lülita sõnumite loetuse filtrit</string>
     <string name="title_accessibility_filter_out_unflagged">Lülita tärniga sõnumite filtrit</string>
     <string name="title_accessibility_filter_out_snoozed">Lülita uinakul sõnumite filtrit</string>
+    <string name="title_accessibility_edit">Muuda</string>
     <string name="title_accessibility_show_addresses">Näita aadresse</string>
     <string name="title_accessibility_hide_addresses">Peida aadressid</string>
     <string name="title_accessibility_attachment">Manus</string>
     <string name="title_accessibility_from">Saatja</string>
+    <string name="title_accessibility_to">Saaja</string>
     <string-array name="pollIntervalNames">
         <item>Pidevalt</item>
         <item>5 minuti tagant</item>
@@ -1967,6 +1995,14 @@
         <item>Ära tee midagi</item>
         <item>Mine eelmisesse vestlusesse</item>
         <item>Mine järgmisesse vestlusesse</item>
+    </string-array>
+    <string-array name="resizeNames">
+        <item>Tilluke</item>
+        <item>Väga väike</item>
+        <item>Väike</item>
+        <item>Keskmine</item>
+        <item>Suur</item>
+        <item>Väga suur</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
