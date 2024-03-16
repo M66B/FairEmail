@@ -234,15 +234,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     new IntentFilter(ConnectivityManager.ACTION_RESTRICT_BACKGROUND_CHANGED),
                     ContextCompat.RECEIVER_NOT_EXPORTED);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            IntentFilter suspend = new IntentFilter();
-            suspend.addAction(Intent.ACTION_MY_PACKAGE_SUSPENDED);
-            suspend.addAction(Intent.ACTION_MY_PACKAGE_UNSUSPENDED);
-            ContextCompat.registerReceiver(this,
-                    suspendChanged,
-                    suspend,
-                    ContextCompat.RECEIVER_NOT_EXPORTED);
-        }
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        //    IntentFilter suspend = new IntentFilter();
+        //    suspend.addAction(Intent.ACTION_MY_PACKAGE_SUSPENDED);
+        //    suspend.addAction(Intent.ACTION_MY_PACKAGE_UNSUSPENDED);
+        //    ContextCompat.registerReceiver(this,
+        //            suspendChanged,
+        //            suspend,
+        //            ContextCompat.RECEIVER_NOT_EXPORTED);
+        //}
 
         ContextCompat.registerReceiver(this,
                 batteryChanged,
@@ -1036,8 +1036,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         unregisterReceiver(batteryChanged);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-            unregisterReceiver(suspendChanged);
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+        //    unregisterReceiver(suspendChanged);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             unregisterReceiver(dataSaverChanged);
