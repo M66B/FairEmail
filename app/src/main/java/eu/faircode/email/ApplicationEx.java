@@ -857,6 +857,10 @@ public class ApplicationEx extends Application
         } else if (version < 2168) {
             if (Helper.isGoogle())
                 editor.putBoolean("mod", true);
+        } else if (version < 2170) {
+            if (Build.PRODUCT == null || !Build.PRODUCT.endsWith("_beta") ||
+                    Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+                editor.putBoolean("mod", false);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
