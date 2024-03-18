@@ -79,9 +79,7 @@ public class DeepL {
 
     static final String PRIVACY_URI = "https://www.deepl.com/privacy/";
 
-    // curl https://api-free.deepl.com/v2/languages \
-    //	-d auth_key=... \
-    //	-d type=target
+    // curl https://api-free.deepl.com/v2/languages -d auth_key=... -d type=target
 
     public static boolean isAvailable(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
