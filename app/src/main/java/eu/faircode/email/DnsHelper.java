@@ -182,7 +182,7 @@ public class DnsHelper {
                 throw new IllegalArgumentException(type);
         }
 
-        ResolverApi resolver = DnssecResolverApi.INSTANCE;
+        ResolverApi resolver = (dnssec ? DnssecResolverApi.INSTANCE : ResolverApi.INSTANCE);
         AbstractDnsClient client = resolver.getClient();
 
         if (false) {
