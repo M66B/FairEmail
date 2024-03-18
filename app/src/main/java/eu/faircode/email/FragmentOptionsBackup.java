@@ -86,6 +86,7 @@ import java.security.spec.KeySpec;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -134,6 +135,32 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     private static final int REQUEST_IMPORT_SELECT = 2;
     private static final int REQUEST_EXPORT_HANDLE = 3;
     private static final int REQUEST_IMPORT_HANDLE = 4;
+
+    final static List<String> DEFER_OPTIONS = Collections.unmodifiableList(Arrays.asList(
+            "theme",
+            "beige"
+    ));
+
+    final static List<String> RESTART_OPTIONS = Collections.unmodifiableList(Arrays.asList(
+            "secure", // privacy
+            "load_emoji", // privacy
+            "shortcuts", // misc
+            "language", // misc
+            "wal" // misc
+    ));
+
+    static final String[][] RESET_ALL_OPTIONS = {
+            FragmentOptionsSynchronize.RESET_OPTIONS.toArray(new String[0]),
+            FragmentOptionsSend.RESET_OPTIONS.toArray(new String[0]),
+            FragmentOptionsConnection.RESET_OPTIONS.toArray(new String[0]),
+            FragmentOptionsDisplay.RESET_OPTIONS.toArray(new String[0]),
+            FragmentOptionsBehavior.RESET_OPTIONS.toArray(new String[0]),
+            FragmentOptionsPrivacy.RESET_OPTIONS.toArray(new String[0]),
+            FragmentOptionsEncryption.RESET_OPTIONS.toArray(new String[0]),
+            FragmentOptionsNotifications.RESET_OPTIONS.toArray(new String[0]),
+            //FragmentOptionsIntegrations.RESET_OPTIONS.toArray(new String[0]),
+            FragmentOptionsMisc.RESET_OPTIONS.toArray(new String[0])
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1136,65 +1163,34 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                         // Settings
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         SharedPreferences.Editor editor = prefs.edit();
+
+                        for (String[] options : RESET_ALL_OPTIONS)
+                            for (String key : options)
+                                if (!skipOption(key) &&
+                                        !DEFER_OPTIONS.contains(key) &&
+                                        !RESTART_OPTIONS.contains(key)) {
+                                    if (BuildConfig.DEBUG && prefs.contains(key))
+                                        postProgress("Clearing " + key);
+                                    editor.remove(key);
+                                }
+
                         JSONArray jsettings = jimport.getJSONArray("settings");
                         for (int s = 0; s < jsettings.length(); s++) {
                             JSONObject jsetting = (JSONObject) jsettings.get(s);
                             String key = jsetting.getString("key");
 
-                            if ("pro".equals(key) && !BuildConfig.DEBUG)
-                                continue;
-                            if ("iab_json".equals(key) || "iab_signature".equals(key))
-                                continue;
-
-                            if ("accept_unsupported".equals(key))
-                                continue;
-
-                            if ("biometrics".equals(key) || "pin".equals(key))
-                                continue;
-
-                            if ("alert_once".equals(key) && !Helper.isXiaomi())
-                                continue;
-
-                            if ("default_folder".equals(key))
-                                continue;
-
-                            if ("background_service".equals(key) &&
-                                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                                continue;
-
-                            if ("tcp_keep_alive".equals(key))
-                                continue;
-
-                            // Prevent restart
-                            if ("secure".equals(key) ||
-                                    "load_emoji".equals(key) ||
-                                    "shortcuts".equals(key) ||
-                                    "language".equals(key) ||
-                                    "wal".equals(key)) {
-                                postProgress("Skipping " + key + "=" + jsetting.get("value"));
-                                continue;
-                            }
-
-                            if ("theme".equals(key) || "beige".equals(key)) {
+                            if (DEFER_OPTIONS.contains(key)) {
                                 defer.put(key, jsetting.get("value"));
                                 continue;
                             }
 
-                            if (key != null && key.startsWith("widget."))
-                                continue;
-                            if (key != null && key.startsWith("unset."))
-                                continue;
-
-                            if ("external_search".equals(key)) {
-                                boolean external_search = jsetting.getBoolean("value");
-                                Helper.enableComponent(context, ActivitySearch.class, external_search);
+                            // Prevent restart
+                            if (RESTART_OPTIONS.contains(key)) {
+                                postProgress("Skipping " + key + "=" + jsetting.get("value"));
                                 continue;
                             }
 
-                            if ("external_storage".equals(key))
-                                continue;
-
-                            if ("reformatted_hint".equals(key))
+                            if (skipOption(key))
                                 continue;
 
                             Object value = jsetting.get("value");
@@ -1321,6 +1317,48 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 }
             }
         }.setHandler(tvLog.getHandler()).execute(this, args, "setup:import");
+    }
+
+    private static boolean skipOption(String key) {
+        if ("pro".equals(key) && !BuildConfig.DEBUG)
+            return true;
+        if ("iab_json".equals(key) || "iab_signature".equals(key))
+            return true;
+
+        if ("accept_unsupported".equals(key))
+            return true;
+
+        if ("biometrics".equals(key) || "pin".equals(key))
+            return true;
+
+        if ("alert_once".equals(key) && !Helper.isXiaomi())
+            return true;
+
+        if ("default_folder".equals(key))
+            return true;
+
+        if ("background_service".equals(key) &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            return true;
+
+        if ("tcp_keep_alive".equals(key))
+            return true;
+
+        if ("external_storage".equals(key))
+            return true;
+
+        if ("reformatted_hint".equals(key))
+            return true;
+
+        if ("external_search".equals(key))
+            return true;
+
+        if (key != null && key.startsWith("widget."))
+            return true;
+        if (key != null && key.startsWith("unset."))
+            return true;
+
+        return false;
     }
 
     private void handleK9Import(Uri uri) {

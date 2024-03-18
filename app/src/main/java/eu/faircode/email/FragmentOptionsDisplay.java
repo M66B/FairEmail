@@ -209,7 +209,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
-    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
+    final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "theme", "startup",
             "date", "date_week", "date_fixed", "date_bold", "date_time", "group_category",
             "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_border", "shadow_highlight", "dividers", "tabular_unread_bg",

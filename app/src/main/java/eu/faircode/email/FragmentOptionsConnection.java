@@ -128,7 +128,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private Group grpBC;
     private Group grpCustomSsl;
 
-    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
+    final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "metered", "download", "download_limited", "roaming", "rlah",
             "download_headers", "download_eml", "download_plain",
             "require_validated", "require_validated_captive", "vpn_only",

@@ -118,7 +118,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
     final static int REQUEST_DEFAULT_FOLDER = 1;
 
-    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
+    final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "restore_on_launch", "sync_on_launch", "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
             "photo_picker", "default_snooze",
             "pull", "pull_all", "autoscroll", "quick_filter", "quick_scroll", "quick_actions", "swipe_sensitivity", "foldernav",

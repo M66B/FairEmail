@@ -114,7 +114,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
     private final static int BIP39_WORDS = 6;
 
-    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
+    final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "confirm_links", "sanitize_links", "adguard", "adguard_auto_update",
             "check_links_dbl", "confirm_files",
             "confirm_images", "ask_images", "html_always_images", "confirm_html", "ask_html",

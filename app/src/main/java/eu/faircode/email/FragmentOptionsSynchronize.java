@@ -126,7 +126,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private int textColorTertiary;
     private int colorAccent;
 
-    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
+    final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "enabled", "poll_interval", "auto_optimize",
             "poll_metered", "poll_unmetered",
             "schedule", "schedule_start", "schedule_end", "schedule_start_weekend", "schedule_end_weekend", "weekend",

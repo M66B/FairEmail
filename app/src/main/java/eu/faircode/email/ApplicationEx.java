@@ -406,19 +406,14 @@ public class ApplicationEx extends Application
                 case "watchdog":
                     ServiceSynchronize.scheduleWatchdog(this);
                     break;
-                case "secure": // privacy
-                case "load_emoji": // privacy
-                case "shortcuts": // misc
-                case "language": // misc
-                case "wal": // misc
-                    // Should be excluded for import
-                    restart(this, key);
-                    break;
                 case "debug":
                 case "log_level":
                     Log.setLevel(this);
                     FairEmailLoggingProvider.setLevel(this);
                     break;
+                default:
+                    if (FragmentOptionsBackup.RESTART_OPTIONS.contains(key))
+                        restart(this, key);
             }
         } catch (Throwable ex) {
             Log.e(ex);

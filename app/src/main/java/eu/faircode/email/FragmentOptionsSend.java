@@ -130,7 +130,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private EditText etSendRetryMax;
     private SwitchCompat swSendPartial;
 
-    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
+    final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "keyboard", "keyboard_no_fullscreen",
             "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently", "suggest_account", "auto_identity",
             "purge_contact_age", "purge_contact_freq",

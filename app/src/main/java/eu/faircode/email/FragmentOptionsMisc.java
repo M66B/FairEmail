@@ -268,7 +268,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private static final int REQUEST_CLASSIFIER = 1;
     private static final long MIN_FILE_SIZE = 1024 * 1024L;
 
-    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
+    final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "sort_answers", "shortcuts", "ical_tentative", "fts",
             "classification", "class_min_probability", "class_min_difference",
             "show_filtered", "haptic_feedback",

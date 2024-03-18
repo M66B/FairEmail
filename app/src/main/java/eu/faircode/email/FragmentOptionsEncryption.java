@@ -118,7 +118,7 @@ public class FragmentOptionsEncryption extends FragmentBase
 
     static final int REQUEST_IMPORT_CERTIFICATE = 1;
 
-    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
+    final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "sign_default", "encrypt_default", "encrypt_auto",
             "auto_verify", "auto_decrypt", "auto_undecrypt",
             "openpgp_provider", "autocrypt", "autocrypt_mutual", "encrypt_subject",

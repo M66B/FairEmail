@@ -135,7 +135,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private Group grpBackground;
     private Group grpTiles;
 
-    private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
+    final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "notify_newest_first", "notify_summary",
             "notify_trash", "notify_junk", "notify_block_sender", "notify_archive", "notify_move",
             "notify_reply", "notify_reply_direct",
