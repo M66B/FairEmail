@@ -1,5 +1,10 @@
 [
   {
+    "language": "AR",
+    "name": "Arabic",
+    "supports_formality": false
+  },
+  {
     "language": "BG",
     "name": "Bulgarian",
     "supports_formality": false

@@ -115,7 +115,9 @@ public class DeepL {
                 int frequency = prefs.getInt("translated_" + target, 0);
 
                 String flag;
-                if ("CS".equals(target))
+                if ("AR".equals(target))
+                    flag = "SA";
+                else if ("CS".equals(target))
                     flag = "CZ";
                 else if ("DA".equals(target))
                     flag = "DK";
