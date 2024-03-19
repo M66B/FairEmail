@@ -8294,6 +8294,9 @@ public class FragmentMessages extends FragmentBase
                 return;
             }
 
+            if (message.revision != null && message.revision < 0)
+                db.message().setMessageSubject(message.id, "...");
+
             File file = message.getFile(context);
             Helper.writeText(file, null);
             db.message().setMessageContent(message.id, true, null, null, null, null);
@@ -9228,6 +9231,7 @@ public class FragmentMessages extends FragmentBase
                                         String text = Helper.readText(plain);
                                         String html = "<div x-plain=\"true\">" + HtmlHelper.formatPlainText(text) + "</div>";
                                         Helper.writeText(message.getFile(context), html);
+                                        db.message().setMessageRevision(message.id, 1);
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);
 
@@ -9300,11 +9304,11 @@ public class FragmentMessages extends FragmentBase
                                             }
                                         }
 
-                                        checkPep(message, remotes, context);
+                                        boolean pep = checkPep(message, remotes, context);
 
                                         encrypt = parts.getEncryption();
                                         db.message().setMessageEncrypt(message.id, encrypt);
-                                        db.message().setMessageRevision(message.id, 1);
+                                        db.message().setMessageRevision(message.id, pep || protect_subject == null ? 1 : -1);
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);
 
@@ -10040,10 +10044,11 @@ public class FragmentMessages extends FragmentBase
                             }
                     }
 
-                    checkPep(message, remotes, context);
+                    boolean pep = checkPep(message, remotes, context);
 
                     db.message().setMessageEncrypt(message.id,
                             signedData ? EntityMessage.SMIME_SIGNONLY : parts.getEncryption());
+                    db.message().setMessageRevision(message.id, pep || protect_subject == null ? 1 : -1);
                     db.message().setMessageStored(message.id, new Date().getTime());
                     db.message().setMessageFts(message.id, false);
 
@@ -10100,7 +10105,7 @@ public class FragmentMessages extends FragmentBase
         }.serial().execute(this, args, "decrypt:s/mime");
     }
 
-    private static void checkPep(EntityMessage message, List<EntityAttachment> remotes, Context context) {
+    private static boolean checkPep(EntityMessage message, List<EntityAttachment> remotes, Context context) {
         DB db = DB.getInstance(context);
         for (EntityAttachment remote : remotes)
             if ("message/rfc822".equals(remote.getMimeType()))
@@ -10138,10 +10143,11 @@ public class FragmentMessages extends FragmentBase
                         db.endTransaction();
                     }
 
-                    break;
+                    return true;
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
+        return false;
     }
 
     private void onDelete(long id) {
