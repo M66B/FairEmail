@@ -2119,7 +2119,7 @@
     <provider
         name="Virgin Media"
         appPassword="true"
-        domain="ntlworld\\.com,blueyonder\\.co\\.uk,virgin\\.com"
+        domain="ntlworld\\.com,blueyonder\\.co\\.uk,virgin\\.com,virginmedia\\.com"
         link="https://www.virginmedia.com/help/broadband/manage-email-account">
         <imap
             host="imap.virginmedia.com"
