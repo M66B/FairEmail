@@ -6,6 +6,13 @@ For support you can use the contact form.
 
 Zby
 
+Next version
+
+* Added Arabic to DeepL translation options
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated translations
+
 1.2169 - 2024-03-16 *
 
 * Small improvements and minor bug fixes
