@@ -14,6 +14,7 @@
     <string name="app_cake_required">Op syn minst fereaske ûnthâld: %1$s</string>
     <string name="app_updated">Lêst bywurke: %1$s</string>
     <string name="app_download">Download fan: %1$s</string>
+    <string name="app_mod1">De befeiligingsfernijing fan maart feroarsaket ‘App reageert niet’-meldingen, allinnich op Google Pixel-apparaten. Jou net de app de skuld, allinnich Google kin dit oplosse!    </string>
     <string name="channel_service">Beweitsje</string>
     <string name="channel_send">Ferstjoere</string>
     <string name="channel_notification">E-mailbericht</string>
@@ -424,6 +425,9 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_reply_move_inbox">Ek foar berjochten yn Postfek YN</string>
     <string name="title_advanced_send_retry_max">Maksimaal tal ferstjoerbesykjen</string>
     <string name="title_advanced_send_retry_hint">Ferstjoeren sil opnij probearre wurde by wizigingen yn de ferbining</string>
+    <string name="title_advanced_send_partial">Unjildige adressen by ferstjoeren negearje</string>
+    <string name="title_advanced_send_partial_hint">As guon adressen ûnjildich binne, wurdt der dochs in berjocht nei de oare adressen stjoerd</string>
+    <string name="title_advanced_sent_partially">It berjocht is net nei alle ûntfangers ferstjoerd</string>
     <string name="title_advanced_auto_link">Automatysk keppelingen meitsje</string>
     <string name="title_advanced_plain_only">Ferstjoer standert platte tekst</string>
     <string name="title_advanced_plain_only_reply">Automatysk allinnich platte tekst by beäntwurdzjen fan in berjocht mei allinnich platte tekst</string>

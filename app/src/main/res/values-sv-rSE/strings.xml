@@ -14,6 +14,9 @@
     <string name="app_cake_required">Minsta nödvändiga lagringsutrymme: %1$s</string>
     <string name="app_updated">Senast uppdaterad: %1$s</string>
     <string name="app_download">Hämtad från: %1$s</string>
+    <string name="app_mod1">        Säkerhetsuppdateringen från mars framtvingar meddelandet \'Appen svarar inte\', detta händer enbart på Google Pixel-enheter.
+        Vänligen skyll inte detta på appen, det är bara Google som kan åtgärda detta!
+    </string>
     <string name="channel_service">Övervakning</string>
     <string name="channel_send">Skicka</string>
     <string name="channel_notification">E-post</string>
@@ -422,6 +425,9 @@
     <string name="title_advanced_reply_move_inbox">Även för meddelanden i inkorgen</string>
     <string name="title_advanced_send_retry_max">Maximalt antal sändningsförsök</string>
     <string name="title_advanced_send_retry_hint">Sändning kommer att återupptas vid ändringar av anslutning</string>
+    <string name="title_advanced_send_partial">Ignorera ogiltiga adresser när du skickar</string>
+    <string name="title_advanced_send_partial_hint">Om vissa adresser är ogiltiga kommer ett meddelande fortfarande att skickas till de andra adresserna</string>
+    <string name="title_advanced_sent_partially">Meddelandet skickades inte till alla mottagare</string>
     <string name="title_advanced_auto_link">Skapa länkar automatiskt</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_plain_only_reply">Använd textformat automatiskt när du svarar på ett meddelande i textformat</string>
