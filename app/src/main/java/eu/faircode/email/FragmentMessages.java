@@ -1197,6 +1197,7 @@ public class FragmentMessages extends FragmentBase
                                 long from = cal.getTimeInMillis();
 
                                 onMenuSelect(from, to, true);
+                                Helper.performHapticFeedback(view, HapticFeedbackConstants.CONFIRM);
                                 return;
                             }
                         }
