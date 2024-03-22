@@ -76,6 +76,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import java.io.IOException;
 import java.net.IDN;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -468,7 +469,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         Uri uri = args.getParcelable("uri");
                         String host = UriHelper.getRootDomain(context, UriHelper.getHost(uri));
                         if (TextUtils.isEmpty(host))
-                            throw new UnknownHostException("Host unknown " + uri);
+                            throw new UnknownHostException("No root domain " + uri);
                         args.putString("host", host);
                         return Whois.get(host);
                     }
@@ -501,7 +502,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex);
+                        Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
                     }
                 }.execute(FragmentDialogOpenLink.this, args, "link:whois");
             }
