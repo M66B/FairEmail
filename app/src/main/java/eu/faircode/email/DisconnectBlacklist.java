@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -132,6 +133,9 @@ public class DisconnectBlacklist {
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 Helper.copy(connection.getInputStream(), os);
             }
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().putLong("disconnect_last", new Date().getTime()).apply();
         } finally {
             connection.disconnect();
         }

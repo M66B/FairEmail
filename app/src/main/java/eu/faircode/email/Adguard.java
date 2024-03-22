@@ -20,10 +20,12 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
+import androidx.preference.PreferenceManager;
 
 import org.json.JSONException;
 
@@ -40,6 +42,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -403,6 +406,9 @@ public class Adguard {
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 Helper.copy(connection.getInputStream(), os);
             }
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().putLong("adguard_last", new Date().getTime()).apply();
         } finally {
             connection.disconnect();
         }

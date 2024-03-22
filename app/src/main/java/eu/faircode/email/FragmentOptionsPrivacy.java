@@ -256,11 +256,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        prefs.edit().putLong("adguard_last", new Date().getTime()).apply();
-                    }
-
-                    @Override
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
                     }
@@ -525,11 +520,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                     protected Void onExecute(Context context, Bundle args) throws Throwable {
                         DisconnectBlacklist.download(context);
                         return null;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Void data) {
-                        prefs.edit().putLong("disconnect_last", new Date().getTime()).apply();
                     }
 
                     @Override
