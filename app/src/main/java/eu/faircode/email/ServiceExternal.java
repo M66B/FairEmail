@@ -54,6 +54,7 @@ public class ServiceExternal extends ServiceBase {
     private static final String ACTION_RULE = BuildConfig.APPLICATION_ID + ".RULE";
     private static final String ACTION_TEMPLATE = BuildConfig.APPLICATION_ID + ".TEMPLATE";
     private static final String ACTION_DISCONNECT_ME = BuildConfig.APPLICATION_ID + ".DISCONNECT.ME";
+    private static final String ACTION_ADGUARD = BuildConfig.APPLICATION_ID + ".ADGUARD";
 
     // adb shell am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.ENABLE --es account Gmail
@@ -62,6 +63,7 @@ public class ServiceExternal extends ServiceBase {
     // adb shell am start-foreground-service -a eu.faircode.email.RULE --es account Gmail -es rule Test
     // adb shell am start-foreground-service -a eu.faircode.email.TEMPLATE --es template ... --es identity ... --es to ... --es cc ... --es subject ...
     // adb shell am start-foreground-service -a eu.faircode.email.DISCONNECT
+    // adb shell am start-foreground-service -a eu.faircode.email.ADGUARD
 
     @Override
     public void onCreate() {
@@ -117,6 +119,9 @@ public class ServiceExternal extends ServiceBase {
                                 break;
                             case ACTION_DISCONNECT_ME:
                                 disconnect(context, intent);
+                                break;
+                            case ACTION_ADGUARD:
+                                adguard(context, intent);
                                 break;
                             default:
                                 throw new IllegalArgumentException(action);
@@ -329,5 +334,9 @@ public class ServiceExternal extends ServiceBase {
 
     private static void disconnect(Context context, Intent intent) throws IOException, JSONException {
         DisconnectBlacklist.download(context);
+    }
+
+    private static void adguard(Context context, Intent intent) throws IOException, JSONException {
+        Adguard.download(context);
     }
 }

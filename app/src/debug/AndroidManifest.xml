@@ -629,6 +629,7 @@
                 <action android:name="${applicationId}.RULE" />
                 <action android:name="${applicationId}.TEMPLATE" />
                 <action android:name="${applicationId}.DISCONNECT.ME" />
+                <action android:name="${applicationId}.ADGUARD" />
             </intent-filter>
         </service>
 
