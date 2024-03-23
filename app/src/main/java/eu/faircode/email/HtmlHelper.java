@@ -2381,6 +2381,7 @@ public class HtmlHelper {
         }
 
         // Images
+        List<Uri> uris = new ArrayList<>();
         for (Element img : document.select("img")) {
             img.removeAttr("x-tracking");
 
@@ -2393,7 +2394,14 @@ public class HtmlHelper {
             if (host == null || hosts.contains(host))
                 continue;
 
+            if (uris.contains(uri)) {
+                Log.i("Removing duplicate tracking image uri=" + uri);
+                img.remove();
+                continue;
+            }
+
             if (isTrackingPixel(img) || isTrackingHost(context, host, disconnect_images)) {
+                uris.add(uri);
                 img.attr("src", sb.toString());
                 img.attr("alt", context.getString(R.string.title_legend_tracking_pixel));
                 img.attr("height", "24");
