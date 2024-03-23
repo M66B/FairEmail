@@ -8,9 +8,10 @@ Zby
 
 1.2170 - 2024-03-23
 
-* Added Arabic to DeepL translation options
+* Added Arabic to DeepL translation targets
 * Small improvements and minor bug fixes
 * Updated build tools
+* Updated Public Suffix List
 * Updated translations
 
 1.2169 - 2024-03-16

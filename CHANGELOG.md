@@ -8,9 +8,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2170 - 2024-03-23
 
-* Added Arabic to [DeepL translation](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq167) options
+* Added Arabic to [DeepL translation](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq167) targets
 * Small improvements and minor bug fixes
 * Updated build tools
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2169 - 2024-03-16
