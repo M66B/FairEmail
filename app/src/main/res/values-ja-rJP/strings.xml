@@ -985,7 +985,7 @@
     <string name="title_related_identity">関連するユーザー ID (SMTPサーバー) を追加する</string>
     <string name="title_check">確認</string>
     <string name="title_trust">フィンガープリント %1$s のサーバー証明書を信頼する</string>
-    <string name="title_no_name">名前を入力してください</string>
+    <string name="title_no_name">お名前を入力してください</string>
     <string name="title_no_email">メールアドレスを入力してください</string>
     <string name="title_email_invalid">メールアドレスが無効です: \'%1$s\'</string>
     <string name="title_address_duplicate">アドレス「%1$s」が重複しています</string>
