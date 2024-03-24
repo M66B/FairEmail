@@ -104,6 +104,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private static ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
     private static final int SEARCH_LIMIT_DEVICE = 1000;
+    private static final int FETCH_LIMIT_SERVER = 100000;
 
     interface IBoundaryCallbackMessages {
         void onLoading();
@@ -470,7 +471,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         and.add(new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
 
                     if (and.size() == 0)
-                        state.imessages = state.ifolder.getMessages();
+                        state.getMessages(FETCH_LIMIT_SERVER);
                     else
                         state.imessages = state.ifolder.search(new AndTerm(and.toArray(new SearchTerm[0])));
 
@@ -723,8 +724,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         EntityLog.log(context, "Search utf8=" + utf8);
 
         SearchTerm terms = criteria.getTerms(utf8, state.ifolder.getPermanentFlags(), keywords);
-        if (terms == null)
-            return state.ifolder.getMessages();
+        if (terms == null) {
+            state.getMessages(FETCH_LIMIT_SERVER);
+            return state.imessages;
+        }
 
         SearchSequence ss = new SearchSequence(protocol);
         Argument args = ss.generateSequence(terms, utf8 ? StandardCharsets.UTF_8.name() : null);
@@ -990,6 +993,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         EmailService iservice = null;
         IMAPFolder ifolder = null;
         Message[] imessages = null;
+
+        void getMessages(int max) throws MessagingException {
+            int total = Math.min(ifolder.getMessageCount(), max);
+            imessages = new Message[total];
+            for (int i = 1; i <= total; i++)
+                imessages[i - 1] = ifolder.getMessage(i);
+        }
 
         void reset() {
             Log.i("Boundary reset");
