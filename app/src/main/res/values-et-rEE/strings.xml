@@ -31,6 +31,14 @@
     <string name="channel_send_description">Sõnumite saatmine</string>
     <string name="channel_notification_description">Uute sõnumite teavitused</string>
     <string name="channel_progress_description">Kauem töötavate tegevuste edenemisteated</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Üks vestlus</item>
+        <item quantity="other">Vestlused</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Üks sõnum</item>
+        <item quantity="other">Sõnumid</item>
+    </plurals>
     <string name="page_folders">Kaustad</string>
     <string name="page_compose">Loo</string>
     <string name="tile_synchronize">Sünkrooni</string>
@@ -2011,6 +2019,8 @@
     <string name="title_debug_info_contact">Selle probleemi osas oli meil hiljuti kontakt</string>
     <string name="title_debug_info_send">Saada kohe</string>
     <string name="title_debug_info_send_remark">Üldjuhul talletatakse silumisinfo mustandsõnumina, nii et saad saadetava info üle vaadata</string>
+    <string name="title_debug_info_question">Palun kasuta nuppu Info, kui sul on üksnes küsimus</string>
+    <string name="title_widget_title_count">Uute sõnumite arv</string>
     <string name="title_widget_title_list">Sõnumiloend</string>
     <string name="title_widget_title_sync">Sünk jah/ei</string>
     <string name="title_power_menu_sync">Sünkroonimine</string>
@@ -2038,6 +2048,7 @@
     <string name="title_widget_background">Taustavärv</string>
     <string name="title_widget_icon">Ikooni värv</string>
     <string name="title_widget_day_night">Järgi süsteemi tumedat teemat</string>
+    <string name="title_widget_standalone">Ava sisu eraldiseisvana</string>
     <string name="title_compat_dark">Google eemaldas tumeda laadi varasema Androidi kui versioon 10 jaoks</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Oluline</string>
@@ -2153,9 +2164,26 @@
         <item>Lõpust</item>
         <item>Näita lühendamata</item>
     </string-array>
+    <string-array name="priorityNames">
+        <item>Madal</item>
+        <item>Tavaline</item>
+        <item>Kõrge</item>
+    </string-array>
+    <string-array name="sensitivityNames">
+        <item>Tavaline</item>
+        <item>Isiklik</item>
+        <item>Privaatne</item>
+        <item>Konfidentsiaalne</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Vaikimisi</item>
+        <item>Väike</item>
+        <item>Keskmine</item>
+        <item>Suur</item>
+    </string-array>
     <string name="title_size_tiny">Tilluke</string>
     <string-array name="receiptNames">
-        <item>Read receipt only</item>
+        <item>Vaid lugemiskinnitus</item>
         <item>Vaid kättesaamiskinnitus</item>
         <item>Lugemis+kättesaamiskinnitus</item>
     </string-array>
@@ -2166,11 +2194,11 @@
     </string-array>
     <string-array name="encryptNames">
         <item>Pole</item>
-        <item>PGP sign-only</item>
-        <item>PGP encrypt-only</item>
-        <item>PGP sign+encrypt</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>Vaid PGP allkiri</item>
+        <item>Vaid PGP krüpteering</item>
+        <item>PGP allkiri+krüpteering</item>
+        <item>Vaid S/MIME allkiri</item>
+        <item>S/MIME allkiri+krüpt.</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>
