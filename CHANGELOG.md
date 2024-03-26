@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
+### Next version
+
+* Added answer button to buttons configuration
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2170 - 2024-03-23
 
 * Added Arabic to [DeepL translation](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq167) targets

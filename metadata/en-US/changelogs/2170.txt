@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Zby
 
+Next version
+
+* Added answer button to buttons configuration
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2170 - 2024-03-23
 
 * Added Arabic to DeepL translation targets
