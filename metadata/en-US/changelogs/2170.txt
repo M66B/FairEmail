@@ -8,6 +8,7 @@ Zby
 
 Next version
 
+* Added Gemini integration
 * Added answer button to buttons configuration
 * Small improvements and minor bug fixes
 * Updated translations
