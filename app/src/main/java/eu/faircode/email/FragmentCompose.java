@@ -1878,11 +1878,14 @@ public class FragmentCompose extends FragmentBase {
         ImageButton ibOpenAi = (ImageButton) infl.inflate(R.layout.action_button, null);
         ibOpenAi.setId(View.generateViewId());
         ibOpenAi.setImageResource(R.drawable.twotone_smart_toy_24);
-        ibOpenAi.setContentDescription(getString(R.string.title_openai));
+        ibOpenAi.setContentDescription("AI");
         ibOpenAi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onOpenAi();
+                if (OpenAI.isAvailable(view.getContext()))
+                    onOpenAi();
+                else if (Gemini.isAvailable(view.getContext()))
+                    onGemini();
             }
         });
         menu.findItem(R.id.menu_openai).setActionView(ibOpenAi);
@@ -1952,7 +1955,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_translate).setVisible(DeepL.isAvailable(context));
         menu.findItem(R.id.menu_openai).setEnabled(state == State.LOADED && !chatting);
         ((ImageButton) menu.findItem(R.id.menu_openai).getActionView()).setEnabled(!chatting);
-        menu.findItem(R.id.menu_openai).setVisible(OpenAI.isAvailable(context));
+        menu.findItem(R.id.menu_openai).setVisible(OpenAI.isAvailable(context) || Gemini.isAvailable(context));
         menu.findItem(R.id.menu_zoom).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_style).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_media).setEnabled(state == State.LOADED);
@@ -2751,6 +2754,80 @@ public class FragmentCompose extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
             }
         }.serial().execute(this, args, "openai");
+    }
+
+    private void onGemini() {
+        int start = etBody.getSelectionStart();
+        int end = etBody.getSelectionEnd();
+        boolean selection = (start >= 0 && end > start);
+        Editable edit = etBody.getText();
+        String body = (selection ? edit.subSequence(start, end) : edit).toString().trim();
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putString("body", body);
+        args.putBoolean("selection", selection);
+
+        new SimpleTask<String[]>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                chatting = true;
+                invalidateOptionsMenu();
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                chatting = false;
+                invalidateOptionsMenu();
+            }
+
+            @Override
+            protected String[] onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String body = args.getString("body");
+                boolean selection = args.getBoolean("selection");
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                String model = prefs.getString("gemini_model", "gemini-pro");
+
+                return Gemini.generate(context, model, new String[]{Gemini.truncateParagraphs(body)});
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, String[] result) {
+                if (result == null || result.length == 0)
+                    return;
+
+                String text = result[0]
+                        .replaceAll("^\\n+", "").replaceAll("\\n+$", "");
+
+                Editable edit = etBody.getText();
+                int start = etBody.getSelectionStart();
+                int end = etBody.getSelectionEnd();
+
+                int index;
+                if (etBody.hasSelection()) {
+                    edit.delete(start, end);
+                    index = start;
+                } else
+                    index = end;
+
+                if (index < 0)
+                    index = 0;
+                if (index > 0 && edit.charAt(index - 1) != '\n')
+                    edit.insert(index++, "\n");
+
+                edit.insert(index, text + "\n");
+                etBody.setSelection(index + text.length() + 1);
+
+                StyleHelper.markAsInserted(edit, index, index + text.length() + 1);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
+            }
+        }.serial().execute(this, args, "gemini");
     }
 
     private void onTranslate(View anchor) {

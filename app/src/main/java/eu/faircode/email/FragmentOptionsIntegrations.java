@@ -84,10 +84,16 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
     private SeekBar sbOpenAiTemperature;
     private SwitchCompat swOpenAiModeration;
     private ImageButton ibOpenAi;
+    private SwitchCompat swGemini;
+    private TextView tvGeminiPrivacy;
+    private EditText etGemini;
+    private TextInputLayout tilGemini;
+    private EditText etGeminiModel;
 
     private CardView cardVirusTotal;
     private CardView cardSend;
     private CardView cardOpenAi;
+    private CardView cardGemini;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
@@ -96,7 +102,8 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
-            "openai_enabled", "openai_uri", "openai_apikey", "openai_model", "openai_temperature", "openai_moderation"
+            "openai_enabled", "openai_uri", "openai_apikey", "openai_model", "openai_temperature", "openai_moderation",
+            "gemini_enabled", "gemini_uri", "gemini_apikey", "gemini_model"
     ));
 
     @Override
@@ -122,16 +129,20 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         etLanguageToolUser = view.findViewById(R.id.etLanguageToolUser);
         tilLanguageToolKey = view.findViewById(R.id.tilLanguageToolKey);
         ibLanguageTool = view.findViewById(R.id.ibLanguageTool);
+
         swDeepL = view.findViewById(R.id.swDeepL);
         tvDeepLPrivacy = view.findViewById(R.id.tvDeepLPrivacy);
         ibDeepL = view.findViewById(R.id.ibDeepL);
+
         swVirusTotal = view.findViewById(R.id.swVirusTotal);
         tvVirusTotalPrivacy = view.findViewById(R.id.tvVirusTotalPrivacy);
         tilVirusTotal = view.findViewById(R.id.tilVirusTotal);
         ibVirusTotal = view.findViewById(R.id.ibVirusTotal);
+
         swSend = view.findViewById(R.id.swSend);
         etSend = view.findViewById(R.id.etSend);
         ibSend = view.findViewById(R.id.ibSend);
+
         swOpenAi = view.findViewById(R.id.swOpenAi);
         tvOpenAiPrivacy = view.findViewById(R.id.tvOpenAiPrivacy);
         etOpenAi = view.findViewById(R.id.etOpenAi);
@@ -142,9 +153,16 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         swOpenAiModeration = view.findViewById(R.id.swOpenAiModeration);
         ibOpenAi = view.findViewById(R.id.ibOpenAi);
 
+        swGemini = view.findViewById(R.id.swGemini);
+        tvGeminiPrivacy = view.findViewById(R.id.tvGeminiPrivacy);
+        etGemini = view.findViewById(R.id.etGemini);
+        tilGemini = view.findViewById(R.id.tilGemini);
+        etGeminiModel = view.findViewById(R.id.etGeminiModel);
+
         cardVirusTotal = view.findViewById(R.id.cardVirusTotal);
         cardSend = view.findViewById(R.id.cardSend);
         cardOpenAi = view.findViewById(R.id.cardOpenAi);
+        cardGemini = view.findViewById(R.id.cardGemini);
 
         setOptions();
 
@@ -395,6 +413,8 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                 etOpenAiModel.setEnabled(checked);
                 sbOpenAiTemperature.setEnabled(checked);
                 swOpenAiModeration.setEnabled(checked);
+                if (checked)
+                    swGemini.setChecked(false);
             }
         });
 
@@ -502,12 +522,95 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             }
         });
 
+        swGemini.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("gemini_enabled", checked).apply();
+                etGeminiModel.setEnabled(checked);
+                if (checked)
+                    swOpenAi.setChecked(false);
+            }
+        });
+
+        tvGeminiPrivacy.getPaint().setUnderlineText(true);
+        tvGeminiPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(BuildConfig.GEMINI_PRIVACY), true);
+            }
+        });
+
+        etGemini.setHint(BuildConfig.GEMINI_ENDPOINT);
+        etGemini.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String apikey = s.toString().trim();
+                if (TextUtils.isEmpty(apikey))
+                    prefs.edit().remove("gemini_uri").apply();
+                else
+                    prefs.edit().putString("gemini_uri", apikey).apply();
+            }
+        });
+
+        tilGemini.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String apikey = s.toString().trim();
+                if (TextUtils.isEmpty(apikey))
+                    prefs.edit().remove("gemini_apikey").apply();
+                else
+                    prefs.edit().putString("gemini_apikey", apikey).apply();
+            }
+        });
+
+        etGeminiModel.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String model = s.toString().trim();
+                if (TextUtils.isEmpty(model))
+                    prefs.edit().remove("gemini_model").apply();
+                else
+                    prefs.edit().putString("gemini_model", model).apply();
+            }
+        });
+
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
 
         cardVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         cardSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         cardOpenAi.setVisibility(TextUtils.isEmpty(BuildConfig.OPENAI_ENDPOINT) ? View.GONE : View.VISIBLE);
+        cardGemini.setVisibility(TextUtils.isEmpty(BuildConfig.GEMINI_ENDPOINT) ? View.GONE : View.VISIBLE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
@@ -532,7 +635,10 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                 "send_host".equals(key) ||
                 "openai_uri".equals(key) ||
                 "openai_apikey".equals(key) ||
-                "openai_model".equals(key))
+                "openai_model".equals(key) ||
+                "gemini_uri".equals(key) ||
+                "gemini_apikey".equals(key) ||
+                "gemini_model".equals(key))
             return;
 
         getMainHandler().removeCallbacks(update);
@@ -582,11 +688,15 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             etLanguageTool.setText(prefs.getString("lt_uri", null));
             etLanguageToolUser.setText(prefs.getString("lt_user", null));
             tilLanguageToolKey.getEditText().setText(prefs.getString("lt_key", null));
+
             swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
+
             swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
             tilVirusTotal.getEditText().setText(prefs.getString("vt_apikey", null));
+
             swSend.setChecked(prefs.getBoolean("send_enabled", false));
             etSend.setText(prefs.getString("send_host", null));
+
             swOpenAi.setChecked(prefs.getBoolean("openai_enabled", false));
             etOpenAi.setText(prefs.getString("openai_uri", null));
             tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
@@ -600,6 +710,12 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
 
             swOpenAiModeration.setChecked(prefs.getBoolean("openai_moderation", false));
             swOpenAiModeration.setEnabled(swOpenAi.isChecked());
+
+            swGemini.setChecked(prefs.getBoolean("gemini_enabled", false));
+            etGemini.setText(prefs.getString("gemini_uri", null));
+            tilGemini.getEditText().setText(prefs.getString("gemini_apikey", null));
+            etGeminiModel.setText(prefs.getString("gemini_model", null));
+            etGeminiModel.setEnabled(swGemini.isChecked());
         } catch (Throwable ex) {
             Log.e(ex);
         }

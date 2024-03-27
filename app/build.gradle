@@ -213,6 +213,8 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/v1/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
+            buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
+            buildConfigField "String", "GEMINI_PRIVACY", "\"https://policies.google.com/privacy\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         large {
@@ -235,6 +237,8 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/v1/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
+            buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
+            buildConfigField "String", "GEMINI_PRIVACY", "\"https://policies.google.com/privacy\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         fdroid {
@@ -266,6 +270,8 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/v1/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
+            buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
+            buildConfigField "String", "GEMINI_PRIVACY", "\"https://policies.google.com/privacy\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         play {
@@ -289,6 +295,8 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"\""
+            buildConfigField "String", "GEMINI_ENDPOINT", "\"\""
+            buildConfigField "String", "GEMINI_PRIVACY", "\"\""
             buildConfigField "String", "FDROID", "\"\""
             getIsDefault().set(true)
         }
@@ -313,6 +321,8 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"\""
+            buildConfigField "String", "GEMINI_ENDPOINT", "\"\""
+            buildConfigField "String", "GEMINI_PRIVACY", "\"\""
             buildConfigField "String", "FDROID", "\"\""
         }
     }
