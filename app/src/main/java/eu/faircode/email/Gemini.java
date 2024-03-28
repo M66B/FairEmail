@@ -64,23 +64,30 @@ public class Gemini {
             jpart.put(jtext);
         }
 
-        JSONObject jcontent = new JSONObject();
-        jcontent.put("parts", jpart);
+        JSONObject jcontent0 = new JSONObject();
+        jcontent0.put("parts", jpart);
         JSONArray jcontents = new JSONArray();
-        jcontents.put(jcontent);
+        jcontents.put(jcontent0);
         JSONObject jrequest = new JSONObject();
         jrequest.put("contents", jcontents);
 
-        String path = "models/" + model + ":generateContent";
+        String path = "models/" + Uri.encode(model) + ":generateContent";
 
         JSONObject jresponse = call(context, "POST", path, jrequest);
 
-        return new String[]{jresponse.getJSONArray("candidates")
-                .getJSONObject(0)
-                .getJSONObject("content")
-                .getJSONArray("parts")
-                .getJSONObject(0)
-                .getString("text")};
+        JSONArray jcandidates = jresponse.optJSONArray("candidates");
+        if (jcandidates == null || jcandidates.length() < 1)
+            throw new IOException("candidates missing");
+        JSONObject jcontent = jcandidates.getJSONObject(0).optJSONObject("content");
+        if (jcontent == null)
+            throw new IOException("content missing");
+        JSONArray jparts = jcontent.optJSONArray("parts");
+        if (jparts == null || jparts.length() < 1)
+            throw new IOException("parts missing");
+        JSONObject jtext = jparts.getJSONObject(0);
+        if (!jtext.has("text"))
+            throw new IOException("text missing");
+        return new String[]{jtext.getString("text")};
     }
 
     private static String getUri(Context context) {

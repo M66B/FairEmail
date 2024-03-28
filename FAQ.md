@@ -415,6 +415,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(201) What is certificate transparency?](#faq201)
 * [(202) What is DNSSEC and what is DANE?](#faq202)
 * [(203) Where is my sent message?](#faq203)
+* [(204) How do I use Gemini?](#faq204)
 
 [I have another question.](#get-support)
 
@@ -5799,6 +5800,18 @@ a special email, indicating the reason, like user (email address) unknown.
 FairEmail will decode non-delivery notification messages, so you can see all the details.
 
 Basically, an outgoing message is either in the draft messages folder, the outbox, or the sent messages folder.
+
+<br>
+
+<a name="faq204"></a>
+**(204) How do I use Gemini?**
+
+1. Check if your country [is supported](https://support.google.com/gemini/answer/13575153)
+1. Get an API key via [here](https://ai.google.dev/tutorials/setup)
+1. Enter the API key in the integration settings tab page
+1. Enable Gemini integration in the integration settings tab page
+
+For usage, please see [this FAQ](#faq190)
 
 <br>
 

@@ -89,6 +89,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
     private EditText etGemini;
     private TextInputLayout tilGemini;
     private EditText etGeminiModel;
+    private ImageButton ibGemini;
 
     private CardView cardVirusTotal;
     private CardView cardSend;
@@ -158,6 +159,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         etGemini = view.findViewById(R.id.etGemini);
         tilGemini = view.findViewById(R.id.tilGemini);
         etGeminiModel = view.findViewById(R.id.etGeminiModel);
+        ibGemini = view.findViewById(R.id.ibGemini);
 
         cardVirusTotal = view.findViewById(R.id.cardVirusTotal);
         cardSend = view.findViewById(R.id.cardSend);
@@ -601,6 +603,13 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                     prefs.edit().remove("gemini_model").apply();
                 else
                     prefs.edit().putString("gemini_model", model).apply();
+            }
+        });
+
+        ibGemini.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 204);
             }
         });
 
