@@ -12,6 +12,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="shortcut icon" href="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/ic_launcher-web.png">
   <style>
@@ -389,6 +390,7 @@
 <li><a href="#faq201">(201) What is certificate transparency?</a></li>
 <li><a href="#faq202">(202) What is DNSSEC and what is DANE?</a></li>
 <li><a href="#faq203">(203) Where is my sent message?</a></li>
+<li><a href="#faq204">(204) How do I use Gemini?</a></li>
 </ul>
 <p><a href="#get-support">I have another question.</a></p>
 <p><a name="faq1"></a> <strong>(1) Which permissions are needed and why?</strong></p>
@@ -729,14 +731,13 @@ openssl pkcs12 -export -legacy -in certbag.pem &gt;legacy.p12</code></pre>
 <li><em>Memory allocation failed</em>: Android supports keys up to 4096 bits only (Android <a href="https://issuetracker.google.com/issues/199605614">issue 199605614</a>)</li>
 <li><em>message-digest attribute value does not match calculated value</em>: the signature doesn’t match the message, possibly because the message was changed, or because an incorrect or key was used</li>
 </ul>
-<p>In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or “selfSign” is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with “<a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.3">keyCertSign</a>”. Certificates found in the Android key store are marked with “Android”.</p>
+<p>In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates. After the certificate details the issuer or “selfSign” is shown. A certificate is self signed when the subject and the issuer are the same. Certificates from a certificate authority (CA) are marked with “<a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.3">keyCertSign</a>”. You can find the description of other key usage bits, like <em>cRLSign</em>, via this same link. Certificates found in the Android key store are marked with “Android”.</p>
 <p>A valid chain looks like this:</p>
 <pre><code>Your certificate &gt; zero or more intermediate certificates &gt; CA (root) certificate marked with &quot;Android&quot;</code></pre>
 <p>Note that a certificate chain will always be invalid when no anchor certificate can be found in the Android key store, which is fundamental to S/MIME certificate validation.</p>
 <p>Please see <a href="https://support.google.com/pixelphone/answer/2844832?hl=en">here</a> how you can import certificates into the Android key store.</p>
 <p>The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.</p>
 <p>If you are looking for a free (test) S/MIME certificate, see <a href="http://kb.mozillazine.org/Getting_an_SMIME_certificate">here</a> for the options. Please be sure to <a href="https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219">read this first</a> if you want to request an S/MIME Actalis certificate.</p>
-<p>S/MIME certificates can for example be purchased via <a href="https://www.xolphin.com/">Xolphin</a>.</p>
 <p>How to extract a public key from a S/MIME certificate:</p>
 <pre><code>openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem</code></pre>
 <p>You can verify the signature of a raw message file (EML file) like this:</p>
@@ -2856,6 +2857,15 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <p>The email server will take care of sending the message to the recipient.</p>
 <p>If a message could not be sent to the recipient, you’ll in most cases receive a non-delivery notification message, a special email, indicating the reason, like user (email address) unknown. FairEmail will decode non-delivery notification messages, so you can see all the details.</p>
 <p>Basically, an outgoing message is either in the draft messages folder, the outbox, or the sent messages folder.</p>
+<p><br></p>
+<p><a name="faq204"></a> <strong>(204) How do I use Gemini?</strong></p>
+<ol type="1">
+<li>Check if your country <a href="https://support.google.com/gemini/answer/13575153">is supported</a></li>
+<li>Get an API key via <a href="https://ai.google.dev/tutorials/setup">here</a></li>
+<li>Enter the API key in the integration settings tab page</li>
+<li>Enable Gemini integration in the integration settings tab page</li>
+</ol>
+<p>For usage, please see <a href="#faq190">this FAQ</a></p>
 <p><br></p>
 <h2>
 <a name="get-support"></a>Get support
