@@ -103,7 +103,6 @@ public class Gemini {
         // https://ai.google.dev/api/rest
         Uri uri = Uri.parse(getUri(context)).buildUpon()
                 .appendEncodedPath(path)
-                .appendQueryParameter("key", apikey)
                 .build();
         Log.i("Gemini uri=" + uri);
 
@@ -120,6 +119,7 @@ public class Gemini {
         ConnectionHelper.setUserAgent(context, connection);
         connection.setRequestProperty("Accept", "application/json");
         connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("x-goog-api-key", apikey);
         connection.connect();
 
         try {
