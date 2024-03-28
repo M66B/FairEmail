@@ -75,18 +75,42 @@ public class Gemini {
 
         JSONObject jresponse = call(context, "POST", path, jrequest);
 
+        // {
+        //   "promptFeedback": {
+        //     "blockReason": "SAFETY",
+        //     "safetyRatings": [
+        //       {
+        //         "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+        //         "probability": "NEGLIGIBLE"
+        //       },
+        //       {
+        //         "category": "HARM_CATEGORY_HATE_SPEECH",
+        //         "probability": "NEGLIGIBLE"
+        //       },
+        //       {
+        //         "category": "HARM_CATEGORY_HARASSMENT",
+        //         "probability": "MEDIUM"
+        //       },
+        //       {
+        //         "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+        //         "probability": "NEGLIGIBLE"
+        //       }
+        //     ]
+        //   }
+        // }
+
         JSONArray jcandidates = jresponse.optJSONArray("candidates");
         if (jcandidates == null || jcandidates.length() < 1)
-            throw new IOException("candidates missing");
+            throw new IOException(jresponse.toString(2));
         JSONObject jcontent = jcandidates.getJSONObject(0).optJSONObject("content");
         if (jcontent == null)
-            throw new IOException("content missing");
+            throw new IOException(jresponse.toString(2));
         JSONArray jparts = jcontent.optJSONArray("parts");
         if (jparts == null || jparts.length() < 1)
-            throw new IOException("parts missing");
+            throw new IOException(jresponse.toString(2));
         JSONObject jtext = jparts.getJSONObject(0);
         if (!jtext.has("text"))
-            throw new IOException("text missing");
+            throw new IOException(jresponse.toString(2));
         return new String[]{jtext.getString("text")};
     }
 
