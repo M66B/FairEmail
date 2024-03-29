@@ -5806,14 +5806,19 @@ Basically, an outgoing message is either in the draft messages folder, the outbo
 <a name="faq204"></a>
 **(204) How do I use Gemini?**
 
+To use [Gemini](https://gemini.google.com/), please follow these steps:
+
 1. Check if your country [is supported](https://support.google.com/gemini/answer/13575153)
 1. Get an API key via [here](https://ai.google.dev/tutorials/setup)
 1. Enter the API key in the integration settings tab page
 1. Enable Gemini integration in the integration settings tab page
 
-For usage, please see [this FAQ](#faq190)
+For usage instructions, please see [this FAQ](#faq190).
 
-This feature was added in version 1.2171.
+Please read the privacy policy of [Gemini](https://support.google.com/gemini/answer/13594961).
+FairEmail does not use third-party libraries to avoid being tracked when Gemini is not being used.
+
+This feature was added in version 1.2171 and is available in the GitHub version of the app only.
 
 <br>
 

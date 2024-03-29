@@ -214,7 +214,7 @@ android {
             buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/v1/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
-            buildConfigField "String", "GEMINI_PRIVACY", "\"https://policies.google.com/privacy\""
+            buildConfigField "String", "GEMINI_PRIVACY", "\"https://support.google.com/gemini/answer/13594961\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         large {
@@ -238,7 +238,7 @@ android {
             buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/v1/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
-            buildConfigField "String", "GEMINI_PRIVACY", "\"https://policies.google.com/privacy\""
+            buildConfigField "String", "GEMINI_PRIVACY", "\"https://support.google.com/gemini/answer/13594961\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         fdroid {
@@ -271,7 +271,7 @@ android {
             buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/v1/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
-            buildConfigField "String", "GEMINI_PRIVACY", "\"https://policies.google.com/privacy\""
+            buildConfigField "String", "GEMINI_PRIVACY", "\"https://support.google.com/gemini/answer/13594961\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         play {
