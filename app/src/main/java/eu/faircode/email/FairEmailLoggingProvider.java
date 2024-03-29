@@ -73,6 +73,8 @@ public class FairEmailLoggingProvider extends TinylogLoggingProvider {
         boolean debug = prefs.getBoolean("debug", false);
 
         FairEmailLoggingProvider provider = (FairEmailLoggingProvider) ProviderRegistry.getLoggingProvider();
+        if (provider == null)
+            return;
 
         if (debug)
             provider.activeLevel = Level.DEBUG;
