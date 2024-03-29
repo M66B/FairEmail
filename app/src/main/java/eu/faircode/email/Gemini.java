@@ -41,8 +41,9 @@ import java.util.Objects;
 import javax.net.ssl.HttpsURLConnection;
 
 public class Gemini {
-    private static final int MAX_GEMINI_LEN = 1000; // characters
-    private static final int TIMEOUT = 20; // seconds
+    // https://ai.google.dev/models/gemini
+    private static final int MAX_GEMINI_LEN = 4000; // characters
+    private static final int TIMEOUT = 30; // seconds
 
     static boolean isAvailable(Context context) {
         if (TextUtils.isEmpty(BuildConfig.GEMINI_ENDPOINT))
