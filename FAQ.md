@@ -5813,6 +5813,8 @@ Basically, an outgoing message is either in the draft messages folder, the outbo
 
 For usage, please see [this FAQ](#faq190)
 
+This feature was added in version 1.2171.
+
 <br>
 
 <h2><a name="get-support"></a>Get support</h2>
