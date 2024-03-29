@@ -769,6 +769,7 @@
     <string name="title_advanced_openai_model">Μοντέλο</string>
     <string name="title_advanced_openai_temperature">Θερμοκρασία: %1$s</string>
     <string name="title_advanced_openai_moderation">Έλεγχος περιεχομένου</string>
+    <string name="title_advanced_gemini" comment="title_advanced_gemini&#10;Title for option switch to enable Gemini integration&#10;https://gemini.google.com/">Ενσωμάτωση Gemini</string>
     <string name="title_advanced_sdcard">Θέλω να χρησιμοποιήσω μια κάρτα SD</string>
     <string name="title_advanced_watchdog">Περιοδικός έλεγχος για το αν το FairEmail είναι ακόμη ενεργό</string>
     <string name="title_advanced_updates">Έλεγχος για ενημερώσεις στο GitHub</string>
