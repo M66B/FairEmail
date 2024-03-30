@@ -5808,7 +5808,7 @@ Basically, an outgoing message is either in the draft messages folder, the outbo
 
 To use [Gemini](https://gemini.google.com/), please follow these steps:
 
-1. Check if your country [is supported](https://support.google.com/gemini/answer/13575153)
+1. Check if your country [is supported](https://ai.google.dev/available_regions)
 1. Get an API key via [here](https://ai.google.dev/tutorials/setup)
 1. Enter the API key in the integration settings tab page
 1. Enable Gemini integration in the integration settings tab page
