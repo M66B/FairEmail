@@ -8,7 +8,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2171 - 2024-03-30
 
-* Added [Gemini](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq204) integration
+* Added [Gemini](https://m66b.github.io/FairEmail/#faq204) integration
 * Added answer button to buttons configuration
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
