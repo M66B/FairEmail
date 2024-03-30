@@ -758,7 +758,6 @@ public class FragmentRule extends FragmentBase {
             }
         });
 
-        cbAttached.setEnabled(protocol == EntityAccount.TYPE_IMAP);
         cbResend.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
