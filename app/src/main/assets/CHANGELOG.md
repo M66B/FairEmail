@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### Next version
+### 1.2171 - 2024-03-30
 
 * Added [Gemini](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq204) integration
 * Added answer button to buttons configuration
