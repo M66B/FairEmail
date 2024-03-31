@@ -293,10 +293,10 @@ android {
             buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
             buildConfigField "String", "CLOUD_URI", "\"\""
             buildConfigField "String", "CLOUD_EMAIL", "\"\""
-            buildConfigField "String", "OPENAI_ENDPOINT", "\"\""
-            buildConfigField "String", "OPENAI_PRIVACY", "\"\""
-            buildConfigField "String", "GEMINI_ENDPOINT", "\"\""
-            buildConfigField "String", "GEMINI_PRIVACY", "\"\""
+            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/v1/\""
+            buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
+            buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
+            buildConfigField "String", "GEMINI_PRIVACY", "\"https://support.google.com/gemini/answer/13594961\""
             buildConfigField "String", "FDROID", "\"\""
             getIsDefault().set(true)
         }
