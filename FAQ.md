@@ -1707,6 +1707,7 @@ You can disable this feature in the advanced account settings.
 When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*,
 the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present.
 This might be because your custom ROM does not include it or because it was actively removed (debloated).
+Note that this will result in similar problems in other apps too.
 
 FairEmail does not request storage permissions, so this framework is required to select files and folders.
 No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
