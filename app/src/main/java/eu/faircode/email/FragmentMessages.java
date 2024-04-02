@@ -8247,7 +8247,14 @@ public class FragmentMessages extends FragmentBase
 
     static String getFilter(Context context, String name, AdapterMessage.ViewType viewType, String type) {
         String filter;
-        if (EntityFolder.isOutgoing(type))
+        if (EntityFolder.INBOX.equals(type) && context != null) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String key = "filter_" + type.toLowerCase(Locale.ROOT) + "_" + name;
+            if (prefs.contains(key))
+                filter = type.toLowerCase(Locale.ROOT) + "_";
+            else
+                filter = "";
+        } else if (EntityFolder.isOutgoing(type))
             filter = "out_";
         else if (EntityFolder.ARCHIVE.equals(type) ||
                 EntityFolder.TRASH.equals(type) ||
