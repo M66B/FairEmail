@@ -2841,8 +2841,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 properties.setValue("images_asked", message.id, true);
             }
 
-            if (message.from != null)
-                for (Address sender : message.from) {
+            Address[] senders = (message.isForwarder() ? message.submitter : message.from);
+
+            if (senders != null)
+                for (Address sender : senders) {
                     String from = ((InternetAddress) sender).getAddress();
                     if (TextUtils.isEmpty(from))
                         continue;
@@ -5525,15 +5527,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             boolean junk = EntityFolder.JUNK.equals(message.folderType);
+            Address[] senders = (message.isForwarder() ? message.submitter : message.from);
 
             boolean current = properties.getValue(full ? "full" : "images", message.id);
             boolean asked = properties.getValue(full ? "full_asked" : "images_asked", message.id);
             boolean confirm = prefs.getBoolean(full ? "confirm_html" : "confirm_images", true) || junk;
             boolean ask = prefs.getBoolean(full ? "ask_html" : "ask_images", true) || junk;
             if (current || asked || !confirm || !ask) {
-                if (current && message.from != null) {
+                if (current && senders != null) {
                     SharedPreferences.Editor editor = prefs.edit();
-                    for (Address sender : message.from) {
+                    for (Address sender : senders) {
                         String from = ((InternetAddress) sender).getAddress();
                         if (TextUtils.isEmpty(from))
                             continue;
@@ -5563,13 +5566,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 cbNotAgainSender.setVisibility(View.GONE);
                 cbNotAgainDomain.setVisibility(View.GONE);
                 cbNotAgain.setVisibility(View.GONE);
-            } else if (message.from == null || message.from.length == 0) {
+            } else if (senders == null || senders.length == 0) {
                 cbNotAgainSender.setVisibility(View.GONE);
                 cbNotAgainDomain.setVisibility(View.GONE);
             } else {
                 List<String> froms = new ArrayList<>();
                 List<String> domains = new ArrayList<>();
-                for (Address address : message.from) {
+                for (Address address : senders) {
                     String from = ((InternetAddress) address).getAddress();
                     froms.add(from);
                     int at = from.indexOf('@');
@@ -5641,8 +5644,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             if (!junk) {
                                 SharedPreferences.Editor editor = prefs.edit();
-                                if (message.from != null)
-                                    for (Address sender : message.from) {
+                                if (senders != null)
+                                    for (Address sender : senders) {
                                         String from = ((InternetAddress) sender).getAddress();
                                         if (TextUtils.isEmpty(from))
                                             continue;
