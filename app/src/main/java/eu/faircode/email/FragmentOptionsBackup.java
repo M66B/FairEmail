@@ -1905,9 +1905,13 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                String command = args.getString("command");
                 if (ex instanceof OperationCanceledException)
                     prefs.edit().putBoolean("cloud_activated", false).apply();
-                else if (ex instanceof SecurityException) {
+                else if ("wipe".equals(command) || "logout".equals(command)) {
+                    Log.e(ex);
+                    prefs.edit().putBoolean("cloud_activated", false).apply();
+                } else if (ex instanceof SecurityException) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                             .setIcon(R.drawable.twotone_warning_24)
                             .setTitle(getString(R.string.title_advanced_cloud_invalid))
