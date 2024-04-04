@@ -627,7 +627,7 @@
     <provider
         name="T-Online.de"
         appPassword="true"
-        documentation="Für T-Online müssen Sie ein App-Passwort anstelle Ihres normalen Kontopassworts verwenden, &lt;a href=&quot;https://www.telekom.de/hilfe/festnetz-internet-tv/e-mail/e-mail-adresse-passwoerter-und-sicherheit/passwort-fuer-e-mail-programme-einrichten&quot;&gt;siehe hier&lt;/a&gt;."
+        documentation="Für T-Online müssen Sie ein App-Passwort anstelle Ihres normalen Kontopassworts verwenden, &lt;a href=&quot;https://www.telekom.de/hilfe/apps-dienste/e-mail/programme/passwort-definition&quot;&gt;siehe hier&lt;/a&gt;."
         domain="magenta\\.de,t-online\\.de"
         link="https://www.telekom.de/hilfe/festnetz-internet-tv/e-mail/e-mail-server-e-mail-protokolle-und-e-mail-einrichtung/imap/einrichtung-imap">
         <imap
