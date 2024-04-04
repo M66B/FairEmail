@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Zby
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 1.2171 - 2024-03-30
 
 * Added Gemini integration
