@@ -6460,8 +6460,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     try {
                         if (ActivityBilling.activatePro(context, uri))
                             ToastEx.makeText(context, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
-                        else
-                            ToastEx.makeText(context, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
+                        else {
+                            Uri invalid = Uri.parse(BuildConfig.PRO_FEATURES_URI + "invalid.html" +
+                                    "?challenge=" + ActivityBilling.getChallenge(context) +
+                                    "&version=" + BuildConfig.VERSION_CODE);
+                            Helper.view(context, invalid, true);
+                        }
                     } catch (NoSuchAlgorithmException ex) {
                         Log.e(ex);
                         ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
