@@ -6573,6 +6573,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private boolean isActivate(Uri uri) {
+            if ("eu.faircode.email".equals(uri.getHost()))
+                return true;
             return ("email.faircode.eu".equals(uri.getHost()) &&
                     "/activate/".equals(uri.getPath()));
         }
