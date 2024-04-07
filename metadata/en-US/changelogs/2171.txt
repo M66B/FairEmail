@@ -8,6 +8,7 @@ Zby
 
 Next version
 
+* Improved handling of messages via forwarders
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations
