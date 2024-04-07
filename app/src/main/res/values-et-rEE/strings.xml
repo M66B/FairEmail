@@ -2017,10 +2017,15 @@
     <string name="title_rules_delete_all">Kustuta kõik reeglid</string>
     <string name="title_rules_delete_all_confirm">Kustutada kõik reeglid?</string>
     <string name="title_debug_info">Silumisinfo</string>
+    <string name="title_debug_info_remark">Kirjelda probleemi, inglise keeles, ja märgi probleemi toimumise aeg:</string>
+    <string name="title_crash_info_remark">Kirjelda, inglise keeles, mida tegid, kui äpp kokku jooksis:</string>
+    <string name="title_debug_info_issue">Probleemi kirjeldus (nõutav, inglise keeles)</string>
+    <string name="title_debug_info_issue_remark">Üksikasjad, näiteks probleemi hinnanguline toimumisaeg, täpne veateade jms on olulised</string>
     <string name="title_debug_info_contact">Selle probleemi osas oli meil hiljuti kontakt</string>
     <string name="title_debug_info_send">Saada kohe</string>
     <string name="title_debug_info_send_remark">Üldjuhul talletatakse silumisinfo mustandsõnumina, nii et saad saadetava info üle vaadata</string>
     <string name="title_debug_info_question">Palun kasuta nuppu Info, kui sul on üksnes küsimus</string>
+    <string name="title_unexpected_info_remark">Kirjelda inglise keeles, mida tegid, kui viga juhtus:</string>
     <string name="title_widget_title_count">Uute sõnumite arv</string>
     <string name="title_widget_title_list">Sõnumiloend</string>
     <string name="title_widget_title_sync">Sünk jah/ei</string>
