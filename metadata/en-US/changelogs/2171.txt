@@ -8,10 +8,17 @@ Zby
 
 Next version
 
-* Improved handling of messages via forwarders
+* Improved handling of messages via email forwarders (*)
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations
+
+(*) Currently supported email forwarders:
+
+* addy.io
+* DuckDuckGo Email Protection
+* Firefox Relay
+* SimpleLogin
 
 1.2171 - 2024-03-30
 

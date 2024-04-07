@@ -8,10 +8,17 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Improved handling of messages via forwarders
+* Improved handling of messages via email forwarders (*)
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
+
+(*) Currently supported email forwarders:
+
+* [addy.io](https://addy.io/)
+* [DuckDuckGo Email Protection](https://duckduckgo.com/email/)
+* [Firefox Relay](https://relay.firefox.com/)
+* [SimpleLogin](https://simplelogin.io/)
 
 ### 1.2171 - 2024-03-30
 
