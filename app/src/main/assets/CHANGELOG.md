@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### Next version
+### 1.2172 - 2024-04-08
 
 * Improved handling of messages via email forwarders (*)
 * Small improvements and minor bug fixes
