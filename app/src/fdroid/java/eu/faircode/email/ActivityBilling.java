@@ -176,7 +176,7 @@ public class ActivityBilling extends ActivityBase implements
                 prefs.getBoolean("test_iab", false));
     }
 
-    private static String getChallenge(Context context) throws NoSuchAlgorithmException {
+    static String getChallenge(Context context) throws NoSuchAlgorithmException {
         String android_id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
         if (android_id == null) {
             Log.e("Android ID empty");
