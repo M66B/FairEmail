@@ -681,6 +681,7 @@ public class ActivityBilling extends ActivityBase implements
                 return "USER_CANCELED";
 
             case BillingClient.BillingResponseCode.NETWORK_ERROR:
+                // A network error occurred during the operation
                 return "NETWORK_ERROR";
 
             default:
