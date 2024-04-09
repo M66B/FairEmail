@@ -107,16 +107,60 @@ public class ActivityBilling extends ActivityBase implements
             getSupportFragmentManager().addOnBackStackChangedListener(this);
         }
 
-        if (Helper.isPlayStoreInstall() || isTesting(this)) {
-            Log.i("IAB start");
+        if (Helper.isPlayStoreInstall() || isTesting(this))
+            try {
+                Log.i("IAB start");
 /*
-            billingClient = BillingClient.newBuilder(getApplicationContext()
-                    .enablePendingPurchases()
-                    .setListener(this)
-                    .build();
-            billingClient.startConnection(this);
+                billingClient = BillingClient.newBuilder(getApplicationContext())
+                        .enablePendingPurchases()
+                        .setListener(this)
+                        .build();
+                billingClient.startConnection(this);
+                getLifecycle().addObserver(new LifecycleObserver() {
+                    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                    public void onDestroyed() {
+                        getLifecycle().removeObserver(this);
+                        if (billingClient != null)
+                            try {
+                                Log.i("IAB end");
+                                billingClient.endConnection();
+                                billingClient = null;
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                    }
+                });
 */
-        }
+            } catch (Throwable ex) {
+                Log.e(ex);
+                /*
+                    Exception java.lang.RuntimeException:
+                      at android.app.ActivityThread.performLaunchActivity (ActivityThread.java:4171)
+                      at android.app.ActivityThread.handleLaunchActivity (ActivityThread.java:4317)
+                      at android.app.servertransaction.LaunchActivityItem.execute (LaunchActivityItem.java:101)
+                      at android.app.servertransaction.TransactionExecutor.executeCallbacks (TransactionExecutor.java:135)
+                      at android.app.servertransaction.TransactionExecutor.execute (TransactionExecutor.java:95)
+                      at android.app.ActivityThread$H.handleMessage (ActivityThread.java:2576)
+                      at android.os.Handler.dispatchMessage (Handler.java:106)
+                      at android.os.Looper.loopOnce (Looper.java:226)
+                      at android.os.Looper.loop (Looper.java:313)
+                      at android.app.ActivityThread.main (ActivityThread.java:8772)
+                      at java.lang.reflect.Method.invoke (Method.java)
+                      at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run (RuntimeInit.java:571)
+                      at com.android.internal.os.ZygoteInit.main (ZygoteInit.java:1067)
+                    Caused by java.lang.IllegalStateException: Too many bind requests(999+) for service Intent { act=com.android.vending.billing.InAppBillingService.BIND pkg=com.android.vending cmp=com.android.vending/com.google.android.finsky.billing.iab.InAppBillingService (has extras) }
+                      at android.app.ContextImpl.bindServiceCommon (ContextImpl.java:2115)
+                      at android.app.ContextImpl.bindService (ContextImpl.java:2024)
+                      at android.content.ContextWrapper.bindService (ContextWrapper.java:870)
+                      at com.android.billingclient.api.BillingClientImpl.startConnection (com.android.billingclient:billing@@4.1.0:52)
+                      at eu.faircode.email.ActivityBilling.onCreate (ActivityBilling.java:116)
+                      at eu.faircode.email.ActivityView.onCreate (ActivityView.java:192)
+                      at android.app.Activity.performCreate (Activity.java:8565)
+                      at android.app.Activity.performCreate (Activity.java:8544)
+                      at android.app.Instrumentation.callActivityOnCreate (Instrumentation.java:1384)
+                      at android.app.ActivityThread.performLaunchActivity (ActivityThread.java:4152)
+                 */
+            }
     }
 
     @Override
@@ -150,14 +194,6 @@ public class ActivityBilling extends ActivityBase implements
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
             lbm.unregisterReceiver(receiver);
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        //if (billingClient != null)
-        //    billingClient.endConnection();
-
-        super.onDestroy();
     }
 
     @NonNull
@@ -334,6 +370,8 @@ public class ActivityBilling extends ActivityBase implements
             @Override
             public void delegate() {
                 try {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
                     boolean ready = billingClient.isReady();
                     Log.i("IAB ready=" + ready);
                     if (!ready)
@@ -450,6 +488,8 @@ public class ActivityBilling extends ActivityBase implements
                                     if (isPurchaseValid(purchase)) {
                                         editor.putBoolean("pro", true);
                                         editor.putLong(sku + ".cached", new Date().getTime());
+                                        editor.putString("iab_json", purchase.getOriginalJson());
+                                        editor.putString("iab_signature", purchase.getSignature());
                                     }
 
                                     if (!purchase.isAcknowledged())
@@ -642,6 +682,10 @@ public class ActivityBilling extends ActivityBase implements
             case BillingClient.BillingResponseCode.USER_CANCELED:
                 // User pressed back or canceled a dialog
                 return "USER_CANCELED";
+
+            case BillingClient.BillingResponseCode.NETWORK_ERROR:
+                // A network error occurred during the operation
+                return "NETWORK_ERROR";
 
             default:
                 return Integer.toString(result.getResponseCode());
