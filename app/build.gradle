@@ -65,10 +65,10 @@ android {
 
     sourceSets {
         github {
-            java.srcDirs = ['src/main/java', 'src/play/java', 'src/extra/java']
+            java.srcDirs = ['src/main/java', 'src/github/java', 'src/extra/java']
         }
         large {
-            java.srcDirs = ['src/main/java', 'src/play/java', 'src/extra/java']
+            java.srcDirs = ['src/main/java', 'src/github/java', 'src/extra/java']
         }
         fdroid {
             java.srcDirs = ['src/main/java', 'src/fdroid/java', 'src/extra/java']
@@ -698,8 +698,6 @@ dependencies {
 
     // https://developer.android.com/google/play/billing/billing_library_releases_notes
     // https://android-developers.googleblog.com/2020/06/meet-google-play-billing-library.html
-    githubImplementation "com.android.billingclient:billing:$billingclient_version"
-    largeImplementation "com.android.billingclient:billing:$billingclient_version"
     playImplementation "com.android.billingclient:billing:$billingclient_version"
 
     // https://mvnrepository.com/artifact/com.google.android.gms/play-services-base
