@@ -680,6 +680,9 @@ public class ActivityBilling extends ActivityBase implements
                 // User pressed back or canceled a dialog
                 return "USER_CANCELED";
 
+            case BillingClient.BillingResponseCode.NETWORK_ERROR:
+                return "NETWORK_ERROR";
+
             default:
                 return Integer.toString(result.getResponseCode());
         }
