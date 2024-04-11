@@ -73,6 +73,12 @@ public class ServiceExternal extends ServiceBase {
     }
 
     @Override
+    public void onTimeout(int startId) {
+        Log.e(new Throwable("onTimeout"));
+        stopSelf(startId);
+    }
+
+    @Override
     public void onDestroy() {
         Log.i("Service external destroy");
         stopForeground(true);

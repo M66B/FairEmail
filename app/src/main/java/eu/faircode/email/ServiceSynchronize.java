@@ -1177,6 +1177,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         return START_STICKY;
     }
 
+    @Override
+    public void onTimeout(int startId) {
+        Log.e(new Throwable("onTimeout"));
+        stopSelf(startId);
+    }
+
     private void onEnable(Intent intent) {
         boolean enabled = intent.getBooleanExtra("enabled", true);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
