@@ -5250,9 +5250,6 @@ public class FragmentMessages extends FragmentBase
                 db.folder().liveUnified(type).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
                     @Override
                     public void onChanged(List<TupleFolderEx> folders) {
-                        if (folders == null)
-                            folders = new ArrayList<>();
-
                         updateState(folders);
                     }
                 });
@@ -6838,6 +6835,8 @@ public class FragmentMessages extends FragmentBase
     }
 
     private void updateState(List<TupleFolderEx> folders) {
+        if (folders == null)
+            folders = new ArrayList<>();
         Log.i("Folder state updated count=" + folders.size());
 
         // Get state
