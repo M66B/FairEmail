@@ -3267,8 +3267,18 @@ public class FragmentMessages extends FragmentBase
                         " folder=" + message.folderType);
 
                 if (EntityMessage.SWIPE_ACTION_ASK.equals(action)) {
-                    redraw(null);
-                    onSwipeAsk(message, viewHolder);
+                    rvMessage.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
+                        @Override
+                        public void onChildViewAttachedToWindow(@NonNull View view) {
+                            rvMessage.removeOnChildAttachStateChangeListener(this);
+                            onSwipeAsk(message, view);
+                        }
+
+                        @Override
+                        public void onChildViewDetachedFromWindow(@NonNull View view) {
+                        }
+                    });
+                    redraw(viewHolder);
                 } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action)) {
                     redraw(viewHolder);
                     onActionSeenSelection(!message.ui_seen, message.id, false);
@@ -3369,14 +3379,14 @@ public class FragmentMessages extends FragmentBase
             });
         }
 
-        private void onSwipeAsk(final @NonNull TupleMessageEx message, @NonNull RecyclerView.ViewHolder viewHolder) {
+        private void onSwipeAsk(final @NonNull TupleMessageEx message, @NonNull View anchor) {
             // Make sure animations are done
             rvMessage.post(new Runnable() {
                 @Override
                 public void run() {
                     try {
                         int order = 1;
-                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), viewHolder.itemView);
+                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), anchor);
 
                         if (message.ui_seen)
                             popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, order++, R.string.title_unseen)
@@ -3470,7 +3480,7 @@ public class FragmentMessages extends FragmentBase
                                     onSwipeJunk(message);
                                     return true;
                                 } else if (itemId == R.string.title_delete_permanently) {
-                                    onSwipeDelete(message, viewHolder);
+                                    onSwipeDelete(message, null);
                                     return true;
                                 }
                                 return false;
@@ -3632,7 +3642,8 @@ public class FragmentMessages extends FragmentBase
                 return;
             }
 
-            redraw(vh);
+            if (vh != null)
+                redraw(vh);
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(args);
