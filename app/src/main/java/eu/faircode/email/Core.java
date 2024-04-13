@@ -5204,14 +5204,16 @@ class Core {
             if (message.from != null)
                 addresses.addAll(Arrays.asList(message.from));
         } else {
+            Address[] senders = (message.isForwarder() ? message.submitter : message.from);
+
             if (message.to != null)
                 addresses.addAll(Arrays.asList(message.to));
             if (message.cc != null)
                 addresses.addAll(Arrays.asList(message.cc));
             if (message.bcc != null)
                 addresses.addAll(Arrays.asList(message.bcc));
-            if (message.from != null)
-                addresses.addAll(Arrays.asList(message.from));
+            if (senders != null)
+                addresses.addAll(Arrays.asList(senders));
         }
 
         InternetAddress deliveredto = null;
