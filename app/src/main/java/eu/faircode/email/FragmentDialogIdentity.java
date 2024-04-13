@@ -267,7 +267,7 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
 
                 DB db = DB.getInstance(context);
                 if (account < 0)
-                    return db.folder().getPrimaryDrafts();
+                    return db.folder().getFolderPrimary(EntityFolder.DRAFTS);
                 else
                     return db.folder().getFolderByType(account, EntityFolder.DRAFTS);
             }

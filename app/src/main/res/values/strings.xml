@@ -2551,6 +2551,7 @@
         <item>folders</item>
         <item>primary</item>
         <item>accounts</item>
+        <item>inbox</item>
     </string-array>
 
     <string-array name="startupNames">
@@ -2558,6 +2559,7 @@
         <item>Unified folders</item>
         <item>Primary account folders</item>
         <item>Accounts</item>
+        <item>Primary inbox</item>
     </string-array>
 
     <string-array name="downloadNames">

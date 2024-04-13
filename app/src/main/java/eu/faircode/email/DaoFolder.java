@@ -245,8 +245,8 @@ public interface DaoFolder {
             " JOIN account ON account.id = folder.account" +
             " WHERE account.synchronize" +
             " AND account.`primary`" +
-            " AND type = '" + EntityFolder.DRAFTS + "'")
-    EntityFolder getPrimaryDrafts();
+            " AND type = :type")
+    EntityFolder getFolderPrimary(String type);
 
     @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.OUTBOX + "'")
     EntityFolder getOutbox();

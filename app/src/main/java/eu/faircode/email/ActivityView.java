@@ -779,6 +779,33 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void init() {
         Bundle args = new Bundle();
 
+        if ("inbox".equals(startup)) {
+            new SimpleTask<EntityFolder>() {
+                @Override
+                protected EntityFolder onExecute(Context context, Bundle args) throws Throwable {
+                    DB db = DB.getInstance(context);
+                    return db.folder().getFolderPrimary(EntityFolder.INBOX);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityFolder inbox) {
+                    FragmentBase fragment = new FragmentMessages();
+                    if (inbox != null) {
+                        args.putLong("account", inbox.account);
+                        args.putLong("folder", inbox.id);
+                    }
+                    fragment.setArguments(args);
+                    setFragment(fragment);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
+                }
+            }.execute(this, new Bundle(), "primary");
+            return;
+        }
+
         FragmentBase fragment;
         switch (startup) {
             case "accounts":
@@ -798,7 +825,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
 
         fragment.setArguments(args);
+        setFragment(fragment);
+    }
 
+    private void setFragment(Fragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         for (Fragment existing : fm.getFragments())
