@@ -205,7 +205,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     @Override
     public void onTimeout(int startId) {
         Log.e(new Throwable("onTimeout"));
-        stopSelf(startId);
     }
 
     @Override

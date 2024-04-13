@@ -75,7 +75,6 @@ public class ServiceExternal extends ServiceBase {
     @Override
     public void onTimeout(int startId) {
         Log.e(new Throwable("onTimeout"));
-        stopSelf(startId);
     }
 
     @Override

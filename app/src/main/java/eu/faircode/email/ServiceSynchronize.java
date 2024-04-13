@@ -1180,7 +1180,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     @Override
     public void onTimeout(int startId) {
         Log.e(new Throwable("onTimeout"));
-        stopSelf(startId);
     }
 
     private void onEnable(Intent intent) {
