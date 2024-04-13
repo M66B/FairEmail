@@ -201,8 +201,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (isBackgroundService(this))
             stopForeground(true);
         else
-            startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
-                    getNotificationService(null, null));
+            try {
+                startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
+                        getNotificationService(null, null));
+            } catch (Throwable ex) {
+                Log.e(ex);
+                stopSelf();
+            }
 
         isOptimizing = Boolean.FALSE.equals(Helper.isIgnoringOptimizations(this));
 
