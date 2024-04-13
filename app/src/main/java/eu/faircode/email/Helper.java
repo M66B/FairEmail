@@ -897,6 +897,20 @@ public class Helper {
                         SdkExtensions.getExtensionVersion(Build.VERSION_CODES.R) >= 2));
     }
 
+    static Boolean isOnForeground() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+            return null;
+        try {
+            ActivityManager.RunningAppProcessInfo appProcessInfo = new ActivityManager.RunningAppProcessInfo();
+            ActivityManager.getMyMemoryState(appProcessInfo);
+            return (appProcessInfo.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND ||
+                    appProcessInfo.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_VISIBLE);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return null;
+        }
+    }
+
     // View
 
     static void setStatusBarColor(Activity activity, Integer color) {

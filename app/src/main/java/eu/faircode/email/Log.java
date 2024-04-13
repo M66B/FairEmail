@@ -468,6 +468,10 @@ public class Log {
                         event.addMetadata("extra", "theme", theme);
                         event.addMetadata("extra", "package", BuildConfig.APPLICATION_ID);
                         event.addMetadata("extra", "locale", Locale.getDefault().toString());
+
+                        Boolean foreground = Helper.isOnForeground();
+                        if (foreground != null)
+                            event.addMetadata("extra", "foreground", Boolean.toString(foreground));
                     }
 
                     return should;
