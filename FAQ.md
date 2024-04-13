@@ -1866,6 +1866,8 @@ Note that this is independent of receiving messages.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq34)
 
+Matched identities are used to select the correct (matched) identity when replying to a message.
+
 Identities are as expected matched by account.
 For incoming messages the *to*, *cc*, *bcc*, *from* and *(X-)delivered/envelope/original-to* addresses will be checked (in this order)
 and for outgoing messages (drafts, outbox and sent) only the *from* addresses will be checked.

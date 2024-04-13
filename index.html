@@ -1086,6 +1086,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p><br /></p>
 <p><a name="faq34"></a> <strong>(34) How are identities matched?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq34">Google Translate</a></p>
+<p>Matched identities are used to select the correct (matched) identity when replying to a message.</p>
 <p>Identities are as expected matched by account. For incoming messages the <em>to</em>, <em>cc</em>, <em>bcc</em>, <em>from</em> and <em>(X-)delivered/envelope/original-to</em> addresses will be checked (in this order) and for outgoing messages (drafts, outbox and sent) only the <em>from</em> addresses will be checked. Equal addresses have precedence over partially matching addresses, except for <em>delivered-to</em> addresses.</p>
 <p>The matched address will be shown as <em>via</em> in the addresses section of received messages (between the message header and message text).</p>
 <p>Note that identities need to be enabled to be able to be matched and that identities of other accounts will not be considered.</p>
