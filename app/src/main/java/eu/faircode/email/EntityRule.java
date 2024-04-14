@@ -237,6 +237,7 @@ public class EntityRule {
             // Sender
             JSONObject jsender = jcondition.optJSONObject("sender");
             if (jsender != null) {
+                boolean not = jsender.optBoolean("not");
                 String value = jsender.getString("value");
                 boolean regex = jsender.getBoolean("regex");
                 boolean known = jsender.optBoolean("known");
@@ -279,13 +280,14 @@ public class EntityRule {
                         }
                     }
                 }
-                if (!matches)
+                if (matches == not)
                     return false;
             }
 
             // Recipient
             JSONObject jrecipient = jcondition.optJSONObject("recipient");
             if (jrecipient != null) {
+                boolean not = jrecipient.optBoolean("not");
                 String value = jrecipient.getString("value");
                 boolean regex = jrecipient.getBoolean("regex");
 
@@ -306,17 +308,18 @@ public class EntityRule {
                         break;
                     }
                 }
-                if (!matches)
+                if (matches == not)
                     return false;
             }
 
             // Subject
             JSONObject jsubject = jcondition.optJSONObject("subject");
             if (jsubject != null) {
+                boolean not = jsubject.optBoolean("not");
                 String value = jsubject.getString("value");
                 boolean regex = jsubject.getBoolean("regex");
 
-                if (!matches(context, message, value, message.subject, regex))
+                if (matches(context, message, value, message.subject, regex) == not)
                     return false;
             }
 
@@ -464,6 +467,7 @@ public class EntityRule {
             // Body
             JSONObject jbody = jcondition.optJSONObject("body");
             if (jbody != null) {
+                boolean not = jbody.optBoolean("not");
                 String value = jbody.getString("value");
                 boolean regex = jbody.getBoolean("regex");
                 boolean skip_quotes = jbody.optBoolean("skip_quotes");
@@ -493,11 +497,11 @@ public class EntityRule {
                     d.select("blockquote").remove();
                 if (jsoup) {
                     String selector = value.substring(JSOUP_PREFIX.length());
-                    if (d.select(selector).size() == 0)
+                    if (d.select(selector).isEmpty() != not)
                         return false;
                 } else {
                     String text = d.body().text();
-                    if (!matches(context, message, value, text, regex))
+                    if (matches(context, message, value, text, regex) == not)
                         return false;
                 }
             }

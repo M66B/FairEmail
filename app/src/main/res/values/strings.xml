@@ -2046,6 +2046,7 @@
     <string name="title_rule_younger">Messages younger than (hours)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">AND</string>
+    <string name="title_rule_not">NOT</string>
     <string name="title_rule_action">Action</string>
     <string name="title_rule_action_remark">This action will be applied to new messages arriving in the folder %1$s</string>
     <string name="title_rule_hours">Hours</string>

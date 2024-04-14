@@ -93,15 +93,18 @@ public class FragmentRule extends FragmentBase {
     private EditText etAge;
     private CheckBox cbStop;
 
+    private CheckBox cbSenderNot;
     private EditText etSender;
     private CheckBox cbSender;
     private ImageButton ibSender;
     private CheckBox cbKnownSender;
 
+    private CheckBox cbRecipientNot;
     private EditText etRecipient;
     private CheckBox cbRecipient;
     private ImageButton ibRecipient;
 
+    private CheckBox cbSubjectNot;
     private EditText etSubject;
     private CheckBox cbSubject;
 
@@ -112,6 +115,7 @@ public class FragmentRule extends FragmentBase {
     private ImageButton ibHeader;
     private CheckBox cbHeader;
 
+    private CheckBox cbBodyNot;
     private EditText etBody;
     private CheckBox cbBody;
     private CheckBox cbSkipQuotes;
@@ -288,15 +292,18 @@ public class FragmentRule extends FragmentBase {
         etAge = view.findViewById(R.id.etAge);
         cbStop = view.findViewById(R.id.cbStop);
 
+        cbSenderNot = view.findViewById(R.id.cbSenderNot);
         etSender = view.findViewById(R.id.etSender);
         cbSender = view.findViewById(R.id.cbSender);
         ibSender = view.findViewById(R.id.ibSender);
         cbKnownSender = view.findViewById(R.id.cbKnownSender);
 
+        cbRecipientNot = view.findViewById(R.id.cbRecipientNot);
         etRecipient = view.findViewById(R.id.etRecipient);
         cbRecipient = view.findViewById(R.id.cbRecipient);
         ibRecipient = view.findViewById(R.id.ibRecipient);
 
+        cbSubjectNot = view.findViewById(R.id.cbSubjectNot);
         etSubject = view.findViewById(R.id.etSubject);
         cbSubject = view.findViewById(R.id.cbSubject);
 
@@ -307,6 +314,7 @@ public class FragmentRule extends FragmentBase {
         ibHeader = view.findViewById(R.id.ibHeader);
         cbHeader = view.findViewById(R.id.cbHeader);
 
+        cbBodyNot = view.findViewById(R.id.cbBodyNot);
         etBody = view.findViewById(R.id.etBody);
         cbBody = view.findViewById(R.id.cbBody);
         cbSkipQuotes = view.findViewById(R.id.cbSkipQuotes);
@@ -708,8 +716,6 @@ public class FragmentRule extends FragmentBase {
         npDuration.setMinValue(0);
         npDuration.setMaxValue(999);
 
-        tvActionRemark.setVisibility(View.GONE);
-
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -915,7 +921,6 @@ public class FragmentRule extends FragmentBase {
 
                 tvActionRemark.setText(
                         getString(R.string.title_rule_action_remark, data.folder.getDisplayName(getContext())));
-                tvActionRemark.setVisibility(View.VISIBLE);
 
                 loadRule(savedInstanceState);
             }
@@ -1234,6 +1239,7 @@ public class FragmentRule extends FragmentBase {
                         etAge.setText(jgeneral == null ? null : Integer.toString(jgeneral.optInt("age")));
                         cbStop.setChecked(rule != null && rule.stop);
 
+                        cbSenderNot.setChecked(jsender != null && jsender.optBoolean("not"));
                         etSender.setText(jsender == null ? args.getString("sender") : jsender.getString("value"));
                         cbSender.setChecked(jsender != null && jsender.getBoolean("regex"));
                         cbKnownSender.setChecked(jsender != null && jsender.optBoolean("known"));
@@ -1241,9 +1247,11 @@ public class FragmentRule extends FragmentBase {
                         ibSender.setEnabled(!cbKnownSender.isChecked());
                         cbSender.setEnabled(!cbKnownSender.isChecked());
 
+                        cbRecipientNot.setChecked(jrecipient != null && jrecipient.optBoolean("not"));
                         etRecipient.setText(jrecipient == null ? args.getString("recipient") : jrecipient.getString("value"));
                         cbRecipient.setChecked(jrecipient != null && jrecipient.getBoolean("regex"));
 
+                        cbSubjectNot.setChecked(jsubject != null && jsubject.optBoolean("not"));
                         etSubject.setText(jsubject == null ? args.getString("subject") : jsubject.getString("value"));
                         cbSubject.setChecked(jsubject != null && jsubject.getBoolean("regex"));
 
@@ -1254,6 +1262,7 @@ public class FragmentRule extends FragmentBase {
                         etHeader.setText(jheader == null ? null : jheader.getString("value"));
                         cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));
 
+                        cbBodyNot.setChecked(jbody != null && jbody.optBoolean("not"));
                         etBody.setText(jbody == null ? null : jbody.getString("value"));
                         cbBody.setChecked(jbody != null && jbody.getBoolean("regex"));
                         cbSkipQuotes.setChecked(jbody != null && jbody.optBoolean("skip_quotes"));
@@ -1625,6 +1634,7 @@ public class FragmentRule extends FragmentBase {
         boolean known = cbKnownSender.isChecked();
         if (!TextUtils.isEmpty(sender) || known) {
             JSONObject jsender = new JSONObject();
+            jsender.put("not", cbSenderNot.isChecked());
             jsender.put("value", sender);
             jsender.put("regex", cbSender.isChecked());
             jsender.put("known", known);
@@ -1634,6 +1644,7 @@ public class FragmentRule extends FragmentBase {
         String recipient = etRecipient.getText().toString();
         if (!TextUtils.isEmpty(recipient)) {
             JSONObject jrecipient = new JSONObject();
+            jrecipient.put("not", cbRecipientNot.isChecked());
             jrecipient.put("value", recipient);
             jrecipient.put("regex", cbRecipient.isChecked());
             jcondition.put("recipient", jrecipient);
@@ -1642,6 +1653,7 @@ public class FragmentRule extends FragmentBase {
         String subject = etSubject.getText().toString();
         if (!TextUtils.isEmpty(subject)) {
             JSONObject jsubject = new JSONObject();
+            jsubject.put("not", cbSubjectNot.isChecked());
             jsubject.put("value", subject);
             jsubject.put("regex", cbSubject.isChecked());
             jcondition.put("subject", jsubject);
@@ -1661,6 +1673,7 @@ public class FragmentRule extends FragmentBase {
         String body = etBody.getText().toString();
         if (!TextUtils.isEmpty(body)) {
             JSONObject jbody = new JSONObject();
+            jbody.put("not", cbBodyNot.isChecked());
             jbody.put("value", body);
             jbody.put("regex", cbBody.isChecked());
             jbody.put("skip_quotes", cbSkipQuotes.isChecked());

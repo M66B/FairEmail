@@ -177,15 +177,27 @@
                 <!-- condition -->
 
                 <TextView
-                    android:id="@+id/tvCondition"
+                    android:id="@+id/tvSenderCondition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/cbSenderNot"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/cbSenderNot" />
+
+                <CheckBox
+                    android:id="@+id/cbSenderNot"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/title_rule_not"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvSenderCondition"
                     app:layout_constraintTop_toBottomOf="@+id/tvStopRemark" />
 
                 <View
@@ -194,7 +206,7 @@
                     android:layout_height="1dp"
                     android:background="?attr/colorSeparator"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCondition" />
+                    app:layout_constraintTop_toBottomOf="@id/cbSenderNot" />
 
                 <TextView
                     android:id="@+id/tvSender"
@@ -251,15 +263,27 @@
                     app:layout_constraintTop_toBottomOf="@id/etSender" />
 
                 <TextView
-                    android:id="@+id/tvAndSender"
+                    android:id="@+id/tvRecipientCondition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/cbRecipientNot"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/cbRecipientNot" />
+
+                <CheckBox
+                    android:id="@+id/cbRecipientNot"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/title_rule_not"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvRecipientCondition"
                     app:layout_constraintTop_toBottomOf="@+id/cbKnownSender" />
 
                 <View
@@ -268,7 +292,7 @@
                     android:layout_height="1dp"
                     android:background="?attr/colorSeparator"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAndSender" />
+                    app:layout_constraintTop_toBottomOf="@id/cbRecipientNot" />
 
                 <TextView
                     android:id="@+id/tvRecipient"
@@ -317,15 +341,27 @@
                     app:srcCompat="@drawable/twotone_person_add_24" />
 
                 <TextView
-                    android:id="@+id/tvAndRecipient"
+                    android:id="@+id/tvSubjectCondition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/cbSubjectNot"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/cbSubjectNot" />
+
+                <CheckBox
+                    android:id="@+id/cbSubjectNot"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/title_rule_not"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvSubjectCondition"
                     app:layout_constraintTop_toBottomOf="@+id/etRecipient" />
 
                 <View
@@ -334,7 +370,7 @@
                     android:layout_height="1dp"
                     android:background="?attr/colorSeparator"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAndRecipient" />
+                    app:layout_constraintTop_toBottomOf="@id/cbSubjectNot" />
 
                 <TextView
                     android:id="@+id/tvSubject"
@@ -482,15 +518,28 @@
                     app:layout_constraintTop_toBottomOf="@id/cbHeader" />
 
                 <TextView
-                    android:id="@+id/tvAndHeader"
+                    android:id="@+id/tvBodyCondition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/cbBodyNot"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/cbBodyNot" />
+
+                <CheckBox
+                    android:id="@+id/cbBodyNot"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/title_rule_not"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/tvBodyCondition"
                     app:layout_constraintTop_toBottomOf="@+id/etHeader" />
 
                 <View
@@ -499,7 +548,7 @@
                     android:layout_height="1dp"
                     android:background="?attr/colorSeparator"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAndHeader" />
+                    app:layout_constraintTop_toBottomOf="@id/cbBodyNot" />
 
                 <TextView
                     android:id="@+id/tvBody"
@@ -1327,16 +1376,20 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="
-                    tvTitle,tvFolder,tvName,etName,tvOrder,etOrder,cbEnabled,cbDaily,cbStop,
-                    tvCondition,
-                    vSeparatorSender,tvSender,cbSender,etSender,ibSender,cbKnownSender,tvAndSender,
-                    vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ibRecipient,tvAndRecipient,
+                    tvTitle,tvFolder,tvName,etName,tvGroup,etGroup,tvOrder,etOrder,cbEnabled,cbDaily,cbStop,tvStopRemark,
+                    tvSenderCondition,cbSenderNot,
+                    vSeparatorSender,tvSender,cbSender,etSender,ibSender,cbKnownSender,
+                    tvRecipientCondition,cbRecipientNot,
+                    vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ibRecipient,
+                    tvSubjectCondition,cbSubjectNot,
                     vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndSubject,
                     vSeparatorAttachments,cbAttachments,tvMimeType,etMimeType,tvAndAttachments,
-                    vSeparatorHeader,tvHeader,cbHeader,etHeader,tvAndHeader,
+                    vSeparatorHeader,tvHeader,ibHeader,cbHeader,etHeader,
+                    tvBodyCondition,cbBodyNot,
                     vSeparatorBody,tvBody,cbBody,etBody,tvBodyRemark,cbSkipQuotes,tvAndBody,
                     vSeparatorDate,tvDate,tvDateAfter,btnDateAfter,tvDateBefore,btnDateBefore,tvAndDate,
-                    vSeparatorSchedule,tvSchedule,spScheduleDayStart,spScheduleDayEnd,tvScheduleHourStart,tvScheduleHourEnd,
+                    vSeparatorSchedule,tvSchedule,spScheduleDayStart,spScheduleDayEnd,tvScheduleHourStart,tvScheduleHourEnd,cbEveryDay,
+                    tvAndYounger,vSeparatorYounger,tvYounger,etYounger,
                     vSeparatorAction,tvAction,spAction,tvActionRemark,
                     vSeparatorParameters" />
 
