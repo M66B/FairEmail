@@ -756,7 +756,7 @@
     <string name="title_advanced_openai_model">模型</string>
     <string name="title_advanced_openai_temperature">温度：%1$s</string>
     <string name="title_advanced_openai_moderation">内容审核</string>
-    <string name="title_advanced_gemini" comment="title_advanced_gemini&#10;Title for option switch to enable Gemini integration&#10;https://gemini.google.com/">Gemini 集成</string>
+    <string name="title_advanced_gemini">Gemini 集成</string>
     <string name="title_advanced_sdcard">我想使用 SD 卡</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
     <string name="title_advanced_updates">检查 GitHub 更新</string>
@@ -2104,6 +2104,7 @@
         <item>聚合文件夹</item>
         <item>主账户文件夹</item>
         <item>账户</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">主收件箱</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

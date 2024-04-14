@@ -2033,6 +2033,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Spoločné priečinky</item>
         <item>Priečinky primárneho účtu</item>
         <item>Účty</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

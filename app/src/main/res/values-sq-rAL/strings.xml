@@ -109,6 +109,7 @@
         <item>Unified folders</item>
         <item>Primary account folders</item>
         <item>Llogaritë</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->

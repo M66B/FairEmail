@@ -801,7 +801,7 @@
     <string name="title_advanced_openai_model">Мадэль</string>
     <string name="title_advanced_openai_temperature">Тэмпература: %1$s</string>
     <string name="title_advanced_openai_moderation">Мадэрацыя зместу</string>
-    <string name="title_advanced_gemini" comment="title_advanced_gemini&#10;Title for option switch to enable Gemini integration&#10;https://gemini.google.com/">Інтэграцыя з Gemini</string>
+    <string name="title_advanced_gemini">Інтэграцыя з Gemini</string>
     <string name="title_advanced_sdcard">Я хачу выкарыстоўваць карту памяці</string>
     <string name="title_advanced_watchdog">Перыядычна правяраць актыўнасць FairEmail</string>
     <string name="title_advanced_updates">Праверыць наяўнасць абнаўленняў на GitHub</string>
@@ -2160,6 +2160,7 @@
         <item>Агульныя папкі</item>
         <item>Папкі асноўнага ўліковага запісу</item>
         <item>Уліковыя запісы</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 КБ</item>

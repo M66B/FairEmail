@@ -1795,6 +1795,7 @@
         <item>Các thư mục hợp nhất</item>
         <item>Các thư mục tài khoản chính</item>
         <item>Tài khoản</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

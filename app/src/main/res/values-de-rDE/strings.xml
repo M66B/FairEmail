@@ -773,7 +773,7 @@
     <string name="title_advanced_openai_model">Modell</string>
     <string name="title_advanced_openai_temperature">Temperatur: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderation von Inhalten</string>
-    <string name="title_advanced_gemini" comment="title_advanced_gemini&#10;Title for option switch to enable Gemini integration&#10;https://gemini.google.com/">Gemini-Integration</string>
+    <string name="title_advanced_gemini">Gemini-Integration</string>
     <string name="title_advanced_sdcard">Ich möchte eine SD-Karte verwenden</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Auf GitHub nach Aktualisierungen suchen</string>
@@ -2129,6 +2129,7 @@
         <item>Sammelordner</item>
         <item>Ordner des Hauptkontos</item>
         <item>Konten</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primärer Posteingang</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

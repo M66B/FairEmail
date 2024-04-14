@@ -800,7 +800,7 @@
     <string name="title_advanced_openai_model">דגם</string>
     <string name="title_advanced_openai_temperature">טמפרטורה: %1$s</string>
     <string name="title_advanced_openai_moderation">ניהול תוכן</string>
-    <string name="title_advanced_gemini" comment="title_advanced_gemini&#10;Title for option switch to enable Gemini integration&#10;https://gemini.google.com/">שילוב מול Gemini</string>
+    <string name="title_advanced_gemini">שילוב מול Gemini</string>
     <string name="title_advanced_sdcard">ארצה להשתמש בכרטיס SD</string>
     <string name="title_advanced_watchdog">לבדוק מדי פעם אם FairEmail עדיין פעיל</string>
     <string name="title_advanced_updates">איתור עדכונים ב־GitHub</string>
@@ -2157,6 +2157,7 @@
         <item>תיקיות מאוחדות</item>
         <item>תיקיות החשבון העיקרי</item>
         <item>חשבונות</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">תיבת דואר נכנס עיקרית</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 ק״ב</item>

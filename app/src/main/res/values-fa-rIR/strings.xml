@@ -1471,6 +1471,7 @@
         <item>پوشه‌های یکپارچه</item>
         <item>پوشه‌های حساب اصلی</item>
         <item>حساب‌ها</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">صندوق ورودی اولیه</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 کیلوبایت</item>

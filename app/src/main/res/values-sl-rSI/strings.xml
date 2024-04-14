@@ -1942,6 +1942,7 @@
         <item>poenotene mape</item>
         <item>mape glavnega računa</item>
         <item>Računi</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 kB</item>

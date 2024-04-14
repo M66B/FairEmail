@@ -675,7 +675,7 @@
     <string name="title_advanced_openai">OpenAI (ChatGPT) 연동</string>
     <string name="title_advanced_openai_model">모델</string>
     <string name="title_advanced_openai_temperature">온도: %1$s</string>
-    <string name="title_advanced_gemini" comment="title_advanced_gemini&#10;Title for option switch to enable Gemini integration&#10;https://gemini.google.com/">Gemini 연동</string>
+    <string name="title_advanced_gemini">Gemini 연동</string>
     <string name="title_advanced_watchdog">주기적으로 FairEmail이 활성화 상태인지 확인하기</string>
     <string name="title_advanced_updates">GitHub 업데이트 확인</string>
     <string name="title_advanced_check_weekly">매일이 아닌 매주 확인합니다</string>
@@ -1573,6 +1573,7 @@
         <item>통합된 폴더</item>
         <item>주계정 폴더</item>
         <item>계정</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

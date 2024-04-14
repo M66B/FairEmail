@@ -798,7 +798,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_openai_model">Model</string>
     <string name="title_advanced_openai_temperature">Teplota: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderování obsahu</string>
-    <string name="title_advanced_gemini" comment="title_advanced_gemini&#10;Title for option switch to enable Gemini integration&#10;https://gemini.google.com/">Gemini integrace</string>
+    <string name="title_advanced_gemini">Gemini integrace</string>
     <string name="title_advanced_sdcard">Chci použít Sd kartu</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace na GitHubu</string>
@@ -2152,6 +2152,7 @@ v prohlížeči ze všech Google účtů.</string>
         <item>Sjednocené složky</item>
         <item>Složky hlavního účtu</item>
         <item>Účty</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primární doručená pošta</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

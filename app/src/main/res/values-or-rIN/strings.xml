@@ -830,6 +830,7 @@
         <item>ସନ୍ନିଵିଷ୍ଟ ଫୋଲ୍ଡରଗୁଡ଼ିକ</item>
         <item>Primary account folders</item>
         <item>ଆକାଉଣ୍ଟଗୁଡ଼ିକ</item>
+        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
