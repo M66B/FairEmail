@@ -4499,7 +4499,7 @@ You likely came here because you are using a third party build of FairEmail.
 There is **only support** on the latest Play store version, the latest GitHub release and
 the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
 
-F-Droid builds irregularly, which can be problematic when there is an important update.
+F-Droid builds irregularly, which can be problematic if there is an important update.
 Therefore you are advised to switch to the GitHub release.
 
 Note that developers have no control over F-Droid builds and the F-Droid infrastructure (apps, forums, etc.).
