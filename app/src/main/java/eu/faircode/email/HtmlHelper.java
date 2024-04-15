@@ -1543,6 +1543,8 @@ public class HtmlHelper {
 
     static void autoLink(Document document, boolean outbound) {
         // https://en.wikipedia.org/wiki/List_of_URI_schemes
+        // https://en.wikipedia.org/wiki/Geo_URI_scheme
+        // https://developers.google.com/maps/documentation/urls/android-intents
         // xmpp:[<user>]@<host>[:<port>]/[<resource>][?<query>]
         // geo:<lat>,<lon>[,<alt>][;u=<uncertainty>]
         // tel:<phonenumber>
@@ -1555,7 +1557,10 @@ public class HtmlHelper {
                                 .replace("(?i:http|https|rtsp)://",
                                         "(((?i:http|https)://)|((?i:xmpp):))") +
                         "|" +
-                        "(?i:geo:\\d+,\\d+(,\\d+)?(;u=\\d+)?)" +
+                        "(?i:geo:(-?\\d+(\\.\\d+)?),(-?\\d+(\\.\\d+)?)(,-?\\d+(\\.\\d+)?)?" +
+                        "(;u=\\d+)?" + // Uncertainty
+                        "(\\?z=\\d+)?" + // Zoom
+                        "(\\?q=.+)?)" + // Google Maps query
                         "|" +
                         "(?i:tel:" + Patterns.PHONE.pattern() + ")" +
                         (BuildConfig.DEBUG ? "|(" + GPA_PATTERN + ")" : ""));
