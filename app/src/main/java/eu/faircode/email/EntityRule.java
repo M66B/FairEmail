@@ -349,99 +349,15 @@ public class EntityRule {
             // Header
             JSONObject jheader = jcondition.optJSONObject("header");
             if (jheader != null) {
+                boolean not = jheader.optBoolean("not");
                 String value = jheader.getString("value");
                 boolean regex = jheader.getBoolean("regex");
 
                 if (!regex &&
                         value.startsWith("$") &&
                         value.endsWith("$")) {
-                    String keyword = value.substring(1, value.length() - 1);
-
-                    if ("$tls".equals(keyword)) {
-                        if (!Boolean.TRUE.equals(message.tls))
-                            return false;
-                    } else if ("$aligned".equals(keyword)) {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        boolean native_dkim = prefs.getBoolean("native_dkim", false);
-                        if (!native_dkim)
-                            return false;
-                        if (message.signedby == null)
-                            return false;
-                        if (message.from == null || message.from.length != 1)
-                            return false;
-                        String domain = UriHelper.getEmailDomain(((InternetAddress) message.from[0]).getAddress());
-                        if (domain == null)
-                            return false;
-                        boolean valid = false;
-                        for (String signer : message.signedby.split(","))
-                            if (Objects.equals(
-                                    UriHelper.getRootDomain(context, signer),
-                                    UriHelper.getRootDomain(context, domain))) {
-                                valid = true;
-                                break;
-                            }
-                        if (!valid)
-                            return false;
-                    } else if ("$dkim".equals(keyword)) {
-                        if (!Boolean.TRUE.equals(message.dkim))
-                            return false;
-                    } else if ("$spf".equals(keyword)) {
-                        if (!Boolean.TRUE.equals(message.spf))
-                            return false;
-                    } else if ("$dmarc".equals(keyword)) {
-                        if (!Boolean.TRUE.equals(message.dmarc))
-                            return false;
-                    } else if ("$auth".equals(keyword)) {
-                        if (!Boolean.TRUE.equals(message.auth))
-                            return false;
-                    } else if ("$mx".equals(keyword)) {
-                        if (!Boolean.TRUE.equals(message.mx))
-                            return false;
-                    } else if ("$blocklist".equals(keyword)) {
-                        if (!Boolean.FALSE.equals(message.blocklist))
-                            return false;
-                    } else if ("$replydomain".equals(keyword)) {
-                        if (!Boolean.TRUE.equals(message.reply_domain))
-                            return false;
-                    } else if ("$nofrom".equals(keyword)) {
-                        if (message.from != null && message.from.length > 0)
-                            return false;
-                    } else if ("$multifrom".equals(keyword)) {
-                        if (message.from == null || message.from.length < 2)
-                            return false;
-                    } else if ("$automatic".equals(keyword)) {
-                        if (!Boolean.TRUE.equals(message.auto_submitted))
-                            return false;
-                    } else if ("$lowpriority".equals(keyword)) {
-                        if (!EntityMessage.PRIORITIY_LOW.equals(message.priority))
-                            return false;
-                    } else if ("$highpriority".equals(keyword)) {
-                        if (!EntityMessage.PRIORITIY_HIGH.equals(message.priority))
-                            return false;
-                    } else if ("$signed".equals(keyword)) {
-                        if (!message.isSigned())
-                            return false;
-                    } else if ("$encrypted".equals(keyword)) {
-                        if (!message.isEncrypted())
-                            return false;
-                    } else {
-                        List<String> keywords = new ArrayList<>();
-                        keywords.addAll(Arrays.asList(message.keywords));
-
-                        if (message.ui_seen)
-                            keywords.add("$seen");
-                        if (message.ui_answered)
-                            keywords.add("$answered");
-                        if (message.ui_flagged)
-                            keywords.add("$flagged");
-                        if (message.ui_deleted)
-                            keywords.add("$deleted");
-                        if (message.infrastructure != null)
-                            keywords.add('$' + message.infrastructure);
-
-                        if (!keywords.contains(keyword))
-                            return false;
-                    }
+                    if (matchKeywords(context, message, value) != not)
+                        return false;
                 } else {
                     if (headers == null) {
                         if (message.headers == null)
@@ -459,7 +375,7 @@ public class EntityRule {
                             break;
                         }
                     }
-                    if (!matches)
+                    if (matches == not)
                         return false;
                 }
             }
@@ -564,6 +480,98 @@ public class EntityRule {
         }
 
         return true;
+    }
+
+    private static boolean matchKeywords(Context context, EntityMessage message, String value) {
+        String keyword = value.substring(1, value.length() - 1);
+
+        if ("$tls".equals(keyword)) {
+            if (!Boolean.TRUE.equals(message.tls))
+                return true;
+        } else if ("$aligned".equals(keyword)) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean native_dkim = prefs.getBoolean("native_dkim", false);
+            if (!native_dkim)
+                return true;
+            if (message.signedby == null)
+                return true;
+            if (message.from == null || message.from.length != 1)
+                return true;
+            String domain = UriHelper.getEmailDomain(((InternetAddress) message.from[0]).getAddress());
+            if (domain == null)
+                return true;
+            boolean valid = false;
+            for (String signer : message.signedby.split(","))
+                if (Objects.equals(
+                        UriHelper.getRootDomain(context, signer),
+                        UriHelper.getRootDomain(context, domain))) {
+                    valid = true;
+                    break;
+                }
+            if (!valid)
+                return true;
+        } else if ("$dkim".equals(keyword)) {
+            if (!Boolean.TRUE.equals(message.dkim))
+                return true;
+        } else if ("$spf".equals(keyword)) {
+            if (!Boolean.TRUE.equals(message.spf))
+                return true;
+        } else if ("$dmarc".equals(keyword)) {
+            if (!Boolean.TRUE.equals(message.dmarc))
+                return true;
+        } else if ("$auth".equals(keyword)) {
+            if (!Boolean.TRUE.equals(message.auth))
+                return true;
+        } else if ("$mx".equals(keyword)) {
+            if (!Boolean.TRUE.equals(message.mx))
+                return true;
+        } else if ("$blocklist".equals(keyword)) {
+            if (!Boolean.FALSE.equals(message.blocklist))
+                return true;
+        } else if ("$replydomain".equals(keyword)) {
+            if (!Boolean.TRUE.equals(message.reply_domain))
+                return true;
+        } else if ("$nofrom".equals(keyword)) {
+            if (message.from != null && message.from.length > 0)
+                return true;
+        } else if ("$multifrom".equals(keyword)) {
+            if (message.from == null || message.from.length < 2)
+                return true;
+        } else if ("$automatic".equals(keyword)) {
+            if (!Boolean.TRUE.equals(message.auto_submitted))
+                return true;
+        } else if ("$lowpriority".equals(keyword)) {
+            if (!EntityMessage.PRIORITIY_LOW.equals(message.priority))
+                return true;
+        } else if ("$highpriority".equals(keyword)) {
+            if (!EntityMessage.PRIORITIY_HIGH.equals(message.priority))
+                return true;
+        } else if ("$signed".equals(keyword)) {
+            if (!message.isSigned())
+                return true;
+        } else if ("$encrypted".equals(keyword)) {
+            if (!message.isEncrypted())
+                return true;
+        } else {
+            List<String> keywords = new ArrayList<>();
+            keywords.addAll(Arrays.asList(message.keywords));
+
+            if (message.ui_seen)
+                keywords.add("$seen");
+            if (message.ui_answered)
+                keywords.add("$answered");
+            if (message.ui_flagged)
+                keywords.add("$flagged");
+            if (message.ui_deleted)
+                keywords.add("$deleted");
+            if (message.infrastructure != null)
+                keywords.add('$' + message.infrastructure);
+
+            if (!keywords.contains(keyword))
+                return true;
+        }
+
+        return false;
     }
 
     private boolean matches(Context context, EntityMessage message, String needle, String haystack, boolean regex) {

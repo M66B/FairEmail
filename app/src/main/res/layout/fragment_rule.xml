@@ -455,15 +455,27 @@
                     app:layout_constraintTop_toBottomOf="@id/tvMimeType" />
 
                 <TextView
-                    android:id="@+id/tvAndAttachments"
+                    android:id="@+id/tvHeaderCondition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
                     android:text="@string/title_rule_and"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/cbHeaderNot"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/cbHeaderNot" />
+
+                <CheckBox
+                    android:id="@+id/cbHeaderNot"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/title_rule_not"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvHeaderCondition"
                     app:layout_constraintTop_toBottomOf="@+id/etMimeType" />
 
                 <View
@@ -472,7 +484,7 @@
                     android:layout_height="1dp"
                     android:background="?attr/colorSeparator"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAndAttachments" />
+                    app:layout_constraintTop_toBottomOf="@id/cbHeaderNot" />
 
                 <TextView
                     android:id="@+id/tvHeader"
@@ -1383,7 +1395,8 @@
                     vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ibRecipient,
                     tvSubjectCondition,cbSubjectNot,
                     vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndSubject,
-                    vSeparatorAttachments,cbAttachments,tvMimeType,etMimeType,tvAndAttachments,
+                    vSeparatorAttachments,cbAttachments,tvMimeType,etMimeType,
+                    tvHeaderCondition,cbHeaderNot,
                     vSeparatorHeader,tvHeader,ibHeader,cbHeader,etHeader,
                     tvBodyCondition,cbBodyNot,
                     vSeparatorBody,tvBody,cbBody,etBody,tvBodyRemark,cbSkipQuotes,tvAndBody,

@@ -111,6 +111,7 @@ public class FragmentRule extends FragmentBase {
     private CheckBox cbAttachments;
     private EditText etMimeType;
 
+    private CheckBox cbHeaderNot;
     private EditText etHeader;
     private ImageButton ibHeader;
     private CheckBox cbHeader;
@@ -310,6 +311,7 @@ public class FragmentRule extends FragmentBase {
         cbAttachments = view.findViewById(R.id.cbAttachments);
         etMimeType = view.findViewById(R.id.etMimeType);
 
+        cbHeaderNot = view.findViewById(R.id.cbHeaderNot);
         etHeader = view.findViewById(R.id.etHeader);
         ibHeader = view.findViewById(R.id.ibHeader);
         cbHeader = view.findViewById(R.id.cbHeader);
@@ -1259,6 +1261,7 @@ public class FragmentRule extends FragmentBase {
                         etMimeType.setText(jcondition.optString("mimetype"));
                         etMimeType.setEnabled(cbAttachments.isChecked());
 
+                        cbHeaderNot.setChecked(jheader != null && jheader.optBoolean("not"));
                         etHeader.setText(jheader == null ? null : jheader.getString("value"));
                         cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));
 
@@ -1665,6 +1668,7 @@ public class FragmentRule extends FragmentBase {
         String header = etHeader.getText().toString();
         if (!TextUtils.isEmpty(header)) {
             JSONObject jheader = new JSONObject();
+            jheader.put("not", cbHeaderNot.isChecked());
             jheader.put("value", header);
             jheader.put("regex", cbHeader.isChecked());
             jcondition.put("header", jheader);
