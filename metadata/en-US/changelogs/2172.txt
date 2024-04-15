@@ -9,6 +9,7 @@ Zby
 Next version
 
 * Added *primary inbox* start screen option
+* Added *NOT* option to rule conditions
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
 * Updated translations

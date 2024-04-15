@@ -9,6 +9,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### Next version
 
 * Added *primary inbox* start screen option
+* Added *NOT* option to rule conditions
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
