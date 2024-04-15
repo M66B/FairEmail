@@ -2127,7 +2127,7 @@
         <item>Birləşmiş qovluqlar</item>
         <item>Üstünlük verilən hesab qovluqları</item>
         <item>Hesablar</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Əsas gələn qutusu</item>
+        <item>Əsas gələn qutusu</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

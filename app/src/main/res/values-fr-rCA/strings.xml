@@ -1707,6 +1707,7 @@
     <string name="title_rule_younger">Messages de moins de (heures)</string>
     <string name="title_rule_regex">Expression régulière</string>
     <string name="title_rule_and">ET</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NON</string>
     <string name="title_rule_action">Action</string>
     <string name="title_rule_action_remark">Cette action sera appliquée aux nouveaux messages qui arrivent dans le dossier %1$s</string>
     <string name="title_rule_hours">Heures</string>
@@ -2128,7 +2129,7 @@
         <item>Dossiers unifiés</item>
         <item>Dossiers du compte principal</item>
         <item>Comptes</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Boîte de réception principale</item>
+        <item>Boîte de réception principale</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 Ko</item>

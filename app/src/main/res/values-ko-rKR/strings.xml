@@ -1573,7 +1573,7 @@
         <item>통합된 폴더</item>
         <item>주계정 폴더</item>
         <item>계정</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
+        <item>Primary inbox</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

@@ -2157,7 +2157,7 @@
         <item>תיקיות מאוחדות</item>
         <item>תיקיות החשבון העיקרי</item>
         <item>חשבונות</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">תיבת דואר נכנס עיקרית</item>
+        <item>תיבת דואר נכנס עיקרית</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 ק״ב</item>

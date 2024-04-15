@@ -2104,7 +2104,7 @@
         <item>聚合文件夹</item>
         <item>主账户文件夹</item>
         <item>账户</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">主收件箱</item>
+        <item>主收件箱</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

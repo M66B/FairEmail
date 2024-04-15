@@ -1707,6 +1707,7 @@
     <string name="title_rule_younger">Messaggi più recenti di (ore)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">E</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NON</string>
     <string name="title_rule_action">Azione</string>
     <string name="title_rule_action_remark">Quest\'azione sarà applicata ai nuovi messaggi in arrivo nella cartella %1$s</string>
     <string name="title_rule_hours">Ore</string>
@@ -2128,7 +2129,7 @@
         <item>Cartelle unificate</item>
         <item>Cartelle del profilo principale</item>
         <item>Profili</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Posta in arrivo principale</item>
+        <item>Posta in arrivo principale</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

@@ -1417,7 +1417,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
         <item>Carpetes unificades</item>
         <item>Primary account folders</item>
         <item>Comptes</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
+        <item>Primary inbox</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

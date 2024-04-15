@@ -1696,6 +1696,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_younger">Şundan daha eski mesajlar: (saatler)</string>
     <string name="title_rule_regex">Düzenli ifade</string>
     <string name="title_rule_and">VE</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">DEĞİL</string>
     <string name="title_rule_action">Eylem</string>
     <string name="title_rule_action_remark">Bu işlem %1$s klasörüne gelen yeni iletilere uygulanacaktır</string>
     <string name="title_rule_hours">Saatler</string>
@@ -2116,7 +2117,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
         <item>Birleşik klasörler</item>
         <item>Varsayılan hesap klasörleri</item>
         <item>Hesaplar</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Birincil gelen kutusu</item>
+        <item>Birincil gelen kutusu</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

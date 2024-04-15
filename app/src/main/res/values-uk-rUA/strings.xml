@@ -1731,6 +1731,7 @@
     <string name="title_rule_younger">Повідомлення, отримані за останні (години)</string>
     <string name="title_rule_regex">Регулярний вираз</string>
     <string name="title_rule_and">ТА</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">НІ</string>
     <string name="title_rule_action">Дія</string>
     <string name="title_rule_action_remark">Ця дія буде застосована до нових повідомлень, які надходять до теки «%1$s»</string>
     <string name="title_rule_hours">Годин</string>
@@ -2154,7 +2155,7 @@
         <item>Об\'єднані теки</item>
         <item>Теки основного облікового запису</item>
         <item>Облікові записи</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Основні вхідні</item>
+        <item>Основні вхідні</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 КБ</item>

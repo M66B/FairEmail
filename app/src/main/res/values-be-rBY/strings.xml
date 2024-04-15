@@ -2160,7 +2160,7 @@
         <item>Агульныя папкі</item>
         <item>Папкі асноўнага ўліковага запісу</item>
         <item>Уліковыя запісы</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
+        <item>Primary inbox</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 КБ</item>

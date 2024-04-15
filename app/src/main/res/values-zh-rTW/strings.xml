@@ -1759,7 +1759,7 @@
         <item>全域資料夾</item>
         <item>主帳戶資料夾</item>
         <item>帳戶</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
+        <item>Primary inbox</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

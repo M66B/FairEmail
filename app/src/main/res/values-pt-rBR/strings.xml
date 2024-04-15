@@ -2123,7 +2123,7 @@
         <item>Pastas unificadas</item>
         <item>Pasta de contas principais</item>
         <item>Contas</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Caixa de entrada primária</item>
+        <item>Caixa de entrada primária</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

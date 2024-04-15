@@ -1692,6 +1692,7 @@
     <string name="title_rule_younger">…時間以内のメッセージ</string>
     <string name="title_rule_regex">正規表現</string>
     <string name="title_rule_and">AND</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NOT</string>
     <string name="title_rule_action">アクション</string>
     <string name="title_rule_action_remark">このアクションは、フォルダー %1$s で受信される新しいメッセージに適用されます</string>
     <string name="title_rule_hours">時間</string>
@@ -2112,7 +2113,7 @@
         <item>統合フォルダー</item>
         <item>プライマリーアカウントフォルダー</item>
         <item>アカウント</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">プライマリー受信トレイ</item>
+        <item>プライマリー受信トレイ</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

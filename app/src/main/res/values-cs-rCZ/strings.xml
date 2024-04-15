@@ -1730,6 +1730,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_younger">Zprávy mladší než (hodin)</string>
     <string name="title_rule_regex">Regulární výraz</string>
     <string name="title_rule_and">A</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NE</string>
     <string name="title_rule_action">Akce</string>
     <string name="title_rule_action_remark">Tato akce bude použita na nové zprávy přijaté do složky %1$s</string>
     <string name="title_rule_hours">Hodiny</string>
@@ -2152,7 +2153,7 @@ v prohlížeči ze všech Google účtů.</string>
         <item>Sjednocené složky</item>
         <item>Složky hlavního účtu</item>
         <item>Účty</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primární doručená pošta</item>
+        <item>Primární doručená pošta</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

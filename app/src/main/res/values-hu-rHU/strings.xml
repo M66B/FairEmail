@@ -1698,6 +1698,7 @@
     <string name="title_rule_younger">Üzenet későbbi, mint (órákban)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">ÉS</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NEM</string>
     <string name="title_rule_action">Művelet</string>
     <string name="title_rule_action_remark">Ez a művelet alkalmazva lesz új üzenetekre amik beérkeznek a(z) %1$s mappában</string>
     <string name="title_rule_hours">Óra</string>
@@ -2118,7 +2119,7 @@
         <item>Összesített mappák</item>
         <item>Elsődleges fiókmappák</item>
         <item>Fiókok</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Elsődleges bejövő mappa</item>
+        <item>Elsődleges bejövő mappa</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

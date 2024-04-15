@@ -1169,6 +1169,7 @@
     <string name="title_rule_time_every_day">هر روز</string>
     <string name="title_rule_regex">عبارت منظم</string>
     <string name="title_rule_and">و</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">نه</string>
     <string name="title_rule_action">کنش</string>
     <string name="title_rule_action_remark">این کنش برای کلیه پیام‌های وارده در پوشه %1$s اعمال می‌شود</string>
     <string name="title_rule_hours">ساعت</string>
@@ -1471,7 +1472,7 @@
         <item>پوشه‌های یکپارچه</item>
         <item>پوشه‌های حساب اصلی</item>
         <item>حساب‌ها</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">صندوق ورودی اولیه</item>
+        <item>صندوق ورودی اولیه</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 کیلوبایت</item>

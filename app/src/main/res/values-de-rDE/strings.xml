@@ -1168,7 +1168,7 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Benutzer</string>
     <string name="title_folder_user_only">Nur Benutzerordner</string>
-    <string name="title_folder_primary">Hauptkontoordner</string>
+    <string name="title_folder_primary">Ordner des Hauptkontos</string>
     <string name="title_folders_unified">Sammeleingangsordner</string>
     <string name="title_folder_local_drafts">Lokale Entwürfe</string>
     <string name="title_no_folders">Keine Ordner</string>
@@ -1708,6 +1708,7 @@
     <string name="title_rule_younger">Nachrichten jünger als (Stunden)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">UND</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NICHT</string>
     <string name="title_rule_action">Aktion</string>
     <string name="title_rule_action_remark">Diese Aktion wird auf neu ankommende Nachrichten im Ordner %1$s angewendet</string>
     <string name="title_rule_hours">Stunden</string>
@@ -2129,7 +2130,7 @@
         <item>Sammelordner</item>
         <item>Ordner des Hauptkontos</item>
         <item>Konten</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primärer Posteingang</item>
+        <item>Primärer Posteingang</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

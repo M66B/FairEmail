@@ -2152,7 +2152,7 @@
         <item>Wspólne foldery</item>
         <item>Foldery konta głównego</item>
         <item>Konta</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Podstawowa skrzynka odbiorcza</item>
+        <item>Podstawowa skrzynka odbiorcza</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

@@ -1691,6 +1691,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_younger">Berichten jonger dan (uren)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NIET</string>
     <string name="title_rule_action">Actie</string>
     <string name="title_rule_action_remark">Deze actie zal worden toegepast op nieuwe berichten die aankomen in de map %1$s</string>
     <string name="title_rule_hours">Uren</string>
@@ -2110,7 +2111,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>Gecombineerde postvak in mappen</item>
         <item>Primaire account mappen</item>
         <item>Accounts</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primaire postvak in</item>
+        <item>Primaire postvak in</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

@@ -1701,6 +1701,7 @@
     <string name="title_rule_younger">Mensajes menores de (horas)</string>
     <string name="title_rule_regex">Expresión regular</string>
     <string name="title_rule_and">Y</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NO</string>
     <string name="title_rule_action">Acción</string>
     <string name="title_rule_action_remark">Esta acción se aplicará a los nuevos mensajes que lleguen a la carpeta %1$s</string>
     <string name="title_rule_hours">Horas</string>
@@ -2121,7 +2122,7 @@
         <item>Carpetas unificadas</item>
         <item>Carpetas de la cuenta principal</item>
         <item>Cuentas</item>
-        <item comment="startupNames&#10;Title for start screen option to show the inbox of the primary account">Primary inbox</item>
+        <item>Bandeja de entrada principal</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
