@@ -106,7 +106,14 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     public void onCreate() {
         EntityLog.log(this, "Service send create");
         super.onCreate();
-        startForeground(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
+        try {
+            startForeground(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
+        } catch (Throwable ex) {
+            if (Helper.isPlayStoreInstall())
+                Log.i(ex);
+            else
+                Log.e(ex);
+        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         retry_max = prefs.getInt("send_retry_max", RETRY_MAX_DEFAULT);
@@ -241,7 +248,14 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        startForeground(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
+        try {
+            startForeground(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
+        } catch (Throwable ex) {
+            if (Helper.isPlayStoreInstall())
+                Log.i(ex);
+            else
+                Log.e(ex);
+        }
 
         Log.i("Send intent=" + intent);
         Log.logExtras(intent);

@@ -69,7 +69,14 @@ public class ServiceExternal extends ServiceBase {
     public void onCreate() {
         Log.i("Service external create");
         super.onCreate();
-        startForeground(NotificationHelper.NOTIFICATION_EXTERNAL, getNotification());
+        try {
+            startForeground(NotificationHelper.NOTIFICATION_EXTERNAL, getNotification());
+        } catch (Throwable ex) {
+            if (Helper.isPlayStoreInstall())
+                Log.i(ex);
+            else
+                Log.e(ex);
+        }
     }
 
     @Override
@@ -92,7 +99,14 @@ public class ServiceExternal extends ServiceBase {
             Log.logExtras(intent);
 
             super.onStartCommand(intent, flags, startId);
-            startForeground(NotificationHelper.NOTIFICATION_EXTERNAL, getNotification());
+            try {
+                startForeground(NotificationHelper.NOTIFICATION_EXTERNAL, getNotification());
+            } catch (Throwable ex) {
+                if (Helper.isPlayStoreInstall())
+                    Log.i(ex);
+                else
+                    Log.e(ex);
+            }
 
             if (intent == null)
                 return START_NOT_STICKY;

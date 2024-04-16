@@ -205,8 +205,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
                         getNotificationService(null, null));
             } catch (Throwable ex) {
-                Log.e(ex);
-                stopSelf();
+                if (Helper.isPlayStoreInstall())
+                    Log.i(ex);
+                else
+                    Log.e(ex);
             }
 
         isOptimizing = Boolean.FALSE.equals(Helper.isIgnoringOptimizations(this));
@@ -1114,8 +1116,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             if (isBackgroundService(this))
                 stopForeground(true);
             else
-                startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
-                        getNotificationService(null, null));
+                try {
+                    startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
+                            getNotificationService(null, null));
+                } catch (Throwable ex) {
+                    if (Helper.isPlayStoreInstall())
+                        Log.i(ex);
+                    else
+                        Log.e(ex);
+                }
 
             if (action != null) {
                 switch (action.split(":")[0]) {
@@ -3549,7 +3558,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             else
                 ContextCompat.startForegroundService(context, intent);
         } catch (Throwable ex) {
-            Log.e(ex);
+            if (Helper.isPlayStoreInstall())
+                Log.i(ex);
+            else
+                Log.e(ex);
         }
     }
 
