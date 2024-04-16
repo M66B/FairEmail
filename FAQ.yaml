@@ -3,5 +3,27 @@ header-includes: |
   <link rel="shortcut icon" href="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/ic_launcher-web.png">
   <style>
     body { font-family: Arial, sans-serif; }
+    @media (prefers-color-scheme: light) {
+      body {
+        color: #212121;
+        background: #FFFFFF;
+      }
+      a:link { color: #C68400; }
+      a:visited { color: #ff6f00; }
+      a:hover { color: #039BE5; }
+      a:active { color: #039BE5; }
+      img { filter: invert(0%); }
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        color: #FFFFFF;
+        background: #424242;
+      }
+      a:link { color: #FFB300; }
+      a:visited { color: #FF6F00; }
+      a:hover { color: #01579B; }
+      a:active { color: #01579B; }
+      img { filter: invert(75%); }
+    }
   </style>
 ---
