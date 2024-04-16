@@ -2705,6 +2705,7 @@ The following rule conditions are available:
 
 All the conditions of a rule need to be true for the rule action to be executed.
 All conditions are optional, but there needs to be at least one condition, to prevent matching all messages.
+
 If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character.
 If you want to match a domain name, you can use as a condition something like *@example.org*
 
@@ -2727,6 +2728,7 @@ jsoup:html > body > div > a[href=https://example.org]
 ```
 
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
+Since version 1.2173 there is a *NOT* option for conditions that accept a regex.
 
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
 Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions.

@@ -1479,14 +1479,15 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <li>Absolute time (received) between (since version 1.1540)</li>
 <li>Relative time (received) between</li>
 </ul>
-<p>All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages. If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. If you want to match a domain name, you can use as a condition something like <em><span class="citation" data-cites="example.org">@example.org</span></em></p>
+<p>All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages.</p>
+<p>If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. If you want to match a domain name, you can use as a condition something like <em><span class="citation" data-cites="example.org">@example.org</span></em></p>
 <p>Note that email addresses are formatted like this:</p>
 <p><code>"Somebody" &lt;somebody@example.org&gt;</code></p>
 <p>When using a regex, you need to take care to match the complete address.</p>
 <p>Note that message texts are normalized when not using a regex, which means that all whitespaces (spaces, tabs, line breaks, etc) are replaced by a single space. This makes it easier to match texts on multiple lines or when the line break is at different places.</p>
 <p>Since version 1.1996 it is possible to use <a href="https://jsoup.org/cookbook/extracting-data/selector-syntax">Jsoup selectors</a> to match HTML elements, by prefixing the selector by <em>jsoup:</em> and entering it as text contains condition, like for example:</p>
 <pre><code>jsoup:html &gt; body &gt; div &gt; a[href=https://example.org]</code></pre>
-<p>You can use multiple rules, possibly with a <em>stop processing</em>, for an <em>or</em> or a <em>not</em> condition.</p>
+<p>You can use multiple rules, possibly with a <em>stop processing</em>, for an <em>or</em> or a <em>not</em> condition. Since version 1.2173 there is a <em>NOT</em> option for conditions that accept a regex.</p>
 <p>Matching is not case sensitive, unless you use <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>. Please see <a href="https://developer.android.com/reference/java/util/regex/Pattern">here</a> for the documentation of Java regular expressions. Note that you need to match the complete text from the first to the last character. You can test a regex <a href="https://regexr.com/">here</a>.</p>
 <p>Note that a regular expression supports an <em>or</em> operator, so if you want to match multiple senders, you can do this:</p>
 <p><code>.*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*</code></p>
