@@ -1746,15 +1746,15 @@ please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
 
 External image:
 
-<img alt="External image" src="https://github.com/M66B/FairEmail/blob/master/images/baseline_image_black_48dp.png" width="48" height="48" />
+<img alt="External image" src="https://raw.githubusercontent.com/M66B/FairEmail/master/images/baseline_image_black_48dp.png" width="48" height="48" />
 
 Embedded image:
 
-<img alt="Embedded image" src="https://github.com/M66B/FairEmail/blob/master/images/baseline_photo_library_black_48dp.png" width="48" height="48" />
+<img alt="Embedded image" src="https://raw.githubusercontent.com/M66B/FairEmail/master/images/baseline_photo_library_black_48dp.png" width="48" height="48" />
 
 Broken image:
 
-<img alt="Broken image" src="https://github.com/M66B/FairEmail/blob/master/images/baseline_broken_image_black_48dp.png" width="48" height="48" />
+<img alt="Broken image" src="https://raw.githubusercontent.com/M66B/FairEmail/master/images/baseline_broken_image_black_48dp.png" width="48" height="48" />
 
 Note that downloading external images from a remote server can be used to record you did see a message, which you likely don't want if the message is spam or malicious.
 
@@ -2427,11 +2427,11 @@ so it is better to resize images with an image editor first.
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
-<img src="https://github.com/M66B/FairEmail/blob/master/images/baseline_mail_outline_black_48dp.png" width="48" height="48" />
+<img alt="Mail outline image" src="https://raw.githubusercontent.com/M66B/FairEmail/master/images/baseline_mail_outline_black_48dp.png" width="48" height="48" />
 
 Message bodies and attachments are not downloaded by default.
 
-<img src="https://github.com/M66B/FairEmail/blob/master/images/baseline_email_black_48dp.png" width="48" height="48" />
+<img alt="Mail image" src="https://raw.githubusercontent.com/M66B/FairEmail/master/images/baseline_email_black_48dp.png" width="48" height="48" />
 
 Message bodies and attachments are downloaded by default.
 
@@ -3163,7 +3163,7 @@ The BBC article '[Spy pixels in emails have become endemic](https://www.bbc.com/
 
 FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
 
-<img src="https://github.com/M66B/FairEmail/blob/master/images/baseline_my_location_black_48dp.png" width="48" height="48" />
+<img alt="Tracking image" src="https://raw.githubusercontent.com/M66B/FairEmail/master/images/baseline_my_location_black_48dp.png" width="48" height="48" />
 
 Automatic recognition of tracking images can be disabled in the privacy settings.
 
@@ -4418,7 +4418,7 @@ Note that trashing a message will permanently remove it from the server and that
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
-<img src="https://github.com/M66B/FairEmail/blob/master/images/baseline_record_voice_over_black_48dp.png" width="48" height="48" />
+<img alt="Record image" src="https://raw.githubusercontent.com/M66B/FairEmail/master/images/baseline_record_voice_over_black_48dp.png" width="48" height="48" />
 
 This requires a compatible audio recorder app to be installed.
 In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION)
@@ -4628,7 +4628,7 @@ You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/
 * When I mark a message in IMAP as deleted: Auto-Expunge off - Wait for the client to update the server.
 * When a message is marked as deleted and expunged from the last visible IMAP folder: Immediately delete the message forever
 
-<img alt="External image" src="https://github.com/M66B/FairEmail/blob/master/images/Gmail_IMAP_delete_settings.png" width="600" height="333" />
+<img alt="External image" src="https://raw.githubusercontent.com/M66B/FairEmail/master/images/Gmail_IMAP_delete_settings.png" width="600" height="333" />
 
 Note that archived messages can be deleted only by moving them to the trash folder first.
 
