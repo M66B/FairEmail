@@ -1731,6 +1731,7 @@
     <string name="title_rule_younger">Wiadomości młodsze niż (godziny)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">I</string>
+    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NIE</string>
     <string name="title_rule_action">Akcja</string>
     <string name="title_rule_action_remark">Ta akcja zostanie zastosowana do nowych wiadomości przychodzących do folderu %1$s</string>
     <string name="title_rule_hours">Godzin</string>
