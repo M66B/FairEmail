@@ -791,6 +791,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 protected void onExecuted(Bundle args, EntityFolder inbox) {
                     FragmentBase fragment = new FragmentMessages();
                     if (inbox != null) {
+                        args.putString("type", inbox.type);
                         args.putLong("account", inbox.account);
                         args.putLong("folder", inbox.id);
                     }
