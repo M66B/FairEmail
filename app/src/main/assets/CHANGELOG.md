@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### Next version
+### 1.2173 - 2024-04-16
 
 * Added *primary inbox* start screen option
 * Added *NOT* option to rule conditions
