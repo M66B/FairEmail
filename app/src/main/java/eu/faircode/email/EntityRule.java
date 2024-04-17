@@ -495,14 +495,18 @@ public class EntityRule {
             // Expression
             Expression expression = getExpression(this, message, headers, context);
             if (expression != null) {
-                if (needsHeaders(expression) && headers == null && message.headers == null)
-                    throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean experiments = prefs.getBoolean("experiments", false);
+                if (experiments) {
+                    if (needsHeaders(expression) && headers == null && message.headers == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
 
-                Log.i("EXPR evaluating='" + jcondition.getString("expression") + "'");
-                Boolean result = expression.evaluate().getBooleanValue();
-                Log.i("EXPR evaluated=" + result);
-                if (!Boolean.TRUE.equals(result))
-                    return false;
+                    Log.i("EXPR evaluating='" + jcondition.getString("expression") + "'");
+                    Boolean result = expression.evaluate().getBooleanValue();
+                    Log.i("EXPR evaluated=" + result);
+                    if (!Boolean.TRUE.equals(result))
+                        return false;
+                }
             }
 
             // Safeguard
