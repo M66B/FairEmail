@@ -713,11 +713,10 @@ public class EntityRule {
             for (Address a : message.from)
                 from.add(MessageHelper.formatAddresses(new Address[]{a}));
 
-        String text = null;
+        Document doc = null;
         if (message != null && message.content)
             try {
-                Document d = JsoupEx.parse(message.getFile(context));
-                text = d.text();
+                doc = JsoupEx.parse(message.getFile(context));
             } catch (IOException ex) {
                 Log.e(ex);
             }
@@ -739,7 +738,7 @@ public class EntityRule {
                 .with("to", to)
                 .with("from", from)
                 .with("subject", message == null ? null : Arrays.asList(message.subject))
-                .with("text", Arrays.asList(text));
+                .with("text", doc == null ? null : Arrays.asList(doc.text()));
     }
 
     static boolean needsHeaders(Expression expression) {
