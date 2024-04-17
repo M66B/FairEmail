@@ -208,10 +208,8 @@ public class EntityRule {
                     if (expression != null) {
                         if ("header".equals(what) && needsHeaders(expression))
                             return true;
-                        if ("body".equals(what))
-                            for (String variable : expression.getUsedVariables())
-                                if ("text".equalsIgnoreCase(variable))
-                                    return true;
+                        if ("body".equals(what) && needsBody(expression))
+                            return true;
                     }
                 }
             } catch (Throwable ex) {
@@ -753,6 +751,17 @@ public class EntityRule {
                     return true;
                 }
             }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+        return false;
+    }
+
+    static boolean needsBody(Expression expression) {
+        try {
+            for (String variable : expression.getUsedVariables())
+                if ("text".equalsIgnoreCase(variable))
+                    return true;
         } catch (Throwable ex) {
             Log.e(ex);
         }
