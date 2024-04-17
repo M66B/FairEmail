@@ -673,23 +673,25 @@ public class EntityRule {
         public EvaluationValue evaluate(
                 Expression expression, Token operatorToken, EvaluationValue... operands) {
             Log.i("EXPR " + operands[0] + (regex ? " MATCHES " : " CONTAINS ") + operands[1] + " regex=" + regex);
+
             String condition = operands[1].getStringValue();
             List<EvaluationValue> array = operands[0].getArrayValue();
-            if (!TextUtils.isEmpty(condition) && array != null) {
-                Pattern p = (regex ? Pattern.compile(condition, Pattern.DOTALL) : null);
-                Log.i("EXPR regex=" + (p == null ? null : p.pattern()));
-                for (EvaluationValue item : array) {
-                    String value = item.getStringValue();
-                    if (!TextUtils.isEmpty(value))
-                        if (p == null) {
-                            if (value.toLowerCase().contains(condition.toLowerCase()))
-                                return expression.convertValue(true);
-                        } else {
-                            if (p.matcher(value).matches())
-                                return expression.convertValue(true);
-                        }
-                }
+            if (TextUtils.isEmpty(condition) || array == null || array.isEmpty())
+                return expression.convertValue(false);
+
+            Pattern p = (regex ? Pattern.compile(condition, Pattern.DOTALL) : null);
+            for (EvaluationValue item : array) {
+                String value = item.getStringValue();
+                if (!TextUtils.isEmpty(value))
+                    if (p == null) {
+                        if (value.toLowerCase().contains(condition.toLowerCase()))
+                            return expression.convertValue(true);
+                    } else {
+                        if (p.matcher(value).matches())
+                            return expression.convertValue(true);
+                    }
             }
+
             return expression.convertValue(false);
         }
     }
