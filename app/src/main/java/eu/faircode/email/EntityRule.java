@@ -21,6 +21,8 @@ package eu.faircode.email;
 
 import static androidx.room.ForeignKey.CASCADE;
 
+import static com.ezylang.evalex.operators.OperatorIfc.OPERATOR_PRECEDENCE_COMPARISON;
+
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -40,6 +42,15 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+import com.ezylang.evalex.EvaluationException;
+import com.ezylang.evalex.Expression;
+import com.ezylang.evalex.config.ExpressionConfiguration;
+import com.ezylang.evalex.data.EvaluationValue;
+import com.ezylang.evalex.operators.AbstractOperator;
+import com.ezylang.evalex.operators.InfixOperator;
+import com.ezylang.evalex.parser.ParseException;
+import com.ezylang.evalex.parser.Token;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,6 +73,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -151,6 +163,10 @@ public class EntityRule {
     private static final int MAX_NOTES_LENGTH = 512; // characters
     private static final int URL_TIMEOUT = 15 * 1000; // milliseconds
 
+    private static final List<String> EXPR_VARIABLES = Collections.unmodifiableList(Arrays.asList(
+            "sender", "subject"
+    ));
+
     static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
         return needsHeaders(rules);
     }
@@ -182,6 +198,16 @@ public class EntityRule {
                             continue;
                     }
                     return true;
+                }
+                if (jcondition.has("expression")) {
+                    Expression expression = getExpression(rule, null);
+                    if (expression != null)
+                        for (String variable : expression.getUsedVariables())
+                            if ("body".equals(what) && "body".equalsIgnoreCase(variable))
+                                return true;
+                            else if ("header".equals(what) && "header".equalsIgnoreCase(variable))
+                                return true;
+                    return false;
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
@@ -463,6 +489,19 @@ public class EntityRule {
                     return false;
             }
 
+            Expression expression = getExpression(this, message);
+            if (expression != null) {
+                for (String variable : expression.getUsedVariables())
+                    if ("header".equalsIgnoreCase(variable) && message.headers == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
+
+                Log.i("EXPR evaluating " + jcondition.getString("expression"));
+                Boolean result = expression.evaluate().getBooleanValue();
+                Log.i("EXPR evaluated=" + result);
+                if (!Boolean.TRUE.equals(result))
+                    return false;
+            }
+
             // Safeguard
             if (jsender == null &&
                     jrecipient == null &&
@@ -472,9 +511,10 @@ public class EntityRule {
                     jbody == null &&
                     jdate == null &&
                     jschedule == null &&
-                    !jcondition.has("younger"))
+                    !jcondition.has("younger") &&
+                    !jcondition.has("expression"))
                 return false;
-        } catch (JSONException ex) {
+        } catch (JSONException | ParseException | EvaluationException ex) {
             Log.e(ex);
             return false;
         }
@@ -593,6 +633,58 @@ public class EntityRule {
         return matched;
     }
 
+    @InfixOperator(precedence = OPERATOR_PRECEDENCE_COMPARISON)
+    public static class ContainsOperator extends AbstractOperator {
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token operatorToken, EvaluationValue... operands) {
+            String op1 = operands[0].getStringValue();
+            String op2 = operands[1].getStringValue();
+            Log.i("EXPR " + op1 + " CONTAINS " + op2);
+            return expression.convertValue(
+                    !TextUtils.isEmpty(op1) && !TextUtils.isEmpty(op2) &&
+                            op1.toLowerCase().contains(op2.toLowerCase()));
+        }
+    }
+
+    @InfixOperator(precedence = OPERATOR_PRECEDENCE_COMPARISON)
+    public static class MatchesOperator extends AbstractOperator {
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token operatorToken, EvaluationValue... operands) {
+            String op1 = operands[0].getStringValue();
+            String op2 = operands[1].getStringValue();
+            Log.i("EXPR " + op1 + " MATCHES " + op2);
+            return expression.convertValue(
+                    !TextUtils.isEmpty(op1) && !TextUtils.isEmpty(op2) &&
+                            Pattern.compile(op2, Pattern.DOTALL).matcher(op1).matches());
+        }
+    }
+
+    static Expression getExpression(EntityRule rule, EntityMessage message) throws JSONException {
+        // https://ezylang.github.io/EvalEx/
+
+        JSONObject jcondition = new JSONObject(rule.condition);
+        if (!jcondition.has("expression"))
+            return null;
+
+        String sender = null;
+        String subject = null;
+        if (message != null) {
+            if (message.from != null && message.from.length == 1)
+                sender = MessageHelper.formatAddresses(message.from);
+            subject = message.subject;
+        }
+
+        ExpressionConfiguration configuration = ExpressionConfiguration.defaultConfiguration();
+        configuration.getOperatorDictionary().addOperator("CONTAINS", new ContainsOperator());
+        configuration.getOperatorDictionary().addOperator("MATCHES", new MatchesOperator());
+
+        return new Expression(jcondition.getString("expression"), configuration)
+                .with("sender", sender)
+                .with("subject", subject);
+    }
+
     boolean execute(Context context, EntityMessage message, String html) throws JSONException, IOException {
         boolean executed = _execute(context, message, html);
         if (this.id != null && executed) {
@@ -655,6 +747,25 @@ public class EntityRule {
     }
 
     void validate(Context context) throws JSONException, IllegalArgumentException {
+        Expression expression = getExpression(this, null);
+        if (expression != null)
+            try {
+                for (String variable : expression.getUsedVariables()) {
+                    Log.i("EXPR variable=" + variable);
+                    if (!EXPR_VARIABLES.contains(variable))
+                        throw new IllegalArgumentException("Unknown variable '" + variable + "'");
+                }
+                Log.i("EXPR validating");
+                expression.validate();
+                Log.i("EXPR validated");
+            } catch (ParseException ex) {
+                Log.w("EXPR", ex);
+                String message = ex.getMessage();
+                if (TextUtils.isEmpty(message))
+                    message = "Invalid expression";
+                throw new IllegalArgumentException(message, ex);
+            }
+
         JSONObject jargs = new JSONObject(action);
         int type = jargs.getInt("type");
 

@@ -57,3 +57,4 @@ FairEmail uses parts or all of:
 * [ZXing](https://github.com/zxing/zxing). Copyright (C) 2014 ZXing authors. [Apache License 2.0](https://github.com/zxing/zxing/blob/master/LICENSE).
 * [commonmark-java](https://github.com/commonmark/commonmark-java). Copyright (c) 2015, Atlassian Pty Ltd. All rights reserved. [BSD-2-Clause license](https://github.com/commonmark/commonmark-java/blob/main/LICENSE.txt).
 * [flexmark-java](https://github.com/vsch/flexmark-java). Copyright (c) 2016-2018, Vladimir Schneider. All rights reserved. [BSD-2-Clause license](https://github.com/vsch/flexmark-java/blob/master/LICENSE.txt).
+* [EvalEx](https://github.com/ezylang/EvalEx). Copyright 2012-2022 Udo Klimaschewski. [Apache License 2.0](https://github.com/ezylang/EvalEx/blob/main/LICENSE).

@@ -2044,6 +2044,7 @@
     <string name="title_rule_time_rel">Relative time (received) between</string>
     <string name="title_rule_time_every_day">Every day</string>
     <string name="title_rule_younger">Messages younger than (hours)</string>
+    <string name="title_rule_expression" translatable="false">Expression</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_not">NOT</string>

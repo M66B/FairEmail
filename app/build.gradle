@@ -587,6 +587,7 @@ dependencies {
     def ws_version = "2.14"
     def tinylog_version = "2.6.2"
     def zxing_version = "3.5.3"
+    def evalex_version = "3.2.0"
 
     // https://mvnrepository.com/artifact/com.android.tools/desugar_jdk_libs?repo=google
     coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$desugar_version"
@@ -857,4 +858,7 @@ dependencies {
     // https://github.com/zxing/zxing
     // https://mvnrepository.com/artifact/com.google.zxing/core
     implementation "com.google.zxing:core:$zxing_version"
+
+    // https://github.com/ezylang/EvalEx
+    implementation "com.ezylang:EvalEx:$evalex_version"
 }

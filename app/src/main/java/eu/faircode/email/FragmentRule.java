@@ -133,6 +133,8 @@ public class FragmentRule extends FragmentBase {
     private CheckBox cbEveryDay;
     private EditText etYounger;
 
+    private EditText etExpression;
+
     private Spinner spAction;
     private TextView tvActionRemark;
 
@@ -184,6 +186,7 @@ public class FragmentRule extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
 
     private Group grpReady;
+    private Group grpExpression;
     private Group grpAge;
     private Group grpSnooze;
     private Group grpFlag;
@@ -333,6 +336,8 @@ public class FragmentRule extends FragmentBase {
         cbEveryDay = view.findViewById(R.id.cbEveryDay);
         etYounger = view.findViewById(R.id.etYounger);
 
+        etExpression = view.findViewById(R.id.etExpression);
+
         spAction = view.findViewById(R.id.spAction);
         tvActionRemark = view.findViewById(R.id.tvActionRemark);
 
@@ -385,6 +390,7 @@ public class FragmentRule extends FragmentBase {
         pbWait = view.findViewById(R.id.pbWait);
 
         grpReady = view.findViewById(R.id.grpReady);
+        grpExpression = view.findViewById(R.id.grpExpression);
         grpAge = view.findViewById(R.id.grpAge);
         grpSnooze = view.findViewById(R.id.grpSnooze);
         grpFlag = view.findViewById(R.id.grpFlag);
@@ -854,6 +860,7 @@ public class FragmentRule extends FragmentBase {
         tvFolder.setText(null);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
+        grpExpression.setVisibility(View.GONE);
         grpAge.setVisibility(View.GONE);
         grpSnooze.setVisibility(View.GONE);
         grpFlag.setVisibility(View.GONE);
@@ -1286,6 +1293,8 @@ public class FragmentRule extends FragmentBase {
                         etYounger.setText(jcondition.has("younger")
                                 ? Integer.toString(jcondition.optInt("younger")) : null);
 
+                        etExpression.setText(jcondition.optString("expression"));
+
                         spScheduleDayStart.setSelection(start / (24 * 60));
                         spScheduleDayEnd.setSelection(end / (24 * 60));
 
@@ -1423,6 +1432,7 @@ public class FragmentRule extends FragmentBase {
                     Log.e(ex);
                 } finally {
                     grpReady.setVisibility(View.VISIBLE);
+                    grpExpression.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
                     grpAge.setVisibility(cbDaily.isChecked() ? View.VISIBLE : View.GONE);
                     if (id < 0)
                         bottom_navigation.getMenu().removeItem(R.id.action_delete);
@@ -1561,7 +1571,9 @@ public class FragmentRule extends FragmentBase {
                             jheader == null &&
                             jbody == null &&
                             jdate == null &&
-                            jschedule == null)
+                            jschedule == null &&
+                            !jcondition.has("younger") &&
+                            !jcondition.has("expression"))
                         throw new IllegalArgumentException(context.getString(R.string.title_rule_condition_missing));
 
                     if (TextUtils.isEmpty(order))
@@ -1728,6 +1740,10 @@ public class FragmentRule extends FragmentBase {
             } catch (Throwable ex) {
                 Log.e(ex);
             }
+
+        String expression = etExpression.getText().toString().trim();
+        if (!TextUtils.isEmpty(expression))
+            jcondition.put("expression", expression);
 
         return jcondition;
     }
