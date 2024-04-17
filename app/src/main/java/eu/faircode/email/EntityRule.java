@@ -64,6 +64,8 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
@@ -73,9 +75,11 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -166,7 +170,7 @@ public class EntityRule {
     private static final int URL_TIMEOUT = 15 * 1000; // milliseconds
 
     private static final List<String> EXPR_VARIABLES = Collections.unmodifiableList(Arrays.asList(
-            "to", "from", "subject", "text"
+            "to", "from", "subject", "text", "message"
     ));
 
     static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
@@ -733,6 +737,31 @@ public class EntityRule {
             headers = Collections.list(new InternetHeaders(bis, true).getAllHeaders());
         }
 
+        Map<String, Object> props = new HashMap<>();
+        if (message != null) {
+            for (Field field : message.getClass().getDeclaredFields())
+                try {
+                    int modifiers = field.getModifiers();
+                    if (!Modifier.isPublic(modifiers) || Modifier.isStatic(modifiers))
+                        continue;
+                    Class<?> type = field.getType();
+                    if (type.isArray())
+                        continue;
+                    if (type.isPrimitive() ||
+                            Boolean.class.isAssignableFrom(type) ||
+                            Integer.class.isAssignableFrom(type) ||
+                            Long.class.isAssignableFrom(type) ||
+                            String.class.isAssignableFrom(type)) {
+                        field.setAccessible(true);
+                        Object value = field.get(message);
+                        props.put(field.getName(), value);
+                    } else
+                        Log.i("EXPR skipping non primitive=" + field.getName());
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+        }
+
         ExpressionConfiguration configuration = ExpressionConfiguration.defaultConfiguration();
         configuration.getFunctionDictionary().addFunction("Header",
                 new HeaderFunction(headers));
@@ -745,7 +774,8 @@ public class EntityRule {
                 .with("to", to)
                 .with("from", from)
                 .with("subject", message == null ? null : Arrays.asList(message.subject))
-                .with("text", doc == null ? null : Arrays.asList(doc.text()));
+                .with("text", doc == null ? null : Arrays.asList(doc.text()))
+                .with("message", props);
 
         if (message != null) {
             boolean hasAttachments = false;
