@@ -188,6 +188,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                             range, null));
                 }
 
+                if (jcondition.has("expression"))
+                    conditions.add(new Condition(context.getString(R.string.title_rule_expression),
+                            jcondition.getString("expression"), null));
+
                 SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                 for (Condition condition : conditions) {
                     if (ssb.length() > 0)
