@@ -647,15 +647,15 @@ public class EntityRule {
         @Override
         public EvaluationValue evaluate(
                 Expression expression, Token functionToken, EvaluationValue... parameterValues) {
+            List<String> result = new ArrayList<>();
 
             String name = parameterValues[0].getStringValue();
-
-            List<String> result = new ArrayList<>();
-            if (headers != null)
+            if (name != null && headers != null) {
                 for (Header header : headers)
                     if (name.equalsIgnoreCase(header.getName()))
                         result.add(header.getValue());
-            Log.i("EXPR " + name + "=" + TextUtils.join(", ", result));
+                Log.i("EXPR " + name + "=" + TextUtils.join(", ", result));
+            }
 
             return new EvaluationValue(result, ExpressionConfiguration.defaultConfiguration());
         }
