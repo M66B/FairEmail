@@ -204,7 +204,7 @@ public class EntityRule {
                 }
 
                 if (jcondition.has("expression")) {
-                    Expression expression = getExpression(rule, null, null, null);
+                    Expression expression = getExpression(rule, null, null, null, null);
                     if (expression != null) {
                         if ("header".equals(what) && needsHeaders(expression))
                             return true;
@@ -484,6 +484,7 @@ public class EntityRule {
                     return false;
             }
 
+            // Younger
             if (jcondition.has("younger")) {
                 int younger = jcondition.getInt("younger");
                 Calendar y = Calendar.getInstance();
@@ -493,7 +494,7 @@ public class EntityRule {
             }
 
             // Expression
-            Expression expression = getExpression(this, message, headers, context);
+            Expression expression = getExpression(this, message, headers, html, context);
             if (expression != null) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean experiments = prefs.getBoolean("experiments", false);
@@ -700,7 +701,7 @@ public class EntityRule {
         }
     }
 
-    static Expression getExpression(EntityRule rule, EntityMessage message, List<Header> headers, Context context) throws JSONException, ParseException, MessagingException {
+    static Expression getExpression(EntityRule rule, EntityMessage message, List<Header> headers, String html, Context context) throws JSONException, ParseException, MessagingException {
         // https://ezylang.github.io/EvalEx/
 
         JSONObject jcondition = new JSONObject(rule.condition);
@@ -718,13 +719,14 @@ public class EntityRule {
             for (Address a : message.from)
                 from.add(MessageHelper.formatAddresses(new Address[]{a}));
 
-        Document doc = null;
-        if (message != null && message.content)
+        if (html == null && message != null && message.content)
             try {
-                doc = JsoupEx.parse(message.getFile(context));
+                html = Helper.readText(message.getFile(context));
             } catch (IOException ex) {
                 Log.e(ex);
             }
+
+        Document doc = (html == null ? null : JsoupEx.parse(html));
 
         if (headers == null && message != null && message.headers != null) {
             ByteArrayInputStream bis = new ByteArrayInputStream(message.headers.getBytes());
@@ -850,7 +852,7 @@ public class EntityRule {
 
     void validate(Context context) throws JSONException, IllegalArgumentException {
         try {
-            Expression expression = getExpression(this, null, null, context);
+            Expression expression = getExpression(this, null, null, null, context);
             if (expression != null) {
                 for (String variable : expression.getUsedVariables()) {
                     Log.i("EXPR variable=" + variable);
