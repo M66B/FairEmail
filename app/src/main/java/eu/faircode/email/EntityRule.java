@@ -702,6 +702,7 @@ public class EntityRule {
         JSONObject jcondition = new JSONObject(rule.condition);
         if (!jcondition.has("expression"))
             return null;
+        String eval = jcondition.getString("expression");
 
         List<String> to = new ArrayList<>();
         if (message != null && message.to != null)
@@ -734,11 +735,24 @@ public class EntityRule {
         configuration.getOperatorDictionary().addOperator("Matches",
                 new ContainsOperator(true));
 
-        return new Expression(jcondition.getString("expression"), configuration)
+        Expression expression = new Expression(eval, configuration)
                 .with("to", to)
                 .with("from", from)
                 .with("subject", message == null ? null : Arrays.asList(message.subject))
                 .with("text", doc == null ? null : Arrays.asList(doc.text()));
+
+        if (message != null) {
+            boolean hasAttachments = false;
+            for (String variable : expression.getUsedVariables())
+                if (!hasAttachments && "attachments".equals(variable)) {
+                    hasAttachments = true;
+                    DB db = DB.getInstance(context);
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                    expression.with("attachments", attachments == null ? 0 : attachments.size());
+                }
+        }
+
+        return expression;
     }
 
     static boolean needsHeaders(Expression expression) {
