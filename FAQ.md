@@ -2692,6 +2692,10 @@ If a rule is part of a group, stop processing means stop processing the group.
 
 Since version 1.2018 there is a rule option to run rules daily on messages (around 1:00am) older than xxx.
 
+<br>
+
+**Conditions**
+
 The following rule conditions are available:
 
 * Sender (from, reply-to) contains or sender is contact
@@ -2702,6 +2706,7 @@ The following rule conditions are available:
 * Text contains (since version 1.1785)
 * Absolute time (received) between (since version 1.1540)
 * Relative time (received) between
+* Expression (since version 1.2174)
 
 All the conditions of a rule need to be true for the rule action to be executed.
 All conditions are optional, but there needs to be at least one condition, to prevent matching all messages.
@@ -2743,6 +2748,31 @@ Note that a regular expression supports an *or* operator, so if you want to matc
 
 Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled
 to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
+
+Since version 1.2174 it is possible to use expression conditions, which is [experimental](#faq125) for now.
+
+Please [see here](https://ezylang.github.io/EvalEx/references/references.html) about which constants, operators and functions are available.
+
+The following extra variables are available:
+
+* from (array)
+* to (array)
+* subject (array)
+* text (array)
+* hasAttachments (boolean)
+
+The following extra operators are available:
+
+* (array) contains
+* (array) matches (=regex)
+
+The following extra functions are available:
+
+* header(name)
+
+<br>
+
+**Actions**
 
 You can select one of these actions to apply to matching messages:
 
@@ -4041,6 +4071,12 @@ The subject of a received message can be edited, also on the email server, via t
 *Markdown (1.2061+)*
 
 Composing messages using [Markdown](https://en.wikipedia.org/wiki/Markdown) can be enabled via the three-dots overflow menu of the message editor.
+
+<br />
+
+*Rule expression condition (1.2174+)*
+
+See [this FAQ](#faq71)
 
 <br />
 

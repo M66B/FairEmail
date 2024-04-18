@@ -1468,6 +1468,8 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p>You can disable a rule and you can stop processing other rules after a rule has been executed, which can be used to create a <em>not</em> condition.</p>
 <p>Since version 1.2061 rules can be part of a named group. Group names will be displayed in the list of rules. If a rule is part of a group, stop processing means stop processing the group.</p>
 <p>Since version 1.2018 there is a rule option to run rules daily on messages (around 1:00am) older than xxx.</p>
+<p><br></p>
+<p><strong>Conditions</strong></p>
 <p>The following rule conditions are available:</p>
 <ul>
 <li>Sender (from, reply-to) contains or sender is contact</li>
@@ -1478,6 +1480,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <li>Text contains (since version 1.1785)</li>
 <li>Absolute time (received) between (since version 1.1540)</li>
 <li>Relative time (received) between</li>
+<li>Expression (since version 1.2174)</li>
 </ul>
 <p>All the conditions of a rule need to be true for the rule action to be executed. All conditions are optional, but there needs to be at least one condition, to prevent matching all messages.</p>
 <p>If you want to match all senders or all recipients, you can just use the @ character as condition because all email addresses will contain this character. If you want to match a domain name, you can use as a condition something like <em><span class="citation" data-cites="example.org">@example.org</span></em></p>
@@ -1492,6 +1495,27 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p>Note that a regular expression supports an <em>or</em> operator, so if you want to match multiple senders, you can do this:</p>
 <p><code>.*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*</code></p>
 <p>Note that <a href="https://developer.android.com/reference/java/util/regex/Pattern#DOTALL">dot all mode</a> is enabled to be able to match <a href="https://tools.ietf.org/html/rfc2822#section-3.2.3">unfolded headers</a>.</p>
+<p>Since version 1.2174 it is possible to use expression conditions, which is <a href="#faq125">experimental</a> for now.</p>
+<p>Please <a href="https://ezylang.github.io/EvalEx/references/references.html">see here</a> about which constants, operators and functions are available.</p>
+<p>The following extra variables are available:</p>
+<ul>
+<li>from (array)</li>
+<li>to (array)</li>
+<li>subject (array)</li>
+<li>text (array)</li>
+<li>hasAttachments (boolean)</li>
+</ul>
+<p>The following extra operators are available:</p>
+<ul>
+<li>(array) contains</li>
+<li>(array) matches (=regex)</li>
+</ul>
+<p>The following extra functions are available:</p>
+<ul>
+<li>header(name)</li>
+</ul>
+<p><br></p>
+<p><strong>Actions</strong></p>
 <p>You can select one of these actions to apply to matching messages:</p>
 <ul>
 <li>No action (useful for <em>not</em>)</li>
@@ -2087,6 +2111,9 @@ $NotDisplayed</code></pre>
 <p><br /></p>
 <p><em>Markdown (1.2061+)</em></p>
 <p>Composing messages using <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> can be enabled via the three-dots overflow menu of the message editor.</p>
+<p><br /></p>
+<p><em>Rule expression condition (1.2174+)</em></p>
+<p>See <a href="#faq71">this FAQ</a></p>
 <p><br /></p>
 <p><a name="faq126"></a> <strong>(126) Can message previews be sent to my smartwatch?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq126">Google Translate</a></p>
