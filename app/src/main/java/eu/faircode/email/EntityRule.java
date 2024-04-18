@@ -170,7 +170,7 @@ public class EntityRule {
     private static final int URL_TIMEOUT = 15 * 1000; // milliseconds
 
     private static final List<String> EXPR_VARIABLES = Collections.unmodifiableList(Arrays.asList(
-            "to", "from", "subject", "text", "message"
+            "to", "from", "subject", "text"
     ));
 
     static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
@@ -500,18 +500,14 @@ public class EntityRule {
             // Expression
             Expression expression = getExpression(this, message, headers, html, context);
             if (expression != null) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean experiments = prefs.getBoolean("experiments", false);
-                if (experiments) {
-                    if (needsHeaders(expression) && headers == null && message.headers == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
+                if (needsHeaders(expression) && headers == null && message.headers == null)
+                    throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
 
-                    Log.i("EXPR evaluating='" + jcondition.getString("expression") + "'");
-                    Boolean result = expression.evaluate().getBooleanValue();
-                    Log.i("EXPR evaluated=" + result);
-                    if (!Boolean.TRUE.equals(result))
-                        return false;
-                }
+                Log.i("EXPR evaluating='" + jcondition.getString("expression") + "'");
+                Boolean result = expression.evaluate().getBooleanValue();
+                Log.i("EXPR evaluated=" + result);
+                if (!Boolean.TRUE.equals(result))
+                    return false;
             }
 
             // Safeguard
@@ -670,6 +666,37 @@ public class EntityRule {
         }
     }
 
+    @FunctionParameter(name = "value")
+    public static class MessageFunction extends AbstractFunction {
+        private EntityMessage message;
+
+        MessageFunction(EntityMessage message) {
+            this.message = message;
+        }
+
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token functionToken, EvaluationValue... parameterValues) {
+            List<Object> result = new ArrayList<>();
+            String name = parameterValues[0].getStringValue();
+            if (name != null && message != null)
+                try {
+                    Field field = message.getClass().getField(name);
+                    if (field != null) {
+                        field.setAccessible(true);
+                        Object value = field.get(message);
+                        Log.i("EXPR message " + name + "=" + value);
+                        if (value != null)
+                            result.add(value);
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+
+            return new EvaluationValue(result, ExpressionConfiguration.defaultConfiguration());
+        }
+    }
+
     @InfixOperator(precedence = OPERATOR_PRECEDENCE_COMPARISON)
     public static class ContainsOperator extends AbstractOperator {
         private boolean regex;
@@ -737,34 +764,11 @@ public class EntityRule {
             headers = Collections.list(new InternetHeaders(bis, true).getAllHeaders());
         }
 
-        Map<String, Object> props = new HashMap<>();
-        if (message != null) {
-            for (Field field : message.getClass().getDeclaredFields())
-                try {
-                    int modifiers = field.getModifiers();
-                    if (!Modifier.isPublic(modifiers) || Modifier.isStatic(modifiers))
-                        continue;
-                    Class<?> type = field.getType();
-                    if (type.isArray())
-                        continue;
-                    if (type.isPrimitive() ||
-                            Boolean.class.isAssignableFrom(type) ||
-                            Integer.class.isAssignableFrom(type) ||
-                            Long.class.isAssignableFrom(type) ||
-                            String.class.isAssignableFrom(type)) {
-                        field.setAccessible(true);
-                        Object value = field.get(message);
-                        props.put(field.getName(), value);
-                    } else
-                        Log.i("EXPR skipping non primitive=" + field.getName());
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                }
-        }
-
         ExpressionConfiguration configuration = ExpressionConfiguration.defaultConfiguration();
         configuration.getFunctionDictionary().addFunction("Header",
                 new HeaderFunction(headers));
+        configuration.getFunctionDictionary().addFunction("Message",
+                new MessageFunction(message));
         configuration.getOperatorDictionary().addOperator("Contains",
                 new ContainsOperator(false));
         configuration.getOperatorDictionary().addOperator("Matches",
@@ -774,17 +778,16 @@ public class EntityRule {
                 .with("to", to)
                 .with("from", from)
                 .with("subject", message == null ? null : Arrays.asList(message.subject))
-                .with("text", doc == null ? null : Arrays.asList(doc.text()))
-                .with("message", props);
+                .with("text", doc == null ? null : Arrays.asList(doc.text()));
 
         if (message != null) {
             boolean hasAttachments = false;
             for (String variable : expression.getUsedVariables())
-                if (!hasAttachments && "attachments".equals(variable)) {
+                if (!hasAttachments && "hasAttachments".equals(variable)) {
                     hasAttachments = true;
                     DB db = DB.getInstance(context);
                     List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-                    expression.with("attachments", attachments == null ? 0 : attachments.size());
+                    expression.with("hasAttachments", attachments != null && !attachments.isEmpty());
                 }
         }
 
