@@ -170,7 +170,7 @@ public class EntityRule {
     private static final int URL_TIMEOUT = 15 * 1000; // milliseconds
 
     private static final List<String> EXPR_VARIABLES = Collections.unmodifiableList(Arrays.asList(
-            "to", "from", "subject", "text"
+            "to", "from", "subject", "text", "hasAttachments"
     ));
 
     static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
