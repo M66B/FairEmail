@@ -654,14 +654,19 @@ public class EntityRule {
                 Expression expression, Token functionToken, EvaluationValue... parameterValues) {
             List<String> result = new ArrayList<>();
 
-            String name = parameterValues[0].getStringValue();
-            if (name != null && headers != null) {
-                for (Header header : headers)
-                    if (name.equalsIgnoreCase(header.getName()))
-                        result.add(header.getValue());
-                Log.i("EXPR " + name + "=" + TextUtils.join(", ", result));
+            try {
+                if (parameterValues.length == 1) {
+                    String name = parameterValues[0].getStringValue();
+                    if (name != null && headers != null)
+                        for (Header header : headers)
+                            if (name.equalsIgnoreCase(header.getName()))
+                                result.add(header.getValue());
+                }
+            } catch (Throwable ex) {
+                Log.e("EXPR", ex);
             }
 
+            Log.i("EXPR header(" + parameterValues[0] + ")=" + TextUtils.join(", ", result));
             return new EvaluationValue(result, ExpressionConfiguration.defaultConfiguration());
         }
     }
@@ -678,21 +683,23 @@ public class EntityRule {
         public EvaluationValue evaluate(
                 Expression expression, Token functionToken, EvaluationValue... parameterValues) {
             List<Object> result = new ArrayList<>();
-            String name = parameterValues[0].getStringValue();
-            if (name != null && message != null)
-                try {
-                    Field field = message.getClass().getField(name);
-                    if (field != null) {
+
+            try {
+                if (parameterValues.length == 1) {
+                    String name = parameterValues[0].getStringValue();
+                    if (name != null && message != null) {
+                        Field field = message.getClass().getField(name);
                         field.setAccessible(true);
                         Object value = field.get(message);
-                        Log.i("EXPR message " + name + "=" + value);
                         if (value != null)
                             result.add(value);
                     }
-                } catch (Throwable ex) {
-                    Log.e(ex);
                 }
+            } catch (Throwable ex) {
+                Log.e("EXPR", ex);
+            }
 
+            Log.i("EXPR message(" + parameterValues[0] + ")=" + TextUtils.join(", ", result));
             return new EvaluationValue(result, ExpressionConfiguration.defaultConfiguration());
         }
     }
@@ -708,27 +715,38 @@ public class EntityRule {
         @Override
         public EvaluationValue evaluate(
                 Expression expression, Token operatorToken, EvaluationValue... operands) {
-            Log.i("EXPR " + operands[0] + (regex ? " MATCHES " : " CONTAINS ") + operands[1] + " regex=" + regex);
+            boolean result = false;
 
-            String condition = operands[1].getStringValue();
-            List<EvaluationValue> array = operands[0].getArrayValue();
-            if (TextUtils.isEmpty(condition) || array == null || array.isEmpty())
-                return expression.convertValue(false);
+            try {
+                if (operands.length == 2) {
+                    List<EvaluationValue> array;
+                    if (operands[1].getDataType() == EvaluationValue.DataType.ARRAY)
+                        array = operands[0].getArrayValue();
+                    else
+                        array = Arrays.asList(operands[0]);
 
-            Pattern p = (regex ? Pattern.compile(condition, Pattern.DOTALL) : null);
-            for (EvaluationValue item : array) {
-                String value = item.getStringValue();
-                if (!TextUtils.isEmpty(value))
-                    if (p == null) {
-                        if (value.toLowerCase().contains(condition.toLowerCase()))
-                            return expression.convertValue(true);
-                    } else {
-                        if (p.matcher(value).matches())
-                            return expression.convertValue(true);
-                    }
+                    String condition = operands[1].getStringValue();
+
+                    if (array != null && !array.isEmpty() && !TextUtils.isEmpty(condition))
+                        for (EvaluationValue item : array) {
+                            String value = item.getStringValue();
+                            if (!TextUtils.isEmpty(value))
+                                if (regex
+                                        ? Pattern.compile(condition, Pattern.DOTALL).matcher(value).matches()
+                                        : value.toLowerCase().contains(condition.toLowerCase())) {
+                                    result = true;
+                                    break;
+                                }
+                        }
+                }
+            } catch (Throwable ex) {
+                Log.e("EXPR", ex);
             }
 
-            return expression.convertValue(false);
+            Log.i("EXPR " + operands[0] + (regex ? " MATCHES " : " CONTAINS ") + operands[1] +
+                    " regex=" + regex + " result=" + result);
+
+            return expression.convertValue(result);
         }
     }
 
@@ -806,7 +824,7 @@ public class EntityRule {
                 }
             }
         } catch (Throwable ex) {
-            Log.e(ex);
+            Log.e("EXPR", ex);
         }
         return false;
     }
@@ -817,7 +835,7 @@ public class EntityRule {
                 if ("text".equalsIgnoreCase(variable))
                     return true;
         } catch (Throwable ex) {
-            Log.e(ex);
+            Log.e("EXPR", ex);
         }
         return false;
     }
