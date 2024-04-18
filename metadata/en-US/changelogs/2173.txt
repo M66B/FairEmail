@@ -6,6 +6,13 @@ For support you can use the contact form.
 
 Zby
 
+Next version
+
+* Added expression conditions to rules, see the FAQ
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 1.2173 - 2024-04-16
 
 * Added *primary inbox* start screen option

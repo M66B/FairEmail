@@ -6,6 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
+### Next version
+
+* Added expression conditions to rules, see [the FAQ](https://m66b.github.io/FairEmail/#faq71)
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2173 - 2024-04-16
 
 * Added *primary inbox* start screen option
