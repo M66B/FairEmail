@@ -155,6 +155,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private AdapterNavMenu adapterNavMenu;
     private AdapterNavMenu adapterNavMenuExtra;
 
+    private boolean initialized = false;
     private boolean exit = false;
     private boolean searching = false;
     private int lastBackStackCount = 0;
@@ -782,6 +783,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if ("inbox".equals(startup)) {
             new SimpleTask<EntityFolder>() {
                 @Override
+                protected void onPreExecute(Bundle args) {
+                    initialized = false;
+                }
+
+                @Override
                 protected EntityFolder onExecute(Context context, Bundle args) throws Throwable {
                     DB db = DB.getInstance(context);
                     return db.folder().getFolderPrimary(EntityFolder.INBOX);
@@ -797,6 +803,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     }
                     fragment.setArguments(args);
                     setFragment(fragment);
+                    checkIntent();
+                    initialized = true;
                 }
 
                 @Override
@@ -1158,7 +1166,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         checkUpdate(false);
         checkAnnouncements(false);
-        checkIntent();
+        if (initialized || !"inbox".equals(startup))
+            checkIntent();
     }
 
     @Override
