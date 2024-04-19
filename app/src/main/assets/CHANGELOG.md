@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### Next version
+### 1.2174 - 2024-04-19
 
 * Added expression conditions to rules, see [the FAQ](https://m66b.github.io/FairEmail/#faq71)
 * Small improvements and minor bug fixes
