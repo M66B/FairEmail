@@ -2757,18 +2757,22 @@ The following extra variables are available:
 
 * from (array)
 * to (array)
-* subject (array)
-* text (array)
-* hasAttachments (boolean)
+* subject
+* text
+* hasAttachments
 
 The following extra operators are available:
 
-* (array) contains
-* (array) matches (=regex)
+* contains
+* matches (=regex)
 
 The following extra functions are available:
 
 * header(name)
+
+Example condition:
+
+```header("X-Mailer") contains "Open-Xchange" && from matches ".*service@.*" && !hasAttachments```
 
 <br>
 

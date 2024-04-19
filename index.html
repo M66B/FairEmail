@@ -1501,19 +1501,21 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <ul>
 <li>from (array)</li>
 <li>to (array)</li>
-<li>subject (array)</li>
-<li>text (array)</li>
-<li>hasAttachments (boolean)</li>
+<li>subject</li>
+<li>text</li>
+<li>hasAttachments</li>
 </ul>
 <p>The following extra operators are available:</p>
 <ul>
-<li>(array) contains</li>
-<li>(array) matches (=regex)</li>
+<li>contains</li>
+<li>matches (=regex)</li>
 </ul>
 <p>The following extra functions are available:</p>
 <ul>
 <li>header(name)</li>
 </ul>
+<p>Example condition:</p>
+<p><code>header("X-Mailer") contains "Open-Xchange" &amp;&amp; from matches ".*service@.*" &amp;&amp; !hasAttachments</code></p>
 <p><br></p>
 <p><strong>Actions</strong></p>
 <p>You can select one of these actions to apply to matching messages:</p>
