@@ -795,8 +795,8 @@ public class EntityRule {
         Expression expression = new Expression(eval, configuration)
                 .with("to", to)
                 .with("from", from)
-                .with("subject", message == null ? null : Arrays.asList(message.subject))
-                .with("text", doc == null ? null : Arrays.asList(doc.text()));
+                .with("subject", message == null ? null : message.subject)
+                .with("text", doc == null ? null : doc.text());
 
         if (message != null) {
             boolean hasAttachments = false;
