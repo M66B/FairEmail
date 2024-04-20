@@ -2121,7 +2121,7 @@
         <item>Ενοποιημένοι φάκελοι</item>
         <item>Φάκελοι κύριου λογαριασμού</item>
         <item>Λογαριασμοί</item>
-        <item>Primary inbox</item>
+        <item>Κύρια εισερχόμενα</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>
