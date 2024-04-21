@@ -85,7 +85,7 @@
     <string name="title_synchronize_batch_enable">Enable synchronisation</string>
     <string name="title_synchronize_batch_disable">Disable synchronisation</string>
     <string name="title_empty_trash">Empty bin</string>
-    <string name="title_contact_email"></string>
+    <string name="title_contact_email">E-mail</string>
     <string name="title_empty_trash_ask">Remove all deleted messages permanently?</string>
     <string name="title_empty_trash_all_ask">Remove all deleted messages of all accounts permanently?</string>
     <string name="title_hint_operations">Deleting operations can result in disappearing messages and synchronisation problems</string>
@@ -131,7 +131,7 @@
     <string name="title_answer_favorite">Favourite</string>
     <string name="title_rule_hide">Hide</string>
     <string name="title_rule_snooze">Snooze</string>
-    <string name="title_rule_keyword_delete"></string>
+    <string name="title_rule_keyword_delete">Remove</string>
     <string name="title_rule_move">Move</string>
     <string name="title_rule_body_remark">Using this condition will always download the message text, which may slow down the synchronisation of the message list</string>
     <string name="title_legend_section_synchronize">Synchronise</string>
@@ -148,7 +148,7 @@
     <string name="title_legend_sync_keep">Number of days to synchronise / to keep messages</string>
     <string name="title_legend_thread">Conversation</string>
     <string name="title_legend_flagged">Is favourite</string>
-    <string name="title_legend_show_images"></string>
+    <string name="title_legend_show_images">Reset show pictures</string>
     <string name="title_legend_default_color">Default colour</string>
     <string name="title_legend_sync_state">Synchronisation state</string>
     <string name="title_legend_delete">Remove</string>

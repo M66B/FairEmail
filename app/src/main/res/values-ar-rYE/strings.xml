@@ -171,7 +171,6 @@
     <string name="title_setup_quick_smtp">خادم SMTP لإرسال الرسائل</string>
     <string name="title_setup_quick_certificates">شهادات الخادم</string>
     <string name="title_setup_wizard">المساعد</string>
-    <string name="title_setup_wizard_intro"></string>
     <string name="title_setup_wizard_tutorials">الدروس</string>
     <string name="title_setup_wizard_multiple">يمكن استخدام المعالج عدة مرات لإعداد حسابات متعددة</string>
     <string name="title_setup_wizard_new">أحتاج إلى عنوان بريد إلكتروني جديد</string>

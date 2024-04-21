@@ -15,7 +15,7 @@
     <string name="app_updated">Ultimo aggiornamento: %1$s</string>
     <string name="app_download">Scaricata da: %1$s</string>
     <string name="app_mod1">        L\'aggiornamento di sicurezza di marzo sta causando messaggi \'App non risponde\', esclusivamente su dispositivi Google Pixel.
-        Per favore non incolpare l\'app per questo, solo Google può risolvere questo!
+        Per favore non incolpare l\'app per questo, solo Google può risolvere il problema!
     </string>
     <string name="channel_service">Monitoraggio</string>
     <string name="channel_send">Invia</string>
