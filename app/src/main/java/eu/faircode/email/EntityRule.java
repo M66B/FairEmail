@@ -704,6 +704,41 @@ public class EntityRule {
         }
     }
 
+    public static class BlocklistFunction extends AbstractFunction {
+        private Context context;
+        private Address[] from;
+        private List<Header> headers;
+
+        BlocklistFunction(Context context, Address[] from, List<Header> headers) {
+            this.context = context;
+            this.from = from;
+            this.headers = headers;
+        }
+
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token functionToken, EvaluationValue... parameterValues) {
+            boolean result = false;
+
+            try {
+                if (from != null)
+                    result = Boolean.TRUE.equals(DnsBlockList.isJunk(context, Arrays.asList(from)));
+
+                List<String> received = new ArrayList<>();
+                if (headers != null)
+                    for (Header header : headers)
+                        if (header.getName().equalsIgnoreCase("Received"))
+                            received.add(header.getValue());
+                result = result || Boolean.TRUE.equals(DnsBlockList.isJunk(context, received.toArray(new String[0])));
+            } catch (Throwable ex) {
+                Log.e("EXPR", ex);
+            }
+
+            Log.i("EXPR blocklist()=" + result);
+            return expression.convertValue(result);
+        }
+    }
+
     @InfixOperator(precedence = OPERATOR_PRECEDENCE_COMPARISON)
     public static class ContainsOperator extends AbstractOperator {
         private boolean regex;
@@ -787,6 +822,8 @@ public class EntityRule {
                 new HeaderFunction(headers));
         configuration.getFunctionDictionary().addFunction("Message",
                 new MessageFunction(message));
+        configuration.getFunctionDictionary().addFunction("Blocklist",
+                new BlocklistFunction(context, message == null ? null : message.from, headers));
         configuration.getOperatorDictionary().addOperator("Contains",
                 new ContainsOperator(false));
         configuration.getOperatorDictionary().addOperator("Matches",
@@ -818,7 +855,9 @@ public class EntityRule {
             for (ASTNode node : expression.getAllASTNodes()) {
                 Token token = node.getToken();
                 Log.i("EXPR token=" + token.getType() + ":" + token.getValue());
-                if (token.getType() == Token.TokenType.FUNCTION && "header".equalsIgnoreCase(token.getValue())) {
+                if (token.getType() == Token.TokenType.FUNCTION &&
+                        ("header".equalsIgnoreCase(token.getValue()) ||
+                                "blocklist".equalsIgnoreCase(token.getValue()))) {
                     Log.i("EXPR needs headers");
                     return true;
                 }
