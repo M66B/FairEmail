@@ -449,6 +449,11 @@ public class HtmlHelper {
     }
 
     private static int getMaxFormatTextSize(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean ignore_formatted_size = prefs.getBoolean("ignore_formatted_size", false);
+        if (ignore_formatted_size)
+            return Integer.MAX_VALUE;
+
         ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
         int mc = am.getMemoryClass();
         if (mc >= 256)

@@ -190,6 +190,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swBrowserZoom;
     private SwitchCompat swFakeDark;
     private EditText etViewportHeight;
+    private SwitchCompat swIgnoreFormattedSize;
     private SwitchCompat swShowRecent;
     private SwitchCompat swModSeq;
     private SwitchCompat swPreamble;
@@ -283,6 +284,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "chunk_size", "thread_range",
             "autoscroll_editor", "undo_manager",
             "browser_zoom", "fake_dark",
+            "ignore_formatted_size",
             "show_recent",
             "use_modseq", "preamble", "uid_command", "perform_expunge", "uid_expunge",
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", "use_top", "forget_top",
@@ -433,6 +435,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swBrowserZoom = view.findViewById(R.id.swBrowserZoom);
         swFakeDark = view.findViewById(R.id.swFakeDark);
         etViewportHeight = view.findViewById(R.id.etViewportHeight);
+        swIgnoreFormattedSize = view.findViewById(R.id.swIgnoreFormattedSize);
         swShowRecent = view.findViewById(R.id.swShowRecent);
         swModSeq = view.findViewById(R.id.swModSeq);
         swPreamble = view.findViewById(R.id.swPreamble);
@@ -1336,6 +1339,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
+            }
+        });
+
+        swIgnoreFormattedSize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("ignore_formatted_size", checked).apply();
             }
         });
 
@@ -2363,6 +2373,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 etViewportHeight.setText(Integer.toString(vh));
             } else
                 etViewportHeight.setText(null);
+            swIgnoreFormattedSize.setChecked(prefs.getBoolean("ignore_formatted_size", false));
             swShowRecent.setChecked(prefs.getBoolean("show_recent", false));
             swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
             swPreamble.setChecked(prefs.getBoolean("preamble", false));

@@ -1276,6 +1276,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tvViewportHeight" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swIgnoreFormattedSize"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_ignore_formatted_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etViewportHeight"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swShowRecent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1284,7 +1296,7 @@
                     android:text="@string/title_advanced_show_recent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etViewportHeight"
+                    app:layout_constraintTop_toBottomOf="@id/swIgnoreFormattedSize"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
