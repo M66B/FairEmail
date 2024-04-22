@@ -1499,20 +1499,21 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p>Please <a href="https://ezylang.github.io/EvalEx/references/references.html">see here</a> about which constants, operators and functions are available.</p>
 <p>The following extra variables are available:</p>
 <ul>
-<li>from (array)</li>
-<li>to (array)</li>
-<li>subject</li>
-<li>text</li>
-<li>hasAttachments</li>
+<li><em>from</em> (array)</li>
+<li><em>to</em> (array)</li>
+<li><em>subject</em> (string)</li>
+<li><em>text</em> (string)</li>
+<li><em>hasAttachments</em> (boolean)</li>
 </ul>
 <p>The following extra operators are available:</p>
 <ul>
-<li>contains</li>
-<li>matches (=regex)</li>
+<li><em>contains</em> (contains substring)</li>
+<li><em>matches</em> (matches regex)</li>
 </ul>
 <p>The following extra functions are available:</p>
 <ul>
-<li>header(name)</li>
+<li><em>header(name)</em> (returns an array of header values for the named header)</li>
+<li><em>blocklist()</em> (returns a boolean indicating if the sender/server is on a DNS blocklist; since version 1.2176)</li>
 </ul>
 <p>Example condition:</p>
 <p><code>header("X-Mailer") contains "Open-Xchange" &amp;&amp; from matches ".*service@.*" &amp;&amp; !hasAttachments</code></p>

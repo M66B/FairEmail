@@ -2755,20 +2755,21 @@ Please [see here](https://ezylang.github.io/EvalEx/references/references.html) a
 
 The following extra variables are available:
 
-* from (array)
-* to (array)
-* subject
-* text
-* hasAttachments
+* *from* (array)
+* *to* (array)
+* *subject* (string)
+* *text* (string)
+* *hasAttachments* (boolean)
 
 The following extra operators are available:
 
-* contains
-* matches (=regex)
+* *contains* (contains substring)
+* *matches* (matches regex)
 
 The following extra functions are available:
 
-* header(name)
+* *header(name)* (returns an array of header values for the named header)
+* *blocklist()* (returns a boolean indicating if the sender/server is on a DNS blocklist; since version 1.2176)
 
 Example condition:
 
