@@ -7849,6 +7849,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             context.getString(R.string.title_accessibility_show_snooze_time)));
                 ibSnoozed.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
+                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibMore,
+                        context.getString(R.string.title_advanced_more)));
+
                 if (ibError.getVisibility() == View.VISIBLE)
                     info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibError,
                             context.getString(R.string.title_accessibility_view_help)));
@@ -7892,6 +7895,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return true;
                 } else if (action == R.id.ibSnoozed) {
                     onShowSnoozed(message);
+                    return true;
+                } else if (action == R.id.ibMore) {
+                    onActionMore(message);
                     return true;
                 } else if (action == R.id.ibError) {
                     onHelp(message);
