@@ -110,9 +110,8 @@ public class FragmentDialogSync extends FragmentDialogBase {
                                         folders.add(folder);
 
                                         if (children) {
-                                            List<EntityFolder> sub = db.folder().getChildFolders(folder.id);
-                                            if (sub != null)
-                                                folders.addAll(sub);
+                                            List<EntityFolder> sub = EntityFolder.getChildFolders(context, folder.id);
+                                            folders.addAll(sub);
                                         }
                                     }
 

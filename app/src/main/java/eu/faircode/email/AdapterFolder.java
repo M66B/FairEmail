@@ -708,11 +708,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 submenu.add(Menu.FIRST, R.string.title_notify_batch_disable, 5, R.string.title_notify_batch_disable);
                 submenu.add(Menu.FIRST, R.string.title_unified_inbox_add, 6, R.string.title_unified_inbox_add);
                 submenu.add(Menu.FIRST, R.string.title_unified_inbox_delete, 7, R.string.title_unified_inbox_delete);
-                submenu.add(Menu.FIRST, R.string.title_navigation_folder, 6, R.string.title_navigation_folder);
-                submenu.add(Menu.FIRST, R.string.title_navigation_folder_hide, 7, R.string.title_navigation_folder_hide);
-                submenu.add(Menu.FIRST, R.string.title_synchronize_more, 8, R.string.title_synchronize_more);
-                submenu.add(Menu.FIRST, R.string.title_download_batch_enable, 9, R.string.title_download_batch_enable);
-                submenu.add(Menu.FIRST, R.string.title_download_batch_disable, 10, R.string.title_download_batch_disable);
+                submenu.add(Menu.FIRST, R.string.title_navigation_folder, 8, R.string.title_navigation_folder);
+                submenu.add(Menu.FIRST, R.string.title_navigation_folder_hide, 9, R.string.title_navigation_folder_hide);
+                submenu.add(Menu.FIRST, R.string.title_synchronize_more, 10, R.string.title_synchronize_more);
+                submenu.add(Menu.FIRST, R.string.title_download_batch_enable, 11, R.string.title_download_batch_enable);
+                submenu.add(Menu.FIRST, R.string.title_download_batch_disable, 12, R.string.title_download_batch_disable);
             }
 
             if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP)
@@ -869,11 +869,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                     EntityOperation.sync(context, folder.id, true, !children);
 
                                 if (children) {
-                                    List<EntityFolder> folders = db.folder().getChildFolders(folder.id);
-                                    if (folders != null)
-                                        for (EntityFolder child : folders)
-                                            if (child.selectable)
-                                                EntityOperation.sync(context, child.id, true);
+                                    List<EntityFolder> folders = EntityFolder.getChildFolders(context, folder.id);
+                                    for (EntityFolder child : folders)
+                                        if (child.selectable)
+                                            EntityOperation.sync(context, child.id, true);
                                 }
 
                                 if (folder.account != null) {
@@ -935,10 +934,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
-                                List<EntityFolder> children = db.folder().getChildFolders(id);
-                                if (children == null)
-                                    return null;
 
+                                List<EntityFolder> children = EntityFolder.getChildFolders(context, id);
                                 for (EntityFolder child : children)
                                     db.folder().setFolderSynchronize(child.id, enabled);
 
@@ -973,10 +970,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
-                                List<EntityFolder> children = db.folder().getChildFolders(id);
-                                if (children == null)
-                                    return null;
 
+                                List<EntityFolder> children = EntityFolder.getChildFolders(context, id);
                                 for (EntityFolder child : children)
                                     db.folder().setFolderNotify(child.id, enabled);
 
@@ -1009,10 +1004,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
-                                List<EntityFolder> children = db.folder().getChildFolders(id);
-                                if (children == null)
-                                    return null;
 
+                                List<EntityFolder> children = EntityFolder.getChildFolders(context, id);
                                 for (EntityFolder child : children)
                                     db.folder().setFolderUnified(child.id, add);
 
@@ -1045,10 +1038,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
-                                List<EntityFolder> children = db.folder().getChildFolders(id);
-                                if (children == null)
-                                    return null;
 
+                                List<EntityFolder> children = EntityFolder.getChildFolders(context, id);
                                 for (EntityFolder child : children)
                                     db.folder().setFolderNavigation(child.id, enabled);
 
@@ -1092,10 +1083,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
-                                List<EntityFolder> children = db.folder().getChildFolders(id);
-                                if (children == null)
-                                    return null;
 
+                                List<EntityFolder> children = EntityFolder.getChildFolders(context, id);
                                 for (EntityFolder child : children)
                                     db.folder().setFolderDownload(child.id, enabled);
 

@@ -415,6 +415,16 @@ public class EntityFolder extends EntityOrder implements Serializable {
         return outbox;
     }
 
+    static List<EntityFolder> getChildFolders(Context context, long id) {
+        DB db = DB.getInstance(context);
+        List<EntityFolder> children = db.folder().getChildFolders(id);
+        if (children == null)
+            children = new ArrayList<>();
+        for (EntityFolder child : new ArrayList<>(children))
+            children.addAll(getChildFolders(context, child.id));
+        return children;
+    }
+
     static String getNotificationChannelId(long id) {
         return "notification.folder." + id;
     }
