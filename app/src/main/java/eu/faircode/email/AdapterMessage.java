@@ -7761,7 +7761,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             return tvBody.getText().subSequence(start, end);
         }
 
-        private View.AccessibilityDelegate accessibilityDelegateHeader = new View.AccessibilityDelegate() {
+        private final View.AccessibilityDelegate accessibilityDelegateHeader = new View.AccessibilityDelegate() {
             @Override
             public void onInitializeAccessibilityEvent(View host, AccessibilityEvent event) {
                 super.onInitializeAccessibilityEvent(host, event);
@@ -7798,66 +7798,82 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.e(ex);
                 }
 
-                TupleMessageEx message = getMessage();
-                if (message == null)
-                    return;
+                try {
+                    TupleMessageEx message = getMessage();
+                    if (message == null)
+                        return;
 
-                boolean expanded = properties.getValue("expanded", message.id);
+                    boolean expanded = properties.getValue("expanded", message.id);
 
-                vwColor.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                    vwColor.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
-                if (ibExpander.getVisibility() == View.VISIBLE)
-                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibExpander,
-                            context.getString(expanded ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand)));
-                ibExpander.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                    if (ibExpander.getVisibility() == View.VISIBLE)
+                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibExpander,
+                                context.getString(expanded ? R.string.title_accessibility_collapse : R.string.title_accessibility_expand)));
+                    ibExpander.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
-                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibSeen,
-                        context.getString(message.ui_seen ? R.string.title_unseen : R.string.title_seen)));
+                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibSeen,
+                            context.getString(message.ui_seen ? R.string.title_unseen : R.string.title_seen)));
 
-                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAnswer,
-                        context.getString(R.string.title_reply)));
+                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAnswer,
+                            context.getString(R.string.title_reply)));
 
-                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibArchive,
-                        context.getString(R.string.title_archive)));
+                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibArchive,
+                            context.getString(R.string.title_archive)));
 
-                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibTrash,
-                        context.getString(R.string.title_trash)));
+                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibTrash,
+                            context.getString(R.string.title_trash)));
 
-                if (properties.getSelectionCount() > 0)
-                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibDelete,
-                            context.getString(R.string.title_trash_selection)));
+                    if (properties.getSelectionCount() > 0)
+                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibDelete,
+                                context.getString(R.string.title_trash_selection)));
 
-                if (ibAvatar.getVisibility() == View.VISIBLE && ibAvatar.isEnabled())
-                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAvatar,
-                            context.getString(R.string.title_accessibility_view_contact)));
-                ibAvatar.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                    if (ibAvatar != null) {
+                        if (ibAvatar.getVisibility() == View.VISIBLE && ibAvatar.isEnabled())
+                            info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAvatar,
+                                    context.getString(R.string.title_accessibility_view_contact)));
+                        ibAvatar.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                    }
 
-                if (ibFlagged.getVisibility() == View.VISIBLE && ibFlagged.isEnabled()) {
-                    int flagged = (message.count - message.unflagged);
-                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibFlagged,
-                            context.getString(flagged > 0 ? R.string.title_unflag : R.string.title_flag)));
+                    if (ibFlagged != null) {
+                        if (ibFlagged.getVisibility() == View.VISIBLE && ibFlagged.isEnabled()) {
+                            int flagged = (message.count - message.unflagged);
+                            info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibFlagged,
+                                    context.getString(flagged > 0 ? R.string.title_unflag : R.string.title_flag)));
+                        }
+                        ibFlagged.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                    }
+
+                    if (ibAuth != null) {
+                        if (ibAuth.getVisibility() == View.VISIBLE)
+                            info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAuth,
+                                    context.getString(R.string.title_accessibility_show_authentication_result)));
+                        ibAuth.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                    }
+
+                    if (ibSnoozed != null) {
+                        if (ibSnoozed.getVisibility() == View.VISIBLE)
+                            info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibSnoozed,
+                                    context.getString(R.string.title_accessibility_show_snooze_time)));
+                        ibSnoozed.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                    }
+
+                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibMore,
+                            context.getString(R.string.title_advanced_more)));
+                    if (ibMore != null)
+                        ibMore.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+
+                    if (ibError != null) {
+                        if (ibError.getVisibility() == View.VISIBLE)
+                            info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibError,
+                                    context.getString(R.string.title_accessibility_view_help)));
+                        ibError.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                    }
+
+                    info.setContentDescription(populateContentDescription(message));
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
-                ibFlagged.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-
-                if (ibAuth.getVisibility() == View.VISIBLE)
-                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAuth,
-                            context.getString(R.string.title_accessibility_show_authentication_result)));
-                ibAuth.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-
-                if (ibSnoozed.getVisibility() == View.VISIBLE)
-                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibSnoozed,
-                            context.getString(R.string.title_accessibility_show_snooze_time)));
-                ibSnoozed.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-
-                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibMore,
-                        context.getString(R.string.title_advanced_more)));
-
-                if (ibError.getVisibility() == View.VISIBLE)
-                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibError,
-                            context.getString(R.string.title_accessibility_view_help)));
-                ibError.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-
-                info.setContentDescription(populateContentDescription(message));
             }
 
             @Override
