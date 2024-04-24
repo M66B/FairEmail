@@ -891,6 +891,7 @@ public class DebugHelper {
                                         identity.display + " " + identity.email +
                                         (identity.self ? "" : " !self") +
                                         " [" + (identity.provider == null ? "" : identity.provider) +
+                                        ":" + identity.user +
                                         ":" + ServiceAuthenticator.getAuthTypeName(identity.auth_type) + "]" +
                                         (TextUtils.isEmpty(identity.sender_extra_regex) ? "" : " regex=" + identity.sender_extra_regex) +
                                         (!identity.sender_extra ? "" : " edit" +
