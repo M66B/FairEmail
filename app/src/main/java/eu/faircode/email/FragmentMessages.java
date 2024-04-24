@@ -5932,6 +5932,7 @@ public class FragmentMessages extends FragmentBase
 
             final Context context = getContext();
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean primary_inbox = "inbox".equals(prefs.getString("startup", "unified"));
             String sort = prefs.getString(getSort(context, viewType, type), "time");
             boolean ascending = prefs.getBoolean(getSortOrder(context, viewType, type), outbox);
             boolean filter_seen = prefs.getBoolean(getFilter(context, "seen", viewType, type), false);
@@ -6069,7 +6070,7 @@ public class FragmentMessages extends FragmentBase
                     .setVisible(viewType == AdapterMessage.ViewType.THREAD);
 
             menu.findItem(R.id.menu_compact).setChecked(compact);
-            menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
+            menu.findItem(R.id.menu_theme).setVisible(viewType == AdapterMessage.ViewType.UNIFIED || primary_inbox);
 
             menu.findItem(R.id.menu_confirm_links)
                     .setChecked(confirm_links)
@@ -6096,7 +6097,7 @@ public class FragmentMessages extends FragmentBase
             }
 
             menu.findItem(R.id.menu_sync_more).setVisible(folder);
-            menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
+            menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED || primary_inbox);
             menu.findItem(R.id.menu_force_send).setVisible(outbox);
 
             menu.findItem(R.id.menu_expunge).setVisible(viewType == AdapterMessage.ViewType.FOLDER &&
