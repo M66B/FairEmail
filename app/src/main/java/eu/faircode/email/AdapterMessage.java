@@ -6185,7 +6185,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             boolean experiments = prefs.getBoolean("experiments", false);
 
-            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore == null ? view : ibMore);
             popupMenu.inflate(R.menu.popup_message_more);
 
             popupMenu.getMenu().findItem(R.id.menu_unseen)
