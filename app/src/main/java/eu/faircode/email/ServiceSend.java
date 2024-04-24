@@ -793,6 +793,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         } else {
             EmailService iservice = new EmailService(this, ident, EmailService.PURPOSE_USE, debug);
             try {
+                if (ident.envelopeFrom != null)
+                    iservice.setMailFrom(ident.envelopeFrom);
                 if (send_partial)
                     iservice.setSendPartial(true);
                 iservice.setUseIp(ident.use_ip, ident.ehlo);
