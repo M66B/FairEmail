@@ -7827,6 +7827,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibDelete,
                             context.getString(R.string.title_trash_selection)));
 
+                if (ibMove.getVisibility() == View.VISIBLE && ibMove.isEnabled())
+                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibMove,
+                            context.getString(R.string.title_move_to)));
+
                 if (ibAvatar.getVisibility() == View.VISIBLE && ibAvatar.isEnabled())
                     info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAvatar,
                             context.getString(R.string.title_accessibility_view_contact)));
