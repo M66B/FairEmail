@@ -429,8 +429,8 @@
     <string name="title_advanced_reply_move_inbox">Anche per i messaggi nella posta in arrivo</string>
     <string name="title_advanced_send_retry_max">Tentativi di invio massimi</string>
     <string name="title_advanced_send_retry_hint">Ritenta l\'invio al cambiare della connettività</string>
-    <string name="title_advanced_send_partial">Ignora indirizzi non validi quando invi</string>
-    <string name="title_advanced_send_partial_hint">Se alcuni indirizzi non sono validi, il messaggio sarà comunque inviato agli altri indirizzi</string>
+    <string name="title_advanced_send_partial">Ignora gli indirizzi non validi durante l\'invio</string>
+    <string name="title_advanced_send_partial_hint">I messaggi saranno inviati a tutti gli indirizzi validi. Gli indirizzi non validi o inesistenti saranno semplicemente ignorati</string>
     <string name="title_advanced_sent_partially">Il messaggio non è stato inviato a tutti i destinatari</string>
     <string name="title_advanced_auto_link">Crea automaticamente i link</string>
     <string name="title_advanced_plain_only">Invia testo semplice di default</string>
@@ -476,8 +476,8 @@
     <string name="title_advanced_caption_message_body">Corpo del messaggio</string>
     <string name="title_advanced_caption_file">File</string>
     <string name="title_advanced_caption_integrations">Integrazioni</string>
-    <string name="title_advanced_portrait">Modalità Ritratto</string>
-    <string name="title_advanced_landscape">Modalità Paesaggio</string>
+    <string name="title_advanced_portrait">Schermo verticale</string>
+    <string name="title_advanced_landscape">Schermo orizzontale</string>
     <string name="title_advanced_two_row">Usa due righe</string>
     <string name="title_advanced_two_col">Usa due colonne</string>
     <string name="title_advanced_min_screen_size">Dimensione minima dello schermo per la sua divisione</string>
@@ -953,7 +953,7 @@
     <string name="title_account_move">Sposta di default a</string>
     <string name="title_account_gmail">Per un\'affidabile sincronizzazione di un profilo di Gmail, la procedura guidata di configurazione rapida di Gmail dovrebbe esser usata quando possibile</string>
     <string name="title_domain">Nome del dominio</string>
-    <string name="title_autoconfig">Ottieni impostazioni</string>
+    <string name="title_autoconfig">Scarica impostazioni</string>
     <string name="title_aliases">Alias</string>
     <string name="title_provider">Provider</string>
     <string name="title_custom">Personalizzato</string>
