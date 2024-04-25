@@ -128,6 +128,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etReplyTo;
     private EditText etCc;
     private EditText etBcc;
+    private EditText etEnvelopeFrom;
     private EditText etInternal;
     private Button btnUri;
     private TextView tvUriInfo;
@@ -237,6 +238,7 @@ public class FragmentIdentity extends FragmentBase {
         etReplyTo = view.findViewById(R.id.etReplyTo);
         etCc = view.findViewById(R.id.etCc);
         etBcc = view.findViewById(R.id.etBcc);
+        etEnvelopeFrom = view.findViewById(R.id.etEnvelopeFrom);
         etInternal = view.findViewById(R.id.etInternal);
         btnUri = view.findViewById(R.id.btnUri);
         tvUriInfo = view.findViewById(R.id.tvUriInfo);
@@ -778,6 +780,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("replyto", etReplyTo.getText().toString().trim());
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
+        args.putString("envelope_from", etEnvelopeFrom.getText().toString().trim());
         args.putString("internal", etInternal.getText().toString().replaceAll(" ", ""));
         args.putString("uri", (String) btnUri.getTag());
         args.putBoolean("sign_default", cbSignDefault.isChecked());
@@ -869,6 +872,7 @@ public class FragmentIdentity extends FragmentBase {
                 String replyto = args.getString("replyto");
                 String cc = args.getString("cc");
                 String bcc = args.getString("bcc");
+                String envelope_from = args.getString("envelope_from");
                 String internal = args.getString("internal");
                 String uri = args.getString("uri");
                 boolean sign_default = args.getBoolean("sign_default");
@@ -932,6 +936,14 @@ public class FragmentIdentity extends FragmentBase {
                         throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, bcc));
                     }
 
+                if (!TextUtils.isEmpty(envelope_from) && !should)
+                    try {
+                        for (InternetAddress address : InternetAddress.parse(envelope_from))
+                            address.validate();
+                    } catch (AddressException ex) {
+                        throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, envelope_from));
+                    }
+
                 if (TextUtils.isEmpty(internal))
                     internal = null;
 
@@ -958,6 +970,9 @@ public class FragmentIdentity extends FragmentBase {
 
                 if (TextUtils.isEmpty(bcc))
                     bcc = null;
+
+                if (TextUtils.isEmpty(envelope_from))
+                    envelope_from = null;
 
                 if (color == Color.TRANSPARENT || !ActivityBilling.isPro(context))
                     color = null;
@@ -1035,6 +1050,8 @@ public class FragmentIdentity extends FragmentBase {
                     if (!Objects.equals(identity.cc, cc))
                         return true;
                     if (!Objects.equals(identity.bcc, bcc))
+                        return true;
+                    if (!Objects.equals(identity.envelopeFrom, envelope_from))
                         return true;
                     if (!Objects.equals(identity.internal, internal))
                         return true;
@@ -1150,6 +1167,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.replyto = replyto;
                     identity.cc = cc;
                     identity.bcc = bcc;
+                    identity.envelopeFrom = envelope_from;
                     identity.internal = internal;
                     identity.uri = uri;
                     identity.sign_default = sign_default;
@@ -1343,6 +1361,7 @@ public class FragmentIdentity extends FragmentBase {
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etCc.setText(identity == null ? null : identity.cc);
                     etBcc.setText(identity == null ? null : identity.bcc);
+                    etEnvelopeFrom.setText(identity == null ? null : identity.envelopeFrom);
                     etInternal.setText(identity == null ? null : identity.internal);
                     btnUri.setTag(identity == null ? null : identity.uri);
                     tvUriInfo.setText(identity == null ? null : getUriInfo(identity.uri));

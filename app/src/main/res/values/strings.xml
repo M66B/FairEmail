@@ -1085,6 +1085,7 @@
     <string name="title_advanced_autoclose_hint">Automatically close conversations when all messages are archived, sent or trashed</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
     <string name="title_advanced_bcc_hint">The address won\'t be shown, but will be added on sending</string>
+    <string name="title_advanced_envelope_from_hint">This address will be used for SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">There will be a warning when sending to another domain</string>
     <string name="title_advanced_uri">The details of the selected contact will be used for vCard attachments</string>
     <string name="title_advanced_e2e_encryption">Options for end-to-end encryption</string>
@@ -1662,6 +1663,7 @@
     <string name="title_reply_to">Reply to:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_envelope_from">Envelope from:</string>
     <string name="title_recipients">%1$d recipients</string>
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Sent:</string>

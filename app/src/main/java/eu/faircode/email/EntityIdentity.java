@@ -63,8 +63,6 @@ public class EntityIdentity {
     public String name;
     @NonNull
     public String email;
-    @Ignore
-    public String envelopeFrom;
     @NonNull
     public Long account;
     public String display;
@@ -114,6 +112,7 @@ public class EntityIdentity {
     public String replyto;
     public String cc;
     public String bcc;
+    public String envelopeFrom;
     public String internal;
     public String uri; // linked contact
     @NonNull
