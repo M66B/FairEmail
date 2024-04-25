@@ -6,6 +6,11 @@ For support you can use the contact form.
 
 Zby
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2176 - 2024-04-22
 
 * Fixed British English translation
