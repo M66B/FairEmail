@@ -163,9 +163,17 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             if (folder == null)
                 return;
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String startup = prefs.getString("startup", "unified");
+
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             if (EntityFolder.OUTBOX.equals(folder.type))
                 lbm.sendBroadcast(new Intent(ActivityView.ACTION_VIEW_OUTBOX));
+            else if ("inbox".equals(startup) && EntityFolder.INBOX.equals(folder.type))
+                lbm.sendBroadcast(
+                        new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                .putExtra("type", (String) null)
+                                .putExtra("unified", true));
             else if (folder.folders > 1 || folder.type == null)
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_MESSAGES)
