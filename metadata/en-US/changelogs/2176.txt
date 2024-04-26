@@ -4,7 +4,7 @@ Changelog
 
 For support you can use the contact form.
 
-Zby
+Acantholipan
 
 Next version
 
@@ -12,6 +12,8 @@ Next version
 * Added identity option to configure envelope-from (*MAIL FROM*)
 * Small improvements and minor bug fixes
 * Updated translations
+
+Zby
 
 1.2176 - 2024-04-22
 
