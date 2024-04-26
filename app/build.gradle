@@ -216,6 +216,7 @@ android {
             buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"https://support.google.com/gemini/answer/13594961\""
             buildConfigField "String", "PWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
+            buildConfigField "String", "PWNED_PRIVACY", "\"https://haveibeenpwned.com/Privacy\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         large {
@@ -241,6 +242,7 @@ android {
             buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"https://support.google.com/gemini/answer/13594961\""
             buildConfigField "String", "PWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
+            buildConfigField "String", "PWNED_PRIVACY", "\"https://haveibeenpwned.com/Privacy\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         fdroid {
@@ -275,6 +277,7 @@ android {
             buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"https://support.google.com/gemini/answer/13594961\""
             buildConfigField "String", "PWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
+            buildConfigField "String", "PWNED_PRIVACY", "\"https://haveibeenpwned.com/Privacy\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         play {
@@ -301,6 +304,7 @@ android {
             buildConfigField "String", "GEMINI_ENDPOINT", "\"\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"\""
             buildConfigField "String", "PWNED_ENDPOINT", "\"\""
+            buildConfigField "String", "PWNED_PRIVACY", "\"\""
             buildConfigField "String", "FDROID", "\"\""
             getIsDefault().set(true)
         }
@@ -328,6 +332,7 @@ android {
             buildConfigField "String", "GEMINI_ENDPOINT", "\"\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"\""
             buildConfigField "String", "PWNED_ENDPOINT", "\"\""
+            buildConfigField "String", "PWNED_PRIVACY", "\"\""
             buildConfigField "String", "FDROID", "\"\""
         }
     }

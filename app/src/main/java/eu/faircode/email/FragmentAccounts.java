@@ -31,13 +31,9 @@ import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,7 +41,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -486,71 +481,7 @@ public class FragmentAccounts extends FragmentBase {
     }
 
     private void onMenuPwned() {
-        final Context context = getContext();
-        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_pwned, null);
-        final TextView tvPwned = dview.findViewById(R.id.tvPwned);
-        final ProgressBar pbWait = dview.findViewById(R.id.pbWait);
-        final Group grpReady = dview.findViewById(R.id.grpReady);
-
-        pbWait.setVisibility(View.VISIBLE);
-        grpReady.setVisibility(View.GONE);
-
-        new AlertDialog.Builder(context)
-                .setView(dview)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Do nothing
-                    }
-                })
-                .show();
-
-        new SimpleTask<SpannableStringBuilder>() {
-            @Override
-            protected void onPostExecute(Bundle args) {
-                pbWait.setVisibility(View.GONE);
-            }
-
-            @Override
-            protected SpannableStringBuilder onExecute(Context context, Bundle args) throws Throwable {
-                SpannableStringBuilder ssb = new SpannableStringBuilder();
-
-                final int colorError = Helper.resolveColor(context, androidx.appcompat.R.attr.colorError);
-                final int colorVerified = Helper.resolveColor(context, R.attr.colorVerified);
-
-                DB db = DB.getInstance(context);
-                List<EntityAccount> accounts = db.account().getAccounts();
-                if (accounts != null)
-                    for (EntityAccount account : accounts)
-                        if (account.auth_type == AUTH_TYPE_PASSWORD && !TextUtils.isEmpty(account.password)) {
-                            Integer count = HaveIBeenPwned.check(account.password, context);
-                            boolean pwned = (count != null && count != 0);
-                            ssb.append(account.name).append(": ");
-                            int start = ssb.length();
-                            ssb.append(pwned ? "PWNED!" : "OK");
-                            if (pwned) {
-                                ssb.setSpan(new ForegroundColorSpan(colorError), start, ssb.length(), 0);
-                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
-                            } else
-                                ssb.setSpan(new ForegroundColorSpan(colorVerified), start, ssb.length(), 0);
-                            ssb.append('\n');
-                        }
-
-                return ssb;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, SpannableStringBuilder ssb) {
-                tvPwned.setText(ssb);
-                grpReady.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                tvPwned.setText(Log.formatThrowable(ex));
-                grpReady.setVisibility(View.VISIBLE);
-            }
-        }.execute(this, new Bundle(), "pwned");
+        new FragmentDialogPwned().show(getParentFragmentManager(), "pawned");
     }
 
     @Override
