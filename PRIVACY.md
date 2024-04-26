@@ -73,6 +73,7 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [Gravatar](https://gravatar.com/) (GitHub version only) &#8211; [Privacy policy](https://automattic.com/privacy/)
 * [Libravatar](https://www.libravatar.org/) (GitHub version only)  &#8211; [Privacy policy](https://www.libravatar.org/privacy/)
 * [GitHub](https://github.com/) (GitHub version only) &#8211; [Privacy policy](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
+* [Have I Been Pwned?](https://haveibeenpwned.com/) (GitHub version only) &#8211; [Privacy policy](https://haveibeenpwned.com/Privacy)
 
 FairEmail **can access** the websites at the domain names of email addresses (username@domain.name)
 if [Brand Indicators for Message Identification](https://en.wikipedia.org/wiki/Brand_Indicators_for_Message_Identification) (BIMI)
@@ -111,6 +112,7 @@ This table provides a complete overview of all shared data and the conditions un
 | GitHub             | None, but see the remarks below                                    | Upon downloading AdGuard tracking parameter list                            |
 |                    |                                                                    | Upon downloading Disconnect's Tracker Protection lists                      |
 |                    |                                                                    | Upon checking for updates (*)                                               |
+| Have I Been Pwned? | Hashed passwords                                                   | Upon checking for being pwned (*)                                           |
 | BIMI               | Domain name of email addresses                                     | If BIMI is enabled, upon receiving a message (*)                            |
 | Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message                           |
 | Link title         | Link address                                                       | Upon pressing a download button in the insert link dialog                   |
