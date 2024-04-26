@@ -215,7 +215,7 @@ android {
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"https://support.google.com/gemini/answer/13594961\""
-            buildConfigField "String", "PAWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
+            buildConfigField "String", "PWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         large {
@@ -240,7 +240,7 @@ android {
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"https://support.google.com/gemini/answer/13594961\""
-            buildConfigField "String", "PAWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
+            buildConfigField "String", "PWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         fdroid {
@@ -274,7 +274,7 @@ android {
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "GEMINI_ENDPOINT", "\"https://generativelanguage.googleapis.com/v1beta/\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"https://support.google.com/gemini/answer/13594961\""
-            buildConfigField "String", "PAWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
+            buildConfigField "String", "PWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         play {
@@ -300,7 +300,7 @@ android {
             buildConfigField "String", "OPENAI_PRIVACY", "\"\""
             buildConfigField "String", "GEMINI_ENDPOINT", "\"\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"\""
-            buildConfigField "String", "PAWNED_ENDPOINT", "\"\""
+            buildConfigField "String", "PWNED_ENDPOINT", "\"\""
             buildConfigField "String", "FDROID", "\"\""
             getIsDefault().set(true)
         }
@@ -327,7 +327,7 @@ android {
             buildConfigField "String", "OPENAI_PRIVACY", "\"\""
             buildConfigField "String", "GEMINI_ENDPOINT", "\"\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"\""
-            buildConfigField "String", "PAWNED_ENDPOINT", "\"\""
+            buildConfigField "String", "PWNED_ENDPOINT", "\"\""
             buildConfigField "String", "FDROID", "\"\""
         }
     }

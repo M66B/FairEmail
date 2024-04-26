@@ -39,7 +39,7 @@ public class HaveIBeenPwned {
         String range = hashed.substring(0, 5);
         String rest = hashed.substring(5);
 
-        URL url = new URL(BuildConfig.PAWNED_ENDPOINT + "range/" + range);
+        URL url = new URL(BuildConfig.PWNED_ENDPOINT + "range/" + range);
         Log.i("GET " + url);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
