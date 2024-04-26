@@ -8,6 +8,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Added [Have I Been Pwned?](https://haveibeenpwned.com/) check to accounts list (GitHub version only)
+* Added identity option to configure envelope-from (*MAIL FROM*)
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 

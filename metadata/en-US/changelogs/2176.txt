@@ -8,6 +8,8 @@ Zby
 
 Next version
 
+* Added Have I Been Pwned?
+* Added identity option to configure envelope-from (*MAIL FROM*)
 * Small improvements and minor bug fixes
 * Updated translations
 
