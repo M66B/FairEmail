@@ -55,6 +55,17 @@
             app:layout_constraintStart_toEndOf="@id/btnCheck"
             app:layout_constraintTop_toTopOf="@id/btnCheck" />
 
+        <ImageButton
+            android:id="@+id/ibPwned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_info"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintBottom_toBottomOf="@id/btnCheck"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnCheck"
+            app:srcCompat="@drawable/twotone_info_24" />
+
         <TextView
             android:id="@+id/tvPrivacy"
             android:layout_width="wrap_content"

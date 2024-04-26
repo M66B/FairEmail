@@ -34,6 +34,7 @@ import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -54,6 +55,7 @@ public class FragmentDialogPwned extends FragmentDialogBase {
         final TextView tvPwned = dview.findViewById(R.id.tvPwned);
         final Button btnCheck = dview.findViewById(R.id.btnCheck);
         final ContentLoadingProgressBar pbCheck = dview.findViewById(R.id.pbCheck);
+        final ImageButton ibPwned = dview.findViewById(R.id.ibPwned);
         final TextView tvPrivacy = dview.findViewById(R.id.tvPrivacy);
         final Group grpReady = dview.findViewById(R.id.grpReady);
 
@@ -131,15 +133,22 @@ public class FragmentDialogPwned extends FragmentDialogBase {
             }
         });
 
+        ibPwned.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(BuildConfig.PWNED_URI), true);
+            }
+        });
+
         pbCheck.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
 
-        tvPrivacy.setText(BuildConfig.PWNED_PRIVACY);
+        tvPrivacy.setText(BuildConfig.PWNED_URI + "Privacy");
         tvPrivacy.getPaint().setUnderlineText(true);
         tvPrivacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(BuildConfig.PWNED_PRIVACY), true);
+                Helper.view(v.getContext(), Uri.parse(BuildConfig.PWNED_URI + "Privacy"), true);
             }
         });
 
