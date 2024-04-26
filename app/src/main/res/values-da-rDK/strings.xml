@@ -870,6 +870,7 @@
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, når alle beskeder arkiveres, sendes eller kasseres</string>
     <string name="title_advanced_sender_hint">De fleste udbydere tillader ikke ændrede afsenderadresser</string>
     <string name="title_advanced_bcc_hint">Adressen vises ikke, men tilføjes ved afsendelse</string>
+    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Denne adresse vil blive brugt til SMTP MAIL FRA</string>
     <string name="title_advanced_internal_hint">En advarsel vises, når der sendes til et andet domæne</string>
     <string name="title_advanced_uri">Detaljerne for den valgte kontakt vil blive brugt til vCard-vedhæftninger</string>
     <string name="title_advanced_e2e_encryption">Indstillinger for ende-til-ende kryptering</string>
@@ -1361,6 +1362,7 @@
     <string name="title_reply_to">Svar til:</string>
     <string name="title_cc">Cc:</string>
     <string name="title_bcc">Bcc:</string>
+    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Konvolut fra:</string>
     <string name="title_recipients">%1$d modtagere</string>
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Sendt:</string>
@@ -1706,7 +1708,7 @@
     <string name="title_rule_younger">Beskeder nyere end (timer)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OG</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">IKKE</string>
+    <string name="title_rule_not">IKKE</string>
     <string name="title_rule_action">Handling</string>
     <string name="title_rule_action_remark">Denne handling effektueres for nye beskeder modtaget i mappen %1$s</string>
     <string name="title_rule_hours">Timer</string>

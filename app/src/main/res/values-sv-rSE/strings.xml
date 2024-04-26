@@ -1696,7 +1696,7 @@
     <string name="title_rule_younger">Meddelanden inte äldre än (timmar)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OCH</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">INTE</string>
+    <string name="title_rule_not">INTE</string>
     <string name="title_rule_action">Åtgärd</string>
     <string name="title_rule_action_remark">Denna åtgärd kommer att tillämpas på nya meddelanden som kommer i mappen %1$s</string>
     <string name="title_rule_hours">Timmar</string>

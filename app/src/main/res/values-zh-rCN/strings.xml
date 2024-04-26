@@ -1686,7 +1686,7 @@
     <string name="title_rule_younger">不到多少(小时) 前的消息</string>
     <string name="title_rule_regex">正则表达式</string>
     <string name="title_rule_and">AND</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">否</string>
+    <string name="title_rule_not">否</string>
     <string name="title_rule_action">操作</string>
     <string name="title_rule_action_remark">此操作将被应用于抵达文件夹 %1$s 的新消息</string>
     <string name="title_rule_hours">小时</string>

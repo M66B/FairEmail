@@ -1696,7 +1696,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_rule_younger">Berjochten jonger as (oeren)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NET</string>
+    <string name="title_rule_not">NET</string>
     <string name="title_rule_action">Aksje</string>
     <string name="title_rule_action_remark">Dizze aksje sil tapast wurde op nije berjochten dy’t yn de map %1$s oankomme</string>
     <string name="title_rule_hours">Oeren</string>

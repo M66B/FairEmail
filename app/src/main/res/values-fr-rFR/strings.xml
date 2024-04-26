@@ -870,6 +870,7 @@
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n’autorisent pas les adresses d’expéditeur modifiées</string>
     <string name="title_advanced_bcc_hint">L’adresse ne sera pas affichée mais sera ajoutée lors de l’envoi</string>
+    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Cette adresse sera utilisée pour SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Il y aura un avertissement lors de l\'envoi vers un autre domaine</string>
     <string name="title_advanced_uri">Les informations du contact sélectionné seront utilisées pour les pièces jointes vCard</string>
     <string name="title_advanced_e2e_encryption">Options pour le chiffrement de bout en bout</string>
@@ -1362,6 +1363,7 @@
     <string name="title_reply_to">Répondre à :</string>
     <string name="title_cc">Cc :</string>
     <string name="title_bcc">Cci :</string>
+    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Enveloppe De:</string>
     <string name="title_recipients">%1$d destinataires</string>
     <string name="title_via_identity">Via :</string>
     <string name="title_sent">Envoyé :</string>
@@ -1707,7 +1709,7 @@
     <string name="title_rule_younger">Messages de moins de (heures)</string>
     <string name="title_rule_regex">Expression régulière</string>
     <string name="title_rule_and">ET</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NON</string>
+    <string name="title_rule_not">NON</string>
     <string name="title_rule_action">Action</string>
     <string name="title_rule_action_remark">Cette action sera appliquée aux nouveaux messages arrivant dans le dossier %1$s</string>
     <string name="title_rule_hours">Heures</string>

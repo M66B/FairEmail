@@ -897,6 +897,7 @@
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_advanced_bcc_hint">Адрес не будет показан, но будет добавлен при отправке</string>
+    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Этот адрес будет использоваться для SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Будет предупреждение при отправке на другой домен</string>
     <string name="title_advanced_uri">Данные выбранного контакта будут использоваться для вложений vCard</string>
     <string name="title_advanced_e2e_encryption">Настройки сквозного шифрования</string>
@@ -1388,6 +1389,7 @@
     <string name="title_reply_to">Обратный адрес:</string>
     <string name="title_cc">Копия:</string>
     <string name="title_bcc">Скрытая копия:</string>
+    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Конверт от:</string>
     <string name="title_recipients">%1$d получателей</string>
     <string name="title_via_identity">Через:</string>
     <string name="title_sent">Отправлено:</string>
@@ -1733,7 +1735,7 @@
     <string name="title_rule_younger">Письма новее (час.)</string>
     <string name="title_rule_regex">Регулярное выражение</string>
     <string name="title_rule_and">И</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">НЕ</string>
+    <string name="title_rule_not">НЕ</string>
     <string name="title_rule_action">Действие</string>
     <string name="title_rule_action_remark">Это действие будет применяться к новым сообщениям в папке %1$s</string>
     <string name="title_rule_hours">Часов</string>

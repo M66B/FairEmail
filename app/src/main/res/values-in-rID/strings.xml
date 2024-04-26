@@ -1680,7 +1680,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_younger">Pesan lebih muda dari (jam)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">DAN</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">TIDAK</string>
+    <string name="title_rule_not">TIDAK</string>
     <string name="title_rule_action">Tindakan</string>
     <string name="title_rule_action_remark">Aksi ini akan berlaku untuj pesan baru diterima dalam folder %1$s</string>
     <string name="title_rule_hours">Jam</string>

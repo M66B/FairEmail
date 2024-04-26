@@ -871,6 +871,7 @@
     <string name="title_advanced_autoclose_hint">Unterhaltungen automatisch schließen, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_bcc_hint">Die Adresse wird nicht angezeigt, wird aber beim Absenden hinzugefügt</string>
+    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Diese Adresse wird für »SMTP MAIL FROM« verwendet</string>
     <string name="title_advanced_internal_hint">Beim Senden an eine andere Domain wird ein Warnhinweis ausgegeben</string>
     <string name="title_advanced_uri">Die Details des ausgewählten Kontakts werden für vCard-Anhänge verwendet</string>
     <string name="title_advanced_e2e_encryption">Optionen für Ende-zu-Ende-Verschlüsselung</string>
@@ -1363,6 +1364,7 @@
     <string name="title_reply_to">Antworten an:</string>
     <string name="title_cc">Kopie:</string>
     <string name="title_bcc">Blindkopie:</string>
+    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Briefumschlag von:</string>
     <string name="title_recipients">%1$d Empfänger</string>
     <string name="title_via_identity">Über:</string>
     <string name="title_sent">Gesendet:</string>
@@ -1708,7 +1710,7 @@
     <string name="title_rule_younger">Nachrichten jünger als (Stunden)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">UND</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NICHT</string>
+    <string name="title_rule_not">NICHT</string>
     <string name="title_rule_action">Aktion</string>
     <string name="title_rule_action_remark">Diese Aktion wird auf neu ankommende Nachrichten im Ordner %1$s angewendet</string>
     <string name="title_rule_hours">Stunden</string>

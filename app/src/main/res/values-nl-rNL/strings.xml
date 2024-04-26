@@ -864,6 +864,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of verwijderd</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_bcc_hint">Het adres wordt niet weergegeven, maar wordt bij het verzenden toegevoegd</string>
+    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Dit adres wordt gebruikt voor SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Er wordt een waarschuwing gegeven bij het versturen naar een ander domein</string>
     <string name="title_advanced_uri">De gegevens van het geselecteerde contact worden gebruikt voor vCard-bijlagen</string>
     <string name="title_advanced_e2e_encryption">Opties voor end-to-end encryptie</string>
@@ -1349,6 +1350,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_reply_to">Antwoord aan:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Envelop van:</string>
     <string name="title_recipients">%1$d ontvangers</string>
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Verzonden:</string>
@@ -1691,7 +1693,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_younger">Berichten jonger dan (uren)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NIET</string>
+    <string name="title_rule_not">NIET</string>
     <string name="title_rule_action">Actie</string>
     <string name="title_rule_action_remark">Deze actie zal worden toegepast op nieuwe berichten die aankomen in de map %1$s</string>
     <string name="title_rule_hours">Uren</string>

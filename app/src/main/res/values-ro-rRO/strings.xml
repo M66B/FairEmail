@@ -1716,7 +1716,7 @@
     <string name="title_rule_younger">Mesaje mai noi de (ore)</string>
     <string name="title_rule_regex">Expresie regulată (regex)</string>
     <string name="title_rule_and">ȘI</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NU</string>
+    <string name="title_rule_not">NU</string>
     <string name="title_rule_action">Acțiune</string>
     <string name="title_rule_action_remark">Această acțiune se va aplica mesajelor noi care sosesc în dosarul %1$s</string>
     <string name="title_rule_hours">Ore</string>

@@ -897,6 +897,7 @@
     <string name="title_advanced_autoclose_hint">לסגור את הדיון אוטומטית כשכל ההודעות הועברו לארכיון, נשלחו או הושלכו לאשפה</string>
     <string name="title_advanced_sender_hint">רוב הספקים לא מאפשרים כתובות מוען שעברו שינוי</string>
     <string name="title_advanced_bcc_hint">הכתובת לא תופיע אך תתווסף בעת השליחה</string>
+    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">הכתובת הזאת תשמש לשדה MAIL FROM ב־SMTP</string>
     <string name="title_advanced_internal_hint">תופיע אזהרה בעת שליחה לשם תחום אחר</string>
     <string name="title_advanced_uri">פרטי הקשר הנבחרים ישמשו כקובצי vCard מצורפים</string>
     <string name="title_advanced_e2e_encryption">אפשרויות להצפנה מקצה לקצה</string>
@@ -1389,6 +1390,7 @@
     <string name="title_reply_to">מענה אל:</string>
     <string name="title_cc">עותק:</string>
     <string name="title_bcc">עותק מוסתר:</string>
+    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">מעטפה מאת:</string>
     <string name="title_recipients">%1$d נמענים</string>
     <string name="title_via_identity">דרך:</string>
     <string name="title_sent">נשלח:</string>
@@ -1734,7 +1736,7 @@
     <string name="title_rule_younger">הודעות בגיל של פחות מאשר (שעות)</string>
     <string name="title_rule_regex">ביטוי רגולרי</string>
     <string name="title_rule_and">וגם</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">לא</string>
+    <string name="title_rule_not">לא</string>
     <string name="title_rule_action">פעולה</string>
     <string name="title_rule_action_remark">פעולה זו תחול על הודעות חדשות שמגיעות לתיקייה %1$s</string>
     <string name="title_rule_hours">שעות</string>

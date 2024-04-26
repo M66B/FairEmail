@@ -1697,7 +1697,7 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
     <string name="title_rule_younger">Viestit, jotka ovat uudempia kuin (tuntia)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">JA</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">NOT</string>
+    <string name="title_rule_not">NOT</string>
     <string name="title_rule_action">Toiminto</string>
     <string name="title_rule_action_remark">Tätä toimintoa käytetään uusiin viesteihin, jotka saapuvat kansioon %1$s</string>
     <string name="title_rule_hours">Tuntia</string>

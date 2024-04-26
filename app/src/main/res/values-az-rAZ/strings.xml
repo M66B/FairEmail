@@ -1706,7 +1706,7 @@
     <string name="title_rule_younger">Bundan az mesajlar (saat)</string>
     <string name="title_rule_regex">Müntəzəm ifadə</string>
     <string name="title_rule_and">VƏ</string>
-    <string name="title_rule_not" comment="title_rule_not&#10;Title for checkbox to negate a rule condition">DEYİL</string>
+    <string name="title_rule_not">DEYİL</string>
     <string name="title_rule_action">Əməliyyat</string>
     <string name="title_rule_action_remark">Bu əməliyyatlar %1$s qovluğuna gələn yeni mesajlara tətbiq ediləcək</string>
     <string name="title_rule_hours">Saat</string>
