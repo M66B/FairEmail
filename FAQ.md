@@ -1472,6 +1472,12 @@ Sometimes it is necessary to enable external access (IMAP/SMTP) on the website o
 Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way,
 for example by allowing to login from certain networks / IP addresses only.
 
+<br />
+
+**In the case of an existing account with an authentication error, please try to use the quick setup wizard button to authenticate the account again.**
+
+<br />
+
 * **Free.fr**: please see [this FAQ](#faq157)
 * **Gmail / G suite**: please see [this FAQ](#faq6)
 * **iCloud**: please see [this FAQ](#faq148)
