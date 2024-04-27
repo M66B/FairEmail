@@ -13,11 +13,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
-(*) Via the three-dots overflow menu of the account list under "*Manual setup and account options*" in the main settings screen (GitHub version only).
+<sub>(*) Via the three-dots overflow menu of the account list under "*Manual setup and account options*" in the main settings screen (GitHub version only)</sub>
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### 1.2176 - 2024-04-22
+### 1.2176 - 2024-04-22 *
 
 * Fixed British English translation
 * Small improvements and minor bug fixes
@@ -50,7 +50,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
-(*) Currently supported email forwarders:
+<sub>(*) Currently supported email forwarders:</sub>
 
 * [addy.io](https://addy.io/)
 * [DuckDuckGo Email Protection](https://duckduckgo.com/email/)
@@ -1652,7 +1652,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Small improvements and minor bug fixes
 * Updated translations
 
-(*) Due to Play store policies this feature is not available in the Play store version; Android version 6 or later is required
+<sub>(*) Due to Play store policies this feature is not available in the Play store version; Android version 6 or later is required</sub>
 
 ### 1.1930 - 2022-07-04
 

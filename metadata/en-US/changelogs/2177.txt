@@ -13,11 +13,11 @@ Acantholipan
 * Small improvements and minor bug fixes
 * Updated translations
 
-(*) Via the three-dots overflow menu of the account list under "*Manual setup and account options*" in the main settings screen (GitHub version only).
+<sub>(*) Via the three-dots overflow menu of the account list under "*Manual setup and account options*" in the main settings screen (GitHub version only)</sub>
 
 Zby
 
-1.2176 - 2024-04-22
+1.2176 - 2024-04-22 *
 
 * Fixed British English translation
 * Small improvements and minor bug fixes
@@ -50,7 +50,7 @@ Zby
 * Updated AndroidX
 * Updated translations
 
-(*) Currently supported email forwarders:
+<sub>(*) Currently supported email forwarders:</sub>
 
 * addy.io
 * DuckDuckGo Email Protection
@@ -1652,7 +1652,7 @@ Kinnareemimus
 * Small improvements and minor bug fixes
 * Updated translations
 
-(*) Due to Play store policies this feature is not available in the Play store version; Android version 6 or later is required
+<sub>(*) Due to Play store policies this feature is not available in the Play store version; Android version 6 or later is required</sub>
 
 1.1930 - 2022-07-04
 
