@@ -17,7 +17,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
-### 1.2176 - 2024-04-22
+### 1.2176 - 2024-04-22 *
 
 * Fixed British English translation
 * Small improvements and minor bug fixes
