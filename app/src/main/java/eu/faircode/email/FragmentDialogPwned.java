@@ -116,6 +116,9 @@ public class FragmentDialogPwned extends FragmentDialogBase {
                         if (pwned) {
                             ssb.setSpan(new ForegroundColorSpan(colorError), start, ssb.length(), 0);
                             ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                            ssb.append(' ').append(Integer.toString(count)).append('×');
+                            if (BuildConfig.DEBUG)
+                                ssb.append(' ').append(password);
                         } else
                             ssb.setSpan(new ForegroundColorSpan(colorVerified), start, ssb.length(), 0);
                     }
