@@ -1962,6 +1962,7 @@
     <string name="title_force_sync">Force sync</string>
     <string name="title_force_send">Force send</string>
     <string name="title_pawned" translatable="false">Have I been pwned?</string>
+    <string name="title_pawned_remark">This will check the password, without sending it (using k-anonymization), and not the email address!</string>
 
     <string name="title_language_all">All</string>
 
