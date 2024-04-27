@@ -14,6 +14,8 @@ Next version
 
 <sup>(*) ChatGPT or Gemini needs to be configured in the integrations-settings tab page for this</sub>
 
+You can download a preview/snapshot version here.
+
 1.2177 - 2024-04-27
 
 * Added Have I Been Pwned?

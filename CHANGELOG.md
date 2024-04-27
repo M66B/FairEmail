@@ -14,6 +14,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 <sup>(*) ChatGPT or Gemini needs to be configured in the integrations-settings tab page for this</sub>
 
+You can download a preview/snapshot version [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
+
 ### 1.2177 - 2024-04-27
 
 * Added [Have I Been Pwned?](https://haveibeenpwned.com/) **<ins>password</ins>** check (*)
