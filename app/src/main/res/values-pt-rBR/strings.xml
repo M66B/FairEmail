@@ -1978,7 +1978,7 @@
     <string name="title_global_default">Usar padrão global</string>
     <string name="title_not_existing">Esta mensagem não existe mais no servidor de email</string>
     <string name="title_conversation_actions">Ações</string>
-    <string name="title_conversation_action_reply">Resposta com: \'%1$s\'</string>
+    <string name="title_conversation_action_reply">Responder com: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copiar: \'%1$s\'</string>
     <string name="title_icalendar_accept">Aceitar</string>
     <string name="title_icalendar_decline">Recusar</string>

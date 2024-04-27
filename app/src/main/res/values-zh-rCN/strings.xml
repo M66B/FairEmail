@@ -4,7 +4,7 @@
     <string name="app_send_self">发送给自己</string>
     <string name="app_changelog">更新日志</string>
     <string name="app_welcome">FairEmail 是一款专注于隐私与安全的开源电子邮件应用。所以，某些功能的工作方式可能与您的习惯不同。</string>
-    <string name="app_limitations">例如，默认情况下，消息将被重新格式化以移除不安全的元素并提高可读性；另外，为确保安全，打开链接前需要得到确认。当然如有需要，这两个选项都可以禁用</string>
+    <string name="app_limitations">例如，默认情况下，邮件会重新格式化以移除不安全的元素并提高可读性，并且为了安全起见，需要确认打开链接。如果需要，这两个选项都可以禁用。</string>
     <string name="app_unsupported">此特定设备的该 Android 版本中的 Bug 会导致崩溃</string>
     <string name="app_data_loss">所有数据可能都会丢失</string>
     <string name="app_continue">仍然继续</string>
@@ -29,13 +29,13 @@
     <string name="channel_group_contacts">联系人</string>
     <string name="channel_service_description">账户的同步与监控</string>
     <string name="channel_send_description">消息的发送</string>
-    <string name="channel_notification_description">新消息通知</string>
+    <string name="channel_notification_description">新邮件通知</string>
     <string name="channel_progress_description">长时间操作的进度通知</string>
     <plurals name="page_conversation">
         <item quantity="other">会话</item>
     </plurals>
     <plurals name="page_message">
-        <item quantity="other">消息</item>
+        <item quantity="other">邮件</item>
     </plurals>
     <string name="page_folders">文件夹</string>
     <string name="page_compose">撰写</string>
@@ -60,7 +60,7 @@
         <item quantity="other">%1$d 封新邮件</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="other">移动 %1$d 条消息吗？</item>
+        <item quantity="other">是否移动 %1$d 封邮件？</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="other">永久删除 %1$d 则邮件？</item>
@@ -101,7 +101,7 @@
     <string name="title_junk_blocklist">使用垃圾邮件拦截列表</string>
     <string name="title_junk_clear">清除</string>
     <string name="title_junk_clear_hint">这将删除所有拦截发件人规则</string>
-    <string name="title_notification_sending">正在发送消息</string>
+    <string name="title_notification_sending">正在发送邮件</string>
     <string name="title_notification_waiting">等待适合的网络连接</string>
     <string name="title_notification_idle">空闲</string>
     <string name="title_notification_failed">\'%1$s\' 失败</string>
@@ -346,9 +346,9 @@
     <string name="title_advanced_advanced">高级</string>
     <string name="title_advanced_quick_sync">快速同步</string>
     <string name="title_advanced_no_date">不含日期的消息</string>
-    <string name="title_advanced_unseen">所有未读消息</string>
-    <string name="title_advanced_flagged">所有已标星消息</string>
-    <string name="title_advanced_delete_unseen">删除旧的未读消息</string>
+    <string name="title_advanced_unseen">所有未读邮件</string>
+    <string name="title_advanced_flagged">所有星标邮件</string>
+    <string name="title_advanced_delete_unseen">删除旧的未读邮件</string>
     <string name="title_advanced_kept_removed">检查旧消息是否已从服务器移除</string>
     <string name="title_advanced_gmail_thread">为 Gmail 账户采用 Gmail (官方)分组风格</string>
     <string name="title_advanced_subject_threading">按发件人和主题来分组邮件</string>
@@ -360,7 +360,7 @@
     <string name="title_advanced_check_authentication">检查消息认证</string>
     <string name="title_advanced_check_tls">检查安全传输层协议 (TLS)</string>
     <string name="title_advanced_check_reply_domain">同步消息时检查回复地址</string>
-    <string name="title_advanced_check_mx">同步消息时检查发件人电子邮件地址</string>
+    <string name="title_advanced_check_mx">同步邮件时检查发件人电子邮件地址</string>
     <string name="title_advanced_check_blocklist">检查发送者的域名是否在垃圾邮件拦截列表中</string>
     <string name="title_advanced_use_blocklist">将发送自拦截列表上域名的消息移至垃圾箱</string>
     <string name="title_advanced_use_blocklist_pop3">跳过黑名单域中的邮件（仅限 POP3）</string>
@@ -371,7 +371,7 @@
     <string name="title_advanced_suggest_names">使用名称和电子邮件地址</string>
     <string name="title_advanced_suggest_local">建议本地存储的联系人</string>
     <string name="title_advanced_suggest_sent">建议在“已发送”邮件中找到的地址</string>
-    <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
+    <string name="title_advanced_suggest_received">建议在收到的邮件中找到的地址</string>
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
     <string name="title_advanced_suggest_account">仅当前账户使用建议</string>
     <string name="title_advanced_auto_delete_local">自动删除符合条件的本地联系人，这些联系人在应用中的存在时长超过指定时间且使用次数少于指定数目：</string>
@@ -379,7 +379,7 @@
     <string name="title_advanced_send_chips">卡片化显示地址</string>
     <string name="title_advanced_send_nav_color">将身份颜色用于底部操作栏</string>
     <string name="title_advanced_send_reminders">显示提醒</string>
-    <string name="title_advanced_send_delayed">延迟发送消息</string>
+    <string name="title_advanced_send_delayed">延迟发送邮件</string>
     <string name="title_advanced_attach_new">为分享的地址或文件新建消息草稿</string>
     <string name="title_advanced_answer_caption">回复按钮设置</string>
     <string name="title_advanced_answer_default">短按回复按钮操作：</string>
@@ -392,7 +392,7 @@
     <string name="title_advanced_auto_save_dot">每句后自动保存草稿</string>
     <string name="title_advanced_compose_color">默认文本颜色</string>
     <string name="title_advanced_compose_font">默认字体</string>
-    <string name="title_advanced_compose_monospaced">对纯文本消息使用等宽字体</string>
+    <string name="title_advanced_compose_monospaced">纯文本邮件使用等宽字体</string>
     <string name="title_advanced_auto_identity">自动选择新邮件的身份</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_prefix_count">在邮件主题的前缀“回复(Re)”后显示计数</string>
@@ -405,21 +405,21 @@
     <string name="title_advanced_resize_reply">调整回复文本中图像的大小</string>
     <string name="title_advanced_resize_paste">调整粘贴图像的大小</string>
     <string name="title_advanced_signature_location">签名位置</string>
-    <string name="title_advanced_signature_new">为新消息使用签名</string>
+    <string name="title_advanced_signature_new">对新邮件使用签名</string>
     <string name="title_advanced_signature_reply">回复时使用签名</string>
     <string name="title_advanced_signature_reply_once">仅用于第一次回复</string>
     <string name="title_advanced_signature_forward">转发时使用签名</string>
     <string name="title_advanced_discard_delete">舍弃草稿时将其永久删除</string>
-    <string name="title_advanced_reply_move">回复邮件时，将回复保存在相同文件夹中</string>
-    <string name="title_advanced_reply_move_inbox">也适用于收件箱中的消息</string>
+    <string name="title_advanced_reply_move">回复邮件时，将回复保存在同一文件夹中</string>
+    <string name="title_advanced_reply_move_inbox">也适用于收件箱中的邮件</string>
     <string name="title_advanced_send_retry_max">最大发送尝试次数</string>
     <string name="title_advanced_send_retry_hint">连接更改时将重新尝试发送</string>
     <string name="title_advanced_send_partial">发送时忽略无效地址</string>
-    <string name="title_advanced_send_partial_hint">即使某些地址无效，仍将发送消息到其他地址</string>
-    <string name="title_advanced_sent_partially">消息未发送到所有收件人</string>
+    <string name="title_advanced_send_partial_hint">如果某些地址无效，仍将邮件发送到其他地址</string>
+    <string name="title_advanced_sent_partially">邮件未发送给所有收件人</string>
     <string name="title_advanced_auto_link">自动创建链接</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
-    <string name="title_advanced_plain_only_reply">仅在回复纯文本消息时自动使用纯文本</string>
+    <string name="title_advanced_plain_only_reply">仅在回复纯文本邮件时自动使用纯文本</string>
     <string name="title_advanced_flow">纯文本中采用可流动换行格式（format=flowed）</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
     <string name="title_advanced_remove_signatures">移除公认的签名</string>
@@ -431,8 +431,8 @@
     <string name="title_advanced_download_limited">同样应用于不按流量计费的连接</string>
     <string name="title_advanced_roaming">漫游时下载邮件和附件</string>
     <string name="title_advanced_rlah">欧盟 Roam like at home</string>
-    <string name="title_advanced_download_headers">下载所有消息标题</string>
-    <string name="title_advanced_download_eml">下载原始消息文件</string>
+    <string name="title_advanced_download_headers">下载所有邮件标头</string>
+    <string name="title_advanced_download_eml">下载原始邮件文件</string>
     <string name="title_advanced_download_plain">默认只下载纯文本部分（如果可用）</string>
     <string name="title_advanced_validated">仅限已通过可用性检查的连接</string>
     <string name="title_advanced_validated_captive">仅限已通过验证的强制门户连接</string>
@@ -456,9 +456,9 @@
     <string name="title_advanced_caption_checks">检查</string>
     <string name="title_advanced_caption_list">列表</string>
     <string name="title_advanced_caption_conversation">会话</string>
-    <string name="title_advanced_caption_message">消息</string>
+    <string name="title_advanced_caption_message">邮件</string>
     <string name="title_advanced_caption_message_header">邮件标头</string>
-    <string name="title_advanced_caption_message_body">消息正文</string>
+    <string name="title_advanced_caption_message_body">邮件正文</string>
     <string name="title_advanced_caption_file">文件</string>
     <string name="title_advanced_caption_integrations">集成</string>
     <string name="title_advanced_portrait">竖屏模式</string>
@@ -469,36 +469,36 @@
     <string name="title_advanced_close_pane">关闭会话时收起行或列</string>
     <string name="title_advanced_open_pane">以两行或两列开始</string>
     <string name="title_advanced_column_width">邮件列宽/行高：%1$s %%</string>
-    <string name="title_advanced_hide_toolbar">滚动消息时隐藏顶部工具栏</string>
+    <string name="title_advanced_hide_toolbar">滚动邮件时隐藏顶部工具栏</string>
     <string name="title_advanced_nav_options">显示导航菜单选项</string>
     <string name="title_advanced_nav_categories">在导航菜单中显示账户类别</string>
     <string name="title_advanced_nav_pin">固定导航菜单</string>
     <string name="title_advanced_nav_hide_title">隐藏导航菜单选项？</string>
     <string name="title_advanced_nav_hide_message">您可以在显示设置中再次启用选项</string>
     <string name="title_advanced_nav_last_sync">在导航菜单中显示上次同步时间</string>
-    <string name="title_advanced_nav_message_count">在导航菜单中显示本地存储消息的数量</string>
+    <string name="title_advanced_nav_message_count">在导航菜单中显示本地存储的邮件数</string>
     <string name="title_advanced_nav_unseen_drafts">在导航菜单中显示未读草稿的数量</string>
     <string name="title_advanced_nav_pinned_count">在固定导航菜单中显示未读邮件的数量</string>
-    <string name="title_advanced_show_unexposed">对有新接收到的未读消息的账户/文件夹显示星标</string>
+    <string name="title_advanced_show_unexposed">为新收到的未读邮件的账号/文件夹显示星标</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
     <string name="title_advanced_category">账户类别可以通过主设置屏幕在高级账户选项中配置</string>
     <string name="title_advanced_cards_beige">使用卡牌风格时使用米色背景(仅适用于浅色主题)</string>
     <string name="title_advanced_tabular_background">使用表格样式时，使用卡片颜色作为背景色</string>
-    <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
+    <string name="title_advanced_cards_shadow">使用卡片样式时对未读邮件使用阴影</string>
     <string name="title_advanced_cards_shadow_border">显示边框</string>
     <string name="title_advanced_cards_shadow_highlight">使用高亮色而不是强调色</string>
     <string name="title_advanced_tabular_dividers">使用表格样式时使用分隔线</string>
-    <string name="title_advanced_tabular_unread_bg">使用表格风格时未读消息使用灰色背景色</string>
+    <string name="title_advanced_tabular_unread_bg">使用表格样式时，未读邮件使用灰色背景色</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_date_week">按星期而不是按日分组</string>
     <string name="title_advanced_date_fixed">在顶部显示固定日期标题</string>
     <string name="title_advanced_date_bold">以粗体显示日期</string>
     <string name="title_advanced_date_time">总是显示日期和时间</string>
     <string name="title_advanced_threading">邮件会话</string>
-    <string name="title_advanced_threading_unread">在对话中显示未读消息的数量</string>
-    <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
-    <string name="title_advanced_highlight_unread">高亮未读消息</string>
+    <string name="title_advanced_threading_unread">显示对话中未读邮件数</string>
+    <string name="title_advanced_indentation">在对话中向左/向右缩进已收到/发送的邮件</string>
+    <string name="title_advanced_highlight_unread">高亮未读邮件</string>
     <string name="title_advanced_color_stripe">头像前显示一条色带</string>
     <string name="title_advanced_color_stripe_wide">使用宽色条</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
@@ -535,24 +535,24 @@
     <string name="title_advanced_flags">显示星标</string>
     <string name="title_advanced_flags_background">显示有色背景而非有色星标</string>
     <string name="title_advanced_preview">显示邮件预览</string>
-    <string name="title_advanced_preview_italic">斜体字显示邮件预览</string>
+    <string name="title_advanced_preview_italic">以斜体显示邮件预览</string>
     <string name="title_advanced_preview_lines">预览行数</string>
     <string name="title_advanced_align_header">垂直对齐关键字、预览文本和备注</string>
     <string name="title_advanced_addresses">默认展开地址详情</string>
     <string name="title_advanced_hide_attachments">默认折叠附件</string>
     <string name="title_advanced_unzip">显示压缩附件的内容</string>
-    <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
-    <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
+    <string name="title_advanced_attachments_alt">在邮件文本后显示附件</string>
+    <string name="title_advanced_thumbnails">在邮件文本后显示图像缩略图</string>
     <string name="title_advanced_pdf_preview">显示 PDF 缩略图</string>
     <string name="title_advanced_video_preview">显示视频缩略图</string>
     <string name="title_advanced_audio_preview">显示迷你音频播放器</string>
     <string name="title_advanced_barcode_preview">显示条形码内容</string>
-    <string name="title_advanced_message_text_zoom2">默认消息文本缩放： %1$s %%</string>
+    <string name="title_advanced_message_text_zoom2">默认邮件文本缩放：%1$s %%</string>
     <string name="title_advanced_editor_text_zoom">同时也在邮件编辑窗中缩放内容文本</string>
-    <string name="title_advanced_overview_mode">缩放原始消息以适应屏幕</string>
+    <string name="title_advanced_overview_mode">缩放原始邮件以适应屏幕</string>
     <string name="title_advanced_hyphenation">使用自动连字符</string>
-    <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
-    <string name="title_advanced_monospaced">消息文本默认使用等宽字体</string>
+    <string name="title_advanced_contrast">对邮件文本使用高对比度颜色</string>
+    <string name="title_advanced_monospaced">默认对邮件文本使用等宽字体</string>
     <string name="title_advanced_monospaced_pre">对预格式化的文本使用等宽字体</string>
     <string name="title_advanced_background_color">使用背景颜色</string>
     <string name="title_advanced_text_color">使用文本颜色</string>
@@ -564,14 +564,14 @@
     <string name="title_advanced_collapse_quotes">折叠引用文本</string>
     <string name="title_advanced_image_placeholders">显示图像占位符</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
-    <string name="title_advanced_button_extra">在消息底部显示额外按钮</string>
+    <string name="title_advanced_button_extra">在邮件底部显示额外按钮</string>
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
     <string name="title_advanced_actionbar">显示对话操作栏</string>
     <string name="title_advanced_actionbar_swap">交换回收站和归档按钮</string>
     <string name="title_advanced_actionbar_color">使用账户颜色作为对话操作栏的背景色</string>
     <string name="title_advanced_category_header">按账户类别分组</string>
     <string name="title_advanced_navbar_colorize">导航栏着色</string>
-    <string name="title_advanced_list_count">在顶部操作栏中显示消息或对话的数量</string>
+    <string name="title_advanced_list_count">在顶部操作栏中显示邮件或对话的数量</string>
     <string name="title_advanced_bundled_fonts">使用捆绑的字体</string>
     <string name="title_advanced_narrow_fonts">使用窄字体</string>
     <string name="title_advanced_parse_classes">解析样式表</string>
@@ -586,12 +586,12 @@
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_conversation_actions">建议操作 (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">建议回复内容 (Android 10+)</string>
-    <string name="title_advanced_language_detection">检测消息文本的语言</string>
+    <string name="title_advanced_language_detection">检测邮件文本的语言</string>
     <string name="title_advanced_photo_picker">使用 Android 照片选择器</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_pull_all">同步所有文件夹</string>
-    <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
-    <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
+    <string name="title_advanced_autoscroll">在收到新邮件时滚动至顶部</string>
+    <string name="title_advanced_double_tap">双击可将邮件标记为已读/未读</string>
     <string name="title_advanced_swipenav">左右滑动切换邮件</string>
     <string name="title_advanced_volumenav">音量上/下键切换邮件</string>
     <string name="title_advanced_up_down">使用上/下键查看下一次/上一次对话</string>
@@ -600,14 +600,14 @@
     <string name="title_advanced_swipe_move">向上滑动以移动对话</string>
     <string name="title_advanced_autoexpand">自动展开消息</string>
     <string name="title_advanced_expand_first">自动展开已读会话的第一条消息</string>
-    <string name="title_advanced_expand_all">自动展开所有已读消息</string>
-    <string name="title_advanced_expand_one">每次仅展开一个消息</string>
-    <string name="title_advanced_collapse_multiple">按返回时折叠会话中的多条消息</string>
-    <string name="title_advanced_seen_delay">推迟自动将消息标记为已读</string>
+    <string name="title_advanced_expand_all">自动展开所有已读邮件</string>
+    <string name="title_advanced_expand_one">每次仅展开一封邮件</string>
+    <string name="title_advanced_collapse_multiple">在“返回”时折叠对话中的多条邮件</string>
+    <string name="title_advanced_seen_delay">延迟自动将邮件标记为已读</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
-    <string name="title_advanced_autoclose_send">发送消息后自动关闭对话</string>
+    <string name="title_advanced_autoclose_send">发送邮件后自动关闭对话</string>
     <string name="title_advanced_onclose">关闭对话时</string>
-    <string name="title_advanced_autoclose_unread">将消息标记为已读时关闭会话</string>
+    <string name="title_advanced_autoclose_unread">将邮件标记为已读时关闭对话</string>
     <string name="title_advanced_collapse_marked">自动折叠手动标记为已读或未读的邮件</string>
     <string name="title_advanced_undo">撤回超时</string>
     <string name="title_advanced_quick_filter">显示不显眼的快速过滤图标</string>
@@ -632,8 +632,8 @@
     <string name="title_advanced_notifications_default">默认频道</string>
     <string name="title_advanced_notifications_service">监控频道</string>
     <string name="title_advanced_notifications_newest_first">最新通知显示在前</string>
-    <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
-    <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
+    <string name="title_advanced_badge">在启动器图标上显示新邮件数量</string>
+    <string name="title_advanced_unseen_ignored">让新邮件数量与通知数量匹配</string>
     <string name="title_advanced_notify_grouping">通知分组</string>
     <string name="title_advanced_notify_private">设备被锁定时保持通知私密</string>
     <string name="title_advanced_notify_background">仅在处于后台时显示通知</string>
@@ -641,7 +641,7 @@
     <string name="title_advanced_notify_suppress_in_call">通话时延迟通知</string>
     <string name="title_advanced_notify_suppress_in_car">已连接 Android Auto 时延迟通知</string>
     <string name="title_advanced_notify_summary">仅显示摘要通知</string>
-    <string name="title_advanced_notify_preview">通知中显示消息预览</string>
+    <string name="title_advanced_notify_preview">在通知中显示邮件预览</string>
     <string name="title_advanced_notify_preview_all">预览所有文本</string>
     <string name="title_advanced_notify_preview_only">仅显示有预览文本的通知</string>
     <string name="title_advanced_notify_transliterate">转换为拉丁字母表</string>
@@ -658,7 +658,7 @@
     <string name="title_advanced_notify_action_seen">已读</string>
     <string name="title_advanced_notify_action_hide">隐藏</string>
     <string name="title_advanced_notify_action_snooze">打盹</string>
-    <string name="title_advanced_notify_remove">点击通知时移除新的消息通知</string>
+    <string name="title_advanced_notify_remove">轻击通知时移除新邮件通知</string>
     <string name="title_advanced_notify_clear">查看消息列表时移除新消息通知</string>
     <string name="title_advanced_notify_subtext">显示账户或文件夹名称为子文本</string>
     <string name="title_advanced_wearable_preview">只向可穿戴设备发送有消息预览的通知</string>
@@ -682,9 +682,9 @@
     <string name="title_advanced_confirm_html">默认显示重新格式化的消息</string>
     <string name="title_advanced_ask_html">确认显示原始邮件</string>
     <string name="title_advanced_tracking">尝试识别和禁止追踪用途的图像</string>
-    <string name="title_advanced_hide_timezone">发送没有时区数据的消息</string>
+    <string name="title_advanced_hide_timezone">发送没有时区数据的邮件</string>
     <string name="title_advanced_client_id">将应用名称和版本发送到电子邮件服务器</string>
-    <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
+    <string name="title_advanced_display_hidden">显示隐藏邮件文本</string>
     <string name="title_advanced_incognito_keyboard">使用隐身模式下的输入法 (Android 8+)</string>
     <string name="title_advanced_secure">从“最近应用”列表中隐藏并阻止截屏</string>
     <string name="title_advanced_pin">PIN 码</string>
@@ -766,7 +766,7 @@
     <string name="title_advanced_announcements">接收公告</string>
     <string name="title_advanced_experiments">尝试实验性功能</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
-    <string name="title_advanced_cleanup_attachments">删除旧消息的附件</string>
+    <string name="title_advanced_cleanup_attachments">删除旧邮件的附件</string>
     <string name="title_advanced_cleanup">清理</string>
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
     <string name="title_advanced_app">应用信息</string>
@@ -776,7 +776,7 @@
     <string name="title_advanced_protocol">协议日志</string>
     <string name="title_advanced_log_info">调试日志</string>
     <string name="title_advanced_debug">调试模式</string>
-    <string name="title_advanced_manual_hint">如果禁用了自动接收消息，仍然可以通过下拉消息列表来手动接收消息</string>
+    <string name="title_advanced_manual_hint">如果禁用接收邮件，仍然可以通过下拉邮件列表手动接收邮件</string>
     <string name="title_advanced_poll_battery">这可能会导致高耗电量！</string>
     <string name="title_advanced_poll_hint">定期检索新消息每次都要比较本地消息与远程消息，这比较耗时并可能消耗更多电量，尤其是消息非常多时。始终接收则通过一直关注消息的变化来防止此情况。</string>
     <string name="title_advanced_optimize_hint">这可能会改变同步频率以节省电池用量，取决于电子邮件服务器的功能和行为</string>
@@ -843,7 +843,7 @@
     <string name="title_advanced_placeholders_hint">这仅适用于重建格式的消息</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="compressed">所含文件超过 %2$s 个或大于 %3$s 的压缩文件 (%1$s) 的内容将不会显示</string>
-    <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
+    <string name="title_advanced_parse_classes_hint">这将更准确地显示邮件，但可能会有延迟</string>
     <string name="title_advanced_default_folder_hint">        Android 可能请求访问选定文件夹的权限，即使应用程序不需要它。
         您可以取消选择对话框以恢复默认文件夹 (通常是“下载”文件夹)。
     </string>
@@ -854,6 +854,7 @@
     <string name="title_advanced_autoclose_hint">所有邮件已存档、发送或删除时自动关闭邮件会话</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_bcc_hint">地址不会显示，但会在发送时添加</string>
+    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">此地址将用于 SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">发送到另一个域时会有警告</string>
     <string name="title_advanced_uri">所选联系人的详细信息将用于 vCard 附件</string>
     <string name="title_advanced_e2e_encryption">端到端加密选项</string>
@@ -922,9 +923,9 @@
     <string name="title_account_name">账户名</string>
     <string name="title_account_category">类别</string>
     <string name="title_account_name_hint">用于区分文件夹</string>
-    <string name="title_account_interval_hint">刷新连接推送消息的频率或检查新消息的频率</string>
+    <string name="title_account_interval_hint">刷新推送邮件连接的频率或检查新邮件的频率</string>
     <string name="title_account_noop_hint">这将更加主动地刷新连接，但也会消耗更多电量</string>
-    <string name="title_account_partial_fetch_hint">仅在空消息或损坏的附件时禁用此功能</string>
+    <string name="title_account_partial_fetch_hint">仅在邮件为空或附件损坏的情况下禁用此功能</string>
     <string name="title_account_raw_fetch_hint">启用此功能会增加耗电和数据使用量</string>
     <string name="title_color">颜色</string>
     <string name="title_calendar">日历</string>
@@ -1038,7 +1039,7 @@
         这个问题只能由您的电子邮件提供商解决—— 上述错误信息可能帮助他们解决这个问题。
     </string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
-    <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
+    <string name="title_advanced_expand_read">在邮件展开时标记为已读</string>
     <string name="title_synchronize_now">立即同步</string>
     <string name="title_synchronize_subfolders">子文件夹</string>
     <string name="title_synchronize_more">获取更多消息</string>
@@ -1128,7 +1129,7 @@
     <string name="title_poll_system">用系统文件夹定期检查新消息</string>
     <string name="title_poll_user">用用户文件夹定期检查新消息</string>
     <string name="title_auto_trash">自动移动旧消息到回收站(垃圾箱)</string>
-    <string name="title_auto_delete">自动永久删除旧消息</string>
+    <string name="title_auto_delete">自动永久删除旧邮件</string>
     <string name="title_auto_delete_hint">此处的旧消息指此设备上不再保留的消息</string>
     <string name="title_auto_delete_archive_hint">某些邮件服务器不允许删除存档文件夹中的邮件</string>
     <string name="title_inbox_root_hint">某些供应商需要在收件箱下创建新文件夹。在这种情况下，您可以长按文件夹列表中的收件箱并选择“创建子文件夹”。</string>
@@ -1154,7 +1155,7 @@
     <string name="title_no_folders">无文件夹</string>
     <string name="title_no_messages">没有邮件</string>
     <string name="title_filters_active">已激活至少一个过滤器</string>
-    <string name="title_duplicate_in">%1$s 中的重复消息</string>
+    <string name="title_duplicate_in">%1$s 中的重复邮件</string>
     <string name="title_trashed_from">来自 %1$s 的已回收消息</string>
     <string name="title_subject_reply">回复: %1$s</string>
     <string name="title_subject_forward">转发: %1$s</string>
@@ -1180,7 +1181,7 @@
     <string name="title_forward">转发</string>
     <string name="title_resend">重新发送</string>
     <string name="title_fetching_headers">正在下载邮件标头 &#8230;</string>
-    <string name="title_new_message">新消息</string>
+    <string name="title_new_message">新邮件</string>
     <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_edit_notes">编辑本地备注</string>
     <string name="title_edit_notes_remark">本地备注不保存在邮件服务器上，因此只能在本机本应用中使用</string>
@@ -1199,7 +1200,7 @@
     <string name="title_print_margins">添加边距</string>
     <string name="title_show_headers">显示邮件头</string>
     <string name="title_show_html">显示原始消息</string>
-    <string name="title_raw_save">保存原始消息</string>
+    <string name="title_raw_save">保存原始邮件</string>
     <string name="title_raw_send">作为附件发送</string>
     <string name="title_raw_send_message">消息</string>
     <string name="title_raw_send_thread">对话</string>
@@ -1290,14 +1291,14 @@
     <string name="title_too_large">消息内容太多，不能完全重新格式化</string>
     <string name="title_truncated">消息内容太多，无法完全显示</string>
     <string name="title_insufficient_memory">邮件过大，内存不足（可用内存为 %1$d）</string>
-    <string name="title_show_full">显示完整消息</string>
+    <string name="title_show_full">显示完整邮件</string>
     <string name="title_fullscreen">全屏显示</string>
     <string name="title_fit_width">自适应宽度</string>
     <string name="title_disable_widths">禁用宽度</string>
     <string name="title_monospaced_pre">等宽的&lt;pre&gt;</string>
     <string name="title_unused_inline">未使用的内联图像将在发送时被删除</string>
-    <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
-    <string name="title_raw_saved">原始消息已保存</string>
+    <string name="title_accross_remark">跨账号移动的邮件将再次下载，从而导致额外的数据使用</string>
+    <string name="title_raw_saved">原始邮件已保存</string>
     <string name="title_attachment_eml">含附件的消息</string>
     <string name="title_attachment_saved">附件已保存</string>
     <string name="title_attachments_saved">附件已保存</string>
@@ -1317,7 +1318,7 @@
     <string name="title_ask_show_amp">显示 AMP 样式的消息？</string>
     <string name="title_ask_show_amp_hint">AMP 消息被设计为动态的，与互联网交互，因此根据定义可以用于跟踪你</string>
     <string name="title_ask_view_file">查看文件 %1$s？</string>
-    <string name="title_ask_delete_local">删除本地消息？消息将保留在远程服务器上</string>
+    <string name="title_ask_delete_local">是否删除本地邮件？邮件将保留在远程服务器上。</string>
     <string name="title_ask_help">帮助改进 FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
@@ -1341,12 +1342,13 @@
     <string name="title_reply_to">回复：</string>
     <string name="title_cc">抄送：</string>
     <string name="title_bcc">密送：</string>
+    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">信封来自：</string>
     <string name="title_recipients">%1$d 位收件人</string>
     <string name="title_via_identity">账号：</string>
     <string name="title_sent">发送时间：</string>
     <string name="title_received">接收时间：</string>
     <string name="title_date">日期：</string>
-    <string name="title_stored">消息存储于：</string>
+    <string name="title_stored">邮件存储于：</string>
     <string name="title_size">大小：</string>
     <string name="title_language">语言：</string>
     <string name="title_subject">主题：</string>
@@ -1472,7 +1474,7 @@
     <string name="title_noreply_reminder">正在向“无回复”地址发送邮件</string>
     <string name="title_external_reminder">发送到外部地址</string>
     <string name="title_subject_reminder">主题是空的</string>
-    <string name="title_text_reminder">消息为空</string>
+    <string name="title_text_reminder">邮件为空</string>
     <string name="title_attachment_keywords">至少包含一个附件</string>
     <string name="title_attachment_reminder">您是否打算添加一个附件？</string>
     <string name="title_attachment_warning">潜在危险： %1$s</string>
@@ -1484,9 +1486,9 @@
     <string name="title_dialog_hint">此对话框可通过顶部操作栏右上角的三圆点菜单再次启用</string>
     <string name="title_draft_deleted">草稿已舍弃</string>
     <string name="title_draft_saved">草稿已保存</string>
-    <string name="title_ask_send_via">要通过%2$s把消息发送给 %1$s 吗？</string>
+    <string name="title_ask_send_via">是否通过 %2$s 向 %1$s 发送邮件？</string>
     <string name="title_queued">正在发送邮件</string>
-    <string name="title_queued_at">消息将在 %1$s 左右发送</string>
+    <string name="title_queued_at">邮件将在 %1$s 左右发送</string>
     <string name="title_sign">签名</string>
     <string name="title_verify">验证</string>
     <string name="title_encrypt">加密</string>
@@ -1508,11 +1510,11 @@
     <string name="title_reset_selected_keys">重置选中的密钥</string>
     <string name="title_reset_selected_keys_hint">可以用于新证书等。</string>
     <string name="title_signature_none">消息未签名</string>
-    <string name="title_signature_valid">消息签名有效</string>
+    <string name="title_signature_valid">邮件签名有效</string>
     <string name="title_signature_valid_from">消息签名有效： %1$s</string>
     <string name="title_signature_unconfirmed">消息签名有效但未确认</string>
     <string name="title_signature_unconfirmed_from">消息签名有效但未确认： %1$s</string>
-    <string name="title_signature_invalid">消息签名无效</string>
+    <string name="title_signature_invalid">邮件签名无效</string>
     <string name="title_signature_invalid_reason">消息签名无效： %1$s</string>
     <string name="title_signature_key_missing">缺少签名验证密钥</string>
     <string name="title_signature_certificate_invalid">证书链无效</string>
@@ -1688,7 +1690,7 @@
     <string name="title_rule_and">AND</string>
     <string name="title_rule_not">否</string>
     <string name="title_rule_action">操作</string>
-    <string name="title_rule_action_remark">此操作将被应用于抵达文件夹 %1$s 的新消息</string>
+    <string name="title_rule_action_remark">此操作将应用于到达文件夹 %1$s 的新邮件</string>
     <string name="title_rule_hours">小时</string>
     <string name="title_rule_schedule_end">从时间条件结束开始</string>
     <string name="title_rule_folder">文件夹</string>
@@ -1741,7 +1743,7 @@
     <string name="title_code_pretty">漂亮打印</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>
-    <string name="title_legend_section_messages">消息</string>
+    <string name="title_legend_section_messages">邮件</string>
     <string name="title_legend_section_compose">撰写</string>
     <string name="title_legend_section_keyboard">键盘</string>
     <string name="title_legend_oauth">OAuth 授权</string>
@@ -1772,7 +1774,7 @@
     <string name="title_legend_primary">首选</string>
     <string name="title_legend_subscribed">已订阅的</string>
     <string name="title_legend_rule">有规则</string>
-    <string name="title_legend_similar">搜索类似消息</string>
+    <string name="title_legend_similar">搜索类似邮件</string>
     <string name="title_legend_notify">通知新邮件</string>
     <string name="title_legend_sync_keep">同步/保留邮件的天数</string>
     <string name="title_legend_download_fetch">已下载邮件正文数/已获取标头数</string>
@@ -1839,7 +1841,7 @@
     <string name="title_legend_show_images">显示图片</string>
     <string name="title_legend_hide_images">隐藏图片</string>
     <string name="title_legend_show_amp">显示 AMP 变体</string>
-    <string name="title_legend_show_full">显示原始消息</string>
+    <string name="title_legend_show_full">显示原始邮件</string>
     <string name="title_legend_show_reformatted">显示格式重制后的消息</string>
     <string name="title_legend_edit">编辑</string>
     <string name="title_legend_default_color">默认颜色</string>

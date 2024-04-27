@@ -869,6 +869,7 @@
     <string name="title_advanced_autoclose_hint">Bütün mesajlar arxivlənəndə, göndəriləndə və tulantı qovluğuna atılanda danışıqları avtomatik olaraq bağla</string>
     <string name="title_advanced_sender_hint">Əksər provayderlər göndərən ünvanını dəyişdirməyə icazə vermir</string>
     <string name="title_advanced_bcc_hint">Ünvan göstərilməyəcək, ancaq göndərişə əlavə ediləcək</string>
+    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Bu ünvan SMTP MAIL FROM üçün istifadə ediləcək</string>
     <string name="title_advanced_internal_hint">Başqa bir domenə göndəriləndə bir xəbərdarlıq olacaq</string>
     <string name="title_advanced_uri">Seçilmiş kontaktın detalları vCard qoşmaları üçün istifadə olunacaq</string>
     <string name="title_advanced_e2e_encryption">Bir ucdan digər uca kimi şifrələmə üçün seçimlər</string>
@@ -1361,6 +1362,7 @@
     <string name="title_reply_to">Cavabla:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Zərf:</string>
     <string name="title_recipients">%1$d alıcı</string>
     <string name="title_via_identity">Vasitəsilə:</string>
     <string name="title_sent">Göndərildi:</string>
