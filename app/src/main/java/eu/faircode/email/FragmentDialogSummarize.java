@@ -101,12 +101,17 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                 long id = args.getLong("id");
 
                 File file = EntityMessage.getFile(context, id);
+                if (!file.exists())
+                    return null;
+
                 Document d = JsoupEx.parse(file);
                 d = HtmlHelper.sanitizeView(context, d, false);
                 HtmlHelper.removeSignatures(d);
                 d.select("blockquote").remove();
                 HtmlHelper.truncate(d, HtmlHelper.MAX_TRANSLATABLE_TEXT_SIZE);
                 String text = d.text();
+                if (TextUtils.isEmpty(text))
+                    return null;
 
                 if (OpenAI.isAvailable(context)) {
                     String model = prefs.getString("openai_model", "gpt-3.5-turbo");
