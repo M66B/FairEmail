@@ -55,7 +55,7 @@
 
         <item
             android:id="@+id/menu_pwned"
-            android:title="@string/title_pawned"
+            android:title="@string/title_pwned"
             app:showAsAction="never" />
     </group>
 </menu>
