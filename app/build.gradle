@@ -303,8 +303,8 @@ android {
             buildConfigField "String", "OPENAI_PRIVACY", "\"\""
             buildConfigField "String", "GEMINI_ENDPOINT", "\"\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"\""
-            buildConfigField "String", "PWNED_ENDPOINT", "\"\""
-            buildConfigField "String", "PWNED_URI", "\"\""
+            buildConfigField "String", "PWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
+            buildConfigField "String", "PWNED_URI", "\"https://haveibeenpwned.com/\""
             buildConfigField "String", "FDROID", "\"\""
             getIsDefault().set(true)
         }
@@ -331,8 +331,8 @@ android {
             buildConfigField "String", "OPENAI_PRIVACY", "\"\""
             buildConfigField "String", "GEMINI_ENDPOINT", "\"\""
             buildConfigField "String", "GEMINI_PRIVACY", "\"\""
-            buildConfigField "String", "PWNED_ENDPOINT", "\"\""
-            buildConfigField "String", "PWNED_URI", "\"\""
+            buildConfigField "String", "PWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
+            buildConfigField "String", "PWNED_URI", "\"https://haveibeenpwned.com/\""
             buildConfigField "String", "FDROID", "\"\""
         }
     }
