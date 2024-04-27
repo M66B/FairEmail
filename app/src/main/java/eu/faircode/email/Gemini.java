@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2024 by Marcel Bokhorst (M66B)
 */
 
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -42,6 +41,8 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class Gemini {
     // https://ai.google.dev/models/gemini
+    static final String SUMMARY_PROMPT = "Summarize the following text:";
+
     private static final int MAX_GEMINI_LEN = 4000; // characters
     private static final int TIMEOUT = 30; // seconds
 

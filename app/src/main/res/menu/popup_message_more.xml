@@ -87,6 +87,11 @@
             android:title="@string/title_translate" />
 
         <item
+            android:id="@+id/menu_summarize"
+            android:icon="@drawable/twotone_smart_toy_24"
+            android:title="@string/title_summarize" />
+
+        <item
             android:id="@+id/menu_force_light"
             android:checkable="true"
             android:icon="@drawable/twotone_light_mode_24"

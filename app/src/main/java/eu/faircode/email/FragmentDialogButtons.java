@@ -57,6 +57,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
         final CheckBox cbSearch = dview.findViewById(R.id.cbSearch);
         final CheckBox cbSearchText = dview.findViewById(R.id.cbSearchText);
         final CheckBox cbTranslate = dview.findViewById(R.id.cbTranslate);
+        final CheckBox cbSummarize = dview.findViewById(R.id.cbSummarize);
         final CheckBox cbFullScreen = dview.findViewById(R.id.cbFullScreen);
         final CheckBox cbForceLight = dview.findViewById(R.id.cbForceLight);
         final CheckBox cbEvent = dview.findViewById(R.id.cbEvent);
@@ -70,6 +71,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
         final CheckBox cbAnswer = dview.findViewById(R.id.cbAnswer);
 
         cbTranslate.setVisibility(DeepL.isAvailable(context) ? View.VISIBLE : View.GONE);
+        cbSummarize.setVisibility(OpenAI.isAvailable(context) || Gemini.isAvailable(context) ? View.VISIBLE : View.GONE);
         cbPin.setVisibility(Shortcuts.can(context) ? View.VISIBLE : View.GONE);
 
         cbSeen.setChecked(prefs.getBoolean("button_seen", false));
@@ -87,6 +89,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
         cbSearch.setChecked(prefs.getBoolean("button_search", false));
         cbSearchText.setChecked(prefs.getBoolean("button_search_text", false));
         cbTranslate.setChecked(prefs.getBoolean("button_translate", true));
+        cbSummarize.setChecked(prefs.getBoolean("button_summarize", false));
         cbFullScreen.setChecked(prefs.getBoolean("button_full_screen", false));
         cbForceLight.setChecked(prefs.getBoolean("button_force_light", true));
         cbEvent.setChecked(prefs.getBoolean("button_event", false));
@@ -126,6 +129,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
                         editor.putBoolean("button_search", cbSearch.isChecked());
                         editor.putBoolean("button_search_text", cbSearchText.isChecked());
                         editor.putBoolean("button_translate", cbTranslate.isChecked());
+                        editor.putBoolean("button_summarize", cbSummarize.isChecked());
                         editor.putBoolean("button_full_screen", cbFullScreen.isChecked());
                         editor.putBoolean("button_force_light", cbForceLight.isChecked());
                         editor.putBoolean("button_event", cbEvent.isChecked());

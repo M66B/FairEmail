@@ -43,6 +43,8 @@ import java.util.Objects;
 import javax.net.ssl.HttpsURLConnection;
 
 public class OpenAI {
+    static final String SUMMARY_PROMPT = "Summarize the following text:";
+
     private static final int MAX_OPENAI_LEN = 1000; // characters
     private static final int TIMEOUT = 45; // seconds
 
