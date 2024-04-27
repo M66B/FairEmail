@@ -118,8 +118,8 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     float temperature = prefs.getFloat("openai_temperature", 0.5f);
 
                     List<OpenAI.Message> result = new ArrayList<>();
-                    result.add(new OpenAI.Message("assistant", OpenAI.SUMMARY_PROMPT));
-                    result.add(new OpenAI.Message("user", text));
+                    result.add(new OpenAI.Message(OpenAI.ASSISTANT, OpenAI.SUMMARY_PROMPT));
+                    result.add(new OpenAI.Message(OpenAI.USER, text));
                     OpenAI.Message[] completions =
                             OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);
                     StringBuilder sb = new StringBuilder();

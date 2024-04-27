@@ -2685,7 +2685,8 @@ public class FragmentCompose extends FragmentBase {
                 List<OpenAI.Message> result = new ArrayList<>();
 
                 if (inreplyto.size() > 0 && inreplyto.get(0).content) {
-                    String role = (MessageHelper.equalEmail(draft.from, inreplyto.get(0).from) ? "assistant" : "user");
+                    String role = (MessageHelper.equalEmail(draft.from, inreplyto.get(0).from)
+                            ? OpenAI.ASSISTANT : OpenAI.USER);
                     Document parsed = JsoupEx.parse(inreplyto.get(0).getFile(context));
                     Document document = HtmlHelper.sanitizeView(context, parsed, false);
                     Spanned spanned = HtmlHelper.fromDocument(context, document, null, null);
@@ -2693,7 +2694,7 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 if (!TextUtils.isEmpty(body))
-                    result.add(new OpenAI.Message("assistant", OpenAI.truncateParagraphs(body)));
+                    result.add(new OpenAI.Message(OpenAI.ASSISTANT, OpenAI.truncateParagraphs(body)));
 
                 if (result.size() == 0)
                     return null;
