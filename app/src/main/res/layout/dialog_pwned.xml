@@ -15,12 +15,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/twotone_security_24"
+            android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
             android:text="@string/title_pawned"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <TextView
             android:id="@+id/tvPwned"

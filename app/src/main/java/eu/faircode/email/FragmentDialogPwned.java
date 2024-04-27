@@ -52,6 +52,7 @@ public class FragmentDialogPwned extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final Context context = getContext();
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_pwned, null);
+        final TextView tvCaption = dview.findViewById(R.id.tvCaption);
         final TextView tvPwned = dview.findViewById(R.id.tvPwned);
         final Button btnCheck = dview.findViewById(R.id.btnCheck);
         final ContentLoadingProgressBar pbCheck = dview.findViewById(R.id.pbCheck);
@@ -146,7 +147,14 @@ public class FragmentDialogPwned extends FragmentDialogBase {
         pbCheck.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
 
-        tvPrivacy.setText(BuildConfig.PWNED_URI + "Privacy");
+        tvCaption.getPaint().setUnderlineText(true);
+        tvCaption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(BuildConfig.PWNED_URI), true);
+            }
+        });
+
         tvPrivacy.getPaint().setUnderlineText(true);
         tvPrivacy.setOnClickListener(new View.OnClickListener() {
             @Override
