@@ -35,6 +35,7 @@ public class FragmentDialogContactDelete extends FragmentDialogBase {
         return new AlertDialog.Builder(getContext())
                 .setIcon(R.drawable.twotone_warning_24)
                 .setTitle(getString(R.string.title_delete_contacts))
+                .setMessage(getString(R.string.title_delete_contacts_remark))
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
