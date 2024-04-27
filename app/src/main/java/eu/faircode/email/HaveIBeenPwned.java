@@ -43,6 +43,7 @@ public class HaveIBeenPwned {
         Log.i("GET " + url);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
+        connection.addRequestProperty("Add-Padding", "true");
         connection.setReadTimeout(FETCH_TIMEOUT);
         connection.setConnectTimeout(FETCH_TIMEOUT);
         ConnectionHelper.setUserAgent(context, connection);
