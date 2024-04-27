@@ -6,12 +6,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2177 - 2024-04-27
 
-* Added [Have I Been Pwned?](https://haveibeenpwned.com/) check to accounts list (GitHub version only)
+* Added [Have I Been Pwned?](https://haveibeenpwned.com/) check (*)
 * Added identity option to configure envelope-from (*MAIL FROM*)
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
+
+(*) Via the three-dots overflow menu of the account list under "*Manual setup and account options*" in the main settings screen (GitHub version only).
 
 ### [Zby](https://en.wikipedia.org/wiki/Zby)
 
