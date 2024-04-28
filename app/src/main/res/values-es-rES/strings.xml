@@ -868,7 +868,7 @@
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
     <string name="title_advanced_bcc_hint">La dirección no se mostrará, pero se añadirá al enviar</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Esta dirección se utilizará para SMTP MAIL FROM</string>
+    <string name="title_advanced_envelope_from_hint">Esta dirección se utilizará para SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Habrá una advertencia al enviar a otro dominio</string>
     <string name="title_advanced_uri">Los detalles del contacto seleccionado se utilizarán para los archivos adjuntos de vCard</string>
     <string name="title_advanced_e2e_encryption">Opciones para el cifrado de extremo a extremo</string>
@@ -1104,7 +1104,7 @@
     <string name="title_delete_operation_flag">Operaciones de marcar</string>
     <string name="title_delete_operation_delete">Operaciones de eliminación</string>
     <string name="title_delete_operation_deleted">%1$d operaciones eliminadas</string>
-    <string name="title_delete_contacts">¿Eliminar contactos locales visibles?</string>
+    <string name="title_delete_contacts">¿Eliminar todos los contactos locales?</string>
     <string name="title_no_operations">No hay operaciones pendientes</string>
     <string name="title_check_operations">Comprobando operaciones</string>
     <string name="title_hint_operations">Eliminar operaciones puede resultar en la desaparición de mensajes y problemas de sincronización</string>
@@ -1358,7 +1358,7 @@
     <string name="title_reply_to">Responder a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCO:</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Sobre de:</string>
+    <string name="title_envelope_from">Sobre de:</string>
     <string name="title_recipients">%1$d destinatarios</string>
     <string name="title_via_identity">Vía:</string>
     <string name="title_sent">Enviado:</string>

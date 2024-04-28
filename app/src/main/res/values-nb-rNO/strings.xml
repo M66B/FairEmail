@@ -675,6 +675,7 @@
     <string name="title_delete_operation_flag">Flagg operasjoner</string>
     <string name="title_delete_operation_delete">Slett operasjoner</string>
     <string name="title_delete_operation_deleted">%1$d operasjoner er slettet</string>
+    <string name="title_delete_contacts">Slette alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen ventende operasjoner</string>
     <string name="title_hint_operations">Slette operasjoner kan føre til at meldinger og synkroniseringsproblemer forsvinner</string>
     <string name="title_folder_name">Mappenavn</string>

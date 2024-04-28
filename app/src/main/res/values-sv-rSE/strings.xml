@@ -1097,7 +1097,7 @@
     <string name="title_delete_operation_flag">Flagga åtgärder</string>
     <string name="title_delete_operation_delete">Ta bort åtgärder</string>
     <string name="title_delete_operation_deleted">%1$d åtgärder raderade</string>
-    <string name="title_delete_contacts">Radera synliga lokala kontakter?</string>
+    <string name="title_delete_contacts">Ta bort alla lokala kontakter?</string>
     <string name="title_no_operations">Inga pågående åtgärder</string>
     <string name="title_check_operations">Söker efter aktiviteter</string>
     <string name="title_hint_operations">Att ta bort pågående åtgärder kan resultera i försvinnande meddelanden och synkroniseringsproblem</string>

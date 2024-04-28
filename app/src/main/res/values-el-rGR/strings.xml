@@ -1101,7 +1101,7 @@
     <string name="title_delete_operation_flag">Δραστηριότητες επισήμανσης</string>
     <string name="title_delete_operation_delete">Δραστηριότητες διαγραφής</string>
     <string name="title_delete_operation_deleted">%1$d δραστηριότητες διεγράφησαν</string>
-    <string name="title_delete_contacts">Διαγραφή των ορατών τοπικών επαφών;</string>
+    <string name="title_delete_contacts">Διαγραφή όλων των τοπικών επαφών;</string>
     <string name="title_no_operations">Καμία εκκρεμής δραστηριότητα</string>
     <string name="title_check_operations">Έλεγχος για δραστηριότητες</string>
     <string name="title_hint_operations">Η διαγραφή των δραστηριοτήτων μπορεί να οδηγήσει σε εξαφανισμένα μηνύματα και προβλήματα συγχρονισμού</string>

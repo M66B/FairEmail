@@ -897,7 +897,7 @@
     <string name="title_delete_operation_flag">Operacije označavanja</string>
     <string name="title_delete_operation_delete">Operacije brisanja</string>
     <string name="title_delete_operation_deleted">%1$d operacije/a izbrisano</string>
-    <string name="title_delete_contacts">Izbriši vidljive lokalne kontakte?</string>
+    <string name="title_delete_contacts">Želite li izbrisati sve lokalne kontakte?</string>
     <string name="title_no_operations">Nema operacija na čekanju</string>
     <string name="title_check_operations">Provjera operacija</string>
     <string name="title_hint_operations">Brisanje operacija može rezultirati nestankom poruka i problemima sa sinkronizacijom</string>

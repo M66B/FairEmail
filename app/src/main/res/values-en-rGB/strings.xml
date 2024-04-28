@@ -128,6 +128,7 @@
     <string name="title_save_search_color">Colour</string>
     <string name="title_filter_seen">Read</string>
     <string name="title_filter_trash">Deleted</string>
+    <string name="title_pwned_remark">This will check the password, without sending it (using k-anonymisation), and not the email address!</string>
     <string name="title_answer_favorite">Favourite</string>
     <string name="title_rule_hide">Hide</string>
     <string name="title_rule_snooze">Snooze</string>

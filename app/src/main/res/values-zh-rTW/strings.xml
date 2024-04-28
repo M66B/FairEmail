@@ -929,7 +929,7 @@
     <string name="title_delete_operation_flag">標記操作</string>
     <string name="title_delete_operation_delete">刪除操作</string>
     <string name="title_delete_operation_deleted">%1$d 操作已刪除</string>
-    <string name="title_delete_contacts">刪除可見的本地聯絡人？</string>
+    <string name="title_delete_contacts">刪除所有本地聯絡人？</string>
     <string name="title_no_operations">無待處理操作</string>
     <string name="title_check_operations">操作檢查中</string>
     <string name="title_hint_operations">將操作刪除可能會使得訊息消失並導致同步問題</string>

@@ -1003,7 +1003,7 @@
     <string name="title_delete_operation_flag">Opravila označevanja</string>
     <string name="title_delete_operation_delete">Opravila brisanja</string>
     <string name="title_delete_operation_deleted">Izbrisanih je bilo %1$d opravil.</string>
-    <string name="title_delete_contacts">Izbriši vidne krajevne stike?</string>
+    <string name="title_delete_contacts">Izbriši vse krajevne stike?</string>
     <string name="title_no_operations">Ni opravil na čakanju.</string>
     <string name="title_check_operations">Preverjanje za opravila</string>
     <string name="title_hint_operations">Izbris opravil lahko povzroči izginjanje sporočil in težave s sinhronizacijo.</string>

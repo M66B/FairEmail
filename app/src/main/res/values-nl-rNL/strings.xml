@@ -864,7 +864,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of verwijderd</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_bcc_hint">Het adres wordt niet weergegeven, maar wordt bij het verzenden toegevoegd</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Dit adres wordt gebruikt voor SMTP MAIL FROM</string>
+    <string name="title_advanced_envelope_from_hint">Dit adres wordt gebruikt voor SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Er wordt een waarschuwing gegeven bij het versturen naar een ander domein</string>
     <string name="title_advanced_uri">De gegevens van het geselecteerde contact worden gebruikt voor vCard-bijlagen</string>
     <string name="title_advanced_e2e_encryption">Opties voor end-to-end encryptie</string>
@@ -1098,7 +1098,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_delete_operation_flag">Vlag bewerkingen</string>
     <string name="title_delete_operation_delete">Verwijder bewerkingen</string>
     <string name="title_delete_operation_deleted">%1$d bewerkingen verwijderd</string>
-    <string name="title_delete_contacts">Verwijder zichtbare lokale contacten?</string>
+    <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Alle getoonde en niet getoonde contacten worden verwijderd, zelfs als ze werden gezocht!</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
     <string name="title_check_operations">Controleren op bewerkingen</string>
     <string name="title_hint_operations">Verwijderen van bewerkingen kan leiden tot het verdwijnen van berichten en synchronisatieproblemen</string>
@@ -1350,7 +1351,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_reply_to">Antwoord aan:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Envelop van:</string>
+    <string name="title_envelope_from">Envelop van:</string>
     <string name="title_recipients">%1$d ontvangers</string>
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Verzonden:</string>
@@ -1618,6 +1619,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_view_thread">Toon gesprek</string>
     <string name="title_force_sync">Forceer verversen</string>
     <string name="title_force_send">Forceer verzenden</string>
+    <string name="title_pwned_remark">Dit controleert het wachtwoord, zonder het te verzenden (met behulp van k-anonimisering), en niet het mailadres!</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>

@@ -870,7 +870,7 @@
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, når alle beskeder arkiveres, sendes eller kasseres</string>
     <string name="title_advanced_sender_hint">De fleste udbydere tillader ikke ændrede afsenderadresser</string>
     <string name="title_advanced_bcc_hint">Adressen vises ikke, men tilføjes ved afsendelse</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Denne adresse vil blive brugt til SMTP MAIL FRA</string>
+    <string name="title_advanced_envelope_from_hint">Denne adresse vil blive brugt til SMTP MAIL FRA</string>
     <string name="title_advanced_internal_hint">En advarsel vises, når der sendes til et andet domæne</string>
     <string name="title_advanced_uri">Detaljerne for den valgte kontakt vil blive brugt til vCard-vedhæftninger</string>
     <string name="title_advanced_e2e_encryption">Indstillinger for ende-til-ende kryptering</string>
@@ -1106,7 +1106,8 @@
     <string name="title_delete_operation_flag">Flagningsoperationer</string>
     <string name="title_delete_operation_delete">Slet operationer</string>
     <string name="title_delete_operation_deleted">%1$d operationer slettet</string>
-    <string name="title_delete_contacts">Slet synlige lokale kontakter?</string>
+    <string name="title_delete_contacts">Slet alle lokale kontakter?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Alle viste kontakter slettes, selv hvis de søges!</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>
     <string name="title_check_operations">Tjekker handlinger</string>
     <string name="title_hint_operations">Sletning af handlinger kan resultere i forsvundne beskeder og synkroniseringsproblemer</string>
@@ -1362,7 +1363,7 @@
     <string name="title_reply_to">Svar til:</string>
     <string name="title_cc">Cc:</string>
     <string name="title_bcc">Bcc:</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Konvolut fra:</string>
+    <string name="title_envelope_from">Konvolut fra:</string>
     <string name="title_recipients">%1$d modtagere</string>
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Sendt:</string>
@@ -1632,6 +1633,7 @@
     <string name="title_view_thread">Vis samtale</string>
     <string name="title_force_sync">Gennemtving synk</string>
     <string name="title_force_send">Gennemtving afsend</string>
+    <string name="title_pwned_remark">Dette vil tjekke adgangskoden, uden at sende den (vha. k-anonymization), og ikke e-mailadressen!</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Foregående</string>
     <string name="title_next">Næste</string>

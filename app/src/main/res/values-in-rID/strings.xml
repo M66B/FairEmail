@@ -849,7 +849,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_autoclose_hint">Tutup percakapan secara otomatis ketika seluruh pesan terarsip, terkirim, atau terbuang</string>
     <string name="title_advanced_sender_hint">Kebanyakan penyedia tidak mengizinkan untuk mengubah alamat pengirim</string>
     <string name="title_advanced_bcc_hint">Alamat tidak akan ditampilkan, namun akan ditambahkan ketika mengirim</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Alamat ini akan digunakan untuk SMTP MAIL FROM</string>
+    <string name="title_advanced_envelope_from_hint">Alamat ini akan digunakan untuk SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Akan ada pemberitahuan saat mengirim ke domain lain</string>
     <string name="title_advanced_uri">Detail kontak yang dipilih akan digunakan untuk lampiran vCard</string>
     <string name="title_advanced_e2e_encryption">Pilihan untuk enkripsi end-to-end</string>
@@ -1084,7 +1084,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_delete_operation_flag">Operasi bersyarat</string>
     <string name="title_delete_operation_delete">Hapus operasi</string>
     <string name="title_delete_operation_deleted">%1$d operasi dihapus</string>
-    <string name="title_delete_contacts">Hapus kontak lokal yang terlihat?</string>
+    <string name="title_delete_contacts">Hapus semua kontak lokal?</string>
     <string name="title_no_operations">Tidak ada operasi yang tertunda</string>
     <string name="title_check_operations">Memeriksa operasi</string>
     <string name="title_hint_operations">Menghapus operasi dapat mengakibatkan hilangnya pesan dan masalah sinkronisasi</string>
@@ -1338,7 +1338,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_reply_to">Balas ke:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Amplop dari:</string>
+    <string name="title_envelope_from">Amplop dari:</string>
     <string name="title_recipients">%1$d penerima</string>
     <string name="title_via_identity">Melalui:</string>
     <string name="title_sent">Dikirim:</string>

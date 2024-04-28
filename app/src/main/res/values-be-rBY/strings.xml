@@ -1135,7 +1135,6 @@
     <string name="title_delete_operation_flag">Аперацыі адзначэння</string>
     <string name="title_delete_operation_delete">Аперацыі выдалення</string>
     <string name="title_delete_operation_deleted">%1$d аперацый выдалена</string>
-    <string name="title_delete_contacts">Выдаліць бачныя лакальныя кантакты?</string>
     <string name="title_no_operations">Няма адкладзеных аперацый</string>
     <string name="title_check_operations">Праверка аперацый</string>
     <string name="title_hint_operations">Выдаленне аперацый можа прывесці да знікнення паведамленняў і праблем з сінхранізацыяй</string>

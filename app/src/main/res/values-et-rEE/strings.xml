@@ -1104,7 +1104,6 @@
     <string name="title_delete_operation_flag">Märkimistegevused</string>
     <string name="title_delete_operation_delete">Kustutamistegevused</string>
     <string name="title_delete_operation_deleted">%1$d tegevust kustutatud</string>
-    <string name="title_delete_contacts">Kustutada nähtavad kohalikud kontaktid?</string>
     <string name="title_no_operations">Pole ootel tegevusi</string>
     <string name="title_check_operations">Tegevuste kontrollimine</string>
     <string name="title_hint_operations">Tegevuste kustutamine võib põhjustada sõnumite kadumist ja sünkroonimisprobleeme</string>

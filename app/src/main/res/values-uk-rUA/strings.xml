@@ -896,7 +896,7 @@
     <string name="title_advanced_autoclose_hint">Автоматично закривати розмови коли всі повідомлення архівовані, надіслані або видалені</string>
     <string name="title_advanced_sender_hint">Більшість провайдерів не дозволяють змінювати адреси відправника</string>
     <string name="title_advanced_bcc_hint">Адреса не буде показана, але буде додана при відправленні</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Ця адреса буде використовуватися для SMTP MAIL FROM</string>
+    <string name="title_advanced_envelope_from_hint">Ця адреса буде використовуватися для SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">При надсиланні на інший домен буде попередження</string>
     <string name="title_advanced_uri">Деталі вибраного контакту буде використано для вкладених файлів з vCard</string>
     <string name="title_advanced_e2e_encryption">Параметри наскрізного шифрування</string>
@@ -1132,7 +1132,8 @@
     <string name="title_delete_operation_flag">Операції відмітки</string>
     <string name="title_delete_operation_delete">Операції видалення</string>
     <string name="title_delete_operation_deleted">%1$d операцій видалено</string>
-    <string name="title_delete_contacts">Видалити видимі локальні контакти?</string>
+    <string name="title_delete_contacts">Видалити всі локальні контакти?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Усі контакти, показані та не показані, будуть видалені, навіть якщо за ними було виконано пошук!</string>
     <string name="title_no_operations">Немає відкладених операцій</string>
     <string name="title_check_operations">Перевірка операцій</string>
     <string name="title_hint_operations">Видалення операцій може призвести до зникнення повідомлень та проблем з синхронізацією</string>
@@ -1387,7 +1388,7 @@
     <string name="title_reply_to">Відповісти:</string>
     <string name="title_cc">Копія:</string>
     <string name="title_bcc">Прихована копія:</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Конверт від:</string>
+    <string name="title_envelope_from">Конверт від:</string>
     <string name="title_recipients">%1$d одержувачів</string>
     <string name="title_via_identity">Через:</string>
     <string name="title_sent">Надіслано:</string>
@@ -1657,6 +1658,7 @@
     <string name="title_view_thread">Переглянути розмову</string>
     <string name="title_force_sync">Примусова синхронізація</string>
     <string name="title_force_send">Примусово надіслати</string>
+    <string name="title_pwned_remark">Це перевірить пароль, не надсилаючи його (за допомогою k-анонімізації), але не адресу електронної пошти!</string>
     <string name="title_language_all">Усі</string>
     <string name="title_previous">Попереднє</string>
     <string name="title_next">Наступне</string>

@@ -896,7 +896,7 @@
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj konwersacje po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
     <string name="title_advanced_sender_hint">Większość dostawców nie zezwala na modyfikowane adresy nadawcy</string>
     <string name="title_advanced_bcc_hint">Adres nie zostanie wyświetlony, ale zostanie dodany podczas wysyłania</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Ten adres będzie używany dla SMTP MAIL OD</string>
+    <string name="title_advanced_envelope_from_hint">Ten adres będzie używany dla SMTP MAIL OD</string>
     <string name="title_advanced_internal_hint">Będzie ostrzeżenie podczas wysyłania do innej domeny</string>
     <string name="title_advanced_uri">Szczegóły wybranego kontaktu zostaną użyte do załączników vCard</string>
     <string name="title_advanced_e2e_encryption">Opcje szyfrowania end-to-end</string>
@@ -1132,7 +1132,8 @@
     <string name="title_delete_operation_flag">Operacje flagowania</string>
     <string name="title_delete_operation_delete">Operacje usuwania</string>
     <string name="title_delete_operation_deleted">Usuniętych operacji - %1$d</string>
-    <string name="title_delete_contacts">Usunąć widoczne lokalne kontakty?</string>
+    <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Wszystkie wyświetlone i niewyświetlone kontakty zostaną usunięte, nawet jeśli zostały wyszukane!</string>
     <string name="title_no_operations">Brak oczekujących operacji</string>
     <string name="title_check_operations">Sprawdzanie operacji</string>
     <string name="title_hint_operations">Usuwanie operacji może spowodować znikanie wiadomości i problemy z synchronizacją</string>
@@ -1386,7 +1387,7 @@
     <string name="title_reply_to">Odpisz do:</string>
     <string name="title_cc">DW:</string>
     <string name="title_bcc">UDW:</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Koperta od:</string>
+    <string name="title_envelope_from">Koperta od:</string>
     <string name="title_recipients">%1$d odbiorców</string>
     <string name="title_via_identity">Przez:</string>
     <string name="title_sent">Wysłano:</string>
@@ -1656,6 +1657,7 @@
     <string name="title_view_thread">Zobacz konwersację</string>
     <string name="title_force_sync">Wymuś synchronizację</string>
     <string name="title_force_send">Wymuś wysłanie</string>
+    <string name="title_pwned_remark">Spowoduje to sprawdzenie hasła bez wysyłania go (przy użyciu k-anonimizacji), a nie adresu e-mail!</string>
     <string name="title_language_all">Wszystkie</string>
     <string name="title_previous">Poprzedni</string>
     <string name="title_next">Następny</string>

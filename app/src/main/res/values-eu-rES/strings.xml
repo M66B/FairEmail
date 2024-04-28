@@ -754,7 +754,7 @@
     <string name="title_delete_operation_flag">Markatze eragiketak</string>
     <string name="title_delete_operation_delete">Ezabatze eragiketak</string>
     <string name="title_delete_operation_deleted">%1$d eragiketa ezabatuta</string>
-    <string name="title_delete_contacts">Kontaktu lokal ikusgarriak ezabatu?</string>
+    <string name="title_delete_contacts">Ezabatu kontaktu lokal guztiak?</string>
     <string name="title_no_operations">Ez dago eragiketarik egiteke</string>
     <string name="title_hint_operations">Eragiketak ezabatzeak mezuen desagertzea eta sinkronizazio arazoak eragin ditzake</string>
     <string name="title_op_title_headers">Goiburuak deskargatzen</string>

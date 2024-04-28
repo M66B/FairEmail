@@ -870,7 +870,7 @@
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">Gran parte dei provider non consentono gli indirizzi modificati del mittente</string>
     <string name="title_advanced_bcc_hint">L\'indirizzo non sarà mostrato, ma aggiunto all\'invio</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Questo indirizzo sarà utilizzato per SMTP MAIL FROM</string>
+    <string name="title_advanced_envelope_from_hint">Questo indirizzo sarà utilizzato per SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Ci sarà un avviso inviando a un altro dominio</string>
     <string name="title_advanced_uri">I dettagli del contatto selezionato saranno utilizzati per gli allegati di vCard</string>
     <string name="title_advanced_e2e_encryption">Opzioni per la crittografia end-to-end</string>
@@ -1106,7 +1106,8 @@
     <string name="title_delete_operation_flag">Contrassegna operazioni</string>
     <string name="title_delete_operation_delete">Elimina operazioni</string>
     <string name="title_delete_operation_deleted">%1$d operazioni eliminate</string>
-    <string name="title_delete_contacts">Eliminare i contatti locali visibili?</string>
+    <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Tutti i contatti mostrati e non mostrati verranno eliminati anche se cercati!</string>
     <string name="title_no_operations">Nessun\'operazione in sospeso</string>
     <string name="title_check_operations">Controllando le operazioni</string>
     <string name="title_hint_operations">Le operazioni di eliminazione possono risultare nella scomparsa di messaggi e problemi di sincronizzazione</string>
@@ -1363,7 +1364,7 @@
     <string name="title_reply_to">Rispondi a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCN:</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Busta Da:</string>
+    <string name="title_envelope_from">Busta Da:</string>
     <string name="title_recipients">%1$d destinatari</string>
     <string name="title_via_identity">Tramite:</string>
     <string name="title_sent">Inviato:</string>
@@ -1633,6 +1634,7 @@
     <string name="title_view_thread">Visualizza la conversazione</string>
     <string name="title_force_sync">Forza sincronizzazione</string>
     <string name="title_force_send">Forza invio</string>
+    <string name="title_pwned_remark">Questo controllerà la password senza inviarla (usando k-anonymization) e non l\'indirizzo e-mail!</string>
     <string name="title_language_all">Tutte</string>
     <string name="title_previous">Precedente</string>
     <string name="title_next">Successivo</string>

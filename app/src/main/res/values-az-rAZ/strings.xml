@@ -869,7 +869,7 @@
     <string name="title_advanced_autoclose_hint">Bütün mesajlar arxivlənəndə, göndəriləndə və tulantı qovluğuna atılanda danışıqları avtomatik olaraq bağla</string>
     <string name="title_advanced_sender_hint">Əksər provayderlər göndərən ünvanını dəyişdirməyə icazə vermir</string>
     <string name="title_advanced_bcc_hint">Ünvan göstərilməyəcək, ancaq göndərişə əlavə ediləcək</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Bu ünvan SMTP MAIL FROM üçün istifadə ediləcək</string>
+    <string name="title_advanced_envelope_from_hint">Bu ünvan SMTP MAIL FROM üçün istifadə ediləcək</string>
     <string name="title_advanced_internal_hint">Başqa bir domenə göndəriləndə bir xəbərdarlıq olacaq</string>
     <string name="title_advanced_uri">Seçilmiş kontaktın detalları vCard qoşmaları üçün istifadə olunacaq</string>
     <string name="title_advanced_e2e_encryption">Bir ucdan digər uca kimi şifrələmə üçün seçimlər</string>
@@ -1105,7 +1105,8 @@
     <string name="title_delete_operation_flag">Əməliyyatları bayraqla</string>
     <string name="title_delete_operation_delete">Əməliyyatları sil</string>
     <string name="title_delete_operation_deleted">%1$d əməliyyatlar silindi</string>
-    <string name="title_delete_contacts">Görünən yerli əlaqələr silinsin?</string>
+    <string name="title_delete_contacts">Bütün daxili kontaktlar silinsin?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Göstərilən və göstərilməyən bütün kontaktlar, axtarılsa belə silinəcək!</string>
     <string name="title_no_operations">Gözləyən heç bir əməliyyat yoxdur</string>
     <string name="title_check_operations">Əməliyyatların yoxlanılması</string>
     <string name="title_hint_operations">Əməliyyatların silinməsi, mesajların görünməməsi və sinxronlaşdırma problemlərinin yaranması ilə nəticələnə bilər</string>
@@ -1362,7 +1363,7 @@
     <string name="title_reply_to">Cavabla:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Zərf:</string>
+    <string name="title_envelope_from">Zərf:</string>
     <string name="title_recipients">%1$d alıcı</string>
     <string name="title_via_identity">Vasitəsilə:</string>
     <string name="title_sent">Göndərildi:</string>
@@ -1632,6 +1633,7 @@
     <string name="title_view_thread">Danışığa bax</string>
     <string name="title_force_sync">Məcburi sinxronlaşdır</string>
     <string name="title_force_send">Məcburi göndərmə</string>
+    <string name="title_pwned_remark">Parolu, göndərmədən yoxlayacaq (k-anonymization istifadə edilir), ancaq e-poçt ünvanını yox!</string>
     <string name="title_language_all">Hamısı</string>
     <string name="title_previous">Əvvəlki</string>
     <string name="title_next">Növbəti</string>

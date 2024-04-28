@@ -1117,7 +1117,7 @@
     <string name="title_delete_operation_flag">Operațiuni de marcare</string>
     <string name="title_delete_operation_delete">Operațiuni de ștergere</string>
     <string name="title_delete_operation_deleted">%1$d operațiuni șterse</string>
-    <string name="title_delete_contacts">Ștergeți contactele locale vizibile?</string>
+    <string name="title_delete_contacts">Ștergeți toate contactele locale?</string>
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
     <string name="title_check_operations">Verificarea operațiunilor</string>
     <string name="title_hint_operations">Ștergerea de operațiuni poate duce la dispariția mesajelor și la probleme de sincronizare</string>

@@ -854,7 +854,7 @@
     <string name="title_advanced_autoclose_hint">所有邮件已存档、发送或删除时自动关闭邮件会话</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_bcc_hint">地址不会显示，但会在发送时添加</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">此地址将用于 SMTP MAIL FROM</string>
+    <string name="title_advanced_envelope_from_hint">此地址将用于 SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">发送到另一个域时会有警告</string>
     <string name="title_advanced_uri">所选联系人的详细信息将用于 vCard 附件</string>
     <string name="title_advanced_e2e_encryption">端到端加密选项</string>
@@ -1089,7 +1089,8 @@
     <string name="title_delete_operation_flag">标记操作</string>
     <string name="title_delete_operation_delete">删除操作</string>
     <string name="title_delete_operation_deleted">%1$d 个操作已删除</string>
-    <string name="title_delete_contacts">删除可见的本地联系人？</string>
+    <string name="title_delete_contacts">删除所有本地联系人？</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">即便已搜索，所有已显示和未显示的联系人都将被删除！</string>
     <string name="title_no_operations">没有待执行操作</string>
     <string name="title_check_operations">正在检查操作</string>
     <string name="title_hint_operations">删除这些操作可能弄丢相应消息和导致同步问题</string>
@@ -1342,7 +1343,7 @@
     <string name="title_reply_to">回复：</string>
     <string name="title_cc">抄送：</string>
     <string name="title_bcc">密送：</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">信封来自：</string>
+    <string name="title_envelope_from">信封来自：</string>
     <string name="title_recipients">%1$d 位收件人</string>
     <string name="title_via_identity">账号：</string>
     <string name="title_sent">发送时间：</string>
@@ -1612,6 +1613,7 @@
     <string name="title_view_thread">查看对话</string>
     <string name="title_force_sync">强制同步</string>
     <string name="title_force_send">强制发送</string>
+    <string name="title_pwned_remark">这会在不发送密码情况下检查密码(使用 k-anonymization)，但不检查电子邮箱地址！</string>
     <string name="title_language_all">全部</string>
     <string name="title_previous">上一封</string>
     <string name="title_next">下一封</string>

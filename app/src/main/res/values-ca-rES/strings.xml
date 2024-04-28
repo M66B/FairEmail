@@ -767,6 +767,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_empty_spam_ask">Voleu eliminar tots els missatges de correu brossa definitivament?</string>
     <string name="title_empty_trash_all_ask">Voleu eliminar tots els missatges de la paperera de tots els comptes definitivament?</string>
     <string name="title_empty_spam_all_ask">Voleu eliminar tots els missatges de correu brossa de tots els comptes definitivament?</string>
+    <string name="title_delete_contacts">Esborrar tots els contactes locals?</string>
     <string name="title_no_operations">Sense operacions pendents</string>
     <string name="title_hint_operations">Les operacions d\'esborrar poden provocar la desaparició de missatges i problemes de sincronització</string>
     <string name="title_folder_name">Nom de carpeta</string>

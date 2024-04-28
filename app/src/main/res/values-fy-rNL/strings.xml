@@ -1098,7 +1098,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_delete_operation_flag">Bewurkingen labelje</string>
     <string name="title_delete_operation_delete">Bewurkingen fuortsmite</string>
     <string name="title_delete_operation_deleted">%1$d bewurkingen fuortsmiten</string>
-    <string name="title_delete_contacts">Sichtbere lokale kontakten fuortsmite?</string>
+    <string name="title_delete_contacts">Alle lokale kontakten wiskje?</string>
     <string name="title_no_operations">Gjin iepensteande bewurkingen</string>
     <string name="title_check_operations">Kontrolearje op bewurkingen</string>
     <string name="title_hint_operations">Fuortsmiten fan bewurkingen kin resultearje yn ferdwine berjochten en syngronisaasjeproblemen</string>

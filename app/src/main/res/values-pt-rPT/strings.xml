@@ -870,7 +870,7 @@
     <string name="title_advanced_autoclose_hint">Fechar as conversas automaticamente quando todas as mensagens são arquivadas, enviadas ou movidas para o lixo</string>
     <string name="title_advanced_sender_hint">A maioria dos fornecedores não permite endereços de remetente modificados</string>
     <string name="title_advanced_bcc_hint">O endereço não será mostrado, mas será adicionado ao enviar</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Este endereço vai ser usado para SMTP MAIL FROM</string>
+    <string name="title_advanced_envelope_from_hint">Este endereço vai ser usado para SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Haverá um aviso quando enviar para outro domínio</string>
     <string name="title_advanced_uri">Os detalhes do contato selecionado serão usados para anexos vCard</string>
     <string name="title_advanced_e2e_encryption">Opções para \'encriptação ponta-a-ponta\'</string>
@@ -1106,7 +1106,8 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_delete_operation_flag">Sinalizar operações</string>
     <string name="title_delete_operation_delete">Eliminar operações</string>
     <string name="title_delete_operation_deleted">%1$d operações eliminadas</string>
-    <string name="title_delete_contacts">Eliminar os contactos locais visíveis?</string>
+    <string name="title_delete_contacts">Apagar todos os contatos locais?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Todos os contatos exibidos e não exibidos serão apagados, mesmo se pesquisados!</string>
     <string name="title_no_operations">Sem operações pendentes</string>
     <string name="title_check_operations">A decorrer verificação de operações</string>
     <string name="title_hint_operations">Eliminar operações pode resultar no desaparecimento de mensagens e problemas de sincronização</string>
@@ -1363,7 +1364,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_reply_to">Responder a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Envelope de:</string>
+    <string name="title_envelope_from">Envelope de:</string>
     <string name="title_recipients">%1$d destinatários</string>
     <string name="title_via_identity">Através de:</string>
     <string name="title_sent">Enviados:</string>
@@ -1633,6 +1634,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_view_thread">Ver conversa</string>
     <string name="title_force_sync">Forçar sincronização</string>
     <string name="title_force_send">Forçar envio</string>
+    <string name="title_pwned_remark">Isto irá verificar a palavras-passe sem enviá-la (usando k-anonimização), e não o endereço de e-mail!</string>
     <string name="title_language_all">Todos</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Seguinte</string>

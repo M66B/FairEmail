@@ -405,6 +405,7 @@
     <string name="title_empty_trash_ask">Заувек обрисати све поруке из отпада?</string>
     <string name="title_empty_spam_ask">Обрисати све нежељене поруке заувек?</string>
     <string name="title_empty_trash_all_ask">Трајно обрисати све поруке свих налога из отпада?</string>
+    <string name="title_delete_contacts">Обриши све локалне контакте?</string>
     <string name="title_no_operations">Нема операција на чекању</string>
     <string name="title_hint_operations">Операције брисања могу довести до порука које нестају и синхронизационих проблема</string>
     <string name="title_folder_name">Име фасцикле</string>

@@ -1098,7 +1098,7 @@
     <string name="title_delete_operation_flag">Merkitsemistoimenpiteet</string>
     <string name="title_delete_operation_delete">Poistotoimenpiteet</string>
     <string name="title_delete_operation_deleted">%1$d toimenpidettä poistettu</string>
-    <string name="title_delete_contacts">Poistetaanko näkyvät paikalliset yhteystiedot?</string>
+    <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
     <string name="title_no_operations">Ei odottavia toimenpiteitä</string>
     <string name="title_check_operations">Tarkistetaan toimenpiteitä</string>
     <string name="title_hint_operations">Toimenpiteiden poisto voi aiheuttaa viestien katoamista ja synkronointiongelmia</string>

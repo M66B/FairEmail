@@ -909,7 +909,7 @@
     <string name="title_delete_operation_flag">Gắn cờ các hoạt động</string>
     <string name="title_delete_operation_delete">Xoá các hoạt động</string>
     <string name="title_delete_operation_deleted">%1$d hoạt động đã xoá</string>
-    <string name="title_delete_contacts">Xoá các liên hệ cục bộ có thể nhìn thấy?</string>
+    <string name="title_delete_contacts">Xoá tất cả liên hệ cục bộ?</string>
     <string name="title_no_operations">Không có hoạt động đang chờ</string>
     <string name="title_check_operations">Đang kiểm tra hoạt động</string>
     <string name="title_hint_operations">Việc xoá các hoạt động có thể dẫn đến biến mất thư và các vấn đề đồng bộ hoá</string>

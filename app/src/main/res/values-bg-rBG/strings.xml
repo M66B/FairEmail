@@ -1103,7 +1103,7 @@
     <string name="title_delete_operation_flag">Операции за знамена</string>
     <string name="title_delete_operation_delete">Изтриване на операции</string>
     <string name="title_delete_operation_deleted">%1$d изтрити операции</string>
-    <string name="title_delete_contacts">Изтривате ли видимите местни контакти?</string>
+    <string name="title_delete_contacts">Изтрий локалните контакти?</string>
     <string name="title_no_operations">Няма чакащи операции</string>
     <string name="title_check_operations">Проверяване за операции</string>
     <string name="title_hint_operations">Изтриването на операции може да доведе до изчезване на съобщения и проблеми със синхронизацията</string>

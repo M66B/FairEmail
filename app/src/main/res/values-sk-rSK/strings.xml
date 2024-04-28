@@ -1056,7 +1056,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_delete_operation_flag">Operácie so značkami</string>
     <string name="title_delete_operation_delete">Operácie mazania</string>
     <string name="title_delete_operation_deleted">Vymazaných %1$d operácií</string>
-    <string name="title_delete_contacts">Odstrániť viditeľné lokálne kontakty?</string>
+    <string name="title_delete_contacts">Odstrániť všetky lokálne kontakty?</string>
     <string name="title_no_operations">Žiadne prebiehajúce operácie</string>
     <string name="title_check_operations">Zisťovanie operácií</string>
     <string name="title_hint_operations">Mazanie operácií môže viesť k miznúcim správam a synchronizačným problémom</string>

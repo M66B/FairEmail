@@ -910,6 +910,7 @@
     <string name="title_delete_operation_flag">Marcar operacións</string>
     <string name="title_delete_operation_delete">Eliminar operacións</string>
     <string name="title_delete_operation_deleted">%1$d operacións borradas</string>
+    <string name="title_delete_contacts">Eliminar todos os contactos locais?</string>
     <string name="title_no_operations">Sen operacións pendentes</string>
     <string name="title_hint_operations">Borrar operacións pode resultar en mensaxes desaparecidas e problemas de sincronización</string>
     <string name="title_op_title_headers">Descargando cabeceiras</string>

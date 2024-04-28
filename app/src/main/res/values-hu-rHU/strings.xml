@@ -865,7 +865,7 @@
     <string name="title_advanced_autoclose_hint">A beszélgetések automatikus bezárása minden üzenet archiválása, küldése vagy törlése esetén</string>
     <string name="title_advanced_sender_hint">A legtöbb szolgáltató nem engedélyezi a küldő email cím módosítását</string>
     <string name="title_advanced_bcc_hint">A cím nem lesz megjelenítve, de küldésnél hozzá lesz adva</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Ezt a címet használjuk az SMTP MAIL FROM mezőhöz</string>
+    <string name="title_advanced_envelope_from_hint">Ezt a címet használjuk az SMTP MAIL FROM mezőhöz</string>
     <string name="title_advanced_internal_hint">Figyelmeztetés megjelenítése üzenet más tartományba küldésekor</string>
     <string name="title_advanced_uri">A kiválasztott kontakt részletei felhasználásra kerülnek vCard mellékletként</string>
     <string name="title_advanced_e2e_encryption">Végpontok közötti titkosítási beállítások</string>
@@ -1100,7 +1100,8 @@
     <string name="title_delete_operation_flag">Zászló műveletek</string>
     <string name="title_delete_operation_delete">Műveletek törlése</string>
     <string name="title_delete_operation_deleted">%1$d művelet törölve</string>
-    <string name="title_delete_contacts">Látható helyi névjegyek törlése?</string>
+    <string name="title_delete_contacts">Törli a helyi névjegyzéket?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Minden névjegy, a meg- és meg nem jelenítettek is törlődnek, még keresés esetén is!</string>
     <string name="title_no_operations">Nincs végrehajtásra váró művelet</string>
     <string name="title_check_operations">Parancsra várva</string>
     <string name="title_hint_operations">Műveletek törlése eltűnő üzeneteket és szinkronizálási problémákat okozhat</string>
@@ -1354,7 +1355,7 @@
     <string name="title_reply_to">Válasz neki:</string>
     <string name="title_cc">Másolat:</string>
     <string name="title_bcc">Rejtett másolat:</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Boríték innen:</string>
+    <string name="title_envelope_from">Boríték innen:</string>
     <string name="title_recipients">%1$d résztvevő</string>
     <string name="title_via_identity">Rajta keresztül:</string>
     <string name="title_sent">Elküldve:</string>
@@ -1624,6 +1625,7 @@
     <string name="title_view_thread">Beszélgetés megtekintése</string>
     <string name="title_force_sync">Szinkronizálás erőltetése</string>
     <string name="title_force_send">Küldés erőltetése</string>
+    <string name="title_pwned_remark">A jelszót ellenőrzi, anélkül, hogy elküldenénk azt (k-aninimizáció használatával), nem pedig az email címet!</string>
     <string name="title_language_all">Mind</string>
     <string name="title_previous">Előző</string>
     <string name="title_next">Következő</string>

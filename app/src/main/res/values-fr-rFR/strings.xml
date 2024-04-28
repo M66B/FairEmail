@@ -870,7 +870,7 @@
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n’autorisent pas les adresses d’expéditeur modifiées</string>
     <string name="title_advanced_bcc_hint">L’adresse ne sera pas affichée mais sera ajoutée lors de l’envoi</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Cette adresse sera utilisée pour SMTP MAIL FROM</string>
+    <string name="title_advanced_envelope_from_hint">Cette adresse sera utilisée pour SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Il y aura un avertissement lors de l\'envoi vers un autre domaine</string>
     <string name="title_advanced_uri">Les informations du contact sélectionné seront utilisées pour les pièces jointes vCard</string>
     <string name="title_advanced_e2e_encryption">Options pour le chiffrement de bout en bout</string>
@@ -1106,7 +1106,8 @@
     <string name="title_delete_operation_flag">Opérations de signalement</string>
     <string name="title_delete_operation_delete">Opérations de suppression</string>
     <string name="title_delete_operation_deleted">%1$d opérations supprimées</string>
-    <string name="title_delete_contacts">Supprimer les contacts locaux visibles ?</string>
+    <string name="title_delete_contacts">Supprimer tous les contacts locaux ?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Tous les contacts affichés et non affichés seront supprimés même s\'ils sont recherchés !</string>
     <string name="title_no_operations">Aucune opération en attente</string>
     <string name="title_check_operations">Vérification des opérations en cours</string>
     <string name="title_hint_operations">La suppression d’opérations en attente peut provoquer la perte de messages ainsi que des problèmes de synchronisation</string>
@@ -1363,7 +1364,7 @@
     <string name="title_reply_to">Répondre à :</string>
     <string name="title_cc">Cc :</string>
     <string name="title_bcc">Cci :</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Enveloppe De:</string>
+    <string name="title_envelope_from">Enveloppe De:</string>
     <string name="title_recipients">%1$d destinataires</string>
     <string name="title_via_identity">Via :</string>
     <string name="title_sent">Envoyé :</string>
@@ -1633,6 +1634,7 @@
     <string name="title_view_thread">Afficher la conversation</string>
     <string name="title_force_sync">Forcer la synchronisation</string>
     <string name="title_force_send">Forcer l\'envoi</string>
+    <string name="title_pwned_remark">Ceci vérifiera le mot de passe sans l\'envoyer (en utilisant k-anonymization) et non l\'adresse e-mail !</string>
     <string name="title_language_all">Toutes</string>
     <string name="title_previous">Précédent</string>
     <string name="title_next">Suivant</string>

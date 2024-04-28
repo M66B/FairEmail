@@ -871,7 +871,7 @@
     <string name="title_advanced_autoclose_hint">Unterhaltungen automatisch schließen, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_bcc_hint">Die Adresse wird nicht angezeigt, wird aber beim Absenden hinzugefügt</string>
-    <string name="title_advanced_envelope_from_hint" comment="title_advanced_envelope_from_hint&#10;Remark for &quot;Envelope from&quot; input field&#10;&quot;SMTP MAIL FROM&quot; should not be translated!&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3">Diese Adresse wird für »SMTP MAIL FROM« verwendet</string>
+    <string name="title_advanced_envelope_from_hint">Diese Adresse wird für »SMTP MAIL FROM« verwendet</string>
     <string name="title_advanced_internal_hint">Beim Senden an eine andere Domain wird ein Warnhinweis ausgegeben</string>
     <string name="title_advanced_uri">Die Details des ausgewählten Kontakts werden für vCard-Anhänge verwendet</string>
     <string name="title_advanced_e2e_encryption">Optionen für Ende-zu-Ende-Verschlüsselung</string>
@@ -1107,7 +1107,8 @@
     <string name="title_delete_operation_flag">Kennzeichnungs-Vorgänge</string>
     <string name="title_delete_operation_delete">Lösch-Vorgänge</string>
     <string name="title_delete_operation_deleted">%1$d Vorgänge gelöscht</string>
-    <string name="title_delete_contacts">Sichtbare lokale Kontakte löschen?</string>
+    <string name="title_delete_contacts">Alle lokalen Kontakte löschen?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Alle angezeigten und nicht angezeigten Kontakte werden gelöscht, auch wenn sie gesucht werden!</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>
     <string name="title_check_operations">Auf Vorgänge wird geprüft</string>
     <string name="title_hint_operations">Das Löschen von Vorgängen kann zum Verschwinden von Meldungen und zu Synchronisationsproblemen führen</string>
@@ -1364,7 +1365,7 @@
     <string name="title_reply_to">Antworten an:</string>
     <string name="title_cc">Kopie:</string>
     <string name="title_bcc">Blindkopie:</string>
-    <string name="title_envelope_from" comment="title_envelope_from&#10;Envelope from = SMTP MAIL FROM, see the related remark text for more details&#10;https://datatracker.ietf.org/doc/html/rfc5321#section-3.3&#10;">Briefumschlag von:</string>
+    <string name="title_envelope_from">Briefumschlag von:</string>
     <string name="title_recipients">%1$d Empfänger</string>
     <string name="title_via_identity">Über:</string>
     <string name="title_sent">Gesendet:</string>
@@ -1634,6 +1635,7 @@
     <string name="title_view_thread">Unterhaltung ansehen</string>
     <string name="title_force_sync">Synchronisation erzwingen</string>
     <string name="title_force_send">Senden erzwingen</string>
+    <string name="title_pwned_remark">Damit wird das Passwort geprüft, ohne es zu senden (unter Verwendung von k-Anonymität), und nicht die E-Mail-Adresse!</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Vorherige</string>
     <string name="title_next">Nächste</string>
