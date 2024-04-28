@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.text.TextUtils;
 
 import androidx.preference.PreferenceManager;
 import androidx.room.Ignore;

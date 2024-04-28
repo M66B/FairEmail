@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import static androidx.room.ForeignKey.CASCADE;
-
 import static com.ezylang.evalex.operators.OperatorIfc.OPERATOR_PRECEDENCE_COMPARISON;
 
 import android.Manifest;
@@ -65,7 +64,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
@@ -75,11 +73,9 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.regex.Matcher;

@@ -32,8 +32,6 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import javax.mail.Address;
-
 @Dao
 public interface DaoMessage {
 
