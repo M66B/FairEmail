@@ -1525,6 +1525,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             String last = prefs.getString("changelog", null);
             if (!Objects.equals(version, last) || BuildConfig.DEBUG) {
+                prefs.edit().putString("changelog", version).apply();
+
                 Bundle args = new Bundle();
                 args.putString("name", "CHANGELOG.md");
                 FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
@@ -1532,8 +1534,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 fragment.show(getSupportFragmentManager(), "changelog");
             }
         }
-
-        prefs.edit().putString("changelog", version).apply();
     }
 
     private void checkBanner() {
