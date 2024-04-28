@@ -39,7 +39,6 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -156,19 +155,30 @@ public class EntityContact implements Serializable {
         if (type == TYPE_FROM) {
             if (message.reply == null || message.reply.length == 0) {
                 if (message.from != null)
-                    addresses.addAll(Arrays.asList(message.from));
+                    addresses.addAll(filterAddresses(message.from));
             } else
-                addresses.addAll(Arrays.asList(message.reply));
+                addresses.addAll(filterAddresses(message.reply));
         } else if (type == TYPE_TO) {
             if (message.to != null)
-                addresses.addAll(Arrays.asList(message.to));
+                addresses.addAll(filterAddresses(message.to));
             if (message.cc != null)
-                addresses.addAll(Arrays.asList(message.cc));
+                addresses.addAll(filterAddresses(message.cc));
             if (message.bcc != null)
-                addresses.addAll(Arrays.asList(message.bcc));
+                addresses.addAll(filterAddresses(message.bcc));
         }
 
         update(context, folder.account, message.identity, addresses.toArray(new Address[0]), type, message.received);
+    }
+
+    private static List<Address> filterAddresses(Address[] addresses) {
+        List<Address> result = new ArrayList<>();
+
+        if (addresses != null)
+            for (Address address : addresses)
+                if (!MessageHelper.isNoReply(address))
+                    result.add(address);
+
+        return result;
     }
 
     public static void update(Context context, long account, Long identity, Address[] addresses, int type, long time) {
