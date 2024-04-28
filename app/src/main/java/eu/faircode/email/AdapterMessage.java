@@ -2555,7 +2555,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     } else {
                         boolean homoPersonal = TextHelper.isSingleScript(personal);
-                        if (BuildConfig.DEBUG && !homoPersonal)
+                        if (debug && !homoPersonal)
                             personal = TextHelper.getNonLatinCodepoints(personal);
                         ssb.append(personal);
                         if (!homoPersonal) {
