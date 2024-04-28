@@ -179,6 +179,7 @@ import java.util.Properties;
 import java.util.SortedMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
+import java.util.regex.Matcher;
 
 import javax.mail.Address;
 import javax.mail.Session;
@@ -2562,6 +2563,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
                             ssb.setSpan(new ForegroundColorSpan(colorError), start, ssb.length(), 0);
                         }
+
+                        Matcher m = Helper.EMAIL_ADDRESS.matcher(personal);
+                        while (m.find()) {
+                            ssb.setSpan(new StyleSpan(Typeface.BOLD), m.start(), m.end(), 0);
+                            ssb.setSpan(new ForegroundColorSpan(colorError), m.start(), m.end(), 0);
+                        }
+
                         if (full) {
                             ssb.append(" <");
                             if (!TextUtils.isEmpty(email)) {
@@ -5446,7 +5454,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 for (Address from : message.from) {
                     if (!(from instanceof InternetAddress))
                         continue;
-                    if (!TextHelper.isSingleScript(((InternetAddress) from).getPersonal()))
+                    String personal = ((InternetAddress) from).getPersonal();
+                    if (TextUtils.isEmpty(personal))
+                        continue;
+                    if (!TextHelper.isSingleScript(personal))
+                        return true;
+                    if (Helper.EMAIL_ADDRESS.matcher(personal).find())
                         return true;
                 }
 
