@@ -6,15 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2178 - 2024-04-29
 
 * Added "AI" summarization of received messages (*)
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
-<sup>(*) ChatGPT or Gemini needs to be configured in the integrations-settings tab page for this</sub>
-
-You can download a preview/snapshot version [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
+<sup>(*) Via the horizontal three-dots button just above the message text. ChatGPT or Gemini needs to be configured in the integrations-settings tab page for this.</sub>
 
 ### 1.2177 - 2024-04-27
 
