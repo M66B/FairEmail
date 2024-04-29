@@ -20,7 +20,7 @@
     <string name="channel_service">Pemantauan</string>
     <string name="channel_send">Kirim</string>
     <string name="channel_notification">Surel</string>
-    <string name="channel_progress">Pekembangan</string>
+    <string name="channel_progress">Kemajuan</string>
     <string name="channel_update">Pembaruan</string>
     <string name="channel_announcements">Pengumuman</string>
     <string name="channel_warning">Peringatan</string>
@@ -478,6 +478,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_nav_message_count">Tampilkan jumlah pesan yang tersimpan secara lokal di menu navigasi</string>
     <string name="title_advanced_nav_unseen_drafts">Tampilkan jumlah draf yang belum dibaca di menu navigasi</string>
     <string name="title_advanced_nav_pinned_count">Tampilkan jumlah pesan yang belum dibaca dalam menu navigasi yang disematkan</string>
+    <string name="title_advanced_show_unexposed">Tampilkan bintang untuk akun/folder dengan pesan yang baru diterima dan belum dibaca</string>
     <string name="title_advanced_startup">Tampilkan pada layar terkunci</string>
     <string name="title_advanced_cards">Pakai gaya kartu seperti gaya tabel</string>
     <string name="title_advanced_category">Kategori akun dapat dikonfigurasi dalam opsi akun lanjutan melalui layar pengaturan utama</string>
@@ -487,6 +488,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_cards_shadow_border">Tampilkan batas</string>
     <string name="title_advanced_cards_shadow_highlight">Gunakan warna sorotan daripada warna aksen</string>
     <string name="title_advanced_tabular_dividers">Gunakan garis pemisah saat menggunakan gaya datar</string>
+    <string name="title_advanced_tabular_unread_bg">Gunakan warna latar abu-abu untuk pesan yang belum dibaca ketika menampilkan model tabel</string>
     <string name="title_advanced_date_header">Kelompokkan sesuai tanggal</string>
     <string name="title_advanced_date_week">Kelompokkan berdasarkan minggu daripada hari</string>
     <string name="title_advanced_date_fixed">Tampilkan tanggal tajuk tetap di atas</string>
@@ -811,6 +813,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_rlah_hint">Dengan asumsi tidak ada roaming di Uni Eropa</string>
     <string name="title_advanced_usage_hint">Akan meningkatkan penggunaan baterai, dan penyimpanan data</string>
     <string name="title_advanced_plain_hint">Mengaktifkan ini akan membatasi penggunaan data, namun pesan akan ditampilkan tanpa pengaturan style</string>
+    <string name="title_advanced_plain_remark">Bagian teks biasa tidak selalu berisi pesan lengkap!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Mengaktifkan ini dapat mengakibatkan masalah koneksi pada beberapa perangkat dan dapat meningkatkan penggunaan baterai</string>
     <string name="title_advanced_validate_hint">Ini dapat mengakibatkan pesan tidak tersinkronasi, contohnya ketika menggunakan VPN, tetapi juga dalam situasi lain</string>
     <string name="title_advanced_timeout_hint">Pengaturan batas waktu baca/tulis akan digandakan. Nilai yang lebih tinggi akan menghasilkan lebih banyak penggunaan baterai.</string>
@@ -1085,6 +1088,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_delete_operation_delete">Hapus operasi</string>
     <string name="title_delete_operation_deleted">%1$d operasi dihapus</string>
     <string name="title_delete_contacts">Hapus semua kontak lokal?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Semua kontak yang ditampilkan dan tidak ditampilkan akan dihapus, bahkan jika dicari!</string>
     <string name="title_no_operations">Tidak ada operasi yang tertunda</string>
     <string name="title_check_operations">Memeriksa operasi</string>
     <string name="title_hint_operations">Menghapus operasi dapat mengakibatkan hilangnya pesan dan masalah sinkronisasi</string>

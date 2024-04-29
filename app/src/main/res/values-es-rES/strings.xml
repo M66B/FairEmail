@@ -1105,6 +1105,7 @@
     <string name="title_delete_operation_delete">Operaciones de eliminación</string>
     <string name="title_delete_operation_deleted">%1$d operaciones eliminadas</string>
     <string name="title_delete_contacts">¿Eliminar todos los contactos locales?</string>
+    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">¡Todos los contactos mostrados y no mostrados serán eliminados, incluso si se los busca!</string>
     <string name="title_no_operations">No hay operaciones pendientes</string>
     <string name="title_check_operations">Comprobando operaciones</string>
     <string name="title_hint_operations">Eliminar operaciones puede resultar en la desaparición de mensajes y problemas de sincronización</string>
@@ -1627,6 +1628,7 @@
     <string name="title_view_thread">Ver conversación</string>
     <string name="title_force_sync">Forzar sincronización</string>
     <string name="title_force_send">Forzar envío</string>
+    <string name="title_pwned_remark">¡Esto comprobará la contraseña, sin enviarla (usando k-anonimización), y no la dirección de correo electrónico!</string>
     <string name="title_language_all">Todos</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Siguiente</string>
