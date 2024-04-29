@@ -2785,6 +2785,7 @@ The following extra functions are available:
 * *attachments()* (returns an integer indicating number of attachments; since version 1.2179)
 * *Jsoup()* (returns an array of selected strings; since version 1.2179)
 * *Size(array)* (returns the number of items in an array; since version 1.2179)
+* *Known()* (returns a boolean indicating that the from/reply-to address is in the Android address book or in the local contacts database)
 
 Example conditions:
 

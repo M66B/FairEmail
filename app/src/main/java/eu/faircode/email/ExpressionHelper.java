@@ -22,7 +22,10 @@ package eu.faircode.email;
 import static com.ezylang.evalex.operators.OperatorIfc.OPERATOR_PRECEDENCE_COMPARISON;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
+
+import androidx.preference.PreferenceManager;
 
 import com.ezylang.evalex.Expression;
 import com.ezylang.evalex.config.ExpressionConfiguration;
@@ -53,6 +56,7 @@ import java.util.regex.Pattern;
 import javax.mail.Address;
 import javax.mail.Header;
 import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.InternetHeaders;
 
 public class ExpressionHelper {
@@ -95,6 +99,7 @@ public class ExpressionHelper {
         AttachmentsFunction fAttachments = new AttachmentsFunction(context, message);
         JsoupFunction fJsoup = new JsoupFunction(context, message);
         SizeFunction fSize = new SizeFunction();
+        KnownFunction fKnown = new KnownFunction(context, message);
 
         ContainsOperator oContains = new ContainsOperator(false);
         ContainsOperator oMatches = new ContainsOperator(true);
@@ -109,6 +114,7 @@ public class ExpressionHelper {
         configuration.getFunctionDictionary().addFunction("attachments", fAttachments);
         configuration.getFunctionDictionary().addFunction("Jsoup", fJsoup);
         configuration.getFunctionDictionary().addFunction("Size", fSize);
+        configuration.getFunctionDictionary().addFunction("Known", fKnown);
 
         configuration.getOperatorDictionary().addOperator("Contains", oContains);
         configuration.getOperatorDictionary().addOperator("Matches", oMatches);
@@ -360,6 +366,53 @@ public class ExpressionHelper {
                 result = parameterValues[0].getArrayValue().size();
 
             Log.i("EXPR size()=" + result);
+            return expression.convertValue(result);
+        }
+    }
+
+    public static class KnownFunction extends AbstractFunction {
+        private final Context context;
+        private final EntityMessage message;
+
+        KnownFunction(Context context, EntityMessage message) {
+            this.context = context;
+            this.message = message;
+        }
+
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token functionToken, EvaluationValue... parameterValues) {
+            boolean result = false;
+
+            if (message != null)
+                if (message.avatar != null)
+                    result = true;
+                else {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
+                    if (suggest_sent) {
+                        DB db = DB.getInstance(context);
+
+                        List<Address> senders = new ArrayList<>();
+                        if (message.from != null)
+                            senders.addAll(Arrays.asList(message.from));
+                        if (message.reply != null)
+                            senders.addAll(Arrays.asList(message.reply));
+                        for (Address sender : senders) {
+                            InternetAddress ia = (InternetAddress) sender;
+                            String email = ia.getAddress();
+
+                            EntityContact contact =
+                                    db.contact().getContact(message.account, EntityContact.TYPE_TO, email);
+                            if (contact != null) {
+                                result = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+            Log.i("EXPR known()=" + result);
             return expression.convertValue(result);
         }
     }
