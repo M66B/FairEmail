@@ -471,11 +471,11 @@ tasks.register('upload') {
     doLast {
         println "\nhttps://bitbucket.org/M66B/fairemail-test/downloads/FairEmail-v1." + getVersionCode() + getRevision() + "-" + target + "-release.apk\n"
         exec {
-            workingDir "${buildDir}"
+            workingDir "${getLayout().getBuildDirectory()}"
             commandLine 'curl',
                     '-o', '/dev/null',
                     '-X', 'POST', "https://M66B:" + localProperties.getProperty("bb.pwd", "") + "@api.bitbucket.org/2.0/repositories/M66B/fairemail-test/downloads",
-                    '--form', "files=@${buildDir}/outputs/apk/" + target.split('-')[0] + "/release/FairEmail-v1." + getVersionCode() + getRevision() + "-" + target.split('-')[0] + "-release.apk;" +
+                    '--form', "files=@${getLayout().getBuildDirectory()}/outputs/apk/" + target.split('-')[0] + "/release/FairEmail-v1." + getVersionCode() + getRevision() + "-" + target.split('-')[0] + "-release.apk;" +
                     "filename=FairEmail-v1." + getVersionCode() + getRevision() + "-" + target + "-release.apk"
         }
     }
