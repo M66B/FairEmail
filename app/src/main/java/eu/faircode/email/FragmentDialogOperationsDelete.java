@@ -46,6 +46,7 @@ public class FragmentDialogOperationsDelete extends FragmentDialogBase {
         final CheckBox cbMove = dview.findViewById(R.id.cbMove);
         final CheckBox cbFlag = dview.findViewById(R.id.cbFlag);
         final CheckBox cbDelete = dview.findViewById(R.id.cbDelete);
+        final CheckBox cbSend = dview.findViewById(R.id.cbSend);
 
         return new AlertDialog.Builder(context)
                 .setView(dview)
@@ -58,6 +59,7 @@ public class FragmentDialogOperationsDelete extends FragmentDialogBase {
                         args.putBoolean("move", cbMove.isChecked());
                         args.putBoolean("flag", cbFlag.isChecked());
                         args.putBoolean("delete", cbDelete.isChecked());
+                        args.putBoolean("send", cbSend.isChecked());
 
                         new SimpleTask<Integer>() {
                             private Toast toast = null;
@@ -81,6 +83,7 @@ public class FragmentDialogOperationsDelete extends FragmentDialogBase {
                                 boolean move = args.getBoolean("move");
                                 boolean flag = args.getBoolean("flag");
                                 boolean delete = args.getBoolean("delete");
+                                boolean send = args.getBoolean("send");
 
                                 int deleted = 0;
                                 DB db = DB.getInstance(context);
@@ -141,6 +144,14 @@ public class FragmentDialogOperationsDelete extends FragmentDialogBase {
                                     db.setTransactionSuccessful();
                                 } finally {
                                     db.endTransaction();
+                                }
+
+                                if (send) {
+                                    List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SEND);
+                                    for (EntityOperation op : ops) {
+                                        ActivityCompose.undoSend(op.message, context);
+                                        deleted++;
+                                    }
                                 }
 
                                 if (deleted > 0)

@@ -1379,6 +1379,7 @@
     <string name="title_delete_operation_move">Move operations</string>
     <string name="title_delete_operation_flag">Flag operations</string>
     <string name="title_delete_operation_delete">Delete operations</string>
+    <string name="title_delete_operation_send">Send operations</string>
     <string name="title_delete_operation_deleted">%1$d operations deleted</string>
     <string name="title_delete_contacts">Delete all local contacts?</string>
     <string name="title_delete_contacts_remark">All contacts shown and not shown will be deleted, even if searched!</string>
