@@ -2755,6 +2755,10 @@ Note that a regular expression supports an *or* operator, so if you want to matc
 Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled
 to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
 
+<br />
+
+**Expressions**
+
 Since version 1.2174 it is possible to use expression conditions, which is [experimental](#faq125) for now.
 
 Please [see here](https://ezylang.github.io/EvalEx/references/references.html) about which constants, operators and functions are available.
