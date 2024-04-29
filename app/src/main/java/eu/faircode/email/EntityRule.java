@@ -639,7 +639,7 @@ public class EntityRule {
 
     @FunctionParameter(name = "value")
     public static class HeaderFunction extends AbstractFunction {
-        private List<Header> headers;
+        private final List<Header> headers;
 
         HeaderFunction(List<Header> headers) {
             this.headers = headers;
@@ -669,7 +669,7 @@ public class EntityRule {
 
     @FunctionParameter(name = "value")
     public static class MessageFunction extends AbstractFunction {
-        private EntityMessage message;
+        private final EntityMessage message;
 
         MessageFunction(EntityMessage message) {
             this.message = message;
@@ -701,13 +701,13 @@ public class EntityRule {
     }
 
     public static class BlocklistFunction extends AbstractFunction {
-        private Context context;
-        private Address[] from;
-        private List<Header> headers;
+        private final Context context;
+        private final List<Header> headers;
+        private final EntityMessage message;
 
-        BlocklistFunction(Context context, Address[] from, List<Header> headers) {
+        BlocklistFunction(Context context, EntityMessage message, List<Header> headers) {
             this.context = context;
-            this.from = from;
+            this.message = message;
             this.headers = headers;
         }
 
@@ -717,8 +717,8 @@ public class EntityRule {
             boolean result = false;
 
             try {
-                if (from != null)
-                    result = Boolean.TRUE.equals(DnsBlockList.isJunk(context, Arrays.asList(from)));
+                if (message != null && message.from != null)
+                    result = Boolean.TRUE.equals(DnsBlockList.isJunk(context, Arrays.asList(message.from)));
 
                 List<String> received = new ArrayList<>();
                 if (headers != null)
@@ -735,9 +735,38 @@ public class EntityRule {
         }
     }
 
+    public static class MxFunction extends AbstractFunction {
+        private final Context context;
+        private final EntityMessage message;
+
+        MxFunction(Context context, EntityMessage message) {
+            this.context = context;
+            this.message = message;
+        }
+
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token functionToken, EvaluationValue... parameterValues) {
+            boolean result = false;
+
+            try {
+                Address[] addresses =
+                        (message.reply == null || message.reply.length == 0
+                                ? message.from : message.reply);
+                DnsHelper.checkMx(context, addresses);
+                result = true;
+            } catch (Throwable ex) {
+                Log.e("EXPR", ex);
+            }
+
+            Log.i("EXPR mx()=" + result);
+            return expression.convertValue(result);
+        }
+    }
+
     @InfixOperator(precedence = OPERATOR_PRECEDENCE_COMPARISON)
     public static class ContainsOperator extends AbstractOperator {
-        private boolean regex;
+        private final boolean regex;
 
         ContainsOperator(boolean regex) {
             this.regex = regex;
@@ -813,17 +842,24 @@ public class EntityRule {
             headers = Collections.list(new InternetHeaders(bis, true).getAllHeaders());
         }
 
+        HeaderFunction fHeader = new HeaderFunction(headers);
+        MessageFunction fMessage = new MessageFunction(message);
+        BlocklistFunction fBlocklist = new BlocklistFunction(context, message, headers);
+        MxFunction fMx = new MxFunction(context, message);
+
+        ContainsOperator oContains = new ContainsOperator(false);
+        ContainsOperator oMatches = new ContainsOperator(true);
+
         ExpressionConfiguration configuration = ExpressionConfiguration.defaultConfiguration();
-        configuration.getFunctionDictionary().addFunction("Header",
-                new HeaderFunction(headers));
-        configuration.getFunctionDictionary().addFunction("Message",
-                new MessageFunction(message));
-        configuration.getFunctionDictionary().addFunction("Blocklist",
-                new BlocklistFunction(context, message == null ? null : message.from, headers));
-        configuration.getOperatorDictionary().addOperator("Contains",
-                new ContainsOperator(false));
-        configuration.getOperatorDictionary().addOperator("Matches",
-                new ContainsOperator(true));
+
+        configuration.getFunctionDictionary().addFunction("Header", fHeader);
+        configuration.getFunctionDictionary().addFunction("Message", fMessage);
+        configuration.getFunctionDictionary().addFunction("Blocklist", fBlocklist);
+        configuration.getFunctionDictionary().addFunction("onBlocklist", fBlocklist);
+        configuration.getFunctionDictionary().addFunction("hasMx", fMx);
+
+        configuration.getOperatorDictionary().addOperator("Contains", oContains);
+        configuration.getOperatorDictionary().addOperator("Matches", oMatches);
 
         Expression expression = new Expression(eval, configuration)
                 .with("to", to)
