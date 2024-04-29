@@ -19,7 +19,8 @@ internal class StorageModule(
         DeviceIdStore(
             appContext,
             sharedPrefMigrator = sharedPrefMigrator,
-            logger = logger
+            logger = logger,
+            config = immutableConfig
         )
     }
 

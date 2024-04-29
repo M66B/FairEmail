@@ -20,6 +20,7 @@ internal class ManifestConfigLoader {
         private const val AUTO_DETECT_ERRORS = "$BUGSNAG_NS.AUTO_DETECT_ERRORS"
         private const val PERSIST_USER = "$BUGSNAG_NS.PERSIST_USER"
         private const val SEND_THREADS = "$BUGSNAG_NS.SEND_THREADS"
+        private const val GENERATE_ANONYMOUS_ID = "$BUGSNAG_NS.GENERATE_ANONYMOUS_ID"
 
         // endpoints
         private const val ENDPOINT_NOTIFY = "$BUGSNAG_NS.ENDPOINT_NOTIFY"
@@ -108,6 +109,7 @@ internal class ManifestConfigLoader {
             autoTrackSessions = data.getBoolean(AUTO_TRACK_SESSIONS, autoTrackSessions)
             autoDetectErrors = data.getBoolean(AUTO_DETECT_ERRORS, autoDetectErrors)
             persistUser = data.getBoolean(PERSIST_USER, persistUser)
+            generateAnonymousId = data.getBoolean(GENERATE_ANONYMOUS_ID, generateAnonymousId)
 
             val str = data.getString(SEND_THREADS)
 

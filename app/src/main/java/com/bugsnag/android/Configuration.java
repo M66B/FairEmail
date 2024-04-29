@@ -179,6 +179,26 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
     }
 
     /**
+     * Set whether or not Bugsnag should generate an anonymous ID and persist it in local storage
+     *
+     * If disabled, any device ID that has been persisted will not be retrieved, and no new
+     * device ID will be generated or stored
+     */
+    public boolean getGenerateAnonymousId() {
+        return impl.getGenerateAnonymousId();
+    }
+
+    /**
+     * Set whether or not Bugsnag should generate an anonymous ID and persist it in local storage
+     *
+     * If disabled, any device ID that has been persisted will not be retrieved, and no new
+     * device ID will be generated or stored
+     */
+    public void setGenerateAnonymousId(boolean generateAnonymousId) {
+        impl.setGenerateAnonymousId(generateAnonymousId);
+    }
+
+    /**
      * Sets the directory where event and session JSON payloads should be persisted if a network
      * request is not successful. If you use Bugsnag in multiple processes, then a unique
      * persistenceDirectory <b>must</b> be configured for each process to prevent duplicate

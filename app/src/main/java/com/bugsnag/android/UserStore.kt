@@ -30,7 +30,9 @@ internal class UserStore @JvmOverloads constructor(
      * [Configuration.getPersistUser] is true.
      *
      * If no user is stored on disk, then a default [User] is used which uses the device ID
-     * as its ID.
+     * as its ID (unless the generateAnonymousId config option is set to false, in which case the
+     * device ID and therefore the user ID is set to
+     * null).
      *
      * The [UserState] provides a mechanism for observing value changes to its user property,
      * so to avoid interfering with this the method should only be called once for each [Client].
@@ -46,6 +48,8 @@ internal class UserStore @JvmOverloads constructor(
 
         val userState = when {
             loadedUser != null && validUser(loadedUser) -> UserState(loadedUser)
+            // if generateAnonymousId config option is false, the deviceId should already be null
+            // here
             else -> UserState(User(deviceId, null, null))
         }
 

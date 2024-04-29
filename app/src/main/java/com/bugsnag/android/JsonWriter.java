@@ -145,6 +145,7 @@ class JsonWriter implements Closeable, Flushable {
      */
     private static final String[] REPLACEMENT_CHARS;
     private static final String[] HTML_SAFE_REPLACEMENT_CHARS;
+
     static {
         REPLACEMENT_CHARS = new String[128];
         for (int i = 0; i <= 0x1f; i++) {
@@ -165,11 +166,14 @@ class JsonWriter implements Closeable, Flushable {
         HTML_SAFE_REPLACEMENT_CHARS['\''] = "\\u0027";
     }
 
-    /** The output data, containing at most one top-level array or object. */
+    /**
+     * The output data, containing at most one top-level array or object.
+     */
     private final Writer out;
 
     private int[] stack = new int[32];
     private int stackSize = 0;
+
     {
         push(EMPTY_DOCUMENT);
     }
@@ -337,7 +341,7 @@ class JsonWriter implements Closeable, Flushable {
      * given bracket.
      */
     private JsonWriter close(int empty, int nonempty, String closeBracket)
-        throws IOException {
+            throws IOException {
         int context = peek();
         if (context != nonempty && context != empty) {
             throw new IllegalStateException("Nesting problem.");
@@ -437,7 +441,7 @@ class JsonWriter implements Closeable, Flushable {
         }
         writeDeferredName();
         beforeValue();
-        out.append(value);
+        out.write(value);
         return this;
     }
 
@@ -490,17 +494,18 @@ class JsonWriter implements Closeable, Flushable {
     /**
      * Encodes {@code value}.
      *
-     * @param value a finite value. May not be {@link Double#isNaN() NaNs} or
-     *     {@link Double#isInfinite() infinities}.
+     * @param value a finite value.
      * @return this writer.
      */
     public JsonWriter value(double value) throws IOException {
-        writeDeferredName();
         if (!lenient && (Double.isNaN(value) || Double.isInfinite(value))) {
-            throw new IllegalArgumentException("Numeric values must be finite, but was " + value);
+            // omit these values instead of attempting to write them
+            deferredName = null;
+        } else {
+            writeDeferredName();
+            beforeValue();
+            out.write(Double.toString(value));
         }
-        beforeValue();
-        out.append(Double.toString(value));
         return this;
     }
 
@@ -520,7 +525,7 @@ class JsonWriter implements Closeable, Flushable {
      * Encodes {@code value}.
      *
      * @param value a finite value. May not be {@link Double#isNaN() NaNs} or
-     *     {@link Double#isInfinite() infinities}.
+     *              {@link Double#isInfinite() infinities}.
      * @return this writer.
      */
     public JsonWriter value(Number value) throws IOException {
@@ -528,14 +533,16 @@ class JsonWriter implements Closeable, Flushable {
             return nullValue();
         }
 
-        writeDeferredName();
         String string = value.toString();
         if (!lenient
-            && (string.equals("-Infinity") || string.equals("Infinity") || string.equals("NaN"))) {
-            throw new IllegalArgumentException("Numeric values must be finite, but was " + value);
+                && (string.equals("-Infinity") || string.equals("Infinity") || string.equals("NaN"))) {
+            // omit this value
+            deferredName = null;
+        } else {
+            writeDeferredName();
+            beforeValue();
+            out.write(string);
         }
-        beforeValue();
-        out.append(string);
         return this;
     }
 
@@ -634,7 +641,7 @@ class JsonWriter implements Closeable, Flushable {
             case NONEMPTY_DOCUMENT:
                 if (!lenient) {
                     throw new IllegalStateException(
-                        "JSON must have only one top-level value.");
+                            "JSON must have only one top-level value.");
                 }
                 // fall-through
             case EMPTY_DOCUMENT: // first in document
@@ -647,12 +654,12 @@ class JsonWriter implements Closeable, Flushable {
                 break;
 
             case NONEMPTY_ARRAY: // another in array
-                out.append(',');
+                out.write(',');
                 newline();
                 break;
 
             case DANGLING_NAME: // value for name
-                out.append(separator);
+                out.write(separator);
                 replaceTop(NONEMPTY_OBJECT);
                 break;
 

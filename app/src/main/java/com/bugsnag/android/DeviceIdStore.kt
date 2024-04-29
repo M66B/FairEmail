@@ -1,6 +1,7 @@
 package com.bugsnag.android
 
 import android.content.Context
+import com.bugsnag.android.internal.ImmutableConfig
 import java.io.File
 import java.util.UUID
 
@@ -8,18 +9,20 @@ import java.util.UUID
  * This class is responsible for persisting and retrieving the device ID and internal device ID,
  * which uniquely identify this device in various contexts.
  */
-internal class DeviceIdStore @JvmOverloads constructor(
+internal class DeviceIdStore @JvmOverloads @Suppress("LongParameterList") constructor(
     context: Context,
     deviceIdfile: File = File(context.filesDir, "device-id"),
     deviceIdGenerator: () -> UUID = { UUID.randomUUID() },
     internalDeviceIdfile: File = File(context.filesDir, "internal-device-id"),
     internalDeviceIdGenerator: () -> UUID = { UUID.randomUUID() },
     private val sharedPrefMigrator: SharedPrefMigrator,
+    config: ImmutableConfig,
     logger: Logger
 ) {
 
     private val persistence: DeviceIdPersistence
     private val internalPersistence: DeviceIdPersistence
+    private val generateId = config.generateAnonymousId
 
     init {
         persistence = DeviceIdFilePersistence(deviceIdfile, deviceIdGenerator, logger)
@@ -35,6 +38,12 @@ internal class DeviceIdStore @JvmOverloads constructor(
      * be used. If no value is present then a random UUID will be generated and persisted.
      */
     fun loadDeviceId(): String? {
+        // If generateAnonymousId = false, return null
+        // so that a previously persisted device ID is not returned,
+        // or a new one is not generated and persisted
+        if (!generateId) {
+            return null
+        }
         var result = persistence.loadDeviceId(false)
         if (result != null) {
             return result
@@ -47,6 +56,12 @@ internal class DeviceIdStore @JvmOverloads constructor(
     }
 
     fun loadInternalDeviceId(): String? {
+        // If generateAnonymousId = false, return null
+        // so that a previously persisted device ID is not returned,
+        // or a new one is not generated and persisted
+        if (!generateId) {
+            return null
+        }
         return internalPersistence.loadDeviceId(true)
     }
 }

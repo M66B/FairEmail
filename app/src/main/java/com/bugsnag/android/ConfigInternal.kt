@@ -25,6 +25,7 @@ internal class ConfigInternal(
     var releaseStage: String? = null
     var sendThreads: ThreadSendPolicy = ThreadSendPolicy.ALWAYS
     var persistUser: Boolean = true
+    var generateAnonymousId: Boolean = true
 
     var launchDurationMillis: Long = DEFAULT_LAUNCH_CRASH_THRESHOLD_MS
 

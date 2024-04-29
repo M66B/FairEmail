@@ -57,6 +57,7 @@ data class ImmutableConfig(
     val persistenceDirectory: Lazy<File>,
     val sendLaunchCrashesSynchronously: Boolean,
     val attemptDeliveryOnCrash: Boolean,
+    val generateAnonymousId: Boolean,
 
     // results cached here to avoid unnecessary lookups in Client.
     val packageInfo: PackageInfo?,
@@ -166,6 +167,7 @@ internal fun convertToImmutableConfig(
         delivery = config.delivery,
         endpoints = config.endpoints,
         persistUser = config.persistUser,
+        generateAnonymousId = config.generateAnonymousId,
         launchDurationMillis = config.launchDurationMillis,
         logger = config.logger!!,
         maxBreadcrumbs = config.maxBreadcrumbs,

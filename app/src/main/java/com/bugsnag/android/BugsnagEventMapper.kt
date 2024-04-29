@@ -29,12 +29,14 @@ internal class BugsnagEventMapper(
         event.userImpl = convertUser(map.readEntry("user"))
 
         // populate metadata
-        val metadataMap: Map<String, Map<String, Any?>> = map.readEntry("metaData")
+        val metadataMap: Map<String, Map<String, Any?>> =
+            (map["metaData"] as? Map<String, Map<String, Any?>>).orEmpty()
         metadataMap.forEach { (key, value) ->
             event.addMetadata(key, value)
         }
 
-        val featureFlagsList: List<Map<String, Any?>> = map.readEntry("featureFlags")
+        val featureFlagsList: List<Map<String, Any?>> =
+            (map["featureFlags"] as? List<Map<String, Any?>>).orEmpty()
         featureFlagsList.forEach { featureFlagMap ->
             event.addFeatureFlag(
                 featureFlagMap.readEntry("featureFlag"),
@@ -43,7 +45,8 @@ internal class BugsnagEventMapper(
         }
 
         // populate breadcrumbs
-        val breadcrumbList: List<MutableMap<String, Any?>> = map.readEntry("breadcrumbs")
+        val breadcrumbList: List<MutableMap<String, Any?>> =
+            (map["breadcrumbs"] as? List<MutableMap<String, Any?>>).orEmpty()
         breadcrumbList.mapTo(event.breadcrumbs) {
             Breadcrumb(
                 convertBreadcrumbInternal(it),
@@ -226,8 +229,7 @@ internal class BugsnagEventMapper(
             is T -> return value
             null -> throw IllegalStateException("cannot find json property '$key'")
             else -> throw IllegalArgumentException(
-                "json property '$key' not " +
-                    "of expected type, found ${value.javaClass.name}"
+                "json property '$key' not of expected type, found ${value.javaClass.name}"
             )
         }
     }

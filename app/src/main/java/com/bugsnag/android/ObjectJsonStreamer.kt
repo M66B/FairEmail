@@ -11,9 +11,11 @@ internal class ObjectJsonStreamer {
     companion object {
         internal const val REDACTED_PLACEHOLDER = "[REDACTED]"
         internal const val OBJECT_PLACEHOLDER = "[OBJECT]"
+
+        internal val DEFAULT_REDACTED_KEYS = setOf(Pattern.compile(".*password.*", Pattern.CASE_INSENSITIVE))
     }
 
-    var redactedKeys = setOf(Pattern.compile(".*password.*", Pattern.CASE_INSENSITIVE))
+    var redactedKeys = DEFAULT_REDACTED_KEYS
 
     // Write complex/nested values to a JsonStreamer
     @Throws(IOException::class)
