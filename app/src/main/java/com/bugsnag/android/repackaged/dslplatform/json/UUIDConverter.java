@@ -180,7 +180,7 @@ public abstract class UUIDConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<UUID> deserializeCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeCollection(READER);
+		return reader.deserializeCollectionCustom(READER);
 	}
 
 	public static void deserializeCollection(final JsonReader reader, final Collection<UUID> res) throws IOException {
@@ -189,7 +189,7 @@ public abstract class UUIDConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<UUID> deserializeNullableCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(READER);
+		return reader.deserializeNullableCollectionCustom(READER);
 	}
 
 	public static void deserializeNullableCollection(final JsonReader reader, final Collection<UUID> res) throws IOException {

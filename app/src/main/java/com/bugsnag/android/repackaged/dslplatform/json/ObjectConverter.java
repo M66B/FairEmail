@@ -117,7 +117,7 @@ public abstract class ObjectConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Map<String, Object>> deserializeMapCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeCollection(TypedMapReader);
+		return reader.deserializeCollectionCustom(TypedMapReader);
 	}
 
 	public static void deserializeMapCollection(final JsonReader reader, final Collection<Map<String, Object>> res) throws IOException {
@@ -126,7 +126,7 @@ public abstract class ObjectConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Map<String, Object>> deserializeNullableMapCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(TypedMapReader);
+		return reader.deserializeNullableCollectionCustom(TypedMapReader);
 	}
 
 	public static void deserializeNullableMapCollection(final JsonReader reader, final Collection<Map<String, Object>> res) throws IOException {

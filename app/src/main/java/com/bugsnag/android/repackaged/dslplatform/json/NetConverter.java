@@ -56,7 +56,7 @@ public abstract class NetConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<URI> deserializeUriCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeCollection(UriReader);
+		return reader.deserializeCollectionCustom(UriReader);
 	}
 
 	public static void deserializeUriCollection(final JsonReader reader, final Collection<URI> res) throws IOException {
@@ -65,7 +65,7 @@ public abstract class NetConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<URI> deserializeUriNullableCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(UriReader);
+		return reader.deserializeNullableCollectionCustom(UriReader);
 	}
 
 	public static void deserializeUriNullableCollection(final JsonReader reader, final Collection<URI> res) throws IOException {
@@ -92,7 +92,7 @@ public abstract class NetConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<InetAddress> deserializeIpCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeCollection(AddressReader);
+		return reader.deserializeCollectionCustom(AddressReader);
 	}
 
 	public static void deserializeIpCollection(final JsonReader reader, final Collection<InetAddress> res) throws IOException {
@@ -101,7 +101,7 @@ public abstract class NetConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<InetAddress> deserializeIpNullableCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(AddressReader);
+		return reader.deserializeNullableCollectionCustom(AddressReader);
 	}
 
 	public static void deserializeIpNullableCollection(final JsonReader reader, final Collection<InetAddress> res) throws IOException {

@@ -1,5 +1,6 @@
 package com.bugsnag.android.repackaged.dslplatform.json;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 class ExternalConverterAnalyzer {
@@ -19,14 +20,16 @@ class ExternalConverterAnalyzer {
 				try {
 					Class<?> converterClass = cl.loadClass(ccn);
 					if (!Configuration.class.isAssignableFrom(converterClass)) continue;
-					Configuration converter = (Configuration) converterClass.newInstance();
+					Configuration converter = (Configuration) converterClass.getDeclaredConstructor().newInstance();
 					converter.configure(dslJson);
 					return true;
 				} catch (ClassNotFoundException ignored) {
 				} catch (IllegalAccessException ignored) {
 				} catch (InstantiationException ignored) {
-				}
-			}
+				} catch (InvocationTargetException e) {
+                } catch (NoSuchMethodException e) {
+                }
+            }
 		}
 		return false;
 	}

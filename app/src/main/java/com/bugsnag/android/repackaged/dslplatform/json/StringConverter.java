@@ -89,7 +89,7 @@ public abstract class StringConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<String> deserializeCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeCollection(READER);
+		return reader.deserializeCollectionCustom(READER);
 	}
 
 	public static void deserializeCollection(final JsonReader reader, final Collection<String> res) throws IOException {
@@ -98,7 +98,7 @@ public abstract class StringConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<String> deserializeNullableCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(READER);
+		return reader.deserializeNullableCollectionCustom(READER);
 	}
 
 	public static void deserializeNullableCollection(final JsonReader reader, final Collection<String> res) throws IOException {

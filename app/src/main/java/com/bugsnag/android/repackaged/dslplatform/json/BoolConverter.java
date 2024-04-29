@@ -110,7 +110,7 @@ public abstract class BoolConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Boolean> deserializeCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeCollection(READER);
+		return reader.deserializeCollectionCustom(READER);
 	}
 
 	public static void deserializeCollection(final JsonReader reader, final Collection<Boolean> res) throws IOException {
@@ -119,7 +119,7 @@ public abstract class BoolConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Boolean> deserializeNullableCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(READER);
+		return reader.deserializeNullableCollectionCustom(READER);
 	}
 
 	public static void deserializeNullableCollection(final JsonReader reader, final Collection<Boolean> res) throws IOException {

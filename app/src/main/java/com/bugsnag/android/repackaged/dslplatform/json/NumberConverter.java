@@ -570,7 +570,7 @@ public abstract class NumberConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Double> deserializeDoubleCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeCollection(DOUBLE_READER);
+		return reader.deserializeCollectionCustom(DOUBLE_READER);
 	}
 
 	public static void deserializeDoubleCollection(final JsonReader reader, final Collection<Double> res) throws IOException {
@@ -579,7 +579,7 @@ public abstract class NumberConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Double> deserializeDoubleNullableCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(DOUBLE_READER);
+		return reader.deserializeNullableCollectionCustom(DOUBLE_READER);
 	}
 
 	public static void deserializeDoubleNullableCollection(final JsonReader reader, final Collection<Double> res) throws IOException {
@@ -772,7 +772,7 @@ public abstract class NumberConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Float> deserializeFloatCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeCollection(FLOAT_READER);
+		return reader.deserializeCollectionCustom(FLOAT_READER);
 	}
 
 	public static void deserializeFloatCollection(final JsonReader reader, Collection<Float> res) throws IOException {
@@ -781,7 +781,7 @@ public abstract class NumberConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Float> deserializeFloatNullableCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(FLOAT_READER);
+		return reader.deserializeNullableCollectionCustom(FLOAT_READER);
 	}
 
 	public static void deserializeFloatNullableCollection(final JsonReader reader, final Collection<Float> res) throws IOException {
@@ -981,7 +981,7 @@ public abstract class NumberConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Integer> deserializeIntCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeCollection(INT_READER);
+		return reader.deserializeCollectionCustom(INT_READER);
 	}
 
 	public static int[] deserializeIntArray(final JsonReader reader) throws IOException {
@@ -1080,7 +1080,7 @@ public abstract class NumberConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Short> deserializeShortNullableCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(SHORT_READER);
+		return reader.deserializeNullableCollectionCustom(SHORT_READER);
 	}
 
 	public static void deserializeShortNullableCollection(final JsonReader reader, final Collection<Short> res) throws IOException {
@@ -1093,7 +1093,7 @@ public abstract class NumberConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Integer> deserializeIntNullableCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(INT_READER);
+		return reader.deserializeNullableCollectionCustom(INT_READER);
 	}
 
 	public static void deserializeIntNullableCollection(final JsonReader reader, final Collection<Integer> res) throws IOException {
@@ -1317,7 +1317,7 @@ public abstract class NumberConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Long> deserializeLongCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeCollection(LONG_READER);
+		return reader.deserializeCollectionCustom(LONG_READER);
 	}
 
 	public static void deserializeLongCollection(final JsonReader reader, final Collection<Long> res) throws IOException {
@@ -1326,7 +1326,7 @@ public abstract class NumberConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Long> deserializeLongNullableCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(LONG_READER);
+		return reader.deserializeNullableCollectionCustom(LONG_READER);
 	}
 
 	public static void deserializeLongNullableCollection(final JsonReader reader, final Collection<Long> res) throws IOException {
@@ -1682,7 +1682,7 @@ public abstract class NumberConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<BigDecimal> deserializeDecimalCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeCollection(DecimalReader);
+		return reader.deserializeCollectionCustom(DecimalReader);
 	}
 
 	public static void deserializeDecimalCollection(final JsonReader reader, final Collection<BigDecimal> res) throws IOException {
@@ -1691,7 +1691,7 @@ public abstract class NumberConverter {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<BigDecimal> deserializeDecimalNullableCollection(final JsonReader reader) throws IOException {
-		return reader.deserializeNullableCollection(DecimalReader);
+		return reader.deserializeNullableCollectionCustom(DecimalReader);
 	}
 
 	public static void deserializeDecimalNullableCollection(final JsonReader reader, final Collection<BigDecimal> res) throws IOException {

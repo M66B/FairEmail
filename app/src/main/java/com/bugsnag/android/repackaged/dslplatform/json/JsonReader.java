@@ -1594,12 +1594,13 @@ public final class JsonReader<TContext> {
 		return res.toArray(emptyArray);
 	}
 
-	public final <T, S extends T> ArrayList<T> deserializeCollection(final ReadObject<S> readObject) throws IOException {
+	public final <T, S extends T> ArrayList<T> deserializeCollectionCustom(final ReadObject<S> readObject) throws IOException {
 		final ArrayList<T> res = new ArrayList<T>(4);
 		deserializeCollection(readObject, res);
 		return res;
 	}
 
+	@SuppressWarnings("overloads")
 	public final <T, S extends T> void deserializeCollection(final ReadObject<S> readObject, final Collection<T> res) throws IOException {
 		res.add(readObject.read(this));
 		while (getNextToken() == ',') {
@@ -1609,12 +1610,13 @@ public final class JsonReader<TContext> {
 		checkArrayEnd();
 	}
 
-	public final <T, S extends T> ArrayList<T> deserializeNullableCollection(final ReadObject<S> readObject) throws IOException {
+	public final <T, S extends T> ArrayList<T> deserializeNullableCollectionCustom(final ReadObject<S> readObject) throws IOException {
 		final ArrayList<T> res = new ArrayList<T>(4);
 		deserializeNullableCollection(readObject, res);
 		return res;
 	}
 
+	@SuppressWarnings("overloads")
 	public final <T, S extends T> void deserializeNullableCollection(final ReadObject<S> readObject, final Collection<T> res) throws IOException {
 		if (wasNull()) {
 			res.add(null);
@@ -1638,6 +1640,7 @@ public final class JsonReader<TContext> {
 		return res;
 	}
 
+	@SuppressWarnings("overloads")
 	public final <T extends JsonObject> void deserializeCollection(final ReadJsonObject<T> readObject, final Collection<T> res) throws IOException {
 		if (last == '{') {
 			getNextToken();
@@ -1658,6 +1661,7 @@ public final class JsonReader<TContext> {
 		return res;
 	}
 
+	@SuppressWarnings("overloads")
 	public final <T extends JsonObject> void deserializeNullableCollection(final ReadJsonObject<T> readObject, final Collection<T> res) throws IOException {
 		if (last == '{') {
 			getNextToken();
@@ -1676,7 +1680,7 @@ public final class JsonReader<TContext> {
 		checkArrayEnd();
 	}
 
-	public final <T> Iterator<T> iterateOver(final JsonReader.ReadObject<T> reader) {
+	public final <T> Iterator<T> iterateOverCustom(final JsonReader.ReadObject<T> reader) {
 		return new WithReader<T>(reader, this);
 	}
 

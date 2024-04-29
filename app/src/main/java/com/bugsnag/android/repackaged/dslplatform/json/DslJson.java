@@ -804,7 +804,7 @@ public class DslJson<TContext> implements UnknownSerializer, TypeLookup {
 		for (ClassLoader loader : loaders) {
 			try {
 				Class<?> external = loader.loadClass(name);
-				Configuration instance = (Configuration) external.newInstance();
+				Configuration instance = (Configuration) external.getDeclaredConstructor().newInstance();
 				instance.configure(json);
 			} catch (NoClassDefFoundError ignore) {
 			} catch (Exception ignore) {
@@ -813,6 +813,8 @@ public class DslJson<TContext> implements UnknownSerializer, TypeLookup {
 	}
 
 	static void registerJavaSpecifics(final DslJson json) {
+		json.registerReader(Element.class, XmlConverter.Reader);
+		json.registerWriter(Element.class, XmlConverter.Writer);
 	}
 
 	private final Map<Type, Object> defaults = new ConcurrentHashMap<Type, Object>();
@@ -1653,7 +1655,7 @@ public class DslJson<TContext> implements UnknownSerializer, TypeLookup {
 					}
 					final JsonReader.ReadObject<?> contentReader = tryFindReader(content);
 					if (contentReader != null) {
-						final ArrayList<?> result = json.deserializeNullableCollection(contentReader);
+						final ArrayList<?> result = json.deserializeNullableCollectionCustom(contentReader);
 						if (container.isArray()) {
 							return returnAsArray(content, result);
 						}
@@ -1673,7 +1675,7 @@ public class DslJson<TContext> implements UnknownSerializer, TypeLookup {
 			}
 			final JsonReader.ReadObject<?> contentReader = tryFindReader(content);
 			if (contentReader != null) {
-				final ArrayList<?> result = json.deserializeNullableCollection(contentReader);
+				final ArrayList<?> result = json.deserializeNullableCollectionCustom(contentReader);
 				return returnAsArray(content, result);
 			}
 		}
@@ -1768,7 +1770,7 @@ public class DslJson<TContext> implements UnknownSerializer, TypeLookup {
 			}
 			final JsonReader.ReadObject<?> simpleReader = tryFindReader(manifest);
 			if (simpleReader != null) {
-				return json.deserializeNullableCollection(simpleReader);
+				return json.deserializeNullableCollectionCustom(simpleReader);
 			}
 			if (fallback != null) {
 				final Object array = Array.newInstance(manifest, 0);
@@ -1883,7 +1885,7 @@ public class DslJson<TContext> implements UnknownSerializer, TypeLookup {
 		}
 		final JsonReader.ReadObject simpleReader = tryFindReader(manifest);
 		if (simpleReader != null) {
-			return json.deserializeNullableCollection(simpleReader);
+			return json.deserializeNullableCollectionCustom(simpleReader);
 		}
 		if (fallback != null) {
 			final Object array = Array.newInstance(manifest, 0);
@@ -2009,7 +2011,7 @@ public class DslJson<TContext> implements UnknownSerializer, TypeLookup {
 			}
 			final JsonReader.ReadObject<?> simpleElementReader = tryFindReader(elementManifest);
 			if (simpleElementReader != null) {
-				List<?> list = json.deserializeNullableCollection(simpleElementReader);
+				List<?> list = json.deserializeNullableCollectionCustom(simpleElementReader);
 				return (TResult) convertResultToArray(elementManifest, list);
 			}
 		}
@@ -2267,7 +2269,7 @@ public class DslJson<TContext> implements UnknownSerializer, TypeLookup {
 		}
 		final JsonReader.ReadObject<?> simpleReader = tryFindReader(manifest);
 		if (simpleReader != null) {
-			return json.iterateOver(simpleReader);
+			return json.iterateOverCustom(simpleReader);
 		}
 		if (fallback != null) {
 			final Object array = Array.newInstance(manifest, 0);
