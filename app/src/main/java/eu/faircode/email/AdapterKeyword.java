@@ -229,6 +229,8 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
             else
                 prefs.edit().putInt(key, keyword.color).apply();
 
+            prefs.edit().remove("keyword." + keyword.name);
+
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(new Intent(FragmentMessages.ACTION_KEYWORDS));
         }
