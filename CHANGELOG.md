@@ -6,6 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### Next version
+
+* Added *hasMx()* and *attachments()* expression functions, see [the FAQ](https://m66b.github.io/FairEmail/#faq71)
+* Small improvements and minor bug fixes
+
 ### 1.2178 - 2024-04-29
 
 * Added "AI" summarization of received messages (*)
