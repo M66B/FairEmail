@@ -168,6 +168,8 @@ public class TupleKeyword {
                 return context.getString(R.string.title_keyword_not_delivered);
             case MessageHelper.FLAG_COMPLAINT:
                 return context.getString(R.string.title_keyword_complaint);
+            case MessageHelper.FLAG_PHISHING:
+                return context.getString(R.string.title_keyword_phishing);
             default:
                 return keyword;
         }
@@ -192,6 +194,7 @@ public class TupleKeyword {
             case MessageHelper.FLAG_NOT_DISPLAYED:
             case MessageHelper.FLAG_NOT_DELIVERED:
             case MessageHelper.FLAG_COMPLAINT:
+            case MessageHelper.FLAG_PHISHING:
                 return Helper.resolveColor(context, androidx.appcompat.R.attr.colorError);
 
             default:
