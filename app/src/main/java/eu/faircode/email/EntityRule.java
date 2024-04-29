@@ -764,6 +764,30 @@ public class EntityRule {
         }
     }
 
+    public static class AttachmentsFunction extends AbstractFunction {
+        private final Context context;
+        private final EntityMessage message;
+
+        AttachmentsFunction(Context context, EntityMessage message) {
+            this.context = context;
+            this.message = message;
+        }
+
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token functionToken, EvaluationValue... parameterValues) {
+            int result = 0;
+
+            if (message != null) {
+                DB db = DB.getInstance(context);
+                result = db.attachment().countAttachments(message.id);
+            }
+
+            Log.i("EXPR attachments()=" + result);
+            return expression.convertValue(result);
+        }
+    }
+
     @InfixOperator(precedence = OPERATOR_PRECEDENCE_COMPARISON)
     public static class ContainsOperator extends AbstractOperator {
         private final boolean regex;
@@ -846,6 +870,7 @@ public class EntityRule {
         MessageFunction fMessage = new MessageFunction(message);
         BlocklistFunction fBlocklist = new BlocklistFunction(context, message, headers);
         MxFunction fMx = new MxFunction(context, message);
+        AttachmentsFunction fAttachments = new AttachmentsFunction(context, message);
 
         ContainsOperator oContains = new ContainsOperator(false);
         ContainsOperator oMatches = new ContainsOperator(true);
@@ -857,6 +882,7 @@ public class EntityRule {
         configuration.getFunctionDictionary().addFunction("Blocklist", fBlocklist);
         configuration.getFunctionDictionary().addFunction("onBlocklist", fBlocklist);
         configuration.getFunctionDictionary().addFunction("hasMx", fMx);
+        configuration.getFunctionDictionary().addFunction("attachments", fAttachments);
 
         configuration.getOperatorDictionary().addOperator("Contains", oContains);
         configuration.getOperatorDictionary().addOperator("Matches", oMatches);
