@@ -2769,8 +2769,8 @@ The following extra variables are available:
 
 The following extra operators are available:
 
-* *contains* (contains substring)
-* *matches* (matches regex)
+* *contains* (string/array of strings contains substring)
+* *matches* (string/array of strings matches regex)
 
 The following extra functions are available:
 
