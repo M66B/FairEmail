@@ -1528,9 +1528,6 @@ public class MessageHelper {
     }
 
     static boolean showKeyword(String keyword) {
-        if (BuildConfig.DEBUG)
-            return true;
-
         int len = FLAG_BLACKLIST.size();
         for (int i = 0; i < len; i++)
             if (FLAG_BLACKLIST.get(i).equalsIgnoreCase(keyword))
