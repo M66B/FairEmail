@@ -2765,7 +2765,7 @@ The following extra variables are available:
 * *to* (array)
 * *subject* (string)
 * *text* (string)
-* *hasAttachments* (boolean; deprecated, use function *attachments()*)
+* *hasAttachments* (boolean; deprecated, use function *attachments()* instead)
 
 The following extra operators are available:
 
@@ -2775,14 +2775,16 @@ The following extra operators are available:
 The following extra functions are available:
 
 * *header(name)* (returns an array of header values for the named header)
-* *blocklist()* (version 1.2176-1.2178; deprecated)
+* *blocklist()* (version 1.2176-1.2178; deprecated, use *onBlocklist()* instead)
 * *onBlocklist()* (returns a boolean indicating if the sender/server is on a DNS blocklist; since version 1.2179)
-* *hasMx()* (returns boolean indicating if the from/reply-to address has an associated MX record; since version 1.2179)
-* *attachments()* (returns integer indicating number of attachments; since version 1.2179)
+* *hasMx()* (returns a boolean indicating if the from/reply-to address has an associated MX record; since version 1.2179)
+* *attachments()* (returns an integer indicating number of attachments; since version 1.2179)
 
-Example condition:
+Example conditions:
 
-```header("X-Mailer") contains "Open-Xchange" && from matches ".*service@.*" && !hasAttachments```
+```header("X-Mailer") contains "Open-Xchange" && from matches ".*service@.*"```
+
+```!onBlocklist() && hasMx() && attachments() > 0```
 
 <br>
 
