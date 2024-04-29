@@ -342,6 +342,7 @@ public class FragmentMessages extends FragmentBase
     private boolean seekbar;
     private boolean move_thread_all;
     private boolean move_thread_sent;
+    private boolean swipe_trash_all;
     private boolean actionbar;
     private int actionbar_delete_id;
     private int actionbar_archive_id;
@@ -496,6 +497,7 @@ public class FragmentMessages extends FragmentBase
         seekbar = prefs.getBoolean("seekbar", false);
         move_thread_all = prefs.getBoolean("move_thread_all", false);
         move_thread_sent = (move_thread_all || prefs.getBoolean("move_thread_sent", false));
+        swipe_trash_all = prefs.getBoolean("swipe_trash_all", true);
         actionbar = prefs.getBoolean("actionbar", true);
         boolean actionbar_swap = prefs.getBoolean("actionbar_swap", false);
         actionbar_delete_id = (actionbar_swap ? R.id.action_archive : R.id.action_delete);
@@ -3657,6 +3659,7 @@ public class FragmentMessages extends FragmentBase
             args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
             args.putLong("target", target);
             args.putBoolean("filter_archive", filter_archive);
+            args.putBoolean("swipe_trash_all", swipe_trash_all);
 
             new SimpleTask<ArrayList<MessageTarget>>() {
                 @Override
@@ -3665,6 +3668,7 @@ public class FragmentMessages extends FragmentBase
                     boolean thread = args.getBoolean("thread");
                     long tid = args.getLong("target");
                     boolean filter_archive = args.getBoolean("filter_archive");
+                    boolean swipe_trash_all = args.getBoolean("swipe_trash_all");
 
                     ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -3695,7 +3699,8 @@ public class FragmentMessages extends FragmentBase
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread,
                                 threading && thread ? null : id,
-                                !EntityFolder.DRAFTS.equals(baseFolder.type) &&
+                                swipe_trash_all &&
+                                        !EntityFolder.DRAFTS.equals(baseFolder.type) &&
                                         EntityFolder.TRASH.equals(targetFolder.type) ? null : message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
