@@ -204,8 +204,10 @@ class Core {
                                 @Override
                                 public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
                                     long ago = System.currentTimeMillis() - protocol.getTimestamp();
-                                    if (ago > 20000)
+                                    if (ago > 20000) {
+                                        Log.i("NOOP ago=" + ago + " ms");
                                         protocol.noop();
+                                    }
                                     return null;
                                 }
                             });
