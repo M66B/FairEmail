@@ -94,6 +94,7 @@ public class ExpressionHelper {
         MxFunction fMx = new MxFunction(context, message);
         AttachmentsFunction fAttachments = new AttachmentsFunction(context, message);
         JsoupFunction fJsoup = new JsoupFunction(context, message);
+        SizeFunction fSize = new SizeFunction();
 
         ContainsOperator oContains = new ContainsOperator(false);
         ContainsOperator oMatches = new ContainsOperator(true);
@@ -107,6 +108,7 @@ public class ExpressionHelper {
         configuration.getFunctionDictionary().addFunction("hasMx", fMx);
         configuration.getFunctionDictionary().addFunction("attachments", fAttachments);
         configuration.getFunctionDictionary().addFunction("Jsoup", fJsoup);
+        configuration.getFunctionDictionary().addFunction("Size", fSize);
 
         configuration.getOperatorDictionary().addOperator("Contains", oContains);
         configuration.getOperatorDictionary().addOperator("Matches", oMatches);
@@ -340,6 +342,25 @@ public class ExpressionHelper {
 
             Log.i("EXPR jsoup(" + parameterValues[0] + ")=" + TextUtils.join(", ", result));
             return new EvaluationValue(result, ExpressionConfiguration.defaultConfiguration());
+        }
+    }
+
+    @FunctionParameter(name = "value")
+    public static class SizeFunction extends AbstractFunction {
+        SizeFunction() {
+        }
+
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token functionToken, EvaluationValue... parameterValues) {
+            int result = 0;
+
+            if (parameterValues.length == 1 &&
+                    parameterValues[0].getDataType() == EvaluationValue.DataType.ARRAY)
+                result = parameterValues[0].getArrayValue().size();
+
+            Log.i("EXPR size()=" + result);
+            return expression.convertValue(result);
         }
     }
 

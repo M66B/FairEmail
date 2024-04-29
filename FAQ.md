@@ -2780,6 +2780,7 @@ The following extra functions are available:
 * *hasMx()* (returns a boolean indicating if the from/reply-to address has an associated MX record; since version 1.2179)
 * *attachments()* (returns an integer indicating number of attachments; since version 1.2179)
 * *Jsoup()* (returns an array of selected strings; since version 1.2179)
+* *Size(array)* (returns the number of items in an array; since version 1.2179)
 
 Example conditions:
 
