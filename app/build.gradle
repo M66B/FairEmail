@@ -153,15 +153,17 @@ android {
         }
     }
 
+    // https://developer.android.com/reference/tools/gradle-api/8.3/com/android/build/api/dsl/BuildFeatures
     buildFeatures {
-        buildConfig = true
-        viewBinding = false
-        dataBinding = false
         aidl = true
+        buildConfig = true
+        compose = false
+        prefab = false
         renderScript = false
         resValues = false
         shaders = false
-        compose = false
+        viewBinding = false
+        dataBinding = false
     }
 
     buildTypes {
