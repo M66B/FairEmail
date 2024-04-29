@@ -8,8 +8,9 @@ Acantholipan
 
 Next version
 
-* Added *hasMx()* and *attachments()* expression functions, see the FAQ
+* Added *hasMx()* and *attachments()* expression condition functions, see the FAQ
 * Small improvements and minor bug fixes
+* Updated libraries (including Bouncy Castle
 
 1.2178 - 2024-04-29
 
