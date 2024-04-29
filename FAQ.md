@@ -2779,6 +2779,7 @@ The following extra functions are available:
 * *onBlocklist()* (returns a boolean indicating if the sender/server is on a DNS blocklist; since version 1.2179)
 * *hasMx()* (returns a boolean indicating if the from/reply-to address has an associated MX record; since version 1.2179)
 * *attachments()* (returns an integer indicating number of attachments; since version 1.2179)
+* *Jsoup()* (returns an array of selected strings; since version 1.2179)
 
 Example conditions:
 

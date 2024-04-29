@@ -788,6 +788,37 @@ public class EntityRule {
         }
     }
 
+    @FunctionParameter(name = "value")
+    public static class JsoupFunction extends AbstractFunction {
+        private final Context context;
+        private final EntityMessage message;
+
+        JsoupFunction(Context context, EntityMessage message) {
+            this.context = context;
+            this.message = message;
+        }
+
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token functionToken, EvaluationValue... parameterValues) {
+            List<String> result = new ArrayList<>();
+
+            if (message != null && message.content && parameterValues.length == 1)
+                try {
+                    String query = parameterValues[0].getStringValue();
+                    File file = message.getFile(context);
+                    Document d = JsoupEx.parse(file);
+                    for (Element element : d.select(query))
+                        result.add(element.text());
+                } catch (Throwable ex) {
+                    Log.e("EXPR", ex);
+                }
+
+            Log.i("EXPR jsoup(" + parameterValues[0] + ")=" + TextUtils.join(", ", result));
+            return new EvaluationValue(result, ExpressionConfiguration.defaultConfiguration());
+        }
+    }
+
     @InfixOperator(precedence = OPERATOR_PRECEDENCE_COMPARISON)
     public static class ContainsOperator extends AbstractOperator {
         private final boolean regex;
@@ -871,6 +902,7 @@ public class EntityRule {
         BlocklistFunction fBlocklist = new BlocklistFunction(context, message, headers);
         MxFunction fMx = new MxFunction(context, message);
         AttachmentsFunction fAttachments = new AttachmentsFunction(context, message);
+        JsoupFunction fJsoup = new JsoupFunction(context, message);
 
         ContainsOperator oContains = new ContainsOperator(false);
         ContainsOperator oMatches = new ContainsOperator(true);
@@ -883,6 +915,7 @@ public class EntityRule {
         configuration.getFunctionDictionary().addFunction("onBlocklist", fBlocklist);
         configuration.getFunctionDictionary().addFunction("hasMx", fMx);
         configuration.getFunctionDictionary().addFunction("attachments", fAttachments);
+        configuration.getFunctionDictionary().addFunction("Jsoup", fJsoup);
 
         configuration.getOperatorDictionary().addOperator("Contains", oContains);
         configuration.getOperatorDictionary().addOperator("Matches", oMatches);
