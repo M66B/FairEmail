@@ -155,10 +155,6 @@ public class EntityRule {
     private static final int MAX_NOTES_LENGTH = 512; // characters
     private static final int URL_TIMEOUT = 15 * 1000; // milliseconds
 
-    private static final List<String> EXPR_VARIABLES = Collections.unmodifiableList(Arrays.asList(
-            "to", "from", "subject", "text", "hasAttachments"
-    ));
-
     static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
         return needsHeaders(rules);
     }
@@ -691,16 +687,8 @@ public class EntityRule {
     void validate(Context context) throws JSONException, IllegalArgumentException {
         try {
             Expression expression = ExpressionHelper.getExpression(this, null, null, null, context);
-            if (expression != null) {
-                for (String variable : expression.getUsedVariables()) {
-                    Log.i("EXPR variable=" + variable);
-                    if (!EXPR_VARIABLES.contains(variable))
-                        throw new IllegalArgumentException("Unknown variable '" + variable + "'");
-                }
-                Log.i("EXPR validating");
-                expression.validate();
-                Log.i("EXPR validated");
-            }
+            if (expression != null)
+                ExpressionHelper.check(expression);
         } catch (ParseException | MessagingException ex) {
             Log.w("EXPR", ex);
             String message = ex.getMessage();

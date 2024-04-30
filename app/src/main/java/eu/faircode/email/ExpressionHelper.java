@@ -60,6 +60,21 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.InternetHeaders;
 
 public class ExpressionHelper {
+    private static final List<String> EXPR_VARIABLES = Collections.unmodifiableList(Arrays.asList(
+            "received", "to", "from", "subject", "text", "hasAttachments"
+    ));
+
+    static void check(Expression expression) throws ParseException {
+        for (String variable : expression.getUsedVariables()) {
+            Log.i("EXPR variable=" + variable);
+            if (!EXPR_VARIABLES.contains(variable))
+                throw new IllegalArgumentException("Unknown variable '" + variable + "'");
+        }
+        Log.i("EXPR validating");
+        expression.validate();
+        Log.i("EXPR validated");
+    }
+
     static Expression getExpression(EntityRule rule, EntityMessage message, List<Header> headers, String html, Context context) throws JSONException, ParseException, MessagingException {
         // https://ezylang.github.io/EvalEx/
 
@@ -120,6 +135,7 @@ public class ExpressionHelper {
         configuration.getOperatorDictionary().addOperator("Matches", oMatches);
 
         Expression expression = new Expression(eval, configuration)
+                .with("received", message == null ? null : message.received)
                 .with("to", to)
                 .with("from", from)
                 .with("subject", message == null ? null : message.subject)

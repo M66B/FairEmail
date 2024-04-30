@@ -2765,8 +2765,9 @@ Please [see here](https://ezylang.github.io/EvalEx/references/references.html) a
 
 The following extra variables are available:
 
-* *from* (array)
-* *to* (array)
+* *received* (long, unix epoch in milliseconds; since version 1.2179)
+* *from* (array of strings)
+* *to* (array of strings)
 * *subject* (string)
 * *text* (string)
 * *hasAttachments* (boolean; deprecated, use function *attachments()* instead)
