@@ -114,7 +114,7 @@ public class ExpressionHelper {
         configuration.getFunctionDictionary().addFunction("attachments", fAttachments);
         configuration.getFunctionDictionary().addFunction("Jsoup", fJsoup);
         configuration.getFunctionDictionary().addFunction("Size", fSize);
-        configuration.getFunctionDictionary().addFunction("Known", fKnown);
+        configuration.getFunctionDictionary().addFunction("knownContact", fKnown);
 
         configuration.getOperatorDictionary().addOperator("Contains", oContains);
         configuration.getOperatorDictionary().addOperator("Matches", oMatches);
