@@ -13,6 +13,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Updated build tools
 * Updated libraries (including [Bouncy Castle](https://www.bouncycastle.org/))
 
+Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
+
 ### 1.2178 - 2024-04-29
 
 * Added "AI" summarization of received messages (*)

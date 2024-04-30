@@ -13,6 +13,8 @@ Next version
 * Updated build tools
 * Updated libraries (including Bouncy Castle
 
+Preview versions are available here.
+
 1.2178 - 2024-04-29
 
 * Added "AI" summarization of received messages (*)
