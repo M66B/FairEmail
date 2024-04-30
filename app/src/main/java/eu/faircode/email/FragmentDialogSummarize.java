@@ -90,9 +90,10 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                 if (OpenAI.isAvailable(context)) {
                     String model = prefs.getString("openai_model", "gpt-3.5-turbo");
                     float temperature = prefs.getFloat("openai_temperature", 0.5f);
+                    String prompt = prefs.getString("openai_summarize", OpenAI.SUMMARY_PROMPT);
 
                     List<OpenAI.Message> result = new ArrayList<>();
-                    result.add(new OpenAI.Message(OpenAI.ASSISTANT, OpenAI.SUMMARY_PROMPT));
+                    result.add(new OpenAI.Message(OpenAI.ASSISTANT, prompt));
                     result.add(new OpenAI.Message(OpenAI.USER, text));
                     OpenAI.Message[] completions =
                             OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);
@@ -105,8 +106,9 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     return sb.toString();
                 } else if (Gemini.isAvailable(context)) {
                     String model = prefs.getString("gemini_model", "gemini-pro");
+                    String prompt = prefs.getString("gemini_summarize", Gemini.SUMMARY_PROMPT);
 
-                    String[] result = Gemini.generate(context, model, new String[]{Gemini.SUMMARY_PROMPT, text});
+                    String[] result = Gemini.generate(context, model, new String[]{prompt, text});
                     return TextUtils.join("\n", result);
                 }
 
