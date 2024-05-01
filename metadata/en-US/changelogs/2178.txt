@@ -8,10 +8,13 @@ Acantholipan
 
 Next version
 
+* Added option to change "AI" summarize prompt
 * Added expression condition functions, see the FAQ
 * Small improvements and minor bug fixes
 * Updated build tools
 * Updated libraries (including Bouncy Castle
+* Updated Public Suffix List
+* Updated translations
 
 Preview versions are available here.
 

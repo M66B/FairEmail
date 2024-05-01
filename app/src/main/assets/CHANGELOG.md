@@ -8,10 +8,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Added option to change "AI" summarize prompt
 * Added expression condition functions, see [the FAQ](https://m66b.github.io/FairEmail/#faq71)
 * Small improvements and minor bug fixes
 * Updated build tools
 * Updated libraries (including [Bouncy Castle](https://www.bouncycastle.org/))
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
 
