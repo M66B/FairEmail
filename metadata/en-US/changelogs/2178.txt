@@ -12,6 +12,7 @@ Next version
 * Added expression condition functions, see the FAQ
 * Small improvements and minor bug fixes
 * Updated build tools
+* Updated AndroidX
 * Updated libraries (including Bouncy Castle
 * Updated Public Suffix List
 * Updated translations
