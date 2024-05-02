@@ -405,10 +405,14 @@ open class InvalidationTracker @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP_PREFIX
 
         private fun checkUpdatedTable(): Set<Int> {
             val invalidatedTableIds = buildSet {
-                database.query(SimpleSQLiteQuery(SELECT_UPDATED_TABLES_SQL)).useCursor { cursor ->
-                    while (cursor.moveToNext()) {
-                        add(cursor.getInt(0))
+                try {
+                    database.query(SimpleSQLiteQuery(SELECT_UPDATED_TABLES_SQL)).useCursor { cursor ->
+                        while (cursor.moveToNext()) {
+                            add(cursor.getInt(0))
+                        }
                     }
+                } catch (ex: Throwable) {
+                    eu.faircode.email.Log.w(ex)
                 }
             }
             if (invalidatedTableIds.isNotEmpty()) {
