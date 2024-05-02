@@ -301,10 +301,10 @@ public class FragmentMessages extends FragmentBase
     private ImageButton ibNormalImportance;
     private ImageButton ibHighImportance;
     private ImageButton ibInbox;
-    private ImageButton ibArchive;
     private ImageButton ibJunk;
     private ImageButton ibTrash;
     private ImageButton ibDelete;
+    private ImageButton ibArchive;
     private ImageButton ibMove;
     private ImageButton ibMoreSettings;
     private FloatingActionButton fabSearch;
@@ -630,10 +630,10 @@ public class FragmentMessages extends FragmentBase
         ibNormalImportance = view.findViewById(R.id.ibNormalImportance);
         ibHighImportance = view.findViewById(R.id.ibHighImportance);
         ibInbox = view.findViewById(R.id.ibInbox);
-        ibArchive = view.findViewById(R.id.ibArchive);
         ibJunk = view.findViewById(R.id.ibJunk);
         ibTrash = view.findViewById(R.id.ibTrash);
         ibDelete = view.findViewById(R.id.ibDelete);
+        ibArchive = view.findViewById(R.id.ibArchive);
         ibMove = view.findViewById(R.id.ibMove);
         ibMoreSettings = view.findViewById(R.id.ibMoreSettings);
         fabSearch = view.findViewById(R.id.fabSearch);
@@ -1720,13 +1720,6 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
-        ibArchive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onActionMoveSelection(EntityFolder.ARCHIVE, false);
-            }
-        });
-
         ibJunk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1752,6 +1745,13 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 onActionDeleteSelection();
+            }
+        });
+
+        ibArchive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionMoveSelection(EntityFolder.ARCHIVE, false);
             }
         });
 
@@ -6988,6 +6988,10 @@ public class FragmentMessages extends FragmentBase
                         if (move)
                             count++;
 
+                        boolean archive = (more_archive && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canArchive());
+                        if (archive)
+                            count++;
+
                         boolean delete = (more_delete && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canDelete());
                         if (delete)
                             count++;
@@ -7004,10 +7008,6 @@ public class FragmentMessages extends FragmentBase
 
                         boolean junk = (more_junk && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canJunk());
                         if (junk)
-                            count++;
-
-                        boolean archive = (more_archive && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canArchive());
-                        if (archive)
                             count++;
 
                         boolean inbox = ((more_inbox || (more_junk && inJunk)) && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canInbox());
@@ -7074,10 +7074,10 @@ public class FragmentMessages extends FragmentBase
                         ibNormalImportance.setVisibility(importance_normal ? View.VISIBLE : View.GONE);
                         ibHighImportance.setVisibility(importance_high ? View.VISIBLE : View.GONE);
                         ibInbox.setVisibility(inbox ? View.VISIBLE : View.GONE);
-                        ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
                         ibJunk.setVisibility(junk ? View.VISIBLE : View.GONE);
                         ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
                         ibDelete.setVisibility(delete ? View.VISIBLE : View.GONE);
+                        ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
                         ibMove.setVisibility(move ? View.VISIBLE : View.GONE);
                         cardMore.setTag(fabMore.isOrWillBeShown() ? result : null);
                         cardMore.setVisibility(fabMore.isOrWillBeShown() ? View.VISIBLE : View.GONE);

@@ -818,20 +818,6 @@
                 app:tint="@color/action_foreground" />
 
             <ImageButton
-                android:id="@+id/ibArchive"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/title_archive"
-                android:padding="6dp"
-                android:scaleType="fitCenter"
-                android:tooltipText="@string/title_archive"
-                app:layout_constraintEnd_toStartOf="@id/ibInbox"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_archive_24"
-                app:tint="@color/action_foreground" />
-
-            <ImageButton
                 android:id="@+id/ibJunk"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -840,7 +826,7 @@
                 android:padding="6dp"
                 android:scaleType="fitCenter"
                 android:tooltipText="@string/title_folder_junk"
-                app:layout_constraintEnd_toStartOf="@id/ibArchive"
+                app:layout_constraintEnd_toStartOf="@id/ibInbox"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_report_24"
                 app:tint="@color/action_foreground" />
@@ -874,6 +860,20 @@
                 app:tint="@color/action_foreground" />
 
             <ImageButton
+                android:id="@+id/ibArchive"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_archive"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tooltipText="@string/title_archive"
+                app:layout_constraintEnd_toStartOf="@id/ibDelete"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_archive_24"
+                app:tint="@color/action_foreground" />
+
+            <ImageButton
                 android:id="@+id/ibMove"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -882,7 +882,7 @@
                 android:padding="6dp"
                 android:scaleType="fitCenter"
                 android:tooltipText="@string/title_move_to"
-                app:layout_constraintEnd_toStartOf="@id/ibDelete"
+                app:layout_constraintEnd_toStartOf="@id/ibArchive"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_drive_file_move_24"
                 app:tint="@color/action_foreground" />
