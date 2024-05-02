@@ -406,7 +406,7 @@ public abstract class DB extends RoomDatabase {
             try {
                 Log.i("Disabling view invalidation");
 
-                Field fmViewTables = InvalidationTracker.class.getDeclaredField("mViewTables");
+                Field fmViewTables = InvalidationTracker.class.getDeclaredField("viewTables");
                 fmViewTables.setAccessible(true);
 
                 Map<String, Set<String>> mViewTables = (Map) fmViewTables.get(sInstance.getInvalidationTracker());
