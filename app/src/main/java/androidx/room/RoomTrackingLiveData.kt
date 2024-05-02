@@ -54,79 +54,62 @@ internal class RoomTrackingLiveData<T> (
     val invalid = AtomicBoolean(true)
     val computing = AtomicBoolean(false)
     val registeredObserver = AtomicBoolean(false)
-    val queued = eu.faircode.email.ObjectHolder<Int>(0)
-    val lock = Object()
     val refreshRunnable = Runnable {
-		eu.faircode.email.Log.i("MMM Refresh")
-		synchronized(lock) {
-			queued.value--
-			if (queued.value < 0) {
-				eu.faircode.email.Log.e("$computeFunction queued=$queued.value")
-				queued.value = 0
-			}
-		}
-		eu.faircode.email.Log.i("MMM Refreshing")
-
-		if (registeredObserver.compareAndSet(false, true)) {
-			database.invalidationTracker.addWeakObserver(observer)
-		}
-
-		var value: T? = null
-		var computed = false
-		synchronized(computeFunction) {
-			var retry = 0
-			while (!computed) {
-				try {
-					value = computeFunction.call()
-					computed = true
-				} catch (e: Throwable) {
-					if (++retry > 5) {
-						eu.faircode.email.Log.e(e)
-						break
-					}
-					eu.faircode.email.Log.w(e)
-					try {
-						Thread.sleep(2000L)
-					} catch (ignored: InterruptedException) {
-					}
-				}
-			}
-		}
-		if (computed) {
-			postValue(value)
-		}
-		eu.faircode.email.Log.i("MMM Refreshed")
-	}
+        if (registeredObserver.compareAndSet(false, true)) {
+            database.invalidationTracker.addWeakObserver(observer)
+        }
+        var computed: Boolean
+        do {
+            computed = false
+            // compute can happen only in 1 thread but no reason to lock others.
+            if (computing.compareAndSet(false, true)) {
+                // as long as it is invalid, keep computing.
+                try {
+                    var value: T? = null
+                    while (invalid.compareAndSet(true, false)) {
+                        computed = true
+                        try {
+                            value = computeFunction.call()
+                        } catch (e: Exception) {
+                            throw RuntimeException(
+                                "Exception while computing database live data.",
+                                e
+                            )
+                        }
+                    }
+                    if (computed) {
+                        postValue(value)
+                    }
+                } finally {
+                    // release compute lock
+                    computing.set(false)
+                }
+            }
+            // check invalid after releasing compute lock to avoid the following scenario.
+            // Thread A runs compute()
+            // Thread A checks invalid, it is false
+            // Main thread sets invalid to true
+            // Thread B runs, fails to acquire compute lock and skips
+            // Thread A releases compute lock
+            // We've left invalid in set state. The check below recovers.
+        } while (computed && invalid.get())
+    }
 
     val invalidationRunnable = Runnable {
-		val isActive = hasActiveObservers()
-		if (invalid.compareAndSet(false, true)) {
-			if (isActive) {
-			eu.faircode.email.Log.i("MMM Invalidate")
-				synchronized(lock) {
-					if (queued.value > 0) {
-						eu.faircode.email.Log.persist(eu.faircode.email.EntityLog.Type.Debug, "$computeFunction queued=$queued.value")
-					} else {
-						queued.value++
-						queryExecutor.execute(refreshRunnable)
-					}
-					eu.faircode.email.Log.i("MMM Invalidated")
-				}
-			}
-		}
-	}
+        val isActive = hasActiveObservers()
+        if (invalid.compareAndSet(false, true)) {
+            if (isActive) {
+                queryExecutor.execute(refreshRunnable)
+            }
+        }
+    }
 
     @Suppress("UNCHECKED_CAST")
     override fun onActive() {
-		super.onActive()
-		container.onActive(this as LiveData<Any>)
-		eu.faircode.email.Log.i("MMM Active")
-		synchronized(lock) {
-			queued.value++
-			queryExecutor.execute(refreshRunnable)
-		}
-		eu.faircode.email.Log.i("MMM Actived")
-	}
+        super.onActive()
+        container.onActive(this as LiveData<Any>)
+        queryExecutor.execute(refreshRunnable)
+    }
 
     @Suppress("UNCHECKED_CAST")
     override fun onInactive() {
