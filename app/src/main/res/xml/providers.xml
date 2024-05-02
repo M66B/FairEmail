@@ -742,7 +742,7 @@
     </provider>
     <provider
         name="freenet.de"
-        documentation="Haben Sie SMTP über die Systemsteuerung des E-Mail-Anbieters aktiviert?"
+        documentation="Haben Sie SMTP über die Systemsteuerung des E-Mail-Anbieters &lt;a href=&quot;https://kundenservice.freenet.de/artikel/1685&quot;&gt;aktiviert&lt;/a&gt;?"
         domain="freenet\\.de,fn\\.de,freenetmail\\.de,bossmail\\.de,justmail\\.de"
         link="https://kundenservice.freenet.de/artikel/1869">
         <imap
