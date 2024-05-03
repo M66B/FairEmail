@@ -636,6 +636,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_swipe_reply">Fei útklapte berjochten nei rjochts om te beäntwurdzjen</string>
     <string name="title_advanced_move_thread_all">By it ferpleatsen fan selektearre petearen, alle berjochten ferpleatse</string>
     <string name="title_advanced_move_thread_sent">Wannear’t in petear ferpleatst wurdt, ek ferstjoerde berjochten ferpleatse</string>
+    <string name="title_advanced_swipe_trash_all">By it feien fan in petear nei it jiskefet, alle berjochten nei it jiskefet ferpleats</string>
     <string name="title_advanced_default_snooze">Standert slommerdoer/fertragingstiid</string>
     <string name="title_advanced_default_folder">Standert map selektearje</string>
     <string name="title_advanced_notifications">Notifikaasjes beheare</string>
@@ -769,6 +770,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_openai_temperature">Temperatuer: %1$s</string>
     <string name="title_advanced_openai_moderation">Ynhâldsbehear</string>
     <string name="title_advanced_gemini">Gemini-yntegraasje</string>
+    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Opdracht gearfetsje</string>
     <string name="title_advanced_sdcard">Ik wol in SD-kaart brûke</string>
     <string name="title_advanced_watchdog">Periodyk kontrolearje oft FairEmail noch aktyf is</string>
     <string name="title_advanced_updates">Kontrolearje op GitHub-fernijingen</string>
@@ -865,6 +867,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_autoclose_hint">Petearen automatysk slute as alle berjochten argivearre, ferstjoerd of fuortsmiten binne</string>
     <string name="title_advanced_sender_hint">De measte providers stean oanpaste ôfstjoeradressen net ta</string>
     <string name="title_advanced_bcc_hint">It adres wurdt net werjûn, mar wurdt tafoege by it ferstjoeren</string>
+    <string name="title_advanced_envelope_from_hint">Dit adres sil brûkt wurde foar SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Der wurdt in warskôging jûn as jo nei in oar domein ferstjoere</string>
     <string name="title_advanced_uri">De gegevens fan it selektearre kontakt wurde brûkt foar vCard-bylagen</string>
     <string name="title_advanced_e2e_encryption">Opsjes foar end-to-end-fersifering</string>
@@ -1097,8 +1100,10 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_delete_operation_move">Bewurkingen ferpleatse</string>
     <string name="title_delete_operation_flag">Bewurkingen labelje</string>
     <string name="title_delete_operation_delete">Bewurkingen fuortsmite</string>
+    <string name="title_delete_operation_send">Ferstjoeroperaasjes</string>
     <string name="title_delete_operation_deleted">%1$d bewurkingen fuortsmiten</string>
     <string name="title_delete_contacts">Alle lokale kontakten wiskje?</string>
+    <string name="title_delete_contacts_remark">Alle toande en net toande kontakten wurde fuortsmiten, sels as se socht wure!</string>
     <string name="title_no_operations">Gjin iepensteande bewurkingen</string>
     <string name="title_check_operations">Kontrolearje op bewurkingen</string>
     <string name="title_hint_operations">Fuortsmiten fan bewurkingen kin resultearje yn ferdwine berjochten en syngronisaasjeproblemen</string>
@@ -1352,6 +1357,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_reply_to">Antwurd oan:</string>
     <string name="title_cc">Cc:</string>
     <string name="title_bcc">Bcc:</string>
+    <string name="title_envelope_from">Slúfke fan:</string>
     <string name="title_recipients">%1$d ûntfangers</string>
     <string name="title_via_identity">Fia:</string>
     <string name="title_sent">Ferstjoerd:</string>
@@ -1443,6 +1449,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_create_template">Sjabloan oanmeitsje</string>
     <string name="title_select_default_identity">Standert adres selektearje</string>
     <string name="title_translate">Oersette</string>
+    <string name="title_summarize">Gearfetsje</string>
     <string name="title_translate_configure">Konfigurearje&#8230;</string>
     <string name="title_translate_key">Kaai ynfiere</string>
     <string name="title_translating">Oersette&#8230;</string>
@@ -1621,6 +1628,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_view_thread">Petear toane</string>
     <string name="title_force_sync">Syngronisaasje forsearje</string>
     <string name="title_force_send">Ferstjoeren forsearje</string>
+    <string name="title_pwned_remark">Dit kontrolearret it wachtwurd, sûnder it te ferstjoeren (mei help fan k-anonimisearring), en net it e-mailadres!</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Foarige</string>
     <string name="title_next">Folgjende</string>
@@ -2057,6 +2065,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_keyword_not_displayed">Net toand</string>
     <string name="title_keyword_not_delivered">Net ôflevere</string>
     <string name="title_keyword_complaint">Klacht</string>
+    <string name="title_keyword_phishing">Phishing</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d berjocht</item>
         <item quantity="other">%1$d berjochten</item>

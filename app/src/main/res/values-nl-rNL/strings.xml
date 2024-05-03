@@ -636,6 +636,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_swipe_reply">Veeg uitgevouwde berichten naar rechts om te beantwoorden</string>
     <string name="title_advanced_move_thread_all">Bij het verplaatsen van geselecteerde gesprekken, alle berichten verplaatsen</string>
     <string name="title_advanced_move_thread_sent">Wanneer een gesprek wordt verplaatst, verplaats ook verzonden berichten</string>
+    <string name="title_advanced_swipe_trash_all">Bij het vegen van een gesprek naar de prullenbak, verplaats alle berichten naar de prullenbak</string>
     <string name="title_advanced_default_snooze">Standaard sluimer/vertragingstijd</string>
     <string name="title_advanced_default_folder">Selecteer standaard map</string>
     <string name="title_advanced_notifications">Beheer meldingen</string>
@@ -767,6 +768,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_openai_temperature">Temperatuur: %1$s</string>
     <string name="title_advanced_openai_moderation">Inhoudsmatiging</string>
     <string name="title_advanced_gemini">Gemini integratie</string>
+    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Opdracht samenvatten</string>
     <string name="title_advanced_sdcard">Ik wil een SD-kaart gebruiken</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op GitHub updates</string>
@@ -1097,9 +1099,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_delete_operation_move">Verplaats bewerkingen</string>
     <string name="title_delete_operation_flag">Vlag bewerkingen</string>
     <string name="title_delete_operation_delete">Verwijder bewerkingen</string>
+    <string name="title_delete_operation_send">Verzendoperaties</string>
     <string name="title_delete_operation_deleted">%1$d bewerkingen verwijderd</string>
     <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
-    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Alle getoonde en niet getoonde contacten worden verwijderd, zelfs als ze werden gezocht!</string>
+    <string name="title_delete_contacts_remark">Alle getoonde en niet getoonde contacten worden verwijderd, zelfs als ze werden gezocht!</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
     <string name="title_check_operations">Controleren op bewerkingen</string>
     <string name="title_hint_operations">Verwijderen van bewerkingen kan leiden tot het verdwijnen van berichten en synchronisatieproblemen</string>
@@ -1443,6 +1446,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_create_template">Maak sjabloon</string>
     <string name="title_select_default_identity">Selecteer standaardadres</string>
     <string name="title_translate">Vertalen</string>
+    <string name="title_summarize">Samenvatten</string>
     <string name="title_translate_configure">Configureer &#8230;</string>
     <string name="title_translate_key">Sleutel invoeren</string>
     <string name="title_translating">Vertalen &#8230;</string>
@@ -1619,7 +1623,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_view_thread">Toon gesprek</string>
     <string name="title_force_sync">Forceer verversen</string>
     <string name="title_force_send">Forceer verzenden</string>
-    <string name="title_pwned_remark">Dit controleert het wachtwoord, zonder het te verzenden (met behulp van k-anonimisering), en niet het mailadres!</string>
+    <string name="title_pwned_remark">Dit controleert het wachtwoord, zonder het te verzenden (met behulp van k-anonimisering), en niet het e-mailadres!</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>
@@ -2055,6 +2059,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_keyword_not_displayed">Niet getoond</string>
     <string name="title_keyword_not_delivered">Niet afgeleverd</string>
     <string name="title_keyword_complaint">Klacht</string>
+    <string name="title_keyword_phishing">Phishing</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d bericht</item>
         <item quantity="other">%1$d berichten</item>

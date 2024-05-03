@@ -668,6 +668,7 @@
     <string name="title_advanced_swipe_reply">Проведіть по розкритому повідомленню праворуч для відповіді</string>
     <string name="title_advanced_move_thread_all">При переміщенні обраних розмов, переміщати всі повідомлення</string>
     <string name="title_advanced_move_thread_sent">При переміщенні розмови також перемістити й надіслані повідомлення</string>
+    <string name="title_advanced_swipe_trash_all">При змахуванні розмови до кошика, видалити всі повідомлення</string>
     <string name="title_advanced_default_snooze">Час повторного нагадування за замовчуванням</string>
     <string name="title_advanced_default_folder">Вибрати теку за замовчуванням</string>
     <string name="title_advanced_notifications">Керування сповіщеннями</string>
@@ -800,6 +801,7 @@
     <string name="title_advanced_openai_temperature">Температура: %1$s</string>
     <string name="title_advanced_openai_moderation">Модерація вмісту</string>
     <string name="title_advanced_gemini">Інтеграція з Gemini</string>
+    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Наказ на підсумовування</string>
     <string name="title_advanced_sdcard">Я хочу використовувати SD-карту</string>
     <string name="title_advanced_watchdog">Періодично перевіряти, чи FairEmail є все ще активним</string>
     <string name="title_advanced_updates">Перевіряти наявність оновлень на GitHub</string>
@@ -1131,9 +1133,10 @@
     <string name="title_delete_operation_move">Операції переміщення</string>
     <string name="title_delete_operation_flag">Операції відмітки</string>
     <string name="title_delete_operation_delete">Операції видалення</string>
+    <string name="title_delete_operation_send">Операції відправлення</string>
     <string name="title_delete_operation_deleted">%1$d операцій видалено</string>
     <string name="title_delete_contacts">Видалити всі локальні контакти?</string>
-    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Усі контакти, показані та не показані, будуть видалені, навіть якщо за ними було виконано пошук!</string>
+    <string name="title_delete_contacts_remark">Усі контакти, показані та не показані, будуть видалені, навіть якщо за ними було виконано пошук!</string>
     <string name="title_no_operations">Немає відкладених операцій</string>
     <string name="title_check_operations">Перевірка операцій</string>
     <string name="title_hint_operations">Видалення операцій може призвести до зникнення повідомлень та проблем з синхронізацією</string>
@@ -1480,6 +1483,7 @@
     <string name="title_create_template">Створити шаблон</string>
     <string name="title_select_default_identity">Вибрати стандартну адресу</string>
     <string name="title_translate">Переклад</string>
+    <string name="title_summarize">Підсумувати</string>
     <string name="title_translate_configure">Налаштувати &#8230;</string>
     <string name="title_translate_key">Введіть ключ</string>
     <string name="title_translating">Переклад &#8230;</string>
@@ -2097,6 +2101,7 @@
     <string name="title_keyword_not_displayed">Не переглянуто</string>
     <string name="title_keyword_not_delivered">Не доставлено</string>
     <string name="title_keyword_complaint">Скарга</string>
+    <string name="title_keyword_phishing">Фішинг</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d повідомлення</item>
         <item quantity="few">%1$d повідомлення</item>

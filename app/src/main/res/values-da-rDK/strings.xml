@@ -640,6 +640,7 @@
     <string name="title_advanced_swipe_reply">Stryg udvidede beskeder til højre for at besvare</string>
     <string name="title_advanced_move_thread_all">Når valgte samtaler flyttes, flyt alle beskeder</string>
     <string name="title_advanced_move_thread_sent">Når en samtale flyttes, flyt også sendte beskeder</string>
+    <string name="title_advanced_swipe_trash_all">Stryges en samtale til papirkurven, kassér alle beskeder</string>
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_default_folder">Vælg standardmappe</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
@@ -773,6 +774,7 @@
     <string name="title_advanced_openai_temperature">Temperatur: %1$s</string>
     <string name="title_advanced_openai_moderation">Indholdsmoderering</string>
     <string name="title_advanced_gemini">Gemini-integration</string>
+    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Opsummeringsprompt</string>
     <string name="title_advanced_sdcard">Et SD-kort ønskes benyttet</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Tjek for GitHub-opdateringer</string>
@@ -1105,9 +1107,10 @@
     <string name="title_delete_operation_move">Flyt-operationer</string>
     <string name="title_delete_operation_flag">Flagningsoperationer</string>
     <string name="title_delete_operation_delete">Slet operationer</string>
+    <string name="title_delete_operation_send">Send-handlinger</string>
     <string name="title_delete_operation_deleted">%1$d operationer slettet</string>
     <string name="title_delete_contacts">Slet alle lokale kontakter?</string>
-    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Alle viste kontakter slettes, selv hvis de søges!</string>
+    <string name="title_delete_contacts_remark">Alle viste kontakter slettes, selv hvis de søges!</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>
     <string name="title_check_operations">Tjekker handlinger</string>
     <string name="title_hint_operations">Sletning af handlinger kan resultere i forsvundne beskeder og synkroniseringsproblemer</string>
@@ -1455,6 +1458,7 @@
     <string name="title_create_template">Opret skabelon</string>
     <string name="title_select_default_identity">Vælg standardadresse</string>
     <string name="title_translate">Oversæt</string>
+    <string name="title_summarize">Sammenfatning</string>
     <string name="title_translate_configure">Opsæt&#8230;</string>
     <string name="title_translate_key">Angiv nøgle</string>
     <string name="title_translating">Oversætter&#8230;</string>
@@ -2072,6 +2076,7 @@
     <string name="title_keyword_not_displayed">Ikke vist</string>
     <string name="title_keyword_not_delivered">Ikke leveret</string>
     <string name="title_keyword_complaint">Klage</string>
+    <string name="title_keyword_phishing">Phishing</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d besked</item>
         <item quantity="other">%1$d beskeder</item>

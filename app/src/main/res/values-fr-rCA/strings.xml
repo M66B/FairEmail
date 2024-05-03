@@ -640,6 +640,7 @@
     <string name="title_advanced_swipe_reply">Balayer vers la droite les messages dépliés pour répondre</string>
     <string name="title_advanced_move_thread_all">Lors du déplacement des conversations sélectionnées, déplacer tous les messages</string>
     <string name="title_advanced_move_thread_sent">Lors du déplacement d\'une conversation, déplacer également les messages envoyés</string>
+    <string name="title_advanced_swipe_trash_all">En balayant une conversation vers la corbeille, y placer tous les messages</string>
     <string name="title_advanced_default_snooze">Durée de report par défaut</string>
     <string name="title_advanced_default_folder">Sélectionner le dossier par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
@@ -773,6 +774,7 @@
     <string name="title_advanced_openai_temperature">Aléa: %1$s</string>
     <string name="title_advanced_openai_moderation">Modération du contenu</string>
     <string name="title_advanced_gemini">Intégration de Gemini</string>
+    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Invite pour résumer</string>
     <string name="title_advanced_sdcard">Je veux utiliser une carte SD</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_updates">Rechercher des mises à jour sur GitHub</string>
@@ -1105,9 +1107,10 @@
     <string name="title_delete_operation_move">Opérations de déplacement</string>
     <string name="title_delete_operation_flag">Opérations de signalement</string>
     <string name="title_delete_operation_delete">Opérations de suppression</string>
+    <string name="title_delete_operation_send">Opérations d\'envoi</string>
     <string name="title_delete_operation_deleted">%1$d opérations supprimées</string>
     <string name="title_delete_contacts">Supprimer tous les contacts locaux?</string>
-    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Tous les contacts affichés et non affichés seront supprimés même s\'ils sont recherchés !</string>
+    <string name="title_delete_contacts_remark">Tous les contacts affichés et non affichés seront supprimés même s\'ils ont été recherchés !</string>
     <string name="title_no_operations">Aucune opération en attente</string>
     <string name="title_check_operations">Vérification des opérations en cours</string>
     <string name="title_hint_operations">La suppression d’opérations en attente peut entraîner la perte de messages ainsi que des problèmes de synchronisation</string>
@@ -1456,6 +1459,7 @@
     <string name="title_create_template">Créer un modèle</string>
     <string name="title_select_default_identity">Sélectionner l\'adresse par défaut</string>
     <string name="title_translate">Traduire</string>
+    <string name="title_summarize">Résumer</string>
     <string name="title_translate_configure">Configurer&#8230;</string>
     <string name="title_translate_key">Saisir la clé</string>
     <string name="title_translating">Traduction&#8230;</string>
@@ -2073,6 +2077,7 @@
     <string name="title_keyword_not_displayed">Non vu</string>
     <string name="title_keyword_not_delivered">Non délivré</string>
     <string name="title_keyword_complaint">Plainte</string>
+    <string name="title_keyword_phishing">Hameçonnage</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d message</item>
         <item quantity="other">%1$d messages</item>

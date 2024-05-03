@@ -637,6 +637,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_swipe_reply">Genişletilmiş mesajları yanıtlamak için sağa kaydırın</string>
     <string name="title_advanced_move_thread_all">Seçili konuşmaları taşırken, tüm mesajları taşı</string>
     <string name="title_advanced_move_thread_sent">Bir görüşmeyi taşırken, gönderilen mesajları da taşıyın</string>
+    <string name="title_advanced_swipe_trash_all">Bir konuşmayı çöp kutusuna kaydırırken, tüm mesajları çöpe atın</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
     <string name="title_advanced_default_folder">Varsayılan klasörü seçin</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
@@ -1099,9 +1100,10 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_delete_operation_move">Taşıma işlemleri</string>
     <string name="title_delete_operation_flag">İşaretleme işlemleri</string>
     <string name="title_delete_operation_delete">Silme işlemleri</string>
+    <string name="title_delete_operation_send">İşlemleri gönder</string>
     <string name="title_delete_operation_deleted">%1$d işlem silindi</string>
     <string name="title_delete_contacts">Tüm yerel rehber silinsin mi?</string>
-    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Gösterilen ve gösterilmeyen tüm kişiler, aranmış olsalar bile silinecektir!</string>
+    <string name="title_delete_contacts_remark">Gösterilen ve gösterilmeyen tüm kişiler, aranmış olsalar bile silinecektir!</string>
     <string name="title_no_operations">Bekleyen işlem yok</string>
     <string name="title_check_operations">İşlemleri kontrol ediyor</string>
     <string name="title_hint_operations">İşlemleri silmek mesajların kaybolmasına ve senkronizasyon sorunlarına neden olabilir</string>
@@ -1446,6 +1448,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_create_template">Şablon oluştur</string>
     <string name="title_select_default_identity">Varsayılan adresi seçin</string>
     <string name="title_translate">Tercüme et</string>
+    <string name="title_summarize">Özetle</string>
     <string name="title_translate_configure">Yapılandır&#8230;</string>
     <string name="title_translate_key">Anahtarı gir</string>
     <string name="title_translating">Tercüme ediliyor&#8230;</string>
@@ -2061,6 +2064,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_keyword_not_displayed">Görüntülenmiyor</string>
     <string name="title_keyword_not_delivered">Teslim edilmedi</string>
     <string name="title_keyword_complaint">Şikâyet</string>
+    <string name="title_keyword_phishing">Kimlik Avı</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d mesaj</item>
         <item quantity="other">%1$d mesaj</item>

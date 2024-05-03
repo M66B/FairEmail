@@ -772,6 +772,7 @@
     <string name="title_advanced_openai_temperature">Температура: %1$s</string>
     <string name="title_advanced_openai_moderation">Модериране на съдържанието</string>
     <string name="title_advanced_gemini">Интегриране с Gemini</string>
+    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Подкана за обобщаване</string>
     <string name="title_advanced_sdcard">Желая да употребявам sd карта</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
     <string name="title_advanced_updates">Проверка за обновяване на GitHub</string>
@@ -868,6 +869,7 @@
     <string name="title_advanced_autoclose_hint">Автоматично затваряй разговорите, когато всички съобщения са архивирани, изпратени или преместени в кошчето</string>
     <string name="title_advanced_sender_hint">Повечето доставчици не разрешават модифициране адреса на подателя</string>
     <string name="title_advanced_bcc_hint">Адресът няма да бъде показан, но ще бъде добавен при изпращане</string>
+    <string name="title_advanced_envelope_from_hint">Този адрес ще се употребява за SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Ще има предупреждение при изпращане до друг домейн</string>
     <string name="title_advanced_uri">Подробности на избрания контакт ще се употребят за прикачванията на vCard</string>
     <string name="title_advanced_e2e_encryption">Възможности за криптиране от край до край</string>
@@ -1102,8 +1104,10 @@
     <string name="title_delete_operation_move">Операции за преместване</string>
     <string name="title_delete_operation_flag">Операции за знамена</string>
     <string name="title_delete_operation_delete">Изтриване на операции</string>
+    <string name="title_delete_operation_send">Операции за изпращане</string>
     <string name="title_delete_operation_deleted">%1$d изтрити операции</string>
     <string name="title_delete_contacts">Изтрий локалните контакти?</string>
+    <string name="title_delete_contacts_remark">Всички контакти, показвани и непоказвани, ще се изтрият, дори ако се търсят!</string>
     <string name="title_no_operations">Няма чакащи операции</string>
     <string name="title_check_operations">Проверяване за операции</string>
     <string name="title_hint_operations">Изтриването на операции може да доведе до изчезване на съобщения и проблеми със синхронизацията</string>
@@ -1358,6 +1362,7 @@
     <string name="title_reply_to">Отговори на:</string>
     <string name="title_cc">Копие:</string>
     <string name="title_bcc">Скрито копие:</string>
+    <string name="title_envelope_from">Плик от:</string>
     <string name="title_recipients">%1$d получатели</string>
     <string name="title_via_identity">През:</string>
     <string name="title_sent">Изпратено:</string>
@@ -1449,6 +1454,7 @@
     <string name="title_create_template">Създаване на шаблон</string>
     <string name="title_select_default_identity">Изберете подразбиращ се адрес</string>
     <string name="title_translate">Превод</string>
+    <string name="title_summarize">Обобщаване</string>
     <string name="title_translate_configure">Конфигуриране &#8230;</string>
     <string name="title_translate_key">Въведете ключ</string>
     <string name="title_translating">Превод &#8230;</string>
@@ -1703,6 +1709,7 @@
     <string name="title_rule_younger">Съобщения по-нови от (час.)</string>
     <string name="title_rule_regex">Регулярен</string>
     <string name="title_rule_and">И</string>
+    <string name="title_rule_not">НЕ</string>
     <string name="title_rule_action">Действие</string>
     <string name="title_rule_action_remark">Това действие ще бъде приложено към нови съобщения, пристигащи в папка %1$s</string>
     <string name="title_rule_hours">Часове</string>
@@ -2064,6 +2071,7 @@
     <string name="title_keyword_not_displayed">Не е онагледено</string>
     <string name="title_keyword_not_delivered">Не е доставено</string>
     <string name="title_keyword_complaint">Оплакване</string>
+    <string name="title_keyword_phishing">Фишинг</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d съобщение</item>
         <item quantity="other">%1$d съобщения</item>
@@ -2124,7 +2132,7 @@
         <item>Обединени папки</item>
         <item>Основни папки на акаунта</item>
         <item>Акаунти</item>
-        <item>Primary inbox</item>
+        <item>Основна входяща кутия</item>
     </string-array>
     <string-array name="downloadNames">
         <item>16 KB</item>

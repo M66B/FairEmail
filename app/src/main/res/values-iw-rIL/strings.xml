@@ -668,6 +668,7 @@
     <string name="title_advanced_swipe_reply">החלקת הודעות מורחבות לימין פותחת מענה</string>
     <string name="title_advanced_move_thread_all">בעת העברת הדיונים הנבחרים, להעביר את כל ההודעות</string>
     <string name="title_advanced_move_thread_sent">בעת העברת דיון, להעביר גם את ההודעות שנשלחו</string>
+    <string name="title_advanced_swipe_trash_all">בעת החלקת דיון להעברתו לאשפה, להעביר את כל ההודעות איתו</string>
     <string name="title_advanced_default_snooze">זמן ברירת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_default_folder">בחירת תיקיית ברירת מחדל</string>
     <string name="title_advanced_notifications">ניהול התראות</string>
@@ -801,6 +802,7 @@
     <string name="title_advanced_openai_temperature">טמפרטורה: %1$s</string>
     <string name="title_advanced_openai_moderation">ניהול תוכן</string>
     <string name="title_advanced_gemini">שילוב מול Gemini</string>
+    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">בקשת תקציר</string>
     <string name="title_advanced_sdcard">ארצה להשתמש בכרטיס SD</string>
     <string name="title_advanced_watchdog">לבדוק מדי פעם אם FairEmail עדיין פעיל</string>
     <string name="title_advanced_updates">איתור עדכונים ב־GitHub</string>
@@ -1132,8 +1134,10 @@
     <string name="title_delete_operation_move">פעילויות העברה</string>
     <string name="title_delete_operation_flag">פעילויות סימון בדגל</string>
     <string name="title_delete_operation_delete">פעילויות מחיקה</string>
+    <string name="title_delete_operation_send">פעולות שליחה</string>
     <string name="title_delete_operation_deleted">%1$d פעילויות נמחקו</string>
     <string name="title_delete_contacts">למחוק את כל אנשי הקשר המקומיים?</string>
+    <string name="title_delete_contacts_remark">כל אנשי הקשר גם אלו שמופיעים וגם אלו שלא יימחקו, אפילו בחיפוש!</string>
     <string name="title_no_operations">אין פעילויות ממתינות</string>
     <string name="title_check_operations">הפעולות נבדקות</string>
     <string name="title_hint_operations">פעולות מחיקה יכולות לגרום להודעות שנעלמות ולתקלות סנכרון</string>
@@ -1482,6 +1486,7 @@
     <string name="title_create_template">יצירת תבנית</string>
     <string name="title_select_default_identity">בחירת כתובת ברירת מחדל</string>
     <string name="title_translate">תרגום</string>
+    <string name="title_summarize">סיכום</string>
     <string name="title_translate_configure">הגדרה&#8230;</string>
     <string name="title_translate_key">נא להקליד מפתח</string>
     <string name="title_translating">מתורגם&#8230;</string>
@@ -1660,6 +1665,7 @@
     <string name="title_view_thread">הצגת דיון</string>
     <string name="title_force_sync">אילוץ סנכרון</string>
     <string name="title_force_send">אילוץ שליחה</string>
+    <string name="title_pwned_remark">הפעולה הזאת תבדוק את הסיסמה מבלי לשלוח אותה (באמצעות k-anonymization - אלגוריתם לטשטוש זהות), ולא את כתובת הדוא״ל!</string>
     <string name="title_language_all">הכול</string>
     <string name="title_previous">הקודם</string>
     <string name="title_next">הבא</string>
@@ -2098,6 +2104,7 @@
     <string name="title_keyword_not_displayed">לא הוצג</string>
     <string name="title_keyword_not_delivered">לא נמסר</string>
     <string name="title_keyword_complaint">תלונה</string>
+    <string name="title_keyword_phishing">דיוג</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">הודעה</item>
         <item quantity="two">%1$d הודעות</item>

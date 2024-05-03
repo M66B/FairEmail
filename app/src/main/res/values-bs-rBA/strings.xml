@@ -883,6 +883,7 @@
     <string name="title_advanced_autoclose_hint">Automatski zatvori konverzacije kada se sve poruke arhiviraju, pošalju ili izbrišu</string>
     <string name="title_advanced_sender_hint">Većina provajdera ne dopušta modifikovane adrese pošiljaoca</string>
     <string name="title_advanced_bcc_hint">Adresa se neće prikazivati, ali će biti dodana tokom slanja</string>
+    <string name="title_advanced_envelope_from_hint">Ova adresa će se koristiti za SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">Pojavit će se upozorenje tokom slanja na drugu domenu</string>
     <string name="title_advanced_uri">Detalji izabranog kontakta koristit če se za vCard priloge</string>
     <string name="title_advanced_e2e_encryption">Opcija za E2E (end-to-end) šifriranje</string>
@@ -1117,8 +1118,10 @@
     <string name="title_delete_operation_move">Premjesti operacije</string>
     <string name="title_delete_operation_flag">Označi operacije</string>
     <string name="title_delete_operation_delete">Izbriši operacije</string>
+    <string name="title_delete_operation_send">Operacije slanja</string>
     <string name="title_delete_operation_deleted">%1$d operacije/a izbrisano</string>
     <string name="title_delete_contacts">Izbrisati sve lokalne kontakte?</string>
+    <string name="title_delete_contacts_remark">Svi prikazani i neprikazani kontakti bit će izbrisani, čak i tokom pretrage!</string>
     <string name="title_no_operations">Nema operacija na čekanju</string>
     <string name="title_check_operations">Provjera operacija</string>
     <string name="title_hint_operations">Brisanje operacija može prouzrokovati nestanak poruka i probleme sa sinhronizacijom</string>
@@ -1375,6 +1378,7 @@
     <string name="title_reply_to">Odgovori za:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
+    <string name="title_envelope_from">Koverta od:</string>
     <string name="title_recipients">%1$d primaoca</string>
     <string name="title_via_identity">Preko:</string>
     <string name="title_sent">Poslano:</string>
@@ -1466,6 +1470,7 @@
     <string name="title_create_template">Napravi prijedložak</string>
     <string name="title_select_default_identity">Izaberite zadanu adresu</string>
     <string name="title_translate">Prevedi</string>
+    <string name="title_summarize">Sažetak</string>
     <string name="title_translate_configure">Podesi &#8230;</string>
     <string name="title_translate_key">Unesite ključ</string>
     <string name="title_translating">Prevođenje &#8230;</string>
@@ -1644,6 +1649,7 @@
     <string name="title_view_thread">Pogledaj konverzaciju</string>
     <string name="title_force_sync">Forsiraj sinhronizaciju</string>
     <string name="title_force_send">Forsiraj slanje</string>
+    <string name="title_pwned_remark">Ovo će provjeriti lozinku, bez njenog slanja (korištenjem k-anonimizacije), a ne e-mail adresu!</string>
     <string name="title_language_all">Svi</string>
     <string name="title_previous">Prethodni</string>
     <string name="title_next">Sljedeći</string>
@@ -1720,6 +1726,7 @@
     <string name="title_rule_younger">Poruke koje nisu starije od (sati)</string>
     <string name="title_rule_regex">Regularni izraz</string>
     <string name="title_rule_and">AND</string>
+    <string name="title_rule_not">NOT</string>
     <string name="title_rule_action">Radnja</string>
     <string name="title_rule_action_remark">Ova radnja će se primijeniti na nove poruke koje stižu u folder %1$s</string>
     <string name="title_rule_hours">Sati</string>

@@ -1086,9 +1086,10 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_delete_operation_move">Pindahkan operasi</string>
     <string name="title_delete_operation_flag">Operasi bersyarat</string>
     <string name="title_delete_operation_delete">Hapus operasi</string>
+    <string name="title_delete_operation_send">Kirim operasi</string>
     <string name="title_delete_operation_deleted">%1$d operasi dihapus</string>
     <string name="title_delete_contacts">Hapus semua kontak lokal?</string>
-    <string name="title_delete_contacts_remark" comment="title_delete_contacts_remark&#10;Remark for when deleting (local) contacts.">Semua kontak yang ditampilkan dan tidak ditampilkan akan dihapus, bahkan jika dicari!</string>
+    <string name="title_delete_contacts_remark">Semua kontak yang ditampilkan dan tidak ditampilkan akan dihapus, bahkan jika dicari!</string>
     <string name="title_no_operations">Tidak ada operasi yang tertunda</string>
     <string name="title_check_operations">Memeriksa operasi</string>
     <string name="title_hint_operations">Menghapus operasi dapat mengakibatkan hilangnya pesan dan masalah sinkronisasi</string>
@@ -1434,6 +1435,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_create_template">Buat Templat</string>
     <string name="title_select_default_identity">Pilih alamat bawaan</string>
     <string name="title_translate">Terjemahkan</string>
+    <string name="title_summarize">Rangkum</string>
     <string name="title_translate_configure">Konfigurasi &#8230;</string>
     <string name="title_translate_key">Masukkan kata kunci</string>
     <string name="title_translating">Menerjemahkan &#8230;</string>

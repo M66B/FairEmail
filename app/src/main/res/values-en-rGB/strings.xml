@@ -57,10 +57,12 @@
     <string name="title_advanced_navbar_colorize">Colourise the Android navigation bar</string>
     <string name="title_advanced_sync_on_launch">Synchronise on start</string>
     <string name="title_advanced_pull_all">Synchronise all folders</string>
+    <string name="title_advanced_swipe_trash_all">When swiping a conversation to the bin, delete all messages</string>
     <string name="title_advanced_notify_action_trash">Delete</string>
     <string name="title_advanced_notifications_background">Use background service to synchronise messages</string>
     <string name="title_advanced_tracking">Attempt to recognise and disable tracking images</string>
     <string name="title_advanced_disconnect_images">Use lists to recognise tracking images</string>
+    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Summarise prompt</string>
     <string name="title_advanced_optimize_hint">This might change the sync frequency to save battery usage depending on the capabilities and behaviour of the email servers</string>
     <string name="title_advanced_unseen_hint">Some providers don\'t support this properly, which may cause synchronising none or all messages</string>
     <string name="title_advanced_poll_folders_hint">Periodically synchronise the folder list in addition to after connecting to an account</string>
@@ -122,6 +124,7 @@
     <string name="title_send_encryption">Encryption</string>
     <string name="title_style_align_center">Centre</string>
     <string name="title_style_list">List</string>
+    <string name="title_summarize">Summarise</string>
     <string name="title_vt_analyzing">VirusTotal is analysing the file, this may take a while &#8230;</string>
     <string name="title_search_more">More options</string>
     <string name="title_search_in_trash">In bin</string>

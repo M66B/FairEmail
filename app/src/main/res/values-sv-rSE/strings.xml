@@ -636,6 +636,7 @@
     <string name="title_advanced_swipe_reply">Svep expanderade meddelanden till höger för att svara</string>
     <string name="title_advanced_move_thread_all">När du flyttar valda konversationer, flytta alla meddelanden</string>
     <string name="title_advanced_move_thread_sent">När en konversation flyttas, flytta också skickade meddelanden</string>
+    <string name="title_advanced_swipe_trash_all">När du sveper en konversation till papperskorgen, kasta alla meddelanden</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_default_folder">Välj standardmapp</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
@@ -765,6 +766,7 @@
     <string name="title_advanced_openai_temperature">Temperatur: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderering av innehåll</string>
     <string name="title_advanced_gemini">Gemini-integration</string>
+    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Sammanfatta prompten</string>
     <string name="title_advanced_sdcard">Jag vill använda ett SD-kort</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
     <string name="title_advanced_updates">Sök efter GitHub-uppdateringar</string>
@@ -862,6 +864,7 @@
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
     <string name="title_advanced_bcc_hint">Adressen kommer inte att visas, men kommer att läggas till vid sändning</string>
+    <string name="title_advanced_envelope_from_hint">Denna adress kommer att användas för SMTP MAIL FROM</string>
     <string name="title_advanced_internal_hint">En varning kommer att visas när du skickar till en annan domän</string>
     <string name="title_advanced_uri">Information från den valda kontakten kommer att användas för vCard-bilagor</string>
     <string name="title_advanced_e2e_encryption">Alternativ för ändpunktskryptering</string>
@@ -1096,8 +1099,9 @@
     <string name="title_delete_operation_move">Flytta åtgärder</string>
     <string name="title_delete_operation_flag">Flagga åtgärder</string>
     <string name="title_delete_operation_delete">Ta bort åtgärder</string>
+    <string name="title_delete_operation_send">Pågående utleveranser</string>
     <string name="title_delete_operation_deleted">%1$d åtgärder raderade</string>
-    <string name="title_delete_contacts">Ta bort alla lokala kontakter?</string>
+    <string name="title_delete_contacts">Ta bort alla lokalt lagrade kontakter?</string>
     <string name="title_no_operations">Inga pågående åtgärder</string>
     <string name="title_check_operations">Söker efter aktiviteter</string>
     <string name="title_hint_operations">Att ta bort pågående åtgärder kan resultera i försvinnande meddelanden och synkroniseringsproblem</string>
@@ -1351,6 +1355,7 @@
     <string name="title_reply_to">Svara till:</string>
     <string name="title_cc">Kopia:</string>
     <string name="title_bcc">Dold kopia:</string>
+    <string name="title_envelope_from">Kuvert (SMTP) från:</string>
     <string name="title_recipients">%1$d mottagare</string>
     <string name="title_via_identity">Via:</string>
     <string name="title_sent">Skickat:</string>
@@ -1442,6 +1447,7 @@
     <string name="title_create_template">Skapa mall</string>
     <string name="title_select_default_identity">Välj standardadress</string>
     <string name="title_translate">Översätt</string>
+    <string name="title_summarize">Sammanfatta</string>
     <string name="title_translate_configure">Konfigurera &#8230;</string>
     <string name="title_translate_key">Ange nyckel</string>
     <string name="title_translating">Översätter &#8230;</string>
@@ -1620,6 +1626,7 @@
     <string name="title_view_thread">Visa konversation</string>
     <string name="title_force_sync">Tvinga synkronisering</string>
     <string name="title_force_send">Tvinga skickning</string>
+    <string name="title_pwned_remark">Detta kommer att kontrollera lösenordet, utan att skicka det (med k-anonymisering), och inte e-postadressen!</string>
     <string name="title_language_all">Alla</string>
     <string name="title_previous">Föregående</string>
     <string name="title_next">Nästa</string>
@@ -2057,6 +2064,7 @@
     <string name="title_keyword_not_displayed">Inte visat</string>
     <string name="title_keyword_not_delivered">Inte levererat</string>
     <string name="title_keyword_complaint">Klagomål</string>
+    <string name="title_keyword_phishing">Nätfiske</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d meddelande</item>
         <item quantity="other">%1$d meddelanden</item>
