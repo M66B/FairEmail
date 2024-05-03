@@ -1485,7 +1485,7 @@ public class MessageHelper {
 
     boolean isReport() {
         try {
-            return imessage.isMimeType("multipart/report");
+            return isMimeType(imessage, "multipart/report");
         } catch (Throwable ex) {
             Log.w(ex);
             return false;
@@ -1660,7 +1660,7 @@ public class MessageHelper {
         try {
             ensureStructure();
 
-            if (imessage.isMimeType("multipart/report")) {
+            if (isMimeType(imessage, "multipart/report")) {
                 ContentType ct = new ContentType(imessage.getContentType());
                 String reportType = ct.getParameter("report-type");
                 if ("delivery-status".equalsIgnoreCase(reportType) ||
@@ -4806,7 +4806,7 @@ public class MessageHelper {
             try {
                 MimePart part = imessage;
 
-                if (part.isMimeType("multipart/mixed")) {
+                if (isMimeType(part, "multipart/mixed")) {
                     Object content = part.getContent();
 
                     if (content instanceof String)
@@ -4816,10 +4816,10 @@ public class MessageHelper {
                         Multipart mp = (Multipart) content;
                         for (int i = 0; i < mp.getCount(); i++) {
                             BodyPart bp = mp.getBodyPart(i);
-                            if (bp.isMimeType("multipart/signed") || bp.isMimeType("multipart/encrypted")) {
+                            if (isMimeType(bp, "multipart/signed") || isMimeType(bp, "multipart/encrypted")) {
                                 part = (MimePart) bp;
                                 break;
-                            } else if (bp.isMimeType("application/pgp-encrypted") && i + 1 < mp.getCount()) {
+                            } else if (isMimeType(bp, "application/pgp-encrypted") && i + 1 < mp.getCount()) {
                                 // Workaround Outlook problem
                                 //  --_xxxoutlookfr_
                                 // Content-Type: text/plain; charset="us-ascii"
@@ -4842,7 +4842,7 @@ public class MessageHelper {
                     }
                 }
 
-                if (part.isMimeType("multipart/signed")) {
+                if (isMimeType(part, "multipart/signed")) {
                     ContentType ct = new ContentType(part.getContentType());
                     String protocol = ct.getParameter("protocol");
                     if ("application/pgp-signature".equals(protocol) ||
@@ -4894,7 +4894,7 @@ public class MessageHelper {
                         }
                     } else
                         Log.e(ct.toString());
-                } else if (part.isMimeType("multipart/encrypted")) {
+                } else if (isMimeType(part, "multipart/encrypted")) {
                     ContentType ct = new ContentType(part.getContentType());
                     String protocol = ct.getParameter("protocol");
                     if ("application/pgp-encrypted".equals(protocol) || protocol == null) {
@@ -4924,8 +4924,8 @@ public class MessageHelper {
                         }
                     } else
                         Log.e(ct.toString());
-                } else if (part.isMimeType("application/pkcs7-mime") ||
-                        part.isMimeType("application/x-pkcs7-mime")) {
+                } else if (isMimeType(part, "application/pkcs7-mime") ||
+                        isMimeType(part, "application/x-pkcs7-mime")) {
                     ContentType ct = new ContentType(part.getContentType());
                     String smimeType = ct.getParameter("smime-type");
                     if ("enveloped-data".equalsIgnoreCase(smimeType)) {
@@ -5013,7 +5013,7 @@ public class MessageHelper {
                 Log.e(ex);
             }
 
-            if (part.isMimeType("multipart/*")) {
+            if (isMimeType(part, "multipart/*")) {
                 Multipart multipart;
                 Object content = part.getContent(); // Should always be Multipart
 
@@ -5176,7 +5176,7 @@ public class MessageHelper {
                 Boolean related = null;
                 if (parent != null)
                     try {
-                        related = parent.isMimeType("multipart/related");
+                        related = isMimeType(parent, "multipart/related");
                     } catch (MessagingException ex) {
                         Log.w(ex);
                     }
@@ -5218,6 +5218,19 @@ public class MessageHelper {
                 Log.w(ex);
             parts.warnings.add(Log.formatThrowable(ex, false));
         }
+    }
+
+    private static boolean isMimeType(Part part, String mimeType) throws MessagingException {
+		if (mimeType.endsWith("/*"))
+			return part.isMimeType(mimeType);
+
+        if (part.isMimeType(mimeType)) {
+            ContentType ct = new ContentType(part.getContentType());
+            if (!"*".equals(ct.getSubType()))
+                return true;
+        }
+
+        return false;
     }
 
     private Object tryParseMultipart(String text, String contentType) {
@@ -5580,7 +5593,7 @@ public class MessageHelper {
                     .append('\n');
 
             if (BuildConfig.DEBUG &&
-                    !part.isMimeType("multipart/*")) {
+                    !isMimeType(part, "multipart/*")) {
                 Object content = part.getContent();
                 if (content instanceof String) {
                     String text = (String) content;
@@ -5615,7 +5628,7 @@ public class MessageHelper {
 
             ssb.append('\n');
 
-            if (part.isMimeType("multipart/*")) {
+            if (isMimeType(part, "multipart/*")) {
                 Multipart multipart = (Multipart) part.getContent();
                 for (int i = 0; i < multipart.getCount(); i++)
                     try {
