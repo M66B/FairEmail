@@ -12,6 +12,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="shortcut icon" href="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/ic_launcher-web.png">
   <style>
@@ -599,9 +600,10 @@
 <p>Note that this won’t work on devices without Google Play Store/Services, such as recent Huawei devices. In this case you will need to use an app password, see below.</p>
 <p><strong>Note that other email apps, possibly on other devices, which still use your account password could cause your account to be blocked!</strong></p>
 </blockquote>
-<p>If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only. OAuth is also not available on devices without Google services, such as recent Huawei devices, in which case selecting an account will fail.</p>
-<p>The Gmail quick setup wizard won’t work if the Android account manager doesn’t work or doesn’t support Google accounts, which is typically the case if the account selection is being <em>canceled</em> right away.</p>
-<p>If you don’t want to use or can’t use an on-device Google account, for example on recent Huawei devices, you can <del>either enable access for “less secure apps” and use your account password (not advised)</del> or enable two factor authentication and use an app specific password. To use a password you can use the quick setup wizard and select <em>Other provider</em>.</p>
+<p>If you use the Play store or GitHub version of FairEmail, you can use the quick setup wizard to easily setup a Gmail account and identity. The Gmail quick setup wizard is not available for third party builds, like the F-Droid build because Google approved the use of OAuth for official builds only.</p>
+<p>When using OAuth with multiple Google accounts, other Google accounts probably need to be logged out first.</p>
+<p>The “<em>Gmail (Android)</em>” quick setup wizard won’t work if the Android account manager doesn’t work or doesn’t support Google accounts, which is typically the case if the account selection is being <em>canceled</em> right away.</p>
+<p>If you don’t want to use or can’t use OAuth or an on-device Google account, for example on recent Huawei devices, you can <del>either enable access for “less secure apps” and use your account password (not advised)</del> or enable two factor authentication and use an app specific password. To use a password you can use the quick setup wizard and select <em>Other provider</em>.</p>
 <p><strong>Important</strong>: sometimes Google issues this alert:</p>
 <p><em>[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)</em></p>
 <p>This Google security check is triggered more often with <em>less secure apps</em> enabled, less with an app password, and hardly when using an on-device account (OAuth). You might see the error <em>OAUTH2 asked for more</em>, which basically says the connection is temporarily blocked, until you confirm it is you.</p>
