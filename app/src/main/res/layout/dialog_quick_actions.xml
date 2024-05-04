@@ -162,13 +162,13 @@
             app:layout_constraintTop_toBottomOf="@id/cbImportanceNormal" />
 
         <CheckBox
-            android:id="@+id/cbInbox"
+            android:id="@+id/cbMove"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:drawableEnd="@drawable/twotone_inbox_24"
+            android:drawableEnd="@drawable/twotone_drive_file_move_24"
             android:drawablePadding="6dp"
-            android:text="@string/title_folder_inbox"
+            android:text="@string/title_move"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -185,20 +185,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbInbox" />
-
-        <CheckBox
-            android:id="@+id/cbJunk"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:drawableEnd="@drawable/twotone_report_24"
-            android:drawablePadding="6dp"
-            android:text="@string/title_folder_junk"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbArchive" />
+            app:layout_constraintTop_toBottomOf="@id/cbMove" />
 
         <CheckBox
             android:id="@+id/cbTrash"
@@ -211,7 +198,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbJunk" />
+            app:layout_constraintTop_toBottomOf="@id/cbArchive" />
 
         <CheckBox
             android:id="@+id/cbDelete"
@@ -227,17 +214,30 @@
             app:layout_constraintTop_toBottomOf="@id/cbTrash" />
 
         <CheckBox
-            android:id="@+id/cbMove"
+            android:id="@+id/cbJunk"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:drawableEnd="@drawable/twotone_drive_file_move_24"
+            android:drawableEnd="@drawable/twotone_report_24"
             android:drawablePadding="6dp"
-            android:text="@string/title_move"
+            android:text="@string/title_folder_junk"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbDelete" />
+
+        <CheckBox
+            android:id="@+id/cbInbox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_inbox_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_folder_inbox"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbJunk" />
 
         <View
             android:id="@+id/vSeparator"
@@ -247,7 +247,7 @@
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbMove" />
+            app:layout_constraintTop_toBottomOf="@id/cbInbox" />
 
         <CheckBox
             android:id="@+id/cbClear"

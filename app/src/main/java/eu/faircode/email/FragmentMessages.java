@@ -300,12 +300,12 @@ public class FragmentMessages extends FragmentBase
     private ImageButton ibLowImportance;
     private ImageButton ibNormalImportance;
     private ImageButton ibHighImportance;
-    private ImageButton ibInbox;
-    private ImageButton ibJunk;
+    private ImageButton ibMove;
+    private ImageButton ibArchive;
     private ImageButton ibTrash;
     private ImageButton ibDelete;
-    private ImageButton ibArchive;
-    private ImageButton ibMove;
+    private ImageButton ibJunk;
+    private ImageButton ibInbox;
     private ImageButton ibMoreSettings;
     private FloatingActionButton fabSearch;
     private FloatingActionButton fabError;
@@ -629,12 +629,12 @@ public class FragmentMessages extends FragmentBase
         ibLowImportance = view.findViewById(R.id.ibLowImportance);
         ibNormalImportance = view.findViewById(R.id.ibNormalImportance);
         ibHighImportance = view.findViewById(R.id.ibHighImportance);
-        ibInbox = view.findViewById(R.id.ibInbox);
-        ibJunk = view.findViewById(R.id.ibJunk);
+        ibMove = view.findViewById(R.id.ibMove);
+        ibArchive = view.findViewById(R.id.ibArchive);
         ibTrash = view.findViewById(R.id.ibTrash);
         ibDelete = view.findViewById(R.id.ibDelete);
-        ibArchive = view.findViewById(R.id.ibArchive);
-        ibMove = view.findViewById(R.id.ibMove);
+        ibJunk = view.findViewById(R.id.ibJunk);
+        ibInbox = view.findViewById(R.id.ibInbox);
         ibMoreSettings = view.findViewById(R.id.ibMoreSettings);
         fabSearch = view.findViewById(R.id.fabSearch);
         fabError = view.findViewById(R.id.fabError);
@@ -1697,64 +1697,6 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
-        ibInbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onActionMoveSelection(EntityFolder.INBOX, false);
-            }
-        });
-
-        ibInbox.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                MoreResult result = (MoreResult) cardMore.getTag();
-                if (result == null || !result.isJunk)
-                    return false;
-
-                if (result.hasPop && !result.hasImap)
-                    onActionBlockSender();
-                else if (!result.hasPop && result.hasImap)
-                    onActionJunkSelection();
-
-                return true;
-            }
-        });
-
-        ibJunk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MoreResult result = (MoreResult) cardMore.getTag();
-                if (result == null)
-                    return;
-
-                if (result.hasPop && !result.hasImap)
-                    onActionBlockSender();
-                else if (!result.hasPop && result.hasImap)
-                    onActionJunkSelection();
-            }
-        });
-
-        ibTrash.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onActionMoveSelection(EntityFolder.TRASH, false);
-            }
-        });
-
-        ibDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onActionDeleteSelection();
-            }
-        });
-
-        ibArchive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onActionMoveSelection(EntityFolder.ARCHIVE, false);
-            }
-        });
-
         Runnable runMoveTo = new RunnableEx("moveto") {
             @Override
             protected void delegate() {
@@ -1807,6 +1749,64 @@ public class FragmentMessages extends FragmentBase
             @Override
             public boolean onLongClick(View v) {
                 runMoveTo.run();
+                return true;
+            }
+        });
+
+        ibArchive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionMoveSelection(EntityFolder.ARCHIVE, false);
+            }
+        });
+
+        ibTrash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionMoveSelection(EntityFolder.TRASH, false);
+            }
+        });
+
+        ibDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onActionDeleteSelection();
+            }
+        });
+
+        ibJunk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MoreResult result = (MoreResult) cardMore.getTag();
+                if (result == null)
+                    return;
+
+                if (result.hasPop && !result.hasImap)
+                    onActionBlockSender();
+                else if (!result.hasPop && result.hasImap)
+                    onActionJunkSelection();
+            }
+        });
+
+        ibInbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onActionMoveSelection(EntityFolder.INBOX, false);
+            }
+        });
+
+        ibInbox.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                MoreResult result = (MoreResult) cardMore.getTag();
+                if (result == null || !result.isJunk)
+                    return false;
+
+                if (result.hasPop && !result.hasImap)
+                    onActionBlockSender();
+                else if (!result.hasPop && result.hasImap)
+                    onActionJunkSelection();
+
                 return true;
             }
         });
@@ -7073,12 +7073,12 @@ public class FragmentMessages extends FragmentBase
                         ibLowImportance.setVisibility(importance_low ? View.VISIBLE : View.GONE);
                         ibNormalImportance.setVisibility(importance_normal ? View.VISIBLE : View.GONE);
                         ibHighImportance.setVisibility(importance_high ? View.VISIBLE : View.GONE);
-                        ibInbox.setVisibility(inbox ? View.VISIBLE : View.GONE);
-                        ibJunk.setVisibility(junk ? View.VISIBLE : View.GONE);
+                        ibMove.setVisibility(move ? View.VISIBLE : View.GONE);
+                        ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
                         ibTrash.setVisibility(trash ? View.VISIBLE : View.GONE);
                         ibDelete.setVisibility(delete ? View.VISIBLE : View.GONE);
-                        ibArchive.setVisibility(archive ? View.VISIBLE : View.GONE);
-                        ibMove.setVisibility(move ? View.VISIBLE : View.GONE);
+                        ibJunk.setVisibility(junk ? View.VISIBLE : View.GONE);
+                        ibInbox.setVisibility(inbox ? View.VISIBLE : View.GONE);
                         cardMore.setTag(fabMore.isOrWillBeShown() ? result : null);
                         cardMore.setVisibility(fabMore.isOrWillBeShown() ? View.VISIBLE : View.GONE);
                     }
