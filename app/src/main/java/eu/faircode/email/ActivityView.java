@@ -745,6 +745,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             boolean unified = (intent != null && "unified".equals(intent.getAction()));
             if (!search && !(standalone && !unified))
                 init();
+            else
+                initialized = true;
         }
 
         if (savedInstanceState != null)
