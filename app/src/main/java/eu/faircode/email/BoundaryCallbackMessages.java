@@ -1381,7 +1381,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         public static SearchCriteria fromJsonData(JSONObject json) throws JSONException {
             SearchCriteria criteria = new SearchCriteria();
-            criteria.query = json.optString("query");
+            if (!json.isNull("query"))
+                criteria.query = json.optString("query");
             criteria.fts = json.optBoolean("fts");
             criteria.in_senders = json.optBoolean("in_senders");
             criteria.in_recipients = json.optBoolean("in_recipients");
