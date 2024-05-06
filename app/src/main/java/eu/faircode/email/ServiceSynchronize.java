@@ -156,6 +156,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int FAST_FAIL_COUNT = 3;
     private static final int FETCH_YIELD_DURATION = 50; // milliseconds
     private static final long WATCHDOG_INTERVAL = 60 * 60 * 1000L; // milliseconds
+    private static final long MAX_QUOTA = 1000 * 1000 * 1000L; // KB
 
     private static final String ACTION_NEW_MESSAGE_COUNT = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE_COUNT";
 
@@ -2919,9 +2920,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 " " + resource.usage + "/" + resource.limit);
                                 // (STORAGE nnnnn 9999999999999999)
                                 if ("STORAGE".equalsIgnoreCase(resource.name)) {
-                                    if (resource.usage * 1024 >= 0)
+                                    if (resource.usage * 1024 >= 0 && resource.usage < MAX_QUOTA)
                                         usage = (usage == null ? 0L : usage) + resource.usage * 1024;
-                                    if (resource.limit * 1024 > 0)
+                                    if (resource.limit * 1024 > 0 && resource.limit < MAX_QUOTA)
                                         limit = Math.max(limit == null ? 0L : limit, resource.limit * 1024);
                                 }
                             }
