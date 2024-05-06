@@ -2913,7 +2913,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (quota.resources != null)
                             for (Quota.Resource resource : quota.resources) {
                                 EntityLog.log(context, EntityLog.Type.Account, account,
-                                        account.name + "quota " +
+                                        account.name + " quota " +
                                                 " root=\"" + quota.quotaRoot + "\"" +
                                                 " resource=\"" + resource.name + "\"" +
                                                 " " + resource.usage + "/" + resource.limit);
