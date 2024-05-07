@@ -639,6 +639,7 @@
     <string name="title_advanced_swipe_reply">Прелистете надясно на разширените съобщения за отговор</string>
     <string name="title_advanced_move_thread_all">При преместване на избрани разговори, преместват се всички съобщения</string>
     <string name="title_advanced_move_thread_sent">Премествайки разговора, преместват се и изпратените съобщения</string>
+    <string name="title_advanced_swipe_trash_all">Приплъзвайки разговор в кошчето, изхвърляте всички ненужни съобщения</string>
     <string name="title_advanced_default_snooze">Време за отлагане/закъснение по подразбиране</string>
     <string name="title_advanced_default_folder">Изберете подразбираща се папка</string>
     <string name="title_advanced_notifications">Управление на известията</string>
@@ -1633,6 +1634,7 @@
     <string name="title_view_thread">Преглед на разговора</string>
     <string name="title_force_sync">Принудително синхронизиране</string>
     <string name="title_force_send">Принудително изпращане</string>
+    <string name="title_pwned_remark">Това ще провери паролата, без да се изпраща, посредством к-анонимизиране, а не адрес на имейла!</string>
     <string name="title_language_all">Всички</string>
     <string name="title_previous">Предишен</string>
     <string name="title_next">Следващ</string>

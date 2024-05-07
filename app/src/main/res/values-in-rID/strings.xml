@@ -624,6 +624,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_swipe_reply">Usap ke kanan pesan yang dibentangkan untuk balas</string>
     <string name="title_advanced_move_thread_all">Saat memindahkan percakapan yang dipilih, pindahkan semua pesan</string>
     <string name="title_advanced_move_thread_sent">Saat memindahkan percakapan, pindahkan juga pesan terkirim</string>
+    <string name="title_advanced_swipe_trash_all">Saat menggeser percakapan ke tempat sampah, buang semua pesan</string>
     <string name="title_advanced_default_snooze">Waktu tunda/jeda bawaan</string>
     <string name="title_advanced_default_folder">Pilih folder default</string>
     <string name="title_advanced_notifications">Kelola pemberitahuan</string>
@@ -756,6 +757,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_openai_temperature">Temperatur: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderasi konten</string>
     <string name="title_advanced_gemini">Integrasi Gemini</string>
+    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Ringkas permintaan</string>
     <string name="title_advanced_sdcard">Saya ingin menggunakan sdcard</string>
     <string name="title_advanced_watchdog">Periksa secara berkala apakah FairEmail masih aktif</string>
     <string name="title_advanced_updates">Periksa pembaruan di GitHub</string>
@@ -2048,6 +2050,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_keyword_not_displayed">Tidak ditampilkan</string>
     <string name="title_keyword_not_delivered">Belum terkirim</string>
     <string name="title_keyword_complaint">Keluhan</string>
+    <string name="title_keyword_phishing">Penipuan</string>
     <plurals name="title_accessibility_messages">
         <item quantity="other">%1$d pesan</item>
     </plurals>

@@ -1110,7 +1110,7 @@
     <string name="title_delete_operation_send">Sendevorgänge</string>
     <string name="title_delete_operation_deleted">%1$d Vorgänge gelöscht</string>
     <string name="title_delete_contacts">Alle lokalen Kontakte löschen?</string>
-    <string name="title_delete_contacts_remark">Alle angezeigten und nicht angezeigten Kontakte werden gelöscht, auch wenn sie gesucht werden!</string>
+    <string name="title_delete_contacts_remark">Alle angezeigten und nicht angezeigten Kontakte werden gelöscht, auch wenn sie gesucht wurden!</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>
     <string name="title_check_operations">Auf Vorgänge wird geprüft</string>
     <string name="title_hint_operations">Das Löschen von Vorgängen kann zum Verschwinden von Meldungen und zu Synchronisationsproblemen führen</string>
