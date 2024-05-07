@@ -65,6 +65,7 @@ import java.util.List;
 
 public class FragmentDialogSearch extends FragmentDialogBase {
     private static final int MAX_SUGGESTIONS = 3;
+    private static final int RECENTLY_TOUCHED = 3600 * 1000; // milliseconds
 
     @NonNull
     @Override
@@ -612,6 +613,24 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         ibHidden.setOnClickListener(onClick);
         ibUnseen.setOnClickListener(onClick);
         ibFlagged.setOnClickListener(onClick);
+
+        ibHidden.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                dialog.dismiss();
+
+                BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
+                criteria.touched = RECENTLY_TOUCHED;
+
+                FragmentMessages.search(
+                        context, getViewLifecycleOwner(), getParentFragmentManager(),
+                        account, -1L,
+                        false,
+                        criteria);
+
+                return true;
+            }
+        });
 
         etQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

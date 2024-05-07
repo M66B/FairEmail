@@ -7830,6 +7830,9 @@ public class FragmentMessages extends FragmentBase
                             EntityOperation.queue(context, message, EntityOperation.BODY);
                     }
 
+                    if (!EntityFolder.OUTBOX.equals(folder.type))
+                        db.message().setMessageLastAttempt(message.id, new Date().getTime());
+
                     db.setTransactionSuccessful();
                 } finally {
                     db.endTransaction();
@@ -8192,7 +8195,7 @@ public class FragmentMessages extends FragmentBase
 
                     Log.i("Move id=" + target.id + " target=" + target.targetFolder.name);
                     db.message().setMessageUiBusy(target.id, null);
-                    db.message().setMessageLastAttempt(target.id, new Date().getTime());
+                    db.message().setMessageLastAttempt(target.id, null);
                     EntityOperation.queue(context, message, EntityOperation.MOVE, target.targetFolder.id);
                 }
 
@@ -8226,7 +8229,7 @@ public class FragmentMessages extends FragmentBase
                     db.message().setMessageUiBusy(target.id, null);
                     db.message().setMessageUiHide(target.id, false);
                     db.message().setMessageFound(target.id, target.found);
-                    db.message().setMessageLastAttempt(target.id, new Date().getTime());
+                    db.message().setMessageLastAttempt(target.id, null);
                 }
 
                 db.setTransactionSuccessful();

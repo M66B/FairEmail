@@ -387,9 +387,10 @@ public interface DaoMessage {
             " AND (:size IS NULL OR total > :size)" +
             " AND (:after IS NULL OR received > :after)" +
             " AND (:before IS NULL OR received < :before)" +
+            " AND (:touched IS NULL OR last_attempt > :touched)" +
             " AND NOT message.folder IN (:exclude)" +
             " GROUP BY message.id" +
-            " ORDER BY received DESC" +
+            " ORDER BY CASE WHEN :touched IS NULL THEN received ELSE last_attempt END DESC" +
             " LIMIT :limit OFFSET :offset")
     List<TupleMatch> matchMessages(
             Long account, Long folder, long[] exclude, String find,
@@ -397,7 +398,7 @@ public interface DaoMessage {
             boolean unseen, boolean flagged, boolean hidden, boolean encrypted, boolean with_attachments, boolean with_notes,
             int type_count, String[] types,
             Integer size,
-            Long after, Long before,
+            Long after, Long before, Long touched,
             int limit, int offset);
 
     @Query("SELECT id" +
@@ -930,7 +931,7 @@ public interface DaoMessage {
     int setMessageVerified(long id, boolean verified);
 
     @Query("UPDATE message SET last_attempt = :last_attempt WHERE id = :id AND NOT (last_attempt IS :last_attempt)")
-    int setMessageLastAttempt(long id, long last_attempt);
+    int setMessageLastAttempt(long id, Long last_attempt);
 
     @Query("UPDATE message SET ui_ignored = 1" +
             " WHERE NOT ui_ignored" +

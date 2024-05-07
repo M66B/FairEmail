@@ -261,7 +261,7 @@ public class EntityMessage implements Serializable {
     public Integer revisions; // compose
     public String warning; // persistent
     public String error; // volatile
-    public Long last_attempt; // send
+    public Long last_attempt; // send / last touched
 
     static String generateMessageId() {
         return generateMessageId("localhost");
