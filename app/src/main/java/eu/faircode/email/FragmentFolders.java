@@ -374,7 +374,7 @@ public class FragmentFolders extends FragmentBase {
                         getContext(),
                         getViewLifecycleOwner(),
                         getParentFragmentManager(),
-                        fabCompose, account);
+                        fabCompose, account, -1L);
             }
         });
 

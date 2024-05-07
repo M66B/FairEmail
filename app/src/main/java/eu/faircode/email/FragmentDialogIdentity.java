@@ -49,6 +49,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentDialogIdentity extends FragmentDialogBase {
+    private static final int MIN_IDENTITY_MESSAGES = 20;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -144,17 +146,26 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                 AdapterIdentitySelect iadapter = new AdapterIdentitySelect(context, identities);
                 spIdentity.setAdapter(iadapter);
 
+                long aid = args.getLong("account");
+                long iid = args.getLong("identity", -1L);
+
                 Integer selected = null;
-                long account = getArguments().getLong("account");
                 for (int pos = 0; pos < identities.size(); pos++) {
                     EntityIdentity identity = identities.get(pos);
-                    if (identity.account.equals(account)) {
-                        if (identity.primary) {
+                    if (iid < 0) {
+                        if (identity.account.equals(aid)) {
+                            if (identity.primary) {
+                                selected = pos;
+                                break;
+                            }
+                            if (selected == null)
+                                selected = pos;
+                        }
+                    } else {
+                        if (identity.id.equals(iid)) {
                             selected = pos;
                             break;
                         }
-                        if (selected == null)
-                            selected = pos;
                     }
                 }
 
@@ -180,7 +191,7 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, new Bundle(), "identity:select");
+        }.execute(this, getArguments(), "identity:select");
 
         return new AlertDialog.Builder(context)
                 .setView(dview)
@@ -200,9 +211,10 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                 .create();
     }
 
-    static void onCompose(Context context, LifecycleOwner owner, FragmentManager manager, FloatingActionButton fabCompose, long account) {
+    static void onCompose(Context context, LifecycleOwner owner, FragmentManager manager, FloatingActionButton fabCompose, long account, long folder) {
         Bundle args = new Bundle();
         args.putLong("account", account);
+        args.putLong("folder", folder);
 
         new SimpleTask<Boolean>() {
             @Override
@@ -217,12 +229,22 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
 
             @Override
             protected Boolean onExecute(Context context, Bundle args) {
+                DB db = DB.getInstance(context);
+
+                long folder = args.getLong("folder");
+                if (folder >= 0) {
+                    List<TupleIdentityCount> counts = db.message().getIdentitiesByFolder(folder);
+                    if (counts != null &&
+                            counts.size() == 1 &&
+                            counts.get(0).count >= MIN_IDENTITY_MESSAGES)
+                        args.putLong("identity", counts.get(0).identity);
+                }
+
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean identities_asked = prefs.getBoolean("identities_asked", false);
                 if (identities_asked)
                     return false;
 
-                DB db = DB.getInstance(context);
                 List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
                 return (identities != null && identities.size() > 1);
             }
@@ -236,7 +258,8 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                 } else
                     context.startActivity(new Intent(context, ActivityCompose.class)
                             .putExtra("action", "new")
-                            .putExtra("account", account));
+                            .putExtra("account", account)
+                            .putExtra("identity", args.getLong("identity", -1L)));
             }
 
             @Override

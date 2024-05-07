@@ -1577,7 +1577,7 @@ public class FragmentMessages extends FragmentBase
                         getContext(),
                         getViewLifecycleOwner(),
                         getParentFragmentManager(),
-                        fabCompose, account);
+                        fabCompose, account, folder);
             }
         });
 

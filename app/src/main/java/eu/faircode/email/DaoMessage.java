@@ -343,6 +343,12 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageIdsByFolder(Long folder);
 
+    @Query("SELECT identity, COUNT(*) AS count" +
+            " FROM message" +
+            " WHERE folder = :folder" +
+            " GROUP BY identity")
+    List<TupleIdentityCount> getIdentitiesByFolder(long folder);
+
     @Transaction
     @Query("SELECT message.id FROM message" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
