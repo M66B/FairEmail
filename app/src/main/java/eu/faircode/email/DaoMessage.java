@@ -112,6 +112,7 @@ public interface DaoMessage {
             "   WHEN 'size' = :sort1 THEN -SUM(message.total)" +
             "   WHEN 'attachments' = :sort1 THEN -SUM(message.attachments)" +
             "   WHEN 'snoozed' = :sort1 THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
+            "   WHEN 'touched' = :sort1 THEN IFNULL(-message.last_attempt, 0)" +
             "   ELSE 0" +
             "  END" +
             ", CASE" +
@@ -191,6 +192,7 @@ public interface DaoMessage {
             "   WHEN 'size' = :sort1 THEN -SUM(message.total)" +
             "   WHEN 'attachments' = :sort1 THEN -SUM(message.attachments)" +
             "   WHEN 'snoozed' = :sort1 THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
+            "   WHEN 'touched' = :sort1 THEN IFNULL(-message.last_attempt, 0)" +
             "   ELSE 0" +
             "  END" +
             ", CASE" +

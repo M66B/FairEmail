@@ -184,7 +184,7 @@ public class ViewModelMessages extends ViewModel {
                                 db.message().pagedUnified(
                                         null,
                                         args.threading, false,
-                                        "time", "", false,
+                                        criteria == null || criteria.touched == null ? "time" : "touched", "", false,
                                         false, false, false, false, false,
                                         null,
                                         true,
@@ -194,7 +194,7 @@ public class ViewModelMessages extends ViewModel {
                         builder = new LivePagedListBuilder<>(
                                 db.message().pagedFolder(
                                         args.folder, args.threading,
-                                        "time", "", false,
+                                        criteria == null || criteria.touched == null ? "time" : "touched", "", false,
                                         false, false, false, false, false,
                                         null,
                                         true,
