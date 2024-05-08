@@ -33,11 +33,10 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 import java.util.Objects;
-
-import javax.net.ssl.HttpsURLConnection;
 
 public class Gemini {
     // https://ai.google.dev/models/gemini
@@ -135,7 +134,7 @@ public class Gemini {
         long start = new Date().getTime();
 
         URL url = new URL(uri.toString());
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         connection.setRequestMethod(method);
         connection.setDoOutput(args != null);
@@ -156,7 +155,7 @@ public class Gemini {
             }
 
             int status = connection.getResponseCode();
-            if (status != HttpsURLConnection.HTTP_OK) {
+            if (status != HttpURLConnection.HTTP_OK) {
                 String error = "Error " + status + ": " + connection.getResponseMessage();
                 try {
                     InputStream is = connection.getErrorStream();
