@@ -1687,6 +1687,10 @@ public class Helper {
         return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
     }
 
+    static boolean isAndroid15() {
+        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE);
+    }
+
     static String getMIUIVersion() {
         try {
             Class<?> c = Class.forName("android.os.SystemProperties");

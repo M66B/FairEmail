@@ -856,6 +856,9 @@ public class ApplicationEx extends Application
             if (Build.PRODUCT == null || !Build.PRODUCT.endsWith("_beta") ||
                     Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
                 editor.putBoolean("mod", false);
+        } else if (version < 2180) {
+            if (Helper.isAndroid15())
+                editor.putInt("last_sdk", 0);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
@@ -864,6 +867,11 @@ public class ApplicationEx extends Application
         if (version < BuildConfig.VERSION_CODE)
             editor.putInt("previous_version", version);
         editor.putInt("version", BuildConfig.VERSION_CODE);
+
+        int last_sdk = prefs.getInt("last_sdk", Build.VERSION.SDK_INT);
+        if (Helper.isAndroid15() && last_sdk <= Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+            editor.remove("setup_reminder");
+        editor.putInt("last_sdk", Build.VERSION.SDK_INT);
 
         editor.apply();
     }

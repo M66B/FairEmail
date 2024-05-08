@@ -293,6 +293,7 @@
     <string name="title_setup_doze_stopped">Sync stopped?</string>
     <string name="title_setup_doze_device">This is probably required for this device</string>
     <string name="title_setup_alarm_12">The app won\'t work properly</string>
+    <string name="title_setup_fg_15">The app cannot be started automatically</string>
     <string name="title_setup_inexact">Alarms &amp; reminders are disabled</string>
     <string name="title_setup_background">Background restrictions are enabled</string>
     <string name="title_setup_data">Data saver is enabled</string>

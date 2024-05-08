@@ -132,6 +132,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
     private TextView tvDozeDone;
     private Button btnDoze;
+    private TextView tvDoze15;
     private TextView tvDoze12;
     private TextView tvDozeWhy;
     private TextView tvKilling;
@@ -227,6 +228,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
         btnDoze = view.findViewById(R.id.btnDoze);
+        tvDoze15 = view.findViewById(R.id.tvDoze15);
         tvDoze12 = view.findViewById(R.id.tvDoze12);
         tvDozeWhy = view.findViewById(R.id.tvDozeWhy);
         tvKilling = view.findViewById(R.id.tvKilling);
@@ -883,6 +885,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         tvDozeDone.setCompoundDrawables(null, null, null, null);
         btnDoze.setText(null);
         btnDoze.setCompoundDrawables(null, null, null, null);
+        tvDoze15.setVisibility(View.GONE);
         tvDoze12.setVisibility(View.GONE);
 
         btnInbox.setEnabled(false);
@@ -1034,6 +1037,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                 0, 0, isIgnoring ? R.drawable.twotone_settings_24 : R.drawable.twotone_check_24, 0);
         btnDoze.setText(isIgnoring ? R.string.title_setup_manage : R.string.title_setup_grant);
 
+        tvDoze15.setVisibility(Helper.isAndroid15() && !isIgnoring ? View.VISIBLE : View.GONE);
         tvDoze12.setVisibility(!canScheduleExact && !isIgnoring ? View.VISIBLE : View.GONE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {

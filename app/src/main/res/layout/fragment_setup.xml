@@ -854,6 +854,21 @@
                     app:layout_constraintTop_toBottomOf="@id/tvDoze" />
 
                 <TextView
+                    android:id="@+id/tvDoze15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:drawableStart="@drawable/twotone_warning_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_setup_fg_15"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?attr/colorWarning"
+                    android:textStyle="bold"
+                    app:drawableTint="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnDoze" />
+
+                <TextView
                     android:id="@+id/tvDoze12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -866,7 +881,7 @@
                     android:textStyle="bold"
                     app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnDoze" />
+                    app:layout_constraintTop_toBottomOf="@id/tvDoze15" />
 
                 <TextView
                     android:id="@+id/tvDozeHint"

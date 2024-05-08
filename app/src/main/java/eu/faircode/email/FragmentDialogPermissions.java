@@ -50,6 +50,7 @@ public class FragmentDialogPermissions extends FragmentDialogBase {
         TextView tvContactPermissions = dview.findViewById(R.id.tvContactPermissions);
         TextView tvNotificationPermissions = dview.findViewById(R.id.tvNotificationPermissions);
         TextView tvDozeDevice = dview.findViewById(R.id.tvDozeDevice);
+        TextView tvDozeAndroid15 = dview.findViewById(R.id.tvDozeAndroid15);
         TextView tvDozeAndroid12 = dview.findViewById(R.id.tvDozeAndroid12);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
         Group grp2 = dview.findViewById(R.id.grp2);
@@ -82,6 +83,7 @@ public class FragmentDialogPermissions extends FragmentDialogBase {
         tvContactPermissions.setVisibility(hasContactPermissions ? View.GONE : View.VISIBLE);
         tvNotificationPermissions.setVisibility(hasNotificationPermissions ? View.GONE : View.VISIBLE);
         tvDozeDevice.setVisibility(Helper.isKilling() && !isIgnoring ? View.VISIBLE : View.GONE);
+        tvDozeAndroid15.setVisibility(Helper.isAndroid15() && !isIgnoring ? View.VISIBLE : View.GONE);
         tvDozeAndroid12.setVisibility(!canScheduleExact && !isIgnoring ? View.VISIBLE : View.GONE);
 
         grp2.setVisibility(

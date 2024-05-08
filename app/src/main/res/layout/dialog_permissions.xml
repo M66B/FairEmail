@@ -119,6 +119,22 @@
             app:layout_constraintTop_toBottomOf="@id/tvDoze" />
 
         <TextView
+            android:id="@+id/tvDozeAndroid15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/twotone_warning_24"
+            android:drawablePadding="6dp"
+            android:drawableTint="?attr/colorWarning"
+            android:text="@string/title_setup_fg_15"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="bold"
+            app:drawableTint="?attr/colorWarning"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDozeDevice" />
+
+        <TextView
             android:id="@+id/tvDozeAndroid12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -132,7 +148,7 @@
             android:textStyle="bold"
             app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDozeDevice" />
+            app:layout_constraintTop_toBottomOf="@id/tvDozeAndroid15" />
 
         <CheckBox
             android:id="@+id/cbNotAgain"
