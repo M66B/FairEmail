@@ -22,6 +22,7 @@ package eu.faircode.email;
 import static androidx.core.app.NotificationCompat.DEFAULT_LIGHTS;
 import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
 
+import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
@@ -395,7 +396,7 @@ class NotificationHelper {
         if (notify_screen_on &&
                 !(BuildConfig.DEBUG ||
                         Build.VERSION.SDK_INT <= Build.VERSION_CODES.TIRAMISU ||
-                        Helper.hasPermission(context, "android.permission.TURN_SCREEN_ON")))
+                        Helper.hasPermission(context, Manifest.permission.TURN_SCREEN_ON)))
             notify_screen_on = false;
 
         Log.i("Notify messages=" + messages.size() +

@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.StatusBarManager;
@@ -511,7 +512,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         grpScreenOn.setVisibility(
                 BuildConfig.DEBUG ||
                         Build.VERSION.SDK_INT <= Build.VERSION_CODES.TIRAMISU ||
-                        hasPermission("android.permission.TURN_SCREEN_ON")
+                        hasPermission(Manifest.permission.TURN_SCREEN_ON)
                         ? View.VISIBLE : View.GONE);
         swNotifyScreenOn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
