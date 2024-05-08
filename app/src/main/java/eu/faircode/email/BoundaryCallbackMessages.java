@@ -358,7 +358,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         criteria.with_size,
                         criteria.after,
                         criteria.before,
-                        criteria.touched == null ? null : new Date().getTime() - criteria.touched,
+                        criteria.touched == null ? null : new Date().getTime() - criteria.touched * 3600 * 1000L,
                         SEARCH_LIMIT_DEVICE, state.offset);
                 EntityLog.log(context, "Boundary device" +
                         " account=" + account +
@@ -819,7 +819,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         if (criteria.touched != null) {
-            if (message.last_attempt == null || message.last_attempt < new Date().getTime() - criteria.touched)
+            if (message.last_attempt == null || message.last_attempt < new Date().getTime() - criteria.touched * 3600 * 1000L)
                 return false;
         }
 

@@ -65,7 +65,7 @@ import java.util.List;
 
 public class FragmentDialogSearch extends FragmentDialogBase {
     private static final int MAX_SUGGESTIONS = 3;
-    private static final int RECENTLY_TOUCHED = 3600 * 1000; // milliseconds
+    private static final int RECENTLY_TOUCHED = 7 * 24; // hours
 
     @NonNull
     @Override
