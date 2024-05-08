@@ -57,7 +57,7 @@ This app starts a foreground service with a low-priority status bar notification
 * Confirm showing images to prevent tracking
 * Confirm opening links to prevent tracking and phishing
 * Attempt to recognize and disable tracking images
-* Warning if messages could not be [authenticated](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq92)
+* Warning if messages could not be [authenticated](https://m66b.github.io/FairEmail/#faq92)
 
 ## Simple
 
@@ -74,7 +74,7 @@ This app starts a foreground service with a low-priority status bar notification
 * Confirm opening links, images and attachments
 * No special permissions required
 * No advertisements
-* No analytics and no tracking ([error reporting](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) via Bugsnag is opt-in)
+* No analytics and no tracking ([error reporting](https://m66b.github.io/FairEmail/#faq104) via Bugsnag is opt-in)
 * No [Google backup](https://developer.android.com/guide/topics/data/backup)
 * No [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging)
 * FairEmail is an original work, not a fork or a clone
@@ -90,21 +90,21 @@ This app starts a foreground service with a low-priority status bar notification
 All pro features are convenience or advanced features.
 
 * Account/identity/folder colors
-* Colored stars ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq107))
-* Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo) ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq145))
+* Colored stars ([instructions](https://m66b.github.io/FairEmail/#faq107))
+* Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo) ([instructions](https://m66b.github.io/FairEmail/#faq145))
 * Configurable notification actions
-* Snooze messages ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq67))
+* Snooze messages ([instructions](https://m66b.github.io/FairEmail/#faq67))
 * Send messages after selected time
-* Synchronization scheduling ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq78))
-* Reply templates ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq179))
+* Synchronization scheduling ([instructions](https://m66b.github.io/FairEmail/#faq78))
+* Reply templates ([instructions](https://m66b.github.io/FairEmail/#faq179))
 * Accept/decline calendar invitations
 * Add message to calendar
 * Automatically generate vCard attachments
-* Filter rules ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
-* Automatic message classification ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163))
-* Search indexing ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
-* S/MIME sign/encrypt ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq12))
-* Biometric/PIN authentication ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq113))
+* Filter rules ([instructions](https://m66b.github.io/FairEmail/#faq71))
+* Automatic message classification ([instructions](https://m66b.github.io/FairEmail/#faq163))
+* Search indexing ([instructions](https://m66b.github.io/FairEmail/#faq13))
+* S/MIME sign/encrypt ([instructions](https://m66b.github.io/FairEmail/#faq12))
+* Biometric/PIN authentication ([instructions](https://m66b.github.io/FairEmail/#faq113))
 * Message list widget
 * Export settings
 
@@ -123,10 +123,10 @@ Supported download locations:
 * ~~[AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))~~
 * ~~[Amazon](https://www.amazon.com/gp/product/B0983R6MH2)~~ (the APK file repackaged by Amazon is incomplete! An issue report was never answered by Amazon.)
 
-Please see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq173) about the differences between the different releases.
+Please see [this FAQ](https://m66b.github.io/FairEmail/#faq173) about the differences between the different releases.
 
 **Important**: after enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/)
-you cannot use third party email apps anymore, please see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq22) for more information.
+you cannot use third party email apps anymore, please see [this FAQ](https://m66b.github.io/FairEmail/#faq22) for more information.
 
 The Gmail quick setup wizard can be used in official releases only (Play store or GitHub) because Google approved the use of OAuth for one app signature only.
 
@@ -143,7 +143,7 @@ F-Droid builds new versions irregularly and you'll need the F-Droid client to ge
 To get updates in a timely fashion you are advised to use the GitHub release.
 
 **Important**: There is support on the F-Droid build only if the version number of the F-Droid build is the same as the version number of the latest GitHub release.
-Please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq147) for more information on third-party builds.
+Please [see here](https://m66b.github.io/FairEmail/#faq147) for more information on third-party builds.
 
 Because F-Droid builds and GitHub releases are signed differently, an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
 
@@ -178,7 +178,7 @@ because earlier Android versions do not support notification channels.
 
 FairEmail will work properly on devices without any Google service installed.
 
-Please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems) for known problems.
+Please see [here](https://m66b.github.io/FairEmail/#known-problems) for known problems.
 
 ## Privacy
 
@@ -186,7 +186,7 @@ Please see [here](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#faire
 
 ## Support
 
-Please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for a list of often asked questions and about how to get support.
+Please see [here](https://m66b.github.io/FairEmail/) for a list of often asked questions and about how to get support.
 
 ## Contributing
 
@@ -223,7 +223,7 @@ Error reporting is sponsored by:
 ![Bugsnag logo](/images/bugsnag_logo.png)
 
 [Bugsnag](https://www.bugsnag.com/) monitors application stability
-and is used to [help improve FairEmail](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104).
+and is used to [help improve FairEmail](https://m66b.github.io/FairEmail/#faq104).
 Error reporting is disabled by default, see also [the privacy policy](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail).
 
 ## License
