@@ -43,7 +43,7 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_archive_24"
             android:drawablePadding="6dp"
-            android:text="@string/title_advanced_section_backup"
+            android:text="@string/title_setup_export"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvActivated" />
 
