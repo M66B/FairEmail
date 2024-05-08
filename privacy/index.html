@@ -43,12 +43,12 @@
 <h3 id="overview">Overview</h3>
 <p>FairEmail <strong>does not</strong> send account information and message data elsewhere than to your email provider.</p>
 <p>FairEmail <strong>does not</strong> allow other apps access to message data without your approval.</p>
-<p>FairEmail <strong>does not</strong> require unnecessary permissions. For more information on permissions, see <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq1">this FAQ</a>.</p>
+<p>FairEmail <strong>does not</strong> require unnecessary permissions. For more information on permissions, see <a href="https://m66b.github.io/FairEmail/#faq1">this FAQ</a>.</p>
 <p>FairEmail <strong>does</strong> use modern and secure transport protocols by default.</p>
 <p>Android <a href="https://source.android.com/docs/security/features/encryption">encrypts all user data by default</a>, so all data, including account credentials, is stored encrypted by default.</p>
 <p>FairEmail <strong>does</strong> follow the recommendations of <a href="https://www.eff.org/deeplinks/2019/01/stop-tracking-my-emails">this EFF article</a>.</p>
 <p>FairEmail is 100 % <strong>open source</strong>, see <a href="https://github.com/M66B/FairEmail/blob/master/LICENSE">the license</a>.</p>
-<p>Error reporting via Bugsnag <strong>is opt-in</strong>, see <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104">here</a> for more information.</p>
+<p>Error reporting via Bugsnag <strong>is opt-in</strong>, see <a href="https://m66b.github.io/FairEmail/#faq104">here</a> for more information.</p>
 <p>FairEmail <strong>adheres</strong> to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the <a href="https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes">Limited Use requirements</a>. Google API Services are used only to authenticate Gmail accounts through OAuth.</p>
 <p>The use of information received from Gmail APIs will adhere to the Google User Data Policy, including the Limited Use requirements."</p>
 <p>All stored information (account details, messages, etc.) is <strong>protected by encryption</strong>. All information is sent and received through <strong>secure connections</strong>. Of course, you should also protect your device by using a PIN code, pattern and/or biometric authentication.</p>
@@ -63,10 +63,12 @@
 <li><a href="https://languagetool.org/">LanguageTool</a> – <a href="https://languagetool.org/legal/privacy">Privacy policy</a></li>
 <li><a href="https://www.virustotal.com/">VirusTotal</a> – <a href="https://support.virustotal.com/hc/en-us/articles/115002168385-Privacy-Policy">Privacy policy</a></li>
 <li><a href="https://openai.com/">OpenAI</a> (GitHub version only) – <a href="https://openai.com/policies/privacy-policy">Privacy policy</a></li>
+<li><a href="https://gemini.google.com/">Google Gemini</a> (GitHub version only) – <a href="https://support.google.com/gemini/answer/13594961">Privacy policy</a></li>
 <li><a href="https://gravatar.com/">Gravatar</a> (GitHub version only) – <a href="https://automattic.com/privacy/">Privacy policy</a></li>
 <li><a href="https://www.libravatar.org/">Libravatar</a> (GitHub version only) – <a href="https://www.libravatar.org/privacy/">Privacy policy</a></li>
 <li><a href="https://github.com/">GitHub</a> (GitHub version only) – <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">Privacy policy</a></li>
-<li><a href="https://haveibeenpwned.com/">Have I Been Pwned?</a> (GitHub version only) – <a href="https://haveibeenpwned.com/Privacy">Privacy policy</a></li>
+<li><a href="https://haveibeenpwned.com/">Have I Been Pwned?</a> – <a href="https://haveibeenpwned.com/Privacy">Privacy policy</a></li>
+<li><a href="https://www.bugsnag.com/">Bugsnag</a> – <a href="https://smartbear.com/privacy/">Privacy policy</a></li>
 </ul>
 <p>FairEmail <strong>can access</strong> the websites at the domain names of email addresses (username@domain.name) if <a href="https://en.wikipedia.org/wiki/Brand_Indicators_for_Message_Identification">Brand Indicators for Message Identification</a> (BIMI) or <a href="https://en.wikipedia.org/wiki/Favicon">favicons</a> were explicitly enabled (off by default).</p>
 <p>FairEmail <strong>will access</strong> the website at the link address if you tap the <em>Fetch title</em> button in the insert link dialog (from version 1.1905).</p>
@@ -141,56 +143,61 @@
 <td>If VirusTotal is enabled, upon long pressing an upload button (*)</td>
 </tr>
 <tr class="odd">
-<td>OpenAI</td>
+<td>OpenAI/ChatGPT</td>
 <td>Received and entered message texts</td>
-<td>Upen pressing a button in a navigation bar (*)</td>
+<td>If configured and upon pressing a button or using a menu item (*)</td>
 </tr>
 <tr class="even">
+<td>Google Gemini</td>
+<td>Received and entered message texts</td>
+<td>If configured and upon pressing a button or using a menu item (*)</td>
+</tr>
+<tr class="odd">
 <td>Gravatar</td>
 <td><a href="https://en.wikipedia.org/wiki/MD5">MD5 hash</a> of email addresses</td>
 <td>If Gravatars are enabled, upon receiving a message (*)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Libravatar</td>
 <td><a href="https://en.wikipedia.org/wiki/MD5">MD5 hash</a> of email addresses</td>
 <td>If Libravatars are enabled, upon receiving a message (*)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>GitHub</td>
 <td>None, but see the remarks below</td>
 <td>Upon downloading AdGuard tracking parameter list</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td></td>
 <td>Upon downloading Disconnect’s Tracker Protection lists</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td></td>
 <td>Upon checking for updates (*)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Have I Been Pwned?</td>
 <td>The first 5 characters of the SHA1 hash of passwords</td>
 <td>Upon checking for being pwned</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>BIMI</td>
 <td>Domain name of email addresses</td>
 <td>If BIMI is enabled, upon receiving a message (*)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Favicons</td>
 <td>Domain name of email addresses</td>
 <td>If favicons are enabled, upon receiving a message</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Link title</td>
 <td>Link address</td>
 <td>Upon pressing a download button in the insert link dialog</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Bugsnag</td>
 <td>Information about warnings and errors</td>
 <td>If error reporting is enabled, upon detecting an abnormal situation</td>
@@ -238,9 +245,9 @@ marcel+privacy@faircode.eu</code></pre>
 <li><a href="https://www.bugsnag.com/">Bugsnag</a> – <a href="https://docs.bugsnag.com/legal/privacy-policy/">Privacy policy</a></li>
 </ul>
 <h4 id="v.-permissions">V. Permissions</h4>
-<p>The app only requests permissions that are necessary for the expected behavior of an email app. For more information on permissions, see <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq1">this FAQ</a>.</p>
+<p>The app only requests permissions that are necessary for the expected behavior of an email app. For more information on permissions, see <a href="https://m66b.github.io/FairEmail/#faq1">this FAQ</a>.</p>
 <h4 id="vi.-logging">VI. Logging</h4>
-<p>The app does not send any log entries to the data processor by default. The error reporting system utilizes Bugsnag and is disabled by default. See <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104">this FAQ</a> for more information.</p>
+<p>The app does not send any log entries to the data processor by default. The error reporting system utilizes Bugsnag and is disabled by default. See <a href="https://m66b.github.io/FairEmail/#faq104">this FAQ</a> for more information.</p>
 <h4 id="vii.-legal-basis">VII. Legal basis</h4>
 <p>FairEmail is fully <a href="https://gdpr.eu/">GDPR compliant</a>. The legal basis for any data processing is Art. 6 (1) a - c GDPR.</p>
 <p><br></p>

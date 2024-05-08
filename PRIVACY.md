@@ -37,7 +37,7 @@ FairEmail **does not** send account information and message data elsewhere than 
 FairEmail **does not** allow other apps access to message data without your approval.
 
 FairEmail **does not** require unnecessary permissions.
-For more information on permissions, see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq1).
+For more information on permissions, see [this FAQ](https://m66b.github.io/FairEmail/#faq1).
 
 FairEmail **does** use modern and secure transport protocols by default.
 
@@ -47,7 +47,7 @@ FairEmail **does** follow the recommendations of [this EFF article](https://www.
 
 FairEmail is 100 % **open source**, see [the license](https://github.com/M66B/FairEmail/blob/master/LICENSE).
 
-Error reporting via Bugsnag **is opt-in**, see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) for more information.
+Error reporting via Bugsnag **is opt-in**, see [here](https://m66b.github.io/FairEmail/#faq104) for more information.
 
 FairEmail **adheres** to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy),
 including the [Limited Use requirements](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes).
@@ -70,10 +70,12 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [LanguageTool](https://languagetool.org/) &#8211; [Privacy policy](https://languagetool.org/legal/privacy)
 * [VirusTotal](https://www.virustotal.com/) &#8211; [Privacy policy](https://support.virustotal.com/hc/en-us/articles/115002168385-Privacy-Policy)
 * [OpenAI](https://openai.com/) (GitHub version only) &#8211; [Privacy policy](https://openai.com/policies/privacy-policy)
+* [Google Gemini](https://gemini.google.com/) (GitHub version only) &#8211; [Privacy policy](https://support.google.com/gemini/answer/13594961)
 * [Gravatar](https://gravatar.com/) (GitHub version only) &#8211; [Privacy policy](https://automattic.com/privacy/)
 * [Libravatar](https://www.libravatar.org/) (GitHub version only)  &#8211; [Privacy policy](https://www.libravatar.org/privacy/)
 * [GitHub](https://github.com/) (GitHub version only) &#8211; [Privacy policy](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
-* [Have I Been Pwned?](https://haveibeenpwned.com/) (GitHub version only) &#8211; [Privacy policy](https://haveibeenpwned.com/Privacy)
+* [Have I Been Pwned?](https://haveibeenpwned.com/) &#8211; [Privacy policy](https://haveibeenpwned.com/Privacy)
+* [Bugsnag](https://www.bugsnag.com/) &#8211; [Privacy policy](https://smartbear.com/privacy/)
 
 FairEmail **can access** the websites at the domain names of email addresses (username@domain.name)
 if [Brand Indicators for Message Identification](https://en.wikipedia.org/wiki/Brand_Indicators_for_Message_Identification) (BIMI)
@@ -106,7 +108,8 @@ This table provides a complete overview of all shared data and the conditions un
 | LanguageTool       | Entered message texts                                              | If LanguageTools is enabled, upon long pressing the save draft button       |
 | VirusTotal         | [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of attachments | If VirusTotal is enabled, upon long pressing a scan button (*)              |
 | VirusTotal         | Attached file contents                                             | If VirusTotal is enabled, upon long pressing an upload button (*)           |
-| OpenAI             | Received and entered message texts                                 | Upen pressing a button in a navigation bar (*)                              |
+| OpenAI/ChatGPT     | Received and entered message texts                                 | If configured and upon pressing a button or using a menu item (*)           |
+| Google Gemini      | Received and entered message texts                                 | If configured and upon pressing a button or using a menu item (*)           |
 | Gravatar           | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Gravatars are enabled, upon receiving a message (*)                      |
 | Libravatar         | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Libravatars are enabled, upon receiving a message (*)                    |
 | GitHub             | None, but see the remarks below                                    | Upon downloading AdGuard tracking parameter list                            |
@@ -195,13 +198,13 @@ The sub-processors are:
 #### V. Permissions
 
 The app only requests permissions that are necessary for the expected behavior of an email app.
-For more information on permissions, see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq1).
+For more information on permissions, see [this FAQ](https://m66b.github.io/FairEmail/#faq1).
 
 #### VI. Logging
 
 The app does not send any log entries to the data processor by default.
 The error reporting system utilizes Bugsnag and is disabled by default.
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) for more information.
+See [this FAQ](https://m66b.github.io/FairEmail/#faq104) for more information.
 
 #### VII. Legal basis
 
