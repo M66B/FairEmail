@@ -8779,12 +8779,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message != null) {
                 keyPosition.put(message.id, i);
                 positionKey.put(i, message.id);
+
                 addExtra(message.from, message.extra);
+
                 if (threading) {
-                    if (message.senders == null || message.senders.length == 0)
-                        message.senders = message.from;
-                    if (message.recipients == null || message.recipients.length == 0)
-                        message.recipients = message.to;
+                        List<Address> senders = new ArrayList<>();
+                        if (message.from != null)
+                            senders.addAll(Arrays.asList(message.from));
+                        if (message.senders != null)
+                            senders.addAll(Arrays.asList(message.senders));
+                        message.senders = senders.toArray(new Address[0]);
+
+                    List<Address> recipients = new ArrayList<>();
+                    if (message.to != null)
+                        recipients.addAll(Arrays.asList(message.to));
+                    if (message.recipients != null)
+                        recipients.addAll(Arrays.asList(message.recipients));
+                    message.recipients = recipients.toArray(new Address[0]);
+
                     addExtra(message.senders, message.extra);
                 } else {
                     message.senders = message.from;
