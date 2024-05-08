@@ -4,6 +4,13 @@ Changelog
 
 For support you can use the contact form.
 
+Next version
+
+* Performance improvements
+* Small improvements and minor bug fixes
+
+Preview versions are available here.
+
 Acantholipan
 
 1.2179 - 2024-05-08

@@ -4,6 +4,13 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### Next version
+
+* Performance improvements
+* Small improvements and minor bug fixes
+
+Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
+
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
 ### 1.2179 - 2024-05-08
