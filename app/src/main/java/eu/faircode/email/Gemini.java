@@ -78,12 +78,13 @@ public class Gemini {
             jcontents.put(jcontent);
         }
 
-        // https://ai.google.dev/api/python/google/generativeai/GenerationConfig
+        // https://ai.google.dev/api/python/google/ai/generativelanguage/GenerationConfig
         JSONObject jconfig = new JSONObject();
         if (temperature != null)
             jconfig.put("temperature", temperature);
         jconfig.put("candidate_count", n);
 
+        // https://ai.google.dev/api/python/google/ai/generativelanguage/SafetySetting
         JSONArray jsafety = new JSONArray();
 
         JSONObject jsex = new JSONObject();
@@ -106,6 +107,7 @@ public class Gemini {
         jdanger.put("threshold", "BLOCK_ONLY_HIGH");
         jsafety.put(jdanger);
 
+        // https://ai.google.dev/api/python/google/ai/generativelanguage/GenerateContentRequest
         JSONObject jrequest = new JSONObject();
         jrequest.put("contents", jcontents);
         jrequest.put("generationConfig", jconfig);
@@ -150,8 +152,8 @@ public class Gemini {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String apikey = prefs.getString("gemini_apikey", null);
 
-        // https://ai.google.dev/tutorials/rest_quickstart
         // https://ai.google.dev/api/rest
+        // https://ai.google.dev/tutorials/rest_quickstart
         Uri uri = Uri.parse(getUri(context)).buildUpon()
                 .appendEncodedPath(path)
                 .build();
