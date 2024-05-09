@@ -120,6 +120,10 @@ public class Gemini {
         JSONArray jcandidates = jresponse.optJSONArray("candidates");
         for (int i = 0; i < jcandidates.length(); i++) {
             JSONObject jcandidate = jcandidates.getJSONObject(i);
+
+            if (!jcandidate.has("content"))
+                throw new IOException(jresponse.toString(2));
+
             JSONObject jcontent = jcandidate.getJSONObject("content");
 
             String role = jcontent.getString("role");
