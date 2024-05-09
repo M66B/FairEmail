@@ -77,37 +77,36 @@ public class Gemini {
         JSONObject jconfig = new JSONObject();
         jconfig.put("temperature", temperature);
 
+        JSONArray jsafety = new JSONArray();
+
+        JSONObject jsex = new JSONObject();
+        jsex.put("category", "HARM_CATEGORY_SEXUALLY_EXPLICIT");
+        jsex.put("threshold", "BLOCK_ONLY_HIGH");
+        jsafety.put(jsex);
+
+        JSONObject jhate = new JSONObject();
+        jhate.put("category", "HARM_CATEGORY_HATE_SPEECH");
+        jhate.put("threshold", "BLOCK_ONLY_HIGH");
+        jsafety.put(jhate);
+
+        JSONObject jharass = new JSONObject();
+        jharass.put("category", "HARM_CATEGORY_HARASSMENT");
+        jharass.put("threshold", "BLOCK_ONLY_HIGH");
+        jsafety.put(jharass);
+
+        JSONObject jdanger = new JSONObject();
+        jdanger.put("category", "HARM_CATEGORY_DANGEROUS_CONTENT");
+        jdanger.put("threshold", "BLOCK_ONLY_HIGH");
+        jsafety.put(jdanger);
+
         JSONObject jrequest = new JSONObject();
         jrequest.put("contents", jcontents);
         jrequest.put("generationConfig", jconfig);
+        jrequest.put("safetySettings", jsafety);
 
         String path = "models/" + Uri.encode(model) + ":generateContent";
 
         JSONObject jresponse = call(context, "POST", path, jrequest);
-
-        // {
-        //   "promptFeedback": {
-        //     "blockReason": "SAFETY",
-        //     "safetyRatings": [
-        //       {
-        //         "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-        //         "probability": "NEGLIGIBLE"
-        //       },
-        //       {
-        //         "category": "HARM_CATEGORY_HATE_SPEECH",
-        //         "probability": "NEGLIGIBLE"
-        //       },
-        //       {
-        //         "category": "HARM_CATEGORY_HARASSMENT",
-        //         "probability": "MEDIUM"
-        //       },
-        //       {
-        //         "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-        //         "probability": "NEGLIGIBLE"
-        //       }
-        //     ]
-        //   }
-        // }
 
         JSONArray jcandidates = jresponse.optJSONArray("candidates");
         if (jcandidates == null || jcandidates.length() < 1)
