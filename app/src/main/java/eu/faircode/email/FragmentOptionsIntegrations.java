@@ -103,12 +103,12 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
-            "lt_enabled", "lt_sentence", "lt_auto", "lt_picky", "lt_highlight", "lt_description", "lt_uri", "lt_user", "lt_key",
+            "lt_enabled", "lt_sentence", "lt_auto", "lt_picky", "lt_highlight", "lt_description", "lt_uri", "lt_user",
             "deepl_enabled",
-            "vt_enabled", "vt_apikey",
+            "vt_enabled",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
-            "openai_enabled", "openai_uri", "openai_apikey", "openai_model", "openai_temperature", "openai_moderation", "openai_summarize",
-            "gemini_enabled", "gemini_uri", "gemini_apikey", "gemini_model", "gemini_temperature", "gemini_summarize"
+            "openai_enabled", "openai_uri", "openai_model", "openai_temperature", "openai_moderation", "openai_summarize",
+            "gemini_enabled", "gemini_uri", "gemini_model", "gemini_temperature", "gemini_summarize"
     ));
 
     @Override
