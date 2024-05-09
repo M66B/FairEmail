@@ -804,7 +804,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             etGeminiModel.setText(prefs.getString("gemini_model", null));
             etGeminiModel.setEnabled(swGemini.isChecked());
 
-            temperature = prefs.getFloat("gemini_temperature", 0.5f);
+            temperature = prefs.getFloat("gemini_temperature", 0.9f);
             tvGeminiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
             sbGeminiTemperature.setProgress(Math.round(temperature * 10));
             sbGeminiTemperature.setEnabled(swGemini.isChecked());
