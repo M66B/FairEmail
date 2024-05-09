@@ -90,6 +90,8 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
     private EditText etGemini;
     private TextInputLayout tilGemini;
     private EditText etGeminiModel;
+    private TextView tvGeminiTemperature;
+    private SeekBar sbGeminiTemperature;
     private EditText etGeminiSummarize;
     private ImageButton ibGemini;
 
@@ -106,7 +108,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
             "openai_enabled", "openai_uri", "openai_apikey", "openai_model", "openai_temperature", "openai_moderation", "openai_summarize",
-            "gemini_enabled", "gemini_uri", "gemini_apikey", "gemini_model", "gemini_summarize"
+            "gemini_enabled", "gemini_uri", "gemini_apikey", "gemini_model", "gemini_temperature", "gemini_summarize"
     ));
 
     @Override
@@ -162,6 +164,8 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         etGemini = view.findViewById(R.id.etGemini);
         tilGemini = view.findViewById(R.id.tilGemini);
         etGeminiModel = view.findViewById(R.id.etGeminiModel);
+        tvGeminiTemperature = view.findViewById(R.id.tvGeminiTemperature);
+        sbGeminiTemperature = view.findViewById(R.id.sbGeminiTemperature);
         etGeminiSummarize = view.findViewById(R.id.etGeminiSummarize);
         ibGemini = view.findViewById(R.id.ibGemini);
 
@@ -556,6 +560,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("gemini_enabled", checked).apply();
                 etGeminiModel.setEnabled(checked);
+                sbGeminiTemperature.setEnabled(checked);
                 etGeminiSummarize.setEnabled(checked);
                 if (checked)
                     swOpenAi.setChecked(false);
@@ -631,6 +636,24 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                     prefs.edit().remove("gemini_model").apply();
                 else
                     prefs.edit().putString("gemini_model", model).apply();
+            }
+        });
+
+        sbGeminiTemperature.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                float temp = progress / 20f;
+                prefs.edit().putFloat("gemini_temperature", temp).apply();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
             }
         });
 
@@ -780,6 +803,12 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             tilGemini.getEditText().setText(prefs.getString("gemini_apikey", null));
             etGeminiModel.setText(prefs.getString("gemini_model", null));
             etGeminiModel.setEnabled(swGemini.isChecked());
+
+            temperature = prefs.getFloat("gemini_temperature", 0.5f);
+            tvGeminiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
+            sbGeminiTemperature.setProgress(Math.round(temperature * 20));
+            sbGeminiTemperature.setEnabled(swGemini.isChecked());
+
             etGeminiSummarize.setText(prefs.getString("gemini_summarize", null));
             etGeminiSummarize.setEnabled(swGemini.isChecked());
         } catch (Throwable ex) {

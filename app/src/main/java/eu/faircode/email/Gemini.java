@@ -40,6 +40,8 @@ import java.util.Objects;
 
 public class Gemini {
     // https://ai.google.dev/models/gemini
+    static final String MODEL = "model";
+    static final String USER = "user";
     static final String SUMMARY_PROMPT = "Summarize the following text:";
 
     private static final int MAX_GEMINI_LEN = 4000; // characters
@@ -57,7 +59,7 @@ public class Gemini {
                 (!TextUtils.isEmpty(apikey) || !Objects.equals(getUri(context), BuildConfig.GEMINI_ENDPOINT)));
     }
 
-    static String[] generate(Context context, String model, String[] texts) throws JSONException, IOException {
+    static String[] generate(Context context, String model, String[] texts, float temperature) throws JSONException, IOException {
         JSONArray jpart = new JSONArray();
         for (String text : texts) {
             JSONObject jtext = new JSONObject();
@@ -67,10 +69,17 @@ public class Gemini {
 
         JSONObject jcontent0 = new JSONObject();
         jcontent0.put("parts", jpart);
+        jcontent0.put("role", USER);
         JSONArray jcontents = new JSONArray();
         jcontents.put(jcontent0);
+
+        // https://ai.google.dev/api/python/google/generativeai/GenerationConfig
+        JSONObject jconfig = new JSONObject();
+        jconfig.put("temperature", temperature);
+
         JSONObject jrequest = new JSONObject();
         jrequest.put("contents", jcontents);
+        jrequest.put("generationConfig", jconfig);
 
         String path = "models/" + Uri.encode(model) + ":generateContent";
 

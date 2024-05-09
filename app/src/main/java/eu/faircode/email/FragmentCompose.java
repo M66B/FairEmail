@@ -2790,8 +2790,9 @@ public class FragmentCompose extends FragmentBase {
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 String model = prefs.getString("gemini_model", "gemini-pro");
+                float temperature = prefs.getFloat("gemini_temperature", 0.5f);
 
-                return Gemini.generate(context, model, new String[]{Gemini.truncateParagraphs(body)});
+                return Gemini.generate(context, model, new String[]{Gemini.truncateParagraphs(body)}, temperature);
             }
 
             @Override
