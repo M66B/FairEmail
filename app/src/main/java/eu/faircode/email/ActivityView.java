@@ -218,8 +218,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_NEW_MESSAGE);
         lbm.registerReceiver(creceiver, iff);
 
-        if (savedInstanceState != null)
+        if (savedInstanceState != null) {
+            initialized = savedInstanceState.getBoolean("fair:initialized");
             searching = savedInstanceState.getBoolean("fair:searching");
+        }
 
         colorDrawerScrim = Helper.resolveColor(this, R.attr.colorDrawerScrim);
 
@@ -852,6 +854,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     protected void onSaveInstanceState(Bundle outState) {
         outState.putParcelable("fair:intent", getIntent());
         outState.putBoolean("fair:toggle", drawerToggle == null || drawerToggle.isDrawerIndicatorEnabled());
+        outState.putBoolean("fair:initialized", initialized);
         outState.putBoolean("fair:searching", searching);
         super.onSaveInstanceState(outState);
     }
