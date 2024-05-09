@@ -6,6 +6,7 @@ For support you can use the contact form.
 
 Next version
 
+* Improved Gemini integration
 * Performance improvements
 * Small improvements and minor bug fixes
 

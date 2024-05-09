@@ -6,6 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Improved [Gemini](https://m66b.github.io/FairEmail/#faq204) integration
 * Performance improvements
 * Small improvements and minor bug fixes
 
