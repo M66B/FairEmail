@@ -2769,7 +2769,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("body", body);
         args.putBoolean("selection", selection);
 
-        new SimpleTask<String[]>() {
+        new SimpleTask<Gemini.Message[]>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 chatting = true;
@@ -2783,7 +2783,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
             @Override
-            protected String[] onExecute(Context context, Bundle args) throws Throwable {
+            protected Gemini.Message[] onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 String body = args.getString("body");
                 boolean selection = args.getBoolean("selection");
@@ -2792,15 +2792,17 @@ public class FragmentCompose extends FragmentBase {
                 String model = prefs.getString("gemini_model", "gemini-pro");
                 float temperature = prefs.getFloat("gemini_temperature", 0.5f);
 
-                return Gemini.generate(context, model, new String[]{Gemini.truncateParagraphs(body)}, temperature);
+                Gemini.Message message = new Gemini.Message(Gemini.USER, new String[]{Gemini.truncateParagraphs(body)});
+
+                return Gemini.generate(context, model, new Gemini.Message[]{message}, temperature, 1);
             }
 
             @Override
-            protected void onExecuted(Bundle args, String[] result) {
-                if (result == null || result.length == 0)
+            protected void onExecuted(Bundle args, Gemini.Message[] messages) {
+                if (messages == null || messages.length == 0)
                     return;
 
-                String text = result[0]
+                String text = TextUtils.join("\n", messages[0].getContent())
                         .replaceAll("^\\n+", "").replaceAll("\\n+$", "");
 
                 Editable edit = etBody.getText();

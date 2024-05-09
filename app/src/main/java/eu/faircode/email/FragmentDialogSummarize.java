@@ -109,8 +109,12 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     float temperature = prefs.getFloat("gemini_temperature", 0.5f);
                     String prompt = prefs.getString("gemini_summarize", Gemini.SUMMARY_PROMPT);
 
-                    String[] result = Gemini.generate(context, model, new String[]{prompt, text}, temperature);
-                    return TextUtils.join("\n", result);
+                    Gemini.Message message = new Gemini.Message(Gemini.USER, new String[]{prompt, text});
+
+                    Gemini.Message[] result = Gemini.generate(context, model, new Gemini.Message[]{message}, temperature, 1);
+                    if (result.length == 0)
+                        return null;
+                    return TextUtils.join("\n", result[0].getContent());
                 }
 
                 return null;
