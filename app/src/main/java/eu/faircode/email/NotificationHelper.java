@@ -1003,7 +1003,7 @@ class NotificationHelper {
                 if (notify_preview_all)
                     try {
                         File file = message.getFile(context);
-                        preview = HtmlHelper.getFullText(file);
+                        preview = HtmlHelper.getFullText(file, true);
                         if (preview != null && preview.length() > MAX_PREVIEW)
                             preview = preview.substring(0, MAX_PREVIEW);
                     } catch (Throwable ex) {

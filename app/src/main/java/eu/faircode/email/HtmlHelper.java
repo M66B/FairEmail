@@ -2624,29 +2624,29 @@ public class HtmlHelper {
         return truncate(preview, PREVIEW_SIZE);
     }
 
-    static String getFullText(String body) {
+    static String getFullText(String body, boolean hidden) {
         try {
             if (body == null)
                 return null;
             Document d = JsoupEx.parse(body);
-            return _getText(d);
+            return _getText(d, hidden);
         } catch (OutOfMemoryError ex) {
             Log.e(ex);
             return null;
         }
     }
 
-    static String getFullText(File file) throws IOException {
+    static String getFullText(File file, boolean hidden) throws IOException {
         try {
             Document d = JsoupEx.parse(file);
-            return _getText(d);
+            return _getText(d, hidden);
         } catch (OutOfMemoryError ex) {
             Log.e(ex);
             return null;
         }
     }
 
-    private static String _getText(Document d) {
+    private static String _getText(Document d, boolean hidden) {
         truncate(d, MAX_FULL_TEXT_SIZE);
 
         for (Element e : d.select("*")) {
@@ -2667,7 +2667,7 @@ public class HtmlHelper {
                         .trim()
                         .toLowerCase(Locale.ROOT)
                         .replaceAll("\\s+", " ");
-                if ("display".equals(key) && "none".equals(value)) {
+                if (!hidden && "display".equals(key) && "none".equals(value)) {
                     e.remove();
                     break;
                 }

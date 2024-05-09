@@ -2076,7 +2076,7 @@ class Core {
         String body = parts.getHtml(context, plain_text, charset);
         File file = message.getFile(context);
         Helper.writeText(file, body);
-        String text = HtmlHelper.getFullText(body);
+        String text = HtmlHelper.getFullText(body, true);
         message.preview = HtmlHelper.getPreview(text);
         message.language = HtmlHelper.getLanguage(context, message.subject, text);
         Integer plain_only = parts.isPlainOnly();
@@ -2249,7 +2249,7 @@ class Core {
         String body = parts.getHtml(context, download_plain);
         File file = message.getFile(context);
         Helper.writeText(file, body);
-        String text = HtmlHelper.getFullText(body);
+        String text = HtmlHelper.getFullText(body, true);
         message.preview = HtmlHelper.getPreview(text);
         message.language = HtmlHelper.getLanguage(context, message.subject, text);
 
@@ -3611,7 +3611,7 @@ class Core {
 
                         File file = message.getFile(context);
                         Helper.writeText(file, body);
-                        String text = HtmlHelper.getFullText(body);
+                        String text = HtmlHelper.getFullText(body, true);
                         message.preview = HtmlHelper.getPreview(text);
                         message.language = HtmlHelper.getLanguage(context, message.subject, text);
                         db.message().setMessageContent(message.id,
@@ -4898,7 +4898,7 @@ class Core {
                                 body = parts.getHtml(context, download_plain);
                             File file = message.getFile(context);
                             Helper.writeText(file, body);
-                            String text = HtmlHelper.getFullText(body);
+                            String text = HtmlHelper.getFullText(body, true);
                             message.content = true;
                             message.preview = HtmlHelper.getPreview(text);
                             message.language = HtmlHelper.getLanguage(context, message.subject, text);
@@ -5418,7 +5418,7 @@ class Core {
                     String body = parts.getHtml(context);
                     File file = message.getFile(context);
                     Helper.writeText(file, body);
-                    String text = HtmlHelper.getFullText(body);
+                    String text = HtmlHelper.getFullText(body, true);
                     message.preview = HtmlHelper.getPreview(text);
                     message.language = HtmlHelper.getLanguage(context, message.subject, text);
                     db.message().setMessageContent(message.id,

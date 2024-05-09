@@ -722,7 +722,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             if (plain != null && (plain & 1) != 0)
                 body = body.replace("<div x-plain=\"true\">", "<div>");
 
-            String text = HtmlHelper.getFullText(body);
+            String text = HtmlHelper.getFullText(body, true);
             String language = HtmlHelper.getLanguage(this, message.subject, text);
             String preview = HtmlHelper.getPreview(text);
 

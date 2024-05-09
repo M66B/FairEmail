@@ -1676,7 +1676,7 @@ public class FragmentFolders extends FragmentBase {
 
                             File file = message.getFile(context);
                             Helper.writeText(file, body);
-                            String text = HtmlHelper.getFullText(body);
+                            String text = HtmlHelper.getFullText(body, true);
                             message.preview = HtmlHelper.getPreview(text);
                             message.language = HtmlHelper.getLanguage(context, message.subject, text);
                             db.message().setMessageContent(message.id,

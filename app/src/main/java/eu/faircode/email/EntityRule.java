@@ -1180,7 +1180,7 @@ public class EntityRule {
 
         File file = reply.getFile(context);
         Helper.writeText(file, body);
-        String text = HtmlHelper.getFullText(body);
+        String text = HtmlHelper.getFullText(body, true);
         reply.preview = HtmlHelper.getPreview(text);
         reply.language = HtmlHelper.getLanguage(context, reply.subject, text);
         db.message().setMessageContent(reply.id,
@@ -1292,7 +1292,7 @@ public class EntityRule {
                     .append(' ').append(message.subject).append(". ");
 
         String body = Helper.readText(message.getFile(context));
-        String text = HtmlHelper.getFullText(body);
+        String text = HtmlHelper.getFullText(body, false);
         String preview = HtmlHelper.getPreview(text);
 
         if (!TextUtils.isEmpty(preview))

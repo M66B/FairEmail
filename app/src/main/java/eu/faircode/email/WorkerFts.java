@@ -86,7 +86,7 @@ public class WorkerFts extends Worker {
                         String text = null;
                         if (message.content) {
                             File file = message.getFile(context);
-                            text = HtmlHelper.getFullText(file);
+                            text = HtmlHelper.getFullText(file, false);
                         }
 
                         try {
