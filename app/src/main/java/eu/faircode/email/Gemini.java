@@ -62,6 +62,7 @@ public class Gemini {
     }
 
     static Message[] generate(Context context, String model, Message[] messages, Float temperature, int n) throws JSONException, IOException {
+        //https://ai.google.dev/api/rest/v1beta/models/generateContent
         JSONArray jcontents = new JSONArray();
         for (Message message : messages) {
             JSONArray jparts = new JSONArray();
@@ -78,13 +79,13 @@ public class Gemini {
             jcontents.put(jcontent);
         }
 
-        // https://ai.google.dev/api/python/google/ai/generativelanguage/GenerationConfig
+        // https://ai.google.dev/api/rest/v1beta/GenerationConfig
         JSONObject jconfig = new JSONObject();
         if (temperature != null)
             jconfig.put("temperature", temperature);
         jconfig.put("candidate_count", n);
 
-        // https://ai.google.dev/api/python/google/ai/generativelanguage/SafetySetting
+        // https://ai.google.dev/api/rest/v1beta/SafetySetting
         JSONArray jsafety = new JSONArray();
 
         JSONObject jsex = new JSONObject();
@@ -107,7 +108,6 @@ public class Gemini {
         jdanger.put("threshold", "BLOCK_ONLY_HIGH");
         jsafety.put(jdanger);
 
-        // https://ai.google.dev/api/python/google/ai/generativelanguage/GenerateContentRequest
         JSONObject jrequest = new JSONObject();
         jrequest.put("contents", jcontents);
         jrequest.put("generationConfig", jconfig);

@@ -642,7 +642,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         sbGeminiTemperature.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                float temp = progress / 20f;
+                float temp = progress / 10f;
                 prefs.edit().putFloat("gemini_temperature", temp).apply();
             }
 
@@ -806,7 +806,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
 
             temperature = prefs.getFloat("gemini_temperature", 0.5f);
             tvGeminiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
-            sbGeminiTemperature.setProgress(Math.round(temperature * 20));
+            sbGeminiTemperature.setProgress(Math.round(temperature * 10));
             sbGeminiTemperature.setEnabled(swGemini.isChecked());
 
             etGeminiSummarize.setText(prefs.getString("gemini_summarize", null));
