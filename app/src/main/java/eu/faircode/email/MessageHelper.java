@@ -2244,24 +2244,26 @@ public class MessageHelper {
             }
 
             // https://datatracker.ietf.org/doc/html/rfc6376/
-            List<String> headers = new ArrayList<>();
-
             String[] dkim_headers = amessage.getHeader(DKIM_SIGNATURE);
-            if (dkim_headers != null && dkim_headers.length > 0)
-                headers.addAll(Arrays.asList(dkim_headers));
-
             String[] arc_headers = amessage.getHeader(ARC_MESSAGE_SIGNATURE);
-            if (arc_headers != null && arc_headers.length > 0)
-                headers.addAll(Arrays.asList(arc_headers));
 
-            if (headers.size() == 0)
+            if ((dkim_headers == null ? 0 : dkim_headers.length) +
+                    (arc_headers == null ? 0 : arc_headers.length) == 0)
                 return signers;
 
-            for (String header : headers) {
-                String signer = verifySignatureHeader(context, header, DKIM_SIGNATURE, amessage);
-                if (signer != null && !signers.contains(signer))
-                    signers.add(signer);
-            }
+            if (dkim_headers != null)
+                for (String header : dkim_headers) {
+                    String signer = verifySignatureHeader(context, header, DKIM_SIGNATURE, amessage);
+                    if (signer != null && !signers.contains(signer))
+                        signers.add(signer);
+                }
+
+            if (arc_headers != null)
+                for (String header : arc_headers) {
+                    String signer = verifySignatureHeader(context, header, ARC_MESSAGE_SIGNATURE, amessage);
+                    if (signer != null && !signers.contains(signer))
+                        signers.add(signer);
+                }
 
             Log.i("DKIM signers=" + TextUtils.join(",", signers));
 
