@@ -7831,7 +7831,7 @@ public class FragmentMessages extends FragmentBase
                     }
 
                     if (!EntityFolder.OUTBOX.equals(folder.type))
-                        db.message().setMessageLastAttempt(message.id, new Date().getTime());
+                        db.message().setMessageLastTouched(message.id, new Date().getTime());
 
                     db.setTransactionSuccessful();
                 } finally {

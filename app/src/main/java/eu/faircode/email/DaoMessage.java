@@ -105,7 +105,7 @@ public interface DaoMessage {
             "   WHEN 'size' = :sort1 THEN -SUM(message.total)" +
             "   WHEN 'attachments' = :sort1 THEN -SUM(message.attachments)" +
             "   WHEN 'snoozed' = :sort1 THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
-            "   WHEN 'touched' = :sort1 THEN IFNULL(-message.last_attempt, 0)" +
+            "   WHEN 'touched' = :sort1 THEN IFNULL(-message.last_touched, 0)" +
             "   ELSE 0" +
             "  END" +
             ", CASE" +
@@ -182,7 +182,7 @@ public interface DaoMessage {
             "   WHEN 'size' = :sort1 THEN -SUM(message.total)" +
             "   WHEN 'attachments' = :sort1 THEN -SUM(message.attachments)" +
             "   WHEN 'snoozed' = :sort1 THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
-            "   WHEN 'touched' = :sort1 THEN IFNULL(-message.last_attempt, 0)" +
+            "   WHEN 'touched' = :sort1 THEN IFNULL(-message.last_touched, 0)" +
             "   ELSE 0" +
             "  END" +
             ", CASE" +
@@ -379,10 +379,10 @@ public interface DaoMessage {
             " AND (:size IS NULL OR total > :size)" +
             " AND (:after IS NULL OR received > :after)" +
             " AND (:before IS NULL OR received < :before)" +
-            " AND (:touched IS NULL OR last_attempt > :touched)" +
+            " AND (:touched IS NULL OR last_touched > :touched)" +
             " AND NOT message.folder IN (:exclude)" +
             " GROUP BY message.id" +
-            " ORDER BY CASE WHEN :touched IS NULL THEN received ELSE last_attempt END DESC" +
+            " ORDER BY CASE WHEN :touched IS NULL THEN received ELSE last_touched END DESC" +
             " LIMIT :limit OFFSET :offset")
     List<TupleMatch> matchMessages(
             Long account, Long folder, long[] exclude, String find,
@@ -924,6 +924,9 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET last_attempt = :last_attempt WHERE id = :id AND NOT (last_attempt IS :last_attempt)")
     int setMessageLastAttempt(long id, Long last_attempt);
+
+    @Query("UPDATE message SET last_touched = :last_touched WHERE id = :id AND NOT (last_touched IS :last_touched)")
+    int setMessageLastTouched(long id, Long last_touched);
 
     @Query("UPDATE message SET ui_ignored = 1" +
             " WHERE NOT ui_ignored" +

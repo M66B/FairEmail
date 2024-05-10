@@ -8540,6 +8540,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("last_attempt changed " + prev.last_attempt + "/" + next.last_attempt, next.id);
                 }
+                // last_touched
 
                 // accountPop
                 if (!Objects.equals(prev.accountName, next.accountName)) {
