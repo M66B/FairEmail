@@ -5221,8 +5221,8 @@ public class MessageHelper {
     }
 
     private static boolean isMimeType(Part part, String mimeType) throws MessagingException {
-		if (mimeType.endsWith("/*"))
-			return part.isMimeType(mimeType);
+        if (mimeType.endsWith("/*"))
+            return part.isMimeType(mimeType);
 
         if (part.isMimeType(mimeType)) {
             ContentType ct = new ContentType(part.getContentType());
