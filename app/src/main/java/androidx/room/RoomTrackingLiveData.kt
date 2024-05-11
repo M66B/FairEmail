@@ -100,7 +100,7 @@ internal class RoomTrackingLiveData<T> (
 		if (isActive) {
 			synchronized(lock) {
 				if (queued.value > 0) {
-					eu.faircode.email.Log.persist(eu.faircode.email.EntityLog.Type.Debug, "$computeFunction queued=" + queued.value)
+					eu.faircode.email.Log.persist(eu.faircode.email.EntityLog.Type.Debug1, "$computeFunction queued=" + queued.value)
 				} else {
 					queued.value++
 					queryExecutor.execute(refreshRunnable)
