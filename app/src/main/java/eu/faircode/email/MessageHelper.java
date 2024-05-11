@@ -2561,15 +2561,26 @@ public class MessageHelper {
             sig.update(data);
 
             boolean verified = sig.verify(signature);
-            Log.i("DKIM valid=" + verified +
+            String msg = "DKIM valid=" + verified +
                     " algo=" + salgo +
                     " dns=" + dns +
-                    " from=" + formatAddresses(getFrom()));
+                    " from=" + formatAddresses(getFrom());
+            Log.i(msg);
+            EntityLog.log(context, verified ? EntityLog.Type.Debug2 : EntityLog.Type.Debug3, msg);
 
             if (verified)
                 return signer;
         } catch (Throwable ex) {
             Log.e("DKIM", ex);
+            Address[] from;
+            try {
+                from = getFrom();
+            } catch (Throwable ignored) {
+                from = null;
+            }
+            EntityLog.log(context, EntityLog.Type.Debug3, "DKIM failed" +
+                    " from=" + formatAddresses(from) +
+                    " ex=" + Log.formatThrowable(ex));
         }
 
         return null;
