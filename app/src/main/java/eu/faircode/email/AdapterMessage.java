@@ -8784,20 +8784,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 addExtra(message.from, message.extra);
 
                 if (threading) {
-                        List<Address> senders = new ArrayList<>();
-                        if (message.from != null)
-                            senders.addAll(Arrays.asList(message.from));
-                        if (message.senders != null)
-                            senders.addAll(Arrays.asList(message.senders));
-                        message.senders = senders.toArray(new Address[0]);
-
-                    List<Address> recipients = new ArrayList<>();
-                    if (message.to != null)
-                        recipients.addAll(Arrays.asList(message.to));
-                    if (message.recipients != null)
-                        recipients.addAll(Arrays.asList(message.recipients));
-                    message.recipients = recipients.toArray(new Address[0]);
-
+                    message.senders = merge(message.from, message.senders);
+                    message.recipients = merge(message.to, message.recipients);
                     addExtra(message.senders, message.extra);
                 } else {
                     message.senders = message.from;
@@ -8823,6 +8811,28 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }
         });
+    }
+
+    static Address[] merge(Address[] base, Address[] addresses) {
+        if (base == null || base.length == 0)
+            return (addresses == null ? new Address[0] : addresses);
+        if (addresses == null)
+            return base;
+
+        List<Address> result = new ArrayList<>();
+        result.addAll(Arrays.asList(base));
+        for (Address a : addresses)
+            for (Address b : base) {
+                if (a.equals(b)) {
+                    if (a instanceof InternetAddress && b instanceof InternetAddress) {
+                        if (Objects.equals(((InternetAddress) a).getPersonal(), ((InternetAddress) b).getPersonal()))
+                            continue;
+                    } else
+                        continue;
+                }
+                result.add(a);
+            }
+        return result.toArray(new Address[0]);
     }
 
     static void addExtra(Address[] addresses, String extra) {
