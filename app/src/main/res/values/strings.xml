@@ -928,6 +928,7 @@
     <string name="title_advanced_auto_vacuum" translatable="false">sqlite auto vacuum</string>
     <string name="title_advanced_sync_extra" translatable="false">sqlite sync extra</string>
     <string name="title_advanced_sqlite_cache" translatable="false">sqlite cache: %1$s %% - %2$s</string>
+    <string name="title_advanced_legacy_queries" translatable="false">Legacy queries</string>
     <string name="title_advanced_oauth_tabs" translatable="false">OAuth tabs</string>
     <string name="title_advanced_chunk_size" translatable="false">Chunk size: %1$d</string>
     <string name="title_advanced_thread_range" translatable="false">Thread range: %1$d days</string>

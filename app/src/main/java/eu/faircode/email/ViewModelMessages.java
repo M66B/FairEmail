@@ -34,6 +34,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ViewModel;
+import androidx.paging.DataSource;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 import androidx.preference.PreferenceManager;
@@ -87,6 +88,9 @@ public class ViewModelMessages extends ViewModel {
             boolean filter_archive,
             BoundaryCallbackMessages.SearchCriteria criteria, boolean server) {
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean legacy = prefs.getBoolean("legacy_queries", false);
+
         Args args = new Args(context,
                 viewType, type, account, folder,
                 thread, id, threading,
@@ -112,6 +116,7 @@ public class ViewModelMessages extends ViewModel {
                         viewType, args.account, args.folder, args.server, args.criteria,
                         args.server ? REMOTE_PAGE_SIZE : SEARCH_PAGE_SIZE);
 
+            DataSource.Factory<Integer, TupleMessageEx> pager;
             LivePagedListBuilder<Integer, TupleMessageEx> builder = null;
             switch (viewType) {
                 case UNIFIED:
@@ -119,21 +124,35 @@ public class ViewModelMessages extends ViewModel {
                             .setPageSize(LOCAL_PAGE_SIZE)
                             .setMaxSize(MAX_CACHED_ITEMS)
                             .build();
-                    builder = new LivePagedListBuilder<>(
-                            db.message().pagedUnified(
-                                    args.type,
-                                    args.threading,
-                                    args.group_category,
-                                    args.sort1, args.sort2, args.ascending,
-                                    args.filter_seen,
-                                    args.filter_unflagged,
-                                    args.filter_unknown,
-                                    args.filter_snoozed,
-                                    args.filter_deleted,
-                                    args.filter_language,
-                                    false,
-                                    args.debug),
-                            configUnified);
+                    if (legacy)
+                        pager = db.message().pagedUnifiedLegacy(
+                                args.type,
+                                args.threading,
+                                args.group_category,
+                                args.sort1, args.sort2, args.ascending,
+                                args.filter_seen,
+                                args.filter_unflagged,
+                                args.filter_unknown,
+                                args.filter_snoozed,
+                                args.filter_deleted,
+                                args.filter_language,
+                                false,
+                                args.debug);
+                    else
+                        pager = db.message().pagedUnified(
+                                args.type,
+                                args.threading,
+                                args.group_category,
+                                args.sort1, args.sort2, args.ascending,
+                                args.filter_seen,
+                                args.filter_unflagged,
+                                args.filter_unknown,
+                                args.filter_snoozed,
+                                args.filter_deleted,
+                                args.filter_language,
+                                false,
+                                args.debug);
+                    builder = new LivePagedListBuilder<>(pager, configUnified);
                     break;
 
                 case FOLDER:
@@ -143,19 +162,31 @@ public class ViewModelMessages extends ViewModel {
                             .setPrefetchDistance(REMOTE_PAGE_SIZE)
                             .setMaxSize(MAX_CACHED_ITEMS)
                             .build();
-                    builder = new LivePagedListBuilder<>(
-                            db.message().pagedFolder(
-                                    args.folder, args.threading,
-                                    args.sort1, args.sort2, args.ascending,
-                                    args.filter_seen,
-                                    args.filter_unflagged,
-                                    args.filter_unknown,
-                                    args.filter_snoozed,
-                                    args.filter_deleted,
-                                    args.filter_language,
-                                    false,
-                                    args.debug),
-                            configFolder);
+                    if (legacy)
+                        pager = db.message().pagedFolderLegacy(
+                                args.folder, args.threading,
+                                args.sort1, args.sort2, args.ascending,
+                                args.filter_seen,
+                                args.filter_unflagged,
+                                args.filter_unknown,
+                                args.filter_snoozed,
+                                args.filter_deleted,
+                                args.filter_language,
+                                false,
+                                args.debug);
+                    else
+                        pager = db.message().pagedFolder(
+                                args.folder, args.threading,
+                                args.sort1, args.sort2, args.ascending,
+                                args.filter_seen,
+                                args.filter_unflagged,
+                                args.filter_unknown,
+                                args.filter_snoozed,
+                                args.filter_deleted,
+                                args.filter_language,
+                                false,
+                                args.debug);
+                    builder = new LivePagedListBuilder<>(pager, configFolder);
                     builder.setBoundaryCallback(boundary);
                     break;
 
@@ -179,27 +210,45 @@ public class ViewModelMessages extends ViewModel {
                             .setPrefetchDistance(REMOTE_PAGE_SIZE)
                             .setMaxSize(MAX_CACHED_ITEMS)
                             .build();
-                    if (args.folder < 0)
-                        builder = new LivePagedListBuilder<>(
-                                db.message().pagedUnified(
-                                        null,
-                                        args.threading, false,
-                                        criteria == null || criteria.touched == null ? "time" : "touched", "", false,
-                                        false, false, false, false, false,
-                                        null,
-                                        true,
-                                        args.debug),
-                                configSearch);
-                    else
-                        builder = new LivePagedListBuilder<>(
-                                db.message().pagedFolder(
-                                        args.folder, args.threading,
-                                        criteria == null || criteria.touched == null ? "time" : "touched", "", false,
-                                        false, false, false, false, false,
-                                        null,
-                                        true,
-                                        args.debug),
-                                configSearch);
+                    if (args.folder < 0) {
+                        if (legacy)
+                            pager = db.message().pagedUnifiedLegacy(
+                                    null,
+                                    args.threading, false,
+                                    criteria == null || criteria.touched == null ? "time" : "touched", "", false,
+                                    false, false, false, false, false,
+                                    null,
+                                    true,
+                                    args.debug);
+                        else
+                            pager = db.message().pagedUnified(
+                                    null,
+                                    args.threading, false,
+                                    criteria == null || criteria.touched == null ? "time" : "touched", "", false,
+                                    false, false, false, false, false,
+                                    null,
+                                    true,
+                                    args.debug);
+                        builder = new LivePagedListBuilder<>(pager, configSearch);
+                    } else {
+                        if (legacy)
+                            pager = db.message().pagedFolderLegacy(
+                                    args.folder, args.threading,
+                                    criteria == null || criteria.touched == null ? "time" : "touched", "", false,
+                                    false, false, false, false, false,
+                                    null,
+                                    true,
+                                    args.debug);
+                        else
+                            pager = db.message().pagedFolder(
+                                    args.folder, args.threading,
+                                    criteria == null || criteria.touched == null ? "time" : "touched", "", false,
+                                    false, false, false, false, false,
+                                    null,
+                                    true,
+                                    args.debug);
+                        builder = new LivePagedListBuilder<>(pager, configSearch);
+                    }
                     builder.setBoundaryCallback(boundary);
                     break;
             }
@@ -495,6 +544,10 @@ public class ViewModelMessages extends ViewModel {
                 models.remove(viewType);
             }
         }
+    }
+
+    void clear() {
+        models.clear();
     }
 
     private class Args {
