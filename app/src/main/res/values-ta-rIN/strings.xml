@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail தேடல்</string>
+    <string name="app_send_self">உனக்கு அனுப்பிக்கொள்</string>
     <string name="app_changelog">மாற்றப்பதிவேடு</string>
     <string name="app_welcome">FairEmail என்பது தனியுரிமை மற்றும் பாதுகாப்பை மையமாகக் கொண்ட ஒரு திறந்த மூல மின்னஞ்சல் பயன்பாடாகும். இதன் காரணமாக சில அம்சங்கள் நீங்கள் பழகியதிலிருந்து வேறுப்படக்கூடும்.</string>
+    <string name="app_data_loss">அனைத்து தகவல்களும் இழக்கப்படலாம்</string>
     <string name="app_continue">இருப்பினும் தொடரவும்</string>
     <string name="app_exit">வெளியேற \'பின்\' விசையை மீண்டும் அழுத்தவும்</string>
     <string name="app_cake">சேமிப்பிடம் போதுமானதாகயில்லை</string>
@@ -12,6 +14,7 @@
     <string name="channel_notification">மின்னஞ்சல்</string>
     <string name="channel_progress">முன்னேற்றங்கள்</string>
     <string name="channel_update">புதுப்பித்தல்கள்</string>
+    <string name="channel_announcements">அறிவிப்புகள்</string>
     <string name="channel_warning">எச்சரிக்கைகள்</string>
     <string name="channel_error">பிழைகள்</string>
     <string name="channel_alert">சேவையக எச்சரிக்கைகள்</string>
@@ -64,7 +67,9 @@
     <string name="title_block">%1$s-ஐ தடுக்கவும்</string>
     <string name="title_block_sender">அனுப்புனரை தடுக்கவும்</string>
     <string name="title_blocked_senders">தடுக்கப்பட்ட அனுப்புனர்கள்</string>
+    <string name="title_junk_filter_hint">இது பேட்டரி பயன்பாட்டை அதிகரிக்கலாம் மற்றும் செய்திகளை ஸ்பேம் என்று தவறாகக் குறிக்கலாம்</string>
     <string name="title_junk_clear">அகற்று</string>
+    <string name="title_junk_clear_hint">இது அனைத்து பிளாக் அனுப்புனர் விதிகளையும் நீக்கும்</string>
     <string name="title_notification_sending">செய்திகள் அனுப்பப்படுகின்றது</string>
     <string name="title_notification_waiting">தகுந்த இணைப்பிற்காகக் காத்திருக்கிறது</string>
     <string name="title_notification_idle">செயலற்ற</string>
@@ -111,7 +116,9 @@
     <string name="title_setup_identity_remark">மின்னஞ்சல் அனுப்புக</string>
     <string name="title_setup_accounts">கணக்குகள்</string>
     <string name="title_setup_identities">அடையாளங்கள்</string>
+    <string name="title_setup_google_sign_in">கூகுள் மூலம் உள்நுழையவும்</string>
     <string name="title_setup_other">மற்ற வழங்குனர்கள்</string>
+    <string name="title_setup_inbound">மின்னஞ்சலைப் பெற மட்டும் இயலும் (மின்னஞ்சலை அனுப்ப இயலாது!)</string>
     <string name="title_setup_pop3">POP3 கணக்கு</string>
     <string name="title_setup_oauth_authorize">அங்கீகரி</string>
     <string name="title_setup_select_account">கணக்குகளை தேர்ந்தெடுங்கள்</string>

@@ -426,6 +426,7 @@
     <string name="title_advanced_reply_move">Válaszadáskor a választ az eredeti üzenet mappájába mentse</string>
     <string name="title_advanced_reply_move_inbox">A beérkező üzenetek mappa esetén is</string>
     <string name="title_advanced_send_retry_max">Maximális küldési kísérlet</string>
+    <string name="title_advanced_send_retry_hint">Megpróbáljuk újraküldeni, ha a kapcsolat állapota megváltozik</string>
     <string name="title_advanced_send_partial">Érvénytelen címek figyelmen kívül hagyása küldéskor</string>
     <string name="title_advanced_send_partial_hint">Néhány cím érvénytelensége esetén is küldje el az üzenetet a többi címre</string>
     <string name="title_advanced_sent_partially">Az üzenetet nem küldtük el minden címzettnek</string>
