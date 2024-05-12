@@ -4929,61 +4929,48 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 result.add("MX");
 
             if (result.size() > 0)
-                sb.append(context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)));
-            else {
+                sb.append(context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)))
+                        .append('\n');
+
+            if (authentication_indicator) {
                 if (check_tls)
                     sb.append("TLS: ")
-                            .append(message.tls == null ? "-" : (message.tls ? "✓" : "✗"))
-                            .append('\n');
+                            .append(message.tls == null ? "-" : (message.tls ? "✓" : "✗")).append('\n');
                 sb.append("DKIM: ")
-                        .append(message.dkim == null ? "-" : (message.dkim ? "✓" : "✗"))
-                        .append('\n');
+                        .append(message.dkim == null ? "-" : (message.dkim ? "✓" : "✗")).append('\n');
                 sb.append("SPF: ")
-                        .append(message.spf == null ? "-" : (message.spf ? "✓" : "✗"))
-                        .append('\n');
+                        .append(message.spf == null ? "-" : (message.spf ? "✓" : "✗")).append('\n');
                 sb.append("DMARC: ")
-                        .append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"))
-                        .append('\n');
+                        .append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗")).append('\n');
                 if (message.auth != null)
-                    sb.append("SMTP: ").append(message.auth ? "✓" : "✗");
+                    sb.append("SMTP: ")
+                            .append(message.auth ? "✓" : "✗").append('\n');
                 if (check_mx)
-                    sb.append('\n')
-                            .append("MX: ")
-                            .append(message.mx == null ? "-" : (message.mx ? "✓" : "✗"));
+                    sb.append("MX: ")
+                            .append(message.mx == null ? "-" : (message.mx ? "✓" : "✗")).append('\n');
             }
 
             if (native_dkim && !TextUtils.isEmpty(message.signedby)) {
-                if (sb.length() > 0)
-                    sb.append('\n');
                 sb.append("Signed by:");
                 for (String signer : message.signedby.split(","))
-                    sb.append('\n').append(signer);
+                    sb.append(signer).append('\n');
             }
 
-            if (Boolean.TRUE.equals(message.blocklist)) {
-                if (sb.length() > 0)
-                    sb.append('\n');
-                sb.append(context.getString(R.string.title_on_blocklist));
-            }
+            if (Boolean.TRUE.equals(message.blocklist))
+                sb.append(context.getString(R.string.title_on_blocklist)).append('\n');
 
             if (Boolean.FALSE.equals(message.from_domain) && message.smtp_from != null)
                 for (Address smtp_from : message.smtp_from) {
                     String domain = UriHelper.getEmailDomain(((InternetAddress) smtp_from).getAddress());
                     String root = UriHelper.getRootDomain(context, domain);
-                    if (root != null) {
-                        if (sb.length() > 0)
-                            sb.append('\n');
-                        sb.append(context.getString(R.string.title_via, root));
-                    }
+                    if (root != null)
+                        sb.append(context.getString(R.string.title_via, root)).append('\n');
                 }
 
             if (Boolean.FALSE.equals(message.reply_domain)) {
                 String[] warning = message.checkReplyDomain(context);
-                if (warning != null) {
-                    if (sb.length() > 0)
-                        sb.append('\n');
-                    sb.append(context.getString(R.string.title_reply_domain, warning[0], warning[1]));
-                }
+                if (warning != null)
+                    sb.append(context.getString(R.string.title_reply_domain, warning[0], warning[1])).append('\n');
             }
 
             if (message.from != null && message.from.length > 0) {
@@ -4992,6 +4979,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!TextUtils.isEmpty(domain))
                     sb.insert(0, '\n').insert(0, domain);
             }
+
+            if (sb.length() > 0 && sb.charAt(sb.length() - 1) == '\n')
+                sb.deleteCharAt(sb.length() - 1);
 
             ToastEx.makeText(context, sb.toString(), Toast.LENGTH_LONG).show();
         }
