@@ -2391,6 +2391,8 @@ Then use the three dot action button to execute the desired action.
 There are almost no providers offering the [JMAP](https://jmap.io/) protocol,
 so it is not worth a lot of effort to add support for this to FairEmail.
 
+Moreover, the only available [Java JMAP library](https://github.com/iNPUTmice/jmap) seems not to be maintained anymore.
+
 <br />
 
 <a name="faq57"></a>
