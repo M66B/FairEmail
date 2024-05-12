@@ -2562,6 +2562,7 @@ public class MessageHelper {
 
             boolean verified = sig.verify(signature);
             String msg = "DKIM valid=" + verified +
+                    " header=" + name +
                     " algo=" + salgo +
                     " dns=" + dns +
                     " from=" + formatAddresses(getFrom());
