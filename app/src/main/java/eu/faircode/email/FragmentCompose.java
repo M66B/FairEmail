@@ -2731,7 +2731,7 @@ public class FragmentCompose extends FragmentBase {
                     edit.delete(start, end);
                     index = start;
                 } else
-                    index = end;
+                    index = etBody.length();
 
                 if (index < 0)
                     index = 0;
@@ -2814,7 +2814,7 @@ public class FragmentCompose extends FragmentBase {
                     edit.delete(start, end);
                     index = start;
                 } else
-                    index = end;
+                    index = etBody.length();
 
                 if (index < 0)
                     index = 0;
