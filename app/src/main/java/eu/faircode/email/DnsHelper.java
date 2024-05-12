@@ -62,7 +62,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -566,7 +565,7 @@ public class DnsHelper {
                 request.connect();
 
                 int status = request.getResponseCode();
-                if (status != HttpURLConnection.HTTP_OK)
+                if (status != HttpsURLConnection.HTTP_OK)
                     throw new IOException("Error " + status + ": " + request.getResponseMessage());
 
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
