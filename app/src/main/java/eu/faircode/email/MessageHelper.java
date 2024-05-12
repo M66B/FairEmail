@@ -192,6 +192,8 @@ public class MessageHelper {
 
     private static final int MAX_HEADER_LENGTH = 998;
     private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
+    private static final int MAX_KEYWORDS = 32;
+    private static final int MAX_LABELS = 32;
     private static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
     private static final int MAX_META_EXCERPT = 1024; // characters
     private static final int FORMAT_FLOWED_LINE_LENGTH = 72; // characters
@@ -1524,6 +1526,8 @@ public class MessageHelper {
     @NonNull
     String[] getKeywords() throws MessagingException {
         List<String> keywords = Arrays.asList(imessage.getFlags().getUserFlags());
+        while (keywords.size() > MAX_KEYWORDS)
+            keywords.remove(keywords.size() - 1);
         Collections.sort(keywords);
         return keywords.toArray(new String[0]);
     }
@@ -1961,6 +1965,9 @@ public class MessageHelper {
             for (String label : ((GmailMessage) imessage).getLabels())
                 if (!label.startsWith("\\"))
                     labels.add(label);
+
+        while (labels.size() > MAX_LABELS)
+            labels.remove(labels.size() - 1);
 
         Collections.sort(labels);
 
