@@ -9,6 +9,8 @@ Next version
 * Improved Gemini integration
 * Performance improvements
 * Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
 
 Preview versions are available here.
 
