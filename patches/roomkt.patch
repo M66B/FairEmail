@@ -73,7 +73,7 @@ index 171b57d16e..85c14c1a93 100644
 +		synchronized(lock) {
 +			queued.value--
 +			if (queued.value < 0) {
-+				eu.faircode.email.Log.e("$computeFunction queued=" + queued.value)
++				eu.faircode.email.Log.e("$computeFunction queued=$queued.value")
 +				queued.value = 0
 +			}
 +		}
@@ -120,7 +120,7 @@ index 171b57d16e..85c14c1a93 100644
 +		if (isActive) {
 +			synchronized(lock) {
 +				if (queued.value > 0) {
-+					eu.faircode.email.Log.persist(eu.faircode.email.EntityLog.Type.Debug, "$computeFunction queued=" + queued.value)
++					eu.faircode.email.Log.persist(eu.faircode.email.EntityLog.Type.Debug, "$computeFunction queued=$queued.value")
 +				} else {
 +					queued.value++
 +					queryExecutor.execute(refreshRunnable)
