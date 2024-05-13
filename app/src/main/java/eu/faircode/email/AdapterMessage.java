@@ -4456,7 +4456,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else if (id == R.id.ibVerified)
                 onShowVerified(message);
             else if (id == R.id.ibAuth)
-                onShowAuth(message);
+                onShowAuth(message, null);
             else if (id == R.id.ibPriority)
                 onShowPriority(message);
             else if (id == R.id.ibSensitivity)
@@ -4910,11 +4910,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowVerified(TupleMessageEx message) {
-            ToastEx.makeText(context, ibVerified.getContentDescription(), Toast.LENGTH_LONG).show();
+            onShowAuth(message, ibVerified.getContentDescription().toString());
         }
 
-        private void onShowAuth(TupleMessageEx message) {
+        private void onShowAuth(TupleMessageEx message, String title) {
             StringBuilder sb = new StringBuilder();
+
+            if (title != null)
+                sb.append(title).append('\n');
 
             List<String> result = new ArrayList<>();
             if (Boolean.FALSE.equals(message.dkim))
@@ -7934,7 +7937,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onToggleFlag(message);
                     return true;
                 } else if (action == R.id.ibAuth) {
-                    onShowAuth(message);
+                    onShowAuth(message, null);
                     return true;
                 } else if (action == R.id.ibSnoozed) {
                     onShowSnoozed(message);
