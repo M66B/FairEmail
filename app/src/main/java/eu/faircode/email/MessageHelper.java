@@ -2400,6 +2400,10 @@ public class MessageHelper {
             //  v=DKIM1; k=rsa; p=...
             //  v=DKIM1; k=ed25519; p=...
 
+            String note = dk.get("n");
+            if (!TextUtils.isEmpty(note))
+                Log.i("DKIM note=" + note);
+
             String canonic = kv.get("c");
             Log.i("DKIM canonicalization=" + canonic);
             if (canonic == null)
@@ -2522,6 +2526,10 @@ public class MessageHelper {
             String pubkey = dk.get("p");
             if (pubkey == null)
                 return null;
+            if ("".equals(pubkey)) {
+                Log.i("DKIM key revoked");
+                return null;
+            }
 
             String p = pubkey.replaceAll("\\s+", "");
             Log.i("DKIM pubkey=" + p);
