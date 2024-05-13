@@ -24,7 +24,6 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
@@ -40,6 +39,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Observer;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -203,7 +203,7 @@ public class FragmentLogs extends FragmentBase {
 
         int len = EntityLog.Type.values().length;
         if (!BuildConfig.DEBUG)
-            len--;
+            len -= 3;
 
         SpannableStringBuilder[] titles = new SpannableStringBuilder[len];
         boolean[] states = new boolean[len];
