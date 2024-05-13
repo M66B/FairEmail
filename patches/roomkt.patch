@@ -21,22 +21,15 @@ index 38067b702f..76cf95815c 100644
              }
              if (invalidatedTableIds.isNotEmpty()) {
 diff --git a/app/src/main/java/androidx/room/RoomTrackingLiveData.kt b/app/src/main/java/androidx/room/RoomTrackingLiveData.kt
-index 171b57d16e..32317b296a 100644
+index 171b57d16e..85c14c1a93 100644
 --- a/app/src/main/java/androidx/room/RoomTrackingLiveData.kt
 +++ b/app/src/main/java/androidx/room/RoomTrackingLiveData.kt
-@@ -23,6 +23,7 @@ import java.lang.RuntimeException
- import java.util.concurrent.Callable
- import java.util.concurrent.Executor
- import java.util.concurrent.atomic.AtomicBoolean
-+import java.util.concurrent.atomic.AtomicInteger
- 
- /**
-  * A LiveData implementation that closely works with [InvalidationTracker] to implement
-@@ -54,62 +55,62 @@ internal class RoomTrackingLiveData<T> (
+@@ -54,62 +54,70 @@ internal class RoomTrackingLiveData<T> (
      val invalid = AtomicBoolean(true)
      val computing = AtomicBoolean(false)
      val registeredObserver = AtomicBoolean(false)
-+    val queued = AtomicInteger(0);
++    val queued = eu.faircode.email.ObjectHolder<Int>(0)
++    val lock = Object()
      val refreshRunnable = Runnable {
 -        if (registeredObserver.compareAndSet(false, true)) {
 -            database.invalidationTracker.addWeakObserver(observer)
@@ -77,42 +70,41 @@ index 171b57d16e..32317b296a 100644
 -            // We've left invalid in set state. The check below recovers.
 -        } while (computed && invalid.get())
 -    }
++		synchronized(lock) {
++			queued.value--
++			if (queued.value < 0) {
++				eu.faircode.email.Log.e("$computeFunction queued=" + queued.value)
++				queued.value = 0
++			}
++		}
++
 +		if (registeredObserver.compareAndSet(false, true)) {
 +			database.invalidationTracker.addWeakObserver(observer)
 +		}
 +
-+		val v = queued.decrementAndGet();
-+		if (v < 0) {
-+			queued.set(0)
-+			eu.faircode.email.Log.e("$computeFunction queued=$v")
-+		} else if (v > 0)
-+			eu.faircode.email.Log.persist(eu.faircode.email.EntityLog.Type.Debug1, "$computeFunction queued=$v")
-+
-+		if (v <= 0) {
-+			var value: T? = null
-+			var computed = false
-+			synchronized(computeFunction) {
-+				var retry = 0
-+				while (!computed) {
++		var value: T? = null
++		var computed = false
++		synchronized(computeFunction) {
++			var retry = 0
++			while (!computed) {
++				try {
++					value = computeFunction.call()
++					computed = true
++				} catch (e: Throwable) {
++					if (++retry > 5) {
++						eu.faircode.email.Log.e(e)
++						break
++					}
++					eu.faircode.email.Log.w(e)
 +					try {
-+						value = computeFunction.call()
-+						computed = true
-+					} catch (e: Throwable) {
-+						if (++retry > 5) {
-+							eu.faircode.email.Log.e(e)
-+							break
-+						}
-+						eu.faircode.email.Log.w(e)
-+						try {
-+							Thread.sleep(2000L)
-+						} catch (ignored: InterruptedException) {
-+						}
++						Thread.sleep(2000L)
++					} catch (ignored: InterruptedException) {
 +					}
 +				}
 +			}
-+			if (computed) {
-+				postValue(value)
-+			}
++		}
++		if (computed) {
++			postValue(value)
 +		}
 +	}
  
@@ -126,8 +118,14 @@ index 171b57d16e..32317b296a 100644
 -    }
 +		val isActive = hasActiveObservers()
 +		if (isActive) {
-+			queued.incrementAndGet()
-+			queryExecutor.execute(refreshRunnable)
++			synchronized(lock) {
++				if (queued.value > 0) {
++					eu.faircode.email.Log.persist(eu.faircode.email.EntityLog.Type.Debug, "$computeFunction queued=" + queued.value)
++				} else {
++					queued.value++
++					queryExecutor.execute(refreshRunnable)
++				}
++			}
 +		}
 +	}
  
@@ -139,8 +137,10 @@ index 171b57d16e..32317b296a 100644
 -    }
 +		super.onActive()
 +		container.onActive(this as LiveData<Any>)
-+		queued.incrementAndGet();
-+		queryExecutor.execute(refreshRunnable)
++		synchronized(lock) {
++			queued.value++
++			queryExecutor.execute(refreshRunnable)
++		}
 +	}
  
      @Suppress("UNCHECKED_CAST")

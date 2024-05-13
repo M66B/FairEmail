@@ -23,7 +23,6 @@ import java.lang.RuntimeException
 import java.util.concurrent.Callable
 import java.util.concurrent.Executor
 import java.util.concurrent.atomic.AtomicBoolean
-import java.util.concurrent.atomic.AtomicInteger
 
 /**
  * A LiveData implementation that closely works with [InvalidationTracker] to implement
@@ -55,52 +54,58 @@ internal class RoomTrackingLiveData<T> (
     val invalid = AtomicBoolean(true)
     val computing = AtomicBoolean(false)
     val registeredObserver = AtomicBoolean(false)
-    val queued = AtomicInteger(0);
+    val queued = eu.faircode.email.ObjectHolder<Int>(0)
+    val lock = Object()
     val refreshRunnable = Runnable {
+		synchronized(lock) {
+			queued.value--
+			if (queued.value < 0) {
+				eu.faircode.email.Log.e("$computeFunction queued=" + queued.value)
+				queued.value = 0
+			}
+		}
+
 		if (registeredObserver.compareAndSet(false, true)) {
 			database.invalidationTracker.addWeakObserver(observer)
 		}
 
-		val v = queued.decrementAndGet();
-		if (v < 0) {
-			queued.set(0)
-			eu.faircode.email.Log.e("$computeFunction queued=$v")
-		} else if (v > 0)
-			eu.faircode.email.Log.persist(eu.faircode.email.EntityLog.Type.Debug1, "$computeFunction queued=$v")
-
-		if (v <= 0) {
-			var value: T? = null
-			var computed = false
-			synchronized(computeFunction) {
-				var retry = 0
-				while (!computed) {
+		var value: T? = null
+		var computed = false
+		synchronized(computeFunction) {
+			var retry = 0
+			while (!computed) {
+				try {
+					value = computeFunction.call()
+					computed = true
+				} catch (e: Throwable) {
+					if (++retry > 5) {
+						eu.faircode.email.Log.e(e)
+						break
+					}
+					eu.faircode.email.Log.w(e)
 					try {
-						value = computeFunction.call()
-						computed = true
-					} catch (e: Throwable) {
-						if (++retry > 5) {
-							eu.faircode.email.Log.e(e)
-							break
-						}
-						eu.faircode.email.Log.w(e)
-						try {
-							Thread.sleep(2000L)
-						} catch (ignored: InterruptedException) {
-						}
+						Thread.sleep(2000L)
+					} catch (ignored: InterruptedException) {
 					}
 				}
 			}
-			if (computed) {
-				postValue(value)
-			}
+		}
+		if (computed) {
+			postValue(value)
 		}
 	}
 
     val invalidationRunnable = Runnable {
 		val isActive = hasActiveObservers()
 		if (isActive) {
-			queued.incrementAndGet()
-			queryExecutor.execute(refreshRunnable)
+			synchronized(lock) {
+				if (queued.value > 0) {
+					eu.faircode.email.Log.persist(eu.faircode.email.EntityLog.Type.Debug1, "$computeFunction queued=" + queued.value)
+				} else {
+					queued.value++
+					queryExecutor.execute(refreshRunnable)
+				}
+			}
 		}
 	}
 
@@ -108,8 +113,10 @@ internal class RoomTrackingLiveData<T> (
     override fun onActive() {
 		super.onActive()
 		container.onActive(this as LiveData<Any>)
-		queued.incrementAndGet();
-		queryExecutor.execute(refreshRunnable)
+		synchronized(lock) {
+			queued.value++
+			queryExecutor.execute(refreshRunnable)
+		}
 	}
 
     @Suppress("UNCHECKED_CAST")
