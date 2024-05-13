@@ -1628,7 +1628,7 @@ public class DebugHelper {
                                 sb.append(scheme);
                             }
 
-                            if (tabs && BuildConfig.DEBUG)
+                            if (tabs && BuildConfig.DEBUG && false)
                                 try {
                                     boolean bindable = context.bindService(serviceIntent, new CustomTabsServiceConnection() {
                                         @Override
