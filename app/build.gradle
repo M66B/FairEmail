@@ -516,7 +516,7 @@ configurations.configureEach {
     resolutionStrategy.eachDependency { details ->
         if (details.requested.group == "androidx.room") {
             //print("Pinning " + details.requested.group + ":" + details.requested.name + "\n")
-            details.useVersion "2.6.1"
+            details.useVersion "2.4.3"
         } else if (details.requested.group == "androidx.lifecycle" &&
                 details.requested.name != "lifecycle-extensions") {
             //print("Pinning " + details.requested.group + ":" + details.requested.name + "\n")
@@ -558,7 +558,7 @@ dependencies {
     def documentfile_version = "1.1.0-alpha01"
     def lifecycle_version = "2.7.0" // 2.8.0-rc01
     def lifecycle_extensions_version = "2.2.0"
-    def room_version = "2.6.1" // 2.7.0-alpha01
+    def room_version = "2.4.3" // 2.5.2/2.6.1/2.7.0-alpha01
     def sqlite_version = "2.4.0" // 2.5.0-alpha01
     def requery_version = "3.39.2"
     def paging_version = "2.1.2" // 3.3.0-rc01

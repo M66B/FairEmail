@@ -563,7 +563,7 @@ public abstract class DB extends RoomDatabase {
         if (BuildConfig.DEBUG && false)
             builder.setQueryCallback(new QueryCallback() {
                 @Override
-                public void onQuery(@NonNull String sqlQuery, @NonNull List<?> bindArgs) {
+                public void onQuery(@NonNull String sqlQuery, @NonNull List<Object> bindArgs) {
                     Log.i("query=" + sqlQuery);
                 }
             }, Helper.getParallelExecutor());
