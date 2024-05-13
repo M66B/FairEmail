@@ -2,7 +2,7 @@
 # https://developer.android.com/studio/projects/configure-cmake
 
 project(fairemail)
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.22.1)
 
 add_library(fairemail SHARED
         src/main/jni/fairemail.cc
