@@ -4954,7 +4954,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             if (native_dkim && !TextUtils.isEmpty(message.signedby)) {
-                sb.append("Signed by:");
+                sb.append(context.getString(R.string.title_signed_by)).append(' ');
                 for (String signer : message.signedby.split(","))
                     sb.append(signer).append('\n');
             }
