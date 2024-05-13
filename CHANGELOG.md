@@ -9,6 +9,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Improved [Gemini](https://m66b.github.io/FairEmail/#faq204) integration
 * Performance improvements
 * Small improvements and minor bug fixes
+* Updated [NDK](https://developer.android.com/ndk/)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 

@@ -51,7 +51,7 @@ android {
         }
 
         // https://developer.android.com/ndk/downloads
-        ndkVersion "25.2.9519653" // r25c
+        ndkVersion "26.3.11579264" // r26d
         ndk {
             // Bugsnag, sqlite
             // https://developer.android.com/ndk/guides/abis

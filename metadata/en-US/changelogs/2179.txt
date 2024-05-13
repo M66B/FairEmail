@@ -9,6 +9,7 @@ Next version
 * Improved Gemini integration
 * Performance improvements
 * Small improvements and minor bug fixes
+* Updated NDK
 * Updated Public Suffix List
 * Updated translations
 
