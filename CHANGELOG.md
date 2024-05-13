@@ -4,6 +4,12 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
+
+### Next version
+
+Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
+
 ### 1.2180 - 2024-05-13
 
 * Improved [Gemini](https://m66b.github.io/FairEmail/#faq204) integration
@@ -12,10 +18,6 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Updated [NDK](https://developer.android.com/ndk/)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
-
-Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
-
-### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
 ### 1.2179 - 2024-05-08
 

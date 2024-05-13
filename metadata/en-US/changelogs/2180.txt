@@ -4,6 +4,12 @@ Changelog
 
 For support you can use the contact form.
 
+Acantholipan
+
+Next version
+
+Preview versions are available here.
+
 1.2180 - 2024-05-13
 
 * Improved Gemini integration
@@ -12,10 +18,6 @@ For support you can use the contact form.
 * Updated NDK
 * Updated Public Suffix List
 * Updated translations
-
-Preview versions are available here.
-
-Acantholipan
 
 1.2179 - 2024-05-08
 
