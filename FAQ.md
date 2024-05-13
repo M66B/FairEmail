@@ -5581,6 +5581,8 @@ OpenAI can only be used if configured and enabled.
 
 **Usage**
 
+*Editor*
+
 Tap on the robot button in the top action bar of the message editor.
 The text in the message editor (if any) and the first part of the message being replied to (if any)
 will be used for [chat completion](https://platform.openai.com/docs/guides/chat/introduction).
@@ -5588,6 +5590,16 @@ If text is selected in the message editor, only the selected text will be used, 
 A maximum of 1,000 characters of the message being replied to will be used to avoid exceeding the token limit.
 
 For example: create a new draft and enter the text "*How far is the sun?*", and tap on the robot button in the top action bar.
+
+<br>
+
+*Summarize* (since version 1.2178)
+
+You can request a summary via the horizontal three-dots button just above the message text.
+It is possible to configure a button for this (a robot icon).
+
+The summary prompt text can be configured in the receive-settings tab page.
+The default is *Summarize the following text:*.
 
 <br>
 
