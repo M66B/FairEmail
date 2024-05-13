@@ -3150,7 +3150,8 @@ public class MessageHelper {
     }
 
     private static boolean isLocal(String value) {
-        if (value.contains("localhost") ||
+        if (value.contains("exim") || // with sa-scanned / with dspam-scanned
+                value.contains("localhost") ||
                 value.contains("127.0.0.1") ||
                 value.contains("[::1]"))
             return true;
