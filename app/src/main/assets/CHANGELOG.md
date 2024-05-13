@@ -8,9 +8,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Updated [Public Suffix List](https://github.com/publicsuffix/list)
-
 Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
+
+### 1.2181 - 2024-05-13
+
+* Reverted [AndroidX ROOM](https://developer.android.com/jetpack/androidx/releases/room#2.6.1) to version 2.4.3 to solve locking issues (*)
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2180 - 2024-05-13
 
