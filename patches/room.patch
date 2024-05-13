@@ -1,0 +1,130 @@
+diff --git a/app/src/main/java/androidx/room/InvalidationTracker.java b/app/src/main/java/androidx/room/InvalidationTracker.java
+index 99e69154b1..3a0c5ca530 100644
+--- a/app/src/main/java/androidx/room/InvalidationTracker.java
++++ b/app/src/main/java/androidx/room/InvalidationTracker.java
+@@ -464,8 +464,6 @@ public class InvalidationTracker {
+                     final int tableId = cursor.getInt(0);
+                     invalidatedTableIds.add(tableId);
+                 }
+-            } catch (Throwable ex) {
+-                eu.faircode.email.Log.w(ex);
+             } finally {
+                 cursor.close();
+             }
+diff --git a/app/src/main/java/androidx/room/RoomTrackingLiveData.java b/app/src/main/java/androidx/room/RoomTrackingLiveData.java
+index 10c4fbcf8b..8df1014a41 100644
+--- a/app/src/main/java/androidx/room/RoomTrackingLiveData.java
++++ b/app/src/main/java/androidx/room/RoomTrackingLiveData.java
+@@ -29,9 +29,6 @@ import java.util.Set;
+ import java.util.concurrent.Callable;
+ import java.util.concurrent.Executor;
+ import java.util.concurrent.atomic.AtomicBoolean;
+-import java.util.concurrent.atomic.AtomicInteger;
+-
+-import eu.faircode.email.EntityLog;
+ 
+ /**
+  * A LiveData implementation that closely works with {@link InvalidationTracker} to implement
+@@ -62,8 +59,11 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
+     @SuppressWarnings("WeakerAccess")
+     final InvalidationTracker.Observer mObserver;
+ 
+-    final AtomicInteger queued = new AtomicInteger(0);
+-    final AtomicInteger running = new AtomicInteger(0);
++    @SuppressWarnings("WeakerAccess")
++    final AtomicBoolean mInvalid = new AtomicBoolean(true);
++
++    @SuppressWarnings("WeakerAccess")
++    final AtomicBoolean mComputing = new AtomicBoolean(false);
+ 
+     @SuppressWarnings("WeakerAccess")
+     final AtomicBoolean mRegisteredObserver = new AtomicBoolean(false);
+@@ -76,37 +76,39 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
+             if (mRegisteredObserver.compareAndSet(false, true)) {
+                 mDatabase.getInvalidationTracker().addWeakObserver(mObserver);
+             }
+-            try {
+-                running.incrementAndGet();
+-
+-                T value = null;
+-                boolean computed = false;
+-                synchronized (mComputeFunction) {
+-                    int retry = 0;
+-                    while (!computed) {
+-                        try {
+-                            value = mComputeFunction.call();
++            boolean computed;
++            do {
++                computed = false;
++                // compute can happen only in 1 thread but no reason to lock others.
++                if (mComputing.compareAndSet(false, true)) {
++                    // as long as it is invalid, keep computing.
++                    try {
++                        T value = null;
++                        while (mInvalid.compareAndSet(true, false)) {
+                             computed = true;
+-                        } catch (Throwable e) {
+-                            if (++retry > 5) {
+-                                eu.faircode.email.Log.e(e);
+-                                break;
+-                            }
+-                            eu.faircode.email.Log.w(e);
+                             try {
+-                                Thread.sleep(2000L);
+-                            } catch (InterruptedException ignored) {
++                                value = mComputeFunction.call();
++                            } catch (Exception e) {
++                                throw new RuntimeException("Exception while computing database"
++                                        + " live data.", e);
+                             }
+                         }
++                        if (computed) {
++                            postValue(value);
++                        }
++                    } finally {
++                        // release compute lock
++                        mComputing.set(false);
+                     }
+                 }
+-                if (computed) {
+-                    postValue(value);
+-                }
+-            } finally {
+-                queued.decrementAndGet();
+-                running.decrementAndGet();
+-            }
++                // check invalid after releasing compute lock to avoid the following scenario.
++                // Thread A runs compute()
++                // Thread A checks invalid, it is false
++                // Main thread sets invalid to true
++                // Thread B runs, fails to acquire compute lock and skips
++                // Thread A releases compute lock
++                // We've left invalid in set state. The check below recovers.
++            } while (computed && mInvalid.get());
+         }
+     };
+ 
+@@ -115,19 +117,14 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
+         @MainThread
+         @Override
+         public void run() {
+-            if (running.get() == 0 && queued.get() > 0) {
+-                eu.faircode.email.Log.persist(EntityLog.Type.Debug,
+-                        mComputeFunction + " running=" + running + " queued=" + queued);
+-                return;
+-            }
+             boolean isActive = hasActiveObservers();
+-            if (isActive) {
+-                queued.incrementAndGet();
+-                getQueryExecutor().execute(mRefreshRunnable);
++            if (mInvalid.compareAndSet(false, true)) {
++                if (isActive) {
++                    getQueryExecutor().execute(mRefreshRunnable);
++                }
+             }
+         }
+     };
+-
+     @SuppressLint("RestrictedApi")
+     RoomTrackingLiveData(
+             RoomDatabase database,

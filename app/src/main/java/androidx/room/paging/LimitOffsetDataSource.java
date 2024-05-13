@@ -153,7 +153,7 @@ public abstract class LimitOffsetDataSource<T> extends androidx.paging.Positiona
             @NonNull LoadInitialCallback<T> callback) {
         registerObserverIfNecessary();
         List<T> list = Collections.emptyList();
-        int totalCount = 0;
+        int totalCount;
         int firstLoadPosition = 0;
         RoomSQLiteQuery sqLiteQuery = null;
         Cursor cursor = null;
@@ -171,8 +171,6 @@ public abstract class LimitOffsetDataSource<T> extends androidx.paging.Positiona
                 mDb.setTransactionSuccessful();
                 list = rows;
             }
-        } catch (Throwable ex) {
-            eu.faircode.email.Log.w(ex);
         } finally {
             if (cursor != null) {
                 cursor.close();
