@@ -850,7 +850,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
             public void onStateChanged() {
                 Lifecycle.State state = mowner.getLifecycle().getCurrentState();
-                EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug1, "Owner state=" + state);
+                EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug, "Owner state=" + state);
                 if (state.equals(Lifecycle.State.DESTROYED))
                     mowner.getLifecycle().removeObserver(this);
             }
@@ -872,7 +872,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             @Override
             public void onChanged(boolean inCall) {
                 boolean suppress = prefs.getBoolean("notify_suppress_in_call", false);
-                EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug1,
+                EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug,
                         "In call=" + inCall + " suppress=" + suppress);
                 isInCall = (inCall && suppress);
                 boolean fg = Boolean.TRUE.equals(foreground.getValue());
@@ -889,7 +889,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 boolean projection = (connectionState != null &&
                         connectionState == CarConnection.CONNECTION_TYPE_PROJECTION);
                 boolean suppress = prefs.getBoolean("notify_suppress_in_car", false);
-                EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug1,
+                EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Debug,
                         "Projection=" + projection + " state=" + connectionState + " suppress=" + suppress);
                 isInCar = (projection && suppress);
                 boolean fg = Boolean.TRUE.equals(foreground.getValue());
