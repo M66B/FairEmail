@@ -4,7 +4,7 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### Next version
+### 1.2180 - 2024-05-13
 
 * Improved [Gemini](https://m66b.github.io/FairEmail/#faq204) integration
 * Performance improvements
