@@ -69,6 +69,7 @@ import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
+import org.bouncycastle.jcajce.interfaces.EdDSAPublicKey;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -2571,6 +2572,10 @@ public class MessageHelper {
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
+            else if (pubKey instanceof EdDSAPublicKey) {
+                Log.i("DKIM EdDSA pubkey");
+            } else
+                Log.i("DKIM key class=" + pubKey.getClass());
 
             sig.initVerify(pubKey);
             sig.update(data);
