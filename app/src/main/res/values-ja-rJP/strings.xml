@@ -1372,7 +1372,7 @@
     <string name="title_send_now">今すぐ送信</string>
     <string name="title_send_via">送信に使用するアドレス</string>
     <string name="title_send_at">日時を指定して送信&#8230;</string>
-    <string name="title_send_auto_archive">返信されたメッセージをアーカイブ</string>
+    <string name="title_send_auto_archive">返信されたメッセージをアーカイブする</string>
     <string name="title_send_encryption">暗号化</string>
     <string name="title_send_priority">重要度</string>
     <string name="title_send_sensitivity">機密度</string>
