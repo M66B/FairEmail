@@ -754,7 +754,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (savedInstanceState != null)
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
 
-        checkFirst();
+        if (initialized)
+            checkFirst();
         checkBanner();
         checkCrash();
 
@@ -808,6 +809,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     fragment.setArguments(args);
                     setFragment(fragment);
                     checkIntent();
+                    checkFirst();
                     initialized = true;
                 }
 
