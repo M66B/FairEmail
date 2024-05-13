@@ -8,6 +8,8 @@ Acantholipan
 
 Next version
 
+* Updated Public Suffix List
+
 Preview versions are available here.
 
 1.2180 - 2024-05-13
