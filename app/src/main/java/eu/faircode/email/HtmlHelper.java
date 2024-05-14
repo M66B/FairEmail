@@ -103,9 +103,7 @@ import org.w3c.dom.stylesheets.MediaList;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.StringReader;
 import java.net.URI;
 import java.text.DateFormat;
@@ -2467,21 +2465,8 @@ public class HtmlHelper {
                         Uri uri = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file, attachment.name);
                         img.attr("src", uri.toString());
                         Log.i("Inline image uri=" + uri);
-                    } else {
-                        try (InputStream is = new FileInputStream(file)) {
-                            byte[] bytes = new byte[(int) file.length()];
-                            if (is.read(bytes) != bytes.length)
-                                throw new IOException("length");
-
-                            StringBuilder sb = new StringBuilder();
-                            sb.append("data:");
-                            sb.append(attachment.type);
-                            sb.append(";base64,");
-                            sb.append(Base64.encodeToString(bytes, Base64.NO_WRAP));
-
-                            img.attr("src", sb.toString());
-                        }
-                    }
+                    } else
+                        img.attr("src", ImageHelper.getDataUri(file, attachment.type));
                 }
             }
         }

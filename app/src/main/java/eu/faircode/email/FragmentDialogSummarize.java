@@ -23,6 +23,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -106,9 +107,6 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                 HtmlHelper.removeSignatures(d);
                 d.select("blockquote").remove();
                 HtmlHelper.truncate(d, HtmlHelper.MAX_TRANSLATABLE_TEXT_SIZE);
-                String text = d.text();
-                if (TextUtils.isEmpty(text))
-                    return null;
 
                 if (OpenAI.isAvailable(context)) {
                     String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
@@ -118,8 +116,46 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     List<OpenAI.Message> input = new ArrayList<>();
                     input.add(new OpenAI.Message(OpenAI.USER,
                             new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt)}));
-                    input.add(new OpenAI.Message(OpenAI.USER,
-                            new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, text)}));
+                    SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
+
+                    DB db = DB.getInstance(context);
+                    List<OpenAI.Content> contents = new ArrayList<>();
+                    int start = 0;
+                    while (start < ssb.length()) {
+                        int end = ssb.nextSpanTransition(start, ssb.length(), ImageSpanEx.class);
+                        String text = ssb.subSequence(start, end).toString();
+                        Log.i("MMM " + start + "..." + end + " len=" + ssb.length() + " text=" + text.replace('\n', '|'));
+                        contents.add(new OpenAI.Content(OpenAI.CONTENT_TEXT, text));
+                        if (end < ssb.length()) {
+                            ImageSpanEx[] spans = ssb.getSpans(end, end, ImageSpanEx.class);
+                            if (spans.length == 1) {
+                                int s = ssb.getSpanStart(spans[0]);
+                                int e = ssb.getSpanEnd(spans[0]);
+                                String src = spans[0].getSource();
+
+                                String url = null;
+                                if (src.startsWith("cid:")) {
+                                    String cid = '<' + src.substring(4) + '>';
+                                    EntityAttachment attachment = db.attachment().getAttachment(id, cid);
+                                    if (attachment != null && attachment.available)
+                                        try {
+                                            url = ImageHelper.getDataUri(attachment.getFile(context), attachment.type);
+                                        } catch (Throwable ex) {
+                                            Log.w(ex);
+                                        }
+                                } else
+                                    url = src;
+
+                                Log.i("MMM image " + s + "..." + e + " url=" + url);
+                                if (url != null)
+                                    contents.add(new OpenAI.Content(OpenAI.CONTENT_IMAGE, url));
+                                end = e;
+                            }
+                        }
+                        start = end;
+                    }
+
+                    input.add(new OpenAI.Message(OpenAI.USER, contents.toArray(new OpenAI.Content[0])));
 
                     OpenAI.Message[] result =
                             OpenAI.completeChat(context, model, input.toArray(new OpenAI.Message[0]), temperature, 1);
@@ -140,6 +176,9 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
                     String prompt = prefs.getString("gemini_summarize", Gemini.DEFAULT_SUMMARY_PROMPT);
 
+                    String text = d.text();
+                    if (TextUtils.isEmpty(text))
+                        return null;
                     Gemini.Message message = new Gemini.Message(Gemini.USER, new String[]{prompt, text});
 
                     Gemini.Message[] result =

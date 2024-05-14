@@ -123,7 +123,12 @@ public class OpenAI {
                 for (Content content : message.content) {
                     JSONObject jcontent = new JSONObject();
                     jcontent.put("type", content.type);
-                    jcontent.put(content.type, content.content);
+                    if (CONTENT_IMAGE.equals(content.type)) {
+                        JSONObject jimage = new JSONObject();
+                        jimage.put("url", content.content);
+                        jcontent.put(content.type, jimage);
+                    } else
+                        jcontent.put(content.type, content.content);
                     jcontents.put(jcontent);
                 }
                 jmessage.put("content", jcontents);
