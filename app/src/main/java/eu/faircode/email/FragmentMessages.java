@@ -26,6 +26,8 @@ import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
 import static android.view.KeyEvent.ACTION_DOWN;
 import static android.view.KeyEvent.ACTION_UP;
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_KEY_MISSING;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
@@ -291,6 +293,7 @@ public class FragmentMessages extends FragmentBase
     private TextView tvSelectedCount;
     private CardView cardMore;
     private ImageButton ibAnswer;
+    private ImageButton ibSummarize;
     private ImageButton ibBatchSeen;
     private ImageButton ibBatchUnseen;
     private ImageButton ibBatchSnooze;
@@ -620,6 +623,7 @@ public class FragmentMessages extends FragmentBase
         tvSelectedCount = view.findViewById(R.id.tvSelectedCount);
         cardMore = view.findViewById(R.id.cardMore);
         ibAnswer = view.findViewById(R.id.ibAnswer);
+        ibSummarize = view.findViewById(R.id.ibSummarize);
         ibBatchSeen = view.findViewById(R.id.ibBatchSeen);
         ibBatchUnseen = view.findViewById(R.id.ibBatchUnseen);
         ibBatchSnooze = view.findViewById(R.id.ibBatchSnooze);
@@ -1621,6 +1625,22 @@ public class FragmentMessages extends FragmentBase
                 if (result == null || result.single == null || !result.single.content)
                     return;
                 onReply(result.single, null, v);
+            }
+        });
+
+        ibSummarize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MoreResult result = (MoreResult) cardMore.getTag();
+                if (result == null || result.single == null || !result.single.content)
+                    return;
+
+                Bundle args = new Bundle();
+                args.putLong("id", result.single.id);
+
+                FragmentDialogSummarize fragment = new FragmentDialogSummarize();
+                fragment.setArguments(args);
+                fragment.show(getParentFragmentManager(), "message:summary");
             }
         });
 
@@ -6972,6 +6992,7 @@ public class FragmentMessages extends FragmentBase
                         boolean more_importance_high = prefs.getBoolean("more_importance_high", false);
                         boolean more_importance_normal = prefs.getBoolean("more_importance_normal", false);
                         boolean more_importance_low = prefs.getBoolean("more_importance_low", false);
+                        boolean more_summarize = prefs.getBoolean("more_summarize", false);
                         boolean more_inbox = prefs.getBoolean("more_inbox", true);
                         boolean more_archive = prefs.getBoolean("more_archive", true);
                         boolean more_junk = prefs.getBoolean("more_junk", true);
@@ -7057,6 +7078,11 @@ public class FragmentMessages extends FragmentBase
                         if (seen)
                             count++;
 
+                        boolean summarize = (more_summarize && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS &&
+                                result.single != null && result.single.content);
+                        if (summarize)
+                            count++;
+
                         boolean answer = (more_answer && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS &&
                                 result.single != null && result.single.content);
 
@@ -7064,6 +7090,7 @@ public class FragmentMessages extends FragmentBase
                         ibInbox.setImageResource(inJunk ? R.drawable.twotone_report_off_24 : R.drawable.twotone_inbox_24);
 
                         ibAnswer.setVisibility(answer ? View.VISIBLE : View.GONE);
+                        ibSummarize.setVisibility(summarize ? VISIBLE : GONE);
                         ibBatchSeen.setVisibility(seen ? View.VISIBLE : View.GONE);
                         ibBatchUnseen.setVisibility(unseen ? View.VISIBLE : View.GONE);
                         ibBatchSnooze.setVisibility(snooze ? View.VISIBLE : View.GONE);

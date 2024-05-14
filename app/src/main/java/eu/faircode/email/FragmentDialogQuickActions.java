@@ -47,6 +47,7 @@ public class FragmentDialogQuickActions extends FragmentDialogBase {
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_quick_actions, null);
         final TextView tvHint = dview.findViewById(R.id.tvHint);
         final CheckBox cbAnswer = dview.findViewById(R.id.cbAnswer);
+        final CheckBox cbSummarize = dview.findViewById(R.id.cbSummarize);
         final CheckBox cbSeen = dview.findViewById(R.id.cbSeen);
         final CheckBox cbUnseen = dview.findViewById(R.id.cbUnseen);
         final CheckBox cbSnooze = dview.findViewById(R.id.cbSnooze);
@@ -64,8 +65,13 @@ public class FragmentDialogQuickActions extends FragmentDialogBase {
         final CheckBox cbInbox = dview.findViewById(R.id.cbInbox);
         final CheckBox cbClear = dview.findViewById(R.id.cbClear);
 
+        boolean hasAi = (OpenAI.isAvailable(context) || Gemini.isAvailable(context));
+        cbSummarize.setVisibility(hasAi ? View.VISIBLE : View.GONE);
+
         tvHint.setText(getString(R.string.title_quick_actions_hint, MAX_QUICK_ACTIONS));
+
         cbAnswer.setChecked(prefs.getBoolean("more_answer", false));
+        cbSummarize.setChecked(prefs.getBoolean("more_summarize", false));
         cbSeen.setChecked(prefs.getBoolean("more_seen", true));
         cbUnseen.setChecked(prefs.getBoolean("more_unseen", false));
         cbSnooze.setChecked(prefs.getBoolean("more_snooze", false));
@@ -90,6 +96,7 @@ public class FragmentDialogQuickActions extends FragmentDialogBase {
                     public void onClick(DialogInterface dialog, int which) {
                         SharedPreferences.Editor editor = prefs.edit();
                         editor.putBoolean("more_answer", cbAnswer.isChecked());
+                        editor.putBoolean("more_summarize", cbSummarize.isChecked());
                         editor.putBoolean("more_seen", cbSeen.isChecked());
                         editor.putBoolean("more_unseen", cbUnseen.isChecked());
                         editor.putBoolean("more_snooze", cbSnooze.isChecked());

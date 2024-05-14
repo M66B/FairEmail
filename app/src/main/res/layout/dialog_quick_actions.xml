@@ -45,6 +45,19 @@
             app:layout_constraintTop_toBottomOf="@id/tvHint" />
 
         <CheckBox
+            android:id="@+id/cbSummarize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_smart_toy_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_summarize"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbAnswer" />
+
+        <CheckBox
             android:id="@+id/cbSeen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -55,7 +68,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbAnswer" />
+            app:layout_constraintTop_toBottomOf="@id/cbSummarize" />
 
         <CheckBox
             android:id="@+id/cbUnseen"
