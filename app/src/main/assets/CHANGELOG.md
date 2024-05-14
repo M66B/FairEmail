@@ -10,7 +10,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 * Added "AI" summarize quick action
 * Added "AI" summarize swipe action
-* Improved OpenAI integration
+* Improved OpenAI integration (multimodal support)
 * Small improvements and minor bug fixes
 
 Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
