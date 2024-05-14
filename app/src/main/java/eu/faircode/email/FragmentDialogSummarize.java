@@ -38,6 +38,7 @@ import org.jsoup.nodes.Document;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class FragmentDialogSummarize extends FragmentDialogBase {
@@ -47,6 +48,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         final Context context = getContext();
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_summarize, null);
         final TextView tvSummary = view.findViewById(R.id.tvSummary);
+        final TextView tvElapsed = view.findViewById(R.id.tvElapsed);
         final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -62,12 +64,16 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         new SimpleTask<String>() {
             @Override
             protected void onPreExecute(Bundle args) {
+                tvSummary.setVisibility(View.GONE);
+                tvElapsed.setVisibility(View.GONE);
                 pbWait.setVisibility(View.VISIBLE);
+                args.putLong("start", new Date().getTime());
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
                 pbWait.setVisibility(View.GONE);
+                args.putLong("elapsed", new Date().getTime() - args.getLong("start"));
             }
 
             @Override
@@ -123,11 +129,15 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
             @Override
             protected void onExecuted(Bundle args, String text) {
                 tvSummary.setText(text);
+                tvSummary.setVisibility(View.VISIBLE);
+                tvElapsed.setText(Helper.formatDuration(args.getLong("elapsed")));
+                tvElapsed.setVisibility(View.VISIBLE);
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 tvSummary.setText(new ThrowableWrapper(ex).toSafeString());
+                tvSummary.setVisibility(View.VISIBLE);
             }
         }.execute(this, getArguments(), "message:summarize");
 

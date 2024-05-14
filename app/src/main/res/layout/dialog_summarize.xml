@@ -28,8 +28,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:focusable="false"
-            android:minHeight="60dp"
             android:text="Text"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textIsSelectable="true"
@@ -37,17 +35,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCaption" />
 
+        <TextView
+            android:id="@+id/tvElapsed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="1.23s"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSummary" />
+
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbWait"
             style="@style/Base.Widget.AppCompat.ProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
             android:indeterminate="true"
-            app:layout_constraintBottom_toBottomOf="@id/tvSummary"
-            app:layout_constraintEnd_toEndOf="@id/tvSummary"
-            app:layout_constraintStart_toStartOf="@id/tvSummary"
-            app:layout_constraintTop_toTopOf="@id/tvSummary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvElapsed"
             app:show_delay="0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
