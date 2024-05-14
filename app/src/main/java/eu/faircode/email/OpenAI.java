@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.Spannable;
 import android.text.TextUtils;
@@ -32,6 +33,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -56,6 +59,7 @@ public class OpenAI {
 
     private static final int MAX_OPENAI_LEN = 1000; // characters
     private static final int TIMEOUT = 45; // seconds
+    private static final int SCALE2PIXELS = 1440; // medium
 
     static boolean isAvailable(Context context) {
         if (TextUtils.isEmpty(BuildConfig.OPENAI_ENDPOINT))
@@ -261,12 +265,17 @@ public class OpenAI {
                     if (src != null && src.startsWith("cid:")) {
                         String cid = '<' + src.substring(4) + '>';
                         EntityAttachment attachment = db.attachment().getAttachment(id, cid);
-                        if (attachment != null && attachment.available)
-                            try {
-                                url = ImageHelper.getDataUri(attachment.getFile(context), attachment.type);
+                        if (attachment != null && attachment.available) {
+                            File file = attachment.getFile(context);
+                            try (InputStream is = new FileInputStream(file)) {
+                                Bitmap bm = ImageHelper.getScaledBitmap(is, null, null, SCALE2PIXELS);
+                                Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
+                                bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
+                                url = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
                             } catch (Throwable ex) {
                                 Log.w(ex);
                             }
+                        }
                     } else
                         url = src;
 

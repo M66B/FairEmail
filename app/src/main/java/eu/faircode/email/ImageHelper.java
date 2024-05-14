@@ -617,16 +617,20 @@ class ImageHelper {
 
     static String getDataUri(File file, String type) throws IOException {
         try (InputStream is = new FileInputStream(file)) {
-            byte[] bytes = Helper.readBytes(is);
-
-            StringBuilder sb = new StringBuilder();
-            sb.append("data:");
-            sb.append(type);
-            sb.append(";base64,");
-            sb.append(Base64.encodeToString(bytes, Base64.NO_WRAP));
-
-            return sb.toString();
+            return getDataUri(is, type);
         }
+    }
+
+    static String getDataUri(InputStream is, String type) throws IOException {
+        byte[] bytes = Helper.readBytes(is);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("data:");
+        sb.append(type);
+        sb.append(";base64,");
+        sb.append(Base64.encodeToString(bytes, Base64.NO_WRAP));
+
+        return sb.toString();
     }
 
     static ByteArrayInputStream getDataUriStream(String source) {
