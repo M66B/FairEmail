@@ -2139,6 +2139,13 @@ public class FragmentAccount extends FragmentBase {
         importance.name = context.getString(R.string.title_set_importance);
         folders.add(importance);
 
+        if (OpenAI.isAvailable(context) || Gemini.isAvailable(context)) {
+            EntityFolder summarize = new EntityFolder();
+            summarize.id = EntityMessage.SWIPE_ACTION_SUMMARIZE;
+            summarize.name = context.getString(R.string.title_summarize);
+            folders.add(summarize);
+        }
+
         EntityFolder move = new EntityFolder();
         move.id = EntityMessage.SWIPE_ACTION_MOVE;
         move.name = context.getString(R.string.title_move);

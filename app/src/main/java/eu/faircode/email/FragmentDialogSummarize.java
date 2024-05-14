@@ -32,6 +32,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
 
 import org.jsoup.nodes.Document;
@@ -164,5 +165,16 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.cancel, null);
 
         return builder.create();
+    }
+
+    public static void summarize(EntityMessage message, FragmentManager fm) {
+        Bundle args = new Bundle();
+        args.putLong("id", message.id);
+        args.putString("from", MessageHelper.formatAddresses(message.from));
+        args.putString("subject", message.subject);
+
+        FragmentDialogSummarize fragment = new FragmentDialogSummarize();
+        fragment.setArguments(args);
+        fragment.show(fm, "message:summary");
     }
 }

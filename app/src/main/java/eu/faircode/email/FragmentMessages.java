@@ -1635,14 +1635,7 @@ public class FragmentMessages extends FragmentBase
                 if (result == null || result.single == null || !result.single.content)
                     return;
 
-                Bundle args = new Bundle();
-                args.putLong("id", result.single.id);
-                args.putString("from", MessageHelper.formatAddresses(result.single.from));
-                args.putString("subject", result.single.subject);
-
-                FragmentDialogSummarize fragment = new FragmentDialogSummarize();
-                fragment.setArguments(args);
-                fragment.show(getParentFragmentManager(), "message:summary");
+                FragmentDialogSummarize.summarize(result.single, getParentFragmentManager());
             }
         });
 
@@ -3010,6 +3003,13 @@ public class FragmentMessages extends FragmentBase
             if (message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP)
                 return 0;
 
+            if (!message.content) {
+                if (EntityMessage.SWIPE_ACTION_SUMMARIZE.equals(swipes.swipe_left))
+                    swipes.swipe_left = null;
+                if (EntityMessage.SWIPE_ACTION_SUMMARIZE.equals(swipes.swipe_right))
+                    swipes.swipe_right = null;
+            }
+
             if (message.folderReadOnly) {
                 if (!EntityMessage.SWIPE_ACTION_SEEN.equals(swipes.swipe_left) &&
                         !EntityMessage.SWIPE_ACTION_FLAG.equals(swipes.swipe_left))
@@ -3161,6 +3161,8 @@ public class FragmentMessages extends FragmentBase
                                 ? R.drawable.twotone_visibility_24 : R.drawable.twotone_timer_off_24));
             else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action))
                 icon = R.drawable.twotone_folder_24;
+            else if (EntityMessage.SWIPE_ACTION_SUMMARIZE.equals(action))
+                icon = R.drawable.twotone_smart_toy_24;
             else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action))
                 icon = R.drawable.twotone_report_24;
             else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
@@ -3323,6 +3325,9 @@ public class FragmentMessages extends FragmentBase
                 else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action)) {
                     redraw(viewHolder);
                     onSwipeMove(message);
+                } else if (EntityMessage.SWIPE_ACTION_SUMMARIZE.equals(action)) {
+                    redraw(viewHolder);
+                    onSwipeSummarize(message);
                 } else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action)) {
                     redraw(viewHolder);
                     onSwipeJunk(message);
@@ -3409,8 +3414,10 @@ public class FragmentMessages extends FragmentBase
                 @Override
                 public void run() {
                     try {
+                        final Context context = getContext();
+
                         int order = 1;
-                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), anchor);
+                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), anchor);
 
                         if (message.ui_seen)
                             popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, order++, R.string.title_unseen)
@@ -3452,6 +3459,11 @@ public class FragmentMessages extends FragmentBase
                                 .setIcon(R.drawable.twotone_south_24)
                                 .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(message.importance));
 
+                        if (OpenAI.isAvailable(context) || Gemini.isAvailable(context)) {
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_summarize, order++, R.string.title_summarize)
+                                    .setIcon(R.drawable.twotone_smart_toy_24);
+                        }
+
                         if (message.accountProtocol == EntityAccount.TYPE_IMAP) {
                             popupMenu.getMenu().add(Menu.NONE, R.string.title_move, order++, R.string.title_move)
                                     .setIcon(R.drawable.twotone_drive_file_move_24);
@@ -3461,7 +3473,7 @@ public class FragmentMessages extends FragmentBase
                         popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, R.string.title_delete_permanently)
                                 .setIcon(R.drawable.twotone_delete_forever_24);
 
-                        popupMenu.insertIcons(getContext());
+                        popupMenu.insertIcons(context);
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
@@ -3496,6 +3508,9 @@ public class FragmentMessages extends FragmentBase
                                     return true;
                                 } else if (itemId == R.string.title_importance_high) {
                                     onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH, message.id, false);
+                                    return true;
+                                } else if (itemId == R.string.title_summarize) {
+                                    onSwipeSummarize(message);
                                     return true;
                                 } else if (itemId == R.string.title_move) {
                                     onSwipeMove(message);
@@ -3563,6 +3578,16 @@ public class FragmentMessages extends FragmentBase
             fragment.setArguments(args);
             fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_MOVE);
             fragment.show(getParentFragmentManager(), "swipe:move");
+        }
+
+        private void onSwipeSummarize(final @NonNull TupleMessageEx message) {
+            final Context context = getContext();
+            if (OpenAI.isAvailable(context) || Gemini.isAvailable(context))
+                FragmentDialogSummarize.summarize(message, getParentFragmentManager());
+            else
+                context.startActivity(new Intent(context, ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .putExtra("tab", "integrations"));
         }
 
         private void onSwipeJunk(final @NonNull TupleMessageEx message) {

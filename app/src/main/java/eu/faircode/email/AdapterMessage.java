@@ -7278,14 +7278,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionSummarize(TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
-            args.putString("from", MessageHelper.formatAddresses(message.from));
-            args.putString("subject", message.subject);
-
-            FragmentDialogSummarize fragment = new FragmentDialogSummarize();
-            fragment.setArguments(args);
-            fragment.show(parentFragment.getParentFragmentManager(), "message:summary");
+            FragmentDialogSummarize.summarize(message, parentFragment.getParentFragmentManager());
         }
 
         private void onActionForceLight(TupleMessageEx message) {
