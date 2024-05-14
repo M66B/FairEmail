@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.text.Spannable;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -256,6 +257,44 @@ public class OpenAI {
             sb.append(paragraphs[i++]).append('\n');
 
         return sb.toString();
+    }
+
+    static Content[] getContent(Spannable ssb, long id, Context context) {
+        DB db = DB.getInstance(context);
+        List<OpenAI.Content> contents = new ArrayList<>();
+        int start = 0;
+        while (start < ssb.length()) {
+            int end = ssb.nextSpanTransition(start, ssb.length(), ImageSpanEx.class);
+            String text = ssb.subSequence(start, end).toString();
+            contents.add(new OpenAI.Content(OpenAI.CONTENT_TEXT, text));
+            if (end < ssb.length()) {
+                ImageSpanEx[] spans = ssb.getSpans(end, end, ImageSpanEx.class);
+                if (spans.length == 1) {
+                    int e = ssb.getSpanEnd(spans[0]);
+                    String src = spans[0].getSource();
+
+                    String url = null;
+                    if (src != null && src.startsWith("cid:")) {
+                        String cid = '<' + src.substring(4) + '>';
+                        EntityAttachment attachment = db.attachment().getAttachment(id, cid);
+                        if (attachment != null && attachment.available)
+                            try {
+                                url = ImageHelper.getDataUri(attachment.getFile(context), attachment.type);
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
+                    } else
+                        url = src;
+
+                    if (url != null)
+                        contents.add(new OpenAI.Content(OpenAI.CONTENT_IMAGE, url));
+                    end = e;
+                }
+            }
+            start = end;
+        }
+
+        return contents.toArray(new OpenAI.Content[0]);
     }
 
     static class Content {
