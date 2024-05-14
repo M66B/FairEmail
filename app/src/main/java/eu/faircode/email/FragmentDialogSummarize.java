@@ -48,6 +48,8 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         final Context context = getContext();
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_summarize, null);
         final TextView tvCaption = view.findViewById(R.id.tvCaption);
+        final TextView tvFrom = view.findViewById(R.id.tvFrom);
+        final TextView tvSubject = view.findViewById(R.id.tvSubject);
         final TextView tvSummary = view.findViewById(R.id.tvSummary);
         final TextView tvElapsed = view.findViewById(R.id.tvElapsed);
         final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
@@ -67,8 +69,11 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         float textSize = Helper.getTextSize(context, zoom) * message_zoom / 100f;
         tvSummary.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
+        Bundle args = getArguments();
+
         tvCaption.setText(prompt);
-        tvSummary.setText(null);
+        tvFrom.setText(args.getString("from"));
+        tvSubject.setText(args.getString("subject"));
 
         new SimpleTask<String>() {
             @Override
@@ -152,7 +157,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                 tvSummary.setText(new ThrowableWrapper(ex).toSafeString());
                 tvSummary.setVisibility(View.VISIBLE);
             }
-        }.execute(this, getArguments(), "message:summarize");
+        }.execute(this, args, "message:summarize");
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setView(view)

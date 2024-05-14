@@ -1637,6 +1637,8 @@ public class FragmentMessages extends FragmentBase
 
                 Bundle args = new Bundle();
                 args.putLong("id", result.single.id);
+                args.putString("from", MessageHelper.formatAddresses(result.single.from));
+                args.putString("subject", result.single.subject);
 
                 FragmentDialogSummarize fragment = new FragmentDialogSummarize();
                 fragment.setArguments(args);
