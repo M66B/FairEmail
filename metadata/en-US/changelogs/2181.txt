@@ -9,6 +9,7 @@ Acantholipan
 Next version
 
 * Added "AI" summarize quick action
+* Small improvements and minor bug fixes
 
 Preview versions are available here.
 
