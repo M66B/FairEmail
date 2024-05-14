@@ -5607,20 +5607,16 @@ OpenAI isn't very fast, so be patient. Sometimes a timeout error occurs because 
 
 <br>
 
-Depending on the ChatGPT account (free or paid) there are usage limits. If you exceed the limit, there will be an error message like this:
+If you exceed [your usage limit](https://platform.openai.com/docs/guides/rate-limits), there will be an error message like this:
 
 *Error 429: Too Many Requests insufficient_quota: You exceeded your current quota, please check your plan and billing details*
 
-Note that you are required to switch to a paid plan after the testing period.
+Note that you are required to switch to a [paid plan](https://openai.com/api/pricing/) after the testing period.
 
 <br>
 
 You can select the [model](https://platform.openai.com/docs/models/overview),
-configure the [temperature](https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature)
-and enable [moderation](https://platform.openai.com/docs/api-reference/moderations) in the integration settings.
-
-If you have access to GPT-4 ([Tier 1](https://platform.openai.com/docs/guides/rate-limits/usage-tiers?context=tier-one) or higher),
-you can change the model name to [gpt-4o](https://platform.openai.com/docs/models/gpt-4o) in the integration settings.
+and configure the [temperature](https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature).
 
 Please read the [privacy policy](https://openai.com/policies/privacy-policy) of OpenAI,
 and perhaps [this article](https://katedowninglaw.com/2023/03/10/openais-massive-data-grab/)
