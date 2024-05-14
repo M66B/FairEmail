@@ -116,7 +116,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     String prompt = prefs.getString("openai_summarize", OpenAI.DEFAULT_SUMMARY_PROMPT);
 
                     List<OpenAI.Message> result = new ArrayList<>();
-                    result.add(new OpenAI.Message(OpenAI.ASSISTANT,
+                    result.add(new OpenAI.Message(OpenAI.USER,
                             new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt)}));
                     result.add(new OpenAI.Message(OpenAI.USER,
                             new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, text)}));
