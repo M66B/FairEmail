@@ -2678,7 +2678,7 @@ public class FragmentCompose extends FragmentBase {
 
                 OpenAI.Message message;
                 if (body instanceof Spannable)
-                    message = new OpenAI.Message(OpenAI.USER, OpenAI.getContent((Spannable) body, id, context));
+                    message = new OpenAI.Message(OpenAI.USER, OpenAI.Content.get((Spannable) body, id, context));
                 else
                     message = new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
                             new OpenAI.Content(OpenAI.CONTENT_TEXT, body.toString())});

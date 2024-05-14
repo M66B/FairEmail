@@ -117,7 +117,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                             new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt)}));
 
                     SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
-                    input.add(new OpenAI.Message(OpenAI.USER, OpenAI.getContent(ssb, id, context)));
+                    input.add(new OpenAI.Message(OpenAI.USER, OpenAI.Content.get(ssb, id, context)));
 
                     OpenAI.Message[] result =
                             OpenAI.completeChat(context, model, input.toArray(new OpenAI.Message[0]), temperature, 1);

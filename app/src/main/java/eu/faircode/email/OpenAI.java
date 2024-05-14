@@ -247,49 +247,6 @@ public class OpenAI {
         }
     }
 
-    static Content[] getContent(Spannable ssb, long id, Context context) {
-        DB db = DB.getInstance(context);
-        List<OpenAI.Content> contents = new ArrayList<>();
-        int start = 0;
-        while (start < ssb.length()) {
-            int end = ssb.nextSpanTransition(start, ssb.length(), ImageSpanEx.class);
-            String text = ssb.subSequence(start, end).toString();
-            contents.add(new OpenAI.Content(OpenAI.CONTENT_TEXT, text));
-            if (end < ssb.length()) {
-                ImageSpanEx[] spans = ssb.getSpans(end, end, ImageSpanEx.class);
-                if (spans.length == 1) {
-                    int e = ssb.getSpanEnd(spans[0]);
-                    String src = spans[0].getSource();
-
-                    String url = null;
-                    if (src != null && src.startsWith("cid:")) {
-                        String cid = '<' + src.substring(4) + '>';
-                        EntityAttachment attachment = db.attachment().getAttachment(id, cid);
-                        if (attachment != null && attachment.available) {
-                            File file = attachment.getFile(context);
-                            try (InputStream is = new FileInputStream(file)) {
-                                Bitmap bm = ImageHelper.getScaledBitmap(is, null, null, SCALE2PIXELS);
-                                Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
-                                bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
-                                url = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
-                            } catch (Throwable ex) {
-                                Log.w(ex);
-                            }
-                        }
-                    } else
-                        url = src;
-
-                    if (url != null)
-                        contents.add(new OpenAI.Content(OpenAI.CONTENT_IMAGE, url));
-                    end = e;
-                }
-            }
-            start = end;
-        }
-
-        return contents.toArray(new OpenAI.Content[0]);
-    }
-
     static class Content {
         private String type;
         private String content;
@@ -305,6 +262,49 @@ public class OpenAI {
 
         public String getContent() {
             return this.content;
+        }
+
+        static Content[] get(Spannable ssb, long id, Context context) {
+            DB db = DB.getInstance(context);
+            List<OpenAI.Content> contents = new ArrayList<>();
+            int start = 0;
+            while (start < ssb.length()) {
+                int end = ssb.nextSpanTransition(start, ssb.length(), ImageSpanEx.class);
+                String text = ssb.subSequence(start, end).toString();
+                contents.add(new OpenAI.Content(OpenAI.CONTENT_TEXT, text));
+                if (end < ssb.length()) {
+                    ImageSpanEx[] spans = ssb.getSpans(end, end, ImageSpanEx.class);
+                    if (spans.length == 1) {
+                        int e = ssb.getSpanEnd(spans[0]);
+                        String src = spans[0].getSource();
+
+                        String url = null;
+                        if (src != null && src.startsWith("cid:")) {
+                            String cid = '<' + src.substring(4) + '>';
+                            EntityAttachment attachment = db.attachment().getAttachment(id, cid);
+                            if (attachment != null && attachment.available) {
+                                File file = attachment.getFile(context);
+                                try (InputStream is = new FileInputStream(file)) {
+                                    Bitmap bm = ImageHelper.getScaledBitmap(is, null, null, SCALE2PIXELS);
+                                    Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
+                                    bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
+                                    url = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+                            }
+                        } else
+                            url = src;
+
+                        if (url != null)
+                            contents.add(new OpenAI.Content(OpenAI.CONTENT_IMAGE, url));
+                        end = e;
+                    }
+                }
+                start = end;
+            }
+
+            return contents.toArray(new OpenAI.Content[0]);
         }
     }
 
