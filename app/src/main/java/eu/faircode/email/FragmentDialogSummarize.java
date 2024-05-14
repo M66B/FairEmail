@@ -108,16 +108,20 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     String prompt = prefs.getString("openai_summarize", OpenAI.SUMMARY_PROMPT);
 
                     List<OpenAI.Message> result = new ArrayList<>();
-                    result.add(new OpenAI.Message(OpenAI.ASSISTANT, prompt));
-                    result.add(new OpenAI.Message(OpenAI.USER, text));
+                    result.add(new OpenAI.Message(OpenAI.ASSISTANT,
+                            new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt)}));
+                    result.add(new OpenAI.Message(OpenAI.USER,
+                            new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, text)}));
                     OpenAI.Message[] completions =
                             OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);
                     StringBuilder sb = new StringBuilder();
-                    for (OpenAI.Message completion : completions) {
-                        if (sb.length() != 0)
-                            sb.append('\n');
-                        sb.append(completion.getContent());
-                    }
+                    for (OpenAI.Message completion : completions)
+                        for (OpenAI.Content content : completion.getContent())
+                            if (OpenAI.CONTENT_TEXT.equals(content.getType())) {
+                                if (sb.length() != 0)
+                                    sb.append('\n');
+                                sb.append(content.getContent());
+                            }
                     return sb.toString();
                 } else if (Gemini.isAvailable(context)) {
                     String model = prefs.getString("gemini_model", "gemini-pro");

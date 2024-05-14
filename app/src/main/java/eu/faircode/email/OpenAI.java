@@ -46,6 +46,10 @@ public class OpenAI {
     static final String USER = "user";
     static final String SUMMARY_PROMPT = "Summarize the following text:";
 
+    // https://cookbook.openai.com/examples/gpt4o/introduction_to_gpt4o
+    static final String CONTENT_TEXT = "text";
+    static final String CONTENT_IMAGE = "image_url";
+
     private static final int MAX_OPENAI_LEN = 1000; // characters
     private static final int TIMEOUT = 45; // seconds
 
@@ -108,7 +112,18 @@ public class OpenAI {
         for (Message message : messages) {
             JSONObject jmessage = new JSONObject();
             jmessage.put("role", message.role);
-            jmessage.put("content", message.content);
+
+            JSONArray jcontents = new JSONArray();
+
+            for (Content content : message.content) {
+                JSONObject jcontent = new JSONObject();
+                jcontent.put("type", content.type);
+                jcontent.put(content.type, content.content);
+                jcontents.put(jcontent);
+            }
+
+            jmessage.put("content", jcontents);
+
             jmessages.put(jmessage);
         }
 
@@ -125,7 +140,8 @@ public class OpenAI {
         for (int i = 0; i < jchoices.length(); i++) {
             JSONObject jchoice = jchoices.getJSONObject(i);
             JSONObject jmessage = jchoice.getJSONObject("message");
-            choices[i] = new Message(jmessage.getString("role"), jmessage.getString("content"));
+            choices[i] = new Message(jmessage.getString("role"),
+                    new Content[]{new Content(CONTENT_TEXT, jmessage.getString("content"))});
         }
 
         return choices;
@@ -232,11 +248,29 @@ public class OpenAI {
         return sb.toString();
     }
 
+    static class Content {
+        private String type;
+        private String content;
+
+        public Content(String type, String content) {
+            this.type = type;
+            this.content = content;
+        }
+
+        public String getType() {
+            return this.type;
+        }
+
+        public String getContent() {
+            return this.content;
+        }
+    }
+
     static class Message {
         private final String role; // system, user, assistant
-        private final String content;
+        private final Content[] content;
 
-        public Message(String role, String content) {
+        public Message(String role, Content[] content) {
             this.role = role;
             this.content = content;
         }
@@ -245,14 +279,21 @@ public class OpenAI {
             return this.role;
         }
 
-        public String getContent() {
+        public Content[] getContent() {
             return this.content;
         }
 
         @NonNull
         @Override
         public String toString() {
-            return this.role + ": " + this.content;
+            StringBuilder sb = new StringBuilder();
+            if (this.content != null)
+                for (Content c : this.content) {
+                    if (sb.length() > 0)
+                        sb.append(", ");
+                    sb.append(c.type).append(':').append(c.content);
+                }
+            return this.role + ": " + sb;
         }
     }
 

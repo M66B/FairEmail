@@ -2690,11 +2690,13 @@ public class FragmentCompose extends FragmentBase {
                     Document parsed = JsoupEx.parse(inreplyto.get(0).getFile(context));
                     Document document = HtmlHelper.sanitizeView(context, parsed, false);
                     Spanned spanned = HtmlHelper.fromDocument(context, document, null, null);
-                    result.add(new OpenAI.Message(role, OpenAI.truncateParagraphs(spanned.toString())));
+                    result.add(new OpenAI.Message(role, new OpenAI.Content[]{
+                            new OpenAI.Content(OpenAI.CONTENT_TEXT, OpenAI.truncateParagraphs(spanned.toString()))}));
                 }
 
                 if (!TextUtils.isEmpty(body))
-                    result.add(new OpenAI.Message(OpenAI.ASSISTANT, OpenAI.truncateParagraphs(body)));
+                    result.add(new OpenAI.Message(OpenAI.ASSISTANT, new OpenAI.Content[]{
+                            new OpenAI.Content(OpenAI.CONTENT_TEXT, OpenAI.truncateParagraphs(body))}));
 
                 if (result.size() == 0)
                     return null;
@@ -2706,7 +2708,9 @@ public class FragmentCompose extends FragmentBase {
 
                 if (moderation)
                     for (OpenAI.Message message : result)
-                        OpenAI.checkModeration(context, message.getContent());
+                        for (OpenAI.Content content : message.getContent())
+                            if (OpenAI.CONTENT_TEXT.equals(content.getContent()))
+                                OpenAI.checkModeration(context, content.getContent());
 
                 OpenAI.Message[] completions =
                         OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);
@@ -2719,8 +2723,15 @@ public class FragmentCompose extends FragmentBase {
                 if (messages == null || messages.length == 0)
                     return;
 
-                String text = messages[0].getContent()
-                        .replaceAll("^\\n+", "").replaceAll("\\n+$", "");
+                StringBuilder sb = new StringBuilder();
+                for (OpenAI.Message message : messages)
+                    for (OpenAI.Content content : message.getContent())
+                        if (OpenAI.CONTENT_TEXT.equals(content.getType())) {
+                            if (sb.length() > 0)
+                                sb.append('\n');
+                            sb.append(content.getContent().replaceAll("^\\n+", "").replaceAll("\\n+$", ""));
+                        }
+
 
                 Editable edit = etBody.getText();
                 int start = etBody.getSelectionStart();
@@ -2738,10 +2749,10 @@ public class FragmentCompose extends FragmentBase {
                 if (index > 0 && edit.charAt(index - 1) != '\n')
                     edit.insert(index++, "\n");
 
-                edit.insert(index, text + "\n");
-                etBody.setSelection(index + text.length() + 1);
+                edit.insert(index, sb + "\n");
+                etBody.setSelection(index + sb.length() + 1);
 
-                StyleHelper.markAsInserted(edit, index, index + text.length() + 1);
+                StyleHelper.markAsInserted(edit, index, index + sb.length() + 1);
 
                 if (args.containsKey("used") && args.containsKey("granted")) {
                     double used = args.getDouble("used");
