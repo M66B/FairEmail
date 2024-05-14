@@ -350,6 +350,12 @@ public class StyleHelper {
                             int start = text.getSpanStart(span);
                             int end = text.getSpanEnd(span);
                             if (end == inserted) {
+                                for (Object o : text.getSpans(start, end, Object.class)) {
+                                    int s = text.getSpanStart(o);
+                                    int e = text.getSpanEnd(o);
+                                    if (s <= e && s >= start && e <= end)
+                                        text.removeSpan(o);
+                                }
                                 text.delete(start, end);
                                 text.removeSpan(span);
                             }
