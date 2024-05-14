@@ -64,6 +64,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:drawableStart="@drawable/twotone_hourglass_top_12"
+            android:drawablePadding="3dp"
             android:text="1.23s"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textIsSelectable="true"
