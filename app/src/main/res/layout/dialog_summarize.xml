@@ -70,6 +70,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSummary" />
 
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="monospace"
+            android:text="Error"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvElapsed" />
+
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbWait"
             style="@style/Base.Widget.AppCompat.ProgressBar"
@@ -79,7 +92,7 @@
             android:indeterminate="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvElapsed"
+            app:layout_constraintTop_toBottomOf="@id/tvError"
             app:show_delay="0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

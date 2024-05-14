@@ -53,6 +53,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         final TextView tvSubject = view.findViewById(R.id.tvSubject);
         final TextView tvSummary = view.findViewById(R.id.tvSummary);
         final TextView tvElapsed = view.findViewById(R.id.tvElapsed);
+        final TextView tvError = view.findViewById(R.id.tvError);
         final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -81,6 +82,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
             protected void onPreExecute(Bundle args) {
                 tvSummary.setVisibility(View.GONE);
                 tvElapsed.setVisibility(View.GONE);
+                tvError.setVisibility(View.GONE);
                 pbWait.setVisibility(View.VISIBLE);
                 args.putLong("start", new Date().getTime());
             }
@@ -155,8 +157,8 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                tvSummary.setText(new ThrowableWrapper(ex).toSafeString());
-                tvSummary.setVisibility(View.VISIBLE);
+                tvError.setText(new ThrowableWrapper(ex).toSafeString());
+                tvError.setVisibility(View.VISIBLE);
             }
         }.execute(this, args, "message:summarize");
 
