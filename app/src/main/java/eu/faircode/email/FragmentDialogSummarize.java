@@ -115,15 +115,19 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
                     String prompt = prefs.getString("openai_summarize", OpenAI.DEFAULT_SUMMARY_PROMPT);
 
-                    List<OpenAI.Message> result = new ArrayList<>();
-                    result.add(new OpenAI.Message(OpenAI.USER,
+                    List<OpenAI.Message> input = new ArrayList<>();
+                    input.add(new OpenAI.Message(OpenAI.USER,
                             new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt)}));
-                    result.add(new OpenAI.Message(OpenAI.USER,
+                    input.add(new OpenAI.Message(OpenAI.USER,
                             new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, text)}));
-                    OpenAI.Message[] completions =
-                            OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);
+
+                    OpenAI.Message[] result =
+                            OpenAI.completeChat(context, model, input.toArray(new OpenAI.Message[0]), temperature, 1);
+                    if (result.length == 0)
+                        return null;
+
                     StringBuilder sb = new StringBuilder();
-                    for (OpenAI.Message completion : completions)
+                    for (OpenAI.Message completion : result)
                         for (OpenAI.Content content : completion.getContent())
                             if (OpenAI.CONTENT_TEXT.equals(content.getType())) {
                                 if (sb.length() != 0)
@@ -138,9 +142,11 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
 
                     Gemini.Message message = new Gemini.Message(Gemini.USER, new String[]{prompt, text});
 
-                    Gemini.Message[] result = Gemini.generate(context, model, new Gemini.Message[]{message}, temperature, 1);
+                    Gemini.Message[] result =
+                            Gemini.generate(context, model, new Gemini.Message[]{message}, temperature, 1);
                     if (result.length == 0)
                         return null;
+
                     return TextUtils.join("\n", result[0].getContent());
                 }
 
