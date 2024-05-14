@@ -42,6 +42,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class OpenAI {
+    static final String DEFAULT_MODEL = "gpt-4o";
+    static final float DEFAULT_TEMPERATURE = 0.5f;
     static final String ASSISTANT = "assistant";
     static final String USER = "user";
     static final String SUMMARY_PROMPT = "Summarize the following text:";

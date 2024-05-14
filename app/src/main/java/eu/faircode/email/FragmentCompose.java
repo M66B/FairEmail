@@ -2702,8 +2702,8 @@ public class FragmentCompose extends FragmentBase {
                     return null;
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                String model = prefs.getString("openai_model", "gpt-3.5-turbo");
-                float temperature = prefs.getFloat("openai_temperature", 0.5f);
+                String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
+                float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
                 boolean moderation = prefs.getBoolean("openai_moderation", false);
 
                 if (moderation)
@@ -2800,8 +2800,8 @@ public class FragmentCompose extends FragmentBase {
                 boolean selection = args.getBoolean("selection");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                String model = prefs.getString("gemini_model", "gemini-pro");
-                float temperature = prefs.getFloat("gemini_temperature", 0.9f);
+                String model = prefs.getString("gemini_model", Gemini.DEFAULT_MODEL);
+                float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
 
                 Gemini.Message message = new Gemini.Message(Gemini.USER, new String[]{Gemini.truncateParagraphs(body)});
 

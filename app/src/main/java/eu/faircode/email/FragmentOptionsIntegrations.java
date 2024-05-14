@@ -480,6 +480,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             }
         });
 
+        etOpenAiModel.setHint(OpenAI.DEFAULT_MODEL);
         etOpenAiModel.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -618,6 +619,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             }
         });
 
+        etGeminiModel.setHint(Gemini.DEFAULT_MODEL);
         etGeminiModel.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -787,7 +789,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             etOpenAiModel.setText(prefs.getString("openai_model", null));
             etOpenAiModel.setEnabled(swOpenAi.isChecked());
 
-            float temperature = prefs.getFloat("openai_temperature", 0.5f);
+            float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
             tvOpenAiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
             sbOpenAiTemperature.setProgress(Math.round(temperature * 10));
             sbOpenAiTemperature.setEnabled(swOpenAi.isChecked());
@@ -804,7 +806,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             etGeminiModel.setText(prefs.getString("gemini_model", null));
             etGeminiModel.setEnabled(swGemini.isChecked());
 
-            temperature = prefs.getFloat("gemini_temperature", 0.9f);
+            temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
             tvGeminiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
             sbGeminiTemperature.setProgress(Math.round(temperature * 10));
             sbGeminiTemperature.setEnabled(swGemini.isChecked());
