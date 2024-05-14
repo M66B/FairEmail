@@ -2645,12 +2645,11 @@ public class FragmentCompose extends FragmentBase {
         int end = etBody.getSelectionEnd();
         boolean selection = (start >= 0 && end > start);
         Editable edit = etBody.getText();
-        String body = (selection ? edit.subSequence(start, end) : edit).toString().trim();
+        CharSequence body = (selection ? edit.subSequence(start, end) : edit);
 
         Bundle args = new Bundle();
         args.putLong("id", working);
-        args.putString("body", body);
-        args.putBoolean("selection", selection);
+        args.putCharSequence("body", body);
 
         new SimpleTask<OpenAI.Message[]>() {
             @Override
@@ -2668,45 +2667,24 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected OpenAI.Message[] onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
-                String body = args.getString("body");
-                boolean selection = args.getBoolean("selection");
+                CharSequence body = args.getCharSequence("body");
 
-                DB db = DB.getInstance(context);
-                EntityMessage draft = db.message().getMessage(id);
-                if (draft == null)
-                    return null;
-
-                List<EntityMessage> inreplyto;
-                if (selection || TextUtils.isEmpty(draft.inreplyto))
-                    inreplyto = new ArrayList<>();
-                else
-                    inreplyto = db.message().getMessagesByMsgId(draft.account, draft.inreplyto);
-
-                List<OpenAI.Message> result = new ArrayList<>();
-
-                if (inreplyto.size() > 0 && inreplyto.get(0).content) {
-                    String role = (MessageHelper.equalEmail(draft.from, inreplyto.get(0).from)
-                            ? OpenAI.ASSISTANT : OpenAI.USER);
-                    Document parsed = JsoupEx.parse(inreplyto.get(0).getFile(context));
-                    Document document = HtmlHelper.sanitizeView(context, parsed, false);
-                    Spanned spanned = HtmlHelper.fromDocument(context, document, null, null);
-                    result.add(new OpenAI.Message(role, new OpenAI.Content[]{
-                            new OpenAI.Content(OpenAI.CONTENT_TEXT, OpenAI.truncateParagraphs(spanned.toString()))}));
-                }
-
-                if (!TextUtils.isEmpty(body))
-                    result.add(new OpenAI.Message(OpenAI.ASSISTANT, new OpenAI.Content[]{
-                            new OpenAI.Content(OpenAI.CONTENT_TEXT, OpenAI.truncateParagraphs(body))}));
-
-                if (result.size() == 0)
+                if (body == null || body.length() == 0)
                     return null;
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
                 float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
 
+                OpenAI.Message message;
+                if (body instanceof Spannable)
+                    message = new OpenAI.Message(OpenAI.USER, OpenAI.getContent((Spannable) body, id, context));
+                else
+                    message = new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
+                            new OpenAI.Content(OpenAI.CONTENT_TEXT, body.toString())});
+
                 OpenAI.Message[] completions =
-                        OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);
+                        OpenAI.completeChat(context, model, new OpenAI.Message[]{message}, temperature, 1);
 
                 return completions;
             }

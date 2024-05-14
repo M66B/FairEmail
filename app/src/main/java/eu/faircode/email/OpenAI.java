@@ -243,22 +243,6 @@ public class OpenAI {
         }
     }
 
-    static String truncateParagraphs(@NonNull String text) {
-        return truncateParagraphs(text, MAX_OPENAI_LEN);
-    }
-
-    static String truncateParagraphs(@NonNull String text, int maxlen) {
-        String[] paragraphs = text.split("[\\r\\n]+");
-
-        int i = 0;
-        StringBuilder sb = new StringBuilder();
-        while (i < paragraphs.length &&
-                sb.length() + paragraphs[i].length() + 1 < maxlen)
-            sb.append(paragraphs[i++]).append('\n');
-
-        return sb.toString();
-    }
-
     static Content[] getContent(Spannable ssb, long id, Context context) {
         DB db = DB.getInstance(context);
         List<OpenAI.Content> contents = new ArrayList<>();
