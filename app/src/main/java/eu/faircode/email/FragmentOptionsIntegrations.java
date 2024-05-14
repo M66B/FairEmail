@@ -82,7 +82,6 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
     private EditText etOpenAiModel;
     private TextView tvOpenAiTemperature;
     private SeekBar sbOpenAiTemperature;
-    private SwitchCompat swOpenAiModeration;
     private EditText etOpenAiSummarize;
     private ImageButton ibOpenAi;
     private SwitchCompat swGemini;
@@ -107,7 +106,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             "deepl_enabled",
             "vt_enabled",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
-            "openai_enabled", "openai_uri", "openai_model", "openai_temperature", "openai_moderation", "openai_summarize",
+            "openai_enabled", "openai_uri", "openai_model", "openai_temperature", "openai_summarize",
             "gemini_enabled", "gemini_uri", "gemini_model", "gemini_temperature", "gemini_summarize"
     ));
 
@@ -155,7 +154,6 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         etOpenAiModel = view.findViewById(R.id.etOpenAiModel);
         tvOpenAiTemperature = view.findViewById(R.id.tvOpenAiTemperature);
         sbOpenAiTemperature = view.findViewById(R.id.sbOpenAiTemperature);
-        swOpenAiModeration = view.findViewById(R.id.swOpenAiModeration);
         etOpenAiSummarize = view.findViewById(R.id.etOpenAiSummarize);
         ibOpenAi = view.findViewById(R.id.ibOpenAi);
 
@@ -422,7 +420,6 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                 prefs.edit().putBoolean("openai_enabled", checked).apply();
                 etOpenAiModel.setEnabled(checked);
                 sbOpenAiTemperature.setEnabled(checked);
-                swOpenAiModeration.setEnabled(checked);
                 etOpenAiSummarize.setEnabled(checked);
                 if (checked)
                     swGemini.setChecked(false);
@@ -517,13 +514,6 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 // Do nothing
-            }
-        });
-
-        swOpenAiModeration.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("openai_moderation", checked).apply();
             }
         });
 
@@ -793,10 +783,6 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             tvOpenAiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
             sbOpenAiTemperature.setProgress(Math.round(temperature * 10));
             sbOpenAiTemperature.setEnabled(swOpenAi.isChecked());
-
-            swOpenAiModeration.setChecked(prefs.getBoolean("openai_moderation", false));
-            swOpenAiModeration.setEnabled(swOpenAi.isChecked());
-
             etOpenAiSummarize.setText(prefs.getString("openai_summarize", null));
             etOpenAiSummarize.setEnabled(swOpenAi.isChecked());
 

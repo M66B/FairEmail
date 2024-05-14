@@ -2704,13 +2704,6 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
                 float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
-                boolean moderation = prefs.getBoolean("openai_moderation", false);
-
-                if (moderation)
-                    for (OpenAI.Message message : result)
-                        for (OpenAI.Content content : message.getContent())
-                            if (OpenAI.CONTENT_TEXT.equals(content.getContent()))
-                                OpenAI.checkModeration(context, content.getContent());
 
                 OpenAI.Message[] completions =
                         OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);

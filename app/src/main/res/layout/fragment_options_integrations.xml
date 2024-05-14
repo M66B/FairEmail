@@ -589,18 +589,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvOpenAiTemperature" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swOpenAiModeration"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_openai_moderation"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sbOpenAiTemperature"
-                    app:switchPadding="12dp" />
-
                 <TextView
                     android:id="@+id/tvOpenAiSummarize"
                     android:layout_width="wrap_content"
@@ -610,7 +598,7 @@
                     android:text="@string/title_advanced_summarize_prompt"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swOpenAiModeration" />
+                    app:layout_constraintTop_toBottomOf="@id/sbOpenAiTemperature" />
 
                 <EditText
                     android:id="@+id/etOpenAiSummarize"
