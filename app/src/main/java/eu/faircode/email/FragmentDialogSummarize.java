@@ -47,6 +47,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final Context context = getContext();
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_summarize, null);
+        final TextView tvCaption = view.findViewById(R.id.tvCaption);
         final TextView tvSummary = view.findViewById(R.id.tvSummary);
         final TextView tvElapsed = view.findViewById(R.id.tvElapsed);
         final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
@@ -55,10 +56,18 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         int message_zoom = prefs.getInt("message_zoom", 100);
+        String prompt;
+        if (OpenAI.isAvailable(context))
+            prompt = prefs.getString("openai_summarize", OpenAI.SUMMARY_PROMPT);
+        else if (Gemini.isAvailable(context))
+            prompt = prefs.getString("gemini_summarize", Gemini.SUMMARY_PROMPT);
+        else
+            prompt = getString(R.string.title_summarize);
 
         float textSize = Helper.getTextSize(context, zoom) * message_zoom / 100f;
         tvSummary.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
+        tvCaption.setText(prompt);
         tvSummary.setText(null);
 
         new SimpleTask<String>() {
