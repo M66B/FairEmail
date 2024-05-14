@@ -366,6 +366,9 @@ public class Bimi {
             }
         }
 
+        if (bitmap != null && !verified)
+            Log.i("BIMI unverified");
+
         return (bitmap == null ? null : new Pair<>(bitmap, verified));
     }
 
