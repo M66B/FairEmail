@@ -116,16 +116,18 @@ public class OpenAI {
             JSONObject jmessage = new JSONObject();
             jmessage.put("role", message.role);
 
-            JSONArray jcontents = new JSONArray();
-
-            for (Content content : message.content) {
-                JSONObject jcontent = new JSONObject();
-                jcontent.put("type", content.type);
-                jcontent.put(content.type, content.content);
-                jcontents.put(jcontent);
+            if (message.content.length == 1 && CONTENT_TEXT.equals(message.content[0].type))
+                jmessage.put("content", message.content[0].content);
+            else {
+                JSONArray jcontents = new JSONArray();
+                for (Content content : message.content) {
+                    JSONObject jcontent = new JSONObject();
+                    jcontent.put("type", content.type);
+                    jcontent.put(content.type, content.content);
+                    jcontents.put(jcontent);
+                }
+                jmessage.put("content", jcontents);
             }
-
-            jmessage.put("content", jcontents);
 
             jmessages.put(jmessage);
         }
