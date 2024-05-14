@@ -44,9 +44,10 @@ public class Gemini {
     // https://ai.google.dev/models/gemini
     static final String DEFAULT_MODEL = "gemini-pro";
     static final float DEFAULT_TEMPERATURE = 0.9f;
+    static final String DEFAULT_SUMMARY_PROMPT = "Summarize the following text:";
+
     static final String MODEL = "model";
     static final String USER = "user";
-    static final String SUMMARY_PROMPT = "Summarize the following text:";
 
     private static final int MAX_GEMINI_LEN = 4000; // characters
     private static final int TIMEOUT = 30; // seconds

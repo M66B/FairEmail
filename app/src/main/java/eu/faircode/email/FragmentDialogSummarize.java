@@ -61,9 +61,9 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         int message_zoom = prefs.getInt("message_zoom", 100);
         String prompt;
         if (OpenAI.isAvailable(context))
-            prompt = prefs.getString("openai_summarize", OpenAI.SUMMARY_PROMPT);
+            prompt = prefs.getString("openai_summarize", OpenAI.DEFAULT_SUMMARY_PROMPT);
         else if (Gemini.isAvailable(context))
-            prompt = prefs.getString("gemini_summarize", Gemini.SUMMARY_PROMPT);
+            prompt = prefs.getString("gemini_summarize", Gemini.DEFAULT_SUMMARY_PROMPT);
         else
             prompt = getString(R.string.title_summarize);
 
@@ -111,7 +111,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                 if (OpenAI.isAvailable(context)) {
                     String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
                     float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
-                    String prompt = prefs.getString("openai_summarize", OpenAI.SUMMARY_PROMPT);
+                    String prompt = prefs.getString("openai_summarize", OpenAI.DEFAULT_SUMMARY_PROMPT);
 
                     List<OpenAI.Message> result = new ArrayList<>();
                     result.add(new OpenAI.Message(OpenAI.ASSISTANT,
@@ -132,7 +132,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                 } else if (Gemini.isAvailable(context)) {
                     String model = prefs.getString("gemini_model", Gemini.DEFAULT_MODEL);
                     float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
-                    String prompt = prefs.getString("gemini_summarize", Gemini.SUMMARY_PROMPT);
+                    String prompt = prefs.getString("gemini_summarize", Gemini.DEFAULT_SUMMARY_PROMPT);
 
                     Gemini.Message message = new Gemini.Message(Gemini.USER, new String[]{prompt, text});
 

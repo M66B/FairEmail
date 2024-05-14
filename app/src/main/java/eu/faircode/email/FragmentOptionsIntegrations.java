@@ -517,7 +517,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             }
         });
 
-        etOpenAiSummarize.setHint(OpenAI.SUMMARY_PROMPT);
+        etOpenAiSummarize.setHint(OpenAI.DEFAULT_SUMMARY_PROMPT);
         etOpenAiSummarize.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -649,7 +649,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             }
         });
 
-        etGeminiSummarize.setHint(Gemini.SUMMARY_PROMPT);
+        etGeminiSummarize.setHint(Gemini.DEFAULT_SUMMARY_PROMPT);
         etGeminiSummarize.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
