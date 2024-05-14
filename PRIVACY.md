@@ -69,8 +69,8 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [DeepL](https://www.deepl.com/) &#8211; [Privacy policy](https://www.deepl.com/privacy/)
 * [LanguageTool](https://languagetool.org/) &#8211; [Privacy policy](https://languagetool.org/legal/privacy)
 * [VirusTotal](https://www.virustotal.com/) &#8211; [Privacy policy](https://support.virustotal.com/hc/en-us/articles/115002168385-Privacy-Policy)
-* [OpenAI](https://openai.com/) (GitHub version only) &#8211; [Privacy policy](https://openai.com/policies/privacy-policy)
-* [Google Gemini](https://gemini.google.com/) (GitHub version only) &#8211; [Privacy policy](https://support.google.com/gemini/answer/13594961)
+* [OpenAI](https://openai.com/) &#8211; [Privacy policy](https://openai.com/policies/privacy-policy)
+* [Google Gemini](https://gemini.google.com/) &#8211; [Privacy policy](https://support.google.com/gemini/answer/13594961)
 * [Gravatar](https://gravatar.com/) (GitHub version only) &#8211; [Privacy policy](https://automattic.com/privacy/)
 * [Libravatar](https://www.libravatar.org/) (GitHub version only)  &#8211; [Privacy policy](https://www.libravatar.org/privacy/)
 * [GitHub](https://github.com/) (GitHub version only) &#8211; [Privacy policy](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
@@ -108,8 +108,8 @@ This table provides a complete overview of all shared data and the conditions un
 | LanguageTool       | Entered message texts                                              | If LanguageTools is enabled, upon long pressing the save draft button       |
 | VirusTotal         | [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of attachments | If VirusTotal is enabled, upon long pressing a scan button (*)              |
 | VirusTotal         | Attached file contents                                             | If VirusTotal is enabled, upon long pressing an upload button (*)           |
-| OpenAI/ChatGPT     | Received and entered message texts                                 | If configured and upon pressing a button or using a menu item (*)           |
-| Google Gemini      | Received and entered message texts                                 | If configured and upon pressing a button or using a menu item (*)           |
+| OpenAI/ChatGPT     | Received and entered message texts                                 | If configured and upon pressing a button or using a menu item               |
+| Google Gemini      | Received and entered message texts                                 | If configured and upon pressing a button or using a menu item               |
 | Gravatar           | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Gravatars are enabled, upon receiving a message (*)                      |
 | Libravatar         | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Libravatars are enabled, upon receiving a message (*)                    |
 | GitHub             | None, but see the remarks below                                    | Upon downloading AdGuard tracking parameter list                            |

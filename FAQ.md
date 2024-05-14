@@ -5633,7 +5633,7 @@ It is possible to use **DeepInfra** too (since version 1.2132).
 
 <br>
 
-This feature is experimental and available in the GitHub version only and requires version 1.2053 or later.
+This feature is experimental and requires version 1.2053 or later for the GitHub version and version 1.2182 or later for the Play Store version.
 
 <br>
 
@@ -5893,7 +5893,7 @@ For usage instructions, please see [this FAQ](#faq190).
 Please read the privacy policy of [Gemini](https://support.google.com/gemini/answer/13594961).
 FairEmail does not use third-party libraries to avoid being tracked when Gemini is not being used.
 
-This feature is experimental and available in the GitHub version only and requires version 1.2171 or later.
+This feature is experimental and requires version 1.2171 or later for the GitHub version and version 1.2182 or later for the Play Store version.
 
 <br>
 
