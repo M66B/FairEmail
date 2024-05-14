@@ -2359,9 +2359,10 @@ public class MessageHelper {
                     }
                 }
             }
-
         } catch (Throwable ex) {
             Log.e("DKIM", ex);
+            EntityLog.log(context, EntityLog.Type.Debug3, "DKIM failed" +
+                    " ex=" + Log.formatThrowable(ex));
         }
 
         return signers;
