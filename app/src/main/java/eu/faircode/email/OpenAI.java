@@ -274,15 +274,17 @@ public class OpenAI {
             while (start < ssb.length()) {
                 int end = ssb.nextSpanTransition(start, ssb.length(), ImageSpanEx.class);
                 String text = ssb.subSequence(start, end).toString();
+                Log.i("OpenAI content " + start + "..." + end + " text=" + text.replace('\n', '|'));
                 contents.add(new OpenAI.Content(OpenAI.CONTENT_TEXT, text));
                 if (end < ssb.length()) {
                     ImageSpanEx[] spans = ssb.getSpans(end, end, ImageSpanEx.class);
-                    if (spans.length == 1) {
+                    Log.i("OpenAI images=" + (spans == null ? null : spans.length));
+                    if (spans != null && spans.length == 1) {
                         int e = ssb.getSpanEnd(spans[0]);
-
                         if (multimodal) {
                             String url = null;
                             String src = spans[0].getSource();
+                            Log.i("OpenAI image url=" + src);
                             if (src != null && src.startsWith("cid:")) {
                                 String cid = '<' + src.substring(4) + '>';
                                 EntityAttachment attachment = db.attachment().getAttachment(id, cid);
@@ -299,15 +301,13 @@ public class OpenAI {
                                 }
                             } else
                                 url = src;
-
                             if (url != null)
                                 contents.add(new OpenAI.Content(OpenAI.CONTENT_IMAGE, url));
                         }
-
                         end = e;
                     }
                 }
-                start = end;
+                start = (end > start ? end : start + 1);
             }
 
             return contents.toArray(new OpenAI.Content[0]);
