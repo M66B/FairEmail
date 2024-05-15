@@ -10,6 +10,7 @@ Next version
 
 * Added optional "AI" summarize quick action
 * Added optional "AI" summarize swipe action
+* Changed default OpenAI model to gpt-4o
 * Improved OpenAI integration (added multimodal support)
 * Improved Gemini integration
 * Updated AndroidX

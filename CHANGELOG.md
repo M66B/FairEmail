@@ -10,6 +10,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 * Added optional "AI" summarize quick action
 * Added optional "AI" summarize swipe action
+* Changed default OpenAI model to [gpt-4o](https://openai.com/index/hello-gpt-4o/)
 * Improved OpenAI integration (added multimodal support)
 * Improved Gemini integration
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
