@@ -295,6 +295,8 @@ Wintonotitan
 * Updated libraries (Apache Compress, Bugsnag, Bouncy Castle, Jsoup)
 * Updated translations
 
+<!-- truncate here -->
+
 1.2145 - 2023-12-30
 
 * Added Adguard filter list to remove tracking parameters from links, see the FAQ

@@ -295,6 +295,8 @@ Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/
 * Updated libraries (Apache Compress, Bugsnag, Bouncy Castle, Jsoup)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
+<!-- truncate here -->
+
 ### 1.2145 - 2023-12-30
 
 * Added Adguard filter list to remove tracking parameters from links, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq200)

@@ -88,6 +88,12 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
                     markdown = Helper.readStream(is);
                 }
 
+                if ("CHANGELOG.md".equals(name)) {
+                    int pos = markdown.indexOf("<!-- truncate here -->");
+                    if (pos > 0)
+                        markdown = markdown.substring(0, pos);
+                }
+
                 markdown = markdown
                         .replace("/FAQ.md#FAQ", "/FAQ.md#faq")
                         .replace("/FAQ.md#user-content-faq", "/FAQ.md#faq")
