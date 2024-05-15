@@ -2860,8 +2860,14 @@ public class HtmlHelper {
     }
 
     static void removeQuotes(Document d) {
+        Elements quotes = d.body().select(".fairemail_quote");
+        if (quotes.size() > 0) {
+            quotes.remove();
+            return;
+        }
+
         // Gmail
-        Elements quotes = d.body().select(".gmail_quote");
+        quotes = d.body().select(".gmail_quote");
         if (quotes.size() > 0) {
             quotes.remove();
             return;

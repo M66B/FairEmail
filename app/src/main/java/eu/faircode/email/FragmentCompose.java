@@ -5990,8 +5990,9 @@ public class FragmentCompose extends FragmentBase {
                                 !("list".equals(action) && TextUtils.isEmpty(selected_text)) &&
                                 !"dsn".equals(action)) {
                             // Reply/forward
-                            Element reply = document.createElement("div");
-                            reply.attr("fairemail", "reference");
+                            Element reply = document.createElement("div")
+                                    .addClass("fairemail_quote")
+                                    .attr("fairemail", "reference");
 
                             // Build reply header
                             boolean separate_reply = prefs.getBoolean("separate_reply", false);
