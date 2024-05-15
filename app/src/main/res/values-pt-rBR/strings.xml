@@ -118,7 +118,7 @@
     <string name="title_notification_sending">Enviando mensagens</string>
     <string name="title_notification_waiting">Aguardando conexão adequada</string>
     <string name="title_notification_idle">Ocioso</string>
-    <string name="title_notification_failed">\'%1$s\' falhou</string>
+    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">A conta \'%1$s\' falhou</string>
     <string name="title_notification_alert">Alerta do servidor: \'%1$s\'</string>
     <string name="title_notification_sending_left">Tentativas restantes: %1$d</string>
     <string name="title_notification_sending_retry">Haverá uma nova tentativa de envio ao mudar a conexão de internet ou ao deslizar para baixo na caixa de saída</string>
@@ -241,6 +241,7 @@
     <string name="title_setup_doze_stopped">A sincronização parou?</string>
     <string name="title_setup_doze_device">Isto é provavelmente exigido para este dispositivo</string>
     <string name="title_setup_alarm_12">O aplicativo não funcionará corretamente</string>
+    <string name="title_setup_fg_15">O aplicativo não pode ser iniciado automaticamente</string>
     <string name="title_setup_inexact">Alarmes &amp; os lembretes estão desativados</string>
     <string name="title_setup_background">Restrições de fundo estão habilitadas</string>
     <string name="title_setup_data">Economia de dados está habilitada</string>
@@ -757,6 +758,7 @@
     <string name="title_advanced_haptic_feedback">Feedback tátil sobre ações importantes</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
+    <string name="title_advanced_integrations_hint">Os serviços em nuvem abaixo não fazem parte do aplicativo. Quaisquer pagamentos irão diretamente para o serviço em nuvem e não para o desenvolvedor do aplicativo.</string>
     <string name="title_advanced_lt">Integração com LanguageTool</string>
     <string name="title_advanced_lt_sentence">Verifique cada frase</string>
     <string name="title_advanced_lt_auto">Verificar parágrafo depois de uma nova linha</string>
@@ -772,7 +774,8 @@
     <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderação de conteúdo</string>
     <string name="title_advanced_gemini">Integração com Gemini</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Perguntar para resumir</string>
+    <string name="title_advanced_multi_modal">Multimodal</string>
+    <string name="title_advanced_summarize_prompt">Perguntar para resumir</string>
     <string name="title_advanced_sdcard">Eu quero usar um sdcard</string>
     <string name="title_advanced_watchdog">Verifique periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_updates">Buscar atualizações</string>
@@ -849,6 +852,9 @@
     <string name="title_advanced_threading_hint">Agrupe as mensagens relacionadas entre si</string>
     <string name="title_advanced_indentation_hint">Apenas para estilo de cartão</string>
     <string name="title_advanced_highlight_hint">A cor de destaque do tema será usada para destacar</string>
+    <string name="title_advanced_free">Este serviço em nuvem é de uso gratuito</string>
+    <string name="title_advanced_free_tier">Este serviço em nuvem tem um nível gratuito</string>
+    <string name="title_advanced_paid_service">Este serviço em nuvem é pago</string>
     <string name="title_advanced_privacy_risk">Pode haver um risco na privacidade</string>
     <string name="title_advanced_name_email_hint">Nomes apenas serão exibidos quando disponíveis</string>
     <string name="title_advanced_preview_hint">Somente disponível quando o texto da mensagem for baixado</string>
@@ -1588,6 +1594,7 @@
     <string name="title_search_flag_notes">notas</string>
     <string name="title_search_flag_invite">convite</string>
     <string name="title_search_flag_size">tamanho &gt; %1$s</string>
+    <string name="title_search_flag_touched">tocado</string>
     <string name="title_search_device">Pesquisar no dispositivo</string>
     <string name="title_search_server">Pesquisar no servidor</string>
     <string name="title_search_server_wait">Aguardando o servidor</string>

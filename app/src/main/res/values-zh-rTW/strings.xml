@@ -96,7 +96,6 @@
     <string name="title_notification_sending">正在傳送訊息</string>
     <string name="title_notification_waiting">正在等待適用的網路連線</string>
     <string name="title_notification_idle">閒置</string>
-    <string name="title_notification_failed">\'%1$s\' 失敗</string>
     <string name="title_notification_alert">伺服器警報: \'%1$s\'</string>
     <string name="title_notification_sending_left">剩餘嘗試數: %1$d</string>
     <string name="title_notification_sending_retry">傳送操作將在互聯網連線變更或於寄件匣執行下拉操作後重試</string>

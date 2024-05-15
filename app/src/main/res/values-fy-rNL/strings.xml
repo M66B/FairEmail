@@ -114,7 +114,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_notification_sending">Berjochten ferstjoere</string>
     <string name="title_notification_waiting">Wachtsje op in geskikte ferbining</string>
     <string name="title_notification_idle">Ynaktyf</string>
-    <string name="title_notification_failed">‘%1$s’ mislearre</string>
+    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">Account ‘%1$s’ is mislearre</string>
     <string name="title_notification_alert">Serverwarskôging: ‘%1$s’</string>
     <string name="title_notification_sending_left">Restearjende besykjen: %1$d</string>
     <string name="title_notification_sending_retry">Ferstjoeren wurdt opnij probearre by wizigingen fan ynternetferbining of nei it nei ûnderen lûke fan Postfek ÚT</string>
@@ -237,6 +237,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_doze_stopped">Syngronisaasje stoppe?</string>
     <string name="title_setup_doze_device">Dit is wierskynlik nedich foar dit apparaat</string>
     <string name="title_setup_alarm_12">De app sil net goed wurkje</string>
+    <string name="title_setup_fg_15">De app kin net automatysk starten wurde</string>
     <string name="title_setup_inexact">Alarms &amp; oantinkens binne útskeakele</string>
     <string name="title_setup_background">Eftergrûnbeheiningen binne ynskeakele</string>
     <string name="title_setup_data">Gegevensbesparring is ynskeakele</string>
@@ -755,6 +756,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_haptic_feedback">Haptysk kommentaar by wichtige aksjes</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
+    <string name="title_advanced_integrations_hint">De ûndersteande cloudtsjinsten binne gjin ûnderdiel fan de app. Alle betellingen geane daliks nei de cloudtsjinst en net nei de app-ûntwikkeler.</string>
     <string name="title_advanced_lt">LanguageTool-yntegraasje</string>
     <string name="title_advanced_lt_sentence">Kontrolearje elke sin</string>
     <string name="title_advanced_lt_auto">Alinea nei in nije rigel kontrolearje</string>
@@ -770,7 +772,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_openai_temperature">Temperatuer: %1$s</string>
     <string name="title_advanced_openai_moderation">Ynhâldsbehear</string>
     <string name="title_advanced_gemini">Gemini-yntegraasje</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Opdracht gearfetsje</string>
+    <string name="title_advanced_multi_modal">Multimodaal</string>
+    <string name="title_advanced_summarize_prompt">Opdracht gearfetsje</string>
     <string name="title_advanced_sdcard">Ik wol in SD-kaart brûke</string>
     <string name="title_advanced_watchdog">Periodyk kontrolearje oft FairEmail noch aktyf is</string>
     <string name="title_advanced_updates">Kontrolearje op GitHub-fernijingen</string>
@@ -846,6 +849,9 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_threading_hint">Relatearre berjochten groepearje</string>
     <string name="title_advanced_indentation_hint">Allinnich foar kaartstyl</string>
     <string name="title_advanced_highlight_hint">De aksintkleur fan it tema wurdt brûkt foar markearring</string>
+    <string name="title_advanced_free">Dizze cloudtsjinst is fergees te brûken</string>
+    <string name="title_advanced_free_tier">Dizze cloudtsjinst hat in ferges nivo</string>
+    <string name="title_advanced_paid_service">Dizze cloudtsjinst fereasket betelling</string>
     <string name="title_advanced_privacy_risk">Der is mooglik in privacyrisiko</string>
     <string name="title_advanced_name_email_hint">Nammen wurde allinnich toand wannear beskikber</string>
     <string name="title_advanced_preview_hint">Allinnich beskikber as berjochttekst download waard</string>
@@ -1582,6 +1588,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_search_flag_notes">notysjes</string>
     <string name="title_search_flag_invite">útnûging</string>
     <string name="title_search_flag_size">grutte &gt; %1$s</string>
+    <string name="title_search_flag_touched">oanrekke</string>
     <string name="title_search_device">Sykje op apparaat</string>
     <string name="title_search_server">Sykje op server</string>
     <string name="title_search_server_wait">Wachtet op server</string>

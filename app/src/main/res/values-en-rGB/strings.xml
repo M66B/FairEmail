@@ -62,7 +62,7 @@
     <string name="title_advanced_notifications_background">Use background service to synchronise messages</string>
     <string name="title_advanced_tracking">Attempt to recognise and disable tracking images</string>
     <string name="title_advanced_disconnect_images">Use lists to recognise tracking images</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Summarise prompt</string>
+    <string name="title_advanced_summarize_prompt">Summarise prompt</string>
     <string name="title_advanced_optimize_hint">This might change the sync frequency to save battery usage depending on the capabilities and behaviour of the email servers</string>
     <string name="title_advanced_unseen_hint">Some providers don\'t support this properly, which may cause synchronising none or all messages</string>
     <string name="title_advanced_poll_folders_hint">Periodically synchronise the folder list in addition to after connecting to an account</string>

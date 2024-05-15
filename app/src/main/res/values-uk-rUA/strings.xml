@@ -147,7 +147,7 @@
     <string name="title_notification_sending">Надсилання повідомлень</string>
     <string name="title_notification_waiting">Очікування відповідного з\'єднання</string>
     <string name="title_notification_idle">Бездіяльність</string>
-    <string name="title_notification_failed">Не вдалося з\'єднатись з «%1$s»</string>
+    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">Помилка в обліковому записі «%1$s»</string>
     <string name="title_notification_alert">Попередження сервера: «%1$s»</string>
     <string name="title_notification_sending_left">Залишилось спроб: %1$d</string>
     <string name="title_notification_sending_retry">Повторна спроба відправлення буде здійснена при зміні підключення до інтернету або після виконання жесту «потягнути донизу» в скриньці вихідних повідомлень</string>
@@ -270,6 +270,7 @@
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
     <string name="title_setup_doze_device">Це, ймовірно, необхідно для цього пристрою</string>
     <string name="title_setup_alarm_12">Застосунок не працюватиме належним чином</string>
+    <string name="title_setup_fg_15">Застосунок не може запускатися автоматично</string>
     <string name="title_setup_inexact">Будильник &amp; нагадування вимкнені</string>
     <string name="title_setup_background">Фонові обмеження увімкнено</string>
     <string name="title_setup_data">Задіяно економію передачі даних</string>
@@ -786,6 +787,7 @@
     <string name="title_advanced_haptic_feedback">Вібровідгук на важливі дії</string>
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Системи</string>
+    <string name="title_advanced_integrations_hint">Хмарні сервіси, вказані внизу, не є частиною застосунку. Будь-які платежі потраплять безпосередньо до хмарного сервісу, а не до розробника застосунку.</string>
     <string name="title_advanced_lt">Інтеграція з LanguageTool</string>
     <string name="title_advanced_lt_sentence">Перевіряти кожне речення</string>
     <string name="title_advanced_lt_auto">Перевіряти абзац після нового рядка</string>
@@ -801,7 +803,8 @@
     <string name="title_advanced_openai_temperature">Температура: %1$s</string>
     <string name="title_advanced_openai_moderation">Модерація вмісту</string>
     <string name="title_advanced_gemini">Інтеграція з Gemini</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Наказ на підсумовування</string>
+    <string name="title_advanced_multi_modal">Мультимодальність</string>
+    <string name="title_advanced_summarize_prompt">Наказ на підсумовування</string>
     <string name="title_advanced_sdcard">Я хочу використовувати SD-карту</string>
     <string name="title_advanced_watchdog">Періодично перевіряти, чи FairEmail є все ще активним</string>
     <string name="title_advanced_updates">Перевіряти наявність оновлень на GitHub</string>
@@ -877,6 +880,9 @@
     <string name="title_advanced_threading_hint">Групувати повідомлення, пов\'язані одне з одним</string>
     <string name="title_advanced_indentation_hint">Тільки для карткового стилю</string>
     <string name="title_advanced_highlight_hint">Колір акценту теми буде використаний для підсвічування</string>
+    <string name="title_advanced_free">Цей хмарний сервіс є безплатним</string>
+    <string name="title_advanced_free_tier">Цей хмарний сервіс має безплатний тариф</string>
+    <string name="title_advanced_paid_service">Цей хмарний сервіс вимагає оплати</string>
     <string name="title_advanced_privacy_risk">Можливий ризик порушення приватності</string>
     <string name="title_advanced_name_email_hint">Імена показуватимуться лише за наявності</string>
     <string name="title_advanced_preview_hint">Доступно тільки коли текст повідомлення було завантажено</string>
@@ -1616,6 +1622,7 @@
     <string name="title_search_flag_notes">нотатки</string>
     <string name="title_search_flag_invite">запрошення</string>
     <string name="title_search_flag_size">розмір &gt; %1$s</string>
+    <string name="title_search_flag_touched">натиснуте</string>
     <string name="title_search_device">Пошук на пристрої</string>
     <string name="title_search_server">Шукати на сервері</string>
     <string name="title_search_server_wait">Очікування сервера</string>

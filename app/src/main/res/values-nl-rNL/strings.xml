@@ -115,7 +115,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_notification_sending">Berichten verzenden</string>
     <string name="title_notification_waiting">Wachten op een geschikte verbinding</string>
     <string name="title_notification_idle">Inactief</string>
-    <string name="title_notification_failed">\'%1$s\' is mislukt</string>
+    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">Account ‘%1$s’ is mislukt</string>
     <string name="title_notification_alert">Serverwaarschuwing: \'%1$s\'</string>
     <string name="title_notification_sending_left">Resterende pogingen: %1$d</string>
     <string name="title_notification_sending_retry">Verzenden zal opnieuw worden geprobeerd bij wijzigingen in de internetverbinding of het naar beneden trekken van de outbox</string>
@@ -238,6 +238,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_doze_stopped">Sync gestopt?</string>
     <string name="title_setup_doze_device">Dit is waarschijnlijk nodig voor dit apparaat</string>
     <string name="title_setup_alarm_12">De app zal niet goed werken</string>
+    <string name="title_setup_fg_15">De app kan niet automatisch worden gestart</string>
     <string name="title_setup_inexact">Alarmen &amp; herinneringen zijn uitgeschakeld</string>
     <string name="title_setup_background">Achtergrondbeperkingen zijn ingeschakeld</string>
     <string name="title_setup_data">Gegevensbesparing is ingeschakeld</string>
@@ -753,6 +754,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_haptic_feedback">Haptische feedback bij belangrijke acties</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
+    <string name="title_advanced_integrations_hint">De onderstaande cloudservices maken geen deel uit van de app. Alle betalingen gaan direct naar de cloudservice en niet naar de app-ontwikkelaar.</string>
     <string name="title_advanced_lt">LanguageTool integratie</string>
     <string name="title_advanced_lt_sentence">Controleer elke zin</string>
     <string name="title_advanced_lt_auto">Controleer alinea na een nieuwe regel</string>
@@ -768,7 +770,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_openai_temperature">Temperatuur: %1$s</string>
     <string name="title_advanced_openai_moderation">Inhoudsmatiging</string>
     <string name="title_advanced_gemini">Gemini integratie</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Opdracht samenvatten</string>
+    <string name="title_advanced_multi_modal">Multimodaal</string>
+    <string name="title_advanced_summarize_prompt">Opdracht samenvatten</string>
     <string name="title_advanced_sdcard">Ik wil een SD-kaart gebruiken</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op GitHub updates</string>
@@ -845,6 +848,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_threading_hint">Groepeer gerelateerde berichten</string>
     <string name="title_advanced_indentation_hint">Alleen voor kaartstijl</string>
     <string name="title_advanced_highlight_hint">De accentkleur van het thema wordt gebruikt voor markering</string>
+    <string name="title_advanced_free">Deze cloudservice is gratis te gebruiken</string>
+    <string name="title_advanced_free_tier">Deze cloudservice heeft een gratis niveau</string>
+    <string name="title_advanced_paid_service">Deze cloudservice vereist betaling</string>
     <string name="title_advanced_privacy_risk">Er is mogelijk een privacyrisico</string>
     <string name="title_advanced_name_email_hint">Namen worden alleen getoond wanneer beschikbaar</string>
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
@@ -1577,6 +1583,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_search_flag_notes">notities</string>
     <string name="title_search_flag_invite">uitnodiging</string>
     <string name="title_search_flag_size">grootte &gt; %1$s</string>
+    <string name="title_search_flag_touched">aangeraakt</string>
     <string name="title_search_device">Zoeken op apparaat</string>
     <string name="title_search_server">Zoek op server</string>
     <string name="title_search_server_wait">Wachten op server</string>

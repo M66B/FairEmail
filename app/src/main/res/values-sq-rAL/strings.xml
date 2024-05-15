@@ -21,7 +21,6 @@
     </plurals>
     <string name="title_block_sender">Blloko dërguesin</string>
     <string name="title_notification_sending">Duke dërguar mesazhet</string>
-    <string name="title_notification_failed">\'%1$s\' dështoi</string>
     <string name="title_factor_minutes">%1$d minuta</string>
     <string name="menu_about">Rreth</string>
     <string name="title_welcome">Mirësevini</string>

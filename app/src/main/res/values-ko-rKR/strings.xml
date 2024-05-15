@@ -101,7 +101,6 @@
     <string name="title_notification_sending">메일 전송 중</string>
     <string name="title_notification_waiting">안정된 인터넷 연결을 기다리는 중</string>
     <string name="title_notification_idle">유휴</string>
-    <string name="title_notification_failed">\'%1$s\' 실패</string>
     <string name="title_notification_alert">서버 알림: \'%1$s\'</string>
     <string name="title_notification_sending_left">남은 시도 횟수: %1$d</string>
     <string name="title_notification_sending_retry">인터넷 연결 변경 또는 아웃박스 해제 발생 시 보내기를 다시 시도합니다.</string>

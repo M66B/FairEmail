@@ -116,7 +116,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_waiting">Uygun bağlantı bekleniyor</string>
     <string name="title_notification_idle">Dışarıda</string>
-    <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
     <string name="title_notification_alert">Sunucu uyarısı \'%1$s\'</string>
     <string name="title_notification_sending_left">%1$d deneme kaldı</string>
     <string name="title_notification_sending_retry">Gönderme, internet bağlantısı değişikliklerinde veya giden kutusu aşağı çekildiğinde yeniden denenecek</string>
@@ -239,6 +238,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_doze_stopped">Senkronizasyon durdu mu?</string>
     <string name="title_setup_doze_device">Bu muhtemelen bu cihaz için gereklidir</string>
     <string name="title_setup_alarm_12">Uygulama düzgün çalışmayacak</string>
+    <string name="title_setup_fg_15">Uygulama otomatik olarak başlatılamıyor</string>
     <string name="title_setup_inexact">Alarmlar &amp; hatırlatıcılar devre dışı bırakıldı</string>
     <string name="title_setup_background">Arka plan kısıtlamaları etkinleştirildi</string>
     <string name="title_setup_data">Veri koruyucu etkin</string>
@@ -755,6 +755,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_haptic_feedback">Önemli eylemler hakkında dokunsal geri bildirim</string>
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
+    <string name="title_advanced_integrations_hint">Aşağıdaki bulut hizmetleri uygulamanın bir parçası değildir. Herhangi bir ödeme, uygulama geliştiricisine değil, doğrudan bulut hizmetine gidecektir.</string>
     <string name="title_advanced_lt">Dil Aracı entegrasyonu</string>
     <string name="title_advanced_lt_sentence">Her cümleyi kontrol et</string>
     <string name="title_advanced_lt_auto">Yeni bir satırdan sonra paragrafı kontrol et</string>
@@ -770,6 +771,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_openai_temperature">Sıcaklık: %1$s</string>
     <string name="title_advanced_openai_moderation">İçerik denetimi</string>
     <string name="title_advanced_gemini">Gemini entegrasyonu</string>
+    <string name="title_advanced_multi_modal">Multimodal</string>
     <string name="title_advanced_sdcard">SD kart kullanmak istiyorum</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">GitHub güncellemelerini kontrol et</string>
@@ -846,6 +848,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
     <string name="title_advanced_indentation_hint">Yalnızca kart stili için</string>
     <string name="title_advanced_highlight_hint">Temanın vurgu rengi vurgulamak için kullanılacak</string>
+    <string name="title_advanced_free">Bu bulut hizmetini kullanmak ücretsizdir</string>
+    <string name="title_advanced_free_tier">Bu bulut hizmetinin ücretsiz bir katmanı vardır</string>
+    <string name="title_advanced_paid_service">Bu bulut hizmeti ödeme gerektirir</string>
     <string name="title_advanced_privacy_risk">Bir gizlilik riski olabilir</string>
     <string name="title_advanced_name_email_hint">Adlar yalnızca uygun olduğunda gösterilecektir</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
@@ -1580,6 +1585,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_search_flag_notes">notlar</string>
     <string name="title_search_flag_invite">davetiye</string>
     <string name="title_search_flag_size">boyut &gt; %1$s</string>
+    <string name="title_search_flag_touched">dokunuldu</string>
     <string name="title_search_device">Cihazda ara</string>
     <string name="title_search_server">Sunucuda ara</string>
     <string name="title_search_server_wait">Sunucu için bekleniyor</string>

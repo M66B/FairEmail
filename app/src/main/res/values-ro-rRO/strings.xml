@@ -132,7 +132,6 @@
     <string name="title_notification_sending">Se trimit mesaje</string>
     <string name="title_notification_waiting">Se așteaptă o conexiune adecvată</string>
     <string name="title_notification_idle">Inactiv</string>
-    <string name="title_notification_failed">\'%1$s\' a eșuat</string>
     <string name="title_notification_alert">Alertă server: \'%1$s\'</string>
     <string name="title_notification_sending_left">Încercări rămase: %1$d</string>
     <string name="title_notification_sending_retry">Trimiterea va fi reîncercată la modificările conexiunii la internet sau la tragerea în jos în mesaje de trimis</string>

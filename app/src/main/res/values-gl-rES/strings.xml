@@ -104,7 +104,6 @@
     <string name="title_notification_sending">Enviando mensaxes</string>
     <string name="title_notification_waiting">Agardando por unha conexión axeitada</string>
     <string name="title_notification_idle">Inactivo</string>
-    <string name="title_notification_failed">\'%1$s\' fallou</string>
     <string name="title_notification_alert">Alerta do servidor: \'%1$s\'</string>
     <string name="title_notification_sending_left">Intentos restantes: %1$d</string>
     <string name="title_notification_sending_retry">O envío intentarase de novo cando mude a conexión de internet ou cando se tire cara abaixo da caixa de saída</string>

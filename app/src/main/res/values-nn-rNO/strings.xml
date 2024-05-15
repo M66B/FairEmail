@@ -106,7 +106,6 @@
     <string name="title_notification_sending">Sender meldingar</string>
     <string name="title_notification_waiting">Ventar på høv tilkopling</string>
     <string name="title_notification_idle">Inaktiv</string>
-    <string name="title_notification_failed">«%1$s» gjekk ikkje</string>
     <string name="title_notification_alert">Tenarvarsel: «%1$s»</string>
     <string name="title_notification_sending_left">Røyne att: %1$d</string>
     <string name="title_notification_sending_retry">Prøver igjen å sende når internettilkoblingen endres eller ved å trekke ned i utboksen</string>

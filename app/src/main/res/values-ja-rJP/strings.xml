@@ -104,7 +104,6 @@
     <string name="title_notification_sending">メールを送信中</string>
     <string name="title_notification_waiting">接続を待機しています</string>
     <string name="title_notification_idle">待機</string>
-    <string name="title_notification_failed">\'%1$s\' エラーが発生しました</string>
     <string name="title_notification_alert">サーバーの警告: %1$s</string>
     <string name="title_notification_sending_left">残りの試行回数: %1$d</string>
     <string name="title_notification_sending_retry">インターネット接続が変更されるか、送信トレイをプルダウンすると送信が再試行されます</string>
@@ -760,7 +759,8 @@
     <string name="title_advanced_openai_temperature">温度 (Temperature): %1$s</string>
     <string name="title_advanced_openai_moderation">コンテンツモデレーション</string>
     <string name="title_advanced_gemini">Gemini を統合する</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">要約プロンプト</string>
+    <string name="title_advanced_multi_modal">マルチモーダル (テキスト + メディア)</string>
+    <string name="title_advanced_summarize_prompt">要約プロンプト</string>
     <string name="title_advanced_sdcard">SD カードを使用できますか？</string>
     <string name="title_advanced_watchdog">FairEmail がアクティブか定期的に確認する</string>
     <string name="title_advanced_updates">GitHub で更新を確認する</string>
@@ -836,6 +836,9 @@
     <string name="title_advanced_threading_hint">互いに関連するメッセージをグループ化します</string>
     <string name="title_advanced_indentation_hint">カード形式のみ</string>
     <string name="title_advanced_highlight_hint">テーマのアクセントカラーをハイライトカラーに使用します</string>
+    <string name="title_advanced_free">無料で使用できるクラウドサービスです</string>
+    <string name="title_advanced_free_tier">一部ランクは無料で使用できるクラウドサービスです</string>
+    <string name="title_advanced_paid_service">有料のクラウドサービスです</string>
     <string name="title_advanced_privacy_risk">プライバシーリスクがあるかもしれません</string>
     <string name="title_advanced_name_email_hint">名前は利用可能な場合のみ表示されます</string>
     <string name="title_advanced_preview_hint">本文がダウンロードできた場合のみ使用できます</string>
@@ -1577,6 +1580,7 @@
     <string name="title_search_flag_notes">メモ</string>
     <string name="title_search_flag_invite">招待</string>
     <string name="title_search_flag_size">サイズ &gt; %1$s</string>
+    <string name="title_search_flag_touched">閲覧済み</string>
     <string name="title_search_device">端末上を検索</string>
     <string name="title_search_server">サーバーを検索</string>
     <string name="title_search_server_wait">サーバーからの応答を待っています</string>

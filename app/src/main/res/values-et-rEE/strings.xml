@@ -118,7 +118,6 @@
     <string name="title_notification_sending">Sõnumite saatmine</string>
     <string name="title_notification_waiting">Sobiva ühenduse ootamine</string>
     <string name="title_notification_idle">Jõude</string>
-    <string name="title_notification_failed">\'%1$s\' nurjus</string>
     <string name="title_notification_alert">Serveri teade: \'%1$s\'</string>
     <string name="title_notification_sending_left">Katseid jäänud: %1$d</string>
     <string name="title_notification_sending_retry">Saatmist proovitakse ühenduse muutumisel või väljundkausta värskendamisel</string>
@@ -774,7 +773,7 @@
     <string name="title_advanced_openai_temperature">Temperatuur: %1$s</string>
     <string name="title_advanced_openai_moderation">Sisu modereerimine</string>
     <string name="title_advanced_gemini">Gemini lõimimine</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Kokkuvõtte viip</string>
+    <string name="title_advanced_summarize_prompt">Kokkuvõtte viip</string>
     <string name="title_advanced_sdcard">Ma soovin kasutada SD-kaarti</string>
     <string name="title_advanced_watchdog">Kontrolli perioodiliselt, kas FairEmail on jätkuvalt aktiivne</string>
     <string name="title_advanced_updates">Kontrolli GitHub uuendusi</string>

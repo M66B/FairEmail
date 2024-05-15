@@ -56,7 +56,6 @@
     </plurals>
     <string name="title_junk_clear">ଖାଲି କରନ୍ତୁ</string>
     <string name="title_notification_idle">ନିଷ୍କ୍ରିୟ</string>
-    <string name="title_notification_failed">\'%1$s\' ବିଫଳ ହେଲା</string>
     <string name="title_notification_sending_failed">%1$sକୁ ପଠାଇବା ବିଫଳ ହେଲା</string>
     <string name="title_factor_minutes">%1$d ମିନିଟ୍</string>
     <string name="menu_rules">ନିୟମ</string>

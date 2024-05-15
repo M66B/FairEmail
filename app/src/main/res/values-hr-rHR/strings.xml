@@ -100,7 +100,6 @@
     <string name="title_notification_sending">Poruka se šalje</string>
     <string name="title_notification_waiting">Čeka se prikladna veza</string>
     <string name="title_notification_idle">Nevažno</string>
-    <string name="title_notification_failed">\'%1$s\' nije uspjelo</string>
     <string name="title_notification_alert">Upozorenje poslužitelja: \'%1$s\'</string>
     <string name="title_notification_sending_left">Preostali pokušaji: %1$d</string>
     <string name="title_notification_sending_retry">Slanje će se ponovno pokušati nakon promjene internetske veze ili povlačenja prema dolje u odlaznoj pošti</string>

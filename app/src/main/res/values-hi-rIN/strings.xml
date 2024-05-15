@@ -67,7 +67,6 @@
     <string name="title_notification_sending">संदेश भेजना</string>
     <string name="title_notification_waiting">उपयुक्त कनेक्शन प्रतीक्षा में</string>
     <string name="title_notification_idle">बेकार</string>
-    <string name="title_notification_failed">\"%1$s\" अनुतीर्ण होना</string>
     <string name="title_notification_alert">सर्वर अलर्ट: \"%1$s\"</string>
     <string name="title_notification_sending_left">प्रयास शेष: %1$d</string>
     <string name="title_notification_sending_retry">इंटरनेट कनेक्शन में परवर्तन या आउटबॉक्स पर नीचे खींचने पर भेजने का पुनः प्रयास किया जाएगा</string>

@@ -146,7 +146,6 @@
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_idle">Bezczynny</string>
-    <string name="title_notification_failed">%1$s nie powiodło się</string>
     <string name="title_notification_alert">Alert serwera: \'%1$s\'</string>
     <string name="title_notification_sending_left">Pozostało prób: %1$d</string>
     <string name="title_notification_sending_retry">Wysyłanie zostanie ponowione po zmianie połączenia internetowego lub pociągnięciu w dół skrzynki nadawczej</string>
@@ -269,6 +268,7 @@
     <string name="title_setup_doze_stopped">Synchronizacja zatrzymana?</string>
     <string name="title_setup_doze_device">Prawdopodobnie jest to wymagane dla tego urządzenia</string>
     <string name="title_setup_alarm_12">Aplikacja nie będzie działać poprawnie</string>
+    <string name="title_setup_fg_15">Aplikacji nie może być uruchamiana automatycznie</string>
     <string name="title_setup_inexact">Alarmy &amp; przypomnienia są wyłączone</string>
     <string name="title_setup_background">Ograniczenia w tle są włączone</string>
     <string name="title_setup_data">Oszczędzanie danych jest włączone</string>
@@ -785,6 +785,7 @@
     <string name="title_advanced_haptic_feedback">Wibracyjne informacje zwrotne dotyczące ważnych działań</string>
     <string name="title_advanced_language">Język</string>
     <string name="title_advanced_language_system">Systemowy</string>
+    <string name="title_advanced_integrations_hint">Poniższe usługi w chmurze nie są częścią aplikacji. Wszelkie płatności zostaną przekazane bezpośrednio do usługi w chmurze, a nie do twórcy aplikacji.</string>
     <string name="title_advanced_lt">Integracja LanguageTool</string>
     <string name="title_advanced_lt_sentence">Sprawdzaj każde zdanie</string>
     <string name="title_advanced_lt_auto">Sprawdź akapit po nowym wierszu</string>
@@ -800,7 +801,7 @@
     <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
     <string name="title_advanced_openai_moderation">Kontrola treści</string>
     <string name="title_advanced_gemini">Integracja z Gemini</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Podsumowanie podpowiedzi</string>
+    <string name="title_advanced_summarize_prompt">Podsumowanie podpowiedzi</string>
     <string name="title_advanced_sdcard">Chcę użyć karty SD</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje GitHub</string>
@@ -877,6 +878,9 @@
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
     <string name="title_advanced_indentation_hint">Tylko dla stylu karty</string>
     <string name="title_advanced_highlight_hint">Do podświetlenia zostanie użyty akcent kolorystyczny motywu</string>
+    <string name="title_advanced_free">Ta usługa w chmurze jest darmowa</string>
+    <string name="title_advanced_free_tier">Ta usługa w chmurze ma darmowy plan</string>
+    <string name="title_advanced_paid_service">Ta usługa w chmurze wymaga płatności</string>
     <string name="title_advanced_privacy_risk">Może istnieć ryzyko naruszenia prywatności</string>
     <string name="title_advanced_name_email_hint">Nazwy będą wyświetlane tylko wtedy, gdy będą dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>

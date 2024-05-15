@@ -93,7 +93,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_notification_sending">Enviant missatge</string>
     <string name="title_notification_waiting">S\'està esperant la connexió</string>
     <string name="title_notification_idle">Inactiu</string>
-    <string name="title_notification_failed">%1$s ha fallat</string>
     <string name="title_notification_alert">Alerta del servidor: \'%1$s\'</string>
     <string name="title_notification_sending_left">Intents restants: %1$d</string>
     <string name="title_notification_sending_retry">L\'enviament es tornarà a provar en canviar la connexió a Internet, o lliscant cap a baix de la vista general</string>

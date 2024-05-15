@@ -134,7 +134,6 @@
     <string name="title_notification_sending">Odosielanie správ</string>
     <string name="title_notification_waiting">Čakanie na vhodné pripojenie</string>
     <string name="title_notification_idle">Nečinný</string>
-    <string name="title_notification_failed">\"%1$s\" zlyhalo</string>
     <string name="title_notification_alert">Upozornenie zo servera: \'%1$s\'</string>
     <string name="title_notification_sending_left">%1$d zostávajúcich pokusov</string>
     <string name="title_notification_sending_retry">Opätovné odosielanie sa spustí pri zmene parametrov pripojenia na internet alebo potiahnutím dolu v priečinku pošta na odoslanie</string>

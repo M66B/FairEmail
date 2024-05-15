@@ -102,7 +102,7 @@
     <string name="title_notification_sending">درحال ارسال پیام‌ها</string>
     <string name="title_notification_waiting">درحال انتظار برای اتصال مناسب</string>
     <string name="title_notification_idle">بیکار</string>
-    <string name="title_notification_failed">\'%1$s\' انجام نشد</string>
+    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">حساب \'%1$s\' ناموفق بود</string>
     <string name="title_notification_alert">هشدار سرور: %1$s</string>
     <string name="title_notification_sending_left">تلاش‌های باقی‌مانده: %1$d</string>
     <string name="title_notification_sending_retry">در صورت تغییر در ارتباط اینترنتی یا کشیدن صفحه صندوق خروجی به سمت پایین، برای ارسال تلاش مجدد خواهد شد</string>
@@ -212,6 +212,7 @@
     <string name="title_setup_doze_stopped">همگام‌سازی متوقف شده؟</string>
     <string name="title_setup_doze_device">این مورد احتمالا برای این دستگاه اجباریست</string>
     <string name="title_setup_alarm_12">اپلیکیشن به خوبی کار نخواهد کرد</string>
+    <string name="title_setup_fg_15">امکان شروع برنامه به صورت خودکار وجود ندارد</string>
     <string name="title_setup_inexact">زنگ‌های &amp; یادآور غیرفعال هستند</string>
     <string name="title_setup_background">محدودیت‌های پس‌زمینه فعال هستند</string>
     <string name="title_setup_data">سرور داده فعال شده است</string>
@@ -530,6 +531,7 @@
     <string name="title_advanced_autounstar">هنگام انتقال پیام‌ها ستاره‌ها را خودکار از پیام‌ها حذف کن</string>
     <string name="title_advanced_move_thread_all">هنگام جابجا کردن مکالمات انتخابی، کل پیام‌ها منتقل شود</string>
     <string name="title_advanced_move_thread_sent">به هنگام انتقال یک مکالمه، پیام‌های ارسالی را هم منتقل کن</string>
+    <string name="title_advanced_swipe_trash_all">حذف همه پیام‌ها هنگام کشیدن مکالمه به سطل زباله</string>
     <string name="title_advanced_notifications">مدیریت اعلان‌ها</string>
     <string name="title_advanced_notifications_default">کانال پیش‌فرض</string>
     <string name="title_advanced_notifications_service">کانال نظارت</string>
@@ -596,8 +598,11 @@
     <string name="title_advanced_show_filtered">آیکون فیلتر را زمانی که قاعده‌ای اعمال می‌شود نشان بده</string>
     <string name="title_advanced_language">زبان</string>
     <string name="title_advanced_language_system">سیستم</string>
+    <string name="title_advanced_integrations_hint">سرویس‌های ابری زیر بخشی از اپلیکیشن نیستند. هرگونه پرداختی مستقیما به ارائه‌دهنده سرویس ابری و نه توسعه‌دهنده اپلیکیشن واریز خواهد شد.</string>
     <string name="title_advanced_lt">یکپارچگی ابزارهای زبانی</string>
     <string name="title_advanced_lt_description">نمایش پاپ‌آپ همراه با شرح مشکل</string>
+    <string name="title_advanced_multi_modal">چند وجهی</string>
+    <string name="title_advanced_summarize_prompt">خلاصه کردن</string>
     <string name="title_advanced_watchdog">بطور دوره ای بررسی کن که آیا FairEmail هنوز فعال است یا خیر</string>
     <string name="title_advanced_experiments">امتحان ویژگی‌های آزمایشی</string>
     <string name="title_advanced_crash_reports">ارسال گزارش‌های خطا</string>
@@ -624,6 +629,9 @@
     <string name="title_advanced_browse_hint">واکشی پیام‌های بیشتر هنگام پیمایش به پایین</string>
     <string name="title_advanced_threading_hint">پیام‌های گروهی مرتبط با یکدیگر</string>
     <string name="title_advanced_indentation_hint">فقط برای سبک کارت</string>
+    <string name="title_advanced_free">استفاده از این سرویس ابری رایگان است</string>
+    <string name="title_advanced_free_tier">این سرویس ابری دارای یک لایه رایگان است</string>
+    <string name="title_advanced_paid_service">این سرویس ابری نیازمند پرداخت هزینه است</string>
     <string name="title_advanced_privacy_risk">شاید خطر حریم خصوصی وجود داشته باشد</string>
     <string name="title_advanced_preview_hint">فقط زمانی در دسترس است که متن پیام دانلود شده باشد</string>
     <string name="compressed">محتویات فایل‌های فشرده شده (%1$s) با بیش از %2$s فایل یا فایل‌های بزرگ‌تر از %3$s نمایش داده نخواهند شد</string>
@@ -753,7 +761,9 @@
     <string name="title_empty_trash_ask">پیام‌های سطل آشغال برای همیشه پاک شوند?</string>
     <string name="title_empty_spam_ask">پیام‌های هرزنامه برای همیشه پاک شوند؟</string>
     <string name="title_empty_spam_all_ask">همه پیام‌های هرزنامه از همه حساب‌ها برای همیشه حذف شود؟</string>
+    <string name="title_delete_operation_send">ارسال عملیات</string>
     <string name="title_delete_contacts">حذف همه مخاطبین محلی؟</string>
+    <string name="title_delete_contacts_remark">تمام مخاطبین نشان داده شده و نشده حذف خواهند شد، حتی اگر جستجو شوند!</string>
     <string name="title_no_operations">عملیاتی در انتظار وجود ندارد </string>
     <string name="title_hint_operations">عملیات‌های حذف می‌تواند موجب ناپدید شدن پیام‌ها و مشکلات همگام‌سازی شود</string>
     <string name="title_folder_name">نام پوشه</string>
@@ -995,6 +1005,7 @@
     <string name="title_media_toolbar">نوار ابزار رسانه</string>
     <string name="title_insert_contact_group">درج گروه مخاطبین</string>
     <string name="title_insert_template">درج قالب</string>
+    <string name="title_summarize">خلاصه کردن</string>
     <string name="title_translate_html">قالب‌بندی را حفظ کن</string>
     <string name="title_translate_html_hint">این، کاراکترهای بیشتری را به کار خواهد برد</string>
     <string name="title_suggestions_none">بدون پیشنهاد</string>
@@ -1081,6 +1092,7 @@
     <string name="title_search_flag_attachments">پیوست‎ها</string>
     <string name="title_search_flag_invite">دعوت</string>
     <string name="title_search_flag_size">اندازه &gt; %1$s</string>
+    <string name="title_search_flag_touched">لمس شده</string>
     <string name="title_search_device">جستجو بر روی دستگاه‌</string>
     <string name="title_search_server">جستجو بر روی سرور</string>
     <string name="title_search_in">جستجو در</string>
@@ -1120,6 +1132,7 @@
     <string name="title_mark_all_read">علامت‌گذاری همه به‌عنوان خوانده شده</string>
     <string name="title_force_sync">اجبار هم‌گام‌سازی</string>
     <string name="title_force_send">اجبار ارسال</string>
+    <string name="title_pwned_remark">این عمل رمز عبور را بدون ارسال آن (با استفاده از k-anonymization) بررسی می‌کند و نه آدرس ایمیل را!</string>
     <string name="title_language_all">همه</string>
     <string name="title_previous">قبلی</string>
     <string name="title_next">بعدی</string>
@@ -1417,6 +1430,7 @@
     <string name="title_keyword_label4">برای انجام</string>
     <string name="title_keyword_label5">بعدا</string>
     <string name="title_keyword_complaint">شکایت</string>
+    <string name="title_keyword_phishing">فیشینگ</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d پیام</item>
         <item quantity="other">%1$d پیام</item>

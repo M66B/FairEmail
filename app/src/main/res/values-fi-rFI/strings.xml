@@ -114,7 +114,6 @@
     <string name="title_notification_sending">Lähetetään viestejä</string>
     <string name="title_notification_waiting">Odotetaan sopivaa yhteyttä</string>
     <string name="title_notification_idle">Toimeton</string>
-    <string name="title_notification_failed">\'%1$s\' epäonnistui</string>
     <string name="title_notification_alert">Palvelimen hälytys: \'%1$s\'</string>
     <string name="title_notification_sending_left">Yrityksiä jäljellä: %1$d</string>
     <string name="title_notification_sending_retry">Lähettämistä yritetään uudestaan internetyhteyden muuttuessa tai vetämällä alaspäin lähtevät-kansiossa</string>

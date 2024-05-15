@@ -146,7 +146,6 @@
     <string name="title_notification_sending">Адпраўка паведамленняў</string>
     <string name="title_notification_waiting">Чаканне адпаведнага злучэння</string>
     <string name="title_notification_idle">Неактыўны</string>
-    <string name="title_notification_failed">\'%1$s\' не ўдалося</string>
     <string name="title_notification_alert">Папярэджанне сервера: \'%1$s\'</string>
     <string name="title_notification_sending_left">Засталося %1$d спроб</string>
     <string name="title_notification_sending_retry">Спроба адпраўкі будзе выканана пры змяненні спосабу злучэння з інтэрнэтам або пры праверцы пошты</string>

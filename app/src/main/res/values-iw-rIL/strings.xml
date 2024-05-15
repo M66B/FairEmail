@@ -146,7 +146,7 @@
     <string name="title_notification_sending">הודעות נשלחות</string>
     <string name="title_notification_waiting">בהמתנה לחיבור מתאים</string>
     <string name="title_notification_idle">בהמתנה</string>
-    <string name="title_notification_failed">‚%1$s’ נכשלה</string>
+    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">החשבון ‚%1$s’ נכשל</string>
     <string name="title_notification_alert">התראה שרת: ‚%1$s’</string>
     <string name="title_notification_sending_left">ניסיונות שנותרו: %1$d</string>
     <string name="title_notification_sending_retry">יתבצע ניסיון שליחה חוזר עם שינוי במצב החיבור לאינטרנט או במשיכה של הדואר היוצא כלפי מטה</string>
@@ -269,6 +269,7 @@
     <string name="title_setup_doze_stopped">הסנכרון נפסק?</string>
     <string name="title_setup_doze_device">זה כנראה אילוץ של המכשיר הזה</string>
     <string name="title_setup_alarm_12">היישומון לא יעבוד כראוי</string>
+    <string name="title_setup_fg_15">אי אפשר להפעיל את היישום אוטומטית</string>
     <string name="title_setup_inexact">התראות ותזכורות מושבתות</string>
     <string name="title_setup_background">הגבלות רקע פעילות</string>
     <string name="title_setup_data">חיסכון בתעבורת נתונים פעיל</string>
@@ -787,6 +788,7 @@
     <string name="title_advanced_haptic_feedback">משוב תחושתי על פעולות חשובות</string>
     <string name="title_advanced_language">שפה</string>
     <string name="title_advanced_language_system">מערכת</string>
+    <string name="title_advanced_integrations_hint">שירותי הענן אינם עוד חלק מהיישום. יש לשלם ישירות לספק הענן ולא למפתחי התוכנה.</string>
     <string name="title_advanced_lt">שילוב מול LanguageTool</string>
     <string name="title_advanced_lt_sentence">לבדוק כל משפט</string>
     <string name="title_advanced_lt_auto">בדיקת פסקה אחרי שורה חדשה</string>
@@ -802,7 +804,8 @@
     <string name="title_advanced_openai_temperature">טמפרטורה: %1$s</string>
     <string name="title_advanced_openai_moderation">ניהול תוכן</string>
     <string name="title_advanced_gemini">שילוב מול Gemini</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">בקשת תקציר</string>
+    <string name="title_advanced_multi_modal">ריבוי ערוצי תקשורת</string>
+    <string name="title_advanced_summarize_prompt">בקשת תקציר</string>
     <string name="title_advanced_sdcard">ארצה להשתמש בכרטיס SD</string>
     <string name="title_advanced_watchdog">לבדוק מדי פעם אם FairEmail עדיין פעיל</string>
     <string name="title_advanced_updates">איתור עדכונים ב־GitHub</string>
@@ -878,6 +881,9 @@
     <string name="title_advanced_threading_hint">קיבוץ הודעות שקשורות זו לזו</string>
     <string name="title_advanced_indentation_hint">לסגנון כרטיסים בלבד</string>
     <string name="title_advanced_highlight_hint">הצבע המשני של ערכת הנושא ישמש להדגשה</string>
+    <string name="title_advanced_free">שירות הענן הזה הוא בחינם</string>
+    <string name="title_advanced_free_tier">לשירות הענן הזה יש מסלול בחינם</string>
+    <string name="title_advanced_paid_service">שירות הענן הזה דורש תשלום</string>
     <string name="title_advanced_privacy_risk">עלול להיות סיכון לפרטיות</string>
     <string name="title_advanced_name_email_hint">השמות יופיעו רק כשהם זמינים</string>
     <string name="title_advanced_preview_hint">זמין רק כאשר טקסט של הודעה התקבל</string>
@@ -1619,6 +1625,7 @@
     <string name="title_search_flag_notes">הערות</string>
     <string name="title_search_flag_invite">הזמנה</string>
     <string name="title_search_flag_size">גודל &gt; %1$s</string>
+    <string name="title_search_flag_touched">תופעל</string>
     <string name="title_search_device">חיפוש במכשיר</string>
     <string name="title_search_server">חיפוש בשרת</string>
     <string name="title_search_server_wait">בהמתנה לשרת</string>

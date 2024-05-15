@@ -104,7 +104,6 @@
     <string name="title_notification_sending">正在发送邮件</string>
     <string name="title_notification_waiting">等待适合的网络连接</string>
     <string name="title_notification_idle">空闲</string>
-    <string name="title_notification_failed">\'%1$s\' 失败</string>
     <string name="title_notification_alert">服务器警示：\'%1$s\'</string>
     <string name="title_notification_sending_left">剩余尝试次数: %1$d</string>
     <string name="title_notification_sending_retry">发送将在网络连接更改时或在下拉发件箱时重试</string>
@@ -227,6 +226,7 @@
     <string name="title_setup_doze_stopped">同步已停止？</string>
     <string name="title_setup_doze_device">对此设备来说，这可能是必需的</string>
     <string name="title_setup_alarm_12">本应用将无法正常工作</string>
+    <string name="title_setup_fg_15">应用程序不能自动启动</string>
     <string name="title_setup_inexact">闹钟 &amp; 提醒已禁用</string>
     <string name="title_setup_background">已启用后台限制</string>
     <string name="title_setup_data">省流量模式已启用</string>
@@ -743,6 +743,7 @@
     <string name="title_advanced_haptic_feedback">对重要操作提供触觉反馈</string>
     <string name="title_advanced_language">界面语言</string>
     <string name="title_advanced_language_system">系统</string>
+    <string name="title_advanced_integrations_hint">下面的云服务不是应用的一部分。任何付款都将直接提供给云服务，而不是应用开发者。</string>
     <string name="title_advanced_lt">LanguageTool 集成</string>
     <string name="title_advanced_lt_sentence">检查每个句子</string>
     <string name="title_advanced_lt_auto">换行后检查段落</string>
@@ -758,7 +759,8 @@
     <string name="title_advanced_openai_temperature">温度：%1$s</string>
     <string name="title_advanced_openai_moderation">内容审核</string>
     <string name="title_advanced_gemini">Gemini 集成</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">总结提示</string>
+    <string name="title_advanced_multi_modal">多模型</string>
+    <string name="title_advanced_summarize_prompt">总结提示</string>
     <string name="title_advanced_sdcard">我想使用 SD 卡</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
     <string name="title_advanced_updates">检查 GitHub 更新</string>
@@ -835,6 +837,9 @@
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
     <string name="title_advanced_indentation_hint">仅用于卡片样式</string>
     <string name="title_advanced_highlight_hint">主题的强调色将用于高亮文本颜色</string>
+    <string name="title_advanced_free">此云服务免费使用</string>
+    <string name="title_advanced_free_tier">此云服务有免费版本</string>
+    <string name="title_advanced_paid_service">此云服务需要付款</string>
     <string name="title_advanced_privacy_risk">可能存在隐私风险</string>
     <string name="title_advanced_name_email_hint">名称仅在可用时显示</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
@@ -1571,6 +1576,7 @@
     <string name="title_search_flag_notes">备注</string>
     <string name="title_search_flag_invite">邀请</string>
     <string name="title_search_flag_size">大小 &gt; %1$s</string>
+    <string name="title_search_flag_touched">已触摸（已打开/已展开）</string>
     <string name="title_search_device">在设备上搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
     <string name="title_search_server_wait">正在等待服务器</string>

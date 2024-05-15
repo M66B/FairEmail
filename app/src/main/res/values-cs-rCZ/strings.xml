@@ -146,7 +146,6 @@
     <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_waiting">Čekám na vhodné připojení</string>
     <string name="title_notification_idle">Nečinný</string>
-    <string name="title_notification_failed">„%1$s“ selhalo</string>
     <string name="title_notification_alert">Upozornění serveru: \'%1$s\'</string>
     <string name="title_notification_sending_left">Zbývající pokusy: %1$d</string>
     <string name="title_notification_sending_retry">Pokus o odeslání bude proveden znovu při změně internetového připojení nebo při tažení dolů ve složce odeslaných</string>
@@ -801,7 +800,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_openai_temperature">Teplota: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderování obsahu</string>
     <string name="title_advanced_gemini">Gemini integrace</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Shrnutí výzvy</string>
+    <string name="title_advanced_summarize_prompt">Shrnutí výzvy</string>
     <string name="title_advanced_sdcard">Chci použít Sd kartu</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace na GitHubu</string>

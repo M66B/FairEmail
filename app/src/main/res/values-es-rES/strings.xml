@@ -118,7 +118,7 @@
     <string name="title_notification_sending">Enviando mensajes</string>
     <string name="title_notification_waiting">Esperando conexión adecuada</string>
     <string name="title_notification_idle">Inactivo</string>
-    <string name="title_notification_failed">\'%1$s\' falló</string>
+    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">La cuenta \'%1$s\' falló</string>
     <string name="title_notification_alert">Alerta del servidor: \'%1$s\'</string>
     <string name="title_notification_sending_left">Intentos restantes: %1$d</string>
     <string name="title_notification_sending_retry">El envío se reintentará en los cambios de conexión a Internet o tirando hacia abajo en la bandeja de salida</string>
@@ -241,6 +241,7 @@
     <string name="title_setup_doze_stopped">¿Sincronización detenida?</string>
     <string name="title_setup_doze_device">Esto probablemente sea necesario para este dispositivo</string>
     <string name="title_setup_alarm_12">La aplicación no funcionará correctamente</string>
+    <string name="title_setup_fg_15">La aplicación no puede iniciarse automáticamente</string>
     <string name="title_setup_inexact">Alarmas &amp; recordatorios están deshabilitados</string>
     <string name="title_setup_background">Restricciones en segundo plano habilitadas</string>
     <string name="title_setup_data">El ahorro de datos está activado</string>
@@ -757,6 +758,7 @@
     <string name="title_advanced_haptic_feedback">Respuesta háptica en acciones importantes</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
+    <string name="title_advanced_integrations_hint">Los servicios en la nube a continuación no son parte de la aplicación. Cualquier pago irá directamente al servicio en la nube y no al desarrollador de la aplicación.</string>
     <string name="title_advanced_lt">Integración con LanguageTool</string>
     <string name="title_advanced_lt_sentence">Comprobar cada oración</string>
     <string name="title_advanced_lt_auto">Comprobar párrafo después de una nueva línea</string>
@@ -772,7 +774,8 @@
     <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderación de contenido</string>
     <string name="title_advanced_gemini">Integración con Gemini</string>
-    <string name="title_advanced_summarize_prompt" comment="title_advanced_summarize_prompt&#10;Title for option to change &quot;AI&quot; prompt to summarize a text&#10;A possible translation is &quot;Order to summarize&quot;">Orden para resumir</string>
+    <string name="title_advanced_multi_modal">Multimodal</string>
+    <string name="title_advanced_summarize_prompt">Orden para resumir</string>
     <string name="title_advanced_sdcard">Quiero usar una tarjeta SD</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Comprobar actualizaciones de GitHub</string>
@@ -849,6 +852,9 @@
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_indentation_hint">Solo para estilo de tarjeta</string>
     <string name="title_advanced_highlight_hint">El color de acento del tema se utilizará para resaltar</string>
+    <string name="title_advanced_free">Este servicio en la nube es gratuito</string>
+    <string name="title_advanced_free_tier">Este servicio en la nube tiene un plan gratuito</string>
+    <string name="title_advanced_paid_service">Este servicio en la nube es pago</string>
     <string name="title_advanced_privacy_risk">Puede haber un riesgo para la privacidad</string>
     <string name="title_advanced_name_email_hint">Los nombres sólo se mostrarán cuando estén disponibles</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
@@ -1586,6 +1592,7 @@
     <string name="title_search_flag_notes">notas</string>
     <string name="title_search_flag_invite">invitación</string>
     <string name="title_search_flag_size">tamaño &gt; %1$s</string>
+    <string name="title_search_flag_touched">abierto</string>
     <string name="title_search_device">Buscar en dispositivo</string>
     <string name="title_search_server">Buscar en el servidor</string>
     <string name="title_search_server_wait">Esperando al servidor</string>

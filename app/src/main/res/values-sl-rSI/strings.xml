@@ -132,7 +132,6 @@
     <string name="title_notification_sending">Pošiljanje sporočil</string>
     <string name="title_notification_waiting">Čakanje na primerno povezavo</string>
     <string name="title_notification_idle">Nedejavno</string>
-    <string name="title_notification_failed">\'%1$s\' je spodletelo.</string>
     <string name="title_notification_alert">Opozorilo strežnika: \'%1$s\'</string>
     <string name="title_notification_sending_left">Preostalih poizkusov: %1$d</string>
     <string name="title_notification_sending_retry">Pošiljanje so bo poizkusilo ponovno izvesti ob spremembi internetne povezave ali če povlečete dol v oknu izhodne pošte.</string>

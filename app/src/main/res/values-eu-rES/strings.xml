@@ -97,7 +97,6 @@
     <string name="title_notification_sending">Mezuak bidaltzen</string>
     <string name="title_notification_waiting">Konexio erabilgarriaren zain</string>
     <string name="title_notification_idle">Inaktiboa</string>
-    <string name="title_notification_failed">%1$s(e)k huts egin du</string>
     <string name="title_notification_alert">Zerbitzari-alerta: \'%1$s\'</string>
     <string name="title_notification_sending_left">Geratzen diren saiakerak: %1$d</string>
     <string name="title_notification_sending_retry">Bidalketa berriro saiatuko da internet konexioa aldatzen denean, edo irteera ontzian behera tiratzean</string>
