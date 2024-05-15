@@ -104,6 +104,7 @@
     <string name="title_notification_sending">正在发送邮件</string>
     <string name="title_notification_waiting">等待适合的网络连接</string>
     <string name="title_notification_idle">空闲</string>
+    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">账号“%1$s”失败</string>
     <string name="title_notification_alert">服务器警示：\'%1$s\'</string>
     <string name="title_notification_sending_left">剩余尝试次数: %1$d</string>
     <string name="title_notification_sending_retry">发送将在网络连接更改时或在下拉发件箱时重试</string>
