@@ -913,7 +913,9 @@ POP3 is supported!
 
 Communication with email servers is always encrypted, unless you explicitly turned this off.
 This question is about optional end-to-end encryption with PGP or S/MIME.
+
 The sender and recipient should first agree on this and exchange signed messages to transfer their public key to be able to send encrypted messages.
+There is a gesture icon button just above the text of a received message on the right to verify a signature and store the public key.
 
 <br />
 
