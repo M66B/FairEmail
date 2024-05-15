@@ -103,9 +103,15 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     return null;
 
                 Document d = JsoupEx.parse(file);
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
+                if (remove_signatures)
+                    HtmlHelper.removeSignatures(d);
+
+                HtmlHelper.removeQuotes(d);
+
                 d = HtmlHelper.sanitizeView(context, d, false);
-                HtmlHelper.removeSignatures(d);
-                d.select("blockquote").remove();
 
                 if (OpenAI.isAvailable(context)) {
                     String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);

@@ -2859,6 +2859,25 @@ public class HtmlHelper {
         });
     }
 
+    static void removeQuotes(Document d) {
+        // Gmail
+        Elements quotes = d.body().select(".gmail_quote");
+        if (quotes.size() > 0) {
+            quotes.remove();
+            return;
+        }
+
+        // Outlook: <div id="appendonsend">
+        quotes = d.body().select("div#appendonsend");
+        if (quotes.size() > 0) {
+            quotes.nextAll().remove();
+            quotes.remove();
+            return;
+        }
+
+        d.select("blockquote").remove();
+    }
+
     static String truncate(String text, int at) {
         if (text.length() < at)
             return text;

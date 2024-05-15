@@ -349,15 +349,19 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
         EntityMessage message = db.message().getMessage(id);
 
         File file = EntityMessage.getFile(context, id);
-        String html = Helper.readText(file);
-        Document d = HtmlHelper.sanitizeCompose(context, html, false);
+        if (!file.exists())
+            return null;
+
+        Document d = JsoupEx.parse(file);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
         if (remove_signatures)
             HtmlHelper.removeSignatures(d);
 
-        d.select("blockquote").remove();
+        HtmlHelper.removeQuotes(d);
+
+        d = HtmlHelper.sanitizeView(context, d, false);
 
         HtmlHelper.truncate(d, HtmlHelper.MAX_TRANSLATABLE_TEXT_SIZE);
 
