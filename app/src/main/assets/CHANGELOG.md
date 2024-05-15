@@ -13,8 +13,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Changed default OpenAI model to [gpt-4o](https://openai.com/index/hello-gpt-4o/)
 * Improved OpenAI integration (added multimodal support)
 * Improved Gemini integration
+* Made "AI" integrations available in the Play Store version
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 *The use of "AI" integrations is and will remain completely optional*
 

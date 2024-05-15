@@ -13,8 +13,10 @@ Next version
 * Changed default OpenAI model to gpt-4o
 * Improved OpenAI integration (added multimodal support)
 * Improved Gemini integration
+* Made "AI" integrations available in the Play Store version
 * Updated AndroidX
 * Small improvements and minor bug fixes
+* Updated translations
 
 *The use of "AI" integrations is and will remain completely optional*
 
