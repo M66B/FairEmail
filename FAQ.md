@@ -5607,6 +5607,8 @@ It is possible to configure a button for this (a robot icon).
 The summary prompt text can be configured in the receive-settings tab page.
 The default is *Summarize the following text:*.
 
+Since version 1.2182 is is possible to configure a quick action button and a swipe action to summarize a message.
+
 <br>
 
 OpenAI isn't very fast, so be patient. Sometimes a timeout error occurs because the app is not receiving a response from OpenAI.
