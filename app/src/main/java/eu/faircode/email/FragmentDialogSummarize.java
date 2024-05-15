@@ -44,6 +44,8 @@ import java.util.Date;
 import java.util.List;
 
 public class FragmentDialogSummarize extends FragmentDialogBase {
+    private static final int MAX_SUMMARIZE_TEXT_SIZE = 10 * 1024;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -112,6 +114,8 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                 HtmlHelper.removeQuotes(d);
 
                 d = HtmlHelper.sanitizeView(context, d, false);
+
+                HtmlHelper.truncate(d, MAX_SUMMARIZE_TEXT_SIZE);
 
                 if (OpenAI.isAvailable(context)) {
                     String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
