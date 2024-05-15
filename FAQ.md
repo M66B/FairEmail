@@ -5570,6 +5570,10 @@ Cloud sync is an experimental feature. It is not available for the Play Store ve
 
 OpenAI can only be used if configured and enabled.
 
+**Note that using OpenAI is not free (anymore) !**
+
+<br>
+
 **Setup**
 
 * Create an account [here](https://platform.openai.com/signup)
@@ -5881,12 +5885,20 @@ Basically, an outgoing message is either in the draft messages folder, the outbo
 <a name="faq204"></a>
 **(204) How do I use Gemini?**
 
+Gemini can only be used if configured and enabled.
+
+**Note that using Gemini is not free (anymore) !**
+
+<br>
+
 To use [Gemini](https://gemini.google.com/), please follow these steps:
 
 1. Check if your country [is supported](https://ai.google.dev/available_regions)
 1. Get an API key via [here](https://ai.google.dev/tutorials/setup)
 1. Enter the API key in the integration settings tab page
 1. Enable Gemini integration in the integration settings tab page
+
+<br>
 
 For usage instructions, please see [this FAQ](#faq190).
 
