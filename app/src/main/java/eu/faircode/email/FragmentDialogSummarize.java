@@ -87,13 +87,11 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                 tvElapsed.setVisibility(View.GONE);
                 tvError.setVisibility(View.GONE);
                 pbWait.setVisibility(View.VISIBLE);
-                args.putLong("start", new Date().getTime());
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
                 pbWait.setVisibility(View.GONE);
-                args.putLong("elapsed", new Date().getTime() - args.getLong("start"));
             }
 
             @Override
@@ -139,8 +137,11 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     input.add(new OpenAI.Message(OpenAI.USER,
                             OpenAI.Content.get(ssb, id, context)));
 
+                    long start = new Date().getTime();
                     OpenAI.Message[] result =
                             OpenAI.completeChat(context, model, input.toArray(new OpenAI.Message[0]), temperature, 1);
+                    args.putLong("elapsed", new Date().getTime() - start);
+
                     if (result.length == 0)
                         return null;
 
@@ -163,8 +164,11 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                         return null;
                     Gemini.Message content = new Gemini.Message(Gemini.USER, new String[]{prompt, text});
 
+                    long start = new Date().getTime();
                     Gemini.Message[] result =
                             Gemini.generate(context, model, new Gemini.Message[]{content}, temperature, 1);
+                    args.putLong("elapsed", new Date().getTime() - start);
+
                     if (result.length == 0)
                         return null;
 
