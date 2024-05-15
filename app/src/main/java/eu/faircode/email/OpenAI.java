@@ -265,6 +265,9 @@ public class OpenAI {
         }
 
         static Content[] get(Spannable ssb, long id, Context context) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean multimodal = prefs.getBoolean("openai_multimodal", true);
+
             DB db = DB.getInstance(context);
             List<OpenAI.Content> contents = new ArrayList<>();
             int start = 0;
@@ -276,28 +279,31 @@ public class OpenAI {
                     ImageSpanEx[] spans = ssb.getSpans(end, end, ImageSpanEx.class);
                     if (spans.length == 1) {
                         int e = ssb.getSpanEnd(spans[0]);
-                        String src = spans[0].getSource();
 
-                        String url = null;
-                        if (src != null && src.startsWith("cid:")) {
-                            String cid = '<' + src.substring(4) + '>';
-                            EntityAttachment attachment = db.attachment().getAttachment(id, cid);
-                            if (attachment != null && attachment.available) {
-                                File file = attachment.getFile(context);
-                                try (InputStream is = new FileInputStream(file)) {
-                                    Bitmap bm = ImageHelper.getScaledBitmap(is, null, null, SCALE2PIXELS);
-                                    Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
-                                    bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
-                                    url = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
-                                } catch (Throwable ex) {
-                                    Log.w(ex);
+                        if (multimodal) {
+                            String url = null;
+                            String src = spans[0].getSource();
+                            if (src != null && src.startsWith("cid:")) {
+                                String cid = '<' + src.substring(4) + '>';
+                                EntityAttachment attachment = db.attachment().getAttachment(id, cid);
+                                if (attachment != null && attachment.available) {
+                                    File file = attachment.getFile(context);
+                                    try (InputStream is = new FileInputStream(file)) {
+                                        Bitmap bm = ImageHelper.getScaledBitmap(is, null, null, SCALE2PIXELS);
+                                        Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
+                                        bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
+                                        url = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
+                                    } catch (Throwable ex) {
+                                        Log.w(ex);
+                                    }
                                 }
-                            }
-                        } else
-                            url = src;
+                            } else
+                                url = src;
 
-                        if (url != null)
-                            contents.add(new OpenAI.Content(OpenAI.CONTENT_IMAGE, url));
+                            if (url != null)
+                                contents.add(new OpenAI.Content(OpenAI.CONTENT_IMAGE, url));
+                        }
+
                         end = e;
                     }
                 }

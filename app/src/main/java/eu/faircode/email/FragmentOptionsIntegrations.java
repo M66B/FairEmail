@@ -80,6 +80,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
     private EditText etOpenAi;
     private TextInputLayout tilOpenAi;
     private EditText etOpenAiModel;
+    private SwitchCompat swOpenMultiModal;
     private TextView tvOpenAiTemperature;
     private SeekBar sbOpenAiTemperature;
     private EditText etOpenAiSummarize;
@@ -106,7 +107,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             "deepl_enabled",
             "vt_enabled",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
-            "openai_enabled", "openai_uri", "openai_model", "openai_temperature", "openai_summarize",
+            "openai_enabled", "openai_uri", "openai_model", "openai_multimodal", "openai_temperature", "openai_summarize",
             "gemini_enabled", "gemini_uri", "gemini_model", "gemini_temperature", "gemini_summarize"
     ));
 
@@ -152,6 +153,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         etOpenAi = view.findViewById(R.id.etOpenAi);
         tilOpenAi = view.findViewById(R.id.tilOpenAi);
         etOpenAiModel = view.findViewById(R.id.etOpenAiModel);
+        swOpenMultiModal = view.findViewById(R.id.swOpenMultiModal);
         tvOpenAiTemperature = view.findViewById(R.id.tvOpenAiTemperature);
         sbOpenAiTemperature = view.findViewById(R.id.sbOpenAiTemperature);
         etOpenAiSummarize = view.findViewById(R.id.etOpenAiSummarize);
@@ -419,6 +421,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("openai_enabled", checked).apply();
                 etOpenAiModel.setEnabled(checked);
+                swOpenMultiModal.setEnabled(checked);
                 sbOpenAiTemperature.setEnabled(checked);
                 etOpenAiSummarize.setEnabled(checked);
                 if (checked)
@@ -496,6 +499,13 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                     prefs.edit().remove("openai_model").apply();
                 else
                     prefs.edit().putString("openai_model", model).apply();
+            }
+        });
+
+        swOpenMultiModal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                prefs.edit().putBoolean("openai_multimodal", checked).apply();
             }
         });
 
@@ -778,6 +788,9 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
             etOpenAiModel.setText(prefs.getString("openai_model", null));
             etOpenAiModel.setEnabled(swOpenAi.isChecked());
+
+            swOpenMultiModal.setChecked(prefs.getBoolean("openai_multimodal", true));
+            swOpenMultiModal.setEnabled(swOpenAi.isChecked());
 
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
             tvOpenAiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));

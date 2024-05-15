@@ -564,6 +564,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvOpenAiModel" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swOpenMultiModal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_multi_modal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etOpenAiModel"
+                    app:switchPadding="12dp" />
+
                 <TextView
                     android:id="@+id/tvOpenAiTemperature"
                     android:layout_width="0dp"
@@ -575,7 +588,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etOpenAiModel" />
+                    app:layout_constraintTop_toBottomOf="@id/swOpenMultiModal" />
 
                 <SeekBar
                     android:id="@+id/sbOpenAiTemperature"
