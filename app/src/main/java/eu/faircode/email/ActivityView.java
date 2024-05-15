@@ -754,7 +754,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (savedInstanceState != null)
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
 
-        if (initialized)
+        if (!"inbox".equals(startup))
             checkFirst();
         checkBanner();
         checkCrash();
