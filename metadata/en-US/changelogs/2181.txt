@@ -11,6 +11,7 @@ Next version
 * Added "AI" summarize quick action
 * Added "AI" summarize swipe action
 * Improved OpenAI integration (multimodal support)
+* Updated AndroidX
 * Small improvements and minor bug fixes
 
 Preview versions are available here.
