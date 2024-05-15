@@ -8,6 +8,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
+
+### 1.2182 - 2024-05-15
+
 * Added optional "AI" summarize quick action
 * Added optional "AI" summarize swipe action
 * Changed default OpenAI model to [gpt-4o](https://openai.com/index/hello-gpt-4o/)
@@ -19,8 +23,6 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 *The use of "AI" integrations is and will remain completely optional*
-
-Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
 
 ### 1.2181 - 2024-05-13
 
