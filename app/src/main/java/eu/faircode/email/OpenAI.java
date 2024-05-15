@@ -43,6 +43,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class OpenAI {
@@ -238,6 +239,18 @@ public class OpenAI {
 
             String response = Helper.readStream(connection.getInputStream());
             Log.i("OpenAI response=" + response);
+
+            try {
+                // https://platform.openai.com/docs/guides/rate-limits/rate-limits-in-headers
+                for (Map.Entry<String, List<String>> entries : connection.getHeaderFields().entrySet()) {
+                    String key = entries.getKey();
+                    if (key != null && key.startsWith("x-ratelimit"))
+                        for (String value : entries.getValue())
+                            Log.i("OpenAI", key + "=" + value);
+                }
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
 
             return new JSONObject(response);
         } finally {
