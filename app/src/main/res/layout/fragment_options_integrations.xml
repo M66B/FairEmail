@@ -46,7 +46,7 @@
             app:srcCompat="@drawable/twotone_help_24" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardLanguageTool"
+            android:id="@+id/cardIntegrations"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="3dp"
@@ -57,6 +57,37 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDefault">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="12dp">
+
+                <TextView
+                    android:id="@+id/tvIntegrationsHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_advanced_integrations_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardLanguageTool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="?attr/colorCardBackground"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardIntegrations">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -76,6 +107,18 @@
                     app:switchPadding="12dp" />
 
                 <TextView
+                    android:id="@+id/tvLanguageToolCosts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_free_tier"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    app:drawableTint="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swLanguageTool" />
+
+                <TextView
                     android:id="@+id/tvLanguageToolHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -85,7 +128,7 @@
                     android:textColor="?attr/colorWarning"
                     app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swLanguageTool" />
+                    app:layout_constraintTop_toBottomOf="@id/tvLanguageToolCosts" />
 
                 <TextView
                     android:id="@+id/tvLanguageToolPrivacy"
@@ -267,6 +310,18 @@
                     app:switchPadding="12dp" />
 
                 <TextView
+                    android:id="@+id/tvDeepLCosts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_free_tier"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    app:drawableTint="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swDeepL" />
+
+                <TextView
                     android:id="@+id/tvDeepLHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -276,7 +331,7 @@
                     android:textColor="?attr/colorWarning"
                     app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swDeepL" />
+                    app:layout_constraintTop_toBottomOf="@id/tvDeepLCosts" />
 
                 <TextView
                     android:id="@+id/tvDeepLPrivacy"
@@ -338,6 +393,18 @@
                     app:switchPadding="12dp" />
 
                 <TextView
+                    android:id="@+id/tvVirusTotalCosts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_free"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    app:drawableTint="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swVirusTotal" />
+
+                <TextView
                     android:id="@+id/tvVirusTotalHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -347,7 +414,7 @@
                     android:textColor="?attr/colorWarning"
                     app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swVirusTotal" />
+                    app:layout_constraintTop_toBottomOf="@id/tvVirusTotalCosts" />
 
                 <TextView
                     android:id="@+id/tvVirusTotalPrivacy"
@@ -427,6 +494,18 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvSendCosts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_free"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    app:drawableTint="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swSend" />
+
                 <EditText
                     android:id="@+id/etSend"
                     android:layout_width="0dp"
@@ -437,7 +516,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swSend" />
+                    app:layout_constraintTop_toBottomOf="@id/tvSendCosts" />
 
                 <ImageButton
                     android:id="@+id/ibSend"
@@ -484,6 +563,18 @@
                     app:switchPadding="12dp" />
 
                 <TextView
+                    android:id="@+id/tvOpenAiCosts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_paid_service"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    app:drawableTint="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swOpenAi" />
+
+                <TextView
                     android:id="@+id/tvOpenAiHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -493,7 +584,7 @@
                     android:textColor="?attr/colorWarning"
                     app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swOpenAi" />
+                    app:layout_constraintTop_toBottomOf="@id/tvOpenAiCosts" />
 
                 <TextView
                     android:id="@+id/tvOpenAiPrivacy"
@@ -669,6 +760,18 @@
                     app:switchPadding="12dp" />
 
                 <TextView
+                    android:id="@+id/tvGeminiCosts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_paid_service"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    app:drawableTint="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swGemini" />
+
+                <TextView
                     android:id="@+id/tvGeminiHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -678,7 +781,7 @@
                     android:textColor="?attr/colorWarning"
                     app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swGemini" />
+                    app:layout_constraintTop_toBottomOf="@id/tvGeminiCosts" />
 
                 <TextView
                     android:id="@+id/tvGeminiPrivacy"

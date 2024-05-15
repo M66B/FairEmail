@@ -873,6 +873,7 @@
     <string name="title_advanced_haptic_feedback">Haptic feedback on important actions</string>
     <string name="title_advanced_language">Language</string>
     <string name="title_advanced_language_system">System</string>
+    <string name="title_advanced_integrations_hint">The cloud services below are not part of the app. Any payments will go directly to the cloud service and not to the app developer.</string>
     <string name="title_advanced_lt">LanguageTool integration</string>
     <string name="title_advanced_lt_sentence">Check every sentence</string>
     <string name="title_advanced_lt_auto">Check paragraph after a new line</string>
@@ -1067,6 +1068,9 @@
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_indentation_hint">For card style only</string>
     <string name="title_advanced_highlight_hint">The accent color of the theme will be used for highlighting</string>
+    <string name="title_advanced_free">This cloud service is free to use</string>
+    <string name="title_advanced_free_tier">This cloud service has a free tier</string>
+    <string name="title_advanced_paid_service">This cloud service requires payment</string>
     <string name="title_advanced_privacy_risk">There might be a privacy risk</string>
     <string name="title_advanced_name_email_hint">Names will only be shown when available</string>
     <string name="title_advanced_preview_hint">Only available when message text has been downloaded</string>
