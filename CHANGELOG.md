@@ -8,11 +8,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Added "AI" summarize quick action
-* Added "AI" summarize swipe action
-* Improved OpenAI integration (multimodal support)
+* Added optional "AI" summarize quick action
+* Added optional "AI" summarize swipe action
+* Improved OpenAI integration (added multimodal support)
+* Improved Gemini integration
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Small improvements and minor bug fixes
+
+*The use of "AI" integrations is and will remain completely optional*
 
 Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
 
