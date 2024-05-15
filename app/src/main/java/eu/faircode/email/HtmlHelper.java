@@ -2875,6 +2875,13 @@ public class HtmlHelper {
             return;
         }
 
+        // Web.de: <div id="aqm-original"
+        quotes = d.body().select("div#aqm-original");
+        if (quotes.size() > 0) {
+            quotes.remove();
+            return;
+        }
+
         d.select("blockquote").remove();
     }
 
