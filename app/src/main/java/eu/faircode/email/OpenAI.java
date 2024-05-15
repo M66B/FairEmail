@@ -273,9 +273,16 @@ public class OpenAI {
             int start = 0;
             while (start < ssb.length()) {
                 int end = ssb.nextSpanTransition(start, ssb.length(), ImageSpanEx.class);
-                String text = ssb.subSequence(start, end).toString();
-                Log.i("OpenAI content " + start + "..." + end + " text=" + text.replace('\n', '|'));
-                contents.add(new OpenAI.Content(OpenAI.CONTENT_TEXT, text));
+
+                String text = ssb.subSequence(start, end).toString().trim()
+                        .replace("\u00a0", "")
+                        .replace("\ufffc", "");
+                Log.i("OpenAI content " + start + "..." + end +
+                        " text=[" + Helper.getPrintableString(text, true) + "]");
+
+                if (!TextUtils.isEmpty(text))
+                    contents.add(new OpenAI.Content(OpenAI.CONTENT_TEXT, text));
+
                 if (end < ssb.length()) {
                     ImageSpanEx[] spans = ssb.getSpans(end, end, ImageSpanEx.class);
                     Log.i("OpenAI images=" + (spans == null ? null : spans.length));
@@ -307,6 +314,7 @@ public class OpenAI {
                         end = e;
                     }
                 }
+
                 start = (end > start ? end : start + 1);
             }
 
