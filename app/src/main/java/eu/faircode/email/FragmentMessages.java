@@ -8049,8 +8049,6 @@ public class FragmentMessages extends FragmentBase
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                     fragmentTransaction.replace(res, fragment, "thread").addToBackStack("thread");
                     fragmentTransaction.commit();
-
-                    Helper.performHapticFeedback(view, HapticFeedbackConstants.SEGMENT_FREQUENT_TICK);
                 }
             }
 
