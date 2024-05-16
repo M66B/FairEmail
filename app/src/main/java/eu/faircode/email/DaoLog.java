@@ -32,8 +32,8 @@ public interface DaoLog {
             " WHERE time > :from" +
             " AND (:type IS NULL OR type = :type)" +
             " ORDER BY time DESC" +
-            " LIMIT 2000")
-    LiveData<List<EntityLog>> liveLogs(long from, Integer type);
+            " LIMIT :limit")
+    LiveData<List<EntityLog>> liveLogs(long from, int limit, Integer type);
 
     @Query("SELECT * FROM log" +
             " WHERE time > :from" +
