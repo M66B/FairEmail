@@ -108,6 +108,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         super.onCreate();
         try {
             startForeground(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
+            EntityLog.log(this, EntityLog.Type.Debug2,
+                    "onCreate class=" + this.getClass().getName());
         } catch (Throwable ex) {
             if (Helper.isPlayStoreInstall())
                 Log.i(ex);
@@ -255,6 +257,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         super.onStartCommand(intent, flags, startId);
         try {
             startForeground(NotificationHelper.NOTIFICATION_SEND, getNotificationService(false));
+            EntityLog.log(this, EntityLog.Type.Debug2,
+                    "onStartCommand class=" + this.getClass().getName());
         } catch (Throwable ex) {
             if (Helper.isPlayStoreInstall())
                 Log.i(ex);

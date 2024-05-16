@@ -205,6 +205,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             try {
                 startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
                         getNotificationService(null, null));
+                EntityLog.log(this, EntityLog.Type.Debug2,
+                        "onCreate class=" + this.getClass().getName());
             } catch (Throwable ex) {
                 if (Helper.isPlayStoreInstall())
                     Log.i(ex);
@@ -1120,6 +1122,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 try {
                     startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
                             getNotificationService(null, null));
+                    String msg = "onStartCommand" +
+                            " class=" + this.getClass().getName() +
+                            " action=" + action;
+                    EntityLog.log(this, EntityLog.Type.Debug2, msg);
                 } catch (Throwable ex) {
                     if (Helper.isPlayStoreInstall())
                         Log.i(ex);

@@ -71,6 +71,8 @@ public class ServiceExternal extends ServiceBase {
         super.onCreate();
         try {
             startForeground(NotificationHelper.NOTIFICATION_EXTERNAL, getNotification());
+            EntityLog.log(this, EntityLog.Type.Debug2,
+                    "onCreate class=" + this.getClass().getName());
         } catch (Throwable ex) {
             if (Helper.isPlayStoreInstall())
                 Log.i(ex);
@@ -106,6 +108,8 @@ public class ServiceExternal extends ServiceBase {
             super.onStartCommand(intent, flags, startId);
             try {
                 startForeground(NotificationHelper.NOTIFICATION_EXTERNAL, getNotification());
+                EntityLog.log(this, EntityLog.Type.Debug2,
+                        "onStartCommand class=" + this.getClass().getName());
             } catch (Throwable ex) {
                 if (Helper.isPlayStoreInstall())
                     Log.i(ex);
