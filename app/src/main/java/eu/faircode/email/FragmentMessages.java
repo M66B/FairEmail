@@ -332,7 +332,6 @@ public class FragmentMessages extends FragmentBase
     private int searchIndex = 0;
     private TextView searchView = null;
 
-    private boolean hide_toolbar;
     private boolean cards;
     private boolean dividers;
     private boolean category;
@@ -404,7 +403,6 @@ public class FragmentMessages extends FragmentBase
     final private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
-    private final ObjectHolder<Boolean> showToolbar = new ObjectHolder<>(true);
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "more");
@@ -486,7 +484,6 @@ public class FragmentMessages extends FragmentBase
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        hide_toolbar = prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
         cards = prefs.getBoolean("cards", true);
         dividers = prefs.getBoolean("dividers", true);
         category = prefs.getBoolean("group_category", false);
@@ -821,21 +818,6 @@ public class FragmentMessages extends FragmentBase
                      */
                     Log.w(ex);
                 }
-            }
-
-            @Override
-            public void onLayoutCompleted(RecyclerView.State state) {
-                super.onLayoutCompleted(state);
-                if (!isActionBarShown())
-                    try {
-                        int range = computeVerticalScrollRange(state);
-                        int extend = computeVerticalScrollExtent(state);
-                        boolean canScrollVertical = (range > extend);
-                        if (!canScrollVertical) // anymore
-                            showActionBar(true);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
             }
 
             @Override
@@ -1235,20 +1217,6 @@ public class FragmentMessages extends FragmentBase
                         updateExpanded();
                     }
                 }
-
-                if (hide_toolbar && dy != 0)
-                    try {
-                        showToolbar.value = (dy < 0 || rv.computeVerticalScrollOffset() == 0);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                        showToolbar.value = true;
-                    }
-            }
-
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView rv, int newState) {
-                if (hide_toolbar && newState != RecyclerView.SCROLL_STATE_DRAGGING)
-                    showActionBar(showToolbar.value);
             }
         });
 
@@ -1312,8 +1280,6 @@ public class FragmentMessages extends FragmentBase
         ibUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToolbar.value = true;
-                showActionBar(true);
                 scrollToVisibleItem(llm, false);
             }
         });
