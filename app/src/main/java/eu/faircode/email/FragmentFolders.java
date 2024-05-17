@@ -46,6 +46,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.app.NotificationCompat;
@@ -658,7 +659,10 @@ public class FragmentFolders extends FragmentBase {
                 }
             });
 
-        LayoutInflater infl = LayoutInflater.from(getContext());
+        ActionBar actionBar = getSupportActionBar();
+        Context actionBarContext = (actionBar == null ? getContext() : actionBar.getThemedContext());
+        LayoutInflater infl = LayoutInflater.from(actionBarContext);
+
         ImageButton ibSearch = (ImageButton) infl.inflate(R.layout.action_button, null);
         ibSearch.setId(View.generateViewId());
         ibSearch.setImageResource(R.drawable.twotone_search_24);
