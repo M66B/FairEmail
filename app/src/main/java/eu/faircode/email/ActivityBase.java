@@ -57,7 +57,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -107,7 +106,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     public void setContentView(View view) {
         LayoutInflater inflater = LayoutInflater.from(this);
 
-        ConstraintLayout container = (ConstraintLayout) inflater.inflate(R.layout.toolbar_holder, null);
+        ViewGroup container = (ViewGroup) inflater.inflate(R.layout.toolbar_holder, null);
         View placeholder = container.findViewById(R.id.placeholder);
         container.removeView(placeholder);
         container.addView(view, placeholder.getLayoutParams());
@@ -146,7 +145,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                                 if ((animation.getTypeMask() & WindowInsetsCompat.Type.ime()) != 0) {
                                     Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
                                     int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-                                    container.setPaddingRelative(0, 0, 0, bottom - insets.bottom);
+                                    int pad = bottom - insets.bottom;
+                                    container.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
                                     break;
                                 }
 
