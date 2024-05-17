@@ -130,18 +130,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
             if (ActivityBase.this instanceof ActivityCompose) {
                 int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-                ViewCompat.onApplyWindowInsets(v, new WindowInsetsCompat
-                        .Builder()
-                        .setInsets(
-                                WindowInsetsCompat.Type.systemBars(),
-                                Insets.of(0, 0, 0, bottom - insets.bottom)
-                        )
-                        .build());
+                v.setPaddingRelative(0, 0, 0, bottom - insets.bottom);
             }
 
             return WindowInsetsCompat.CONSUMED;
         });
-
 
         super.setContentView(container);
 
