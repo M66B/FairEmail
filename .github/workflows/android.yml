@@ -9,7 +9,7 @@ on:
         required: true
       branch:
         description: 'Branch'
-        required: false
+        required: true
         default: 'master'
 jobs:
   build:
