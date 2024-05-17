@@ -291,8 +291,6 @@ public class FragmentAccounts extends FragmentBase {
         animator = Helper.getFabAnimator(fab, getViewLifecycleOwner());
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
-
         if (settings) {
             fab.show();
             fabCompose.hide();

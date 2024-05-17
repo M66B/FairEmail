@@ -649,25 +649,33 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         boolean solarized = theme.startsWith("solarized");
         boolean you = theme.startsWith("you_");
 
+        Integer color = null;
         if (cards) {
             if (you && (!dark || !black) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
-                view.setBackgroundColor(ContextCompat.getColor(context, dark
+                color = ContextCompat.getColor(context, dark
                         ? android.R.color.system_background_dark
-                        : android.R.color.system_background_light));
+                        : android.R.color.system_background_light);
             else {
                 if (compose) {
                     if (!dark || solarized)
-                        view.setBackgroundColor(Helper.resolveColor(context, R.attr.colorCardBackground));
+                        color = Helper.resolveColor(context, R.attr.colorCardBackground);
                 } else {
                     if (!dark && !solarized)
-                        view.setBackgroundColor(ContextCompat.getColor(context, beige
+                        color = ContextCompat.getColor(context, beige
                                 ? R.color.lightColorBackground_cards_beige
-                                : R.color.lightColorBackground_cards));
+                                : R.color.lightColorBackground_cards);
                 }
             }
         } else {
             if (tabular_card_bg)
-                view.setBackgroundColor(Helper.resolveColor(context, R.attr.colorCardBackground));
+                color = Helper.resolveColor(context, R.attr.colorCardBackground);
         }
+
+        if (color == null)
+            color = ContextCompat.getColor(context, dark
+                    ? android.R.color.system_background_dark
+                    : android.R.color.system_background_light);
+
+        view.setBackgroundColor(color);
     }
 }

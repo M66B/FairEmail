@@ -363,7 +363,6 @@ public class FragmentPop extends FragmentBase {
 
         // Initialize
         Helper.setViewsEnabled(view, false);
-        FragmentDialogTheme.setBackground(getContext(), view, false);
 
         if (!DnsHelper.hasDnsSec()) {
             Helper.hide(cbDnsSec);

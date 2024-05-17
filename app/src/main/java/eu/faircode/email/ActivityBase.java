@@ -109,6 +109,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         setSupportActionBar(toolbar);
 
+        FragmentDialogTheme.setBackground(this, container, this instanceof ActivityCompose);
+
         super.setContentView(container);
     }
 

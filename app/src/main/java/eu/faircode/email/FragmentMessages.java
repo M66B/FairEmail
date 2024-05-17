@@ -1998,7 +1998,6 @@ public class FragmentMessages extends FragmentBase
         setBackPressedCallback(backPressedCallback);
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
         grpAirplane.setVisibility(View.GONE);
         grpNotifications.setVisibility(View.GONE);
         grpBatteryOptimizations.setVisibility(View.GONE);

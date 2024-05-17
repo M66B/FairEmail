@@ -478,8 +478,6 @@ public class FragmentOptionsEncryption extends FragmentBase
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
-
         boolean debug = prefs.getBoolean("debug", false);
         cardDebug.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 

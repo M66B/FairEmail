@@ -207,7 +207,6 @@ public class ActivityEML extends ActivityBase {
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(this, view, false);
         vSeparatorAttachments.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         cardHeaders.setVisibility(View.GONE);

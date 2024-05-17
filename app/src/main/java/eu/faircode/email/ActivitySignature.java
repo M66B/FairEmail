@@ -208,7 +208,6 @@ public class ActivitySignature extends ActivityBase {
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(this, view, true);
         tvHtmlRemark.setVisibility(View.GONE);
         style_bar.setVisibility(View.GONE);
 

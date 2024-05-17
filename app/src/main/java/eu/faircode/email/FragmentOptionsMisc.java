@@ -2007,8 +2007,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
-
         swPowerMenu.setVisibility(!BuildConfig.PLAY_STORE_RELEASE &&
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
                 ? View.VISIBLE : View.GONE);

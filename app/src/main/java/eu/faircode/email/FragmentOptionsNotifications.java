@@ -748,8 +748,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
-
         swNotifyTransliterate.setVisibility(TextHelper.canTransliterate() ? View.VISIBLE : View.GONE);
         swUnseenIgnored.setVisibility(Helper.isXiaomi() ? View.GONE : View.VISIBLE);
         swAlertOnce.setVisibility(Helper.isXiaomi() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);

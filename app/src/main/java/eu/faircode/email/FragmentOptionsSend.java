@@ -796,8 +796,6 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
-
         String re1 = getString(R.string.title_subject_reply, "");
         String re2 = getString(R.string.title_subject_reply_alt, "");
         ((RadioButton) view.findViewById(R.id.rbRe1)).setText(re1);

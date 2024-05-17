@@ -284,7 +284,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
         Helper.linkPro(tvExportPro);
         cardCloud.setVisibility(!BuildConfig.PLAY_STORE_RELEASE &&
                 !TextUtils.isEmpty(BuildConfig.CLOUD_URI)

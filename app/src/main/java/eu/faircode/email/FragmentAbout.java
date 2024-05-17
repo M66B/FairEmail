@@ -108,8 +108,6 @@ public class FragmentAbout extends FragmentBase {
             llContributors.addView(tv);
         }
 
-        FragmentDialogTheme.setBackground(context, view, false);
-
         return view;
     }
 

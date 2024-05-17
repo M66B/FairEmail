@@ -57,7 +57,6 @@ public class ActivityDSN extends ActivityBase {
         grpReady = findViewById(R.id.grpReady);
 
         // Initialize
-        FragmentDialogTheme.setBackground(this, view, false);
         grpReady.setVisibility(View.GONE);
 
         load();

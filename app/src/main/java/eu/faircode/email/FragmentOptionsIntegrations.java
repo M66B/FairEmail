@@ -689,8 +689,6 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
-
         cardVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         cardSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         cardOpenAi.setVisibility(TextUtils.isEmpty(BuildConfig.OPENAI_ENDPOINT) ? View.GONE : View.VISIBLE);

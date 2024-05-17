@@ -198,8 +198,6 @@ public class FragmentAnswer extends FragmentBase {
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(context, view, true);
-
         etLabel.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         cbExternal.setVisibility(View.GONE);
         cbSnippet.setVisibility(View.GONE);

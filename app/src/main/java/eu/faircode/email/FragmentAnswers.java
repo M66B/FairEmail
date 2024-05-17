@@ -197,7 +197,6 @@ public class FragmentAnswers extends FragmentBase {
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 

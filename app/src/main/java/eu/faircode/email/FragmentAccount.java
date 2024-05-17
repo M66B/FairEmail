@@ -626,7 +626,6 @@ public class FragmentAccount extends FragmentBase {
 
         // Initialize
         Helper.setViewsEnabled(view, false);
-        FragmentDialogTheme.setBackground(getContext(), view, false);
 
         tvGmailHint.setVisibility(View.GONE);
 

@@ -599,8 +599,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
-
         StringBuilder sb = new StringBuilder();
         for (String value : EmailService.getId(getContext()).values()) {
             if (sb.length() > 0)

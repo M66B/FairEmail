@@ -183,7 +183,6 @@ public class FragmentIdentities extends FragmentBase {
         animator = Helper.getFabAnimator(fab, getViewLifecycleOwner());
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 

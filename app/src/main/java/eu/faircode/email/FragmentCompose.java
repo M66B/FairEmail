@@ -1084,7 +1084,6 @@ public class FragmentCompose extends FragmentBase {
 
         // Initialize
         setHasOptionsMenu(true);
-        FragmentDialogTheme.setBackground(getContext(), view, true);
 
         if (keyboard_no_fullscreen) {
             // https://developer.android.com/reference/android/view/inputmethod/EditorInfo#IME_FLAG_NO_FULLSCREEN

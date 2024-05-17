@@ -256,10 +256,12 @@ public class FragmentOptions extends FragmentBase {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        final Context context = getContext();
+
         TabLayout tabLayout = view.findViewById(R.id.tab_layout);
+        tabLayout.setBackgroundColor(Helper.resolveColor(context, R.attr.colorCardBackground));
         tabLayout.setupWithViewPager(pager);
 
-        final Context context = getContext();
         int colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             Drawable d = ContextCompat.getDrawable(context, PAGE_ICONS[i]);

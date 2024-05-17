@@ -643,7 +643,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
         tvNetworkMetered.setVisibility(View.GONE);
         tvNetworkRoaming.setVisibility(View.GONE);
         grpCustomDns.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);

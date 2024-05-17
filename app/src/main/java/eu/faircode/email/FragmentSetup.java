@@ -865,8 +865,6 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
-
         tvNoInternet.setVisibility(View.GONE);
         btnIdentity.setEnabled(false);
         tvNoComposable.setVisibility(View.GONE);

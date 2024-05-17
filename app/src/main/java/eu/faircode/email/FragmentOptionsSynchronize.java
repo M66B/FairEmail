@@ -573,8 +573,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         rvBlocklist.setAdapter(badapter);
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
-
         swOutlookThread.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         tvSubjectThreading.setText(getString(R.string.title_advanced_subject_threading_hint, MessageHelper.MAX_SUBJECT_AGE));
 

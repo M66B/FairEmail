@@ -635,8 +635,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         });
 
         // Initialize
-        FragmentDialogTheme.setBackground(getContext(), view, false);
-
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;

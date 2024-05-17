@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2024 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,8 +72,6 @@ public class FragmentLegend extends FragmentBase {
             }
         }
 
-        FragmentDialogTheme.setBackground(getContext(), view, false);
-
         return view;
     }
 
@@ -82,7 +81,10 @@ public class FragmentLegend extends FragmentBase {
             layout = savedInstanceState.getInt("fair:layout");
 
         if (layout < 0) {
+            final Context context = getContext();
+
             TabLayout tabLayout = view.findViewById(R.id.tab_layout);
+            tabLayout.setBackgroundColor(Helper.resolveColor(context, R.attr.colorCardBackground));
             tabLayout.setupWithViewPager(pager);
 
             Bundle args = getArguments();
