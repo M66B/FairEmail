@@ -7,7 +7,10 @@ on:
       password:
         description: 'Password'
         required: true
-
+      branch:
+        description: 'Branch'
+        required: true
+        default: 'master'
 jobs:
   build:
 
@@ -17,6 +20,8 @@ jobs:
     #https://github.com/actions/setup-java
     steps:
     - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.inputs.branch }}
     - name: set up JDK 17
       uses: actions/setup-java@v4
       with:
@@ -49,9 +54,9 @@ jobs:
       run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease uploadBugsnagGithub-releaseMapping uploadBugsnagLarge-releaseMapping uploadBugsnagPlay-releaseMapping
     - name: Upload to BitBucket
       run: |
-        ./gradlew upload -Ptarget=play-preview
-        ./gradlew upload -Ptarget=github-snapshot
-        ./gradlew upload -Ptarget=large-snapshot
+        ./gradlew upload -Ptarget=play-preview-${{ github.event.inputs.branch }}
+        ./gradlew upload -Ptarget=github-snapshot-${{ github.event.inputs.branch }}
+        ./gradlew upload -Ptarget=large-snapshot-${{ github.event.inputs.branch }}
     #https://github.com/actions/upload-artifact
     - uses: actions/upload-artifact@v4
       with:
