@@ -73,6 +73,8 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 
+import com.google.android.material.appbar.AppBarLayout;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -106,19 +108,31 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     public void setContentView(View view) {
         LayoutInflater inflater = LayoutInflater.from(this);
 
-        ViewGroup container = (ViewGroup) inflater.inflate(R.layout.toolbar_holder, null);
-        View placeholder = container.findViewById(R.id.placeholder);
-        container.removeView(placeholder);
-        container.addView(view, placeholder.getLayoutParams());
+        ViewGroup holder = (ViewGroup) inflater.inflate(R.layout.toolbar_holder, null);
 
-        Toolbar toolbar = container.findViewById(R.id.toolbar);
+        AppBarLayout appbar = holder.findViewById(R.id.appbar);
+        Toolbar toolbar = holder.findViewById(R.id.toolbar);
+        View placeholder = holder.findViewById(R.id.placeholder);
+
         toolbar.setPopupTheme(getThemeId());
-
         setSupportActionBar(toolbar);
 
-        FragmentDialogTheme.setBackground(this, container, this instanceof ActivityCompose);
+        holder.removeView(placeholder);
+        holder.addView(view, placeholder.getLayoutParams());
 
-        ViewCompat.setOnApplyWindowInsetsListener(container, (v, windowInsets) -> {
+        int abh = Helper.getActionBarHeight(this);
+        appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
+                ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+                mlp.topMargin = abh + i;
+                view.setLayoutParams(mlp);
+            }
+        });
+
+        FragmentDialogTheme.setBackground(this, holder, this instanceof ActivityCompose);
+
+        ViewCompat.setOnApplyWindowInsetsListener(holder, (v, windowInsets) -> {
             Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
 
             ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
@@ -133,7 +147,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         if (this instanceof ActivityCompose)
             ViewCompat.setWindowInsetsAnimationCallback(
-                    container,
+                    holder,
                     new WindowInsetsAnimationCompat.Callback(WindowInsetsAnimationCompat.Callback.DISPATCH_MODE_STOP) {
                         @NonNull
                         @Override
@@ -146,7 +160,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                                     Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
                                     int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
                                     int pad = bottom - insets.bottom;
-                                    container.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
+                                    holder.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
                                     break;
                                 }
 
@@ -154,7 +168,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                         }
                     });
 
-        super.setContentView(container);
+        super.setContentView(holder);
 
         int colorPrimaryDark = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark);
         view.post(new RunnableEx("setBackgroundColor") {
