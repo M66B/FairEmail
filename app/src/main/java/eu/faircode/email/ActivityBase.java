@@ -62,6 +62,7 @@ import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsAnimationCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
@@ -128,13 +129,30 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             mlp.bottomMargin = insets.bottom;
             v.setLayoutParams(mlp);
 
-            if (ActivityBase.this instanceof ActivityCompose) {
-                int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-                v.setPaddingRelative(0, 0, 0, bottom - insets.bottom);
-            }
-
             return WindowInsetsCompat.CONSUMED;
         });
+
+        if (this instanceof ActivityCompose)
+            ViewCompat.setWindowInsetsAnimationCallback(
+                    container,
+                    new WindowInsetsAnimationCompat.Callback(WindowInsetsAnimationCompat.Callback.DISPATCH_MODE_STOP) {
+                        @NonNull
+                        @Override
+                        public WindowInsetsCompat onProgress(
+                                @NonNull WindowInsetsCompat windowInsets,
+                                @NonNull List<WindowInsetsAnimationCompat> runningAnimations) {
+                            // https://developer.android.com/develop/ui/views/layout/sw-keyboard
+                            for (WindowInsetsAnimationCompat animation : runningAnimations)
+                                if ((animation.getTypeMask() & WindowInsetsCompat.Type.ime()) != 0) {
+                                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                                    int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+                                    container.setPaddingRelative(0, 0, 0, bottom - insets.bottom);
+                                    break;
+                                }
+
+                            return windowInsets;
+                        }
+                    });
 
         super.setContentView(container);
 
