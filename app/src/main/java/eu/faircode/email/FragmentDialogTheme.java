@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
@@ -672,9 +673,12 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         }
 
         if (color == null)
-            color = ContextCompat.getColor(context, dark
-                    ? android.R.color.system_background_dark
-                    : android.R.color.system_background_light);
+            if (black)
+                color = Color.BLACK;
+            else
+                color = ContextCompat.getColor(context, dark
+                        ? android.R.color.system_background_dark
+                        : android.R.color.system_background_light);
 
         view.setBackgroundColor(color);
     }
