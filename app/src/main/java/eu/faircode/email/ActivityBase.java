@@ -46,9 +46,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowInsetsController;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
+import androidx.activity.SystemBarStyle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -56,6 +59,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -111,7 +118,40 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         FragmentDialogTheme.setBackground(this, container, this instanceof ActivityCompose);
 
+        ViewCompat.setOnApplyWindowInsetsListener(container, (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+
+            ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+            mlp.leftMargin = insets.left;
+            mlp.topMargin = insets.top;
+            mlp.rightMargin = insets.right;
+            mlp.bottomMargin = insets.bottom;
+            v.setLayoutParams(mlp);
+
+            if (ActivityBase.this instanceof ActivityCompose) {
+                int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+                ViewCompat.onApplyWindowInsets(v, new WindowInsetsCompat
+                        .Builder()
+                        .setInsets(
+                                WindowInsetsCompat.Type.systemBars(),
+                                Insets.of(0, 0, 0, bottom - insets.bottom)
+                        )
+                        .build());
+            }
+
+            return WindowInsetsCompat.CONSUMED;
+        });
+
+
         super.setContentView(container);
+
+        int colorPrimaryDark = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark);
+        view.post(new RunnableEx("setBackgroundColor") {
+            @Override
+            public void delegate() {
+                getWindow().getDecorView().setBackgroundColor(colorPrimaryDark);
+            }
+        });
     }
 
     @Override
@@ -132,6 +172,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         getSupportFragmentManager().registerFragmentLifecycleCallbacks(lifecycleCallbacks, true);
 
+        int colorPrimaryDark = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark);
+
         this.contacts = hasPermission(Manifest.permission.READ_CONTACTS);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -144,15 +186,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             themeId = FragmentDialogTheme.getTheme(this);
             setTheme(themeId);
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                boolean dark = Helper.isDarkTheme(this);
-                Window window = getWindow();
-                View view = window.getDecorView();
-                int flags = view.getSystemUiVisibility();
-                if (dark)
-                    flags &= ~View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
-                view.setSystemUiVisibility(flags);
-            }
+            EdgeToEdge.enable(this);
+            WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView())
+                    .setAppearanceLightStatusBars(false);
         }
 
         String requestKey = getRequestKey();
@@ -181,8 +217,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         prefs.registerOnSharedPreferenceChangeListener(this);
 
-        int colorPrimaryDark = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark);
-
         try {
             Drawable d = getDrawable(R.drawable.baseline_mail_24);
             Bitmap bm = Bitmap.createBitmap(
@@ -210,13 +244,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             setTaskDescription(td);
         } catch (Throwable ex) {
             Log.e(ex);
-        }
-
-        boolean navbar_colorize = prefs.getBoolean("navbar_colorize", false);
-        if (navbar_colorize) {
-            Window window = getWindow();
-            if (window != null)
-                window.setNavigationBarColor(colorPrimaryDark);
         }
 
         FragmentManager fm = getSupportFragmentManager();

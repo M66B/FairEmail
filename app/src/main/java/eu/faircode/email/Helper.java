@@ -913,25 +913,6 @@ public class Helper {
 
     // View
 
-    static void setStatusBarColor(Activity activity, Integer color) {
-        if (!BuildConfig.DEBUG)
-            return;
-        if (activity == null)
-            return;
-        Window window = activity.getWindow();
-        if (window == null)
-            return;
-
-        if (color == null) {
-            //window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(Helper.resolveColor(window.getContext(), androidx.appcompat.R.attr.colorPrimaryDark));
-        } else {
-            //window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            //window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(color);
-        }
-    }
-
     static Integer actionBarHeight = null;
 
     static int getActionBarHeight(Context context) {
@@ -1175,15 +1156,13 @@ public class Helper {
                 reportNoViewer(context, uri, ex);
             }
         } else {
-            boolean navbar_colorize = prefs.getBoolean("navbar_colorize", false);
             int colorPrimary = resolveColor(context, androidx.appcompat.R.attr.colorPrimary);
             int colorPrimaryDark = resolveColor(context, androidx.appcompat.R.attr.colorPrimaryDark);
 
             CustomTabColorSchemeParams.Builder schemes = new CustomTabColorSchemeParams.Builder()
                     .setToolbarColor(colorPrimary)
-                    .setSecondaryToolbarColor(colorPrimaryDark);
-            if (navbar_colorize)
-                schemes.setNavigationBarColor(colorPrimaryDark);
+                    .setSecondaryToolbarColor(colorPrimaryDark)
+                    .setNavigationBarColor(colorPrimaryDark);
 
             // https://developer.chrome.com/multidevice/android/customtabs
             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder()
