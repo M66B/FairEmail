@@ -46,11 +46,11 @@ public class ActivityDSN extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setSubtitle("DSN");
-
         View view = LayoutInflater.from(this).inflate(R.layout.activity_dsn, null);
         setContentView(view);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setSubtitle("DSN");
 
         tvHeaders = findViewById(R.id.tvHeaders);
         pbWait = findViewById(R.id.pbWait);

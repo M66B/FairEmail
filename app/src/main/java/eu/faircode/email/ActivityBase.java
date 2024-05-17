@@ -40,6 +40,7 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
@@ -52,6 +53,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.ColorUtils;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
@@ -90,6 +93,29 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     Context getOriginalContext() {
         return originalContext;
+    }
+
+    @Override
+    public void setContentView(View view) {
+        LayoutInflater inflater = LayoutInflater.from(this);
+
+        ConstraintLayout container = (ConstraintLayout) inflater.inflate(R.layout.toolbar_holder, null);
+        View placeholder = container.findViewById(R.id.placeholder);
+        container.removeView(placeholder);
+        container.addView(view, placeholder.getLayoutParams());
+
+        Toolbar toolbar = container.findViewById(R.id.toolbar);
+        toolbar.setPopupTheme(getThemeId());
+
+        setSupportActionBar(toolbar);
+
+        super.setContentView(container);
+    }
+
+    @Override
+    public void setContentView(int layoutResID) {
+        View view = LayoutInflater.from(this).inflate(layoutResID, null);
+        setContentView(view);
     }
 
     @Override

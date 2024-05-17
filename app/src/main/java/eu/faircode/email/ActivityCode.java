@@ -90,8 +90,6 @@ public class ActivityCode extends ActivityBase {
             searching = savedInstanceState.getString("fair:searching");
         }
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -101,6 +99,8 @@ public class ActivityCode extends ActivityBase {
 
         View view = LayoutInflater.from(this).inflate(R.layout.activity_code, null);
         setContentView(view);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         wvCode = findViewById(R.id.wvCode);
         pbWait = findViewById(R.id.pbWait);

@@ -51,9 +51,10 @@ public class ActivityError extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.activity_error);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(getString(R.string.title_setup_error));
-        setContentView(R.layout.activity_error);
 
         tvTitle = findViewById(R.id.tvTitle);
         tvMessage = findViewById(R.id.tvMessage);

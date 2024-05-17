@@ -69,10 +69,10 @@ public class ActivityAMP extends ActivityBase {
         if (savedInstanceState != null)
             force_light = savedInstanceState.getBoolean("fair:force_light");
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         View view = LayoutInflater.from(this).inflate(R.layout.activity_amp, null);
         setContentView(view);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         wvAmp = findViewById(R.id.wvAmp);
         pbWait = findViewById(R.id.pbWait);

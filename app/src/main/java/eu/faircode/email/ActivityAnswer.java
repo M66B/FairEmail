@@ -54,10 +54,10 @@ public class ActivityAnswer extends ActivityBase {
         final CharSequence query = intent.getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
         final boolean readonly = intent.getBooleanExtra(Intent.EXTRA_PROCESS_TEXT_READONLY, false);
 
-        getSupportActionBar().setSubtitle(query == null ? null : query.toString());
-
         View view = LayoutInflater.from(this).inflate(R.layout.activity_answer, null);
         setContentView(view);
+
+        getSupportActionBar().setSubtitle(query == null ? null : query.toString());
 
         ListView lvAnswer = view.findViewById(R.id.lvAnswer);
         Group grpReady = view.findViewById(R.id.grpReady);

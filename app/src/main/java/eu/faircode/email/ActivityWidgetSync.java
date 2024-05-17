@@ -66,9 +66,10 @@ public class ActivityWidgetSync extends ActivityBase {
 
         daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
 
+        setContentView(R.layout.activity_widget_sync);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(R.string.title_widget_title_sync);
-        setContentView(R.layout.activity_widget_sync);
 
         cbDayNight = findViewById(R.id.cbDayNight);
         cbSemiTransparent = findViewById(R.id.cbSemiTransparent);

@@ -109,11 +109,11 @@ public class ActivityEML extends ActivityBase {
             junk = savedInstanceState.getBoolean("fair:junk");
         }
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setSubtitle("EML");
-
         View view = LayoutInflater.from(this).inflate(R.layout.activity_eml, null);
         setContentView(view);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setSubtitle("EML");
 
         tvFrom = findViewById(R.id.tvFrom);
         tvTo = findViewById(R.id.tvTo);

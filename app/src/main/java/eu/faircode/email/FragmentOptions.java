@@ -424,7 +424,7 @@ public class FragmentOptions extends FragmentBase {
                     }
 
                     searchView.setSuggestionsAdapter(new SimpleCursorAdapter(
-                            searchView.getContext(),
+                            pager.getContext(),
                             R.layout.spinner_item1_dropdown,
                             cursor,
                             new String[]{"title"},

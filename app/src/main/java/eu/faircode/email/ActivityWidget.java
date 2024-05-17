@@ -109,9 +109,10 @@ public class ActivityWidget extends ActivityBase {
 
         daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
 
+        setContentView(R.layout.activity_widget);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(R.string.title_widget_title_count);
-        setContentView(R.layout.activity_widget);
 
         spAccount = findViewById(R.id.spAccount);
         spFolder = findViewById(R.id.spFolder);

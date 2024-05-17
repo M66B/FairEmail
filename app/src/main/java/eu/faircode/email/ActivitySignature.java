@@ -88,12 +88,12 @@ public class ActivitySignature extends ActivityBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean monospaced = prefs.getBoolean("monospaced", false);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setSubtitle(getString(R.string.title_edit_signature));
-
         LayoutInflater inflater = LayoutInflater.from(this);
         view = (ViewGroup) inflater.inflate(R.layout.activity_signature, null, false);
         setContentView(view);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setSubtitle(getString(R.string.title_edit_signature));
 
         tvHtmlRemark = findViewById(R.id.tvHtmlRemark);
         etText = findViewById(R.id.etText);

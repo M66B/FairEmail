@@ -120,10 +120,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         view = LayoutInflater.from(this).inflate(R.layout.activity_setup, null);
         setContentView(view);
 
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.action_bar);
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.setScrimColor(Helper.resolveColor(this, R.attr.colorDrawerScrim));

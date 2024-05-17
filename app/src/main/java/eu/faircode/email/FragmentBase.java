@@ -56,6 +56,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -465,15 +466,16 @@ public class FragmentBase extends Fragment {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if (activity != null && !isPane()) {
             ActionBar actionbar = activity.getSupportActionBar();
-            if (actionbar != null)
-                if ((actionbar.getDisplayOptions() & DISPLAY_SHOW_CUSTOM) == 0) {
+            if (actionbar != null) {
+                Toolbar toolbar = activity.findViewById(R.id.toolbar);
+                if ((actionbar.getDisplayOptions() & DISPLAY_SHOW_CUSTOM) == 0 && toolbar == null) {
                     actionbar.setTitle(title == null ? getString(R.string.app_name) : title);
                     actionbar.setSubtitle(subtitle);
                 } else {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
                     boolean list_count = prefs.getBoolean("list_count", false);
 
-                    View custom = actionbar.getCustomView();
+                    View custom = (toolbar == null ? actionbar.getCustomView() : toolbar);
                     TextView tvCount = custom.findViewById(R.id.count);
                     TextView tvTitle = custom.findViewById(R.id.title);
                     TextView tvSubtitle = custom.findViewById(R.id.subtitle);
@@ -487,6 +489,7 @@ public class FragmentBase extends Fragment {
                     if (tvSubtitle != null)
                         tvSubtitle.setText(subtitle);
                 }
+            }
         }
     }
 

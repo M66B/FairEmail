@@ -1873,7 +1873,9 @@ public class FragmentCompose extends FragmentBase {
         final Context context = getContext();
         PopupMenuLifecycle.insertIcons(context, menu, false);
 
-        LayoutInflater infl = LayoutInflater.from(context);
+        ActionBar actionBar = getSupportActionBar();
+        Context actionBarContext = (actionBar == null ? context : actionBar.getThemedContext());
+        LayoutInflater infl = LayoutInflater.from(actionBarContext);
 
         ImageButton ibOpenAi = (ImageButton) infl.inflate(R.layout.action_button, null);
         ibOpenAi.setId(View.generateViewId());

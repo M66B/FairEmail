@@ -35,9 +35,10 @@ public class ActivityClear extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.activity_clear);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(getString(R.string.title_advanced_clear_all));
-        setContentView(R.layout.activity_clear);
 
         btnClearAll = findViewById(R.id.btnClearAll);
         btnCancel = findViewById(R.id.btnCancel);

@@ -56,8 +56,6 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         setContentView(R.layout.activity_compose);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.action_bar);
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 

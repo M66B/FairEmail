@@ -127,9 +127,10 @@ public class ActivityWidgetUnified extends ActivityBase {
 
         daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
 
+        setContentView(R.layout.activity_widget_unified);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setSubtitle(R.string.title_widget_title_list);
-        setContentView(R.layout.activity_widget_unified);
 
         spAccount = findViewById(R.id.spAccount);
         spFolder = findViewById(R.id.spFolder);
