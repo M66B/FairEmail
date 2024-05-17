@@ -393,7 +393,6 @@ public class ServiceUI extends IntentService {
                 return;
 
             EntityOperation.queue(this, message, EntityOperation.FLAG, true);
-            EntityOperation.queue(this, message, EntityOperation.SEEN, true);
 
             db.setTransactionSuccessful();
         } finally {
