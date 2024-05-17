@@ -106,8 +106,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     public void setContentView(View view) {
-        LayoutInflater inflater = LayoutInflater.from(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean hide_toolbar = prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
 
+        LayoutInflater inflater = LayoutInflater.from(this);
         ViewGroup holder = (ViewGroup) inflater.inflate(R.layout.toolbar_holder, null);
 
         AppBarLayout appbar = holder.findViewById(R.id.appbar);
@@ -115,6 +117,13 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         View placeholder = holder.findViewById(R.id.placeholder);
 
         toolbar.setPopupTheme(getThemeId());
+        if (hide_toolbar) {
+            AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) toolbar.getLayoutParams();
+            params.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
+                    | AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS);
+            toolbar.setLayoutParams(params);
+        }
+
         setSupportActionBar(toolbar);
 
         holder.removeView(placeholder);
