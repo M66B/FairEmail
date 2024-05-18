@@ -17,6 +17,7 @@ crowdin.properties
 .idea/vcs.xml
 .idea/workspace.xml
 .idea/deploymentTargetDropDown.xml
+.idea/deploymentTargetSelector.xml
 app/.cxx/
 build
 captures
