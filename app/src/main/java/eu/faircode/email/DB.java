@@ -151,7 +151,7 @@ public abstract class DB extends RoomDatabase {
         File dbfile = configuration.context.getDatabasePath(DB_NAME);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(configuration.context);
-        boolean sqlite_integrity_check = prefs.getBoolean("sqlite_integrity_check", true);
+        boolean sqlite_integrity_check = prefs.getBoolean("sqlite_integrity_check", false);
 
         // https://www.sqlite.org/pragma.html#pragma_integrity_check
         if (sqlite_integrity_check && dbfile.exists()) {
