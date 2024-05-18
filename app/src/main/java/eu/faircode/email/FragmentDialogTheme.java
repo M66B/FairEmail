@@ -29,6 +29,7 @@ import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -675,10 +676,14 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         if (color == null)
             if (black)
                 color = Color.BLACK;
-            else
-                color = ContextCompat.getColor(context, dark
-                        ? android.R.color.system_background_dark
-                        : android.R.color.system_background_light);
+            else {
+                TypedValue a = new TypedValue();
+                context.getTheme().resolveAttribute(android.R.attr.windowBackground, a, true);
+                if (a.type >= TypedValue.TYPE_FIRST_COLOR_INT && a.type <= TypedValue.TYPE_LAST_COLOR_INT)
+                    color = a.data;
+                else
+                    color = Color.parseColor(dark ? "#121316" : "#FAF9FD");
+            }
 
         view.setBackgroundColor(color);
     }
