@@ -123,7 +123,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
                 @Override
                 public void onBackStackChanged() {
-                    appbar.setExpanded(true);
+                    try {
+                        appbar.setExpanded(true);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                 }
             });
         }
@@ -137,23 +141,31 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
-                ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-                mlp.topMargin = abh + i;
-                view.setLayoutParams(mlp);
+                try {
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+                    mlp.topMargin = abh + i;
+                    view.setLayoutParams(mlp);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
             }
         });
 
         FragmentDialogTheme.setBackground(this, holder, this instanceof ActivityCompose);
 
         ViewCompat.setOnApplyWindowInsetsListener(holder, (v, windowInsets) -> {
-            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            try {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
 
-            ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-            mlp.leftMargin = insets.left;
-            mlp.topMargin = insets.top;
-            mlp.rightMargin = insets.right;
-            mlp.bottomMargin = insets.bottom;
-            v.setLayoutParams(mlp);
+                ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                mlp.leftMargin = insets.left;
+                mlp.topMargin = insets.top;
+                mlp.rightMargin = insets.right;
+                mlp.bottomMargin = insets.bottom;
+                v.setLayoutParams(mlp);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
             return WindowInsetsCompat.CONSUMED;
         });
@@ -167,15 +179,19 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                         public WindowInsetsCompat onProgress(
                                 @NonNull WindowInsetsCompat windowInsets,
                                 @NonNull List<WindowInsetsAnimationCompat> runningAnimations) {
-                            // https://developer.android.com/develop/ui/views/layout/sw-keyboard
-                            for (WindowInsetsAnimationCompat animation : runningAnimations)
-                                if ((animation.getTypeMask() & WindowInsetsCompat.Type.ime()) != 0) {
-                                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                                    int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-                                    int pad = bottom - insets.bottom;
-                                    holder.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
-                                    break;
-                                }
+                            try {
+                                // https://developer.android.com/develop/ui/views/layout/sw-keyboard
+                                for (WindowInsetsAnimationCompat animation : runningAnimations)
+                                    if ((animation.getTypeMask() & WindowInsetsCompat.Type.ime()) != 0) {
+                                        Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                                        int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+                                        int pad = bottom - insets.bottom;
+                                        holder.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
+                                        break;
+                                    }
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
 
                             return windowInsets;
                         }
