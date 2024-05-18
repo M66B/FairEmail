@@ -2512,13 +2512,8 @@ public class MessageHelper {
                 throw new IllegalArgumentException(c[1]);
 
             String length = kv.get("l");
-            if (!TextUtils.isEmpty(length) && TextUtils.isDigitsOnly(length)) {
-                int l = Integer.parseInt(length);
-                if (l < DKIM_MIN_TEXT)
-                    throw new IllegalArgumentException("Body length " + l + " < " + DKIM_MIN_TEXT);
-                if (l < body.length())
-                    body = body.substring(0, l);
-            }
+            if (!TextUtils.isEmpty(length))
+                throw new IllegalArgumentException("Length l=" + length);
 
             Log.i("DKIM body=" + body.replace("\r\n", "|"));
 
