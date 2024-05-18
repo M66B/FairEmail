@@ -10,8 +10,6 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
 
-The "a15" versions are only suitable for Android 15 beta.
-
 ### 1.2182 - 2024-05-15
 
 * Added optional "AI" summarize quick action
