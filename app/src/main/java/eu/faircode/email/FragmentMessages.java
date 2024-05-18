@@ -118,6 +118,7 @@ import android.widget.Toast;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
@@ -5909,7 +5910,10 @@ public class FragmentMessages extends FragmentBase
             final Context context = getContext();
             PopupMenuLifecycle.insertIcons(context, menu, false);
 
-            LayoutInflater infl = LayoutInflater.from(context);
+            ActionBar actionBar = getSupportActionBar();
+            Context actionBarContext = (actionBar == null ? context : actionBar.getThemedContext());
+            LayoutInflater infl = LayoutInflater.from(actionBarContext);
+
             ImageButton ib = (ImageButton) infl.inflate(R.layout.action_button, null);
             ib.setId(View.generateViewId());
             ib.setImageResource(R.drawable.twotone_folder_24);
