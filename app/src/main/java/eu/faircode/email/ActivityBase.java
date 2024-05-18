@@ -119,6 +119,13 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             params.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
                     | AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS);
             toolbar.setLayoutParams(params);
+
+            getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+                @Override
+                public void onBackStackChanged() {
+                    appbar.setExpanded(true);
+                }
+            });
         }
 
         setSupportActionBar(toolbar);
