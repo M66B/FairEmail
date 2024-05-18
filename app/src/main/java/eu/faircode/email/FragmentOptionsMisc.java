@@ -2348,7 +2348,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swTaskDescription.setChecked(prefs.getBoolean("task_description", true));
             swExternalStorage.setChecked(prefs.getBoolean("external_storage", false));
 
-            swIntegrity.setChecked(prefs.getBoolean("sqlite_integrity_check", true));
+            swIntegrity.setChecked(prefs.getBoolean("sqlite_integrity_check", false));
             swWal.setChecked(prefs.getBoolean("wal", true));
             swCheckpoints.setChecked(prefs.getBoolean("sqlite_checkpoints", true));
             swAnalyze.setChecked(prefs.getBoolean("sqlite_analyze", true));
