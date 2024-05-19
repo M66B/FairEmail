@@ -935,6 +935,18 @@ public class Helper {
             return context.getResources().getDimensionPixelSize(resid);
     }
 
+    static @NonNull List<View> getViewsWithTag(@NonNull View view, @NonNull String tag) {
+        List<View> result = new ArrayList<>();
+        if (view != null && tag.equals(view.getTag()))
+            result.add(view);
+        if (view instanceof ViewGroup) {
+            ViewGroup group = (ViewGroup) view;
+            for (int i = 0; i <= group.getChildCount(); i++)
+                result.addAll(getViewsWithTag(group.getChildAt(i), tag));
+        }
+        return result;
+    }
+
     static ObjectAnimator getFabAnimator(View fab, LifecycleOwner owner) {
         ObjectAnimator.AnimatorUpdateListener listener = new ObjectAnimator.AnimatorUpdateListener() {
             @Override

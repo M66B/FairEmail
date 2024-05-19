@@ -169,7 +169,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 v.setLayoutParams(mlp);
 
                 if (edge_to_edge)
-                    for (View child : getInsetViews(v)) {
+                    for (View child : Helper.getViewsWithTag(v, "inset")) {
                         mlp = (ViewGroup.MarginLayoutParams) child.getLayoutParams();
                         mlp.bottomMargin = insets.bottom;
                         child.setLayoutParams(mlp);
@@ -224,18 +224,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     public void setContentView(int layoutResID) {
         View view = LayoutInflater.from(this).inflate(layoutResID, null);
         setContentView(view);
-    }
-
-    private static List<View> getInsetViews(View view) {
-        List<View> result = new ArrayList<>();
-        if (view != null && "inset".equals(view.getTag()))
-            result.add(view);
-        if (view instanceof ViewGroup) {
-            ViewGroup group = (ViewGroup) view;
-            for (int i = 0; i <= group.getChildCount(); i++)
-                result.addAll(getInsetViews(group.getChildAt(i)));
-        }
-        return result;
     }
 
     @Override
