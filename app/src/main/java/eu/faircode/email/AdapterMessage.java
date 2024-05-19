@@ -2398,7 +2398,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibSearchText.setVisibility(tools && !outbox && button_search_text && message.content ? View.VISIBLE : View.GONE);
                     ibSearch.setVisibility(tools && !outbox && button_search && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
                     ibTranslate.setVisibility(tools && !outbox && button_translate && DeepL.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
-                    ibSummarize.setVisibility(tools && !outbox && button_summarize && (OpenAI.isAvailable(context) || Gemini.isAvailable(context)) && message.content ? View.VISIBLE : View.GONE);
+                    ibSummarize.setVisibility(tools && !outbox && button_summarize && AI.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
                     ibFullScreen.setVisibility(tools && full && button_full_screen && message.content ? View.VISIBLE : View.GONE);
                     ibForceLight.setVisibility(tools && full && dark && button_force_light && message.content ? View.VISIBLE : View.GONE);
                     ibForceLight.setImageLevel(!(canDarken || fake_dark) || force_light ? 1 : 0);
@@ -6257,7 +6257,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_translate).setVisible(
                     DeepL.isAvailable(context) && message.content);
             popupMenu.getMenu().findItem(R.id.menu_summarize).setVisible(
-                    (OpenAI.isAvailable(context) || Gemini.isAvailable(context)) && message.content);
+                    AI.isAvailable(context) && message.content);
 
             popupMenu.getMenu().findItem(R.id.menu_force_light).setVisible(full && dark);
             popupMenu.getMenu().findItem(R.id.menu_force_light).setChecked(force_light);

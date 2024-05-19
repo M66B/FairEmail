@@ -65,8 +65,7 @@ public class FragmentDialogQuickActions extends FragmentDialogBase {
         final CheckBox cbInbox = dview.findViewById(R.id.cbInbox);
         final CheckBox cbClear = dview.findViewById(R.id.cbClear);
 
-        boolean hasAi = (OpenAI.isAvailable(context) || Gemini.isAvailable(context));
-        cbSummarize.setVisibility(hasAi ? View.VISIBLE : View.GONE);
+        cbSummarize.setVisibility(AI.isAvailable(context) ? View.VISIBLE : View.GONE);
 
         tvHint.setText(getString(R.string.title_quick_actions_hint, MAX_QUICK_ACTIONS));
 

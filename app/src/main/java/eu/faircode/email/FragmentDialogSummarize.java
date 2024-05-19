@@ -23,8 +23,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,9 +37,7 @@ import androidx.preference.PreferenceManager;
 import org.jsoup.nodes.Document;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class FragmentDialogSummarize extends FragmentDialogBase {
     private static final int MAX_SUMMARIZE_TEXT_SIZE = 10 * 1024;
@@ -63,20 +59,13 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         int message_zoom = prefs.getInt("message_zoom", 100);
-        String prompt;
-        if (OpenAI.isAvailable(context))
-            prompt = prefs.getString("openai_summarize", OpenAI.DEFAULT_SUMMARY_PROMPT);
-        else if (Gemini.isAvailable(context))
-            prompt = prefs.getString("gemini_summarize", Gemini.DEFAULT_SUMMARY_PROMPT);
-        else
-            prompt = getString(R.string.title_summarize);
 
         float textSize = Helper.getTextSize(context, zoom) * message_zoom / 100f;
         tvSummary.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
         Bundle args = getArguments();
 
-        tvCaption.setText(prompt);
+        tvCaption.setText(AI.getSummarizePrompt(context));
         tvFrom.setText(args.getString("from"));
         tvSubject.setText(args.getString("subject"));
 
@@ -120,67 +109,16 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
 
                 HtmlHelper.truncate(d, MAX_SUMMARIZE_TEXT_SIZE);
 
-                if (OpenAI.isAvailable(context)) {
-                    String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
-                    float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
-                    String prompt = prefs.getString("openai_summarize", OpenAI.DEFAULT_SUMMARY_PROMPT);
+                long start = new Date().getTime();
+                String summary = AI.summarize(context, id, message.subject, d);
+                args.putLong("elapsed", new Date().getTime() - start);
 
-                    List<OpenAI.Message> input = new ArrayList<>();
-                    input.add(new OpenAI.Message(OpenAI.USER,
-                            new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt)}));
-
-                    if (!TextUtils.isEmpty(message.subject))
-                        input.add(new OpenAI.Message(OpenAI.USER,
-                                new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, message.subject)}));
-
-                    SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
-                    input.add(new OpenAI.Message(OpenAI.USER,
-                            OpenAI.Content.get(ssb, id, context)));
-
-                    long start = new Date().getTime();
-                    OpenAI.Message[] result =
-                            OpenAI.completeChat(context, model, input.toArray(new OpenAI.Message[0]), temperature, 1);
-                    args.putLong("elapsed", new Date().getTime() - start);
-
-                    if (result.length == 0)
-                        return null;
-
-                    StringBuilder sb = new StringBuilder();
-                    for (OpenAI.Message completion : result)
-                        for (OpenAI.Content content : completion.getContent())
-                            if (OpenAI.CONTENT_TEXT.equals(content.getType())) {
-                                if (sb.length() != 0)
-                                    sb.append('\n');
-                                sb.append(content.getContent());
-                            }
-                    return sb.toString();
-                } else if (Gemini.isAvailable(context)) {
-                    String model = prefs.getString("gemini_model", Gemini.DEFAULT_MODEL);
-                    float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
-                    String prompt = prefs.getString("gemini_summarize", Gemini.DEFAULT_SUMMARY_PROMPT);
-
-                    String text = d.text();
-                    if (TextUtils.isEmpty(text))
-                        return null;
-                    Gemini.Message content = new Gemini.Message(Gemini.USER, new String[]{prompt, text});
-
-                    long start = new Date().getTime();
-                    Gemini.Message[] result =
-                            Gemini.generate(context, model, new Gemini.Message[]{content}, temperature, 1);
-                    args.putLong("elapsed", new Date().getTime() - start);
-
-                    if (result.length == 0)
-                        return null;
-
-                    return TextUtils.join("\n", result[0].getContent());
-                }
-
-                return null;
+                return summary;
             }
 
             @Override
-            protected void onExecuted(Bundle args, String text) {
-                tvSummary.setText(text);
+            protected void onExecuted(Bundle args, String summary) {
+                tvSummary.setText(summary);
                 tvSummary.setVisibility(View.VISIBLE);
                 tvElapsed.setText(Helper.formatDuration(args.getLong("elapsed")));
                 tvElapsed.setVisibility(View.VISIBLE);

@@ -3425,10 +3425,9 @@ public class FragmentMessages extends FragmentBase
                                 .setIcon(R.drawable.twotone_south_24)
                                 .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(message.importance));
 
-                        if (OpenAI.isAvailable(context) || Gemini.isAvailable(context)) {
+                        if (AI.isAvailable(context))
                             popupMenu.getMenu().add(Menu.NONE, R.string.title_summarize, order++, R.string.title_summarize)
                                     .setIcon(R.drawable.twotone_smart_toy_24);
-                        }
 
                         if (message.accountProtocol == EntityAccount.TYPE_IMAP) {
                             popupMenu.getMenu().add(Menu.NONE, R.string.title_move, order++, R.string.title_move)
@@ -3548,7 +3547,7 @@ public class FragmentMessages extends FragmentBase
 
         private void onSwipeSummarize(final @NonNull TupleMessageEx message) {
             final Context context = getContext();
-            if (OpenAI.isAvailable(context) || Gemini.isAvailable(context))
+            if (AI.isAvailable(context))
                 FragmentDialogSummarize.summarize(message, getParentFragmentManager());
             else
                 context.startActivity(new Intent(context, ActivitySetup.class)

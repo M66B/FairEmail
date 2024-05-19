@@ -71,7 +71,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
         final CheckBox cbAnswer = dview.findViewById(R.id.cbAnswer);
 
         cbTranslate.setVisibility(DeepL.isAvailable(context) ? View.VISIBLE : View.GONE);
-        cbSummarize.setVisibility(OpenAI.isAvailable(context) || Gemini.isAvailable(context) ? View.VISIBLE : View.GONE);
+        cbSummarize.setVisibility(AI.isAvailable(context) ? View.VISIBLE : View.GONE);
         cbPin.setVisibility(Shortcuts.can(context) ? View.VISIBLE : View.GONE);
 
         cbSeen.setChecked(prefs.getBoolean("button_seen", false));

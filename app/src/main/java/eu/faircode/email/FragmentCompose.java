@@ -1876,20 +1876,18 @@ public class FragmentCompose extends FragmentBase {
         Context actionBarContext = (actionBar == null ? context : actionBar.getThemedContext());
         LayoutInflater infl = LayoutInflater.from(actionBarContext);
 
-        ImageButton ibOpenAi = (ImageButton) infl.inflate(R.layout.action_button, null);
-        ibOpenAi.setId(View.generateViewId());
-        ibOpenAi.setImageResource(R.drawable.twotone_smart_toy_24);
-        ibOpenAi.setContentDescription("AI");
-        ibOpenAi.setOnClickListener(new View.OnClickListener() {
+        ImageButton ibAI = (ImageButton) infl.inflate(R.layout.action_button, null);
+        ibAI.setId(View.generateViewId());
+        ibAI.setImageResource(R.drawable.twotone_smart_toy_24);
+        ibAI.setContentDescription("AI");
+        ibAI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (OpenAI.isAvailable(view.getContext()))
-                    onOpenAi();
-                else if (Gemini.isAvailable(view.getContext()))
-                    onGemini();
+                if (AI.isAvailable(context))
+                    onAI();
             }
         });
-        menu.findItem(R.id.menu_openai).setActionView(ibOpenAi);
+        menu.findItem(R.id.menu_ai).setActionView(ibAI);
 
         View v = infl.inflate(R.layout.action_button_text, null);
         v.setId(View.generateViewId());
@@ -1954,9 +1952,9 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_encrypt).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_translate).setVisible(DeepL.isAvailable(context));
-        menu.findItem(R.id.menu_openai).setEnabled(state == State.LOADED && !chatting);
-        ((ImageButton) menu.findItem(R.id.menu_openai).getActionView()).setEnabled(!chatting);
-        menu.findItem(R.id.menu_openai).setVisible(OpenAI.isAvailable(context) || Gemini.isAvailable(context));
+        menu.findItem(R.id.menu_ai).setEnabled(state == State.LOADED && !chatting);
+        ((ImageButton) menu.findItem(R.id.menu_ai).getActionView()).setEnabled(!chatting);
+        menu.findItem(R.id.menu_ai).setVisible(AI.isAvailable(context));
         menu.findItem(R.id.menu_zoom).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_style).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_media).setEnabled(state == State.LOADED);
@@ -2641,7 +2639,7 @@ public class FragmentCompose extends FragmentBase {
         }.serial().execute(this, args, "compose:print");
     }
 
-    private void onOpenAi() {
+    private void onAI() {
         int start = etBody.getSelectionStart();
         int end = etBody.getSelectionEnd();
         boolean selection = (start >= 0 && end > start);
@@ -2652,7 +2650,7 @@ public class FragmentCompose extends FragmentBase {
         args.putLong("id", working);
         args.putCharSequence("body", body);
 
-        new SimpleTask<OpenAI.Message[]>() {
+        new SimpleTask<String>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 chatting = true;
@@ -2666,45 +2664,15 @@ public class FragmentCompose extends FragmentBase {
             }
 
             @Override
-            protected OpenAI.Message[] onExecute(Context context, Bundle args) throws Throwable {
+            protected String onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 CharSequence body = args.getCharSequence("body");
 
-                if (body == null || body.length() == 0)
-                    return null;
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
-                float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
-
-                OpenAI.Message message;
-                if (body instanceof Spannable)
-                    message = new OpenAI.Message(OpenAI.USER, OpenAI.Content.get((Spannable) body, id, context));
-                else
-                    message = new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
-                            new OpenAI.Content(OpenAI.CONTENT_TEXT, body.toString())});
-
-                OpenAI.Message[] completions =
-                        OpenAI.completeChat(context, model, new OpenAI.Message[]{message}, temperature, 1);
-
-                return completions;
+                return AI.completeChat(context, id, body);
             }
 
             @Override
-            protected void onExecuted(Bundle args, OpenAI.Message[] messages) {
-                if (messages == null || messages.length == 0)
-                    return;
-
-                StringBuilder sb = new StringBuilder();
-                for (OpenAI.Message message : messages)
-                    for (OpenAI.Content content : message.getContent())
-                        if (OpenAI.CONTENT_TEXT.equals(content.getType())) {
-                            if (sb.length() > 0)
-                                sb.append('\n');
-                            sb.append(content.getContent().replaceAll("^\\n+", "").replaceAll("\\n+$", ""));
-                        }
-
-
+            protected void onExecuted(Bundle args, String completion) {
                 Editable edit = etBody.getText();
                 int start = etBody.getSelectionStart();
                 int end = etBody.getSelectionEnd();
@@ -2721,10 +2689,10 @@ public class FragmentCompose extends FragmentBase {
                 if (index > 0 && edit.charAt(index - 1) != '\n')
                     edit.insert(index++, "\n");
 
-                edit.insert(index, sb + "\n");
-                etBody.setSelection(index + sb.length() + 1);
+                edit.insert(index, completion + "\n");
+                etBody.setSelection(index + completion.length() + 1);
 
-                StyleHelper.markAsInserted(edit, index, index + sb.length() + 1);
+                StyleHelper.markAsInserted(edit, index, index + completion.length() + 1);
 
                 if (args.containsKey("used") && args.containsKey("granted")) {
                     double used = args.getDouble("used");
@@ -2737,84 +2705,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
             }
-        }.serial().execute(this, args, "openai");
-    }
-
-    private void onGemini() {
-        int start = etBody.getSelectionStart();
-        int end = etBody.getSelectionEnd();
-        boolean selection = (start >= 0 && end > start);
-        Editable edit = etBody.getText();
-        String body = (selection ? edit.subSequence(start, end) : edit).toString().trim();
-
-        Bundle args = new Bundle();
-        args.putLong("id", working);
-        args.putString("body", body);
-        args.putBoolean("selection", selection);
-
-        new SimpleTask<Gemini.Message[]>() {
-            @Override
-            protected void onPreExecute(Bundle args) {
-                chatting = true;
-                invalidateOptionsMenu();
-            }
-
-            @Override
-            protected void onPostExecute(Bundle args) {
-                chatting = false;
-                invalidateOptionsMenu();
-            }
-
-            @Override
-            protected Gemini.Message[] onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                String body = args.getString("body");
-                boolean selection = args.getBoolean("selection");
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                String model = prefs.getString("gemini_model", Gemini.DEFAULT_MODEL);
-                float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
-
-                Gemini.Message message = new Gemini.Message(Gemini.USER, new String[]{Gemini.truncateParagraphs(body)});
-
-                return Gemini.generate(context, model, new Gemini.Message[]{message}, temperature, 1);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Gemini.Message[] messages) {
-                if (messages == null || messages.length == 0)
-                    return;
-
-                String text = TextUtils.join("\n", messages[0].getContent())
-                        .replaceAll("^\\n+", "").replaceAll("\\n+$", "");
-
-                Editable edit = etBody.getText();
-                int start = etBody.getSelectionStart();
-                int end = etBody.getSelectionEnd();
-
-                int index;
-                if (etBody.hasSelection()) {
-                    edit.delete(start, end);
-                    index = start;
-                } else
-                    index = etBody.length();
-
-                if (index < 0)
-                    index = 0;
-                if (index > 0 && edit.charAt(index - 1) != '\n')
-                    edit.insert(index++, "\n");
-
-                edit.insert(index, text + "\n");
-                etBody.setSelection(index + text.length() + 1);
-
-                StyleHelper.markAsInserted(edit, index, index + text.length() + 1);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
-            }
-        }.serial().execute(this, args, "gemini");
+        }.serial().execute(this, args, "AI");
     }
 
     private void onTranslate(View anchor) {
