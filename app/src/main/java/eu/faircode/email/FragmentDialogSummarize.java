@@ -34,14 +34,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
 
-import org.jsoup.nodes.Document;
-
-import java.io.File;
 import java.util.Date;
 
 public class FragmentDialogSummarize extends FragmentDialogBase {
-    private static final int MAX_SUMMARIZE_TEXT_SIZE = 10 * 1024;
-
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -92,25 +87,8 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                 if (message == null || !message.content)
                     return null;
 
-                File file = EntityMessage.getFile(context, id);
-                if (!file.exists())
-                    return null;
-
-                Document d = JsoupEx.parse(file);
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
-                if (remove_signatures)
-                    HtmlHelper.removeSignatures(d);
-
-                HtmlHelper.removeQuotes(d);
-
-                d = HtmlHelper.sanitizeView(context, d, false);
-
-                HtmlHelper.truncate(d, MAX_SUMMARIZE_TEXT_SIZE);
-
                 long start = new Date().getTime();
-                String summary = AI.summarize(context, id, message.subject, d);
+                String summary = AI.getSummaryText(context, message);
                 args.putLong("elapsed", new Date().getTime() - start);
 
                 return summary;

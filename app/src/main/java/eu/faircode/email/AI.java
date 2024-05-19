@@ -30,11 +30,14 @@ import androidx.preference.PreferenceManager;
 import org.json.JSONException;
 import org.jsoup.nodes.Document;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AI {
+    private static final int MAX_SUMMARIZE_TEXT_SIZE = 10 * 1024;
+
     static boolean isAvailable(Context context) {
         return (OpenAI.isAvailable(context) || Gemini.isAvailable(context));
     }
@@ -47,10 +50,12 @@ public class AI {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
+            boolean multimodal = prefs.getBoolean("openai_multimodal", true);
 
             OpenAI.Message message;
             if (body instanceof Spannable)
-                message = new OpenAI.Message(OpenAI.USER, OpenAI.Content.get((Spannable) body, id, context));
+                message = new OpenAI.Message(OpenAI.USER,
+                        OpenAI.Content.get((Spannable) body, id, multimodal, context));
             else
                 message = new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
                         new OpenAI.Content(OpenAI.CONTENT_TEXT, body.toString())});
@@ -65,9 +70,9 @@ public class AI {
                         if (sb.length() > 0)
                             sb.append('\n');
                         sb.append(content.getContent()
-                                .replaceAll("^\\n+", "").replaceAll("\\n+$", ""));
+                                .replaceAll("^\\n+", "")
+                                .replaceAll("\\n+$", ""));
                     }
-
             return sb.toString();
         } else if (Gemini.isAvailable(context)) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -77,11 +82,17 @@ public class AI {
             Gemini.Message message = new Gemini.Message(Gemini.USER,
                     new String[]{Gemini.truncateParagraphs(body.toString())});
             Gemini.Message[] completions = Gemini.generate(context, model, new Gemini.Message[]{message}, temperature, 1);
-            if (completions.length == 0)
-                return null;
 
-            return TextUtils.join("\n", completions[0].getContent())
-                    .replaceAll("^\\n+", "").replaceAll("\\n+$", "");
+            StringBuilder sb = new StringBuilder();
+            for (Gemini.Message completion : completions)
+                for (String result : completion.getContent()) {
+                    if (sb.length() > 0)
+                        sb.append('\n');
+                    sb.append(result
+                            .replaceAll("^\\n+", "")
+                            .replaceAll("\\n+$", ""));
+                }
+            return sb.toString();
         } else
             return null;
     }
@@ -96,33 +107,47 @@ public class AI {
             return context.getString(R.string.title_summarize);
     }
 
-    static String summarize(Context context, long id, String subject, Document d) throws JSONException, IOException {
+    static String getSummaryText(Context context, EntityMessage message) throws JSONException, IOException {
+        File file = message.getFile(context);
+        if (!file.exists())
+            return null;
+
+        Document d = JsoupEx.parse(file);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
+        if (remove_signatures)
+            HtmlHelper.removeSignatures(d);
+
+        HtmlHelper.removeQuotes(d);
+
+        d = HtmlHelper.sanitizeView(context, d, false);
+
+        HtmlHelper.truncate(d, MAX_SUMMARIZE_TEXT_SIZE);
+
         if (OpenAI.isAvailable(context)) {
             String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
             String prompt = prefs.getString("openai_summarize", OpenAI.DEFAULT_SUMMARY_PROMPT);
+            boolean multimodal = prefs.getBoolean("openai_multimodal", true);
 
             List<OpenAI.Message> input = new ArrayList<>();
             input.add(new OpenAI.Message(OpenAI.USER,
                     new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt)}));
 
-            if (!TextUtils.isEmpty(subject))
+            if (!TextUtils.isEmpty(message.subject))
                 input.add(new OpenAI.Message(OpenAI.USER,
-                        new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, subject)}));
+                        new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, message.subject)}));
 
             SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
             input.add(new OpenAI.Message(OpenAI.USER,
-                    OpenAI.Content.get(ssb, id, context)));
+                    OpenAI.Content.get(ssb, message.id, multimodal, context)));
 
-            OpenAI.Message[] result =
+            OpenAI.Message[] completions =
                     OpenAI.completeChat(context, model, input.toArray(new OpenAI.Message[0]), temperature, 1);
 
-            if (result.length == 0)
-                return null;
-
             StringBuilder sb = new StringBuilder();
-            for (OpenAI.Message completion : result)
+            for (OpenAI.Message completion : completions)
                 for (OpenAI.Content content : completion.getContent())
                     if (OpenAI.CONTENT_TEXT.equals(content.getType())) {
                         if (sb.length() != 0)
@@ -140,13 +165,17 @@ public class AI {
                 return null;
             Gemini.Message content = new Gemini.Message(Gemini.USER, new String[]{prompt, text});
 
-            Gemini.Message[] result =
+            Gemini.Message[] completions =
                     Gemini.generate(context, model, new Gemini.Message[]{content}, temperature, 1);
 
-            if (result.length == 0)
-                return null;
-
-            return TextUtils.join("\n", result[0].getContent());
+            StringBuilder sb = new StringBuilder();
+            for (Gemini.Message completion : completions)
+                for (String result : completion.getContent()) {
+                    if (sb.length() != 0)
+                        sb.append('\n');
+                    sb.append(result);
+                }
+            return sb.toString();
         } else
             return null;
     }

@@ -277,10 +277,7 @@ public class OpenAI {
             return this.content;
         }
 
-        static Content[] get(Spannable ssb, long id, Context context) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean multimodal = prefs.getBoolean("openai_multimodal", true);
-
+        static Content[] get(Spannable ssb, long id, boolean multimodal, Context context) {
             DB db = DB.getInstance(context);
             List<OpenAI.Content> contents = new ArrayList<>();
             int start = 0;
