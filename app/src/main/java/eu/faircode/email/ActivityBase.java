@@ -105,9 +105,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     public void setContentView(View view) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean hide_toolbar = prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
+        boolean edge_to_edge = prefs.getBoolean("edge_to_edge", false);
 
         LayoutInflater inflater = LayoutInflater.from(this);
         ViewGroup holder = (ViewGroup) inflater.inflate(R.layout.toolbar_holder, null);
+        if (BuildConfig.DEBUG)
+            holder.setBackgroundColor(Color.RED);
 
         AppBarLayout appbar = holder.findViewById(R.id.appbar);
         Toolbar toolbar = holder.findViewById(R.id.toolbar);
@@ -161,8 +164,17 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 mlp.leftMargin = insets.left;
                 mlp.topMargin = insets.top;
                 mlp.rightMargin = insets.right;
-                mlp.bottomMargin = insets.bottom;
+                if (!edge_to_edge)
+                    mlp.bottomMargin = insets.bottom;
                 v.setLayoutParams(mlp);
+
+                if (edge_to_edge)
+                    for (View child : getInsetViews(v)) {
+                        mlp = (ViewGroup.MarginLayoutParams) child.getLayoutParams();
+                        mlp.bottomMargin = insets.bottom;
+                        child.setLayoutParams(mlp);
+                    }
+
             } catch (Throwable ex) {
                 Log.e(ex);
             }
@@ -212,6 +224,18 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     public void setContentView(int layoutResID) {
         View view = LayoutInflater.from(this).inflate(layoutResID, null);
         setContentView(view);
+    }
+
+    private static List<View> getInsetViews(View view) {
+        List<View> result = new ArrayList<>();
+        if (view != null && "inset".equals(view.getTag()))
+            result.add(view);
+        if (view instanceof ViewGroup) {
+            ViewGroup group = (ViewGroup) view;
+            for (int i = 0; i <= group.getChildCount(); i++)
+                result.addAll(getInsetViews(group.getChildAt(i)));
+        }
+        return result;
     }
 
     @Override
