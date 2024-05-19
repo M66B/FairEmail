@@ -43,6 +43,7 @@ public interface DaoOperation {
             " WHEN operation.name = '" + EntityOperation.DOWNLOAD + "' THEN 3" +
             " WHEN operation.name = '" + EntityOperation.EXISTS + "' THEN 3" +
             " WHEN operation.name = '" + EntityOperation.REPORT + "' THEN 3" +
+            " WHEN operation.name = '" + EntityOperation.SUBJECT + "' THEN 3" +
             " WHEN operation.name = '" + EntityOperation.COPY + "' THEN 4" +
             " WHEN operation.name = '" + EntityOperation.MOVE + "' THEN 5" +
             " WHEN operation.name = '" + EntityOperation.PURGE + "' THEN 6" +
