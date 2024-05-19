@@ -20,8 +20,6 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -1019,80 +1017,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 return false;
         }
         return super.shouldUpRecreateTask(targetIntent);
-    }
-
-    public boolean abShowing = true;
-    public ValueAnimator abAnimator = null;
-
-    public boolean isActionBarShown() {
-        return abShowing;
-    }
-
-    public void showActionBar(boolean show) {
-        ViewGroup abv = findViewById(androidx.appcompat.R.id.action_bar);
-        if (abv == null)
-            return;
-
-        if (abShowing == show)
-            return;
-        abShowing = show;
-
-        int height = Helper.getActionBarHeight(this);
-        int current = abv.getLayoutParams().height;
-        int target = (show ? height : 0);
-        Log.i("ActionBar height=" + current + "..." + target);
-
-
-        if (abAnimator != null)
-            abAnimator.cancel();
-
-        abAnimator = ValueAnimator.ofInt(current, target);
-
-        abAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator anim) {
-                try {
-                    Integer v = (Integer) anim.getAnimatedValue();
-                    Log.i("ActionBar height=" + v);
-                    ViewGroup.LayoutParams lparam = abv.getLayoutParams();
-                    if (lparam.height == v)
-                        Log.i("ActionBar ---");
-                    else {
-                        lparam.height = v;
-                        abv.requestLayout();
-                    }
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        });
-
-        abAnimator.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(@NonNull Animator animation) {
-                Log.i("ActionBar start");
-            }
-
-            @Override
-            public void onAnimationEnd(@NonNull Animator animation) {
-                Log.i("ActionBar end");
-                abAnimator = null;
-            }
-
-            @Override
-            public void onAnimationCancel(@NonNull Animator animation) {
-                Log.i("ActionBar cancel");
-                abAnimator = null;
-            }
-
-            @Override
-            public void onAnimationRepeat(@NonNull Animator animation) {
-                Log.i("ActionBar repeat");
-            }
-        });
-
-        abAnimator.setDuration(ACTIONBAR_ANIMATION_DURATION * Math.abs(current - target) / height);
-        abAnimator.start();
     }
 
     Handler getMainHandler() {
