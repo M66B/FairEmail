@@ -2056,7 +2056,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 if (main != null && "vmc".equals(main.getType()) &&
                         (Boolean.TRUE.equals(message.auth) ||
-                                (Boolean.TRUE.equals(message.dkim) &&
+                                ((!check_tls || Boolean.TRUE.equals(message.tls)) &&
+                                        Boolean.TRUE.equals(message.dkim) &&
                                         Boolean.TRUE.equals(message.spf) &&
                                         Boolean.TRUE.equals(message.dmarc)))) {
                     ibVerified.setImageLevel(main.isVerified() ? 1 : 0);
