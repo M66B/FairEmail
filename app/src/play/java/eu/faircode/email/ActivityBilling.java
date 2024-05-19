@@ -98,9 +98,12 @@ public class ActivityBilling extends ActivityBase implements
         if (standalone) {
             setContentView(R.layout.activity_billing);
 
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-            fragmentTransaction.commit();
+            int count = getSupportFragmentManager().getBackStackEntryCount();
+            if (count == 0) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+                fragmentTransaction.commit();
+            }
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
