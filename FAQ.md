@@ -550,6 +550,8 @@ The low priority status bar notification shows the number of pending operations,
 * *rule*: execute rule on body text
 * *expunge*: permanently delete messages
 * *report*: process delivery or read receipt (experimental)
+* *download*: async download of text and attachments (experimental)
+* *subject*: update subject
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#faq16).
