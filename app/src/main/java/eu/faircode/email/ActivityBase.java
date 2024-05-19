@@ -141,10 +141,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         int abh = Helper.getActionBarHeight(this);
         appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
+            public void onOffsetChanged(AppBarLayout appBarLayout, int offset) {
                 try {
                     ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-                    mlp.topMargin = abh + i;
+                    mlp.topMargin = abh + offset;
                     view.setLayoutParams(mlp);
                 } catch (Throwable ex) {
                     Log.e(ex);
