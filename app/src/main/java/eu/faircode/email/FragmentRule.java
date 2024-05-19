@@ -670,6 +670,8 @@ public class FragmentRule extends FragmentBase {
             actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy)));
         actions.add(new Action(EntityRule.TYPE_DELETE, getString(R.string.title_rule_delete)));
         actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_rule_answer)));
+        if (AI.isAvailable(getContext()))
+            actions.add(new Action(EntityRule.TYPE_SUMMARIZE, getString(R.string.title_rule_summarize)));
         actions.add(new Action(EntityRule.TYPE_TTS, getString(R.string.title_rule_tts)));
         actions.add(new Action(EntityRule.TYPE_SOUND, getString(R.string.title_rule_sound)));
         actions.add(new Action(EntityRule.TYPE_AUTOMATION, getString(R.string.title_rule_automation)));

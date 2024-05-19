@@ -64,6 +64,7 @@ import com.sun.mail.pop3.POP3Store;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -3136,6 +3137,7 @@ class Core {
                 if (!message.content)
                     throw new IllegalArgumentException("Message without content id=" + rule.id + ":" + rule.name);
 
+                rule.async = true;
                 rule.execute(context, message, null);
             }
 

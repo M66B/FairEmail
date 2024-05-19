@@ -38,6 +38,7 @@ import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -118,6 +119,9 @@ public class EntityRule {
     public Integer applied = 0;
     public Long last_applied;
 
+    @Ignore
+    public boolean async;
+
     static final int TYPE_SEEN = 1;
     static final int TYPE_UNSEEN = 2;
     static final int TYPE_MOVE = 3;
@@ -138,6 +142,7 @@ public class EntityRule {
     static final int TYPE_NOTES = 18;
     static final int TYPE_URL = 19;
     static final int TYPE_SILENT = 20;
+    static final int TYPE_SUMMARIZE = 21;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -679,6 +684,8 @@ public class EntityRule {
                 return onActionUrl(context, message, jaction, html);
             case TYPE_SILENT:
                 return onActionSilent(context, message, jaction);
+            case TYPE_SUMMARIZE:
+                return onActionSummarize(context, message, jaction);
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type + " name=" + name);
         }
@@ -780,6 +787,8 @@ public class EntityRule {
                     throw new IllegalArgumentException(context.getString(R.string.title_rule_url_missing));
                 return;
             case TYPE_SILENT:
+                return;
+            case TYPE_SUMMARIZE:
                 return;
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type);
@@ -1551,6 +1560,22 @@ public class EntityRule {
         db.message().setMessageUiSilent(message.id, true);
 
         message.ui_silent = true;
+        return true;
+    }
+
+    private boolean onActionSummarize(Context context, EntityMessage message, JSONObject jargs) throws JSONException, IOException {
+        DB db = DB.getInstance(context);
+
+        if (!this.async && this.id != null) {
+            EntityOperation.queue(context, message, EntityOperation.RULE, this.id);
+            return true;
+        }
+
+        message.preview = AI.getSummaryText(context, message);
+
+        db.message().setMessageContent(message.id, message.content, message.language, message.plain_only, message.preview, message.warning);
+        db.message().setMessageNotifying(message.id, 0);
+
         return true;
     }
 
