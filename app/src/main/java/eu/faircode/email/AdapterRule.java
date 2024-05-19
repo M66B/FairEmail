@@ -143,25 +143,30 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                 JSONObject jcondition = new JSONObject(rule.condition);
                 if (jcondition.has("sender"))
                     conditions.add(new Condition(context.getString(R.string.title_rule_sender),
+                            jcondition.getJSONObject("sender").optBoolean("not"),
                             jcondition.getJSONObject("sender").optString("value"),
                             jcondition.getJSONObject("sender").optBoolean("regex")));
                 if (jcondition.has("recipient"))
                     conditions.add(new Condition(context.getString(R.string.title_rule_recipient),
+                            jcondition.getJSONObject("recipient").optBoolean("not"),
                             jcondition.getJSONObject("recipient").optString("value"),
                             jcondition.getJSONObject("recipient").optBoolean("regex")));
                 if (jcondition.has("subject"))
                     conditions.add(new Condition(context.getString(R.string.title_rule_subject),
+                            jcondition.getJSONObject("subject").optBoolean("not"),
                             jcondition.getJSONObject("subject").optString("value"),
                             jcondition.getJSONObject("subject").optBoolean("regex")));
                 if (jcondition.optBoolean("attachments"))
                     conditions.add(new Condition(context.getString(R.string.title_rule_attachments),
-                            null, null));
+                            false, null, null));
                 if (jcondition.has("header"))
                     conditions.add(new Condition(context.getString(R.string.title_rule_header),
+                            jcondition.getJSONObject("header").optBoolean("not"),
                             jcondition.getJSONObject("header").optString("value"),
                             jcondition.getJSONObject("header").optBoolean("regex")));
                 if (jcondition.has("body"))
                     conditions.add(new Condition(context.getString(R.string.title_rule_body),
+                            jcondition.getJSONObject("body").optBoolean("not"),
                             jcondition.getJSONObject("body").optString("value"),
                             jcondition.getJSONObject("body").optBoolean("regex")));
                 if (jcondition.has("date")) {
@@ -173,7 +178,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                         range = DF.format(after) + " - " + DF.format(before);
                     }
                     conditions.add(new Condition(context.getString(R.string.title_rule_time_abs),
-                            range, null));
+                            false, range, null));
                 }
                 if (jcondition.has("schedule")) {
                     String range = null;
@@ -185,18 +190,20 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                                 Helper.formatHour(context, end % (24 * 60));
                     }
                     conditions.add(new Condition(context.getString(R.string.title_rule_time_rel),
-                            range, null));
+                            false, range, null));
                 }
 
                 if (jcondition.has("expression"))
                     conditions.add(new Condition(context.getString(R.string.title_rule_expression),
-                            jcondition.getString("expression"), null));
+                            false, jcondition.getString("expression"), null));
 
                 SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                 for (Condition condition : conditions) {
                     if (ssb.length() > 0)
                         ssb.append("\n");
                     ssb.append(condition.name);
+                    if (condition.not)
+                        ssb.append(' ').append(context.getString(R.string.title_rule_not));
                     if (!TextUtils.isEmpty(condition.condition)) {
                         ssb.append(" \"");
                         int start = ssb.length();
@@ -616,11 +623,13 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
         private class Condition {
             private final String name;
+            private boolean not;
             private final String condition;
             private final Boolean regex;
 
-            Condition(String name, String condition, Boolean regex) {
+            Condition(String name, boolean not, String condition, Boolean regex) {
                 this.name = name;
+                this.not = not;
                 this.condition = condition;
                 this.regex = regex;
             }
