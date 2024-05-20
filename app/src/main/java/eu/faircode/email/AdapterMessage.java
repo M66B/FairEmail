@@ -2630,20 +2630,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAddContact.setVisibility(show_addresses && contacts && froms > 0 ? View.VISIBLE : View.GONE);
 
             boolean known_signer = false;
-            if (native_dkim &&
-                    message.signedby != null &&
-                    message.from != null &&
-                    message.from.length == 1) {
+            SpannableStringBuilder signers = new SpannableStringBuilderEx();
+            if (native_dkim && message.signedby != null) {
                 // https://dmarcly.com/blog/what-is-dmarc-identifier-alignment-domain-alignment
-                String domain = UriHelper.getEmailDomain(((InternetAddress) message.from[0]).getAddress());
-                if (domain != null)
-                    for (String signer : message.signedby.split(","))
-                        if (Objects.equals(
+                List<Address> envelop = new ArrayList<>();
+                if (message.return_path != null)
+                    envelop.addAll(Arrays.asList(message.return_path));
+                if (message.from != null)
+                    envelop.addAll(Arrays.asList(message.from));
+                for (String signer : message.signedby.split(",")) {
+                    if (signers.length() > 0)
+                        signers.append(", ");
+                    int start = signers.length();
+                    signers.append(signer);
+                    for (Address a : envelop) {
+                        String domain = UriHelper.getEmailDomain(((InternetAddress) a).getAddress());
+                        if (domain != null && Objects.equals(
                                 UriHelper.getRootDomain(context, signer),
                                 UriHelper.getRootDomain(context, domain))) {
+                            signers.setSpan(new ForegroundColorSpan(textColorLink), start, signers.length(), 0);
                             known_signer = true;
                             break;
                         }
+                    }
+                }
             }
             boolean show_signers = (native_dkim &&
                     message.signedby != null &&
@@ -2651,8 +2661,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvSignedByTitle.setVisibility(show_signers ? View.VISIBLE : View.GONE);
             tvSignedBy.setVisibility(show_signers ? View.VISIBLE : View.GONE);
-            tvSignedBy.setTextColor(known_signer ? textColorTertiary : colorAccent);
-            tvSignedBy.setText(message.signedby == null ? null : message.signedby.replace(",", ", "));
+            tvSignedBy.setText(signers);
 
             tvSubmitterTitle.setVisibility(!TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
             tvSubmitter.setVisibility(!TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);

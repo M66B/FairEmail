@@ -2386,7 +2386,9 @@ public class MessageHelper {
         }
 
         try {
+            // https://serverfault.com/questions/591655/what-domain-name-should-appear-in-a-dkim-signature
             String signer = kv.get("d");
+
             String dns = kv.get("s") + "._domainkey." + signer;
             Log.i("DKIM lookup " + dns);
             DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, dns, "txt");
