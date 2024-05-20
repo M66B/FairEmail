@@ -2403,6 +2403,14 @@ public class MessageHelper {
             if (!TextUtils.isEmpty(note))
                 Log.i("DKIM note=" + note);
 
+            // https://datatracker.ietf.org/doc/html/rfc6376#section-3.5
+            Integer t = Helper.parseInt(kv.get("t")); // Works until 2038
+            if (t != null)
+                Log.i("DKIM timestamp=" + new Date(t * 1000L));
+            Integer x = Helper.parseInt(kv.get("x"));
+            if (x != null)
+                Log.i("DKIM expiry=" + new Date(x * 1000L));
+
             String canonic = kv.get("c");
             Log.i("DKIM canonicalization=" + canonic);
             if (canonic == null)
