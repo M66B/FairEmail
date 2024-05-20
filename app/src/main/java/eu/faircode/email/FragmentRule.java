@@ -204,6 +204,7 @@ public class FragmentRule extends FragmentBase {
     private Group grpLocalOnly;
     private Group grpNotes;
     private Group grpUrl;
+    private Group grpSummarize;
 
     private ArrayAdapter<String> adapterGroup;
     private ArrayAdapter<String> adapterDay;
@@ -408,6 +409,7 @@ public class FragmentRule extends FragmentBase {
         grpLocalOnly = view.findViewById(R.id.grpLocalOnly);
         grpNotes = view.findViewById(R.id.grpNotes);
         grpUrl = view.findViewById(R.id.grpUrl);
+        grpSummarize = view.findViewById(R.id.grpSummarize);
 
         adapterGroup = new ArrayAdapter<>(getContext(), R.layout.spinner_item1_dropdown, android.R.id.text1);
         etGroup.setThreshold(1);
@@ -880,6 +882,7 @@ public class FragmentRule extends FragmentBase {
         grpLocalOnly.setVisibility(View.GONE);
         grpNotes.setVisibility(View.GONE);
         grpUrl.setVisibility(View.GONE);
+        grpSummarize.setVisibility(View.GONE);
 
         pbWait.setVisibility(View.VISIBLE);
 
@@ -1468,6 +1471,7 @@ public class FragmentRule extends FragmentBase {
         grpLocalOnly.setVisibility(type == EntityRule.TYPE_LOCAL_ONLY ? View.VISIBLE : View.GONE);
         grpNotes.setVisibility(type == EntityRule.TYPE_NOTES ? View.VISIBLE : View.GONE);
         grpUrl.setVisibility(type == EntityRule.TYPE_URL ? View.VISIBLE : View.GONE);
+        grpSummarize.setVisibility(type == EntityRule.TYPE_SUMMARIZE ? View.VISIBLE : View.GONE);
     }
 
     private void onActionDelete() {

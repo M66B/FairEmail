@@ -2036,6 +2036,7 @@
     <string name="title_rule_sound">Play sound</string>
     <string name="title_rule_silent">Silent notification</string>
     <string name="title_rule_summarize">Summarize</string>
+    <string name="title_rule_summarize_remark">Summarize the message with configured AI integration</string>
 
     <string name="title_rule_caption">Edit rule</string>
     <string name="title_rule_title">Rule applies to</string>
