@@ -202,6 +202,7 @@ public class MessageHelper {
     private static final int DKIM_MIN_KEY_LENGTH = 1024; //  bits
 
     private static final String DKIM_SIGNATURE = "DKIM-Signature";
+    private static final String GOOGLE_DKIM_SIGNATURE = "X-Google-DKIM-Signature";
     private static final String ARC_SEAL = "ARC-Seal";
     private static final String ARC_AUTHENTICATION_RESULTS = "ARC-Authentication-Results";
     private static final String ARC_MESSAGE_SIGNATURE = "ARC-Message-Signature";
@@ -2254,6 +2255,7 @@ public class MessageHelper {
             List<Pair<String, String[]>> list = new ArrayList<>();
             list.add(new Pair<>(DKIM_SIGNATURE, amessage.getHeader(DKIM_SIGNATURE)));
             list.add(new Pair<>(ARC_MESSAGE_SIGNATURE, amessage.getHeader(ARC_MESSAGE_SIGNATURE)));
+            list.add(new Pair<>(DKIM_SIGNATURE, amessage.getHeader(GOOGLE_DKIM_SIGNATURE)));
 
             boolean found = false;
             for (Pair<String, String[]> entry : list)
