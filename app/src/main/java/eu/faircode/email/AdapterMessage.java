@@ -2660,6 +2660,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     (show_addresses || !known_signer));
 
             tvSignedByTitle.setVisibility(show_signers ? View.VISIBLE : View.GONE);
+            tvSignedByTitle.setTextColor(known_signer ? textColorTertiary : colorWarning);
             tvSignedBy.setVisibility(show_signers ? View.VISIBLE : View.GONE);
             tvSignedBy.setText(signers);
 
