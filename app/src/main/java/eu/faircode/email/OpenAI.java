@@ -204,8 +204,8 @@ public class OpenAI {
 
             int status = connection.getResponseCode();
             if (status != HttpURLConnection.HTTP_OK) {
-                // https://platform.openai.com/docs/guides/error-codes/api-errors
                 String error = "Error " + status + ": " + connection.getResponseMessage();
+                String detail = null;
                 try {
                     // HTTP 429
                     // {
@@ -217,24 +217,24 @@ public class OpenAI {
                     //    }
                     //}
                     InputStream is = connection.getErrorStream();
-                    if (is != null) {
-                        String err = Helper.readStream(is);
-                        if (BuildConfig.DEBUG)
-                            error += "\n" + err;
-                        else {
-                            Log.w(new Throwable(err));
-                            try {
-                                JSONObject jerror = new JSONObject(err).getJSONObject("error");
-                                error += "\n" + jerror.getString("type") + ": " + jerror.getString("message");
-                            } catch (JSONException ignored) {
-                                error += "\n" + err;
-                            }
-                        }
-                    }
+                    if (is != null)
+                        detail = Helper.readStream(is);
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
-                throw new IOException(error);
+                Log.w("OpenAI error=" + error + " detail=" + detail);
+                if (detail != null)
+                    try {
+                        JSONObject jroot = new JSONObject(detail);
+                        JSONObject jerror = jroot.optJSONObject("error");
+                        if (jerror != null) {
+                            String msg = jerror.optString("message");
+                            if (!TextUtils.isEmpty(msg))
+                                detail = msg;
+                        }
+                    } catch (Throwable ignored) {
+                    }
+                throw new IOException(TextUtils.isEmpty(detail) ? error : detail);
             }
 
             String response = Helper.readStream(connection.getInputStream());
