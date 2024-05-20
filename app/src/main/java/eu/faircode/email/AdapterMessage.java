@@ -1293,6 +1293,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     message.folderUnified && outgoing) ||
                             EntityFolder.isOutgoing(message.folderInheritedType));
             String selector = (reverse ? null : message.bimi_selector);
+            boolean dmarc = (!reverse && Boolean.TRUE.equals(message.dmarc));
             Address[] addresses = (reverse ? message.to : (message.isForwarder() ? message.submitter : message.from));
             Address[] senders = ContactInfo.fillIn(
                     reverse && !show_recipients ? message.to : message.senders, prefer_contact, only_contact);
@@ -1666,7 +1667,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Contact info
             ContactInfo[] info = ContactInfo.getCached(context,
-                    message.account, message.folderType, selector, addresses);
+                    message.account, message.folderType, selector, dmarc, addresses);
             if (info == null) {
                 if (taskContactInfo != null) {
                     taskContactInfo.cancel(context);
@@ -1678,6 +1679,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 aargs.putLong("account", message.account);
                 aargs.putString("folderType", message.folderType);
                 aargs.putString("selector", selector);
+                aargs.putBoolean("dmarc", dmarc);
                 aargs.putSerializable("addresses", addresses);
 
                 taskContactInfo = new SimpleTask<ContactInfo[]>() {
@@ -1686,8 +1688,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         long account = args.getLong("account");
                         String folderType = args.getString("folderType");
                         String selector = args.getString("selector");
+                        boolean dmarc = args.getBoolean("dmarc");
                         Address[] addresses = (Address[]) args.getSerializable("addresses");
-                        return ContactInfo.get(context, account, folderType, selector, addresses);
+                        return ContactInfo.get(context, account, folderType, selector, dmarc, addresses);
                     }
 
                     @Override
@@ -7502,6 +7505,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putLong("account", message.account);
             args.putString("folderType", message.folderType);
             args.putString("selector", message.bimi_selector);
+            args.putBoolean("dmarc", Boolean.TRUE.equals(message.dmarc));
             args.putSerializable("addresses", message.from);
 
             new SimpleTask<ContactInfo[]>() {
@@ -7510,8 +7514,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     long account = args.getLong("account");
                     String folderType = args.getString("folderType");
                     String selector = args.getString("selector");
+                    boolean dmarc = args.getBoolean("dmarc");
                     Address[] addresses = (Address[]) args.getSerializable("addresses");
-                    return ContactInfo.get(context, account, folderType, selector, addresses);
+                    return ContactInfo.get(context, account, folderType, selector, dmarc, addresses);
                 }
 
                 @Override
