@@ -1571,7 +1571,13 @@ public class EntityRule {
             return true;
         }
 
-        message.preview = AI.getSummaryText(context, message);
+        try {
+            message.preview = AI.getSummaryText(context, message);
+        } catch (Throwable ex) {
+            message.error = Log.formatThrowable(ex);
+            db.message().setMessageError(message.id, message.error);
+            return false;
+        }
 
         db.message().setMessageContent(message.id, message.content, message.language, message.plain_only, message.preview, message.warning);
         db.message().setMessageNotifying(message.id, 0);
