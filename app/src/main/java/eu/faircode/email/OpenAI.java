@@ -277,7 +277,7 @@ public class OpenAI {
             return this.content;
         }
 
-        static Content[] get(Spannable ssb, long id, boolean multimodal, Context context) {
+        static Content[] get(Spannable ssb, long id, Context context) {
             DB db = DB.getInstance(context);
             List<OpenAI.Content> contents = new ArrayList<>();
             int start = 0;
@@ -298,29 +298,29 @@ public class OpenAI {
                     Log.i("OpenAI images=" + (spans == null ? null : spans.length));
                     if (spans != null && spans.length == 1) {
                         int e = ssb.getSpanEnd(spans[0]);
-                        if (multimodal) {
-                            String url = null;
-                            String src = spans[0].getSource();
-                            Log.i("OpenAI image url=" + src);
-                            if (src != null && src.startsWith("cid:")) {
-                                String cid = '<' + src.substring(4) + '>';
-                                EntityAttachment attachment = db.attachment().getAttachment(id, cid);
-                                if (attachment != null && attachment.available) {
-                                    File file = attachment.getFile(context);
-                                    try (InputStream is = new FileInputStream(file)) {
-                                        Bitmap bm = ImageHelper.getScaledBitmap(is, null, null, SCALE2PIXELS);
-                                        Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
-                                        bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
-                                        url = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
-                                    } catch (Throwable ex) {
-                                        Log.w(ex);
-                                    }
+
+                        String url = null;
+                        String src = spans[0].getSource();
+                        Log.i("OpenAI image url=" + src);
+                        if (src != null && src.startsWith("cid:")) {
+                            String cid = '<' + src.substring(4) + '>';
+                            EntityAttachment attachment = db.attachment().getAttachment(id, cid);
+                            if (attachment != null && attachment.available) {
+                                File file = attachment.getFile(context);
+                                try (InputStream is = new FileInputStream(file)) {
+                                    Bitmap bm = ImageHelper.getScaledBitmap(is, null, null, SCALE2PIXELS);
+                                    Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
+                                    bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
+                                    url = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
                                 }
-                            } else
-                                url = src;
-                            if (url != null)
-                                contents.add(new OpenAI.Content(OpenAI.CONTENT_IMAGE, url));
-                        }
+                            }
+                        } else
+                            url = src;
+                        if (url != null)
+                            contents.add(new OpenAI.Content(OpenAI.CONTENT_IMAGE, url));
+
                         end = e;
                     }
                 }

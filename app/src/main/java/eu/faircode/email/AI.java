@@ -53,9 +53,9 @@ public class AI {
             boolean multimodal = prefs.getBoolean("openai_multimodal", false);
 
             OpenAI.Message message;
-            if (body instanceof Spannable)
+            if (body instanceof Spannable && multimodal)
                 message = new OpenAI.Message(OpenAI.USER,
-                        OpenAI.Content.get((Spannable) body, id, multimodal, context));
+                        OpenAI.Content.get((Spannable) body, id, context));
             else
                 message = new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
                         new OpenAI.Content(OpenAI.CONTENT_TEXT, body.toString())});
@@ -139,9 +139,13 @@ public class AI {
                 input.add(new OpenAI.Message(OpenAI.USER,
                         new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, message.subject)}));
 
-            SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
-            input.add(new OpenAI.Message(OpenAI.USER,
-                    OpenAI.Content.get(ssb, message.id, multimodal, context)));
+            if (multimodal) {
+                SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
+                input.add(new OpenAI.Message(OpenAI.USER,
+                        OpenAI.Content.get(ssb, message.id, context)));
+            } else
+                input.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
+                        new OpenAI.Content(OpenAI.CONTENT_TEXT, d.text())}));
 
             OpenAI.Message[] completions =
                     OpenAI.completeChat(context, model, input.toArray(new OpenAI.Message[0]), temperature, 1);
@@ -160,10 +164,15 @@ public class AI {
             float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
             String prompt = prefs.getString("gemini_summarize", Gemini.DEFAULT_SUMMARY_PROMPT);
 
-            String text = d.text();
-            if (TextUtils.isEmpty(text))
-                return null;
-            Gemini.Message content = new Gemini.Message(Gemini.USER, new String[]{prompt, text});
+            String body = d.text();
+
+            List<String> texts = new ArrayList<>();
+            texts.add(prompt);
+            if (!TextUtils.isEmpty(message.subject))
+                texts.add(message.subject);
+            if (!TextUtils.isEmpty(body))
+                texts.add(body);
+            Gemini.Message content = new Gemini.Message(Gemini.USER, texts.toArray(new String[0]));
 
             Gemini.Message[] completions =
                     Gemini.generate(context, model, new Gemini.Message[]{content}, temperature, 1);
