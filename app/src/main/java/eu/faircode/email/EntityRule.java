@@ -1566,6 +1566,9 @@ public class EntityRule {
     private boolean onActionSummarize(Context context, EntityMessage message, JSONObject jargs) throws JSONException, IOException {
         DB db = DB.getInstance(context);
 
+        if (message.ui_hide)
+            return false;
+
         if (!this.async && this.id != null) {
             EntityOperation.queue(context, message, EntityOperation.RULE, this.id);
             return true;
