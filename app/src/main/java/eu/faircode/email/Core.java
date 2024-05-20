@@ -3518,6 +3518,8 @@ class Core {
                                         }
                                     }
                             }
+                            if (!Boolean.TRUE.equals(message.dkim))
+                                message.dmarc = message.dkim;
                         }
 
                         if (message.size == null && message.total != null)
@@ -4680,6 +4682,8 @@ class Core {
                             }
                         }
                 }
+                if (!Boolean.TRUE.equals(message.dkim))
+                    message.dmarc = message.dkim;
             }
 
             // Borrow reply name from sender name
