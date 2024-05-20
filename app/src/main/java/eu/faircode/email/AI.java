@@ -50,7 +50,7 @@ public class AI {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
-            boolean multimodal = prefs.getBoolean("openai_multimodal", true);
+            boolean multimodal = prefs.getBoolean("openai_multimodal", false);
 
             OpenAI.Message message;
             if (body instanceof Spannable)
@@ -129,7 +129,7 @@ public class AI {
             String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
             String prompt = prefs.getString("openai_summarize", OpenAI.DEFAULT_SUMMARY_PROMPT);
-            boolean multimodal = prefs.getBoolean("openai_multimodal", true);
+            boolean multimodal = prefs.getBoolean("openai_multimodal", false);
 
             List<OpenAI.Message> input = new ArrayList<>();
             input.add(new OpenAI.Message(OpenAI.USER,

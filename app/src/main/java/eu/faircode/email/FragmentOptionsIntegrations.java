@@ -787,7 +787,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             etOpenAiModel.setText(prefs.getString("openai_model", null));
             etOpenAiModel.setEnabled(swOpenAi.isChecked());
 
-            swOpenMultiModal.setChecked(prefs.getBoolean("openai_multimodal", true));
+            swOpenMultiModal.setChecked(prefs.getBoolean("openai_multimodal", false));
             swOpenMultiModal.setEnabled(swOpenAi.isChecked());
 
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
