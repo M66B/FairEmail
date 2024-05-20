@@ -94,7 +94,7 @@ public class AI {
                 }
             return sb.toString();
         } else
-            return null;
+            throw new IllegalArgumentException("No AI available");
     }
 
     static String getSummarizePrompt(Context context) {
@@ -186,6 +186,6 @@ public class AI {
                 }
             return sb.toString();
         } else
-            return null;
+            throw new IllegalArgumentException("No AI available");
     }
 }
