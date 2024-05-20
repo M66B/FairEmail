@@ -188,15 +188,27 @@ public class Gemini {
             int status = connection.getResponseCode();
             if (status != HttpURLConnection.HTTP_OK) {
                 String error = "Error " + status + ": " + connection.getResponseMessage();
+                String detail = null;
                 try {
                     InputStream is = connection.getErrorStream();
                     if (is != null)
-                        error += "\n" + Helper.readStream(is);
+                        detail = Helper.readStream(is);
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
-                Log.w("Gemini error=" + error);
-                throw new IOException(error);
+                Log.w("Gemini error=" + error + " detail=" + detail);
+                if (detail != null)
+                    try {
+                        JSONObject jroot = new JSONObject(detail);
+                        JSONObject jerror = jroot.optJSONObject("error");
+                        if (jerror != null) {
+                            String msg = jerror.optString("message");
+                            if (!TextUtils.isEmpty(msg))
+                                detail = msg;
+                        }
+                    } catch (Throwable ignored) {
+                    }
+                throw new IOException(TextUtils.isEmpty(detail) ? error : detail);
             }
 
             String response = Helper.readStream(connection.getInputStream());
