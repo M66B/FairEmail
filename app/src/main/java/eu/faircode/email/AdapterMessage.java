@@ -2652,7 +2652,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSignedByTitle.setVisibility(show_signers ? View.VISIBLE : View.GONE);
             tvSignedBy.setVisibility(show_signers ? View.VISIBLE : View.GONE);
             tvSignedBy.setTextColor(known_signer ? textColorTertiary : colorAccent);
-            tvSignedBy.setText(message.signedby);
+            tvSignedBy.setText(message.signedby == null ? null : message.signedby.replace(",", ", "));
 
             tvSubmitterTitle.setVisibility(!TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
             tvSubmitter.setVisibility(!TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
