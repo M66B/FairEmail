@@ -2425,8 +2425,11 @@ public class HtmlHelper {
         if ("cloudmagic-smart-beacon".equals(img.className()))
             return true;
 
-        String width = img.attr("width").trim();
-        String height = img.attr("height").trim();
+        // Canary Mail
+        // <img id="..." alt="" width="0px" src="https://receipts.canarymail.io/track/..._....png" height="0px">
+
+        String width = img.attr("width").replace("px", "").trim();
+        String height = img.attr("height").replace("px", "").trim();
 
         if (TextUtils.isEmpty(width) || TextUtils.isEmpty(height))
             return false;
