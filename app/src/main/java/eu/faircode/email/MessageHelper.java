@@ -199,7 +199,6 @@ public class MessageHelper {
     private static final int MAX_META_EXCERPT = 1024; // characters
     private static final int FORMAT_FLOWED_LINE_LENGTH = 72; // characters
     private static final int MAX_DIAGNOSTIC = 250; // characters
-    private static final int DKIM_MIN_TEXT = 100; // characters
     private static final int DKIM_MIN_KEY_LENGTH = 1024; //  bits
 
     private static final String DKIM_SIGNATURE = "DKIM-Signature";
@@ -2252,26 +2251,22 @@ public class MessageHelper {
             }
 
             // https://datatracker.ietf.org/doc/html/rfc6376/
-            String[] dkim_headers = amessage.getHeader(DKIM_SIGNATURE);
-            String[] arc_headers = amessage.getHeader(ARC_MESSAGE_SIGNATURE);
+            List<Pair<String, String[]>> list = new ArrayList<>();
+            list.add(new Pair<>(DKIM_SIGNATURE, amessage.getHeader(DKIM_SIGNATURE)));
+            list.add(new Pair<>(ARC_MESSAGE_SIGNATURE, amessage.getHeader(ARC_MESSAGE_SIGNATURE)));
 
-            if ((dkim_headers == null ? 0 : dkim_headers.length) +
-                    (arc_headers == null ? 0 : arc_headers.length) == 0)
+            boolean found = false;
+            for (Pair<String, String[]> entry : list)
+                if (entry.second != null)
+                    for (String header : entry.second) {
+                        found = true;
+                        String signer = verifySignatureHeader(context, header, entry.first, amessage);
+                        if (signer != null && !signers.contains(signer))
+                            signers.add(signer);
+                    }
+
+            if (!found)
                 return signers;
-
-            if (dkim_headers != null)
-                for (String header : dkim_headers) {
-                    String signer = verifySignatureHeader(context, header, DKIM_SIGNATURE, amessage);
-                    if (signer != null && !signers.contains(signer))
-                        signers.add(signer);
-                }
-
-            if (arc_headers != null)
-                for (String header : arc_headers) {
-                    String signer = verifySignatureHeader(context, header, ARC_MESSAGE_SIGNATURE, amessage);
-                    if (signer != null && !signers.contains(signer))
-                        signers.add(signer);
-                }
 
             Log.i("DKIM signers=" + TextUtils.join(",", signers));
 
