@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AI {
-    private static final int MAX_SUMMARIZE_TEXT_SIZE = 10 * 1024;
+    private static final int MAX_SUMMARIZE_TEXT_SIZE = 4 * 1024;
 
     static boolean isAvailable(Context context) {
         return (OpenAI.isAvailable(context) || Gemini.isAvailable(context));
