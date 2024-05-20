@@ -13,6 +13,7 @@ Next version
 * Listing NOT rule conditions
 * Reverted AndroidX fragment to version 1.6.2
 * Small improvements and minor bug fixes
+* Updated build tools
 * Updated translations
 
 Preview versions are available here.
