@@ -647,7 +647,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         boolean tabular_card_bg = prefs.getBoolean("tabular_card_bg", false);
         String theme = prefs.getString("theme", "blue_orange_system");
         boolean dark = Helper.isDarkTheme(context);
-        boolean black = (!"black".equals(theme) && theme.endsWith("black"));
+        boolean black = ((!"black".equals(theme) && theme.endsWith("black")) || "black_and_white".equals(theme));
         boolean solarized = theme.startsWith("solarized");
         boolean you = theme.startsWith("you_");
 
