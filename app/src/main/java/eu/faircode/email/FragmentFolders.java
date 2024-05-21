@@ -133,8 +133,9 @@ public class FragmentFolders extends FragmentBase {
     static final int REQUEST_EXECUTE_RULES = 4;
     static final int REQUEST_EXPORT_MESSAGES = 5;
     static final int REQUEST_IMPORT_MESSAGES = 6;
-    static final int REQUEST_EDIT_ACCOUNT_NAME = 7;
-    static final int REQUEST_EDIT_ACCOUNT_COLOR = 8;
+    static final int REQUEST_EDIT_FOLDER_COLOR = 7;
+    static final int REQUEST_EDIT_ACCOUNT_NAME = 8;
+    static final int REQUEST_EDIT_ACCOUNT_COLOR = 9;
 
     private static final long EXPORT_PROGRESS_INTERVAL = 5000L; // milliseconds
 
@@ -972,6 +973,10 @@ public class FragmentFolders extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         onImportMessages(data.getData());
                     break;
+                case REQUEST_EDIT_FOLDER_COLOR:
+                    if (resultCode == RESULT_OK && data != null)
+                        onEditFolderColor(data.getBundleExtra("args"));
+                    break;
                 case REQUEST_EDIT_ACCOUNT_NAME:
                     if (resultCode == RESULT_OK && data != null)
                         onEditAccountName(data.getBundleExtra("args"));
@@ -1689,6 +1694,33 @@ public class FragmentFolders extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex, report);
             }
         }.setKeepAwake(true).execute(this, args, "folder:export");
+    }
+
+    private void onEditFolderColor(Bundle args) {
+        if (!ActivityBilling.isPro(getContext())) {
+            startActivity(new Intent(getContext(), ActivityBilling.class));
+            return;
+        }
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                Integer color = args.getInt("color");
+
+                if (color == Color.TRANSPARENT)
+                    color = null;
+
+                DB db = DB.getInstance(context);
+                db.folder().setFolderColor(id, color);
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "edit:color");
     }
 
     private void onEditAccountName(Bundle args) {

@@ -658,6 +658,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     }
                 }
 
+                if (parentFragment instanceof FragmentFolders)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_color, order++, R.string.title_color);
+
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, order++, R.string.title_edit_properties);
 
                 if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
@@ -809,6 +812,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         return true;
                     } else if (itemId == R.string.title_import_messages) {
                         onActionImportMessages();
+                        return true;
+                    } else if (itemId == R.string.title_color) {
+                        onActionEditColor();
                         return true;
                     } else if (itemId == R.string.title_edit_properties) {
                         onActionEditProperties();
@@ -1317,6 +1323,19 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     parentFragment.startActivityForResult(
                             Helper.getChooser(context, intent),
                             FragmentFolders.REQUEST_IMPORT_MESSAGES);
+                }
+
+                private void onActionEditColor() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", folder.id);
+                    args.putInt("color", folder.color == null ? Color.TRANSPARENT : folder.color);
+                    args.putString("title", context.getString(R.string.title_color));
+                    args.putBoolean("reset", true);
+
+                    FragmentDialogColor fragment = new FragmentDialogColor();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(parentFragment, FragmentFolders.REQUEST_EDIT_FOLDER_COLOR);
+                    fragment.show(parentFragment.getParentFragmentManager(), "edit:color");
                 }
 
                 private void onActionEditProperties() {
