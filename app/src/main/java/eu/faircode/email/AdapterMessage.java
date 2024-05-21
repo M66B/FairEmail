@@ -1400,9 +1400,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 (Boolean.TRUE.equals(message.dmarc) ? 1 : 0);
 
                 // https://en.wikipedia.org/wiki/DMARC#Alignment
-                if (Boolean.TRUE.equals(message.dkim) &&
-                        !Boolean.FALSE.equals(message.spf) &&
-                        !Boolean.FALSE.equals(message.dmarc))
+                if (Boolean.TRUE.equals(message.dmarc) &&
+                        (Boolean.TRUE.equals(message.dkim) ||
+                                Boolean.TRUE.equals(message.spf)))
                     auths = 3;
 
                 if (Boolean.TRUE.equals(message.auth))
