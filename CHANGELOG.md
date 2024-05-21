@@ -12,7 +12,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
 
-### 1.2182 - 2024-05-21
+### 1.2183 - 2024-05-21
 
 * Prepared for Android 15
 * Added "AI" summarize rule action

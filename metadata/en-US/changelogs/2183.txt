@@ -12,7 +12,7 @@ Next version
 
 Preview versions are available here.
 
-1.2182 - 2024-05-21
+1.2183 - 2024-05-21
 
 * Prepared for Android 15
 * Added "AI" summarize rule action
