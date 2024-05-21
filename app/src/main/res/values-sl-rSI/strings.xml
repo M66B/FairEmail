@@ -544,7 +544,6 @@
     <string name="title_advanced_actionbar_swap">Zamenjaj gumba za smeti in arhiviranje</string>
     <string name="title_advanced_actionbar_color">Za barvo ozadja vrstice z dejanji pogovorov uporabi barvo računa</string>
     <string name="title_advanced_category_header">Združi po kategorijah računa</string>
-    <string name="title_advanced_navbar_colorize">Obarvaj Androidovo vrstico za krmarjenje</string>
     <string name="title_advanced_list_count">Prikaži število sporočil ali pogovorov v vrhnji vrstici dejanj</string>
     <string name="title_advanced_bundled_fonts">Uporabi svežnje pisav</string>
     <string name="title_advanced_parse_classes">Razčleni slogovne predloge</string>

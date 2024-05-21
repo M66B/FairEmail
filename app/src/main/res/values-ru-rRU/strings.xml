@@ -146,7 +146,7 @@
     <string name="title_notification_sending">Отправка сообщений</string>
     <string name="title_notification_waiting">Ожидание подходящего подключения</string>
     <string name="title_notification_idle">Низкий</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">Ошибка в учётной записи \"%1$s\"</string>
+    <string name="title_notification_failed">Ошибка в учётной записи \"%1$s\"</string>
     <string name="title_notification_alert">Предупреждение сервера: \"%1$s\"</string>
     <string name="title_notification_sending_left">Оставшиеся попытки: %1$d</string>
     <string name="title_notification_sending_retry">Повторная отправка будет произведена при изменении интернет-подключения или жесте \"потянуть вниз\" в исходящей папке</string>
@@ -613,7 +613,6 @@
     <string name="title_advanced_actionbar_swap">Поменять местами кнопки \"Корзина\" и \"Архив\"</string>
     <string name="title_advanced_actionbar_color">Использовать цвет учётной записи в качестве фонового для панели действий в диалоге</string>
     <string name="title_advanced_category_header">Группировать по категориям учётных записей</string>
-    <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
     <string name="title_advanced_list_count">Показывать количество сообщений или диалогов в верхней панели действий</string>
     <string name="title_advanced_bundled_fonts">Использовать встроенные шрифты</string>
     <string name="title_advanced_narrow_fonts">Использовать узкие шрифты</string>
@@ -1721,6 +1720,8 @@
     <string name="title_rule_delete">Удалить окончательно</string>
     <string name="title_rule_sound">Воспроизвести звук</string>
     <string name="title_rule_silent">Тихое уведомление</string>
+    <string name="title_rule_summarize">Сводка</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Обобщающее сообщение от интегрированного ИИ</string>
     <string name="title_rule_caption">Изменить правило</string>
     <string name="title_rule_title">Правило применяется к</string>
     <string name="title_rule_name">Название</string>

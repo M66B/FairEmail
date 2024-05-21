@@ -570,7 +570,6 @@
     <string name="title_advanced_actionbar_swap">Tlačidlo vymeniť kôš a archív</string>
     <string name="title_advanced_actionbar_color">Použiť farbu účtu ako farbu pozadia panela akcií konverzácie</string>
     <string name="title_advanced_category_header">Zoskupiť podľa kategórie účtu</string>
-    <string name="title_advanced_navbar_colorize">Zafarbiť navigačný panel Androidu</string>
     <string name="title_advanced_list_count">Zobrazovať počet správ alebo konverzácií na vrchnom panely akcií</string>
     <string name="title_advanced_bundled_fonts">Používať zabudované písma</string>
     <string name="title_advanced_parse_classes">Spracovať štýly CSS</string>

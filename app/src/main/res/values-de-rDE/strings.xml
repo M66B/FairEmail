@@ -119,7 +119,7 @@
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_idle">Leerlauf</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">Konto „%1$s” fehlgeschlagen</string>
+    <string name="title_notification_failed">Konto »%1$s« fehlgeschlagen</string>
     <string name="title_notification_alert">Serverwarnung: \'%1$s\'</string>
     <string name="title_notification_sending_left">Verbleibende Versuche: %1$d</string>
     <string name="title_notification_sending_retry">Das Senden wird erneut versucht, wenn sich die Internetverbindung ändert oder der Postausgang heruntergezogen wird</string>
@@ -242,7 +242,7 @@
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
     <string name="title_setup_doze_device">Dies ist wahrscheinlich für dieses Gerät erforderlich</string>
     <string name="title_setup_alarm_12">Die App wird nicht ordnungsgemäß funktionieren</string>
-    <string name="title_setup_fg_15">Die App konnte nicht automatisch gestartet werden</string>
+    <string name="title_setup_fg_15">Die App kann nicht automatisch gestartet werden</string>
     <string name="title_setup_inexact">Benachrichtigungen und Erinnerungen sind deaktiviert</string>
     <string name="title_setup_background">Hintergrundbeschränkungen sind aktiviert</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
@@ -587,7 +587,6 @@
     <string name="title_advanced_actionbar_swap">Schaltflächen »Papierkorb« und »Archiv« tauschen</string>
     <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
     <string name="title_advanced_category_header">Nach Kontokategorie gruppieren</string>
-    <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_list_count">Anzahl der Nachrichten oder Unterhaltungen in der oberen Aktionsleiste anzeigen</string>
     <string name="title_advanced_bundled_fonts">Vorinstallierte Schriftarten verwenden</string>
     <string name="title_advanced_narrow_fonts">Schmale Schriftarten verwenden</string>
@@ -778,6 +777,7 @@
     <string name="title_advanced_openai_moderation">Moderation von Inhalten</string>
     <string name="title_advanced_gemini">Gemini-Integration</string>
     <string name="title_advanced_multi_modal">Multimodal</string>
+    <string name="title_advanced_summarize_prompt">Aufforderung zusammenfassen</string>
     <string name="title_advanced_sdcard">Ich möchte eine SD-Karte verwenden</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Auf GitHub nach Aktualisierungen suchen</string>
@@ -854,8 +854,8 @@
     <string name="title_advanced_threading_hint">Zusammengehörige Nachrichten gruppieren</string>
     <string name="title_advanced_indentation_hint">Nur im Kartenstil</string>
     <string name="title_advanced_highlight_hint">Die Akzentfarbe des Designs wird zur Hervorhebung verwendet</string>
-    <string name="title_advanced_free">Die Nutzung dieses Cloud-Dienstes ist kostenlos</string>
-    <string name="title_advanced_free_tier">Dieser Cloud-Dienste kann bis zu einem gewissen Grad kostenlos genutzt werden</string>
+    <string name="title_advanced_free">Dieser Cloud-Dienst kann kostenlos verwendet werden</string>
+    <string name="title_advanced_free_tier">Dieser Cloud-Dienst kann mit Einschränkungen kostenlos verwendet werden</string>
     <string name="title_advanced_paid_service">Dieser Cloud-Dienst ist kostenpflichtig</string>
     <string name="title_advanced_privacy_risk">Es könnte ein Datenschutzrisiko geben</string>
     <string name="title_advanced_name_email_hint">Namen werden nur angezeigt, wenn sie verfügbar sind</string>
@@ -1695,6 +1695,8 @@
     <string name="title_rule_delete">Dauerhaft löschen</string>
     <string name="title_rule_sound">Ton abspielen</string>
     <string name="title_rule_silent">Lautlose Benachrichtigung</string>
+    <string name="title_rule_summarize">Zusammenfassen</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Nachricht mit der konfigurierten KI-Integration zusammenfassen</string>
     <string name="title_rule_caption">Regel bearbeiten</string>
     <string name="title_rule_title">Regel gilt für</string>
     <string name="title_rule_name">Name</string>

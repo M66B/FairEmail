@@ -146,6 +146,7 @@
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_idle">Bezczynny</string>
+    <string name="title_notification_failed">Niepowodzenie dla konta \'%1$s\'</string>
     <string name="title_notification_alert">Alert serwera: \'%1$s\'</string>
     <string name="title_notification_sending_left">Pozostało prób: %1$d</string>
     <string name="title_notification_sending_retry">Wysyłanie zostanie ponowione po zmianie połączenia internetowego lub pociągnięciu w dół skrzynki nadawczej</string>
@@ -612,7 +613,6 @@
     <string name="title_advanced_actionbar_swap">Zamień miejscami przycisk kosza i archiwum</string>
     <string name="title_advanced_actionbar_color">Użyj koloru konta jako koloru tła dla paska akcji konwersacji</string>
     <string name="title_advanced_category_header">Grupuj według kategorii konta</string>
-    <string name="title_advanced_navbar_colorize">Koloruj pasek nawigacji Androida</string>
     <string name="title_advanced_list_count">Pokaż liczbę wiadomości lub konwersacji na górnym pasku akcji</string>
     <string name="title_advanced_bundled_fonts">Użyj dołączonych czcionek</string>
     <string name="title_advanced_narrow_fonts">Używaj wąskich czcionek</string>
@@ -801,6 +801,7 @@
     <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
     <string name="title_advanced_openai_moderation">Kontrola treści</string>
     <string name="title_advanced_gemini">Integracja z Gemini</string>
+    <string name="title_advanced_multi_modal">Wielomodalny</string>
     <string name="title_advanced_summarize_prompt">Podsumowanie podpowiedzi</string>
     <string name="title_advanced_sdcard">Chcę użyć karty SD</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
@@ -1619,6 +1620,7 @@
     <string name="title_search_flag_notes">notatki</string>
     <string name="title_search_flag_invite">zaproszenie</string>
     <string name="title_search_flag_size">rozmiar &gt; %1$s</string>
+    <string name="title_search_flag_touched">dotknięto</string>
     <string name="title_search_device">Szukaj na urządzeniu</string>
     <string name="title_search_server">Szukaj na serwerze</string>
     <string name="title_search_server_wait">Oczekiwanie na serwer</string>
@@ -1716,6 +1718,8 @@
     <string name="title_rule_delete">Usuń trwale</string>
     <string name="title_rule_sound">Odtwórz dźwięk</string>
     <string name="title_rule_silent">Ciche powiadomienia</string>
+    <string name="title_rule_summarize">Podsumowanie</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Podsumuj wiadomość dzięki skonfigurowanej integracji AI</string>
     <string name="title_rule_caption">Edytuj regułę</string>
     <string name="title_rule_title">Reguła dotyczy</string>
     <string name="title_rule_name">Nazwa</string>

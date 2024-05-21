@@ -483,7 +483,6 @@
     <string name="title_advanced_actionbar">Hiện thanh hành đông ở cuộc hội thoại</string>
     <string name="title_advanced_actionbar_color">Sử dụng màu tài khoản làm màu nền cho thanh hành động trong cuộc hội thoại</string>
     <string name="title_advanced_category_header">Nhóm theo thể loại tài khoản</string>
-    <string name="title_advanced_navbar_colorize">Tô màu thanh điều hướng Android</string>
     <string name="title_advanced_list_count">Hiện số thư hoặc cuộc hội thoại trong thanh hành động trên cùng</string>
     <string name="title_advanced_bundled_fonts">Sử dụng phông chữ tích hợp</string>
     <string name="title_advanced_parse_classes">Xử lý các trang phong cách</string>

@@ -118,6 +118,7 @@
     <string name="title_notification_sending">Mesaj göndərilir</string>
     <string name="title_notification_waiting">Əlverişli bağlantı gözlənilir</string>
     <string name="title_notification_idle">Aktiv deyil</string>
+    <string name="title_notification_failed">\'%1$s\' hesabı uğursuz oldu</string>
     <string name="title_notification_alert">Server xəbərdarlığı: \'%1$s\'</string>
     <string name="title_notification_sending_left">%1$d cəhd qaldı</string>
     <string name="title_notification_sending_retry">Göndərmə, internet bağlantısı dəyişikliyində və ya gedən qutusu aşağı çəkiləndə yenidən ediləcək</string>
@@ -585,7 +586,6 @@
     <string name="title_advanced_actionbar_swap">Tullantı və arxiv düymələrini dəyişdir</string>
     <string name="title_advanced_actionbar_color">Hesab rəngini danışıq əməliyyat sətri üçün arxaplan rəngi kimi istifadə et</string>
     <string name="title_advanced_category_header">Hesab kateqoriyasına görə qruplaşdır</string>
-    <string name="title_advanced_navbar_colorize">Android naviqasiya sətrini rəngləndir</string>
     <string name="title_advanced_list_count">Üst əməliyyat sətrində mesaj və ya danışıq sayını göstər</string>
     <string name="title_advanced_bundled_fonts">Paketlənmiş yazı növlərini istifadə et</string>
     <string name="title_advanced_narrow_fonts">Dar şriftləri istifadə et</string>
@@ -1693,6 +1693,7 @@
     <string name="title_rule_delete">Birdəfəlik sil</string>
     <string name="title_rule_sound">Səs oxut</string>
     <string name="title_rule_silent">Bildirişləri susdur</string>
+    <string name="title_rule_summarize">İcmal</string>
     <string name="title_rule_caption">Qaydaya düzəliş et</string>
     <string name="title_rule_title">Qayda tətbiq olunur</string>
     <string name="title_rule_name">Ad</string>

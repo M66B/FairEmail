@@ -114,7 +114,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_notification_sending">Berjochten ferstjoere</string>
     <string name="title_notification_waiting">Wachtsje op in geskikte ferbining</string>
     <string name="title_notification_idle">Ynaktyf</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">Account ‘%1$s’ is mislearre</string>
+    <string name="title_notification_failed">Account ‘%1$s’ is mislearre</string>
     <string name="title_notification_alert">Serverwarskôging: ‘%1$s’</string>
     <string name="title_notification_sending_left">Restearjende besykjen: %1$d</string>
     <string name="title_notification_sending_retry">Ferstjoeren wurdt opnij probearre by wizigingen fan ynternetferbining of nei it nei ûnderen lûke fan Postfek ÚT</string>
@@ -582,7 +582,6 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_actionbar_swap">Jiskefet- en argivearknop wikselje</string>
     <string name="title_advanced_actionbar_color">Accountkleur as eftergrûnkleur foar petearbalke foar petearen brûke</string>
     <string name="title_advanced_category_header">Op accountkategory groepearje</string>
-    <string name="title_advanced_navbar_colorize">Kleurje de Android-navigaasjebalke yn</string>
     <string name="title_advanced_list_count">It tal berjochten of petearen yn de boppeste aksjebalke toane</string>
     <string name="title_advanced_bundled_fonts">Bondele lettertypen brûke</string>
     <string name="title_advanced_narrow_fonts">Smelle lettertypen brûke</string>
@@ -1684,6 +1683,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_rule_delete">Permanint fuortsmite</string>
     <string name="title_rule_sound">Lûd ôfspylje</string>
     <string name="title_rule_silent">Stille melding</string>
+    <string name="title_rule_summarize">Gearfetsje</string>
     <string name="title_rule_caption">Rigel bewurkje</string>
     <string name="title_rule_title">Regel jildt foar</string>
     <string name="title_rule_name">Namme</string>

@@ -104,6 +104,7 @@
     <string name="title_notification_sending">Mengirim pesan</string>
     <string name="title_notification_waiting">Menunggu koneksi yang sesuai</string>
     <string name="title_notification_idle">Siaga</string>
+    <string name="title_notification_failed">Akun \'%1$s\' gagal</string>
     <string name="title_notification_alert">Peringatan server: \'%1$s\'</string>
     <string name="title_notification_sending_left">Percobaan tersisa: %1$d</string>
     <string name="title_notification_sending_retry">Pengiriman akan dilakukan ulang saat perubahan koneksi internet atau menarik kebawah di kotak keluar</string>
@@ -124,7 +125,7 @@
     <string name="menu_privacy">Privasi</string>
     <string name="menu_about">Tentang</string>
     <string name="menu_pro">Fitur Pro</string>
-    <string name="menu_rate">Berikan nilai untuk aplikasi ini</string>
+    <string name="menu_rate">Beri nilai aplikasi ini</string>
     <string name="title_welcome">Selamat Datang</string>
     <string name="title_eula">Perjanjian lisensi pengguna akhir</string>
     <string name="title_license">Lisensi sumber terbuka</string>
@@ -143,12 +144,12 @@
     <string name="title_setup">Pengaturan</string>
     <string name="title_setup_help">Bantuan</string>
     <string name="title_setup_quick">Pengaturan Cepat</string>
-    <string name="title_setup_intro">Melakukan pengaturan akun hanya dengan tiga cara dan setelah itu Anda sudah bisa mengirim dan menerima surel</string>
+    <string name="title_setup_intro">Menyiapkan akun hanya dengan tiga langkah dan setelah itu Anda sudah bisa mengirim dan menerima surel</string>
     <string name="title_setup_simple">Tidak perlu melakukan perubahan pada opsi lain</string>
     <string name="title_setup_issue">FairEmail dikembangkan untuk melindungi privasi dan secara harfiah mewakili ribuan jam kerja. Jika Anda mengalami kendala, silakan hubungi saya terlebih dahulu untuk membantu anda sebelum memberikan tinjauan buruk. Saya senang membantu Anda!</string>
     <string name="title_setup_analytics">FairEmail tidak menampilkan iklan dan tidak melacak atau menganalisis kebiasaan Anda. Bugsnag digunakan untuk melaporkan gangguan dan dimatikan secara bawaan.</string>
     <string name="title_setup_quick_accounts">Tambah atau ganti akun</string>
-    <string name="title_setup_quick_support">Beberapa layanan email mempersulit penambahan akun. Mohon jangan menyalahkan FairEmail untuk ini, tetapi mintalah dukungan sebagai gantinya.</string>
+    <string name="title_setup_quick_support">Beberapa penyedia layanan email mempersulit penambahan akun. Mohon jangan menyalahkan FairEmail untuk ini, tetapi mintalah dukungan sebagai gantinya.</string>
     <string name="title_setup_quick_hint">Alamat email yang dimasukkan digunakan untuk meminta server email dan autoconfig.thunderbird.net untuk informasi konfigurasi</string>
     <string name="title_setup_quick_patience">Harap bersabar &#8230;</string>
     <string name="title_setup_quick_imap">Server IMAP untuk menerima pesan</string>
@@ -221,16 +222,17 @@
     <string name="title_setup_doze_hint">Meskipun mungkin terdengar kontradiktif, menonaktifkan pengoptimalan baterai untuk aplikasi ini akan mengurangi penggunaan baterai</string>
     <string name="title_setup_doze_aggressively">Perangkat ini mungkin menghentikan layanan sinkronisasi</string>
     <string name="title_setup_doze_why">Mengapa pengoptimalan baterai harus dinonaktifkan?</string>
-    <string name="title_setup_doze_instructions">Pada perubahan dialog Android berikutnya \"Tidak dioptimalkan\" menjadi \"Semua Aplikasi\", pilih aplikasi dan pilih \"Jangan Optimalkan\"</string>
-    <string name="title_setup_doze_battery">Penggunaan boros baterai?</string>
+    <string name="title_setup_doze_instructions">Pada perubahan dialog Android berikutnya \"Tidak dioptimalkan\" menjadi \"Semua Aplikasi\", pilih aplikasi FairMail dan pilih \"Jangan Optimalkan\"</string>
+    <string name="title_setup_doze_battery">Penggunaan baterai boros?</string>
     <string name="title_setup_doze_stopped">Sinkronisasi berhenti?</string>
     <string name="title_setup_doze_device">Ini mungkin diperlukan untuk perangkat ini</string>
     <string name="title_setup_alarm_12">Aplikasi tidak berfungsi dengan baik</string>
+    <string name="title_setup_fg_15">Aplikasi ini tidak bisa dimulai secara otomatis</string>
     <string name="title_setup_inexact">Peringatan pengingat &amp; nonaktif</string>
     <string name="title_setup_background">Pembatasan pada latar belakang telah diaktifkan</string>
     <string name="title_setup_data">Penghemat kuota diaktifkan</string>
     <string name="title_setup_always">Pemberitahuan instan pesan baru</string>
-    <string name="title_setup_always_remark">Jika diaktifkan, koneksi yang tidak stabil, perangkat keras jaringan lawas, dll. dapat menyebabkan pemakaian baterai lebih boros</string>
+    <string name="title_setup_always_remark">Jika diaktifkan, koneksi tidak stabil, perangkat keras jaringan lama, dll. dapat menyebabkan pemakaian baterai lebih boros</string>
     <string name="title_setup_advanced_options">Tampilkan opsi lanjutan</string>
     <string name="title_setup_inbox">Buka kotak masuk</string>
     <string name="title_setup_go">Mulai</string>
@@ -568,7 +570,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_actionbar_swap">Tukar tombol sampah dan arsip</string>
     <string name="title_advanced_actionbar_color">Gunakan warna akun sebagai latar belakang percakapan pada status bar</string>
     <string name="title_advanced_category_header">Kelompokkan berdasarkan kategori akun</string>
-    <string name="title_advanced_navbar_colorize">Warnai Navigasi Bar Android</string>
     <string name="title_advanced_list_count">Tunjukkan jumlah pesan atau percakapan di bagian atas action bar</string>
     <string name="title_advanced_bundled_fonts">Gunakan font yang dibundel</string>
     <string name="title_advanced_narrow_fonts">Gunakan font yang sempit</string>
@@ -741,6 +742,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_haptic_feedback">Umpan balik haptic pada tindakan penting</string>
     <string name="title_advanced_language">Bahasa</string>
     <string name="title_advanced_language_system">Sistem</string>
+    <string name="title_advanced_integrations_hint">Layanan awan berikut bukan bagian dari aplikasi. Pembayaran apa pun langsung ke layanan awan dan bukan ke pengembang aplikasi.</string>
     <string name="title_advanced_lt">Integrasi LanguageTool</string>
     <string name="title_advanced_lt_sentence">Periksa setiap kalimat</string>
     <string name="title_advanced_lt_auto">Periksa paragraf setelah baris baru</string>
@@ -756,6 +758,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_openai_temperature">Temperatur: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderasi konten</string>
     <string name="title_advanced_gemini">Integrasi Gemini</string>
+    <string name="title_advanced_multi_modal">Multimodal</string>
     <string name="title_advanced_summarize_prompt">Ringkas permintaan</string>
     <string name="title_advanced_sdcard">Saya ingin menggunakan sdcard</string>
     <string name="title_advanced_watchdog">Periksa secara berkala apakah FairEmail masih aktif</string>
@@ -832,6 +835,9 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_threading_hint">Pesan grup terkait satu sama lain</string>
     <string name="title_advanced_indentation_hint">Hanya untuk gaya kartu</string>
     <string name="title_advanced_highlight_hint">Warna aksen untuk tema ini akan digunakan untuk menyorot</string>
+    <string name="title_advanced_free">Layanan awan ini bisa digunakan cuma-cuma</string>
+    <string name="title_advanced_free_tier">Layanan awan ini ada yang gratis</string>
+    <string name="title_advanced_paid_service">Layanan awan ini berbayar</string>
     <string name="title_advanced_privacy_risk">Mungkin ada risiko privasi</string>
     <string name="title_advanced_name_email_hint">Nama akan ditampilkan jika tersedia</string>
     <string name="title_advanced_preview_hint">Hanya tersedia jika teks pesan sudah diunduh</string>
@@ -1568,6 +1574,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_search_flag_notes">catatan</string>
     <string name="title_search_flag_invite">undangan</string>
     <string name="title_search_flag_size">ukuran &gt; %1$s</string>
+    <string name="title_search_flag_touched">sudah dilihat</string>
     <string name="title_search_device">Penelusuran di perangkat</string>
     <string name="title_search_server">Penelusuran di server</string>
     <string name="title_search_server_wait">Menunggu server</string>
@@ -1662,6 +1669,8 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_delete">Hapus permanen</string>
     <string name="title_rule_sound">Memainkan suara</string>
     <string name="title_rule_silent">Notifikasi senyap</string>
+    <string name="title_rule_summarize">Rangkum</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Rangkum pesan dengan integrasi AI yang sudah dikonfigurasi</string>
     <string name="title_rule_caption">Sunting aturan</string>
     <string name="title_rule_title">Aturan berlaku untuk</string>
     <string name="title_rule_name">Nama</string>

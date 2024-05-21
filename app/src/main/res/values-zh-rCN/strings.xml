@@ -104,7 +104,7 @@
     <string name="title_notification_sending">正在发送邮件</string>
     <string name="title_notification_waiting">等待适合的网络连接</string>
     <string name="title_notification_idle">空闲</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">账号“%1$s”失败</string>
+    <string name="title_notification_failed">账号“%1$s”失败</string>
     <string name="title_notification_alert">服务器警示：\'%1$s\'</string>
     <string name="title_notification_sending_left">剩余尝试次数: %1$d</string>
     <string name="title_notification_sending_retry">发送将在网络连接更改时或在下拉发件箱时重试</string>
@@ -571,7 +571,6 @@
     <string name="title_advanced_actionbar_swap">交换回收站和归档按钮</string>
     <string name="title_advanced_actionbar_color">使用账户颜色作为对话操作栏的背景色</string>
     <string name="title_advanced_category_header">按账户类别分组</string>
-    <string name="title_advanced_navbar_colorize">导航栏着色</string>
     <string name="title_advanced_list_count">在顶部操作栏中显示邮件或对话的数量</string>
     <string name="title_advanced_bundled_fonts">使用捆绑的字体</string>
     <string name="title_advanced_narrow_fonts">使用窄字体</string>
@@ -1674,6 +1673,8 @@
     <string name="title_rule_delete">永久删除</string>
     <string name="title_rule_sound">播放提示音</string>
     <string name="title_rule_silent">将通知静音</string>
+    <string name="title_rule_summarize">总结</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">用配置的 AI 集成总结邮件</string>
     <string name="title_rule_caption">编辑规则</string>
     <string name="title_rule_title">规则应用于</string>
     <string name="title_rule_name">名称</string>

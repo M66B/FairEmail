@@ -482,7 +482,6 @@
     <string name="title_advanced_actionbar">Prikaži traku s akcijama razgovora</string>
     <string name="title_advanced_actionbar_color">Koristi boju računa kao boju pozadine za akcijsku traku razgovora</string>
     <string name="title_advanced_category_header">Grupiraj po kategoriji računa</string>
-    <string name="title_advanced_navbar_colorize">Oboji Android navigacijsku traku</string>
     <string name="title_advanced_bundled_fonts">Koristi uključene fontove</string>
     <string name="title_advanced_parse_classes">Analiziraj stilske tablice</string>
     <string name="title_advanced_authentication">Prikaži upozorenja o autentikaciji</string>

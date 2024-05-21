@@ -583,7 +583,6 @@
     <string name="title_advanced_actionbar_swap">Εναλλαγή των κουμπιών απορριμμάτων και αρχειοθέτησης</string>
     <string name="title_advanced_actionbar_color">Χρήση του χρώματος του λογαριασμού ως χρωματικό υπόβαθρο για τη γραμμή ενεργειών της συζήτησης</string>
     <string name="title_advanced_category_header">Ομαδοποίηση ανά κατηγορία λογαριασμού</string>
-    <string name="title_advanced_navbar_colorize">Να χρωματίζεται η γραμμή πλοήγησης του Android</string>
     <string name="title_advanced_list_count">Προβολή του αριθμού μηνυμάτων ή συζητήσεων στην πάνω γραμμή ενεργειών</string>
     <string name="title_advanced_bundled_fonts">Χρήση γραμματοσειρών σε πακέτο</string>
     <string name="title_advanced_narrow_fonts">Χρήση στενών γραμματοσειρών</string>
@@ -1680,6 +1679,7 @@
     <string name="title_rule_delete">Οριστική διαγραφή</string>
     <string name="title_rule_sound">Αναπαραγωγή ήχου</string>
     <string name="title_rule_silent">Αθόρυβη ειδοποίηση</string>
+    <string name="title_rule_summarize">Σύνοψη</string>
     <string name="title_rule_caption">Επεξεργασία κανόνα</string>
     <string name="title_rule_title">Ο κανόνας εφαρμόζεται σε</string>
     <string name="title_rule_name">Όνομα</string>

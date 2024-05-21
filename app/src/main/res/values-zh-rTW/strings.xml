@@ -498,7 +498,6 @@
     <string name="title_advanced_actionbar">顯示會話工具列</string>
     <string name="title_advanced_actionbar_color">使用帳戶色作為會話工具列的背景色</string>
     <string name="title_advanced_category_header">帳戶分類群組</string>
-    <string name="title_advanced_navbar_colorize">著色 Android 導覽列</string>
     <string name="title_advanced_list_count">在頂端操作區中顯示訊息或對話的數量</string>
     <string name="title_advanced_bundled_fonts">使用綑綁的字體</string>
     <string name="title_advanced_narrow_fonts">使用窄字體</string>

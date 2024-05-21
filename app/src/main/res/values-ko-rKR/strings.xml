@@ -539,7 +539,6 @@
     <string name="title_advanced_button_extra">메시지 하단에 추가 버튼 표시</string>
     <string name="title_advanced_actionbar_swap">휴지통과 보관 버튼 바꾸기</string>
     <string name="title_advanced_category_header">계정 카테고리로 그룹화하기</string>
-    <string name="title_advanced_navbar_colorize">안드로이드 네비게이션 바 색상 변경하기</string>
     <string name="title_advanced_bundled_fonts">번들 글꼴 사용</string>
     <string name="title_advanced_parse_classes">CSS 구문 분석</string>
     <string name="title_advanced_authentication">인증 경고 표시</string>

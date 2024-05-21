@@ -115,7 +115,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_notification_sending">Berichten verzenden</string>
     <string name="title_notification_waiting">Wachten op een geschikte verbinding</string>
     <string name="title_notification_idle">Inactief</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">Account ‘%1$s’ is mislukt</string>
+    <string name="title_notification_failed">Account ‘%1$s’ is mislukt</string>
     <string name="title_notification_alert">Serverwaarschuwing: \'%1$s\'</string>
     <string name="title_notification_sending_left">Resterende pogingen: %1$d</string>
     <string name="title_notification_sending_retry">Verzenden zal opnieuw worden geprobeerd bij wijzigingen in de internetverbinding of het naar beneden trekken van de outbox</string>
@@ -582,7 +582,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_actionbar_swap">Prullenbak en archief knop verwisselen</string>
     <string name="title_advanced_actionbar_color">Gebruik de accountkleur als achtergrond voor de gespreksactiebalk</string>
     <string name="title_advanced_category_header">Groeperen op account categorie</string>
-    <string name="title_advanced_navbar_colorize">Kleur de Android-navigatiebalk in</string>
     <string name="title_advanced_list_count">Toon het aantal berichten of gesprekken in de bovenste actiebalk</string>
     <string name="title_advanced_bundled_fonts">Gebruik gebundelde lettertypen</string>
     <string name="title_advanced_narrow_fonts">Gebruik smalle lettertypen</string>
@@ -1679,6 +1678,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_delete">Definitief verwijderen</string>
     <string name="title_rule_sound">Speel geluid af</string>
     <string name="title_rule_silent">Stille melding</string>
+    <string name="title_rule_summarize">Samenvatten</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Vat het bericht samen met de geconfigureerde AI-integratie</string>
     <string name="title_rule_caption">Bewerk regel</string>
     <string name="title_rule_title">Regel is van toepassing op</string>
     <string name="title_rule_name">Naam</string>

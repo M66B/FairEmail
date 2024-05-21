@@ -118,7 +118,7 @@
     <string name="title_notification_sending">Inviando i messaggi</string>
     <string name="title_notification_waiting">In attesa di una connessione adatta</string>
     <string name="title_notification_idle">Inattivo</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">Profilo \'%1$s\' in errore</string>
+    <string name="title_notification_failed">Profilo \'%1$s\' in errore</string>
     <string name="title_notification_alert">Avviso server: \'%1$s\'</string>
     <string name="title_notification_sending_left">Tentativi rimasti: %1$d</string>
     <string name="title_notification_sending_retry">L\'invio sarà riprovato in caso di modifiche alla connessione Internet o aggiornando la posta in uscita</string>
@@ -586,7 +586,6 @@
     <string name="title_advanced_actionbar_swap">Scambia i pulsanti cestino e archivio</string>
     <string name="title_advanced_actionbar_color">Usa il colore del profilo come colore di sfondo per la barra d\'azione della conversazione</string>
     <string name="title_advanced_category_header">Raggruppa per categoria del profilo</string>
-    <string name="title_advanced_navbar_colorize">Colora la barra di navigazione di Android</string>
     <string name="title_advanced_list_count">Mostra il numero di messaggi o conversazioni nella barra d\'azione superiore</string>
     <string name="title_advanced_bundled_fonts">Usa font impacchettati</string>
     <string name="title_advanced_narrow_fonts">Utilizza caratteri stretti</string>
@@ -1695,6 +1694,8 @@
     <string name="title_rule_delete">Elimina permanentemente</string>
     <string name="title_rule_sound">Riproduci suono</string>
     <string name="title_rule_silent">Notifica silenziosa</string>
+    <string name="title_rule_summarize">Riassumi</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Riassumere il messaggio con l\'integrazione IA configurata</string>
     <string name="title_rule_caption">Modifica regola</string>
     <string name="title_rule_title">La regola si applica a</string>
     <string name="title_rule_name">Nome</string>

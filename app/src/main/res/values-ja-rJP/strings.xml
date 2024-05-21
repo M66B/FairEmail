@@ -570,7 +570,6 @@
     <string name="title_advanced_actionbar_swap">ごみ箱とアーカイブのボタンを入れ替える</string>
     <string name="title_advanced_actionbar_color">会話スレッド アクションバーの背景色としてアカウントの色を使用する</string>
     <string name="title_advanced_category_header">アカウントのカテゴリーでグループ化する</string>
-    <string name="title_advanced_navbar_colorize">Android ナビゲーションバーに色を付ける</string>
     <string name="title_advanced_list_count">上部アクションバーにメッセージ数または会話スレッド数を表示する</string>
     <string name="title_advanced_bundled_fonts">バンドルされたフォントを使用する</string>
     <string name="title_advanced_narrow_fonts">幅狭フォントを使用する</string>
@@ -1677,6 +1676,7 @@
     <string name="title_rule_delete">完全に削除する</string>
     <string name="title_rule_sound">音声を再生</string>
     <string name="title_rule_silent">サイレント通知</string>
+    <string name="title_rule_summarize">要約</string>
     <string name="title_rule_caption">ルールを編集</string>
     <string name="title_rule_title">ルールの適用先</string>
     <string name="title_rule_name">名前</string>

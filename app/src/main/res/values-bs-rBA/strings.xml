@@ -598,7 +598,6 @@
     <string name="title_advanced_actionbar_swap">Zamijeni dugmad za otpad i arhiviranje</string>
     <string name="title_advanced_actionbar_color">Koristi boju računa kao pozadinsku boju radne trake za konverzaciju</string>
     <string name="title_advanced_category_header">Grupiši prema kategoriji računa</string>
-    <string name="title_advanced_navbar_colorize">Oboji navigacijsku traku Androida</string>
     <string name="title_advanced_list_count">Prikaži broj poruka ili konverzacija u gornjoj akcionoj traci</string>
     <string name="title_advanced_bundled_fonts">Koristi paketske fontove</string>
     <string name="title_advanced_narrow_fonts">Koristi uske fontove</string>
@@ -1700,6 +1699,8 @@
     <string name="title_rule_delete">Trajno izbriši</string>
     <string name="title_rule_sound">Pokreni zvuk</string>
     <string name="title_rule_silent">Tiha obavještenja</string>
+    <string name="title_rule_summarize">Sažetak</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Sažetak poruke pomoću podešene AI (UI) integracije</string>
     <string name="title_rule_caption">Uredi pravilo</string>
     <string name="title_rule_title">Pravilo se primjenjuje na</string>
     <string name="title_rule_name">Naziv</string>

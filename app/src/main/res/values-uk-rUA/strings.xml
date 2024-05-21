@@ -147,7 +147,7 @@
     <string name="title_notification_sending">Надсилання повідомлень</string>
     <string name="title_notification_waiting">Очікування відповідного з\'єднання</string>
     <string name="title_notification_idle">Бездіяльність</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">Помилка в обліковому записі «%1$s»</string>
+    <string name="title_notification_failed">Помилка в обліковому записі «%1$s»</string>
     <string name="title_notification_alert">Попередження сервера: «%1$s»</string>
     <string name="title_notification_sending_left">Залишилось спроб: %1$d</string>
     <string name="title_notification_sending_retry">Повторна спроба відправлення буде здійснена при зміні підключення до інтернету або після виконання жесту «потягнути донизу» в скриньці вихідних повідомлень</string>
@@ -614,7 +614,6 @@
     <string name="title_advanced_actionbar_swap">Поміняти місцями кнопки Кошик та Архів</string>
     <string name="title_advanced_actionbar_color">Використовувати колір аккаунта як тло у панелі дій для розмови</string>
     <string name="title_advanced_category_header">Групувати за категорією облікового запису</string>
-    <string name="title_advanced_navbar_colorize">Розфарбувати панель навігації Android</string>
     <string name="title_advanced_list_count">Показувати кількість повідомлень або розмов у верхній панелі дій</string>
     <string name="title_advanced_bundled_fonts">Використовувати вбудовані шрифти</string>
     <string name="title_advanced_narrow_fonts">Використовувати вузькі шрифти</string>
@@ -1719,6 +1718,8 @@
     <string name="title_rule_delete">Видалити назавжди</string>
     <string name="title_rule_sound">Відтворити звук</string>
     <string name="title_rule_silent">Зробити сповіщення беззвучним</string>
+    <string name="title_rule_summarize">Підсумувати</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Підсумовуйте повідомлення за допомогою налаштованої інтеграції штучного інтелекту</string>
     <string name="title_rule_caption">Редагувати правило</string>
     <string name="title_rule_title">Застосовується правило для</string>
     <string name="title_rule_name">Ім\'я</string>

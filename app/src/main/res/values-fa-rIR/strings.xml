@@ -102,7 +102,7 @@
     <string name="title_notification_sending">درحال ارسال پیام‌ها</string>
     <string name="title_notification_waiting">درحال انتظار برای اتصال مناسب</string>
     <string name="title_notification_idle">بیکار</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">حساب \'%1$s\' ناموفق بود</string>
+    <string name="title_notification_failed">حساب \'%1$s\' ناموفق بود</string>
     <string name="title_notification_alert">هشدار سرور: %1$s</string>
     <string name="title_notification_sending_left">تلاش‌های باقی‌مانده: %1$d</string>
     <string name="title_notification_sending_retry">در صورت تغییر در ارتباط اینترنتی یا کشیدن صفحه صندوق خروجی به سمت پایین، برای ارسال تلاش مجدد خواهد شد</string>
@@ -505,7 +505,6 @@
     <string name="title_advanced_actionbar">نمایش نوار کنش گفتگو</string>
     <string name="title_advanced_actionbar_color">از رنگ حساب به‌عنوان رنگ پس‌زمینه برای نوار کنش گفتگو استفاده کن</string>
     <string name="title_advanced_category_header">دسته‌بندی بر اساس طبقه‌بندی حساب</string>
-    <string name="title_advanced_navbar_colorize">رنگ آمیزی نوار جهت‎یابی اندروید</string>
     <string name="title_advanced_bundled_fonts">استفاده از خطوط بسته همراه</string>
     <string name="title_advanced_authentication">نمایش هشدار تایید هویت</string>
     <string name="title_advanced_authentication_none">بدون تایید هویت</string>
@@ -1167,6 +1166,8 @@
     <string name="title_rule_automation">خودکارسازی</string>
     <string name="title_rule_delete">حذف برای همیشه</string>
     <string name="title_rule_silent">اعلان‌های بی‌صدا</string>
+    <string name="title_rule_summarize">خلاصه کردن</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">خلاصه کردن پیام به کمک هوش مصنوعی تنظیم شده</string>
     <string name="title_rule_caption">ویرایش قانون</string>
     <string name="title_rule_title">قانون اعمال می‌شود بر</string>
     <string name="title_rule_name">نام</string>

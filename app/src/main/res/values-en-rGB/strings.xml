@@ -54,7 +54,6 @@
     <string name="title_advanced_text_color">Use text colours</string>
     <string name="title_advanced_actionbar_swap">Swap delete and archive button</string>
     <string name="title_advanced_actionbar_color">Use account colour as background colour for conversation action bar</string>
-    <string name="title_advanced_navbar_colorize">Colourise the Android navigation bar</string>
     <string name="title_advanced_sync_on_launch">Synchronise on start</string>
     <string name="title_advanced_pull_all">Synchronise all folders</string>
     <string name="title_advanced_swipe_trash_all">When swiping a conversation to the bin, delete all messages</string>
@@ -137,6 +136,8 @@
     <string name="title_rule_snooze">Snooze</string>
     <string name="title_rule_keyword_delete">Remove</string>
     <string name="title_rule_move">Move</string>
+    <string name="title_rule_summarize">Summarise</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Summarise the message with configured AI integration</string>
     <string name="title_rule_body_remark">Using this condition will always download the message text, which may slow down the synchronisation of the message list</string>
     <string name="title_legend_section_synchronize">Synchronise</string>
     <string name="title_legend_section_folders">Folders</string>

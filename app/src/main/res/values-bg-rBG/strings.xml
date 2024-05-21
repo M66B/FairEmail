@@ -118,6 +118,7 @@
     <string name="title_notification_sending">Изпращане на съобщения</string>
     <string name="title_notification_waiting">Чака се подходяща връзка</string>
     <string name="title_notification_idle">Празен</string>
+    <string name="title_notification_failed">Грешка в акаунта „%1$s“</string>
     <string name="title_notification_alert">Предупреждение на сървъра: \'%1$s\'</string>
     <string name="title_notification_sending_left">Оставащи опити: %1$d</string>
     <string name="title_notification_sending_retry">Повторно изпращане ще се направи при промяна на връзката с интернет или жестът „дърпане надолу“ на изходящата кутия</string>
@@ -240,6 +241,7 @@
     <string name="title_setup_doze_stopped">Спирате ли синхрото?</string>
     <string name="title_setup_doze_device">Това вероятно се изисква за устройството</string>
     <string name="title_setup_alarm_12">Неправилно работи приложението</string>
+    <string name="title_setup_fg_15">Приложението не може да стартира самодейно</string>
     <string name="title_setup_inexact">Будилници и напомняния са изключени</string>
     <string name="title_setup_background">Фоновите ограничения са включени</string>
     <string name="title_setup_data">Ниска консумация на данни е активирано</string>
@@ -583,7 +585,6 @@
     <string name="title_advanced_actionbar_swap">Размяна на местата на копчета „Архив“ и „Кошче“</string>
     <string name="title_advanced_actionbar_color">Използвайте цвета на профила като цвят на фона за панела за действие на разговора</string>
     <string name="title_advanced_category_header">Групиране по категория на акаунта</string>
-    <string name="title_advanced_navbar_colorize">Цветна лентата за навигация на Android</string>
     <string name="title_advanced_list_count">Показване на броя съобщения или разговори в горната лента действие</string>
     <string name="title_advanced_bundled_fonts">Употреба на пакетни шрифтове</string>
     <string name="title_advanced_narrow_fonts">Употреба на тесни шрифтове</string>
@@ -757,6 +758,7 @@
     <string name="title_advanced_haptic_feedback">Тактилна обратна връзка при важни действия</string>
     <string name="title_advanced_language">Език</string>
     <string name="title_advanced_language_system">Система</string>
+    <string name="title_advanced_integrations_hint">Облачните услуги долу не са част от приложението. Всякакви плащания ще отидат направо в облачната услуга, а не при разработчика на приложението.</string>
     <string name="title_advanced_lt">Интегриране с LanguageTool</string>
     <string name="title_advanced_lt_sentence">Проверка на всяко изречение</string>
     <string name="title_advanced_lt_auto">Проверка на абзаца след новия ред</string>
@@ -772,6 +774,7 @@
     <string name="title_advanced_openai_temperature">Температура: %1$s</string>
     <string name="title_advanced_openai_moderation">Модериране на съдържанието</string>
     <string name="title_advanced_gemini">Интегриране с Gemini</string>
+    <string name="title_advanced_multi_modal">Многомодалност</string>
     <string name="title_advanced_summarize_prompt">Подкана за обобщаване</string>
     <string name="title_advanced_sdcard">Желая да употребявам sd карта</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
@@ -848,6 +851,9 @@
     <string name="title_advanced_threading_hint">Групови съобщения, свързани помежду си</string>
     <string name="title_advanced_indentation_hint">Само за картов стил</string>
     <string name="title_advanced_highlight_hint">Акцентираният цвят на темата ще бъде използван за подчертаване</string>
+    <string name="title_advanced_free">Тази облачна услуга е свободна за употреба</string>
+    <string name="title_advanced_free_tier">Тази облачна услуга има безплатно ниво</string>
+    <string name="title_advanced_paid_service">Тази облачна услуга изисква заплащане</string>
     <string name="title_advanced_privacy_risk">Възможно е да съществува риск за поверителността</string>
     <string name="title_advanced_name_email_hint">Имената ще се показват само, когато са налични</string>
     <string name="title_advanced_preview_hint">Достъпно е само когато текстът на съобщението е изтеглен</string>
@@ -1587,6 +1593,7 @@
     <string name="title_search_flag_notes">бележки</string>
     <string name="title_search_flag_invite">покана</string>
     <string name="title_search_flag_size">размер &gt; %1$s</string>
+    <string name="title_search_flag_touched">докоснато</string>
     <string name="title_search_device">Търсене в устройството</string>
     <string name="title_search_server">Търсене в сървъра</string>
     <string name="title_search_server_wait">Чака се сървърът</string>
@@ -1683,6 +1690,7 @@
     <string name="title_rule_delete">Изтрийте за постоянно</string>
     <string name="title_rule_sound">Пускане на звука</string>
     <string name="title_rule_silent">Тихо известие</string>
+    <string name="title_rule_summarize">Обобщаване</string>
     <string name="title_rule_caption">Редакция правило</string>
     <string name="title_rule_title">Правилото важи за</string>
     <string name="title_rule_name">Име</string>

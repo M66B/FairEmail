@@ -118,7 +118,7 @@
     <string name="title_notification_sending">Enviando mensajes</string>
     <string name="title_notification_waiting">Esperando conexión adecuada</string>
     <string name="title_notification_idle">Inactivo</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">La cuenta \'%1$s\' falló</string>
+    <string name="title_notification_failed">La cuenta \'%1$s\' falló</string>
     <string name="title_notification_alert">Alerta del servidor: \'%1$s\'</string>
     <string name="title_notification_sending_left">Intentos restantes: %1$d</string>
     <string name="title_notification_sending_retry">El envío se reintentará en los cambios de conexión a Internet o tirando hacia abajo en la bandeja de salida</string>
@@ -585,7 +585,6 @@
     <string name="title_advanced_actionbar_swap">Intercambiar los botones de papelera y archivo</string>
     <string name="title_advanced_actionbar_color">Usar el color de la cuenta como color de fondo para la barra de acción de conversación</string>
     <string name="title_advanced_category_header">Agrupar por categoría de cuenta</string>
-    <string name="title_advanced_navbar_colorize">Colorear la barra de navegación de Android</string>
     <string name="title_advanced_list_count">Mostrar el número de mensajes o conversaciones en la barra de acción superior</string>
     <string name="title_advanced_bundled_fonts">Usar fuentes empaquetadas</string>
     <string name="title_advanced_narrow_fonts">Usar fuentes estrechas</string>
@@ -1689,6 +1688,7 @@
     <string name="title_rule_delete">Borrar permanentemente</string>
     <string name="title_rule_sound">Reproducir sonido</string>
     <string name="title_rule_silent">Notificación silenciosa</string>
+    <string name="title_rule_summarize">Resumir</string>
     <string name="title_rule_caption">Editar regla</string>
     <string name="title_rule_title">Regla aplicable a</string>
     <string name="title_rule_name">Nombre</string>

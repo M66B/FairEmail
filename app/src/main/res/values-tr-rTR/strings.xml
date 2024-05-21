@@ -582,7 +582,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_actionbar_swap">Çöp ve arşiv düğmesini değiştir</string>
     <string name="title_advanced_actionbar_color">Hesap rengini konuşma eylem çubuğu için arka plan rengi olarak kullan</string>
     <string name="title_advanced_category_header">Hesap kategorisine göre grupla</string>
-    <string name="title_advanced_navbar_colorize">Android gezinme çubuğunu renklendirin</string>
     <string name="title_advanced_list_count">Eylem çubuğunda mesaj veya sohbet sayısını göster</string>
     <string name="title_advanced_bundled_fonts">Birlikte verilen yazı tiplerini kullan</string>
     <string name="title_advanced_narrow_fonts">Dar yazı tipleri kullan</string>
@@ -1682,6 +1681,8 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_delete">Kalıcı olarak sil</string>
     <string name="title_rule_sound">Ses Çal</string>
     <string name="title_rule_silent">Sessiz bildirimler</string>
+    <string name="title_rule_summarize">Özetle</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Yapılandırılmış yapay zeka entegrasyonu ile mesajı özetleyin</string>
     <string name="title_rule_caption">Kuralı düzenle</string>
     <string name="title_rule_title">Kural geçerlidir</string>
     <string name="title_rule_name">Ad</string>

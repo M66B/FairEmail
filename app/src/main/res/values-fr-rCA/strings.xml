@@ -118,7 +118,7 @@
     <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_waiting">En attente d\'une connexion appropriée</string>
     <string name="title_notification_idle">Inactif</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">Compte \'%1$s\' en erreur</string>
+    <string name="title_notification_failed">Compte \'%1$s\' en erreur</string>
     <string name="title_notification_alert">Alerte serveur : \'%1$s\'</string>
     <string name="title_notification_sending_left">Tentatives restantes : %1$d</string>
     <string name="title_notification_sending_retry">Une nouvelle tentative d\'envoi sera effectuée suite à un changement de connexion internet ou à un rafraîchissement de la boîte d\'envoi</string>
@@ -586,7 +586,6 @@
     <string name="title_advanced_actionbar_swap">Inverser les boutons de la corbeille et des archives</string>
     <string name="title_advanced_actionbar_color">Utiliser la couleur du compte comme couleur d\'arrière-plan de la barre d’action de conversation</string>
     <string name="title_advanced_category_header">Regrouper par catégorie de compte</string>
-    <string name="title_advanced_navbar_colorize">Coloriser la barre de navigation d’Android</string>
     <string name="title_advanced_list_count">Afficher le nombre de messages ou de conversations dans la barre d\'action supérieure</string>
     <string name="title_advanced_bundled_fonts">Utiliser des polices groupées</string>
     <string name="title_advanced_narrow_fonts">Utiliser des polices de caractères étroites</string>
@@ -1695,6 +1694,8 @@
     <string name="title_rule_delete">Supprimer définitivement</string>
     <string name="title_rule_sound">Jouer un son</string>
     <string name="title_rule_silent">Notification silencieuse</string>
+    <string name="title_rule_summarize">Résumer</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Résumer le message avec l\'intégration de l\'IA configurée</string>
     <string name="title_rule_caption">Modifier la règle</string>
     <string name="title_rule_title">La règle s’applique à</string>
     <string name="title_rule_name">Nom</string>

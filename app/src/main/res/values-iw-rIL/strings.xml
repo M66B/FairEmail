@@ -146,7 +146,7 @@
     <string name="title_notification_sending">הודעות נשלחות</string>
     <string name="title_notification_waiting">בהמתנה לחיבור מתאים</string>
     <string name="title_notification_idle">בהמתנה</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">החשבון ‚%1$s’ נכשל</string>
+    <string name="title_notification_failed">החשבון ‚%1$s’ נכשל</string>
     <string name="title_notification_alert">התראה שרת: ‚%1$s’</string>
     <string name="title_notification_sending_left">ניסיונות שנותרו: %1$d</string>
     <string name="title_notification_sending_retry">יתבצע ניסיון שליחה חוזר עם שינוי במצב החיבור לאינטרנט או במשיכה של הדואר היוצא כלפי מטה</string>
@@ -614,7 +614,6 @@
     <string name="title_advanced_actionbar_swap">החלפה בין כפתורי האשפה והארכיון</string>
     <string name="title_advanced_actionbar_color">להשתמש בצבע החשבון כצבע הרקע לסרגל הפעולות של הדיון</string>
     <string name="title_advanced_category_header">קיבוץ לפי קטגוריית חשבון</string>
-    <string name="title_advanced_navbar_colorize">לצבוע את סרגל הניווט של Android</string>
     <string name="title_advanced_list_count">הצגת מספר ההודעות או הדיונים בסרגל הפעולות העליון</string>
     <string name="title_advanced_bundled_fonts">להשתמש בגופנים מאוגדים</string>
     <string name="title_advanced_narrow_fonts">להשתמש בגופנים צרים</string>
@@ -1722,6 +1721,7 @@
     <string name="title_rule_delete">מחיקה לצמיתות</string>
     <string name="title_rule_sound">השמעת צליל</string>
     <string name="title_rule_silent">התראה שקטה</string>
+    <string name="title_rule_summarize">סיכום</string>
     <string name="title_rule_caption">עריכת כלל</string>
     <string name="title_rule_title">הכלל חל על</string>
     <string name="title_rule_name">שם</string>

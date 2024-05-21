@@ -584,7 +584,6 @@
     <string name="title_advanced_actionbar_swap">Vaheta nupud prügi ja arhiiv</string>
     <string name="title_advanced_actionbar_color">Näita vestluse tegevusriba taustavärvina konto värvi</string>
     <string name="title_advanced_category_header">Rühmita konto kategooria järgi</string>
-    <string name="title_advanced_navbar_colorize">Värviline Androidi navigeerimisriba</string>
     <string name="title_advanced_list_count">Näita ülemisel tegevusribal sõnumite või vestluste arvu</string>
     <string name="title_advanced_bundled_fonts">Kasuta kaasatud fonte</string>
     <string name="title_advanced_narrow_fonts">Kasuta kitsaid fonte</string>
@@ -1686,6 +1685,7 @@
     <string name="title_rule_delete">Kustuta jäädavalt</string>
     <string name="title_rule_sound">Mängi heli</string>
     <string name="title_rule_silent">Hääletu teavitus</string>
+    <string name="title_rule_summarize">Kokkuvõte</string>
     <string name="title_rule_caption">Reegel</string>
     <string name="title_rule_title">Reegli rakendamiskoht</string>
     <string name="title_rule_name">Nimi</string>

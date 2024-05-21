@@ -146,6 +146,7 @@
     <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_waiting">Čekám na vhodné připojení</string>
     <string name="title_notification_idle">Nečinný</string>
+    <string name="title_notification_failed">Účet \'%1$s\' selhal</string>
     <string name="title_notification_alert">Upozornění serveru: \'%1$s\'</string>
     <string name="title_notification_sending_left">Zbývající pokusy: %1$d</string>
     <string name="title_notification_sending_retry">Pokus o odeslání bude proveden znovu při změně internetového připojení nebo při tažení dolů ve složce odeslaných</string>
@@ -269,6 +270,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
     <string name="title_setup_doze_device">Pravděpodobně vyžadováno pro toto zařízení</string>
     <string name="title_setup_alarm_12">Aplikace nebude fungovat správně</string>
+    <string name="title_setup_fg_15">Aplikaci nelze spustit automaticky</string>
     <string name="title_setup_inexact">Budíky &amp; připomenutí jsou zakázány</string>
     <string name="title_setup_background">Omezení na pozadí jsou povolena</string>
     <string name="title_setup_data">Spořič dat je zapnutý</string>
@@ -612,7 +614,6 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_actionbar_swap">Prohodit tlačítka Koš a Archiv</string>
     <string name="title_advanced_actionbar_color">Použít barvu účtu jako barvu pozadí pro panel akcí konverzace</string>
     <string name="title_advanced_category_header">Seskupit podle kategorie účtu</string>
-    <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
     <string name="title_advanced_list_count">Zobrazit počet zpráv nebo konverzací v horní liště akcí</string>
     <string name="title_advanced_bundled_fonts">Použít připojená písma</string>
     <string name="title_advanced_narrow_fonts">Použít úzká písma</string>
@@ -785,6 +786,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_haptic_feedback">Hmatová odezva na důležité akce</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
+    <string name="title_advanced_integrations_hint">Níže uvedené služby nejsou součástí aplikace. Veškeré platby budou směřovat přímo na účet cloudové služby a ne pro vývojáře aplikací.</string>
     <string name="title_advanced_lt">Integrace LanguageTool</string>
     <string name="title_advanced_lt_sentence">Zkontrolovat každou větu</string>
     <string name="title_advanced_lt_auto">Zkontrolujte odstavec po novém řádku</string>
@@ -800,6 +802,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_openai_temperature">Teplota: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderování obsahu</string>
     <string name="title_advanced_gemini">Gemini integrace</string>
+    <string name="title_advanced_multi_modal">Multimodální</string>
     <string name="title_advanced_summarize_prompt">Shrnutí výzvy</string>
     <string name="title_advanced_sdcard">Chci použít Sd kartu</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
@@ -877,6 +880,9 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>
     <string name="title_advanced_indentation_hint">Pouze pro styl karty</string>
     <string name="title_advanced_highlight_hint">Pro zvýrazňování bude použita sekundární barva motivu</string>
+    <string name="title_advanced_free">Tato cloudová služba je zdarma k použití</string>
+    <string name="title_advanced_free_tier">Tato cloudová služba má bezplatný stupeň</string>
+    <string name="title_advanced_paid_service">Tato cloudová služba vyžaduje platbu</string>
     <string name="title_advanced_privacy_risk">Může dojít k ohrožení soukromí</string>
     <string name="title_advanced_name_email_hint">Jména budou zobrazena pouze jsou-li k dispozici</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
@@ -1615,6 +1621,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_search_flag_notes">poznámky</string>
     <string name="title_search_flag_invite">pozvánka</string>
     <string name="title_search_flag_size">velikost &gt; %1$s</string>
+    <string name="title_search_flag_touched">otevřeno</string>
     <string name="title_search_device">Hledat v zařízení</string>
     <string name="title_search_server">Hledat na serveru</string>
     <string name="title_search_server_wait">Čekání na server</string>
@@ -1711,6 +1718,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_delete">Trvale smazat</string>
     <string name="title_rule_sound">Přehrát zvuk</string>
     <string name="title_rule_silent">Tichá oznámení</string>
+    <string name="title_rule_summarize">Shrnout</string>
     <string name="title_rule_caption">Upravit pravidlo</string>
     <string name="title_rule_title">Pravidlo platí pro</string>
     <string name="title_rule_name">Název</string>

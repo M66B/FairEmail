@@ -118,7 +118,7 @@
     <string name="title_notification_sending">Enviando mensagens</string>
     <string name="title_notification_waiting">Aguardando conexão adequada</string>
     <string name="title_notification_idle">Ocioso</string>
-    <string name="title_notification_failed" comment="title_notification_failed&#10;Message for notification saying that an account failed because there was an error (which will be included in the notification on another line)">A conta \'%1$s\' falhou</string>
+    <string name="title_notification_failed">A conta \'%1$s\' falhou</string>
     <string name="title_notification_alert">Alerta do servidor: \'%1$s\'</string>
     <string name="title_notification_sending_left">Tentativas restantes: %1$d</string>
     <string name="title_notification_sending_retry">Haverá uma nova tentativa de envio ao mudar a conexão de internet ou ao deslizar para baixo na caixa de saída</string>
@@ -585,7 +585,6 @@
     <string name="title_advanced_actionbar_swap">Trocar botão de lixo e arquivo</string>
     <string name="title_advanced_actionbar_color">Usar cor da conta como cor de fundo para barra de ação de conversa</string>
     <string name="title_advanced_category_header">Agrupar por categoria de conta</string>
-    <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
     <string name="title_advanced_list_count">Mostrar o número de mensagens ou conversas na barra de ação superior</string>
     <string name="title_advanced_bundled_fonts">Usar fontes embutidas</string>
     <string name="title_advanced_narrow_fonts">Usar fontes estreitas</string>
@@ -1691,6 +1690,7 @@
     <string name="title_rule_delete">Apagar permanentemente</string>
     <string name="title_rule_sound">Tocar som</string>
     <string name="title_rule_silent">Notificação silenciosa</string>
+    <string name="title_rule_summarize">Resumir</string>
     <string name="title_rule_caption">Editar regra</string>
     <string name="title_rule_title">Regra se aplica a</string>
     <string name="title_rule_name">Nome</string>

@@ -381,7 +381,6 @@
     <string name="title_advanced_seekbar">Vis relativ samtaleposisjon med en prikk</string>
     <string name="title_advanced_actionbar">Vis samtale handlingslinje</string>
     <string name="title_advanced_actionbar_color">Bruke kontofarge som bakgrunnsfarge for samtalelinjen</string>
-    <string name="title_advanced_navbar_colorize">Fargelegg Android-navigasjonslinjen</string>
     <string name="title_advanced_parse_classes">Analyser stilark</string>
     <string name="title_advanced_sync_on_launch">Synkroniser ved start</string>
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>

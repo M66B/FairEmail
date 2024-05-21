@@ -579,7 +579,6 @@
     <string name="title_advanced_actionbar_swap">Vaihda roskakorin ja arkistoinnin painikkeiden paikat</string>
     <string name="title_advanced_actionbar_color">Käytä tilin väriä taustavärinä keskustelun toimintopalkissa</string>
     <string name="title_advanced_category_header">Ryhmittele tilin luokan mukaan</string>
-    <string name="title_advanced_navbar_colorize">Väritä Androidin navigointipalkki</string>
     <string name="title_advanced_list_count">Näytä viestien tai keskustelujen määrä toimintopalkissa ylhäällä</string>
     <string name="title_advanced_bundled_fonts">Käytä mukaan paketoituja kirjasimia</string>
     <string name="title_advanced_narrow_fonts">Käytä kapeita kirjasimia</string>

@@ -118,6 +118,7 @@
     <string name="title_notification_sending">A enviar mensagens</string>
     <string name="title_notification_waiting">A aguardar por ligação válida à Internet</string>
     <string name="title_notification_idle">Ausente</string>
+    <string name="title_notification_failed">A conta \'%1$s\' falhou</string>
     <string name="title_notification_alert">Alerta de servidor: \'%1$s\'</string>
     <string name="title_notification_sending_left">Tentativas restantes: %1$d</string>
     <string name="title_notification_sending_retry">O envio será testado de novo quando a sua ligação à Internet mudar ou quando puxar para baixo na caixa de saída</string>
@@ -242,6 +243,7 @@
     <string name="title_setup_doze_stopped">A sincronização parou?</string>
     <string name="title_setup_doze_device">Isto é provavelmente necessário para este dispositivo</string>
     <string name="title_setup_alarm_12">A aplicação não funcionará corretamente</string>
+    <string name="title_setup_fg_15">A aplicação não pode ser iniciada automaticamente</string>
     <string name="title_setup_inexact">Alarmes &amp; lembretes são desativados</string>
     <string name="title_setup_background">Restrições de segundo plano estão activas</string>
     <string name="title_setup_data">A poupança de dados está ligada</string>
@@ -585,7 +587,6 @@
     <string name="title_advanced_actionbar_swap">Trocar botão de lixo e arquivo</string>
     <string name="title_advanced_actionbar_color">Utilizar cor da conta como cor de fundo para a barra de acção da conversa</string>
     <string name="title_advanced_category_header">Agrupar por categoria de conta</string>
-    <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
     <string name="title_advanced_list_count">Mostrar o número de mensagens ou conversas na barra superior</string>
     <string name="title_advanced_bundled_fonts">Usar tipos de letra embutidos</string>
     <string name="title_advanced_narrow_fonts">Usar fontes estreitas</string>
@@ -759,6 +760,7 @@
     <string name="title_advanced_haptic_feedback">Vibração tátil em ações importantes</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
+    <string name="title_advanced_integrations_hint">Os serviços de nuvem abaixo não fazem parte da aplicação. Quaisquer pagamentos irão diretamente para o serviço de nuvem e não para o desenvolvedor da aplicação.</string>
     <string name="title_advanced_lt">Integração LanguageTool</string>
     <string name="title_advanced_lt_sentence">Verifique cada frase</string>
     <string name="title_advanced_lt_auto">Verificar parágrafo depois de uma nova linha</string>
@@ -774,6 +776,7 @@
     <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderação de conteúdo</string>
     <string name="title_advanced_gemini">Integração Gemini</string>
+    <string name="title_advanced_multi_modal">Multimodal</string>
     <string name="title_advanced_summarize_prompt">Resumir o pedido</string>
     <string name="title_advanced_sdcard">Quero utilizar um cartão SD</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se o FairEmail ainda está ativo</string>
@@ -850,6 +853,9 @@
     <string name="title_advanced_threading_hint">Agrupar mensagens relacionadas entre si</string>
     <string name="title_advanced_indentation_hint">Somente para o estilo cartão</string>
     <string name="title_advanced_highlight_hint">A cor de ênfase do tema será usada para destaque</string>
+    <string name="title_advanced_free">Este serviço de nuvem é de utilização gratuita</string>
+    <string name="title_advanced_free_tier">Este serviço de nuvem tem uma opção gratuita</string>
+    <string name="title_advanced_paid_service">Este serviço na nuvem requer pagamento</string>
     <string name="title_advanced_privacy_risk">Pode haver um risco de privacidade</string>
     <string name="title_advanced_name_email_hint">Os nomes só serão exibidos quando disponíveis</string>
     <string name="title_advanced_preview_hint">Apenas disponível quando o texto da mensagem for transferido</string>
@@ -1591,6 +1597,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_search_flag_notes">notas</string>
     <string name="title_search_flag_invite">convite</string>
     <string name="title_search_flag_size">tamanho &gt; %1$s</string>
+    <string name="title_search_flag_touched">vistas</string>
     <string name="title_search_device">Pesquisar no dispositivo</string>
     <string name="title_search_server">Pesquisar no servidor</string>
     <string name="title_search_server_wait">A aguardar pelo servidor</string>
@@ -1687,6 +1694,8 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_rule_delete">Eliminar permanentemente</string>
     <string name="title_rule_sound">Reproduzir som</string>
     <string name="title_rule_silent">Notificação silenciosa</string>
+    <string name="title_rule_summarize">Resumir</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Resumir a mensagem com a integração da AI configurada</string>
     <string name="title_rule_caption">Editar regra</string>
     <string name="title_rule_title">Regra aplica-se a</string>
     <string name="title_rule_name">Nome</string>

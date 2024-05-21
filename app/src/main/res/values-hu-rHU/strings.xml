@@ -117,6 +117,7 @@
     <string name="title_notification_sending">Üzenetek küldése</string>
     <string name="title_notification_waiting">Megfelelő kapcsolatra várakozás</string>
     <string name="title_notification_idle">Tétlen</string>
+    <string name="title_notification_failed">A(z) \'%1$s\' fiók hibás</string>
     <string name="title_notification_alert">Szerver figyelmeztetés: \'%1$s\'</string>
     <string name="title_notification_sending_left">Hátralévő próbálkozások: %1$d</string>
     <string name="title_notification_sending_retry">Levél kiküldés újrapróbálása internet kapcsolat változásnál, vagy a lehúzós frissítésnél</string>
@@ -239,6 +240,7 @@
     <string name="title_setup_doze_stopped">Már nem szinkronizál?</string>
     <string name="title_setup_doze_device">Ez valószínűleg szükséges ezen az eszközön</string>
     <string name="title_setup_alarm_12">Az alkalmazás nem működik megfelelően</string>
+    <string name="title_setup_fg_15">Az alkalmazás nem indítható automatikusan</string>
     <string name="title_setup_inexact">Ébresztők &amp; emlékeztetők le vannak tiltva</string>
     <string name="title_setup_background">A háttérkorlátozások engedélyezve vannak</string>
     <string name="title_setup_data">Adatkapcsolat csökkentő bekapcsolva</string>
@@ -582,7 +584,6 @@
     <string name="title_advanced_actionbar_swap">A kuka és archiválás gombok felcserélése</string>
     <string name="title_advanced_actionbar_color">Fiókszín használata háttérszínnek a beszélgetés művelet sávjánál</string>
     <string name="title_advanced_category_header">Csoportosítás fiókkategória szerint</string>
-    <string name="title_advanced_navbar_colorize">Az Android navigációs sor színezése</string>
     <string name="title_advanced_list_count">Az üzenetek, beszélgetések számának mutatása a felső műveletek sávban</string>
     <string name="title_advanced_bundled_fonts">Csomagolt betűtípusok használata</string>
     <string name="title_advanced_narrow_fonts">Keskeny betűtípus használata</string>
@@ -755,6 +756,7 @@
     <string name="title_advanced_haptic_feedback">Rezgés fontos műveleteknél</string>
     <string name="title_advanced_language">Nyelv</string>
     <string name="title_advanced_language_system">Rendszer</string>
+    <string name="title_advanced_integrations_hint">Az alábbi felhőszolgáltatások nem az alkalmazás részei. Az esetleges kifizetések közvetlenül a felhőszolgáltatónak történnek, nem az alkalmazás fejlesztőjének.</string>
     <string name="title_advanced_lt">LanguageTool integráció</string>
     <string name="title_advanced_lt_sentence">Minden mondat ellenőrzése</string>
     <string name="title_advanced_lt_auto">Bekezdés ellenőrzése új sor után</string>
@@ -770,6 +772,7 @@
     <string name="title_advanced_openai_temperature">Hőmérséklet: %1$s</string>
     <string name="title_advanced_openai_moderation">Tartalom moderálása</string>
     <string name="title_advanced_gemini">Gemini integráció</string>
+    <string name="title_advanced_multi_modal">Multimodális</string>
     <string name="title_advanced_summarize_prompt">Összefoglaló készítés</string>
     <string name="title_advanced_sdcard">SD kártyát akarok használni</string>
     <string name="title_advanced_watchdog">A FairEmail futásának időszakos ellenőrzése</string>
@@ -846,6 +849,9 @@
     <string name="title_advanced_threading_hint">Egymáshoz kapcsolódó üzenetek csoportosítása</string>
     <string name="title_advanced_indentation_hint">Csak kártya stílus használatakor</string>
     <string name="title_advanced_highlight_hint">A téma kiemelőszíne a kiemeléshez lesz használva</string>
+    <string name="title_advanced_free">Ez a felhőszolgáltatás ingyenesen használható</string>
+    <string name="title_advanced_free_tier">Ennek a felhőszolgáltatásnak van ingyenes csomagja</string>
+    <string name="title_advanced_paid_service">Ez a felhőszolgáltatás fizetős</string>
     <string name="title_advanced_privacy_risk">Adatvédelmi szempontból aggályos a használata</string>
     <string name="title_advanced_name_email_hint">Név csak akkor jelenik meg, ha elérhető</string>
     <string name="title_advanced_preview_hint">Csak az üzenetek szövegének letöltése után elérhető</string>
@@ -1583,6 +1589,7 @@
     <string name="title_search_flag_notes">jegyzetek</string>
     <string name="title_search_flag_invite">meghívás</string>
     <string name="title_search_flag_size">méret &gt; %1$s</string>
+    <string name="title_search_flag_touched">megnyitott</string>
     <string name="title_search_device">Keresés az eszközön</string>
     <string name="title_search_server">Keresés a szerveren</string>
     <string name="title_search_server_wait">Várakozás a kiszolgálóra</string>
@@ -1679,6 +1686,8 @@
     <string name="title_rule_delete">Végleges törlés</string>
     <string name="title_rule_sound">Hang lejátszása</string>
     <string name="title_rule_silent">Csendes értesítés</string>
+    <string name="title_rule_summarize">Összefoglalás</string>
+    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Foglalja össze az üzenetet, a beállított MI integrációval</string>
     <string name="title_rule_caption">Szabály szerkesztése</string>
     <string name="title_rule_title">A szabály érvényes erre</string>
     <string name="title_rule_name">Név</string>

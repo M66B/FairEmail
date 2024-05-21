@@ -493,7 +493,6 @@
     <string name="title_advanced_actionbar">Mostrar a barra de accións de conversa</string>
     <string name="title_advanced_actionbar_color">Usar a cor da conta coma a cor de fondo para a barra de acción de conversa</string>
     <string name="title_advanced_category_header">Agrupar por categoría de conta</string>
-    <string name="title_advanced_navbar_colorize">Dar cor á barra de navegación de Android</string>
     <string name="title_advanced_list_count">Mostrar o número de mensaxes ou conversas na barra de accións superior</string>
     <string name="title_advanced_bundled_fonts">Usar as fontes internas</string>
     <string name="title_advanced_parse_classes">Interpretar as follas de estilo</string>

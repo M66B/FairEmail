@@ -513,7 +513,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_seekbar">Mostra la posició de conversa relativa amb un punt</string>
     <string name="title_advanced_actionbar">Mostra la barra d’acció de conversa</string>
     <string name="title_advanced_actionbar_color">Utilitzeu el color del compte com a color de fons per a la barra d’acció de conversa</string>
-    <string name="title_advanced_navbar_colorize">Coloreja la barra de navegació d\'Android</string>
     <string name="title_advanced_parse_classes">Analitza els fulls d\'estil</string>
     <string name="title_advanced_authentication">Mostrar avisos d\'autenticació</string>
     <string name="title_advanced_restore_on_launch">Restaura les pestanyes tancades en iniciar</string>
