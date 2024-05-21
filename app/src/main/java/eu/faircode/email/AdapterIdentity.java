@@ -239,7 +239,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                     .setCheckable(true).setChecked(identity.primary);
 
             if (parentFragment instanceof FragmentIdentities)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_color, order++, R.string.title_color);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_color, order++, R.string.title_edit_color);
 
             if (identity.sign_key != null || identity.sign_key_alias != null)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, order++, R.string.title_reset_sign_key);
@@ -260,7 +260,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                     } else if (itemId == R.string.title_primary) {
                         onActionPrimary(!item.isChecked());
                         return true;
-                    } else if (itemId == R.string.title_color) {
+                    } else if (itemId == R.string.title_edit_color) {
                         onActionEditColor();
                         return true;
                     } else if (itemId == R.string.title_reset_sign_key) {

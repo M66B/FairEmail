@@ -495,7 +495,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, order++, R.string.title_primary)
                     .setCheckable(true).setChecked(account.primary);
             if (parentFragment instanceof FragmentAccounts)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_color, order++, R.string.title_color);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_color, order++, R.string.title_edit_color);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 String channelId = EntityAccount.getNotificationChannelId(account.id);
@@ -538,7 +538,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     } else if (itemId == R.string.title_primary) {
                         onActionPrimary(!item.isChecked());
                         return true;
-                    } else if (itemId == R.string.title_color) {
+                    } else if (itemId == R.string.title_edit_color) {
                         onActionEditColor();
                         return true;
                     } else if (itemId == R.string.title_create_channel) {

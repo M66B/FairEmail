@@ -1358,6 +1358,7 @@
     <string name="title_expunge_remark">This will permanently delete all messages marked for deletion</string>
     <string name="title_empty_trash">Empty trash</string>
     <string name="title_empty_spam">Empty spam</string>
+    <string name="title_edit_color">Edit color</string>
     <string name="title_edit_properties">Edit properties</string>
     <string name="title_edit_rules">Edit rules</string>
     <string name="title_execute_rules">Execute rules</string>

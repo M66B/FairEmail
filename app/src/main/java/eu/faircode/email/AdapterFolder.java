@@ -659,7 +659,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
 
                 if (parentFragment instanceof FragmentFolders)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_color, order++, R.string.title_color);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_color, order++, R.string.title_edit_color);
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, order++, R.string.title_edit_properties);
 
@@ -813,7 +813,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     } else if (itemId == R.string.title_import_messages) {
                         onActionImportMessages();
                         return true;
-                    } else if (itemId == R.string.title_color) {
+                    } else if (itemId == R.string.title_edit_color) {
                         onActionEditColor();
                         return true;
                     } else if (itemId == R.string.title_edit_properties) {
