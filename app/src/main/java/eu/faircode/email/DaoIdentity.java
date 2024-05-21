@@ -114,6 +114,9 @@ public interface DaoIdentity {
     @Query("UPDATE identity SET `primary` = :primary WHERE id = :id AND NOT (`primary` IS :primary)")
     int setIdentityPrimary(long id, boolean primary);
 
+    @Query("UPDATE identity SET color = :color WHERE id = :id AND NOT (color IS :color)")
+    int setIdentityColor(long id, Integer color);
+
     @Query("UPDATE identity SET state = :state WHERE id = :id AND NOT (state IS :state)")
     int setIdentityState(long id, String state);
 

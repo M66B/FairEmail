@@ -238,6 +238,9 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, order++, R.string.title_primary)
                     .setCheckable(true).setChecked(identity.primary);
 
+            if (parentFragment instanceof FragmentIdentities)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_color, order++, R.string.title_color);
+
             if (identity.sign_key != null || identity.sign_key_alias != null)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, order++, R.string.title_reset_sign_key);
 
@@ -256,6 +259,9 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                         return true;
                     } else if (itemId == R.string.title_primary) {
                         onActionPrimary(!item.isChecked());
+                        return true;
+                    } else if (itemId == R.string.title_color) {
+                        onActionEditColor();
                         return true;
                     } else if (itemId == R.string.title_reset_sign_key) {
                         onActionClearSignKey();
@@ -338,6 +344,19 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "identity:primary");
+                }
+
+                private void onActionEditColor() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", identity.id);
+                    args.putInt("color", identity.color == null ? Color.TRANSPARENT : identity.color);
+                    args.putString("title", context.getString(R.string.title_color));
+                    args.putBoolean("reset", true);
+
+                    FragmentDialogColor fragment = new FragmentDialogColor();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(parentFragment, ActivitySetup.REQUEST_EDIT_IDENITY_COLOR);
+                    fragment.show(parentFragment.getParentFragmentManager(), "edit:color");
                 }
 
                 private void onActionClearSignKey() {

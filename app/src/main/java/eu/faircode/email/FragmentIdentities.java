@@ -19,12 +19,15 @@ package eu.faircode.email;
     Copyright 2018-2024 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -219,5 +222,48 @@ public class FragmentIdentities extends FragmentBase {
                 }
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case ActivitySetup.REQUEST_EDIT_IDENITY_COLOR:
+                    if (resultCode == RESULT_OK && data != null)
+                        onEditIdentityColor(data.getBundleExtra("args"));
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void onEditIdentityColor(Bundle args) {
+        if (!ActivityBilling.isPro(getContext())) {
+            startActivity(new Intent(getContext(), ActivityBilling.class));
+            return;
+        }
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                Integer color = args.getInt("color");
+
+                if (color == Color.TRANSPARENT)
+                    color = null;
+
+                DB db = DB.getInstance(context);
+                db.identity().setIdentityColor(id, color);
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "edit:color");
     }
 }
