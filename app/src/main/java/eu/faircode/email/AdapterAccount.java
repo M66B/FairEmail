@@ -494,6 +494,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             }
             popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, order++, R.string.title_primary)
                     .setCheckable(true).setChecked(account.primary);
+            if (parentFragment instanceof FragmentAccounts)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_color, order++, R.string.title_color);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 String channelId = EntityAccount.getNotificationChannelId(account.id);
@@ -535,6 +537,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                         return true;
                     } else if (itemId == R.string.title_primary) {
                         onActionPrimary(!item.isChecked());
+                        return true;
+                    } else if (itemId == R.string.title_color) {
+                        onActionEditColor();
                         return true;
                     } else if (itemId == R.string.title_create_channel) {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
@@ -674,6 +679,19 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "account:primary");
+                }
+
+                private void onActionEditColor() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", account.id);
+                    args.putInt("color", account.color == null ? Color.TRANSPARENT : account.color);
+                    args.putString("title", context.getString(R.string.title_color));
+                    args.putBoolean("reset", true);
+
+                    FragmentDialogColor fragment = new FragmentDialogColor();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(parentFragment, ActivitySetup.REQUEST_EDIT_ACCOUNT_COLOR);
+                    fragment.show(parentFragment.getParentFragmentManager(), "edit:color");
                 }
 
                 @TargetApi(Build.VERSION_CODES.O)
