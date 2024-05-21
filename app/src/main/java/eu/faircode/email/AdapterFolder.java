@@ -273,7 +273,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (listener == null) {
                 Integer color =
-                        (folder.color == null && unified && EntityFolder.INBOX.equals(folder.type)
+                        (folder.color == null && EntityFolder.INBOX.equals(folder.type)
                                 ? folder.accountColor : folder.color);
                 vwColor.setBackgroundColor(color == null ? Color.TRANSPARENT : color);
                 vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.GONE);
