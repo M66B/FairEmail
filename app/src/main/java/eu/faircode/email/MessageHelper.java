@@ -2610,6 +2610,24 @@ public class MessageHelper {
         return null;
     }
 
+    boolean isAligned(Context context, List<String> signers, Address[] return_path, Address[] from) {
+        List<Address> envelop = new ArrayList<>();
+        if (return_path != null)
+            envelop.addAll(Arrays.asList(return_path));
+        if (from != null)
+            envelop.addAll(Arrays.asList(from));
+        for (String signer : signers) {
+            for (Address a : envelop) {
+                String domain = UriHelper.getEmailDomain(((InternetAddress) a).getAddress());
+                if (domain != null && Objects.equals(
+                        UriHelper.getRootDomain(context, signer),
+                        UriHelper.getRootDomain(context, domain)))
+                    return true;
+            }
+        }
+        return false;
+    }
+
     Address[] getMailFrom(String[] headers) {
         if (headers == null)
             return null;

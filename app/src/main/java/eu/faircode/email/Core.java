@@ -3504,22 +3504,10 @@ class Core {
 
                         if (native_dkim && !BuildConfig.PLAY_STORE_RELEASE) {
                             List<String> signers = helper.verifyDKIM(context);
-                            message.signedby = (signers.size() == 0 ? null : TextUtils.join(",", signers));
-                            if (Boolean.TRUE.equals(message.dkim)) {
-                                if (signers.size() == 0)
-                                    message.dkim = false;
-                            } else {
-                                if (message.from != null)
-                                    for (Address from : message.from) {
-                                        String domain = UriHelper.getEmailDomain(((InternetAddress) from).getAddress());
-                                        if (domain != null && signers.contains(domain)) {
-                                            message.dkim = true;
-                                            break;
-                                        }
-                                    }
-                            }
-                            if (!Boolean.TRUE.equals(message.dkim))
-                                message.dmarc = message.dkim;
+                            message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
+                            message.dkim = !signers.isEmpty();
+                            message.dmarc = Boolean.TRUE.equals(message.dmarc) ||
+                                    helper.isAligned(context, signers, message.return_path, message.from);
                         }
 
                         if (message.size == null && message.total != null)
@@ -4668,22 +4656,10 @@ class Core {
 
             if (native_dkim && !BuildConfig.PLAY_STORE_RELEASE) {
                 List<String> signers = helper.verifyDKIM(context);
-                message.signedby = (signers.size() == 0 ? null : TextUtils.join(",", signers));
-                if (Boolean.TRUE.equals(message.dkim)) {
-                    if (signers.size() == 0)
-                        message.dkim = false;
-                } else {
-                    if (message.from != null)
-                        for (Address from : message.from) {
-                            String domain = UriHelper.getEmailDomain(((InternetAddress) from).getAddress());
-                            if (domain != null && signers.contains(domain)) {
-                                message.dkim = true;
-                                break;
-                            }
-                        }
-                }
-                if (!Boolean.TRUE.equals(message.dkim))
-                    message.dmarc = message.dkim;
+                message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
+                message.dkim = !signers.isEmpty();
+                message.dmarc = Boolean.TRUE.equals(message.dmarc) ||
+                        helper.isAligned(context, signers, message.return_path, message.from);
             }
 
             // Borrow reply name from sender name
