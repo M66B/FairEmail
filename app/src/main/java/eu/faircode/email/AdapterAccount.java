@@ -520,6 +520,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_log, order++, R.string.title_log);
             }
 
+            if (!settings)
+                popupMenu.getMenu().add(Menu.NONE, R.string.menu_setup, order++, R.string.menu_setup);
+
             if (debug || BuildConfig.DEBUG) {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, order++, R.string.title_reset);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_oauth_authorize, order++, R.string.title_setup_oauth_authorize);
@@ -564,6 +567,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                         return true;
                     } else if (itemId == R.string.title_log) {
                         onActionLog();
+                        return true;
+                    } else if (itemId == R.string.menu_setup) {
+                        onActionSettings();
                         return true;
                     } else if (itemId == R.string.title_reset) {
                         onActionReset();
@@ -811,6 +817,14 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     FragmentTransaction fragmentTransaction = parentFragment.getParentFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("logs");
                     fragmentTransaction.commit();
+                }
+
+                private void onActionSettings() {
+                    context.startActivity(new Intent(context, ActivitySetup.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            .putExtra("target", "accounts")
+                            .putExtra("id", account.id)
+                            .putExtra("protocol", account.protocol));
                 }
 
                 private void onActionReset() {
