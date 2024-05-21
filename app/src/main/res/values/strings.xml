@@ -570,7 +570,6 @@
     <string name="title_advanced_two_col">Use two columns</string>
     <string name="title_advanced_min_screen_size">Minimum screen size for splitting the screen</string>
     <string name="title_advanced_close_pane">Collapse row or column when closing a conversation</string>
-    <string name="title_advanced_open_pane">Start with two rows or two columns</string>
     <string name="title_advanced_column_width">Message column width / row height: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Hide top toolbar when scrolling messages</string>
     <string name="title_advanced_edge_to_edge" translatable="false">Edge-to-edge (experimental)</string>
