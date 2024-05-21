@@ -64,7 +64,6 @@ import com.sun.mail.pop3.POP3Store;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -3507,7 +3506,7 @@ class Core {
                             message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
                             message.dkim = !signers.isEmpty();
                             message.dmarc = Boolean.TRUE.equals(message.dmarc) ||
-                                    helper.isAligned(context, signers, message.return_path, message.from);
+                                    helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
                         }
 
                         if (message.size == null && message.total != null)
@@ -4659,7 +4658,7 @@ class Core {
                 message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
                 message.dkim = !signers.isEmpty();
                 message.dmarc = Boolean.TRUE.equals(message.dmarc) ||
-                        helper.isAligned(context, signers, message.return_path, message.from);
+                        helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
             }
 
             // Borrow reply name from sender name
