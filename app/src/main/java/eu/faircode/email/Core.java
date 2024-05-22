@@ -3501,7 +3501,9 @@ class Core {
                         if (MessageHelper.equalEmail(message.submitter, message.from))
                             message.submitter = null;
 
-                        if (native_dkim && !BuildConfig.PLAY_STORE_RELEASE) {
+                        if (native_dkim &&
+                                !EntityFolder.isOutgoing(folder.type) &&
+                                !BuildConfig.PLAY_STORE_RELEASE) {
                             List<String> signers = helper.verifyDKIM(context);
                             message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
                             message.dkim = !signers.isEmpty();
@@ -4653,7 +4655,9 @@ class Core {
             if (MessageHelper.equalEmail(message.submitter, message.from))
                 message.submitter = null;
 
-            if (native_dkim && !BuildConfig.PLAY_STORE_RELEASE) {
+            if (native_dkim &&
+                    !EntityFolder.isOutgoing(folder.type) &&
+                    !BuildConfig.PLAY_STORE_RELEASE) {
                 List<String> signers = helper.verifyDKIM(context);
                 message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
                 message.dkim = !signers.isEmpty();
