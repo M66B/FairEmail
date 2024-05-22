@@ -1081,6 +1081,7 @@
     <string name="title_expunge_remark">Esto eliminará permanentemente todos los mensajes marcados para su eliminación</string>
     <string name="title_empty_trash">Vaciar papelera</string>
     <string name="title_empty_spam">Vaciar spam</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Editar color</string>
     <string name="title_edit_properties">Editar propiedades</string>
     <string name="title_edit_rules">Editar reglas</string>
     <string name="title_execute_rules">Ejecutar reglas</string>

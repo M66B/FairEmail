@@ -1081,6 +1081,7 @@
     <string name="title_expunge_remark">Isso excluirá permanentemente todas as mensagens marcadas para exclusão</string>
     <string name="title_empty_trash">Limpar lixeira</string>
     <string name="title_empty_spam">Limpar spam</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Editar cor</string>
     <string name="title_edit_properties">Editar propriedades</string>
     <string name="title_edit_rules">Editar regras</string>
     <string name="title_execute_rules">Executar regras</string>
@@ -1690,6 +1691,7 @@
     <string name="title_rule_sound">Tocar som</string>
     <string name="title_rule_silent">Notificação silenciosa</string>
     <string name="title_rule_summarize">Resumir</string>
+    <string name="title_rule_summarize_remark">Resuma a mensagem com integração de IA configurada</string>
     <string name="title_rule_caption">Editar regra</string>
     <string name="title_rule_title">Regra se aplica a</string>
     <string name="title_rule_name">Nome</string>

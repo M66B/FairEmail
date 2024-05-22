@@ -240,6 +240,7 @@
     <string name="title_setup_doze_stopped">Σταμάτησε ο συγχρονισμός;</string>
     <string name="title_setup_doze_device">Αυτό πιθανόν απαιτείται για αυτήν τη συσκευή</string>
     <string name="title_setup_alarm_12">Η εφαρμογή δεν θα λειτουργήσει σωστά</string>
+    <string name="title_setup_fg_15">Η εφαρμογή δεν μπορεί να ξεκινήσει αυτόματα</string>
     <string name="title_setup_inexact">Ειδοποιήσεις &amp; υπενθυμίσεις απενεργοποιημένες</string>
     <string name="title_setup_background">Οι περιορισμοί παρασκηνίου είναι ενεργοποιημένοι</string>
     <string name="title_setup_data">Η εξοικονόμηση δεδομένων είναι ενεργή</string>
@@ -753,6 +754,7 @@
     <string name="title_advanced_haptic_feedback">Απτική ανάδραση για σημαντικές ενέργειες</string>
     <string name="title_advanced_language">Γλώσσα</string>
     <string name="title_advanced_language_system">Σύστημα</string>
+    <string name="title_advanced_integrations_hint">Οι παρακάτω υπηρεσίες νέφους (cloud) δεν αποτελούν μέρος της εφαρμογής. Οποιεσδήποτε πληρωμές θα πιστωθούν απευθείας στην υπηρεσία του νέφους και όχι στον προγραμματιστή της εφαρμογής.</string>
     <string name="title_advanced_lt">Ενσωμάτωση του LanguageTool</string>
     <string name="title_advanced_lt_sentence">Έλεγχος κάθε πρότασης</string>
     <string name="title_advanced_lt_auto">Έλεγχος της παραγράφου μετά από μία νέα γραμμή</string>
@@ -768,6 +770,7 @@
     <string name="title_advanced_openai_temperature">Θερμοκρασία: %1$s</string>
     <string name="title_advanced_openai_moderation">Έλεγχος περιεχομένου</string>
     <string name="title_advanced_gemini">Ενσωμάτωση Gemini</string>
+    <string name="title_advanced_multi_modal">Πολυτροπικό</string>
     <string name="title_advanced_summarize_prompt">Εντολή για σύνοψη</string>
     <string name="title_advanced_sdcard">Θέλω να χρησιμοποιήσω μια κάρτα SD</string>
     <string name="title_advanced_watchdog">Περιοδικός έλεγχος για το αν το FairEmail είναι ακόμη ενεργό</string>
@@ -844,6 +847,9 @@
     <string name="title_advanced_threading_hint">Ομαδοποίηση των μηνυμάτων που σχετίζονται αναμεταξύ τους</string>
     <string name="title_advanced_indentation_hint">Μόνο για το στιλ κάρτας</string>
     <string name="title_advanced_highlight_hint">Το χρώμα έμφασης του θέματος θα χρησιμοποιηθεί για την επισήμανση</string>
+    <string name="title_advanced_free">Αυτή η υπηρεσία νέφους προσφέρεται δωρεάν για χρήση</string>
+    <string name="title_advanced_free_tier">Αυτή η υπηρεσία νέφους προσφέρει περιορισμένη δωρεάν χρήση</string>
+    <string name="title_advanced_paid_service">Αυτή η υπηρεσία νέφους απαιτεί πληρωμή</string>
     <string name="title_advanced_privacy_risk">Το προσωπικό σας απόρρητο μπορεί να τεθεί σε κίνδυνο</string>
     <string name="title_advanced_name_email_hint">Τα ονόματα θα εμφανίζονται μόνον όταν είναι διαθέσιμα</string>
     <string name="title_advanced_preview_hint">Διαθέσιμο μόνον εφόσον το κείμενο του μηνύματος έχει κατέβει</string>
@@ -1072,6 +1078,7 @@
     <string name="title_expunge_remark">Αυτό θα διαγράψει μόνιμα όλα τα μηνύματα που έχουν επισημανθεί για διαγραφή</string>
     <string name="title_empty_trash">Άδειασμα κάδου απορριμμάτων</string>
     <string name="title_empty_spam">Άδειασμα Ανεπιθύμητων</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Επεξεργασία χρώματος</string>
     <string name="title_edit_properties">Επεξεργασία ιδιοτήτων</string>
     <string name="title_edit_rules">Επεξεργασία κανόνων</string>
     <string name="title_execute_rules">Εκτέλεση κανόνων</string>
@@ -1582,6 +1589,7 @@
     <string name="title_search_flag_notes">σημειώσεις</string>
     <string name="title_search_flag_invite">πρόσκληση</string>
     <string name="title_search_flag_size">μέγεθος &gt; %1$s</string>
+    <string name="title_search_flag_touched">έχουν ανοιχτεί</string>
     <string name="title_search_device">Αναζήτηση στη συσκευή</string>
     <string name="title_search_server">Αναζήτηση στο διακομιστή</string>
     <string name="title_search_server_wait">Αναμονή για διακομιστή</string>
@@ -1679,6 +1687,7 @@
     <string name="title_rule_sound">Αναπαραγωγή ήχου</string>
     <string name="title_rule_silent">Αθόρυβη ειδοποίηση</string>
     <string name="title_rule_summarize">Σύνοψη</string>
+    <string name="title_rule_summarize_remark">Σύνοψη του μηνύματος με ρυθμισμένη ενσωμάτωση τεχνητής νοημοσύνης</string>
     <string name="title_rule_caption">Επεξεργασία κανόνα</string>
     <string name="title_rule_title">Ο κανόνας εφαρμόζεται σε</string>
     <string name="title_rule_name">Όνομα</string>
