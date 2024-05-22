@@ -88,7 +88,7 @@ public class EntityIdentity {
     @NonNull
     public String password;
     @NonNull
-    public Boolean login;
+    public Boolean login = false;
     @NonNull
     public boolean certificate = false; // obsolete
     public String certificate_alias;
