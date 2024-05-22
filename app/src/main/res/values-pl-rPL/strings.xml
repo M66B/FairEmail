@@ -948,6 +948,7 @@
     <string name="title_identity_name">Twoje imię</string>
     <string name="title_identity_email">Twój adres e-mail</string>
     <string name="title_identity_tenant_hint">To pole powinno być puste w większości przypadków</string>
+    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Rzadko włącza się tę opcję, co więcej, zwiększy to zużycie danych!</string>
     <string name="title_identity_color_hint">Kolory tożsamości mają pierwszeństwo przed kolorami folderów i kont</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_advanced_sender_name">Użyj nazwy, gdy adres nadawcy został edytowany</string>
@@ -1005,6 +1006,7 @@
     <string name="title_password">Hasło</string>
     <string name="title_password_storage">Jak przechowywane są hasła?</string>
     <string name="title_case_sensitive">W nazwach użytkowników i hasłach rozróżniane są małe i wielkie litery</string>
+    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Odbieraj przed wysyłaniem</string>
     <string name="title_client_certificate">Certyfikat klienta</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Użyj lokalnego adresu IP zamiast nazwy hosta</string>
@@ -1109,6 +1111,7 @@
     <string name="title_expunge_remark">Spowoduje to trwałe usunięcie wszystkich wiadomości oznaczonych do usunięcia</string>
     <string name="title_empty_trash">Opróżnij kosz</string>
     <string name="title_empty_spam">Opróżnij Spam</string>
+    <string name="title_edit_color">Edycja kolorów</string>
     <string name="title_edit_properties">Edytuj właściwości</string>
     <string name="title_edit_rules">Edytuj reguły</string>
     <string name="title_execute_rules">Wykonaj reguły</string>

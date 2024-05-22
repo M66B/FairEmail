@@ -922,6 +922,7 @@
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din e-mailadresse</string>
     <string name="title_identity_tenant_hint">Dette felt bør fortrinsvis være tomt</string>
+    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Det er sjældent nødvendigt at slå denne mulighed til, og desuden vil dataforbruget stige!</string>
     <string name="title_identity_color_hint">Identitetsfarver har forrang over kontofarver</string>
     <string name="title_advanced_sender">Tillad redigering af afsenderadresse</string>
     <string name="title_advanced_sender_name">Brug navnet, når afsenderadressen er blevet redigeret</string>
@@ -979,6 +980,7 @@
     <string name="title_password">Adgangskode</string>
     <string name="title_password_storage">Hvordan opbevares adgangskoder?</string>
     <string name="title_case_sensitive">I brugernavne og adgangskoder skelnes normalt mellem minuskler og versaler</string>
+    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Modtag før afsendelse</string>
     <string name="title_client_certificate">Klientcertifikat</string>
     <string name="title_realm">Område</string>
     <string name="title_use_ip">Brug lokal IP-adresse i stedet for værtsnavn</string>

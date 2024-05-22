@@ -918,6 +918,7 @@
     <string name="title_identity_name">Az Ön neve</string>
     <string name="title_identity_email">Az Ön email címe</string>
     <string name="title_identity_tenant_hint">Ez a mező legtöbb esetben üres kell legyen</string>
+    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Ezt a lehetőséget néha be kell kapcsolni, bár az adathasználat nőni fog!</string>
     <string name="title_identity_color_hint">Identitás színek elsőbbsége a mappa és fiók színekkel szemben</string>
     <string name="title_advanced_sender">Küldőként használt cím szerkesztésének engedélyezése</string>
     <string name="title_advanced_sender_name">Használjon nevet amikor a küldő címe szerkesztésre került</string>
@@ -975,6 +976,7 @@
     <string name="title_password">Jelszó</string>
     <string name="title_password_storage">Hogyan vannak tárolva a jelszavak?</string>
     <string name="title_case_sensitive">Felhasználónevek és jelszók általában kis- és nagybetű érzékenyek</string>
+    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Fogadás küldés előtt</string>
     <string name="title_client_certificate">Kliens tanúsítványa</string>
     <string name="title_realm">Tartomány</string>
     <string name="title_use_ip">IP cím használata kiszolgálónév helyett</string>

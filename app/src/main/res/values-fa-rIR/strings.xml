@@ -657,6 +657,7 @@
     <string name="title_select">انتخاب &#8230;</string>
     <string name="title_identity_name">نام شما</string>
     <string name="title_identity_email">آدرس ایمیل شما</string>
+    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">به ندرت پیش می‌آید که نیاز به فعال کردن این گزینه باشد، به علاوه، مصرف دیتا افزایش خواهد یافت!</string>
     <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
     <string name="title_identity_reply_to">پاسخ به آدرس</string>
     <string name="title_identity_sensitivity">حساسیت پیش‌فرض</string>
@@ -693,6 +694,7 @@
     <string name="title_user">نام کاربری</string>
     <string name="title_password">گذرواژه</string>
     <string name="title_case_sensitive">نام‌های کاربری و گذرواژه‌ها در بیشتر موارد به بزرگ و کوچک بودن حروف حساسند</string>
+    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">دریافت پیش از ارسال</string>
     <string name="title_client_certificate">گواهی‌نامه کارخواه</string>
     <string name="title_realm">حوزه</string>
     <string name="title_use_ip">استفاده از نشانی IP محلی بجای نام میزبان</string>
