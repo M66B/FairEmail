@@ -303,7 +303,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_theme_black">Zwart</string>
     <string name="title_setup_theme_white">Wit</string>
     <string name="title_setup_theme_black_or_white">Zwart of wit</string>
-    <string name="title_setup_theme_black_and_white">Zwart-wit</string>
+    <string name="title_setup_theme_black_and_white">Zwart en wit</string>
     <string name="title_setup_theme_reverse">Kleuren omkeren</string>
     <string name="title_setup_theme_light">Licht</string>
     <string name="title_setup_theme_dark">Donker</string>
@@ -479,7 +479,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_two_col">Gebruik twee kolommen</string>
     <string name="title_advanced_min_screen_size">Minimale schermgrootte voor het splitsen van het scherm</string>
     <string name="title_advanced_close_pane">Rij of kolom samenvouwen bij het sluiten van een gesprek</string>
-    <string name="title_advanced_open_pane">Begin met twee kolommen of rijen</string>
     <string name="title_advanced_column_width">Berichtkolom breedte / rij hoogte: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Bovenste werkbalk verbergen bij het scrollen van berichten</string>
     <string name="title_advanced_nav_options">Toon navigatiemenu opties</string>
@@ -1076,6 +1075,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_expunge_remark">Dit zal alle berichten die gemarkeerd zijn om te verwijderen permanent verwijderen</string>
     <string name="title_empty_trash">Prullenbak leegmaken</string>
     <string name="title_empty_spam">Spam map leegmaken</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Bewerk kleur</string>
     <string name="title_edit_properties">Bewerk eigenschappen</string>
     <string name="title_edit_rules">Bewerk regels</string>
     <string name="title_execute_rules">Voer regels uit</string>
@@ -1679,7 +1679,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_sound">Speel geluid af</string>
     <string name="title_rule_silent">Stille melding</string>
     <string name="title_rule_summarize">Samenvatten</string>
-    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Vat het bericht samen met de geconfigureerde AI-integratie</string>
+    <string name="title_rule_summarize_remark">Vat het bericht samen met de geconfigureerde AI-integratie</string>
     <string name="title_rule_caption">Bewerk regel</string>
     <string name="title_rule_title">Regel is van toepassing op</string>
     <string name="title_rule_name">Naam</string>

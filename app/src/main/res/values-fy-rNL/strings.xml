@@ -479,7 +479,6 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_two_col">Brûk twa kolommen</string>
     <string name="title_advanced_min_screen_size">Minimale skermgrutte foar it splitsen fan it skerm</string>
     <string name="title_advanced_close_pane">Rige of kolom ynklappe by it sluten fan in petear</string>
-    <string name="title_advanced_open_pane">Begjin mei twa kolommen of rigen</string>
     <string name="title_advanced_column_width">Berjochtkolombreedte / rigehichte: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Boppeste arkbalke ferstopje by it skowen fan berjochten</string>
     <string name="title_advanced_nav_options">Navigaasjemenuopties</string>

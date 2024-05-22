@@ -511,7 +511,6 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_two_col">Použít dva sloupce</string>
     <string name="title_advanced_min_screen_size">Minimální velikost obrazovky pro její rozdělení</string>
     <string name="title_advanced_close_pane">Sbalit řádek nebo sloupec při zavření konverzace</string>
-    <string name="title_advanced_open_pane">Začít se dvěma řádky nebo dvěma sloupci</string>
     <string name="title_advanced_column_width">Šířka sloupce zprávy / výška řádku: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Skrýt horní panel nástrojů při posouvání zpráv</string>
     <string name="title_advanced_nav_options">Zobrazit možnosti navigačního menu</string>
@@ -1111,6 +1110,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_expunge_remark">Tímto trvale smažete všechny zprávy označené pro smazání</string>
     <string name="title_empty_trash">Vysypat koš</string>
     <string name="title_empty_spam">Vysypat nevyžádané</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Upravit barvu</string>
     <string name="title_edit_properties">Upravit vlastnosti</string>
     <string name="title_edit_rules">Upravit pravidla</string>
     <string name="title_execute_rules">Provést pravidla</string>
@@ -1719,6 +1719,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_sound">Přehrát zvuk</string>
     <string name="title_rule_silent">Tichá oznámení</string>
     <string name="title_rule_summarize">Shrnout</string>
+    <string name="title_rule_summarize_remark">Shrnutí zprávy s nakonfigurovanou integrací AI</string>
     <string name="title_rule_caption">Upravit pravidlo</string>
     <string name="title_rule_title">Pravidlo platí pro</string>
     <string name="title_rule_name">Název</string>

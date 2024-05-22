@@ -476,7 +476,6 @@
     <string name="title_advanced_two_col">Käytä kahta saraketta</string>
     <string name="title_advanced_min_screen_size">Näytön vähimmäiskoko näytön jakamiseksi</string>
     <string name="title_advanced_close_pane">Tiivistä rivi tai sarake, kun keskustelu suljetaan</string>
-    <string name="title_advanced_open_pane">Aloita kahdella rivillä tai sarakkeella</string>
     <string name="title_advanced_column_width">Viestisarakkeen leveys / rivin korkeus: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Piilota työkalupalkki vierittäessä viestejä</string>
     <string name="title_advanced_nav_options">Näytä asetukset navigointivalikossa</string>

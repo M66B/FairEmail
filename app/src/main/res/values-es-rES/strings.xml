@@ -482,7 +482,6 @@
     <string name="title_advanced_two_col">Usar dos columnas</string>
     <string name="title_advanced_min_screen_size">Tamaño mínimo de pantalla para dividir la pantalla</string>
     <string name="title_advanced_close_pane">Colapsar fila o columna al cerrar una conversación</string>
-    <string name="title_advanced_open_pane">Comenzar con dos filas o dos columnas</string>
     <string name="title_advanced_column_width">Ancho de columna de mensaje / altura de fila: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ocultar barra de herramientas superior al desplazar mensajes</string>
     <string name="title_advanced_nav_options">Mostrar opciones de menú de navegación</string>
@@ -1689,6 +1688,7 @@
     <string name="title_rule_sound">Reproducir sonido</string>
     <string name="title_rule_silent">Notificación silenciosa</string>
     <string name="title_rule_summarize">Resumir</string>
+    <string name="title_rule_summarize_remark">Resumir el mensaje con integración de IA configurada</string>
     <string name="title_rule_caption">Editar regla</string>
     <string name="title_rule_title">Regla aplicable a</string>
     <string name="title_rule_name">Nombre</string>

@@ -86,6 +86,7 @@
     <string name="title_synchronize_batch_enable">Enable synchronisation</string>
     <string name="title_synchronize_batch_disable">Disable synchronisation</string>
     <string name="title_empty_trash">Empty bin</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Edit colour</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_empty_trash_ask">Remove all deleted messages permanently?</string>
     <string name="title_empty_trash_all_ask">Remove all deleted messages of all accounts permanently?</string>
@@ -137,7 +138,7 @@
     <string name="title_rule_keyword_delete">Remove</string>
     <string name="title_rule_move">Move</string>
     <string name="title_rule_summarize">Summarise</string>
-    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Summarise the message with configured AI integration</string>
+    <string name="title_rule_summarize_remark">Summarise the message with configured AI integration</string>
     <string name="title_rule_body_remark">Using this condition will always download the message text, which may slow down the synchronisation of the message list</string>
     <string name="title_legend_section_synchronize">Synchronise</string>
     <string name="title_legend_section_folders">Folders</string>

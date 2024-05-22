@@ -510,7 +510,6 @@
     <string name="title_advanced_two_col">Dwie kolumny</string>
     <string name="title_advanced_min_screen_size">Minimalny rozmiar ekranu dla podziału ekranu</string>
     <string name="title_advanced_close_pane">Zwiń wiersz lub kolumnę podczas zamykania konwersacji</string>
-    <string name="title_advanced_open_pane">Zacznij od dwóch wierszy lub dwóch kolumn</string>
     <string name="title_advanced_column_width">Szerokość kolumny wiadomości / wysokość wiersza: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ukryj górny pasek narzędzi podczas przewijania wiadomości</string>
     <string name="title_advanced_nav_options">Pokaż opcje menu nawigacji</string>
@@ -1719,7 +1718,7 @@
     <string name="title_rule_sound">Odtwórz dźwięk</string>
     <string name="title_rule_silent">Ciche powiadomienia</string>
     <string name="title_rule_summarize">Podsumowanie</string>
-    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Podsumuj wiadomość dzięki skonfigurowanej integracji AI</string>
+    <string name="title_rule_summarize_remark">Podsumuj wiadomość dzięki skonfigurowanej integracji AI</string>
     <string name="title_rule_caption">Edytuj regułę</string>
     <string name="title_rule_title">Reguła dotyczy</string>
     <string name="title_rule_name">Nazwa</string>

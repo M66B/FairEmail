@@ -511,7 +511,6 @@
     <string name="title_advanced_two_col">Використовувати два стовпчики</string>
     <string name="title_advanced_min_screen_size">Мінімальний розмір екрану для його розділення</string>
     <string name="title_advanced_close_pane">Згортати рядок або стовпець при закритті розмови</string>
-    <string name="title_advanced_open_pane">Починати з двох рядків або двох стовпців</string>
     <string name="title_advanced_column_width">Співвідношення ширини стовпця або висоти рядка, в яких показується повідомлення, до ширини або висоти екрана: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Приховувати верхню панель інструментів під час прокрутки повідомлень</string>
     <string name="title_advanced_nav_options">Показувати параметри меню навігації</string>
@@ -1110,6 +1109,7 @@
     <string name="title_expunge_remark">Це назавжди видалить усі повідомлення, позначені для видалення</string>
     <string name="title_empty_trash">Очистити кошик</string>
     <string name="title_empty_spam">Очистити спам</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Змінити колір</string>
     <string name="title_edit_properties">Редагувати властивості</string>
     <string name="title_edit_rules">Змінити правила</string>
     <string name="title_execute_rules">Виконати правила</string>
@@ -1719,7 +1719,7 @@
     <string name="title_rule_sound">Відтворити звук</string>
     <string name="title_rule_silent">Зробити сповіщення беззвучним</string>
     <string name="title_rule_summarize">Підсумувати</string>
-    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Підсумовуйте повідомлення за допомогою налаштованої інтеграції штучного інтелекту</string>
+    <string name="title_rule_summarize_remark">Підсумовуйте повідомлення за допомогою налаштованої інтеграції штучного інтелекту</string>
     <string name="title_rule_caption">Редагувати правило</string>
     <string name="title_rule_title">Застосовується правило для</string>
     <string name="title_rule_name">Ім\'я</string>

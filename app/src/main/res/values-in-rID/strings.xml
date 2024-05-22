@@ -467,7 +467,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_two_col">Gunakan dua kolom</string>
     <string name="title_advanced_min_screen_size">Ukuran layar paling kecil untuk membagi layar</string>
     <string name="title_advanced_close_pane">Tutup baris atau kolom ketika menutup percakapan</string>
-    <string name="title_advanced_open_pane">Mulai dengan dua baris atau dua kolom</string>
     <string name="title_advanced_column_width">Lebar kolom pesan / tinggi baris: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Sembunyo toolbar atas saat menggulir pesan</string>
     <string name="title_advanced_nav_options">Tampilkan pilihan menu navigasi</string>
@@ -1065,6 +1064,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_expunge_remark">Ini akan menghapus semua pesan yang ditandai untuk dihapus secara permanen</string>
     <string name="title_empty_trash">Kosongkan sampah</string>
     <string name="title_empty_spam">Kosongkan spam</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Ubah warna</string>
     <string name="title_edit_properties">Ubah properti</string>
     <string name="title_edit_rules">Ubah aturan</string>
     <string name="title_execute_rules">Menjalankan peraturan</string>
@@ -1670,7 +1670,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_sound">Memainkan suara</string>
     <string name="title_rule_silent">Notifikasi senyap</string>
     <string name="title_rule_summarize">Rangkum</string>
-    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Rangkum pesan dengan integrasi AI yang sudah dikonfigurasi</string>
+    <string name="title_rule_summarize_remark">Rangkum pesan dengan integrasi AI yang sudah dikonfigurasi</string>
     <string name="title_rule_caption">Sunting aturan</string>
     <string name="title_rule_title">Aturan berlaku untuk</string>
     <string name="title_rule_name">Nama</string>

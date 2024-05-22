@@ -511,7 +511,6 @@
     <string name="title_advanced_two_col">להשתמש בשתי עמודות</string>
     <string name="title_advanced_min_screen_size">גודל המסך המזערי לפיצול המסך</string>
     <string name="title_advanced_close_pane">לצמצם שורה או עמודה בעת סגירת דיון</string>
-    <string name="title_advanced_open_pane">התחלה עם שתי שורות או עמודות</string>
     <string name="title_advanced_column_width">רוחב עמודה / גובה שורה של הודעה: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">להסתיר את סרגל הכלים בעת גלילה בין הודעות</string>
     <string name="title_advanced_nav_options">הצגת אפשרויות תפריט הניווט</string>
@@ -1111,6 +1110,7 @@
     <string name="title_expunge_remark">פעולה זו תמחק לצמיתות את כל ההודעות שסומנו למחיקה</string>
     <string name="title_empty_trash">פינוי אשפה</string>
     <string name="title_empty_spam">פינוי ספאם</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">עריכת צבע</string>
     <string name="title_edit_properties">עריכת מאפיינים</string>
     <string name="title_edit_rules">עריכת כללים</string>
     <string name="title_execute_rules">הפעלת כללים</string>
@@ -1722,6 +1722,7 @@
     <string name="title_rule_sound">השמעת צליל</string>
     <string name="title_rule_silent">התראה שקטה</string>
     <string name="title_rule_summarize">סיכום</string>
+    <string name="title_rule_summarize_remark">סיכום ההודעה עם מנגנוני בינה מלאכותית משולבים</string>
     <string name="title_rule_caption">עריכת כלל</string>
     <string name="title_rule_title">הכלל חל על</string>
     <string name="title_rule_name">שם</string>

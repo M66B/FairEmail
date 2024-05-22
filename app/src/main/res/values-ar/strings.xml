@@ -332,7 +332,6 @@
     <string name="title_advanced_two_col">استخدام عمودين</string>
     <string name="title_advanced_min_screen_size">الحد الأدنى لحجم الشاشة لتقسيم الشاشة</string>
     <string name="title_advanced_close_pane">طي الصف أو العمود عند إغلاق محادثة</string>
-    <string name="title_advanced_open_pane">ابدأ بصفين أو عمودين</string>
     <string name="title_advanced_hide_toolbar">إخفاء شريط الأدوات العلوي عند تصفح الرسائل</string>
     <string name="title_advanced_nav_options">إظهار خيارات قائمة التنقل</string>
     <string name="title_advanced_nav_categories">إظهار فئات الحساب في قائمة التنقل</string>

@@ -467,7 +467,6 @@
     <string name="title_advanced_two_col">2 列に分割する</string>
     <string name="title_advanced_min_screen_size">画面を分割するときの最小画面サイズ</string>
     <string name="title_advanced_close_pane">会話スレッドを閉じるときに、行または列を閉じる</string>
-    <string name="title_advanced_open_pane">2 行または 2 列の表示から開始する</string>
     <string name="title_advanced_column_width">本文の列の幅 / 行の高さ: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">メッセージをスクロールするとき上部ツールバーを隠す</string>
     <string name="title_advanced_nav_options">ナビゲーションメニューにオプションを表示する</string>

@@ -482,7 +482,6 @@
     <string name="title_advanced_two_col">Употреба на две колони</string>
     <string name="title_advanced_min_screen_size">Минимална големина на екрана за разделен екран</string>
     <string name="title_advanced_close_pane">Свиване на реда или колоната при затваряне на разговора</string>
-    <string name="title_advanced_open_pane">Начало с два реда или две колони</string>
     <string name="title_advanced_column_width">Ширина на колоната на съобщението / височина на реда: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Скриване на връхната лента с инструменти, превъртайки съобщения</string>
     <string name="title_advanced_nav_options">Показване на възможности на менюто за навигиране</string>
@@ -1691,6 +1690,7 @@
     <string name="title_rule_sound">Пускане на звука</string>
     <string name="title_rule_silent">Тихо известие</string>
     <string name="title_rule_summarize">Обобщаване</string>
+    <string name="title_rule_summarize_remark">Обобщете съобщението с конфигурирано интегриране на ИИ</string>
     <string name="title_rule_caption">Редакция правило</string>
     <string name="title_rule_title">Правилото важи за</string>
     <string name="title_rule_name">Име</string>

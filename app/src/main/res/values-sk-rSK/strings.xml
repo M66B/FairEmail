@@ -476,7 +476,6 @@
     <string name="title_advanced_two_col">Použiť dva stĺpce</string>
     <string name="title_advanced_min_screen_size">Minimálna veľkosť obrazovky pre funkciu rozdelenie obrazovky</string>
     <string name="title_advanced_close_pane">Zbaliť riadok alebo stĺpec pri zatvorení konverzácie</string>
-    <string name="title_advanced_open_pane">Začať s dvoma riadkami alebo dvoma stĺpcami</string>
     <string name="title_advanced_column_width">Šírka stĺpca / výška riadku správy: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Skrytie horného panela nástrojov pri posúvaní správ</string>
     <string name="title_advanced_nav_options">Zobrazovať možnosti navigačnej ponuky</string>

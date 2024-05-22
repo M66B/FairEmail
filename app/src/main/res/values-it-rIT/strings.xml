@@ -483,7 +483,6 @@
     <string name="title_advanced_two_col">Usa due colonne</string>
     <string name="title_advanced_min_screen_size">Dimensione minima dello schermo per la sua divisione</string>
     <string name="title_advanced_close_pane">Comprimi riga o colonna chiudendo una conversazione</string>
-    <string name="title_advanced_open_pane">Inizia con due righe o due colonne</string>
     <string name="title_advanced_column_width">Larghezza colonna/altezza riga del messaggio: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Nascondi la barra degli strumenti superiore scorrendo i messaggi</string>
     <string name="title_advanced_nav_options">Mostra le opzioni del menu di navigazione</string>
@@ -1084,6 +1083,7 @@
     <string name="title_expunge_remark">Questo eliminerà permanentemente tutti i messaggi contrassegnati per l\'eliminazione</string>
     <string name="title_empty_trash">Svuota il cestino</string>
     <string name="title_empty_spam">Svuota lo spam</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Modifica colore</string>
     <string name="title_edit_properties">Modifica le proprietà</string>
     <string name="title_edit_rules">Modifica le regole</string>
     <string name="title_execute_rules">Esegui le regole</string>
@@ -1695,7 +1695,7 @@
     <string name="title_rule_sound">Riproduci suono</string>
     <string name="title_rule_silent">Notifica silenziosa</string>
     <string name="title_rule_summarize">Riassumi</string>
-    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Riassumere il messaggio con l\'integrazione IA configurata</string>
+    <string name="title_rule_summarize_remark">Riassumere il messaggio con l\'integrazione IA configurata</string>
     <string name="title_rule_caption">Modifica regola</string>
     <string name="title_rule_title">La regola si applica a</string>
     <string name="title_rule_name">Nome</string>

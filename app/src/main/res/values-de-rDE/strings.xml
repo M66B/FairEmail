@@ -308,10 +308,10 @@
     <string name="title_setup_theme_white">Weiß</string>
     <string name="title_setup_theme_black_or_white">Schwarz oder Weiß</string>
     <string name="title_setup_theme_black_and_white">Schwarzweiß</string>
-    <string name="title_setup_theme_reverse">Farben umkehren</string>
+    <string name="title_setup_theme_reverse">Farben tauschen</string>
     <string name="title_setup_theme_light">Hell</string>
     <string name="title_setup_theme_dark">Dunkel</string>
-    <string name="title_setup_theme_system">wie System</string>
+    <string name="title_setup_theme_system">Systemstandard</string>
     <string name="title_setup_theme_black_background">Schwarzer Hintergrund</string>
     <string name="title_setup_theme_html_light">Heller Hintergrund für die Ansicht der Originalnachricht</string>
     <string name="title_setup_theme_composer_light">Heller Hintergrund für das Verfassenfenster</string>
@@ -484,7 +484,6 @@
     <string name="title_advanced_two_col">Zwei Spalten verwenden</string>
     <string name="title_advanced_min_screen_size">Minimale Bildschirmgröße zum Aufteilen des Bildschirms</string>
     <string name="title_advanced_close_pane">Zeile oder Spalte beim Schließen einer Unterhaltung zusammenklappen</string>
-    <string name="title_advanced_open_pane">Mit zwei Zeilen oder zwei Spalten beginnen</string>
     <string name="title_advanced_column_width">Spaltenbreite/Zeilenhöhe der Nachricht: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim Scrollen von Nachrichten ausblenden</string>
     <string name="title_advanced_nav_options">Optionen im Navigationsmenü anzeigen</string>
@@ -1085,6 +1084,7 @@
     <string name="title_expunge_remark">Dadurch werden alle zum Löschen gekennzeichneten Nachrichten dauerhaft gelöscht</string>
     <string name="title_empty_trash">Papierkorb leeren</string>
     <string name="title_empty_spam">Spam-Ordner leeren</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Farbe bearbeiten</string>
     <string name="title_edit_properties">Eigenschaften bearbeiten</string>
     <string name="title_edit_rules">Regeln bearbeiten</string>
     <string name="title_execute_rules">Regeln ausführen</string>
@@ -1131,7 +1131,7 @@
     <string name="title_search_folder">Nach Ordnern suchen</string>
     <string name="title_apply_to_all">Für alle übernehmen</string>
     <string name="title_edit_account_name">Kontonamen ändern</string>
-    <string name="title_edit_account_color">Farbe des Kontos ändern</string>
+    <string name="title_edit_account_color">Kontofarbe bearbeiten</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
     <string name="title_hide_seen_folder">Ordner ausblenden, wenn alle Nachrichten gelesen wurden</string>
     <string name="title_hide_seen_folder_hint">Nur in der Konto- und vereinheitlichten Ordnerliste</string>
@@ -1696,7 +1696,7 @@
     <string name="title_rule_sound">Ton abspielen</string>
     <string name="title_rule_silent">Lautlose Benachrichtigung</string>
     <string name="title_rule_summarize">Zusammenfassen</string>
-    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Nachricht mit der konfigurierten KI-Integration zusammenfassen</string>
+    <string name="title_rule_summarize_remark">Nachricht mit der konfigurierten KI-Integration zusammenfassen</string>
     <string name="title_rule_caption">Regel bearbeiten</string>
     <string name="title_rule_title">Regel gilt für</string>
     <string name="title_rule_name">Name</string>

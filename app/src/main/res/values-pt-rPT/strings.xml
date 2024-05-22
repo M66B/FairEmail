@@ -484,7 +484,6 @@
     <string name="title_advanced_two_col">Usar duas colunas</string>
     <string name="title_advanced_min_screen_size">Tamanho mínimo de ecrã para dividir</string>
     <string name="title_advanced_close_pane">Recolher linha ou coluna ao fechar uma conversa</string>
-    <string name="title_advanced_open_pane">Iniciar com duas linhas ou duas colunas</string>
     <string name="title_advanced_column_width">Largura / altura da linha da Mensagem: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ocultar barra de ferramentas superior quando rolar as mensagens</string>
     <string name="title_advanced_nav_options">Mostrar opções do menu de navegação</string>
@@ -1084,6 +1083,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_expunge_remark">Isto irá apagar permanentemente todas as mensagens marcadas para exclusão</string>
     <string name="title_empty_trash">Esvaziar lixo</string>
     <string name="title_empty_spam">Esvaziar spam</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Editar cor</string>
     <string name="title_edit_properties">Editar propriedades</string>
     <string name="title_edit_rules">Editar regras</string>
     <string name="title_execute_rules">Executar regras</string>
@@ -1695,7 +1695,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_rule_sound">Reproduzir som</string>
     <string name="title_rule_silent">Notificação silenciosa</string>
     <string name="title_rule_summarize">Resumir</string>
-    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Resumir a mensagem com a integração da AI configurada</string>
+    <string name="title_rule_summarize_remark">Resumir a mensagem com a integração da AI configurada</string>
     <string name="title_rule_caption">Editar regra</string>
     <string name="title_rule_title">Regra aplica-se a</string>
     <string name="title_rule_name">Nome</string>

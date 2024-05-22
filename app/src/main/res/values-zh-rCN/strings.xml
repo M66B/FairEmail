@@ -468,7 +468,6 @@
     <string name="title_advanced_two_col">使用两列</string>
     <string name="title_advanced_min_screen_size">分屏下的最小屏幕尺寸</string>
     <string name="title_advanced_close_pane">关闭会话时收起行或列</string>
-    <string name="title_advanced_open_pane">以两行或两列开始</string>
     <string name="title_advanced_column_width">邮件列宽/行高：%1$s %%</string>
     <string name="title_advanced_hide_toolbar">滚动邮件时隐藏顶部工具栏</string>
     <string name="title_advanced_nav_options">显示导航菜单选项</string>
@@ -1067,6 +1066,7 @@
     <string name="title_expunge_remark">这将永久删除所有标记要删除的邮件</string>
     <string name="title_empty_trash">清空回收站</string>
     <string name="title_empty_spam">清空垃圾邮件</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">编辑颜色</string>
     <string name="title_edit_properties">编辑属性</string>
     <string name="title_edit_rules">编辑规则</string>
     <string name="title_execute_rules">执行规则</string>
@@ -1674,7 +1674,7 @@
     <string name="title_rule_sound">播放提示音</string>
     <string name="title_rule_silent">将通知静音</string>
     <string name="title_rule_summarize">总结</string>
-    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">用配置的 AI 集成总结邮件</string>
+    <string name="title_rule_summarize_remark">用配置的 AI 集成总结邮件</string>
     <string name="title_rule_caption">编辑规则</string>
     <string name="title_rule_title">规则应用于</string>
     <string name="title_rule_name">名称</string>

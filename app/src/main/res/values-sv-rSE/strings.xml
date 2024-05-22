@@ -479,7 +479,6 @@
     <string name="title_advanced_two_col">Använd två kolumner</string>
     <string name="title_advanced_min_screen_size">Minsta skärmstorlek för uppdelning av skärmen</string>
     <string name="title_advanced_close_pane">Kollapsa rad eller kolumn när en konversation stängs</string>
-    <string name="title_advanced_open_pane">Börja med två rader eller två kolumner</string>
     <string name="title_advanced_column_width">Meddelandekolumnens bredd / radhöjd: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Dölj övre verktygsfältet vid bläddring i meddelanden</string>
     <string name="title_advanced_nav_options">Visa alternativ för navigeringsmeny</string>
@@ -1076,6 +1075,7 @@
     <string name="title_expunge_remark">Detta raderar (permanent) alla meddelanden märkta för radering</string>
     <string name="title_empty_trash">Töm papperskorg</string>
     <string name="title_empty_spam">Töm skräppost</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Ändra färg</string>
     <string name="title_edit_properties">Redigera egenskaper</string>
     <string name="title_edit_rules">Redigera regler</string>
     <string name="title_execute_rules">Kör regler</string>
@@ -1683,6 +1683,7 @@
     <string name="title_rule_sound">Spela upp ljud</string>
     <string name="title_rule_silent">Tyst avisering</string>
     <string name="title_rule_summarize">Sammanfatta</string>
+    <string name="title_rule_summarize_remark">Sammanfatta meddelandet med konfigurerad AI-integration</string>
     <string name="title_rule_caption">Redigera regel</string>
     <string name="title_rule_title">Regeln gäller</string>
     <string name="title_rule_name">Namn</string>

@@ -479,7 +479,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_two_col">İki sütun kullan</string>
     <string name="title_advanced_min_screen_size">Ekranı bölmek için minimum ekran boyutu</string>
     <string name="title_advanced_close_pane">Bir konuşmayı kapatırken satırı veya sütunu daralt</string>
-    <string name="title_advanced_open_pane">İki satır veya iki sütunla başla</string>
     <string name="title_advanced_column_width">Mesaj sütun genişliği / satır yüksekliği: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Mesajları kaydırırken üstteki araç çubuğunu gizle</string>
     <string name="title_advanced_nav_options">Gezinme menüsü seçeneklerini göster</string>
@@ -1076,6 +1075,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_expunge_remark">Bu, silinmek üzere işaretlenen tüm mesajları kalıcı olarak siler</string>
     <string name="title_empty_trash">Çöp kutusunu temizle</string>
     <string name="title_empty_spam">Spam kutusunu temizle</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Renk düzenleme</string>
     <string name="title_edit_properties">Özellikleri düzenle</string>
     <string name="title_edit_rules">Kuralları düzenle</string>
     <string name="title_execute_rules">Kuralları gerçekleştir</string>
@@ -1682,7 +1682,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_sound">Ses Çal</string>
     <string name="title_rule_silent">Sessiz bildirimler</string>
     <string name="title_rule_summarize">Özetle</string>
-    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Yapılandırılmış yapay zeka entegrasyonu ile mesajı özetleyin</string>
+    <string name="title_rule_summarize_remark">Yapılandırılmış yapay zeka entegrasyonu ile mesajı özetleyin</string>
     <string name="title_rule_caption">Kuralı düzenle</string>
     <string name="title_rule_title">Kural geçerlidir</string>
     <string name="title_rule_name">Ad</string>

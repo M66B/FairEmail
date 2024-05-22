@@ -481,7 +481,6 @@
     <string name="title_advanced_two_col">Kasuta kaht veergu</string>
     <string name="title_advanced_min_screen_size">Ekraani miinimumsuurus ekraani poolitamiseks</string>
     <string name="title_advanced_close_pane">Ahenda read või veerud vestluse sulgemisel</string>
-    <string name="title_advanced_open_pane">Alusta kahe veeru või kahe reaga</string>
     <string name="title_advanced_column_width">Sõnumi veeru laius / rea kõrgus: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Peida sõnumite kerimisel ülemine vahendiriba</string>
     <string name="title_advanced_nav_options">Näita navigeerimismenüü valikuid</string>

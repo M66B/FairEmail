@@ -481,7 +481,6 @@
     <string name="title_advanced_two_col">Két oszlop használata</string>
     <string name="title_advanced_min_screen_size">Legkisebb képernyő méret a kettévágáshoz</string>
     <string name="title_advanced_close_pane">Sor vagy oszlop összecsukása beszélgetés bezárásánál</string>
-    <string name="title_advanced_open_pane">Indítás két oszloppal vagy két sorral</string>
     <string name="title_advanced_column_width">Üzenet oszlopszélesség / sormagasság: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Felső eszköztár elrejtése üzenetek görgetésekor</string>
     <string name="title_advanced_nav_options">Navigációs menü opciók mutatása</string>
@@ -1079,6 +1078,7 @@
     <string name="title_expunge_remark">Véglegesen törölni fogja a törlésre kijelölt elemeket</string>
     <string name="title_empty_trash">Kuka ürítése</string>
     <string name="title_empty_spam">Spam ürítése</string>
+    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Szín szerkesztése</string>
     <string name="title_edit_properties">Tulajdonságok szerkesztése</string>
     <string name="title_edit_rules">Szabályok szerkesztése</string>
     <string name="title_execute_rules">Szabályok végrehajtása</string>
@@ -1687,7 +1687,7 @@
     <string name="title_rule_sound">Hang lejátszása</string>
     <string name="title_rule_silent">Csendes értesítés</string>
     <string name="title_rule_summarize">Összefoglalás</string>
-    <string name="title_rule_summarize_remark" comment="title_rule_summarize_remark&#10;Remark for &quot;AI&quot; summarize rule action">Foglalja össze az üzenetet, a beállított MI integrációval</string>
+    <string name="title_rule_summarize_remark">Foglalja össze az üzenetet, a beállított MI integrációval</string>
     <string name="title_rule_caption">Szabály szerkesztése</string>
     <string name="title_rule_title">A szabály érvényes erre</string>
     <string name="title_rule_name">Név</string>

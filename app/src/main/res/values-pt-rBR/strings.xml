@@ -482,7 +482,6 @@
     <string name="title_advanced_two_col">Usar duas colunas</string>
     <string name="title_advanced_min_screen_size">Tamanho mínimo da tela para dividir a tela</string>
     <string name="title_advanced_close_pane">Recolher linha ou coluna ao fechar uma conversa</string>
-    <string name="title_advanced_open_pane">Iniciar com duas linhas ou duas colunas</string>
     <string name="title_advanced_column_width">Largura da coluna da mensagem / altura da linha: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ocultar a barra de ferramentas superior ao rolar as mensagens</string>
     <string name="title_advanced_nav_options">Mostrar opções de menu de navegação</string>
