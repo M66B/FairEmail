@@ -1078,7 +1078,7 @@
     <string name="title_expunge_remark">Αυτό θα διαγράψει μόνιμα όλα τα μηνύματα που έχουν επισημανθεί για διαγραφή</string>
     <string name="title_empty_trash">Άδειασμα κάδου απορριμμάτων</string>
     <string name="title_empty_spam">Άδειασμα Ανεπιθύμητων</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Επεξεργασία χρώματος</string>
+    <string name="title_edit_color">Επεξεργασία χρώματος</string>
     <string name="title_edit_properties">Επεξεργασία ιδιοτήτων</string>
     <string name="title_edit_rules">Επεξεργασία κανόνων</string>
     <string name="title_execute_rules">Εκτέλεση κανόνων</string>

@@ -86,7 +86,7 @@
     <string name="title_synchronize_batch_enable">Enable synchronisation</string>
     <string name="title_synchronize_batch_disable">Disable synchronisation</string>
     <string name="title_empty_trash">Empty bin</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Edit colour</string>
+    <string name="title_edit_color">Edit colour</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_empty_trash_ask">Remove all deleted messages permanently?</string>
     <string name="title_empty_trash_all_ask">Remove all deleted messages of all accounts permanently?</string>

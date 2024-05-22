@@ -1066,7 +1066,7 @@
     <string name="title_expunge_remark">这将永久删除所有标记要删除的邮件</string>
     <string name="title_empty_trash">清空回收站</string>
     <string name="title_empty_spam">清空垃圾邮件</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">编辑颜色</string>
+    <string name="title_edit_color">编辑颜色</string>
     <string name="title_edit_properties">编辑属性</string>
     <string name="title_edit_rules">编辑规则</string>
     <string name="title_execute_rules">执行规则</string>

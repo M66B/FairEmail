@@ -923,6 +923,7 @@
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
     <string name="title_identity_tenant_hint">Dieses Feld sollte in den meisten Fällen leer bleiben</string>
+    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Es ist selten notwendig, diese Option zu aktivieren, außerdem erhöht sich dadurch der Datenverbrauch!</string>
     <string name="title_identity_color_hint">Identitätsfarben haben gegenüber Ordner- und Kontofarben Vorrang</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_sender_name">Namen verwenden, wenn die Absenderadresse bearbeitet wurde</string>
@@ -980,6 +981,7 @@
     <string name="title_password">Passwort</string>
     <string name="title_password_storage">Wie werden Passwörter gespeichert?</string>
     <string name="title_case_sensitive">Bei Benutzernamen und Passwörtern wird normalerweise zwischen Groß- und Kleinschreibung unterschieden</string>
+    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Empfangen vor dem Senden</string>
     <string name="title_client_certificate">Clientzertifikat</string>
     <string name="title_realm">Bereich</string>
     <string name="title_use_ip">Lokale IP-Adresse anstelle des Hostnamens verwenden</string>
@@ -1084,7 +1086,7 @@
     <string name="title_expunge_remark">Dadurch werden alle zum Löschen gekennzeichneten Nachrichten dauerhaft gelöscht</string>
     <string name="title_empty_trash">Papierkorb leeren</string>
     <string name="title_empty_spam">Spam-Ordner leeren</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Farbe bearbeiten</string>
+    <string name="title_edit_color">Farbe bearbeiten</string>
     <string name="title_edit_properties">Eigenschaften bearbeiten</string>
     <string name="title_edit_rules">Regeln bearbeiten</string>
     <string name="title_execute_rules">Regeln ausführen</string>

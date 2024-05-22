@@ -1078,7 +1078,7 @@
     <string name="title_expunge_remark">Véglegesen törölni fogja a törlésre kijelölt elemeket</string>
     <string name="title_empty_trash">Kuka ürítése</string>
     <string name="title_empty_spam">Spam ürítése</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Szín szerkesztése</string>
+    <string name="title_edit_color">Szín szerkesztése</string>
     <string name="title_edit_properties">Tulajdonságok szerkesztése</string>
     <string name="title_edit_rules">Szabályok szerkesztése</string>
     <string name="title_execute_rules">Szabályok végrehajtása</string>

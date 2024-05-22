@@ -1083,7 +1083,7 @@
     <string name="title_expunge_remark">Dette sletter permanent alle beskeder markeret for sletning</string>
     <string name="title_empty_trash">Tøm papirkurv</string>
     <string name="title_empty_spam">Tøm spam</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Redigér farve</string>
+    <string name="title_edit_color">Redigér farve</string>
     <string name="title_edit_properties">Redigér egenskaber</string>
     <string name="title_edit_rules">Redigér regler</string>
     <string name="title_execute_rules">Eksekvere regler</string>

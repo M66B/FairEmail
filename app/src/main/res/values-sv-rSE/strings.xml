@@ -1075,7 +1075,7 @@
     <string name="title_expunge_remark">Detta raderar (permanent) alla meddelanden märkta för radering</string>
     <string name="title_empty_trash">Töm papperskorg</string>
     <string name="title_empty_spam">Töm skräppost</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Ändra färg</string>
+    <string name="title_edit_color">Ändra färg</string>
     <string name="title_edit_properties">Redigera egenskaper</string>
     <string name="title_edit_rules">Redigera regler</string>
     <string name="title_execute_rules">Kör regler</string>

@@ -1109,7 +1109,7 @@
     <string name="title_expunge_remark">Це назавжди видалить усі повідомлення, позначені для видалення</string>
     <string name="title_empty_trash">Очистити кошик</string>
     <string name="title_empty_spam">Очистити спам</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Змінити колір</string>
+    <string name="title_edit_color">Змінити колір</string>
     <string name="title_edit_properties">Редагувати властивості</string>
     <string name="title_edit_rules">Змінити правила</string>
     <string name="title_execute_rules">Виконати правила</string>

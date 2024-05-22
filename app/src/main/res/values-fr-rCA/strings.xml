@@ -922,6 +922,7 @@
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse courriel</string>
     <string name="title_identity_tenant_hint">Ce champ devrait être vide dans la plupart des cas</string>
+    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Il est rarement nécessaire d\'activer cette option et de plus, l\'utilisation des données va augmenter!</string>
     <string name="title_identity_color_hint">Les couleurs d’identité ont la priorité sur les couleurs de dossiers et de comptes</string>
     <string name="title_advanced_sender">Autoriser la modification de l’adresse de l’expéditeur</string>
     <string name="title_advanced_sender_name">Utiliser le nom lorsque l\'adresse de l\'expéditeur a été modifiée</string>
@@ -979,6 +980,7 @@
     <string name="title_password">Mot de passe</string>
     <string name="title_password_storage">Comment les mots de passe sont-ils stockés?</string>
     <string name="title_case_sensitive">Les noms d\'utilisateur et les mots de passe sont généralement sensibles à la casse</string>
+    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Recevoir avant d\'envoyer</string>
     <string name="title_client_certificate">Certificat client</string>
     <string name="title_realm">Domaine</string>
     <string name="title_use_ip">Utiliser l’adresse IP locale au lieu du nom d’hôte</string>
@@ -1083,7 +1085,7 @@
     <string name="title_expunge_remark">Ceci supprimera définitivement tous les messages marqués pour suppression</string>
     <string name="title_empty_trash">Vider la corbeille</string>
     <string name="title_empty_spam">Vider les indésirables</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Modifier la couleur</string>
+    <string name="title_edit_color">Modifier la couleur</string>
     <string name="title_edit_properties">Modifier les propriétés</string>
     <string name="title_edit_rules">Modifier les règles</string>
     <string name="title_execute_rules">Exécuter les règles</string>

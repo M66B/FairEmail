@@ -1082,7 +1082,7 @@
     <string name="title_expunge_remark">Bu, silinmək üçün işarələnmiş bütün mesajları birdəfəlik siləcək</string>
     <string name="title_empty_trash">Tullantı qovluğunu təmizlə</string>
     <string name="title_empty_spam">Spam qovluğunu boşalt</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Rəngə düzəliş et</string>
+    <string name="title_edit_color">Rəngə düzəliş et</string>
     <string name="title_edit_properties">Xüsusiyyətlərə düzəliş et</string>
     <string name="title_edit_rules">Qaydaya düzəliş et</string>
     <string name="title_execute_rules">Qaydaları icra et</string>

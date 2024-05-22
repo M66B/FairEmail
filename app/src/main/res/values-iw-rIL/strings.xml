@@ -1110,7 +1110,7 @@
     <string name="title_expunge_remark">פעולה זו תמחק לצמיתות את כל ההודעות שסומנו למחיקה</string>
     <string name="title_empty_trash">פינוי אשפה</string>
     <string name="title_empty_spam">פינוי ספאם</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">עריכת צבע</string>
+    <string name="title_edit_color">עריכת צבע</string>
     <string name="title_edit_properties">עריכת מאפיינים</string>
     <string name="title_edit_rules">עריכת כללים</string>
     <string name="title_execute_rules">הפעלת כללים</string>

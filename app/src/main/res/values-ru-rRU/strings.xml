@@ -1110,7 +1110,7 @@
     <string name="title_expunge_remark">Необратимое удаление всех сообщений, помеченных для удаления</string>
     <string name="title_empty_trash">Очистить корзину</string>
     <string name="title_empty_spam">Очистить \"Спам\"</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Изменить цвет</string>
+    <string name="title_edit_color">Изменить цвет</string>
     <string name="title_edit_properties">Изменить свойства</string>
     <string name="title_edit_rules">Редактировать правила</string>
     <string name="title_execute_rules">Выполнить правила</string>

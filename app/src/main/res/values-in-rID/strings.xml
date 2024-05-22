@@ -1064,7 +1064,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_expunge_remark">Ini akan menghapus semua pesan yang ditandai untuk dihapus secara permanen</string>
     <string name="title_empty_trash">Kosongkan sampah</string>
     <string name="title_empty_spam">Kosongkan spam</string>
-    <string name="title_edit_color" comment="title_edit_color&#10;Title for menu item in popup menu to edit account/identity/folder color">Ubah warna</string>
+    <string name="title_edit_color">Ubah warna</string>
     <string name="title_edit_properties">Ubah properti</string>
     <string name="title_edit_rules">Ubah aturan</string>
     <string name="title_execute_rules">Menjalankan peraturan</string>
