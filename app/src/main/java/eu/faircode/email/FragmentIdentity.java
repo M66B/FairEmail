@@ -76,6 +76,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+import javax.mail.Folder;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
@@ -1115,6 +1116,13 @@ public class FragmentIdentity extends FragmentBase {
                         if (a != null)
                             try (EmailService iaccount = new EmailService(context, a, EmailService.PURPOSE_CHECK, true)) {
                                 iaccount.connect(a);
+                                Folder ifolder = iaccount.getStore().getFolder("INBOX");
+                                ifolder.open(Folder.READ_ONLY);
+                                try {
+                                    ifolder.getMessages();
+                                } finally {
+                                    ifolder.close();
+                                }
                             }
                     }
 

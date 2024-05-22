@@ -67,6 +67,7 @@ import java.util.concurrent.ExecutorService;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
+import javax.mail.Folder;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
@@ -803,6 +804,13 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             if (account != null)
                 try (EmailService iaccount = new EmailService(this, account, EmailService.PURPOSE_USE, debug)) {
                     iaccount.connect(account);
+                    Folder ifolder = iaccount.getStore().getFolder("INBOX");
+                    ifolder.open(Folder.READ_ONLY);
+                    try {
+                        ifolder.getMessages();
+                    } finally {
+                        ifolder.close();
+                    }
                 }
 
             EmailService iservice = new EmailService(this, ident, EmailService.PURPOSE_USE, debug);
