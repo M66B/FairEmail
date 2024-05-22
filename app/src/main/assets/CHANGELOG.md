@@ -8,16 +8,24 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### Next version
+
+Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
+
+### 1.2185 - 2024-05-22
+
+* Fixed constraint violation when inserting identity
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2184 - 2024-05-22
 
-* Fixed keyboard inset
-* Fixed black background of black and white theme
+* Fixed keyboard inset (regression)
+* Fixed black background of black and white theme (regression)
 * Using account color as default for inbox folder color
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
-
-Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
 
 ### 1.2183 - 2024-05-21
 
