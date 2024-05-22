@@ -43,6 +43,8 @@ import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowInsetsController;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -58,6 +60,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsAnimationCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -233,6 +236,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             EntityLog.log(this, intent +
                     " extras=" + TextUtils.join(", ", Log.getExtras(intent.getExtras())));
 
+        Window window = getWindow();
         getSupportFragmentManager().registerFragmentLifecycleCallbacks(lifecycleCallbacks, true);
 
         int colorPrimaryDark = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark);
@@ -243,15 +247,18 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         boolean secure = prefs.getBoolean("secure", false);
         if (secure)
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_SECURE);
 
         if (!this.getClass().equals(ActivityMain.class)) {
             themeId = FragmentDialogTheme.getTheme(this);
             setTheme(themeId);
 
             EdgeToEdge.enable(this);
-            WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView())
-                    .setAppearanceLightStatusBars(false);
+
+            boolean dark = Helper.isDarkTheme(this);
+            WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(window, window.getDecorView());
+            controller.setAppearanceLightStatusBars(!dark);
+            controller.setAppearanceLightNavigationBars(!dark);
         }
 
         String requestKey = getRequestKey();
