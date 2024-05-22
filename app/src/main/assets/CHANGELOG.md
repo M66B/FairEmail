@@ -8,7 +8,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2184 - 2024-05-22
 
 * Fixed keyboard inset
 * Fixed black background of black and white theme
