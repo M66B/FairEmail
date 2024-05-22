@@ -544,6 +544,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardServer" />
 
+        <TextView
+            android:id="@+id/tvLoginBeforeSendHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_identity_receive_first_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbLoginBeforeSend" />
+
         <Button
             android:id="@+id/btnCertificate"
             style="?android:attr/buttonStyleSmall"
@@ -553,7 +564,7 @@
             android:tag="disable"
             android:text="@string/title_client_certificate"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbLoginBeforeSend" />
+            app:layout_constraintTop_toBottomOf="@id/tvLoginBeforeSendHint" />
 
         <TextView
             android:id="@+id/tvCertificate"
@@ -1195,7 +1206,7 @@
                 tvProvider,spProvider,
                 tvDomain,tvDomainHint,etDomain,btnAutoConfig,
                 cardServer,
-                cbLoginBeforeSend,
+                cbLoginBeforeSend,tvLoginBeforeSendHint,
                 btnCertificate,tvCertificate,
                 tvRealm,etRealm,
                 cbUseIp,tvUseIpHint,tvEhlo,etEhlo,ibEhlo,

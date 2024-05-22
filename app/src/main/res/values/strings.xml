@@ -1183,6 +1183,7 @@
     <string name="title_identity_email">Your email address</string>
     <string name="title_identity_tenant" translatable="false">Tenant ID</string>
     <string name="title_identity_tenant_hint">This field should be empty in most cases</string>
+    <string name="title_identity_receive_first_hint">It is seldom necessary to turn on this option, moreover, data usage will increase!</string>
     <string name="title_identity_color_hint">Identity colors take precedence over folder and account colors</string>
     <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_sender_name">Use name when sender address has been edited</string>
