@@ -3501,7 +3501,12 @@ class Core {
                         if (MessageHelper.equalEmail(message.submitter, message.from))
                             message.submitter = null;
 
+                        EntityIdentity identity = matchIdentity(context, folder, message);
+                        message.identity = (identity == null ? null : identity.id);
+                        boolean fromSelf = message.fromSelf(identity);
+
                         if (native_dkim &&
+                                !fromSelf &&
                                 !EntityFolder.isOutgoing(folder.type) &&
                                 !BuildConfig.PLAY_STORE_RELEASE) {
                             List<String> signers = helper.verifyDKIM(context);
@@ -3513,9 +3518,6 @@ class Core {
 
                         if (message.size == null && message.total != null)
                             message.size = message.total;
-
-                        EntityIdentity identity = matchIdentity(context, folder, message);
-                        message.identity = (identity == null ? null : identity.id);
 
                         message.sender = MessageHelper.getSortKey(message.from);
                         Uri lookupUri = ContactInfo.getLookupUri(message.from);
@@ -4655,7 +4657,12 @@ class Core {
             if (MessageHelper.equalEmail(message.submitter, message.from))
                 message.submitter = null;
 
+            EntityIdentity identity = matchIdentity(context, folder, message);
+            message.identity = (identity == null ? null : identity.id);
+            boolean fromSelf = message.fromSelf(identity);
+
             if (native_dkim &&
+                    !fromSelf &&
                     !EntityFolder.isOutgoing(folder.type) &&
                     !BuildConfig.PLAY_STORE_RELEASE) {
                 List<String> signers = helper.verifyDKIM(context);
@@ -4678,9 +4685,6 @@ class Core {
             if (helper.isReport() && EntityFolder.DRAFTS.equals(folder.type))
                 message.dsn = EntityMessage.DSN_HARD_BOUNCE;
 
-            EntityIdentity identity = matchIdentity(context, folder, message);
-            message.identity = (identity == null ? null : identity.id);
-
             message.sender = MessageHelper.getSortKey(EntityFolder.isOutgoing(folder.type) ? message.to : message.from);
             Uri lookupUri = ContactInfo.getLookupUri(message.from);
             message.avatar = (lookupUri == null ? null : lookupUri.toString());
@@ -4690,15 +4694,7 @@ class Core {
             message.from_domain = (message.checkFromDomain(context) == null);
 
             // For contact forms
-            boolean self = false;
-            if (identity != null && message.from != null)
-                for (Address from : message.from)
-                    if (identity.sameAddress(from) || identity.similarAddress(from)) {
-                        self = true;
-                        break;
-                    }
-
-            if (!self) {
+            if (!fromSelf) {
                 String[] warning = message.checkReplyDomain(context);
                 message.reply_domain = (warning == null);
             }

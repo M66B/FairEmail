@@ -290,6 +290,15 @@ public class EntityMessage implements Serializable {
         return (this.plain_only != null && (this.plain_only & 0x80) != 0);
     }
 
+    boolean fromSelf(EntityIdentity identity) {
+        if (from != null && identity != null)
+            for (Address sender : from)
+                if (identity.self &&
+                        (identity.sameAddress(sender) || identity.similarAddress(sender)))
+                    return true;
+        return false;
+    }
+
     boolean fromSelf(List<TupleIdentityEx> identities) {
         List<Address> senders = new ArrayList<>();
         if (from != null)
