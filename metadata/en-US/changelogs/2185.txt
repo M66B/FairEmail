@@ -10,6 +10,10 @@ Acantholipan
 
 Next version
 
+* Fixed Android navigation bar color for some Android versions
+* Small improvements and minor bug fixes
+* Updated translations
+
 Preview versions are available here.
 
 1.2185 - 2024-05-22
