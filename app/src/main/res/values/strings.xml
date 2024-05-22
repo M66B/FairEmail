@@ -1245,6 +1245,7 @@
     <string name="title_password">Password</string>
     <string name="title_password_storage">How are passwords stored?</string>
     <string name="title_case_sensitive">Usernames and passwords are usually case sensitive</string>
+    <string name="title_login_before_send">Login before sending</string>
     <string name="title_client_certificate">Client certificate</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Use local IP address instead of host name</string>

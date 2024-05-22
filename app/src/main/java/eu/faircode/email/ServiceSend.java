@@ -800,6 +800,11 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             MicrosoftGraph.send(ServiceSend.this, ident, imessage);
             end = new Date().getTime();
         } else {
+            if (account != null)
+                try (EmailService iaccount = new EmailService(this, account, EmailService.PURPOSE_USE, debug)) {
+                    iaccount.connect(account);
+                }
+
             EmailService iservice = new EmailService(this, ident, EmailService.PURPOSE_USE, debug);
             try {
                 if (ident.envelopeFrom != null)
