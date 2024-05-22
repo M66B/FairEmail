@@ -14,6 +14,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Fixed black background of black and white theme
 * Using account color as default for inbox folder color
 * Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
@@ -36,7 +37,6 @@ Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/
 * Improved OpenAI integration (added multimodal support)
 * Improved Gemini integration
 * Made "AI" integrations available in the Play Store version
-* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 

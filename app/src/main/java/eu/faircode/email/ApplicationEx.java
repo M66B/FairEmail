@@ -46,6 +46,7 @@ import androidx.core.os.LocaleListCompat;
 import androidx.emoji2.text.DefaultEmojiCompatConfig;
 import androidx.emoji2.text.EmojiCompat;
 import androidx.emoji2.text.FontRequestEmojiCompatConfig;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
@@ -253,6 +254,10 @@ public class ApplicationEx extends Application
             NotificationHelper.createNotificationChannels(this);
 
         DB.setupViewInvalidation(this);
+
+        // https://issuetracker.google.com/issues/341313071
+        // https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-predictive
+        FragmentManager.enablePredictiveBack(false);
 
         if (Helper.hasWebView(this))
             CookieManager.getInstance().setAcceptCookie(false);

@@ -14,6 +14,7 @@ Next version
 * Fixed black background of black and white theme
 * Using account color as default for inbox folder color
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated translations
 
 Preview versions are available here.
@@ -36,7 +37,6 @@ Preview versions are available here.
 * Improved OpenAI integration (added multimodal support)
 * Improved Gemini integration
 * Made "AI" integrations available in the Play Store version
-* Updated AndroidX
 * Small improvements and minor bug fixes
 * Updated translations
 
