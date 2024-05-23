@@ -2673,6 +2673,9 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, String completion) {
+                if (completion == null)
+                    return;
+
                 Editable edit = etBody.getText();
                 int start = etBody.getSelectionStart();
                 int end = etBody.getSelectionEnd();
