@@ -225,6 +225,7 @@ public class EntityIdentity {
         json.put("provider", provider);
         json.put("user", user);
         json.put("password", password);
+        json.put("login", login);
         json.put("certificate_alias", certificate_alias);
         json.put("realm", realm);
         json.put("fingerprint", fingerprint);
@@ -297,6 +298,7 @@ public class EntityIdentity {
             identity.provider = json.getString("provider");
         identity.user = json.getString("user");
         identity.password = json.getString("password");
+        identity.login = json.optBoolean("login");
         if (json.has("certificate_alias") && !json.isNull("certificate_alias"))
             identity.certificate_alias = json.getString("certificate_alias");
         if (json.has("realm") && !json.isNull("realm"))
@@ -377,6 +379,7 @@ public class EntityIdentity {
                 Objects.equals(i1.provider, other.provider) &&
                 i1.user.equals(other.user) &&
                 (!auth || i1.password.equals(other.password)) &&
+                // login
                 // certificate
                 Objects.equals(i1.certificate_alias, other.certificate_alias) &&
                 Objects.equals(i1.realm, other.realm) &&
