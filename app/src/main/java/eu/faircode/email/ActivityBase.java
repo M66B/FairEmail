@@ -255,10 +255,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
             EdgeToEdge.enable(this);
 
-            boolean dark = Helper.isDarkTheme(this);
             WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(window, window.getDecorView());
-            controller.setAppearanceLightStatusBars(!dark);
-            controller.setAppearanceLightNavigationBars(!dark);
+            controller.setAppearanceLightStatusBars(false);
+            controller.setAppearanceLightNavigationBars(false);
         }
 
         String requestKey = getRequestKey();
