@@ -146,8 +146,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int offset) {
                 try {
+                    view.setTranslationY(abh + offset);
                     ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-                    mlp.topMargin = abh + offset;
+                    mlp.bottomMargin = abh + offset;
                     view.setLayoutParams(mlp);
                 } catch (Throwable ex) {
                     Log.e(ex);
