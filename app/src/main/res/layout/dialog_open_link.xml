@@ -204,6 +204,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSanitize" />
 
+        <CheckBox
+            android:id="@+id/cbNeverAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_no_ask_again"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotAgain" />
+
         <TextView
             android:id="@+id/tvOpenWith"
             android:layout_width="0dp"
@@ -215,7 +225,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotAgain" />
+            app:layout_constraintTop_toBottomOf="@id/cbNeverAgain" />
 
         <Spinner
             android:id="@+id/spOpenWith"

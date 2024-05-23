@@ -184,6 +184,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         final CheckBox cbSecure = dview.findViewById(R.id.cbSecure);
         final CheckBox cbSanitize = dview.findViewById(R.id.cbSanitize);
         final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+        final CheckBox cbNeverAgain = dview.findViewById(R.id.cbNeverAgain);
         final Spinner spOpenWith = dview.findViewById(R.id.spOpenWith);
 
         ibMore = dview.findViewById(R.id.ibMore);
@@ -347,6 +348,13 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean(getConfirmHost(uri) + ".confirm_link", !isChecked).apply();
+            }
+        });
+
+        cbNeverAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                cbNotAgain.setEnabled(!isChecked);
             }
         });
 
@@ -608,6 +616,8 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again, chost));
         cbNotAgain.setVisibility(!always_confirm && !sanitize_links && chost != null ? View.VISIBLE : View.GONE);
 
+        cbNeverAgain.setVisibility(!always_confirm && !sanitize_links ? View.VISIBLE : View.GONE);
+
         setMore(false);
 
         if (UriHelper.isHyperLink(uri)) {
@@ -782,13 +792,16 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (chost != null &&
-                                cbNotAgain.getVisibility() == View.VISIBLE && cbNotAgain.isChecked())
+                        if (cbNeverAgain.getVisibility() == View.VISIBLE && cbNeverAgain.isChecked())
+                            prefs.edit().putBoolean("confirm_links", false).apply();
+                        else if (chost != null &&
+                                cbNotAgain.getVisibility() == View.VISIBLE && cbNotAgain.isChecked()) {
                             prefs.edit()
                                     .putBoolean(chost + ".link_view", false)
                                     .putBoolean(chost + ".link_sanitize",
                                             cbSanitize.getVisibility() == View.VISIBLE && cbSanitize.isChecked())
                                     .apply();
+                        }
 
                         Uri theUri = Uri.parse(etLink.getText().toString());
                         Package pkg = (Package) spOpenWith.getSelectedItem();
