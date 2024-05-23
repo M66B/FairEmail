@@ -318,8 +318,7 @@ public class StyleHelper {
                         if (renum)
                             StyleHelper.renumber(text, false, etBody.getContext());
 
-                        if (BuildConfig.DEBUG)
-                            StyleHelper.markAsInserted(text, -1, -1);
+                        StyleHelper.markAsInserted(text, -1, -1);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
@@ -1767,6 +1766,8 @@ public class StyleHelper {
     }
 
     static void markAsInserted(Editable text, int start, int end) {
+        if (!BuildConfig.DEBUG)
+            return;
         for (InsertedSpan span : text.getSpans(0, text.length(), InsertedSpan.class))
             text.removeSpan(span);
         if (start >= 0 && start < end && end <= text.length()) {
