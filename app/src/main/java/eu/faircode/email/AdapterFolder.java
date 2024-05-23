@@ -717,6 +717,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 submenu.add(Menu.FIRST, R.string.title_navigation_folder_hide, 10, R.string.title_navigation_folder_hide);
                 submenu.add(Menu.FIRST, R.string.title_download_batch_enable, 11, R.string.title_download_batch_enable);
                 submenu.add(Menu.FIRST, R.string.title_download_batch_disable, 12, R.string.title_download_batch_disable);
+                if (parentFragment instanceof FragmentFolders)
+                    submenu.add(Menu.FIRST, R.string.title_edit_color, 13, R.string.title_edit_color);
             }
 
             if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP)
@@ -770,6 +772,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         } else if (itemId == R.string.title_download_batch_disable) {
                             onActionEnableDownload(false);
                             return true;
+                        } else if (itemId == R.string.title_edit_color) {
+                            onActionEditColor(true);
+                            return true;
                         }
                         return false;
                     }
@@ -818,7 +823,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         onActionImportMessages();
                         return true;
                     } else if (itemId == R.string.title_edit_color) {
-                        onActionEditColor();
+                        onActionEditColor(false);
                         return true;
                     } else if (itemId == R.string.title_edit_properties) {
                         onActionEditProperties();
@@ -1329,9 +1334,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             FragmentFolders.REQUEST_IMPORT_MESSAGES);
                 }
 
-                private void onActionEditColor() {
+                private void onActionEditColor(boolean children) {
                     Bundle args = new Bundle();
                     args.putLong("id", folder.id);
+                    args.putBoolean("children", children);
                     args.putInt("color", folder.color == null ? Color.TRANSPARENT : folder.color);
                     args.putString("title", context.getString(R.string.title_color));
                     args.putBoolean("reset", true);

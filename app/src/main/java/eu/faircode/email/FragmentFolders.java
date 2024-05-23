@@ -1706,13 +1706,27 @@ public class FragmentFolders extends FragmentBase {
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
+                boolean children = args.getBoolean("children");
                 Integer color = args.getInt("color");
 
                 if (color == Color.TRANSPARENT)
                     color = null;
 
                 DB db = DB.getInstance(context);
-                db.folder().setFolderColor(id, color);
+                try {
+                    db.beginTransaction();
+
+                    if (children)
+                        for (EntityFolder folder : EntityFolder.getChildFolders(context, id))
+                            db.folder().setFolderColor(folder.id, color);
+                    else
+                        db.folder().setFolderColor(id, color);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
                 return null;
             }
 
