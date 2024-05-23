@@ -2277,4 +2277,18 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Namirial"
+        documentation="Potrebbe essere necessaria una password per l'applicazione, vedere &lt;a href='https://servicedesk.namirial.com/hc/it/articles/4406869586065-Come-si-configura-in-un-client-di-posta#h_01HBDFX24AVGQ4Z9K9DFAAD3VC'&gt;qui&lt;/a&gt;."
+        link="https://servicedesk.namirial.com/hc/it/articles/4406869586065-Come-si-configura-in-un-client-di-posta#h_01FJBS1SXG8J110SFVJ03ENQAB"
+        mx=".*sicurezzapostale\\.it">
+        <imap
+            host="imaps.sicurezzapostale.it"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtps.sicurezzapostale.it"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
