@@ -949,6 +949,7 @@
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш адрес электронной почты</string>
     <string name="title_identity_tenant_hint">Это поле должно быть пустым в большинстве случаев</string>
+    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Редко используемая функция, также увеличится использование данных!</string>
     <string name="title_identity_color_hint">Цвета идентификаторов имеют приоритет над цветами папок учётных записей</string>
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_advanced_sender_name">Использовать имя, если адрес отправителя был изменён</string>
@@ -1006,6 +1007,7 @@
     <string name="title_password">Пароль</string>
     <string name="title_password_storage">Как хранятся пароли?</string>
     <string name="title_case_sensitive">Имена пользователей и пароли обычно чувствительны к регистру</string>
+    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Получение перед отправкой</string>
     <string name="title_client_certificate">Сертификат клиента</string>
     <string name="title_realm">Реалм</string>
     <string name="title_use_ip">Использовать локальный IP-адрес вместо имени хоста</string>

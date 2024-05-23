@@ -906,6 +906,7 @@
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">邮箱地址</string>
     <string name="title_identity_tenant_hint">大多数情况下此字段应该为空</string>
+    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">很少需要打开此选项，而且数据使用量会增加！</string>
     <string name="title_identity_color_hint">身份颜色优先于文件夹和账户颜色</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_sender_name">修改发件人地址后使用名称</string>
@@ -963,6 +964,7 @@
     <string name="title_password">密码</string>
     <string name="title_password_storage">密码是如何存储的？</string>
     <string name="title_case_sensitive">用户名和密码通常是区分大小写的</string>
+    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">先接收后发送</string>
     <string name="title_client_certificate">客户端证书</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">使用本地IP地址而非主机名</string>

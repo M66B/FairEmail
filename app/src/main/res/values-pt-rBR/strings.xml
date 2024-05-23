@@ -920,6 +920,7 @@
     <string name="title_identity_name">Seu nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
     <string name="title_identity_tenant_hint">Este campo deve estar vazio na maioria dos casos</string>
+    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Raramente é necessário ativar esta opção; além disso, o uso de dados aumentará!</string>
     <string name="title_identity_color_hint">Cores de identidade têm precedência sobre as cores de pasta e conta</string>
     <string name="title_advanced_sender">Permitir editar o endereço do remetente</string>
     <string name="title_advanced_sender_name">Usar o nome quando o endereço do remetente for editado</string>
@@ -977,6 +978,7 @@
     <string name="title_password">Senha</string>
     <string name="title_password_storage">Como são armazenadas as senhas?</string>
     <string name="title_case_sensitive">Nomes de usuário e senhas normalmente diferenciam maiúsculas de minúsculas</string>
+    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Receber antes de enviar</string>
     <string name="title_client_certificate">Certificado do Cliente</string>
     <string name="title_realm">Domínio</string>
     <string name="title_use_ip">Usar endereço IP local em vez do nome do host</string>
