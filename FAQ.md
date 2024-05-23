@@ -3220,8 +3220,8 @@ The original message view will use a dark background when using a dark theme for
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq82)
 
-Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image exactly is.
-In short tracking images keep track if you opened a message.
+Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image is.
+In short, companies, organizations and even governments use tracking images to see if and when you opened a message.
 
 The BBC article '[Spy pixels in emails have become endemic](https://www.bbc.com/news/technology-56071437)' is worth reading.
 
@@ -3229,7 +3229,7 @@ FairEmail will in most cases automatically recognize tracking images and replace
 
 <img alt="Tracking image" src="https://raw.githubusercontent.com/M66B/FairEmail/master/images/baseline_my_location_black_48dp.png" width="48" height="48" />
 
-Automatic recognition of tracking images can be disabled in the privacy settings.
+Automatic recognition of tracking images can be disabled in the privacy-settings tab page.
 
 <br />
 
