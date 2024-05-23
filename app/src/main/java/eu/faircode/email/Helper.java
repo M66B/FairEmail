@@ -2090,21 +2090,23 @@ public class Helper {
     }
 
     static void showKeyboard(final View view) {
-        try {
-            Log.i("showKeyboard view=" + view);
-            new SoftwareKeyboardControllerCompat(view).show();
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
+        view.post(new RunnableEx("showKeyboard") {
+            @Override
+            protected void delegate() {
+                Log.i("showKeyboard view=" + view);
+                new SoftwareKeyboardControllerCompat(view).show();
+            }
+        });
     }
 
     static void hideKeyboard(final View view) {
-        try {
-            Log.i("hideKeyboard view=" + view);
-            new SoftwareKeyboardControllerCompat(view).hide();
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
+        view.post(new RunnableEx("hideKeyboard") {
+            @Override
+            protected void delegate() {
+                Log.i("hideKeyboard view=" + view);
+                new SoftwareKeyboardControllerCompat(view).hide();
+            }
+        });
     }
 
     static boolean isKeyboardVisible(final View view) {
