@@ -5679,7 +5679,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (!junk) {
                                 SharedPreferences.Editor editor = prefs.edit();
 
-                                if (senders != null)
+                                if (cbNotAgain.isChecked() && cbNeverAgain.isChecked())
+                                    editor.putBoolean(full ? "confirm_html" : "confirm_images", false);
+                                else if (senders != null && !cbNotAgain.isChecked())
                                     for (Address sender : senders) {
                                         String from = ((InternetAddress) sender).getAddress();
                                         if (TextUtils.isEmpty(from))
@@ -5693,9 +5695,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     }
 
                                 editor.putBoolean(full ? "ask_html" : "ask_images", !cbNotAgain.isChecked());
-
-                                if (cbNotAgain.isChecked())
-                                    editor.putBoolean(full ? "confirm_html" : "confirm_images", false);
 
                                 editor.apply();
                             }
