@@ -43,8 +43,8 @@ public class AI {
     }
 
     static String completeChat(Context context, long id, CharSequence body) throws JSONException, IOException {
-        if (body == null || body.length() == 0)
-            return null;
+        if (body == null || TextUtils.isEmpty(body.toString().trim()))
+            body = "?";
 
         if (OpenAI.isAvailable(context)) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
