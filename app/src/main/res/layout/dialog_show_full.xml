@@ -72,5 +72,17 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNotAgainDomain" />
+
+        <CheckBox
+            android:id="@+id/cbNeverAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:enabled="false"
+            android:text="@string/title_ask_show_html_always"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotAgain" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -5588,6 +5588,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             CheckBox cbNotAgainSender = dview.findViewById(R.id.cbNotAgainSender);
             CheckBox cbNotAgainDomain = dview.findViewById(R.id.cbNotAgainDomain);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            CheckBox cbNeverAgain = dview.findViewById(R.id.cbNeverAgain);
 
             if (junk) {
                 if (full)
@@ -5595,6 +5596,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 cbNotAgainSender.setVisibility(View.GONE);
                 cbNotAgainDomain.setVisibility(View.GONE);
                 cbNotAgain.setVisibility(View.GONE);
+                cbNeverAgain.setVisibility(View.GONE);
             } else if (senders == null || senders.length == 0) {
                 cbNotAgainSender.setVisibility(View.GONE);
                 cbNotAgainDomain.setVisibility(View.GONE);
@@ -5629,8 +5631,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     cbNotAgainSender.setEnabled(!isChecked);
                     cbNotAgainDomain.setEnabled(!isChecked && cbNotAgainSender.isChecked());
+                    cbNeverAgain.setEnabled(isChecked);
                 }
             });
+
+            cbNeverAgain.setEnabled(false);
 
             if (full) {
                 TextView tvDark = dview.findViewById(R.id.tvDark);
@@ -5673,6 +5678,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             if (!junk) {
                                 SharedPreferences.Editor editor = prefs.edit();
+
                                 if (senders != null)
                                     for (Address sender : senders) {
                                         String from = ((InternetAddress) sender).getAddress();
@@ -5685,7 +5691,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         editor.putBoolean(domain + (full ? ".show_full" : ".show_images"),
                                                 cbNotAgainSender.isChecked() && cbNotAgainDomain.isChecked());
                                     }
+
                                 editor.putBoolean(full ? "ask_html" : "ask_images", !cbNotAgain.isChecked());
+
+                                if (cbNotAgain.isChecked())
+                                    editor.putBoolean(full ? "confirm_html" : "confirm_images", false);
+
                                 editor.apply();
                             }
 

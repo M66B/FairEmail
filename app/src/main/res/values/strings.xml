@@ -1639,7 +1639,9 @@
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_html_remark">Displaying the original message on a dark background is not possible as it may make dark texts and images invisible</string>
     <string name="title_ask_show_html_images">Always show images on showing original messages</string>
+    <string name="title_ask_show_html_always">Show original messages by default</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_ask_show_images_always">Show images by default</string>
     <string name="title_ask_show_image_hint">Images recognized as tracking images will not be shown</string>
     <string name="title_ask_show_amp">Show AMP variant of the message?</string>
     <string name="title_ask_show_amp_hint">AMP messages are designed to be dynamic and to interact with the internet and can therefore by definition be used to track you</string>
