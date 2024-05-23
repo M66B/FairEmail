@@ -5593,6 +5593,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             CheckBox cbNotAgainDomain = dview.findViewById(R.id.cbNotAgainDomain);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             CheckBox cbNeverAgain = dview.findViewById(R.id.cbNeverAgain);
+            TextView tvNeverAgainHint = dview.findViewById(R.id.tvNeverAgainHint);
 
             if (junk) {
                 if (full)
@@ -5601,6 +5602,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 cbNotAgainDomain.setVisibility(View.GONE);
                 cbNotAgain.setVisibility(View.GONE);
                 cbNeverAgain.setVisibility(View.GONE);
+                tvNeverAgainHint.setVisibility(View.GONE);
             } else if (senders == null || senders.length == 0) {
                 cbNotAgainSender.setVisibility(View.GONE);
                 cbNotAgainDomain.setVisibility(View.GONE);
