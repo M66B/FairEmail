@@ -3512,8 +3512,13 @@ class Core {
                             List<String> signers = helper.verifyDKIM(context);
                             message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
                             message.dkim = !signers.isEmpty();
-                            message.dmarc = Boolean.TRUE.equals(message.dmarc) ||
-                                    helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
+                            if (message.dkim) {
+                                boolean aligned = helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
+                                if (aligned)
+                                    message.dmarc = true;
+                                else if (message.dmarc != null)
+                                    message.dmarc = false;
+                            }
                         }
 
                         if (message.size == null && message.total != null)
@@ -4668,8 +4673,13 @@ class Core {
                 List<String> signers = helper.verifyDKIM(context);
                 message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
                 message.dkim = !signers.isEmpty();
-                message.dmarc = Boolean.TRUE.equals(message.dmarc) ||
-                        helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
+                if (message.dkim) {
+                    boolean aligned = helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
+                    if (aligned)
+                        message.dmarc = true;
+                    else if (message.dmarc != null)
+                        message.dmarc = false;
+                }
             }
 
             // Borrow reply name from sender name
