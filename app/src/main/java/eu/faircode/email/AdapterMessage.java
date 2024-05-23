@@ -5655,21 +5655,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 boolean isDark = Helper.isDarkTheme(context);
                 tvDark.setVisibility(isDark && !(canDarken || fake_dark) ? View.VISIBLE : View.GONE);
-            } else {
-                boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
-
-                TextView tvTracking = dview.findViewById(R.id.tvTracking);
-                Group grpTracking = dview.findViewById(R.id.grpTracking);
-
-                grpTracking.setVisibility(disable_tracking ? View.VISIBLE : View.GONE);
-
-                tvTracking.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Helper.viewFAQ(v.getContext(), 82);
-                    }
-                });
             }
+
+            boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
+
+            TextView tvTracking = dview.findViewById(R.id.tvTracking);
+            Group grpTracking = dview.findViewById(R.id.grpTracking);
+
+            grpTracking.setVisibility(disable_tracking ? View.VISIBLE : View.GONE);
+
+            tvTracking.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.viewFAQ(v.getContext(), 82);
+                }
+            });
 
             // TODO: dialog fragment
             final AlertDialog.Builder builder = new AlertDialog.Builder(context)

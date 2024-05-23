@@ -42,6 +42,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDark" />
 
+        <ImageView
+            android:id="@+id/ivTracking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTracking"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvTracking"
+            app:srcCompat="@drawable/twotone_my_location_24"
+            app:tint="?attr/colorWarning" />
+
+        <TextView
+            android:id="@+id/tvTracking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableEnd="@drawable/twotone_info_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_ask_show_image_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivTracking"
+            app:layout_constraintTop_toBottomOf="@id/cbAlwaysImages" />
+
         <CheckBox
             android:id="@+id/cbNotAgainSender"
             android:layout_width="wrap_content"
@@ -50,7 +78,7 @@
             android:text="@string/title_no_ask_for_again"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbAlwaysImages" />
+            app:layout_constraintTop_toBottomOf="@id/tvTracking" />
 
         <CheckBox
             android:id="@+id/cbNotAgainDomain"
@@ -84,5 +112,11 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNotAgain" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpTracking"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="ivTracking,tvTracking" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
