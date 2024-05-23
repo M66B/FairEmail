@@ -647,6 +647,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
                                 if (image.length > 0 && image[0].getSource() != null) {
                                     Uri uri = Uri.parse(image[0].getSource());
+
                                     if (UriHelper.isHyperLink(uri)) {
                                         ripple(event);
                                         if (onOpenLink(uri, null,
@@ -675,10 +676,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
 
                             ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
-                            if (image.length > 0) {
-                                if (image[0] instanceof ImageSpanEx &&
-                                        ((ImageSpanEx) image[0]).getTracking())
+                            if (image.length > 0 && image[0] instanceof ImageSpanEx) {
+                                String tracking = ((ImageSpanEx) image[0]).getTracking();
+                                if (!TextUtils.isEmpty(tracking)) {
+                                    onOpenLink(Uri.parse(tracking),
+                                            context.getString(R.string.title_legend_tracking_pixel), true);
                                     return true;
+                                }
 
                                 ripple(event);
                                 onOpenImage(message.id, image[0].getSource(),
