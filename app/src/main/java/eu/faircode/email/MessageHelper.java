@@ -204,6 +204,7 @@ public class MessageHelper {
     private static final String DKIM_SIGNATURE = "DKIM-Signature";
     private static final String GOOGLE_DKIM_SIGNATURE = "X-Google-DKIM-Signature";
     private static final String ARC_SEAL = "ARC-Seal";
+    private static final String AUTHENTICATION_RESULTS = "Authentication-Results";
     private static final String ARC_AUTHENTICATION_RESULTS = "ARC-Authentication-Results";
     private static final String ARC_MESSAGE_SIGNATURE = "ARC-Message-Signature";
 
@@ -2162,11 +2163,11 @@ public class MessageHelper {
         List<String> all = new ArrayList<>();
 
         // https://datatracker.ietf.org/doc/html/rfc8601
-        String[] results = imessage.getHeader("Authentication-Results");
+        String[] results = imessage.getHeader(AUTHENTICATION_RESULTS);
         if (results != null)
             all.addAll(Arrays.asList(results));
 
-        String[] aresults = imessage.getHeader("ARC-Authentication-Results");
+        String[] aresults = imessage.getHeader(ARC_AUTHENTICATION_RESULTS);
         if (aresults != null)
             all.addAll(Arrays.asList(aresults));
 
@@ -2181,48 +2182,25 @@ public class MessageHelper {
     }
 
     static Boolean getAuthentication(String type, String[] headers) {
-        if (headers == null)
+        // https://tools.ietf.org/html/rfc7601
+
+        if (headers == null || headers.length == 0)
             return null;
 
-        // https://tools.ietf.org/html/rfc7601
-        Boolean result = null;
-        for (String header : headers) {
-            String v = getKeyValues(header).get(type);
-            if (v == null)
-                continue;
-            String[] val = v.split("\\s+");
-            if (val.length > 0) {
-                if ("fail".equals(val[0])) {
-                    if ("dmarc".equals(type)) {
-                        // dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=example.com
-                        int s = v.indexOf('(');
-                        int e = v.indexOf(')');
-                        if (s > 0 && e > s) {
-                            Boolean none = null;
-                            for (String p : v.substring(s + 1, e).split("\\s+")) {
-                                String[] kv = p.split("=");
-                                // Without getting the DMARC DNS record, it isn't possible to check the sub/domain
-                                if (kv.length == 2 &&
-                                        ("p".equalsIgnoreCase(kv[0]) || "sp".equalsIgnoreCase(kv[0])) &&
-                                        "none".equalsIgnoreCase(kv[1]))
-                                    none = (none == null || none) && "none".equalsIgnoreCase(kv[1]);
-                            }
-                            if (none != null && none)
-                                continue; // neutral
-                        }
-                    }
-                    result = false;
-                } else if ("pass".equals(val[0])) {
-                    // https://www.rfc-editor.org/rfc/rfc7489#section-3.1.1
-                    if ("dkim".equals(type))
-                        return true;
-                    if (result == null)
-                        result = true;
-                }
-            }
-        }
+        String v = getKeyValues(headers[0]).get(type);
+        if (v == null)
+            return null;
 
-        return result;
+        String[] val = v.split("\\s+");
+        if (val.length == 0)
+            return null;
+
+        if ("pass".equals(val[0]))
+            return true;
+        else if ("none".equals(val[0]))
+            return null;
+        else
+            return false; // fail, policy, neutral, temperror, permerror
     }
 
     boolean getSPF() throws MessagingException {
