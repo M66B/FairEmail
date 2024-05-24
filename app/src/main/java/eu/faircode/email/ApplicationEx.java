@@ -257,7 +257,7 @@ public class ApplicationEx extends Application
 
         // https://issuetracker.google.com/issues/341313071
         // https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-predictive
-        FragmentManager.enablePredictiveBack(false);
+        //FragmentManager.enablePredictiveBack(false);
 
         if (Helper.hasWebView(this))
             CookieManager.getInstance().setAcceptCookie(false);
