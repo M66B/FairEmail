@@ -2233,6 +2233,28 @@ public class MessageHelper {
         return mailfrom;
     }
 
+    String getSigner(String[] headers) {
+        if (headers == null || headers.length == 0)
+            return null;
+
+        int semi = headers[0].indexOf(';');
+        if (semi < 0)
+            return null;
+        String signer = headers[0].substring(0, semi).trim();
+
+        if (signer.toLowerCase(Locale.ROOT).startsWith("i=")) {
+            int semi2 = headers[0].indexOf(';', semi + 1);
+            if (semi2 < 0)
+                return null;
+            signer = headers[0].substring(semi + 1, semi2).trim();
+        }
+
+        if (TextUtils.isEmpty(signer))
+            signer = null;
+
+        return signer;
+    }
+
     boolean getSPF() throws MessagingException {
         ensureHeaders();
 
