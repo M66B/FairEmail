@@ -2648,15 +2648,14 @@ public class MessageHelper {
             envelop.addAll(Arrays.asList(from));
         if (smtp_from != null)
             envelop.addAll(Arrays.asList(smtp_from));
-        for (String signer : signers) {
+        for (String signer : signers)
             for (Address a : envelop) {
                 String domain = UriHelper.getEmailDomain(((InternetAddress) a).getAddress());
-                if (domain != null && Objects.equals(
-                        UriHelper.getRootDomain(context, signer),
-                        UriHelper.getRootDomain(context, domain)))
+                if (signer != null && domain != null && Objects.equals(
+                        UriHelper.getRootDomain(context, signer.toLowerCase(Locale.ROOT)),
+                        UriHelper.getRootDomain(context, domain.toLowerCase(Locale.ROOT))))
                     return true;
             }
-        }
         return false;
     }
 

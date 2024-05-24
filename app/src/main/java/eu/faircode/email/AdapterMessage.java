@@ -2649,9 +2649,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     signers.append(signer);
                     for (Address a : envelop) {
                         String domain = UriHelper.getEmailDomain(((InternetAddress) a).getAddress());
-                        if (domain != null && Objects.equals(
-                                UriHelper.getRootDomain(context, signer),
-                                UriHelper.getRootDomain(context, domain))) {
+                        if (signer != null && domain != null && Objects.equals(
+                                UriHelper.getRootDomain(context, signer.toLowerCase(Locale.ROOT)),
+                                UriHelper.getRootDomain(context, domain.toLowerCase(Locale.ROOT)))) {
                             signers.setSpan(new ForegroundColorSpan(textColorLink), start, signers.length(), 0);
                             known_signer = true;
                             break;
