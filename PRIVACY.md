@@ -9,14 +9,25 @@
 
 <br />
 
+This privacy policy will be updated as needed, such as when there are changes in the app or when regulations or laws change.
+
+Last update: **May 24, 2024**
+
+<br />
+
 First of all, FairEmail's main goal is to help you protect your privacy.
-What follows is a complete overview of all the data that **can be** sent to the internet,
-which in the end is always your choice and therefore optional (except of course connecting to the email server).
+What follows is a complete overview of all the data that will be stored on the device and that **can be** sent to the internet.
+The latter is in the end always your choice and therefore optional.
 
 Except for error reports (disabled by default), the app does not send any data to the developer.
 Error reports will automatically be deleted after one month, or earlier upon request.
 
-Data will **never** be sold or shared in any way.
+Data collected on the device will **never** be sold or shared in any way.
+
+Data collected on the device will **never** be used for profiling, (AI) training or advertisements.
+
+You have the right to lodge a complaint with a supervisory data protection authority,
+please [see here](https://en.wikipedia.org/wiki/National_data_protection_authority) for a list.
 
 <br>
 
@@ -76,6 +87,7 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [GitHub](https://github.com/) (GitHub version only) &#8211; [Privacy policy](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
 * [Have I Been Pwned?](https://haveibeenpwned.com/) &#8211; [Privacy policy](https://haveibeenpwned.com/Privacy)
 * [Bugsnag](https://www.bugsnag.com/) &#8211; [Privacy policy](https://smartbear.com/privacy/)
+* [Google Play Billing](https://developer.android.com/distribute/play-billing) &#8211; [Privacy policy](https://wallet.google.com/files/privacy.html)
 
 FairEmail **can access** the websites at the domain names of email addresses (username@domain.name)
 if [Brand Indicators for Message Identification](https://en.wikipedia.org/wiki/Brand_Indicators_for_Message_Identification) (BIMI)
@@ -90,40 +102,62 @@ FairEmail **is** [GDPR compliant](https://gdpr.eu/).
 
 <br />
 
+### Summary of stored (collected) data
+
+The following data is stored on the device or, in other words, collected, but not sent off the device:
+
+| Data stored (collected)                                                       | Purpose                         | Related Android permissions |
+| ----------------------------------------------------------------------------- | ------------------------------- | --------------------------- |
+| Names and email addresses (account and contact data)                          | To configure accounts           | GET_ACCOUNTS                |
+|                                                                               | To suggest email addresses      | READ_CONTACTS               |
+| Email messages, including meta data (headers)                                 | To list and display messages    |                             |
+|                                                                               | To search for messages          |                             |
+| Attachment files (audio, sound, music, voice, photos, video, documents, etc.) | To play media (audio, video)    | READ_EXTERNAL_STORAGE       |
+|                                                                               | To view images, documents, etc. | READ_EXTERNAL_STORAGE       |
+
+By default, personal data as mentioned above will be stored on your device for 30 days.
+
+You can delete this data, and you can opt-out of storing this data by uninstalling the app.
+
+<br />
+
 ### Summary of shared data
 
 This table provides a complete overview of all shared data and the conditions under which data will be shared:
 
 <div class="table-wrapper">
 
-| Service/function   | Data sent                                                          | When the data will be sent                                                  |
-| ------------------ | ------------------------------------------------------------------ | --------------------------------------------------------------------------- |
-| Mozilla autoconfig | Domain name of email address of email accounts                     | Upon configuring an email account with the quick setup wizard               |
-| Email server       | Login credentials (email address/password), messages sent          | Upon configuring and using an account or identity and upon sending messages |
-| ipinfo.io          | IP (network) address of domain names of links or email addresses   | Upon pressing a button in the link confirmation dialog                      |
-| Spamhaus           | IP (network) address of domain names of links or email addresses   | If spam blocklists are enabled, upon receiving a message                    |
-| Spamcop            | IP (network) address of domain names of links or email addresses   | If spam blocklists are enabled, upon receiving a message                    |
-| Barracuda          | IP (network) address of domain names of links or email addresses   | If spam blocklists are enabled, upon receiving a message                    |
-| DeepL              | Received or entered message text and target language code          | If translating is enabled, upon pressing a translate button                 |
-| LanguageTool       | Entered message texts                                              | If LanguageTools is enabled, upon long pressing the save draft button       |
-| VirusTotal         | [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of attachments | If VirusTotal is enabled, upon long pressing a scan button (*)              |
-| VirusTotal         | Attached file contents                                             | If VirusTotal is enabled, upon long pressing an upload button (*)           |
-| OpenAI/ChatGPT     | Received and entered message texts                                 | If configured and upon pressing a button or using a menu item               |
-| Google Gemini      | Received and entered message texts                                 | If configured and upon pressing a button or using a menu item               |
-| Gravatar           | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Gravatars are enabled, upon receiving a message (*)                      |
-| Libravatar         | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Libravatars are enabled, upon receiving a message (*)                    |
-| GitHub             | None, but see the remarks below                                    | Upon downloading AdGuard tracking parameter list                            |
-|                    |                                                                    | Upon downloading Disconnect's Tracker Protection lists                      |
-|                    |                                                                    | Upon checking for updates (*)                                               |
-| Have I Been Pwned? | The first 5 characters of the SHA1 hash of passwords               | Upon checking for being pwned                                               |
-| BIMI               | Domain name of email addresses                                     | If BIMI is enabled, upon receiving a message (*)                            |
-| Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message                           |
-| Link title         | Link address                                                       | Upon pressing a download button in the insert link dialog                   |
-| Bugsnag            | Information about warnings and errors                              | If error reporting is enabled, upon detecting an abnormal situation         |
+| Service/function    | Data sent                                                          | When the data will be sent                                                  |
+| ------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| Mozilla autoconfig  | Domain name of email address of email accounts                     | Upon configuring an email account with the quick setup wizard               |
+| Email server        | Login credentials (email address/password), messages sent          | Upon configuring and using an account or identity and upon sending messages |
+| ipinfo.io           | IP (network) address of domain names of links or email addresses   | Upon pressing a button in the link confirmation dialog                      |
+| Spamhaus            | IP (network) address of domain names of links or email addresses   | If spam blocklists are enabled, upon receiving a message                    |
+| Spamcop             | IP (network) address of domain names of links or email addresses   | If spam blocklists are enabled, upon receiving a message                    |
+| Barracuda           | IP (network) address of domain names of links or email addresses   | If spam blocklists are enabled, upon receiving a message                    |
+| DeepL               | Received or entered message text and target language code          | If translating is enabled, upon pressing a translate button                 |
+| LanguageTool        | Entered message texts                                              | If LanguageTools is enabled, upon long pressing the save draft button       |
+| VirusTotal          | [SHA-256 hash](https://en.wikipedia.org/wiki/SHA-2) of attachments | If VirusTotal is enabled, upon long pressing a scan button (*)              |
+| VirusTotal          | Attached file contents                                             | If VirusTotal is enabled, upon long pressing an upload button (*)           |
+| OpenAI/ChatGPT      | Received and entered message texts                                 | If configured and upon pressing a button or using a menu item               |
+| Google Gemini       | Received and entered message texts                                 | If configured and upon pressing a button or using a menu item               |
+| Gravatar            | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Gravatars are enabled, upon receiving a message (*)                      |
+| Libravatar          | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Libravatars are enabled, upon receiving a message (*)                    |
+| GitHub              | None, but see the remarks below                                    | Upon downloading AdGuard tracking parameter list                            |
+|                     |                                                                    | Upon downloading Disconnect's Tracker Protection lists                      |
+|                     |                                                                    | Upon checking for updates (*)                                               |
+| Have I Been Pwned?  | The first 5 characters of the SHA1 hash of passwords               | Upon checking for being pwned                                               |
+| BIMI                | Domain name of email addresses                                     | If BIMI is enabled, upon receiving a message (*)                            |
+| Favicons            | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message                           |
+| Link title          | Link address                                                       | Upon pressing a download button in the insert link dialog                   |
+| Bugsnag             | Information about warnings and errors                              | If error reporting is enabled, upon detecting an abnormal situation         |
+| Google Play Billing | "insight into API usage and service connection issues"             | Not disclosed by Google (**) (endpoint: firebaselogging.googleapis.com)     |
 
 </div>
 
 (*) Only available in the GitHub version of the app
+
+(**) Only available in the Play Store version of the app
 
 All data is sent to improve the user experience in some way,
 like to simplify account setup, identify spam and malicious messages, display message and sender information, find bugs and errors, etc.
@@ -131,6 +165,20 @@ like to simplify account setup, identify spam and malicious messages, display me
 Note that any internet connection reveals your current [network address](https://en.wikipedia.org/wiki/Network_address).
 Also, when downloading content, like images and files, the [browser's user agent string](https://en.wikipedia.org/wiki/User_agent) will be sent.
 There is a privacy option to minimize the information being sent, but please be aware that this can result in problems in some cases.
+
+Under the General Data Protection Regulation (GDPR),
+the California Consumer Privacy Act (CCPA),
+the Virginia Consumer Data Protection Act (VCDPA),
+Lei Geral de Proteção de Dados (LGPD), and other regulations,
+you have the right to know whether your personal data is shared or sold to third parties, used for (targeted) advertising, profiling, etc.,
+and you have the right to access, rectify and delete personal data.
+To exercise these rights, or if you have questions about data retention, etc., you can contact the service providers listed above.
+
+Under the Virginia Consumer Data Protection Act (VCDPA) and other regulations,
+you need to be told how to exercise your opt-out right for sharing or selling of your data,
+using your data for targeted advertising,
+and profiling your data that supports decisions that have legal or similarly significant implications for you.
+You can opt-out of having your data shared, sold, used for (targeted) advertising, profiling (for decision making), etc. by not using these optional services/functions.
 
 <br />
 
