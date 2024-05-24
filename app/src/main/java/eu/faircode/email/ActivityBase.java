@@ -105,7 +105,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     public void setContentView(View view) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean hide_toolbar = prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
+        boolean hide_toolbar = prefs.getBoolean("hide_toolbar", true);
         boolean edge_to_edge = prefs.getBoolean("edge_to_edge", false);
 
         LayoutInflater inflater = LayoutInflater.from(this);

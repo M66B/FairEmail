@@ -864,6 +864,9 @@ public class ApplicationEx extends Application
         } else if (version < 2180) {
             if (Helper.isAndroid15())
                 editor.putInt("last_sdk", 0);
+        } else if (version < 2187) {
+            if (!prefs.contains("hide_toolbar"))
+                editor.putBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
