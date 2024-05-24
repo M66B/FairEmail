@@ -2204,32 +2204,30 @@ public class MessageHelper {
     }
 
     Address[] getMailFrom(String[] headers) {
-        if (headers == null)
+        if (headers == null || headers.length == 0)
             return null;
 
         Address[] mailfrom = null;
-        for (String header : headers) {
-            String spf = getKeyValues(header).get("spf");
-            if (spf == null)
-                continue;
+        String spf = getKeyValues(headers[0]).get("spf");
+        if (spf == null)
+            return null;
 
-            int i = spf.indexOf(SMTP_MAILFORM + "=");
-            if (i < 0)
-                continue;
+        int i = spf.indexOf(SMTP_MAILFORM + "=");
+        if (i < 0)
+            return null;
 
-            String v = spf.substring(i + SMTP_MAILFORM.length() + 1);
-            int s = v.indexOf(' ');
-            if (s > 0)
-                v = v.substring(0, s);
+        String v = spf.substring(i + SMTP_MAILFORM.length() + 1);
+        int s = v.indexOf(' ');
+        if (s > 0)
+            v = v.substring(0, s);
 
-            if (v.startsWith("\"") && v.endsWith("\""))
-                v = v.substring(1, v.length() - 1);
+        if (v.startsWith("\"") && v.endsWith("\""))
+            v = v.substring(1, v.length() - 1);
 
-            try {
-                mailfrom = InternetAddress.parseHeader(v, false);
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
+        try {
+            mailfrom = InternetAddress.parseHeader(v, false);
+        } catch (Throwable ex) {
+            Log.w(ex);
         }
 
         return mailfrom;
