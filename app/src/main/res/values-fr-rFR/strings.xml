@@ -922,7 +922,7 @@
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>
     <string name="title_identity_tenant_hint">Ce champ devrait rester vide dans la plupart des cas</string>
-    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Il est rarement nécessaire d\'activer cette option et de plus, l\'utilisation des données va augmenter !</string>
+    <string name="title_identity_receive_first_hint">Il est rarement nécessaire d\'activer cette option et de plus, l\'utilisation des données va augmenter !</string>
     <string name="title_identity_color_hint">Les couleurs d’identité ont la priorité sur les couleurs de dossiers et de comptes</string>
     <string name="title_advanced_sender">Autoriser la modification de l’adresse de l’expéditeur</string>
     <string name="title_advanced_sender_name">Utiliser le nom lorsque l\'adresse de l\'expéditeur a été modifiée</string>
@@ -980,7 +980,7 @@
     <string name="title_password">Mot de passe</string>
     <string name="title_password_storage">Comment les mots de passe sont-ils stockés ?</string>
     <string name="title_case_sensitive">Les noms d\'utilisateur et les mots de passe sont généralement sensibles à la casse</string>
-    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Recevoir avant d\'envoyer</string>
+    <string name="title_login_before_send">Recevoir avant d\'envoyer</string>
     <string name="title_client_certificate">Certificat client</string>
     <string name="title_realm">Domaine</string>
     <string name="title_use_ip">Utiliser l’adresse IP locale au lieu du nom d’hôte</string>
@@ -1343,7 +1343,9 @@
     <string name="title_ask_show_html">L’affichage du message original peut entraîner la divulgation d’informations confidentielles</string>
     <string name="title_ask_show_html_remark">L’affichage du message original sur un arrière-plan sombre n’est pas possible car cela pourrait rendre invisibles le texte et les images sombres</string>
     <string name="title_ask_show_html_images">Toujours afficher les images lors de l\'affichage des messages originaux</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Afficher les messages originaux par défaut</string>
     <string name="title_ask_show_image">L’affichage des images peut entraîner la divulgation d’informations confidentielles</string>
+    <string name="title_ask_show_images_always">Afficher les images par défaut</string>
     <string name="title_ask_show_image_hint">Les images identifiées comme étant des images de pistage ne seront pas affichées</string>
     <string name="title_ask_show_amp">Afficher la variante AMP du message ?</string>
     <string name="title_ask_show_amp_hint">Les messages AMP sont conçus pour être dynamiques et interagir avec Internet et peuvent dès lors, par définition, être utilisés pour vous pister</string>
@@ -1974,6 +1976,7 @@
     <string name="title_ask_what">Demander ce qu\'il faut faire</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_no_ask_for_again">Ne plus demander ceci pour %1$s</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Ceci peut être annulé dans l\'onglet des paramètres de confidentialité</string>
     <string name="title_no_body">Aucun texte de message trouvé</string>
     <string name="title_large_body">Ce message est très volumineux et peut poser problème !</string>
     <string name="title_no_charset">Encodage non pris en charge : %1$s</string>

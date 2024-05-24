@@ -922,7 +922,7 @@
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din e-mailadresse</string>
     <string name="title_identity_tenant_hint">Dette felt bør fortrinsvis være tomt</string>
-    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Det er sjældent nødvendigt at slå denne mulighed til, og desuden vil dataforbruget stige!</string>
+    <string name="title_identity_receive_first_hint">Det er sjældent nødvendigt at slå denne mulighed til, og desuden vil dataforbruget stige!</string>
     <string name="title_identity_color_hint">Identitetsfarver har forrang over kontofarver</string>
     <string name="title_advanced_sender">Tillad redigering af afsenderadresse</string>
     <string name="title_advanced_sender_name">Brug navnet, når afsenderadressen er blevet redigeret</string>
@@ -980,7 +980,7 @@
     <string name="title_password">Adgangskode</string>
     <string name="title_password_storage">Hvordan opbevares adgangskoder?</string>
     <string name="title_case_sensitive">I brugernavne og adgangskoder skelnes normalt mellem minuskler og versaler</string>
-    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Modtag før afsendelse</string>
+    <string name="title_login_before_send">Modtag før afsendelse</string>
     <string name="title_client_certificate">Klientcertifikat</string>
     <string name="title_realm">Område</string>
     <string name="title_use_ip">Brug lokal IP-adresse i stedet for værtsnavn</string>
@@ -1342,7 +1342,9 @@
     <string name="title_ask_show_html">Visning af beskedindhold kan lække personfølsomme data</string>
     <string name="title_ask_show_html_remark">Visning af originalbeskeden på en mørk baggrund er ikke mulig, da det kan afstedkomme usynlige mørke tekster og billeder</string>
     <string name="title_ask_show_html_images">Vis altid billeder, når originalbeskederne vises</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Vis som standard oprindelig beskeder</string>
     <string name="title_ask_show_image">Visning af billeder kan lække personfølsomme data</string>
+    <string name="title_ask_show_images_always">Vis som standard billeder</string>
     <string name="title_ask_show_image_hint">Billeder genkendt som sporingsbilleder, vises ikke</string>
     <string name="title_ask_show_amp">Vis AMP-variant af beskeden?</string>
     <string name="title_ask_show_amp_hint">AMP-beskeder er designet til at være dynamiske og interagere med Internet, og de kan derfor potentielt bruges til brugersporing</string>
@@ -1973,6 +1975,7 @@
     <string name="title_ask_what">Spørg, hvad der skal ske</string>
     <string name="title_no_ask_again">Spørg ikke om dette igen</string>
     <string name="title_no_ask_for_again">Spørg ikke om dette igen for %1$s</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Dette kan fortrydes på fanesiden fortrolighedsindstillinger</string>
     <string name="title_no_body">Ingen beskedtekst fundet</string>
     <string name="title_large_body">Denne meddelelse er meget stor, hvilket kan give problemer!</string>
     <string name="title_no_charset">Uunderstøttet kodning: %1$s</string>

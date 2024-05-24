@@ -949,6 +949,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_identity_name">Vaše jméno</string>
     <string name="title_identity_email">Vaše e-mailová adresa</string>
     <string name="title_identity_tenant_hint">Toto pole by mělo být ve většině případů prázdné</string>
+    <string name="title_identity_receive_first_hint">Málokdy je nutné tuto možnost zapnout, navíc se zvýší využití dat!</string>
     <string name="title_identity_color_hint">Barvy identit mají přednost před barvami složek a účtů</string>
     <string name="title_advanced_sender">Umožnit úpravu adresy odesílatele</string>
     <string name="title_advanced_sender_name">Použít jméno, když je adresa odesílatele upravena</string>
@@ -1006,6 +1007,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_password">Heslo</string>
     <string name="title_password_storage">Jak jsou hesla uložena?</string>
     <string name="title_case_sensitive">Uživatelská jména a hesla obvykle vyžadují rozlišit velká a malá písmena</string>
+    <string name="title_login_before_send">Přijímat před odesláním</string>
     <string name="title_client_certificate">Klientský certifikát</string>
     <string name="title_realm">Sféra</string>
     <string name="title_use_ip">Použít lokální IP adresu namísto názvu hostitele</string>
@@ -1367,7 +1369,9 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_ask_show_html">Zobrazením původní zprávy může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_html_remark">Zobrazení původní zprávy na tmavém pozadí není možné, neboť může způsobit zneviditelnění tmavých textů a obrázků</string>
     <string name="title_ask_show_html_images">Vždy zobrazit obrázky při zobrazení původních zpráv</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Ve výchozím nastavení zobrazovat původní zprávy</string>
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>
+    <string name="title_ask_show_images_always">Ve výchozím nastavení zobrazovat obrázky</string>
     <string name="title_ask_show_image_hint">Obrázky rozpoznané jako sledovací nebudou zobrazeny</string>
     <string name="title_ask_show_amp">Zobrazit zprávu ve variantě AMP?</string>
     <string name="title_ask_show_amp_hint">AMP zprávy jsou navrženy tak, aby byly dynamické a interagovaly s internetem, a proto mohou být podle definice použity ke sledování</string>
@@ -1996,6 +2000,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_ask_what">Zeptej se, co dělat</string>
     <string name="title_no_ask_again">Znovu se neptat</string>
     <string name="title_no_ask_for_again">Znovu nežádat pro %1$s</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Toto lze vrátit zpět na stránce nastavení soukromí</string>
     <string name="title_no_body">Text zprávy nenalezen</string>
     <string name="title_large_body">Tato zpráva je velmi velká a to může způsobit problémy!</string>
     <string name="title_no_charset">Nepodporované kódování: %1$s</string>

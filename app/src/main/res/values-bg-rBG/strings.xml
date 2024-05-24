@@ -920,6 +920,7 @@
     <string name="title_identity_name">Вашето име</string>
     <string name="title_identity_email">Вашият адрес на имейл</string>
     <string name="title_identity_tenant_hint">Това поле би трябвало да празно в повечето случаи</string>
+    <string name="title_identity_receive_first_hint">Рядко се налага включването на тази възможност, освен това употребата на данни ще се увеличи!</string>
     <string name="title_identity_color_hint">Цветовете на самоличността са с предимство пред цветовете на папките и акаунта</string>
     <string name="title_advanced_sender">Разрешаване редактиране на адреса на подателя</string>
     <string name="title_advanced_sender_name">Употреба на име, когато адресът на подателя е редактиран</string>
@@ -977,6 +978,7 @@
     <string name="title_password">Парола</string>
     <string name="title_password_storage">Как се складират паролите?</string>
     <string name="title_case_sensitive">Потребителските имена и пароли обикновено различават главни от малки букви</string>
+    <string name="title_login_before_send">Получаване преди изпращане</string>
     <string name="title_client_certificate">Сертификат на клиента</string>
     <string name="title_realm">Област</string>
     <string name="title_use_ip">Използвай локален IP адрес вместо име на хост</string>
@@ -1081,6 +1083,7 @@
     <string name="title_expunge_remark">Необратимо изтриване на всички съобщения, означени за триене</string>
     <string name="title_empty_trash">Изпразване на кошчето</string>
     <string name="title_empty_spam">Изтриване на спама</string>
+    <string name="title_edit_color">Промяна на цвета</string>
     <string name="title_edit_properties">Редактиране на свойствата</string>
     <string name="title_edit_rules">Редактиране на правилата</string>
     <string name="title_execute_rules">Извършване на правилата</string>

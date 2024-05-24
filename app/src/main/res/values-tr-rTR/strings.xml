@@ -116,6 +116,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_waiting">Uygun bağlantı bekleniyor</string>
     <string name="title_notification_idle">Dışarıda</string>
+    <string name="title_notification_failed">Hesap \'%1$s\' başarısız oldu</string>
     <string name="title_notification_alert">Sunucu uyarısı \'%1$s\'</string>
     <string name="title_notification_sending_left">%1$d deneme kaldı</string>
     <string name="title_notification_sending_retry">Gönderme, internet bağlantısı değişikliklerinde veya giden kutusu aşağı çekildiğinde yeniden denenecek</string>
@@ -770,6 +771,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_openai_moderation">İçerik denetimi</string>
     <string name="title_advanced_gemini">Gemini entegrasyonu</string>
     <string name="title_advanced_multi_modal">Multimodal</string>
+    <string name="title_advanced_summarize_prompt">Özetleme istemi</string>
     <string name="title_advanced_sdcard">SD kart kullanmak istiyorum</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">GitHub güncellemelerini kontrol et</string>
@@ -916,7 +918,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
     <string name="title_identity_tenant_hint">Bu alan çoğu durumda boş olmalıdır</string>
-    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Bu seçeneği açmak nadiren gereklidir, ayrıca veri kullanımı artacaktır!</string>
+    <string name="title_identity_receive_first_hint">Bu seçeneği açmak nadiren gereklidir, ayrıca veri kullanımı artacaktır!</string>
     <string name="title_identity_color_hint">Kimlik renkleri, klasör ve hesap renklerinden önceliklidir</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_sender_name">Gönderen adresi düzenlendiğinde adı kullan</string>
@@ -974,7 +976,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_password">Parola</string>
     <string name="title_password_storage">Şifreler nasıl saklanır?</string>
     <string name="title_case_sensitive">Kullanıcı adları ve parolalar büyük-küçük harfe duyarlıdır</string>
-    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Göndermeden önce al</string>
+    <string name="title_login_before_send">Göndermeden önce al</string>
     <string name="title_client_certificate">İstemci sertifikası</string>
     <string name="title_realm">Bölge</string>
     <string name="title_use_ip">Ana bilgisayar adı yerine yerel IP adresini kullan</string>
@@ -1332,7 +1334,9 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_html_remark">Orijinal mesajı koyu arka planda görüntülemek mümkün değildir çünkü görünmez koyu metinlere ve resimlere neden olabilir</string>
     <string name="title_ask_show_html_images">Orijinal mesajları görüntülerken her zaman resimleri göster</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Orijinal mesajları varsayılan olarak göster</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
+    <string name="title_ask_show_images_always">Resimleri varsayılan olarak göster</string>
     <string name="title_ask_show_image_hint">İzleme resimleri olarak tanınan resimler gösterilmeyecektir</string>
     <string name="title_ask_show_amp">Mesajın AMP varyantı gösterilsin mi?</string>
     <string name="title_ask_show_amp_hint">AMP mesajları dinamik olacak ve internet ile etkileşime girecek şekilde tasarlanmıştır ve bu nedenle tanım gereği sizi izlemek için kullanılabilir</string>
@@ -1961,6 +1965,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_ask_what">Ne yapılacağını sor</string>
     <string name="title_no_ask_again">Bunu bir daha sorma</string>
     <string name="title_no_ask_for_again">%1$s için bunu bir daha sorma</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Bu, gizlilik ayarları sekmesi sayfasından geri alınabilir</string>
     <string name="title_no_body">Hiçbir ileti metni bulunamadı</string>
     <string name="title_large_body">Bu mesaj çok büyüktür ve sorunlara neden olabilir!</string>
     <string name="title_no_charset">Desteklenmeyen kodlama: %1$s</string>

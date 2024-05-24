@@ -922,7 +922,7 @@
     <string name="title_identity_name">Il tuo nome</string>
     <string name="title_identity_email">Il tuo indirizzo email</string>
     <string name="title_identity_tenant_hint">Questo campo dovrebbe esser vuoto in gran parte dei casi</string>
-    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Raramente è necessario attivare questa opzione e inoltre, l\'utilizzo dei dati aumenterà!</string>
+    <string name="title_identity_receive_first_hint">Raramente è necessario attivare questa opzione e inoltre, l\'utilizzo dei dati aumenterà!</string>
     <string name="title_identity_color_hint">I colori dell\'identità hanno la precedenza sui colori della cartella e del profilo</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo del mittente</string>
     <string name="title_advanced_sender_name">Usa il nome quando l\'indirizzo del mittente è modificato</string>
@@ -980,7 +980,7 @@
     <string name="title_password">Password</string>
     <string name="title_password_storage">Come sono memorizzate le password?</string>
     <string name="title_case_sensitive">Nomi utente e password sono solitamente sensibili alle maiuscole</string>
-    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Ricevere prima d\'inviare</string>
+    <string name="title_login_before_send">Ricevere prima d\'inviare</string>
     <string name="title_client_certificate">Certificato del client</string>
     <string name="title_realm">Dominio</string>
     <string name="title_use_ip">Usa l\'indirizzo IP locale invece del nome dell\'host</string>
@@ -1343,7 +1343,9 @@
     <string name="title_ask_show_html">Mostrare il messaggio originale potrebbe causare una fuga di informazioni sensibili sulla privacy</string>
     <string name="title_ask_show_html_remark">Mostrare il messaggio originale su uno sfondo scuro è impossibile poiché potrebbe rendere i testi e le immagini scuri invisibili</string>
     <string name="title_ask_show_html_images">Mostra sempre le immagini mostrando i messaggi originali</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Mostra i messaggi originali di default</string>
     <string name="title_ask_show_image">Mostrare le immagini potrebbe causare una fuga di informazioni sensibili sulla privacy</string>
+    <string name="title_ask_show_images_always">Mostra le immagini di default</string>
     <string name="title_ask_show_image_hint">Le immagini riconosciute come di monitoraggio non saranno mostrate</string>
     <string name="title_ask_show_amp">Mostrare la variante AMP del messaggio?</string>
     <string name="title_ask_show_amp_hint">I messaggi AMP sono progettati per esser dinamici e interagire con l\'Internet e possono dunque, per definizione, esser usati per monitorarti</string>
@@ -1974,6 +1976,7 @@
     <string name="title_ask_what">Chiedi cosa fare</string>
     <string name="title_no_ask_again">Non chiederlo di nuovo</string>
     <string name="title_no_ask_for_again">Non chiederlo di nuovo per %1$s</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Questo può essere annullato nella scheda delle impostazioni della privacy</string>
     <string name="title_no_body">Nessun testo del messaggio trovato</string>
     <string name="title_large_body">Questo messaggio è molto grande e ciò potrebbe causare problemi!</string>
     <string name="title_no_charset">Crittografia non supportata: %1$s</string>

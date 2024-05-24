@@ -918,7 +918,7 @@
     <string name="title_identity_name">Az Ön neve</string>
     <string name="title_identity_email">Az Ön email címe</string>
     <string name="title_identity_tenant_hint">Ez a mező legtöbb esetben üres kell legyen</string>
-    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Ezt a lehetőséget néha be kell kapcsolni, bár az adathasználat nőni fog!</string>
+    <string name="title_identity_receive_first_hint">Ezt a lehetőséget néha be kell kapcsolni, bár az adathasználat nőni fog!</string>
     <string name="title_identity_color_hint">Identitás színek elsőbbsége a mappa és fiók színekkel szemben</string>
     <string name="title_advanced_sender">Küldőként használt cím szerkesztésének engedélyezése</string>
     <string name="title_advanced_sender_name">Használjon nevet amikor a küldő címe szerkesztésre került</string>
@@ -976,7 +976,7 @@
     <string name="title_password">Jelszó</string>
     <string name="title_password_storage">Hogyan vannak tárolva a jelszavak?</string>
     <string name="title_case_sensitive">Felhasználónevek és jelszók általában kis- és nagybetű érzékenyek</string>
-    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Fogadás küldés előtt</string>
+    <string name="title_login_before_send">Fogadás küldés előtt</string>
     <string name="title_client_certificate">Kliens tanúsítványa</string>
     <string name="title_realm">Tartomány</string>
     <string name="title_use_ip">IP cím használata kiszolgálónév helyett</string>
@@ -1336,7 +1336,9 @@
     <string name="title_ask_show_html">Az eredeti üzenet megjelenítése érzékeny adatok kiszivárgásával járhat</string>
     <string name="title_ask_show_html_remark">Az eredeti üzenet megjelenítése sötét háttérrel nem lehetséges mert láthatatlan sötét szövegeket és képeket okozhat</string>
     <string name="title_ask_show_html_images">Képek megjelenítése az eredeti üzenetek megjelenítésekor</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Az eredeti üzenetet mutassa alapértelmezetten</string>
     <string name="title_ask_show_image">A képek megjelenítése érzékeny adatok kiszivárgásával járhat</string>
+    <string name="title_ask_show_images_always">Mutassa a képeket alapból</string>
     <string name="title_ask_show_image_hint">A nyomkövetőként felismert képek nem fognak megjelenni</string>
     <string name="title_ask_show_amp">Üzenet AMP változatának megjelenítése?</string>
     <string name="title_ask_show_amp_hint">Az AMP üzenetek dinamikusra és internetes interakcióra vannak tervezve, és ezért definíció szerint követni tudnak téged</string>
@@ -1966,6 +1968,7 @@
     <string name="title_ask_what">Kérdezze meg mit tegyen</string>
     <string name="title_no_ask_again">Ne kérdezze meg ezt újra</string>
     <string name="title_no_ask_for_again">Ne kérdezze meg ezt újra a(z) %1$s -hoz/-hez</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Visszavonható az adatvédelem fülön</string>
     <string name="title_no_body">Nem található üzenetszöveg</string>
     <string name="title_large_body">Ez az üzenet hatalmas, és ez gondokat okozhat!</string>
     <string name="title_no_charset">Nem támogatott kódolás: %1$s</string>

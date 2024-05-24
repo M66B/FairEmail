@@ -657,7 +657,7 @@
     <string name="title_select">انتخاب &#8230;</string>
     <string name="title_identity_name">نام شما</string>
     <string name="title_identity_email">آدرس ایمیل شما</string>
-    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">به ندرت پیش می‌آید که نیاز به فعال کردن این گزینه باشد، به علاوه، مصرف دیتا افزایش خواهد یافت!</string>
+    <string name="title_identity_receive_first_hint">به ندرت پیش می‌آید که نیاز به فعال کردن این گزینه باشد، به علاوه، مصرف دیتا افزایش خواهد یافت!</string>
     <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
     <string name="title_identity_reply_to">پاسخ به آدرس</string>
     <string name="title_identity_sensitivity">حساسیت پیش‌فرض</string>
@@ -694,7 +694,7 @@
     <string name="title_user">نام کاربری</string>
     <string name="title_password">گذرواژه</string>
     <string name="title_case_sensitive">نام‌های کاربری و گذرواژه‌ها در بیشتر موارد به بزرگ و کوچک بودن حروف حساسند</string>
-    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">دریافت پیش از ارسال</string>
+    <string name="title_login_before_send">دریافت پیش از ارسال</string>
     <string name="title_client_certificate">گواهی‌نامه کارخواه</string>
     <string name="title_realm">حوزه</string>
     <string name="title_use_ip">استفاده از نشانی IP محلی بجای نام میزبان</string>
@@ -928,7 +928,9 @@
     <string name="title_ask_delete_attachments">حذف همه پیوست‌ها؟</string>
     <string name="title_ask_discard">پیش‌نویس‌ کنار گذاشته شود؟</string>
     <string name="title_ask_show_html">نمایش پیام اصلی می تواند موجب نشت اطلاعات حساس شود</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">نمایش پیام‌های اصلی به طور پیش‌فرض</string>
     <string name="title_ask_show_image">نمایش تصاویر می تواند موجب نشت اطلاعات حساس شود</string>
+    <string name="title_ask_show_images_always">نمایش تصاویر به طور پیش‌فرض</string>
     <string name="title_ask_show_image_hint">تصاویری که به عنوان تصاویر ردیاب شناخته شده‌اند نشان داده نخواهند شد</string>
     <string name="title_ask_delete_local">پیام‌های محلی حذف شوند؟ پیام‌ها روی سرور راه دور باقی خواهند ماند.</string>
     <string name="title_ask_help">به بهبود FairEmail کمک کنید</string>
@@ -1360,6 +1362,7 @@
     <string name="title_ask_what">بپرس چه باید کرد</string>
     <string name="title_no_ask_again">دیگر نپرس</string>
     <string name="title_no_ask_for_again">دوباره برای %1$s نپرس</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">می‌توان در صفحه برگه تنظیمات حریم خصوصی این را به حالت اولیه برگرداند</string>
     <string name="title_no_body">هیچ پیام متنی یافت نشد</string>
     <string name="title_large_body">این پیام بسیار طولانیست و ممکن است باعث بروز مشکلاتی شود!</string>
     <string name="title_no_charset">رمزگذاری پشتیبانی نشده: %1$s</string>

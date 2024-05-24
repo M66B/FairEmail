@@ -948,6 +948,7 @@
     <string name="title_identity_name">Ваше ім’я</string>
     <string name="title_identity_email">Ваша електронна адреса</string>
     <string name="title_identity_tenant_hint">У більшості випадків це поле має бути порожнім</string>
+    <string name="title_identity_receive_first_hint">Вмикати цю опцію потрібно рідко, мало того, використання даних збільшиться!</string>
     <string name="title_identity_color_hint">Кольори профілю мають пріоритет над кольорами теки та облікового запису</string>
     <string name="title_advanced_sender">Дозволити редагування адреси відправника</string>
     <string name="title_advanced_sender_name">Використовувати ім\'я, коли адресу відправника було відредаговано</string>
@@ -1005,6 +1006,7 @@
     <string name="title_password">Пароль</string>
     <string name="title_password_storage">Як зберігаються паролі?</string>
     <string name="title_case_sensitive">Імена користувачів і паролі зазвичай чутливі до регістру</string>
+    <string name="title_login_before_send">Отримувати перед надсиланням</string>
     <string name="title_client_certificate">Сертифікат клієнта</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Використовувати локальну IP-адресу замість імені хоста</string>
@@ -1367,7 +1369,9 @@
     <string name="title_ask_show_html">Показ оригінального повідомлення може призвести до витоку конфіденційної інформації</string>
     <string name="title_ask_show_html_remark">Показ оригінального повідомлення на темному тлі неможливе, оскільки воно може зробити темні тексти та зображення невидимими</string>
     <string name="title_ask_show_html_images">Завжди показувати зображення при показі оригінальних повідомлень</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Показувати оригінальні повідомлення за замовчуванням</string>
     <string name="title_ask_show_image">Показ зображень може призвести до витоку конфіденційної інформації</string>
+    <string name="title_ask_show_images_always">Показувати зображення за замовчуванням</string>
     <string name="title_ask_show_image_hint">Зображення за якими можна відслідковувати не будуть показані</string>
     <string name="title_ask_show_amp">Показати AMP-варіант повідомлення?</string>
     <string name="title_ask_show_amp_hint">AMP-повідомлення створені для того, щоб бути динамічними та взаємодіяти з Інтернетом, тому за визначенням можуть використовуватися для відстеження вас</string>
@@ -1996,6 +2000,7 @@
     <string name="title_ask_what">Запитувати, що робити</string>
     <string name="title_no_ask_again">Більше не запитувати</string>
     <string name="title_no_ask_for_again">Не запитувати знову для %1$s</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Це може бути скасовано на сторінці налаштувань приватності</string>
     <string name="title_no_body">Текст повідомлення не знайдено</string>
     <string name="title_large_body">Це повідомлення дуже велике і це може спричинити проблеми!</string>
     <string name="title_no_charset">Кодування не підтримується: %1$s</string>

@@ -906,7 +906,7 @@
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">邮箱地址</string>
     <string name="title_identity_tenant_hint">大多数情况下此字段应该为空</string>
-    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">很少需要打开此选项，而且数据使用量会增加！</string>
+    <string name="title_identity_receive_first_hint">很少需要打开此选项，而且数据使用量会增加！</string>
     <string name="title_identity_color_hint">身份颜色优先于文件夹和账户颜色</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_sender_name">修改发件人地址后使用名称</string>
@@ -964,7 +964,7 @@
     <string name="title_password">密码</string>
     <string name="title_password_storage">密码是如何存储的？</string>
     <string name="title_case_sensitive">用户名和密码通常是区分大小写的</string>
-    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">先接收后发送</string>
+    <string name="title_login_before_send">先接收后发送</string>
     <string name="title_client_certificate">客户端证书</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">使用本地IP地址而非主机名</string>
@@ -1324,7 +1324,9 @@
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_html_remark">无法在暗色背景下显示原始消息，因为会导致看不见的黑色文本和图像</string>
     <string name="title_ask_show_html_images">在显示原始消息时总是显示图像</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">默认显示原始邮件</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
+    <string name="title_ask_show_images_always">默认显示图片</string>
     <string name="title_ask_show_image_hint">不会显示被识别为跟踪图像的图片</string>
     <string name="title_ask_show_amp">显示 AMP 样式的消息？</string>
     <string name="title_ask_show_amp_hint">AMP 消息被设计为动态的，与互联网交互，因此根据定义可以用于跟踪你</string>
@@ -1953,6 +1955,7 @@
     <string name="title_ask_what">询问做什么</string>
     <string name="title_no_ask_again">不再询问</string>
     <string name="title_no_ask_for_again">不再询问 %1$s</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">这可以在隐私设置标签页中撤销。</string>
     <string name="title_no_body">没有找到邮件正文</string>
     <string name="title_large_body">此邮件非常大，可能会导致问题！</string>
     <string name="title_no_charset">不支持的编码: %1$s</string>

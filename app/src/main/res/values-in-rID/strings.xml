@@ -904,6 +904,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_identity_name">Nama Anda</string>
     <string name="title_identity_email">Alamat surel Anda</string>
     <string name="title_identity_tenant_hint">Bidang ini biasanya kosong</string>
+    <string name="title_identity_receive_first_hint">Jarang sekali opsi ini perlu diaktifkan, apalagi penggunaan data akan meningkat!</string>
     <string name="title_identity_color_hint">Identitas warna memiliki hak lebih tinggi dari warna folder dan akun</string>
     <string name="title_advanced_sender">Izinkan menyunting alamat pengirim</string>
     <string name="title_advanced_sender_name">Gunakan nama ketika alamat pengirim telah di edit</string>
@@ -961,6 +962,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_password">Kata Sandi</string>
     <string name="title_password_storage">Bagaimana kata sandi tersimpan?</string>
     <string name="title_case_sensitive">Nama pengguna dan sandi biasanya case sensitive</string>
+    <string name="title_login_before_send">Terima sebelum mengirim</string>
     <string name="title_client_certificate">Sertifikat klien</string>
     <string name="title_realm">Bidang</string>
     <string name="title_use_ip">Gunakan alamat IP lokal sebagai ganti nama host</string>
@@ -1621,6 +1623,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_view_thread">Lihat percakapan</string>
     <string name="title_force_sync">Paksa sinkronisasi</string>
     <string name="title_force_send">Paksa kirim</string>
+    <string name="title_pwned_remark">Ini akan memeriksa kata sandi, tanpa mengirimkannya (menggunakan k-anonimisasi), dan bukan alamat email!</string>
     <string name="title_language_all">Semua</string>
     <string name="title_previous">Sebelumnya</string>
     <string name="title_next">Berikutnya</string>

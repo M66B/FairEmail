@@ -104,6 +104,7 @@
     <string name="title_notification_sending">メールを送信中</string>
     <string name="title_notification_waiting">接続を待機しています</string>
     <string name="title_notification_idle">待機</string>
+    <string name="title_notification_failed">アカウント \'%1$s\' エラーが発生しました</string>
     <string name="title_notification_alert">サーバーの警告: %1$s</string>
     <string name="title_notification_sending_left">残りの試行回数: %1$d</string>
     <string name="title_notification_sending_retry">インターネット接続が変更されるか、送信トレイをプルダウンすると送信が再試行されます</string>
@@ -226,6 +227,7 @@
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_doze_device">この端末では必要と思われます</string>
     <string name="title_setup_alarm_12">このアプリは正常に動作しません</string>
+    <string name="title_setup_fg_15">アプリを自動で起動できません</string>
     <string name="title_setup_inexact">アラームとリマインダーが無効です</string>
     <string name="title_setup_background">バックグラウンドでの制限が有効です</string>
     <string name="title_setup_data">データセーバーが有効です</string>
@@ -742,6 +744,7 @@
     <string name="title_advanced_haptic_feedback">重要なアクションでの触覚フィードバック</string>
     <string name="title_advanced_language">言語</string>
     <string name="title_advanced_language_system">システム</string>
+    <string name="title_advanced_integrations_hint">以下のクラウドサービスはアプリの一部ではありません。すべての支払いはアプリ開発者ではなく、クラウドサービスに直接支払われます。</string>
     <string name="title_advanced_lt">LanguageTool を統合する</string>
     <string name="title_advanced_lt_sentence">一文ごとに確認する</string>
     <string name="title_advanced_lt_auto">改行後に段落を確認する</string>
@@ -904,6 +907,7 @@
     <string name="title_identity_name">あなたのお名前</string>
     <string name="title_identity_email">メールアドレス</string>
     <string name="title_identity_tenant_hint">ほとんどの場合、このフィールドは空です</string>
+    <string name="title_identity_receive_first_hint">このオプションを有効にする必要はほとんどありませんが、データ使用量は増加します！</string>
     <string name="title_identity_color_hint">ユーザー ID の色はフォルダーとアカウントの色よりも優先されます</string>
     <string name="title_advanced_sender">差出人アドレスの編集を許可する</string>
     <string name="title_advanced_sender_name">差出人アドレスが編集されたときに名前を使用する</string>
@@ -961,6 +965,7 @@
     <string name="title_password">パスワード</string>
     <string name="title_password_storage">パスワードはどのように保管されますか？</string>
     <string name="title_case_sensitive">通常、ユーザー名とパスワードでは大文字と小文字が区別されます</string>
+    <string name="title_login_before_send">送信前に同期を実行する</string>
     <string name="title_client_certificate">クライアント証明書</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">ホスト名の代わりにローカル IP アドレスを使用する</string>
@@ -1065,6 +1070,7 @@
     <string name="title_expunge_remark">削除マークのついたすべてのメッセージを完全に削除します</string>
     <string name="title_empty_trash">ごみ箱を空にする</string>
     <string name="title_empty_spam">迷惑メールを空にする</string>
+    <string name="title_edit_color">色を編集する</string>
     <string name="title_edit_properties">プロパティを編集</string>
     <string name="title_edit_rules">ルールを編集</string>
     <string name="title_execute_rules">ルールを実行</string>
@@ -1322,7 +1328,9 @@
     <string name="title_ask_show_html">元のメッセージを表示するとプライバシーデータの漏洩の原因となる可能性があります</string>
     <string name="title_ask_show_html_remark">ダークテーマでは元のメッセージを表示できません。これは暗い色のテキストや画像が見えなくなる可能性があるためです</string>
     <string name="title_ask_show_html_images">元のメッセージを表示するときに常に画像を表示する</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">デフォルトで元のメッセージを表示する</string>
     <string name="title_ask_show_image">画像を表示するとプライバシーデータの漏洩の原因となる可能性があります</string>
+    <string name="title_ask_show_images_always">デフォルトで画像を表示する</string>
     <string name="title_ask_show_image_hint">トラッキング画像として識別された画像は表示されません</string>
     <string name="title_ask_show_amp">AMP メッセージを表示しますか？</string>
     <string name="title_ask_show_amp_hint">AMP メッセージはインターネットを利用して動的に表示するため、必然的にトラッキングされます</string>
@@ -1676,6 +1684,7 @@
     <string name="title_rule_sound">音声を再生</string>
     <string name="title_rule_silent">サイレント通知</string>
     <string name="title_rule_summarize">要約</string>
+    <string name="title_rule_summarize_remark">設定した AI 統合機能でメッセージを要約</string>
     <string name="title_rule_caption">ルールを編集</string>
     <string name="title_rule_title">ルールの適用先</string>
     <string name="title_rule_name">名前</string>
@@ -1952,6 +1961,7 @@
     <string name="title_ask_what">毎回確認する</string>
     <string name="title_no_ask_again">次回から確認しない</string>
     <string name="title_no_ask_for_again">%1$s は次回から確認しない</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">設定のプライバシータブで変更できます</string>
     <string name="title_no_body">本文が見つかりません</string>
     <string name="title_large_body">メッセージのサイズがとても大きいため、問題が発生することがあります！</string>
     <string name="title_no_charset">対応していないエンコーディング: %1$s</string>

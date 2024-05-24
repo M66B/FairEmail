@@ -923,7 +923,7 @@
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
     <string name="title_identity_tenant_hint">Dieses Feld sollte in den meisten Fällen leer bleiben</string>
-    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Es ist selten notwendig, diese Option zu aktivieren, außerdem erhöht sich dadurch der Datenverbrauch!</string>
+    <string name="title_identity_receive_first_hint">Es ist selten notwendig, diese Option zu aktivieren, außerdem erhöht sich dadurch der Datenverbrauch!</string>
     <string name="title_identity_color_hint">Identitätsfarben haben gegenüber Ordner- und Kontofarben Vorrang</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_sender_name">Namen verwenden, wenn die Absenderadresse bearbeitet wurde</string>
@@ -981,7 +981,7 @@
     <string name="title_password">Passwort</string>
     <string name="title_password_storage">Wie werden Passwörter gespeichert?</string>
     <string name="title_case_sensitive">Bei Benutzernamen und Passwörtern wird normalerweise zwischen Groß- und Kleinschreibung unterschieden</string>
-    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Empfangen vor dem Senden</string>
+    <string name="title_login_before_send">Empfangen vor dem Senden</string>
     <string name="title_client_certificate">Clientzertifikat</string>
     <string name="title_realm">Bereich</string>
     <string name="title_use_ip">Lokale IP-Adresse anstelle des Hostnamens verwenden</string>
@@ -1344,7 +1344,9 @@
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann vertrauliche Daten preisgeben</string>
     <string name="title_ask_show_html_remark">Das Anzeigen der Originalnachricht mit dunklem Hintergrund ist nicht möglich, da dadurch dunkle Texte und Bilder nicht sichtbar wären</string>
     <string name="title_ask_show_html_images">Bilder immer anzeigen, wenn Originalnachrichten angezeigt werden</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Standardmäßig Originalnachrichten anzeigen</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann vertrauliche Daten preisgeben</string>
+    <string name="title_ask_show_images_always">Bilder standardmäßig anzeigen</string>
     <string name="title_ask_show_image_hint">Erkannte Verfolgungsbilder werden nicht angezeigt</string>
     <string name="title_ask_show_amp">AMP-Variante der Nachricht anzeigen?</string>
     <string name="title_ask_show_amp_hint">AMP-Nachrichten sind so ausgelegt, dass sie dynamisch sind, mit dem Internet interagieren und daher per Definition dazu verwendet werden können, um Sie zu verfolgen.</string>
@@ -1975,6 +1977,7 @@
     <string name="title_ask_what">Fragen, was getan werden soll</string>
     <string name="title_no_ask_again">Nicht noch einmal fragen</string>
     <string name="title_no_ask_for_again">Nicht noch einmal für %1$s fragen</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Das Verhalten kann in den Einstellungen »Datenschutz« rückgängig gemacht werden</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
     <string name="title_large_body">Diese Nachricht ist sehr groß und kann zu Problemen führen!</string>
     <string name="title_no_charset">Nicht unterstützte Kodierung: %1$s</string>

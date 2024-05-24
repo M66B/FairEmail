@@ -949,7 +949,7 @@
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш адрес электронной почты</string>
     <string name="title_identity_tenant_hint">Это поле должно быть пустым в большинстве случаев</string>
-    <string name="title_identity_receive_first_hint" comment="title_identity_receive_first_hint&#10;Remark for identity option &quot;Receive before send&quot;">Редко используемая функция, также увеличится использование данных!</string>
+    <string name="title_identity_receive_first_hint">Редко используемая функция, также увеличится использование данных!</string>
     <string name="title_identity_color_hint">Цвета идентификаторов имеют приоритет над цветами папок учётных записей</string>
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_advanced_sender_name">Использовать имя, если адрес отправителя был изменён</string>
@@ -1007,7 +1007,7 @@
     <string name="title_password">Пароль</string>
     <string name="title_password_storage">Как хранятся пароли?</string>
     <string name="title_case_sensitive">Имена пользователей и пароли обычно чувствительны к регистру</string>
-    <string name="title_login_before_send" comment="title_login_before_send&#10;Title for an identity option to enable receiving before sending a message">Получение перед отправкой</string>
+    <string name="title_login_before_send">Получение перед отправкой</string>
     <string name="title_client_certificate">Сертификат клиента</string>
     <string name="title_realm">Реалм</string>
     <string name="title_use_ip">Использовать локальный IP-адрес вместо имени хоста</string>
@@ -1370,7 +1370,9 @@
     <string name="title_ask_show_html">Отображение исходного сообщения может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_html_remark">Отображение исходного сообщения с тёмным фоном невозможно, потому что это может привести к сокрытию тёмного текста и изображений</string>
     <string name="title_ask_show_html_images">Всегда показывать изображения при показе исходных сообщений</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Показывать оригинальные сообщения по умолчанию</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
+    <string name="title_ask_show_images_always">Показывать изображения по умолчанию</string>
     <string name="title_ask_show_image_hint">Изображения, распознанные как отслеживающие, не будут показаны</string>
     <string name="title_ask_show_amp">Показать AMP-вариант сообщения?</string>
     <string name="title_ask_show_amp_hint">AMP-сообщения создавались как динамически взаимодействующие с интернетом и, следовательно, по определению могут быть использованы, чтобы вас отслеживать</string>
@@ -2000,6 +2002,7 @@
     <string name="title_ask_what">Спросить о действии</string>
     <string name="title_no_ask_again">Больше не спрашивать</string>
     <string name="title_no_ask_for_again">Больше не спрашивать для %1$s</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Можно отменить на вкладке настроек \"Конфиденциальность\"</string>
     <string name="title_no_body">В сообщении нет текста</string>
     <string name="title_large_body">Это сообщение очень большое и может вызвать проблемы!</string>
     <string name="title_no_charset">Кодировка не поддерживается: %1$s</string>

@@ -528,6 +528,7 @@
     <string name="title_fit_width">ଓସାର ଫିଟ୍ କରନ୍ତୁ</string>
     <string name="title_disable_widths">ଓସାର ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_raw_saved">ଅପକ୍ୱ ଵାର୍ତ୍ତା ସଞ୍ଚୟ ହୋଇଛି</string>
+    <string name="title_ask_show_images_always">ଡିଫଲ୍ଟ ଭାବରେ ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_ask_show_amp">ବାର୍ତ୍ତାର AMP ଭାରିଆଣ୍ଟ ଦେଖାଇବା କି?</string>
     <string name="title_ask_show_amp_hint">AMP ଵାର୍ତ୍ତାଗୁଡ଼ିକ ଗତିଶୀଳ ଓ ଇଣ୍ଟରନେଟ୍ ସହ ଇଣ୍ଟରାକ୍ଟ କରିବା ପାଇଁ ଡିଜାଇନ୍ କରାଯାଇଥାଏ ଏଣୁ ଆପଣଙ୍କୁ ଟ୍ରାକ୍ କରିବା ପାଇଁ ଵ୍ୟଵହାର କରାଯାଇପାରିବ</string>
     <string name="title_ask_delete_local">ସ୍ଥାନୀୟ ଵାର୍ତ୍ତା ଵିଲୋପ କରିବେ ତ? ଵାର୍ତ୍ତାଗୁଡ଼ିକ ସୁଦୂର ସର୍ଵରରେ ରହିବ।</string>

@@ -934,6 +934,7 @@
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
     <string name="title_identity_tenant_hint">Acest câmp ar trebui să fie gol în majoritatea cazurilor</string>
+    <string name="title_identity_receive_first_hint">Este rareori necesar să activați această opțiune, în plus, utilizarea datelor va crește!</string>
     <string name="title_identity_color_hint">Culorile de identitate au întâietate în fața culorilor dosarului și ale contului</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_sender_name">Utilizează numele atunci când adresa expeditorului a fost editată</string>
@@ -991,6 +992,7 @@
     <string name="title_password">Parolă</string>
     <string name="title_password_storage">Cum sunt stocate parolele?</string>
     <string name="title_case_sensitive">Numele de utilizator și parolele sunt de obicei sensibile la majuscule</string>
+    <string name="title_login_before_send">Primește înainte de a trimite</string>
     <string name="title_client_certificate">Certificat client</string>
     <string name="title_realm">Domeniu</string>
     <string name="title_use_ip">Folosește adresa IP în loc de numele gazdei</string>
@@ -1095,6 +1097,7 @@
     <string name="title_expunge_remark">Acest lucru va șterge definitiv toate mesajele marcate pentru ștergere</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>
     <string name="title_empty_spam">Golire spam</string>
+    <string name="title_edit_color">Editare culoare</string>
     <string name="title_edit_properties">Editare proprietăți</string>
     <string name="title_edit_rules">Editare reguli</string>
     <string name="title_execute_rules">Execută regulile</string>
@@ -1703,6 +1706,7 @@
     <string name="title_rule_sound">Redă sunet</string>
     <string name="title_rule_silent">Notificare silențioasă</string>
     <string name="title_rule_summarize">Rezumat</string>
+    <string name="title_rule_summarize_remark">Rezumă mesajul cu integrarea AI configurată</string>
     <string name="title_rule_caption">Editare regulă</string>
     <string name="title_rule_title">Regula se aplică la</string>
     <string name="title_rule_name">Nume</string>

@@ -920,6 +920,7 @@
     <string name="title_identity_name">Su nombre</string>
     <string name="title_identity_email">Su dirección de correo electrónico</string>
     <string name="title_identity_tenant_hint">Este campo debe estar vacío en la mayoría de los casos</string>
+    <string name="title_identity_receive_first_hint">Rara vez es necesario activar esta opción, por otra parte, ¡el uso de datos va a aumentar!</string>
     <string name="title_identity_color_hint">Los colores de indentidad tienen prioridad sobre los colores de carpeta y cuenta</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_sender_name">Usar nombre cuando la dirección del remitente ha sido editada</string>
@@ -977,6 +978,7 @@
     <string name="title_password">Contraseña</string>
     <string name="title_password_storage">¿Cómo se almacenan las contraseñas?</string>
     <string name="title_case_sensitive">Los nombres de usuario y contraseñas por lo general distinguen mayúsculas y minúsculas</string>
+    <string name="title_login_before_send">Recibir antes de enviar</string>
     <string name="title_client_certificate">Certificado de cliente</string>
     <string name="title_realm">Dominio</string>
     <string name="title_use_ip">Usar dirección IP local en lugar de nombre de dominio</string>
@@ -1338,7 +1340,9 @@
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_html_remark">No es posible mostrar el mensaje original con un fondo oscuro porque puede causar que textos e imágenes oscuros sean invisibles</string>
     <string name="title_ask_show_html_images">Siempre mostrar imágenes al mostrar mensajes originales</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Mostrar mensajes originales por defecto</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
+    <string name="title_ask_show_images_always">Mostrar imágenes por defecto</string>
     <string name="title_ask_show_image_hint">Las imágenes reconocidas como imágenes de seguimiento no se mostrarán</string>
     <string name="title_ask_show_amp">Mostrar variante AMP del mensaje?</string>
     <string name="title_ask_show_amp_hint">Los mensajes AMP están diseñados para ser dinámicos e interactuar con Internet y por lo tanto pueden utilizarse por definición para rastrearle</string>
@@ -1966,6 +1970,7 @@
     <string name="title_ask_what">Preguntar qué hacer</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
     <string name="title_no_ask_for_again">No volver a preguntar esto para %1$s</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Esto se puede deshacer en la página de configuración de privacidad</string>
     <string name="title_no_body">No se encontró texto en el mensaje</string>
     <string name="title_large_body">¡Este mensaje es muy grande y puede causar problemas!</string>
     <string name="title_no_charset">Codificación no soportada: %1$s</string>

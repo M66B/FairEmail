@@ -922,6 +922,7 @@
     <string name="title_identity_name">Seu Nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
     <string name="title_identity_tenant_hint">Este campo deve estar vazio na maioria dos casos</string>
+    <string name="title_identity_receive_first_hint">Raramente é necessário ativar esta opção, além disso, a utilização de dados irá aumentar!</string>
     <string name="title_identity_color_hint">Cores de identidade têm precedência sobre as cores de pasta e conta</string>
     <string name="title_advanced_sender">Permitir a edição do endereço do remetente</string>
     <string name="title_advanced_sender_name">Utilizar o nome quando o endereço do remetente for editado</string>
@@ -979,6 +980,7 @@
     <string name="title_password">Palavra-passe</string>
     <string name="title_password_storage">Como são armazenadas as palavras-passe?</string>
     <string name="title_case_sensitive">Nomes de utilizador e palavras-passe habitualmente diferenciam maiúsculas de minúsculas</string>
+    <string name="title_login_before_send">Receber antes de enviar</string>
     <string name="title_client_certificate">Certificado do cliente</string>
     <string name="title_realm">Domínio</string>
     <string name="title_use_ip">Usar endereço IP local ao invés do nome do host</string>
@@ -1341,7 +1343,9 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_ask_show_html">Mostrar a mensagem original pode resultar na fuga de informação confidencial</string>
     <string name="title_ask_show_html_remark">Mostrar a mensagem original num fundo escuro não é possível já que pode tornar os textos e as imagens escuras invisíveis</string>
     <string name="title_ask_show_html_images">Mostrar sempre as imagens nas mensagens originais</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Mostrar mensagens originais por padrão</string>
     <string name="title_ask_show_image">Mostrar as imagens pode resultar na fuga de informação confidencial</string>
+    <string name="title_ask_show_images_always">Mostrar imagens por padrão</string>
     <string name="title_ask_show_image_hint">Imagens reconhecidas como imagens de monitorização não serão mostradas</string>
     <string name="title_ask_show_amp">Mostrar a variante AMP da mensagem?</string>
     <string name="title_ask_show_amp_hint">As mensagens AMP são concebidas para serem dinâmicas e para interagirem com a internet e, portanto, podem ser usadas por definição para o acompanhar</string>
@@ -1972,6 +1976,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_ask_what">Perguntar o que fazer</string>
     <string name="title_no_ask_again">Não voltar a perguntar</string>
     <string name="title_no_ask_for_again">Não voltar a perguntar por %1$s</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Isto pode ser revertido na página de privacidade-configurações</string>
     <string name="title_no_body">Não foi encontrado corpo da mensagem</string>
     <string name="title_large_body">Esta mensagem é muito grande e isso pode causar problemas!</string>
     <string name="title_no_charset">Codificação não suportada: %1$s</string>

@@ -949,6 +949,7 @@
     <string name="title_identity_name">שמך</string>
     <string name="title_identity_email">כתובת הדוא״ל שלך</string>
     <string name="title_identity_tenant_hint">השדה הזה אמר להיות ריק ברוב המקרים</string>
+    <string name="title_identity_receive_first_hint">האפשרות הזאת נחוצה במקרים נדירים, יתרה מכך, היא גורמת לעלייה בתעבורה!</string>
     <string name="title_identity_color_hint">צבעי הזהויות קודמים בעדיפות על צבעי תיקיות וחשבונות</string>
     <string name="title_advanced_sender">לאפשר את עריכת כתובת המוען</string>
     <string name="title_advanced_sender_name">להשתמש בשם כאשר כתובת המוען נערכה</string>
@@ -1006,6 +1007,7 @@
     <string name="title_password">סיסמה</string>
     <string name="title_password_storage">איך סיסמאות מאוחסנות?</string>
     <string name="title_case_sensitive">שמות המשתמשים והסיסמאות הם בדרך כלל תלויי רישיות</string>
+    <string name="title_login_before_send">לקבל לפני השליחה</string>
     <string name="title_client_certificate">אישור לקוח</string>
     <string name="title_realm">מתחם</string>
     <string name="title_use_ip">להשתמש בכתובת ה־IP המקומית במקום בשם המארח</string>
@@ -1368,7 +1370,9 @@
     <string name="title_ask_show_html">הצגת ההודעה המקורית עשויה להדליף פרטים אישיים רגישים</string>
     <string name="title_ask_show_html_remark">הצגת ההודעה המקורית על רקע כהה אינה אפשרית כיוון שהיא עשויה להפוך טקסטים ותמונות כהים לבלתי נראים</string>
     <string name="title_ask_show_html_images">תמיד להציג תמונות בהצגת ההודעות המקוריות</string>
+    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">הצגת הודעות מקוריות כברירת מחדל</string>
     <string name="title_ask_show_image">הצגת תמונות עשויה להדליף פרטים אישיים רגישים</string>
+    <string name="title_ask_show_images_always">הצגת תמונות כברירת מחדל</string>
     <string name="title_ask_show_image_hint">תמונות שמזוהות כתמונות מעקב לא תוצגנה</string>
     <string name="title_ask_show_amp">להציג תצורת AMP של ההודעה?</string>
     <string name="title_ask_show_amp_hint">הודעות AMP תוכננו להיות דינמיות ולתקשר מול האינטרנט ולכן בהתאם לתכנון במקור עשויות לעקוב אחריך</string>
@@ -1999,6 +2003,7 @@
     <string name="title_ask_what">לשאול מה לעשות</string>
     <string name="title_no_ask_again">לא לשאול אותי שוב</string>
     <string name="title_no_ask_for_again">לא לשאול אותי שוב במשך %1$s</string>
+    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">אפשר להסיג את זה בעמוד לשונית הגדרות הפרטיות</string>
     <string name="title_no_body">לא נמצא טקסט בהודעה</string>
     <string name="title_large_body">ההודעה הזאת גדולה מאוד ועלולה לגרום לבעיות!</string>
     <string name="title_no_charset">קידוד לא נתמך: %1$s</string>
