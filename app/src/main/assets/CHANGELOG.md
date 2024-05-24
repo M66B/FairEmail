@@ -10,11 +10,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Fixed Android navigation bar color for some Android versions
+Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
+
+### 1.2186 - 2024-05-24
+
+* Fixed jitter when hiding the top toolbar
+* Fixed Android navigation bar color for some Android versions (regression)
+* Reverted AndroidX fragment to version 1.6.2 again due to instability
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
-
-Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
 
 ### 1.2185 - 2024-05-22
 
