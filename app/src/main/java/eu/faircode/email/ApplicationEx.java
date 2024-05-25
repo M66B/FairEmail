@@ -256,6 +256,7 @@ public class ApplicationEx extends Application
         DB.setupViewInvalidation(this);
 
         // https://issuetracker.google.com/issues/341313071
+        // https://developer.android.com/guide/navigation/custom-back/support-animations#fragments
         // https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-predictive
         //FragmentManager.enablePredictiveBack(false);
 
