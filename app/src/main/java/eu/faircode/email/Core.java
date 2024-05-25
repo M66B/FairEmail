@@ -3733,7 +3733,7 @@ class Core {
             boolean sync_unseen = prefs.getBoolean("sync_unseen", false);
             boolean sync_flagged = prefs.getBoolean("sync_flagged", false);
             boolean sync_kept = prefs.getBoolean("sync_kept", true);
-            boolean delete_unseen = prefs.getBoolean("delete_unseen", false);
+            boolean delete_unseen = prefs.getBoolean("delete_unseen", true);
             boolean use_modseq = prefs.getBoolean("use_modseq", true);
             boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
             boolean log = prefs.getBoolean("protocol", false);

@@ -868,6 +868,8 @@ public class ApplicationEx extends Application
         } else if (version < 2187) {
             if (!prefs.contains("hide_toolbar"))
                 editor.putBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
+            if (!prefs.contains("delete_unseen"))
+                editor.putBoolean("delete_unseen", false);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

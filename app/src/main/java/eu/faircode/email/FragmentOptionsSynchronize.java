@@ -684,7 +684,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             swNodate.setChecked(prefs.getBoolean("sync_nodate", false));
             swUnseen.setChecked(prefs.getBoolean("sync_unseen", false));
             swFlagged.setChecked(prefs.getBoolean("sync_flagged", false));
-            swDeleteUnseen.setChecked(prefs.getBoolean("delete_unseen", false));
+            swDeleteUnseen.setChecked(prefs.getBoolean("delete_unseen", true));
             swSyncKept.setChecked(prefs.getBoolean("sync_kept", true));
             swGmailThread.setChecked(prefs.getBoolean("gmail_thread_id", false));
             swOutlookThread.setChecked(prefs.getBoolean("outlook_thread_id", false));
