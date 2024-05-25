@@ -1042,21 +1042,21 @@ public interface DaoMessage {
             " WHERE folder = :folder" +
             " AND received < :keep_time" +
             " AND NOT uid IS NULL" +
-            " AND (ui_seen OR :unseen)" +
+            " AND (ui_seen OR received < :keep_unread_time OR :unseen)" +
             " AND NOT ui_flagged" +
             " AND stored < :sync_time" + // moved, browsed
             " AND (ui_snoozed IS NULL OR ui_snoozed =" + Long.MAX_VALUE + ")")
-    List<Long> getMessagesBefore(long folder, long sync_time, long keep_time, boolean unseen);
+    List<Long> getMessagesBefore(long folder, long sync_time, long keep_time, long keep_unread_time, boolean unseen);
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
             " AND received < :keep_time" +
             " AND NOT uid IS NULL" +
-            " AND (ui_seen OR :unseen)" +
+            " AND (ui_seen OR received < :keep_unread_time OR :unseen)" +
             " AND NOT ui_flagged" +
             " AND stored < :sync_time" + // moved, browsed
             " AND (ui_snoozed IS NULL OR ui_snoozed = " + Long.MAX_VALUE + ")")
-    int deleteMessagesBefore(long folder, long sync_time, long keep_time, boolean unseen);
+    int deleteMessagesBefore(long folder, long sync_time, long keep_time, long keep_unread_time, boolean unseen);
 
     @Transaction
     @Query("DELETE FROM message" +

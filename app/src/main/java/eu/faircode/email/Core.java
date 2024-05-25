@@ -3844,6 +3844,13 @@ class Core {
             cal_keep.set(Calendar.SECOND, 0);
             cal_keep.set(Calendar.MILLISECOND, 0);
 
+            Calendar cal_keep_unread = Calendar.getInstance();
+            cal_keep_unread.add(Calendar.DAY_OF_MONTH, -Math.max(keep_days * 6, EntityFolder.DEFAULT_KEEP * 6));
+            cal_keep_unread.set(Calendar.HOUR_OF_DAY, 0);
+            cal_keep_unread.set(Calendar.MINUTE, 0);
+            cal_keep_unread.set(Calendar.SECOND, 0);
+            cal_keep_unread.set(Calendar.MILLISECOND, 0);
+
             long sync_time = cal_sync.getTimeInMillis();
             if (sync_time < 0)
                 sync_time = 0;
@@ -3852,12 +3859,18 @@ class Core {
             if (keep_time < 0)
                 keep_time = 0;
 
-            Log.i(folder.name + " sync=" + new Date(sync_time) + " keep=" + new Date(keep_time));
+            long keep_unread_time = cal_keep_unread.getTimeInMillis();
+            if (keep_unread_time < 0)
+                keep_unread_time = 0;
+
+            Log.i(folder.name + " sync=" + new Date(sync_time) +
+                    " keep=" + new Date(keep_time) +
+                    " unread=" + new Date(keep_unread_time));
 
             // Delete old local messages
             long delete_time = new Date().getTime() - 3600 * 1000L;
             if (auto_delete) {
-                List<Long> tbds = db.message().getMessagesBefore(folder.id, delete_time, keep_time, delete_unseen);
+                List<Long> tbds = db.message().getMessagesBefore(folder.id, delete_time, keep_time, keep_unread_time, delete_unseen);
                 Log.i(folder.name + " local tbd=" + tbds.size());
                 EntityFolder trash = db.folder().getFolderByType(folder.account, EntityFolder.TRASH);
                 for (Long tbd : tbds) {
@@ -3870,7 +3883,7 @@ class Core {
                             EntityOperation.queue(context, message, EntityOperation.MOVE, trash.id);
                 }
             } else {
-                int old = db.message().deleteMessagesBefore(folder.id, delete_time, keep_time, delete_unseen);
+                int old = db.message().deleteMessagesBefore(folder.id, delete_time, keep_time, keep_unread_time, delete_unseen);
                 Log.i(folder.name + " local old=" + old);
             }
 
