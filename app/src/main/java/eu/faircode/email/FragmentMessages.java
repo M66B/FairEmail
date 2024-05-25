@@ -259,7 +259,7 @@ public class FragmentMessages extends FragmentBase
     private ImageButton ibHintSelect;
     private ImageButton ibHintJunk;
     private TextView tvMod;
-    private ImageButton ibMod;
+    private ImageButton ibMotd;
     private TextView tvNoEmail;
     private TextView tvNoEmailHint;
     private FixedRecyclerView rvMessage;
@@ -285,7 +285,7 @@ public class FragmentMessages extends FragmentBase
     private Group grpHintSwipe;
     private Group grpHintSelect;
     private Group grpHintJunk;
-    private Group grpMod;
+    private Group grpMotd;
     private Group grpReady;
     private Group grpOutbox;
     private FloatingActionButton fabReply;
@@ -583,8 +583,8 @@ public class FragmentMessages extends FragmentBase
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
         ibHintJunk = view.findViewById(R.id.ibHintJunk);
-        tvMod = view.findViewById(R.id.tvMod);
-        ibMod = view.findViewById(R.id.ibMod);
+        tvMod = view.findViewById(R.id.tvMotd);
+        ibMotd = view.findViewById(R.id.ibMotd);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         tvNoEmailHint = view.findViewById(R.id.tvNoEmailHint);
         rvMessage = view.findViewById(R.id.rvMessage);
@@ -611,7 +611,7 @@ public class FragmentMessages extends FragmentBase
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
         grpHintSelect = view.findViewById(R.id.grpHintSelect);
         grpHintJunk = view.findViewById(R.id.grpHintJunk);
-        grpMod = view.findViewById(R.id.grpMod);
+        grpMotd = view.findViewById(R.id.grpMotd);
         grpReady = view.findViewById(R.id.grpReady);
         grpOutbox = view.findViewById(R.id.grpOutbox);
 
@@ -729,14 +729,14 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
-        if (Helper.isGoogle())
-            tvMod.setText(getString(R.string.app_mod1));
+        if (Helper.isPixelBeta())
+            tvMod.setText(getString(R.string.app_motd));
 
-        ibMod.setOnClickListener(new View.OnClickListener() {
+        ibMotd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prefs.edit().putBoolean("mod", false).apply();
-                grpMod.setVisibility(View.GONE);
+                prefs.edit().putBoolean("motd", false).apply();
+                grpMotd.setVisibility(View.GONE);
             }
         });
 
@@ -5228,14 +5228,14 @@ public class FragmentMessages extends FragmentBase
         boolean message_swipe = prefs.getBoolean("message_swipe", false);
         boolean message_select = prefs.getBoolean("message_select", false);
         boolean message_junk = prefs.getBoolean("message_junk", false);
-        boolean mod = prefs.getBoolean("mod", false);
+        boolean motd = prefs.getBoolean("motd", false);
         boolean send_pending = prefs.getBoolean("send_pending", true);
 
         grpHintSupport.setVisibility(app_support || !hints || junk ? View.GONE : View.VISIBLE);
         grpHintSwipe.setVisibility(message_swipe || !hints || junk ? View.GONE : View.VISIBLE);
         grpHintSelect.setVisibility(message_select || !hints || junk ? View.GONE : View.VISIBLE);
         grpHintJunk.setVisibility(message_junk || !junk ? View.GONE : View.VISIBLE);
-        grpMod.setVisibility(mod ? View.VISIBLE : View.GONE);
+        grpMotd.setVisibility(motd ? View.VISIBLE : View.GONE);
 
         final DB db = DB.getInstance(getContext());
 

@@ -271,7 +271,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tvHintJunk" />
 
             <TextView
-                android:id="@+id/tvMod"
+                android:id="@+id/tvMotd"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -279,20 +279,20 @@
                 android:padding="6dp"
                 android:text="Message of the day"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toStartOf="@+id/ibMod"
+                app:layout_constraintEnd_toStartOf="@+id/ibMotd"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorHintJunk" />
 
             <ImageButton
-                android:id="@+id/ibMod"
+                android:id="@+id/ibMotd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_legend_close_hint"
                 android:padding="9dp"
-                app:layout_constraintBottom_toBottomOf="@id/tvMod"
+                app:layout_constraintBottom_toBottomOf="@id/tvMotd"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvMod"
+                app:layout_constraintTop_toTopOf="@id/tvMotd"
                 app:srcCompat="@drawable/twotone_close_24" />
 
             <View
@@ -301,7 +301,7 @@
                 android:layout_height="1dp"
                 android:background="?attr/colorSeparator"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvMod" />
+                app:layout_constraintTop_toBottomOf="@id/tvMotd" />
 
             <include
                 android:id="@+id/inGroup"
@@ -597,10 +597,10 @@
                 app:constraint_referenced_ids="tvHintJunk,ibHintJunk,vSeparatorHintJunk" />
 
             <androidx.constraintlayout.widget.Group
-                android:id="@+id/grpMod"
+                android:id="@+id/grpMotd"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="tvMod,ibMod,vSeparatorMod" />
+                app:constraint_referenced_ids="tvMotd,ibMotd,vSeparatorMod" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpReady"

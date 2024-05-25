@@ -859,9 +859,7 @@ public class ApplicationEx extends Application
             if (Helper.isGoogle())
                 editor.putBoolean("mod", true);
         } else if (version < 2170) {
-            if (Build.PRODUCT == null || !Build.PRODUCT.endsWith("_beta") ||
-                    Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
-                editor.putBoolean("mod", false);
+            editor.putBoolean("mod", false);
         } else if (version < 2180) {
             if (Helper.isAndroid15())
                 editor.putInt("last_sdk", 0);
@@ -870,6 +868,8 @@ public class ApplicationEx extends Application
                 editor.putBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
             if (!prefs.contains("delete_unseen"))
                 editor.putBoolean("delete_unseen", false);
+            if (Helper.isPixelBeta())
+                editor.putBoolean("motd", true);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

@@ -1521,6 +1521,12 @@ public class Helper {
         return "Google".equalsIgnoreCase(Build.MANUFACTURER);
     }
 
+    static boolean isPixelBeta() {
+        return (isGoogle() &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
+                Build.PRODUCT != null && Build.PRODUCT.endsWith("_beta"));
+    }
+
     static boolean isSamsung() {
         return "Samsung".equalsIgnoreCase(Build.MANUFACTURER);
     }
