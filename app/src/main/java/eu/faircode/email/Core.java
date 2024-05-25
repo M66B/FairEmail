@@ -3505,13 +3505,13 @@ class Core {
                         message.identity = (identity == null ? null : identity.id);
                         boolean fromSelf = message.fromSelf(identity);
 
-                        List<String> signers = new ArrayList<>();
                         if (native_dkim &&
                                 !fromSelf &&
                                 !EntityFolder.isOutgoing(folder.type) &&
                                 !BuildConfig.PLAY_STORE_RELEASE) {
-                            signers.addAll(helper.verifyDKIM(context));
+                            List<String> signers = helper.verifyDKIM(context);
                             message.dkim = !signers.isEmpty();
+                            message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
                             if (message.dkim) {
                                 boolean aligned = helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
                                 if (aligned)
@@ -3520,11 +3520,6 @@ class Core {
                                     message.dmarc = false;
                             }
                         }
-
-                        String signer = helper.getSigner(authentication);
-                        if (signer != null)
-                            signers.add(0, signer);
-                        message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
 
                         if (message.size == null && message.total != null)
                             message.size = message.total;
@@ -4671,13 +4666,13 @@ class Core {
             message.identity = (identity == null ? null : identity.id);
             boolean fromSelf = message.fromSelf(identity);
 
-            List<String> signers = new ArrayList<>();
             if (native_dkim &&
                     !fromSelf &&
                     !EntityFolder.isOutgoing(folder.type) &&
                     !BuildConfig.PLAY_STORE_RELEASE) {
-                signers.addAll(helper.verifyDKIM(context));
+                List<String> signers = helper.verifyDKIM(context);
                 message.dkim = !signers.isEmpty();
+                message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
                 if (message.dkim) {
                     boolean aligned = helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
                     if (aligned)
@@ -4686,11 +4681,6 @@ class Core {
                         message.dmarc = false;
                 }
             }
-
-            String signer = helper.getSigner(authentication);
-            if (signer != null)
-                signers.add(0, signer);
-            message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
 
             // Borrow reply name from sender name
             if (message.from != null && message.from.length == 1 &&
