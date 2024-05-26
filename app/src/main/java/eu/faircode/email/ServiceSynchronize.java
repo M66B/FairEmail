@@ -115,6 +115,7 @@ import me.leolin.shortcutbadger.ShortcutBadgerAlt;
 public class ServiceSynchronize extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Network lastActive = null;
     private Boolean lastSuitable = null;
+    private long lastAcquired = 0;
     private long lastLost = 0;
     private int lastAccounts = 0;
     private int lastOperations = 0;
@@ -575,6 +576,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
                             crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
                             crumb.put("roaming", Boolean.toString(accountNetworkState.networkState.isRoaming()));
+                            crumb.put("lastAcquired", new Date(lastAcquired).toString());
                             crumb.put("lastLost", new Date(lastLost).toString());
                             Log.breadcrumb("start", crumb);
 
@@ -616,6 +618,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
                             crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
                             crumb.put("roaming", Boolean.toString(accountNetworkState.networkState.isRoaming()));
+                            crumb.put("lastAcquired", new Date(lastAcquired).toString());
                             crumb.put("lastLost", new Date(lastLost).toString());
                             Log.breadcrumb("stop", crumb);
 
@@ -3086,16 +3089,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     if (active != null && !active.equals(lastActive)) {
                         if (ConnectionHelper.isConnected(ServiceSynchronize.this, active)) {
+                            lastActive = active;
+                            lastAcquired = new Date().getTime();
                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Network,
                                     reason + ": new active network=" + active + "/" + lastActive);
-                            lastActive = active;
                         }
                     } else if (lastActive != null) {
                         if (!ConnectionHelper.isConnected(ServiceSynchronize.this, lastActive)) {
-                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Network,
-                                    reason + ": lost active network=" + lastActive);
                             lastActive = null;
                             lastLost = new Date().getTime();
+                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Network,
+                                    reason + ": lost active network=" + lastActive +
+                                            " after=" + (lastLost - lastAcquired) / 1000 + " s");
                         }
                     }
 
