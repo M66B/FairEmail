@@ -26,6 +26,8 @@ Data collected on the device will **never** be sold or shared in any way.
 
 Data collected on the device will **never** be used for profiling, (AI) training or advertisements.
 
+There are **no ads** in the app.
+
 You have the right to lodge a complaint with a supervisory data protection authority,
 please [see here](https://en.wikipedia.org/wiki/National_data_protection_authority) for a list.
 
@@ -117,7 +119,16 @@ The following data is stored on the device or, in other words, collected, but no
 
 By default, personal data as mentioned above will be stored on your device for 30 days.
 
+Under the General Data Protection Regulation (GDPR),
+the California Consumer Privacy Act (CCPA),
+the Virginia Consumer Data Protection Act (VCDPA),
+Lei Geral de Proteção de Dados (LGPD), and other regulations,
+you have the right to know whether your personal data is stored, shared or sold to third parties, used for (targeted) advertising, profiling (for decision making), etc.,
+and you have the right to access, rectify and delete personal data.
+Data stored on the device, see above for details, will never be shared, sold, used for advertising, profiling, etc.
+You can access and change this data through the app.
 You can delete this data, and you can opt-out of storing this data by uninstalling the app.
+To exercise your rights, or if you have questions about data retention, etc., you can contact the developer, see for contact information below.
 
 <br />
 
@@ -170,15 +181,10 @@ Under the General Data Protection Regulation (GDPR),
 the California Consumer Privacy Act (CCPA),
 the Virginia Consumer Data Protection Act (VCDPA),
 Lei Geral de Proteção de Dados (LGPD), and other regulations,
-you have the right to know whether your personal data is shared or sold to third parties, used for (targeted) advertising, profiling, etc.,
+you have the right to know whether your personal data is stored, shared or sold to third parties, used for (targeted) advertising, profiling (for decision making), etc.,
 and you have the right to access, rectify and delete personal data.
 To exercise these rights, or if you have questions about data retention, etc., you can contact the service providers listed above.
-
-Under the Virginia Consumer Data Protection Act (VCDPA) and other regulations,
-you need to be told how to exercise your opt-out right for sharing or selling of your data,
-using your data for targeted advertising,
-and profiling your data that supports decisions that have legal or similarly significant implications for you.
-You can opt-out of having your data shared, sold, used for (targeted) advertising, profiling (for decision making), etc. by not using these optional services/functions.
+You can opt-out of having your data stored, shared, sold, used for (targeted) advertising, profiling (for decision making), etc. by not using these optional services/functions.
 
 <br />
 
