@@ -170,10 +170,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     mlp.bottomMargin = insets.bottom;
                 v.setLayoutParams(mlp);
 
-                if (ActivityBase.this instanceof ActivityCompose) {
-                    int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-                    v.setPaddingRelative(0, 0, 0, bottom - insets.bottom);
-                }
+                int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+                int pad = bottom - insets.bottom;
+                v.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
 
                 if (edge_to_edge)
                     for (View child : Helper.getViewsWithTag(v, "inset")) {
