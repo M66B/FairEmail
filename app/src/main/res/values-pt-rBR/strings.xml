@@ -14,6 +14,10 @@
     <string name="app_cake_required">Espaço mínimo de armazenamento necessário: %1$s</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Baixado de: %1$s</string>
+    <string name="app_motd">        Com o Android 14/15 beta, ocorrem ocasionalmente notificações de ‘aplicativo não responde’.
+        O Google está trabalhando em uma correção.
+        Por favor, não culpe o aplicativo por esse problema do Android!
+    </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>

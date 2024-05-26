@@ -14,6 +14,10 @@
     <string name="app_cake_required">Ελάχιστος απαιτούμενος χώρος αποθήκευσης: %1$s</string>
     <string name="app_updated">Τελευταία ενημέρωση: %1$s</string>
     <string name="app_download">Λήφθηκε από: %1$s</string>
+    <string name="app_motd">        Με την beta έκδοση του Android 14/15, περιστασιακά εμφανίζονται ειδοποιήσεις \"Η εφαρμογή δεν ανταποκρίνεται\".
+        Η Google προσπαθεί να το διορθώσει.
+        Παρακαλούμε μην κατηγορείτε την εφαρμογή για αυτό το πρόβλημα του Android!
+    </string>
     <string name="channel_service">Παρακολούθηση</string>
     <string name="channel_send">Αποστολή</string>
     <string name="channel_notification">E-mail</string>
@@ -115,6 +119,7 @@
     <string name="title_notification_sending">Αποστολή μηνυμάτων</string>
     <string name="title_notification_waiting">Αναμονή για κατάλληλη σύνδεση</string>
     <string name="title_notification_idle">Σε αδράνεια</string>
+    <string name="title_notification_failed">Αποτυχία λογαριασμού %1$s</string>
     <string name="title_notification_alert">Ειδοποίηση διακομιστή: \'%1$s\'</string>
     <string name="title_notification_sending_left">Προσπάθειες που απομένουν: %1$d</string>
     <string name="title_notification_sending_retry">Η αποστολή θα επιχειρηθεί εκ νέου όταν μεταβληθεί η σύνδεση στο διαδίκτυο ή όταν τραβήξετε προς τα κάτω στα εξερχόμενα</string>
@@ -914,6 +919,7 @@
     <string name="title_identity_name">Το όνομα σας</string>
     <string name="title_identity_email">Η διεύθυνση ηλεκτρονικού ταχυδρομείου σας</string>
     <string name="title_identity_tenant_hint">Το πεδίο αυτό θα πρέπει να είναι κενό στις περισσότερες περιπτώσεις</string>
+    <string name="title_identity_receive_first_hint">Σπάνια είναι απαραίτητο να ενεργοποιηθεί αυτή η επιλογή - επιπλέον, η χρήση δεδομένων θα αυξηθεί!</string>
     <string name="title_identity_color_hint">Τα χρώματα των ταυτοτήτων έχουν προτεραιότητα έναντι των χρωμάτων των φακέλων και των λογαριασμών</string>
     <string name="title_advanced_sender">Να επιτρέπεται η τροποποίηση της διεύθυνσης του αποστολέα</string>
     <string name="title_advanced_sender_name">Χρήση ονόματος όταν η διεύθυνση αποστολέα έχει τροποποιηθεί</string>
@@ -971,6 +977,7 @@
     <string name="title_password">Κωδικός πρόσβασης</string>
     <string name="title_password_storage">Πώς αποθηκεύονται οι κωδικοί πρόσβασης;</string>
     <string name="title_case_sensitive">Τα ονόματα χρηστών και οι κωδικοί πρόσβασης επηρεάζονται συνήθως από τις αλλαγές κεφαλαίων και μικρών γραμμάτων</string>
+    <string name="title_login_before_send">Λήψη πριν από την αποστολή</string>
     <string name="title_client_certificate">Πιστοποιητικό πελάτη</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Χρήση τοπικής διεύθυνσης IP αντί για το όνομα του υπολογιστή</string>
@@ -1332,7 +1339,9 @@
     <string name="title_ask_show_html">Η προβολή του αρχικού μηνύματος μπορεί να προδώσει ευαίσθητα προσωπικά δεδομένα</string>
     <string name="title_ask_show_html_remark">Η προβολή του αρχικού μηνύματος σε σκούρο φόντο δεν είναι εφικτή, καθώς ενδέχεται να κάνει αόρατα κείμενα και εικόνες με σκούρα χρώματα</string>
     <string name="title_ask_show_html_images">Να προβάλλονται πάντοτε οι εικόνες κατά την προβολή των αρχικών μηνυμάτων</string>
+    <string name="title_ask_show_html_always">Προβολή αρχικών μηνυμάτων από προεπιλογή</string>
     <string name="title_ask_show_image">Η προβολή των εικόνων ίσως προκαλέσει διαρροή ευαίσθητων προσωπικών δεδομένων</string>
+    <string name="title_ask_show_images_always">Προβολή εικόνων από προεπιλογή</string>
     <string name="title_ask_show_image_hint">Όσες εικόνες αναγνωρίζονται ως εικόνες ιχνηλάτησης δεν θα προβληθούν</string>
     <string name="title_ask_show_amp">Προβολή παραλλαγής AMP του μηνύματος;</string>
     <string name="title_ask_show_amp_hint">Τα μηνύματα AMP έχουν σχεδιαστεί έτσι ώστε να είναι δυναμικά και να αλληλεπιδρούν με το διαδίκτυο, και, ως εκ τούτου, εξ ορισμού μπορούν να χρησιμοποιηθούν για την παρακολούθησή σας</string>
@@ -1961,6 +1970,7 @@
     <string name="title_ask_what">Ερώτηση για το τι πρέπει να γίνεται</string>
     <string name="title_no_ask_again">Να μην ερωτηθώ ξανά</string>
     <string name="title_no_ask_for_again">Να μην ερωτηθώ ξανά για %1$s</string>
+    <string name="title_undo_privacy">Αυτό μπορεί να αναιρεθεί στην καρτέλα με τις ρυθμίσεις απορρήτου</string>
     <string name="title_no_body">Δεν βρέθηκε κανένα κείμενο μηνύματος</string>
     <string name="title_large_body">Το μήνυμα αυτό είναι πολύ μεγάλο και μπορεί να προκύψουν προβλήματα!</string>
     <string name="title_no_charset">Μη υποστηριζόμενη κωδικοποίηση: %1$s</string>
