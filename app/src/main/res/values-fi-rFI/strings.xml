@@ -14,9 +14,6 @@
     <string name="app_cake_required">Tallennustilaa vaaditaan: %1$s</string>
     <string name="app_updated">Päivitetty viimeksi: %1$s</string>
     <string name="app_download">Ladattu palvelusta: %1$s</string>
-    <string name="app_mod1">        Maaliskuun tietoturvapäivitys aiheuttaa \'Sovellus ei vastaa\'-viestejä Google Pixel -laitteissa.
-        Tämä ei johdu sovelluksesta. Vain Google voi ratkaista ongelman!
-    </string>
     <string name="channel_service">Monitorointi</string>
     <string name="channel_send">Lähettäminen</string>
     <string name="channel_notification">Sähköposti</string>

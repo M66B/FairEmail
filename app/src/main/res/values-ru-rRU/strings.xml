@@ -14,8 +14,9 @@
     <string name="app_cake_required">Минимально необходимое место: %1$s</string>
     <string name="app_updated">Последнее обновление: %1$s</string>
     <string name="app_download">Загружено из: %1$s</string>
-    <string name="app_mod1">        Мартовское обновление безопасности приводит к появлению сообщений \"Приложение не отвечает\" на устройствах Google Pixel.
-        Пожалуйста, не вините за это приложение, данную проблему может решить только Google!
+    <string name="app_motd">        На Android 14/15 beta иногда появляется уведомление \"Приложение не отвечает\".
+        Google работает над исправлением данной ошибки.
+        Пожалуйста, не вините приложение из-за проблемы в Android!
     </string>
     <string name="channel_service">Отслеживание</string>
     <string name="channel_send">Отправка</string>
@@ -1370,7 +1371,7 @@
     <string name="title_ask_show_html">Отображение исходного сообщения может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_html_remark">Отображение исходного сообщения с тёмным фоном невозможно, потому что это может привести к сокрытию тёмного текста и изображений</string>
     <string name="title_ask_show_html_images">Всегда показывать изображения при показе исходных сообщений</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Показывать оригинальные сообщения по умолчанию</string>
+    <string name="title_ask_show_html_always">Показывать оригинальные сообщения по умолчанию</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_images_always">Показывать изображения по умолчанию</string>
     <string name="title_ask_show_image_hint">Изображения, распознанные как отслеживающие, не будут показаны</string>
@@ -2002,7 +2003,7 @@
     <string name="title_ask_what">Спросить о действии</string>
     <string name="title_no_ask_again">Больше не спрашивать</string>
     <string name="title_no_ask_for_again">Больше не спрашивать для %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Можно отменить на вкладке настроек \"Конфиденциальность\"</string>
+    <string name="title_undo_privacy">Можно отменить на вкладке настроек \"Конфиденциальность\"</string>
     <string name="title_no_body">В сообщении нет текста</string>
     <string name="title_large_body">Это сообщение очень большое и может вызвать проблемы!</string>
     <string name="title_no_charset">Кодировка не поддерживается: %1$s</string>

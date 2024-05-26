@@ -14,8 +14,9 @@
     <string name="app_cake_required">Minimaler erforderlicher Speicherplatz: %1$s</string>
     <string name="app_updated">Letzte Aktualisierung: %1$s</string>
     <string name="app_download">Heruntergeladen von: %1$s</string>
-    <string name="app_mod1">        Die März-Sicherheitsaktualisierung verursacht die Fehlermeldung »App reagiert nicht« und betrifft ausschließlich Google-Pixel-Geräte.
-        Bitte machen Sie nicht die App dafür verantwortlich – nur Google kann das Problem beheben!
+    <string name="app_motd">        Unter Android 14 / 15 Beta kann es gelegentlich zur Fehlermeldung »App reagiert nicht« kommen.
+        Google arbeitet bereits an einer Lösung.
+        Bitte machen Sie nicht die App für dieses Problem verantwortlich!
     </string>
     <string name="channel_service">Überwachen</string>
     <string name="channel_send">Senden</string>
@@ -1344,7 +1345,7 @@
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann vertrauliche Daten preisgeben</string>
     <string name="title_ask_show_html_remark">Das Anzeigen der Originalnachricht mit dunklem Hintergrund ist nicht möglich, da dadurch dunkle Texte und Bilder nicht sichtbar wären</string>
     <string name="title_ask_show_html_images">Bilder immer anzeigen, wenn Originalnachrichten angezeigt werden</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Standardmäßig Originalnachrichten anzeigen</string>
+    <string name="title_ask_show_html_always">Standardmäßig Originalnachrichten anzeigen</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann vertrauliche Daten preisgeben</string>
     <string name="title_ask_show_images_always">Bilder standardmäßig anzeigen</string>
     <string name="title_ask_show_image_hint">Erkannte Verfolgungsbilder werden nicht angezeigt</string>
@@ -1977,7 +1978,7 @@
     <string name="title_ask_what">Fragen, was getan werden soll</string>
     <string name="title_no_ask_again">Nicht noch einmal fragen</string>
     <string name="title_no_ask_for_again">Nicht noch einmal für %1$s fragen</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Das Verhalten kann in den Einstellungen »Datenschutz« rückgängig gemacht werden</string>
+    <string name="title_undo_privacy">Das Verhalten kann in den Einstellungen »Datenschutz« rückgängig gemacht werden</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
     <string name="title_large_body">Diese Nachricht ist sehr groß und kann zu Problemen führen!</string>
     <string name="title_no_charset">Nicht unterstützte Kodierung: %1$s</string>

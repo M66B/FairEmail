@@ -14,9 +14,6 @@
     <string name="app_cake_required">Minimalno zahtijevani skladišni prostor: %1$s</string>
     <string name="app_updated">Posljednje ažuriranje: %1$s</string>
     <string name="app_download">Preuzeto sa: %1$s</string>
-    <string name="app_mod1">        Martovsko sigurnosno ažuriranje uzrok je porukama \'Aplikacija ne reaguje\', ekskluzivno na Google Pixel uređajima.
-        Molimo da ne krivite aplikaciju zbog ovog, samo Google može riješiti ovaj problem!
-    </string>
     <string name="channel_service">Monitoring</string>
     <string name="channel_send">Slanje</string>
     <string name="channel_notification">E-pošta</string>

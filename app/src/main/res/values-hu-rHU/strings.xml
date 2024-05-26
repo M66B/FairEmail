@@ -14,8 +14,9 @@
     <string name="app_cake_required">Minimális szükséges tárhely: %1$s</string>
     <string name="app_updated">Utoljára frissítve: %1$s</string>
     <string name="app_download">Letöltve innen: %1$s</string>
-    <string name="app_mod1">        A márciusi biztonsági frissítés \"Alkalmazás nem válaszol\" hibaüzenethez vezet, kizárólag Google Pixel eszközökön.
-        Kérem, ne az alkalmazást okolja emiatt, ezt csak a Google tudja megoldani!
+    <string name="app_motd">        Az Android 14/15 béta esetén \'Alkalmazás nem válaszol\' hibaüzenet előfordulhat.
+        A Google már dolgozik a javításon.
+        Kérem, ne az alkalmazást okolja az Android hiba miatt!
     </string>
     <string name="channel_service">Figyelés</string>
     <string name="channel_send">Küldés</string>
@@ -1336,7 +1337,7 @@
     <string name="title_ask_show_html">Az eredeti üzenet megjelenítése érzékeny adatok kiszivárgásával járhat</string>
     <string name="title_ask_show_html_remark">Az eredeti üzenet megjelenítése sötét háttérrel nem lehetséges mert láthatatlan sötét szövegeket és képeket okozhat</string>
     <string name="title_ask_show_html_images">Képek megjelenítése az eredeti üzenetek megjelenítésekor</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Az eredeti üzenetet mutassa alapértelmezetten</string>
+    <string name="title_ask_show_html_always">Az eredeti üzenetet mutassa alapértelmezetten</string>
     <string name="title_ask_show_image">A képek megjelenítése érzékeny adatok kiszivárgásával járhat</string>
     <string name="title_ask_show_images_always">Mutassa a képeket alapból</string>
     <string name="title_ask_show_image_hint">A nyomkövetőként felismert képek nem fognak megjelenni</string>
@@ -1968,7 +1969,7 @@
     <string name="title_ask_what">Kérdezze meg mit tegyen</string>
     <string name="title_no_ask_again">Ne kérdezze meg ezt újra</string>
     <string name="title_no_ask_for_again">Ne kérdezze meg ezt újra a(z) %1$s -hoz/-hez</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Visszavonható az adatvédelem fülön</string>
+    <string name="title_undo_privacy">Visszavonható az adatvédelem fülön</string>
     <string name="title_no_body">Nem található üzenetszöveg</string>
     <string name="title_large_body">Ez az üzenet hatalmas, és ez gondokat okozhat!</string>
     <string name="title_no_charset">Nem támogatott kódolás: %1$s</string>

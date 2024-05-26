@@ -14,8 +14,9 @@
     <string name="app_cake_required">Minimalna wymagana ilość miejsca na dysku: %1$s</string>
     <string name="app_updated">Ostatnia aktualizacja: %1$s</string>
     <string name="app_download">Pobrano z: %1$s</string>
-    <string name="app_mod1">        Marcowa aktualizacja zabezpieczeń powoduje komunikaty \"Aplikacja nie odpowiada\", wyłącznie na urządzeniach Google Pixel.
-        Nie obwiniaj za to aplikacji, tylko Google może to rozwiązać!
+    <string name="app_motd">        Z Androidem 14/15 beta, powiadomienia \'Aplikacja nie odpowiada\' występują sporadycznie.
+        Google pracuje nad poprawką.
+        Proszę nie winić aplikacji za problem, który jest problemem systemu Android!
     </string>
     <string name="channel_service">Monitorowanie</string>
     <string name="channel_send">Wyślij</string>
@@ -1368,7 +1369,7 @@
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_html_remark">Wyświetlanie oryginalnej wiadomości na ciemnym tle nie jest możliwe, ponieważ może to powodować brak widoczności ciemnych tekstów i obrazów</string>
     <string name="title_ask_show_html_images">Zawsze pokazuj obrazy przy wyświetlaniu oryginalnych wiadomości</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Domyślnie pokazuj oryginalne wiadomości</string>
+    <string name="title_ask_show_html_always">Domyślnie pokazuj oryginalne wiadomości</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_images_always">Domyślnie pokazuj obrazy</string>
     <string name="title_ask_show_image_hint">Obrazy rozpoznane jako obrazy śledzące nie będą wyświetlane</string>
@@ -2000,7 +2001,7 @@
     <string name="title_ask_what">Zapytaj co zrobić</string>
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
     <string name="title_no_ask_for_again">Nie pytaj ponownie o %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">To może zostać cofnięte na stronie ustawień prywatności</string>
+    <string name="title_undo_privacy">To może zostać cofnięte na stronie ustawień prywatności</string>
     <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>
     <string name="title_large_body">Ta wiadomość jest bardzo duża i może to powodować problemy!</string>
     <string name="title_no_charset">Nieobsługiwane kodowanie: %1$s</string>

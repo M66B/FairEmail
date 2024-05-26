@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail търсене</string>
     <string name="app_send_self">Изпращане до себе си</string>
     <string name="app_changelog">Дневник с промените</string>
-    <string name="app_welcome">FairEmail е приложение за електронна поща с отворен код, фокусирано върху поверителността и сигурността. Поради тази причина някои функции могат да работят различно от това с което сте свикнали.</string>
+    <string name="app_welcome">FairEmail е приложение за имейл с отворен код, съсредоточено върху поверителността и сигурността. По тази причина някои функции могат да работят различно от това, с което сте свикнали.</string>
     <string name="app_limitations">Например, по подразбиране съобщенията са преформатират, така че да премахват небезопасните елементи и да подобряват читаемостта, а отварянето на линкове трябва да се потвърди с цел безопасност. При желание двете функции може да се изключат.</string>
     <string name="app_unsupported">Грешки във версията на Android на това конкретно устройство причинява сривове</string>
     <string name="app_data_loss">Всички данни може да се загубят</string>
@@ -14,9 +14,6 @@
     <string name="app_cake_required">Изисквано минимум място за хранилището: %1$s</string>
     <string name="app_updated">Последно обновяване: %1$s</string>
     <string name="app_download">Изтеглено от: %1$s</string>
-    <string name="app_mod1">        Мартенското осъвременяване на сигурността поражда съобщения \'Приложението не отговаря\', изключително на устройствата Google Pixel.
-        Не винете приложението за това, само Google може да разреши това!
-    </string>
     <string name="channel_service">Наблюдение</string>
     <string name="channel_send">Изпращане</string>
     <string name="channel_notification">Имейл</string>
@@ -853,7 +850,7 @@
     <string name="title_advanced_free">Тази облачна услуга е свободна за употреба</string>
     <string name="title_advanced_free_tier">Тази облачна услуга има безплатно ниво</string>
     <string name="title_advanced_paid_service">Тази облачна услуга изисква заплащане</string>
-    <string name="title_advanced_privacy_risk">Възможно е да съществува риск за поверителността</string>
+    <string name="title_advanced_privacy_risk">Може да има опасност за поверителността</string>
     <string name="title_advanced_name_email_hint">Имената ще се показват само, когато са налични</string>
     <string name="title_advanced_preview_hint">Достъпно е само когато текстът на съобщението е изтеглен</string>
     <string name="title_advanced_preview_lines_hint">Всичко не повече от %s знака</string>
@@ -1340,7 +1337,9 @@
     <string name="title_ask_show_html">При показването на оригиналното съобщение може да изтече чувствителна поверителна информация</string>
     <string name="title_ask_show_html_remark">Показване на оригиналното съобщение с тъмен фон не е възможно, защото може да причини невидими тъмни текстове и изображения</string>
     <string name="title_ask_show_html_images">Винаги показвайте изображенията при показване на оригиналните съобщения</string>
+    <string name="title_ask_show_html_always">Показване на първообразните съобщения по подразбиране</string>
     <string name="title_ask_show_image">При показването на изображението може да изтече поверителна информация</string>
+    <string name="title_ask_show_images_always">Показване на образи по подразбиране</string>
     <string name="title_ask_show_image_hint">Изображенията които са разпознати като проследяващи няма да се показват</string>
     <string name="title_ask_show_amp">Да се показва ли вариант AMP на съобщението?</string>
     <string name="title_ask_show_amp_hint">Съобщенията AMP са замислени да са динамични и да взаимодействат с интернет и следователно по определние може да се употребяват за проследяването ви</string>
@@ -1970,6 +1969,7 @@
     <string name="title_ask_what">Запитване за</string>
     <string name="title_no_ask_again">Без повторно питане</string>
     <string name="title_no_ask_for_again">Без ново питане за %1$s</string>
+    <string name="title_undo_privacy">Това може да се отмени в раздела „Настройки за поверителност“</string>
     <string name="title_no_body">Няма текстови съобщения</string>
     <string name="title_large_body">Съобщението е преголямо и това може да доведе до проблеми!</string>
     <string name="title_no_charset">Неподдържано кодиране: %1$s</string>

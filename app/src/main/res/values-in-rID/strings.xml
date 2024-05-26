@@ -14,9 +14,6 @@
     <string name="app_cake_required">Ruang penyimpanan minimum yang dibutuhkan: %1$s</string>
     <string name="app_updated">Pembaharuan terakhir: %1$s</string>
     <string name="app_download">Mengunduh dari: %1$s</string>
-    <string name="app_mod1">        Pembaruan keamanan Bulan Maret memunculkan pesan \'Aplikasi tidak merespons\', khususnya pada perangkat Google Pixel.
-        Mohon jangan salahkan aplikasi dalam hal ini, hanya Google yang dapat memperbaikinya!
-    </string>
     <string name="channel_service">Pemantauan</string>
     <string name="channel_send">Kirim</string>
     <string name="channel_notification">Surel</string>

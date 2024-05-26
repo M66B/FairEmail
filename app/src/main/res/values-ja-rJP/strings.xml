@@ -14,8 +14,9 @@
     <string name="app_cake_required">最低限必要な空き容量: %1$s</string>
     <string name="app_updated">最終更新: %1$s</string>
     <string name="app_download">ダウンロード元: %1$s</string>
-    <string name="app_mod1">        3 月のセキュリティアップデートにより、Google Pixel でのみ「アプリが応答しません」というメッセージが表示されるようになりました。
-        この問題を解決できるのは Google のみのため、アプリを非難しないでください！
+    <string name="app_motd">        Android 14/15 beta では「アプリが応答しません」という通知がときどき表示されます。
+        Google が修正に取り組んでいます。
+        Android 側の問題のため、アプリを非難しないでください！
     </string>
     <string name="channel_service">モニター</string>
     <string name="channel_send">送信</string>
@@ -1328,7 +1329,7 @@
     <string name="title_ask_show_html">元のメッセージを表示するとプライバシーデータの漏洩の原因となる可能性があります</string>
     <string name="title_ask_show_html_remark">ダークテーマでは元のメッセージを表示できません。これは暗い色のテキストや画像が見えなくなる可能性があるためです</string>
     <string name="title_ask_show_html_images">元のメッセージを表示するときに常に画像を表示する</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">デフォルトで元のメッセージを表示する</string>
+    <string name="title_ask_show_html_always">デフォルトで元のメッセージを表示する</string>
     <string name="title_ask_show_image">画像を表示するとプライバシーデータの漏洩の原因となる可能性があります</string>
     <string name="title_ask_show_images_always">デフォルトで画像を表示する</string>
     <string name="title_ask_show_image_hint">トラッキング画像として識別された画像は表示されません</string>
@@ -1961,7 +1962,7 @@
     <string name="title_ask_what">毎回確認する</string>
     <string name="title_no_ask_again">次回から確認しない</string>
     <string name="title_no_ask_for_again">%1$s は次回から確認しない</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">設定のプライバシータブで変更できます</string>
+    <string name="title_undo_privacy">設定のプライバシータブで変更できます</string>
     <string name="title_no_body">本文が見つかりません</string>
     <string name="title_large_body">メッセージのサイズがとても大きいため、問題が発生することがあります！</string>
     <string name="title_no_charset">対応していないエンコーディング: %1$s</string>

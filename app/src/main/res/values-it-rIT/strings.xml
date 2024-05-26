@@ -14,8 +14,9 @@
     <string name="app_cake_required">Spazio di archiviazione minimo necessario: %1$s</string>
     <string name="app_updated">Ultimo aggiornamento: %1$s</string>
     <string name="app_download">Scaricata da: %1$s</string>
-    <string name="app_mod1">        L\'aggiornamento di sicurezza di marzo sta causando messaggi \'App non risponde\', esclusivamente su dispositivi Google Pixel.
-        Per favore non incolpare l\'app per questo, solo Google può risolvere il problema!
+    <string name="app_motd">        Con Android 14/15 beta, \'App non risponde\' le notifiche occasionalmente si verificano.
+        Google sta lavorando su una correzione.
+        Non incolpare l\'app per questo problema Android!
     </string>
     <string name="channel_service">Monitoraggio</string>
     <string name="channel_send">Invia</string>
@@ -1343,7 +1344,7 @@
     <string name="title_ask_show_html">Mostrare il messaggio originale potrebbe causare una fuga di informazioni sensibili sulla privacy</string>
     <string name="title_ask_show_html_remark">Mostrare il messaggio originale su uno sfondo scuro è impossibile poiché potrebbe rendere i testi e le immagini scuri invisibili</string>
     <string name="title_ask_show_html_images">Mostra sempre le immagini mostrando i messaggi originali</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Mostra i messaggi originali di default</string>
+    <string name="title_ask_show_html_always">Mostra i messaggi originali di default</string>
     <string name="title_ask_show_image">Mostrare le immagini potrebbe causare una fuga di informazioni sensibili sulla privacy</string>
     <string name="title_ask_show_images_always">Mostra le immagini di default</string>
     <string name="title_ask_show_image_hint">Le immagini riconosciute come di monitoraggio non saranno mostrate</string>
@@ -1976,7 +1977,7 @@
     <string name="title_ask_what">Chiedi cosa fare</string>
     <string name="title_no_ask_again">Non chiederlo di nuovo</string>
     <string name="title_no_ask_for_again">Non chiederlo di nuovo per %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Questo può essere annullato nella scheda delle impostazioni della privacy</string>
+    <string name="title_undo_privacy">Questo può essere annullato nella scheda delle impostazioni della privacy</string>
     <string name="title_no_body">Nessun testo del messaggio trovato</string>
     <string name="title_large_body">Questo messaggio è molto grande e ciò potrebbe causare problemi!</string>
     <string name="title_no_charset">Crittografia non supportata: %1$s</string>

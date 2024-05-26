@@ -14,8 +14,9 @@
     <string name="app_cake_required">کمترین مقدار فضای ذخیره‌سازی لازم: %1$s</string>
     <string name="app_updated">آخرین به روز رسانی: %1$s</string>
     <string name="app_download">در حال دانلود از %1$s</string>
-    <string name="app_mod1">        به‌ روزرسانی امنیتی مارس باعث به وجود آمدن پیغام \'اپلیکیشن پاسخگو نیست\' بر روی دستگاه‌های پیکسل گوگل شده است.
-        لطفا اپلیکیشن را مقصر این مشکل ندانید، فقط گوگل می‌تواند این را برطرف کند!
+    <string name="app_motd">        در اندروید ۱۴/۱۵ بتا، گهگاه اعلان‌های «برنامه پاسخ نمی‌دهد» رخ می‌دهد.
+        گوگل در حال کار برای حل آن است.
+        لطفا برنامه را به خاطر این مشکل اندروید سرزنش نکنید!
     </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">ارسال</string>
@@ -928,7 +929,7 @@
     <string name="title_ask_delete_attachments">حذف همه پیوست‌ها؟</string>
     <string name="title_ask_discard">پیش‌نویس‌ کنار گذاشته شود؟</string>
     <string name="title_ask_show_html">نمایش پیام اصلی می تواند موجب نشت اطلاعات حساس شود</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">نمایش پیام‌های اصلی به طور پیش‌فرض</string>
+    <string name="title_ask_show_html_always">نمایش پیام‌های اصلی به طور پیش‌فرض</string>
     <string name="title_ask_show_image">نمایش تصاویر می تواند موجب نشت اطلاعات حساس شود</string>
     <string name="title_ask_show_images_always">نمایش تصاویر به طور پیش‌فرض</string>
     <string name="title_ask_show_image_hint">تصاویری که به عنوان تصاویر ردیاب شناخته شده‌اند نشان داده نخواهند شد</string>
@@ -1362,7 +1363,7 @@
     <string name="title_ask_what">بپرس چه باید کرد</string>
     <string name="title_no_ask_again">دیگر نپرس</string>
     <string name="title_no_ask_for_again">دوباره برای %1$s نپرس</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">می‌توان در صفحه برگه تنظیمات حریم خصوصی این را به حالت اولیه برگرداند</string>
+    <string name="title_undo_privacy">می‌توان در صفحه برگه تنظیمات حریم خصوصی این را به حالت اولیه برگرداند</string>
     <string name="title_no_body">هیچ پیام متنی یافت نشد</string>
     <string name="title_large_body">این پیام بسیار طولانیست و ممکن است باعث بروز مشکلاتی شود!</string>
     <string name="title_no_charset">رمزگذاری پشتیبانی نشده: %1$s</string>

@@ -14,9 +14,6 @@
     <string name="app_cake_required">Miinimu vajalik talletusruum: %1$s</string>
     <string name="app_updated">Viimati uuendatud: %1$s</string>
     <string name="app_download">Laaditud kohast: %1$s</string>
-    <string name="app_mod1">        Märtsi turvaparandus põhjustab teateid \"Rakendus ei vasta\", ainult Google Pixel seadmetes.
-        Palun ära süüdista selles äppi. Vaid Google saab selle parandada!
-    </string>
     <string name="channel_service">Jälgimine</string>
     <string name="channel_send">Saatmine</string>
     <string name="channel_notification">E-post</string>

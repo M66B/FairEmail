@@ -14,8 +14,9 @@
     <string name="app_cake_required">Tələb olunan minimum anbar sahəsi: %1$s</string>
     <string name="app_updated">Son güncəlləmə: %1$s</string>
     <string name="app_download">%1$s üzərindən endirildi</string>
-    <string name="app_mod1">        Mart ayı güvənlik güncəlləməsi, xüsusilə Google Pixel cihazlarında \"Tətbiq cavab vermir\" mesajına səbəb olur.
-        Lütfən nəzərə alın ki, bu, tətbiqdən qaynaqlanan məsələ deyil, bunu yalnız Google həll edə bilər!
+    <string name="app_motd">        Android 14/15 beta versiyalarında, arada \'Tətbiq cavab vermir\' bildirişləri üzə çıxır.
+        Google bunu düzəltmək üçün çalışır.
+        Lütfən bu Android probleminə görə tətbiqi günahlandırmayın!
     </string>
     <string name="channel_service">Müşahidə</string>
     <string name="channel_send">Göndər</string>
@@ -921,6 +922,7 @@
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-poçt ünvanınız</string>
     <string name="title_identity_tenant_hint">Bu sahə əksər hallarda boş olmalıdır</string>
+    <string name="title_identity_receive_first_hint">Bu seçimin işə salınmasına nadir hallarda ehtiyac yaranır, üstəgəl data istifadəsini artırır!</string>
     <string name="title_identity_color_hint">Kimlik rəngləri, qovluq və hesab rənglərindən əvvəl gəlir</string>
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
     <string name="title_advanced_sender_name">Göndərənin ünvanına düzəliş ediləndə adı istifadə et</string>
@@ -978,6 +980,7 @@
     <string name="title_password">Parol</string>
     <string name="title_password_storage">Parollar necə saxlanılır?</string>
     <string name="title_case_sensitive">İstifadəçi adları və parollar adətən böyük-kiçik hərflərə həssasdır</string>
+    <string name="title_login_before_send">Göndərməzdən əvvəl al</string>
     <string name="title_client_certificate">Müştəri sertifikatı</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Host adı əvəzinə yerli IP ünvanı istifadə et</string>
@@ -1340,7 +1343,9 @@
     <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>
     <string name="title_ask_show_html_remark">Orijinal mesajın tünd arxaplanda görüntülənməsi mümkün deyildir, çünki tünd tema mətn və təsvirlərin görünməz olmasına səbəb ola bilər</string>
     <string name="title_ask_show_html_images">Orijinal mesajları göstərəndə təsvirləri həmişə göstər</string>
+    <string name="title_ask_show_html_always">İlkin olaraq orijinal mesajları göstər</string>
     <string name="title_ask_show_image">Təsvirlərin göstərilməsi, gizlilik həssaslı məlumatların sızdıra bilər</string>
+    <string name="title_ask_show_images_always">İlkin olaraq təsvirləri göstər</string>
     <string name="title_ask_show_image_hint">İzləmə təsvirləri kimi bilinən təsvirlər göstərilməyəcək</string>
     <string name="title_ask_show_amp">Mesajın AMP variantı göstərilsin?</string>
     <string name="title_ask_show_amp_hint">AMP mesajları dinamik olacaq və internet ilə qarşılıqlı əlaqədə olacaq formada dizayn edilib və buna görə də tərifə görə sizi izləmək üçün istifadə edilə bilər</string>
@@ -1971,6 +1976,7 @@
     <string name="title_ask_what">Nə ediləcəyini soruş</string>
     <string name="title_no_ask_again">Bunu bir də soruşma</string>
     <string name="title_no_ask_for_again">%1$s üçün bunu bir də soruşma</string>
+    <string name="title_undo_privacy">Bu, gizlilik ayarları vərəqi səhifəsindən geri alına bilər</string>
     <string name="title_no_body">Heç bir mesaj mətni tapılmadı</string>
     <string name="title_large_body">Bu mesaj çox böyükdür və problemlər yarada bilər!</string>
     <string name="title_no_charset">Dəstəklənməyən kodlaşdırma: %1$s</string>

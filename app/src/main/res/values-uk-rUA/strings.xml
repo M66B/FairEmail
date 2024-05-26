@@ -14,8 +14,9 @@
     <string name="app_cake_required">Мінімальний потрібний розмір сховища: %1$s</string>
     <string name="app_updated">Останнє оновлення: %1$s</string>
     <string name="app_download">Завантажено з: %1$s</string>
-    <string name="app_mod1">        Березневе оновлення безпеки спричиняє виникнення повідомлення «Програма не відповідає». Це відбувається виключно на пристроях Google Pixel.
-         Будь ласка, не звинувачуйте програму в цьому. Тільки Google може розв\'язати цю проблему!
+    <string name="app_motd">        В Android 14/15 (бета-версії) іноді з\'являються сповіщення \"Додаток не відповідає\".
+        Google працює над виправленням.
+        Будь ласка, не звинувачуйте застосунок у цій проблемі Android!
     </string>
     <string name="channel_service">Монітор</string>
     <string name="channel_send">Надсилання</string>
@@ -1369,7 +1370,7 @@
     <string name="title_ask_show_html">Показ оригінального повідомлення може призвести до витоку конфіденційної інформації</string>
     <string name="title_ask_show_html_remark">Показ оригінального повідомлення на темному тлі неможливе, оскільки воно може зробити темні тексти та зображення невидимими</string>
     <string name="title_ask_show_html_images">Завжди показувати зображення при показі оригінальних повідомлень</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Показувати оригінальні повідомлення за замовчуванням</string>
+    <string name="title_ask_show_html_always">Показувати оригінальні повідомлення за замовчуванням</string>
     <string name="title_ask_show_image">Показ зображень може призвести до витоку конфіденційної інформації</string>
     <string name="title_ask_show_images_always">Показувати зображення за замовчуванням</string>
     <string name="title_ask_show_image_hint">Зображення за якими можна відслідковувати не будуть показані</string>
@@ -2000,7 +2001,7 @@
     <string name="title_ask_what">Запитувати, що робити</string>
     <string name="title_no_ask_again">Більше не запитувати</string>
     <string name="title_no_ask_for_again">Не запитувати знову для %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Це може бути скасовано на сторінці налаштувань приватності</string>
+    <string name="title_undo_privacy">Це може бути скасовано на сторінці налаштувань приватності</string>
     <string name="title_no_body">Текст повідомлення не знайдено</string>
     <string name="title_large_body">Це повідомлення дуже велике і це може спричинити проблеми!</string>
     <string name="title_no_charset">Кодування не підтримується: %1$s</string>

@@ -14,8 +14,7 @@
     <string name="app_cake_required">Minimum gerekli depolama alanı: %1$s</string>
     <string name="app_updated">Son güncelleme %1$s</string>
     <string name="app_download">Şuradan indirildi: %1$s</string>
-    <string name="app_mod1">........ Mart güvenlik güncellemesi, yalnızca Google Pixel cihazlarında \'Uygulama yanıt vermiyor\' mesajlarına neden oluyor.
-........ Lütfen bunun için suçlamayın, bunu yalnızca Google çözebilir!!    </string>
+    <string name="app_motd">Android 14/15 beta sürümünde zaman zaman \'Uygulama yanıt vermiyor\' bildirimleri ortaya çıkıyor. Google bir düzeltme üzerinde çalışıyor. Lütfen bu Android sorunu için uygulamayı suçlamayın!    </string>
     <string name="channel_service">Monitör</string>
     <string name="channel_send">Gönder</string>
     <string name="channel_notification">e-posta</string>
@@ -1334,7 +1333,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_html_remark">Orijinal mesajı koyu arka planda görüntülemek mümkün değildir çünkü görünmez koyu metinlere ve resimlere neden olabilir</string>
     <string name="title_ask_show_html_images">Orijinal mesajları görüntülerken her zaman resimleri göster</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Orijinal mesajları varsayılan olarak göster</string>
+    <string name="title_ask_show_html_always">Orijinal mesajları varsayılan olarak göster</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_images_always">Resimleri varsayılan olarak göster</string>
     <string name="title_ask_show_image_hint">İzleme resimleri olarak tanınan resimler gösterilmeyecektir</string>
@@ -1965,7 +1964,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_ask_what">Ne yapılacağını sor</string>
     <string name="title_no_ask_again">Bunu bir daha sorma</string>
     <string name="title_no_ask_for_again">%1$s için bunu bir daha sorma</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Bu, gizlilik ayarları sekmesi sayfasından geri alınabilir</string>
+    <string name="title_undo_privacy">Bu, gizlilik ayarları sekmesi sayfasından geri alınabilir</string>
     <string name="title_no_body">Hiçbir ileti metni bulunamadı</string>
     <string name="title_large_body">Bu mesaj çok büyüktür ve sorunlara neden olabilir!</string>
     <string name="title_no_charset">Desteklenmeyen kodlama: %1$s</string>

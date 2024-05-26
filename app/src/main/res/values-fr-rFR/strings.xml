@@ -14,8 +14,9 @@
     <string name="app_cake_required">Espace de stockage minimum requis : %1$s</string>
     <string name="app_updated">Dernière mise à jour : %1$s</string>
     <string name="app_download">Téléchargé depuis : %1$s</string>
-    <string name="app_mod1">        La mise à jour de sécurité de mars provoque l\'apparition de messages \"L\'application ne répond pas\" exclusivement sur les appareils Google Pixel.
-        Veuillez ne pas blâmer cette application, seul Google peut résoudre ceci !
+    <string name="app_motd">        Avec Android 14/15 beta, des notifications \"L\'application ne répond pas\" peuvent apparaître.
+        Google travaille sur une correction.
+        Veuillez ne pas blâmer l\'application à cause de ce problème lié à Android !
     </string>
     <string name="channel_service">Surveillance</string>
     <string name="channel_send">Envoi</string>
@@ -1343,7 +1344,7 @@
     <string name="title_ask_show_html">L’affichage du message original peut entraîner la divulgation d’informations confidentielles</string>
     <string name="title_ask_show_html_remark">L’affichage du message original sur un arrière-plan sombre n’est pas possible car cela pourrait rendre invisibles le texte et les images sombres</string>
     <string name="title_ask_show_html_images">Toujours afficher les images lors de l\'affichage des messages originaux</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Afficher les messages originaux par défaut</string>
+    <string name="title_ask_show_html_always">Afficher les messages originaux par défaut</string>
     <string name="title_ask_show_image">L’affichage des images peut entraîner la divulgation d’informations confidentielles</string>
     <string name="title_ask_show_images_always">Afficher les images par défaut</string>
     <string name="title_ask_show_image_hint">Les images identifiées comme étant des images de pistage ne seront pas affichées</string>
@@ -1976,7 +1977,7 @@
     <string name="title_ask_what">Demander ce qu\'il faut faire</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_no_ask_for_again">Ne plus demander ceci pour %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Ceci peut être annulé dans l\'onglet des paramètres de confidentialité</string>
+    <string name="title_undo_privacy">Ceci peut être annulé dans l\'onglet des paramètres de confidentialité</string>
     <string name="title_no_body">Aucun texte de message trouvé</string>
     <string name="title_large_body">Ce message est très volumineux et peut poser problème !</string>
     <string name="title_no_charset">Encodage non pris en charge : %1$s</string>

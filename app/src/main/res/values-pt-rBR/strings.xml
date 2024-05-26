@@ -14,9 +14,6 @@
     <string name="app_cake_required">Espaço mínimo de armazenamento necessário: %1$s</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Baixado de: %1$s</string>
-    <string name="app_mod1">        A atualização de segurança de março está causando mensagens de ‘aplicativo não responde’, exclusivamente em dispositivos Google Pixel.
-        Por favor, não culpe o aplicativo por isso, só o Google pode resolver isso!
-    </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>
@@ -1340,7 +1337,9 @@
     <string name="title_ask_show_html">Mostrar a mensagem original pode vazar informações confidenciais de privacidade</string>
     <string name="title_ask_show_html_remark">Não é possível exibir a mensagem original com um fundo escuro porque textos e imagens escuros podem ficar invisíveis</string>
     <string name="title_ask_show_html_images">Sempre mostrar imagens nas mensagens originais</string>
+    <string name="title_ask_show_html_always">Mostrar mensagens originais por padrão</string>
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
+    <string name="title_ask_show_images_always">Mostrar imagens por padrão</string>
     <string name="title_ask_show_image_hint">Imagens reconhecidas como monitoramento de imagens não serão mostradas</string>
     <string name="title_ask_show_amp">Mostrar a variante AMP da mensagem?</string>
     <string name="title_ask_show_amp_hint">As mensagens AMP são projetadas para serem dinâmicas e interagir com a internet e, podem, portanto, usada para rastreá-lo</string>
@@ -1970,6 +1969,7 @@
     <string name="title_ask_what">Perguntar o que fazer</string>
     <string name="title_no_ask_again">Não perguntar novamente</string>
     <string name="title_no_ask_for_again">Não perguntar novamente por %1$s</string>
+    <string name="title_undo_privacy">Isso pode ser desfeito na página da aba de configurações de privacidade</string>
     <string name="title_no_body">Texto da mensagem não encontrado</string>
     <string name="title_large_body">Esta mensagem é muito grande e pode causar problemas!</string>
     <string name="title_no_charset">Codificação não suportada: %1$s</string>

@@ -14,9 +14,6 @@
     <string name="app_cake_required">Spațiu minim necesar de stocare: %1$s</string>
     <string name="app_updated">Ultima actualizare: %1$s</string>
     <string name="app_download">Descărcat de la: %1$s</string>
-    <string name="app_mod1">        Actualizarea de securitate din martie provoacă mesaje de tip \"Aplicația nu răspunde\", exclusiv pe dispozitivele Google Pixel.
-        Vă rugăm să nu dați vina pe aplicație pentru acest lucru, doar Google poate rezolva asta!
-    </string>
     <string name="channel_service">Ecran</string>
     <string name="channel_send">Trimite</string>
     <string name="channel_notification">E-mail</string>
@@ -1354,7 +1351,9 @@
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_html_remark">Afișarea mesajului original pe un fundal închis nu este posibilă pentru că imaginile și textul închise la culoare ar putea sa nu se vadă</string>
     <string name="title_ask_show_html_images">Arată mereu imaginile când se arată mesajele originale</string>
+    <string name="title_ask_show_html_always">Arată implicit mesajele originale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
+    <string name="title_ask_show_images_always">Arată imaginile în mod implicit</string>
     <string name="title_ask_show_image_hint">Imaginile recunoscute drept imagini folosite la urmărire nu vor fi afișate</string>
     <string name="title_ask_show_amp">Afișați varianta AMP a mesajului?</string>
     <string name="title_ask_show_amp_hint">Mesajele AMP sunt concepute pentru a fi dinamice și pentru a interacționa cu internetul și, prin urmare, pot fi folosite, prin definiție, pentru a vă urmări</string>
@@ -1983,6 +1982,7 @@
     <string name="title_ask_what">Întreabă ce să faci</string>
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_no_ask_for_again">Nu mai întreba din nou pentru %1$s</string>
+    <string name="title_undo_privacy">Aceasta poate fi anulată în pagina de setări de confidențialitate</string>
     <string name="title_no_body">Nu a fost găsit textul mesajului</string>
     <string name="title_large_body">Acest mesaj este foarte mare şi poate cauza probleme!</string>
     <string name="title_no_charset">Codare nesuportată: %1$s</string>

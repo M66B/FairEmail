@@ -14,9 +14,6 @@
     <string name="app_cake_required">Minimální požadovaná kapacita úložiště: %1$s</string>
     <string name="app_updated">Poslední aktualizace: %1$s</string>
     <string name="app_download">Staženo z: %1$s</string>
-    <string name="app_mod1">        Březnová bezpečnostní aktualizace způsobuje zobrazování hlášky \'Aplikace nereaguje\' - výhradně na zařízeních Google Pixel.
-        Neobviňujte z toho aplikaci, toto může vyřešit pouze Google!
-    </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Odesílání</string>
     <string name="channel_notification">E-mail</string>
@@ -1369,7 +1366,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_ask_show_html">Zobrazením původní zprávy může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_html_remark">Zobrazení původní zprávy na tmavém pozadí není možné, neboť může způsobit zneviditelnění tmavých textů a obrázků</string>
     <string name="title_ask_show_html_images">Vždy zobrazit obrázky při zobrazení původních zpráv</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Ve výchozím nastavení zobrazovat původní zprávy</string>
+    <string name="title_ask_show_html_always">Ve výchozím nastavení zobrazovat původní zprávy</string>
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_images_always">Ve výchozím nastavení zobrazovat obrázky</string>
     <string name="title_ask_show_image_hint">Obrázky rozpoznané jako sledovací nebudou zobrazeny</string>
@@ -2000,7 +1997,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_ask_what">Zeptej se, co dělat</string>
     <string name="title_no_ask_again">Znovu se neptat</string>
     <string name="title_no_ask_for_again">Znovu nežádat pro %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Toto lze vrátit zpět na stránce nastavení soukromí</string>
+    <string name="title_undo_privacy">Toto lze vrátit zpět na stránce nastavení soukromí</string>
     <string name="title_no_body">Text zprávy nenalezen</string>
     <string name="title_large_body">Tato zpráva je velmi velká a to může způsobit problémy!</string>
     <string name="title_no_charset">Nepodporované kódování: %1$s</string>

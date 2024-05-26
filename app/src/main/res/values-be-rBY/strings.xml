@@ -14,9 +14,6 @@
     <string name="app_cake_required">Мінімальна патрэбны памер сховішча: %1$s</string>
     <string name="app_updated">Апошняе абнаўленне: %1$s</string>
     <string name="app_download">Спампавана з %1$s</string>
-    <string name="app_mod1">        Сакавіцкае абнаўленне сістэмы бяспекі выводзіць апавяшчэнне «Праграма не адказвае» выключна на прыладах Google Pixel.
-         Калі ласка, не абвінавачвайце праграму ў гэтым, толькі Google можа вырашыць гэтую праблему!
-    </string>
     <string name="channel_service">Маніторынг</string>
     <string name="channel_send">Адправіць</string>
     <string name="channel_notification">Электронная пошта</string>

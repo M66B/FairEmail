@@ -14,9 +14,6 @@
     <string name="app_cake_required">Ελάχιστος απαιτούμενος χώρος αποθήκευσης: %1$s</string>
     <string name="app_updated">Τελευταία ενημέρωση: %1$s</string>
     <string name="app_download">Λήφθηκε από: %1$s</string>
-    <string name="app_mod1">        Η ενημέρωση ασφαλείας του Μαρτίου προκαλεί μηνύματα: \"Η εφαρμογή δεν ανταποκρίνεται\", αποκλειστικά σε συσκευές Google Pixel.
-        Παρακαλούμε, μην κατηγορείτε την εφαρμογή για αυτό, μόνο η Google μπορεί να το επιλύσει!
-    </string>
     <string name="channel_service">Παρακολούθηση</string>
     <string name="channel_send">Αποστολή</string>
     <string name="channel_notification">E-mail</string>

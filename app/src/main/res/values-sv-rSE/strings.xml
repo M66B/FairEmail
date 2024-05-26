@@ -14,9 +14,6 @@
     <string name="app_cake_required">Minsta nödvändiga lagringsutrymme: %1$s</string>
     <string name="app_updated">Senast uppdaterad: %1$s</string>
     <string name="app_download">Hämtad från: %1$s</string>
-    <string name="app_mod1">        Säkerhetsuppdateringen från mars framtvingar meddelandet \'Appen svarar inte\', detta händer enbart på Google Pixel-enheter.
-        Vänligen skyll inte detta på appen, det är bara Google som kan åtgärda detta!
-    </string>
     <string name="channel_service">Övervakning</string>
     <string name="channel_send">Skicka</string>
     <string name="channel_notification">E-post</string>

@@ -14,7 +14,6 @@
     <string name="app_cake_required">Minimum vereiste opslagruimte: %1$s</string>
     <string name="app_updated">Laatst bijgewerkt: %1$s</string>
     <string name="app_download">Gedownload van: %1$s</string>
-    <string name="app_mod1">De beveiligingsupdate van maart veroorzaakt \'App reageert niet\'-meldingen, uitsluitend op Google Pixel-apparaten. Geef a.u.b. niet de app de schuld, alleen Google kan dit oplossen!</string>
     <string name="channel_service">Bewaken</string>
     <string name="channel_send">Verzenden</string>
     <string name="channel_notification">E-mail</string>
@@ -1332,7 +1331,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_html_remark">Het weergeven van het oorspronkelijke bericht met een donkere achtergrond is niet mogelijk omdat het onzichtbare donkere teksten en afbeeldingen kan veroorzaken</string>
     <string name="title_ask_show_html_images">Altijd afbeeldingen tonen bij het weergeven van originele berichten</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Toon originele berichten standaard</string>
+    <string name="title_ask_show_html_always">Toon originele berichten standaard</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_images_always">Toon standaard afbeeldingen</string>
     <string name="title_ask_show_image_hint">Afbeeldingen die als tracking afbeeldingen zijn herkend, worden niet getoond</string>
@@ -1960,7 +1959,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_ask_what">Vraag wat te doen</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_no_ask_for_again">Vraag dit niet opnieuw voor %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Dit kan ongedaan worden gemaakt in de privacy-settings tab pagina</string>
+    <string name="title_undo_privacy">Dit kan ongedaan worden gemaakt in de privacy-settings tab pagina</string>
     <string name="title_no_body">Geen berichttekst gevonden</string>
     <string name="title_large_body">Dit bericht is erg groot en dit kan problemen veroorzaken!</string>
     <string name="title_no_charset">Codering niet ondersteund: %1$s</string>

@@ -14,8 +14,9 @@
     <string name="app_cake_required">Espacio de almacenamiento mínimo requerido: %1$s</string>
     <string name="app_updated">Última actualización: %1$s</string>
     <string name="app_download">Descargado de: %1$s</string>
-    <string name="app_mod1">La actualización de seguridad de Marzo está ocasionando mensajes de \'La app no responde\', exclusivamente en dispositivos Google Pixel.
-        Por favor no culpe a la app por esto, ¡sólo Google puede resolverlo!
+    <string name="app_motd">        En Android 14/15 beta, pueden aparecer notificaciones de \'La app no está respondiendo\'.
+        Google está trabajando en una solución.
+        ¡Por favor no culpe a la app por este problema de Android!
     </string>
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Enviar</string>
@@ -1340,7 +1341,7 @@
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_html_remark">No es posible mostrar el mensaje original con un fondo oscuro porque puede causar que textos e imágenes oscuros sean invisibles</string>
     <string name="title_ask_show_html_images">Siempre mostrar imágenes al mostrar mensajes originales</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Mostrar mensajes originales por defecto</string>
+    <string name="title_ask_show_html_always">Mostrar mensajes originales por defecto</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_show_images_always">Mostrar imágenes por defecto</string>
     <string name="title_ask_show_image_hint">Las imágenes reconocidas como imágenes de seguimiento no se mostrarán</string>
@@ -1970,7 +1971,7 @@
     <string name="title_ask_what">Preguntar qué hacer</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
     <string name="title_no_ask_for_again">No volver a preguntar esto para %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Esto se puede deshacer en la página de configuración de privacidad</string>
+    <string name="title_undo_privacy">Esto se puede deshacer en la página de configuración de privacidad</string>
     <string name="title_no_body">No se encontró texto en el mensaje</string>
     <string name="title_large_body">¡Este mensaje es muy grande y puede causar problemas!</string>
     <string name="title_no_charset">Codificación no soportada: %1$s</string>

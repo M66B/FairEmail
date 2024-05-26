@@ -14,8 +14,9 @@
     <string name="app_cake_required">需要的最小存储空间： %1$s</string>
     <string name="app_updated">上次更新：%1$s</string>
     <string name="app_download">下载自：%1$s</string>
-    <string name="app_mod1">        2024年3月的安全更新导致出现“应用未响应”消息，只有 Google Pixel 设备有这个问题。
-        请不要将这一问题怪罪在 FairEmail 身上，只有 Google 才能解决这个问题！
+    <string name="app_motd">        在 Android 14/15 beta 中，偶尔会出现“应用程序未响应”通知。
+        Google 正在进行修复。
+        请不要将这个 Android 问题归咎于本应用！
     </string>
     <string name="channel_service">监控</string>
     <string name="channel_send">发送</string>
@@ -1324,7 +1325,7 @@
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_html_remark">无法在暗色背景下显示原始消息，因为会导致看不见的黑色文本和图像</string>
     <string name="title_ask_show_html_images">在显示原始消息时总是显示图像</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">默认显示原始邮件</string>
+    <string name="title_ask_show_html_always">默认显示原始邮件</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_images_always">默认显示图片</string>
     <string name="title_ask_show_image_hint">不会显示被识别为跟踪图像的图片</string>
@@ -1955,7 +1956,7 @@
     <string name="title_ask_what">询问做什么</string>
     <string name="title_no_ask_again">不再询问</string>
     <string name="title_no_ask_for_again">不再询问 %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">这可以在隐私设置标签页中撤销。</string>
+    <string name="title_undo_privacy">这可以在隐私设置标签页中撤销。</string>
     <string name="title_no_body">没有找到邮件正文</string>
     <string name="title_large_body">此邮件非常大，可能会导致问题！</string>
     <string name="title_no_charset">不支持的编码: %1$s</string>

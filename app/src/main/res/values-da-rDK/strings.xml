@@ -14,8 +14,9 @@
     <string name="app_cake_required">Krævet minimum af lagerplads: %1$s</string>
     <string name="app_updated">Senest opdateret: %1$s</string>
     <string name="app_download">Downloadet fra: %1$s</string>
-    <string name="app_mod1">        Marts-sikkerhedsopdateringen forårsager \'App svarer ikke\'-meddelelser udelukkende på Google Pixel-enheder.
-        Bebrejd dog ikke appen for dette, da kun Google kan løse problemet!
+    <string name="app_motd">        Med Android 14/15 beta forekommer lejlighedsvise \'App svarer ikke\'-notifikationer.
+        Google arbejder på en rettelse.
+        Bebrejd derfor ikke appen for dette Android-problem!
     </string>
     <string name="channel_service">Monitorering</string>
     <string name="channel_send">Send</string>
@@ -1342,7 +1343,7 @@
     <string name="title_ask_show_html">Visning af beskedindhold kan lække personfølsomme data</string>
     <string name="title_ask_show_html_remark">Visning af originalbeskeden på en mørk baggrund er ikke mulig, da det kan afstedkomme usynlige mørke tekster og billeder</string>
     <string name="title_ask_show_html_images">Vis altid billeder, når originalbeskederne vises</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Vis som standard oprindelig beskeder</string>
+    <string name="title_ask_show_html_always">Vis som standard oprindelig beskeder</string>
     <string name="title_ask_show_image">Visning af billeder kan lække personfølsomme data</string>
     <string name="title_ask_show_images_always">Vis som standard billeder</string>
     <string name="title_ask_show_image_hint">Billeder genkendt som sporingsbilleder, vises ikke</string>
@@ -1975,7 +1976,7 @@
     <string name="title_ask_what">Spørg, hvad der skal ske</string>
     <string name="title_no_ask_again">Spørg ikke om dette igen</string>
     <string name="title_no_ask_for_again">Spørg ikke om dette igen for %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Dette kan fortrydes på fanesiden fortrolighedsindstillinger</string>
+    <string name="title_undo_privacy">Dette kan fortrydes på fanesiden fortrolighedsindstillinger</string>
     <string name="title_no_body">Ingen beskedtekst fundet</string>
     <string name="title_large_body">Denne meddelelse er meget stor, hvilket kan give problemer!</string>
     <string name="title_no_charset">Uunderstøttet kodning: %1$s</string>

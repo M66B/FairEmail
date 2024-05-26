@@ -14,8 +14,9 @@
     <string name="app_cake_required">נפח האחסון המזערי הנחוץ: %1$s</string>
     <string name="app_updated">עדכון אחרון: %1$s</string>
     <string name="app_download">מקור ההורדה: %1$s</string>
-    <string name="app_mod1">        עדכון האבטחה של מרץ גורם להודעות ‚היישומון לא מגיב’, באופן בלעדי על מכשירי Google Pixel.
-        נא לא להאשים בכך את היישומון, רק Google יכולים לפתור את זה!
+    <string name="app_motd">        עם הבטא של Android 14/15, עולות לפעמים הודעות ‚היישומון לא מגיב’.
+        Google עובדים על תיקון.
+        אנחנו לא אשמים בתקלה הזאת מצד Android!
     </string>
     <string name="channel_service">מעקב</string>
     <string name="channel_send">שליחה</string>
@@ -1370,7 +1371,7 @@
     <string name="title_ask_show_html">הצגת ההודעה המקורית עשויה להדליף פרטים אישיים רגישים</string>
     <string name="title_ask_show_html_remark">הצגת ההודעה המקורית על רקע כהה אינה אפשרית כיוון שהיא עשויה להפוך טקסטים ותמונות כהים לבלתי נראים</string>
     <string name="title_ask_show_html_images">תמיד להציג תמונות בהצגת ההודעות המקוריות</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">הצגת הודעות מקוריות כברירת מחדל</string>
+    <string name="title_ask_show_html_always">הצגת הודעות מקוריות כברירת מחדל</string>
     <string name="title_ask_show_image">הצגת תמונות עשויה להדליף פרטים אישיים רגישים</string>
     <string name="title_ask_show_images_always">הצגת תמונות כברירת מחדל</string>
     <string name="title_ask_show_image_hint">תמונות שמזוהות כתמונות מעקב לא תוצגנה</string>
@@ -2003,7 +2004,7 @@
     <string name="title_ask_what">לשאול מה לעשות</string>
     <string name="title_no_ask_again">לא לשאול אותי שוב</string>
     <string name="title_no_ask_for_again">לא לשאול אותי שוב במשך %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">אפשר להסיג את זה בעמוד לשונית הגדרות הפרטיות</string>
+    <string name="title_undo_privacy">אפשר להסיג את זה בעמוד לשונית הגדרות הפרטיות</string>
     <string name="title_no_body">לא נמצא טקסט בהודעה</string>
     <string name="title_large_body">ההודעה הזאת גדולה מאוד ועלולה לגרום לבעיות!</string>
     <string name="title_no_charset">קידוד לא נתמך: %1$s</string>

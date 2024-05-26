@@ -14,8 +14,9 @@
     <string name="app_cake_required">Espaço mínimo de armazenamento necessário: %1$s</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Descarregada via: %1$s</string>
-    <string name="app_mod1">A atualização de segurança de maio está mostrando a mensagem  de erro \'App não responde\', exclusivamente nos dispositivos Google Pixel.
-        Por favor, não culpe a app por isso, só a Google pode resolver esse problema!
+    <string name="app_motd">        Com o Android 14/15 beta, notificações de \'App not responding\' ocorrem ocasionalmente.
+        A Google está trabalhando numa correção.
+        Por favor, não culpe a aplicação por este problema do Android!
     </string>
     <string name="channel_service">Monitorização</string>
     <string name="channel_send">Enviar</string>
@@ -1343,7 +1344,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_ask_show_html">Mostrar a mensagem original pode resultar na fuga de informação confidencial</string>
     <string name="title_ask_show_html_remark">Mostrar a mensagem original num fundo escuro não é possível já que pode tornar os textos e as imagens escuras invisíveis</string>
     <string name="title_ask_show_html_images">Mostrar sempre as imagens nas mensagens originais</string>
-    <string name="title_ask_show_html_always" comment="title_ask_show_html_always&#10;Title for option (checkbox) to enable showing original messages by default">Mostrar mensagens originais por padrão</string>
+    <string name="title_ask_show_html_always">Mostrar mensagens originais por padrão</string>
     <string name="title_ask_show_image">Mostrar as imagens pode resultar na fuga de informação confidencial</string>
     <string name="title_ask_show_images_always">Mostrar imagens por padrão</string>
     <string name="title_ask_show_image_hint">Imagens reconhecidas como imagens de monitorização não serão mostradas</string>
@@ -1976,7 +1977,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_ask_what">Perguntar o que fazer</string>
     <string name="title_no_ask_again">Não voltar a perguntar</string>
     <string name="title_no_ask_for_again">Não voltar a perguntar por %1$s</string>
-    <string name="title_undo_privacy" comment="title_undo_privacy&#10;Remark that an option can be restored in the privacy settings-tab page">Isto pode ser revertido na página de privacidade-configurações</string>
+    <string name="title_undo_privacy">Isto pode ser revertido na página de privacidade-configurações</string>
     <string name="title_no_body">Não foi encontrado corpo da mensagem</string>
     <string name="title_large_body">Esta mensagem é muito grande e isso pode causar problemas!</string>
     <string name="title_no_charset">Codificação não suportada: %1$s</string>
