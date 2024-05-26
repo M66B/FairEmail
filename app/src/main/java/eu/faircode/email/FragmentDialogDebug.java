@@ -24,6 +24,7 @@ import static android.app.Activity.RESULT_OK;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -40,6 +41,7 @@ import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,17 +56,32 @@ public class FragmentDialogDebug extends FragmentDialogBase {
             enabled = savedInstanceState.getBoolean("fair:enabled");
 
         final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_debug, null);
         final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
         final EditText etIssue = view.findViewById(R.id.etIssue);
         final Spinner spAccount = view.findViewById(R.id.spAccount);
         final CheckBox cbContact = view.findViewById(R.id.cbContact);
         final CheckBox cbSend = view.findViewById(R.id.cbSend);
+        final CheckBox cbCrashReports = view.findViewById(R.id.cbCrashReports);
+        final ImageButton ibCrashReports = view.findViewById(R.id.ibCrashReports);
 
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 v.getContext().startActivity(Helper.getIntentIssue(v.getContext(), "debug"));
+            }
+        });
+
+        boolean crash_reports = prefs.getBoolean("crash_reports", false);
+        cbCrashReports.setVisibility(crash_reports ? View.GONE : View.VISIBLE);
+
+        ibCrashReports.setVisibility(crash_reports ? View.GONE : View.VISIBLE);
+        ibCrashReports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 104);
             }
         });
 
@@ -146,6 +163,14 @@ public class FragmentDialogDebug extends FragmentDialogBase {
                         EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
                         if (account != null)
                             args.putString("account", account.id + "/" + account.name + "/" + account.user);
+
+                        if (cbCrashReports.isChecked()) {
+                            prefs.edit()
+                                    .remove("crash_report_count")
+                                    .putBoolean("crash_reports", true)
+                                    .apply();
+                            Log.setCrashReporting(true);
+                        }
 
                         sendResult(RESULT_OK);
                     }

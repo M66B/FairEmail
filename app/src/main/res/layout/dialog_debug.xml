@@ -116,6 +116,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSend" />
 
+        <CheckBox
+            android:id="@+id/cbCrashReports"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_crash_reports"
+            app:layout_constraintEnd_toStartOf="@+id/ibCrashReports"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSendRemark" />
+
+        <ImageButton
+            android:id="@+id/ibCrashReports"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_info"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cbCrashReports"
+            app:srcCompat="@drawable/twotone_info_24" />
+
         <TextView
             android:id="@+id/tvQuestion"
             android:layout_width="wrap_content"
@@ -125,6 +150,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic|bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSendRemark" />
+            app:layout_constraintTop_toBottomOf="@id/ibCrashReports" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
