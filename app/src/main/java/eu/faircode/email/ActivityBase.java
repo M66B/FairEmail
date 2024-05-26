@@ -170,6 +170,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     mlp.bottomMargin = insets.bottom;
                 v.setLayoutParams(mlp);
 
+                if (ActivityBase.this instanceof ActivityCompose) {
+                    int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+                    v.setPaddingRelative(0, 0, 0, bottom - insets.bottom);
+                }
+
                 if (edge_to_edge)
                     for (View child : Helper.getViewsWithTag(v, "inset")) {
                         mlp = (ViewGroup.MarginLayoutParams) child.getLayoutParams();
@@ -184,31 +189,32 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             return WindowInsetsCompat.CONSUMED;
         });
 
-        ViewCompat.setWindowInsetsAnimationCallback(
-                holder,
-                new WindowInsetsAnimationCompat.Callback(WindowInsetsAnimationCompat.Callback.DISPATCH_MODE_STOP) {
-                    @NonNull
-                    @Override
-                    public WindowInsetsCompat onProgress(
-                            @NonNull WindowInsetsCompat windowInsets,
-                            @NonNull List<WindowInsetsAnimationCompat> runningAnimations) {
-                        try {
-                            // https://developer.android.com/develop/ui/views/layout/sw-keyboard
-                            for (WindowInsetsAnimationCompat animation : runningAnimations)
-                                if ((animation.getTypeMask() & WindowInsetsCompat.Type.ime()) != 0) {
-                                    Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-                                    int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-                                    int pad = bottom - insets.bottom;
-                                    holder.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
-                                    break;
-                                }
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
+        if (false)
+            ViewCompat.setWindowInsetsAnimationCallback(
+                    holder,
+                    new WindowInsetsAnimationCompat.Callback(WindowInsetsAnimationCompat.Callback.DISPATCH_MODE_STOP) {
+                        @NonNull
+                        @Override
+                        public WindowInsetsCompat onProgress(
+                                @NonNull WindowInsetsCompat windowInsets,
+                                @NonNull List<WindowInsetsAnimationCompat> runningAnimations) {
+                            try {
+                                // https://developer.android.com/develop/ui/views/layout/sw-keyboard
+                                for (WindowInsetsAnimationCompat animation : runningAnimations)
+                                    if ((animation.getTypeMask() & WindowInsetsCompat.Type.ime()) != 0) {
+                                        Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                                        int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+                                        int pad = bottom - insets.bottom;
+                                        holder.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
+                                        break;
+                                    }
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
 
-                        return windowInsets;
-                    }
-                });
+                            return windowInsets;
+                        }
+                    });
 
         super.setContentView(holder);
 
