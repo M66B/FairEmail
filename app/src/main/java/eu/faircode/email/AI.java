@@ -44,42 +44,50 @@ public class AI {
     }
 
     static String completeChat(Context context, long id, CharSequence body) throws JSONException, IOException {
-        File file = EntityMessage.getFile(context, id);
-        Document d = JsoupEx.parse(file);
-        Elements ref = d.select("div[fairemail=reference]");
-        d = Document.createShell("");
-        d.appendChildren(ref);
+        String reply = null;
+        if (body == null || TextUtils.isEmpty(body.toString().trim())) {
+            body = "?";
 
-        HtmlHelper.removeSignatures(d);
-        HtmlHelper.truncate(d, MAX_SUMMARIZE_TEXT_SIZE);
+            File file = EntityMessage.getFile(context, id);
+            if (file.exists()) {
+                Document d = JsoupEx.parse(file);
+                Elements ref = d.select("div[fairemail=reference]");
+                if (!ref.isEmpty()) {
+                    d = Document.createShell("");
+                    d.appendChildren(ref);
+
+                    HtmlHelper.removeSignatures(d);
+                    HtmlHelper.truncate(d, MAX_SUMMARIZE_TEXT_SIZE);
+
+                    reply = d.text();
+                    if (TextUtils.isEmpty(reply.trim()))
+                        reply = null;
+                }
+            }
+        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-        if (body == null || TextUtils.isEmpty(body.toString().trim()))
-            if (OpenAI.isAvailable(context) && !ref.isEmpty())
-                body = prefs.getString("openai_answer", OpenAI.DEFAULT_ANSWER_PROMPT);
-            else if (Gemini.isAvailable(context) && !ref.isEmpty())
-                body = prefs.getString("gemini_answer", Gemini.DEFAULT_ANSWER_PROMPT);
-            else
-                body = "?";
-
         if (OpenAI.isAvailable(context)) {
             String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
             boolean multimodal = prefs.getBoolean("openai_multimodal", false);
+            String answer = prefs.getString("openai_answer", OpenAI.DEFAULT_ANSWER_PROMPT);
 
             List<OpenAI.Message> messages = new ArrayList<>();
 
-            if (body instanceof Spannable && multimodal)
-                messages.add(new OpenAI.Message(OpenAI.USER,
-                        OpenAI.Content.get((Spannable) body, id, context)));
-            else
+            if (reply == null) {
+                if (body instanceof Spannable && multimodal)
+                    messages.add(new OpenAI.Message(OpenAI.USER,
+                            OpenAI.Content.get((Spannable) body, id, context)));
+                else
+                    messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
+                            new OpenAI.Content(OpenAI.CONTENT_TEXT, body.toString())}));
+            } else {
                 messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
-                        new OpenAI.Content(OpenAI.CONTENT_TEXT, body.toString())}));
-
-            if (!ref.isEmpty())
+                        new OpenAI.Content(OpenAI.CONTENT_TEXT, answer)}));
                 messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
-                        new OpenAI.Content(OpenAI.CONTENT_TEXT, ref.text())}));
+                        new OpenAI.Content(OpenAI.CONTENT_TEXT, reply)}));
+            }
 
             OpenAI.Message[] completions = OpenAI.completeChat(context,
                     model, messages.toArray(new OpenAI.Message[0]), temperature, 1);
@@ -98,14 +106,17 @@ public class AI {
         } else if (Gemini.isAvailable(context)) {
             String model = prefs.getString("gemini_model", Gemini.DEFAULT_MODEL);
             float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
+            String answer = prefs.getString("gemini_answer", Gemini.DEFAULT_ANSWER_PROMPT);
 
             List<Gemini.Message> messages = new ArrayList<>();
 
-            messages.add(new Gemini.Message(Gemini.USER,
-                    new String[]{Gemini.truncateParagraphs(body.toString())}));
-
-            if (!ref.isEmpty())
-                messages.add(new Gemini.Message(Gemini.USER, new String[]{ref.text()}));
+            if (reply == null)
+                messages.add(new Gemini.Message(Gemini.USER,
+                        new String[]{Gemini.truncateParagraphs(body.toString())}));
+            else {
+                messages.add(new Gemini.Message(Gemini.USER, new String[]{answer}));
+                messages.add(new Gemini.Message(Gemini.USER, new String[]{reply}));
+            }
 
             Gemini.Message[] completions = Gemini.generate(context,
                     model, messages.toArray(new Gemini.Message[0]), temperature, 1);
