@@ -56,9 +56,9 @@ public class AI {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         if (body == null || TextUtils.isEmpty(body.toString().trim()))
-            if (OpenAI.isAvailable(context))
+            if (OpenAI.isAvailable(context) && !ref.isEmpty())
                 body = prefs.getString("openai_answer", OpenAI.DEFAULT_ANSWER_PROMPT);
-            else if (Gemini.isAvailable(context))
+            else if (Gemini.isAvailable(context) && !ref.isEmpty())
                 body = prefs.getString("gemini_answer", Gemini.DEFAULT_ANSWER_PROMPT);
             else
                 body = "?";
