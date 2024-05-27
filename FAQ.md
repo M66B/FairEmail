@@ -1943,14 +1943,14 @@ Viewing remotely stored images (see also [this FAQ](#faq27)) and opening links m
 but will also leak your IP address.
 See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
-This BBC article is worth reading: [Spy pixels in emails have become endemic](https://www.bbc.com/news/technology-56071437).
+This BBC article is worth reading as well: [Spy pixels in emails have become endemic](https://www.bbc.com/news/technology-56071437).
 
 Opening attachments or viewing an original message might load remote content and execute scripts,
 that might not only cause privacy sensitive information to leak, but can also be a security risk.
 
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
-FairEmail formats messages again causing messages to look different from the original, but also uncovering phishing links.
+FairEmail formats messages again causing messages to look different from the original, but also uncovering phishing links, etc.
 
 Note that reformatted messages are often better readable than original messages because the margins are removed, and font colors and sizes are standardized.
 
@@ -1959,7 +1959,7 @@ Since the images are downloaded from the source server [in real-time](https://bl
 this is even less secure because Google is involved too without providing much benefit.
 
 You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
-You might need to reset the questions via a button in the miscellaneous settings tab page.
+You might need to reset the questions via a button in the miscellaneous-settings tab page.
 
 <br />
 
@@ -3422,8 +3422,11 @@ Also, FairEmail can show a small red warning flag
 when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
 You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the display settings.
 The feature depends on the header [Authentication-Results](https://datatracker.ietf.org/doc/html/rfc7601), which the receiving email server should add.
-If the email server doesn't add an *Authentication-Results*, which is optional,
+The shield will be green only if DMARC passes (=alignment)
+and either [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) or [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) passes.
+If the email server doesn't add an *Authentication-Results* header, which is optional,
 you can enable native DKIM in the debug panel, which appears when you enable debug mode in the miscellaneous settings tab page (last option).
+In this case, the shield will be green only when DKIM passes and the signer domain matches that of the sender.
 Please be aware that this option will increase both data and battery usage.
 
 FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server.
