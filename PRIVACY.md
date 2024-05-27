@@ -108,6 +108,8 @@ FairEmail **is** [GDPR compliant](https://gdpr.eu/).
 
 The following data is stored on the device or, in other words, collected, but not sent off the device:
 
+<div class="table-wrapper">
+
 | Data stored (collected)                                                       | Purpose                         | Related Android permissions |
 | ----------------------------------------------------------------------------- | ------------------------------- | --------------------------- |
 | Names and email addresses (account and contact data)                          | To configure accounts           | GET_ACCOUNTS                |
@@ -116,6 +118,8 @@ The following data is stored on the device or, in other words, collected, but no
 |                                                                               | To search for messages          |                             |
 | Attachment files (audio, sound, music, voice, photos, video, documents, etc.) | To play media (audio, video)    | READ_EXTERNAL_STORAGE       |
 |                                                                               | To view images, documents, etc. | READ_EXTERNAL_STORAGE       |
+
+</div>
 
 By default, personal data as mentioned above will be stored on your device for 30 days.
 
