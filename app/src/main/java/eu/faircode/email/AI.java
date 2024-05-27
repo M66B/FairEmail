@@ -53,16 +53,17 @@ public class AI {
         HtmlHelper.removeSignatures(d);
         HtmlHelper.truncate(d, MAX_SUMMARIZE_TEXT_SIZE);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         if (body == null || TextUtils.isEmpty(body.toString().trim()))
             if (OpenAI.isAvailable(context))
-                body = OpenAI.DEFAULT_ANSWER_PROMPT;
+                body = prefs.getString("openai_answer", OpenAI.DEFAULT_ANSWER_PROMPT);
             else if (Gemini.isAvailable(context))
-                body = Gemini.DEFAULT_ANSWER_PROMPT;
+                body = prefs.getString("gemini_answer", Gemini.DEFAULT_ANSWER_PROMPT);
             else
                 body = "?";
 
         if (OpenAI.isAvailable(context)) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
             boolean multimodal = prefs.getBoolean("openai_multimodal", false);
@@ -95,7 +96,6 @@ public class AI {
                     }
             return sb.toString();
         } else if (Gemini.isAvailable(context)) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String model = prefs.getString("gemini_model", Gemini.DEFAULT_MODEL);
             float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
 
