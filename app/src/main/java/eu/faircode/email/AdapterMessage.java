@@ -1975,7 +1975,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (lparams.width != px || lparams.height != px) {
                         lparams.width = px;
                         lparams.height = px;
-                        ibAvatar.requestLayout();
+                        ibAvatar.setLayoutParams(lparams);
                     }
                 }
             }
