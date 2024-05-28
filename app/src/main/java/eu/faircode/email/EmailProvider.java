@@ -22,6 +22,7 @@ package eu.faircode.email;
 import static android.system.OsConstants.ECONNREFUSED;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.system.ErrnoException;
@@ -29,6 +30,7 @@ import android.text.TextUtils;
 import android.util.Xml;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -646,20 +648,22 @@ public class EmailProvider implements Parcelable {
     @NonNull
     private static EmailProvider fromISPDB(Context context, String domain, String email, IDiscovery intf) throws Throwable {
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean open_safe = prefs.getBoolean("open_safe", false);
         for (String link : Misc.getISPDBUrls(context, domain, email))
             try {
                 URL url = new URL(link);
-                return getISPDB(context, domain, url, true, intf);
+                return getISPDB(context, domain, url, open_safe, intf);
             } catch (Throwable ex) {
                 Log.i(ex);
             }
 
         URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
-        return getISPDB(context, domain, url, false, intf);
+        return getISPDB(context, domain, url, true, intf);
     }
 
     @NonNull
-    private static EmailProvider getISPDB(Context context, String domain, URL url, boolean unsafe, IDiscovery intf) throws IOException, XmlPullParserException {
+    private static EmailProvider getISPDB(Context context, String domain, URL url, boolean open_safe, IDiscovery intf) throws IOException, XmlPullParserException {
         EmailProvider provider = new EmailProvider(domain);
 
         HttpURLConnection request = null;
@@ -674,13 +678,17 @@ public class EmailProvider implements Parcelable {
             request.setDoInput(true);
             ConnectionHelper.setUserAgent(context, request);
 
-            if (unsafe && request instanceof HttpsURLConnection) {
-                ((HttpsURLConnection) request).setHostnameVerifier(new HostnameVerifier() {
-                    @Override
-                    public boolean verify(String hostname, SSLSession session) {
-                        return true;
-                    }
-                });
+            if (request instanceof HttpsURLConnection) {
+                if (!open_safe)
+                    ((HttpsURLConnection) request).setHostnameVerifier(new HostnameVerifier() {
+                        @Override
+                        public boolean verify(String hostname, SSLSession session) {
+                            return true;
+                        }
+                    });
+            } else {
+                if (open_safe)
+                    throw new IOException("https required url=" + url);
             }
 
             request.connect();
