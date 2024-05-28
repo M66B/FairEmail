@@ -134,10 +134,12 @@ public class FragmentBase extends Fragment {
         if (actionbar == null)
             return;
 
-        if ((actionbar.getDisplayOptions() & DISPLAY_SHOW_CUSTOM) == 0)
+        Toolbar toolbar = activity.findViewById(R.id.toolbar);
+
+        if ((actionbar.getDisplayOptions() & DISPLAY_SHOW_CUSTOM) == 0 && toolbar == null)
             return;
 
-        final View custom = actionbar.getCustomView();
+        View custom = (toolbar == null ? actionbar.getCustomView() : toolbar);
         if (custom == null)
             return;
 
