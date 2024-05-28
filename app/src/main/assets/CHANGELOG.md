@@ -8,7 +8,16 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### Next version
+
 Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
+
+### 1.2189 - 2024-05-28 *
+
+* Fixed all reported problems
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2188 - 2024-05-27 *
 
