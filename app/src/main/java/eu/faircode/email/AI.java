@@ -43,7 +43,7 @@ public class AI {
         return (OpenAI.isAvailable(context) || Gemini.isAvailable(context));
     }
 
-    static String completeChat(Context context, long id, CharSequence body) throws JSONException, IOException {
+    static String completeChat(Context context, long id, CharSequence body, long template) throws JSONException, IOException {
         String reply = null;
         if (body == null || TextUtils.isEmpty(body.toString().trim())) {
             body = "?";
@@ -66,6 +66,14 @@ public class AI {
             }
         }
 
+        String prompt = null;
+        DB db = DB.getInstance(context);
+        EntityAnswer t = db.answer().getAnswer(template);
+        if (t != null) {
+            String html = t.getHtml(context, null);
+            prompt = JsoupEx.parse(html).body().text();
+        }
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (OpenAI.isAvailable(context)) {
             String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
@@ -84,7 +92,7 @@ public class AI {
                             new OpenAI.Content(OpenAI.CONTENT_TEXT, body.toString())}));
             } else {
                 messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
-                        new OpenAI.Content(OpenAI.CONTENT_TEXT, answer)}));
+                        new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt == null ? answer : prompt)}));
                 messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
                         new OpenAI.Content(OpenAI.CONTENT_TEXT, reply)}));
             }
@@ -114,7 +122,7 @@ public class AI {
                 messages.add(new Gemini.Message(Gemini.USER,
                         new String[]{Gemini.truncateParagraphs(body.toString())}));
             else {
-                messages.add(new Gemini.Message(Gemini.USER, new String[]{answer}));
+                messages.add(new Gemini.Message(Gemini.USER, new String[]{prompt == null ? answer : prompt}));
                 messages.add(new Gemini.Message(Gemini.USER, new String[]{reply}));
             }
 

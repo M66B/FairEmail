@@ -1884,7 +1884,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onClick(View view) {
                 if (AI.isAvailable(context))
-                    onAI();
+                    onAI(view);
             }
         });
         menu.findItem(R.id.menu_ai).setActionView(ibAI);
@@ -2639,7 +2639,53 @@ public class FragmentCompose extends FragmentBase {
         }.serial().execute(this, args, "compose:print");
     }
 
-    private void onAI() {
+    private void onAI(View anchor) {
+        new SimpleTask<List<EntityAnswer>>() {
+            @Override
+            protected List<EntityAnswer> onExecute(Context context, Bundle args) throws Throwable {
+                DB db = DB.getInstance(context);
+                return db.answer().getAiPrompts();
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<EntityAnswer> prompts) {
+                if (prompts == null || prompts.isEmpty())
+                    _onAi(null);
+                else {
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), anchor);
+
+                    popupMenu.getMenu()
+                            .add(Menu.NONE, 1, 1, R.string.title_answer_standard)
+                            .setIntent(new Intent().putExtra("id", -1L));
+
+                    for (int i = 0; i < prompts.size(); i++) {
+                        EntityAnswer prompt = prompts.get(i);
+                        popupMenu.getMenu()
+                                .add(Menu.NONE, i + 2, i + 2, prompt.name)
+                                .setIntent(new Intent().putExtra("id", prompt.id));
+                    }
+
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            long id = item.getIntent().getLongExtra("id", -1L);
+                            _onAi(id);
+                            return true;
+                        }
+                    });
+
+                    popupMenu.show();
+                }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, new Bundle(), "AI:template");
+    }
+
+    private void _onAi(Long template) {
         int start = etBody.getSelectionStart();
         int end = etBody.getSelectionEnd();
         boolean selection = (start >= 0 && end > start);
@@ -2649,6 +2695,7 @@ public class FragmentCompose extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putCharSequence("body", body);
+        args.putLong("template", template == null ? -1L : template);
 
         new SimpleTask<String>() {
             @Override
@@ -2667,8 +2714,9 @@ public class FragmentCompose extends FragmentBase {
             protected String onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 CharSequence body = args.getCharSequence("body");
+                long template = args.getLong("template");
 
-                return AI.completeChat(context, id, body);
+                return AI.completeChat(context, id, body, template);
             }
 
             @Override
@@ -2708,7 +2756,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
             }
-        }.serial().execute(this, args, "AI");
+        }.serial().execute(this, args, "AI:run");
     }
 
     private void onTranslate(View anchor) {
