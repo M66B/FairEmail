@@ -763,6 +763,7 @@
     <string name="title_advanced_gemini">Gemini を統合する</string>
     <string name="title_advanced_multi_modal">マルチモーダル (テキスト + メディア)</string>
     <string name="title_advanced_summarize_prompt">要約プロンプト</string>
+    <string name="title_advanced_answer_prompt" comment="title_advanced_answer_prompt&#10;Title for option to change &quot;AI&quot; prompt for answering a message">返信プロンプト</string>
     <string name="title_advanced_sdcard">SD カードを使用できますか？</string>
     <string name="title_advanced_watchdog">FairEmail がアクティブか定期的に確認する</string>
     <string name="title_advanced_updates">GitHub で更新を確認する</string>

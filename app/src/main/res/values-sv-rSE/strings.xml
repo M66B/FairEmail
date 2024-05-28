@@ -14,6 +14,10 @@
     <string name="app_cake_required">Minsta nödvändiga lagringsutrymme: %1$s</string>
     <string name="app_updated">Senast uppdaterad: %1$s</string>
     <string name="app_download">Hämtad från: %1$s</string>
+    <string name="app_motd">        Med Android 14/15 beta, visas \"App svarar inte\" meddelanden ibland.
+        Google arbetar på en fix.
+        Vänligen skyll inte på appen för detta Android-problem!
+    </string>
     <string name="channel_service">Övervakning</string>
     <string name="channel_send">Skicka</string>
     <string name="channel_notification">E-post</string>
@@ -1328,7 +1332,9 @@
     <string name="title_ask_show_html">Att visa det ursprungliga meddelandet kan läcka sekretesskänslig information</string>
     <string name="title_ask_show_html_remark">Att visa originalmeddelandet med en mörk bakgrund är inte möjligt eftersom det kan orsaka osynliga mörka texter och bilder</string>
     <string name="title_ask_show_html_images">Visa alltid bilder när originalmeddelanden visas</string>
+    <string name="title_ask_show_html_always">Visa originalmeddelanden som standard</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
+    <string name="title_ask_show_images_always">Visa bilder som standard</string>
     <string name="title_ask_show_image_hint">Bilder som känns igen som spårningsbilder kommer inte att visas</string>
     <string name="title_ask_show_amp">Visa AMP-variant av meddelandet?</string>
     <string name="title_ask_show_amp_hint">AMP-meddelanden är utformade för att vara dynamiska och interagera med internet och kan därför per definition användas för att spåra dig</string>
@@ -1957,6 +1963,7 @@
     <string name="title_ask_what">Fråga vad du ska göra</string>
     <string name="title_no_ask_again">Fråga inte detta igen</string>
     <string name="title_no_ask_for_again">Fråga inte om %1$s igen</string>
+    <string name="title_undo_privacy">Detta kan ångras i fliken sekretessinställningar</string>
     <string name="title_no_body">Ingen meddelandetext hittades</string>
     <string name="title_large_body">Detta meddelande är mycket stort och det kan orsaka problem!</string>
     <string name="title_no_charset">Kodningen stöds inte: %1$s</string>

@@ -804,6 +804,7 @@
     <string name="title_advanced_gemini">Интеграция с Gemini</string>
     <string name="title_advanced_multi_modal">Мультимодальность</string>
     <string name="title_advanced_summarize_prompt">Порядок сводки</string>
+    <string name="title_advanced_answer_prompt" comment="title_advanced_answer_prompt&#10;Title for option to change &quot;AI&quot; prompt for answering a message">Запрос для ответа</string>
     <string name="title_advanced_sdcard">Я хочу использовать SD-карту</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
     <string name="title_advanced_updates">Проверять обновления на GitHub</string>

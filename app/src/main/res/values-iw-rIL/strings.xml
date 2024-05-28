@@ -805,6 +805,7 @@
     <string name="title_advanced_gemini">שילוב מול Gemini</string>
     <string name="title_advanced_multi_modal">ריבוי ערוצי תקשורת</string>
     <string name="title_advanced_summarize_prompt">בקשת תקציר</string>
+    <string name="title_advanced_answer_prompt" comment="title_advanced_answer_prompt&#10;Title for option to change &quot;AI&quot; prompt for answering a message">בקשת תשובה</string>
     <string name="title_advanced_sdcard">ארצה להשתמש בכרטיס SD</string>
     <string name="title_advanced_watchdog">לבדוק מדי פעם אם FairEmail עדיין פעיל</string>
     <string name="title_advanced_updates">איתור עדכונים ב־GitHub</string>

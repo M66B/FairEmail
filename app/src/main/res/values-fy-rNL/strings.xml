@@ -14,6 +14,10 @@
     <string name="app_cake_required">Op syn minst fereaske ûnthâld: %1$s</string>
     <string name="app_updated">Lêst bywurke: %1$s</string>
     <string name="app_download">Download fan: %1$s</string>
+    <string name="app_motd">        Under Android 14/15 beta, kin somtiden de melding ‘App reageert niet’ ferskine.
+        Google wurket oan in oplossing.
+        Jou asjebleaft net de skuld oan de app foar dit Android-probleem!
+    </string>
     <string name="channel_service">Beweitsje</string>
     <string name="channel_send">Ferstjoere</string>
     <string name="channel_notification">E-mailbericht</string>
@@ -771,6 +775,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_gemini">Gemini-yntegraasje</string>
     <string name="title_advanced_multi_modal">Multimodaal</string>
     <string name="title_advanced_summarize_prompt">Opdracht gearfetsje</string>
+    <string name="title_advanced_answer_prompt" comment="title_advanced_answer_prompt&#10;Title for option to change &quot;AI&quot; prompt for answering a message">Opdracht antwurdzje</string>
     <string name="title_advanced_sdcard">Ik wol in SD-kaart brûke</string>
     <string name="title_advanced_watchdog">Periodyk kontrolearje oft FairEmail noch aktyf is</string>
     <string name="title_advanced_updates">Kontrolearje op GitHub-fernijingen</string>
@@ -916,6 +921,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_identity_name">Jo namme</string>
     <string name="title_identity_email">Jo e-mailadres</string>
     <string name="title_identity_tenant_hint">Dit fjild moat yn de measte gefallen leech wêze</string>
+    <string name="title_identity_receive_first_hint">It is selden nedich om dizze opsje yn te skeakeljen, boppedat sil it gegevensferbrûk tanimme!</string>
     <string name="title_identity_color_hint">Identiteitskleuren hawwe foarrang boppe map- en accountkleuren</string>
     <string name="title_advanced_sender">Bewurkjen ôfstjoerderadres tastean</string>
     <string name="title_advanced_sender_name">Brûk namme wannear ôfstjoerderadres oanpast is</string>
@@ -973,6 +979,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_password">Wachtwurd</string>
     <string name="title_password_storage">Hoe wurde wachtwurden bewarre?</string>
     <string name="title_case_sensitive">Brûkersnammen en wachtwurden binne meastal haadlettergefoelich</string>
+    <string name="title_login_before_send">Foar ferstjoeren ûntfange</string>
     <string name="title_client_certificate">Clientsertifikaat</string>
     <string name="title_realm">Domein</string>
     <string name="title_use_ip">Brûk lokaal IP-adres yn stee fan hostnamme</string>
@@ -1075,6 +1082,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_expunge_remark">Dit sil alle berjochten dy’t markearre binne om fuort te smiten permanint fuortsmite</string>
     <string name="title_empty_trash">Jiskefet leegje</string>
     <string name="title_empty_spam">Net-winske leegje</string>
+    <string name="title_edit_color">Kleur bewurkje</string>
     <string name="title_edit_properties">Eigenskippen bewurkje</string>
     <string name="title_edit_rules">Rigel bewurkje</string>
     <string name="title_execute_rules">Rigels útfiere</string>
@@ -1331,7 +1339,9 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_ask_show_html">It orizjinele berjocht toane kin privacygefoelige ynformaasje lekke</string>
     <string name="title_ask_show_html_remark">It orizjinele berjocht toane op in donkere eftergrûn is net mooglik, omdat tsjustere teksten en ôfbyldingen ûnsichtber wurde kinne</string>
     <string name="title_ask_show_html_images">Altyd ôfbyldingen toane by it werjaan fan orizjinele berjochten</string>
+    <string name="title_ask_show_html_always">Orizjinele berjochten standert toane</string>
     <string name="title_ask_show_image">Ofbyldingen toane kin privacygefoelige ynformaasje lekke</string>
+    <string name="title_ask_show_images_always">Ofbyldingen standert toane</string>
     <string name="title_ask_show_image_hint">Ofbyldingen werkend as folchôfbyldingen, wurde net toand</string>
     <string name="title_ask_show_amp">AMP-fariant fan it berjocht toane?</string>
     <string name="title_ask_show_amp_hint">AMP-berjochten binne ûntwurpen om dynamysk te wêzen en om te kommunisearjen mei it ynternet en kinne dêrom per definysje brûkt wurde om jo te folgjen</string>
@@ -1682,6 +1692,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_rule_sound">Lûd ôfspylje</string>
     <string name="title_rule_silent">Stille melding</string>
     <string name="title_rule_summarize">Gearfetsje</string>
+    <string name="title_rule_summarize_remark">It berjocht tegearre mei de konfigurearre AI-yntegraasje gearfetsje</string>
     <string name="title_rule_caption">Rigel bewurkje</string>
     <string name="title_rule_title">Regel jildt foar</string>
     <string name="title_rule_name">Namme</string>
@@ -1958,6 +1969,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_ask_what">Freegje wat te dwaan</string>
     <string name="title_no_ask_again">Freegje dit net wer</string>
     <string name="title_no_ask_for_again">Freegje dit net wer foar %1$s</string>
+    <string name="title_undo_privacy">Dit kin ûngedien makke wurde yn de ljepblêdside privacyynstellingen</string>
     <string name="title_no_body">Gjin berjochttekst fûn</string>
     <string name="title_large_body">Dit berjocht is hiel grut en dit kin problemen feroarsaakje!</string>
     <string name="title_no_charset">Net stipe kodearring: %1$s</string>

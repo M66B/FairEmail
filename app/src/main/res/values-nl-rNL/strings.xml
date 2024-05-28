@@ -14,6 +14,10 @@
     <string name="app_cake_required">Minimum vereiste opslagruimte: %1$s</string>
     <string name="app_updated">Laatst bijgewerkt: %1$s</string>
     <string name="app_download">Gedownload van: %1$s</string>
+    <string name="app_motd">        Onder Android 14/15 beta, kan soms de melding ‘App reageert niet’ verschijnen.
+        Google werkt aan een oplossing.
+        Geef astublieft niet de schuld aan de app voor dit Android-probleem!
+    </string>
     <string name="channel_service">Bewaken</string>
     <string name="channel_send">Verzenden</string>
     <string name="channel_notification">E-mail</string>
@@ -769,6 +773,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_gemini">Gemini integratie</string>
     <string name="title_advanced_multi_modal">Multimodaal</string>
     <string name="title_advanced_summarize_prompt">Opdracht samenvatten</string>
+    <string name="title_advanced_answer_prompt" comment="title_advanced_answer_prompt&#10;Title for option to change &quot;AI&quot; prompt for answering a message">Opdracht antwoorden</string>
     <string name="title_advanced_sdcard">Ik wil een SD-kaart gebruiken</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op GitHub updates</string>
@@ -1333,7 +1338,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_ask_show_html_images">Altijd afbeeldingen tonen bij het weergeven van originele berichten</string>
     <string name="title_ask_show_html_always">Toon originele berichten standaard</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
-    <string name="title_ask_show_images_always">Toon standaard afbeeldingen</string>
+    <string name="title_ask_show_images_always">Afbeeldingen standaard tonen</string>
     <string name="title_ask_show_image_hint">Afbeeldingen die als tracking afbeeldingen zijn herkend, worden niet getoond</string>
     <string name="title_ask_show_amp">AMP variant van het bericht weergeven?</string>
     <string name="title_ask_show_amp_hint">AMP berichten zijn ontworpen om dynamisch te zijn en om te communiceren met het internet en kunnen daarom per definitie worden gebruikt om u te volgen</string>
@@ -1959,7 +1964,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_ask_what">Vraag wat te doen</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_no_ask_for_again">Vraag dit niet opnieuw voor %1$s</string>
-    <string name="title_undo_privacy">Dit kan ongedaan worden gemaakt in de privacy-settings tab pagina</string>
+    <string name="title_undo_privacy">Dit kan ongedaan worden gemaakt in de tabpagina privacyinstellingen</string>
     <string name="title_no_body">Geen berichttekst gevonden</string>
     <string name="title_large_body">Dit bericht is erg groot en dit kan problemen veroorzaken!</string>
     <string name="title_no_charset">Codering niet ondersteund: %1$s</string>
