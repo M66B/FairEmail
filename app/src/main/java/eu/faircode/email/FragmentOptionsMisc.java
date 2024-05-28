@@ -217,6 +217,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swNativeDkim;
     private SwitchCompat swNativeArc;
     private EditText etNativeArcWhitelist;
+    private SwitchCompat swStrictAlignment;
     private SwitchCompat swWebp;
     private SwitchCompat swAnimate;
     private SwitchCompat swEasyCorrect;
@@ -294,7 +295,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "keep_alive_poll", "empty_pool", "idle_done", "fast_fetch",
             "max_backoff_power", "logarithmic_backoff",
             "exact_alarms",
-            "native_dkim", "native_arc", "native_arc_whitelist",
+            "native_dkim", "native_arc", "native_arc_whitelist", "strict_alignment",
             "webp", "animate_images",
             "easy_correct", "paste_plain", "infra", "tld_flags", "json_ld", "dup_msgids", "thread_byref", "save_user_flags", "mdn",
             "app_chooser", "app_chooser_share", "adjacent_links", "adjacent_documents", "adjacent_portrait", "adjacent_landscape",
@@ -465,6 +466,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swNativeDkim = view.findViewById(R.id.swNativeDkim);
         swNativeArc = view.findViewById(R.id.swNativeArc);
         etNativeArcWhitelist = view.findViewById(R.id.etNativeArcWhitelist);
+        swStrictAlignment = view.findViewById(R.id.swStrictAlignment);
         swWebp = view.findViewById(R.id.swWebp);
         swAnimate = view.findViewById(R.id.swAnimate);
         swEasyCorrect = view.findViewById(R.id.swEasyCorrect);
@@ -1525,6 +1527,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 prefs.edit().putBoolean("native_dkim", checked).apply();
                 swNativeArc.setEnabled(checked && swNativeDkim.isEnabled());
                 etNativeArcWhitelist.setEnabled(checked && swNativeDkim.isEnabled());
+                swStrictAlignment.setEnabled(checked && swNativeDkim.isEnabled());
             }
         });
 
@@ -1550,6 +1553,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void afterTextChanged(Editable s) {
                 prefs.edit().putString("native_arc_whitelist", s.toString().trim()).apply();
+            }
+        });
+
+        swStrictAlignment.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("strict_alignment", checked).apply();
             }
         });
 
@@ -2419,6 +2429,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swNativeArc.setChecked(prefs.getBoolean("native_arc", true));
             etNativeArcWhitelist.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
             etNativeArcWhitelist.setText(prefs.getString("native_arc_whitelist", null));
+            swStrictAlignment.setChecked(prefs.getBoolean("strict_alignment", false));
+            swStrictAlignment.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
             swWebp.setChecked(prefs.getBoolean("webp", true));
             swAnimate.setChecked(prefs.getBoolean("animate_images", true));
             swEasyCorrect.setChecked(prefs.getBoolean("easy_correct", false));

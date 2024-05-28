@@ -3200,6 +3200,7 @@ class Core {
         boolean sync_quick_pop = prefs.getBoolean("sync_quick_pop", true);
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean native_dkim = prefs.getBoolean("native_dkim", false);
+        boolean strict_alignment = prefs.getBoolean("strict_alignment", false);
         boolean download_eml = prefs.getBoolean("download_eml", false);
         boolean download_plain = prefs.getBoolean("download_plain", false);
         boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
@@ -3518,16 +3519,18 @@ class Core {
                                     message.dmarc = true;
                                 else if (message.dmarc != null) {
                                     boolean found = false;
-                                    String asigner = helper.getSigner(authentication);
-                                    String adomain = UriHelper.getRootDomain(context, asigner);
-                                    if (adomain != null)
-                                        for (String signer : signers) {
-                                            String sdomain = UriHelper.getRootDomain(context, signer);
-                                            if (adomain.equalsIgnoreCase(sdomain)) {
-                                                found = true;
-                                                break;
+                                    if (!strict_alignment) {
+                                        String asigner = helper.getSigner(authentication);
+                                        String adomain = UriHelper.getRootDomain(context, asigner);
+                                        if (adomain != null)
+                                            for (String signer : signers) {
+                                                String sdomain = UriHelper.getRootDomain(context, signer);
+                                                if (adomain.equalsIgnoreCase(sdomain)) {
+                                                    found = true;
+                                                    break;
+                                                }
                                             }
-                                        }
+                                    }
                                     if (!found)
                                         message.dmarc = false;
                                 }
@@ -4435,6 +4438,7 @@ class Core {
         boolean download_plain = prefs.getBoolean("download_plain", false);
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean native_dkim = prefs.getBoolean("native_dkim", false);
+        boolean strict_alignment = prefs.getBoolean("strict_alignment", false);
         boolean experiments = prefs.getBoolean("experiments", false);
         boolean mdn = prefs.getBoolean("mdn", experiments);
         boolean pro = ActivityBilling.isPro(context);
@@ -4705,16 +4709,18 @@ class Core {
                         message.dmarc = true;
                     else if (message.dmarc != null) {
                         boolean found = false;
-                        String asigner = helper.getSigner(authentication);
-                        String adomain = UriHelper.getRootDomain(context, asigner);
-                        if (adomain != null)
-                            for (String signer : signers) {
-                                String sdomain = UriHelper.getRootDomain(context, signer);
-                                if (adomain.equalsIgnoreCase(sdomain)) {
-                                    found = true;
-                                    break;
+                        if (!strict_alignment) {
+                            String asigner = helper.getSigner(authentication);
+                            String adomain = UriHelper.getRootDomain(context, asigner);
+                            if (adomain != null)
+                                for (String signer : signers) {
+                                    String sdomain = UriHelper.getRootDomain(context, signer);
+                                    if (adomain.equalsIgnoreCase(sdomain)) {
+                                        found = true;
+                                        break;
+                                    }
                                 }
-                            }
+                        }
                         if (!found)
                             message.dmarc = false;
                     }
