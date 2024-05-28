@@ -674,7 +674,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         }
 
         if (color == null)
-            if (black)
+            if (dark && black)
                 color = Color.BLACK;
             else {
                 TypedValue a = new TypedValue();
