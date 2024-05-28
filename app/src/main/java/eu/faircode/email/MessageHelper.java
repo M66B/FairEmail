@@ -177,6 +177,7 @@ public class MessageHelper {
     static final int DEFAULT_DOWNLOAD_SIZE = 4 * 1024 * 1024; // bytes
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
     static final String HEADER_MICROSOFT_ORIGINAL_MESSAGE_ID = "X-Microsoft-Original-Message-ID";
+    static final String HEADER_GOOGLE_ORIGINAL_MESSAGE_ID = "X-Google-Original-Message-ID";
     static final int MAX_SUBJECT_AGE = 48; // hours
     static final int DEFAULT_THREAD_RANGE = 7; // 2^7 = 128 days
     static final int MAX_UNZIP_COUNT = 20;
@@ -2477,6 +2478,12 @@ public class MessageHelper {
                 String[] values = (name.equals(key)
                         ? new String[]{header}
                         : amessage.getHeader(key));
+
+                if (!"google.com".equalsIgnoreCase(signer) &&
+                        "Message-ID".equalsIgnoreCase(key) &&
+                        amessage.getHeader(HEADER_GOOGLE_ORIGINAL_MESSAGE_ID, null) != null)
+                    values = amessage.getHeader(HEADER_GOOGLE_ORIGINAL_MESSAGE_ID);
+
                 if (values == null || idx > values.length) {
                     // https://datatracker.ietf.org/doc/html/rfc6376/#section-5.4
                     Log.i("DKIM missing header=" +
