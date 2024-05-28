@@ -264,6 +264,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(window, window.getDecorView());
             controller.setAppearanceLightStatusBars(false);
             controller.setAppearanceLightNavigationBars(false);
+            window.setNavigationBarColor(ColorUtils.setAlphaComponent(colorPrimaryDark, 128));
         }
 
         String requestKey = getRequestKey();
