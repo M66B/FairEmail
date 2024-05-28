@@ -2573,9 +2573,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         Matcher m = Helper.EMAIL_ADDRESS.matcher(personal);
                         while (m.find()) {
-                            int start = ssb.length() - personal.length();
-                            ssb.setSpan(new StyleSpan(Typeface.BOLD), start + m.start(), start + m.end(), 0);
-                            ssb.setSpan(new ForegroundColorSpan(colorError), start + m.start(), start + m.end(), 0);
+                            String e = personal.substring(m.start(), m.end());
+                            if (!e.equalsIgnoreCase(email)) {
+                                int start = ssb.length() - personal.length();
+                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start + m.start(), start + m.end(), 0);
+                                ssb.setSpan(new ForegroundColorSpan(colorError), start + m.start(), start + m.end(), 0);
+                            }
                         }
 
                         if (full) {
