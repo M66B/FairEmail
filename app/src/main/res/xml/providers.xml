@@ -751,8 +751,8 @@
             starttls="false" />
         <smtp
             host="mx.freenet.de"
-            port="587"
-            starttls="true" />
+            port="465"
+            starttls="false" />
     </provider>
     <provider
         name="Zoho"
@@ -908,8 +908,8 @@
             starttls="false" />
         <smtp
             host="smtp.migadu.com"
-            port="587"
-            starttls="true" />
+            port="465"
+            starttls="false" />
     </provider>
     <provider
         name="XS4ALL"
