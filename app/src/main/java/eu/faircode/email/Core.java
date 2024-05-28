@@ -3516,8 +3516,21 @@ class Core {
                                 boolean aligned = helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
                                 if (aligned)
                                     message.dmarc = true;
-                                else if (message.dmarc != null)
-                                    message.dmarc = false;
+                                else if (message.dmarc != null) {
+                                    boolean found = false;
+                                    String asigner = helper.getSigner(authentication);
+                                    String adomain = UriHelper.getRootDomain(context, asigner);
+                                    if (adomain != null)
+                                        for (String signer : signers) {
+                                            String sdomain = UriHelper.getRootDomain(context, signer);
+                                            if (adomain.equalsIgnoreCase(sdomain)) {
+                                                found = true;
+                                                break;
+                                            }
+                                        }
+                                    if (!found)
+                                        message.dmarc = false;
+                                }
                             }
                         }
 
@@ -4690,8 +4703,21 @@ class Core {
                     boolean aligned = helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
                     if (aligned)
                         message.dmarc = true;
-                    else if (message.dmarc != null)
-                        message.dmarc = false;
+                    else if (message.dmarc != null) {
+                        boolean found = false;
+                        String asigner = helper.getSigner(authentication);
+                        String adomain = UriHelper.getRootDomain(context, asigner);
+                        if (adomain != null)
+                            for (String signer : signers) {
+                                String sdomain = UriHelper.getRootDomain(context, signer);
+                                if (adomain.equalsIgnoreCase(sdomain)) {
+                                    found = true;
+                                    break;
+                                }
+                            }
+                        if (!found)
+                            message.dmarc = false;
+                    }
                 }
             }
 
