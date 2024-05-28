@@ -235,7 +235,7 @@ public class Helper {
     static final String REGEX_UUID = "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}";
 
     static final Pattern EMAIL_ADDRESS = Pattern.compile(
-            "[\\S&&[^\"@<>]]{1,256}" +
+            "[\\S&&[^\"@<>()]]{1,256}" +
                     "\\@" +
                     "[\\p{L}0-9][\\p{L}0-9\\-\\_]{0,64}" +
                     "(" +
