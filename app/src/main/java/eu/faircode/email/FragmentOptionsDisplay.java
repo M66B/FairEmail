@@ -1563,7 +1563,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             tvColumnWidth.setText(getString(R.string.title_advanced_column_width, NF.format(column_width)));
             sbColumnWidth.setProgress(column_width);
 
-            swHideToolbar.setChecked(prefs.getBoolean("hide_toolbar", true));
+            swHideToolbar.setChecked(prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE));
             swEdgeToEdge.setChecked(prefs.getBoolean("edge_to_edge", false));
             swNavOptions.setChecked(prefs.getBoolean("nav_options", true));
             swNavCategories.setChecked(prefs.getBoolean("nav_categories", false));
