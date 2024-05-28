@@ -1515,8 +1515,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSubject.setText(message.subject);
 
             // Workaround layout bug
-            tvSubject.requestLayout();
-            tvSubject.invalidate();
+            //tvSubject.requestLayout();
+            //tvSubject.invalidate();
 
             if (keywords_header) {
                 Spanned keywords = getKeywords(message);
