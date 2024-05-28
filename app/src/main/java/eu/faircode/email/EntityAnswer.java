@@ -91,6 +91,8 @@ public class EntityAnswer implements Serializable {
     @NonNull
     public Boolean receipt;
     @NonNull
+    public Boolean ai;
+    @NonNull
     public Boolean favorite;
     @NonNull
     public Boolean snippet;

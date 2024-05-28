@@ -2009,6 +2009,7 @@
     <string name="title_answer_favorite">Favorite</string>
     <string name="title_answer_snippet">Snippet</string>
     <string name="title_answer_receipt">Use as read receipt</string>
+    <string name="title_answer_ai">Use as AI prompt</string>
     <string name="title_answer_hide">Hide from menus</string>
     <string name="title_answer_external" translatable="false">External</string>
     <string name="title_answer_text">Template text</string>

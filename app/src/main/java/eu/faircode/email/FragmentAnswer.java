@@ -71,6 +71,7 @@ public class FragmentAnswer extends FragmentBase {
     private AutoCompleteTextView etGroup;
     private CheckBox cbStandard;
     private CheckBox cbReceipt;
+    private CheckBox cbAI;
     private CheckBox cbFavorite;
     private CheckBox cbSnippet;
     private CheckBox cbHide;
@@ -127,6 +128,7 @@ public class FragmentAnswer extends FragmentBase {
         etGroup = view.findViewById(R.id.etGroup);
         cbStandard = view.findViewById(R.id.cbStandard);
         cbReceipt = view.findViewById(R.id.cbReceipt);
+        cbAI = view.findViewById(R.id.cbAI);
         cbFavorite = view.findViewById(R.id.cbFavorite);
         cbSnippet = view.findViewById(R.id.cbSnippet);
         cbHide = view.findViewById(R.id.cbHide);
@@ -199,6 +201,7 @@ public class FragmentAnswer extends FragmentBase {
 
         // Initialize
         etLabel.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        cbAI.setVisibility(View.GONE);
         cbExternal.setVisibility(View.GONE);
         cbSnippet.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
@@ -277,6 +280,7 @@ public class FragmentAnswer extends FragmentBase {
                     etGroup.setText(answer == null ? null : answer.group);
                     cbStandard.setChecked(answer == null ? false : answer.standard);
                     cbReceipt.setChecked(answer == null ? false : answer.receipt);
+                    cbAI.setChecked(answer == null ? false : answer.ai);
                     cbFavorite.setChecked(answer == null ? false : answer.favorite);
                     cbSnippet.setChecked(answer == null ? false : answer.snippet);
                     cbHide.setChecked(answer == null ? false : answer.hide);
@@ -293,6 +297,7 @@ public class FragmentAnswer extends FragmentBase {
 
                 if (ActivityAnswer.canAnswer(context))
                     cbExternal.setVisibility(View.VISIBLE);
+                cbAI.setVisibility(AI.isAvailable(context) ? View.VISIBLE : View.GONE);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                     cbSnippet.setVisibility(View.VISIBLE);
                 grpReady.setVisibility(View.VISIBLE);
@@ -442,6 +447,7 @@ public class FragmentAnswer extends FragmentBase {
         args.putString("group", etGroup.getText().toString().trim());
         args.putBoolean("standard", cbStandard.isChecked());
         args.putBoolean("receipt", cbReceipt.isChecked());
+        args.putBoolean("ai", cbAI.isChecked());
         args.putBoolean("favorite", cbFavorite.isChecked());
         args.putBoolean("snippet", cbSnippet.isChecked());
         args.putBoolean("hide", cbHide.isChecked());
@@ -468,6 +474,7 @@ public class FragmentAnswer extends FragmentBase {
                 String group = args.getString("group");
                 boolean standard = args.getBoolean("standard");
                 boolean receipt = args.getBoolean("receipt");
+                boolean ai = args.getBoolean("ai");
                 boolean favorite = args.getBoolean("favorite");
                 boolean snippet = args.getBoolean("snippet");
                 boolean hide = args.getBoolean("hide");
@@ -506,6 +513,7 @@ public class FragmentAnswer extends FragmentBase {
                     answer.group = group;
                     answer.standard = standard;
                     answer.receipt = receipt;
+                    answer.ai = ai;
                     answer.favorite = favorite;
                     answer.snippet = snippet;
                     answer.hide = hide;

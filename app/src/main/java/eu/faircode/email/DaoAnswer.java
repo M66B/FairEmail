@@ -35,6 +35,12 @@ public interface DaoAnswer {
     List<EntityAnswer> getAnswers(boolean all);
 
     @Query("SELECT * FROM answer" +
+            " WHERE ai" +
+            " AND NOT hide" +
+            " ORDER BY name COLLATE NOCASE")
+    List<EntityAnswer> getAiPrompts();
+
+    @Query("SELECT * FROM answer" +
             " WHERE favorite = :favorite" +
             " AND NOT hide" +
             " ORDER BY name COLLATE NOCASE")

@@ -79,10 +79,13 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         private View vwColor;
         private TextView tvName;
         private ImageView ivExternal;
-        private ImageView ivStandard;
+        private ImageView ivHide;
         private ImageView ivSnippet;
         private ImageView ivFavorite;
+        private ImageView ivAi;
         private ImageView ivReceipt;
+        private ImageView ivStandard;
+
         private TextView tvLastApplied;
         private TextView tvApplied;
 
@@ -95,10 +98,12 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             vwColor = itemView.findViewById(R.id.vwColor);
             tvName = itemView.findViewById(R.id.tvName);
             ivExternal = itemView.findViewById(R.id.ivExternal);
-            ivStandard = itemView.findViewById(R.id.ivStandard);
+            ivHide = itemView.findViewById(R.id.ivHide);
             ivSnippet = itemView.findViewById(R.id.ivSnippet);
             ivFavorite = itemView.findViewById(R.id.ivFavorite);
+            ivAi = itemView.findViewById(R.id.ivAi);
             ivReceipt = itemView.findViewById(R.id.ivReceipt);
+            ivStandard = itemView.findViewById(R.id.ivStandard);
             tvLastApplied = itemView.findViewById(R.id.tvLastApplied);
             tvApplied = itemView.findViewById(R.id.tvApplied);
         }
@@ -118,10 +123,12 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             vwColor.setBackgroundColor(answer.color == null ? Color.TRANSPARENT : answer.color);
             tvName.setText(answer.name);
             ivExternal.setVisibility(answer.external ? View.VISIBLE : View.GONE);
-            ivStandard.setVisibility(answer.standard ? View.VISIBLE : View.GONE);
+            ivHide.setVisibility(answer.hide ? View.VISIBLE : View.GONE);
             ivSnippet.setVisibility(answer.snippet ? View.VISIBLE : View.GONE);
             ivFavorite.setVisibility(answer.favorite ? View.VISIBLE : View.GONE);
+            ivAi.setVisibility(answer.ai ? View.VISIBLE : View.GONE);
             ivReceipt.setVisibility(answer.receipt ? View.VISIBLE : View.GONE);
+            ivStandard.setVisibility(answer.standard ? View.VISIBLE : View.GONE);
             tvLastApplied.setText(answer.last_applied == null ? null : DF.format(answer.last_applied));
             tvApplied.setText(NF.format(answer.applied));
         }

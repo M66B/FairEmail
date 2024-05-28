@@ -65,27 +65,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
-                app:layout_constraintEnd_toStartOf="@id/ivReceipt"
+                app:layout_constraintEnd_toStartOf="@id/ivHide"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_open_in_new_24" />
 
             <ImageView
-                android:id="@+id/ivReceipt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="12dp"
-                app:layout_constraintEnd_toStartOf="@id/ivStandard"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_playlist_add_check_24" />
-
-            <ImageView
-                android:id="@+id/ivStandard"
+                android:id="@+id/ivHide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
                 app:layout_constraintEnd_toStartOf="@id/ivSnippet"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/twotone_quickreply_24" />
+                app:srcCompat="@drawable/twotone_visibility_off_24" />
 
             <ImageView
                 android:id="@+id/ivSnippet"
@@ -101,9 +92,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivAi"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_star_24" />
+
+            <ImageView
+                android:id="@+id/ivAi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                app:layout_constraintEnd_toStartOf="@id/ivReceipt"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_smart_toy_24" />
+
+            <ImageView
+                android:id="@+id/ivReceipt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                app:layout_constraintEnd_toStartOf="@id/ivStandard"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_playlist_add_check_24" />
+
+            <ImageView
+                android:id="@+id/ivStandard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_quickreply_24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ViewCardOptional>
 </FrameLayout>
