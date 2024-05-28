@@ -1038,7 +1038,7 @@ public class EmailProvider implements Parcelable {
             Collections.sort(list, new Comparator<DnsHelper.DnsRecord>() {
                 @Override
                 public int compare(DnsHelper.DnsRecord d1, DnsHelper.DnsRecord d2) {
-                    int p = -Integer.compare(d1.priority, d2.priority);
+                    int p = Integer.compare(d1.priority, d2.priority);
                     if (p != 0)
                         return p;
                     int w = -Integer.compare(d1.weight, d2.weight);
@@ -1076,7 +1076,7 @@ public class EmailProvider implements Parcelable {
             Collections.sort(list, new Comparator<DnsHelper.DnsRecord>() {
                 @Override
                 public int compare(DnsHelper.DnsRecord d1, DnsHelper.DnsRecord d2) {
-                    int p = -Integer.compare(d1.priority, d2.priority);
+                    int p = Integer.compare(d1.priority, d2.priority);
                     if (p != 0)
                         return p;
                     int w = -Integer.compare(d1.weight, d2.weight);
