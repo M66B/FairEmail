@@ -10,6 +10,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Fixed navigation bar color (again)
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
 
 ### 1.2189 - 2024-05-28 *
