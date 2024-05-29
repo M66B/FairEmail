@@ -4,7 +4,10 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-*The use of "AI" integrations is and will remain completely optional*
+*The use of "AI" integrations is and will remain completely optional*.
+
+"AI" is completely inert if it is not configured and not being used.
+To prevent tracking, [REST](https://en.wikipedia.org/wiki/REST) calls are used instead of third-party libraries.
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 

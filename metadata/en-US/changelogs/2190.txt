@@ -4,7 +4,10 @@ Changelog
 
 For support you can use the contact form.
 
-*The use of "AI" integrations is and will remain completely optional*
+*The use of "AI" integrations is and will remain completely optional*.
+
+"AI" is completely inert if it is not configured and not being used.
+To prevent tracking, REST calls are used instead of third-party libraries.
 
 Acantholipan
 
