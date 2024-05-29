@@ -1531,6 +1531,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 Bundle args = new Bundle();
                 args.putString("name", "CHANGELOG.md");
+                args.putString("option", "show_changelog");
                 FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
                 fragment.setArguments(args);
                 fragment.show(getSupportFragmentManager(), "changelog");

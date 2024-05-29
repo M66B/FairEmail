@@ -3,17 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:padding="24dp"
     tools:context="eu.faircode.email.ActivityView">
 
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:fadeScrollbars="false"
         android:minHeight="120dp"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:scrollbarStyle="outsideOverlay"
+        android:scrollbarStyle="outsideInset"
+        app:layout_constraintBottom_toTopOf="@+id/cbNotAgain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -34,13 +36,25 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
+    <CheckBox
+        android:id="@+id/cbNotAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/title_no_show_again"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="?attr/colorWarning"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll" />
+
     <ImageButton
         android:id="@+id/ibCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@android:string/no"
-        android:padding="12dp"
+        android:paddingEnd="12dp"
         android:tooltipText="@android:string/no"
         app:layout_constraintEnd_toEndOf="@+id/scroll"
         app:layout_constraintTop_toTopOf="@+id/scroll"
