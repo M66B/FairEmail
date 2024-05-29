@@ -14,7 +14,8 @@ To prevent tracking, [REST](https://en.wikipedia.org/wiki/REST) calls are used i
 ### Next version
 
 * Added "AI" templates
-* Fixed dark navigation bar color
+* Fixed darker navigation bar color
+* Fixed top action bar when using [DeX](https://www.samsung.com/us/apps/dex/) on some Samsung devices
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 

@@ -14,7 +14,8 @@ Acantholipan
 Next version
 
 * Added "AI" templates
-* Fixed dark navigation bar color
+* Fixed darker navigation bar color
+* Fixed top action bar when using DeX on some Samsung devices
 * Small improvements and minor bug fixes
 * Updated translations
 
