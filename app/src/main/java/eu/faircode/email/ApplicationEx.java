@@ -868,8 +868,10 @@ public class ApplicationEx extends Application
                 editor.putBoolean("delete_unseen", false);
             if (Helper.isPixelBeta())
                 editor.putBoolean("motd", true);
-        } else if (version < 2191)
-            editor.remove("show_changelog");
+        } else if (version < 2191) {
+            if ("a".equals(BuildConfig.REVISION))
+                editor.remove("show_changelog");
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
