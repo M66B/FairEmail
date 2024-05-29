@@ -2807,8 +2807,9 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <p><br></p>
 <p><strong>Usage</strong></p>
 <p><em>Editor</em></p>
-<p>Tap on the robot button in the top action bar of the message editor. The text in the message editor (if any) and the first part of the message being replied to (if any) will be used for <a href="https://platform.openai.com/docs/guides/chat/introduction">chat completion</a>. If text is selected in the message editor, only the selected text will be used, and it will be replaced by the answer. A maximum of 1,000 characters of the message being replied to will be used to avoid exceeding the token limit.</p>
+<p>Tap on the robot button in the top action bar of the message editor. If the text in the message editor is empty, the message being replied to will be answered (using the configured answer prompt), else the entered text will be sent, which could be a question or command. If you select entered text, it will be replaced by the answer.</p>
 <p>For example: create a new draft and enter the text “<em>How far is the sun?</em>”, and tap on the robot button in the top action bar.</p>
+<p>Since version 1.2191 it is possible to define AI templates, which you can select after tapping on the robot icon.</p>
 <p><br></p>
 <p><em>Summarize</em> (since version 1.2178)</p>
 <p>You can request a summary via the horizontal three-dots button just above the message text. It is possible to configure a button for this (a robot icon).</p>
