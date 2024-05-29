@@ -410,6 +410,7 @@ tasks.register('copyChangelog', Copy) {
                 .replaceAll(".*Google Translate.*", "--------------------")
                 .replaceAll("### ", "")
                 .replaceAll("## ", "")
+                .replaceAll("<br>", "---")
                 .replaceAll("<img.*/>", "")
                 .replaceAll("\\(https.*\\)", "")
                 .replaceAll("\\[", "")

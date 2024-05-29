@@ -2,12 +2,22 @@ Changelog
 
 --------------------
 
-For support you can use the contact form.
+---
 
-*The use of "AI" integrations is and will remain completely optional*.
+Notices
 
+Recently, there were more updates than usual, all intended to resolve side effects of changes required for Android 15.
+Google's compatibility library unfortunately does not work properly for all Android versions and all devices,
+and therefore custom bug fixes were necessary.
+
+
+The use of "AI" integrations is and will remain completely optional.
 "AI" is completely inert if it is not configured and not being used.
 To prevent tracking, REST calls are used instead of third-party libraries.
+
+For support you can use the contact form.
+
+---
 
 Acantholipan
 
@@ -18,8 +28,6 @@ Next version
 * Fixed top action bar when using DeX on some Samsung devices
 * Small improvements and minor bug fixes
 * Updated translations
-
-Preview versions are available here.
 
 1.2190 - 2024-05-28 *
 

@@ -2,12 +2,22 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FCHANGELOG.md)
 
-For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
+<br>
 
-*The use of "AI" integrations is and will remain completely optional*.
+### Notices
 
+Recently, there were more updates than usual, all intended to resolve side effects of changes required for Android 15.
+Google's compatibility library unfortunately does not work properly for all Android versions and all devices,
+and therefore custom bug fixes were necessary.
+
+
+The use of "AI" integrations is and will remain completely optional.
 "AI" is completely inert if it is not configured and not being used.
 To prevent tracking, [REST](https://en.wikipedia.org/wiki/REST) calls are used instead of third-party libraries.
+
+For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
+
+<br>
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
@@ -18,8 +28,6 @@ To prevent tracking, [REST](https://en.wikipedia.org/wiki/REST) calls are used i
 * Fixed top action bar when using [DeX](https://www.samsung.com/us/apps/dex/) on some Samsung devices
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
-
-Preview versions are available [here](https://bitbucket.org/M66B/fairemail-test/downloads/).
 
 ### 1.2190 - 2024-05-28 *
 
