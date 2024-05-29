@@ -2188,20 +2188,30 @@ public class MessageHelper {
         if (headers == null || headers.length == 0)
             return null;
 
-        String v = getKeyValues(headers[0]).get(type);
-        if (v == null)
-            return null;
+        String signer = null;
+        for (String header : headers) {
+            if (signer == null)
+                signer = getSigner(header);
+            else if (!signer.equals(getSigner(header)))
+                break;
 
-        String[] val = v.split("\\s+");
-        if (val.length == 0)
-            return null;
+            String v = getKeyValues(header).get(type);
+            if (v == null)
+                continue;
 
-        if ("pass".equals(val[0]))
-            return true;
-        else if ("none".equals(val[0]))
-            return null;
-        else
-            return false; // fail, policy, neutral, temperror, permerror
+            String[] val = v.split("\\s+");
+            if (val.length == 0)
+                continue;
+
+            if ("pass".equals(val[0]))
+                return true;
+            else if ("none".equals(val[0]))
+                return null;
+            else
+                return false; // fail, policy, neutral, temperror, permerror
+        }
+
+        return null;
     }
 
     Address[] getMailFrom(String[] headers) {
@@ -2234,20 +2244,26 @@ public class MessageHelper {
         return mailfrom;
     }
 
-    String getSigner(String[] headers) {
+    static String getSigner(String[] headers) {
         if (headers == null || headers.length == 0)
             return null;
+        return getSigner(headers[0]);
+    }
 
-        int semi = headers[0].indexOf(';');
+    static String getSigner(String header) {
+        if (TextUtils.isEmpty(header))
+            return null;
+
+        int semi = header.indexOf(';');
         if (semi < 0)
             return null;
-        String signer = headers[0].substring(0, semi).trim();
+        String signer = header.substring(0, semi).trim();
 
         if (signer.toLowerCase(Locale.ROOT).startsWith("i=")) {
-            int semi2 = headers[0].indexOf(';', semi + 1);
+            int semi2 = header.indexOf(';', semi + 1);
             if (semi2 < 0)
                 return null;
-            signer = headers[0].substring(semi + 1, semi2).trim();
+            signer = header.substring(semi + 1, semi2).trim();
         }
 
         if (TextUtils.isEmpty(signer))
