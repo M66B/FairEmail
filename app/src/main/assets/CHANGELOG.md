@@ -1,6 +1,6 @@
 ## Changelog
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fraw.githubusercontent.com%2FM66B%2FFairEmail%2Fmaster%2FCHANGELOG.md)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FCHANGELOG.md)
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
