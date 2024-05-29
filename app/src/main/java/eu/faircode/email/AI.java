@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
 
 import androidx.preference.PreferenceManager;
@@ -43,7 +44,7 @@ public class AI {
         return (OpenAI.isAvailable(context) || Gemini.isAvailable(context));
     }
 
-    static String completeChat(Context context, long id, CharSequence body, long template) throws JSONException, IOException {
+    static Spanned completeChat(Context context, long id, CharSequence body, long template) throws JSONException, IOException {
         String reply = null;
         if (body == null || TextUtils.isEmpty(body.toString().trim())) {
             body = "?";
@@ -74,6 +75,7 @@ public class AI {
             prompt = JsoupEx.parse(html).body().text();
         }
 
+        StringBuilder sb = new StringBuilder();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (OpenAI.isAvailable(context)) {
             String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
@@ -100,7 +102,6 @@ public class AI {
             OpenAI.Message[] completions = OpenAI.completeChat(context,
                     model, messages.toArray(new OpenAI.Message[0]), temperature, 1);
 
-            StringBuilder sb = new StringBuilder();
             for (OpenAI.Message completion : completions)
                 for (OpenAI.Content content : completion.getContent())
                     if (OpenAI.CONTENT_TEXT.equals(content.getType())) {
@@ -110,7 +111,6 @@ public class AI {
                                 .replaceAll("^\\n+", "")
                                 .replaceAll("\\n+$", ""));
                     }
-            return sb.toString();
         } else if (Gemini.isAvailable(context)) {
             String model = prefs.getString("gemini_model", Gemini.DEFAULT_MODEL);
             float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
@@ -129,7 +129,6 @@ public class AI {
             Gemini.Message[] completions = Gemini.generate(context,
                     model, messages.toArray(new Gemini.Message[0]), temperature, 1);
 
-            StringBuilder sb = new StringBuilder();
             for (Gemini.Message completion : completions)
                 for (String result : completion.getContent()) {
                     if (sb.length() > 0)
@@ -138,9 +137,10 @@ public class AI {
                             .replaceAll("^\\n+", "")
                             .replaceAll("\\n+$", ""));
                 }
-            return sb.toString();
         } else
             throw new IllegalArgumentException("No AI available");
+
+        return HtmlHelper.fromHtml(Markdown.toHtml(sb.toString()), context);
     }
 
     static String getSummarizePrompt(Context context) {

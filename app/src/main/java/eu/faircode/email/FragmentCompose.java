@@ -2699,7 +2699,7 @@ public class FragmentCompose extends FragmentBase {
         args.putCharSequence("body", body);
         args.putLong("template", template == null ? -1L : template);
 
-        new SimpleTask<String>() {
+        new SimpleTask<Spanned>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 chatting = true;
@@ -2713,7 +2713,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
             @Override
-            protected String onExecute(Context context, Bundle args) throws Throwable {
+            protected Spanned onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 CharSequence body = args.getCharSequence("body");
                 long template = args.getLong("template");
@@ -2722,7 +2722,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
             @Override
-            protected void onExecuted(Bundle args, String completion) {
+            protected void onExecuted(Bundle args, Spanned completion) {
                 if (completion == null)
                     return;
 
@@ -2742,7 +2742,8 @@ public class FragmentCompose extends FragmentBase {
                 if (index > 0 && edit.charAt(index - 1) != '\n')
                     edit.insert(index++, "\n");
 
-                edit.insert(index, completion + "\n");
+                edit.insert(index, "\n");
+                edit.insert(index, completion);
                 etBody.setSelection(index + completion.length() + 1);
 
                 StyleHelper.markAsInserted(edit, index, index + completion.length() + 1);
