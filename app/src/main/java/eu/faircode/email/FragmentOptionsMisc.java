@@ -2423,14 +2423,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
             swLogarithmicBackoff.setChecked(prefs.getBoolean("logarithmic_backoff", true));
             swExactAlarms.setChecked(prefs.getBoolean("exact_alarms", true));
-            swNativeDkim.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
+            swNativeDkim.setEnabled(!BuildConfig.PLAY_STORE_RELEASE || true);
             swNativeDkim.setChecked(prefs.getBoolean("native_dkim", false));
             swNativeArc.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
             swNativeArc.setChecked(prefs.getBoolean("native_arc", true));
             etNativeArcWhitelist.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
             etNativeArcWhitelist.setText(prefs.getString("native_arc_whitelist", null));
-            swStrictAlignment.setChecked(prefs.getBoolean("strict_alignment", false));
             swStrictAlignment.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
+            swStrictAlignment.setChecked(prefs.getBoolean("strict_alignment", false));
             swWebp.setChecked(prefs.getBoolean("webp", true));
             swAnimate.setChecked(prefs.getBoolean("animate_images", true));
             swEasyCorrect.setChecked(prefs.getBoolean("easy_correct", false));
