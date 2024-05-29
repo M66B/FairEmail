@@ -117,6 +117,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         Toolbar toolbar = holder.findViewById(R.id.toolbar);
         View placeholder = holder.findViewById(R.id.placeholder);
 
+        ViewGroup.LayoutParams lp = toolbar.getLayoutParams();
+        lp.height = Helper.getActionBarHeight(this);
+        toolbar.setLayoutParams(lp);
+
         toolbar.setPopupTheme(getThemeId());
         if (hide_toolbar) {
             AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) toolbar.getLayoutParams();

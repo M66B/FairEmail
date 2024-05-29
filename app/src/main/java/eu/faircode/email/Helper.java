@@ -920,7 +920,8 @@ public class Helper {
             if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
                 DisplayMetrics dm = context.getResources().getDisplayMetrics();
                 actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, dm);
-            } else
+            }
+            if (actionBarHeight == null || actionBarHeight <= 0)
                 actionBarHeight = Helper.dp2pixels(context, 56);
         }
 
