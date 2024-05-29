@@ -2326,7 +2326,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swCheckWeekly.setEnabled(swUpdates.isChecked());
             swBeta.setChecked(prefs.getBoolean("beta", false));
             swBeta.setEnabled(swUpdates.isChecked());
-            swChangelog.setChecked(prefs.getBoolean("show_changelog", !BuildConfig.PLAY_STORE_RELEASE));
+            swChangelog.setChecked(prefs.getBoolean("show_changelog", true));
             swAnnouncements.setChecked(prefs.getBoolean("announcements", true));
             swExperiments.setChecked(prefs.getBoolean("experiments", false));
             swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));

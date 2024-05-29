@@ -1512,7 +1512,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean first = prefs.getBoolean("first", true);
-        boolean show_changelog = prefs.getBoolean("show_changelog", !BuildConfig.PLAY_STORE_RELEASE);
+        boolean show_changelog = prefs.getBoolean("show_changelog", true);
 
         if (first)
             new FragmentDialogFirst().show(getSupportFragmentManager(), "first");
