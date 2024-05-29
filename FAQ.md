@@ -5788,7 +5788,7 @@ A message is printed as-is, which means that the sender of the message determine
 Spell checking should be provided by the keyboard app for all other apps.
 Sometimes, particularly on ChromeOS, spell checking needs to be enabled in the settings.
 
-That said, LanguageTool, which can be enabled in the integration settings, is an excellent style and spell checker.
+That said, LanguageTool, which can be enabled in the integration-settings tab, is an excellent alternative to style and spell checking.
 
 <br>
 
