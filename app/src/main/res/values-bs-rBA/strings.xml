@@ -791,7 +791,7 @@
     <string name="title_advanced_gemini">Integracija s Geminijem</string>
     <string name="title_advanced_multi_modal">Multimodalnost</string>
     <string name="title_advanced_summarize_prompt">Prompt za sažetak</string>
-    <string name="title_advanced_answer_prompt" comment="title_advanced_answer_prompt&#10;Title for option to change &quot;AI&quot; prompt for answering a message">Prompt za odgovor</string>
+    <string name="title_advanced_answer_prompt">Prompt za odgovor</string>
     <string name="title_advanced_sdcard">Želim koristiti SD karticu</string>
     <string name="title_advanced_watchdog">Povremeno provjeri da li je FairEmail još aktivan</string>
     <string name="title_advanced_updates">Provjeri ažuriranja na GitHub-u</string>

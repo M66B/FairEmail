@@ -1363,6 +1363,7 @@
     <string name="title_ask_what">بپرس چه باید کرد</string>
     <string name="title_no_ask_again">دیگر نپرس</string>
     <string name="title_no_ask_for_again">دوباره برای %1$s نپرس</string>
+    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">دوباره نشان داده نشود</string>
     <string name="title_undo_privacy">می‌توان در صفحه برگه تنظیمات حریم خصوصی این را به حالت اولیه برگرداند</string>
     <string name="title_no_body">هیچ پیام متنی یافت نشد</string>
     <string name="title_large_body">این پیام بسیار طولانیست و ممکن است باعث بروز مشکلاتی شود!</string>

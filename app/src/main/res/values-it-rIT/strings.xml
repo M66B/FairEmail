@@ -777,7 +777,8 @@
     <string name="title_advanced_gemini">Integrazione di Gemini</string>
     <string name="title_advanced_multi_modal">Multimodale</string>
     <string name="title_advanced_summarize_prompt">Invito per riassumere</string>
-    <string name="title_advanced_answer_prompt" comment="title_advanced_answer_prompt&#10;Title for option to change &quot;AI&quot; prompt for answering a message">Invito per rispondere</string>
+    <string name="title_advanced_answer_prompt">Invito per rispondere</string>
+    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">Invito di default</string>
     <string name="title_advanced_sdcard">Desidero usare una scheda sd</string>
     <string name="title_advanced_watchdog">Verifica periodicamente se FairEmail è ancora attivo</string>
     <string name="title_advanced_updates">Controlla gli aggiornamenti di GitHub</string>
@@ -1671,6 +1672,7 @@
     <string name="title_answer_favorite">Preferito</string>
     <string name="title_answer_snippet">Frammento</string>
     <string name="title_answer_receipt">Usa come conferma di lettura</string>
+    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">Usa come invito AI</string>
     <string name="title_answer_hide">Nascondi dai menu</string>
     <string name="title_answer_text">Testo del modello</string>
     <string name="title_answer_placeholder">Segnaposto</string>
@@ -1978,6 +1980,7 @@
     <string name="title_ask_what">Chiedi cosa fare</string>
     <string name="title_no_ask_again">Non chiederlo di nuovo</string>
     <string name="title_no_ask_for_again">Non chiederlo di nuovo per %1$s</string>
+    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">Non mostrarlo più</string>
     <string name="title_undo_privacy">Questo può essere annullato nella scheda delle impostazioni della privacy</string>
     <string name="title_no_body">Nessun testo del messaggio trovato</string>
     <string name="title_large_body">Questo messaggio è molto grande e ciò potrebbe causare problemi!</string>

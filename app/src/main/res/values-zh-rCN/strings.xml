@@ -761,7 +761,8 @@
     <string name="title_advanced_gemini">Gemini 集成</string>
     <string name="title_advanced_multi_modal">多模型</string>
     <string name="title_advanced_summarize_prompt">总结提示</string>
-    <string name="title_advanced_answer_prompt" comment="title_advanced_answer_prompt&#10;Title for option to change &quot;AI&quot; prompt for answering a message">回答提示</string>
+    <string name="title_advanced_answer_prompt">回答提示</string>
+    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">默认提示</string>
     <string name="title_advanced_sdcard">我想使用 SD 卡</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
     <string name="title_advanced_updates">检查 GitHub 更新</string>
@@ -1650,6 +1651,7 @@
     <string name="title_answer_favorite">收藏</string>
     <string name="title_answer_snippet">文本片段</string>
     <string name="title_answer_receipt">用作已读回执</string>
+    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">用作 AI 提示</string>
     <string name="title_answer_hide">从菜单中隐藏</string>
     <string name="title_answer_text">模板内容</string>
     <string name="title_answer_placeholder">占位符</string>
@@ -1957,6 +1959,7 @@
     <string name="title_ask_what">询问做什么</string>
     <string name="title_no_ask_again">不再询问</string>
     <string name="title_no_ask_for_again">不再询问 %1$s</string>
+    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">不再显示此内容</string>
     <string name="title_undo_privacy">这可以在隐私设置标签页中撤销。</string>
     <string name="title_no_body">没有找到邮件正文</string>
     <string name="title_large_body">此邮件非常大，可能会导致问题！</string>
