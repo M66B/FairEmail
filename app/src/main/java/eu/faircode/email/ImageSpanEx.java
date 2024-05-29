@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
 import android.text.style.ImageSpan;
 
 import androidx.annotation.NonNull;

@@ -59,7 +59,6 @@ public class OpenAI {
     static final String CONTENT_TEXT = "text";
     static final String CONTENT_IMAGE = "image_url";
 
-    private static final int MAX_OPENAI_LEN = 1000; // characters
     private static final int TIMEOUT = 45; // seconds
     private static final int SCALE2PIXELS = 1440; // medium
 
