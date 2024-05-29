@@ -21,7 +21,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2191 - 2024-05-29 *
 
 * Added "AI" templates
 * Fixed darker navigation bar color
