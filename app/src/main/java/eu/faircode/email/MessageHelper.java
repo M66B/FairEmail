@@ -2272,16 +2272,32 @@ public class MessageHelper {
         return signer;
     }
 
-    boolean getSPF() throws MessagingException {
+    Boolean getSPF() throws MessagingException {
         ensureHeaders();
 
         // http://www.open-spf.org/RFC_4408/#header-field
         String[] headers = imessage.getHeader("Received-SPF");
         if (headers == null || headers.length < 1)
-            return false;
+            return null;
+
+        // header-field = "Received-SPF:" [CFWS] result FWS [comment FWS] [ key-value-list ] CRLF
+        // result = "Pass" / "Fail" / "SoftFail" / "Neutral" / "None" / "TempError" / "PermError"
 
         String spf = MimeUtility.unfold(headers[0]);
-        return (spf.trim().toLowerCase(Locale.ROOT).startsWith("pass"));
+        String[] values = spf.trim().split("\\s+");
+        if (values.length == 0)
+            return null;
+
+        String value = values[0].toLowerCase(Locale.ROOT);
+        switch (value) {
+            case "pass":
+                return true;
+            case "neutral":
+            case "none":
+                return null;
+            default:
+                return false;
+        }
     }
 
     @NonNull

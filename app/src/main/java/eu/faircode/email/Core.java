@@ -3454,8 +3454,8 @@ class Core {
                         message.tls = helper.getTLS();
                         message.dkim = MessageHelper.getAuthentication("dkim", authentication);
                         message.spf = MessageHelper.getAuthentication("spf", authentication);
-                        if (message.spf == null && helper.getSPF())
-                            message.spf = true;
+                        if (message.spf == null)
+                            message.spf = helper.getSPF();
                         message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
                         message.auth = MessageHelper.getAuthentication("auth", authentication);
                         message.smtp_from = helper.getMailFrom(authentication);
@@ -4634,8 +4634,8 @@ class Core {
             message.tls = helper.getTLS();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
             message.spf = MessageHelper.getAuthentication("spf", authentication);
-            if (message.spf == null && helper.getSPF())
-                message.spf = true;
+            if (message.spf == null)
+                message.spf = helper.getSPF();
             message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
             message.auth = MessageHelper.getAuthentication("auth", authentication);
             message.smtp_from = helper.getMailFrom(authentication);
