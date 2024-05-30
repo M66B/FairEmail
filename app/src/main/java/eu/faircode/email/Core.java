@@ -1495,6 +1495,7 @@ class Core {
                                 String msgid = EntityMessage.generateMessageId();
                                 msgids.put(message, msgid);
                                 icopy = new MimeMessageEx(isession, is, msgid);
+                                icopy.removeHeader(MessageHelper.HEADER_CORRELATION_ID);
                                 icopy.saveChanges();
 
                                 if (!copy) {
