@@ -23,7 +23,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Fixed new message notifications for old unread messages in some situations
+* Fixed repeated new message notifications for old unread messages in some situations
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
