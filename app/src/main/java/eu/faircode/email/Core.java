@@ -3876,7 +3876,7 @@ class Core {
                 keep_time = 0;
 
             long keep_unread_time = cal_keep_unread.getTimeInMillis();
-            if (keep_unread_time < 0)
+            if (keep_unread_time < 0 || sync_unseen)
                 keep_unread_time = 0;
 
             Log.i(folder.name + " sync=" + new Date(sync_time) +
@@ -3886,7 +3886,7 @@ class Core {
             // Delete old local messages
             long delete_time = new Date().getTime() - 3600 * 1000L;
             if (auto_delete) {
-                List<Long> tbds = db.message().getMessagesBefore(folder.id, delete_time, keep_time, keep_unread_time, delete_unseen);
+                List<Long> tbds = db.message().getMessagesBefore(folder.id, delete_time, keep_time, keep_unread_time, delete_unseen && !sync_unseen);
                 Log.i(folder.name + " local tbd=" + tbds.size());
                 EntityFolder trash = db.folder().getFolderByType(folder.account, EntityFolder.TRASH);
                 for (Long tbd : tbds) {
@@ -3899,7 +3899,7 @@ class Core {
                             EntityOperation.queue(context, message, EntityOperation.MOVE, trash.id);
                 }
             } else {
-                int old = db.message().deleteMessagesBefore(folder.id, delete_time, keep_time, keep_unread_time, delete_unseen);
+                int old = db.message().deleteMessagesBefore(folder.id, delete_time, keep_time, keep_unread_time, delete_unseen && !sync_unseen);
                 Log.i(folder.name + " local old=" + old);
             }
 
