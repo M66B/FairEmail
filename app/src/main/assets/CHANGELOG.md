@@ -21,7 +21,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2192 - 2024-05-30 *
 
 * Fixed repeated new message notifications for old unread messages in some situations
 * Small improvements and minor bug fixes
