@@ -21,6 +21,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### 1.2193 - 2024-05-30 *
+
+* Fixed deleting of old unread messages (regression)
+
 ### 1.2192 - 2024-05-30 *
 
 * Fixed repeated new message notifications for old unread messages in some situations
