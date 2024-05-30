@@ -140,7 +140,9 @@ public class AI {
         } else
             throw new IllegalArgumentException("No AI available");
 
-        return HtmlHelper.fromHtml(Markdown.toHtml(sb.toString()), context);
+        String html = Markdown.toHtml(sb.toString());
+        Document d = HtmlHelper.sanitizeCompose(context, html, false);
+        return HtmlHelper.fromDocument(context, d, null, null);
     }
 
     static String getSummarizePrompt(Context context) {
