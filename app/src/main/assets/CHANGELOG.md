@@ -23,7 +23,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Fixed new message notifications for old unread messages in some situations
+* Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2191 - 2024-05-29 *
 

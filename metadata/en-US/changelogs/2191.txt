@@ -23,7 +23,10 @@ Acantholipan
 
 Next version
 
+* Fixed new message notifications for old unread messages in some situations
+* Small improvements and minor bug fixes
 * Updated AndroidX
+* Updated translations
 
 1.2191 - 2024-05-29 *
 
