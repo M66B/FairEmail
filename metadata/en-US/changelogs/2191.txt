@@ -21,6 +21,10 @@ For support you can use the contact form.
 
 Acantholipan
 
+Next version
+
+* Updated AndroidX
+
 1.2191 - 2024-05-29 *
 
 * Added "AI" templates
