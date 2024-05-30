@@ -248,8 +248,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         Window window = getWindow();
         getSupportFragmentManager().registerFragmentLifecycleCallbacks(lifecycleCallbacks, true);
 
-        int colorPrimaryDark = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark);
-
         this.contacts = hasPermission(Manifest.permission.READ_CONTACTS);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -310,7 +308,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             boolean task_description = prefs.getBoolean("task_description", true);
             int colorPrimary;
             if (task_description) {
-                colorPrimary = colorPrimaryDark;
+                colorPrimary = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark);
+                ;
                 if (colorPrimary != 0 && Color.alpha(colorPrimary) != 255) {
                     Log.w("Task color primary=" + Integer.toHexString(colorPrimary));
                     colorPrimary = ColorUtils.setAlphaComponent(colorPrimary, 255);
