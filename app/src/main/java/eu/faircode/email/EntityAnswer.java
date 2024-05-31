@@ -522,6 +522,7 @@ public class EntityAnswer implements Serializable {
                     Objects.equals(this.group, other.group) &&
                     this.standard.equals(other.standard) &&
                     this.receipt.equals(other.receipt) &&
+                    this.ai.equals(other.ai) &&
                     this.favorite.equals(other.favorite) &&
                     this.snippet.equals(other.snippet) &&
                     this.hide.equals(other.hide) &&
