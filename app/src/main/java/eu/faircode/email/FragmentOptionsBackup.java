@@ -146,7 +146,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             "load_emoji", // privacy
             "shortcuts", // misc
             "language", // misc
-            "wal" // misc
+            "wal", // misc
+            "sqlite_integrity_check" // misc
     ));
 
     static final String[][] RESET_ALL_OPTIONS = {
