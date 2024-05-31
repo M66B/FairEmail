@@ -85,6 +85,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
     private SeekBar sbOpenAiTemperature;
     private EditText etOpenAiSummarize;
     private EditText etOpenAiAnswer;
+    private EditText etOpenAiSystem;
     private ImageButton ibOpenAi;
     private SwitchCompat swGemini;
     private TextView tvGeminiPrivacy;
@@ -109,7 +110,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             "deepl_enabled",
             "vt_enabled",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
-            "openai_enabled", "openai_uri", "openai_model", "openai_multimodal", "openai_temperature", "openai_summarize", "openai_answer",
+            "openai_enabled", "openai_uri", "openai_model", "openai_multimodal", "openai_temperature", "openai_summarize", "openai_answer", "openai_system",
             "gemini_enabled", "gemini_uri", "gemini_model", "gemini_temperature", "gemini_summarize", "gemini_answer"
     ));
 
@@ -160,6 +161,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         sbOpenAiTemperature = view.findViewById(R.id.sbOpenAiTemperature);
         etOpenAiSummarize = view.findViewById(R.id.etOpenAiSummarize);
         etOpenAiAnswer = view.findViewById(R.id.etOpenAiAnswer);
+        etOpenAiSystem = view.findViewById(R.id.etOpenAiSystem);
         ibOpenAi = view.findViewById(R.id.ibOpenAi);
 
         swGemini = view.findViewById(R.id.swGemini);
@@ -429,6 +431,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                 sbOpenAiTemperature.setEnabled(checked);
                 etOpenAiSummarize.setEnabled(checked);
                 etOpenAiAnswer.setEnabled(checked);
+                etOpenAiSystem.setEnabled(checked);
                 if (checked)
                     swGemini.setChecked(false);
             }
@@ -573,6 +576,27 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                     prefs.edit().remove("openai_answer").apply();
                 else
                     prefs.edit().putString("openai_answer", prompt).apply();
+            }
+        });
+
+        etOpenAiSystem.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String prompt = s.toString().trim();
+                if (TextUtils.isEmpty(prompt))
+                    prefs.edit().remove("openai_system").apply();
+                else
+                    prefs.edit().putString("openai_system", prompt).apply();
             }
         });
 
@@ -770,6 +794,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                 "openai_model".equals(key) ||
                 "openai_summarize".equals(key) ||
                 "openai_answer".equals(key) ||
+                "openai_system".equals(key) ||
                 "gemini_uri".equals(key) ||
                 "gemini_apikey".equals(key) ||
                 "gemini_model".equals(key) ||
@@ -850,6 +875,8 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             etOpenAiSummarize.setEnabled(swOpenAi.isChecked());
             etOpenAiAnswer.setText(prefs.getString("openai_answer", null));
             etOpenAiAnswer.setEnabled(swOpenAi.isChecked());
+            etOpenAiSystem.setText(prefs.getString("openai_system", null));
+            etOpenAiSystem.setEnabled(swOpenAi.isChecked());
 
             swGemini.setChecked(prefs.getBoolean("gemini_enabled", false));
             etGemini.setText(prefs.getString("gemini_uri", null));

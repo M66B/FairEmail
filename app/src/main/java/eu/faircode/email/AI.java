@@ -87,8 +87,13 @@ public class AI {
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
             boolean multimodal = prefs.getBoolean("openai_multimodal", false);
             String answer = prefs.getString("openai_answer", OpenAI.DEFAULT_ANSWER_PROMPT);
+            String system = prefs.getString("openai_system", null);
 
             List<OpenAI.Message> messages = new ArrayList<>();
+
+            if (!TextUtils.isEmpty(system))
+                messages.add(new OpenAI.Message(OpenAI.SYSTEM, new OpenAI.Content[]{
+                        new OpenAI.Content(OpenAI.CONTENT_TEXT, system)}));
 
             if (reply == null) {
                 if (body instanceof Spannable && multimodal)
