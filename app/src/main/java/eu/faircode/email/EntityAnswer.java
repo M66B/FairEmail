@@ -476,6 +476,7 @@ public class EntityAnswer implements Serializable {
         json.put("group", group);
         json.put("standard", standard);
         json.put("receipt", receipt);
+        json.put("ai", ai);
         json.put("favorite", favorite);
         json.put("snippet", snippet);
         json.put("hide", hide);
@@ -498,6 +499,7 @@ public class EntityAnswer implements Serializable {
             answer.group = null;
         answer.standard = json.optBoolean("standard");
         answer.receipt = json.optBoolean("receipt");
+        answer.ai = json.optBoolean("ai");
         answer.favorite = json.optBoolean("favorite");
         answer.snippet = json.optBoolean("snippet");
         answer.hide = json.optBoolean("hide");
