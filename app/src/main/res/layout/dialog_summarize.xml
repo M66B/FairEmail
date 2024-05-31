@@ -59,18 +59,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSubject" />
 
+        <ImageButton
+            android:id="@+id/ibCopy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_clipboard_copy"
+            android:tooltipText="@string/title_clipboard_copy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSummary"
+            app:srcCompat="@drawable/twotone_file_copy_24" />
+
         <TextView
             android:id="@+id/tvElapsed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_hourglass_bottom_12"
             android:drawablePadding="3dp"
             android:text="1.23s"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSummary" />
+            app:layout_constraintBottom_toBottomOf="@id/ibCopy"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/tvError"
@@ -83,7 +95,7 @@
             android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvElapsed" />
+            app:layout_constraintTop_toBottomOf="@id/ibCopy" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbWait"

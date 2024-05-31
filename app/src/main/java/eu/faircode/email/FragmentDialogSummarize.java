@@ -20,13 +20,18 @@ package eu.faircode.email;
 */
 
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -46,6 +51,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         final TextView tvFrom = view.findViewById(R.id.tvFrom);
         final TextView tvSubject = view.findViewById(R.id.tvSubject);
         final TextView tvSummary = view.findViewById(R.id.tvSummary);
+        final ImageButton ibCopy = view.findViewById(R.id.ibCopy);
         final TextView tvElapsed = view.findViewById(R.id.tvElapsed);
         final TextView tvError = view.findViewById(R.id.tvError);
         final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
@@ -58,6 +64,23 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         float textSize = Helper.getTextSize(context, zoom) * message_zoom / 100f;
         tvSummary.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
+        ibCopy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Context context = v.getContext();
+                ClipboardManager clipboard = Helper.getSystemService(context, ClipboardManager.class);
+                if (clipboard == null)
+                    return;
+
+                ClipData clip = ClipData.newPlainText(getString(R.string.app_name), tvSummary.getText());
+                clipboard.setPrimaryClip(clip);
+
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+
+            }
+        });
+
         Bundle args = getArguments();
 
         tvCaption.setText(AI.getSummarizePrompt(context));
@@ -68,6 +91,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
             @Override
             protected void onPreExecute(Bundle args) {
                 tvSummary.setVisibility(View.GONE);
+                ibCopy.setVisibility(View.GONE);
                 tvElapsed.setVisibility(View.GONE);
                 tvError.setVisibility(View.GONE);
                 pbWait.setVisibility(View.VISIBLE);
@@ -98,6 +122,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
             protected void onExecuted(Bundle args, String summary) {
                 tvSummary.setText(summary);
                 tvSummary.setVisibility(View.VISIBLE);
+                ibCopy.setVisibility(View.VISIBLE);
                 tvElapsed.setText(Helper.formatDuration(args.getLong("elapsed")));
                 tvElapsed.setVisibility(View.VISIBLE);
             }
