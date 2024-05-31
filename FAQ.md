@@ -5585,6 +5585,7 @@ OpenAI can only be used if configured and enabled.
 **Setup**
 
 * Create an account [here](https://platform.openai.com/signup)
+* Pay some money via [here](https://platform.openai.com/settings/organization/billing/overview)
 * Create an API key [here](https://platform.openai.com/account/api-keys)
 * Copy the API key and paste it in the corresponding field of the integration settings
 * Enable the OpenAI switch
