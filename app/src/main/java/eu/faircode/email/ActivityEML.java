@@ -66,8 +66,10 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DateFormat;
+import java.util.List;
 import java.util.Properties;
 
+import javax.mail.Address;
 import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.Message;
@@ -88,8 +90,10 @@ public class ActivityEML extends ActivityBase {
     private TextView tvBody;
     private TextView tvStructure;
     private ImageButton ibEml;
+    private CardView cardStructure;
     private CardView cardHeaders;
     private TextView tvHeaders;
+    private TextView tvAuthentication;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
@@ -128,8 +132,10 @@ public class ActivityEML extends ActivityBase {
         tvBody = findViewById(R.id.tvBody);
         tvStructure = findViewById(R.id.tvStructure);
         ibEml = findViewById(R.id.ibEml);
+        cardStructure = findViewById(R.id.cardStructure);
         cardHeaders = findViewById(R.id.cardHeaders);
         tvHeaders = findViewById(R.id.tvHeaders);
+        tvAuthentication = findViewById(R.id.tvAuthentication);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
 
@@ -209,6 +215,7 @@ public class ActivityEML extends ActivityBase {
         // Initialize
         vSeparatorAttachments.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
+        cardStructure.setVisibility(View.GONE);
         cardHeaders.setVisibility(View.GONE);
 
         load();
@@ -232,8 +239,12 @@ public class ActivityEML extends ActivityBase {
         uri = getIntent().getData();
         Log.i("EML uri=" + uri);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean debug = prefs.getBoolean("debug", false);
+
         Bundle args = new Bundle();
         args.putParcelable("uri", uri);
+        args.putBoolean("debug", debug || BuildConfig.DEBUG);
 
         new SimpleTask<Result>() {
             @Override
@@ -249,6 +260,7 @@ public class ActivityEML extends ActivityBase {
             @Override
             protected Result onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
+                boolean debug = args.getBoolean("debug");
 
                 NoStreamException.check(uri, context);
 
@@ -321,17 +333,50 @@ public class ActivityEML extends ActivityBase {
                         }, null);
                     }
 
-                    int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
-                    SpannableStringBuilder ssb = new SpannableStringBuilderEx();
-                    MessageHelper.getStructure(imessage, ssb, 0, textColorLink);
-                    result.structure = ssb;
+                    if (debug) {
+                        int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
+                        SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+                        MessageHelper.getStructure(imessage, ssb, 0, textColorLink);
+                        result.structure = ssb;
 
-                    result.headers = HtmlHelper.highlightHeaders(context,
-                            helper.getFrom(),
-                            helper.getTo(),
-                            helper.getReceivedHeader(),
-                            helper.getHeaders(),
-                            false, false);
+                        result.headers = HtmlHelper.highlightHeaders(context,
+                                helper.getFrom(),
+                                helper.getTo(),
+                                helper.getReceivedHeader(),
+                                helper.getHeaders(),
+                                false, false);
+
+                        ssb = new SpannableStringBuilderEx();
+
+                        String[] authentication = helper.getAuthentication();
+
+                        Boolean tls = helper.getTLS();
+                        Boolean dkim = MessageHelper.getAuthentication("dkim", authentication);
+                        Boolean spf = MessageHelper.getAuthentication("spf", authentication);
+                        if (spf == null)
+                            spf = helper.getSPF();
+                        Boolean dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+                        Boolean auth = MessageHelper.getAuthentication("auth", authentication);
+
+                        List<String> signers = helper.verifyDKIM(context);
+                        boolean aligned = helper.isAligned(context, signers,
+                                helper.getReturnPath(), helper.getMailFrom(authentication), helper.getFrom());
+
+                        ssb.append("TLS:   ").append(tls == null ? "-" : (tls ? "✓" : "✗")).append('\n');
+                        ssb.append("DKIM:  ").append(dkim == null ? "-" : (dkim ? "✓" : "✗")).append('\n');
+                        ssb.append("SPF:   ").append(spf == null ? "-" : (spf ? "✓" : "✗")).append('\n');
+                        ssb.append("DMARC: ").append(dmarc == null ? "-" : (dmarc ? "✓" : "✗")).append('\n');
+                        ssb.append("AUTH:  ").append(auth == null ? "-" : (auth ? "✓" : "✗")).append('\n');
+
+                        ssb.append('\n');
+                        ssb.append("Signers: ").append('\n');
+                        for (String signer : signers)
+                            ssb.append("- ").append(signer).append('\n');
+                        ssb.append('\n');
+                        ssb.append("Aligned: ").append(Boolean.toString(aligned)).append('\n');
+
+                        result.authentication = ssb;
+                    }
 
                     return result;
                 }
@@ -411,10 +456,15 @@ public class ActivityEML extends ActivityBase {
                 rvAttachment.setAdapter(adapter);
 
                 tvBody.setText(result.body);
+                grpReady.setVisibility(View.VISIBLE);
+
                 tvStructure.setText(result.structure);
                 tvHeaders.setText(result.headers);
-                grpReady.setVisibility(View.VISIBLE);
-                cardHeaders.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+                tvAuthentication.setText(result.authentication);
+
+                boolean debug = args.getBoolean("debug");
+                cardStructure.setVisibility(debug ? View.VISIBLE : View.GONE);
+                cardHeaders.setVisibility(debug ? View.VISIBLE : View.GONE);
             }
 
             @Override
@@ -672,5 +722,6 @@ public class ActivityEML extends ActivityBase {
         Spanned body;
         Spanned structure;
         Spanned headers;
+        Spanned authentication;
     }
 }
