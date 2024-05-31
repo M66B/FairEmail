@@ -114,7 +114,7 @@
         android:id="@+id/wvBody"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="0dp"
+        android:layout_marginHorizontal="3dp"
         android:layout_marginTop="3dp"
         android:paddingBottom="6dp"
         android:visibility="gone"
