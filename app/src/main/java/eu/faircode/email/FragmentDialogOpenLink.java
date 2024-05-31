@@ -298,6 +298,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         ibCopy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final Context context = v.getContext();
                 ClipboardManager clipboard = Helper.getSystemService(context, ClipboardManager.class);
                 if (clipboard == null)
                     return;
