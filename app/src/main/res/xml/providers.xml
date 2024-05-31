@@ -998,7 +998,8 @@
     </provider>
     <provider
         name="DomainFactory"
-        link="https://www.df.eu/de/support/df-faq/e-mail/pop3-imap-postfaecher/mail-programme/">
+        link="https://www.df.eu/de/support/df-faq/e-mail/pop3-imap-postfaecher/mail-programme/"
+        useip="false">
         <imap
             host="sslin.df.eu"
             port="993"
