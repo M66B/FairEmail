@@ -306,16 +306,13 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             d.draw(canvas);
 
             boolean task_description = prefs.getBoolean("task_description", true);
-            int colorPrimary;
-            if (task_description) {
-                colorPrimary = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark);
-                ;
-                if (colorPrimary != 0 && Color.alpha(colorPrimary) != 255) {
-                    Log.w("Task color primary=" + Integer.toHexString(colorPrimary));
-                    colorPrimary = ColorUtils.setAlphaComponent(colorPrimary, 255);
-                }
-            } else
-                colorPrimary = getColor(R.color.lightBluePrimary);
+            int colorPrimary = (task_description
+                    ? Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark)
+                    : getColor(R.color.lightBluePrimary));
+            if (colorPrimary != 0 && Color.alpha(colorPrimary) != 255) {
+                Log.w("Task color primary=" + Integer.toHexString(colorPrimary));
+                colorPrimary = ColorUtils.setAlphaComponent(colorPrimary, 255);
+            }
 
             ActivityManager.TaskDescription td = new ActivityManager.TaskDescription(
                     null, bm, colorPrimary);
