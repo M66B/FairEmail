@@ -2697,7 +2697,7 @@ public class FragmentCompose extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putCharSequence("body", body);
-        args.putLong("template", template == null ? -1L : template);
+        args.putLong("template", template == null ? 0L : template);
 
         new SimpleTask<Spanned>() {
             @Override

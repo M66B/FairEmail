@@ -46,9 +46,7 @@ public class AI {
 
     static Spanned completeChat(Context context, long id, CharSequence body, long template) throws JSONException, IOException {
         String reply = null;
-        if (body == null || TextUtils.isEmpty(body.toString().trim())) {
-            body = "?";
-
+        if (body == null || body.length() == 0 || template < 0L /* Default */) {
             File file = EntityMessage.getFile(context, id);
             if (file.exists()) {
                 Document d = JsoupEx.parse(file);
@@ -68,12 +66,19 @@ public class AI {
         }
 
         String prompt = null;
-        DB db = DB.getInstance(context);
-        EntityAnswer t = db.answer().getAnswer(template);
-        if (t != null) {
-            String html = t.getHtml(context, null);
-            prompt = JsoupEx.parse(html).body().text();
+        if (template < 0L)
+            prompt = (body == null ? null : body.toString());
+        else {
+            DB db = DB.getInstance(context);
+            EntityAnswer t = db.answer().getAnswer(template);
+            if (t != null) {
+                String html = t.getHtml(context, null);
+                prompt = JsoupEx.parse(html).body().text();
+            }
         }
+
+        if (body == null || body.length() == 0)
+            body = "?";
 
         StringBuilder sb = new StringBuilder();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
