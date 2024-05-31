@@ -2199,7 +2199,7 @@ public class MessageHelper {
             if (v == null)
                 continue;
 
-            String[] val = v.split("\\s+");
+            String[] val = v.split("[^A-za-z]+");
             if (val.length == 0)
                 continue;
 
@@ -2284,7 +2284,7 @@ public class MessageHelper {
         // result = "Pass" / "Fail" / "SoftFail" / "Neutral" / "None" / "TempError" / "PermError"
 
         String spf = MimeUtility.unfold(headers[0]);
-        String[] values = spf.trim().split("\\s+");
+        String[] values = spf.trim().split("[^A-Za-z]+");
         if (values.length == 0)
             return null;
 
