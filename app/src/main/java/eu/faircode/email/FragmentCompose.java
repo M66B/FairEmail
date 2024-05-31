@@ -2654,7 +2654,10 @@ public class FragmentCompose extends FragmentBase {
                 else {
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), anchor);
 
-                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(getString(R.string.title_advanced_default_prompt));
+                    String title = getString(etBody.length() == 0
+                            ? R.string.title_advanced_default_prompt
+                            : R.string.title_advanced_entered_text);
+                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(title);
                     ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
                     popupMenu.getMenu()
                             .add(Menu.NONE, 1, 1, ssb)
