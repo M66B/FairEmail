@@ -914,6 +914,9 @@ public class FragmentOAuth extends FragmentBase {
                 if (!inbound_only && state.length == 1) {
                     EntityLog.log(context, "OAuth checking SMTP provider=" + provider.id);
 
+                    if (false && BuildConfig.DEBUG)
+                        throw new AuthenticationFailedException("535 5.7.139 Authentication unsuccessful, SmtpClientAuthentication is disabled for the Tenant.");
+
                     try (EmailService iservice = new EmailService(context,
                             iprotocol, null, iencryption, false, false, false,
                             EmailService.PURPOSE_CHECK, true)) {
