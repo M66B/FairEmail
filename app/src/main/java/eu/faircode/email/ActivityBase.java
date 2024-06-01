@@ -266,6 +266,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             controller.setAppearanceLightStatusBars(false);
             controller.setAppearanceLightNavigationBars(false);
             window.setNavigationBarColor(Color.TRANSPARENT);
+            window.setNavigationBarContrastEnforced(false);
         }
 
         String requestKey = getRequestKey();
