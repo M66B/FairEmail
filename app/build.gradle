@@ -422,7 +422,7 @@ preBuild.dependsOn copyChangelog
 
 tasks.register('updateFAQ', Exec) {
     workingDir "${rootDir}"
-    commandLine 'sh', '-c', 'pandoc --standalone --columns=10000 -M document-css=false --metadata-file FAQ.yaml FAQ.md -o index.html'
+    commandLine 'sh', '-c', 'pandoc --standalone --metadata=title="FairEmail - FAQ" --variable=title="" --columns=10000 -M document-css=false --metadata-file FAQ.yaml FAQ.md -o index.html'
 }
 
 tasks.register('updatePrivacy', Exec) {
