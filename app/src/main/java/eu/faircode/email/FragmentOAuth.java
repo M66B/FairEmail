@@ -1106,6 +1106,10 @@ public class FragmentOAuth extends FragmentBase {
                 if (ex.getMessage() != null &&
                         ex.getMessage().contains("535 5.7.3 Authentication unsuccessful"))
                     tvOfficeAuthHint.setText(R.string.title_setup_office_auth_5_7_3);
+                else if (ex.getMessage() != null &&
+                        ex.getMessage().contains("SmtpClientAuthentication is disabled"))
+                    // 535 5.7.139 Authentication unsuccessful, SmtpClientAuthentication is disabled for the Tenant
+                    tvOfficeAuthHint.setText(R.string.title_setup_office_auth_5_7_139);
                 else
                     tvOfficeAuthHint.setText(R.string.title_setup_office_auth);
                 tvOfficeAuthHint.setVisibility(View.VISIBLE);
