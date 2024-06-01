@@ -807,6 +807,7 @@
     <string name="title_advanced_multi_modal">Мультымадальнасць</string>
     <string name="title_advanced_summarize_prompt">Падвесці вынікі</string>
     <string name="title_advanced_answer_prompt">Падказка адказу</string>
+    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">Запыт па змаўчанні</string>
     <string name="title_advanced_sdcard">Я хачу выкарыстоўваць карту памяці</string>
     <string name="title_advanced_watchdog">Перыядычна правяраць актыўнасць FairEmail</string>
     <string name="title_advanced_updates">Праверыць наяўнасць абнаўленняў на GitHub</string>
@@ -1701,6 +1702,7 @@
     <string name="title_answer_favorite">Пазначыць</string>
     <string name="title_answer_snippet">Фрагмент</string>
     <string name="title_answer_receipt">Выкарыстоўваць як апавяшчэнне аб прачытанні</string>
+    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">Выкарыстоўваць як запыт ШІ</string>
     <string name="title_answer_hide">Не паказваць у меню</string>
     <string name="title_answer_text">Тэкст шаблону</string>
     <string name="title_answer_placeholder">Запаўняльнік</string>
@@ -2008,6 +2010,7 @@
     <string name="title_ask_what">Спытаць, што рабіць</string>
     <string name="title_no_ask_again">Больш не запытваць</string>
     <string name="title_no_ask_for_again">Больш не запытваць для %1$s</string>
+    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">Больш не паказваць</string>
     <string name="title_undo_privacy">Гэта можна адмяніць на старонцы налад прыватнасці</string>
     <string name="title_no_body">Тэкст паведамлення не знойдзены</string>
     <string name="title_large_body">Гэта паведамленне вельмі вялікае і можа выклікаць праблемы!</string>

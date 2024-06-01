@@ -779,6 +779,7 @@
     <string name="title_advanced_multi_modal">Multimodal</string>
     <string name="title_advanced_summarize_prompt">Aufforderung zusammenfassen</string>
     <string name="title_advanced_answer_prompt">Ausgabeaufforderung</string>
+    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">Vorkonfigurierte Prompts</string>
     <string name="title_advanced_sdcard">Ich möchte eine SD-Karte verwenden</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Auf GitHub nach Aktualisierungen suchen</string>
@@ -1672,6 +1673,7 @@
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_snippet">Textbaustein</string>
     <string name="title_answer_receipt">Als Lesebestätigung verwenden</string>
+    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">Als KI-Prompt verwenden</string>
     <string name="title_answer_hide">Aus Menüs ausblenden</string>
     <string name="title_answer_text">Vorlagentext</string>
     <string name="title_answer_placeholder">Platzhalter</string>

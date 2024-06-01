@@ -790,6 +790,7 @@
     <string name="title_advanced_multi_modal">Multimodale</string>
     <string name="title_advanced_summarize_prompt">Realizează un sumar</string>
     <string name="title_advanced_answer_prompt">Introducere răspuns</string>
+    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">Solicitare implicită</string>
     <string name="title_advanced_sdcard">Vreau să folosesc un sdcard</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificați dacă există actualizări pe Github</string>
@@ -1680,6 +1681,7 @@
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_snippet">Fragment</string>
     <string name="title_answer_receipt">Utilizați ca și chitanță de citire</string>
+    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">Utilizează ca și solicitare AI</string>
     <string name="title_answer_hide">Ascunde din meniuri</string>
     <string name="title_answer_text">Text șablon</string>
     <string name="title_answer_placeholder">Substituent</string>
@@ -1987,6 +1989,7 @@
     <string name="title_ask_what">Întreabă ce să faci</string>
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_no_ask_for_again">Nu mai întreba din nou pentru %1$s</string>
+    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">Nu mai arăta din nou</string>
     <string name="title_undo_privacy">Aceasta poate fi anulată în pagina de setări de confidențialitate</string>
     <string name="title_no_body">Nu a fost găsit textul mesajului</string>
     <string name="title_large_body">Acest mesaj este foarte mare şi poate cauza probleme!</string>

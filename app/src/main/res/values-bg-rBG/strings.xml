@@ -14,6 +14,10 @@
     <string name="app_cake_required">Изисквано минимум място за хранилището: %1$s</string>
     <string name="app_updated">Последно обновяване: %1$s</string>
     <string name="app_download">Изтеглено от: %1$s</string>
+    <string name="app_motd">        С бета версия на Android №14/15 понякога се появяват известия „Приложението не отговаря“.
+        Google работи по оправянето на проблема.
+        Моля, не винете приложението за този проблем в Android!
+    </string>
     <string name="channel_service">Наблюдение</string>
     <string name="channel_send">Изпращане</string>
     <string name="channel_notification">Имейл</string>
@@ -772,6 +776,8 @@
     <string name="title_advanced_gemini">Интегриране с Gemini</string>
     <string name="title_advanced_multi_modal">Многомодалност</string>
     <string name="title_advanced_summarize_prompt">Подкана за обобщаване</string>
+    <string name="title_advanced_answer_prompt">Подкана за отговор</string>
+    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">Подкана по подразбиране</string>
     <string name="title_advanced_sdcard">Желая да употребявам sd карта</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
     <string name="title_advanced_updates">Проверка за обновяване на GitHub</string>
@@ -1111,7 +1117,7 @@
     <string name="title_delete_operation_delete">Изтриване на операции</string>
     <string name="title_delete_operation_send">Операции за изпращане</string>
     <string name="title_delete_operation_deleted">%1$d изтрити операции</string>
-    <string name="title_delete_contacts">Изтрий локалните контакти?</string>
+    <string name="title_delete_contacts">Изтривате ли всички местни контакти?</string>
     <string name="title_delete_contacts_remark">Всички контакти, показвани и непоказвани, ще се изтрият, дори ако се търсят!</string>
     <string name="title_no_operations">Няма чакащи операции</string>
     <string name="title_check_operations">Проверяване за операции</string>
@@ -1662,6 +1668,7 @@
     <string name="title_answer_favorite">Любими</string>
     <string name="title_answer_snippet">Фрагмент</string>
     <string name="title_answer_receipt">Употреба като разписка за прочитане</string>
+    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">Употреба като подкана на ИИ</string>
     <string name="title_answer_hide">Скриване в менюто</string>
     <string name="title_answer_text">Шаблон текст</string>
     <string name="title_answer_placeholder">Контейнер</string>
@@ -1969,6 +1976,7 @@
     <string name="title_ask_what">Запитване за</string>
     <string name="title_no_ask_again">Без повторно питане</string>
     <string name="title_no_ask_for_again">Без ново питане за %1$s</string>
+    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">Без повторно показване</string>
     <string name="title_undo_privacy">Това може да се отмени в раздела „Настройки за поверителност“</string>
     <string name="title_no_body">Няма текстови съобщения</string>
     <string name="title_large_body">Съобщението е преголямо и това може да доведе до проблеми!</string>
