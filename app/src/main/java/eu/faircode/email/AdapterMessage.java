@@ -1107,6 +1107,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTranslate.setOnClickListener(this);
                 ibTranslate.setOnLongClickListener(this);
                 ibSummarize.setOnClickListener(this);
+                ibSummarize.setOnLongClickListener(this);
                 ibFullScreen.setOnClickListener(this);
                 ibForceLight.setOnClickListener(this);
                 ibImportance.setOnClickListener(this);
@@ -1230,6 +1231,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTranslate.setOnClickListener(null);
                 ibTranslate.setOnLongClickListener(null);
                 ibSummarize.setOnClickListener(null);
+                ibSummarize.setOnLongClickListener(null);
                 ibFullScreen.setOnClickListener(null);
                 ibForceLight.setOnClickListener(null);
                 ibImportance.setOnClickListener(null);
@@ -4770,6 +4772,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return true;
             } else if (id == R.id.ibHeaders) {
                 onMenuShareHtml(message);
+                return true;
+            } else if (id == R.id.ibSummarize) {
+                context.startActivity(new Intent(context, ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .putExtra("tab", "integrations"));
                 return true;
             } else if (id == R.id.ibFull) {
                 boolean full = properties.getValue("full", message.id);

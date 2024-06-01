@@ -1887,6 +1887,15 @@ public class FragmentCompose extends FragmentBase {
                     onAI(view);
             }
         });
+        ibAI.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .putExtra("tab", "integrations"));
+                return true;
+            }
+        });
         menu.findItem(R.id.menu_ai).setActionView(ibAI);
 
         View v = infl.inflate(R.layout.action_button_text, null);
