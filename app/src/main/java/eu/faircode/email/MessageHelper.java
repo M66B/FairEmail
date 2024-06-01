@@ -2203,12 +2203,24 @@ public class MessageHelper {
             if (val.length == 0)
                 continue;
 
-            if ("pass".equals(val[0]))
-                return true;
-            else if ("none".equals(val[0]))
-                return null;
-            else
-                return false; // fail, policy, neutral, temperror, permerror
+            String value = val[0].toLowerCase(Locale.ROOT);
+            switch (value) {
+                case "none":
+                    return null;
+                case "pass":
+                    return true;
+                case "fail":
+                case "policy":
+                    return false;
+                case "neutral":
+                    return null;
+                case "temperror":
+                    return null;
+                case "permerror":
+                    return false;
+                default: // Yahoo: unknown
+                    return null;
+            }
         }
 
         return null;
@@ -2292,11 +2304,17 @@ public class MessageHelper {
         switch (value) {
             case "pass":
                 return true;
+            case "fail":
+                return false;
+            case "softfail":
             case "neutral":
             case "none":
+            case "temperror":
                 return null;
-            default:
+            case "permerror":
                 return false;
+            default:
+                return null;
         }
     }
 
