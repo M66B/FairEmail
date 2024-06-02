@@ -34,6 +34,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
@@ -42,10 +44,14 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Objects;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 
 public class FairEmailBackupAgent extends BackupAgent {
     // https://developer.android.com/identity/data/keyvaluebackup#BackupAgent
     // https://developer.android.com/identity/data/testingbackup#Preparing
+
+    // bmgr backupnow "eu.faircode.email.debug"
 
     private static final String KEY_JSON = "eu.faircode.email.json";
 
@@ -117,8 +123,15 @@ public class FairEmailBackupAgent extends BackupAgent {
             }
 
             boolean write = !Objects.equals(dataHash, lastHash);
-            EntityLog.log(this, "Backup write=" + write);
+            EntityLog.log(this, "Backup write=" + write + "size=" + dataBuf.length);
             if (write) {
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                try (GZIPOutputStream gos = new GZIPOutputStream(bos)) {
+                    gos.write(dataBuf, 0, dataBuf.length);
+                }
+                dataBuf = bos.toByteArray();
+                EntityLog.log(this, "Backup compressed=" + dataBuf.length);
+
                 data.writeEntityHeader(KEY_JSON, dataBuf.length);
                 data.writeEntityData(dataBuf, dataBuf.length);
             }
@@ -153,8 +166,17 @@ public class FairEmailBackupAgent extends BackupAgent {
             if (KEY_JSON.equals(dataKey)) {
                 byte[] dataBuf = new byte[dataSize];
                 data.readEntityData(dataBuf, 0, dataSize);
+
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                try (GZIPInputStream gis = new GZIPInputStream(new ByteArrayInputStream(dataBuf))) {
+                    Helper.copy(gis, bos);
+                }
+                dataBuf = bos.toByteArray();
+                EntityLog.log(this, "Restore decompressed=" + dataBuf.length);
+
                 try {
                     JSONObject jroot = new JSONObject(new String(dataBuf, StandardCharsets.UTF_8));
+                    jroot.put("version", 1);
 
                     JSONObject jsettings = jroot.getJSONObject("settings");
                     SharedPreferences.Editor editor = prefs.edit();
