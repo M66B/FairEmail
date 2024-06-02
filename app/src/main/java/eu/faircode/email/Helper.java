@@ -224,6 +224,7 @@ public class Helper {
     static final String DONTKILL_URI = "https://dontkillmyapp.com/";
     static final String URI_SUPPORT_RESET_OPEN = "https://support.google.com/pixelphone/answer/6271667";
     static final String URI_SUPPORT_CONTACT_GROUP = "https://support.google.com/contacts/answer/30970";
+    static final String GOOGLE_PRIVACY_URI = "https://policies.google.com/privacy";
 
     // https://developer.android.com/distribute/marketing-tools/linking-to-google-play#PerformingSearch
     private static final String PLAY_STORE_SEARCH = "https://play.google.com/store/search";

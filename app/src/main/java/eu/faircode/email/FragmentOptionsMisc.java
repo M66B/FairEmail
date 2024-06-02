@@ -147,6 +147,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvLastCleanup;
     private TextView tvSdcard;
     private SwitchCompat swGoogleBackup;
+    private TextView tvGoogleBackupPrivacy;
 
     private CardView cardAdvanced;
     private SwitchCompat swWatchdog;
@@ -398,6 +399,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
         tvSdcard = view.findViewById(R.id.tvSdcard);
         swGoogleBackup = view.findViewById(R.id.swGoogleBackup);
+        tvGoogleBackupPrivacy = view.findViewById(R.id.tvGoogleBackupPrivacy);
 
         cardAdvanced = view.findViewById(R.id.cardAdvanced);
         swWatchdog = view.findViewById(R.id.swWatchdog);
@@ -884,6 +886,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("google_backup", checked).apply();
                 FairEmailBackupAgent.dataChanged(compoundButton.getContext());
+            }
+        });
+
+        tvGoogleBackupPrivacy.getPaint().setUnderlineText(true);
+        tvGoogleBackupPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.GOOGLE_PRIVACY_URI), true);
             }
         });
 

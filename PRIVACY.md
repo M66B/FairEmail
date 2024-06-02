@@ -11,7 +11,7 @@
 
 This privacy policy will be updated as needed, such as when there are changes in the app or when regulations or laws change.
 
-Last update: **June 1, 2024**
+Last update: **June 2, 2024**
 
 <br />
 
@@ -89,6 +89,7 @@ FairEmail **can use** these services if they are explicitly enabled (off by defa
 * [GitHub](https://github.com/) (GitHub version only) &#8211; [Privacy policy](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
 * [Have I Been Pwned?](https://haveibeenpwned.com/) &#8211; [Privacy policy](https://haveibeenpwned.com/Privacy)
 * [Bugsnag](https://www.bugsnag.com/) &#8211; [Privacy policy](https://smartbear.com/privacy/)
+* [Google data backup](https://developer.android.com/identity/data/backup) &#8211; [Privacy policy](https://policies.google.com/privacy)
 * [Google Play Billing](https://developer.android.com/distribute/play-billing) &#8211; [Privacy policy](https://wallet.google.com/files/privacy.html)
 
 FairEmail **can access** the websites at the domain names of email addresses (username@domain.name)
@@ -166,6 +167,7 @@ This table provides a complete overview of all shared data and the conditions un
 | Favicons            | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message                           |
 | Link title          | Link address                                                       | Upon pressing a download button in the insert link dialog                   |
 | Bugsnag             | Information about warnings and errors                              | If error reporting is enabled, upon detecting an abnormal situation         |
+| Google data backup  | Account configuration, selected settings                           | If Google data backup is enabled on the miscellaneous settings tab page     |
 | Google Play Billing | "insight into API usage and service connection issues"             | Not disclosed by Google (**) (endpoint: firebaselogging.googleapis.com)     |
 
 </div>
