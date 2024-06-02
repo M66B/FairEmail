@@ -312,6 +312,7 @@ public class ExpressionHelper {
         }
     }
 
+    @FunctionParameter(name = "value")
     public static class AttachmentsFunction extends AbstractFunction {
         private final Context context;
         private final EntityMessage message;
@@ -325,10 +326,20 @@ public class ExpressionHelper {
         public EvaluationValue evaluate(
                 Expression expression, Token functionToken, EvaluationValue... parameterValues) {
             int result = 0;
+            String regex = null;
 
             if (message != null) {
                 DB db = DB.getInstance(context);
-                result = db.attachment().countAttachments(message.id);
+                if (parameterValues.length == 1) {
+                    regex = parameterValues[0].getStringValue();
+                    Pattern p = Pattern.compile(regex);
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                    if (attachments != null)
+                        for (EntityAttachment attachment : attachments)
+                            if (attachment.name != null && p.matcher(attachment.name).matches())
+                                result++;
+                } else
+                    result = db.attachment().countAttachments(message.id);
             }
 
             Log.i("EXPR attachments()=" + result);
