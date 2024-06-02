@@ -68,7 +68,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         super(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        this.viewportHeight = prefs.getInt("viewport_height", DEFAULT_VIEWPORT_HEIGHT);
+        this.viewportHeight = prefs.getInt("viewport_height", getDefaultViewportHeight(context));
         boolean overview_mode = prefs.getBoolean("overview_mode", false);
         boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
 
@@ -469,6 +469,13 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             Log.w(ex);
             return false;
         }
+    }
+
+    static int getDefaultViewportHeight(Context context) {
+        if (Helper.isGoogle() || Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU)
+            return DEFAULT_VIEWPORT_HEIGHT * 2;
+        else
+            return DEFAULT_VIEWPORT_HEIGHT;
     }
 
     @NonNull
