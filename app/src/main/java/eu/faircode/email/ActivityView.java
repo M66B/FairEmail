@@ -1526,7 +1526,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 return;
 
             String last = prefs.getString("changelog", null);
-            if (!Objects.equals(version, last) || BuildConfig.DEBUG) {
+            if (last != null && !last.equals(version)) {
                 prefs.edit().putString("changelog", version).apply();
 
                 Bundle args = new Bundle();
