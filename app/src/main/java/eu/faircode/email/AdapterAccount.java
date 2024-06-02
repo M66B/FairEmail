@@ -492,8 +492,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_account_ondemand, order++, R.string.title_account_ondemand)
                         .setCheckable(true).setChecked(account.ondemand);
             }
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, order++, R.string.title_primary)
-                    .setCheckable(true).setChecked(account.primary);
+            if (account.synchronize)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, order++, R.string.title_primary)
+                        .setCheckable(true).setChecked(account.primary);
             if (parentFragment instanceof FragmentAccounts)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_color, order++, R.string.title_edit_color);
 
@@ -600,6 +601,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                                     db.account().setAccountWarning(id, null);
                                     db.account().setAccountError(id, null);
                                     db.account().setAccountConnected(id, null);
+                                    db.account().setAccountPrimary(id, false);
                                 }
 
                                 db.account().setAccountSynchronize(id, sync);
