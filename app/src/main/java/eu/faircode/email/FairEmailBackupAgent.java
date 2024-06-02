@@ -72,6 +72,7 @@ public class FairEmailBackupAgent extends BackupAgent {
                 return;
 
             JSONObject jroot = new JSONObject();
+            jroot.put("version", 1);
 
             JSONObject jsettings = new JSONObject();
             jsettings.put("enabled", prefs.getBoolean("enabled", true));
@@ -174,7 +175,7 @@ public class FairEmailBackupAgent extends BackupAgent {
                         EntityLog.log(this, "Restore decompressed=" + dataBuf.length);
 
                         JSONObject jroot = new JSONObject(new String(dataBuf, StandardCharsets.UTF_8));
-                        jroot.put("version", 1);
+                        EntityLog.log(this, "Restore version=" + jroot.optInt("version", 0));
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                         SharedPreferences.Editor editor = prefs.edit();
