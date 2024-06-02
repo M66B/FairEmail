@@ -56,9 +56,12 @@ public class FairEmailBackupAgent extends BackupAgent {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean enabled = prefs.getBoolean("google_backup", BuildConfig.PLAY_STORE_RELEASE);
 
-        EntityLog.log(this, "Backup start enabled=" + enabled);
+        boolean encrypted = ((data.getTransportFlags() & FLAG_CLIENT_SIDE_ENCRYPTION_ENABLED) != 0);
+        boolean d2d = ((data.getTransportFlags() & FLAG_DEVICE_TO_DEVICE_TRANSFER) != 0);
+        EntityLog.log(this, "Backup start enabled=" + enabled +
+                " encrypted=" + encrypted + " d2d=" + d2d);
 
-        if (!enabled)
+        if (!enabled || !(encrypted || BuildConfig.DEBUG))
             return;
 
         try {
@@ -128,6 +131,11 @@ public class FairEmailBackupAgent extends BackupAgent {
         }
 
         EntityLog.log(this, "Backup end");
+    }
+
+    @Override
+    public void onQuotaExceeded(long backupDataBytes, long quotaBytes) {
+        Log.e("Backup quota exceeded " + backupDataBytes + "/" + quotaBytes);
     }
 
     @Override
@@ -213,6 +221,11 @@ public class FairEmailBackupAgent extends BackupAgent {
         }
 
         EntityLog.log(this, "Restore end");
+    }
+
+    @Override
+    public void onRestoreFinished() {
+        EntityLog.log(this, "Restore finished");
     }
 
     static void dataChanged(Context context) {
