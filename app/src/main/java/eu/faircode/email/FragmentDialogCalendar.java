@@ -82,16 +82,16 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
                 int colId = cursor.getColumnIndexOrThrow(CalendarContract.Calendars._ID);
                 int colAccount = cursor.getColumnIndexOrThrow(CalendarContract.Calendars.ACCOUNT_NAME);
                 int colType = cursor.getColumnIndexOrThrow(CalendarContract.Calendars.ACCOUNT_TYPE);
-                int colPrimary = cursor.getColumnIndexOrThrow(CalendarContract.Calendars.IS_PRIMARY);
-                int colVisible = cursor.getColumnIndexOrThrow(CalendarContract.Calendars.VISIBLE);
-                int colDisplay = cursor.getColumnIndexOrThrow(CalendarContract.Calendars.CALENDAR_DISPLAY_NAME);
+                int colPrimary = cursor.getColumnIndex(CalendarContract.Calendars.IS_PRIMARY);
+                int colVisible = cursor.getColumnIndex(CalendarContract.Calendars.VISIBLE);
+                int colDisplay = cursor.getColumnIndex(CalendarContract.Calendars.CALENDAR_DISPLAY_NAME);
                 while (cursor.moveToNext()) {
                     long id = cursor.getLong(colId);
                     String account = cursor.getString(colAccount);
                     String type = cursor.getString(colType);
-                    boolean primary = (cursor.getInt(colPrimary) != 0);
-                    boolean visible = (cursor.getInt(colVisible) != 0);
-                    String name = cursor.getString(colDisplay);
+                    boolean primary = (colPrimary >= 0 && cursor.getInt(colPrimary) != 0);
+                    boolean visible = (colVisible >= 0 && cursor.getInt(colVisible) != 0);
+                    String name = (colDisplay >= 0 ? cursor.getString(colDisplay) : null);
                     if (account != null)
                         calendars.add(new Calendar(id, account, type, primary, visible, name));
                 }
