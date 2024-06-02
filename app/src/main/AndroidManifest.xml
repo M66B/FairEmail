@@ -162,6 +162,9 @@
         <meta-data
             android:name="com.bugsnag.android.BUILD_UUID"
             android:value="${build_uuid}" />
+        <meta-data
+            android:name="com.google.android.backup.api_key"
+            android:value="unused" />
 
         <activity
             android:name=".ActivityMain"
