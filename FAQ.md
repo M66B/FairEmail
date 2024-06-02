@@ -2946,6 +2946,7 @@ The automation action will broadcast the intent *eu.faircode.email.AUTOMATION* w
 * *received* (ISO 8601 date/time)
 
 An app like Tasker can listen for this intent and perform some action.
+Please [see here](https://tasker.joaoapps.com/userguide/en/intents.html) about receiving intents in Tasker.
 
 <br />
 
