@@ -97,6 +97,7 @@ android {
 
     compileOptions {
         // https://developer.android.com/studio/write/java8-support#groovy
+        // sudo update-alternatives --install /usr/bin/java java /usr/local/android-studio/jbr/bin/java 1
         coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
