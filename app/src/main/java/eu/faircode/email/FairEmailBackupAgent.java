@@ -123,7 +123,7 @@ public class FairEmailBackupAgent extends BackupAgent {
             }
 
             boolean write = !Objects.equals(dataHash, lastHash);
-            EntityLog.log(this, "Backup write=" + write + "size=" + dataBuf.length);
+            EntityLog.log(this, "Backup write=" + write + " size=" + dataBuf.length);
             if (write) {
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 try (GZIPOutputStream gos = new GZIPOutputStream(bos)) {
