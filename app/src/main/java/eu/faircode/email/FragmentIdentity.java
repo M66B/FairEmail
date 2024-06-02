@@ -1222,6 +1222,8 @@ public class FragmentIdentity extends FragmentBase {
 
                 Core.clearIdentities();
 
+                FairEmailBackupAgent.dataChanged(context);
+
                 return false;
             }
 

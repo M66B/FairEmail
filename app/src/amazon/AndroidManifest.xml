@@ -112,8 +112,9 @@
 
     <application
         android:name=".ApplicationSecure"
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:appCategory="productivity"
+        android:backupAgent=".FairEmailBackupAgent"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:description="@string/app_name"
         android:enableOnBackInvokedCallback="true"

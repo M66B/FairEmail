@@ -1476,6 +1476,8 @@ public class FragmentAccount extends FragmentBase {
                 editor.putBoolean("unset." + account.id + "." + EntityFolder.JUNK, junk == null);
                 editor.apply();
 
+                FairEmailBackupAgent.dataChanged(context);
+
                 return false;
             }
 

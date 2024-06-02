@@ -610,6 +610,8 @@ public class FragmentGmail extends FragmentBase {
                 ServiceSynchronize.eval(context, "Gmail");
                 args.putBoolean("updated", update != null);
 
+                FairEmailBackupAgent.dataChanged(context);
+
                 return null;
             }
 

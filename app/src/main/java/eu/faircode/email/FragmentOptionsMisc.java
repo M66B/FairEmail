@@ -146,6 +146,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnCleanup;
     private TextView tvLastCleanup;
     private TextView tvSdcard;
+    private SwitchCompat swGoogleBackup;
 
     private CardView cardAdvanced;
     private SwitchCompat swWatchdog;
@@ -279,6 +280,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "language",
             "updates", "weekly", "beta", "show_changelog", "announcements",
             "crash_reports", "cleanup_attachments",
+            "google_backup",
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
             "test1", "test2", "test3", "test4", "test5",
             "emergency_file", "work_manager", "task_description", // "external_storage",
@@ -395,6 +397,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnCleanup = view.findViewById(R.id.btnCleanup);
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
         tvSdcard = view.findViewById(R.id.tvSdcard);
+        swGoogleBackup = view.findViewById(R.id.swGoogleBackup);
 
         cardAdvanced = view.findViewById(R.id.cardAdvanced);
         swWatchdog = view.findViewById(R.id.swWatchdog);
@@ -873,6 +876,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 93);
+            }
+        });
+
+        swGoogleBackup.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("google_backup", checked).apply();
+                FairEmailBackupAgent.dataChanged(compoundButton.getContext());
             }
         });
 
@@ -2332,6 +2343,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
             tvUuid.setText(prefs.getString("uuid", null));
             swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
+            swGoogleBackup.setChecked(prefs.getBoolean("google_backup", BuildConfig.PLAY_STORE_RELEASE));
 
             ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, display);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

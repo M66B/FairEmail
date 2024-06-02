@@ -673,6 +673,8 @@ public class FragmentQuickSetup extends FragmentBase {
                         ServiceSynchronize.eval(context, "quick setup");
                         args.putBoolean("updated", update != null);
 
+                        FairEmailBackupAgent.dataChanged(context);
+
                         return provider;
                     } catch (Throwable ex) {
                         Log.w(ex);

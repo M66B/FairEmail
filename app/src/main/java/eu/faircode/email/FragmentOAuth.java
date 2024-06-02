@@ -1049,6 +1049,8 @@ public class FragmentOAuth extends FragmentBase {
                 ServiceSynchronize.eval(context, "OAuth");
                 args.putBoolean("updated", update != null);
 
+                FairEmailBackupAgent.dataChanged(context);
+
                 return null;
             }
 

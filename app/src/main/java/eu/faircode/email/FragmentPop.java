@@ -750,6 +750,8 @@ public class FragmentPop extends FragmentBase {
 
                 args.putBoolean("saved", true);
 
+                FairEmailBackupAgent.dataChanged(context);
+
                 return false;
             }
 

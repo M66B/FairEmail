@@ -75,7 +75,7 @@ This app starts a foreground service with a low-priority status bar notification
 * No special permissions required
 * No advertisements
 * No analytics and no tracking ([error reporting](https://m66b.github.io/FairEmail/#faq104) via Bugsnag is opt-in)
-* No [Google backup](https://developer.android.com/guide/topics/data/backup)
+* Optional [Google backup](https://developer.android.com/guide/topics/data/backup)
 * No [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging)
 * FairEmail is an original work, not a fork or a clone
 

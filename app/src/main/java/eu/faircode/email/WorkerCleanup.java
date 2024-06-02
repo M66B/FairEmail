@@ -385,6 +385,8 @@ public class WorkerCleanup extends Worker {
                             " size=" + Helper.humanReadableByteCount(size) +
                             "/" + Helper.humanReadableByteCount(available));
             }
+
+            FairEmailBackupAgent.dataChanged(context);
         } catch (Throwable ex) {
             Log.e(ex);
         } finally {
