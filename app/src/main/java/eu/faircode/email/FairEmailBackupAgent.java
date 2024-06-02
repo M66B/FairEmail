@@ -56,21 +56,21 @@ public class FairEmailBackupAgent extends BackupAgent {
     private static final String KEY_JSON = "eu.faircode.email.json";
 
     @Override
-    public void onBackup(ParcelFileDescriptor oldState, BackupDataOutput data, ParcelFileDescriptor newState) throws IOException {
-        DB db = DB.getInstance(this);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean enabled = prefs.getBoolean("google_backup", BuildConfig.PLAY_STORE_RELEASE);
-
-        boolean encrypted = ((data.getTransportFlags() & FLAG_CLIENT_SIDE_ENCRYPTION_ENABLED) != 0);
-        boolean d2d = ((data.getTransportFlags() & FLAG_DEVICE_TO_DEVICE_TRANSFER) != 0);
-        EntityLog.log(this, "Backup start enabled=" + enabled +
-                " encrypted=" + encrypted + " d2d=" + d2d);
-
-        if (!enabled || !(encrypted || BuildConfig.DEBUG))
-            return;
-
+    public void onBackup(ParcelFileDescriptor oldState, BackupDataOutput data, ParcelFileDescriptor newState) {
         try {
+            DB db = DB.getInstance(this);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean enabled = prefs.getBoolean("google_backup", BuildConfig.PLAY_STORE_RELEASE);
+
+            boolean encrypted = ((data.getTransportFlags() & FLAG_CLIENT_SIDE_ENCRYPTION_ENABLED) != 0);
+            boolean d2d = ((data.getTransportFlags() & FLAG_DEVICE_TO_DEVICE_TRANSFER) != 0);
+            EntityLog.log(this, "Backup start enabled=" + enabled +
+                    " encrypted=" + encrypted + " d2d=" + d2d);
+
+            if (!enabled || !(encrypted || BuildConfig.DEBUG))
+                return;
+
             JSONObject jroot = new JSONObject();
 
             JSONObject jsettings = new JSONObject();
@@ -141,9 +141,9 @@ public class FairEmailBackupAgent extends BackupAgent {
             out.writeUTF(dataHash);
         } catch (Throwable ex) {
             Log.e(ex);
+        } finally {
+            EntityLog.log(this, "Backup end");
         }
-
-        EntityLog.log(this, "Backup end");
     }
 
     @Override
@@ -152,97 +152,99 @@ public class FairEmailBackupAgent extends BackupAgent {
     }
 
     @Override
-    public void onRestore(BackupDataInput data, int appVersionCode, ParcelFileDescriptor newState) throws
-            IOException {
-        EntityLog.log(this, "Restore start version=" + appVersionCode);
+    public void onRestore(BackupDataInput data, int appVersionCode, ParcelFileDescriptor newState) {
+        try {
+            EntityLog.log(this, "Restore start version=" + appVersionCode);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            while (data.readNextHeader()) {
+                String dataKey = data.getKey();
+                int dataSize = data.getDataSize();
+                EntityLog.log(this, "Restore key=" + dataKey + " size=" + dataSize);
 
-        while (data.readNextHeader()) {
-            String dataKey = data.getKey();
-            int dataSize = data.getDataSize();
-            EntityLog.log(this, "Restore key=" + dataKey + " size=" + dataSize);
+                if (KEY_JSON.equals(dataKey))
+                    try {
+                        byte[] dataBuf = new byte[dataSize];
+                        data.readEntityData(dataBuf, 0, dataSize);
 
-            if (KEY_JSON.equals(dataKey)) {
-                byte[] dataBuf = new byte[dataSize];
-                data.readEntityData(dataBuf, 0, dataSize);
-
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                try (GZIPInputStream gis = new GZIPInputStream(new ByteArrayInputStream(dataBuf))) {
-                    Helper.copy(gis, bos);
-                }
-                dataBuf = bos.toByteArray();
-                EntityLog.log(this, "Restore decompressed=" + dataBuf.length);
-
-                try {
-                    JSONObject jroot = new JSONObject(new String(dataBuf, StandardCharsets.UTF_8));
-                    jroot.put("version", 1);
-
-                    JSONObject jsettings = jroot.getJSONObject("settings");
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putBoolean("enabled", jsettings.optBoolean("enabled"));
-                    editor.putInt("poll_interval", jsettings.optInt("poll_interval", 0));
-                    String theme = jsettings.optString("theme", null);
-                    if (!TextUtils.isEmpty(theme))
-                        editor.putString("theme", theme);
-                    editor.putBoolean("beige", jsettings.optBoolean("beige", true));
-                    editor.putBoolean("cards", jsettings.optBoolean("cards", true));
-                    editor.putBoolean("threading", jsettings.optBoolean("threading", true));
-                    editor.putBoolean("google_backup", true);
-                    editor.apply();
-
-                    JSONArray jaccounts = jroot.getJSONArray("accounts");
-                    EntityLog.log(this, "Restore accounts=" + jaccounts.length());
-
-                    DB db = DB.getInstance(this);
-                    for (int i = 0; i < jaccounts.length(); i++)
-                        try {
-                            db.beginTransaction();
-
-                            EntityLog.log(this, "Restoring account=" + i);
-
-                            JSONObject jaccount = jaccounts.getJSONObject(i);
-                            JSONArray jfolders = jaccount.getJSONArray("folders");
-                            JSONArray jidentities = jaccount.getJSONArray("identities");
-                            EntityAccount account = EntityAccount.fromJSON(jaccount);
-                            if (TextUtils.isEmpty(account.uuid) ||
-                                    db.account().getAccountByUUID(account.uuid) != null)
-                                continue;
-
-                            if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_GMAIL)
-                                account.synchronize = false;
-
-                            account.id = db.account().insertAccount(account);
-
-                            for (int j = 0; j < jfolders.length(); j++) {
-                                EntityFolder folder = EntityFolder.fromJSON(jfolders.getJSONObject(j));
-                                folder.account = account.id;
-                                db.folder().insertFolder(folder);
-                            }
-
-                            for (int j = 0; j < jidentities.length(); j++) {
-                                EntityIdentity identity = EntityIdentity.fromJSON(jidentities.getJSONObject(j));
-                                identity.account = account.id;
-                                db.identity().insertIdentity(identity);
-                            }
-
-                            EntityLog.log(this, "Restored account=" + account.name);
-
-                            db.setTransactionSuccessful();
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        } finally {
-                            db.endTransaction();
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        try (GZIPInputStream gis = new GZIPInputStream(new ByteArrayInputStream(dataBuf))) {
+                            Helper.copy(gis, bos);
                         }
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            } else {
-                data.skipEntityData();
-            }
-        }
+                        dataBuf = bos.toByteArray();
+                        EntityLog.log(this, "Restore decompressed=" + dataBuf.length);
 
-        EntityLog.log(this, "Restore end");
+                        JSONObject jroot = new JSONObject(new String(dataBuf, StandardCharsets.UTF_8));
+                        jroot.put("version", 1);
+
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        JSONObject jsettings = jroot.getJSONObject("settings");
+                        editor.putBoolean("enabled", jsettings.optBoolean("enabled"));
+                        editor.putInt("poll_interval", jsettings.optInt("poll_interval", 0));
+                        String theme = jsettings.optString("theme", null);
+                        if (!TextUtils.isEmpty(theme))
+                            editor.putString("theme", theme);
+                        editor.putBoolean("beige", jsettings.optBoolean("beige", true));
+                        editor.putBoolean("cards", jsettings.optBoolean("cards", true));
+                        editor.putBoolean("threading", jsettings.optBoolean("threading", true));
+                        editor.putBoolean("google_backup", true);
+                        editor.apply();
+
+                        JSONArray jaccounts = jroot.getJSONArray("accounts");
+                        EntityLog.log(this, "Restore accounts=" + jaccounts.length());
+
+                        DB db = DB.getInstance(this);
+                        for (int i = 0; i < jaccounts.length(); i++)
+                            try {
+                                db.beginTransaction();
+
+                                EntityLog.log(this, "Restoring account=" + i);
+
+                                JSONObject jaccount = jaccounts.getJSONObject(i);
+                                JSONArray jfolders = jaccount.getJSONArray("folders");
+                                JSONArray jidentities = jaccount.getJSONArray("identities");
+                                EntityAccount account = EntityAccount.fromJSON(jaccount);
+                                if (TextUtils.isEmpty(account.uuid) ||
+                                        db.account().getAccountByUUID(account.uuid) != null)
+                                    continue;
+
+                                if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_GMAIL)
+                                    account.synchronize = false;
+
+                                account.id = db.account().insertAccount(account);
+
+                                for (int j = 0; j < jfolders.length(); j++) {
+                                    EntityFolder folder = EntityFolder.fromJSON(jfolders.getJSONObject(j));
+                                    folder.account = account.id;
+                                    db.folder().insertFolder(folder);
+                                }
+
+                                for (int j = 0; j < jidentities.length(); j++) {
+                                    EntityIdentity identity = EntityIdentity.fromJSON(jidentities.getJSONObject(j));
+                                    identity.account = account.id;
+                                    db.identity().insertIdentity(identity);
+                                }
+
+                                EntityLog.log(this, "Restored account=" + account.name);
+
+                                db.setTransactionSuccessful();
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            } finally {
+                                db.endTransaction();
+                            }
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                else {
+                    data.skipEntityData();
+                }
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        } finally {
+            EntityLog.log(this, "Restore end");
+        }
     }
 
     @Override
