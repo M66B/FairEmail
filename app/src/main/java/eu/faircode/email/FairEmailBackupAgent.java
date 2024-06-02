@@ -141,7 +141,7 @@ public class FairEmailBackupAgent extends BackupAgent {
     @Override
     public void onRestore(BackupDataInput data, int appVersionCode, ParcelFileDescriptor newState) throws
             IOException {
-        EntityLog.log(this, "Restore start");
+        EntityLog.log(this, "Restore start version=" + appVersionCode);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
