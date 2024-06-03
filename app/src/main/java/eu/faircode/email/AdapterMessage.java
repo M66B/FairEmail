@@ -192,6 +192,7 @@ import biweekly.component.VEvent;
 import biweekly.io.WriteContext;
 import biweekly.io.scribe.property.RecurrenceRuleScribe;
 import biweekly.parameter.ParticipationStatus;
+import biweekly.parameter.Role;
 import biweekly.property.Attendee;
 import biweekly.property.CalendarScale;
 import biweekly.property.Created;
@@ -4164,7 +4165,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             Attendee attendee = new Attendee(name, email);
                             //attendee.setCalendarUserType(CalendarUserType.INDIVIDUAL);
-                            //attendee.setRole(Role.ATTENDEE);
+                            attendee.setRole(Role.ATTENDEE);
                             //attendee.setRsvp(true);
 
                             String status = null;
