@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:progress="25"
+            android:progressTint="?colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvOption" />
@@ -75,11 +76,11 @@
             android:layout_marginTop="24dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_no_internet"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemaining" />
 
