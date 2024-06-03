@@ -4052,6 +4052,13 @@ public class FragmentMessages extends FragmentBase
                 .putExtra("reference", message.id)
                 .putExtra("selected", selected);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean attachments_asked = prefs.getBoolean("attachments_asked", false);
+        if (attachments_asked) {
+            startActivity(reply);
+            return;
+        }
+
         if ("reply".equals(action) || "reply_all".equals(action) ||
                 "forward".equals(action) ||
                 "resend".equals(action) ||

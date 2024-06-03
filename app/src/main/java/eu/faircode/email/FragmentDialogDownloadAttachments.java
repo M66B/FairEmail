@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -12,6 +13,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -20,6 +23,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
+import androidx.preference.PreferenceManager;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -36,14 +40,24 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
         long[] download = args.getLongArray("download");
         Intent intent = args.getParcelable("intent");
 
+        if (savedInstanceState == null)
+            remaining = Helper.fromLongArray(download);
+        else {
+            long[] r = savedInstanceState.getLongArray("fair:remaining");
+            remaining = (r == null ? new ArrayList<>() : Helper.fromLongArray(r));
+        }
+
         final Context context = getContext();
+
+        NumberFormat NF = NumberFormat.getNumberInstance();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_download_attachments, null);
         TextView tvRemark = dview.findViewById(R.id.tvRemark);
         Button btnDownload = dview.findViewById(R.id.btnDownload);
         ProgressBar pbDownloaded = dview.findViewById(R.id.pbDownloaded);
         TextView tvRemaining = dview.findViewById(R.id.tvRemaining);
-
-        NumberFormat NF = NumberFormat.getNumberInstance();
+        CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
         btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,12 +124,12 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
             }
         });
 
-        if (savedInstanceState == null)
-            remaining = Helper.fromLongArray(download);
-        else {
-            long[] r = savedInstanceState.getLongArray("fair:remaining");
-            remaining = (r == null ? new ArrayList<>() : Helper.fromLongArray(r));
-        }
+        cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("attachments_asked", isChecked).apply();
+            }
+        });
 
         pbDownloaded.setMax(download.length);
         pbDownloaded.setProgress(download.length - remaining.size());
