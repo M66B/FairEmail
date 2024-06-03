@@ -806,7 +806,7 @@
     <string name="title_advanced_multi_modal">ריבוי ערוצי תקשורת</string>
     <string name="title_advanced_summarize_prompt">בקשת תקציר</string>
     <string name="title_advanced_answer_prompt">בקשת תשובה</string>
-    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">בקשת ברירת מחדל</string>
+    <string name="title_advanced_default_prompt">בקשת ברירת מחדל</string>
     <string name="title_advanced_sdcard">ארצה להשתמש בכרטיס SD</string>
     <string name="title_advanced_watchdog">לבדוק מדי פעם אם FairEmail עדיין פעיל</string>
     <string name="title_advanced_updates">איתור עדכונים ב־GitHub</string>
@@ -1699,7 +1699,7 @@
     <string name="title_answer_favorite">מועדפת</string>
     <string name="title_answer_snippet">מקטע</string>
     <string name="title_answer_receipt">להשתמש כאישור קריאה</string>
-    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">להשתמש כבקשה לבינה המלאכותית</string>
+    <string name="title_answer_ai">להשתמש כבקשה לבינה המלאכותית</string>
     <string name="title_answer_hide">הסתרה מהתפריטים</string>
     <string name="title_answer_text">טקסט תבנית</string>
     <string name="title_answer_placeholder">ממלא מקום</string>
@@ -2007,7 +2007,7 @@
     <string name="title_ask_what">לשאול מה לעשות</string>
     <string name="title_no_ask_again">לא לשאול אותי שוב</string>
     <string name="title_no_ask_for_again">לא לשאול אותי שוב במשך %1$s</string>
-    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">לא להציג את זה שוב</string>
+    <string name="title_no_show_again">לא להציג את זה שוב</string>
     <string name="title_undo_privacy">אפשר להסיג את זה בעמוד לשונית הגדרות הפרטיות</string>
     <string name="title_no_body">לא נמצא טקסט בהודעה</string>
     <string name="title_large_body">ההודעה הזאת גדולה מאוד ועלולה לגרום לבעיות!</string>

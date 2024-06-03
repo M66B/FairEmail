@@ -199,6 +199,7 @@
     <string name="title_setup_gmail_password">Je veux autoriser un compte avec un mot de passe au lieu d\'un compte de l\'appareil</string>
     <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur système</string>
     <string name="title_setup_office_auth_5_7_3">Veuillez essayer l\'assistant de configuration rapide « Autre fournisseur ».</string>
+    <string name="title_setup_office_auth_5_7_139" comment="title_setup_office_auth_5_7_139&#10;Hint text when Office 365 quick setup wizard fails with a specific error message">Veuillez essayer l\'assistant d\'installation rapide \"Outlook/Hotmail/Live\".</string>
     <string name="title_setup_oauth_rationale">Autoriser l’accès à votre compte %1$s</string>
     <string name="title_setup_oauth_update">Autoriser à nouveau un compte existant (sinon créer un nouveau compte)</string>
     <string name="title_setup_oauth_updated">L\'autorisation du compte a été mise à jour</string>
@@ -778,7 +779,9 @@
     <string name="title_advanced_multi_modal">Multimodal</string>
     <string name="title_advanced_summarize_prompt">Invite pour résumer</string>
     <string name="title_advanced_answer_prompt">Invite pour répondre</string>
-    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">Invite par défaut</string>
+    <string name="title_advanced_system_instructions" comment="title_advanced_system_instructions&#10;Title for option with system instructions for OpenAI, like &quot;Use a formal tone.&quot;">Instructions système</string>
+    <string name="title_advanced_default_prompt">Invite par défaut</string>
+    <string name="title_advanced_entered_text" comment="title_advanced_entered_text&#10;Title for menu item to use the text entered in the message editor as AI prompt">Texte saisi</string>
     <string name="title_advanced_sdcard">Je veux utiliser une carte SD</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_updates">Rechercher des mises à jour sur GitHub</string>
@@ -791,6 +794,7 @@
     <string name="title_advanced_cleanup_attachments">Supprimer les pièces jointes des anciens messages</string>
     <string name="title_advanced_cleanup">Nettoyage</string>
     <string name="title_advanced_last_cleanup">Dernier nettoyage : %1$s</string>
+    <string name="title_advanced_google_backup" comment="title_advanced_google_backup&#10;Title for option to enable/disable Android backups&#10;https://developer.android.com/identity/data/backup">Utiliser la sauvegarde des données d\'Android</string>
     <string name="title_advanced_app">Paramètres Android de l\'application</string>
     <string name="title_advanced_more">Plus d’options</string>
     <string name="title_advanced_main_log">Journalisation principale</string>
@@ -1672,7 +1676,7 @@
     <string name="title_answer_favorite">Favori</string>
     <string name="title_answer_snippet">Fragment</string>
     <string name="title_answer_receipt">Utiliser comme confirmation de lecture</string>
-    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">Utiliser comme invite IA</string>
+    <string name="title_answer_ai">Utiliser comme invite IA</string>
     <string name="title_answer_hide">Masquer du menu « Répondre »</string>
     <string name="title_answer_text">Texte du modèle</string>
     <string name="title_answer_placeholder">Espace réservé</string>
@@ -1980,7 +1984,7 @@
     <string name="title_ask_what">Demander ce qu’il faut faire</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_no_ask_for_again">Ne plus demander ceci pour %1$s</string>
-    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">Ne plus afficher ceci</string>
+    <string name="title_no_show_again">Ne plus afficher ceci</string>
     <string name="title_undo_privacy">Ceci peut être annulé dans l\'onglet des paramètres de confidentialité</string>
     <string name="title_no_body">Aucun texte de message trouvé</string>
     <string name="title_large_body">Ce message est très volumineux et peut poser des problèmes !</string>

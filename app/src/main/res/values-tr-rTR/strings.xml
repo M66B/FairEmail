@@ -195,6 +195,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_gmail_password">Cihazdaki bir hesap yerine şifreli bir hesabı yetkilendirmek istiyorum</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
     <string name="title_setup_office_auth_5_7_3">Lütfen \'Diğer sağlayıcı\' hızlı kurulum sihirbazını deneyin.</string>
+    <string name="title_setup_office_auth_5_7_139" comment="title_setup_office_auth_5_7_139&#10;Hint text when Office 365 quick setup wizard fails with a specific error message">Lütfen \'Outlook/Hotmail/Live\' hızlı kurulum sihirbazını deneyin.</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
     <string name="title_setup_oauth_update">Mevcut bir hesabı yeniden yetkilendir (aksi takdirde yeni bir hesap oluştur)</string>
     <string name="title_setup_oauth_updated">Hesap yetkilendirme güncellendi</string>
@@ -772,7 +773,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_multi_modal">Multimodal</string>
     <string name="title_advanced_summarize_prompt">Özetleme istemi</string>
     <string name="title_advanced_answer_prompt">Cevap istemi</string>
-    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">Varsayılan istem</string>
+    <string name="title_advanced_system_instructions" comment="title_advanced_system_instructions&#10;Title for option with system instructions for OpenAI, like &quot;Use a formal tone.&quot;">Sistem talimatları</string>
+    <string name="title_advanced_default_prompt">Varsayılan istem</string>
+    <string name="title_advanced_entered_text" comment="title_advanced_entered_text&#10;Title for menu item to use the text entered in the message editor as AI prompt">Girilen metin</string>
     <string name="title_advanced_sdcard">SD kart kullanmak istiyorum</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">GitHub güncellemelerini kontrol et</string>
@@ -785,6 +788,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_cleanup_attachments">Eski iletilerin eklerini sil</string>
     <string name="title_advanced_cleanup">Temizle</string>
     <string name="title_advanced_last_cleanup">Son temizleme: %1$s</string>
+    <string name="title_advanced_google_backup" comment="title_advanced_google_backup&#10;Title for option to enable/disable Android backups&#10;https://developer.android.com/identity/data/backup">Android\'in veri yedeklemesini kullanın</string>
     <string name="title_advanced_app">Uygulama ayarları</string>
     <string name="title_advanced_more">Daha fazla seçenek</string>
     <string name="title_advanced_main_log">Ana günlük kaydı</string>
@@ -1659,7 +1663,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_answer_favorite">Favori</string>
     <string name="title_answer_snippet">Kısaca</string>
     <string name="title_answer_receipt">Okuma makbuzu olarak kullan</string>
-    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">Yapay zeka istemi olarak kullanın</string>
+    <string name="title_answer_ai">Yapay zeka istemi olarak kullanın</string>
     <string name="title_answer_hide">Menülerden gizle</string>
     <string name="title_answer_text">Kalıp metni</string>
     <string name="title_answer_placeholder">Yer tutucu</string>
@@ -1967,7 +1971,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_ask_what">Ne yapılacağını sor</string>
     <string name="title_no_ask_again">Bunu bir daha sorma</string>
     <string name="title_no_ask_for_again">%1$s için bunu bir daha sorma</string>
-    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">Bunu bir daha gösterme</string>
+    <string name="title_no_show_again">Bunu bir daha gösterme</string>
     <string name="title_undo_privacy">Bu, gizlilik ayarları sekmesi sayfasından geri alınabilir</string>
     <string name="title_no_body">Hiçbir ileti metni bulunamadı</string>
     <string name="title_large_body">Bu mesaj çok büyüktür ve sorunlara neden olabilir!</string>

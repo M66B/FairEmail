@@ -776,7 +776,7 @@
     <string name="title_advanced_multi_modal">Multimodal</string>
     <string name="title_advanced_summarize_prompt">Orden para resumir</string>
     <string name="title_advanced_answer_prompt">Indicación de respuesta</string>
-    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">Indicación por defecto</string>
+    <string name="title_advanced_default_prompt">Indicación por defecto</string>
     <string name="title_advanced_sdcard">Quiero usar una tarjeta SD</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Comprobar actualizaciones de GitHub</string>
@@ -1666,7 +1666,7 @@
     <string name="title_answer_favorite">Favorito</string>
     <string name="title_answer_snippet">Snippet</string>
     <string name="title_answer_receipt">Usar como acuse de lectura</string>
-    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">Usar como orden de IA</string>
+    <string name="title_answer_ai">Usar como orden de IA</string>
     <string name="title_answer_hide">Ocultar de menús</string>
     <string name="title_answer_text">Texto de plantilla</string>
     <string name="title_answer_placeholder">Marcador de posición</string>
@@ -1974,7 +1974,7 @@
     <string name="title_ask_what">Preguntar qué hacer</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
     <string name="title_no_ask_for_again">No volver a preguntar esto para %1$s</string>
-    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">No mostrar esto de nuevo</string>
+    <string name="title_no_show_again">No mostrar esto de nuevo</string>
     <string name="title_undo_privacy">Esto se puede deshacer en la página de configuración de privacidad</string>
     <string name="title_no_body">No se encontró texto en el mensaje</string>
     <string name="title_large_body">¡Este mensaje es muy grande y puede causar problemas!</string>

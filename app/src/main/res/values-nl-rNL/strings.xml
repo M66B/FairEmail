@@ -198,6 +198,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_gmail_password">Ik wil een account autoriseren met een wachtwoord in plaats van een account op het apparaat</string>
     <string name="title_setup_office_auth">De fout \'AUTHENTICATE failed\' kan worden veroorzaakt doordat IMAP/SMTP door de systeemadministrator is uitgeschakeld</string>
     <string name="title_setup_office_auth_5_7_3">Probeer a. u. b. de \'Andere provider\' wizard.</string>
+    <string name="title_setup_office_auth_5_7_139" comment="title_setup_office_auth_5_7_139&#10;Hint text when Office 365 quick setup wizard fails with a specific error message">Probeer a. u. b. de \'Outlook/Hotmail/Live\' wizard.</string>
     <string name="title_setup_oauth_rationale">Autoriseer toegang tot uw %1$s account</string>
     <string name="title_setup_oauth_update">Autoriseer een bestaand account opnieuw (anders een nieuwe account aanmaken)</string>
     <string name="title_setup_oauth_updated">Accountautorisatie is bijgewerkt</string>
@@ -774,7 +775,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_multi_modal">Multimodaal</string>
     <string name="title_advanced_summarize_prompt">Opdracht samenvatten</string>
     <string name="title_advanced_answer_prompt">Opdracht antwoorden</string>
-    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">Standaard prompt</string>
+    <string name="title_advanced_system_instructions" comment="title_advanced_system_instructions&#10;Title for option with system instructions for OpenAI, like &quot;Use a formal tone.&quot;">Systeem instructies</string>
+    <string name="title_advanced_default_prompt">Standaard prompt</string>
+    <string name="title_advanced_entered_text" comment="title_advanced_entered_text&#10;Title for menu item to use the text entered in the message editor as AI prompt">Ingevoerde tekst</string>
     <string name="title_advanced_sdcard">Ik wil een SD-kaart gebruiken</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op GitHub updates</string>
@@ -787,6 +790,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_cleanup_attachments">Bijlagen van oude berichten verwijderen</string>
     <string name="title_advanced_cleanup">Opruimen</string>
     <string name="title_advanced_last_cleanup">Laatste schoonmaak: %1$s</string>
+    <string name="title_advanced_google_backup" comment="title_advanced_google_backup&#10;Title for option to enable/disable Android backups&#10;https://developer.android.com/identity/data/backup">Gebruik Android\'s gegevens backup</string>
     <string name="title_advanced_app">App instellingen</string>
     <string name="title_advanced_more">Meer opties</string>
     <string name="title_advanced_main_log">Hoofdlog</string>
@@ -1658,7 +1662,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_answer_favorite">Favoriet</string>
     <string name="title_answer_snippet">Tekstfragment</string>
     <string name="title_answer_receipt">Als leesbevestiging gebruiken</string>
-    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">Gebruik als AI prompt</string>
+    <string name="title_answer_ai">Gebruik als AI prompt</string>
     <string name="title_answer_hide">Verbergen in menu\'s</string>
     <string name="title_answer_text">Sjabloontekst</string>
     <string name="title_answer_placeholder">Plaatshouder</string>
@@ -1966,7 +1970,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_ask_what">Vraag wat te doen</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_no_ask_for_again">Vraag dit niet opnieuw voor %1$s</string>
-    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">Dit niet opnieuw tonen</string>
+    <string name="title_no_show_again">Dit niet opnieuw tonen</string>
     <string name="title_undo_privacy">Dit kan ongedaan worden gemaakt in de tabpagina privacyinstellingen</string>
     <string name="title_no_body">Geen berichttekst gevonden</string>
     <string name="title_large_body">Dit bericht is erg groot en dit kan problemen veroorzaken!</string>

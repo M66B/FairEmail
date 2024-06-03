@@ -227,6 +227,7 @@
     <string name="title_setup_gmail_password">Chcę autoryzować konto za pomocą hasła zamiast konta na urządzeniu</string>
     <string name="title_setup_office_auth">Błąd \"AUTHENTICATE failed\" może być spowodowany wyłączeniem protokołu IMAP/SMTP przez administratora systemu</string>
     <string name="title_setup_office_auth_5_7_3">Wypróbuj kreatora szybkiej konfiguracji od „innego dostawcy”.</string>
+    <string name="title_setup_office_auth_5_7_139" comment="title_setup_office_auth_5_7_139&#10;Hint text when Office 365 quick setup wizard fails with a specific error message">Wypróbuj kreator szybkiej konfiguracji „Outlook/Hotmail/Live”.</string>
     <string name="title_setup_oauth_rationale">Autoryzuj dostęp do Twojego konta %1$s</string>
     <string name="title_setup_oauth_update">Autoryzuj istniejące konto ponownie (w przeciwnym razie utwórz nowe konto)</string>
     <string name="title_setup_oauth_updated">Autoryzacja konta została zaktualizowana</string>
@@ -804,6 +805,8 @@
     <string name="title_advanced_multi_modal">Wielomodalny</string>
     <string name="title_advanced_summarize_prompt">Podsumowanie podpowiedzi</string>
     <string name="title_advanced_answer_prompt">Prośba o odpowiedź</string>
+    <string name="title_advanced_system_instructions" comment="title_advanced_system_instructions&#10;Title for option with system instructions for OpenAI, like &quot;Use a formal tone.&quot;">Instrukcje systemowe</string>
+    <string name="title_advanced_entered_text" comment="title_advanced_entered_text&#10;Title for menu item to use the text entered in the message editor as AI prompt">Wprowadzony tekst</string>
     <string name="title_advanced_sdcard">Chcę użyć karty SD</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje GitHub</string>
@@ -816,6 +819,7 @@
     <string name="title_advanced_cleanup_attachments">Usuń załączniki starych wiadomości</string>
     <string name="title_advanced_cleanup">Oczyszczanie</string>
     <string name="title_advanced_last_cleanup">Ostatnie czyszczenie: %1$s</string>
+    <string name="title_advanced_google_backup" comment="title_advanced_google_backup&#10;Title for option to enable/disable Android backups&#10;https://developer.android.com/identity/data/backup">Używaj kopii zapasowej danych Androida</string>
     <string name="title_advanced_app">Ustawienia aplikacji</string>
     <string name="title_advanced_more">Więcej opcji</string>
     <string name="title_advanced_main_log">Logowanie główne</string>
@@ -2002,7 +2006,7 @@
     <string name="title_ask_what">Zapytaj co zrobić</string>
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
     <string name="title_no_ask_for_again">Nie pytaj ponownie o %1$s</string>
-    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">Nie pokazuj tego ponownie</string>
+    <string name="title_no_show_again">Nie pokazuj tego ponownie</string>
     <string name="title_undo_privacy">To może zostać cofnięte na stronie ustawień prywatności</string>
     <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>
     <string name="title_large_body">Ta wiadomość jest bardzo duża i może to powodować problemy!</string>

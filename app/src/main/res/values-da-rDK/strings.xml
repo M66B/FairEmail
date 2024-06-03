@@ -199,6 +199,7 @@
     <string name="title_setup_gmail_password">Jeg ønsker at godkende en konto med en adgangskode i stedet for en enhedskonto</string>
     <string name="title_setup_office_auth">Fejlen \'GODKENDELSE mislykkedes\' kan skyldes, at IMAP/SMTP er deaktiveret af systemadministratoren</string>
     <string name="title_setup_office_auth_5_7_3">Prøv guiden \'Anden udbyder\' for hurtig opsætning.</string>
+    <string name="title_setup_office_auth_5_7_139" comment="title_setup_office_auth_5_7_139&#10;Hint text when Office 365 quick setup wizard fails with a specific error message">Prøv guiden \'Outlook/Hotmail/Live\' for hurtig opsætning.</string>
     <string name="title_setup_oauth_rationale">Godkend adgang til din %1$s-konto</string>
     <string name="title_setup_oauth_update">Godkend en eksisterende konto igen (ellers opret en ny konto)</string>
     <string name="title_setup_oauth_updated">Kontogodkendelsen blev opdateret</string>
@@ -778,7 +779,9 @@
     <string name="title_advanced_multi_modal">Multimodalitet</string>
     <string name="title_advanced_summarize_prompt">Opsummeringsprompt</string>
     <string name="title_advanced_answer_prompt">Svarprompt</string>
-    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">Standardprompt</string>
+    <string name="title_advanced_system_instructions" comment="title_advanced_system_instructions&#10;Title for option with system instructions for OpenAI, like &quot;Use a formal tone.&quot;">Systemvejledning</string>
+    <string name="title_advanced_default_prompt">Standardprompt</string>
+    <string name="title_advanced_entered_text" comment="title_advanced_entered_text&#10;Title for menu item to use the text entered in the message editor as AI prompt">Angivet tekst</string>
     <string name="title_advanced_sdcard">Et SD-kort ønskes benyttet</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Tjek for GitHub-opdateringer</string>
@@ -791,6 +794,7 @@
     <string name="title_advanced_cleanup_attachments">Slet gamle beskeders vedhæftninger</string>
     <string name="title_advanced_cleanup">Oprydning</string>
     <string name="title_advanced_last_cleanup">Sidste oprydning: %1$s</string>
+    <string name="title_advanced_google_backup" comment="title_advanced_google_backup&#10;Title for option to enable/disable Android backups&#10;https://developer.android.com/identity/data/backup">Brug Androids datasikkerhedskopi</string>
     <string name="title_advanced_app">App-indstillinger</string>
     <string name="title_advanced_more">Flere valgmuligheder</string>
     <string name="title_advanced_main_log">Hovedlogning</string>
@@ -1671,7 +1675,7 @@
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_snippet">Uddrag</string>
     <string name="title_answer_receipt">Brug som læst-kvittering</string>
-    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">Brug som AI-prompt</string>
+    <string name="title_answer_ai">Brug som AI-prompt</string>
     <string name="title_answer_hide">Skjul fra menuer</string>
     <string name="title_answer_text">Skabelontekst</string>
     <string name="title_answer_placeholder">Variabel</string>
@@ -1979,7 +1983,7 @@
     <string name="title_ask_what">Spørg, hvad der skal ske</string>
     <string name="title_no_ask_again">Spørg ikke om dette igen</string>
     <string name="title_no_ask_for_again">Spørg ikke om dette igen for %1$s</string>
-    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">Vis ikke igen</string>
+    <string name="title_no_show_again">Vis ikke igen</string>
     <string name="title_undo_privacy">Dette kan fortrydes på fanesiden fortrolighedsindstillinger</string>
     <string name="title_no_body">Ingen beskedtekst fundet</string>
     <string name="title_large_body">Denne meddelelse er meget stor, hvilket kan give problemer!</string>

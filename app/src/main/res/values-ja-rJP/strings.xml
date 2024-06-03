@@ -185,6 +185,7 @@
     <string name="title_setup_gmail_password">端末上のアカウントの代わりにパスワードで別のアカウントを認証したい</string>
     <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によって IMAP/SMTP が無効にされていることが原因である可能性があります</string>
     <string name="title_setup_office_auth_5_7_3">クイック セットアップ ウィザードの「その他のプロバイダー」をお試しください。</string>
+    <string name="title_setup_office_auth_5_7_139" comment="title_setup_office_auth_5_7_139&#10;Hint text when Office 365 quick setup wizard fails with a specific error message">「Outlook/Hotmail/Live」のセットアップウィザードをお試しください。</string>
     <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可する</string>
     <string name="title_setup_oauth_update">設定済みのアカウントをもう一度認証する (設定されていない場合、新しいアカウントを作成)</string>
     <string name="title_setup_oauth_updated">アカウントの認証情報が更新されました</string>
@@ -764,7 +765,9 @@
     <string name="title_advanced_multi_modal">マルチモーダル (テキスト + メディア)</string>
     <string name="title_advanced_summarize_prompt">要約プロンプト</string>
     <string name="title_advanced_answer_prompt">返信プロンプト</string>
-    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">デフォルトのプロンプト</string>
+    <string name="title_advanced_system_instructions" comment="title_advanced_system_instructions&#10;Title for option with system instructions for OpenAI, like &quot;Use a formal tone.&quot;">システムへの指定</string>
+    <string name="title_advanced_default_prompt">デフォルトのプロンプト</string>
+    <string name="title_advanced_entered_text" comment="title_advanced_entered_text&#10;Title for menu item to use the text entered in the message editor as AI prompt">入力テキスト</string>
     <string name="title_advanced_sdcard">SD カードを使用できますか？</string>
     <string name="title_advanced_watchdog">FairEmail がアクティブか定期的に確認する</string>
     <string name="title_advanced_updates">GitHub で更新を確認する</string>
@@ -776,6 +779,7 @@
     <string name="title_advanced_crash_reports">エラーレポートを送信する</string>
     <string name="title_advanced_cleanup_attachments">古いメッセージの添付ファイルを削除する</string>
     <string name="title_advanced_cleanup">クリーンアップ</string>
+    <string name="title_advanced_google_backup" comment="title_advanced_google_backup&#10;Title for option to enable/disable Android backups&#10;https://developer.android.com/identity/data/backup">Android のデータバックアップを使用する</string>
     <string name="title_advanced_app">アプリ設定</string>
     <string name="title_advanced_more">その他のオプション</string>
     <string name="title_advanced_main_log">メインログ</string>
@@ -1657,7 +1661,7 @@
     <string name="title_answer_favorite">お気に入り</string>
     <string name="title_answer_snippet">スニペット</string>
     <string name="title_answer_receipt">開封確認メッセージとして使用する</string>
-    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">AI プロンプトを使用する</string>
+    <string name="title_answer_ai">AI プロンプトを使用する</string>
     <string name="title_answer_hide">メニューに表示しない</string>
     <string name="title_answer_text">テンプレートテキスト</string>
     <string name="title_answer_placeholder">プレースホルダー</string>
@@ -1965,7 +1969,7 @@
     <string name="title_ask_what">毎回確認する</string>
     <string name="title_no_ask_again">次回から確認しない</string>
     <string name="title_no_ask_for_again">%1$s は次回から確認しない</string>
-    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">今後は表示しない</string>
+    <string name="title_no_show_again">今後は表示しない</string>
     <string name="title_undo_privacy">設定のプライバシータブで変更できます</string>
     <string name="title_no_body">本文が見つかりません</string>
     <string name="title_large_body">メッセージのサイズがとても大きいため、問題が発生することがあります！</string>

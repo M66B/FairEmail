@@ -185,6 +185,7 @@
     <string name="title_setup_gmail_password">我想使用密码而不是设备上的帐户进行授权</string>
     <string name="title_setup_office_auth">“认证失败”的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
     <string name="title_setup_office_auth_5_7_3">请尝试\'其他提供商\'快速设置向导。</string>
+    <string name="title_setup_office_auth_5_7_139" comment="title_setup_office_auth_5_7_139&#10;Hint text when Office 365 quick setup wizard fails with a specific error message">请尝试“Outlook/Hotmail/Live”快速设置向导。</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
     <string name="title_setup_oauth_update">重新授权现有账户（否则请新建账户）</string>
     <string name="title_setup_oauth_updated">账户授权已更新</string>
@@ -762,7 +763,9 @@
     <string name="title_advanced_multi_modal">多模型</string>
     <string name="title_advanced_summarize_prompt">总结提示</string>
     <string name="title_advanced_answer_prompt">回答提示</string>
-    <string name="title_advanced_default_prompt" comment="title_advanced_default_prompt&#10;Title for popup menu item to use the default (AI) prompt.">默认提示</string>
+    <string name="title_advanced_system_instructions" comment="title_advanced_system_instructions&#10;Title for option with system instructions for OpenAI, like &quot;Use a formal tone.&quot;">系统指南</string>
+    <string name="title_advanced_default_prompt">默认提示</string>
+    <string name="title_advanced_entered_text" comment="title_advanced_entered_text&#10;Title for menu item to use the text entered in the message editor as AI prompt">输入的文本</string>
     <string name="title_advanced_sdcard">我想使用 SD 卡</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
     <string name="title_advanced_updates">检查 GitHub 更新</string>
@@ -775,6 +778,7 @@
     <string name="title_advanced_cleanup_attachments">删除旧邮件的附件</string>
     <string name="title_advanced_cleanup">清理</string>
     <string name="title_advanced_last_cleanup">上次清理: %1$s</string>
+    <string name="title_advanced_google_backup" comment="title_advanced_google_backup&#10;Title for option to enable/disable Android backups&#10;https://developer.android.com/identity/data/backup">使用 Android 的数据备份</string>
     <string name="title_advanced_app">应用信息</string>
     <string name="title_advanced_more">更多选项</string>
     <string name="title_advanced_main_log">主要日志</string>
@@ -1651,7 +1655,7 @@
     <string name="title_answer_favorite">收藏</string>
     <string name="title_answer_snippet">文本片段</string>
     <string name="title_answer_receipt">用作已读回执</string>
-    <string name="title_answer_ai" comment="title_answer_ai&#10;Title for checkbox to mark a template to be used a &quot;AI&quot; prompt">用作 AI 提示</string>
+    <string name="title_answer_ai">用作 AI 提示</string>
     <string name="title_answer_hide">从菜单中隐藏</string>
     <string name="title_answer_text">模板内容</string>
     <string name="title_answer_placeholder">占位符</string>
@@ -1959,7 +1963,7 @@
     <string name="title_ask_what">询问做什么</string>
     <string name="title_no_ask_again">不再询问</string>
     <string name="title_no_ask_for_again">不再询问 %1$s</string>
-    <string name="title_no_show_again" comment="title_no_show_again&#10;Title for checkbox to show something not again. Currently used for the changelog only.">不再显示此内容</string>
+    <string name="title_no_show_again">不再显示此内容</string>
     <string name="title_undo_privacy">这可以在隐私设置标签页中撤销。</string>
     <string name="title_no_body">没有找到邮件正文</string>
     <string name="title_large_body">此邮件非常大，可能会导致问题！</string>
