@@ -146,12 +146,13 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
 
         return new AlertDialog.Builder(context)
                 .setView(dview)
-                .setNegativeButton(R.string.title_dismiss, new DialogInterface.OnClickListener() {
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         startActivity(intent);
                     }
                 })
+                .setNegativeButton(android.R.string.cancel, null)
                 .create();
     }
 
@@ -168,9 +169,9 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
     }
 
     private void updateButton() {
-        Button btn = ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEGATIVE);
+        Button btn = ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE);
         if (btn != null)
-            btn.setText(remaining.isEmpty() ? android.R.string.ok : R.string.title_dismiss);
+            btn.setEnabled(remaining.isEmpty());
     }
 
     @Override
