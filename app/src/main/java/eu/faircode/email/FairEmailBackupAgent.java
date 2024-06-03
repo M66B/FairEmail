@@ -77,6 +77,7 @@ public class FairEmailBackupAgent extends BackupAgent {
             JSONObject jsettings = new JSONObject();
             jsettings.put("enabled", prefs.getBoolean("enabled", true));
             jsettings.put("poll_interval", prefs.getInt("poll_interval", 0));
+            jsettings.put("startup", prefs.getString("startup", "unified"));
             String theme = prefs.getString("theme", null);
             if (!TextUtils.isEmpty(theme))
                 jsettings.put("theme", theme);
@@ -182,6 +183,7 @@ public class FairEmailBackupAgent extends BackupAgent {
                         JSONObject jsettings = jroot.getJSONObject("settings");
                         editor.putBoolean("enabled", jsettings.optBoolean("enabled"));
                         editor.putInt("poll_interval", jsettings.optInt("poll_interval", 0));
+                        editor.putString("startup", jsettings.optString("startup", "unified"));
                         String theme = jsettings.optString("theme", null);
                         if (!TextUtils.isEmpty(theme))
                             editor.putString("theme", theme);
