@@ -1001,10 +1001,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         Message[] imessages = null;
 
         void getMessages(int max) throws MessagingException {
-            int total = Math.min(ifolder.getMessageCount(), max);
+            int count = ifolder.getMessageCount();
+            int total = Math.min(count, max);
+            int offset = (count > max ? count - max : 0);
             imessages = new Message[total];
             for (int i = 1; i <= total; i++)
-                imessages[i - 1] = ifolder.getMessage(i);
+                imessages[i - 1] = ifolder.getMessage(i + offset);
         }
 
         void reset() {
