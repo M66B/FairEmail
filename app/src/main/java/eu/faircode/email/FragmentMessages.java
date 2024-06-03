@@ -4041,15 +4041,64 @@ public class FragmentMessages extends FragmentBase
         final Context context = getContext();
         if (context == null)
             return;
+
         if (!"reply".equals(action) &&
                 !"reply_all".equals(action) &&
                 !"list".equals(action))
             selected = null;
+
         Intent reply = new Intent(context, ActivityCompose.class)
                 .putExtra("action", action)
                 .putExtra("reference", message.id)
                 .putExtra("selected", selected);
-        startActivity(reply);
+
+        if ("reply".equals(action) || "reply_all".equals(action) ||
+                "forward".equals(action) ||
+                "resend".equals(action) ||
+                "editasnew".equals(action)) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<List<Long>>() {
+                @Override
+                protected List<Long> onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    List<Long> download = new ArrayList<>();
+
+                    DB db = DB.getInstance(context);
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                    if (attachments != null)
+                        for (EntityAttachment attachment : attachments)
+                            if (!attachment.available &&
+                                    attachment.subsequence == null &&
+                                    !attachment.isEncryption())
+                                download.add(attachment.id);
+
+                    return download;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<Long> download) {
+                    if (download.isEmpty()) {
+                        startActivity(reply);
+                        return;
+                    }
+
+                    args.putLongArray("download", Helper.toLongArray(download));
+                    args.putParcelable("intent", reply);
+
+                    FragmentDialogDownloadAttachments dialog = new FragmentDialogDownloadAttachments();
+                    dialog.setArguments(args);
+                    dialog.show(getParentFragmentManager(), "message:attachments");
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragment(), ex);
+                }
+            }.execute(this, args, "message:attachments");
+        } else
+            startActivity(reply);
     }
 
     private void onMenuResend(TupleMessageEx message) {
