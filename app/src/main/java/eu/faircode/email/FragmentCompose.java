@@ -2488,7 +2488,7 @@ public class FragmentCompose extends FragmentBase {
                                     } catch (AddressException ignored) {
                                     }
 
-                                    String html = EntityAnswer.replacePlaceholders(context, answer.text, tos);
+                                    String html = answer.getHtml(context, tos);
 
                                     Document d = HtmlHelper.sanitizeCompose(context, html, true);
                                     Spanned spanned = HtmlHelper.fromDocument(context, d, new HtmlHelper.ImageGetterEx() {

@@ -110,10 +110,6 @@ public class EntityAnswer implements Serializable {
     private static final String PREF_PLACEHOLDER = "answer.value.";
 
     String getHtml(Context context, Address[] address) {
-        return replacePlaceholders(context, text, address);
-    }
-
-    static String replacePlaceholders(Context context, String text, Address[] address) {
         String fullName = null;
         String email = null;
         if (address != null && address.length > 0) {
