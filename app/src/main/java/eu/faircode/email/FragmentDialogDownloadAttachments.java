@@ -22,6 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
@@ -31,6 +32,8 @@ import java.util.List;
 
 public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
     private List<Long> remaining;
+
+    private static final long AUTO_CONFIRM_DELAY = 2 * 1000L;
 
     @NonNull
     @Override
@@ -51,12 +54,14 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
 
         NumberFormat NF = NumberFormat.getNumberInstance();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean attachments_auto_confirm = prefs.getBoolean("attachments_auto_confirm", false);
 
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_download_attachments, null);
         TextView tvRemark = dview.findViewById(R.id.tvRemark);
         Button btnDownload = dview.findViewById(R.id.btnDownload);
         ProgressBar pbDownloaded = dview.findViewById(R.id.pbDownloaded);
         TextView tvRemaining = dview.findViewById(R.id.tvRemaining);
+        CheckBox cbAutoConfirm = dview.findViewById(R.id.cbAutoConfirm);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
         btnDownload.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +101,8 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
                         long[] download = args.getLongArray("download");
 
                         DB db = DB.getInstance(context);
-                        db.attachment().liveAttachments(id).observe(getViewLifecycleOwner(), new Observer<List<EntityAttachment>>() {
+                        LiveData<List<EntityAttachment>> live = db.attachment().liveAttachments(id);
+                        live.observe(getViewLifecycleOwner(), new Observer<List<EntityAttachment>>() {
                             @Override
                             public void onChanged(List<EntityAttachment> attachments) {
                                 if (attachments != null)
@@ -112,6 +118,27 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
                                 tvRemaining.setText(getString(R.string.title_attachments_download, of));
 
                                 updateButton();
+
+                                if (remaining.isEmpty()) {
+                                    live.removeObserver(this);
+
+                                    boolean attachments_auto_confirm = prefs.getBoolean("attachments_auto_confirm", false);
+                                    if (attachments_auto_confirm)
+                                        dview.postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                try {
+                                                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                                        return;
+                                                    startActivity(intent);
+                                                    dismiss();
+                                                } catch (Throwable ex) {
+                                                    Log.e(ex);
+                                                }
+                                            }
+                                        }, AUTO_CONFIRM_DELAY);
+
+                                }
                             }
                         });
                     }
@@ -121,6 +148,14 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
                         Log.unexpectedError(getParentFragment(), ex);
                     }
                 }.execute(FragmentDialogDownloadAttachments.this, args, "download");
+            }
+        });
+
+        cbAutoConfirm.setChecked(attachments_auto_confirm);
+        cbAutoConfirm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("attachments_auto_confirm", isChecked).apply();
             }
         });
 
