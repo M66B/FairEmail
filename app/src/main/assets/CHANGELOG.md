@@ -21,10 +21,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2195 - 2024-06-04
 
 * Fixed browsing old messages
-* Added download attachments dialog
+* Added download attachments dialog (when replying/forwarding)
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
