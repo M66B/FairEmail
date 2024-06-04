@@ -21,6 +21,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### 1.2196 - 2024-06-04
+
+* Fixed cancel of download attachments dialog
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2195 - 2024-06-04
 
 * Fixed browsing old messages
