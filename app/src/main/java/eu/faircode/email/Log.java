@@ -788,6 +788,17 @@ public class Log {
              */
             return false;
 
+        if ("java.lang.Daemons$FinalizerWatchdogDaemon".equals(ex.getClass().getName()))
+            /*
+                java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String java.lang.Object.toString()' on a null object reference
+                    at java.lang.Daemons$FinalizerWatchdogDaemon.finalizingObjectAsString(Daemons.java:605)
+                    at java.lang.Daemons$FinalizerWatchdogDaemon.waitForProgress(Daemons.java:559)
+                    at java.lang.Daemons$FinalizerWatchdogDaemon.runInternal(Daemons.java:412)
+                    at java.lang.Daemons$Daemon.run(Daemons.java:145)
+                    at java.lang.Thread.run(Thread.java:1012)
+            */
+            return false;
+
         if (ex instanceof NoSuchMethodError)
             /*
                 java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
