@@ -65,6 +65,7 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
         TextView tvRemaining = dview.findViewById(R.id.tvRemaining);
         CheckBox cbAutoConfirm = dview.findViewById(R.id.cbAutoConfirm);
         CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+        TextView tvNotAgainRemark = dview.findViewById(R.id.tvNotAgainRemark);
 
         btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,6 +169,7 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("attachments_asked", isChecked).apply();
+                tvNotAgainRemark.setVisibility(isChecked ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -183,6 +185,7 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
         btnDownload.setVisibility(remaining.isEmpty() ? View.GONE : View.VISIBLE);
         pbDownloaded.setVisibility(remaining.isEmpty() ? View.VISIBLE : View.GONE);
         tvRemaining.setVisibility(remaining.isEmpty() ? View.VISIBLE : View.GONE);
+        tvNotAgainRemark.setVisibility(View.GONE);
 
         final DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
             @Override

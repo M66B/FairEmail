@@ -1843,6 +1843,7 @@
     <string name="title_attachments_missing">Not all attachments have been downloaded</string>
     <string name="title_download_attachments">Download attachments</string>
     <string name="title_attachments_download">Attachments downloaded: %1$s</string>
+    <string name="title_attachments_no_download">This will no longer be shown, nor will attachments be downloaded automatically</string>
     <string name="title_dialog_hint">This dialog can be enabled again via the three-dots menu in the top action bar</string>
     <string name="title_draft_deleted">Draft discarded</string>
     <string name="title_draft_saved">Draft saved</string>
