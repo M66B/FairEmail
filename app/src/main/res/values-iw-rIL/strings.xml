@@ -1552,8 +1552,8 @@
     <string name="title_dsn_reminder">הקפצות קשיחות פוגעות במוניטין של המוען המקורי!</string>
     <string name="title_size_reminder">ההודעה (%1$s) גדולה ממגבלת השרת (%2$s)</string>
     <string name="title_attachments_missing">לא כל הקבצים המצורפים התקבלו</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">הורדת קבצים מצורפים</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">קבצים מצורפים שירדו: %1$s</string>
+    <string name="title_download_attachments">הורדת קבצים מצורפים</string>
+    <string name="title_attachments_download">קבצים מצורפים שירדו: %1$s</string>
     <string name="title_dialog_hint">אפשר להפעיל את החלונית הזאת שוב דרך תפריט שלוש הנקודות בסרגל הפעולות העליון</string>
     <string name="title_draft_deleted">הטיוטה הושלכה</string>
     <string name="title_draft_saved">הטיוטה נשמרה</string>

@@ -1514,8 +1514,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_dsn_reminder">Hard bounces schaden de e-mailreputatie van de oorspronkelijke afzender!</string>
     <string name="title_size_reminder">Bericht (%1$s) groter dan de serverlimiet (%2$s)</string>
     <string name="title_attachments_missing">Niet alle bijlagen zijn gedownload</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Download bijlagen</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">Bijlagen gedownload: %1$s</string>
+    <string name="title_download_attachments">Download bijlagen</string>
+    <string name="title_attachments_download">Bijlagen gedownload: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Dit zal niet langer worden weergegeven, noch zullen bijlagen automatisch worden gedownload</string>
     <string name="title_dialog_hint">Dit dialoogvenster kan opnieuw worden ingeschakeld via het 3-puntenmenu in de bovenste actiebalk</string>
     <string name="title_draft_deleted">Concept verwijderd</string>
     <string name="title_draft_saved">Concept opgeslagen</string>

@@ -1513,8 +1513,9 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_dsn_reminder">Sert zıplama, orijinal gönderenin e-posta itibarına zarar verir!</string>
     <string name="title_size_reminder">İleti (%1$s) sunucu sınırından (%2$s) yüksek</string>
     <string name="title_attachments_missing">Tüm ekler indirilmedi</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Ekleri indirin</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">İndirilen ekler: %1$s</string>
+    <string name="title_download_attachments">Ekleri indirin</string>
+    <string name="title_attachments_download">İndirilen ekler: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Bu artık gösterilmeyecek ve ekler otomatik olarak indirilmeyecek</string>
     <string name="title_dialog_hint">Bu iletişim kutusu, üst işlem çubuğundaki üç nokta menüsü üzerinden tekrar etkinleştirilebilir</string>
     <string name="title_draft_deleted">Taslak silindi</string>
     <string name="title_draft_saved">Taslak kaydedildi</string>

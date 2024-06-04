@@ -1524,8 +1524,9 @@
     <string name="title_dsn_reminder">Hard bounces skader den oprindelige afsenders e-mailomdømme!</string>
     <string name="title_size_reminder">Besked (%1$s) større end servergrænsen (%2$s)</string>
     <string name="title_attachments_missing">Ikke alle vedhæftninger er downloadet</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Download vedhæftninger</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">Vedhæftninger downloadet: %1$s</string>
+    <string name="title_download_attachments">Download vedhæftninger</string>
+    <string name="title_attachments_download">Vedhæftninger downloadet: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Dette vises ikke længere, og vedhæftede filer hentes heller ikke automatisk</string>
     <string name="title_dialog_hint">Denne dialog kan slås til igen via trepriksmenuen i den øverste handlingsbjælke</string>
     <string name="title_draft_deleted">Kladde kasseret</string>
     <string name="title_draft_saved">Kladde gemt</string>

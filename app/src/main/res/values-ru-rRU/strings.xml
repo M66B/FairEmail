@@ -1551,8 +1551,9 @@
     <string name="title_dsn_reminder">Жёсткие отказы наносят ущерб репутации электронной почты оригинального отправителя!</string>
     <string name="title_size_reminder">Сообщение (%1$s) больше, чем лимит сервера (%2$s)</string>
     <string name="title_attachments_missing">Не все вложения загружены</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Загрузить вложения</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">Загружено вложений: %1$s</string>
+    <string name="title_download_attachments">Загрузить вложения</string>
+    <string name="title_attachments_download">Загружено вложений: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Это сообщение больше не будет отображаться и вложения не будут загружаться автоматически</string>
     <string name="title_dialog_hint">Этот диалог можно снова включить через верхнее меню трёх точек в панели действий</string>
     <string name="title_draft_deleted">Черновик отклонён</string>
     <string name="title_draft_saved">Черновик сохранён</string>

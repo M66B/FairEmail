@@ -1549,8 +1549,9 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_dsn_reminder">Oznámení o nedoručitelnosti (hard bounce) poškozují e-mailovou reputaci původního odesílatele!</string>
     <string name="title_size_reminder">Zpráva (%1$s) je větší než limit serveru (%2$s)</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Stáhnout přílohy</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">Stažených příloh: %1$s</string>
+    <string name="title_download_attachments">Stáhnout přílohy</string>
+    <string name="title_attachments_download">Stažených příloh: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Toto již nebude zobrazeno, ani nebudou automaticky staženy přílohy</string>
     <string name="title_dialog_hint">Toto dialogové okno může být znovu zapnuto v menu s třemi tečkami horní liště akcí</string>
     <string name="title_draft_deleted">Koncept zahozen</string>
     <string name="title_draft_saved">Koncept uložen</string>

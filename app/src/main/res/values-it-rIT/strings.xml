@@ -1525,8 +1525,9 @@
     <string name="title_dsn_reminder">Gli hard bounce danneggiano la reputazione dell\'email del mittente originale!</string>
     <string name="title_size_reminder">Messaggio (%1$s) più grande del limite del server (%2$s)</string>
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Scarica allegati</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">Allegati scaricati: %1$s</string>
+    <string name="title_download_attachments">Scarica allegati</string>
+    <string name="title_attachments_download">Allegati scaricati: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Questo non sarà più mostrato e gli allegati non saranno più scaricati automaticamente</string>
     <string name="title_dialog_hint">Questa finestra è riabilitabile tramite il menu a tre puntini nella barra d\'azione superiore</string>
     <string name="title_draft_deleted">Bozza scartata</string>
     <string name="title_draft_saved">Bozza salvata</string>

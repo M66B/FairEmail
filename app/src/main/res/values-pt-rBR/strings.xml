@@ -1521,8 +1521,8 @@
     <string name="title_dsn_reminder">Saltos demais atrapalham a reputação do email do remetente original!</string>
     <string name="title_size_reminder">A mensagem (%1$s) é maior que o limite do servidor (%2$s)</string>
     <string name="title_attachments_missing">Nem todos os anexos foram baixados</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Baixar anexos</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">Anexos baixados: %1$s</string>
+    <string name="title_download_attachments">Baixar anexos</string>
+    <string name="title_attachments_download">Anexos baixados: %1$s</string>
     <string name="title_dialog_hint">Esta caixa de diálogo pode ser ativada novamente através do menu de três pontos na barra de ação superior</string>
     <string name="title_draft_deleted">Rascunho descartado</string>
     <string name="title_draft_saved">Rascunho salvo</string>

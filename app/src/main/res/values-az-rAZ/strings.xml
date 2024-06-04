@@ -1524,6 +1524,8 @@
     <string name="title_dsn_reminder">Sərt sıçrayışlar, orijinal göndərənin e-poçt nüfuzuna zərər verir!</string>
     <string name="title_size_reminder">Mesaj (%1$s) server limitindən (%2$s) böyükdür</string>
     <string name="title_attachments_missing">Bütün qoşmalar endirilmədi</string>
+    <string name="title_download_attachments">Qoşmaları endir</string>
+    <string name="title_attachments_download">Qoşmalar endirildi: %1$s</string>
     <string name="title_dialog_hint">Bu dialoq pəncərəsi, üst əməliyyat sətrindəki üç nöqtə menyusu ilə təkrar fəallaşdırıla bilər</string>
     <string name="title_draft_deleted">Qaralama silindi</string>
     <string name="title_draft_saved">Qaralama saxlanıldı</string>

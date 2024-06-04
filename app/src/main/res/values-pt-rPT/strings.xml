@@ -1525,8 +1525,8 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_dsn_reminder">Mensagens devolvidas (Hard Bounce) destrui a reputação do remetente original!</string>
     <string name="title_size_reminder">Mensagem (%1$s) é maior do que o limite de servidor (%2$s)</string>
     <string name="title_attachments_missing">Nem todos os anexos foram transferidos</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Transferir anexos</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">Anexos transferidos: %1$s</string>
+    <string name="title_download_attachments">Transferir anexos</string>
+    <string name="title_attachments_download">Anexos transferidos: %1$s</string>
     <string name="title_dialog_hint">Esta caixa de diálogo pode ser activada novamente através do menu de três pontos na barra de acção superior</string>
     <string name="title_draft_deleted">Rascunho descartado</string>
     <string name="title_draft_saved">Rascunho guardado</string>

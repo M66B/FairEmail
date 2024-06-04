@@ -1555,8 +1555,8 @@
     <string name="title_dsn_reminder">Жорсткія адмовы шкодзяць рэпутацыі электроннай пошты першапачатковага адпраўніка!</string>
     <string name="title_size_reminder">Памер паведамлення (%1$s) перавышае ліміт сервера (%2$s)</string>
     <string name="title_attachments_missing">Не ўсе ўкладанні былі загружаны</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Загрузіць укладанні</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">Загружана ўкладанняў: %1$s</string>
+    <string name="title_download_attachments">Загрузіць укладанні</string>
+    <string name="title_attachments_download">Загружана ўкладанняў: %1$s</string>
     <string name="title_dialog_hint">Гэта дыялогавае акно можна зноў уключыць праз меню з трыма кропкамі ў верхняй панэлі дзеянняў</string>
     <string name="title_draft_deleted">Чарнавік адхілены</string>
     <string name="title_draft_saved">Чарнавік захаваны</string>

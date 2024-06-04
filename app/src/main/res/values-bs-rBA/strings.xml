@@ -213,6 +213,7 @@
     <string name="title_setup_gmail_password">Želim autorizovati račun sa lozinkom umjesto lokalnog računa na uređaju</string>
     <string name="title_setup_office_auth">Greška \'PROVJERA nije uspjela\' može biti uzrokovana postavkama IMAP/SMTP-a koje je isključio sistemski administrator</string>
     <string name="title_setup_office_auth_5_7_3">Molimo da probate brzi čarobnjak postavki za \'druge provajdere\'.</string>
+    <string name="title_setup_office_auth_5_7_139">Molimo da probate brzi čarobnjak za \'Outlook/Hotmail/Live\' račune.</string>
     <string name="title_setup_oauth_rationale">Autorizuj pristup vašem%1$s računu</string>
     <string name="title_setup_oauth_update">Autorizuj postojeći račun opet (u suprotnom, kreiraj novi račun)</string>
     <string name="title_setup_oauth_updated">Autorizacija računa je ažurirana</string>
@@ -792,6 +793,9 @@
     <string name="title_advanced_multi_modal">Multimodalnost</string>
     <string name="title_advanced_summarize_prompt">Prompt za sažetak</string>
     <string name="title_advanced_answer_prompt">Prompt za odgovor</string>
+    <string name="title_advanced_system_instructions">Sistemske instrukcije</string>
+    <string name="title_advanced_default_prompt">Zadani prompt</string>
+    <string name="title_advanced_entered_text">Uneseni tekst</string>
     <string name="title_advanced_sdcard">Želim koristiti SD karticu</string>
     <string name="title_advanced_watchdog">Povremeno provjeri da li je FairEmail još aktivan</string>
     <string name="title_advanced_updates">Provjeri ažuriranja na GitHub-u</string>
@@ -803,6 +807,7 @@
     <string name="title_advanced_crash_reports">Pošalji izvještaj o greški</string>
     <string name="title_advanced_cleanup_attachments">Izbriši priloge starih poruka</string>
     <string name="title_advanced_cleanup">Čišćenje</string>
+    <string name="title_advanced_google_backup">Koristi sig. kopiju podataka Androida</string>
     <string name="title_advanced_app">Postavke aplikacije</string>
     <string name="title_advanced_more">Više opcija</string>
     <string name="title_advanced_main_log">Glavni zapis izvještaja</string>
@@ -1533,6 +1538,8 @@
     <string name="title_dsn_reminder">\'Hard bounces\' narušavaju e-poštansku reputaciju pošiljaoca originala!</string>
     <string name="title_size_reminder">Poruka (%1$s) je veća od ograničenja servera (%2$s)</string>
     <string name="title_attachments_missing">Nisu preuzeti svi prilozi</string>
+    <string name="title_download_attachments">Preuzmi priloge</string>
+    <string name="title_attachments_download">Preuzeti prilozi: %1$s</string>
     <string name="title_dialog_hint">Ovaj dijalog može se ponovo uključiti preko menija s 3 tačke na vrhu radne trake</string>
     <string name="title_draft_deleted">Nacrt odbačen</string>
     <string name="title_draft_saved">Nacrt sačuvan</string>
@@ -1684,6 +1691,7 @@
     <string name="title_answer_favorite">Favorit</string>
     <string name="title_answer_snippet">Isječak</string>
     <string name="title_answer_receipt">Koristi kao potvrdu o čitanju</string>
+    <string name="title_answer_ai">Koristi kao prompt UI (AI)</string>
     <string name="title_answer_hide">Sakrij na menijima</string>
     <string name="title_answer_text">Tekst prijedloška</string>
     <string name="title_answer_placeholder">Mjesto za prikaz</string>
@@ -1991,6 +1999,7 @@
     <string name="title_ask_what">Pitaj šta treba uraditi</string>
     <string name="title_no_ask_again">Ne pitaj ovo ponovo</string>
     <string name="title_no_ask_for_again">Ne pitaj ovo ponovo za %1$s</string>
+    <string name="title_no_show_again">Ne prikazuj ovo ponovo</string>
     <string name="title_undo_privacy">Ovo se može vratiti na kartici postavki za privatnost</string>
     <string name="title_no_body">Nije pronađen tekst poruke</string>
     <string name="title_large_body">Ova poruka je jako velika i može uzrokovati probleme!</string>

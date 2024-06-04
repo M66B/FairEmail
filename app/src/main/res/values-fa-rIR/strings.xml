@@ -1042,8 +1042,9 @@
     <string name="title_text_reminder">پیام خالی است</string>
     <string name="title_attachment_reminder">آیا می‌خواستید که یک پیوست اضافه کنید؟</string>
     <string name="title_attachments_missing">همه پیوست ها دانلود نشدند</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">دانلود پیوست‌ها</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">پیوست‌های دانلود شده: %1$s</string>
+    <string name="title_download_attachments">دانلود پیوست‌ها</string>
+    <string name="title_attachments_download">پیوست‌های دانلود شده: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">نه فقط این دیگر نمایش داده نخواهد شد، بلکه ضمیمه‌ها هم دیگر خودکار دانلود نخواهند شد</string>
     <string name="title_draft_deleted">از پیش‌نویس صرف‌نظر شد</string>
     <string name="title_draft_saved">پیش‌نویس ذخیره شد</string>
     <string name="title_ask_send_via">ارسال پیام به %1$s از طریق %2$s?</string>

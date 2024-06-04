@@ -1504,8 +1504,8 @@
     <string name="title_dsn_reminder">“硬退信”会损害原发件人的邮件声誉！</string>
     <string name="title_size_reminder">邮件 (%1$s) 超出服务器限制 (%2$s)</string>
     <string name="title_attachments_missing">没有下载全部附件</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">下载附件</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">已下载附件数：%1$s</string>
+    <string name="title_download_attachments">下载附件</string>
+    <string name="title_attachments_download">已下载附件数：%1$s</string>
     <string name="title_dialog_hint">此对话框可通过顶部操作栏右上角的三圆点菜单再次启用</string>
     <string name="title_draft_deleted">草稿已舍弃</string>
     <string name="title_draft_saved">草稿已保存</string>

@@ -1521,8 +1521,9 @@
     <string name="title_dsn_reminder">Съобщенията за твърдо отхвърляне вредят на репутацията на електронната поща на първообразния подател!</string>
     <string name="title_size_reminder">Съобщение (%1$s) по-голямо от лимита на сървъра (%2$s)</string>
     <string name="title_attachments_missing">Не всички файлове са свалени</string>
-    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Изтегляне на прикачванията</string>
-    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">Прикачванията изтеглени: %1$s</string>
+    <string name="title_download_attachments">Изтегляне на прикачванията</string>
+    <string name="title_attachments_download">Прикачванията изтеглени: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Това повече няма да се показва, нито ще се изтеглят самодейно прикачванията</string>
     <string name="title_dialog_hint">Този диалог може да бъде активиран отново чрез менюто с три точки в горния панел за действие</string>
     <string name="title_draft_deleted">Черновата отказана</string>
     <string name="title_draft_saved">Черновата запазена</string>
