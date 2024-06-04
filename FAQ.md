@@ -4581,7 +4581,8 @@ Note that developers have no control over F-Droid builds and the F-Droid infrast
 OAuth access is available only for Play Store and Github releases
 because email providers permitted the use of OAuth for these releases only.
 The responsible for a release, for the F-Droid build this is the F-Droid organization, needs to ask for OAuth permissions,
-which mostly involves signing a contract with binding terms and conditions.
+which mostly involves signing a contract with binding terms and conditions,
+often with the clause that the use of OAuth is exclusive.
 
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release
 because Android refuses to install ("*App was not installed*") the same app with a different signature for security reasons.
