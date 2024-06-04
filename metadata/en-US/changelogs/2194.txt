@@ -24,6 +24,7 @@ Acantholipan
 Next version
 
 * Fixed browsing old messages
+* Added download attachments dialog
 * Small improvements and minor bug fixes
 * Updated translations
 
