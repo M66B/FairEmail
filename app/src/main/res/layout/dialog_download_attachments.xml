@@ -44,6 +44,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRemark" />
 
+        <TextView
+            android:id="@+id/tvSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="~123 KB"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintBottom_toBottomOf="@id/btnDownload"
+            app:layout_constraintStart_toEndOf="@id/btnDownload"
+            app:layout_constraintTop_toTopOf="@id/btnDownload" />
+
         <ProgressBar
             android:id="@+id/pbDownloaded"
             style="@android:style/Widget.ProgressBar.Horizontal"

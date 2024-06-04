@@ -40,6 +40,7 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         Bundle args = getArguments();
         long id = args.getLong("id");
+        long size = args.getLong("size");
         long[] download = args.getLongArray("download");
         Intent intent = args.getParcelable("intent");
 
@@ -59,6 +60,7 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_download_attachments, null);
         TextView tvRemark = dview.findViewById(R.id.tvRemark);
         Button btnDownload = dview.findViewById(R.id.btnDownload);
+        TextView tvSize = dview.findViewById(R.id.tvSize);
         ProgressBar pbDownloaded = dview.findViewById(R.id.pbDownloaded);
         TextView tvRemaining = dview.findViewById(R.id.tvRemaining);
         CheckBox cbAutoConfirm = dview.findViewById(R.id.cbAutoConfirm);
@@ -150,6 +152,9 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
                 }.execute(FragmentDialogDownloadAttachments.this, args, "download");
             }
         });
+
+        tvSize.setText("~ " + Helper.humanReadableByteCount(size));
+        tvSize.setVisibility(size > 0 ? View.VISIBLE : View.GONE);
 
         cbAutoConfirm.setChecked(attachments_auto_confirm);
         cbAutoConfirm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

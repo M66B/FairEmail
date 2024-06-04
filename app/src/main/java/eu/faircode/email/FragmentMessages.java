@@ -4072,14 +4072,21 @@ public class FragmentMessages extends FragmentBase
                     long id = args.getLong("id");
                     List<Long> download = new ArrayList<>();
 
+                    long size = 0;
+
                     DB db = DB.getInstance(context);
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                     if (attachments != null)
                         for (EntityAttachment attachment : attachments)
                             if (!attachment.available &&
                                     attachment.subsequence == null &&
-                                    !attachment.isEncryption())
+                                    !attachment.isEncryption()) {
+                                if (attachment.size != null)
+                                    size += attachment.size;
                                 download.add(attachment.id);
+                            }
+
+                    args.putLong("size", size);
 
                     return download;
                 }
