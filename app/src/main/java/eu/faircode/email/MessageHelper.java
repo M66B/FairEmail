@@ -341,7 +341,7 @@ public class MessageHelper {
         boolean autocrypt = prefs.getBoolean("autocrypt", true);
         boolean mutual = prefs.getBoolean("autocrypt_mutual", true);
         boolean encrypt_subject = prefs.getBoolean("encrypt_subject", false);
-        boolean forward_new = prefs.getBoolean("forward_new", true);
+        boolean forward_new = prefs.getBoolean("forward_new", false);
 
         if (identity != null && identity.receipt_type != null)
             receipt_type = identity.receipt_type;
@@ -1847,7 +1847,7 @@ public class MessageHelper {
                 refs.add(ref);
         }
 
-        boolean forward_new = prefs.getBoolean("forward_new", true);
+        boolean forward_new = prefs.getBoolean("forward_new", false);
         if (!forward_new)
             try {
                 String fwd = imessage.getHeader("X-Forwarded-Message-Id", null);

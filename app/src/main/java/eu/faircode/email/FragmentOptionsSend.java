@@ -966,7 +966,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
             swReceiptLegacy.setChecked(prefs.getBoolean("receipt_legacy", false));
 
-            swForwardNew.setChecked(prefs.getBoolean("forward_new", true));
+            swForwardNew.setChecked(prefs.getBoolean("forward_new", false));
             swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
             swReplyMove.setChecked(prefs.getBoolean("reply_move", false));
             swReplyMoveInbox.setChecked(prefs.getBoolean("reply_move_inbox", true));

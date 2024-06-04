@@ -870,6 +870,9 @@ public class ApplicationEx extends Application
         } else if (version < 2191) {
             if ("a".equals(BuildConfig.REVISION))
                 editor.remove("show_changelog");
+        } else if (version < 2196) {
+            if (!prefs.contains("forward_new"))
+                editor.putBoolean("forward_new", true);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

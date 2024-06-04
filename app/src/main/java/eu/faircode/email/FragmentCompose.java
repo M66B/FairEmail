@@ -5413,7 +5413,7 @@ public class FragmentCompose extends FragmentBase {
             boolean auto_identity = prefs.getBoolean("auto_identity", false);
             boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
             boolean suggest_received = prefs.getBoolean("suggest_received", false);
-            boolean forward_new = prefs.getBoolean("forward_new", true);
+            boolean forward_new = prefs.getBoolean("forward_new", false);
             boolean markdown = prefs.getBoolean("markdown", false);
 
             Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
