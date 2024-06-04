@@ -184,15 +184,17 @@ public class FragmentDialogDownloadAttachments extends FragmentDialogBase {
         pbDownloaded.setVisibility(remaining.isEmpty() ? View.VISIBLE : View.GONE);
         tvRemaining.setVisibility(remaining.isEmpty() ? View.VISIBLE : View.GONE);
 
+        final DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(intent);
+            }
+        };
+
         return new AlertDialog.Builder(context)
                 .setView(dview)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startActivity(intent);
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
+                .setPositiveButton(android.R.string.ok, listener)
+                .setNegativeButton(R.string.title_dismiss, listener)
                 .create();
     }
 
