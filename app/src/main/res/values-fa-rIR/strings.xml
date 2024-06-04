@@ -178,6 +178,7 @@
     <string name="title_setup_gmail_on_device">چرا لازم است که یک حساب روی دستگاه انتخاب کنم؟</string>
     <string name="title_setup_gmail_password">می‌خواهم به جای حسابی روی دستگاه، به یک حساب با رمز عبور اجازه بدهم</string>
     <string name="title_setup_office_auth">خطای \'AUTHENTICATE failed\' می‌تواند به‌دلیل غیرفعال بودن IMAP/SMTP به‌ دست مدیر سیستم باشد</string>
+    <string name="title_setup_office_auth_5_7_139">لطفا از راهنمای سریع نصب \'آوت‌لوک/هات‌میل/لایو\' استفاده کنید.</string>
     <string name="title_setup_oauth_rationale">برای دسترسی به %1$s حسابتان اجازه دهید</string>
     <string name="title_setup_oauth_update">به یک حساب موجود اجازه بدهید (در غیر این صورت یک حساب جدید بسازید)</string>
     <string name="title_setup_oauth_updated">تایید هویت حساب به روز شد</string>
@@ -603,11 +604,14 @@
     <string name="title_advanced_lt_description">نمایش پاپ‌آپ همراه با شرح مشکل</string>
     <string name="title_advanced_multi_modal">چند وجهی</string>
     <string name="title_advanced_summarize_prompt">خلاصه کردن</string>
+    <string name="title_advanced_system_instructions">دستورالعمل‌های سیستم</string>
+    <string name="title_advanced_entered_text">متن وارد شده</string>
     <string name="title_advanced_watchdog">بطور دوره ای بررسی کن که آیا FairEmail هنوز فعال است یا خیر</string>
     <string name="title_advanced_experiments">امتحان ویژگی‌های آزمایشی</string>
     <string name="title_advanced_crash_reports">ارسال گزارش‌های خطا</string>
     <string name="title_advanced_cleanup_attachments">پیوست‌های پیام‌های قدیمی را حذف کن</string>
     <string name="title_advanced_cleanup">پاک‌سازی</string>
+    <string name="title_advanced_google_backup">استفاده از پشتیبان‌گیری داده اندروید</string>
     <string name="title_advanced_app">تنظیمات برنامه</string>
     <string name="title_advanced_more">گزینه‌های بیشتر</string>
     <string name="title_advanced_debug">حالت عیب‌یابی</string>
@@ -1038,6 +1042,8 @@
     <string name="title_text_reminder">پیام خالی است</string>
     <string name="title_attachment_reminder">آیا می‌خواستید که یک پیوست اضافه کنید؟</string>
     <string name="title_attachments_missing">همه پیوست ها دانلود نشدند</string>
+    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">دانلود پیوست‌ها</string>
+    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">پیوست‌های دانلود شده: %1$s</string>
     <string name="title_draft_deleted">از پیش‌نویس صرف‌نظر شد</string>
     <string name="title_draft_saved">پیش‌نویس ذخیره شد</string>
     <string name="title_ask_send_via">ارسال پیام به %1$s از طریق %2$s?</string>

@@ -213,6 +213,7 @@
     <string name="title_setup_gmail_password">Vreau să autorizez un cont cu o parolă în loc de un cont pe dispozitiv</string>
     <string name="title_setup_office_auth">Eroarea \'Autentificare eșuată\' poate fi cauzată de dezactivarea administrativă a IMAP/SMTP</string>
     <string name="title_setup_office_auth_5_7_3">Vă rugăm să încercați expertul de configurare rapidă \'Alt furnizor\'.</string>
+    <string name="title_setup_office_auth_5_7_139">Vă rugăm să încercați \"Outlook/Hotmail/Live\" pentru configurare rapidă.</string>
     <string name="title_setup_oauth_rationale">Autorizare acces la contul %1$s</string>
     <string name="title_setup_oauth_update">Autorizați din nou un cont existent (în caz contrar, creați un cont nou)</string>
     <string name="title_setup_oauth_updated">Autorizarea contului a fost actualizată</string>
@@ -790,7 +791,9 @@
     <string name="title_advanced_multi_modal">Multimodale</string>
     <string name="title_advanced_summarize_prompt">Realizează un sumar</string>
     <string name="title_advanced_answer_prompt">Introducere răspuns</string>
+    <string name="title_advanced_system_instructions">Instrucțiuni sistem</string>
     <string name="title_advanced_default_prompt">Solicitare implicită</string>
+    <string name="title_advanced_entered_text">Text introdus</string>
     <string name="title_advanced_sdcard">Vreau să folosesc un sdcard</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificați dacă există actualizări pe Github</string>
@@ -803,6 +806,7 @@
     <string name="title_advanced_cleanup_attachments">Ştergeţi ataşamentele mesajelor vechi</string>
     <string name="title_advanced_cleanup">Curățare</string>
     <string name="title_advanced_last_cleanup">Ultima curățare: %1$s</string>
+    <string name="title_advanced_google_backup">Folosește copia de rezervă a datelor Android</string>
     <string name="title_advanced_app">Setări aplicație</string>
     <string name="title_advanced_more">Mai multe opțiuni</string>
     <string name="title_advanced_main_log">Jurnal principal de depanare</string>

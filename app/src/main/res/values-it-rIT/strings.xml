@@ -199,7 +199,7 @@
     <string name="title_setup_gmail_password">Desidero autorizzare un profilo con una password, invece di un profilo su dispositivo</string>
     <string name="title_setup_office_auth">L\'errore \'AUTHENTICATE fallita\' può esser causato dalla disabilitazione di IMAP/SMTP dall\'amministratore di sistema</string>
     <string name="title_setup_office_auth_5_7_3">Sei pregato di provare la procedura guidata rapida \'Altro fornitore\'.</string>
-    <string name="title_setup_office_auth_5_7_139" comment="title_setup_office_auth_5_7_139&#10;Hint text when Office 365 quick setup wizard fails with a specific error message">Prova la procedura guidata rapida \'Outlook/Hotmail/Live\'.</string>
+    <string name="title_setup_office_auth_5_7_139">Prova la procedura guidata rapida \'Outlook/Hotmail/Live\'.</string>
     <string name="title_setup_oauth_rationale">Autorizza l\'accesso al tuo profilo di %1$s</string>
     <string name="title_setup_oauth_update">Autorizza nuovamente un profilo esistente (altrimenti creane uno nuovo)</string>
     <string name="title_setup_oauth_updated">Autorizzazione del profilo aggiornata</string>
@@ -779,9 +779,9 @@
     <string name="title_advanced_multi_modal">Multimodale</string>
     <string name="title_advanced_summarize_prompt">Invito per riassumere</string>
     <string name="title_advanced_answer_prompt">Invito per rispondere</string>
-    <string name="title_advanced_system_instructions" comment="title_advanced_system_instructions&#10;Title for option with system instructions for OpenAI, like &quot;Use a formal tone.&quot;">Istruzioni di sistema</string>
+    <string name="title_advanced_system_instructions">Istruzioni di sistema</string>
     <string name="title_advanced_default_prompt">Invito di default</string>
-    <string name="title_advanced_entered_text" comment="title_advanced_entered_text&#10;Title for menu item to use the text entered in the message editor as AI prompt">Testo inserito</string>
+    <string name="title_advanced_entered_text">Testo inserito</string>
     <string name="title_advanced_sdcard">Desidero usare una scheda sd</string>
     <string name="title_advanced_watchdog">Verifica periodicamente se FairEmail è ancora attivo</string>
     <string name="title_advanced_updates">Controlla gli aggiornamenti di GitHub</string>
@@ -794,7 +794,7 @@
     <string name="title_advanced_cleanup_attachments">Elimina gli allegati dei vecchi messaggi</string>
     <string name="title_advanced_cleanup">Pulizia</string>
     <string name="title_advanced_last_cleanup">Ultima pulizia: %1$s</string>
-    <string name="title_advanced_google_backup" comment="title_advanced_google_backup&#10;Title for option to enable/disable Android backups&#10;https://developer.android.com/identity/data/backup">Usa il backup dei dati di Android</string>
+    <string name="title_advanced_google_backup">Usa il backup dei dati di Android</string>
     <string name="title_advanced_app">Impostazioni dell\'app</string>
     <string name="title_advanced_more">Altre opzioni</string>
     <string name="title_advanced_main_log">Registrazione principale</string>
@@ -1525,6 +1525,8 @@
     <string name="title_dsn_reminder">Gli hard bounce danneggiano la reputazione dell\'email del mittente originale!</string>
     <string name="title_size_reminder">Messaggio (%1$s) più grande del limite del server (%2$s)</string>
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
+    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Scarica allegati</string>
+    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">Allegati scaricati: %1$s</string>
     <string name="title_dialog_hint">Questa finestra è riabilitabile tramite il menu a tre puntini nella barra d\'azione superiore</string>
     <string name="title_draft_deleted">Bozza scartata</string>
     <string name="title_draft_saved">Bozza salvata</string>

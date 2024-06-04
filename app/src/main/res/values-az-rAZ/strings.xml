@@ -199,6 +199,7 @@
     <string name="title_setup_gmail_password">Cihazdakı bir hesabın əvəzinə parollu bir hesaba səlahiyyət vermək istəyirəm</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem administratorunun IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
     <string name="title_setup_office_auth_5_7_3">Zəhmət olmasa \"Digər provayder\" cəld quraşdırma sehrbazını sınayın.</string>
+    <string name="title_setup_office_auth_5_7_139">Lütfən \'Outlook/Hotmail/Live\' cəld quraşdırma sehrbazını sınayın.</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza müraciət üçün səlahiyyət verin</string>
     <string name="title_setup_oauth_update">Mövcud bir hesaba yenidən səlahiyyət verin (əks halda yeni bir hesab yaradın)</string>
     <string name="title_setup_oauth_updated">Hesab səlahiyyətləndirmə güncəlləndi</string>
@@ -778,7 +779,9 @@
     <string name="title_advanced_multi_modal">Multimodal</string>
     <string name="title_advanced_summarize_prompt">İstəyin icmalı</string>
     <string name="title_advanced_answer_prompt">Cavab istəyi</string>
+    <string name="title_advanced_system_instructions">Sistem təlimatları</string>
     <string name="title_advanced_default_prompt">İlkin istək</string>
+    <string name="title_advanced_entered_text">Daxil edilən mətn</string>
     <string name="title_advanced_sdcard">SD kart istifadə etmək istəyirəm</string>
     <string name="title_advanced_watchdog">Mütəmadi olaraq \"FairEmail\"in aktivliyini yoxla</string>
     <string name="title_advanced_updates">GitHub güncəlləmələrini yoxla</string>
@@ -790,6 +793,7 @@
     <string name="title_advanced_crash_reports">Xəta hesabatlarını göndər</string>
     <string name="title_advanced_cleanup_attachments">Köhnə mesajların qoşmalarını sil</string>
     <string name="title_advanced_cleanup">Təmizlə</string>
+    <string name="title_advanced_google_backup">Android-in data nüsxələməsini istifadə et</string>
     <string name="title_advanced_app">Tətbiq ayarları</string>
     <string name="title_advanced_more">Daha çox seçim</string>
     <string name="title_advanced_main_log">Əsas jurnal qeydi</string>

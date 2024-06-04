@@ -227,6 +227,7 @@
     <string name="title_setup_gmail_password">Я хачу аўтарызаваць уліковы запіс з дапамогай пароля замест уліковага запісу на прыладзе</string>
     <string name="title_setup_office_auth">Памылка \'Збой АЎТЭНТЫФІКАЦЫІ\' можа быць выклікана тым, што пратаколы IMAP/SMTP адключаны сістэмным адміністратарам</string>
     <string name="title_setup_office_auth_5_7_3">Паспрабуйце опцыю ў майстры хуткага наладжвання \'Іншы правайдар\'.</string>
+    <string name="title_setup_office_auth_5_7_139">Паспрабуйце опцыю ў майстры хуткага наладжвання \'Outlook/Hotmail/Live\'.</string>
     <string name="title_setup_oauth_rationale">Аўтарызуйце доступ да вашага ўліковага запісу %1$s</string>
     <string name="title_setup_oauth_update">Паўторна аўтарызаваць існуючы ўліковы запіс (у адваротным выпадку стварыць новы ўліковы запіс)</string>
     <string name="title_setup_oauth_updated">Аўтарызацыя ўліковага запісу была абноўлена</string>
@@ -807,7 +808,9 @@
     <string name="title_advanced_multi_modal">Мультымадальнасць</string>
     <string name="title_advanced_summarize_prompt">Падвесці вынікі</string>
     <string name="title_advanced_answer_prompt">Падказка адказу</string>
+    <string name="title_advanced_system_instructions">Сістэмныя інструкцыі</string>
     <string name="title_advanced_default_prompt">Запыт па змаўчанні</string>
+    <string name="title_advanced_entered_text">Уведзены тэкст</string>
     <string name="title_advanced_sdcard">Я хачу выкарыстоўваць карту памяці</string>
     <string name="title_advanced_watchdog">Перыядычна правяраць актыўнасць FairEmail</string>
     <string name="title_advanced_updates">Праверыць наяўнасць абнаўленняў на GitHub</string>
@@ -819,6 +822,7 @@
     <string name="title_advanced_crash_reports">Адпраўляць справаздачы аб памылках</string>
     <string name="title_advanced_cleanup_attachments">Выдаліць укладанні ў старых паведамленнях</string>
     <string name="title_advanced_cleanup">Ачыстка</string>
+    <string name="title_advanced_google_backup">Выкарыстоўваць рэзервовае капіраванне даных Android</string>
     <string name="title_advanced_app">Налады праграмы</string>
     <string name="title_advanced_more">Дадатковыя параметры</string>
     <string name="title_advanced_main_log">Асноўная журналізацыя</string>
@@ -1551,6 +1555,8 @@
     <string name="title_dsn_reminder">Жорсткія адмовы шкодзяць рэпутацыі электроннай пошты першапачатковага адпраўніка!</string>
     <string name="title_size_reminder">Памер паведамлення (%1$s) перавышае ліміт сервера (%2$s)</string>
     <string name="title_attachments_missing">Не ўсе ўкладанні былі загружаны</string>
+    <string name="title_download_attachments" comment="title_download_attachments&#10;Title for dialog box to download attachments">Загрузіць укладанні</string>
+    <string name="title_attachments_download" comment="title_attachments_download&#10;Text to show the number of attachments downloaded so far">Загружана ўкладанняў: %1$s</string>
     <string name="title_dialog_hint">Гэта дыялогавае акно можна зноў уключыць праз меню з трыма кропкамі ў верхняй панэлі дзеянняў</string>
     <string name="title_draft_deleted">Чарнавік адхілены</string>
     <string name="title_draft_saved">Чарнавік захаваны</string>

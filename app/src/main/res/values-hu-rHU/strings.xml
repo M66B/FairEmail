@@ -198,6 +198,7 @@
     <string name="title_setup_gmail_password">Jelszóval védett fiókot hozok létre az eszköz fiókjával történő összekapcsolás helyett</string>
     <string name="title_setup_office_auth">Az \'AUTHENTICATE failed\' hibának oka lehet hogy a rendszeradminisztrátor kikapcsolta az IMAP/SMTP-t</string>
     <string name="title_setup_office_auth_5_7_3">Kérem próbálja meg az \"Egyéb szolgáltató\" gyorsbeállítás varázslót.</string>
+    <string name="title_setup_office_auth_5_7_139">Kérem, próbálja meg az \"Outlook/Hotmail/Live\" gyorsbeállítás varázslót.</string>
     <string name="title_setup_oauth_rationale">Engedélyezze a hozzáférést a %1$s fiókjához</string>
     <string name="title_setup_oauth_update">Ismételt bejelentkezés egy már meglevő fiókba (vagy új fiók létrehozása)</string>
     <string name="title_setup_oauth_updated">A fiókhitelesítés frissült</string>
@@ -775,7 +776,9 @@
     <string name="title_advanced_multi_modal">Multimodális</string>
     <string name="title_advanced_summarize_prompt">Összefoglaló készítés</string>
     <string name="title_advanced_answer_prompt">Válasz prompt</string>
+    <string name="title_advanced_system_instructions">Rendszer utasításai</string>
     <string name="title_advanced_default_prompt">Alap prompt</string>
+    <string name="title_advanced_entered_text">Bevitt szöveg</string>
     <string name="title_advanced_sdcard">SD kártyát akarok használni</string>
     <string name="title_advanced_watchdog">A FairEmail futásának időszakos ellenőrzése</string>
     <string name="title_advanced_updates">GitHub-frissítések keresése</string>
@@ -787,6 +790,7 @@
     <string name="title_advanced_crash_reports">Hibajelentések küldése</string>
     <string name="title_advanced_cleanup_attachments">Régi üzenetek csatolmányainak törlése</string>
     <string name="title_advanced_cleanup">Takarítás</string>
+    <string name="title_advanced_google_backup">Használja az Android biztonsági mentést</string>
     <string name="title_advanced_app">Alkalmazásbeállítások</string>
     <string name="title_advanced_more">Több opció</string>
     <string name="title_advanced_main_log">Alap naplózás</string>
