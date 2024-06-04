@@ -263,6 +263,9 @@ public class EntityOperation {
 
                 if (EntityFolder.JUNK.equals(target.type) &&
                         Objects.equals(source.account, target.account)) {
+                    message.show_images = false;
+                    message.show_full = false;
+
                     Boolean noblock = (Boolean) jargs.opt(3);
                     jargs.remove(3);
                     boolean block = (noblock == null ? auto_block_sender : !noblock);
