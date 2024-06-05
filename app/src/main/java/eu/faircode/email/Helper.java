@@ -919,20 +919,8 @@ public class Helper {
 
     // View
 
-    static Integer actionBarHeight = null;
-
     static int getActionBarHeight(Context context) {
-        if (actionBarHeight == null) {
-            TypedValue tv = new TypedValue();
-            if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
-                DisplayMetrics dm = context.getResources().getDisplayMetrics();
-                actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, dm);
-            }
-            if (actionBarHeight == null || actionBarHeight <= 0)
-                actionBarHeight = Helper.dp2pixels(context, 56);
-        }
-
-        return actionBarHeight;
+        return Helper.dp2pixels(context, 56);
     }
 
     static int getBottomNavigationHeight(Context context) {
