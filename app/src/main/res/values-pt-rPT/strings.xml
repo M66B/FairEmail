@@ -1527,6 +1527,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_attachments_missing">Nem todos os anexos foram transferidos</string>
     <string name="title_download_attachments">Transferir anexos</string>
     <string name="title_attachments_download">Anexos transferidos: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Isto não será mais mostrado, nem os anexos serão descarregados automaticamente</string>
     <string name="title_dialog_hint">Esta caixa de diálogo pode ser activada novamente através do menu de três pontos na barra de acção superior</string>
     <string name="title_draft_deleted">Rascunho descartado</string>
     <string name="title_draft_saved">Rascunho guardado</string>
