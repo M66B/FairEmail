@@ -89,7 +89,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     private boolean contacts;
     private List<IKeyPressedListener> keyPressedListeners = new ArrayList<>();
 
-    private static final long ACTIONBAR_ANIMATION_DURATION = 250L;
+    private static final double LUMINANCE_THRESHOLD = 0.7f;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -107,8 +107,14 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         boolean hide_toolbar = prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
         boolean edge_to_edge = prefs.getBoolean("edge_to_edge", false);
 
+        int colorPrimary = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimary);
+        double lum = ColorUtils.calculateLuminance(colorPrimary);
+
         LayoutInflater inflater = LayoutInflater.from(this);
-        ViewGroup holder = (ViewGroup) inflater.inflate(R.layout.toolbar_holder, null);
+        ViewGroup holder = (ViewGroup) inflater.inflate(lum > LUMINANCE_THRESHOLD
+                        ? R.layout.toolbar_holder_light
+                        : R.layout.toolbar_holder_dark,
+                null);
         if (BuildConfig.DEBUG)
             holder.setBackgroundColor(Color.RED);
 
@@ -262,9 +268,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
             EdgeToEdge.enable(this);
 
+            int colorPrimary = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimary);
+            double lum = ColorUtils.calculateLuminance(colorPrimary);
+
             WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(window, window.getDecorView());
-            controller.setAppearanceLightStatusBars(false);
-            controller.setAppearanceLightNavigationBars(false);
+            controller.setAppearanceLightStatusBars(lum > LUMINANCE_THRESHOLD);
+            controller.setAppearanceLightNavigationBars(lum > LUMINANCE_THRESHOLD);
             window.setNavigationBarColor(Color.TRANSPARENT);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                 window.setNavigationBarContrastEnforced(false);

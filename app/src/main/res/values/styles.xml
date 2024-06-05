@@ -638,5 +638,7 @@
         <item name="chipCornerRadius">6dp</item>
     </style>
 
-    <style name="actionBarStyle" parent="ThemeOverlay.AppCompat.Dark.ActionBar"></style>
+    <style name="actionBarStyleLight" parent="ThemeOverlay.AppCompat.ActionBar" />
+
+    <style name="actionBarStyleDark" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 </resources>
