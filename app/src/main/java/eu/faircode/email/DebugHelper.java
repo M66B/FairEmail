@@ -429,7 +429,7 @@ public class DebugHelper {
         ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
-        sb.append(String.format("Memory class: %d/%d Large: %s MB Total: %s Low: %b\r\n",
+        sb.append(String.format("Memory class: %d/%d MB Large: %s Total: %s Low: %b\r\n",
                 am.getMemoryClass(), am.getLargeMemoryClass(),
                 largeHeap == null ? "?" : Boolean.toString(largeHeap),
                 Helper.humanReadableByteCount(mi.totalMem),
