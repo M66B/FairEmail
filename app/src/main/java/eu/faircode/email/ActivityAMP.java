@@ -81,7 +81,7 @@ public class ActivityAMP extends ActivityBase {
         wvAmp.clearCache(true);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean overview_mode = prefs.getBoolean("overview_mode", false);
+        boolean overview_mode = prefs.getBoolean("overview_mode", true);
         boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
 
         WebSettings settings = wvAmp.getSettings();
@@ -233,7 +233,7 @@ public class ActivityAMP extends ActivityBase {
                         message == null || message.subject == null ? "AMP" : message.subject);
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean overview_mode = prefs.getBoolean("overview_mode", false);
+                boolean overview_mode = prefs.getBoolean("overview_mode", true);
 
                 String html;
                 ContentResolver resolver = context.getContentResolver();

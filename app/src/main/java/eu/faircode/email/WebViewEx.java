@@ -69,7 +69,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.viewportHeight = prefs.getInt("viewport_height", getDefaultViewportHeight(context));
-        boolean overview_mode = prefs.getBoolean("overview_mode", false);
+        boolean overview_mode = prefs.getBoolean("overview_mode", true);
         boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
 
         setVerticalScrollBarEnabled(false);

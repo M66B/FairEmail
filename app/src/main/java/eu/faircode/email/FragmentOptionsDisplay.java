@@ -1685,7 +1685,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 sbMessageZoom.setProgress(message_zoom - 50);
 
             swEditorZoom.setChecked(prefs.getBoolean("editor_zoom", true));
-            swOverviewMode.setChecked(prefs.getBoolean("overview_mode", false));
+            swOverviewMode.setChecked(prefs.getBoolean("overview_mode", true));
 
             swContrast.setChecked(prefs.getBoolean("contrast", false));
             swHyphenation.setChecked(prefs.getBoolean("hyphenation", false));
