@@ -1554,6 +1554,7 @@
     <string name="title_attachments_missing">לא כל הקבצים המצורפים התקבלו</string>
     <string name="title_download_attachments">הורדת קבצים מצורפים</string>
     <string name="title_attachments_download">קבצים מצורפים שירדו: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">לא יופיע עוד, וגם קבצים מצורפים לא יימשכו אוטומטית</string>
     <string name="title_dialog_hint">אפשר להפעיל את החלונית הזאת שוב דרך תפריט שלוש הנקודות בסרגל הפעולות העליון</string>
     <string name="title_draft_deleted">הטיוטה הושלכה</string>
     <string name="title_draft_saved">הטיוטה נשמרה</string>

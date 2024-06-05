@@ -1517,6 +1517,9 @@
     <string name="title_dsn_reminder">A \'hard bounce\'-ok az eredeti küldő hírnevét rontják!</string>
     <string name="title_size_reminder">Az üzenet (%1$s) nagyobb, mint amit a kiszolgáló engedélyez (%2$s)</string>
     <string name="title_attachments_missing">Nem minden melléklet lett letöltve</string>
+    <string name="title_download_attachments">Mellékletek letöltése</string>
+    <string name="title_attachments_download">Letöltött mellékletek: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Többször nem jelenik meg a kérdés, és a mellékleteket nem töltjük le automatikusan</string>
     <string name="title_dialog_hint">Ez a párbeszédablak bekapcsolható újra a hárompontos menüben a műveletsorban</string>
     <string name="title_draft_deleted">Piszkozat elvetve</string>
     <string name="title_draft_saved">Piszkozat mentve</string>

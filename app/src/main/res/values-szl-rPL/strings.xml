@@ -1549,6 +1549,7 @@
     <string name="title_attachments_missing">Nie wszystkie załączniki zostały pobrane</string>
     <string name="title_download_attachments">Pobierz załączniki</string>
     <string name="title_attachments_download">Pobrane załączniki: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">To nie będzie już wyświetlane, również załączniki nie będą pobierane automatycznie</string>
     <string name="title_dialog_hint">To okno dialogowe można ponownie włączyć za pomocą menu z trzema kropkami na górnym pasku akcji</string>
     <string name="title_draft_deleted">Szkic odrzucony</string>
     <string name="title_draft_saved">Szkic zapisany</string>

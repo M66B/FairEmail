@@ -1506,6 +1506,7 @@
     <string name="title_attachments_missing">没有下载全部附件</string>
     <string name="title_download_attachments">下载附件</string>
     <string name="title_attachments_download">已下载附件数：%1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">将不再显示, 也不会自动下载附件</string>
     <string name="title_dialog_hint">此对话框可通过顶部操作栏右上角的三圆点菜单再次启用</string>
     <string name="title_draft_deleted">草稿已舍弃</string>
     <string name="title_draft_saved">草稿已保存</string>
