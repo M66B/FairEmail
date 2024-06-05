@@ -2418,7 +2418,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
             int dvh = WebViewEx.getDefaultViewportHeight(getContext());
             int vh = prefs.getInt("viewport_height", dvh);
-            etViewportHeight.setHint(vh == dvh ? null : Integer.toString(dvh));
+            etViewportHeight.setText(Integer.toString(vh));
 
             swIgnoreFormattedSize.setChecked(prefs.getBoolean("ignore_formatted_size", false));
             swShowRecent.setChecked(prefs.getBoolean("show_recent", false));
