@@ -55,6 +55,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.BatteryManager;
 import android.os.Build;
@@ -116,6 +117,7 @@ import androidx.browser.customtabs.CustomTabsClient;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.core.view.SoftwareKeyboardControllerCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -2069,6 +2071,12 @@ public class Helper {
 
     static Snackbar setSnackbarOptions(Snackbar snackbar) {
         snackbar.setGestureInsetBottomIgnored(true);
+        int colorAccent = Helper.resolveColor(snackbar.getContext(), android.R.attr.colorAccent);
+        double lum = ColorUtils.calculateLuminance(colorAccent);
+        if (lum < 0.3) {
+            colorAccent = ColorUtils.blendARGB(colorAccent, Color.WHITE, 0.3f);
+            snackbar.setActionTextColor(colorAccent);
+        }
         return snackbar;
     }
 
