@@ -63,12 +63,9 @@ public class FairEmailBackupAgent extends BackupAgent {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             boolean enabled = prefs.getBoolean("google_backup", BuildConfig.PLAY_STORE_RELEASE);
 
-            boolean encrypted = ((data.getTransportFlags() & FLAG_CLIENT_SIDE_ENCRYPTION_ENABLED) != 0);
-            boolean d2d = ((data.getTransportFlags() & FLAG_DEVICE_TO_DEVICE_TRANSFER) != 0);
-            EntityLog.log(this, "Backup start enabled=" + enabled +
-                    " encrypted=" + encrypted + " d2d=" + d2d);
+            EntityLog.log(this, "Backup start enabled=" + enabled);
 
-            if (!enabled || !(encrypted || BuildConfig.DEBUG))
+            if (!enabled)
                 return;
 
             JSONObject jroot = new JSONObject();
