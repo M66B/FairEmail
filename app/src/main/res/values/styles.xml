@@ -220,7 +220,7 @@
 
         <item name="colorFabBackground">@color/lightPurpleAccent</item>
 
-        <item name="colorInfoForeground">@color/white</item>
+        <item name="colorInfoForeground">?android:textColorPrimary</item>
         <item name="colorInfoBackground">@color/lightYellowPrimary</item>
 
         <item name="android:textColorLink">@color/lightPurpleAccent</item>
