@@ -1540,6 +1540,7 @@
     <string name="title_attachments_missing">Nisu preuzeti svi prilozi</string>
     <string name="title_download_attachments">Preuzmi priloge</string>
     <string name="title_attachments_download">Preuzeti prilozi: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Ova poruka se neće više prikazivati, niti će se prilozi automatski preuzimati</string>
     <string name="title_dialog_hint">Ovaj dijalog može se ponovo uključiti preko menija s 3 tačke na vrhu radne trake</string>
     <string name="title_draft_deleted">Nacrt odbačen</string>
     <string name="title_draft_saved">Nacrt sačuvan</string>

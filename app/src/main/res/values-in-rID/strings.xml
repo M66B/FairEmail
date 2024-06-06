@@ -14,6 +14,10 @@
     <string name="app_cake_required">Ruang penyimpanan minimum yang dibutuhkan: %1$s</string>
     <string name="app_updated">Pembaharuan terakhir: %1$s</string>
     <string name="app_download">Mengunduh dari: %1$s</string>
+    <string name="app_motd">        Pada Android 14/15 beta, notifikasi \'Aplikasi tidak merespon\' terkadang muncul.
+        Google sedang mengupayakan perbaikannya.
+        Mohon untuk tidak menyalahkan aplikasi atas masalah Android ini!
+    </string>
     <string name="channel_service">Pemantauan</string>
     <string name="channel_send">Kirim</string>
     <string name="channel_notification">Surel</string>
@@ -756,6 +760,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_gemini">Integrasi Gemini</string>
     <string name="title_advanced_multi_modal">Multimodal</string>
     <string name="title_advanced_summarize_prompt">Ringkas permintaan</string>
+    <string name="title_advanced_answer_prompt">Jawab pertanyaan</string>
     <string name="title_advanced_sdcard">Saya ingin menggunakan sdcard</string>
     <string name="title_advanced_watchdog">Periksa secara berkala apakah FairEmail masih aktif</string>
     <string name="title_advanced_updates">Periksa pembaruan di GitHub</string>
@@ -1320,7 +1325,9 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_ask_show_html">Menampilkan pesan asli dapat membocorkan informasi sensitif privasi</string>
     <string name="title_ask_show_html_remark">Menampilkan pesan asli pada latar gelap tidak memungkinkan karena dapat membuat tulisan dan gambar gelap tidak terlihat</string>
     <string name="title_ask_show_html_images">Selalu tampilkan gambar saat menampilkan pesan asli</string>
+    <string name="title_ask_show_html_always">Tampilkan pesan asli sebagai bawaan</string>
     <string name="title_ask_show_image">Menampilkan gambar dapat membocorkan informasi sensitif privasi</string>
+    <string name="title_ask_show_images_always">Tampikan gambar sebagai bawaan</string>
     <string name="title_ask_show_image_hint">Gambar yang dikenali sebagai gambar pelacakan tidak akan ditampilkan</string>
     <string name="title_ask_show_amp">Tampilkan varian AMP dari pesan?</string>
     <string name="title_ask_show_amp_hint">Pesan AMP dirancang agar dinamis dan berinteraksi dengan internet dan karenanya dapat secara definisi digunakan untuk melacak Anda</string>
@@ -1946,6 +1953,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_ask_what">Tanya apa yang harus dilakukan</string>
     <string name="title_no_ask_again">Jangan tanya ini lagi</string>
     <string name="title_no_ask_for_again">Jangan tanya ini lagi untuk %1$s</string>
+    <string name="title_undo_privacy">Hal ini dapat dibatalkan di halaman tab pengaturan privasi</string>
     <string name="title_no_body">Teks pesan tidak ditemukan</string>
     <string name="title_large_body">Pesan ini terlalu besar dan bisa menyebabkan masalah!</string>
     <string name="title_no_charset">Encoding tidak didukung: %1$s</string>

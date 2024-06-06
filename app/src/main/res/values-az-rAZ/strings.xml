@@ -1526,6 +1526,7 @@
     <string name="title_attachments_missing">Bütün qoşmalar endirilmədi</string>
     <string name="title_download_attachments">Qoşmaları endir</string>
     <string name="title_attachments_download">Qoşmalar endirildi: %1$s</string>
+    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Bu, artıq göstərilməyəcək, qoşmalar avtomatik endirilməyəcək</string>
     <string name="title_dialog_hint">Bu dialoq pəncərəsi, üst əməliyyat sətrindəki üç nöqtə menyusu ilə təkrar fəallaşdırıla bilər</string>
     <string name="title_draft_deleted">Qaralama silindi</string>
     <string name="title_draft_saved">Qaralama saxlanıldı</string>
