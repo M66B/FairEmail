@@ -202,6 +202,7 @@ public class Helper {
     static final int PIN_FAILURE_DELAY = 3; // seconds
     static final long PIN_FAILURE_DELAY_MAX = 20 * 60 * 1000L; // milliseconds
     static final float BNV_LUMINANCE_THRESHOLD = 0.7f;
+    static final float MIN_SNACKBAR_LUMINANCE = 0.3f;
 
     static final String PLAY_PACKAGE_NAME = "com.android.vending";
 
@@ -2073,8 +2074,8 @@ public class Helper {
         snackbar.setGestureInsetBottomIgnored(true);
         int colorAccent = Helper.resolveColor(snackbar.getContext(), android.R.attr.colorAccent);
         double lum = ColorUtils.calculateLuminance(colorAccent);
-        if (lum < 0.3) {
-            colorAccent = ColorUtils.blendARGB(colorAccent, Color.WHITE, 0.3f);
+        if (lum < MIN_SNACKBAR_LUMINANCE) {
+            colorAccent = ColorUtils.blendARGB(colorAccent, Color.WHITE, MIN_SNACKBAR_LUMINANCE);
             snackbar.setActionTextColor(colorAccent);
         }
         return snackbar;
