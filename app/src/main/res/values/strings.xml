@@ -1508,6 +1508,7 @@
     <string name="title_create_rule">Create rule &#8230;</string>
     <string name="title_full_screen">Full screen</string>
     <string name="title_force_light">Force light theme</string>
+    <string name="title_rename">Rename</string>
     <string name="title_share">Share</string>
     <string name="title_share_link" translatable="false">Share link</string>
     <string name="title_share_link_open" translatable="false">Open message</string>

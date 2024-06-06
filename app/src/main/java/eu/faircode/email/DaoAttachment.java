@@ -117,6 +117,12 @@ public interface DaoAttachment {
     void setName(long id, String name, String type, Long size);
 
     @Query("UPDATE attachment" +
+            " SET name = :name" +
+            " WHERE id = :id" +
+            " AND NOT (name IS :name)")
+    void setName(long id, String name);
+
+    @Query("UPDATE attachment" +
             " SET type = :type" +
             " WHERE id = :id" +
             " AND NOT (type IS :type)")

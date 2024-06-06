@@ -348,7 +348,8 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_LINK = 14;
     private static final int REQUEST_DISCARD = 15;
     private static final int REQUEST_SEND = 16;
-    private static final int REQUEST_REMOVE_ATTACHMENTS = 17;
+    static final int REQUEST_EDIT_ATTACHMENT = 17;
+    private static final int REQUEST_REMOVE_ATTACHMENTS = 18;
 
     ActivityResultLauncher<PickVisualMediaRequest> pickImages;
 
@@ -3373,6 +3374,10 @@ public class FragmentCompose extends FragmentBase {
                         onAction(R.id.action_send, extras, "sendnow");
                     }
                     break;
+                case REQUEST_EDIT_ATTACHMENT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onEditAttachment(data.getBundleExtra("args"));
+                    break;
                 case REQUEST_REMOVE_ATTACHMENTS:
                     if (resultCode == RESULT_OK)
                         onRemoveAttachments();
@@ -4963,6 +4968,45 @@ public class FragmentCompose extends FragmentBase {
 
     private void onActionDiscardConfirmed() {
         onAction(R.id.action_delete, "delete");
+    }
+
+    private void onEditAttachment(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String prev = args.getString("prev");
+                String name = args.getString("name");
+
+                if (TextUtils.isEmpty(name))
+                    return null;
+
+                name = Helper.sanitizeFilename(name);
+
+                File source = EntityAttachment.getFile(context, id, prev);
+                File target = EntityAttachment.getFile(context, id, name);
+                if (!source.renameTo(target))
+                    throw new IllegalArgumentException("Could not rename " + source.getName() + " into " + target.getName());
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    db.attachment().setName(id, name);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "attachment:edit");
     }
 
     private void onRemoveAttachments() {
