@@ -356,33 +356,37 @@ public class FragmentDialogPrint extends FragmentDialogBase {
 
                     for (EntityAttachment attachment : attachments)
                         if (attachment.isAttachment()) {
-                            int resid = 0;
-                            Bitmap bm = null;
-                            if (print_html_images) {
-                                String extension = Helper.guessExtension(attachment.getMimeType());
-                                if (extension != null)
-                                    resid = context.getResources().getIdentifier("file_" + extension, "drawable", context.getPackageName());
-                                Drawable d = ContextCompat.getDrawable(context, resid == 0 ? R.drawable.file_bin : resid);
-                                if (d != null) {
-                                    int h = Helper.dp2pixels(context, 12);
-                                    int w = h * d.getIntrinsicWidth() / d.getIntrinsicHeight();
-                                    bm = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-                                    Canvas canvas = new Canvas(bm);
-                                    d.setBounds(0, 0, w, h);
-                                    d.draw(canvas);
+                            String uri = null;
+                            if (print_html_images)
+                                try {
+                                    int resid = 0;
+                                    String extension = Helper.guessExtension(attachment.getMimeType());
+                                    if (extension != null)
+                                        resid = context.getResources().getIdentifier("file_" + extension, "drawable", context.getPackageName());
+                                    Drawable d = ContextCompat.getDrawable(context, resid == 0 ? R.drawable.file_bin : resid);
+                                    if (d != null) {
+                                        int h = Helper.dp2pixels(context, 12);
+                                        int w = h * d.getIntrinsicWidth() / d.getIntrinsicHeight();
+                                        Bitmap bm = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+                                        Canvas canvas = new Canvas(bm);
+                                        d.setBounds(0, 0, w, h);
+                                        d.draw(canvas);
+
+                                        Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
+                                        bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
+                                        uri = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
                                 }
-                            }
 
                             Element span = document.createElement("span");
-                            if (bm == null) {
+                            if (uri == null) {
                                 Element strong = document.createElement("strong");
                                 strong.text(context.getString(R.string.title_attachment));
                                 span.appendChild(strong);
                             } else {
                                 Element img = document.createElement("img");
-                                Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
-                                bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
-                                String uri = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
                                 img.attr("src", uri);
                                 img.attr("style", "vertical-align: middle; padding-top: 3px; padding-bottom: 3px;");
                                 span.appendChild(img);
