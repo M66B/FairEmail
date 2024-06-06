@@ -25,6 +25,9 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
@@ -43,6 +46,7 @@ import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebSettingsCompat;
@@ -336,20 +340,6 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                         header.appendChild(span);
                     }
 
-                    for (EntityAttachment attachment : attachments)
-                        if (attachment.isAttachment()) {
-                            Element span = document.createElement("span");
-                            Element strong = document.createElement("strong");
-                            strong.text(context.getString(R.string.title_attachment));
-                            span.appendChild(strong);
-                            if (!TextUtils.isEmpty(attachment.name))
-                                span.appendText(" " + attachment.name);
-                            if (attachment.size != null)
-                                span.appendText(" " + Helper.humanReadableByteCount(attachment.size));
-                            span.appendElement("br");
-                            header.appendChild(span);
-                        }
-
                     if (!TextUtils.isEmpty(message.subject)) {
                         Element span = document.createElement("span");
                         span.appendText(message.subject);
@@ -363,6 +353,47 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                         pre.text(message.headers);
                         header.appendChild(pre);
                     }
+
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.isAttachment()) {
+                            int resid = 0;
+                            Bitmap bm = null;
+                            if (print_html_images) {
+                                String extension = Helper.guessExtension(attachment.getMimeType());
+                                if (extension != null)
+                                    resid = context.getResources().getIdentifier("file_" + extension, "drawable", context.getPackageName());
+                                Drawable d = ContextCompat.getDrawable(context, resid == 0 ? R.drawable.file_bin : resid);
+                                if (d != null) {
+                                    int h = Helper.dp2pixels(context, 12);
+                                    int w = h * d.getIntrinsicWidth() / d.getIntrinsicHeight();
+                                    bm = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+                                    Canvas canvas = new Canvas(bm);
+                                    d.setBounds(0, 0, w, h);
+                                    d.draw(canvas);
+                                }
+                            }
+
+                            Element span = document.createElement("span");
+                            if (bm == null) {
+                                Element strong = document.createElement("strong");
+                                strong.text(context.getString(R.string.title_attachment));
+                                span.appendChild(strong);
+                            } else {
+                                Element img = document.createElement("img");
+                                Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
+                                bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
+                                String uri = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
+                                img.attr("src", uri);
+                                img.attr("style", "vertical-align: middle; padding-top: 3px; padding-bottom: 3px;");
+                                span.appendChild(img);
+                            }
+                            if (!TextUtils.isEmpty(attachment.name))
+                                span.appendText(" " + attachment.name);
+                            if (attachment.size != null)
+                                span.appendText(" " + Helper.humanReadableByteCount(attachment.size));
+                            span.appendElement("br");
+                            header.appendChild(span);
+                        }
 
                     header.appendElement("hr").appendElement("br");
 
