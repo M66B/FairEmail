@@ -3881,6 +3881,7 @@ Firstly, a purchase will be available on all devices logged into the same Google
 *if* (this is important) the app is installed via the same Google account too.
 You can select the account in the Play store app by tapping on the avatar at the top right, but only *before* installing the app.
 It is not possible to change the linked Google account after the app has been installed.
+Google doesn't support moving a Play Store purchase from one to another account either.
 
 Google manages all purchases, so as a developer I have little control over purchases.
 So, basically, the only thing I can do, is suggest some things:
