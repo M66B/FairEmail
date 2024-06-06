@@ -399,7 +399,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(185) Can I install FairEmail on Windows?](#faq185)
 * [(186) How can I let the app auto store iCalendar invitations?](#faq186)
 * [(187) Are colored stars synchronized across devices?](#faq187)
-* [(188) Why is Google backup disabled?](#faq188)
+* [~~(188) Why is Google backup disabled?~~](#faq188)
 * [(189) What is cloud sync?](#faq189)
 * [(190) How do I use OpenAI (ChatGPT)?](#faq190)
 * [(191) How do I download and keep older messages on my device?](#faq191)
@@ -5522,17 +5522,17 @@ In other words, the color of stars is stored on your device only, and won't be s
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq188)
 
-Google backup is disabled to prevent privacy-sensitive information, like account credentials and email addresses,
-from [automatically being sent to Google](https://developer.android.com/guide/topics/data/autobackup).
+~~Google backup is disabled to prevent privacy-sensitive information, like account credentials and email addresses,~~
+~~from [automatically being sent to Google](https://developer.android.com/guide/topics/data/autobackup).~~
 
-In theory, there is client-side encryption, but there is no specification available about what this means.
-Moreover, many people do not trust Google.
+~~In theory, there is client-side encryption, but there is no specification available about what this means.~~
+~~Moreover, many people do not trust Google.~~
 
-Unfortunately, it is not possible to enable cloud backup for other backup software without enabling Google backup.
-Whether Google backup is enabled needs to be specified in the app manifest. So, unfortunately, it isn't possible to add an option for this.
+~~Unfortunately, it is not possible to enable cloud backup for other backup software without enabling Google backup.~~
+~~Whether Google backup is enabled needs to be specified in the app manifest. So, unfortunately, it isn't possible to add an option for this.~~
 
-As a replacement, you can back up and restore all settings, including the account settings and credentials, via the backup-settings tab page.
-This backup export uses a proper encryption method, [see here](#faq36).
+~~As a replacement, you can back up and restore all settings, including the account settings and credentials, via the backup-settings tab page.~~
+~~This backup export uses a proper encryption method, [see here](#faq36).~~
 
 <br />
 
