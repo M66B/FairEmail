@@ -3087,8 +3087,8 @@ public class FragmentCompose extends FragmentBase {
         PackageManager pm = getContext().getPackageManager();
         Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
         if (intent.resolveActivity(pm) == null) { // action whitelisted
-            Snackbar snackbar = Snackbar.make(view, getString(R.string.title_no_recorder), Snackbar.LENGTH_INDEFINITE)
-                    .setGestureInsetBottomIgnored(true);
+            Snackbar snackbar = Helper.setSnackbarOptions(
+                    Snackbar.make(view, getString(R.string.title_no_recorder), Snackbar.LENGTH_INDEFINITE));
             snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -3137,8 +3137,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void noStorageAccessFramework() {
-        Snackbar snackbar = Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG)
-                .setGestureInsetBottomIgnored(true);
+        Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG));
         snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -3222,8 +3221,7 @@ public class FragmentCompose extends FragmentBase {
 
                             @Override
                             public void onNothingSelected() {
-                                Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG)
-                                        .setGestureInsetBottomIgnored(true);
+                                Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG));
                                 final Intent intent = (Build.VERSION.SDK_INT < Build.VERSION_CODES.R
                                         ? KeyChain.createInstallIntent()
                                         : new Intent(Settings.ACTION_SECURITY_SETTINGS));
@@ -3290,8 +3288,9 @@ public class FragmentCompose extends FragmentBase {
                 onPgp(intent);
             } catch (Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, new ThrowableWrapper(ex).getSafeMessage(), Snackbar.LENGTH_LONG)
-                            .setGestureInsetBottomIgnored(true).show();
+                    Helper.setSnackbarOptions(
+                                    Snackbar.make(view, new ThrowableWrapper(ex).getSafeMessage(), Snackbar.LENGTH_LONG))
+                            .show();
                 else {
                     Log.e(ex);
                     Log.unexpectedError(FragmentCompose.this, ex);
@@ -3619,8 +3618,8 @@ public class FragmentCompose extends FragmentBase {
             // https://developer.android.com/training/camera/photobasics
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             if (intent.resolveActivity(pm) == null) { // action whitelisted
-                Snackbar snackbar = Snackbar.make(view, getString(R.string.title_no_camera), Snackbar.LENGTH_LONG)
-                        .setGestureInsetBottomIgnored(true);
+                Snackbar snackbar = Helper.setSnackbarOptions(
+                        Snackbar.make(view, getString(R.string.title_no_camera), Snackbar.LENGTH_LONG));
                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -4269,11 +4268,11 @@ public class FragmentCompose extends FragmentBase {
                 if (ex instanceof IllegalArgumentException
                         || ex instanceof GeneralSecurityException /* InvalidKeyException */) {
                     Log.i(ex);
-                    Snackbar.make(view, new ThrowableWrapper(ex).getSafeMessage(), Snackbar.LENGTH_LONG)
-                            .setGestureInsetBottomIgnored(true).show();
+                    Helper.setSnackbarOptions(
+                                    Snackbar.make(view, new ThrowableWrapper(ex).getSafeMessage(), Snackbar.LENGTH_LONG))
+                            .show();
                 } else if (ex instanceof OperationCanceledException) {
-                    Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_INDEFINITE)
-                            .setGestureInsetBottomIgnored(true);
+                    Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_INDEFINITE));
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -4630,8 +4629,8 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException) {
                     Log.i(ex);
-                    Snackbar snackbar = Snackbar.make(view, new ThrowableWrapper(ex).getSafeMessage(), Snackbar.LENGTH_INDEFINITE)
-                            .setGestureInsetBottomIgnored(true);
+                    Snackbar snackbar = Helper.setSnackbarOptions(
+                            Snackbar.make(view, new ThrowableWrapper(ex).getSafeMessage(), Snackbar.LENGTH_INDEFINITE));
                     Helper.setSnackbarLines(snackbar, 7);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
@@ -6359,9 +6358,8 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(data.draft.revision < data.draft.revisions);
 
             if (args.getBoolean("noreply")) {
-                final Snackbar snackbar = Snackbar.make(
-                                view, R.string.title_noreply_reminder, Snackbar.LENGTH_INDEFINITE)
-                        .setGestureInsetBottomIgnored(true);
+                final Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(
+                        view, R.string.title_noreply_reminder, Snackbar.LENGTH_INDEFINITE));
                 snackbar.setAction(android.R.string.ok, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -6370,9 +6368,8 @@ public class FragmentCompose extends FragmentBase {
                 });
                 snackbar.show();
             } else if (args.getBoolean("incomplete")) {
-                final Snackbar snackbar = Snackbar.make(
-                                view, R.string.title_attachments_incomplete, Snackbar.LENGTH_INDEFINITE)
-                        .setGestureInsetBottomIgnored(true);
+                final Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(
+                        view, R.string.title_attachments_incomplete, Snackbar.LENGTH_INDEFINITE));
                 snackbar.setAction(android.R.string.ok, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -6631,8 +6628,8 @@ public class FragmentCompose extends FragmentBase {
                             String msg = getResources().getQuantityString(
                                     R.plurals.title_notification_unseen, diff, diff);
 
-                            Snackbar snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_INDEFINITE)
-                                    .setGestureInsetBottomIgnored(true);
+                            Snackbar snackbar = Helper.setSnackbarOptions(
+                                    Snackbar.make(view, msg, Snackbar.LENGTH_INDEFINITE));
                             snackbar.setAction(R.string.title_show, new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -6696,8 +6693,8 @@ public class FragmentCompose extends FragmentBase {
             if (ex instanceof MessageRemovedException)
                 finish();
             else if (ex instanceof OperationCanceledException) {
-                Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE)
-                        .setGestureInsetBottomIgnored(true);
+                Snackbar snackbar = Helper.setSnackbarOptions(
+                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE));
                 snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -6732,8 +6729,9 @@ public class FragmentCompose extends FragmentBase {
                           at android.content.ContentResolver.openInputStream(ContentResolver.java:1187)
                           at eu.faircode.email.FragmentCompose.addAttachment(SourceFile:27)
                      */
-            Snackbar.make(view, new ThrowableWrapper(ex).toSafeString(), Snackbar.LENGTH_LONG)
-                    .setGestureInsetBottomIgnored(true).show();
+            Helper.setSnackbarOptions(
+                            Snackbar.make(view, new ThrowableWrapper(ex).toSafeString(), Snackbar.LENGTH_LONG))
+                    .show();
         } else {
             if (ex instanceof IOException &&
                     ex.getCause() instanceof ErrnoException &&
@@ -7631,8 +7629,9 @@ public class FragmentCompose extends FragmentBase {
             else {
                 setBusy(false);
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
-                            .setGestureInsetBottomIgnored(true).show();
+                    Helper.setSnackbarOptions(
+                                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG))
+                            .show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }

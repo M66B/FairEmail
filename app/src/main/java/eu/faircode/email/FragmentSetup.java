@@ -1453,8 +1453,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             NumberFormat NF = NumberFormat.getInstance();
             String msg = getString(R.string.title_setup_import_graph_new, NF.format(count));
 
-            final Snackbar snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_INDEFINITE)
-                    .setGestureInsetBottomIgnored(true);
+            final Snackbar snackbar = Helper.setSnackbarOptions(
+                    Snackbar.make(view, msg, Snackbar.LENGTH_INDEFINITE));
             snackbar.setAction(R.string.title_check, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

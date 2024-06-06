@@ -2067,6 +2067,11 @@ public class Helper {
         view.setLayoutParams(lparam);
     }
 
+    static Snackbar setSnackbarOptions(Snackbar snackbar) {
+        snackbar.setGestureInsetBottomIgnored(true);
+        return snackbar;
+    }
+
     static void setSnackbarLines(Snackbar snackbar, int lines) {
         View sv = snackbar.getView();
         if (sv == null)
