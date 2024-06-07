@@ -546,6 +546,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private AdapterAttachment adapterAttachment;
         private AdapterMedia adapterMedia;
 
+        private TwoStateOwner eowner = new TwoStateOwner(owner, "MessageExpanded");
         private TwoStateOwner cowner = new TwoStateOwner(owner, "MessageAttachments");
         private TwoStateOwner powner = new TwoStateOwner(owner, "MessagePopup");
 
@@ -1767,6 +1768,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (vsBody == null)
                 return;
 
+            eowner.stop();
             cowner.stop();
 
             grpAddresses.setVisibility(View.GONE);
@@ -2115,6 +2117,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void bindExpanded(final TupleMessageEx message, final boolean scroll) {
             DB db = DB.getInstance(context);
 
+            eowner.recreate();
             cowner.recreate();
 
             if (compact) {
@@ -2183,7 +2186,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean content = (message.content || message.error != null);
             tvNoInternetBody.setVisibility(suitable || content ? View.GONE : View.VISIBLE);
 
-            db.operation().liveOperations(message.id, EntityOperation.BODY).observe(owner, new Observer<TupleMessageOperation>() {
+            eowner.start();
+            db.operation().liveOperations(message.id, EntityOperation.BODY).observe(eowner, new Observer<TupleMessageOperation>() {
                 @Override
                 public void onChanged(TupleMessageOperation operation) {
                     grpDownloading.setVisibility(operation == null || operation.id == null ? View.GONE : View.VISIBLE);
@@ -9180,6 +9184,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     public void onViewRecycled(@NonNull ViewHolder holder) {
         // Called before moving view into RecycledViewPool
+        holder.eowner.recreate();
         holder.cowner.recreate();
 
         if (holder.ibAvatar != null)
