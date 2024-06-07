@@ -639,7 +639,7 @@
         android:paddingVertical="3dp"
         android:text="3"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@color/action_foreground"
+        android:textColor="?attr/colorInfoForeground"
         app:layout_anchor="@id/fabMore"
         app:layout_anchorGravity="center_horizontal|bottom" />
 
