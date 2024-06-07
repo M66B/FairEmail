@@ -101,10 +101,10 @@
     <color name="darkAmberPrimaryDark">#c43e00</color>
     <color name="darkBlueAccent">#4fc3f7</color>
 
-    <!-- Yellow 900 / Purple 300 -->
+    <!-- Yellow 900 / Indigo 300 -->
     <color name="darkYellowPrimary">#f57f17</color>
     <color name="darkYellowPrimaryDark">#bc5100</color>
-    <color name="darkPurpleAccent">#ba68c8</color>
+    <color name="darkPurpleAccent">#7986cb</color>
 
     <!-- Purple 900 / Yellow 600 -->
     <color name="darkPurplePrimary">#4a148c</color>
