@@ -1499,7 +1499,7 @@
     <provider
         name="TWC"
         appPassword="true"
-        domain=".*\\.rr\\.com"
+        domain=".*\\.rr\\.com,roadrunner\\.com"
         link="https://www.spectrum.net/support/internet/spectrum-email-server-settings/">
         <imap
             host="mail.twc.com"
