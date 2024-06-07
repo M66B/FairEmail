@@ -511,6 +511,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvNoInternetBody;
         private ImageButton ibDownloading;
         private Group grpDownloading;
+        private ImageButton ibDownload;
         private ImageButton ibInfrastructure;
         private ImageButton ibTrashBottom;
         private ImageButton ibArchiveBottom;
@@ -976,6 +977,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetBody = vsBody.findViewById(R.id.tvNoInternetBody);
             ibDownloading = vsBody.findViewById(R.id.ibDownloading);
             grpDownloading = vsBody.findViewById(R.id.grpDownloading);
+            ibDownload = vsBody.findViewById(R.id.ibDownload);
             ibInfrastructure = vsBody.findViewById(R.id.ibInfrastructure);
             ibTrashBottom = vsBody.findViewById(R.id.ibTrashBottom);
             ibArchiveBottom = vsBody.findViewById(R.id.ibArchiveBottom);
@@ -1132,6 +1134,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTools.setOnClickListener(this);
 
                 ibDownloading.setOnClickListener(this);
+                ibDownload.setOnClickListener(this);
                 ibInfrastructure.setOnClickListener(this);
                 ibTrashBottom.setOnClickListener(this);
                 ibTrashBottom.setOnLongClickListener(this);
@@ -1256,6 +1259,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTools.setOnClickListener(null);
 
                 ibDownloading.setOnClickListener(null);
+                ibDownload.setOnClickListener(null);
                 ibInfrastructure.setOnClickListener(null);
                 ibTrashBottom.setOnClickListener(null);
                 ibTrashBottom.setOnLongClickListener(null);
@@ -1879,6 +1883,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvNoInternetBody.setVisibility(View.GONE);
             grpDownloading.setVisibility(View.GONE);
+            ibDownload.setVisibility(View.GONE);
             tvBody.setText(null);
             tvBody.setVisibility(View.GONE);
             vwRipple.setVisibility(View.GONE);
@@ -2177,7 +2182,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Message text
             boolean content = (message.content || message.error != null);
             tvNoInternetBody.setVisibility(suitable || content ? View.GONE : View.VISIBLE);
-            grpDownloading.setVisibility(content ? View.GONE : View.VISIBLE);
+
+            db.operation().liveOperations(message.id, EntityOperation.BODY).observe(owner, new Observer<TupleMessageOperation>() {
+                @Override
+                public void onChanged(TupleMessageOperation operation) {
+                    grpDownloading.setVisibility(operation == null || operation.id == null ? View.GONE : View.VISIBLE);
+                    ibDownload.setVisibility(operation != null && operation.id == null && !operation.content ? View.VISIBLE : View.GONE);
+                }
+            });
 
             boolean show_full = properties.getValue("full", message.id);
             if (show_full)
@@ -4606,7 +4618,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onActionTools(message);
                 } else if (id == R.id.ibDownloading) {
                     Helper.viewFAQ(context, 15);
-                } else if (id == R.id.ibSeen || id == R.id.ibSeenBottom) {
+                } else if (id == R.id.ibDownload)
+                    onActionDownload(message);
+                else if (id == R.id.ibSeen || id == R.id.ibSeenBottom) {
                     onToggleSeen(message);
                 } else if (id == R.id.ibHide) {
                     onMenuHide(message);
@@ -5471,6 +5485,42 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean addresses = !properties.getValue("addresses", message.id, getShowAddressesDefault(message));
             properties.setValue("addresses", message.id, addresses);
             bindAddresses(message);
+        }
+
+        private void onActionDownload(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return null;
+
+                        db.message().setMessageError(message.id, null);
+
+                        EntityOperation.queue(context, message, EntityOperation.BODY);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragment(), ex);
+                }
+            }.execute(context, owner, args, "message:downlaod");
         }
 
         private boolean getShowAddressesDefault(TupleMessageEx message) {

@@ -576,7 +576,7 @@ class Core {
 
                             db.operation().setOperationTries(op.id, op.tries);
 
-                            op.error = Log.formatThrowable(ex);
+                            op.error = Log.formatThrowable(ex, !EntityOperation.BODY.equals(op.name));
                             db.operation().setOperationError(op.id, op.error);
 
                             if (message != null &&
