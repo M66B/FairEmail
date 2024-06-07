@@ -4981,8 +4981,6 @@ public class FragmentCompose extends FragmentBase {
                 if (TextUtils.isEmpty(name))
                     return null;
 
-                name = Helper.sanitizeFilename(name);
-
                 File source = EntityAttachment.getFile(context, id, prev);
                 File target = EntityAttachment.getFile(context, id, name);
                 if (!source.renameTo(target))
