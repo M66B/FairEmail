@@ -2919,7 +2919,7 @@ public class MessageHelper {
             int s = list.indexOf('<');
             int e = list.indexOf('>', s + 1);
             while (s >= 0 && e > s) {
-                String unsubscribe = list.substring(s + 1, e);
+                String unsubscribe = list.substring(s + 1, e).trim();
                 if (TextUtils.isEmpty(unsubscribe))
                     ; // Empty address
                 else if (unsubscribe.toLowerCase(Locale.ROOT).startsWith("mailto:")) {
