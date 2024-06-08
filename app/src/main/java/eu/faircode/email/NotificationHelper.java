@@ -707,10 +707,15 @@ class NotificationHelper {
         boolean delete_notification = prefs.getBoolean("delete_notification", false);
 
         // Get contact info
+        Long latest = null;
         Map<Long, Address[]> messageFrom = new HashMap<>();
         Map<Long, ContactInfo[]> messageInfo = new HashMap<>();
         for (int m = 0; m < messages.size() && m < MAX_NOTIFICATION_DISPLAY; m++) {
             TupleMessageEx message = messages.get(m);
+
+            if (latest == null || latest < message.received)
+                latest = message.received;
+
             ContactInfo[] info = ContactInfo.get(context,
                     message.account, message.folderType,
                     message.bimi_selector, Boolean.TRUE.equals(message.dmarc),
@@ -781,6 +786,9 @@ class NotificationHelper {
                                     ? NotificationCompat.CATEGORY_EMAIL : NotificationCompat.CATEGORY_STATUS)
                             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                             .setAllowSystemGeneratedContextualActions(false);
+
+            if (latest != null)
+                builder.setWhen(latest).setShowWhen(true);
 
             if (group != 0 && messages.size() > 0)
                 builder.setSubText(messages.get(0).accountName);
