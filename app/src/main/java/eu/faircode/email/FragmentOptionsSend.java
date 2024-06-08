@@ -113,6 +113,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSignatureForward;
     private Button btnEditSignature;
 
+    private SwitchCompat swSendAtTop;
     private SwitchCompat swAttachNew;
     private SwitchCompat swAutoLink;
     private SwitchCompat swPlainOnly;
@@ -144,7 +145,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit",
             "resize_reply", "resize_paste",
             "signature_location", "signature_new", "signature_reply", "signature_reply_once", "signature_forward",
-            "attach_new", "auto_link", "plain_only", "plain_only_reply",
+            "send_at_top", "attach_new", "auto_link", "plain_only", "plain_only_reply",
             "format_flowed", "usenet_signature", "remove_signatures",
             "receipt_default", "receipt_type", "receipt_legacy",
             "forward_new",
@@ -208,6 +209,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSignatureForward = view.findViewById(R.id.swSignatureForward);
         btnEditSignature = view.findViewById(R.id.btnEditSignature);
 
+        swSendAtTop = view.findViewById(R.id.swSendAtTop);
         swAttachNew = view.findViewById(R.id.swAttachNew);
         swAutoLink = view.findViewById(R.id.swAutoLink);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
@@ -661,6 +663,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swSendAtTop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("send_at_top", checked).apply();
+            }
+        });
+
         swAttachNew.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -952,6 +961,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             swSignatureReplyOnce.setEnabled(swSignatureReply.isChecked());
             swSignatureForward.setChecked(prefs.getBoolean("signature_forward", true));
 
+            swSendAtTop.setChecked(prefs.getBoolean("send_at_top", false));
             swAttachNew.setChecked(prefs.getBoolean("attach_new", true));
             swAutoLink.setChecked(prefs.getBoolean("auto_link", false));
             swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));

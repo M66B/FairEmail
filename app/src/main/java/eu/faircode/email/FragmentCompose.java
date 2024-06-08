@@ -1936,6 +1936,27 @@ public class FragmentCompose extends FragmentBase {
         });
         menu.findItem(R.id.menu_translate).setActionView(ibTranslate);
 
+        ImageButton ibSend = (ImageButton) infl.inflate(R.layout.action_button, null);
+        ibSend.setId(View.generateViewId());
+        ibSend.setImageResource(R.drawable.twotone_send_24);
+        ibSend.setContentDescription(getString(R.string.title_translate));
+        ibSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onAction(R.id.action_check, "menu:send");
+            }
+        });
+        ibSend.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Bundle args = new Bundle();
+                args.putBoolean("force_dialog", true);
+                onAction(R.id.action_check, args, "menu:send:force");
+                return true;
+            }
+        });
+        menu.findItem(R.id.menu_send).setActionView(ibSend);
+
         ImageButton ibZoom = (ImageButton) infl.inflate(R.layout.action_button, null);
         ibZoom.setId(View.generateViewId());
         ibZoom.setImageResource(R.drawable.twotone_format_size_24);
@@ -1959,12 +1980,21 @@ public class FragmentCompose extends FragmentBase {
 
         final Context context = getContext();
 
-        menu.findItem(R.id.menu_encrypt).setEnabled(state == State.LOADED);
-        menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
-        menu.findItem(R.id.menu_translate).setVisible(DeepL.isAvailable(context));
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean send_at_top = prefs.getBoolean("send_at_top", false);
+        boolean save_drafts = prefs.getBoolean("save_drafts", true);
+        boolean send_chips = prefs.getBoolean("send_chips", true);
+        boolean send_dialog = prefs.getBoolean("send_dialog", true);
+        boolean image_dialog = prefs.getBoolean("image_dialog", true);
+        boolean experiments = prefs.getBoolean("experiments", false);
+
         menu.findItem(R.id.menu_ai).setEnabled(state == State.LOADED && !chatting);
         ((ImageButton) menu.findItem(R.id.menu_ai).getActionView()).setEnabled(!chatting);
         menu.findItem(R.id.menu_ai).setVisible(AI.isAvailable(context));
+        menu.findItem(R.id.menu_encrypt).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_translate).setVisible(DeepL.isAvailable(context));
+        menu.findItem(R.id.menu_send).setVisible(send_at_top);
         menu.findItem(R.id.menu_zoom).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_style).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_media).setEnabled(state == State.LOADED);
@@ -2021,13 +2051,6 @@ public class FragmentCompose extends FragmentBase {
         ibZoom.setAlpha(state == State.LOADED ? 1f : Helper.LOW_LIGHT);
         ibZoom.setEnabled(state == State.LOADED);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean save_drafts = prefs.getBoolean("save_drafts", true);
-        boolean send_chips = prefs.getBoolean("send_chips", true);
-        boolean send_dialog = prefs.getBoolean("send_dialog", true);
-        boolean image_dialog = prefs.getBoolean("image_dialog", true);
-        boolean experiments = prefs.getBoolean("experiments", false);
-
         menu.findItem(R.id.menu_save_drafts).setChecked(save_drafts);
         menu.findItem(R.id.menu_send_chips).setChecked(send_chips);
         menu.findItem(R.id.menu_send_dialog).setChecked(send_dialog);
@@ -2072,6 +2095,8 @@ public class FragmentCompose extends FragmentBase {
                     return false;
             }
         });
+
+        bottom_navigation.findViewById(R.id.action_send).setVisibility(send_at_top ? View.GONE : View.VISIBLE);
 
         bottom_navigation.findViewById(R.id.action_send).setOnLongClickListener(new View.OnLongClickListener() {
             @Override

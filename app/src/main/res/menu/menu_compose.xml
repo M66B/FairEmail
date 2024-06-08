@@ -20,6 +20,12 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/menu_send"
+        android:icon="@drawable/twotone_send_24"
+        android:title="@string/title_send"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/menu_zoom"
         android:icon="@drawable/twotone_format_size_24"
         android:title="@string/title_zoom"
