@@ -2937,8 +2937,7 @@ public class MessageHelper {
                 else {
                     if (link == null) {
                         Uri uri = Uri.parse(unsubscribe);
-                        String scheme = uri.getScheme();
-                        if ("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme))
+                        if (UriHelper.isHyperLink(uri))
                             link = unsubscribe;
                         else {
                             Pattern p =
