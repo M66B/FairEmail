@@ -790,6 +790,7 @@
     <string name="title_advanced_crash_reports">Αποστολή αναφοράς σφαλμάτων</string>
     <string name="title_advanced_cleanup_attachments">Διαγραφή συνημμένων από παλιά μηνύματα</string>
     <string name="title_advanced_cleanup">Καθαρισμός</string>
+    <string name="title_advanced_google_backup">Χρήση αντιγράφου ασφαλείας δεδομένων του Android</string>
     <string name="title_advanced_app">Ρυθμίσεις εφαρμογής</string>
     <string name="title_advanced_more">Περισσότερες επιλογές</string>
     <string name="title_advanced_main_log">Κύρια καταγραφή</string>
