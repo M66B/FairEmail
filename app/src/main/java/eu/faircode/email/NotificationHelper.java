@@ -717,8 +717,7 @@ class NotificationHelper {
                 latest = message.received;
 
             ContactInfo[] info = ContactInfo.get(context,
-                    message.account, message.folderType,
-                    message.bimi_selector, Boolean.TRUE.equals(message.dmarc),
+                    message.account, message.folderType, message.bimi_selector,
                     message.isForwarder() ? message.submitter : message.from);
 
             Address[] modified = (message.from == null
