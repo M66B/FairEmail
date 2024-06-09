@@ -518,9 +518,10 @@ public class DebugHelper {
                 WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING)));
         try {
             PackageInfo pkg = WebViewCompat.getCurrentWebViewPackage(context);
-            sb.append(String.format("WebView %d/%s\r\n",
+            sb.append(String.format("WebView %d/%s has=%b\r\n",
                     pkg == null ? -1 : pkg.versionCode,
-                    pkg == null ? null : pkg.versionName));
+                    pkg == null ? null : pkg.versionName,
+                    Helper.hasWebView(context)));
         } catch (Throwable ex) {
             sb.append(ex).append("\r\n");
         }

@@ -132,7 +132,6 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
-import androidx.webkit.WebViewCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -568,11 +567,6 @@ public class Helper {
 
     private static boolean _hasWebView(Context context) {
         try {
-            // Canary 127.0.6510.0 is broken
-            PackageInfo pkg = WebViewCompat.getCurrentWebViewPackage(context);
-            if (pkg != null && pkg.getLongVersionCode() == 651000033)
-                return false;
-
             PackageManager pm = context.getPackageManager();
             if (pm.hasSystemFeature(PackageManager.FEATURE_WEBVIEW)) {
                 WebView view = new WebView(context);
@@ -581,6 +575,7 @@ public class Helper {
             } else
                 return false;
         } catch (Throwable ex) {
+            Log.w(ex);
             /*
                 Caused by: java.lang.RuntimeException: Package manager has died
                     at android.app.ApplicationPackageManager.hasSystemFeature(ApplicationPackageManager.java:414)
