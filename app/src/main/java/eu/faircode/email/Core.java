@@ -4676,7 +4676,7 @@ class Core {
             message.ui_deleted = deleted;
             message.ui_hide = false;
             message.ui_found = false;
-            message.ui_ignored = (seen || deleted);
+            message.ui_ignored = (seen || deleted || browsed);
             message.ui_browsed = browsed;
 
             if (message.flagged)
