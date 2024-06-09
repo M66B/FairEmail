@@ -160,8 +160,10 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 protected void onExecuted(Bundle args, EntityMessage message) {
                     finish();
 
-                    if (message == null)
+                    if (message == null) {
+                        startActivity(new Intent(ActivityMain.this, ActivityView.class));
                         return;
+                    }
 
                     String type = args.getString("type");
 
