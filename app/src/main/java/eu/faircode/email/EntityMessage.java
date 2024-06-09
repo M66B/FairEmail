@@ -279,6 +279,7 @@ public class EntityMessage implements Serializable {
         // adb shell pm set-app-links --package eu.faircode.email 0 all
         // adb shell pm verify-app-links --re-verify eu.faircode.email
         // adb shell pm get-app-links eu.faircode.email
+        // https://link.fairemail.net/.well-known/assetlinks.json
         return "https://link.fairemail.net/#" + id;
     }
 
