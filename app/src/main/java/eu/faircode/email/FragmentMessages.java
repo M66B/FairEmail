@@ -256,6 +256,7 @@ public class FragmentMessages extends FragmentBase
     private TextView tvSupport;
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
+    private ImageButton ibHintOutbox;
     private ImageButton ibHintSelect;
     private ImageButton ibHintJunk;
     private TextView tvMod;
@@ -283,6 +284,7 @@ public class FragmentMessages extends FragmentBase
     private Group grpSupport;
     private Group grpHintSupport;
     private Group grpHintSwipe;
+    private Group grpHintOutbox;
     private Group grpHintSelect;
     private Group grpHintJunk;
     private Group grpMotd;
@@ -581,6 +583,7 @@ public class FragmentMessages extends FragmentBase
         tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
+        ibHintOutbox = view.findViewById(R.id.ibHintOutbox);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
         ibHintJunk = view.findViewById(R.id.ibHintJunk);
         tvMod = view.findViewById(R.id.tvMotd);
@@ -609,6 +612,7 @@ public class FragmentMessages extends FragmentBase
         grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
+        grpHintOutbox = view.findViewById(R.id.grpHintOutbox);
         grpHintSelect = view.findViewById(R.id.grpHintSelect);
         grpHintJunk = view.findViewById(R.id.grpHintJunk);
         grpMotd = view.findViewById(R.id.grpMotd);
@@ -710,6 +714,14 @@ public class FragmentMessages extends FragmentBase
             public void onClick(View v) {
                 prefs.edit().putBoolean("message_swipe", true).apply();
                 grpHintSwipe.setVisibility(View.GONE);
+            }
+        });
+
+        ibHintOutbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putBoolean("message_outbox", true).apply();
+                grpHintOutbox.setVisibility(View.GONE);
             }
         });
 
@@ -5285,11 +5297,13 @@ public class FragmentMessages extends FragmentBase
         }
 
         boolean hints = (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
+        boolean outbox = EntityFolder.OUTBOX.equals(type);
         boolean junk = EntityFolder.JUNK.equals(type);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean app_support = prefs.getBoolean("app_support", false);
         boolean message_swipe = prefs.getBoolean("message_swipe", false);
+        boolean message_outbox = prefs.getBoolean("message_outbox", false);
         boolean message_select = prefs.getBoolean("message_select", false);
         boolean message_junk = prefs.getBoolean("message_junk", false);
         boolean motd = prefs.getBoolean("motd", false);
@@ -5297,6 +5311,7 @@ public class FragmentMessages extends FragmentBase
 
         grpHintSupport.setVisibility(app_support || !hints || junk ? View.GONE : View.VISIBLE);
         grpHintSwipe.setVisibility(message_swipe || !hints || junk ? View.GONE : View.VISIBLE);
+        grpHintOutbox.setVisibility(message_outbox || !hints || !outbox ? View.GONE : View.VISIBLE);
         grpHintSelect.setVisibility(message_select || !hints || junk ? View.GONE : View.VISIBLE);
         grpHintJunk.setVisibility(message_junk || !junk ? View.GONE : View.VISIBLE);
         grpMotd.setVisibility(motd ? View.VISIBLE : View.GONE);

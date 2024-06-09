@@ -2286,6 +2286,7 @@
     <string name="title_hint_dismiss">You can dismiss this dialog box to remove the notice.</string>
     <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
     <string name="title_hint_message_actions">Swipe left to trash; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
+    <string name="title_hint_outbox">You can swipe left or right to cancel sending</string>
     <string name="title_hint_message_selection">Long press a message to start selecting multiple messages; Hold and swipe up or down to select more messages</string>
     <string name="title_hint_message_junk">
         An email client basically displays messages on an email server.

@@ -205,6 +205,39 @@
                 app:layout_constraintTop_toBottomOf="@id/tvHintSwipe" />
 
             <TextView
+                android:id="@+id/tvHintOutbox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="36dp"
+                android:padding="6dp"
+                android:text="@string/title_hint_outbox"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toStartOf="@+id/ibHintSwipe"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSwipe" />
+
+            <ImageButton
+                android:id="@+id/ibHintOutbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_legend_close_hint"
+                android:padding="9dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvHintOutbox"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvHintOutbox"
+                app:srcCompat="@drawable/twotone_close_24" />
+
+            <View
+                android:id="@+id/vSeparatorHintOutbox"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvHintOutbox" />
+
+            <TextView
                 android:id="@+id/tvHintSelect"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -215,7 +248,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toStartOf="@+id/ibHintSelect"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSwipe" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintOutbox" />
 
             <ImageButton
                 android:id="@+id/ibHintSelect"
@@ -583,6 +616,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="tvHintSwipe,ibHintSwipe,vSeparatorHintSwipe" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpHintOutbox"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvHintOutbox,ibHintOutbox,vSeparatorHintOutbox" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpHintSelect"
