@@ -1982,7 +1982,8 @@ public class FragmentCompose extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean send_at_top = prefs.getBoolean("send_at_top", false);
-        boolean save_drafts = prefs.getBoolean("save_drafts", true);
+        boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+        boolean save_drafts = prefs.getBoolean("save_drafts", perform_expunge);
         boolean send_chips = prefs.getBoolean("send_chips", true);
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
@@ -2325,7 +2326,8 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuSaveDrafts() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean save_drafts = prefs.getBoolean("save_drafts", true);
+        boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+        boolean save_drafts = prefs.getBoolean("save_drafts", perform_expunge);
         prefs.edit().putBoolean("save_drafts", !save_drafts).apply();
     }
 
@@ -5475,7 +5477,8 @@ public class FragmentCompose extends FragmentBase {
             boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
             boolean receipt_default = prefs.getBoolean("receipt_default", false);
             boolean write_below = prefs.getBoolean("write_below", false);
-            boolean save_drafts = prefs.getBoolean("save_drafts", true);
+            boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+            boolean save_drafts = prefs.getBoolean("save_drafts", perform_expunge);
             boolean auto_identity = prefs.getBoolean("auto_identity", false);
             boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
             boolean suggest_received = prefs.getBoolean("suggest_received", false);
@@ -6891,7 +6894,8 @@ public class FragmentCompose extends FragmentBase {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean discard_delete = prefs.getBoolean("discard_delete", true);
             boolean write_below = prefs.getBoolean("write_below", false);
-            boolean save_drafts = prefs.getBoolean("save_drafts", true);
+            boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+            boolean save_drafts = prefs.getBoolean("save_drafts", perform_expunge);
             boolean save_revisions = prefs.getBoolean("save_revisions", true);
             int send_delayed = prefs.getInt("send_delayed", 0);
 
