@@ -3477,8 +3477,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             !EntityFolder.OUTBOX.equals(message.folderType)
                             ? View.VISIBLE : View.GONE);
 
-                    boolean reformatted_hint = prefs.getBoolean("reformatted_hint", hasWebView);
-                    tvReformatted.setVisibility(reformatted_hint ? View.VISIBLE : View.GONE);
+                    boolean reformatted_hint = prefs.getBoolean("reformatted_hint", true);
+                    tvReformatted.setVisibility(reformatted_hint && hasWebView ? View.VISIBLE : View.GONE);
 
                     boolean signed_data = args.getBoolean("signed_data");
                     tvDecrypt.setVisibility(encrypted && !unlocked ? View.VISIBLE : View.GONE);
