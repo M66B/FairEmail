@@ -258,7 +258,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             SpannableString ssAccount = new SpannableString(
                     TextUtils.isEmpty(message.accountName) ? "" : message.accountName);
 
-            if (message.ui_seen) {
+            if (message.ui_seen || unseen) {
                 if (subject_italic)
                     ssSubject.setSpan(new StyleSpan(Typeface.ITALIC), 0, ssSubject.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
             } else {
@@ -284,14 +284,14 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
                 views.setViewVisibility(ivFrom, View.GONE);
                 views.setViewVisibility(ivSubject, message.attachments > 0 ? View.VISIBLE : View.GONE);
                 views.setColorStateList(ivSubject, "setImageTintList",
-                        ColorStateList.valueOf(message.ui_seen ? colorWidgetRead : colorWidgetUnread));
+                        ColorStateList.valueOf(message.ui_seen || unseen ? colorWidgetRead : colorWidgetUnread));
             } else {
                 views.setViewVisibility(ivFrom, View.GONE);
                 views.setViewVisibility(ivSubject, View.GONE);
             }
 
             if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                int textColorAttr = (message.ui_seen ? android.R.attr.textColorPrimary : android.R.attr.textColorLink);
+                int textColorAttr = (message.ui_seen || unseen ? android.R.attr.textColorPrimary : android.R.attr.textColorLink);
                 views.setColorStateListAttr(idFrom, "setTextColor", textColorAttr);
                 views.setColorStateListAttr(idTime, "setTextColor", textColorAttr);
                 views.setColorStateListAttr(idSubject, "setTextColor", textColorAttr);
@@ -299,7 +299,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
                 views.setInt(R.id.separator, "setBackgroundColor", Color.WHITE);
                 views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", android.R.attr.colorControlNormal);
             } else {
-                int textColor = (message.ui_seen ? colorWidgetRead : colorWidgetUnread);
+                int textColor = (message.ui_seen || unseen ? colorWidgetRead : colorWidgetUnread);
                 views.setTextColor(idFrom, textColor);
                 views.setTextColor(idTime, textColor);
                 views.setTextColor(idSubject, textColor);
