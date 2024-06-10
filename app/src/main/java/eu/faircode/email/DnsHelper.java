@@ -461,6 +461,8 @@ public class DnsHelper {
     }
 
     static boolean hasDnsSec() {
+        if (BuildConfig.PLAY_STORE_RELEASE)
+            return false;
         // DNSSEC causes crashes in libc
         return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
     }
