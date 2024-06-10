@@ -3992,7 +3992,6 @@ class Core {
                         } catch (Throwable ex) {
                             Log.w(ex);
                             modified = true;
-                            modseq = null;
                         }
                     }
 
@@ -4037,20 +4036,24 @@ class Core {
                         if (!ifolder.isOpen())
                             throw new FolderClosedException(ifolder);
 
+                        boolean ok = false;
                         try {
                             if (perform_expunge && imessages[i].isSet(Flags.Flag.DELETED))
                                 deleted.add(imessages[i]);
                             else
                                 uids.remove(ifolder.getUID(imessages[i]));
+                            ok = true;
                         } catch (MessageRemovedException ex) {
                             Log.w(folder.name, ex);
                         } catch (FolderClosedException ex) {
                             throw ex;
                         } catch (Throwable ex) {
                             Log.e(folder.name, ex);
-                            modseq = null;
                             EntityLog.log(context, folder.name + " expunge " + Log.formatThrowable(ex, false));
                             db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
+                        } finally {
+                            if (!ok)
+                                modseq = null;
                         }
                     }
 
@@ -4257,6 +4260,7 @@ class Core {
                         for (int j = isub.length - 1; j >= 0; j--) {
                             state.ensureRunning("Sync/IMAP/sync");
 
+                            boolean ok = false;
                             try {
                                 dc.start();
 
@@ -4284,9 +4288,9 @@ class Core {
                                         istore, ifolder, (MimeMessage) isub[j],
                                         false, download && initialize == 0,
                                         rules, state, stats);
-                                if (message == null)
-                                    modseq = null;
                                 ids[from + j] = (message == null || message.ui_hide ? null : message.id);
+                                if (message != null)
+                                    ok = true;
                             } catch (MessageRemovedException ex) {
                                 Log.w(folder.name, ex);
                             } catch (FolderClosedException ex) {
@@ -4294,17 +4298,17 @@ class Core {
                             } catch (IOException ex) {
                                 if (ex.getCause() instanceof MessagingException) {
                                     Log.w(folder.name, ex);
-                                    modseq = null;
                                     db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                                 } else
                                     throw ex;
                             } catch (Throwable ex) {
                                 Log.e(folder.name, ex);
-                                modseq = null;
                                 db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                             } finally {
                                 // Free memory
                                 isub[j] = null;
+                                if (!ok)
+                                    modseq = null;
                                 dc.stop(state.getForeground(), from == 0 && j == 0);
                             }
                         }
