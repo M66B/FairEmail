@@ -21,14 +21,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2199 - 2024-06-10 *
 
+* Fixed original message view for Android 8 and before
 * Added a button to retry downloading the message text
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
-### 1.2198 - 2024-06-06
+### 1.2198 - 2024-06-06 *
 
 * Fixed crash
 * Added printing of file type icons
