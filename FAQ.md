@@ -4301,6 +4301,9 @@ or by multiple selecting messages in the message list.
 
 Alternatively, you can disable AUTO EXPUNGE, which will result in marking messages being deleted on the server (by setting the *deleted* flag), but not expunging (deleting) them.
 You can find this option in the debug panel, which can be shown by (temporarily) enabling debug mode in the miscellaneous settings.
+Note that with AUTO EXPUNGE enabled, all messages in all folders of all accounts will remain on the email server (with the deleted flag set),
+also in the draft-messages folder and when emptying the trash-messages or spam-messages folder.
+You'll need to manually perform the EXPUNGE command, which you can do by long pressing on a folder, or via the three-dots overflow menu of a messages list.
 
 Note that it is possible to set the swipe left or right action to hide a message.
 There is a button in the behavior settings to quickly configure the swipe left and right actions for all IMAP accounts.
