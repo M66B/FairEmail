@@ -426,6 +426,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_send_nav_color">Použít barvu identity pro dolní panel akcí</string>
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Zobrazit tlačítko pro odeslání nahoře</string>
     <string name="title_advanced_attach_new">Vytvořit nový koncept zprávy pro sdílené adresy a soubory</string>
     <string name="title_advanced_answer_caption">Nastavení tlačítka pro odpověď</string>
     <string name="title_advanced_answer_default">Krátkým stisknutím tlačítka odpovědi:</string>
@@ -1251,6 +1252,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_create_rule">Vytvořit pravidlo &#8230;</string>
     <string name="title_full_screen">Celá obrazovka</string>
     <string name="title_force_light">Vynutit světlý motiv</string>
+    <string name="title_rename">Přejmenovat</string>
     <string name="title_share">Sdílet</string>
     <string name="title_event">Přidat do kalendáře</string>
     <string name="title_pin">Přidat zkratku</string>
@@ -1551,7 +1553,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
     <string name="title_download_attachments">Stáhnout přílohy</string>
     <string name="title_attachments_download">Stažených příloh: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Toto již nebude zobrazeno, ani nebudou automaticky staženy přílohy</string>
+    <string name="title_attachments_no_download">Toto již nebude zobrazeno, ani nebudou automaticky staženy přílohy</string>
     <string name="title_dialog_hint">Toto dialogové okno může být znovu zapnuto v menu s třemi tečkami horní liště akcí</string>
     <string name="title_draft_deleted">Koncept zahozen</string>
     <string name="title_draft_saved">Koncept uložen</string>
@@ -1947,6 +1949,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_hint_dismiss">Pro odstranění oznámení můžete toto dialogové okno odmítnout.</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (je-li k dispozici); Akce tažením lze změnit v nastavení účtu</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Pro zrušení odesílání můžete táhnout doleva nebo doprava</string>
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>
     <string name="title_hint_message_junk">        Emailový klient v podstatě zobrazuje zprávy na e-mailovém serveru.
         E-mailový server je zodpovědný za filtrování nevyžádané pošty, nikoli e-mailový klient.

@@ -398,6 +398,7 @@
     <string name="title_advanced_send_nav_color">Utiliser la couleur d\'identité pour la barre d\'action du bas</string>
     <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Afficher le bouton Envoyer en haut</string>
     <string name="title_advanced_attach_new">Créer un nouveau brouillon pour les adresses et les fichiers partagés</string>
     <string name="title_advanced_answer_caption">Paramètres du bouton de réponse</string>
     <string name="title_advanced_answer_default">Un appui court sur le bouton de réponse va :</string>
@@ -1225,6 +1226,7 @@
     <string name="title_create_rule">Créer une règle&#8230;</string>
     <string name="title_full_screen">Plein écran</string>
     <string name="title_force_light">Forcer le thème clair</string>
+    <string name="title_rename">Renommer</string>
     <string name="title_share">Partager</string>
     <string name="title_event">Ajouter au calendrier</string>
     <string name="title_pin">Ajouter un raccourci</string>
@@ -1527,7 +1529,7 @@
     <string name="title_attachments_missing">Les pièces jointes n’ont pas toutes été téléchargées</string>
     <string name="title_download_attachments">Télécharger les pièces jointes</string>
     <string name="title_attachments_download">Pièces jointes téléchargées : %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Ceci ne sera plus affiché et les pièces jointes ne seront plus téléchargées automatiquement</string>
+    <string name="title_attachments_no_download">Ceci ne sera plus affiché et les pièces jointes ne seront plus téléchargées automatiquement</string>
     <string name="title_dialog_hint">Cette boîte de dialogue peut être réactivée via le menu à trois points de la barre d’action supérieure</string>
     <string name="title_draft_deleted">Brouillon abandonné</string>
     <string name="title_draft_saved">Brouillon enregistré</string>
@@ -1923,6 +1925,7 @@
     <string name="title_hint_dismiss">Vous pouvez fermer cette boîte de dialogue pour supprimer la notification.</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu « Assistance » pour obtenir de l’aide</string>
     <string name="title_hint_message_actions">Balayez vers la gauche pour mettre à la corbeille ; balayez vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Vous pouvez balayer vers la gauche ou la droite pour annuler l\'envoi</string>
     <string name="title_hint_message_selection">Appuyez longuement sur un message pour activer la sélection multiple ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner davantage de messages</string>
     <string name="title_hint_message_junk">        Un client de messagerie affiche essentiellement les messages d\'un serveur de messagerie.
         Un serveur de messagerie est responsable du filtrage du courrier indésirable, contrairement à un client de messagerie.

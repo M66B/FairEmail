@@ -1523,7 +1523,7 @@
     <string name="title_attachments_missing">Не всички файлове са свалени</string>
     <string name="title_download_attachments">Изтегляне на прикачванията</string>
     <string name="title_attachments_download">Прикачванията изтеглени: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Това повече няма да се показва, нито ще се изтеглят самодейно прикачванията</string>
+    <string name="title_attachments_no_download">Това повече няма да се показва, нито ще се изтеглят самодейно прикачванията</string>
     <string name="title_dialog_hint">Този диалог може да бъде активиран отново чрез менюто с три точки в горния панел за действие</string>
     <string name="title_draft_deleted">Черновата отказана</string>
     <string name="title_draft_saved">Черновата запазена</string>

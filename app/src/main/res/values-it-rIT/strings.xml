@@ -398,6 +398,7 @@
     <string name="title_advanced_send_nav_color">Utilizza il colore dell\'identità per la barra delle azioni inferiore</string>
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_send_delayed">Ritarda invio dei messaggi</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Mostra il pulsante Inviare in cima</string>
     <string name="title_advanced_attach_new">Crea un nuovo messaggio di bozza per indirizzi e file condivisi</string>
     <string name="title_advanced_answer_caption">Impostazioni del pulsante di risposta</string>
     <string name="title_advanced_answer_default">La pressione breve del pulsante di risposta:</string>
@@ -1225,6 +1226,7 @@
     <string name="title_create_rule">Crea regola&#8230;</string>
     <string name="title_full_screen">Schermo intero</string>
     <string name="title_force_light">Forza tema chiaro</string>
+    <string name="title_rename">Rinomina</string>
     <string name="title_share">Condividi</string>
     <string name="title_event">Aggiungi al calendario</string>
     <string name="title_pin">Aggiungi scorciatoia</string>
@@ -1527,7 +1529,7 @@
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
     <string name="title_download_attachments">Scarica allegati</string>
     <string name="title_attachments_download">Allegati scaricati: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Questo non sarà più mostrato e gli allegati non saranno più scaricati automaticamente</string>
+    <string name="title_attachments_no_download">Questo non sarà più mostrato e gli allegati non saranno più scaricati automaticamente</string>
     <string name="title_dialog_hint">Questa finestra è riabilitabile tramite il menu a tre puntini nella barra d\'azione superiore</string>
     <string name="title_draft_deleted">Bozza scartata</string>
     <string name="title_draft_saved">Bozza salvata</string>
@@ -1923,6 +1925,7 @@
     <string name="title_hint_dismiss">Puoi ignorare questa finestra per rimuovere l\'avviso.</string>
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Puoi scorrere a sinistra o a destra per annullare l\'invio</string>
     <string name="title_hint_message_selection">Tieni premuto un messaggio per iniziare a selezionare più messaggi: Tieni premuto e scorri in su o in giù per selezionare più messaggi</string>
     <string name="title_hint_message_junk">        Un client email, essenzialmente, mostra i messaggi su un server email.
         Un server email è responsabile del filtraggio dello spam, non un client email.

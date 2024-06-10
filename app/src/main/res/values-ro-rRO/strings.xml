@@ -1536,7 +1536,7 @@
     <string name="title_attachments_missing">Nu toate ataşamentele se descarcă</string>
     <string name="title_download_attachments">Descărcare atașamente</string>
     <string name="title_attachments_download">Atașamente descărcate: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Acest lucru nu va mai fi afișat și atașamentele nu vor fi descărcate automat</string>
+    <string name="title_attachments_no_download">Acest lucru nu va mai fi afișat și atașamentele nu vor fi descărcate automat</string>
     <string name="title_dialog_hint">Această fereastră de dialog poate fi activată din nou în meniul cu trei puncte din bara de acțiuni de sus</string>
     <string name="title_draft_deleted">S-a renunțat la ciornă</string>
     <string name="title_draft_saved">Ciornă salvată</string>

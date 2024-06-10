@@ -393,6 +393,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_send_nav_color">Alttaki eylem çubuğu için kimlik rengini kullanın</string>
     <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Gönder düğmesini en üstte göster</string>
     <string name="title_advanced_attach_new">Paylaşılan adresler ve dosyalar için yeni bir taslak mesaj oluştur</string>
     <string name="title_advanced_answer_caption">Cevap düğmesi ayarları</string>
     <string name="title_advanced_answer_default">Cevap düğmesine kısa basıldığında:</string>
@@ -1215,6 +1216,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_create_rule">Kural oluştur &#8230;</string>
     <string name="title_full_screen">Tam ekran</string>
     <string name="title_force_light">Aydınlık temasını zorla</string>
+    <string name="title_rename">Yeniden Adlandır</string>
     <string name="title_share">Paylaş</string>
     <string name="title_event">Takvime ekle</string>
     <string name="title_pin">Kısayol ekle</string>
@@ -1515,7 +1517,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_attachments_missing">Tüm ekler indirilmedi</string>
     <string name="title_download_attachments">Ekleri indirin</string>
     <string name="title_attachments_download">İndirilen ekler: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Bu artık gösterilmeyecek ve ekler otomatik olarak indirilmeyecek</string>
+    <string name="title_attachments_no_download">Bu artık gösterilmeyecek ve ekler otomatik olarak indirilmeyecek</string>
     <string name="title_dialog_hint">Bu iletişim kutusu, üst işlem çubuğundaki üç nokta menüsü üzerinden tekrar etkinleştirilebilir</string>
     <string name="title_draft_deleted">Taslak silindi</string>
     <string name="title_draft_saved">Taslak kaydedildi</string>
@@ -1910,6 +1912,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_hint_dismiss">Bildirimi kaldırmak için bu iletişim kutusunu kapatabilirsiniz.</string>
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp için sola kaydırın; Arşiv için sağa kaydırın (mevcut ise); Kaydırma eylemleri hesap ayarlarından yapılandırılabilir</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Gönderimi iptal etmek için sola veya sağa kaydırabilirsiniz</string>
     <string name="title_hint_message_selection">Birden fazla ileti seçmeye başlamak için bir mesaja uzun basın; basılı tutarak ve yukarı veya aşağı kaydırın ve iletileri seçin</string>
     <string name="title_hint_message_junk">        Bir e-posta istemcisi temel olarak mesajları bir e-posta sunucusunda görüntüler.
         İstenmeyen e-postaları filtrelemekten bir e-posta istemcisi değil, bir e-posta sunucusu sorumludur.

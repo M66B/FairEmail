@@ -399,6 +399,7 @@
     <string name="title_advanced_send_nav_color">Use a cor de identidade para a barra de ação inferior</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atrasar envio de mensagens</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Mostrar botão enviar no topo</string>
     <string name="title_advanced_attach_new">Criar uma nova mensagem rascunho para endereços e arquivos partilhados</string>
     <string name="title_advanced_answer_caption">Configurações do botão de resposta</string>
     <string name="title_advanced_answer_default">Um pequeno toque no botão de resposta irá:</string>
@@ -1225,6 +1226,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_create_rule">Criar regra &#8230;</string>
     <string name="title_full_screen">Ecrã inteiro</string>
     <string name="title_force_light">Forçar o tema claro</string>
+    <string name="title_rename">Renomear</string>
     <string name="title_share">Partilhar</string>
     <string name="title_event">Adicionar ao calendário</string>
     <string name="title_pin">Adicionar atalho</string>
@@ -1527,7 +1529,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_attachments_missing">Nem todos os anexos foram transferidos</string>
     <string name="title_download_attachments">Transferir anexos</string>
     <string name="title_attachments_download">Anexos transferidos: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Isto não será mais mostrado, nem os anexos serão descarregados automaticamente</string>
+    <string name="title_attachments_no_download">Isto não será mais mostrado, nem os anexos serão descarregados automaticamente</string>
     <string name="title_dialog_hint">Esta caixa de diálogo pode ser activada novamente através do menu de três pontos na barra de acção superior</string>
     <string name="title_draft_deleted">Rascunho descartado</string>
     <string name="title_draft_saved">Rascunho guardado</string>
@@ -1923,6 +1925,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_hint_dismiss">Pode dispensar esta caixa de diálogo para remover a notificação.</string>
     <string name="title_hint_support">Se tiver alguma questão ou um problema, por favor utilize o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para o lixo; Deslize para a direita para o arquivo (se disponível); As acções de deslizar pode ser configuradas nas definições de conta</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Deslize para a esquerda ou direita para cancelar o envio</string>
     <string name="title_hint_message_selection">Seleccione mensagens ao tocar prolongadamente numa mensagem; Para seleccionar várias mensagens de seguida, toque sem soltar numa mensagem e deslize para cima ou para baixo</string>
     <string name="title_hint_message_junk">        Um cliente de e-mail simplesmente, apresenta mensagens de um servidor de e-mail.
         Um servidor de e-mail é responsável por filtrar spam, não o cliente de e-mail.

@@ -425,6 +425,7 @@
     <string name="title_advanced_send_nav_color">Использовать цвет идентификатора для нижней панели действий</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Показывать кнопку отправки вверху</string>
     <string name="title_advanced_attach_new">Создавать новый черновик сообщения для общих адресов и файлов</string>
     <string name="title_advanced_answer_caption">Настройки кнопок ответа</string>
     <string name="title_advanced_answer_default">Короткое нажатие на кнопку ответа:</string>
@@ -1252,6 +1253,7 @@
     <string name="title_create_rule">Создать правило&#8230;</string>
     <string name="title_full_screen">Полный экран</string>
     <string name="title_force_light">Принудительно использовать светлую тему</string>
+    <string name="title_rename">Переименовать</string>
     <string name="title_share">Поделиться</string>
     <string name="title_event">Добавить в календарь</string>
     <string name="title_pin">Добавить ярлык</string>
@@ -1553,7 +1555,7 @@
     <string name="title_attachments_missing">Не все вложения загружены</string>
     <string name="title_download_attachments">Загрузить вложения</string>
     <string name="title_attachments_download">Загружено вложений: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Это сообщение больше не будет отображаться и вложения не будут загружаться автоматически</string>
+    <string name="title_attachments_no_download">Это сообщение больше не будет отображаться и вложения не будут загружаться автоматически</string>
     <string name="title_dialog_hint">Этот диалог можно снова включить через верхнее меню трёх точек в панели действий</string>
     <string name="title_draft_deleted">Черновик отклонён</string>
     <string name="title_draft_saved">Черновик сохранён</string>
@@ -1949,6 +1951,7 @@
     <string name="title_hint_dismiss">Можно закрыть диалоговое окно, чтобы удалить уведомление.</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи.</string>
     <string name="title_hint_message_actions">Смахните влево, чтобы поместить в корзину; смахните вправо, чтобы поместить в архив (если имеется); действия жестов можно изменить в настройках учётной записи.</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Можно провести влево или вправо, чтобы отменить отправку</string>
     <string name="title_hint_message_selection">Длительное нажатие на сообщение начинает выбор нескольких сообщений; удерживайте нажатие и смахните вверх или вниз, чтобы выбрать больше сообщений.</string>
     <string name="title_hint_message_junk">        Клиент электронной почты просто отображает сообщения, находящиеся на почтовом сервере.
         За фильтрацию спама отвечает почтовый сервер, а не клиент.

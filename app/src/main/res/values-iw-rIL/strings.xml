@@ -426,6 +426,7 @@
     <string name="title_advanced_send_nav_color">להשתמש בצבע הזהות לסרגל הפעולות התחתון</string>
     <string name="title_advanced_send_reminders">הצגת תזכורות</string>
     <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">הצגת כפתור שליחה בחלק העליון</string>
     <string name="title_advanced_attach_new">יצירת הודעת טיוטה לכתובות וקבצים משותפים</string>
     <string name="title_advanced_answer_caption">הגדרות כפתור מענה</string>
     <string name="title_advanced_answer_default">לחיצה קצרה על כפתור המענה:</string>
@@ -1252,6 +1253,7 @@
     <string name="title_create_rule">יצירת כלל &#8230;</string>
     <string name="title_full_screen">מסך מלא</string>
     <string name="title_force_light">אילוץ ערכת נושא בהירה</string>
+    <string name="title_rename">שינוי שם</string>
     <string name="title_share">שיתוף</string>
     <string name="title_event">הוספה ללוח השנה</string>
     <string name="title_pin">הוספת קיצור דרך</string>
@@ -1554,7 +1556,7 @@
     <string name="title_attachments_missing">לא כל הקבצים המצורפים התקבלו</string>
     <string name="title_download_attachments">הורדת קבצים מצורפים</string>
     <string name="title_attachments_download">קבצים מצורפים שירדו: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">לא יופיע עוד, וגם קבצים מצורפים לא יימשכו אוטומטית</string>
+    <string name="title_attachments_no_download">לא יופיע עוד, וגם קבצים מצורפים לא יימשכו אוטומטית</string>
     <string name="title_dialog_hint">אפשר להפעיל את החלונית הזאת שוב דרך תפריט שלוש הנקודות בסרגל הפעולות העליון</string>
     <string name="title_draft_deleted">הטיוטה הושלכה</string>
     <string name="title_draft_saved">הטיוטה נשמרה</string>
@@ -1950,6 +1952,7 @@
     <string name="title_hint_dismiss">אפשר להתעלם מהחלונית הסרת כדי להסיר את ההתראה.</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">אפשר להחליק שמאלה או ימינה כדי לבטל את השליחה</string>
     <string name="title_hint_message_selection">לחיצה ארוכה על הודעה מתחילה בחירה במגוון הודעות, יש להחזיק ולהחליק כלפי מעלה או מטה כדי לבחור הודעות נוספות</string>
     <string name="title_hint_message_junk">        לקוח דוא״ל, בגדול, מציג הודעות משרת דוא״ל.
         שרת דוא״ל אחראי על מיגור דואר זבל, לא לקוח הדוא״ל.

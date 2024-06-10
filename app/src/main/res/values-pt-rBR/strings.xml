@@ -671,7 +671,7 @@
     <string name="title_advanced_notify_action_reply">Responder</string>
     <string name="title_advanced_notify_action_reply_direct">Resposta direta</string>
     <string name="title_advanced_notify_action_flag">Estrela</string>
-    <string name="title_advanced_notify_action_seen">Ler</string>
+    <string name="title_advanced_notify_action_seen">Lida</string>
     <string name="title_advanced_notify_action_hide">Ocultar</string>
     <string name="title_advanced_notify_action_snooze">Soneca</string>
     <string name="title_advanced_notify_remove">Remover nova notificação de mensagem ao tocar na notificação</string>
@@ -1523,7 +1523,7 @@
     <string name="title_attachments_missing">Nem todos os anexos foram baixados</string>
     <string name="title_download_attachments">Baixar anexos</string>
     <string name="title_attachments_download">Anexos baixados: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Isto não será mais mostrado, nem os anexos serão baixados automaticamente</string>
+    <string name="title_attachments_no_download">Isto não será mais mostrado, nem os anexos serão baixados automaticamente</string>
     <string name="title_dialog_hint">Esta caixa de diálogo pode ser ativada novamente através do menu de três pontos na barra de ação superior</string>
     <string name="title_draft_deleted">Rascunho descartado</string>
     <string name="title_draft_saved">Rascunho salvo</string>

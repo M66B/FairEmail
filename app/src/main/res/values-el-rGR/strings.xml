@@ -1520,7 +1520,7 @@
     <string name="title_attachments_missing">Δεν έχουν κατέβει όλα τα συνημμένα</string>
     <string name="title_download_attachments">Λήψη συνημμένων</string>
     <string name="title_attachments_download">Συνημμένα που λήφθηκαν: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Αυτό δεν θα εμφανίζεται πλέον, ούτε θα γίνεται αυτόματη λήψη συνημμένων</string>
+    <string name="title_attachments_no_download">Αυτό δεν θα εμφανίζεται πλέον, ούτε θα γίνεται αυτόματη λήψη συνημμένων</string>
     <string name="title_dialog_hint">Ο διάλογος αυτός μπορεί να ενεργοποιηθεί πάλι από το μενού με τις τρεις τελείες στην πάνω γραμμή ενεργειών</string>
     <string name="title_draft_deleted">Το πρόχειρο απορρίφθηκε</string>
     <string name="title_draft_saved">Το πρόχειρο αποθηκεύτηκε</string>

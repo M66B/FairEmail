@@ -398,6 +398,7 @@
     <string name="title_advanced_send_nav_color">Brug identitetsfarven til den nederste handlingsbjælke</string>
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Vis Send-knap øverst</string>
     <string name="title_advanced_attach_new">Opret et nyt beskedudkast til delte adresser og filer</string>
     <string name="title_advanced_answer_caption">Indstillinger for svar-knap</string>
     <string name="title_advanced_answer_default">Kort tryk på svarknappen vil:</string>
@@ -1224,6 +1225,7 @@
     <string name="title_create_rule">Opret regel &#8230;</string>
     <string name="title_full_screen">Fuldskærm</string>
     <string name="title_force_light">Gennemtving lyst tema</string>
+    <string name="title_rename">Omdøb</string>
     <string name="title_share">Del</string>
     <string name="title_event">Føj til kalender</string>
     <string name="title_pin">Tilføj genvej</string>
@@ -1526,7 +1528,7 @@
     <string name="title_attachments_missing">Ikke alle vedhæftninger er downloadet</string>
     <string name="title_download_attachments">Download vedhæftninger</string>
     <string name="title_attachments_download">Vedhæftninger downloadet: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Dette vises ikke længere, og vedhæftede filer hentes heller ikke automatisk</string>
+    <string name="title_attachments_no_download">Dette vises ikke længere, og vedhæftede filer hentes heller ikke automatisk</string>
     <string name="title_dialog_hint">Denne dialog kan slås til igen via trepriksmenuen i den øverste handlingsbjælke</string>
     <string name="title_draft_deleted">Kladde kasseret</string>
     <string name="title_draft_saved">Kladde gemt</string>
@@ -1922,6 +1924,7 @@
     <string name="title_hint_dismiss">Denne dialog kan afvises for at fjerne beskeden.</string>
     <string name="title_hint_support">Har du et spørgsmål eller problem, så benyt venligst supportmenuen for at få hjælp</string>
     <string name="title_hint_message_actions">Stryg til venstre for Papirkurv; Stryg til højre for at arkivere (hvis tilgængeligt); Strygehandlingerne kan opsættes i kontoindstillingerne</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Afsendelse kan annulleres med et stryg til venstre eller højre</string>
     <string name="title_hint_message_selection">Langt tryk på en besked for at tilgå valg af flere beskeder; Hold og stryg op/ned for at vælge flere beskeder</string>
     <string name="title_hint_message_junk">        En e-mailklient viser beskeder, som befinder sig på en e-mail-server.
         E-mailserveren er ansvarlig for spamfiltrering, ikke e-mailklienten.

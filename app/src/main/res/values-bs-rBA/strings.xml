@@ -412,6 +412,7 @@
     <string name="title_advanced_send_nav_color">Koristi boju identiteta za donju alatnu traku</string>
     <string name="title_advanced_send_reminders">Prikaži podsjetnike</string>
     <string name="title_advanced_send_delayed">Odgodi slanje poruka</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Prikaži dugme za slanje na vrhu</string>
     <string name="title_advanced_attach_new">Kreiraj novu skicu poruke za dijeljene adrese i datoteke</string>
     <string name="title_advanced_answer_caption">Postavke dugmeta za odgovor</string>
     <string name="title_advanced_answer_default">Kratko pritiskanje dugmeta \'odgovor\' će:</string>
@@ -1238,6 +1239,7 @@
     <string name="title_create_rule">Kreiraj pravilo &#8230;</string>
     <string name="title_full_screen">Cijeli ekran</string>
     <string name="title_force_light">Forsiraj svijetlu temu</string>
+    <string name="title_rename">Preimenuj</string>
     <string name="title_share">Podijeli</string>
     <string name="title_event">Dodaj u kalendar</string>
     <string name="title_pin">Dodaj prečac</string>
@@ -1540,7 +1542,7 @@
     <string name="title_attachments_missing">Nisu preuzeti svi prilozi</string>
     <string name="title_download_attachments">Preuzmi priloge</string>
     <string name="title_attachments_download">Preuzeti prilozi: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Ova poruka se neće više prikazivati, niti će se prilozi automatski preuzimati</string>
+    <string name="title_attachments_no_download">Ova poruka se neće više prikazivati, niti će se prilozi automatski preuzimati</string>
     <string name="title_dialog_hint">Ovaj dijalog može se ponovo uključiti preko menija s 3 tačke na vrhu radne trake</string>
     <string name="title_draft_deleted">Nacrt odbačen</string>
     <string name="title_draft_saved">Nacrt sačuvan</string>
@@ -1936,6 +1938,7 @@
     <string name="title_hint_dismiss">Možete odbaciti ovaj dijaloški okvir kako bi uklonili obavijest.</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevucite lijevo za otpad; Prevucite desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Prevlačenjem lijevo ili desno možete otkazati slanje</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>
     <string name="title_hint_message_junk">        E-mail klijent prikazuje poruke sa e-mail servera.
         E-mail server filtrira spam poruke, a ne klijent.

@@ -426,6 +426,7 @@
     <string name="title_advanced_send_nav_color">Використовувати колір профілю як фон нижньої панелі інструментів</string>
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Показувати кнопку відправки вгорі</string>
     <string name="title_advanced_attach_new">Створити чернетку нового повідомлення для адрес та файлів, якими ви поділилися з інших додатків</string>
     <string name="title_advanced_answer_caption">Налаштування кнопки відповіді</string>
     <string name="title_advanced_answer_default">При короткому натисканні на кнопку відповіді:</string>
@@ -1251,6 +1252,7 @@
     <string name="title_create_rule">Створити правило &#8230;</string>
     <string name="title_full_screen">На весь екран</string>
     <string name="title_force_light">Примусова світла тема</string>
+    <string name="title_rename">Перейменувати</string>
     <string name="title_share">Поділитись</string>
     <string name="title_event">Додати у календар</string>
     <string name="title_pin">Додати ярлик</string>
@@ -1551,7 +1553,7 @@
     <string name="title_attachments_missing">Не всі вкладення завантажено</string>
     <string name="title_download_attachments">Завантажити вкладення</string>
     <string name="title_attachments_download">Вкладення завантажені: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Це більше не буде показуватись, також і вкладення не будуть завантажуватись автоматично</string>
+    <string name="title_attachments_no_download">Це більше не буде показуватись, також і вкладення не будуть завантажуватись автоматично</string>
     <string name="title_dialog_hint">Це діалогове вікно може бути знову ввімкнено через меню трьох крапок в верхній панелі дій</string>
     <string name="title_draft_deleted">Чернетку відкинуто</string>
     <string name="title_draft_saved">Чернетку збережено</string>
@@ -1947,6 +1949,7 @@
     <string name="title_hint_dismiss">Ви можете відхилити це діалогове вікно, щоб видалити сповіщення.</string>
     <string name="title_hint_support">Якщо у вас є питання або проблема, будь ласка, використовуйте меню підтримки для отримання допомоги</string>
     <string name="title_hint_message_actions">Проведіть ліворуч для переміщення в кошик; проведіть праворуч щоб архівувати (якщо доступно); ці дії можна налаштувати в налаштуваннях облікового запису</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Ви можете провести вліво або вправо, щоб скасувати надсилання</string>
     <string name="title_hint_message_selection">Довго натисніть на повідомлення, щоб почати вибирати кілька повідомлень; Натиснувши потягніть вгору або вниз, щоб обрати більше повідомлень</string>
     <string name="title_hint_message_junk">Поштовий клієнт лише показує повідомлення, які наявні на поштовому сервері.
 За фільтрацію спаму відповідає саме сервер, а не клієнт.

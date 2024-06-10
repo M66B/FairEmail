@@ -1522,7 +1522,7 @@
     <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
     <string name="title_download_attachments">Descargar adjuntos</string>
     <string name="title_attachments_download">Adjuntos descargados: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Esto ya no se mostrará, ni los archivos adjuntos se descargarán automáticamente</string>
+    <string name="title_attachments_no_download">Esto ya no se mostrará, ni los archivos adjuntos se descargarán automáticamente</string>
     <string name="title_dialog_hint">Este diálogo se puede activar de nuevo a través del menú de tres puntos en la barra de acción superior</string>
     <string name="title_draft_deleted">Borrador eliminado</string>
     <string name="title_draft_saved">Borrador guardado</string>

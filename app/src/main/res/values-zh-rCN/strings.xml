@@ -383,6 +383,7 @@
     <string name="title_advanced_send_nav_color">将身份颜色用于底部操作栏</string>
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_send_delayed">延迟发送邮件</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">在顶部显示发送按钮</string>
     <string name="title_advanced_attach_new">为分享的地址和文件新建邮件草稿</string>
     <string name="title_advanced_answer_caption">回复按钮设置</string>
     <string name="title_advanced_answer_default">短按回复按钮操作：</string>
@@ -1206,6 +1207,7 @@
     <string name="title_create_rule">创建规则 &#8230;</string>
     <string name="title_full_screen">全屏</string>
     <string name="title_force_light">强制使用浅色主题</string>
+    <string name="title_rename">重命名</string>
     <string name="title_share">分享</string>
     <string name="title_event">添加到日历</string>
     <string name="title_pin">添加快捷方式</string>
@@ -1506,7 +1508,7 @@
     <string name="title_attachments_missing">没有下载全部附件</string>
     <string name="title_download_attachments">下载附件</string>
     <string name="title_attachments_download">已下载附件数：%1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">将不再显示, 也不会自动下载附件</string>
+    <string name="title_attachments_no_download">将不再显示, 也不会自动下载附件</string>
     <string name="title_dialog_hint">此对话框可通过顶部操作栏右上角的三圆点菜单再次启用</string>
     <string name="title_draft_deleted">草稿已舍弃</string>
     <string name="title_draft_saved">草稿已保存</string>
@@ -1902,6 +1904,7 @@
     <string name="title_hint_dismiss">您可以关闭此对话框来删除消息。</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑移动到回收站；向右滑存档（如果支持） ；可在账户设置中配置滑动操作</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">您可以向左或向右滑动以取消发送</string>
     <string name="title_hint_message_selection">长按进行多选；按住的同时并上下滑动可选择多个邮件</string>
     <string name="title_hint_message_junk">        电子邮件客户端只是显示电子邮件服务器上的邮件
         电子邮件服务器负责过滤垃圾邮件，而非电子邮件客户端负责

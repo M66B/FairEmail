@@ -425,6 +425,7 @@
     <string name="title_advanced_send_nav_color">Użyj koloru identyfikatora w dolnym pasku zadań</string>
     <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Pokaż przycisk wysyłania na górze</string>
     <string name="title_advanced_attach_new">Utwórz nowy szkic wiadomości dla udostępnianych adresów i plików</string>
     <string name="title_advanced_answer_caption">Ustawienia przycisku odpowiedzi</string>
     <string name="title_advanced_answer_default">Krótkie naciśnięcie przycisku odpowiedzi spowoduje:</string>
@@ -1249,6 +1250,7 @@
     <string name="title_create_rule">Utwórz regułę &#8230;</string>
     <string name="title_full_screen">Pełny ekran</string>
     <string name="title_force_light">Wymuś jasny motyw</string>
+    <string name="title_rename">Zmień nazwę</string>
     <string name="title_share">Udostępnij</string>
     <string name="title_event">Dodaj do kalendarza</string>
     <string name="title_pin">Dodaj skrót</string>
@@ -1549,7 +1551,7 @@
     <string name="title_attachments_missing">Nie wszystkie załączniki zostały pobrane</string>
     <string name="title_download_attachments">Pobierz załączniki</string>
     <string name="title_attachments_download">Pobrane załączniki: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">To nie będzie już wyświetlane, również załączniki nie będą pobierane automatycznie</string>
+    <string name="title_attachments_no_download">To nie będzie już wyświetlane, również załączniki nie będą pobierane automatycznie</string>
     <string name="title_dialog_hint">To okno dialogowe można ponownie włączyć za pomocą menu z trzema kropkami na górnym pasku akcji</string>
     <string name="title_draft_deleted">Szkic odrzucony</string>
     <string name="title_draft_saved">Szkic zapisany</string>
@@ -1945,6 +1947,7 @@
     <string name="title_hint_dismiss">Możesz odrzucić to okno dialogowe, aby usunąć to powiadomienie.</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Możesz przesunąć w lewo lub w prawo, aby anulować wysyłanie</string>
     <string name="title_hint_message_selection">Naciśnij długo wiadomość, aby rozpocząć wybieranie wielu wiadomości; Przytrzymaj i przeciągnij w górę lub w dół, aby wybrać więcej wiadomości</string>
     <string name="title_hint_message_junk">        Klient poczty elektronicznej zasadniczo wyświetla wiadomości na serwerze poczty elektronicznej.
         Serwer pocztowy jest odpowiedzialny za filtrowanie spamu, a nie klient poczty.

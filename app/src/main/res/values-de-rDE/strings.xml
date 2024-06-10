@@ -399,6 +399,7 @@
     <string name="title_advanced_send_nav_color">Identitätsfarbe für die untere Aktionsleiste verwenden</string>
     <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Schaltfläche »Senden« oben anzeigen</string>
     <string name="title_advanced_attach_new">Einen neuen Nachrichtenentwurf für freigegebene Adressen und Dateien erstellen</string>
     <string name="title_advanced_answer_caption">Einstellungen für die Schaltfläche »Antworten«</string>
     <string name="title_advanced_answer_default">Kurzes Drücken auf die Schaltfläche »Antworten« wird:</string>
@@ -1226,6 +1227,7 @@
     <string name="title_create_rule">Regel erstellen &#8230;</string>
     <string name="title_full_screen">Vollbild</string>
     <string name="title_force_light">Helles Farbschema erzwingen</string>
+    <string name="title_rename">Umbenennen</string>
     <string name="title_share">Teilen</string>
     <string name="title_event">Zum Kalender hinzufügen</string>
     <string name="title_pin">Verknüpfung hinzufügen</string>
@@ -1528,7 +1530,7 @@
     <string name="title_attachments_missing">Nicht alle Anhänge wurden heruntergeladen</string>
     <string name="title_download_attachments">Anhänge herunterladen</string>
     <string name="title_attachments_download">Heruntergeladene Anhänge: %1$s</string>
-    <string name="title_attachments_no_download" comment="title_attachments_no_download&#10;Remark for &quot;Don't ask again&quot; in the download attachments dialog box.">Dies wird nicht mehr angezeigt und Anhänge werden nicht mehr automatisch heruntergeladen</string>
+    <string name="title_attachments_no_download">Dies wird nicht mehr angezeigt und Anhänge werden nicht mehr automatisch heruntergeladen</string>
     <string name="title_dialog_hint">Dieser Dialog kann über das Drei-Punkte-Menü (⋮) in der oberen Aktionsleiste wieder aktiviert werden</string>
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
@@ -1924,6 +1926,7 @@
     <string name="title_hint_dismiss">Sie können dieses Dialogfeld schließen, um den Hinweis zu entfernen.</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Für den Papierkorb nach links wischen; zum Archivieren nach rechts wischen (falls verfügbar); die Wischgesten können in den Kontoeinstellungen konfiguriert werden</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Sie können nach links oder rechts wischen, um das Senden abzubrechen</string>
     <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen; gedrückt halten und nach oben oder unten wischen, um weitere Nachrichten auszuwählen</string>
     <string name="title_hint_message_junk">        Ein E-Mail-Programm zeigt grundsätzlich die Nachrichten auf einem E-Mail-Server an.
         Ein E-Mail-Server ist verantwortlich für das Filtern von Spam – nicht das E-Mail-Programm.
