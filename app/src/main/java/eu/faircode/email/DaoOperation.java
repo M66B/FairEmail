@@ -79,7 +79,8 @@ public interface DaoOperation {
             " ORDER BY " + priority + ", id")
     LiveData<List<TupleOperationEx>> liveOperations(long account);
 
-    @Query("SELECT operation.id, message.content" +
+    @Query("SELECT operation.id" +
+            ", message.uid, message.content" +
             " FROM message" +
             " LEFT JOIN operation ON operation.message = message.id AND operation.name = :name" +
             " WHERE message.id = :message")

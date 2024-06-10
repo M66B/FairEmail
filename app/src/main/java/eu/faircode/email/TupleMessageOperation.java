@@ -21,5 +21,6 @@ package eu.faircode.email;
 
 public class TupleMessageOperation {
     public Long id;
+    public Long uid;
     public boolean content;
 }
