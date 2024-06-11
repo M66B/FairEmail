@@ -516,7 +516,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                             editor.apply();
                         }
 
-                        // Helper.hideKeyboard(etQuery);
+                        Helper.hideKeyboard(etQuery);
 
                         if (criteria.query != null && criteria.query.startsWith("raw:"))
                             new SimpleTask<EntityFolder>() {
