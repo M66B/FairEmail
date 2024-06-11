@@ -857,6 +857,8 @@ The easiest way to create an alias is to copy the main identity, and change the 
 You should not change the username!
 For this, please go to the settings via the navigation menu (left side menu), tap on *Manual setup and account options*, tap on *Identities*, long press the main identity, and select to copy it.
 
+**Important**: In the case of an Outlook account, you should first authenticate the account again with the "Office 365" wizard. You don't need to remove the account for this.
+
 **In many cases, an alias address must first be verified via the website of the mail provider**
 
 Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message,
