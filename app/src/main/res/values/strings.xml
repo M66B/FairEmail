@@ -2452,6 +2452,7 @@
     <string name="title_widget_folder_unified">Unified inbox folders</string>
     <string name="title_widget_folder_notifying">Folders with new message notifications</string>
     <string name="title_widget_unseen">Unread messages only</string>
+    <string name="title_widget_show_unseen">Show as unread</string>
     <string name="title_widget_flagged">Starred messages only</string>
     <string name="title_widget_font_size">Text size</string>
     <string name="title_widget_padding">Padding size</string>

@@ -57,6 +57,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private long folder;
     private long account;
     private boolean unseen;
+    private boolean show_unseen;
     private boolean flagged;
     private boolean daynight;
     private boolean highlight;
@@ -109,6 +110,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
         folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
+        show_unseen = prefs.getBoolean("widget." + appWidgetId + ".show_unseen", true);
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
         daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
@@ -258,7 +260,9 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             SpannableString ssAccount = new SpannableString(
                     TextUtils.isEmpty(message.accountName) ? "" : message.accountName);
 
-            if (message.ui_seen || unseen) {
+            boolean show_seen = (unseen && !show_unseen);
+
+            if (message.ui_seen || show_seen) {
                 if (subject_italic)
                     ssSubject.setSpan(new StyleSpan(Typeface.ITALIC), 0, ssSubject.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
             } else {
@@ -284,14 +288,14 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
                 views.setViewVisibility(ivFrom, View.GONE);
                 views.setViewVisibility(ivSubject, message.attachments > 0 ? View.VISIBLE : View.GONE);
                 views.setColorStateList(ivSubject, "setImageTintList",
-                        ColorStateList.valueOf(message.ui_seen || unseen ? colorWidgetRead : colorWidgetUnread));
+                        ColorStateList.valueOf(message.ui_seen || show_seen ? colorWidgetRead : colorWidgetUnread));
             } else {
                 views.setViewVisibility(ivFrom, View.GONE);
                 views.setViewVisibility(ivSubject, View.GONE);
             }
 
             if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                int textColorAttr = (message.ui_seen || unseen ? android.R.attr.textColorPrimary : android.R.attr.textColorLink);
+                int textColorAttr = (message.ui_seen || show_seen ? android.R.attr.textColorPrimary : android.R.attr.textColorLink);
                 views.setColorStateListAttr(idFrom, "setTextColor", textColorAttr);
                 views.setColorStateListAttr(idTime, "setTextColor", textColorAttr);
                 views.setColorStateListAttr(idSubject, "setTextColor", textColorAttr);
@@ -299,7 +303,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
                 views.setInt(R.id.separator, "setBackgroundColor", Color.WHITE);
                 views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", android.R.attr.colorControlNormal);
             } else {
-                int textColor = (message.ui_seen || unseen ? colorWidgetRead : colorWidgetUnread);
+                int textColor = (message.ui_seen || show_seen ? colorWidgetRead : colorWidgetUnread);
                 views.setTextColor(idFrom, textColor);
                 views.setTextColor(idTime, textColor);
                 views.setTextColor(idSubject, textColor);

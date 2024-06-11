@@ -61,6 +61,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private Spinner spAccount;
     private Spinner spFolder;
     private CheckBox cbUnseen;
+    private CheckBox cbShowUnseen;
     private CheckBox cbFlagged;
     private CheckBox cbDayNight;
     private CheckBox cbHighlight;
@@ -107,6 +108,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
         long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
         boolean unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
+        boolean show_unseen = prefs.getBoolean("widget." + appWidgetId + ".show_unseen", true);
         boolean flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
         boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         boolean highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
@@ -135,6 +137,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         spAccount = findViewById(R.id.spAccount);
         spFolder = findViewById(R.id.spFolder);
         cbUnseen = findViewById(R.id.cbUnseen);
+        cbShowUnseen = findViewById(R.id.cbShowUnseen);
         cbFlagged = findViewById(R.id.cbFlagged);
         cbDayNight = findViewById(R.id.cbDayNight);
         cbHighlight = findViewById(R.id.cbHighlight);
@@ -159,6 +162,13 @@ public class ActivityWidgetUnified extends ActivityBase {
 
         final Intent resultValue = new Intent();
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+
+        cbUnseen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                cbShowUnseen.setEnabled(isChecked);
+            }
+        });
 
         cbDayNight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -293,6 +303,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putLong("widget." + appWidgetId + ".folder", folder == null ? -1L : folder.id);
                 editor.putString("widget." + appWidgetId + ".type", folder == null ? null : folder.type);
                 editor.putBoolean("widget." + appWidgetId + ".unseen", cbUnseen.isChecked());
+                editor.putBoolean("widget." + appWidgetId + ".show_unseen", cbShowUnseen.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".daynight", cbDayNight.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".highlight", cbHighlight.isChecked());
@@ -422,6 +433,8 @@ public class ActivityWidgetUnified extends ActivityBase {
 
         // Initialize
         cbUnseen.setChecked(unseen);
+        cbShowUnseen.setChecked(show_unseen);
+        cbShowUnseen.setEnabled(cbUnseen.isChecked());
         cbFlagged.setChecked(flagged);
         cbDayNight.setChecked(daynight);
         cbDayNight.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.S ? View.GONE : View.VISIBLE);
