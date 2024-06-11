@@ -398,6 +398,7 @@
     <string name="title_advanced_send_nav_color">Alt əməliyyat sətri üçün kimlik rəngini istifadə et</string>
     <string name="title_advanced_send_reminders">Xatırladıcıları göstər</string>
     <string name="title_advanced_send_delayed">Göndərilən mesajların gecikməsi</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Göndər düyməsini ən üstdə göstər</string>
     <string name="title_advanced_attach_new">Paylaşılan ünvanlar və fayllar üçün yeni bir qaralama mesajı yaradın</string>
     <string name="title_advanced_answer_caption">Cavab düyməsi ayarları</string>
     <string name="title_advanced_answer_default">Cavab düyməsinə qısa basanda:</string>
@@ -1224,6 +1225,7 @@
     <string name="title_create_rule">Qayda yarat &#8230;</string>
     <string name="title_full_screen">Tam ekran</string>
     <string name="title_force_light">Məcburi açıq tema</string>
+    <string name="title_rename">Yenidən adlandır</string>
     <string name="title_share">Paylaş</string>
     <string name="title_event">Təqvimə əlavə et</string>
     <string name="title_pin">Qısayol əlavə et</string>
@@ -1922,6 +1924,7 @@
     <string name="title_hint_dismiss">Bildirişi silmək üçün bu dialoq qutusunu bağlaya bilərsiniz.</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantıya atmaq üçün sola sürüşdürün; (əgər varsa) arxivləmək üçün sağa; Sürüşdürmə əməliyyatları hesab ayarlarında konfiqurasiya edilə bilər</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Göndərməni ləğv etmək üçün sola və ya sağa sürüşdürün</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın; daha çox mesaj seçmək üçün basıb yuxarı və ya aşağı sürüşdürün</string>
     <string name="title_hint_message_junk">        Bir e-poçt müştərisi (client) mesajları əsasən e-poçt serverində göstərir.
         Spam poçtların filtrlənməsinə e-poçt serveri cavabdehdir, e-poçt müştərisi (client) yox.

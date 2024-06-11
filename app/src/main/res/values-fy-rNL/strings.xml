@@ -197,6 +197,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_gmail_password">Ik wol in account autorisearje mei in wachtwurd yn stee fan in account op it apparaat</string>
     <string name="title_setup_office_auth">De flater ‘AUTENTIKAASJE is mislearre’ kin feroarsake wurde troch dat IMAP/SMTP troch de systeembehearder útskeakele is</string>
     <string name="title_setup_office_auth_5_7_3">Probearje de ‘Oare provider’-assistint.</string>
+    <string name="title_setup_office_auth_5_7_139">Probearje de ‘Outlook/Hotmail/Live’-ynstelassistint.</string>
     <string name="title_setup_oauth_rationale">Autorisearje tagong ta jo %1$s-account</string>
     <string name="title_setup_oauth_update">Autorisearje in besteand account opnij (oars in nij account oanmeitsje)</string>
     <string name="title_setup_oauth_updated">Accountautorisaasje is bywurke</string>
@@ -395,6 +396,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_send_nav_color">Brûk de identiteitskleur foar de ûnderste aksjebalke</string>
     <string name="title_advanced_send_reminders">Oantinkens toane</string>
     <string name="title_advanced_send_delayed">Ferstjoeren fan berjochten útstelle</string>
+    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Ferstjoerknop boppeyn toane</string>
     <string name="title_advanced_attach_new">Meitsje in nij konsept foar dielde adressen en bestannen</string>
     <string name="title_advanced_answer_caption">Ynstellingen fan de antwurdknop</string>
     <string name="title_advanced_answer_default">Koart drukken fan de antwurdknop sil:</string>
@@ -776,7 +778,9 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_multi_modal">Multimodaal</string>
     <string name="title_advanced_summarize_prompt">Opdracht gearfetsje</string>
     <string name="title_advanced_answer_prompt">Opdracht antwurdzje</string>
+    <string name="title_advanced_system_instructions">Systeemynstruksjes</string>
     <string name="title_advanced_default_prompt">Standert ynfier</string>
+    <string name="title_advanced_entered_text">Ynfierde tekst</string>
     <string name="title_advanced_sdcard">Ik wol in SD-kaart brûke</string>
     <string name="title_advanced_watchdog">Periodyk kontrolearje oft FairEmail noch aktyf is</string>
     <string name="title_advanced_updates">Kontrolearje op GitHub-fernijingen</string>
@@ -788,6 +792,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_crash_reports">Flaterrapporten ferstjoere</string>
     <string name="title_advanced_cleanup_attachments">Bylagen fan âlde berjochten fuortsmite</string>
     <string name="title_advanced_cleanup">Skjinmeitsje</string>
+    <string name="title_advanced_google_backup">Gegevensback-up fan Android brûke</string>
     <string name="title_advanced_app">App-ynstellingen</string>
     <string name="title_advanced_more">Mear opsjes</string>
     <string name="title_advanced_main_log">Haadlochboek</string>
@@ -1215,6 +1220,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_create_rule">Regel meitsje&#8230;</string>
     <string name="title_full_screen">Folslein skerm</string>
     <string name="title_force_light">Ljocht tema forsearje</string>
+    <string name="title_rename">Omneame</string>
     <string name="title_share">Diele</string>
     <string name="title_event">Oan aginda tafoegje</string>
     <string name="title_pin">Fluchkeppeling tafoegje</string>
@@ -1513,6 +1519,9 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_dsn_reminder">Hurde bounces bringe skea ta oan de reputaasje fan de orizjinele ôfstjoerder!</string>
     <string name="title_size_reminder">Berjocht (%1$s) grutter dan de serverlimyt (%2$s)</string>
     <string name="title_attachments_missing">Net alle bylagen binne download</string>
+    <string name="title_download_attachments">Bylagen downloade</string>
+    <string name="title_attachments_download">Downloade bylagen: %1$s</string>
+    <string name="title_attachments_no_download">Dit sil net langer toand wurde, noch sille bylagen automatysk download wurde</string>
     <string name="title_dialog_hint">Dit dialoochfinster kin opnij ynskeakele wurde fia it menu mei trije punten yn de boppeste aksjebalke</string>
     <string name="title_draft_deleted">Konsept fuotsmiten</string>
     <string name="title_draft_saved">Konsept bewarre</string>
@@ -1907,6 +1916,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_hint_dismiss">Jo kinne dit dialoochfienster slute om de melding fuort te smiten.</string>
     <string name="title_hint_support">As jo in fraach of in probleem hawwe, brûk dan it stipemenu om help te krijen</string>
     <string name="title_hint_message_actions">Fei links nei jiskefet; Fei rjochts nei argyf (as beskikber); De fei-aksjes kinne ynsteld wurde yn de accountynstellingen</string>
+    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Jo kinne nei links of rjochts feie om it ferstjoeren te annulearjen</string>
     <string name="title_hint_message_selection">Druk lang op in berjocht om meardere berjochten te selektearjen; Hâld en swipe omheech of omleech om mear berjochten te selektearjen</string>
     <string name="title_hint_message_junk">        In e-mailclient toant yn prinsipe berjochten op in e-mailserver.
         In e-mailserver is ferantwurdlik foar it filterjen fan net-winske, net in e-mailclient.
