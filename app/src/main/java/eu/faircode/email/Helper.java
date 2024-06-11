@@ -2111,12 +2111,13 @@ public class Helper {
     }
 
     static void hideKeyboard(final View view) {
-        try {
-            Log.i("hideKeyboard view=" + view);
-            new SoftwareKeyboardControllerCompat(view).hide();
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
+        view.post(new RunnableEx("hideKeyboard") {
+            @Override
+            protected void delegate() {
+                Log.i("hideKeyboard view=" + view);
+                new SoftwareKeyboardControllerCompat(view).hide();
+            }
+        });
     }
 
     static boolean isKeyboardVisible(final View view) {
