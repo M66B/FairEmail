@@ -86,6 +86,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     private int themeId;
     private Context originalContext;
     private boolean visible;
+    private boolean hasWindowFocus;
     private boolean contacts;
     private List<IKeyPressedListener> keyPressedListeners = new ArrayList<>();
 
@@ -179,9 +180,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     mlp.bottomMargin = insets.bottom;
                 v.setLayoutParams(mlp);
 
-                int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-                int pad = bottom - insets.bottom;
-                v.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
+                if (hasWindowFocus) {
+                    int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+                    int pad = bottom - insets.bottom;
+                    v.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
+                }
 
                 if (edge_to_edge)
                     for (View child : Helper.getViewsWithTag(v, "inset")) {
@@ -239,6 +242,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     public void setContentView(int layoutResID) {
         View view = LayoutInflater.from(this).inflate(layoutResID, null);
         setContentView(view);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        hasWindowFocus = hasFocus;
     }
 
     @Override
