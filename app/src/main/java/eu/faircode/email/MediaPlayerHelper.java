@@ -91,6 +91,8 @@ public class MediaPlayerHelper {
             sem = new Semaphore(0);
         }
 
+        Log.i("Playing sound=" + uri);
+
         AudioAttributes attrs = new AudioAttributes.Builder()
                 .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                 .setUsage(alarm ? AudioAttributes.USAGE_ALARM : AudioAttributes.USAGE_NOTIFICATION)
@@ -156,6 +158,8 @@ public class MediaPlayerHelper {
             if (alarm)
                 nm.cancel("alarm", 1);
         }
+
+        Log.i("Played sound=" + uri);
 
         synchronized (lock) {
             sem = null;
