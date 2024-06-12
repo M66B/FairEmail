@@ -21,7 +21,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2200 - 2024-06-12 *
 
 * Fixed keyboard inset for some devices
 * Updated build tools
@@ -29,7 +29,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
-### 1.2199 - 2024-06-10 *
+### 1.2199 - 2024-06-10
 
 * Fixed original message view for Android 8 and before
 * Added a button to retry downloading the message text
