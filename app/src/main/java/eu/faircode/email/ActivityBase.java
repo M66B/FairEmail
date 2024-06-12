@@ -184,7 +184,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
                     int pad = bottom - insets.bottom;
                     v.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
-                }
+                } else
+                    v.setPaddingRelative(0, 0, 0, 0);
 
                 if (edge_to_edge)
                     for (View child : Helper.getViewsWithTag(v, "inset")) {
