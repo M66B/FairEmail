@@ -99,64 +99,67 @@ public class MediaPlayerHelper {
                 .build();
 
         MediaPlayer mediaPlayer = new MediaPlayer();
-        mediaPlayer.setAudioAttributes(attrs);
-        mediaPlayer.setDataSource(context.getApplicationContext(), uri);
-        mediaPlayer.setLooping(false);
-        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                mp.start();
-            }
-        });
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                sem.release();
-            }
-        });
-        mediaPlayer.prepareAsync();
-
-        NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
-        if (alarm) {
-            Intent intent = new Intent(context, ServiceUI.class)
-                    .setAction("alarm");
-            PendingIntent piStop = PendingIntentCompat.getService(
-                    context, ServiceUI.PI_ALARM, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            NotificationCompat.Action.Builder actionStop = new NotificationCompat.Action.Builder(
-                    R.drawable.twotone_stop_24,
-                    context.getString(R.string.title_rule_alarm_stop),
-                    piStop)
-                    .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_MUTE)
-                    .setShowsUserInterface(false)
-                    .setAllowGeneratedReplies(false);
-
-            NotificationCompat.Builder builder =
-                    new NotificationCompat.Builder(context, "alerts")
-                            .setSmallIcon(R.drawable.baseline_warning_white_24)
-                            .setContentTitle(context.getString(R.string.title_rule_alarm_title))
-                            .setSilent(true)
-                            .setAutoCancel(false)
-                            .addAction(actionStop.build())
-                            .setShowWhen(true)
-                            .setPriority(NotificationCompat.PRIORITY_MAX)
-                            .setOnlyAlertOnce(true)
-                            .setCategory(NotificationCompat.CATEGORY_ALARM)
-                            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
-
-            nm.notify("alarm", 1, builder.build());
-        }
-
         try {
-            boolean acquired = sem.tryAcquire(duration, TimeUnit.SECONDS);
-            EntityLog.log(context, "Alarm acquired=" + acquired);
-            mediaPlayer.stop();
-            mediaPlayer.release();
-        } catch (Throwable ex) {
-            Log.w(ex);
+            mediaPlayer.setAudioAttributes(attrs);
+            mediaPlayer.setDataSource(context.getApplicationContext(), uri);
+            mediaPlayer.setLooping(false);
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mp.start();
+                }
+            });
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    sem.release();
+                }
+            });
+            mediaPlayer.prepareAsync();
+
+            NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
+            try {
+                if (alarm) {
+                    Intent intent = new Intent(context, ServiceUI.class)
+                            .setAction("alarm");
+                    PendingIntent piStop = PendingIntentCompat.getService(
+                            context, ServiceUI.PI_ALARM, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                    NotificationCompat.Action.Builder actionStop = new NotificationCompat.Action.Builder(
+                            R.drawable.twotone_stop_24,
+                            context.getString(R.string.title_rule_alarm_stop),
+                            piStop)
+                            .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_MUTE)
+                            .setShowsUserInterface(false)
+                            .setAllowGeneratedReplies(false);
+
+                    NotificationCompat.Builder builder =
+                            new NotificationCompat.Builder(context, "alerts")
+                                    .setSmallIcon(R.drawable.baseline_warning_white_24)
+                                    .setContentTitle(context.getString(R.string.title_rule_alarm_title))
+                                    .setSilent(true)
+                                    .setAutoCancel(false)
+                                    .addAction(actionStop.build())
+                                    .setShowWhen(true)
+                                    .setPriority(NotificationCompat.PRIORITY_MAX)
+                                    .setOnlyAlertOnce(true)
+                                    .setCategory(NotificationCompat.CATEGORY_ALARM)
+                                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+
+                    nm.notify("alarm", 1, builder.build());
+                }
+
+                boolean acquired = sem.tryAcquire(duration, TimeUnit.SECONDS);
+                EntityLog.log(context, "Alarm acquired=" + acquired);
+                mediaPlayer.stop();
+            } catch (Throwable ex) {
+                Log.w(ex);
+            } finally {
+                if (alarm)
+                    nm.cancel("alarm", 1);
+            }
         } finally {
-            if (alarm)
-                nm.cancel("alarm", 1);
+            mediaPlayer.release();
         }
 
         Log.i("Played sound=" + uri);
