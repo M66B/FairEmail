@@ -567,8 +567,22 @@ public class FragmentMessages extends FragmentBase
         setActionBarListener(getViewLifecycleOwner(), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentDialogSelectUnifiedFolder fragment = new FragmentDialogSelectUnifiedFolder();
-                fragment.show(getParentFragmentManager(), "unified:select");
+                try {
+                    FragmentDialogSelectUnifiedFolder fragment = new FragmentDialogSelectUnifiedFolder();
+                    fragment.show(getParentFragmentManager(), "unified:select");
+                } catch (Throwable ex) {
+                    /*
+                        Exception java.lang.IllegalStateException:
+                          at androidx.fragment.app.Fragment.getParentFragmentManager (Fragment.java:1112)
+                          at eu.faircode.email.FragmentMessages$2.onClick (FragmentMessages.java:569)
+                          at android.view.View.performClick (View.java:8047)
+                          at android.view.View.performClickInternal (View.java:8024)
+                          at android.view.View.-$$Nest$mperformClickInternal
+                          at android.view.View$PerformClick.run (View.java:31890)
+                          at android.os.Handler.handleCallback (Handler.java:958)
+                     */
+                    Log.e(ex);
+                }
             }
         });
 
