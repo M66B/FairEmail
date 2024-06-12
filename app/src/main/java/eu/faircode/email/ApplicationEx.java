@@ -877,6 +877,9 @@ public class ApplicationEx extends Application
         } else if (version < 2197) {
             if (!prefs.contains("overview_mode"))
                 editor.putBoolean("overview_mode", false);
+        } else if (version < 2201) {
+            if ("a".equals(BuildConfig.REVISION))
+                editor.remove("reformatted_hint");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
