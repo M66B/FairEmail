@@ -82,7 +82,6 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.method.PasswordTransformationMethod;
 import android.text.method.TransformationMethod;
-import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.ActionMode;
