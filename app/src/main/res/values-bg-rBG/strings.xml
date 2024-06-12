@@ -397,7 +397,7 @@
     <string name="title_advanced_send_nav_color">Употреба на цвят за самоличност за долната лента с действия</string>
     <string name="title_advanced_send_reminders">Показване на напомняния</string>
     <string name="title_advanced_send_delayed">Отложено изпращане на съобщение</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Показване копчето „изпращане“ най-отгоре</string>
+    <string name="title_advanced_send_top">Показване копчето „изпращане“ най-отгоре</string>
     <string name="title_advanced_attach_new">Сътворяване на ново черново съобщение за споделени адреси и файлове</string>
     <string name="title_advanced_answer_caption">Настройки на бутона отговор</string>
     <string name="title_advanced_answer_default">Кратко натискане на бутона за отговор ще:</string>
@@ -1921,7 +1921,7 @@
     <string name="title_hint_dismiss">Може да отхвърлите този диалогов прозорец, за да премахнете известието.</string>
     <string name="title_hint_support">Ако имате въпрос или проблем, то използвайте менюто поддръжка, за да получите помощ</string>
     <string name="title_hint_message_actions">Прелистване наляво за изхвърляне в кошчето; Прелистване надясно за архивирне (ако е налично); Действията по прелистване може да се конфигурират в настройките на акаунта</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Може да прелистите наляво или надясно, за да отмените изпращане</string>
+    <string name="title_hint_outbox">Може да прелистите наляво или надясно, за да отмените изпращане</string>
     <string name="title_hint_message_selection">Натиснете и задръжте по дълго върху съобщението, за да започнете да избирате няколко съобщения; Задръжте и прекарайте пръст нагоре или надолу, за да изберете няколко съобщения</string>
     <string name="title_hint_message_junk">        Клиентът за имейл просто показва съобщения, които са на сървъра на имейла.
         За прецеждането на спама отговаря сървъра на имейла, а не клиента.

@@ -396,7 +396,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_send_nav_color">Gebruik de identiteitskleur voor de onderste actiebalk</string>
     <string name="title_advanced_send_reminders">Toon herinneringen</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Toon verzendknop bovenaan</string>
+    <string name="title_advanced_send_top">Toon verzendknop bovenaan</string>
     <string name="title_advanced_attach_new">Maak een nieuw conceptbericht voor gedeelde adressen en bestanden</string>
     <string name="title_advanced_answer_caption">Instellingen van de antwoordknop</string>
     <string name="title_advanced_answer_default">Kort drukken van de antwoordknop zal:</string>
@@ -1911,7 +1911,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_hint_dismiss">U kunt dit dialoogvenster sluiten om de melding te verwijderen.</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veegacties kunnen worden geconfigureerd in de accountinstellingen</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">U kunt naar links of rechts vegen om het verzenden te annuleren</string>
+    <string name="title_hint_outbox">U kunt naar links of rechts vegen om het verzenden te annuleren</string>
     <string name="title_hint_message_selection">Druk lang op een bericht om meerdere berichten te selecteren; Hou vast en veeg omhoog of omlaag om meer berichten te selecteren</string>
     <string name="title_hint_message_junk">        Een mailclient toont in principe berichten op een mailserver.
         Een mailserver is verantwoordelijk voor het filteren van spam, niet een mailclient.
@@ -2061,6 +2061,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_folder_unified">Gecombineerde postvak in mappen</string>
     <string name="title_widget_folder_notifying">Mappen met meldingen voor nieuwe berichten</string>
     <string name="title_widget_unseen">Alleen ongelezen berichten</string>
+    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Toon als ongelezen</string>
     <string name="title_widget_flagged">Alleen berichten met een ster</string>
     <string name="title_widget_font_size">Tekstgrootte</string>
     <string name="title_widget_padding">Opvul grootte</string>

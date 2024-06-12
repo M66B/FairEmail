@@ -393,7 +393,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_send_nav_color">Alttaki eylem çubuğu için kimlik rengini kullanın</string>
     <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Gönder düğmesini en üstte göster</string>
+    <string name="title_advanced_send_top">Gönder düğmesini en üstte göster</string>
     <string name="title_advanced_attach_new">Paylaşılan adresler ve dosyalar için yeni bir taslak mesaj oluştur</string>
     <string name="title_advanced_answer_caption">Cevap düğmesi ayarları</string>
     <string name="title_advanced_answer_default">Cevap düğmesine kısa basıldığında:</string>
@@ -1912,7 +1912,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_hint_dismiss">Bildirimi kaldırmak için bu iletişim kutusunu kapatabilirsiniz.</string>
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp için sola kaydırın; Arşiv için sağa kaydırın (mevcut ise); Kaydırma eylemleri hesap ayarlarından yapılandırılabilir</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Gönderimi iptal etmek için sola veya sağa kaydırabilirsiniz</string>
+    <string name="title_hint_outbox">Gönderimi iptal etmek için sola veya sağa kaydırabilirsiniz</string>
     <string name="title_hint_message_selection">Birden fazla ileti seçmeye başlamak için bir mesaja uzun basın; basılı tutarak ve yukarı veya aşağı kaydırın ve iletileri seçin</string>
     <string name="title_hint_message_junk">        Bir e-posta istemcisi temel olarak mesajları bir e-posta sunucusunda görüntüler.
         İstenmeyen e-postaları filtrelemekten bir e-posta istemcisi değil, bir e-posta sunucusu sorumludur.
@@ -2063,6 +2063,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_widget_folder_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_widget_folder_notifying">Yeni mesaj bildirimleri içeren klasörler</string>
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>
+    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Okunmamış olarak göster</string>
     <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
     <string name="title_widget_font_size">Metin boyutu</string>
     <string name="title_widget_padding">Boşluk boyutu</string>

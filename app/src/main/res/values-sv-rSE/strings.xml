@@ -394,7 +394,7 @@
     <string name="title_advanced_send_nav_color">Använd identitetsfärgen för den nedre åtgärdsfältet</string>
     <string name="title_advanced_send_reminders">Visa påminnelser</string>
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Visa Skicka-knappen högst upp</string>
+    <string name="title_advanced_send_top">Visa Skicka-knappen högst upp</string>
     <string name="title_advanced_attach_new">Skapa ett nytt utkast till meddelande för delade adresser och filer</string>
     <string name="title_advanced_answer_caption">Inställningar för svarsknappen</string>
     <string name="title_advanced_answer_default">Kort tryck på svarsknappen kommer:</string>
@@ -1908,7 +1908,7 @@
     <string name="title_hint_dismiss">Du kan avfärda denna dialogruta för att ta bort meddelandet.</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_message_actions">Dra åt vänster för att kasta; Svep åt höger för att arkivera (om tillgängligt); Svepåtgärderna kan konfigureras i kontoinställningarna</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Du kan svepa åt vänster eller höger för att avbryta sändningen</string>
+    <string name="title_hint_outbox">Du kan svepa åt vänster eller höger för att avbryta sändningen</string>
     <string name="title_hint_message_selection">Långt tryck på ett meddelande för att börja välja flera meddelanden; håll och svep uppåt eller nedåt för att välja fler meddelanden</string>
     <string name="title_hint_message_junk">        En e-postklient visar i princip meddelanden på en e-postserver.
         En e-postserver är ansvarig för att filtrera skräppost, inte en e-postklient.

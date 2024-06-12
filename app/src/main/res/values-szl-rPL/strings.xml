@@ -425,7 +425,7 @@
     <string name="title_advanced_send_nav_color">Użyj koloru identyfikatora w dolnym pasku zadań</string>
     <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Pokaż przycisk wysyłania na górze</string>
+    <string name="title_advanced_send_top">Pokaż przycisk wysyłania na górze</string>
     <string name="title_advanced_attach_new">Utwórz nowy szkic wiadomości dla udostępnianych adresów i plików</string>
     <string name="title_advanced_answer_caption">Ustawienia przycisku odpowiedzi</string>
     <string name="title_advanced_answer_default">Krótkie naciśnięcie przycisku odpowiedzi spowoduje:</string>
@@ -1947,7 +1947,7 @@
     <string name="title_hint_dismiss">Możesz odrzucić to okno dialogowe, aby usunąć to powiadomienie.</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Możesz przesunąć w lewo lub w prawo, aby anulować wysyłanie</string>
+    <string name="title_hint_outbox">Możesz przesunąć w lewo lub w prawo, aby anulować wysyłanie</string>
     <string name="title_hint_message_selection">Naciśnij długo wiadomość, aby rozpocząć wybieranie wielu wiadomości; Przytrzymaj i przeciągnij w górę lub w dół, aby wybrać więcej wiadomości</string>
     <string name="title_hint_message_junk">        Klient poczty elektronicznej zasadniczo wyświetla wiadomości na serwerze poczty elektronicznej.
         Serwer pocztowy jest odpowiedzialny za filtrowanie spamu, a nie klient poczty.
@@ -2097,6 +2097,7 @@
     <string name="title_widget_folder_unified">Foldery wspólnej skrzynki odbiorczej</string>
     <string name="title_widget_folder_notifying">Foldery z powiadomieniami o nowej wiadomości</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
+    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Pokaż jako nieprzeczytane</string>
     <string name="title_widget_flagged">Tylko oznaczone</string>
     <string name="title_widget_font_size">Rozmiar tekstu</string>
     <string name="title_widget_padding">Rozmiar wypełnienia</string>

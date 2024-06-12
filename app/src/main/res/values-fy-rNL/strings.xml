@@ -396,7 +396,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_send_nav_color">Brûk de identiteitskleur foar de ûnderste aksjebalke</string>
     <string name="title_advanced_send_reminders">Oantinkens toane</string>
     <string name="title_advanced_send_delayed">Ferstjoeren fan berjochten útstelle</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Ferstjoerknop boppeyn toane</string>
+    <string name="title_advanced_send_top">Ferstjoerknop boppeyn toane</string>
     <string name="title_advanced_attach_new">Meitsje in nij konsept foar dielde adressen en bestannen</string>
     <string name="title_advanced_answer_caption">Ynstellingen fan de antwurdknop</string>
     <string name="title_advanced_answer_default">Koart drukken fan de antwurdknop sil:</string>
@@ -1916,7 +1916,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_hint_dismiss">Jo kinne dit dialoochfienster slute om de melding fuort te smiten.</string>
     <string name="title_hint_support">As jo in fraach of in probleem hawwe, brûk dan it stipemenu om help te krijen</string>
     <string name="title_hint_message_actions">Fei links nei jiskefet; Fei rjochts nei argyf (as beskikber); De fei-aksjes kinne ynsteld wurde yn de accountynstellingen</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Jo kinne nei links of rjochts feie om it ferstjoeren te annulearjen</string>
+    <string name="title_hint_outbox">Jo kinne nei links of rjochts feie om it ferstjoeren te annulearjen</string>
     <string name="title_hint_message_selection">Druk lang op in berjocht om meardere berjochten te selektearjen; Hâld en swipe omheech of omleech om mear berjochten te selektearjen</string>
     <string name="title_hint_message_junk">        In e-mailclient toant yn prinsipe berjochten op in e-mailserver.
         In e-mailserver is ferantwurdlik foar it filterjen fan net-winske, net in e-mailclient.

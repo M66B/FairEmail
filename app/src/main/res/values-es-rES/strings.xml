@@ -397,7 +397,7 @@
     <string name="title_advanced_send_nav_color">Usar el color de identidad para la barra de acción inferior</string>
     <string name="title_advanced_send_reminders">Mostrar recordatorios</string>
     <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Mostrar botón de enviar en la parte superior</string>
+    <string name="title_advanced_send_top">Mostrar botón de enviar en la parte superior</string>
     <string name="title_advanced_attach_new">Crear un nuevo borrador de mensajes para direcciones y archivos compartidos</string>
     <string name="title_advanced_answer_caption">Ajustes del botón de respuesta</string>
     <string name="title_advanced_answer_default">Una pulsación corta en el botón de respuesta:</string>
@@ -1919,7 +1919,7 @@
     <string name="title_hint_dismiss">Puede descartar este diálogo para eliminar el aviso.</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Desliza a la izquierda para enviar a la papelera; Desliza a la derecha para archivar (si está disponible); las acciones de deslizamiento pueden configurarse en la configuración de la cuenta</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Puedes deslizar a la izquierda o derecha para cancelar el envío</string>
+    <string name="title_hint_outbox">Puedes deslizar a la izquierda o derecha para cancelar el envío</string>
     <string name="title_hint_message_selection">Mantenga pulsado un mensaje para empezar a seleccionar varios mensajes; mantenga pulsado y deslice hacia arriba o abajo para seleccionar más mensajes</string>
     <string name="title_hint_message_junk">        Un cliente de correo básicamente muestra los mensajes en un servidor de correo.
         Un servidor de correo electrónico es responsable de filtrar el spam, no un cliente de correo electrónico.
@@ -2070,6 +2070,7 @@
     <string name="title_widget_folder_unified">Carpetas de bandeja de entrada unificadas</string>
     <string name="title_widget_folder_notifying">Carpetas con notificaciones de mensajes nuevos</string>
     <string name="title_widget_unseen">Sólo mensajes no leídos</string>
+    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Mostrar como no leídos</string>
     <string name="title_widget_flagged">Sólo mensajes destacados</string>
     <string name="title_widget_font_size">Tamaño del texto</string>
     <string name="title_widget_padding">Tamaño de margen interno</string>

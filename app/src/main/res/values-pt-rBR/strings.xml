@@ -397,7 +397,7 @@
     <string name="title_advanced_send_nav_color">Use a cor de identidade para a barra de ação inferior</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atraso ao enviar mensagens</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Mostrar botão enviar na parte superior</string>
+    <string name="title_advanced_send_top">Mostrar botão enviar na parte superior</string>
     <string name="title_advanced_attach_new">Criar um novo rascunho de mensagem para endereços e arquivos compartilhados</string>
     <string name="title_advanced_answer_caption">Configurações do botão de resposta</string>
     <string name="title_advanced_answer_default">Pressionar brevemente o botão de resposta irá:</string>
@@ -1921,7 +1921,7 @@
     <string name="title_hint_dismiss">Você pode descartar esta caixa de diálogo para remover o aviso.</string>
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para a lixeira; Deslize para a direita para o arquivo (se disponível); As ações de deslize podem ser configuradas nas configurações da conta</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Você pode deslizar para a esquerda ou direita para cancelar o envio</string>
+    <string name="title_hint_outbox">Você pode deslizar para a esquerda ou direita para cancelar o envio</string>
     <string name="title_hint_message_selection">Pressione uma mensagem para começar a selecionar múltiplas mensagens; segure e deslize para cima ou para baixo para selecionar mais mensagens</string>
     <string name="title_hint_message_junk">        Um cliente de e-mail basicamente exibe mensagens em um servidor de e-mail.
         Um servidor de e-mail é responsável por filtrar spam, não um cliente de e-mail.

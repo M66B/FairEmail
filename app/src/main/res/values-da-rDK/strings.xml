@@ -398,7 +398,7 @@
     <string name="title_advanced_send_nav_color">Brug identitetsfarven til den nederste handlingsbjælke</string>
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Vis Send-knap øverst</string>
+    <string name="title_advanced_send_top">Vis Send-knap øverst</string>
     <string name="title_advanced_attach_new">Opret et nyt beskedudkast til delte adresser og filer</string>
     <string name="title_advanced_answer_caption">Indstillinger for svar-knap</string>
     <string name="title_advanced_answer_default">Kort tryk på svarknappen vil:</string>
@@ -1924,7 +1924,7 @@
     <string name="title_hint_dismiss">Denne dialog kan afvises for at fjerne beskeden.</string>
     <string name="title_hint_support">Har du et spørgsmål eller problem, så benyt venligst supportmenuen for at få hjælp</string>
     <string name="title_hint_message_actions">Stryg til venstre for Papirkurv; Stryg til højre for at arkivere (hvis tilgængeligt); Strygehandlingerne kan opsættes i kontoindstillingerne</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Afsendelse kan annulleres med et stryg til venstre eller højre</string>
+    <string name="title_hint_outbox">Afsendelse kan annulleres med et stryg til venstre eller højre</string>
     <string name="title_hint_message_selection">Langt tryk på en besked for at tilgå valg af flere beskeder; Hold og stryg op/ned for at vælge flere beskeder</string>
     <string name="title_hint_message_junk">        En e-mailklient viser beskeder, som befinder sig på en e-mail-server.
         E-mailserveren er ansvarlig for spamfiltrering, ikke e-mailklienten.
@@ -2076,6 +2076,7 @@
     <string name="title_widget_folder_unified">Samlede Indbakkemapper</string>
     <string name="title_widget_folder_notifying">Mapper med nye beskednotifikationer</string>
     <string name="title_widget_unseen">Kun ulæste beskeder</string>
+    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Vis som ulæst</string>
     <string name="title_widget_flagged">Kun stjerne-beskeder</string>
     <string name="title_widget_font_size">Tekststørrelse</string>
     <string name="title_widget_padding">Polstringsstørrelse</string>

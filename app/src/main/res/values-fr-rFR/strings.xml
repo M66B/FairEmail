@@ -398,7 +398,7 @@
     <string name="title_advanced_send_nav_color">Utiliser la couleur d\'identité pour la barre d\'action du bas</string>
     <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Afficher le bouton Envoyer en haut</string>
+    <string name="title_advanced_send_top">Afficher le bouton Envoyer en haut</string>
     <string name="title_advanced_attach_new">Créer un nouveau brouillon pour les adresses et les fichiers partagés</string>
     <string name="title_advanced_answer_caption">Paramètres du bouton de réponse</string>
     <string name="title_advanced_answer_default">Un appui court sur le bouton de réponse va :</string>
@@ -1925,7 +1925,7 @@
     <string name="title_hint_dismiss">Vous pouvez fermer cette boîte de dialogue pour supprimer la notification.</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu « Assistance » pour obtenir de l’aide</string>
     <string name="title_hint_message_actions">Balayez vers la gauche pour mettre à la corbeille ; balayez vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Vous pouvez balayer vers la gauche ou la droite pour annuler l\'envoi</string>
+    <string name="title_hint_outbox">Vous pouvez balayer vers la gauche ou la droite pour annuler l\'envoi</string>
     <string name="title_hint_message_selection">Appuyez longuement sur un message pour activer la sélection multiple ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner davantage de messages</string>
     <string name="title_hint_message_junk">        Un client de messagerie affiche essentiellement les messages d\'un serveur de messagerie.
         Un serveur de messagerie est responsable du filtrage du courrier indésirable, contrairement à un client de messagerie.
@@ -2077,6 +2077,7 @@
     <string name="title_widget_folder_unified">Dossiers de la boîte de réception unifiée</string>
     <string name="title_widget_folder_notifying">Dossiers avec des notifications de nouveaux messages</string>
     <string name="title_widget_unseen">Messages non lus seulement</string>
+    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Afficher comme non lu</string>
     <string name="title_widget_flagged">Messages suivis seulement</string>
     <string name="title_widget_font_size">Taille de police</string>
     <string name="title_widget_padding">Espacement des messages</string>

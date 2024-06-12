@@ -426,7 +426,7 @@
     <string name="title_advanced_send_nav_color">Використовувати колір профілю як фон нижньої панелі інструментів</string>
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Показувати кнопку відправки вгорі</string>
+    <string name="title_advanced_send_top">Показувати кнопку відправки вгорі</string>
     <string name="title_advanced_attach_new">Створити чернетку нового повідомлення для адрес та файлів, якими ви поділилися з інших додатків</string>
     <string name="title_advanced_answer_caption">Налаштування кнопки відповіді</string>
     <string name="title_advanced_answer_default">При короткому натисканні на кнопку відповіді:</string>
@@ -1949,7 +1949,7 @@
     <string name="title_hint_dismiss">Ви можете відхилити це діалогове вікно, щоб видалити сповіщення.</string>
     <string name="title_hint_support">Якщо у вас є питання або проблема, будь ласка, використовуйте меню підтримки для отримання допомоги</string>
     <string name="title_hint_message_actions">Проведіть ліворуч для переміщення в кошик; проведіть праворуч щоб архівувати (якщо доступно); ці дії можна налаштувати в налаштуваннях облікового запису</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Ви можете провести вліво або вправо, щоб скасувати надсилання</string>
+    <string name="title_hint_outbox">Ви можете провести вліво або вправо, щоб скасувати надсилання</string>
     <string name="title_hint_message_selection">Довго натисніть на повідомлення, щоб почати вибирати кілька повідомлень; Натиснувши потягніть вгору або вниз, щоб обрати більше повідомлень</string>
     <string name="title_hint_message_junk">Поштовий клієнт лише показує повідомлення, які наявні на поштовому сервері.
 За фільтрацію спаму відповідає саме сервер, а не клієнт.
@@ -2101,6 +2101,7 @@
     <string name="title_widget_folder_unified">Об\'єднані вхідні теки</string>
     <string name="title_widget_folder_notifying">Теки зі сповіщеннями про нові повідомлення</string>
     <string name="title_widget_unseen">Лише непрочитані повідомлення</string>
+    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Показувати як непрочитані</string>
     <string name="title_widget_flagged">Лише обрані повідомлення</string>
     <string name="title_widget_font_size">Розмір тексту</string>
     <string name="title_widget_padding">Розмір відступів</string>

@@ -398,7 +398,7 @@
     <string name="title_advanced_send_nav_color">Utilizza il colore dell\'identità per la barra delle azioni inferiore</string>
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_send_delayed">Ritarda invio dei messaggi</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">Mostra il pulsante Inviare in cima</string>
+    <string name="title_advanced_send_top">Mostra il pulsante Inviare in cima</string>
     <string name="title_advanced_attach_new">Crea un nuovo messaggio di bozza per indirizzi e file condivisi</string>
     <string name="title_advanced_answer_caption">Impostazioni del pulsante di risposta</string>
     <string name="title_advanced_answer_default">La pressione breve del pulsante di risposta:</string>
@@ -1925,7 +1925,7 @@
     <string name="title_hint_dismiss">Puoi ignorare questa finestra per rimuovere l\'avviso.</string>
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">Puoi scorrere a sinistra o a destra per annullare l\'invio</string>
+    <string name="title_hint_outbox">Puoi scorrere a sinistra o a destra per annullare l\'invio</string>
     <string name="title_hint_message_selection">Tieni premuto un messaggio per iniziare a selezionare più messaggi: Tieni premuto e scorri in su o in giù per selezionare più messaggi</string>
     <string name="title_hint_message_junk">        Un client email, essenzialmente, mostra i messaggi su un server email.
         Un server email è responsabile del filtraggio dello spam, non un client email.
@@ -2077,6 +2077,7 @@
     <string name="title_widget_folder_unified">Cartelle in arrivo unificate</string>
     <string name="title_widget_folder_notifying">Cartelle con notifiche di nuovi messaggi</string>
     <string name="title_widget_unseen">Solo messaggi non letti</string>
+    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Mostra come non letti</string>
     <string name="title_widget_flagged">Solo messaggi stellati</string>
     <string name="title_widget_font_size">Dimensione testo</string>
     <string name="title_widget_padding">Dimensione del rientro</string>

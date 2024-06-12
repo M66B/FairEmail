@@ -355,7 +355,7 @@
     <string name="title_advanced_send_chips">نمایش حباب‌ آدرس‌ها</string>
     <string name="title_advanced_send_reminders">نمایش یادآورها</string>
     <string name="title_advanced_send_delayed">وقفه ارسال پیام‌ها</string>
-    <string name="title_advanced_send_top" comment="title_advanced_send_top&#10;Title for option to show the send button in the top toolbar instead of the bottom action bar">نشان دادن دکمه فرستادن در بالا</string>
+    <string name="title_advanced_send_top">نشان دادن دکمه فرستادن در بالا</string>
     <string name="title_advanced_answer_caption">تنظیمات دکمه پاسخ</string>
     <string name="title_advanced_answer_default">با فشار کوتاه‌مدت دکمه پاسخ:</string>
     <string name="title_advanced_answer_action">با فشار بلندمدت دکمه پاسخ:</string>
@@ -1336,7 +1336,7 @@
     <string name="title_hint_dismiss">برای حذف اعلان، می‌توانید این کادر محاوره‌ای را رد کنید.</string>
     <string name="title_hint_support">اگر سوال یا مشکلی دارید لطفا از قسمت پشتیبانی برای کمک گرفتن استفاده کنید</string>
     <string name="title_hint_message_actions">برای حذف به چپ بکشید؛ برای بایگانی به راست بکشید (اگر در دسترس باشد)؛ کنش‌های کشیدن می‌تواند در تنظیمات حساب پیکربندی شوند</string>
-    <string name="title_hint_outbox" comment="title_hint_outbox&#10;Remark at the top of the outbox">برای لغو ارسال می‌توانید به چپ یا راست بکشید</string>
+    <string name="title_hint_outbox">برای لغو ارسال می‌توانید به چپ یا راست بکشید</string>
     <string name="title_hint_important">مهم</string>
     <string name="title_hint_sync">دریافت پیامها می تواند زمانی بسته به سرعت سرویس دهنده، اتصال به اینترنت، دستگاه و تعداد پیام‌ها طول بکشد. هنگام دریافت پیامها ممکن است عملکرد برنامه کند شود.</string>
     <string name="title_hint_contact_actions">لمس طولانی برای گزینه‌ها</string>
@@ -1432,6 +1432,7 @@
     <string name="title_widget_folder">پوشه</string>
     <string name="title_widget_folder_unified">پوشه های صندوق پستی یکپارچه</string>
     <string name="title_widget_unseen">فقط پیام‌های خوانده نشده</string>
+    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">به عنوان خوانده نشده نشان بده</string>
     <string name="title_widget_flagged">فقط پیام‌های ستاره‌دار</string>
     <string name="title_widget_font_size">اندازه متن</string>
     <string name="title_widget_padding">اندازه لایه‌گذاری</string>
