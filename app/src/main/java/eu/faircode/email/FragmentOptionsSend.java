@@ -51,6 +51,7 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -467,14 +468,39 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         btnSound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sound = prefs.getString("sound_sent", null);
-                Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
-                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION);
-                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, getString(R.string.title_advanced_sound));
-                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, true);
-                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, true);
-                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, sound == null ? null : Uri.parse(sound));
-                startActivityForResult(Helper.getChooser(getContext(), intent), ActivitySetup.REQUEST_SOUND_OUTBOUND);
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), v);
+
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_select_sound_ringtone, 1, R.string.title_rule_select_sound_ringtone);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_select_sound_audio, 2, R.string.title_rule_select_sound_audio);
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        int itemId = item.getItemId();
+                        if (itemId == R.string.title_rule_select_sound_ringtone) {
+                            String sound = prefs.getString("sound_sent", null);
+                            Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+                            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION);
+                            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, getString(R.string.title_advanced_sound));
+                            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, true);
+                            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, true);
+                            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, sound == null ? null : Uri.parse(sound));
+                            startActivityForResult(Helper.getChooser(getContext(), intent), ActivitySetup.REQUEST_RINGTONE_OUTBOUND);
+                            return true;
+                        } else if (itemId == R.string.title_rule_select_sound_audio) {
+                            Intent intent = new Intent();
+                            intent.setAction(Intent.ACTION_GET_CONTENT);
+                            intent.addCategory(Intent.CATEGORY_OPENABLE);
+                            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            intent.setType("audio/*");
+                            startActivityForResult(Helper.getChooser(getContext(), intent), ActivitySetup.REQUEST_AUDIO_OUTBOUND);
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
             }
         });
 
@@ -998,9 +1024,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         try {
             switch (requestCode) {
-                case ActivitySetup.REQUEST_SOUND_OUTBOUND:
+                case ActivitySetup.REQUEST_RINGTONE_OUTBOUND:
                     if (resultCode == RESULT_OK && data != null)
                         onSelectSound(data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI));
+                    break;
+                case ActivitySetup.REQUEST_AUDIO_OUTBOUND:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSelectSound(data.getData());
                     break;
             }
         } catch (Throwable ex) {
