@@ -1088,6 +1088,12 @@ public class FragmentRule extends FragmentBase {
     }
 
     private void onSelectSound(Uri uri) {
+        try {
+            Log.i("Selected sound uri=" + uri);
+            getContext().getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
         this.sound = uri;
     }
 
