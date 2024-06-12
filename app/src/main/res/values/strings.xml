@@ -2136,6 +2136,8 @@
     <string name="title_rule_tts_content">Text</string>
 
     <string name="title_rule_select_sound">Select sound</string>
+    <string name="title_rule_select_sound_ringtone">Ringtone</string>
+    <string name="title_rule_select_sound_audio">Audio file</string>
     <string name="title_rule_use_as_alarm">Use as alarm</string>
     <string name="title_rule_alarm_hint">This will ignore "do not disturb" rules</string>
     <string name="title_rule_alarm_duration">Maximum alarm duration (seconds)</string>

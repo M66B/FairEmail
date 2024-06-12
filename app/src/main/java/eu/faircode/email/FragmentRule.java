@@ -230,11 +230,12 @@ public class FragmentRule extends FragmentBase {
     private static final int REQUEST_TO = 7;
     private final static int REQUEST_TTS_CHECK = 8;
     private final static int REQUEST_TTS_DATA = 9;
-    private final static int REQUEST_SOUND = 10;
-    private final static int REQUEST_DATE_AFTER = 11;
-    private final static int REQUEST_DATE_BEFORE = 12;
-    private final static int REQUEST_FOLDER = 13;
-    private final static int REQUEST_COLOR_NOTES = 14;
+    private final static int REQUEST_RINGTONE = 10;
+    private final static int REQUEST_AUDIO = 11;
+    private final static int REQUEST_DATE_AFTER = 12;
+    private final static int REQUEST_DATE_BEFORE = 13;
+    private final static int REQUEST_FOLDER = 14;
+    private final static int REQUEST_COLOR_NOTES = 15;
 
     private static final List<String> HEADER_CONDITIONS = Collections.unmodifiableList(Arrays.asList(
             "$$seen$",
@@ -811,12 +812,37 @@ public class FragmentRule extends FragmentBase {
         btnSound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
-                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_ALL);
-                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, getString(R.string.title_advanced_sound));
-                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, true);
-                intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, sound);
-                startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_SOUND);
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), v);
+
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_select_sound_ringtone, 1, R.string.title_rule_select_sound_ringtone);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_select_sound_audio, 2, R.string.title_rule_select_sound_audio);
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        int itemId = item.getItemId();
+                        if (itemId == R.string.title_rule_select_sound_ringtone) {
+                            Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+                            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_ALL);
+                            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, getString(R.string.title_advanced_sound));
+                            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, true);
+                            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, sound);
+                            startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_RINGTONE);
+                            return true;
+                        } else if (itemId == R.string.title_rule_select_sound_audio) {
+                            Intent intent = new Intent();
+                            intent.setAction(Intent.ACTION_GET_CONTENT);
+                            intent.addCategory(Intent.CATEGORY_OPENABLE);
+                            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            intent.setType("audio/*");
+                            startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_AUDIO);
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
             }
         });
 
@@ -1035,9 +1061,13 @@ public class FragmentRule extends FragmentBase {
                     break;
                 case REQUEST_TTS_DATA:
                     break;
-                case REQUEST_SOUND:
+                case REQUEST_RINGTONE:
                     if (resultCode == RESULT_OK && data != null)
                         onSelectSound(data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI));
+                    break;
+                case REQUEST_AUDIO:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSelectSound(data.getData());
                     break;
                 case REQUEST_DATE_AFTER:
                     if (resultCode == RESULT_OK && data != null)
@@ -1091,6 +1121,8 @@ public class FragmentRule extends FragmentBase {
         try {
             Log.i("Selected sound uri=" + uri);
             getContext().getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            if (!Helper.isPersisted(getContext(), uri, true, false))
+                throw new IllegalStateException("No permission granted to access selected image " + uri);
         } catch (Throwable ex) {
             Log.w(ex);
         }
