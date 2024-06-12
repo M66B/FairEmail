@@ -1352,9 +1352,6 @@
     <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此邮件将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>
-    <string name="title_reformatted">        这是重构格式后的邮件视图        你可以点击 &#x26F6; 图标来查看原始邮件并隐藏此消息
-        重构邮件格式需要一些时间，取决于邮件本身的大小和您设备的运行速度
-    </string>
     <string name="title_compose">撰写</string>
     <string name="title_submitter">发送自：</string>
     <string name="title_signed_by">签名人：</string>
@@ -2054,6 +2051,7 @@
     <string name="title_widget_folder_unified">聚合收件箱文件夹</string>
     <string name="title_widget_folder_notifying">具有新邮件通知的文件夹</string>
     <string name="title_widget_unseen">仅未读邮件</string>
+    <string name="title_widget_show_unseen">显示为未读</string>
     <string name="title_widget_flagged">仅带有星标的邮件</string>
     <string name="title_widget_font_size">文本大小</string>
     <string name="title_widget_padding">内边距尺寸</string>

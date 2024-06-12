@@ -1357,9 +1357,6 @@
     <string name="title_third_party">Du använder en version av en tredje part</string>
     <string name="title_expand_warning">Utvidgningen av detta meddelande kommer att ladda ned %1$s</string>
     <string name="title_download_message">Hämtar &#8230;</string>
-    <string name="title_reformatted">        Detta är den omformaterade meddelandevyn.        Du kan trycka på &#x26F6; ikonen för att visa det ursprungliga meddelandet och för att dölja detta meddelande.
-        Omformatering av meddelanden tar lite tid, beroende på storleken på meddelandet och hastigheten på din enhet.
-    </string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Skickad av:</string>
     <string name="title_signed_by">Signerat av:</string>
@@ -2059,6 +2056,7 @@
     <string name="title_widget_folder_unified">Samlade inkorgsmappar</string>
     <string name="title_widget_folder_notifying">Mappar med aviseringar för nya meddelanden</string>
     <string name="title_widget_unseen">Endast olästa meddelanden</string>
+    <string name="title_widget_show_unseen">Visa som oläst</string>
     <string name="title_widget_flagged">Endast stjärnmärkta meddelanden</string>
     <string name="title_widget_font_size">Textstorlek</string>
     <string name="title_widget_padding">Utfyllnadsstorlek</string>

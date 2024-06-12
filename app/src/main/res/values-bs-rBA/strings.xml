@@ -1385,10 +1385,6 @@
     <string name="title_third_party">Koristiti verziju trežih strana</string>
     <string name="title_expand_warning">Širenjem ove poruke će se preuzeti %1$s</string>
     <string name="title_download_message">Preuzimanje &#8230;</string>
-    <string name="title_reformatted">        Ovo je prikaz preformatirane poruke.
-        Možete dodirnuti &#x26F6; ikonicu za pregled izvorne poruke i za skrivanje ove poruke.
-        Preformatiranje poruka može potrajati neko vrijeme, u zavisnosti od veličine poruke i brzine vašeg uređaja.
-    </string>
     <string name="title_compose">Napiši</string>
     <string name="title_submitter">Poslao/la:</string>
     <string name="title_signed_by">Potpisao-la:</string>
@@ -2090,7 +2086,7 @@
     <string name="title_widget_folder_unified">Folderi objedinjenog inbox-a</string>
     <string name="title_widget_folder_notifying">Folderi s obavještenjima o novim porukama</string>
     <string name="title_widget_unseen">Samo nepročitane poruke</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Prikaži kao nepročitano</string>
+    <string name="title_widget_show_unseen">Prikaži kao nepročitano</string>
     <string name="title_widget_flagged">Samo poruke sa zvjezdicom</string>
     <string name="title_widget_font_size">Veličina teksta</string>
     <string name="title_widget_padding">Veličina razmaka</string>

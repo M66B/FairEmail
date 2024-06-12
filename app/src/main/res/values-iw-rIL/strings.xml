@@ -1399,10 +1399,6 @@
     <string name="title_third_party">הגרסה שלך היא גרסת צד־שלישי</string>
     <string name="title_expand_warning">הרחבת ההודעה הזאת תוריד %1$s</string>
     <string name="title_download_message">הורדה&#8230;</string>
-    <string name="title_reformatted">        זאת תצוגת ההודעה שעוצבה מחדש.
-        אפשר לגעת בסמל &#x26F6; כדי לצפות בהודעה המקורית ולהסתיר את ההודעה הזאת.
-        עיצוב הודעה מחדש אורך זמן מה, בהתאם לגודל ההודעה ומהירות המכשיר שלך.
-    </string>
     <string name="title_compose">כתיבת הודעה</string>
     <string name="title_submitter">נשלח על ידי:</string>
     <string name="title_signed_by">נחתם על ידי:</string>

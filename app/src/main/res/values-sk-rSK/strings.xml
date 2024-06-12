@@ -1287,9 +1287,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_third_party">Používate verziu tretej strany</string>
     <string name="title_expand_warning">Rozbalením tejto správy prevezmete %1$s</string>
     <string name="title_download_message">Preberanie &#8230;</string>
-    <string name="title_reformatted">        Toto je preformátované zobrazenie správ.        Klepnutím na ikonu &#x26F6; zobrazíte pôvodné formátovanie a skryjete túto informáciu.
-        Preformátovanie správ zaberie nejaký čas, v závislosti na veľkosti správy a rýchlosti zariadenia.
-    </string>
     <string name="title_compose">Napísať</string>
     <string name="title_submitter">Odosielateľ:</string>
     <string name="title_signed_by">Podpísal:</string>

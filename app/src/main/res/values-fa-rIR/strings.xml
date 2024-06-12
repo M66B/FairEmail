@@ -948,6 +948,11 @@
     <string name="title_third_party">شما در حال استفاده از نسخه شخص ثالث هستید</string>
     <string name="title_expand_warning">گسترش این پیام باعث بارگیری %1$s خواهد شد</string>
     <string name="title_download_message">درحال بارگیری &#8230;</string>
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        این پیام به صورت دوباره قالب‌بندی شده و امن در حال نمایش است.
+        برای مشاهده پیام اصلی کمتر ایمن و پنهان کردن این پیغام می‌توانید روی آیکون &#x26F6; ضربه بزنید.
+        قالب‌بندی مجدد پیام‌ها بسته به اندازه پیام و سرعت دستگاه شما مدتی طول می‌کشد.
+        گاهی برای دیده شدن کدهای QR باید پیام به صورت اصلی آن نمایش داده شود.
+    </string>
     <string name="title_compose">ایجاد پیام</string>
     <string name="title_submitter">ارسال توسط:</string>
     <string name="title_delivered_to">تحویل شده به:</string>
@@ -1432,7 +1437,7 @@
     <string name="title_widget_folder">پوشه</string>
     <string name="title_widget_folder_unified">پوشه های صندوق پستی یکپارچه</string>
     <string name="title_widget_unseen">فقط پیام‌های خوانده نشده</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">به عنوان خوانده نشده نشان بده</string>
+    <string name="title_widget_show_unseen">به عنوان خوانده نشده نشان بده</string>
     <string name="title_widget_flagged">فقط پیام‌های ستاره‌دار</string>
     <string name="title_widget_font_size">اندازه متن</string>
     <string name="title_widget_padding">اندازه لایه‌گذاری</string>

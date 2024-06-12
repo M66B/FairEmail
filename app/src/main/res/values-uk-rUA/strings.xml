@@ -1397,8 +1397,10 @@
     <string name="title_third_party">Ви використовуєте версію програми від сторонніх розробників</string>
     <string name="title_expand_warning">Розкриття цього повідомлення завантажить %1$s</string>
     <string name="title_download_message">Завантаження &#8230;</string>
-    <string name="title_reformatted">        Це вид переформатованого повідомлення.        Ви можете натиснути на значок &#x26F6; щоб переглянути оригінальне повідомлення та приховати це повідомлення.
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Це безпечний вид переформатованого повідомлення.
+        Ви можете натиснути на значок &#x26F6;, щоб переглянути менш безпечне оригінальне повідомлення та приховати це повідомлення.
         Переформатування повідомлень займає деякий час, в залежності від розміру повідомлення і швидкості Вашого пристрою.
+        Іноді, щоб побачити QR-коди, необхідно переглянути оригінальне повідомлення.
     </string>
     <string name="title_compose">Написати листа</string>
     <string name="title_submitter">Надіслав:</string>
@@ -2101,7 +2103,7 @@
     <string name="title_widget_folder_unified">Об\'єднані вхідні теки</string>
     <string name="title_widget_folder_notifying">Теки зі сповіщеннями про нові повідомлення</string>
     <string name="title_widget_unseen">Лише непрочитані повідомлення</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Показувати як непрочитані</string>
+    <string name="title_widget_show_unseen">Показувати як непрочитані</string>
     <string name="title_widget_flagged">Лише обрані повідомлення</string>
     <string name="title_widget_font_size">Розмір тексту</string>
     <string name="title_widget_padding">Розмір відступів</string>

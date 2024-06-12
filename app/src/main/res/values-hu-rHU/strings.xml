@@ -1364,9 +1364,10 @@
     <string name="title_third_party">Egy harmadik fél verzióját használod</string>
     <string name="title_expand_warning">Az üzenet kibontása %1$s letöltéssel jár</string>
     <string name="title_download_message">Letöltés &#8230;</string>
-    <string name="title_reformatted">        Ez az újraformázott üzenet nézete.
-        Rányomhat a &#x26F6; ikonra az eredeti üzenet megtekintéséhez, és az értesítés elrejtéséhez.
-        Az üzenetek újraformázása - nagyságától és a készülék sebességétől függően - valamennyi időt vesz igénybe.
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Ez a biztonságos átfomázott üzenet nézet.
+        A &#x26F6; ikonra koppintva tekintheti meg a kevésbé biztonságos eredeti üzenetet, és rejtheti el ezt az üzenetet.
+        Az üzenetek átfomázása némi időbe telik, az üzenet méretétől és az eszköze teljesítményétől függően.
+       Néha az eredeti üzenetet kell megtekinteni a QR kódok megjelenítéséhez.
     </string>
     <string name="title_compose">Levélírás</string>
     <string name="title_submitter">Feladó:</string>
@@ -2068,7 +2069,7 @@
     <string name="title_widget_folder_unified">Összesített bejövő mappák</string>
     <string name="title_widget_folder_notifying">Mappák új üzenet értesítéssel</string>
     <string name="title_widget_unseen">Csak olvasatlan üzenetek</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Olvasatlanként mutassa</string>
+    <string name="title_widget_show_unseen">Olvasatlanként mutassa</string>
     <string name="title_widget_flagged">Csak csillagozott üzenetek</string>
     <string name="title_widget_font_size">Szövegméret</string>
     <string name="title_widget_padding">Helykitöltés mérete</string>

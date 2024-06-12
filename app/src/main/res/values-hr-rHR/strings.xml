@@ -1109,10 +1109,6 @@
     <string name="title_third_party">Koristite verziju neke treće strane</string>
     <string name="title_expand_warning">Proširivanjem ove poruke preuzet će se %1$s</string>
     <string name="title_download_message">Preuzima se &#8230;</string>
-    <string name="title_reformatted">        Ovo je preformatirani prikaz poruke.
-        Možete dodirnuti &#x26F6; ikonu za prikaz izvorne poruke i za skrivanje ove poruke.
-        Ponovno formatiranje poruka traje neko vrijeme, ovisno o veličini poruke i brzini uređaja.
-    </string>
     <string name="title_compose">Sastavi</string>
     <string name="title_submitter">Poslao:</string>
     <string name="title_delivered_to">Dostavljeno:</string>

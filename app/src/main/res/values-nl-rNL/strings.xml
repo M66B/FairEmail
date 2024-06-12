@@ -1362,9 +1362,11 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_third_party">U gebruikt een versie van een derde partij</string>
     <string name="title_expand_warning">Uitvouwen van dit bericht zal %1$s downloaden</string>
     <string name="title_download_message">Downloaden &#8230;</string>
-    <string name="title_reformatted">        Dit is de opnieuw opgemaakte berichtweergave.        U kunt op het &#x26F6; pictogram tikken om het originele bericht te bekijken en dit bericht te verbergen.
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Dit is de veilige opnieuw opgemaakte berichtweergave.
+        U kunt op het &#x26F6; pictogram tikken om het minder veilige originele bericht te bekijken en dit bericht te verbergen.
         Het opnieuw opmaken van berichten kost enige tijd, afhankelijk van de grootte van het bericht en de snelheid van uw apparaat.
-    </string>
+        Soms moet het originele bericht worden bekeken om QR-codes te zien.
+        </string>
     <string name="title_compose">Opstellen</string>
     <string name="title_submitter">Verstuurd door:</string>
     <string name="title_signed_by">Getekend door:</string>
@@ -2061,7 +2063,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_folder_unified">Gecombineerde postvak in mappen</string>
     <string name="title_widget_folder_notifying">Mappen met meldingen voor nieuwe berichten</string>
     <string name="title_widget_unseen">Alleen ongelezen berichten</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Toon als ongelezen</string>
+    <string name="title_widget_show_unseen">Toon als ongelezen</string>
     <string name="title_widget_flagged">Alleen berichten met een ster</string>
     <string name="title_widget_font_size">Tekstgrootte</string>
     <string name="title_widget_padding">Opvul grootte</string>

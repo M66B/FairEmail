@@ -1226,10 +1226,6 @@
     <string name="title_third_party">Uporabljate različico tretje osebe.</string>
     <string name="title_expand_warning">Razširitev tega sporočila bo prejela %1$s.</string>
     <string name="title_download_message">Prejemanje &#8230;</string>
-    <string name="title_reformatted">        To je pogled preoblikovanega sporočila.
-        Lahko se dotaknete ikone &#x26F6; za ogled izvirnega sporočila in da skrijete to sporočilo.
-        Preoblikovanje sporočila traja nekaj časa, odvisno od velikosti sporočila in hitrosti naprave.
-    </string>
     <string name="title_compose">Sestavi</string>
     <string name="title_submitter">Poslal:</string>
     <string name="title_delivered_to">Dostavljeno za:</string>

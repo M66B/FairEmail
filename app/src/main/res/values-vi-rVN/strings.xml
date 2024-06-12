@@ -1123,9 +1123,6 @@
     <string name="title_third_party">Bạn đang sử dụng phiên bản của bên thứ ba</string>
     <string name="title_expand_warning">Việc mở rộng thư này sẽ tải xuống %1$s</string>
     <string name="title_download_message">Đang tải xuống &#8230;</string>
-    <string name="title_reformatted">        Đây là thư đã định dạng lại.        Bạn có thể nhấn vào biểu tượng &#x26F6; để xem thư gốc và để ẩn thông báo này.
-        Việc định dạng lại thư sẽ tốn một ít thời gian, tuỳ vào kích cỡ thư và tốc độ thiết bị của bạn.
-    </string>
     <string name="title_compose">Soạn thư</string>
     <string name="title_submitter">Gửi bởi:</string>
     <string name="title_delivered_to">Gửi đến:</string>

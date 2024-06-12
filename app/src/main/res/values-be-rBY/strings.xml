@@ -1400,10 +1400,6 @@
     <string name="title_third_party">Вы выкарыстоўваеце версію ад старонніх распрацоўшчыкаў</string>
     <string name="title_expand_warning">Пры разгортванні гэтага паведамлення будзе загружана %1$s</string>
     <string name="title_download_message">Загрузка &#8230;</string>
-    <string name="title_reformatted">        Гэта выгляд перафарматаванага паведамлення.
-        Каб убачыць зыходны выгляд паведамлення і схаваць гэта паведамленне вы можаце націснуць на ярлык &#x26F6;.
-        Фарматаванне паведамленняў займае некаторы час, у залежнасці ад памеру паведамлення і хуткасці вашай прылады.
-    </string>
     <string name="title_compose">Стварыць</string>
     <string name="title_submitter">Адпраўлена:</string>
     <string name="title_signed_by">Падпісана:</string>

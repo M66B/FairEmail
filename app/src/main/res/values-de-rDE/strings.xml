@@ -1373,9 +1373,10 @@
     <string name="title_third_party">Sie verwenden eine Version eines Dritten</string>
     <string name="title_expand_warning">Durch Ausklappen dieser Nachricht werden %1$s heruntergeladen</string>
     <string name="title_download_message">Wird heruntergeladen &#8230;</string>
-    <string name="title_reformatted">        Dies ist die Ansicht der umformatierten Nachricht.
-        Sie können auf das &#x26F6;-Symbol tippen, um die ursprüngliche Nachricht zu sehen und um diese Nachricht auszublenden.
-        Das Umformatieren von Nachrichten nimmt einige Zeit in Anspruch – abhängig von der Größe der Nachricht und der Geschwindigkeit Ihres Geräts.
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Dies ist die sichere Ansicht für umformatierte Nachrichten.
+        Sie können auf das Symbol &#x26F6; tippen, um die weniger sichere Originalnachricht anzusehen und um diesen Hinweis auszublenden.
+        Das Neuformatieren von Nachrichten nimmt einige Zeit in Anspruch und hängt von der Nachrichtengröße sowie der Geschwindigkeit Ihres Geräts ab.
+        Um QR-Code zu sehen, müssen Sie möglicherweise zur Originalansicht der Nachricht wechseln.
     </string>
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>
@@ -2078,7 +2079,7 @@
     <string name="title_widget_folder_unified">Sammeleingangsordner</string>
     <string name="title_widget_folder_notifying">Ordner mit Meldungen über ungelesene Nachrichten</string>
     <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Als ungelesen anzeigen</string>
+    <string name="title_widget_show_unseen">Als ungelesen anzeigen</string>
     <string name="title_widget_flagged">Nur markierte Nachrichten</string>
     <string name="title_widget_font_size">Schriftgröße</string>
     <string name="title_widget_padding">Abstand zwischen den Texten</string>

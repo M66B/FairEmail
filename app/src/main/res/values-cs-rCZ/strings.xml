@@ -1397,8 +1397,10 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_third_party">Používáte verzi třetí strany</string>
     <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>
     <string name="title_download_message">Stahování &#8230;</string>
-    <string name="title_reformatted">        Toto je přeformátované zobrazení zprávy.        Stiskem ikony &#x26F6; si můžete zobrazit původní zprávu, zároveň se i skryje toto oznámení.
-        Přeformátování zpráv trvá pár chvil, v závislosti na velikosti zprávy a rychlosti vašeho zařízení.
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Toto je bezpečné přeformátované zobrazení zprávy.
+        Můžete klepnout na ikonu &#x26F6; pro zobrazení méně bezpečné původní zprávy a pro skrytí této zprávy.
+        Přeformátování zpráv trvá nějaký čas, v závislosti na velikosti zprávy a rychlosti zařízení.
+        Někdy musí být původní zpráva zobrazena pro zobrazení QR kódů.
     </string>
     <string name="title_compose">Napsat zprávu</string>
     <string name="title_submitter">Odeslal:</string>
@@ -2100,7 +2102,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_widget_folder_unified">Složky sjednocené doručené pošty</string>
     <string name="title_widget_folder_notifying">Složky s oznámeními o nových zprávách</string>
     <string name="title_widget_unseen">Pouze nepřečtené zprávy</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Zobrazit jako nepřečtené</string>
+    <string name="title_widget_show_unseen">Zobrazit jako nepřečtené</string>
     <string name="title_widget_flagged">Pouze zprávy označené hvězdičkou</string>
     <string name="title_widget_font_size">Velikost textu</string>
     <string name="title_widget_padding">Velikost odsazení položek</string>

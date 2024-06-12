@@ -1372,9 +1372,10 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_third_party">Está a usar uma versão de proveniência externa</string>
     <string name="title_expand_warning">Expandir esta mensagem fará a transferência de %1$s</string>
     <string name="title_download_message">A transferir &#8230;</string>
-    <string name="title_reformatted">        Esta é a visualização de mensagem reformatada.
-        Pode tocar no ícone &#x26F6; para ver a mensagem original e ocultar esta mensagem.
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Esta é a visualização segura de mensagem reformatada.
+        Pode tocar no ícone &#x26F6; para ver a mensagem original menos segura e ocultar esta mensagem.
         A reformatação de mensagens leva algum tempo, dependendo do tamanho da mensagem e da velocidade do seu dispositivo.
+        Às vezes a mensagem original deve ser visualizada para ver códigos QR.
     </string>
     <string name="title_compose">Compor</string>
     <string name="title_submitter">Enviado por:</string>
@@ -2077,7 +2078,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_widget_folder_unified">Pastas da caixa de entrada unificadas</string>
     <string name="title_widget_folder_notifying">Pastas com novas notificações de mensagens</string>
     <string name="title_widget_unseen">Apenas mensagens não lidas</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Exibir como não lidas</string>
+    <string name="title_widget_show_unseen">Exibir como não lidas</string>
     <string name="title_widget_flagged">Apenas mensagens com estrela</string>
     <string name="title_widget_font_size">Tamanho do texto</string>
     <string name="title_widget_padding">Tamanho do espaçamento</string>

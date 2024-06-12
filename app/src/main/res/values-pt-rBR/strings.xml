@@ -1368,9 +1368,10 @@
     <string name="title_third_party">Você está usando uma versão de terceiros</string>
     <string name="title_expand_warning">Expandir esta mensagem irá baixar %1$s</string>
     <string name="title_download_message">Baixando &#8230;</string>
-    <string name="title_reformatted">        Isto é a visualização da mensagem reformatada.
-        Você pode clicar no ícone &#x26F6; para visualizar a mensagem original e para ocultar esta mensagem.
-        A reformatação leva algum tempo, dependendo do tamanho da mensagem e da velocidade do seu dispositivo.
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Esta é a visualização segura da mensagem reformatada.
+        Você pode tocar no ícone &#x26F6; para visualizar a mensagem original menos segura e ocultar esta mensagem.
+        A reformatação das mensagens leva algum tempo, dependendo do tamanho da mensagem e da velocidade do seu dispositivo.
+        Às vezes, a mensagem original deve ser visualizada para ver os códigos QR.
     </string>
     <string name="title_compose">Escrever</string>
     <string name="title_submitter">Enviado por:</string>
@@ -2072,6 +2073,7 @@
     <string name="title_widget_folder_unified">Pastas da caixa de entrada unificadas</string>
     <string name="title_widget_folder_notifying">Pastas com notificações de novas mensagens</string>
     <string name="title_widget_unseen">Apenas mensagens não lidas</string>
+    <string name="title_widget_show_unseen">Mostrar como não lido</string>
     <string name="title_widget_flagged">Apenas mensagens com estrela</string>
     <string name="title_widget_font_size">Tamanho do texto</string>
     <string name="title_widget_padding">Tamanho do preenchimento</string>

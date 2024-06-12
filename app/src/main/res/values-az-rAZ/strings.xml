@@ -1371,10 +1371,6 @@
     <string name="title_third_party">Üçüncü tərəf bir versiya istifadə edirsiniz</string>
     <string name="title_expand_warning">Bu mesajı genişləndirsəniz, %1$s endiriləcək</string>
     <string name="title_download_message">Endirilir &#8230;</string>
-    <string name="title_reformatted">        Bu, yenidən format edilmiş mesaj görünüşüdür.
-        Orijinal mesaja baxmaq və bu mesajı gizlətmək üçün &#x26F6; nişanına toxuna bilərsiniz.
-        Mesajların yenidən formatlanması, mesajların həcmindən və cihazınızın sürətindən asılı olaraq bir az vaxt apara bilər.
-    </string>
     <string name="title_compose">Yaz</string>
     <string name="title_submitter">Göndərən:</string>
     <string name="title_signed_by">İmzalandı:</string>

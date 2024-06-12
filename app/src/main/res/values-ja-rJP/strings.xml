@@ -1355,10 +1355,6 @@
     <string name="title_third_party">サードパーティー版を使用しています</string>
     <string name="title_expand_warning">このメッセージを展開すると、%1$s がダウンロードされます</string>
     <string name="title_download_message">ダウンロードしています&#8230;</string>
-    <string name="title_reformatted">        これは、再フォーマットされたメッセージ表示です。
-        元のメッセージを表示するには &#x26F6; アイコンをタップし、このメッセージを非表示にできます。
-        メッセージの再フォーマットには、メッセージのサイズや端末の速度に応じて時間がかかります。
-    </string>
     <string name="title_compose">作成</string>
     <string name="title_submitter">送信元:</string>
     <string name="title_signed_by">署名者:</string>

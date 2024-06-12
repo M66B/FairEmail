@@ -1372,9 +1372,10 @@
     <string name="title_third_party">Stai usando una versione di terze parti</string>
     <string name="title_expand_warning">Espandere questo messaggio scaricherà %1$s</string>
     <string name="title_download_message">Scaricando&#8230;</string>
-    <string name="title_reformatted">        Questa è la visualizzazione del messaggio riformattato.
-        Puoi toccare sull\'icona &#x26F6; per visualizzare il messaggio originale e nascondere questo.
-        La riformattazione dei messaggi richiede un po\' di tempo, in base alle dimensioni del messaggio e alla velocità del tuo dispositivo.
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Questa è la visualizzazione di messaggio sicuro e riformattato.
+        Puoi toccare l\'icona &#x26F6; per visualizzare il messaggio originale meno sicuro e nascondere questo.
+        La riformattazione dei messaggi richiede un po\' di tempo, in base alla dimensione del messaggio e alla velocità del tuo dispositivo.
+        A volte, il messaggio originale deve essere visualizzato per vedere i codici QR.
     </string>
     <string name="title_compose">Scrivi</string>
     <string name="title_submitter">Inviato da:</string>
@@ -2077,7 +2078,7 @@
     <string name="title_widget_folder_unified">Cartelle in arrivo unificate</string>
     <string name="title_widget_folder_notifying">Cartelle con notifiche di nuovi messaggi</string>
     <string name="title_widget_unseen">Solo messaggi non letti</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Mostra come non letti</string>
+    <string name="title_widget_show_unseen">Mostra come non letti</string>
     <string name="title_widget_flagged">Solo messaggi stellati</string>
     <string name="title_widget_font_size">Dimensione testo</string>
     <string name="title_widget_padding">Dimensione del rientro</string>

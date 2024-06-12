@@ -1344,9 +1344,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_third_party">Anda menggunakan versi pihak ketiga</string>
     <string name="title_expand_warning">Memperluas pesan ini akan mengunduh %1$s</string>
     <string name="title_download_message">Mengunduh &#8230;</string>
-    <string name="title_reformatted">        Ini adalah tampilan tulisan yang di format ulang.
-Anda dapat mengetuk pada ikon &#x26F6; untuk melihat pesan asli dan menyembunyikan pesan ini.
-Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan perangkat anda.    </string>
     <string name="title_compose">Menyusun</string>
     <string name="title_submitter">Dikirim oleh:</string>
     <string name="title_signed_by">Ditanda tangani oleh:</string>

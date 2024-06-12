@@ -1333,10 +1333,6 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
     <string name="title_third_party">Käytät kolmannen osapuolen versiota</string>
     <string name="title_expand_warning">Tämän viestin laajentaminen lataa %1$s</string>
     <string name="title_download_message">Ladataan &#8230;</string>
-    <string name="title_reformatted">Tämä on uudelleenmuotoillun viestin näkymä.
-        Näet alkuperäisen viestin napauttamalla &#x26F6;.
-        Viestien uudelleenmuotoilu kestää hetken riippuen viestin koosta ja laitteesi nopeudesta.
-    </string>
     <string name="title_compose">Kirjoita viesti</string>
     <string name="title_submitter">Lähettäjä:</string>
     <string name="title_signed_by">Allekirjoittanut:</string>

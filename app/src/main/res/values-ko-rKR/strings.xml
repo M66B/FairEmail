@@ -1001,10 +1001,6 @@
     <string name="title_need_help">도움 요청</string>
     <string name="title_expand_warning">이 메시지를 펼치면 %1$s가 다운로드됩니다</string>
     <string name="title_download_message">&#8230; 다운로드 중</string>
-    <string name="title_reformatted">        재구성된 메시지를 보고 있습니다.
-        &#x26F6; 아이콘을 눌러 재구성된 메시지를 숨기고 원본 메시지를 볼 수 있습니다.
-        메시지를 재구성하는 데에는 메시지 크기 및 기기 속도에 따라 다소 시간이 걸립니다.
-    </string>
     <string name="title_compose">작성</string>
     <string name="title_submitter">발신인:</string>
     <string name="title_delivered_to">전송됨:</string>

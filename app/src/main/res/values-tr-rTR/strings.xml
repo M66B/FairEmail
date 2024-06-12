@@ -1360,10 +1360,10 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_third_party">Üçüncü parti bir sürüm kullanıyorsunuz</string>
     <string name="title_expand_warning">Bu mesajı genişletmek %1$s indirecektir</string>
     <string name="title_download_message">İndiriliyor &#8230;</string>
-    <string name="title_reformatted">        Bu, yeniden biçimlendirilmiş ileti görünümüdür.
-        Orijinal mesajı görüntülemek ve bu mesajı gizlemek için &#x26F6; simgesine dokunun
-        Mesajların yeniden biçimlendirilmesi, mesajın boyutuna ve cihazınızın hızına bağlı olarak biraz zaman alabilir.
-    </string>
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">Bu, yeniden biçimlendirilmiş güvenli mesaj görünümüdür.
+        Daha az güvenli orijinal mesajı görüntülemek ve bu mesajı gizlemek için &#x26F6; simgesine dokunabilirsiniz.
+        Mesajların yeniden biçimlendirilmesi, mesajın boyutuna ve cihazınızın hızına bağlı olarak biraz zaman alır.
+        Bazen QR kodlarını görmek için orijinal mesajın görüntülenmesi gerekir.    </string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_submitter">Gönderen:</string>
     <string name="title_signed_by">Tarafından imzalandı:</string>
@@ -2063,7 +2063,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_widget_folder_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_widget_folder_notifying">Yeni mesaj bildirimleri içeren klasörler</string>
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Okunmamış olarak göster</string>
+    <string name="title_widget_show_unseen">Okunmamış olarak göster</string>
     <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
     <string name="title_widget_font_size">Metin boyutu</string>
     <string name="title_widget_padding">Boşluk boyutu</string>

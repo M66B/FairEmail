@@ -1395,9 +1395,6 @@
     <string name="title_third_party">Używasz wersji od innych firm</string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>
     <string name="title_download_message">Pobieranie &#8230;</string>
-    <string name="title_reformatted">        To jest sformatowany widok wiadomości.         Możesz dotknąć &#x26F6; ikonę, aby wyświetlić oryginalną wiadomość i ukryć tę wiadomość.
-         Ponowne formatowanie wiadomości może zająć trochę czasu, w zależności od rozmiaru wiadomości i szybkości urządzenia.
-    </string>
     <string name="title_compose">Napisz</string>
     <string name="title_submitter">Wysłane przez:</string>
     <string name="title_signed_by">Podpisany przez:</string>
@@ -2097,7 +2094,7 @@
     <string name="title_widget_folder_unified">Foldery wspólnej skrzynki odbiorczej</string>
     <string name="title_widget_folder_notifying">Foldery z powiadomieniami o nowej wiadomości</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Pokaż jako nieprzeczytane</string>
+    <string name="title_widget_show_unseen">Pokaż jako nieprzeczytane</string>
     <string name="title_widget_flagged">Tylko oznaczone</string>
     <string name="title_widget_font_size">Rozmiar tekstu</string>
     <string name="title_widget_padding">Rozmiar wypełnienia</string>

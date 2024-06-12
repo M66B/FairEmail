@@ -1154,10 +1154,6 @@
     <string name="title_third_party">您正在使用第三方版本</string>
     <string name="title_expand_warning">展開此訊息將會下載 %1$s</string>
     <string name="title_download_message">正在下載 &#8230;</string>
-    <string name="title_reformatted">        這是經過重排的訊息視圖。
-        您可透過輕觸 &#x26F6; 圖示檢視原始訊息並隱藏此信息。
-        重排訊息需要一些時間，具體取決於訊息的大小以及您的裝置的執行速度。
-    </string>
     <string name="title_compose">撰寫</string>
     <string name="title_submitter">寄件者：</string>
     <string name="title_signed_by">簽署者：</string>

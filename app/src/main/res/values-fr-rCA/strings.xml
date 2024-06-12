@@ -1372,9 +1372,10 @@
     <string name="title_third_party">Vous utilisez une version tierce</string>
     <string name="title_expand_warning">Développer ce message téléchargera %1$s</string>
     <string name="title_download_message">Téléchargement&#8230;</string>
-    <string name="title_reformatted">        Ceci est la vue de message reformaté.
-        Vous pouvez appuyer sur l\'icône &#x26F6; pour afficher le message original et masquer cette bannière.
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Ceci est la vue de message sûr et reformaté.
+        Vous pouvez appuyer sur l\'icône &#x26F6; pour afficher le message original moins sûr et masquer cette bannière.
         Le reformatage des messages prend un certain temps selon la taille du message et la vitesse de votre appareil.
+        Parfois, le message original doit être affiché afin de visualiser les QR codes.
     </string>
     <string name="title_compose">Rédiger</string>
     <string name="title_submitter">Envoyé par :</string>
@@ -2077,7 +2078,7 @@
     <string name="title_widget_folder_unified">Dossiers de la boîte de réception unifiée</string>
     <string name="title_widget_folder_notifying">Dossiers avec des notifications de nouveaux messages</string>
     <string name="title_widget_unseen">Messages non lus seulement</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Afficher comme non lu</string>
+    <string name="title_widget_show_unseen">Afficher comme non lu</string>
     <string name="title_widget_flagged">Messages suivis seulement</string>
     <string name="title_widget_font_size">Taille de police</string>
     <string name="title_widget_padding">Espacement des messages</string>

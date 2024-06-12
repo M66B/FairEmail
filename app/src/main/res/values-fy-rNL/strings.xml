@@ -1365,8 +1365,10 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_third_party">Jo brûke in ferzje fan in tredde partij</string>
     <string name="title_expand_warning">It útwreidzjen fan dit berjocht sil %1$s downloade</string>
     <string name="title_download_message">Downloade&#8230;</string>
-    <string name="title_reformatted">        Dit is de opnij foarme berjochtewerjefte.        Jo kinne tikje op it &#x26F6;-piktogram om it orizjinele berjocht te besjen en dit berjocht te ferstopjen.
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Dit is de feilige opnij foarme berjochtewerjefte.
+        Jo kinne op it &#x26F6;-piktogram tikke om it orizjinele berjocht te besjen en dit berjocht te ferstopjen.
         Berjochten opnij opmeitsje nimt wat tiid, ôfhinklik fan de grutte fan it berjocht en de snelheid fan jo apparaat.
+        Somtiden moat it orizjinele berjocht besjoen wurde om QR-koaden te sjen.
     </string>
     <string name="title_compose">Opstelle</string>
     <string name="title_submitter">Ferstjoerd troch:</string>
@@ -2067,6 +2069,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_widget_folder_unified">Kombinearre Postfek YN-mappen</string>
     <string name="title_widget_folder_notifying">Mappen mei nije berjochtmeldingen</string>
     <string name="title_widget_unseen">Allinnich net-lêzen berjochten</string>
+    <string name="title_widget_show_unseen">As net-lêzen toane</string>
     <string name="title_widget_flagged">Allinnich berjochten mei stjer</string>
     <string name="title_widget_font_size">Tekstgrutte</string>
     <string name="title_widget_padding">Opfolgrutte</string>

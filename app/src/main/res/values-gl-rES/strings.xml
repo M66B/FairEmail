@@ -1112,9 +1112,6 @@
     <string name="title_third_party">A súa versión é de terceiros</string>
     <string name="title_expand_warning">Expandir esta mensaxe descargará %1$s</string>
     <string name="title_download_message">Descargando &#8230;</string>
-    <string name="title_reformatted">        Isto é a vista de mensaxe procesada.        Pode tocar a icona &#x26F6; para ver a mensaxe orixinal e agochar esta notificación.
-        Procesar as mensaxes leva tempo, dependendo do seu tamaño e da velocidade do seu dispositivo.
-    </string>
     <string name="title_compose">Redactar</string>
     <string name="title_submitter">Enviada por:</string>
     <string name="title_delivered_to">Enviada a:</string>

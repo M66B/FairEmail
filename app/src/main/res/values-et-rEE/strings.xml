@@ -1347,10 +1347,6 @@
     <string name="title_third_party">Kasutad kolmanda osapoole versiooni</string>
     <string name="title_expand_warning">Selle sõnumi laiendamine laadib alla %1$s</string>
     <string name="title_download_message">Allalaadimine &#8230;</string>
-    <string name="title_reformatted">        See on ümbervormindatud sõnumi vaade.
-        You can tap on the &#x26F6; icon to view the original message and to hide this message.
-        Reformatting messages takes some time, depending on the size of the message and the speed of your device.
-    </string>
     <string name="title_compose">Loo</string>
     <string name="title_submitter">Saatnud:</string>
     <string name="title_signed_by">Allakirjutanud:</string>

@@ -1371,9 +1371,10 @@
     <string name="title_third_party">Du benytter en tredjepartsversion</string>
     <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>
     <string name="title_download_message">Downloader &#8230;</string>
-    <string name="title_reformatted">        Dette er den omformaterede beskedvisning.
-        Tryk på &#x26F6;-ikonet for at se originalbeskeden og skjule denne besked.
-        Beskedomformatering tages lidt tid afhængigt af beskedstørrelsen og hastigheden på enheden.
+    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Dette er den sikre omformaterede beskedvisning.
+        Tryk på &#x26F6;-ikonet for at se den mindre sikre originalbesked og skjule denne.
+        Beskedomformatering kan tage lidt tid afhængigt af beskedstørrelse og enhedens hastighed.
+        Nogle gange vil originalbeskeden skulle vises for at kunne se QR-koder.
     </string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Sendt af:</string>
@@ -2076,7 +2077,7 @@
     <string name="title_widget_folder_unified">Samlede Indbakkemapper</string>
     <string name="title_widget_folder_notifying">Mapper med nye beskednotifikationer</string>
     <string name="title_widget_unseen">Kun ulæste beskeder</string>
-    <string name="title_widget_show_unseen" comment="title_widget_show_unseen&#10;Option to show unread messages in a message list widget as read">Vis som ulæst</string>
+    <string name="title_widget_show_unseen">Vis som ulæst</string>
     <string name="title_widget_flagged">Kun stjerne-beskeder</string>
     <string name="title_widget_font_size">Tekststørrelse</string>
     <string name="title_widget_padding">Polstringsstørrelse</string>

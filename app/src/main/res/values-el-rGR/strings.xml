@@ -1364,9 +1364,6 @@
     <string name="title_third_party">Χρησιμοποιείτε μια έκδοση ενός τρίτου παρόχου</string>
     <string name="title_expand_warning">Αν αναπτυχθεί αυτό το μήνυμα, θα κατέβει %1$s</string>
     <string name="title_download_message">Κατεβαίνει &#8230;</string>
-    <string name="title_reformatted">        Αυτή είναι η προβολή επαναμορφοποιημένου μηνύματος.        Μπορείτε να πατήσετε στο εικονίδιο &#x26F6; για να δείτε το αρχικό μήνυμα και να κρύψετε το παρόν μήνυμα.
-        Η επαναμορφοποίηση μηνυμάτων απαιτεί λίγο χρόνο, ανάλογα με το μέγεθος του μηνύματος και την ταχύτητα της συσκευής σας.
-    </string>
     <string name="title_compose">Σύνταξη</string>
     <string name="title_submitter">Στάλθηκε από:</string>
     <string name="title_signed_by">Υπογεγραμμένο από:</string>

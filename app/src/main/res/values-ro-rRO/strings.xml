@@ -1382,9 +1382,6 @@
     <string name="title_third_party">Folosiți o versiune a unei terțe părți</string>
     <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>
     <string name="title_download_message">Se descarcă &#8230;</string>
-    <string name="title_reformatted">        Aceasta este vizualizarea mesajelor reformatate.        Puteți apăsa pe pictograma &#x26F6; pentru a vizualiza mesajul original și pentru a ascunde acest mesaj.
-        Reformatarea mesajelor necesită ceva timp, în funcție de dimensiunea mesajului și de viteza dispozitivului.
-    </string>
     <string name="title_compose">Compune</string>
     <string name="title_submitter">Trimis de:</string>
     <string name="title_signed_by">Semnat de:</string>
