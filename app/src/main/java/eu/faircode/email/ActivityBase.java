@@ -1094,6 +1094,16 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         @Override
         public void onFragmentResumed(@NonNull FragmentManager fm, @NonNull Fragment f) {
             log(fm, f, "onFragmentResumed");
+
+            // WindowInsetsAnimationCompat / COMPAT_ANIMATION_DURATION = 160 ms
+            View v = f.getView();
+            if (v != null && Helper.isKeyboardVisible(v))
+                v.postDelayed(new RunnableEx("resumed") {
+                    @Override
+                    protected void delegate() {
+                        v.requestApplyInsets();
+                    }
+                }, 250);
         }
 
         @Override
