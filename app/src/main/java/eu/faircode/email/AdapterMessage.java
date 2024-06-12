@@ -5658,12 +5658,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             View dview = LayoutInflater.from(context).inflate(
                     full ? R.layout.dialog_show_full : R.layout.dialog_show_images, null);
+            TextView tvMessage = dview.findViewById(R.id.tvMessage);
             CheckBox cbAlwaysImages = dview.findViewById(R.id.cbAlwaysImages); // Full only
             CheckBox cbNotAgainSender = dview.findViewById(R.id.cbNotAgainSender);
             CheckBox cbNotAgainDomain = dview.findViewById(R.id.cbNotAgainDomain);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             CheckBox cbNeverAgain = dview.findViewById(R.id.cbNeverAgain);
             TextView tvNeverAgainHint = dview.findViewById(R.id.tvNeverAgainHint);
+
+            tvMessage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.viewFAQ(v.getContext(), 35);
+                }
+            });
 
             if (junk) {
                 if (full)
