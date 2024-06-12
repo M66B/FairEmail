@@ -3839,8 +3839,10 @@ class Core {
                             modseq = null;
                         modified = (force || initialize != 0 ||
                                 folder.modseq == null || !folder.modseq.equals(modseq));
-                        EntityLog.log(context, folder.name + " modseq=" + modseq + "/" + folder.modseq +
-                                " force=" + force + " init=" + (initialize != 0) + " modified=" + modified);
+                        EntityLog.log(context,
+                                BuildConfig.DEBUG ? EntityLog.Type.Debug3 : EntityLog.Type.General,
+                                folder.name + " modseq=" + modseq + "/" + folder.modseq +
+                                        " force=" + force + " init=" + (initialize != 0) + " modified=" + modified);
                     }
                 } catch (MessagingException ex) {
                     Log.w(folder.name, ex);
@@ -4345,7 +4347,9 @@ class Core {
 
             // Update modseq
             folder.modseq = modseq;
-            Log.i(folder.name + " set modseq=" + modseq);
+            EntityLog.log(context,
+                    BuildConfig.DEBUG ? EntityLog.Type.Debug3 : EntityLog.Type.General,
+                    folder.name + " set modseq=" + modseq);
             db.folder().setFolderModSeq(folder.id, folder.modseq);
 
             // Update stats
