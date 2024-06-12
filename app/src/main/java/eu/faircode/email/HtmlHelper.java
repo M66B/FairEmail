@@ -2884,6 +2884,14 @@ public class HtmlHelper {
             return;
         }
 
+        // ms-outlook-mobile
+        quotes = d.body().select("div#divRplyFwdMsg");
+        if (quotes.size() > 0) {
+            quotes.nextAll().remove();
+            quotes.remove();
+            return;
+        }
+
         // Web.de: <div id="aqm-original"
         quotes = d.body().select("div#aqm-original");
         if (quotes.size() > 0) {
