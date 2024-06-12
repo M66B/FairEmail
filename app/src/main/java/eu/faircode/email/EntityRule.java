@@ -1403,9 +1403,6 @@ public class EntityRule {
     }
 
     private boolean onActionSound(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
-        if (message.ui_seen)
-            return false;
-
         Uri uri = (jargs.has("uri") ? Uri.parse(jargs.getString("uri")) : null);
         boolean alarm = jargs.getBoolean("alarm");
         int duration = jargs.optInt("duration", MediaPlayerHelper.DEFAULT_ALARM_DURATION);
