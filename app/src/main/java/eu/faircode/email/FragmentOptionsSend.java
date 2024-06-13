@@ -488,11 +488,12 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                             startActivityForResult(Helper.getChooser(getContext(), intent), ActivitySetup.REQUEST_RINGTONE_OUTBOUND);
                             return true;
                         } else if (itemId == R.string.title_rule_select_sound_audio) {
-                            Intent intent = new Intent();
-                            intent.setAction(Intent.ACTION_GET_CONTENT);
+                            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                             intent.addCategory(Intent.CATEGORY_OPENABLE);
+                            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
                             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                             intent.setType("audio/*");
+                            Helper.openAdvanced(getContext(), intent);
                             startActivityForResult(Helper.getChooser(getContext(), intent), ActivitySetup.REQUEST_AUDIO_OUTBOUND);
                             return true;
                         }
