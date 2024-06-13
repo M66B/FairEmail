@@ -1765,6 +1765,8 @@
     <string name="title_rule_tts_subject">Ämne</string>
     <string name="title_rule_tts_content">Text</string>
     <string name="title_rule_select_sound">Välj ljud</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Ringsignal</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Ljudfil</string>
     <string name="title_rule_use_as_alarm">Använd som larm</string>
     <string name="title_rule_alarm_hint">Det här kommer att ignorera \"stör ej\"-reglerna</string>
     <string name="title_rule_alarm_duration">Maxtid för alarm (sekunder)</string>
