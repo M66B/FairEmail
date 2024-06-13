@@ -397,6 +397,7 @@
     <string name="title_advanced_send_nav_color">Χρήση του χρώματος ταυτότητας για την κάτω γραμμή ενεργειών</string>
     <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
     <string name="title_advanced_send_delayed">Καθυστέρηση αποστολής μηνυμάτων</string>
+    <string name="title_advanced_send_top">Προβολή κουμπιού αποστολής στην κορυφή</string>
     <string name="title_advanced_attach_new">Δημιουργία νέου προσχεδίου μηνύματος για κοινόχρηστες διευθύνσεις και αρχεία</string>
     <string name="title_advanced_answer_caption">Ρυθμίσεις κουμπιού απάντησης</string>
     <string name="title_advanced_answer_default">Το σύντομο πάτημα στο κουμπί απάντησης θα:</string>
@@ -1220,6 +1221,7 @@
     <string name="title_create_rule">Δημιουργία κανόνα &#8230;</string>
     <string name="title_full_screen">Πλήρης οθόνη</string>
     <string name="title_force_light">Υποχρεωτικό φωτεινό θέμα</string>
+    <string name="title_rename">Μετονομασία</string>
     <string name="title_share">Κοινοποίηση</string>
     <string name="title_event">Προσθήκη στο ημερολόγιο</string>
     <string name="title_pin">Προσθήκη συντόμευσης</string>
@@ -1364,6 +1366,12 @@
     <string name="title_third_party">Χρησιμοποιείτε μια έκδοση ενός τρίτου παρόχου</string>
     <string name="title_expand_warning">Αν αναπτυχθεί αυτό το μήνυμα, θα κατέβει %1$s</string>
     <string name="title_download_message">Κατεβαίνει &#8230;</string>
+    <string name="title_reformatted">        Αυτή είναι η ασφαλής, επαναμορφοποιημένη προβολή μηνύματος.
+        Μπορείτε να πατήσετε το εικονίδιο &#x26F6; για να δείτε το αρχικό, λιγότερο ασφαλές μήνυμα και να κρύψετε την παρούσα ειδοποίηση.
+        Η επαναμορφοποίηση των μηνυμάτων απαιτεί λίγο χρόνο, ανάλογα με το μέγεθος του μηνύματος και την ταχύτητα της συσκευής σας.
+        Μερικές φορές απαιτείται η προβολή του αρχικού μηνύματος για να γίνουν ορατοί οι κώδικες QR.
+    
+    </string>
     <string name="title_compose">Σύνταξη</string>
     <string name="title_submitter">Στάλθηκε από:</string>
     <string name="title_signed_by">Υπογεγραμμένο από:</string>
@@ -1773,6 +1781,8 @@
     <string name="title_rule_tts_subject">Θέμα</string>
     <string name="title_rule_tts_content">Κείμενο</string>
     <string name="title_rule_select_sound">Επιλογή ήχου</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Ήχος κλήσης</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Αρχείο ήχου</string>
     <string name="title_rule_use_as_alarm">Να χρησιμοποιείται ως ξυπνητήρι</string>
     <string name="title_rule_alarm_hint">Αυτό θα αγνοήσει τους κανόνες \"Μην ενοχλείτε\"</string>
     <string name="title_rule_alarm_duration">Μέγιστη διάρκεια ξυπνητηριού (δευτερόλεπτα)</string>
@@ -1913,6 +1923,7 @@
     <string name="title_hint_dismiss">Μπορείτε να απορρίψετε αυτό το παράθυρο διαλόγου, για να αφαιρέσετε την ειδοποίηση.</string>
     <string name="title_hint_support">Αν έχετε μία ερώτηση ή ένα πρόβλημα, παρακαλώ χρησιμοποιήστε το μενού \"Υποστήριξη\" για να λάβετε βοήθεια</string>
     <string name="title_hint_message_actions">Σάρωση αριστερά για απορρίμματα• σάρωση δεξιά για αρχειοθέτηση (αν είναι διαθέσιμη)• μπορείτε να ρυθμίσετε τις ενέργειες σάρωσης στις ρυθμίσεις του λογαριασμού</string>
+    <string name="title_hint_outbox">Μπορείτε να σύρετε προς τα αριστερά ή δεξιά για να ακυρωθεί η αποστολή</string>
     <string name="title_hint_message_selection">Πατήστε παρατεταμένα σε ένα μήνυμα για να αρχίσετε να επιλέγετε πολλαπλά μηνύματα. Συνεχίστε το πάτημα και σύρετε προς τα πάνω ή κάτω για να επιλέξετε περισσότερα μηνύματα</string>
     <string name="title_hint_message_junk">        Ένας πελάτης ταχυδρομείου προβάλλει, ουσιαστικά, τα μηνύματα ενός διακομιστή ταχυδρομείου.
         Ένας διακομιστής ταχυδρομείου είναι υπεύθυνος για το φιλτράρισμα ανεπιθύμητων μηνυμάτων, όχι ένας πελάτης ταχυδρομείου.
@@ -2063,6 +2074,7 @@
     <string name="title_widget_folder_unified">Φάκελοι ενοποιημένων εισερχομένων</string>
     <string name="title_widget_folder_notifying">Φάκελοι με ειδοποιήσεις νέων μηνυμάτων</string>
     <string name="title_widget_unseen">Μη αναγνωσμένα μηνύματα μόνο</string>
+    <string name="title_widget_show_unseen">Προβολή ως μη αναγνωσμένο</string>
     <string name="title_widget_flagged">Μηνύματα με αστέρι μόνο</string>
     <string name="title_widget_font_size">Μέγεθος κειμένου</string>
     <string name="title_widget_padding">Μέγεθος διαστήματος μεταξύ μηνυμάτων</string>
