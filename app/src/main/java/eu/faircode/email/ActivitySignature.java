@@ -140,7 +140,7 @@ public class ActivitySignature extends ActivityBase {
             public void onClick(View view) {
                 Bundle args = new Bundle();
                 args.putString("html", getHtml());
-                args.putBoolean("overview_mode", true);
+                args.putBoolean("overview_mode", false);
                 args.putBoolean("safe_browsing", false);
                 args.putBoolean("force_light", true);
 

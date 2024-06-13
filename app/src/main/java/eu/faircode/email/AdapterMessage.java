@@ -3322,7 +3322,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message.ui_found && found && !TextUtils.isEmpty(searched))
                             HtmlHelper.highlightSearched(context, document, searched);
 
-                        boolean overview_mode = prefs.getBoolean("overview_mode", true);
+                        boolean overview_mode = prefs.getBoolean("overview_mode", false);
                         HtmlHelper.setViewport(document, overview_mode);
                         if (inline || show_images)
                             HtmlHelper.embedInlineImages(context, message.id, document, show_images);
@@ -4810,7 +4810,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_fullscreen, 1, R.string.title_fullscreen);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_fit_width, 2, R.string.title_fit_width)
                         .setCheckable(true)
-                        .setChecked(prefs.getBoolean("overview_mode", true));
+                        .setChecked(prefs.getBoolean("overview_mode", false));
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_monospaced_pre, 4, R.string.title_monospaced_pre)
                         .setCheckable(true)
                         .setChecked(prefs.getBoolean("monospaced_pre", false));
@@ -5974,7 +5974,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected String onExecute(Context context, Bundle args) throws Throwable {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean overview_mode = prefs.getBoolean("overview_mode", true);
+                    boolean overview_mode = prefs.getBoolean("overview_mode", false);
                     boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
                     boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
 
@@ -5999,7 +5999,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onExecuted(Bundle args, String html) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean overview_mode = prefs.getBoolean("overview_mode", true);
+                    boolean overview_mode = prefs.getBoolean("overview_mode", false);
                     boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
 
                     Bundle fargs = new Bundle();
