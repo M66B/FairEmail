@@ -1352,6 +1352,11 @@
     <string name="title_third_party">您使用的是第三方版本</string>
     <string name="title_expand_warning">展开此邮件将下载 %1$s</string>
     <string name="title_download_message">&#8230; 下载中</string>
+    <string name="title_reformatted">        这是安全的重新格式化邮件视图。
+        您可以轻击&#x26F6;图标以查看不太安全的原始邮件并隐藏此消息。
+        根据邮件的大小和设备的速度，重新格式化邮件需要一些时间。
+        有时必须查看原始邮件才能看到二维码。
+    </string>
     <string name="title_compose">撰写</string>
     <string name="title_submitter">发送自：</string>
     <string name="title_signed_by">签名人：</string>
@@ -1761,6 +1766,8 @@
     <string name="title_rule_tts_subject">主题</string>
     <string name="title_rule_tts_content">文本</string>
     <string name="title_rule_select_sound">选择声音</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">铃声</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">音频文件</string>
     <string name="title_rule_use_as_alarm">用作警报</string>
     <string name="title_rule_alarm_hint">这将忽略“勿扰”规则</string>
     <string name="title_rule_alarm_duration">警报最长持续时间 (秒)</string>
