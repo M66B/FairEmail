@@ -2,14 +2,11 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FCHANGELOG.md)
 
-<br>
-
 ### Notices
 
 Recently, there were more updates than usual, all intended to resolve side effects of changes required for Android 15.
 Google's compatibility library unfortunately does not work properly for all Android versions and all devices,
 and therefore custom bug fixes were necessary.
-
 
 The use of "AI" integrations is and will remain completely optional.
 "AI" is completely inert if it is not configured and not being used.
@@ -21,7 +18,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### 1.2200 - 2024-06-12 *
+### 1.2201 - 2024-06-13 *
+
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2200 - 2024-06-12
 
 * Fixed keyboard inset for some devices
 * Updated build tools
