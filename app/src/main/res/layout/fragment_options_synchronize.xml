@@ -176,6 +176,7 @@
                     android:minHeight="45dp"
                     android:text="@string/title_advanced_optimize_hint"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
                     android:textStyle="italic"
                     app:layout_constraintEnd_toStartOf="@+id/ibOptimizeInfo"
                     app:layout_constraintStart_toStartOf="parent"
