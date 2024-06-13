@@ -3494,18 +3494,20 @@ public class Helper {
                     @Override
                     public void run() {
                         if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                            if (selected == null)
+                            if (selected == null) {
                                 intf.onNothingSelected();
-                            else
+                                ToastEx.makeText(activity, R.string.title_no_key_selected, Toast.LENGTH_LONG).show();
+                            } else
                                 intf.onSelected(selected);
                         } else {
                             owner.getLifecycle().addObserver(new LifecycleObserver() {
                                 @OnLifecycleEvent(Lifecycle.Event.ON_START)
                                 public void onStart() {
                                     owner.getLifecycle().removeObserver(this);
-                                    if (selected == null)
+                                    if (selected == null) {
                                         intf.onNothingSelected();
-                                    else
+                                        ToastEx.makeText(activity, R.string.title_no_key_selected, Toast.LENGTH_LONG).show();
+                                    } else
                                         intf.onSelected(selected);
                                 }
 
