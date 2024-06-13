@@ -2892,6 +2892,13 @@ public class HtmlHelper {
             return;
         }
 
+        // Microsoft Word 15
+        quotes = d.body().select("div#mail-editor-reference-message-container");
+        if (quotes.size() > 0) {
+            quotes.remove();
+            return;
+        }
+
         // Web.de: <div id="aqm-original"
         quotes = d.body().select("div#aqm-original");
         if (quotes.size() > 0) {
