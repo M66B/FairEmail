@@ -10001,7 +10001,7 @@ public class FragmentMessages extends FragmentBase
                                             sb.append(i + 1).append(") ").append(trace.get(i));
                                         }
 
-                                        new AlertDialog.Builder(getContext())
+                                        new AlertDialog.Builder(v.getContext())
                                                 .setMessage(sb.toString())
                                                 .show();
                                     }
