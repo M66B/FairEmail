@@ -3834,7 +3834,13 @@ class Core {
             if (use_modseq)
                 try {
                     if (MessageHelper.hasCapability(ifolder, "CONDSTORE")) {
-                        modseq = ifolder.getHighestModSeq();
+                        Status status = (Status) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                            @Override
+                            public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                                return protocol.status(ifolder.getFullName(), new String[]{"HIGHESTMODSEQ"});
+                            }
+                        });
+                        modseq = status.highestmodseq;
                         if (modseq < 0)
                             modseq = null;
                         modified = (force || initialize != 0 ||
