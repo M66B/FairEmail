@@ -874,9 +874,7 @@ public class ApplicationEx extends Application
         } else if (version < 2196) {
             if (!prefs.contains("forward_new"))
                 editor.putBoolean("forward_new", true);
-        }
-
-        if (version < 2202) {
+        } else if (version < 2197) {
             if (!prefs.contains("overview_mode"))
                 editor.putBoolean("overview_mode", false);
         }
