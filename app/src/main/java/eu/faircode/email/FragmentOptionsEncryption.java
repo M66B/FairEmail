@@ -526,12 +526,6 @@ public class FragmentOptionsEncryption extends FragmentBase
                         ssb.setSpan(new IndentSpan(dp24), line, ssb.length(), 0);
                         ssb.setSpan(new StyleSpan(Typeface.ITALIC), line, ssb.length(), 0);
                     }
-                    for (Object item : provider.keySet())
-                        if (item.toString().startsWith("KeyStore.")) {
-                            int line = ssb.length();
-                            ssb.append(item.toString()).append('\n');
-                            ssb.setSpan(new IndentSpan(dp24), line, ssb.length(), 0);
-                        }
                     if (debug) {
                         int start = ssb.length();
                         for (Enumeration<Object> e = provider.keys(); e.hasMoreElements(); ) {
