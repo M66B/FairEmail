@@ -420,8 +420,7 @@ public abstract class DB extends RoomDatabase {
                 Log.i("Disabled view invalidation");
             } catch (ReflectiveOperationException ex) {
                 // Should never happen
-                Log.forceCrashReporting();
-                Log.e(ex);
+                Log.forceCrashReport(context, ex);
             }
 
             sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(DB_TABLES) {
@@ -462,8 +461,7 @@ public abstract class DB extends RoomDatabase {
                 }
             } catch (Throwable ex) {
                 // Should never happen
-                Log.forceCrashReporting();
-                Log.e(ex);
+                Log.forceCrashReport(context, ex);
             }
             Log.i("DB critical section end");
         }
@@ -589,8 +587,7 @@ public abstract class DB extends RoomDatabase {
                                 at androidx.room.RoomDatabase.inTransaction(RoomDatabase.java:706)
                              */
                             // Should never happen
-                            Log.forceCrashReporting();
-                            Log.e(ex);
+                            Log.forceCrashReport(context, ex);
                             // FrameworkSQLiteOpenHelper.innerGetDatabase will delete the database
                             throw ex;
                         }

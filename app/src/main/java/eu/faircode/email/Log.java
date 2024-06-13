@@ -312,14 +312,25 @@ public class Log {
     static void setCrashReporting(boolean enabled) {
         try {
             if (enabled)
-                Bugsnag.startSession();
+                Bugsnag.resumeSession();
+            else
+                Bugsnag.pauseSession();
         } catch (Throwable ex) {
             Log.i(ex);
         }
     }
 
-    static void forceCrashReporting() {
-        Bugsnag.resumeSession();
+    static void forceCrashReport(Context context, Throwable fatal) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean crash_reports = prefs.getBoolean("crash_reports", false);
+        try {
+            prefs.edit().putBoolean("crash_reports", true).apply();
+            setCrashReporting(true);
+            Log.e(fatal);
+        } finally {
+            prefs.edit().putBoolean("crash_reports", crash_reports).apply();
+            setCrashReporting(crash_reports);
+        }
     }
 
     public static void breadcrumb(String name, Bundle args) {
