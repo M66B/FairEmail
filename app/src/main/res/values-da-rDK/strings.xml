@@ -1201,6 +1201,7 @@
     <string name="title_subject_forward_alt">Vs: %1$s</string>
     <string name="title_seen">Markér som læst</string>
     <string name="title_unseen">Markér som ulæst</string>
+    <string name="title_seen_unseen">Markér som læst/ulæst</string>
     <string name="title_toggle_seen">Slå læst til/fra</string>
     <string name="title_hide">Skjul</string>
     <string name="title_unhide">Vis</string>
@@ -1371,7 +1372,7 @@
     <string name="title_third_party">Du benytter en tredjepartsversion</string>
     <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>
     <string name="title_download_message">Downloader &#8230;</string>
-    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Dette er den sikre omformaterede beskedvisning.
+    <string name="title_reformatted">        Dette er den sikre omformaterede beskedvisning.
         Tryk på &#x26F6;-ikonet for at se den mindre sikre originalbesked og skjule denne.
         Beskedomformatering kan tage lidt tid afhængigt af beskedstørrelse og enhedens hastighed.
         Nogle gange vil originalbeskeden skulle vises for at kunne se QR-koder.
@@ -1785,6 +1786,8 @@
     <string name="title_rule_tts_subject">Emne</string>
     <string name="title_rule_tts_content">Tekst</string>
     <string name="title_rule_select_sound">Vælg lyd</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Ringetone</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Lydfil</string>
     <string name="title_rule_use_as_alarm">Benyt som alarm</string>
     <string name="title_rule_alarm_hint">Dette vil tilsidesætte \"Forstyr ikke\"-regler</string>
     <string name="title_rule_alarm_duration">Maks. alarmvarighed (sekunder)</string>

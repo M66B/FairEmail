@@ -807,6 +807,7 @@
     <string name="title_advanced_summarize_prompt">Podsumowanie podpowiedzi</string>
     <string name="title_advanced_answer_prompt">Prośba o odpowiedź</string>
     <string name="title_advanced_system_instructions">Instrukcje systemowe</string>
+    <string name="title_advanced_default_prompt">Komunikat domyślny</string>
     <string name="title_advanced_entered_text">Wprowadzony tekst</string>
     <string name="title_advanced_sdcard">Chcę użyć karty SD</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
@@ -1395,6 +1396,11 @@
     <string name="title_third_party">Używasz wersji od innych firm</string>
     <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>
     <string name="title_download_message">Pobieranie &#8230;</string>
+    <string name="title_reformatted">Jest to bezpieczny, sformatowany widok wiadomości.
+        Możesz dotknąć ikony &#x26F6;, aby wyświetlić mniej bezpieczną oryginalną wiadomość i ukryć tę wiadomość.
+        Ponowne formatowanie wiadomości zajmuje trochę czasu, w zależności od rozmiaru wiadomości i szybkości urządzenia.
+        Czasami konieczne jest wyświetlenie oryginalnej wiadomości, aby zobaczyć kody QR.
+    </string>
     <string name="title_compose">Napisz</string>
     <string name="title_submitter">Wysłane przez:</string>
     <string name="title_signed_by">Podpisany przez:</string>
@@ -1701,6 +1707,7 @@
     <string name="title_answer_favorite">Ulubione</string>
     <string name="title_answer_snippet">Fragment tekstu</string>
     <string name="title_answer_receipt">Użyj jako potwierdzenia przeczytania</string>
+    <string name="title_answer_ai">Używaj jako komunikatu domyślnego</string>
     <string name="title_answer_hide">Ukryj z menu</string>
     <string name="title_answer_text">Tekst szablonu</string>
     <string name="title_answer_placeholder">Symbol zastępczy</string>
@@ -1804,6 +1811,8 @@
     <string name="title_rule_tts_subject">Temat</string>
     <string name="title_rule_tts_content">Tekst</string>
     <string name="title_rule_select_sound">Wybierz dźwięk</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Dzwonek</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Plik audio</string>
     <string name="title_rule_use_as_alarm">Użyj jako alarmu</string>
     <string name="title_rule_alarm_hint">To zignoruje zasady \"nie przeszkadzać\"</string>
     <string name="title_rule_alarm_duration">Maksymalny czas trwania alarmu (sekundy)</string>

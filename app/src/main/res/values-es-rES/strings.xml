@@ -1368,7 +1368,7 @@
     <string name="title_third_party">Está usando una versión de un tercero</string>
     <string name="title_expand_warning">Expandir este mensaje descargará %1$s</string>
     <string name="title_download_message">Descargando &#8230;</string>
-    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Esta es la vista segura de mensaje reformateado.
+    <string name="title_reformatted">        Esta es la vista segura de mensaje reformateado.
         Puede tocar el ícono &#x26F6; para ver el mensaje original menos seguro y ocultar este mensaje.
         El reformateo de mensajes toma algún tiempo, dependiendo del tamaño del mensaje y la velocidad de su dispositivo.
         A veces el mensaje original debe ser visualizado para mostrar códigos QR.

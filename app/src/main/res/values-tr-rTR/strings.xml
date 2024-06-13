@@ -1360,7 +1360,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_third_party">Üçüncü parti bir sürüm kullanıyorsunuz</string>
     <string name="title_expand_warning">Bu mesajı genişletmek %1$s indirecektir</string>
     <string name="title_download_message">İndiriliyor &#8230;</string>
-    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">Bu, yeniden biçimlendirilmiş güvenli mesaj görünümüdür.
+    <string name="title_reformatted">Bu, yeniden biçimlendirilmiş güvenli mesaj görünümüdür.
         Daha az güvenli orijinal mesajı görüntülemek ve bu mesajı gizlemek için &#x26F6; simgesine dokunabilirsiniz.
         Mesajların yeniden biçimlendirilmesi, mesajın boyutuna ve cihazınızın hızına bağlı olarak biraz zaman alır.
         Bazen QR kodlarını görmek için orijinal mesajın görüntülenmesi gerekir.    </string>
@@ -1772,6 +1772,8 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_tts_subject">Konu</string>
     <string name="title_rule_tts_content">Metin</string>
     <string name="title_rule_select_sound">Ses seç</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Zil sesi</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Ses dosyası</string>
     <string name="title_rule_use_as_alarm">Alarm olarak kullan</string>
     <string name="title_rule_alarm_hint">Bu, \"rahatsız etmeyin\" kurallarını yok sayar</string>
     <string name="title_rule_alarm_duration">Maksimum alarm süresi (saniye)</string>

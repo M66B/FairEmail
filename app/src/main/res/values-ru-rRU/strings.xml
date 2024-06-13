@@ -1399,7 +1399,7 @@
     <string name="title_third_party">Вы используете стороннюю версию</string>
     <string name="title_expand_warning">При развёртывании этого сообщения будет загружено %1$s</string>
     <string name="title_download_message">Загрузка&#8230;</string>
-    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Это безопасно переформатированное сообщение.
+    <string name="title_reformatted">        Это безопасно переформатированное сообщение.
         Можно нажать значок &#x26F6; для просмотра менее безопасного оригинального сообщения и скрытия этого уведомления.
         Переформатирование сообщений занимает некоторое время в зависимости от размера сообщения и быстродействия устройства.
         Иногда необходимо смотреть исходное сообщение, чтобы видеть QR-коды.

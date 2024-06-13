@@ -1373,7 +1373,7 @@
     <string name="title_third_party">Sie verwenden eine Version eines Dritten</string>
     <string name="title_expand_warning">Durch Ausklappen dieser Nachricht werden %1$s heruntergeladen</string>
     <string name="title_download_message">Wird heruntergeladen &#8230;</string>
-    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        Dies ist die sichere Ansicht für umformatierte Nachrichten.
+    <string name="title_reformatted">        Dies ist die sichere Ansicht für umformatierte Nachrichten.
         Sie können auf das Symbol &#x26F6; tippen, um die weniger sichere Originalnachricht anzusehen und um diesen Hinweis auszublenden.
         Das Neuformatieren von Nachrichten nimmt einige Zeit in Anspruch und hängt von der Nachrichtengröße sowie der Geschwindigkeit Ihres Geräts ab.
         Um QR-Code zu sehen, müssen Sie möglicherweise zur Originalansicht der Nachricht wechseln.
@@ -1787,6 +1787,8 @@
     <string name="title_rule_tts_subject">Betreff</string>
     <string name="title_rule_tts_content">Text</string>
     <string name="title_rule_select_sound">Ton auswählen</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Klingelton</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Audiodatei</string>
     <string name="title_rule_use_as_alarm">Als Wecker verwenden</string>
     <string name="title_rule_alarm_hint">Dies ignoriert die Nicht-stören-Regeln</string>
     <string name="title_rule_alarm_duration">Maximale Alarmdauer (Sekunden)</string>

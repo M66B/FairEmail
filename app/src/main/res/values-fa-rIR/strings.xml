@@ -948,7 +948,7 @@
     <string name="title_third_party">شما در حال استفاده از نسخه شخص ثالث هستید</string>
     <string name="title_expand_warning">گسترش این پیام باعث بارگیری %1$s خواهد شد</string>
     <string name="title_download_message">درحال بارگیری &#8230;</string>
-    <string name="title_reformatted" comment="title_reformatted&#10;Remark above the message text about view modes. The &quot;&amp;#x26F6;&quot; is an HTML entity and should be retained as is!">        این پیام به صورت دوباره قالب‌بندی شده و امن در حال نمایش است.
+    <string name="title_reformatted">        این پیام به صورت دوباره قالب‌بندی شده و امن در حال نمایش است.
         برای مشاهده پیام اصلی کمتر ایمن و پنهان کردن این پیغام می‌توانید روی آیکون &#x26F6; ضربه بزنید.
         قالب‌بندی مجدد پیام‌ها بسته به اندازه پیام و سرعت دستگاه شما مدتی طول می‌کشد.
         گاهی برای دیده شدن کدهای QR باید پیام به صورت اصلی آن نمایش داده شود.
@@ -1227,6 +1227,8 @@
     <string name="title_rule_tts_from">از</string>
     <string name="title_rule_tts_subject">موضوع</string>
     <string name="title_rule_tts_content">متن</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">ملودی زنگ</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">فایل صوتی</string>
     <string name="title_code_line_numbers">نمایش تعداد خطوط</string>
     <string name="title_code_enable_links">فعال کردن لینک‌ها</string>
     <string name="title_code_pretty">چاپ زیبا</string>
