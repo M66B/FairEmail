@@ -5018,6 +5018,8 @@ public class FragmentCompose extends FragmentBase {
                     db.beginTransaction();
 
                     db.attachment().setName(id, name);
+                    db.attachment().setWarning(id, name.length() < 60
+                            ? null : context.getString(R.string.title_attachment_filename));
 
                     db.setTransactionSuccessful();
                 } finally {
