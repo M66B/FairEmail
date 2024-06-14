@@ -1786,6 +1786,8 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_rule_tts_subject">Assunto</string>
     <string name="title_rule_tts_content">Texto</string>
     <string name="title_rule_select_sound">Selecionar som</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Toque</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Ficheiros de áudio</string>
     <string name="title_rule_use_as_alarm">Utilizar como alarme</string>
     <string name="title_rule_alarm_hint">Isto irá ignorar as regras do \"não perturbe\"</string>
     <string name="title_rule_alarm_duration">Duração máxima do alarme (em segundos)</string>
