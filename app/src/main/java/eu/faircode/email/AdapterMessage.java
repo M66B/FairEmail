@@ -2183,6 +2183,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean content = (message.content || message.error != null);
             tvNoInternetBody.setVisibility(suitable || content ? View.GONE : View.VISIBLE);
 
+            grpDownloading.setVisibility(View.GONE);
+            ibDownload.setVisibility(View.GONE);
+
             eowner.start();
             db.operation().liveOperations(message.id, EntityOperation.BODY).observe(eowner, new Observer<TupleMessageOperation>() {
                 @Override
@@ -2958,6 +2961,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     properties.scrollTo(getAdapterPosition(), 0);
                 return;
             }
+
+            grpDownloading.setVisibility(View.GONE);
+            ibDownload.setVisibility(View.GONE);
 
             evalProperties(message);
 
