@@ -248,6 +248,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         hasWindowFocus = hasFocus;
+        Window window = getWindow();
+        View view = (window == null ? null : window.getDecorView());
+        if (view != null)
+            view.requestApplyInsets();
     }
 
     @Override
