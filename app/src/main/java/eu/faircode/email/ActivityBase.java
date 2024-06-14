@@ -194,12 +194,16 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 if (changed)
                     v.setLayoutParams(mlp);
 
+                int b = v.getPaddingBottom();
                 if (hasWindowFocus) {
                     int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-                    int pad = bottom - insets.bottom;
-                    v.setPaddingRelative(0, 0, 0, pad < 0 ? 0 : pad);
-                } else
-                    v.setPaddingRelative(0, 0, 0, 0);
+                    int pad = Math.max(0, bottom - insets.bottom);
+                    if (b != pad)
+                        v.setPaddingRelative(0, 0, 0, pad);
+                } else {
+                    if (b != 0)
+                        v.setPaddingRelative(0, 0, 0, 0);
+                }
 
                 if (edge_to_edge)
                     for (View child : Helper.getViewsWithTag(v, "inset")) {
