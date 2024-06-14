@@ -18,6 +18,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### 1.2204 - 2024-06-14 *
+
+* Fixed downloading message for POP3 accounts
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2203 - 2024-06-14 *
 
 * Fixed downloading message/button
