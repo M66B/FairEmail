@@ -93,6 +93,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.net.IDN;
 import java.net.URLDecoder;
 import java.nio.charset.Charset;
@@ -2655,10 +2656,23 @@ public class MessageHelper {
             // https://stackoverflow.com/a/43984402/1794097
             if (pubKey instanceof RSAPublicKey)
                 try {
-                    int keylen = ((RSAPublicKey) pubKey).getModulus().bitLength();
+                    BigInteger modulus = ((RSAPublicKey) pubKey).getModulus();
+                    int keylen = modulus.bitLength();
                     Log.i("DKIM RSA pubkey length=" + keylen);
-                    if (keylen < DKIM_MIN_KEY_LENGTH)
-                        throw new IllegalArgumentException("RSA pubkey length " + keylen + " < " + DKIM_MIN_KEY_LENGTH);
+                    if (keylen < DKIM_MIN_KEY_LENGTH) {
+                        EntityLog.log(context, EntityLog.Type.Debug3, "DKIM RSA pubkey length=" + keylen);
+                        throw new IllegalArgumentException("DKIM RSA pubkey length " + keylen + " < " + DKIM_MIN_KEY_LENGTH);
+                    }
+
+                    // https://github.com/badkeys/badkeys
+                    if (BuildConfig.DEBUG)
+                        for (int prime = 3; prime <= 65537; prime += 2)
+                            if (isPrime(prime) &&
+                                    modulus.remainder(BigInteger.valueOf(prime)).compareTo(BigInteger.ZERO) == 0) {
+                                EntityLog.log(context, EntityLog.Type.Debug3, "DKIM RSA pubkey with small prime=" + prime);
+                                throw new IllegalArgumentException("DKIM RSA pubkey with small prime=" + prime);
+                            }
+                    Log.i("DKIM RSA okay");
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
@@ -2695,6 +2709,13 @@ public class MessageHelper {
         }
 
         return null;
+    }
+
+    static boolean isPrime(int num) {
+        for (int i = 2; i <= num / 2; i++)
+            if ((num % i) == 0)
+                return false;
+        return true;
     }
 
     boolean isAligned(Context context, List<String> signers, Address[] return_path, Address[] smtp_from, Address[] from) {
