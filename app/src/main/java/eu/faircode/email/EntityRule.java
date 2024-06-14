@@ -1572,7 +1572,7 @@ public class EntityRule {
         }
 
         try {
-            message.preview = AI.getSummaryText(context, message);
+            message.preview = AI.getSummaryText(context, message).toString();
         } catch (Throwable ex) {
             message.error = Log.formatThrowable(ex);
             db.message().setMessageError(message.id, message.error);

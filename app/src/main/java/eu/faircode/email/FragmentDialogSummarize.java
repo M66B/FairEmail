@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,7 +88,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         tvFrom.setText(args.getString("from"));
         tvSubject.setText(args.getString("subject"));
 
-        new SimpleTask<String>() {
+        new SimpleTask<Spanned>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 tvSummary.setVisibility(View.GONE);
@@ -103,7 +104,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
             }
 
             @Override
-            protected String onExecute(Context context, Bundle args) throws Throwable {
+            protected Spanned onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
 
                 DB db = DB.getInstance(context);
@@ -112,14 +113,14 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     return null;
 
                 long start = new Date().getTime();
-                String summary = AI.getSummaryText(context, message);
+                Spanned summary = AI.getSummaryText(context, message);
                 args.putLong("elapsed", new Date().getTime() - start);
 
                 return summary;
             }
 
             @Override
-            protected void onExecuted(Bundle args, String summary) {
+            protected void onExecuted(Bundle args, Spanned summary) {
                 tvSummary.setText(summary);
                 tvSummary.setVisibility(View.VISIBLE);
                 ibCopy.setVisibility(View.VISIBLE);

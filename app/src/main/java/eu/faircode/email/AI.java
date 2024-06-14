@@ -165,7 +165,7 @@ public class AI {
             return context.getString(R.string.title_summarize);
     }
 
-    static String getSummaryText(Context context, EntityMessage message) throws JSONException, IOException {
+    static Spanned getSummaryText(Context context, EntityMessage message) throws JSONException, IOException {
         File file = message.getFile(context);
         if (!file.exists())
             return null;
@@ -183,6 +183,7 @@ public class AI {
 
         HtmlHelper.truncate(d, MAX_SUMMARIZE_TEXT_SIZE);
 
+        StringBuilder sb = new StringBuilder();
         if (OpenAI.isAvailable(context)) {
             String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
@@ -208,7 +209,6 @@ public class AI {
             OpenAI.Message[] completions =
                     OpenAI.completeChat(context, model, input.toArray(new OpenAI.Message[0]), temperature, 1);
 
-            StringBuilder sb = new StringBuilder();
             for (OpenAI.Message completion : completions)
                 for (OpenAI.Content content : completion.getContent())
                     if (OpenAI.CONTENT_TEXT.equals(content.getType())) {
@@ -216,7 +216,6 @@ public class AI {
                             sb.append('\n');
                         sb.append(content.getContent());
                     }
-            return sb.toString();
         } else if (Gemini.isAvailable(context)) {
             String model = prefs.getString("gemini_model", Gemini.DEFAULT_MODEL);
             float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
@@ -235,15 +234,17 @@ public class AI {
             Gemini.Message[] completions =
                     Gemini.generate(context, model, new Gemini.Message[]{content}, temperature, 1);
 
-            StringBuilder sb = new StringBuilder();
             for (Gemini.Message completion : completions)
                 for (String result : completion.getContent()) {
                     if (sb.length() != 0)
                         sb.append('\n');
                     sb.append(result);
                 }
-            return sb.toString();
         } else
             throw new IllegalArgumentException("No AI available");
+
+        String html = Markdown.toHtml(sb.toString());
+        Document doc = HtmlHelper.sanitizeCompose(context, html, false);
+        return HtmlHelper.fromDocument(context, doc, null, null);
     }
 }
