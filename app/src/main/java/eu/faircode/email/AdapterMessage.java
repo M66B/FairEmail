@@ -2190,7 +2190,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             db.operation().liveOperations(message.id, EntityOperation.BODY).observe(eowner, new Observer<TupleMessageOperation>() {
                 @Override
                 public void onChanged(TupleMessageOperation operation) {
-                    grpDownloading.setVisibility(operation != null &&
+                    grpDownloading.setVisibility(operation != null && !operation.content &&
                             (operation.id != null || operation.uid == null) ? View.VISIBLE : View.GONE);
                     ibDownload.setVisibility(operation != null &&
                             operation.id == null && operation.uid != null && !operation.content ? View.VISIBLE : View.GONE);
