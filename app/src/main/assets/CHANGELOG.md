@@ -18,6 +18,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### 1.2203 - 2024-06-14 *
+
+* Fixed downloading message/button
+* Updated build tools
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2202 - 2024-06-13 *
 
 * Small improvements and minor bug fixes
