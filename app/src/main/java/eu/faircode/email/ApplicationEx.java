@@ -860,18 +860,26 @@ public class ApplicationEx extends Application
                 editor.putBoolean("mod", true);
         } else if (version < 2170) {
             editor.putBoolean("mod", false);
-        } else if (version < 2180) {
+        }
+
+        if (version < 2180) {
             if (Helper.isAndroid15())
                 editor.putInt("last_sdk", 0);
-        } else if (version < 2187) {
+        }
+
+        if (version < 2187) {
             if (!prefs.contains("delete_unseen"))
                 editor.putBoolean("delete_unseen", false);
             if (Helper.isPixelBeta())
                 editor.putBoolean("motd", true);
-        } else if (version < 2191) {
+        }
+
+        if (version < 2191) {
             if ("a".equals(BuildConfig.REVISION))
                 editor.remove("show_changelog");
-        } else if (version < 2196) {
+        }
+
+        if (version < 2196) {
             if (!prefs.contains("forward_new"))
                 editor.putBoolean("forward_new", true);
         }
