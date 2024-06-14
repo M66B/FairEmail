@@ -172,13 +172,27 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             try {
                 Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
 
+                boolean changed = false;
                 ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-                mlp.leftMargin = insets.left;
-                mlp.topMargin = insets.top;
-                mlp.rightMargin = insets.right;
+                if (mlp.leftMargin != insets.left) {
+                    changed = true;
+                    mlp.leftMargin = insets.left;
+                }
+                if (mlp.topMargin != insets.top) {
+                    changed = true;
+                    mlp.topMargin = insets.top;
+                }
+                if (mlp.rightMargin != insets.right) {
+                    changed = true;
+                    mlp.rightMargin = insets.right;
+                }
                 if (!edge_to_edge)
-                    mlp.bottomMargin = insets.bottom;
-                v.setLayoutParams(mlp);
+                    if (mlp.bottomMargin != insets.bottom) {
+                        changed = true;
+                        mlp.bottomMargin = insets.bottom;
+                    }
+                if (changed)
+                    v.setLayoutParams(mlp);
 
                 if (hasWindowFocus) {
                     int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
