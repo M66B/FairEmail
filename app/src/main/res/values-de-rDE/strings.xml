@@ -1373,10 +1373,12 @@
     <string name="title_third_party">Sie verwenden eine Version eines Dritten</string>
     <string name="title_expand_warning">Durch Ausklappen dieser Nachricht werden %1$s heruntergeladen</string>
     <string name="title_download_message">Wird heruntergeladen &#8230;</string>
-    <string name="title_reformatted">        Dies ist die sichere Ansicht für umformatierte Nachrichten.
-        Sie können auf das Symbol &#x26F6; tippen, um die weniger sichere Originalnachricht anzusehen und um diesen Hinweis auszublenden.
-        Das Neuformatieren von Nachrichten nimmt einige Zeit in Anspruch und hängt von der Nachrichtengröße sowie der Geschwindigkeit Ihres Geräts ab.
-        Um QR-Code zu sehen, müssen Sie möglicherweise zur Originalansicht der Nachricht wechseln.
+    <string name="title_reformatted">        Das ist die sichere Ansicht für umformatierte Nachrichten.
+        Sie können auf das &#x26F6;-Symbol tippen, um die weniger sichere Originalnachricht anzusehen
+        und um diese Nachricht auszublenden.
+        Das Neuformatieren von Nachrichten nimmt einige Zeit in Anspruch und hängt von der Nachrichtengröße
+        sowie der Geschwindigkeit Ihres Gerätes ab.
+        Um QR-Code zu sehen, müssen Sie möglicherweise zur Originalnachricht wechseln.
     </string>
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>

@@ -1778,6 +1778,7 @@
     <string name="title_rule_tts_subject">Tárgy</string>
     <string name="title_rule_tts_content">Szöveg</string>
     <string name="title_rule_select_sound">Hang kiválasztása</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Csengőhang</string>
     <string name="title_rule_use_as_alarm">Ébresztőként használni</string>
     <string name="title_rule_alarm_hint">Figyelmen kívűl hagyja a \"ne zavarjon\" szabályokat</string>
     <string name="title_rule_alarm_duration">Maximális ébresztő időtartam (másodperc)</string>

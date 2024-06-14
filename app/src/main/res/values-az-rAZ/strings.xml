@@ -1371,6 +1371,11 @@
     <string name="title_third_party">Üçüncü tərəf bir versiya istifadə edirsiniz</string>
     <string name="title_expand_warning">Bu mesajı genişləndirsəniz, %1$s endiriləcək</string>
     <string name="title_download_message">Endirilir &#8230;</string>
+    <string name="title_reformatted">        Bu, güvənli təkrar formatlanmış mesaj görünüşüdür.
+        Daha az güvənli orijinal mesaja baxmaq və bu mesajı gizlətmək üçün &#x26F6; ikonuna toxunun.
+        Mesajların təkrar formatlanması, mesajın ölçüsünə və cihazınızın sürətinə görə bir az vaxt aparır.
+        Bəzən QR kodlara baxmaq üçün orijinal mesaja baxmaq lazımdır.
+    </string>
     <string name="title_compose">Yaz</string>
     <string name="title_submitter">Göndərən:</string>
     <string name="title_signed_by">İmzalandı:</string>
@@ -1780,6 +1785,8 @@
     <string name="title_rule_tts_subject">Mövzu</string>
     <string name="title_rule_tts_content">Mətn</string>
     <string name="title_rule_select_sound">Səsi seç</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Zəng səsi</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Səs faylı</string>
     <string name="title_rule_use_as_alarm">Alarm kimi istifadə et</string>
     <string name="title_rule_alarm_hint">Bu, \"narahat etməyin\" qaydalarına əhəmiyyət verməyəcək</string>
     <string name="title_rule_alarm_duration">Maksimum alarm müddəti (saniyə)</string>
@@ -2072,6 +2079,7 @@
     <string name="title_widget_folder_unified">Birləşmiş gələn qutusu qovluqları</string>
     <string name="title_widget_folder_notifying">Yeni mesaj bildirişləri olan qovluqlar</string>
     <string name="title_widget_unseen">Yalnız oxunmamış mesajlar</string>
+    <string name="title_widget_show_unseen">Oxunmadı olaraq göstər</string>
     <string name="title_widget_flagged">Yalnız ulduzlu mesajlar</string>
     <string name="title_widget_font_size">Mətn ölçüsü</string>
     <string name="title_widget_padding">Boşluğun ölçüsü</string>
