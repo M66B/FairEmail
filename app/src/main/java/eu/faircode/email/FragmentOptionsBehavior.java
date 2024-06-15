@@ -112,8 +112,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private Button btnDefaultFolder;
     private TextView tvDefaultFolder;
 
-    private boolean accessibility;
-
     final static int MAX_SWIPE_SENSITIVITY = 10;
     final static int DEFAULT_SWIPE_SENSITIVITY = 6;
 
@@ -198,8 +196,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swSwipeTrashAll = view.findViewById(R.id.swSwipeTrashAll);
         btnDefaultFolder = view.findViewById(R.id.btnDefaultFolder);
         tvDefaultFolder = view.findViewById(R.id.tvDefaultFolder);
-
-        accessibility = Helper.isAccessibilityEnabled(getContext());
 
         setOptions();
 

@@ -7824,7 +7824,7 @@ public class FragmentMessages extends FragmentBase
 
         if (viewType == AdapterMessage.ViewType.UNIFIED ||
                 viewType == AdapterMessage.ViewType.FOLDER)
-            if (auto_hide_answer && scrolling && !accessibility)
+            if (auto_hide_answer && scrolling)
                 fabCompose.hide();
             else
                 fabCompose.show();
@@ -7835,7 +7835,7 @@ public class FragmentMessages extends FragmentBase
             return;
 
         int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
-        if (auto_hide_answer && scrolling && !accessibility)
+        if (auto_hide_answer && scrolling)
             fabReply.hide();
         else {
             if (expanded == 1) {
