@@ -819,7 +819,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         if (criteria.touched != null) {
-            if (message.last_attempt == null || message.last_attempt < new Date().getTime() - criteria.touched * 3600 * 1000L)
+            if (message.last_touched == null || message.last_touched < new Date().getTime() - criteria.touched * 3600 * 1000L)
                 return false;
         }
 
