@@ -18,6 +18,13 @@ For support you can use the contact form.
 
 Acantholipan
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
 1.2204 - 2024-06-14 *
 
 * Fixed downloading message for POP3 accounts
