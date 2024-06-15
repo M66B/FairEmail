@@ -442,33 +442,43 @@ public class ConnectionHelper {
     }
 
     static Boolean isPrivateDnsActive(Context context) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                return null;
+            ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
+            if (cm == null)
+                return null;
+            Network active = cm.getActiveNetwork();
+            if (active == null)
+                return null;
+            LinkProperties props = cm.getLinkProperties(active);
+            if (props == null)
+                return null;
+            return props.isPrivateDnsActive();
+        } catch (Throwable ex) {
+            Log.e(ex);
             return null;
-        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
-        if (cm == null)
-            return null;
-        Network active = cm.getActiveNetwork();
-        if (active == null)
-            return null;
-        LinkProperties props = cm.getLinkProperties(active);
-        if (props == null)
-            return null;
-        return props.isPrivateDnsActive();
+        }
     }
 
     static String getPrivateDnsServerName(Context context) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+                return null;
+            ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
+            if (cm == null)
+                return null;
+            Network active = cm.getActiveNetwork();
+            if (active == null)
+                return null;
+            LinkProperties props = cm.getLinkProperties(active);
+            if (props == null)
+                return null;
+            return props.getPrivateDnsServerName();
+        } catch (Throwable ex) {
+            Log.e(ex);
             return null;
-        ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
-        if (cm == null)
-            return null;
-        Network active = cm.getActiveNetwork();
-        if (active == null)
-            return null;
-        LinkProperties props = cm.getLinkProperties(active);
-        if (props == null)
-            return null;
-        return props.getPrivateDnsServerName();
+        }
     }
 
     static boolean isIoError(Throwable ex) {
