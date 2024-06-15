@@ -205,8 +205,14 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             setOnScrollChangeListener(new View.OnScrollChangeListener() {
                 @Override
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                    Log.i("Scroll (x,y)=" + scrollX + "," + scrollY);
-                    intf.onScrollChange(scrollX - oldScrollX, scrollY - oldScrollY, scrollX, scrollY);
+                    int yrange = computeVerticalScrollRange();
+                    int yextend = computeVerticalScrollExtent();
+                    int yoff = computeVerticalScrollOffset();
+                    boolean canScrollVertical = (yrange > yextend && yoff < yrange - yextend);
+                    Log.i("Scroll (x,y)=" + scrollX + "," + scrollY +
+                            " yrange=" + yrange + " yextend=" + yextend + " yoff=" + yoff +
+                            " can=" + canScrollVertical);
+                    intf.onScrollChange(scrollX - oldScrollX, canScrollVertical ? scrollY - oldScrollY : -1, scrollX, scrollY);
                 }
             });
     }
