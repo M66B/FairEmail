@@ -18,4 +18,7 @@
     <item
         android:drawable="@drawable/twotone_gpp_good_24"
         android:maxLevel="5" />
+    <item
+        android:drawable="@drawable/twotone_verified_24"
+        android:maxLevel="6" />
 </level-list>

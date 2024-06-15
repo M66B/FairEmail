@@ -2350,6 +2350,21 @@
                     app:drawableTint="?attr/colorVerified"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvAuthSome" />
+
+                <TextView
+                    android:id="@+id/tvAuthTls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:drawableStart="@drawable/twotone_verified_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_advanced_authentication_tls"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:drawableTint="?attr/colorVerified"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAuthAll" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

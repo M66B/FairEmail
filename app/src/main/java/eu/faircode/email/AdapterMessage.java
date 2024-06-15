@@ -1418,8 +1418,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 if (Boolean.TRUE.equals(message.auth))
                     auths = 3;
-
-                boolean verified = (auths == 3 && (!check_tls || Boolean.TRUE.equals(message.tls)));
+                if (check_tls && Boolean.TRUE.equals(message.tls))
+                    auths++;
 
                 if (!Boolean.TRUE.equals(message.auth) &&
                         message.dkim == null && message.spf == null && message.dmarc == null)
@@ -1427,7 +1427,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 else
                     ibAuth.setImageLevel(auths + 2);
                 ibAuth.setImageTintList(ColorStateList.valueOf(
-                        verified ? colorVerified : colorControlNormal));
+                        auths >= 3 ? colorVerified : colorControlNormal));
                 ibAuth.setVisibility(auths > 0 || (check_tls && !outgoing) ? View.VISIBLE : View.GONE);
             } else
                 ibAuth.setVisibility(View.GONE);

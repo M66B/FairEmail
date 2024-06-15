@@ -691,6 +691,7 @@
     <string name="title_advanced_authentication_none">No authentication</string>
     <string name="title_advanced_authentication_some">Partial authentication</string>
     <string name="title_advanced_authentication_all">Complete authentication</string>
+    <string name="title_advanced_authentication_tls" translatable="false">+TLS</string>
 
     <string name="title_advanced_restore_on_launch">Restore app state on start</string>
     <string name="title_advanced_sync_on_launch">Synchronize on start</string>
