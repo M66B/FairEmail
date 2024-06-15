@@ -1777,6 +1777,8 @@
     <string name="title_rule_tts_subject">Тема</string>
     <string name="title_rule_tts_content">Текст</string>
     <string name="title_rule_select_sound">Изберете звук</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Тон на звънене</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Звуков файл</string>
     <string name="title_rule_use_as_alarm">Употреба като будило</string>
     <string name="title_rule_alarm_hint">Това ще пренебрегне правилата \"не ме притеснявайте\"</string>
     <string name="title_rule_alarm_duration">Най-дълго времетраене на будилника (секунди)</string>
@@ -2069,6 +2071,7 @@
     <string name="title_widget_folder_unified">Обединени входящи папки</string>
     <string name="title_widget_folder_notifying">Папки с известия за ново съобщение</string>
     <string name="title_widget_unseen">Непрочетени съобщения</string>
+    <string name="title_widget_show_unseen">Показване като непрочетено</string>
     <string name="title_widget_flagged">Само съобщения със звезда</string>
     <string name="title_widget_font_size">Големина на текста</string>
     <string name="title_widget_padding">Размер на отстъпа</string>

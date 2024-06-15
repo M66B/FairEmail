@@ -384,6 +384,7 @@
     <string name="title_advanced_send_nav_color">下部のボタンアクションバーをユーザー ID の色にする</string>
     <string name="title_advanced_send_reminders">リマインダーを表示する</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させる</string>
+    <string name="title_advanced_send_top">送信ボタンを上部に表示する</string>
     <string name="title_advanced_attach_new">URI やファイルをアプリに共有したとき、新しい下書きを作成する</string>
     <string name="title_advanced_answer_caption">返信ボタン設定</string>
     <string name="title_advanced_answer_default">返信ボタンを短く押したときのアクション:</string>
@@ -1210,6 +1211,7 @@
     <string name="title_create_rule">ルールを作成&#8230;</string>
     <string name="title_full_screen">全画面表示</string>
     <string name="title_force_light">ライトテーマを強制</string>
+    <string name="title_rename">名前を変更</string>
     <string name="title_share">共有</string>
     <string name="title_event">カレンダーに追加</string>
     <string name="title_pin">ショートカットを追加</string>
@@ -1355,6 +1357,11 @@
     <string name="title_third_party">サードパーティー版を使用しています</string>
     <string name="title_expand_warning">このメッセージを展開すると、%1$s がダウンロードされます</string>
     <string name="title_download_message">ダウンロードしています&#8230;</string>
+    <string name="title_reformatted">        これは、安全のために再フォーマットされたメッセージ表示です。
+        &#x26F6; アイコンをタップすると、安全性の低い元のメッセージを表示でき、このメッセージは非表示になります。
+        メッセージの再フォーマットには、メッセージのサイズや端末の処理速度に応じて時間がかかります。
+        QR コードを表示するときなど、元のメッセージを表示する必要がある場合もあります。
+    </string>
     <string name="title_compose">作成</string>
     <string name="title_submitter">送信元:</string>
     <string name="title_signed_by">署名者:</string>
@@ -1506,6 +1513,9 @@
     <string name="title_dsn_reminder">ハードバウンスは、送信元のメールアドレスの評判を損ないます！</string>
     <string name="title_size_reminder">メッセージの大きさ (%1$s) がサーバーの制限 (%2$s) を超えています</string>
     <string name="title_attachments_missing">一部の添付ファイルがダウンロードされませんでした</string>
+    <string name="title_download_attachments">添付ファイルをダウンロード</string>
+    <string name="title_attachments_download">ダウンロード済みの添付ファイル: %1$s</string>
+    <string name="title_attachments_no_download">この確認は表示されなくなり、添付ファイルは自動ではダウンロードされません</string>
     <string name="title_dialog_hint">このダイアログは上部アクションバーの 3 点メニューからもう一度有効にできます</string>
     <string name="title_draft_deleted">下書きを破棄しました</string>
     <string name="title_draft_saved">下書きを保存しました</string>
@@ -1761,6 +1771,8 @@
     <string name="title_rule_tts_subject">件名</string>
     <string name="title_rule_tts_content">本文</string>
     <string name="title_rule_select_sound">音声を選択</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">通知音</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">音声ファイル</string>
     <string name="title_rule_use_as_alarm">アラームに設定</string>
     <string name="title_rule_alarm_hint">サイレントモードを無視します</string>
     <string name="title_rule_alarm_duration">自動消音時間 (秒)</string>
@@ -1901,6 +1913,7 @@
     <string name="title_hint_dismiss">このダイアログボックスを閉じて通知を削除できます。</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてごみ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>
+    <string name="title_hint_outbox">左右どちらかにスワイプすると、送信をキャンセルします</string>
     <string name="title_hint_message_selection">メッセージを長押しして、複数のメッセージを選択します。そのまま上または下にスワイプすると、まとめてメッセージを選択できます</string>
     <string name="title_hint_message_junk">        メールクライアントは、基本的にメールサーバーにあるメッセージをそのまま表示しています。
         メールクライアントではなく、メールサーバーが迷惑メールをフィルターする責任を負っています。
@@ -2052,6 +2065,7 @@
     <string name="title_widget_folder_unified">統合受信トレイフォルダー</string>
     <string name="title_widget_folder_notifying">新着メッセージ通知のあるフォルダー</string>
     <string name="title_widget_unseen">未読メッセージのみ</string>
+    <string name="title_widget_show_unseen">未読として表示</string>
     <string name="title_widget_flagged">スター付きメッセージのみ</string>
     <string name="title_widget_font_size">テキストサイズ</string>
     <string name="title_widget_padding">余白サイズ</string>
