@@ -3181,6 +3181,8 @@ public class MessageHelper {
             String by = kv.get("by").toString();
             if (by.matches(".*\\.google\\.com"))
                 return true;
+            if (by.startsWith("filterdrecv-"))
+                return true;
             if (isLocal(by)) {
                 Log.i("--- local by=" + by);
                 return true;
