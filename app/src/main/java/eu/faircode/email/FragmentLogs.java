@@ -204,7 +204,7 @@ public class FragmentLogs extends FragmentBase {
 
         int len = EntityLog.Type.values().length;
         if (!BuildConfig.DEBUG)
-            len -= 3;
+            len -= 5;
 
         SpannableStringBuilder[] titles = new SpannableStringBuilder[len];
         boolean[] states = new boolean[len];

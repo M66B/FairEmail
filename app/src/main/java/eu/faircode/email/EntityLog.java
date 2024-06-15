@@ -65,7 +65,7 @@ public class EntityLog {
     @NonNull
     public String data;
 
-    public enum Type {General, Statistics, Scheduling, Network, Account, Protocol, Classification, Notification, Rules, Cloud, Debug1, Debug2, Debug3}
+    public enum Type {General, Statistics, Scheduling, Network, Account, Protocol, Classification, Notification, Rules, Cloud, Debug1, Debug2, Debug3, Debug4, Debug5}
 
     public static void log(final Context context, String data) {
         log(context, Type.General, data);
@@ -109,7 +109,7 @@ public class EntityLog {
 
         if (context == null)
             return;
-        if ((type == Type.Debug1 || type == Type.Debug2 || type == Type.Debug3) &&
+        if ((type == Type.Debug1 || type == Type.Debug2 || type == Type.Debug3 || type == Type.Debug4 || type == Type.Debug5) &&
                 !(BuildConfig.DEBUG || Log.isTestRelease()))
             return;
 
@@ -239,6 +239,10 @@ public class EntityLog {
                 return ContextCompat.getColor(context, R.color.solarizedGreen);
             case Debug3:
                 return ContextCompat.getColor(context, R.color.solarizedBlue);
+            case Debug4:
+                return ContextCompat.getColor(context, R.color.solarizedOrange);
+            case Debug5:
+                return ContextCompat.getColor(context, R.color.solarizedYellow);
             default:
                 return null;
         }

@@ -2660,7 +2660,7 @@ public class MessageHelper {
                     int keylen = modulus.bitLength();
                     Log.i("DKIM RSA pubkey length=" + keylen);
                     if (keylen < DKIM_MIN_KEY_LENGTH) {
-                        EntityLog.log(context, EntityLog.Type.Debug3, "DKIM RSA pubkey length=" + keylen);
+                        EntityLog.log(context, EntityLog.Type.Debug5, "DKIM RSA pubkey length=" + keylen);
                         throw new IllegalArgumentException("DKIM RSA pubkey length " + keylen + " < " + DKIM_MIN_KEY_LENGTH);
                     }
 
@@ -2669,7 +2669,7 @@ public class MessageHelper {
                         for (int prime = 3; prime <= 65537; prime += 2)
                             if (isPrime(prime) &&
                                     modulus.remainder(BigInteger.valueOf(prime)).compareTo(BigInteger.ZERO) == 0) {
-                                EntityLog.log(context, EntityLog.Type.Debug3, "DKIM RSA pubkey with small prime=" + prime);
+                                EntityLog.log(context, EntityLog.Type.Debug5, "DKIM RSA pubkey with small prime=" + prime);
                                 throw new IllegalArgumentException("DKIM RSA pubkey with small prime=" + prime);
                             }
                     Log.i("DKIM RSA okay");
