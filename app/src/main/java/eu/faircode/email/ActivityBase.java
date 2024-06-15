@@ -158,8 +158,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 try {
                     view.setTranslationY(abh + offset);
                     ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-                    mlp.bottomMargin = abh + offset;
-                    view.setLayoutParams(mlp);
+                    if (mlp.bottomMargin != abh + offset) {
+                        mlp.bottomMargin = abh + offset;
+                        view.setLayoutParams(mlp);
+                    }
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
