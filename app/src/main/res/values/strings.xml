@@ -985,6 +985,7 @@
     <string name="title_advanced_mdn" translatable="false">Process MDNs</string>
     <string name="title_advanced_app_chooser" translatable="false">Use Android app chooser for links</string>
     <string name="title_advanced_app_chooser_share" translatable="false">Use Android app chooser for files</string>
+    <string name="title_advanced_share_task" translatable="false">View files in a separate task</string>
     <string name="title_advanced_adjacent" translatable="false">Open side-by-side</string>
     <string name="title_advanced_adjacent_links" translatable="false">Links</string>
     <string name="title_advanced_adjacent_documents" translatable="false">Documents</string>

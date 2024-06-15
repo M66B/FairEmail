@@ -233,6 +233,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swMdn;
     private SwitchCompat swAppChooser;
     private SwitchCompat swAppChooserShare;
+    private SwitchCompat swShareTask;
     private SwitchCompat swAdjacentLinks;
     private SwitchCompat swAdjacentDocuments;
     private SwitchCompat swAdjacentPortrait;
@@ -301,7 +302,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "native_dkim", "native_arc", "native_arc_whitelist", "strict_alignment",
             "webp", "animate_images",
             "easy_correct", "paste_plain", "infra", "tld_flags", "json_ld", "dup_msgids", "thread_byref", "save_user_flags", "mdn",
-            "app_chooser", "app_chooser_share", "adjacent_links", "adjacent_documents", "adjacent_portrait", "adjacent_landscape",
+            "app_chooser", "app_chooser_share", "share_task",
+            "adjacent_links", "adjacent_documents", "adjacent_portrait", "adjacent_landscape",
             "delete_confirmation", "delete_notification", "global_keywords", "test_iab"
     ));
 
@@ -486,6 +488,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swMdn = view.findViewById(R.id.swMdn);
         swAppChooser = view.findViewById(R.id.swAppChooser);
         swAppChooserShare = view.findViewById(R.id.swAppChooserShare);
+        swShareTask = view.findViewById(R.id.swShareTask);
         swAdjacentLinks = view.findViewById(R.id.swAdjacentLinks);
         swAdjacentDocuments = view.findViewById(R.id.swAdjacentDocuments);
         swAdjacentPortrait = view.findViewById(R.id.swAdjacentPortrait);
@@ -1676,6 +1679,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swShareTask.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("share_task", checked).apply();
+            }
+        });
+
         swAdjacentLinks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2467,6 +2477,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swMdn.setChecked(prefs.getBoolean("mdn", swExperiments.isChecked()));
             swAppChooser.setChecked(prefs.getBoolean("app_chooser", false));
             swAppChooserShare.setChecked(prefs.getBoolean("app_chooser_share", false));
+            swShareTask.setChecked(prefs.getBoolean("share_task", false));
             swAdjacentLinks.setChecked(prefs.getBoolean("adjacent_links", false));
             swAdjacentDocuments.setChecked(prefs.getBoolean("adjacent_documents", true));
             swAdjacentPortrait.setChecked(prefs.getBoolean("adjacent_portrait", false));

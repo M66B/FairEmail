@@ -1015,6 +1015,11 @@ public class Helper {
         intent.setDataAndTypeAndNormalize(uri, type);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean share_task = prefs.getBoolean("share_task", false);
+        if (share_task)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
         if (launchAdjacent(context, true))
             intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK);
 
