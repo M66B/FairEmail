@@ -3648,6 +3648,7 @@ public class FragmentMessages extends FragmentBase
                                 db.message().setMessageFound(id, false);
                                 // Prevent new message notification on undo
                                 db.message().setMessageUiIgnored(id, true);
+                                db.message().setMessageLastAttempt(id, now);
 
                                 db.setTransactionSuccessful();
                             } finally {
@@ -3800,6 +3801,7 @@ public class FragmentMessages extends FragmentBase
 
                 message.ui_busy = null;
                 db.message().setMessageUiBusy(message.id, message.ui_busy);
+                db.message().setMessageLastAttempt(id, null);
                 EntityOperation.queue(context, message, EntityOperation.DELETE);
 
                 db.setTransactionSuccessful();
@@ -3825,6 +3827,7 @@ public class FragmentMessages extends FragmentBase
 
                 db.message().setMessageUiHide(id, false);
                 db.message().setMessageUiBusy(id, null);
+                db.message().setMessageLastAttempt(id, null);
 
                 db.setTransactionSuccessful();
             } finally {
@@ -8304,7 +8307,7 @@ public class FragmentMessages extends FragmentBase
 
                     Log.i("Move id=" + target.id + " target=" + target.targetFolder.name);
                     db.message().setMessageUiBusy(target.id, null);
-                    db.message().setMessageLastAttempt(target.id, new Date().getTime());
+                    db.message().setMessageLastAttempt(target.id, null);
                     EntityOperation.queue(context, message, EntityOperation.MOVE, target.targetFolder.id);
                 }
 
@@ -8338,7 +8341,7 @@ public class FragmentMessages extends FragmentBase
                     db.message().setMessageUiBusy(target.id, null);
                     db.message().setMessageUiHide(target.id, false);
                     db.message().setMessageFound(target.id, target.found);
-                    db.message().setMessageLastAttempt(target.id, new Date().getTime());
+                    db.message().setMessageLastAttempt(target.id, null);
                 }
 
                 db.setTransactionSuccessful();
