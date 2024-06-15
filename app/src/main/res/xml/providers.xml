@@ -2292,4 +2292,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="prxy.com"
+        link="https://my.prxy.com/knowledgebase/52/Summary-of-Email-Settings.html"
+        mx=".*\\.mxof\\.com">
+        <imap
+            host="secure.prxy.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="secure.prxy.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
