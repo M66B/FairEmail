@@ -31,6 +31,7 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Patterns;
 
@@ -1572,7 +1573,8 @@ public class EntityRule {
         }
 
         try {
-            message.preview = AI.getSummaryText(context, message).toString();
+            Spanned summary = AI.getSummaryText(context, message);
+            message.preview = (summary == null ? null : summary.toString());
         } catch (Throwable ex) {
             message.error = Log.formatThrowable(ex);
             db.message().setMessageError(message.id, message.error);
