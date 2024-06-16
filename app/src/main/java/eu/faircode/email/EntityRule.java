@@ -1159,10 +1159,12 @@ public class EntityRule {
         reply.id = db.message().insertMessage(reply);
 
         String body;
+        EntityAnswer.Data answerData = null;
         if (resend)
             body = Helper.readText(message.getFile(context));
         else {
-            body = answer.getHtml(context, message.from);
+            answerData = answer.getData(context, message.from);
+            body = answerData.getHtml();
 
             if (original_text) {
                 Document msg = JsoupEx.parse(body);
@@ -1218,6 +1220,9 @@ public class EntityRule {
             Helper.copy(source, target);
             db.attachment().setDownloaded(attachment.id, target.length());
         }
+
+        if (answerData != null)
+            answerData.insertAttachments(context, reply.id);
 
         EntityOperation.queue(context, reply, EntityOperation.SEND);
 

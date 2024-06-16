@@ -121,7 +121,6 @@ import androidx.core.graphics.ColorUtils;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
-import androidx.documentfile.provider.DocumentFile;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -221,7 +220,6 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
-import javax.mail.internet.ParseException;
 import javax.mail.util.ByteArrayDataSource;
 
 import biweekly.ICalendar;
@@ -2498,17 +2496,19 @@ public class FragmentCompose extends FragmentBase {
                         long id = intent.getLongExtra("id", -1);
 
                         Bundle args = new Bundle();
-                        args.putLong("id", id);
+                        args.putLong("id", working);
+                        args.putLong("aid", id);
                         args.putString("to", etTo.getText().toString());
 
                         new SimpleTask<EntityAnswer>() {
                             @Override
-                            protected EntityAnswer onExecute(Context context, Bundle args) throws Throwable {
+                            protected EntityAnswer onExecute(Context context, Bundle args) {
                                 long id = args.getLong("id");
+                                long aid = args.getLong("aid");
                                 String to = args.getString("to");
 
                                 DB db = DB.getInstance(context);
-                                EntityAnswer answer = db.answer().getAnswer(id);
+                                EntityAnswer answer = db.answer().getAnswer(aid);
                                 if (answer != null) {
                                     InternetAddress[] tos = null;
                                     try {
@@ -2516,7 +2516,8 @@ public class FragmentCompose extends FragmentBase {
                                     } catch (AddressException ignored) {
                                     }
 
-                                    String html = answer.getHtml(context, tos);
+                                    EntityAnswer.Data answerData = answer.getData(context, tos);
+                                    String html = answerData.getHtml();
 
                                     Document d = HtmlHelper.sanitizeCompose(context, html, true);
                                     Spanned spanned = HtmlHelper.fromDocument(context, d, new HtmlHelper.ImageGetterEx() {
@@ -2530,6 +2531,8 @@ public class FragmentCompose extends FragmentBase {
                                         }
                                     }, null);
                                     args.putCharSequence("spanned", spanned);
+
+                                    answerData.insertAttachments(context, id);
 
                                     db.answer().applyAnswer(answer.id, new Date().getTime());
                                 }
@@ -3863,7 +3866,7 @@ public class FragmentCompose extends FragmentBase {
                 ArrayList<Uri> images = new ArrayList<>();
                 for (Uri uri : uris)
                     try {
-                        UriInfo info = getInfo(uri, context);
+                        Helper.UriInfo info = Helper.getInfo(uri, context);
                         if (info.isImage())
                             images.add(uri);
                         else
@@ -5151,7 +5154,7 @@ public class FragmentCompose extends FragmentBase {
         NoStreamException.check(uri, context);
 
         EntityAttachment attachment = new EntityAttachment();
-        UriInfo info = getInfo(uri, context);
+        Helper.UriInfo info = Helper.getInfo(uri, context);
 
         EntityLog.log(context, "Add attachment" +
                 " uri=" + uri + " type=" + type + " image=" + image + " resize=" + resize + " privacy=" + privacy +
@@ -5669,6 +5672,7 @@ public class FragmentCompose extends FragmentBase {
 
                     Document document = Document.createShell("");
 
+                    EntityAnswer.Data answerData = null;
                     if (ref == null) {
                         data.draft.thread = data.draft.msgid;
 
@@ -5710,7 +5714,8 @@ public class FragmentCompose extends FragmentBase {
                             if (answer > 0)
                                 data.draft.subject = a.name;
                             if (TextUtils.isEmpty(external_body)) {
-                                Document d = JsoupEx.parse(a.getHtml(context, null));
+                                answerData = a.getData(context, null);
+                                Document d = JsoupEx.parse(answerData.getHtml());
                                 document.body().append(d.body().html());
                             }
                         }
@@ -5930,7 +5935,7 @@ public class FragmentCompose extends FragmentBase {
                                 else {
                                     db.answer().applyAnswer(receipt.id, new Date().getTime());
                                     texts = new String[0];
-                                    Document d = JsoupEx.parse(receipt.getHtml(context, null));
+                                    Document d = JsoupEx.parse(receipt.getData(context, null).getHtml());
                                     document.body().append(d.body().html());
                                 }
                             }
@@ -5988,7 +5993,8 @@ public class FragmentCompose extends FragmentBase {
                             db.answer().applyAnswer(a.id, new Date().getTime());
                             if (a.label != null && ref != null)
                                 EntityOperation.queue(context, ref, EntityOperation.LABEL, a.label, true);
-                            Document d = JsoupEx.parse(a.getHtml(context, data.draft.to));
+                            answerData = a.getData(context, data.draft.to);
+                            Document d = JsoupEx.parse(answerData.getHtml());
                             document.body().append(d.body().html());
                         }
 
@@ -6196,7 +6202,7 @@ public class FragmentCompose extends FragmentBase {
                         ArrayList<Uri> images = new ArrayList<>();
                         for (Uri uri : uris)
                             try {
-                                UriInfo info = getInfo(uri, context);
+                                Helper.UriInfo info = Helper.getInfo(uri, context);
                                 if (info.isImage())
                                     images.add(uri);
                                 else
@@ -6254,6 +6260,9 @@ public class FragmentCompose extends FragmentBase {
                                     args.putBoolean("incomplete", true);
                             }
                     }
+
+                    if (answerData != null)
+                        answerData.insertAttachments(context, data.draft.id);
 
                     if (save_drafts &&
                             (data.draft.ui_encrypt == null ||
@@ -8312,67 +8321,6 @@ public class FragmentCompose extends FragmentBase {
                 onExit();
         }
     };
-
-    @NonNull
-    private static UriInfo getInfo(Uri uri, Context context) {
-        UriInfo result = new UriInfo();
-
-        // https://stackoverflow.com/questions/76094229/android-13-photo-video-picker-file-name-from-the-uri-is-garbage
-        DocumentFile dfile = null;
-        try {
-            dfile = DocumentFile.fromSingleUri(context, uri);
-            if (dfile != null) {
-                result.name = dfile.getName();
-                result.type = dfile.getType();
-                result.size = dfile.length();
-                EntityLog.log(context, "UriInfo dfile " + result + " uri=" + uri);
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-
-        // Check name
-        if (TextUtils.isEmpty(result.name))
-            result.name = uri.getLastPathSegment();
-
-        // Check type
-        if (!TextUtils.isEmpty(result.type))
-            try {
-                new ContentType(result.type);
-            } catch (ParseException ex) {
-                Log.w(new Throwable(result.type, ex));
-                result.type = null;
-            }
-
-        if (TextUtils.isEmpty(result.type) ||
-                "*/*".equals(result.type) ||
-                "application/*".equals(result.type) ||
-                "application/octet-stream".equals(result.type))
-            result.type = Helper.guessMimeType(result.name);
-
-        if (result.size != null && result.size <= 0)
-            result.size = null;
-
-        EntityLog.log(context, "UriInfo result " + result + " uri=" + uri);
-
-        return result;
-    }
-
-    private static class UriInfo {
-        String name;
-        String type;
-        Long size;
-
-        boolean isImage() {
-            return ImageHelper.isImage(type);
-        }
-
-        @NonNull
-        @Override
-        public String toString() {
-            return "name=" + name + " type=" + type + " size=" + size;
-        }
-    }
 
     private static class DraftData {
         private EntityMessage draft;

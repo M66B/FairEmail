@@ -6,6 +6,11 @@
         android:title="@string/title_edit_signature_image" />
 
     <item
+        android:id="@+id/action_attach_file"
+        android:icon="@drawable/twotone_attachment_24"
+        android:title="@string/title_add_attachment" />
+
+    <item
         android:id="@+id/action_insert_link"
         android:icon="@drawable/twotone_insert_link_45_24"
         android:title="@string/title_style_link" />

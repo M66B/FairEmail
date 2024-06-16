@@ -90,8 +90,9 @@ public class FragmentAnswer extends FragmentBase {
 
     private static final int REQUEST_COLOR = 1;
     private static final int REQUEST_IMAGE = 2;
-    private static final int REQUEST_LINK = 3;
-    private final static int REQUEST_DELETE = 4;
+    private static final int REQUEST_FILE = 3;
+    private static final int REQUEST_LINK = 4;
+    private final static int REQUEST_DELETE = 5;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -184,6 +185,9 @@ public class FragmentAnswer extends FragmentBase {
                 int itemId = menuItem.getItemId();
                 if (itemId == R.id.action_insert_image) {
                     onInsertImage();
+                    return true;
+                } else if (itemId == R.id.action_attach_file) {
+                    onAttachFile();
                     return true;
                 } else if (itemId == R.id.action_insert_link) {
                     onInsertLink();
@@ -413,6 +417,16 @@ public class FragmentAnswer extends FragmentBase {
         startActivityForResult(intent, REQUEST_IMAGE);
     }
 
+    private void onAttachFile() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setType("*/*");
+        Helper.openAdvanced(getContext(), intent);
+        startActivityForResult(intent, REQUEST_FILE);
+    }
+
     private void onInsertLink() {
         FragmentDialogInsertLink fragment = new FragmentDialogInsertLink();
         fragment.setArguments(FragmentDialogInsertLink.getArguments(etText));
@@ -567,6 +581,10 @@ public class FragmentAnswer extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null)
                         onImageSelected(data.getData());
                     break;
+                case REQUEST_FILE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onFileSelected(data.getData());
+                    break;
                 case REQUEST_LINK:
                     if (resultCode == RESULT_OK && data != null)
                         onLinkSelected(data.getBundleExtra("args"));
@@ -598,6 +616,26 @@ public class FragmentAnswer extends FragmentBase {
             ssb.setSpan(is, start + 1, start + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             etText.setText(ssb);
             etText.setSelection(start + 3);
+        } catch (NoStreamException ex) {
+            ex.report(getActivity());
+        } catch (Throwable ex) {
+            Log.unexpectedError(getParentFragmentManager(), ex);
+        }
+    }
+
+    private void onFileSelected(Uri uri) {
+        try {
+            NoStreamException.check(uri, getContext());
+
+            getContext().getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            if (!Helper.isPersisted(getContext(), uri, true, false))
+                throw new IllegalStateException("No permission granted to access selected file " + uri);
+
+            Editable edit = etText.getText();
+            if (edit.length() > 0 && edit.charAt(edit.length() - 1) != '\n')
+                edit.append("\n");
+            edit.append(EntityAnswer.ATTACHMENT_PREFIX + uri + EntityAnswer.ATTACHMENT_SUFFIX + "\n");
+            etText.setSelection(edit.length());
         } catch (NoStreamException ex) {
             ex.report(getActivity());
         } catch (Throwable ex) {

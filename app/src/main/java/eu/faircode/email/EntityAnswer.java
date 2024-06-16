@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -45,6 +46,10 @@ import androidx.room.PrimaryKey;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.jsoup.nodes.TextNode;
 
 import java.io.Serializable;
 import java.text.Collator;
@@ -63,6 +68,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 import javax.mail.Address;
+import javax.mail.Part;
 import javax.mail.internet.InternetAddress;
 
 // https://developer.android.com/training/data-storage/room/defining-data
@@ -107,9 +113,33 @@ public class EntityAnswer implements Serializable {
     public Integer applied = 0;
     public Long last_applied;
 
+    static final String ATTACHMENT_PREFIX = "[attachment:";
+    static final String ATTACHMENT_SUFFIX = "]";
     private static final String PREF_PLACEHOLDER = "answer.value.";
 
-    String getHtml(Context context, Address[] address) {
+    @NonNull
+    Data getData(Context context, Address[] address) {
+        Data result = new Data();
+
+        Document doc = JsoupEx.parse(text);
+        for (Element span : doc.select("span")) {
+            Node node = span.firstChild();
+            if (node instanceof TextNode) {
+                String text = ((TextNode) node).getWholeText().trim();
+                if (text.startsWith(ATTACHMENT_PREFIX) && text.endsWith(ATTACHMENT_SUFFIX)) {
+                    String name = text.substring(ATTACHMENT_PREFIX.length(), text.length() - 1);
+                    result.attachments.add(Uri.parse(name));
+
+                    Element next = span.nextElementSibling();
+                    span.remove();
+                    if (next != null && "br".equals(next.nodeName()))
+                        next.remove();
+                }
+            }
+        }
+
+        result.html = doc.html();
+
         String fullName = null;
         String email = null;
         if (address != null && address.length > 0) {
@@ -179,19 +209,19 @@ public class EntityAnswer implements Serializable {
         first = Helper.trim(first, ".");
         last = Helper.trim(last, ".");
 
-        text = text.replace("$name$", fullName == null ? "" : Html.escapeHtml(fullName));
-        text = text.replace("$firstname$", first == null ? "" : Html.escapeHtml(first));
-        text = text.replace("$lastname$", last == null ? "" : Html.escapeHtml(last));
-        text = text.replace("$email$", email == null ? "" : Html.escapeHtml(email));
+        result.html = result.html.replace("$name$", fullName == null ? "" : Html.escapeHtml(fullName));
+        result.html = result.html.replace("$firstname$", first == null ? "" : Html.escapeHtml(first));
+        result.html = result.html.replace("$lastname$", last == null ? "" : Html.escapeHtml(last));
+        result.html = result.html.replace("$email$", email == null ? "" : Html.escapeHtml(email));
 
-        int s = text.indexOf("$date");
+        int s = result.html.indexOf("$date");
         while (s >= 0) {
-            int e = text.indexOf('$', s + 5);
+            int e = result.html.indexOf('$', s + 5);
             if (e < 0)
                 break;
 
             Calendar c = null;
-            String v = text.substring(s + 5, e);
+            String v = result.html.substring(s + 5, e);
             if (v.startsWith("-") || v.startsWith("+")) {
                 Integer days = Helper.parseInt(v.substring(1));
                 if (days != null && days >= 0 && days < 10 * 365) {
@@ -202,15 +232,15 @@ public class EntityAnswer implements Serializable {
                 c = Calendar.getInstance();
 
             if (c == null)
-                s = text.indexOf("$date", e + 1);
+                s = result.html.indexOf("$date", e + 1);
             else {
                 v = Html.escapeHtml(SimpleDateFormat.getDateInstance(SimpleDateFormat.LONG).format(c.getTime()));
-                text = text.substring(0, s) + v + text.substring(e + 1);
-                s = text.indexOf("$date", s + v.length());
+                result.html = result.html.substring(0, s) + v + result.html.substring(e + 1);
+                s = result.html.indexOf("$date", s + v.length());
             }
         }
 
-        text = text.replace("$weekday$", new SimpleDateFormat("EEEE").format(new Date()));
+        result.html = result.html.replace("$weekday$", new SimpleDateFormat("EEEE").format(new Date()));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         for (String key : prefs.getAll().keySet())
@@ -222,13 +252,13 @@ public class EntityAnswer implements Serializable {
                 for (int i = 0; i < lines.length; i++)
                     lines[i] = Html.escapeHtml(lines[i]);
 
-                text = text.replace("$" + name + "$", TextUtils.join("<br>", lines));
+                result.html = result.html.replace("$" + name + "$", TextUtils.join("<br>", lines));
             }
 
         if (BuildConfig.DEBUG)
-            text = text.replace("$version$", BuildConfig.VERSION_NAME);
+            result.html = result.html.replace("$version$", BuildConfig.VERSION_NAME);
 
-        return text;
+        return result;
     }
 
     static void setCustomPlaceholder(Context context, String name, String value) {
@@ -535,5 +565,38 @@ public class EntityAnswer implements Serializable {
     @Override
     public String toString() {
         return name + (favorite ? " ★" : "");
+    }
+
+    public class Data {
+        private String html;
+        private List<Uri> attachments = new ArrayList<>();
+
+        public String getHtml() {
+            return this.html;
+        }
+
+        public void insertAttachments(Context context, long id) {
+            DB db = DB.getInstance(context);
+            for (Uri file : attachments)
+                try {
+                    EntityAttachment attachment = new EntityAttachment();
+                    Helper.UriInfo info = Helper.getInfo(file, context);
+
+                    attachment.message = id;
+                    attachment.sequence = db.attachment().getAttachmentSequence(id) + 1;
+                    attachment.name = info.name;
+                    attachment.type = info.type;
+                    attachment.disposition = Part.ATTACHMENT;
+                    attachment.size = info.size;
+                    attachment.progress = 0;
+
+                    attachment.id = db.attachment().insertAttachment(attachment);
+
+                    long size = Helper.copy(context, file, attachment.getFile(context));
+                    db.attachment().setDownloaded(attachment.id, size);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+        }
     }
 }

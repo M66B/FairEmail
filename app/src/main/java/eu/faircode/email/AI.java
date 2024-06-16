@@ -72,7 +72,7 @@ public class AI {
             DB db = DB.getInstance(context);
             EntityAnswer t = db.answer().getAnswer(template);
             if (t != null) {
-                String html = t.getHtml(context, null);
+                String html = t.getData(context, null).getHtml();
                 prompt = JsoupEx.parse(html).body().text();
             }
         }

@@ -120,6 +120,7 @@ import androidx.core.graphics.ColorUtils;
 import androidx.core.view.SoftwareKeyboardControllerCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -182,6 +183,9 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Pattern;
+
+import javax.mail.internet.ContentType;
+import javax.mail.internet.ParseException;
 
 public class Helper {
     private static Integer targetSdk = null;
@@ -2791,6 +2795,67 @@ public class Helper {
                 return "ovpn";
 
         return extension;
+    }
+
+    @NonNull
+    static UriInfo getInfo(Uri uri, Context context) {
+        UriInfo result = new UriInfo();
+
+        // https://stackoverflow.com/questions/76094229/android-13-photo-video-picker-file-name-from-the-uri-is-garbage
+        DocumentFile dfile = null;
+        try {
+            dfile = DocumentFile.fromSingleUri(context, uri);
+            if (dfile != null) {
+                result.name = dfile.getName();
+                result.type = dfile.getType();
+                result.size = dfile.length();
+                EntityLog.log(context, "UriInfo dfile " + result + " uri=" + uri);
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
+        // Check name
+        if (TextUtils.isEmpty(result.name))
+            result.name = uri.getLastPathSegment();
+
+        // Check type
+        if (!TextUtils.isEmpty(result.type))
+            try {
+                new ContentType(result.type);
+            } catch (ParseException ex) {
+                Log.w(new Throwable(result.type, ex));
+                result.type = null;
+            }
+
+        if (TextUtils.isEmpty(result.type) ||
+                "*/*".equals(result.type) ||
+                "application/*".equals(result.type) ||
+                "application/octet-stream".equals(result.type))
+            result.type = Helper.guessMimeType(result.name);
+
+        if (result.size != null && result.size <= 0)
+            result.size = null;
+
+        EntityLog.log(context, "UriInfo result " + result + " uri=" + uri);
+
+        return result;
+    }
+
+    static class UriInfo {
+        String name;
+        String type;
+        Long size;
+
+        boolean isImage() {
+            return ImageHelper.isImage(type);
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return "name=" + name + " type=" + type + " size=" + size;
+        }
     }
 
     static void writeText(File file, String content) throws IOException {

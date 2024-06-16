@@ -326,7 +326,8 @@ public class ServiceExternal extends ServiceBase {
                 new InternetAddress(identity.get(0).email, identity.get(0).name, StandardCharsets.UTF_8.name())};
         if (subject == null) // Allow empty string
             subject = answers.get(0).name;
-        String body = answers.get(0).getHtml(context, to);
+        EntityAnswer.Data answerData = answers.get(0).getData(context, to);
+        String body = answerData.getHtml();
 
         EntityMessage msg = new EntityMessage();
         msg.account = identity.get(0).account;
@@ -355,6 +356,8 @@ public class ServiceExternal extends ServiceBase {
                 0,
                 msg.preview,
                 null);
+
+        answerData.insertAttachments(context, msg.id);
 
         EntityOperation.queue(context, msg, EntityOperation.SEND);
         ServiceSend.start(context);
