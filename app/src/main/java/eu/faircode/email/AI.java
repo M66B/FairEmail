@@ -45,8 +45,11 @@ public class AI {
     }
 
     static Spanned completeChat(Context context, long id, CharSequence body, long template) throws JSONException, IOException {
+        if (body == null)
+            body = "";
+
         String reply = null;
-        if (body == null || body.length() == 0 || template < 0L /* Default */) {
+        if (body.length() == 0 || template < 0L /* Default */) {
             File file = EntityMessage.getFile(context, id);
             if (file.exists()) {
                 Document d = JsoupEx.parse(file);
@@ -65,20 +68,15 @@ public class AI {
             }
         }
 
-        String prompt = null;
-        if (template < 0L)
-            prompt = (body == null ? null : body.toString());
-        else {
+        String templatePrompt = null;
+        if (template > 0L) {
             DB db = DB.getInstance(context);
             EntityAnswer t = db.answer().getAnswer(template);
             if (t != null) {
                 String html = t.getData(context, null).getHtml();
-                prompt = JsoupEx.parse(html).body().text();
+                templatePrompt = JsoupEx.parse(html).body().text();
             }
         }
-
-        if (body == null || body.length() == 0)
-            body = "?";
 
         StringBuilder sb = new StringBuilder();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -86,16 +84,19 @@ public class AI {
             String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
             boolean multimodal = prefs.getBoolean("openai_multimodal", false);
-            String answer = prefs.getString("openai_answer", OpenAI.DEFAULT_ANSWER_PROMPT);
-            String system = prefs.getString("openai_system", null);
+            String defaultPrompt = prefs.getString("openai_answer", OpenAI.DEFAULT_ANSWER_PROMPT);
+            String systemPrompt = prefs.getString("openai_system", null);
 
             List<OpenAI.Message> messages = new ArrayList<>();
 
-            if (!TextUtils.isEmpty(system))
+            if (!TextUtils.isEmpty(systemPrompt))
                 messages.add(new OpenAI.Message(OpenAI.SYSTEM, new OpenAI.Content[]{
-                        new OpenAI.Content(OpenAI.CONTENT_TEXT, system)}));
+                        new OpenAI.Content(OpenAI.CONTENT_TEXT, systemPrompt)}));
 
             if (reply == null) {
+                if (templatePrompt != null)
+                    messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
+                            new OpenAI.Content(OpenAI.CONTENT_TEXT, templatePrompt)}));
                 if (body instanceof Spannable && multimodal)
                     messages.add(new OpenAI.Message(OpenAI.USER,
                             OpenAI.Content.get((Spannable) body, id, context)));
@@ -103,8 +104,10 @@ public class AI {
                     messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
                             new OpenAI.Content(OpenAI.CONTENT_TEXT, body.toString())}));
             } else {
+                if (templatePrompt == null && body.length() > 0)
+                    templatePrompt = body.toString();
                 messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
-                        new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt == null ? answer : prompt)}));
+                        new OpenAI.Content(OpenAI.CONTENT_TEXT, templatePrompt == null ? defaultPrompt : templatePrompt)}));
                 messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
                         new OpenAI.Content(OpenAI.CONTENT_TEXT, reply)}));
             }
@@ -124,15 +127,19 @@ public class AI {
         } else if (Gemini.isAvailable(context)) {
             String model = prefs.getString("gemini_model", Gemini.DEFAULT_MODEL);
             float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
-            String answer = prefs.getString("gemini_answer", Gemini.DEFAULT_ANSWER_PROMPT);
+            String defaultPrompt = prefs.getString("gemini_answer", Gemini.DEFAULT_ANSWER_PROMPT);
 
             List<Gemini.Message> messages = new ArrayList<>();
 
-            if (reply == null)
+            if (reply == null) {
+                if (templatePrompt != null)
+                    messages.add(new Gemini.Message(Gemini.USER, new String[]{templatePrompt}));
                 messages.add(new Gemini.Message(Gemini.USER,
                         new String[]{Gemini.truncateParagraphs(body.toString())}));
-            else {
-                messages.add(new Gemini.Message(Gemini.USER, new String[]{prompt == null ? answer : prompt}));
+            } else {
+                if (templatePrompt == null && body.length() > 0)
+                    templatePrompt = body.toString();
+                messages.add(new Gemini.Message(Gemini.USER, new String[]{templatePrompt == null ? defaultPrompt : templatePrompt}));
                 messages.add(new Gemini.Message(Gemini.USER, new String[]{reply}));
             }
 
