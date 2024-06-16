@@ -207,6 +207,8 @@ public class EditTextCompose extends FixedEditText {
                             return surround("(", ")");
                         else if (id == R.string.title_insert_quotes)
                             return surround("\"", "\"");
+                        else if (id == R.string.title_lt_add)
+                            return modifyDictionary(true);
                         else if (id == R.string.title_lt_delete)
                             return modifyDictionary(false);
                     }
