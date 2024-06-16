@@ -172,7 +172,7 @@ public class AI {
             return context.getString(R.string.title_summarize);
     }
 
-    static Spanned getSummaryText(Context context, EntityMessage message) throws JSONException, IOException {
+    static Spanned getSummaryText(Context context, EntityMessage message, long template) throws JSONException, IOException {
         File file = message.getFile(context);
         if (!file.exists())
             return null;
@@ -190,16 +190,27 @@ public class AI {
 
         HtmlHelper.truncate(d, MAX_SUMMARIZE_TEXT_SIZE);
 
+        String templatePrompt = null;
+        if (template > 0L) {
+            DB db = DB.getInstance(context);
+            EntityAnswer t = db.answer().getAnswer(template);
+            if (t != null) {
+                String html = t.getData(context, null).getHtml();
+                templatePrompt = JsoupEx.parse(html).body().text();
+            }
+        }
+
         StringBuilder sb = new StringBuilder();
         if (OpenAI.isAvailable(context)) {
             String model = prefs.getString("openai_model", OpenAI.DEFAULT_MODEL);
             float temperature = prefs.getFloat("openai_temperature", OpenAI.DEFAULT_TEMPERATURE);
-            String prompt = prefs.getString("openai_summarize", OpenAI.DEFAULT_SUMMARY_PROMPT);
+            String defaultPrompt = prefs.getString("openai_summarize", OpenAI.DEFAULT_SUMMARY_PROMPT);
             boolean multimodal = prefs.getBoolean("openai_multimodal", false);
 
             List<OpenAI.Message> input = new ArrayList<>();
             input.add(new OpenAI.Message(OpenAI.USER,
-                    new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt)}));
+                    new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT,
+                            templatePrompt == null ? defaultPrompt : templatePrompt)}));
 
             if (!TextUtils.isEmpty(message.subject))
                 input.add(new OpenAI.Message(OpenAI.USER,
@@ -226,12 +237,12 @@ public class AI {
         } else if (Gemini.isAvailable(context)) {
             String model = prefs.getString("gemini_model", Gemini.DEFAULT_MODEL);
             float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
-            String prompt = prefs.getString("gemini_summarize", Gemini.DEFAULT_SUMMARY_PROMPT);
+            String defaultPrompt = prefs.getString("gemini_summarize", Gemini.DEFAULT_SUMMARY_PROMPT);
 
             String body = d.text();
 
             List<String> texts = new ArrayList<>();
-            texts.add(prompt);
+            texts.add(templatePrompt == null ? defaultPrompt : templatePrompt);
             if (!TextUtils.isEmpty(message.subject))
                 texts.add(message.subject);
             if (!TextUtils.isEmpty(body))

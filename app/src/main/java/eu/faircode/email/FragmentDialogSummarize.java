@@ -23,12 +23,17 @@ import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -37,10 +42,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 
+import org.jsoup.nodes.Document;
+
 import java.util.Date;
+import java.util.List;
 
 public class FragmentDialogSummarize extends FragmentDialogBase {
     @NonNull
@@ -83,8 +93,38 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         });
 
         Bundle args = getArguments();
+        long template = args.getLong("template");
 
-        tvCaption.setText(AI.getSummarizePrompt(context));
+        if (template <= 0)
+            tvCaption.setText(AI.getSummarizePrompt(context));
+        else {
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    long template = args.getLong("template");
+
+                    DB db = DB.getInstance(context);
+                    EntityAnswer prompt = db.answer().getAnswer(template);
+                    if (prompt == null)
+                        return null;
+
+                    Document doc = JsoupEx.parse(prompt.getData(context, null).getHtml());
+                    Spanned spanned = HtmlHelper.fromDocument(context, doc, null, null);
+                    return spanned.toString();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String prompt) {
+                    tvCaption.setText(prompt);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(this, args, "ai:prompt");
+        }
+
         tvFrom.setText(args.getString("from"));
         tvSubject.setText(args.getString("subject"));
 
@@ -106,6 +146,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
             @Override
             protected Spanned onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
+                long template = args.getLong("template");
 
                 DB db = DB.getInstance(context);
                 EntityMessage message = db.message().getMessage(id);
@@ -113,7 +154,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
                     return null;
 
                 long start = new Date().getTime();
-                Spanned summary = AI.getSummaryText(context, message);
+                Spanned summary = AI.getSummaryText(context, message, template);
                 args.putLong("elapsed", new Date().getTime() - start);
 
                 return summary;
@@ -142,11 +183,68 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         return builder.create();
     }
 
-    public static void summarize(EntityMessage message, FragmentManager fm) {
+    public static void summarize(EntityMessage message, FragmentManager fm, View anchor, LifecycleOwner owner) {
+        if (anchor == null) {
+            summarize(message, fm, null);
+            return;
+        }
+
+        final Context context = anchor.getContext();
+
+        new SimpleTask<List<EntityAnswer>>() {
+            @Override
+            protected List<EntityAnswer> onExecute(Context context, Bundle args) throws Throwable {
+                DB db = DB.getInstance(context);
+                return db.answer().getAiPrompts();
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<EntityAnswer> prompts) {
+                if (prompts == null || prompts.isEmpty())
+                    summarize(message, fm, null);
+                else {
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
+
+                    String title = context.getString(R.string.title_advanced_default_prompt);
+                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(title);
+                    ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
+                    popupMenu.getMenu()
+                            .add(Menu.NONE, 1, 1, ssb)
+                            .setIntent(new Intent().putExtra("id", -1L));
+
+                    for (int i = 0; i < prompts.size(); i++) {
+                        EntityAnswer prompt = prompts.get(i);
+                        popupMenu.getMenu()
+                                .add(Menu.NONE, i + 2, i + 2, prompt.name)
+                                .setIntent(new Intent().putExtra("id", prompt.id));
+                    }
+
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            long id = item.getIntent().getLongExtra("id", -1L);
+                            summarize(message, fm, id);
+                            return true;
+                        }
+                    });
+
+                    popupMenu.show();
+                }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(fm, ex);
+            }
+        }.execute(context, owner, new Bundle(), "AI:select");
+    }
+
+    private static void summarize(EntityMessage message, FragmentManager fm, Long template) {
         Bundle args = new Bundle();
         args.putLong("id", message.id);
         args.putString("from", MessageHelper.formatAddresses(message.from));
         args.putString("subject", message.subject);
+        args.putLong("template", template == null ? -1L : template);
 
         FragmentDialogSummarize fragment = new FragmentDialogSummarize();
         fragment.setArguments(args);

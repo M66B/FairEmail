@@ -4596,7 +4596,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } else if (id == R.id.ibTranslate) {
                     onActionTranslate(message);
                 } else if (id == R.id.ibSummarize) {
-                    onActionSummarize(message);
+                    onActionSummarize(message, ibSummarize);
                 } else if (id == R.id.ibFullScreen)
                     onActionOpenFull(message);
                 else if (id == R.id.ibForceLight) {
@@ -6480,7 +6480,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onActionTranslate(message);
                         return true;
                     } else if (itemId == R.id.menu_summarize) {
-                        onActionSummarize(message);
+                        onActionSummarize(message, null);
                         return true;
                     } else if (itemId == R.id.menu_force_light) {
                         onActionForceLight(message);
@@ -7393,8 +7393,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onActionSummarize(TupleMessageEx message) {
-            FragmentDialogSummarize.summarize(message, parentFragment.getParentFragmentManager());
+        private void onActionSummarize(TupleMessageEx message, View anchor) {
+            FragmentDialogSummarize.summarize(message, parentFragment.getParentFragmentManager(), anchor, owner);
         }
 
         private void onActionForceLight(TupleMessageEx message) {

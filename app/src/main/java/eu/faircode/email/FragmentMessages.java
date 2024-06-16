@@ -1628,7 +1628,7 @@ public class FragmentMessages extends FragmentBase
                 if (result == null || result.single == null || !result.single.content)
                     return;
 
-                FragmentDialogSummarize.summarize(result.single, getParentFragmentManager());
+                FragmentDialogSummarize.summarize(result.single, getParentFragmentManager(), ibSummarize, getViewLifecycleOwner());
             }
         });
 
@@ -3575,7 +3575,7 @@ public class FragmentMessages extends FragmentBase
         private void onSwipeSummarize(final @NonNull TupleMessageEx message) {
             final Context context = getContext();
             if (AI.isAvailable(context))
-                FragmentDialogSummarize.summarize(message, getParentFragmentManager());
+                FragmentDialogSummarize.summarize(message, getParentFragmentManager(), null, getViewLifecycleOwner());
             else
                 context.startActivity(new Intent(context, ActivitySetup.class)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
