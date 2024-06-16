@@ -385,7 +385,7 @@
     <string name="title_advanced_use_blocklist_pop3">Nachrichten von Domains auf einer Sperrliste überspringen (nur POP3)</string>
     <string name="title_advanced_tune_keep_alive">Aktivitätsintervall automatisch anpassen</string>
     <string name="title_advanced_blocklist_warning">Sperrlisten sind nicht perfekt und können mehr als nur Spam sperren!</string>
-    <string name="title_advanced_keyboard">Tastatur standardmäßig anzeigen</string>
+    <string name="title_advanced_keyboard">Standardmäßig Tastatur anzeigen</string>
     <string name="title_advanced_keyboard_no_fullscreen">Vollbild-Tastatur verhindern</string>
     <string name="title_advanced_suggest_names">Namen und E-Mail-Adressen verwenden</string>
     <string name="title_advanced_suggest_local">Lokal gespeicherte Kontakte vorschlagen</string>
@@ -779,10 +779,10 @@
     <string name="title_advanced_openai_moderation">Moderation von Inhalten</string>
     <string name="title_advanced_gemini">Gemini-Integration</string>
     <string name="title_advanced_multi_modal">Multimodal</string>
-    <string name="title_advanced_summarize_prompt">Aufforderung zusammenfassen</string>
-    <string name="title_advanced_answer_prompt">Ausgabeaufforderung</string>
+    <string name="title_advanced_summarize_prompt">Zusammenfassungs-Prompt</string>
+    <string name="title_advanced_answer_prompt">Antwort-Prompt</string>
     <string name="title_advanced_system_instructions">Systemanweisungen</string>
-    <string name="title_advanced_default_prompt">Vorkonfigurierte Prompts</string>
+    <string name="title_advanced_default_prompt">Standard-Prompt</string>
     <string name="title_advanced_entered_text">Eingegebener Text</string>
     <string name="title_advanced_sdcard">Ich möchte eine SD-Karte verwenden</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
@@ -903,7 +903,7 @@
     <string name="title_advanced_notify_manage_service_hint">Zum Deaktivieren der Benachrichtigung für die App-Überwachung</string>
     <string name="title_advanced_notify_separate_hint">Wie konfiguriere ich Benachrichtigungen für Konten, Ordner und Absender?</string>
     <string name="title_advanced_notify_preview_all_hint">Für Wearables, die den kompletten Text anzeigen können (bis zu 5.000 Zeichen)</string>
-    <string name="title_advanced_notify_preview_only_hint">Dadurch wird die Anzeige der Benachrichtigungen verzögert, bis der Nachrichtentext heruntergeladen wurde.</string>
+    <string name="title_advanced_notify_preview_only_hint">Dadurch wird das Anzeigen von Benachrichtigungen verzögert, bis der Nachrichtentext heruntergeladen wurde</string>
     <string name="title_advanced_wearable_hint">Benachrichtigungen werden erst dann an ein Wearable gesendet, wenn der Nachrichtentext heruntergeladen wurde</string>
     <string name="title_advanced_messaging_hint">Dies ist für die Unterstützung von Android Auto erforderlich</string>
     <string name="title_advanced_move_hint">Der Zielordner kann in den Kontoeinstellungen konfiguriert werden</string>
@@ -1373,12 +1373,10 @@
     <string name="title_third_party">Sie verwenden eine Version eines Dritten</string>
     <string name="title_expand_warning">Durch Ausklappen dieser Nachricht werden %1$s heruntergeladen</string>
     <string name="title_download_message">Wird heruntergeladen &#8230;</string>
-    <string name="title_reformatted">        Das ist die sichere Ansicht für umformatierte Nachrichten.
-        Sie können auf das &#x26F6;-Symbol tippen, um die weniger sichere Originalnachricht anzusehen
-        und um diese Nachricht auszublenden.
-        Das Neuformatieren von Nachrichten nimmt einige Zeit in Anspruch und hängt von der Nachrichtengröße
-        sowie der Geschwindigkeit Ihres Gerätes ab.
-        Um QR-Code zu sehen, müssen Sie möglicherweise zur Originalnachricht wechseln.
+    <string name="title_reformatted">        Dies ist die sichere Ansicht für umformatierte Nachrichten.
+        Sie können auf das &#x26F6;-Symbol tippen, um die weniger sichere Originalnachricht anzusehen und um diesen Hinweis auszublenden.
+        Das Neuformatieren von Nachrichten nimmt einige Zeit in Anspruch und hängt von der Nachrichtengröße sowie der Geschwindigkeit Ihres Geräts ab.
+        Um QR-Code zu sehen, müssen Sie möglicherweise zur Originalansicht der Nachricht wechseln.
     </string>
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>

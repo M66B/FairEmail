@@ -14,6 +14,10 @@
     <string name="app_cake_required">Miinimu vajalik talletusruum: %1$s</string>
     <string name="app_updated">Viimati uuendatud: %1$s</string>
     <string name="app_download">Laaditud kohast: %1$s</string>
+    <string name="app_motd">        Android 14/15 beetaga juhtuvad vahel teated \'Äpp ei vasta\'.
+        Google töötab paranduse kallal.
+        Palun ära süüdista äppi selle Androidi probleemi pärast!
+    </string>
     <string name="channel_service">Jälgimine</string>
     <string name="channel_send">Saatmine</string>
     <string name="channel_notification">E-post</string>
@@ -115,6 +119,7 @@
     <string name="title_notification_sending">Sõnumite saatmine</string>
     <string name="title_notification_waiting">Sobiva ühenduse ootamine</string>
     <string name="title_notification_idle">Jõude</string>
+    <string name="title_notification_failed">Konto \"%1$s\" nurjus</string>
     <string name="title_notification_alert">Serveri teade: \'%1$s\'</string>
     <string name="title_notification_sending_left">Katseid jäänud: %1$d</string>
     <string name="title_notification_sending_retry">Saatmist proovitakse ühenduse muutumisel või väljundkausta värskendamisel</string>
@@ -194,6 +199,7 @@
     <string name="title_setup_gmail_password">Ma tahan autoriseerida kontot parooliga ja mitte seadmes oleva kontoga</string>
     <string name="title_setup_office_auth">Vea \"AUTHENTICATE failed\" põhjuseks võib olla, et IMAP/SMTP on süsteemi administraatori poolt keelatud</string>
     <string name="title_setup_office_auth_5_7_3">Palun proovi kiirseadistamise võlurit \"Muu teenusepakkuja\".</string>
+    <string name="title_setup_office_auth_5_7_139">Palun proovi \"Outlooki/Hotmaili/Live\" kiirseadistamise abilist.</string>
     <string name="title_setup_oauth_rationale">Autoriseeri ligipääs %1$s kontole</string>
     <string name="title_setup_oauth_update">Autoriseeri uuesti olemasolev konto (muul juhul loo uus konto)</string>
     <string name="title_setup_oauth_updated">Konto autoriseering on uuendatud</string>
@@ -237,6 +243,7 @@
     <string name="title_setup_doze_stopped">Sünkroonimine peatunud?</string>
     <string name="title_setup_doze_device">Tõenäoliselt on see käesoleva seadme jaoks vajalik</string>
     <string name="title_setup_alarm_12">Äpp ei hakka korrektselt tööle</string>
+    <string name="title_setup_fg_15">Äppi ei saa automaatselt käivitada</string>
     <string name="title_setup_inexact">Alarmid &amp; meeldetuletused on keelatud</string>
     <string name="title_setup_background">Taustapiirangud on sisse lülitatud</string>
     <string name="title_setup_data">Andmesäästja on sisse lülitatud</string>
@@ -391,6 +398,7 @@
     <string name="title_advanced_send_nav_color">Kasuta identiteedi värvi alumisel tegevuste ribal</string>
     <string name="title_advanced_send_reminders">Näita meeldetuletusi</string>
     <string name="title_advanced_send_delayed">Viivitus sõnumite saatmisel</string>
+    <string name="title_advanced_send_top">Näita Saada nuppu üleval</string>
     <string name="title_advanced_attach_new">Uue mustandsõnumi loomine jagatud aadresside ja failide jaoks</string>
     <string name="title_advanced_answer_caption">Nupu Vasta seaded</string>
     <string name="title_advanced_answer_default">Nupu Vasta lühidal vajutamisel:</string>
@@ -753,6 +761,7 @@
     <string name="title_advanced_haptic_feedback">Oluliste tegevuste puhul haptiline tagasiside</string>
     <string name="title_advanced_language">Keel</string>
     <string name="title_advanced_language_system">Süsteem</string>
+    <string name="title_advanced_integrations_hint">Allpool olevad pilveteenused pole äpi osa. Mistahes maksed lähevad otse pilveteenusele, mitte äpi arendajale.</string>
     <string name="title_advanced_lt">LanguageTool lõiming</string>
     <string name="title_advanced_lt_sentence">Kontrolli igat lauset</string>
     <string name="title_advanced_lt_auto">Kontrolli lõiku peale igat reavahetust</string>
@@ -768,7 +777,12 @@
     <string name="title_advanced_openai_temperature">Temperatuur: %1$s</string>
     <string name="title_advanced_openai_moderation">Sisu modereerimine</string>
     <string name="title_advanced_gemini">Gemini lõimimine</string>
+    <string name="title_advanced_multi_modal">Multimodaalne</string>
     <string name="title_advanced_summarize_prompt">Kokkuvõtte viip</string>
+    <string name="title_advanced_answer_prompt">Vastuse viip</string>
+    <string name="title_advanced_system_instructions">Juhised süsteemile</string>
+    <string name="title_advanced_default_prompt">Vaikeviip</string>
+    <string name="title_advanced_entered_text">Sisestatud tekst</string>
     <string name="title_advanced_sdcard">Ma soovin kasutada SD-kaarti</string>
     <string name="title_advanced_watchdog">Kontrolli perioodiliselt, kas FairEmail on jätkuvalt aktiivne</string>
     <string name="title_advanced_updates">Kontrolli GitHub uuendusi</string>
@@ -780,6 +794,7 @@
     <string name="title_advanced_crash_reports">Saada vearaporteid</string>
     <string name="title_advanced_cleanup_attachments">Kustuta vanade sõnumite manused</string>
     <string name="title_advanced_cleanup">Puhasta</string>
+    <string name="title_advanced_google_backup">Kasuta Androidi varundust</string>
     <string name="title_advanced_app">Äpi seaded</string>
     <string name="title_advanced_more">Veel valikuid</string>
     <string name="title_advanced_main_log">Põhilogimine</string>
@@ -844,6 +859,9 @@
     <string name="title_advanced_threading_hint">Rühmita omavahel seotud sõnumid</string>
     <string name="title_advanced_indentation_hint">Vaid kaardi stiilis</string>
     <string name="title_advanced_highlight_hint">Esiletõstmiseks kasutatakse teema aktsendivärvi</string>
+    <string name="title_advanced_free">Selle pilveteenuse kasutamine on tasuta</string>
+    <string name="title_advanced_free_tier">Sellel pilveteenusel on olemas ka tasuta pakett</string>
+    <string name="title_advanced_paid_service">Selle pilveteenuse eest tuleb tasuda</string>
     <string name="title_advanced_privacy_risk">Võib olla privaatsusrisk</string>
     <string name="title_advanced_name_email_hint">Nimesid näidatakse vaid kui saadaval</string>
     <string name="title_advanced_preview_hint">Saadaval vaid siis, kui sõnumi tekst on alla laaditud</string>
@@ -911,6 +929,7 @@
     <string name="title_identity_name">Sinu nimi</string>
     <string name="title_identity_email">Su e-postiaadress</string>
     <string name="title_identity_tenant_hint">See väli peab enamikel juhtudel olema tühi</string>
+    <string name="title_identity_receive_first_hint">Seda häälestust on vaja väga harva sisse lülitada. Lisaks, andmekasutus suureneb!</string>
     <string name="title_identity_color_hint">Identiteedi värv on kõrgema prioriteediga kui kausta ja konto värv</string>
     <string name="title_advanced_sender">Luba saatja aadressi muutmine</string>
     <string name="title_advanced_sender_name">Kasuta nime, kui saatja aadressi on toimetatud</string>
@@ -968,6 +987,7 @@
     <string name="title_password">Parool</string>
     <string name="title_password_storage">Kuidas paroole talletatakse?</string>
     <string name="title_case_sensitive">Kasutajanimed ja salasõnad on tavaliselt tõstutundlikud</string>
+    <string name="title_login_before_send">Hangi enne saatmist</string>
     <string name="title_client_certificate">Kliendi sertifikaat</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Kasuta hosti nime asemel lokaalset IP-aadressi</string>
@@ -1072,6 +1092,7 @@
     <string name="title_expunge_remark">See kustutab jäädavalt kõik kustutatavana märgitud sõnumid</string>
     <string name="title_empty_trash">Tühjenda prügi</string>
     <string name="title_empty_spam">Tühjenda Spämm</string>
+    <string name="title_edit_color">Muuda värvi</string>
     <string name="title_edit_properties">Atribuudid</string>
     <string name="title_edit_rules">Reeglite muutmine</string>
     <string name="title_execute_rules">Käivita reeglid</string>
@@ -1204,6 +1225,7 @@
     <string name="title_create_rule">Loo reegel &#8230;</string>
     <string name="title_full_screen">Täisekraan</string>
     <string name="title_force_light">Jõusta hele kujundus</string>
+    <string name="title_rename">Muuda nime</string>
     <string name="title_share">Jaga</string>
     <string name="title_event">Lisa kalendrisse</string>
     <string name="title_pin">Lisa otsetee</string>
@@ -1329,7 +1351,9 @@
     <string name="title_ask_show_html">Algse sõnumi näitamine võib lekitada privaatsustundlikku infot</string>
     <string name="title_ask_show_html_remark">Esialgse sõnumi kuvamine tumedal taustal ei ole võimalik, kuna see võib muuta tumedad tekstid ja pildid nähtamatuks</string>
     <string name="title_ask_show_html_images">Alati näita algse sõnumi näitamisel pilte</string>
+    <string name="title_ask_show_html_always">Näita vaikimisi algset sõnumit</string>
     <string name="title_ask_show_image">Piltide näitamine võib lekitada privaatsustundlikku infot</string>
+    <string name="title_ask_show_images_always">Näita pilte vaikimisi</string>
     <string name="title_ask_show_image_hint">Jälitamispildina tuvastatud pilte ei näidata</string>
     <string name="title_ask_show_amp">Näidata sõnumi AMP-versiooni?</string>
     <string name="title_ask_show_amp_hint">AMP-sõnumid on loodud olema interaktiivsed ning suhestuma internetiga ning seetõttu on need juba oma loomuse tõttu sobivad sinu jälgimiseks</string>
@@ -1347,6 +1371,11 @@
     <string name="title_third_party">Kasutad kolmanda osapoole versiooni</string>
     <string name="title_expand_warning">Selle sõnumi laiendamine laadib alla %1$s</string>
     <string name="title_download_message">Allalaadimine &#8230;</string>
+    <string name="title_reformatted">        See on turvaline ümbervormindatud sõnumi vaade.
+        Võid toksata &#x26F6; ikoonil, et vaadata vähemturvalist originaalsõnumit ja see teade peita 
+        Sõnumi ümbervormindamne võtab veidi aega sõltuvalt sõnumi suurusest ja seadme kiirusest
+        Mõnikord tuleb vaadata sõnumit originaalkujul, et näha QR-koodi.
+    </string>
     <string name="title_compose">Loo</string>
     <string name="title_submitter">Saatnud:</string>
     <string name="title_signed_by">Allakirjutanud:</string>
@@ -1498,6 +1527,9 @@
     <string name="title_dsn_reminder">Hard bounce\'id kahjustavad algse saatja reputatsiooni!</string>
     <string name="title_size_reminder">Sõnum (%1$s) suurem kui serveri limiit (%2$s)</string>
     <string name="title_attachments_missing">Kõik manused pole alla laaditud</string>
+    <string name="title_download_attachments">Manuste allalaadimine</string>
+    <string name="title_attachments_download">Allalaaditud manuseid: %1$s</string>
+    <string name="title_attachments_no_download">Seda ei näidata uuesti ja manuseid ei laadita automaatselt alla</string>
     <string name="title_dialog_hint">Selle dialoogi saab jälle lubada ülemisel tegevusmenüül oleva kolme punkti menüü kaudu</string>
     <string name="title_draft_deleted">Mustandist loobuti</string>
     <string name="title_draft_saved">Mustand salvestatud</string>
@@ -1581,6 +1613,7 @@
     <string name="title_search_flag_notes">märge</string>
     <string name="title_search_flag_invite">kutse</string>
     <string name="title_search_flag_size">suurus &gt; %1$s</string>
+    <string name="title_search_flag_touched">toksatud</string>
     <string name="title_search_device">Otsi seadmes</string>
     <string name="title_search_server">Otsi serveris</string>
     <string name="title_search_server_wait">Serveri järel ootamine</string>
@@ -1648,6 +1681,7 @@
     <string name="title_answer_favorite">Lemmik</string>
     <string name="title_answer_snippet">Katkend</string>
     <string name="title_answer_receipt">Kasuta lugemiskinnitusena</string>
+    <string name="title_answer_ai">Kasuta AI viibana</string>
     <string name="title_answer_hide">Peida menüüst</string>
     <string name="title_answer_text">Malli tekst</string>
     <string name="title_answer_placeholder">Kohatäide</string>
@@ -1678,6 +1712,7 @@
     <string name="title_rule_sound">Mängi heli</string>
     <string name="title_rule_silent">Hääletu teavitus</string>
     <string name="title_rule_summarize">Kokkuvõte</string>
+    <string name="title_rule_summarize_remark">Tee häälestatud AI abil sõnumist kokkuvõte</string>
     <string name="title_rule_caption">Reegel</string>
     <string name="title_rule_title">Reegli rakendamiskoht</string>
     <string name="title_rule_name">Nimi</string>
@@ -1750,6 +1785,8 @@
     <string name="title_rule_tts_subject">Teema</string>
     <string name="title_rule_tts_content">Tekst</string>
     <string name="title_rule_select_sound">Vali heli</string>
+    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Helin</string>
+    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Helifail</string>
     <string name="title_rule_use_as_alarm">Kasuta alarmina</string>
     <string name="title_rule_alarm_hint">See ignoreerib \"Ära häiri\" reegleid</string>
     <string name="title_rule_alarm_duration">Alarmi maksimumpikkus (sekundit)</string>
@@ -1890,6 +1927,7 @@
     <string name="title_hint_dismiss">Hülga see dialoogikast, et teade eemaldada.</string>
     <string name="title_hint_support">Kui sul on küsimus või probleem, kasuta abi saamiseks palun toe \"support\" menüüd</string>
     <string name="title_hint_message_actions">Prügisse viimiseks pühi vasakule, arhiivimiseks (kui saadaval) pühi paremale. Pühkimistegevusi saab häälestada konto seadetes</string>
+    <string name="title_hint_outbox">Saad saatmise tühistamiseks pühkida vasakule või paremale</string>
     <string name="title_hint_message_selection">Vajuta pikalt sõnumil, et alustada mitme sõnumi valimist. Hoia ja pühi üles või alla, et valida rohkem sõnumeid</string>
     <string name="title_hint_message_junk">        E-postiklient sisuliselt näitab meiliserveris olevaid kirju.
         Meiliserver vastutab rämpsposti filtreerimise eest, mitte e-postiklient.
@@ -1954,6 +1992,8 @@
     <string name="title_ask_what">Küsi mida teha</string>
     <string name="title_no_ask_again">Ära küsi seda uuesti</string>
     <string name="title_no_ask_for_again">Ära küsi seda rohkem %1$s jaoks</string>
+    <string name="title_no_show_again">Ära seda enam näita</string>
+    <string name="title_undo_privacy">Selle saab tagasi muuta seadetes, privaatsuse lehel</string>
     <string name="title_no_body">Ei leidnud sõnumi teksti</string>
     <string name="title_large_body">See sõnum on väga suur ning võib põhjustada probleeme!</string>
     <string name="title_no_charset">Toetamata kodeering: %1$s</string>
@@ -2039,6 +2079,7 @@
     <string name="title_widget_folder_unified">Ühendatud sisendkasti kaustad</string>
     <string name="title_widget_folder_notifying">Uute sõnumite teavitusega kaustad</string>
     <string name="title_widget_unseen">Vaid lugemata sõnumid</string>
+    <string name="title_widget_show_unseen">Näita kui lugemata</string>
     <string name="title_widget_flagged">Vaid tärniga sõnumid</string>
     <string name="title_widget_font_size">Teksti suurus</string>
     <string name="title_widget_padding">Polstri suurus</string>
