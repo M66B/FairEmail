@@ -98,6 +98,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
         if (template <= 0)
             tvCaption.setText(AI.getSummarizePrompt(context));
         else {
+            tvCaption.setText(null);
             new SimpleTask<String>() {
                 @Override
                 protected String onExecute(Context context, Bundle args) throws Throwable {
