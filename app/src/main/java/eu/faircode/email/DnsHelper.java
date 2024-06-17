@@ -368,9 +368,12 @@ public class DnsHelper {
         if (!hasDnsSec())
             return;
 
+        List<String> log = new ArrayList<>();
+
         Handler handler = new Handler() {
             @Override
             public void publish(LogRecord record) {
+                log.add(record.getMessage());
                 Log.w("DANE " + record.getMessage());
             }
 
@@ -390,7 +393,8 @@ public class DnsHelper {
             boolean verified = new DaneVerifier().verifyCertificateChain(chain, server, port);
             Log.w("DANE verified=" + verified + " " + server + ":" + port);
             if (!verified)
-                throw new CertificateException("DANE missing or invalid");
+                throw new CertificateException("DANE missing or invalid",
+                        new CertificateException(TextUtils.join("\n", log)));
         } catch (CertificateException ex) {
             throw ex;
         } catch (Throwable ex) {
