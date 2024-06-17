@@ -682,7 +682,7 @@ Some people ask:
 >
 > "*To help keep your account secure, starting May 30, 2022, ​​Google will no longer support the use of third-party apps or devices which ask you to sign in to your Google Account using only your username and password.*"
 >
-> &#x2714; If you authorized your Gmail account with the quick setup wizard or manually with an app password, your account will keep being synchronized after May 30, 2022.
+> &#x2705; If you authorized your Gmail account with the quick setup wizard or manually with an app password, your account will keep being synchronized after May 30, 2022.
 >
 > &#x274C; If you enabled *Less secure apps* in the Google account settings and authorized your Gmail account manually with your normal account password, your account can't be synchronized from May 30, 2022 anymore. The app will show the error **Invalid credentials (Failure)**.
 >
@@ -1253,12 +1253,39 @@ Using the search index is a pro feature.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq14)
 
+<br />
+
 >
-> **Important**: Basic Authentication (=password authentication) [will be turned off from October 1, 2022](https://techcommunity.microsoft.com/t5/exchange-team-blog/basic-authentication-deprecation-in-exchange-online-may-2022/ba-p/3301866).
+> **IMPORTANT: If you came here via a warning in the app, you MUST take action!**
 >
-> &#x2714; If you authorized your Outlook/Office 365 account with the quick setup wizard, your account will keep being synchronized after October 1, 2022.
+> It takes just two minutes to be prepared.
 >
-> &#x274C; If you authorized your Outlook/Office 365 account manually with a password, your account can't be synchronized from October 1, 2022 anymore.
+
+<br />
+
+>
+> **Important**: Basic Authentication [will be turned off for Office 365 accounts from October 1, 2022](https://techcommunity.microsoft.com/t5/exchange-team-blog/basic-authentication-deprecation-in-exchange-online-may-2022/ba-p/3301866).
+>
+> **Important**: Basic Authentication **[will be turned off for Outlook/Hotmail/Live accounts from September 16, 2024](https://techcommunity.microsoft.com/t5/outlook-blog/keeping-our-outlook-personal-email-users-safe-reinforcing-our/ba-p/4164184)**.
+>
+
+<br />
+
+>
+> Microsoft calls password authentication "*Basic authentication*" and authentication with OAuth "*Modern authentication*".
+> Confusingly, using [OAuth](https://en.wikipedia.org/wiki/OAuth) also requires entering a password.
+>
+
+<br />
+
+>
+> &#x2705; If you authorized your Outlook/Office 365 account with the quick setup wizard, your account will keep being synchronized after September 16, 2024.
+>
+> &#x274C; If you authorized your Outlook/Office 365 account manually with a password, **your account won't be synchronized from September 16, 2024 anymore!**
+>
+
+<br />
+
 >
 > How to check:
 >
@@ -1268,16 +1295,22 @@ Using the search index is a pro feature.
 > * Find the account in the list
 > * If there is a shield icon before the account name (=OAuth), the account will keep working
 >
+
+<br />
+
+>
 > How to fix:
 >
 > * Go to the *Settings* via the navigation menu (left side menu)
-> * Tap on the *Wizard* button and select *Outlook/Office365 (OAuth)*
+> * Tap on the *Wizard* button and select *Outlook/Hotmail/Live (OAuth)* or *Office 365 (OAuth)*.
 > * Tick the checkbox to authenticate an existing account (else you'll create a new account!)
 > * Fill in the fields and follow the steps
 > * Repeat for each account
 >
 
-An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook/Office 365*.
+<br />
+
+An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook/Hotmail/Live (OAuth)* or *Office 365 (OAuth)*.
 
 **Important**: a personal and a business account can have the same email address, but have different mailboxes (folders). So, please make sure you select the right option.
 
@@ -1293,6 +1326,8 @@ So, basically this means that Microsoft is pushing you to their own products. Is
 
 To use an Outlook, Live or Hotmail account with two factor authentication enabled, you might need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
+
+**Important**: Microsoft will drop support for app passwords from September 16, 2024.
 
 See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
 

@@ -580,7 +580,7 @@
 <blockquote>
 <p><strong>Important: using your <em>account</em> password <a href="https://support.google.com/accounts/answer/6010255">won’t be possible anymore from May 30, 2022</a>.</strong></p>
 <p>“<em>To help keep your account secure, starting May 30, 2022, ​​Google will no longer support the use of third-party apps or devices which ask you to sign in to your Google Account using only your username and password.</em>”</p>
-<p>✔ If you authorized your Gmail account with the quick setup wizard or manually with an app password, your account will keep being synchronized after May 30, 2022.</p>
+<p>✅ If you authorized your Gmail account with the quick setup wizard or manually with an app password, your account will keep being synchronized after May 30, 2022.</p>
 <p>❌ If you enabled <em>Less secure apps</em> in the Google account settings and authorized your Gmail account manually with your normal account password, your account can’t be synchronized from May 30, 2022 anymore. The app will show the error <strong>Invalid credentials (Failure)</strong>.</p>
 <p>How to check:</p>
 <ul>
@@ -822,10 +822,27 @@ keyword:&lt;keyword&gt;</code></pre>
 <p><br /></p>
 <p><a name="faq14"></a> <strong>(14) How can I set up an Outlook / Live / Hotmail account?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq14">Google Translate</a></p>
+<p><br /></p>
 <blockquote>
-<p><strong>Important</strong>: Basic Authentication (=password authentication) <a href="https://techcommunity.microsoft.com/t5/exchange-team-blog/basic-authentication-deprecation-in-exchange-online-may-2022/ba-p/3301866">will be turned off from October 1, 2022</a>.</p>
-<p>✔ If you authorized your Outlook/Office 365 account with the quick setup wizard, your account will keep being synchronized after October 1, 2022.</p>
-<p>❌ If you authorized your Outlook/Office 365 account manually with a password, your account can’t be synchronized from October 1, 2022 anymore.</p>
+<p><strong>IMPORTANT: If you came here via a warning in the app, you MUST take action!</strong></p>
+<p>It takes just two minutes to be prepared.</p>
+</blockquote>
+<p><br /></p>
+<blockquote>
+<p><strong>Important</strong>: Basic Authentication <a href="https://techcommunity.microsoft.com/t5/exchange-team-blog/basic-authentication-deprecation-in-exchange-online-may-2022/ba-p/3301866">will be turned off for Office 365 accounts from October 1, 2022</a>.</p>
+<p><strong>Important</strong>: Basic Authentication <strong><a href="https://techcommunity.microsoft.com/t5/outlook-blog/keeping-our-outlook-personal-email-users-safe-reinforcing-our/ba-p/4164184">will be turned off for Outlook/Hotmail/Live accounts from September 16, 2024</a></strong>.</p>
+</blockquote>
+<p><br /></p>
+<blockquote>
+<p>Microsoft calls password authentication “<em>Basic authentication</em>” and authentication with OAuth “<em>Modern authentication</em>”. Confusingly, using <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a> also requires entering a password.</p>
+</blockquote>
+<p><br /></p>
+<blockquote>
+<p>✅ If you authorized your Outlook/Office 365 account with the quick setup wizard, your account will keep being synchronized after September 16, 2024.</p>
+<p>❌ If you authorized your Outlook/Office 365 account manually with a password, <strong>your account won’t be synchronized from September 16, 2024 anymore!</strong></p>
+</blockquote>
+<p><br /></p>
+<blockquote>
 <p>How to check:</p>
 <ul>
 <li>Go to the <em>Settings</em> via the navigation menu (left side menu)</li>
@@ -834,22 +851,27 @@ keyword:&lt;keyword&gt;</code></pre>
 <li>Find the account in the list</li>
 <li>If there is a shield icon before the account name (=OAuth), the account will keep working</li>
 </ul>
+</blockquote>
+<p><br /></p>
+<blockquote>
 <p>How to fix:</p>
 <ul>
 <li>Go to the <em>Settings</em> via the navigation menu (left side menu)</li>
-<li>Tap on the <em>Wizard</em> button and select <em>Outlook/Office365 (OAuth)</em></li>
+<li>Tap on the <em>Wizard</em> button and select <em>Outlook/Hotmail/Live (OAuth)</em> or <em>Office 365 (OAuth)</em>.</li>
 <li>Tick the checkbox to authenticate an existing account (else you’ll create a new account!)</li>
 <li>Fill in the fields and follow the steps</li>
 <li>Repeat for each account</li>
 </ul>
 </blockquote>
-<p>An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting <em>Outlook/Office 365</em>.</p>
+<p><br /></p>
+<p>An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting <em>Outlook/Hotmail/Live (OAuth)</em> or <em>Office 365 (OAuth)</em>.</p>
 <p><strong>Important</strong>: a personal and a business account can have the same email address, but have different mailboxes (folders). So, please make sure you select the right option.</p>
 <p>Microsoft said “<em>We have turned off SMTP AUTH for millions of tenants not using it</em>”, which can result in this error message:</p>
 <pre><code>535 5.7.139 Authentication unsuccessful, SmtpClientAuthentication is disabled for the Tenant.
 Visit https://aka.ms/smtp_auth_disabled for more information.</code></pre>
 <p>SMTP AUTH is necessary for third party email clients, which is also documented in <a href="https://aka.ms/smtp_auth_disabled">the referenced article</a>. So, basically this means that Microsoft is pushing you to their own products. Isn’t this a bit of a monopoly?</p>
 <p>To use an Outlook, Live or Hotmail account with two factor authentication enabled, you might need to create an app password. See <a href="https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification">here</a> for the details.</p>
+<p><strong>Important</strong>: Microsoft will drop support for app passwords from September 16, 2024.</p>
 <p>See <a href="https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040">here</a> for Microsoft’s instructions.</p>
 <p>Please see <a href="#faq139">this FAQ</a> for possible causes of the error <em>… User is authenticated but not connected …</em>.</p>
 <p>For unknown reasons, some Outlook/Hotmail accounts cannot send messages because of the server error ‘<em>535 5.7.3 Authentication unsuccessful</em>’. This can be resolved by authenticating the account with an (app) password (see above) instead of with OAuth. You should use the “<em>Other provider</em>” wizard instead of “<em>Outlook / Office 365 (OAuth)</em>” in this case.</p>
