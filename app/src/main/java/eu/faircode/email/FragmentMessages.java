@@ -450,7 +450,6 @@ public class FragmentMessages extends FragmentBase
 
     private static final long REVIEW_ASK_DELAY = 14 * 24 * 3600 * 1000L; // milliseconds
     private static final long REVIEW_LATER_DELAY = 3 * 24 * 3600 * 1000L; // milliseconds
-    private static final long OUTLOOK_CHECK_INTERVAL = 7 * 24 * 3600 * 1000L; // milliseconds
 
     static final List<String> SORT_DATE_HEADER = Collections.unmodifiableList(Arrays.asList(
             "time", "unread", "starred", "priority"
@@ -5909,8 +5908,29 @@ public class FragmentMessages extends FragmentBase
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         long outlook_last_checked = prefs.getLong("outlook_last_checked", 0);
 
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MILLISECOND, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.DAY_OF_MONTH, 16);
+        cal.set(Calendar.MONTH, Calendar.SEPTEMBER);
+        cal.set(Calendar.YEAR, 2024);
+        long at = cal.getTimeInMillis();
+
         long now = new Date().getTime();
-        if (outlook_last_checked + OUTLOOK_CHECK_INTERVAL > now)
+
+        int days;
+        if (now > at - 3 * 24 * 3600 * 1000L)
+            days = 1;
+        else if (now > at - 15 * 24 * 3600 * 1000L)
+            days = 3;
+        else if (now > at - 30 * 24 * 3600 * 1000L)
+            days = 7;
+        else
+            days = 14;
+
+        if (outlook_last_checked + days * 24 * 3600 * 1000L > now)
             return false;
 
         new SimpleTask<List<EntityAccount>>() {
