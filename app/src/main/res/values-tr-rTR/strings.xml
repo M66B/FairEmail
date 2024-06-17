@@ -833,6 +833,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
     <string name="title_advanced_usage_hint">Bu pil, veri ve depolama alanı kullanımını artıracaktır</string>
+    <string name="title_advanced_plain_hint">Bunu etkinleştirmek veri kullanımını sınırlandıracaktır, ancak mesajlar stil ve resim olmadan gösterilecektir</string>
     <string name="title_advanced_plain_remark">Düz metin kısmı her zaman mesajın tamamını içermez!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Bunu etkinleştirmek bazı cihazlarda bağlantı sorunlarına neden olabilir ve pil kullanımını artırabilir</string>
     <string name="title_advanced_validate_hint">Bu, örneğin bir VPN kullanırken değil, diğer durumlarda da mesajların senkronize edilmemesine neden olabilir</string>
@@ -981,6 +982,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_case_sensitive">Kullanıcı adları ve parolalar büyük-küçük harfe duyarlıdır</string>
     <string name="title_login_before_send">Göndermeden önce al</string>
     <string name="title_client_certificate">İstemci sertifikası</string>
+    <string name="title_no_key_selected">Hiçbir tuş seçilmedi veya mevcut tuş yok</string>
     <string name="title_realm">Bölge</string>
     <string name="title_use_ip">Ana bilgisayar adı yerine yerel IP adresini kullan</string>
     <string name="title_ehlo">Özel HELO/EHLO kimliği</string>

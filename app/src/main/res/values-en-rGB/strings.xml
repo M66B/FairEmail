@@ -24,6 +24,7 @@
     <string name="title_setup_theme_reverse">Swap colours</string>
     <string name="title_setup_theme_you_hint">The Material You colours can be configured in the Android Wallpaper &amp; style settings</string>
     <string name="title_setup_theme_more_colors">I want more colours</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Some of your Outlook/Hotmail/Live accounts will stop working after 16 September 2024</string>
     <string name="title_advanced_hint_remark">        The options are categorised by tab, divided into sections, organised by appearance or use, and searchable.
     </string>
     <string name="title_advanced_section_synchronize">Receive</string>

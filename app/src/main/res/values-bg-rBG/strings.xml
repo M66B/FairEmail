@@ -330,6 +330,7 @@
     <string name="title_setup_reset_full">Показване на оригиналните съобщения</string>
     <string name="title_check_gmail_oauth">Вашите акаунти в Gmail ще продължат да работят след 30 май 2022г.</string>
     <string name="title_check_gmail_password">Някои от акаунтите ви в Gmail може да спрат да работят след 30 май 2022г.</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Някои от акаунтите ви при Outlook/Hotmail/Live ще спрат да работят след 16 септември 2024г.</string>
     <string name="title_advanced_hint_title">Още разширени възможности</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
@@ -837,6 +838,7 @@
     <string name="title_advanced_metered_warning">Деактивирането на тази опция ще деактивира получаването и изпращането на съобщения през мобилния интернет</string>
     <string name="title_advanced_rlah_hint">Ако не се допуска роуминг в рамките на ЕС</string>
     <string name="title_advanced_usage_hint">Това ще увеличи употребата на батерията, данните и мястото в хранилището</string>
+    <string name="title_advanced_plain_hint">Включването на това ще ограничи употребата на данни, но съобщенията ще се показват без стилизиране и без образи</string>
     <string name="title_advanced_plain_remark">Частта с прост текст на съобщението не винаги съдържа пълното съобщение!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Включването на това може да причини проблеми с връзката в някои устройства и да увеличи употребата на батерията</string>
     <string name="title_advanced_validate_hint">Може да доведе до това, че съобщенията не се синхронизират, например, употребявайки VPN, но също в други ситуации</string>
@@ -985,6 +987,7 @@
     <string name="title_case_sensitive">Потребителските имена и пароли обикновено различават главни от малки букви</string>
     <string name="title_login_before_send">Получаване преди изпращане</string>
     <string name="title_client_certificate">Сертификат на клиента</string>
+    <string name="title_no_key_selected">Ключ не е избран или няма налични ключове</string>
     <string name="title_realm">Област</string>
     <string name="title_use_ip">Използвай локален IP адрес вместо име на хост</string>
     <string name="title_ehlo">Персонализирана HELO/EHLO идентификация</string>

@@ -330,6 +330,7 @@
     <string name="title_setup_reset_full">Mostrar mensagens originais</string>
     <string name="title_check_gmail_oauth">Suas contas de Gmail continuarão funcionando após 30 de maio de 2022</string>
     <string name="title_check_gmail_password">Algumas de suas contas de Gmail podem parar de funcionar após 30 de maio de 2022</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Algumas de suas contas Outlook/Hotmail/Live deixarão de funcionar após 16 de setembro de 2024</string>
     <string name="title_advanced_hint_title">Opções mais avançadas</string>
     <string name="title_advanced_hint_message">        Você está navegando para as opções mais avançadas.        Todas as opções têm comumente usados valores padrão, que você não precisa mudar a menos que você tenha uma preferência diferente.
     </string>
@@ -837,6 +838,7 @@
     <string name="title_advanced_metered_warning">Desabilitar esta opção desativará o recebimento e envio de mensagens em conexões de internet móvel</string>
     <string name="title_advanced_rlah_hint">Não assumindo roaming na UE</string>
     <string name="title_advanced_usage_hint">Isto aumentará o uso de bateria, dados e espaço de armazenamento</string>
+    <string name="title_advanced_plain_hint">Ativar isso limitará o uso de dados, mas as mensagens serão mostradas sem estilo e sem imagens</string>
     <string name="title_advanced_plain_remark">A parte do texto simples nem sempre contém a mensagem completa!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Habilitar isso pode causar problemas de conexão em alguns dispositivos e pode aumentar o uso da bateria</string>
     <string name="title_advanced_validate_hint">Isso pode levar a problemas na sincronização de mensagens, ao utilizar uma VP por exemplo, mas também em outras situações</string>
@@ -985,6 +987,7 @@
     <string name="title_case_sensitive">Nomes de usuário e senhas normalmente diferenciam maiúsculas de minúsculas</string>
     <string name="title_login_before_send">Receber antes de enviar</string>
     <string name="title_client_certificate">Certificado do Cliente</string>
+    <string name="title_no_key_selected">Nenhuma chave selecionada ou nenhuma chave disponível</string>
     <string name="title_realm">Domínio</string>
     <string name="title_use_ip">Usar endereço IP local em vez do nome do host</string>
     <string name="title_ehlo">Identificação personalizada HELO/EHLO</string>

@@ -330,6 +330,7 @@
     <string name="title_setup_reset_full">Vis oprindelige beskeder</string>
     <string name="title_check_gmail_oauth">Gmail-konti vil fortsat fungere efter 3005-22</string>
     <string name="title_check_gmail_password">Visse Gmail-konti kan ophøre med at fungere efter 3005-22</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Visse eksisterende Outlook-/Hotmail-/Live-konti ophører med at fungere efter 16. sep. 2024</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har alm. brugte standardværdier, som kun behøver ændring ifm. en evt. anden præference.
@@ -839,6 +840,7 @@
     <string name="title_advanced_metered_warning">Deaktivering af denne indstilling vil ikke gøre det muligt at modtage og sende meddelelser på mobildataforbindelser</string>
     <string name="title_advanced_rlah_hint">Antager ingen roaming inden for EU</string>
     <string name="title_advanced_usage_hint">Dette vil forøge batteri-, data- samt lagerpladsforbrug</string>
+    <string name="title_advanced_plain_hint">Aktivering af dette reducerer dataforbruget, men beskeder vises uden styling og billeder</string>
     <string name="title_advanced_plain_remark">Den rene tekstdel indeholder ikke altid den fulde besked!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering af dette kan forårsage forbindelsesproblemer på visse enheder samt øge strømforbruget</string>
     <string name="title_advanced_validate_hint">Dette kan betyde, at beskeder i visse situationer ikke synkes, bl.a. ved brug af VPN</string>
@@ -987,6 +989,7 @@
     <string name="title_case_sensitive">I brugernavne og adgangskoder skelnes normalt mellem minuskler og versaler</string>
     <string name="title_login_before_send">Modtag før afsendelse</string>
     <string name="title_client_certificate">Klientcertifikat</string>
+    <string name="title_no_key_selected">Ingen nøgle valgt eller ingen tilgængelige nøgler</string>
     <string name="title_realm">Område</string>
     <string name="title_use_ip">Brug lokal IP-adresse i stedet for værtsnavn</string>
     <string name="title_ehlo">Tilpasset HELO/EHLO identifikation</string>

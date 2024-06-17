@@ -297,6 +297,7 @@
     <string name="title_setup_reset_full">مشاهده پیام‌های اصلی</string>
     <string name="title_check_gmail_oauth">حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، همچنان کار خواهند کرد</string>
     <string name="title_check_gmail_password">تعدادی از حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، ممکن است از کار بیافتند</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">تعدادی از حساب‌های آوت‌لوک/هات‌میل/لایو شما پس از ۱۶ سپتامبر ۲۰۲۴ از کار خواهند افتاد</string>
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
@@ -625,6 +626,7 @@
     <string name="title_advanced_usenet_hint">بین متن و امضا \'-- \' درج کنید</string>
     <string name="title_advanced_metered_hint">اتصال‌های حجمی عموما شبکه‌های موبایل یا یک هات اسپات غیر رایگان می‌باشند</string>
     <string name="title_advanced_metered_warning">غیرفعال‌سازی این گزینه، دریافت و فرستادن پیام‌ها را روی داده همراه غیرفعال خواهد کرد</string>
+    <string name="title_advanced_plain_hint">فعال کردن این قابلیت مصرف داده را کاهش خواهد داد، اما پیام‌ها بدون تصاویر و سبک نمایش داده خواهند شد</string>
     <string name="title_advanced_plain_remark">آنچه که با خط ساده دیده می‌شود لزوما همیشه تمامی پیام را به طور کامل نشان نمی‌دهد!</string>
     <string name="title_advanced_tcp_keep_alive_hint">فعال کردنش می‌تواند منجر به اختلال در ارتباط در بعضی دستگاه‌ها و یا افزایش مصرف باتری شود</string>
     <string name="title_advanced_ssl_harden_hint">فعال‌سازی این باعث غیرفعال‌سازی SSL و رمز‌های ضعیف خواهد شد، که می‌تواند موجب مشکلات اتصال شود</string>
@@ -700,6 +702,7 @@
     <string name="title_case_sensitive">نام‌های کاربری و گذرواژه‌ها در بیشتر موارد به بزرگ و کوچک بودن حروف حساسند</string>
     <string name="title_login_before_send">دریافت پیش از ارسال</string>
     <string name="title_client_certificate">گواهی‌نامه کارخواه</string>
+    <string name="title_no_key_selected">کلیدی انتخاب نشده یا موجود نیست</string>
     <string name="title_realm">حوزه</string>
     <string name="title_use_ip">استفاده از نشانی IP محلی بجای نام میزبان</string>
     <string name="title_ehlo">شناسایی سفارشی HELO/EHLO</string>
