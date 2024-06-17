@@ -319,8 +319,6 @@
     <string name="title_setup_reset_full">Näytä alkuperäiset viestit</string>
     <string name="title_check_gmail_oauth">Gmail-tilisi jatkavat toimimista 30. toukokuuta 2022 jälkeen</string>
     <string name="title_check_gmail_password">Osa Gmail-tileistäsi saattaa lopettaa toimimisen 30. toukokuuta 2022 jälkeen</string>
-    <string name="title_check_outlook_oauth">Outlook-tilisi jatkavat toimimista 1. lokakuuta 2022 jälkeen</string>
-    <string name="title_check_outlook_password">Osa Outlook-tileistäsi saattaa lopettaa toimimisen 1. lokakuuta 2022 jälkeen</string>
     <string name="title_advanced_hint_title">Edistyneemmät asetukset</string>
     <string name="title_advanced_hint_message">Olet siirtymässä edistyneempiin asetuksiin.        Kaikilla asetuksilla on yleisesti käytetyt oletusarvot. Arvoja voi halutessaan vaihtaa.
     </string>
@@ -817,7 +815,6 @@
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_usage_hint">Tämä lisää akun, datan ja tallennustilan käyttöä</string>
-    <string name="title_advanced_plain_hint">Tämän ottaminen käyttöön rajoittaa datan käyttöä, mutta viestit näytetään ilman muotoilua</string>
     <string name="title_advanced_plain_remark">Muotoilematon teksti ei aina sisällä koko viestiä!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Tämän käyttöönotto voi aiheuttaa ongelmia joissakin laitteissa ja lisätä akun käyttöä</string>
     <string name="title_advanced_validate_hint">Tämä voi aiheuttaa sen, ettei viestejä synkronoida esimerkiksi VPN:ää käytettäessä tai joissakin muissakaan tilanteissa</string>

@@ -329,8 +329,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_reset_full">Toon originele berichten</string>
     <string name="title_check_gmail_oauth">Uw Gmail accounts zullen blijven werken na 30 mei 2022</string>
     <string name="title_check_gmail_password">Sommige van uw Gmail accounts werken mogelijk niet meer na 30 mei 2022</string>
-    <string name="title_check_outlook_oauth">Uw Outlook accounts zullen blijven werken na 1 oktober 2022</string>
-    <string name="title_check_outlook_password">Sommige van uw Outlook accounts werken mogelijk niet meer na 1 oktober 2022</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Sommige van uw Outlook/Hotmail/Live accounts zullen na 16 september 2024 niet meer werken</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.        Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
     </string>
@@ -986,6 +985,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_case_sensitive">Gebruikersnamen en wachtwoorden zijn meestal hoofdlettergevoelig</string>
     <string name="title_login_before_send">Ontvang voor verzenden</string>
     <string name="title_client_certificate">Cliëntcertificaat</string>
+    <string name="title_no_key_selected">Geen sleutel geselecteerd of geen sleutels beschikbaar</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Gebruik lokaal IP-adres in plaats van hostnaam</string>
     <string name="title_ehlo">Aangepaste HELO/EHLO identificatie</string>
@@ -1773,8 +1773,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_tts_subject">Onderwerp</string>
     <string name="title_rule_tts_content">Tekst</string>
     <string name="title_rule_select_sound">Selecteer geluid</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Beltoon</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Audiobestand</string>
+    <string name="title_rule_select_sound_ringtone">Beltoon</string>
+    <string name="title_rule_select_sound_audio">Audiobestand</string>
     <string name="title_rule_use_as_alarm">Als alarm gebruiken</string>
     <string name="title_rule_alarm_hint">Dit zal \"niet storen\" regels negeren</string>
     <string name="title_rule_alarm_duration">Maximale alarmduur (seconden)</string>

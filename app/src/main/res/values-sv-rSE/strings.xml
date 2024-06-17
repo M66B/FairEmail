@@ -328,8 +328,6 @@
     <string name="title_setup_reset_full">Visa originalmeddelanden</string>
     <string name="title_check_gmail_oauth">Dina Gmail-konton kommer att fortsätta fungera efter den 30 maj 2022</string>
     <string name="title_check_gmail_password">Vissa av dina Gmail-konton kan sluta fungera efter den 30 maj 2022</string>
-    <string name="title_check_outlook_oauth">Dina Outlook-konton kommer att fortsätta fungera efter 1 oktober 2022</string>
-    <string name="title_check_outlook_password">Vissa av dina Outlook-konton kan sluta fungera efter 1 oktober 2022</string>
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
     <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.        Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
     <string name="title_advanced_hint_remark">        Alternativen kategoriseras efter flik, indelade i sektioner, organiserade efter utseende eller användning och sökbara.
@@ -831,7 +829,6 @@
     <string name="title_advanced_metered_warning">Inaktivering av det här alternativet inaktiverar mottagning och sändning av meddelanden på mobila internetanslutningar</string>
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
     <string name="title_advanced_usage_hint">Det här kommer att öka användningen av batteri, data och lagringsutrymme</string>
-    <string name="title_advanced_plain_hint">Aktivering av detta kommer att begränsa dataanvändningen, men meddelanden kommer att visas utan formatering</string>
     <string name="title_advanced_plain_remark">Den oformaterade textdelen innehåller inte alltid hela meddelandet!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering av detta kan orsaka anslutningsproblem på vissa enheter och kan öka batterianvändningen</string>
     <string name="title_advanced_validate_hint">Detta kan resultera i att meddelanden inte synkroniseras, till exempel vid användning av VPN, men även i andra situationer</string>
@@ -1765,8 +1762,8 @@
     <string name="title_rule_tts_subject">Ämne</string>
     <string name="title_rule_tts_content">Text</string>
     <string name="title_rule_select_sound">Välj ljud</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Ringsignal</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Ljudfil</string>
+    <string name="title_rule_select_sound_ringtone">Ringsignal</string>
+    <string name="title_rule_select_sound_audio">Ljudfil</string>
     <string name="title_rule_use_as_alarm">Använd som larm</string>
     <string name="title_rule_alarm_hint">Det här kommer att ignorera \"stör ej\"-reglerna</string>
     <string name="title_rule_alarm_duration">Maxtid för alarm (sekunder)</string>

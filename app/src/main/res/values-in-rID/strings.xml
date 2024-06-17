@@ -314,8 +314,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_setup_reset_full">Tampilkan pesan asli</string>
     <string name="title_check_gmail_oauth">Akun Gmail Anda akan terus berfungsi setelah tanggal 30 Mei 2022</string>
     <string name="title_check_gmail_password">Beberapa akun Gmail Anda mungkin berhenti bekerja setelah tanggal 30 Mei 2022</string>
-    <string name="title_check_outlook_oauth">Akun Outlook Anda akan terus bekerja setelah tanggal 1 Oktober 2022</string>
-    <string name="title_check_outlook_password">Beberapa akun Outlook Anda mungkin berhenti bekerja setelah tanggal 1 Oktober 2022</string>
     <string name="title_advanced_hint_title">Opsi lebih lanjut</string>
     <string name="title_advanced_hint_message">        Anda menavigasi ke opsi yang lebih canggih.
         Semua opsi umumnya menggunakan nilai standar, yang tidak perlu Anda ubah kecuali jika Anda memiliki preferensi yang berbeda.
@@ -817,7 +815,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_metered_warning">Menonaktifkan opsi ini akan menonaktifkan menerima dan mengirim pesan ketika memakai koneksi internet seluler</string>
     <string name="title_advanced_rlah_hint">Dengan asumsi tidak ada roaming di Uni Eropa</string>
     <string name="title_advanced_usage_hint">Akan meningkatkan penggunaan baterai, dan penyimpanan data</string>
-    <string name="title_advanced_plain_hint">Mengaktifkan ini akan membatasi penggunaan data, namun pesan akan ditampilkan tanpa pengaturan style</string>
     <string name="title_advanced_plain_remark">Bagian teks biasa tidak selalu berisi pesan lengkap!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Mengaktifkan ini dapat mengakibatkan masalah koneksi pada beberapa perangkat dan dapat meningkatkan penggunaan baterai</string>
     <string name="title_advanced_validate_hint">Ini dapat mengakibatkan pesan tidak tersinkronasi, contohnya ketika menggunakan VPN, tetapi juga dalam situasi lain</string>

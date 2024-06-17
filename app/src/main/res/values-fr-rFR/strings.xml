@@ -330,8 +330,7 @@
     <string name="title_setup_reset_full">Afficher les messages originaux</string>
     <string name="title_check_gmail_oauth">Vos comptes Gmail continueront de fonctionner après le 30 mai 2022</string>
     <string name="title_check_gmail_password">Certains de vos comptes Gmail peuvent cesser de fonctionner après le 30 mai 2022</string>
-    <string name="title_check_outlook_oauth">Vos comptes Outlook continueront de fonctionner après le 1er octobre 2022</string>
-    <string name="title_check_outlook_password">Certains de vos comptes Outlook peuvent cesser de fonctionner après le 1er octobre 2022</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Certains de vos comptes Outlook/Hotmail/Live cesseront de fonctionner après le 16 septembre 2024</string>
     <string name="title_advanced_hint_title">Paramètres avancés</string>
     <string name="title_advanced_hint_message">        Vous parcourez les paramètres avancés.
         Toutes les options ont des valeurs par défaut couramment utilisées que vous n\'avez pas besoin de modifier sauf si vous avez une préférence différente.
@@ -841,7 +840,7 @@
     <string name="title_advanced_metered_warning">La désactivation de cette option empêchera la réception et l’envoi de messages sur les connexions de données mobiles</string>
     <string name="title_advanced_rlah_hint">Considérer qu’il n’y a pas d’itinérance au sein de l’Union Européenne (Roam Like at Home)</string>
     <string name="title_advanced_usage_hint">Ceci augmentera l\'utilisation de la batterie, des données et de l\'espace de stockage</string>
-    <string name="title_advanced_plain_hint">Activer ceci limitera l\'utilisation des données, mais les messages seront affichés sans style</string>
+    <string name="title_advanced_plain_hint">Activer ceci limitera l\'utilisation des données mais les messages seront affichés sans style et sans images</string>
     <string name="title_advanced_plain_remark">La partie texte brut ne contient pas toujours le message complet !</string>
     <string name="title_advanced_tcp_keep_alive_hint">Activer ceci peut provoquer des problèmes de connexion sur certains appareils et peut augmenter l\'utilisation de la batterie</string>
     <string name="title_advanced_validate_hint">Ceci peut entraîner la non-synchronisation des messages, par exemple lors de l\'utilisation d\'un VPN mais aussi dans d\'autres situations</string>
@@ -990,6 +989,7 @@
     <string name="title_case_sensitive">Les noms d\'utilisateur et les mots de passe sont généralement sensibles à la casse</string>
     <string name="title_login_before_send">Recevoir avant d\'envoyer</string>
     <string name="title_client_certificate">Certificat client</string>
+    <string name="title_no_key_selected">Aucune clé sélectionnée ou aucune clé disponible</string>
     <string name="title_realm">Domaine</string>
     <string name="title_use_ip">Utiliser l’adresse IP locale au lieu du nom d’hôte</string>
     <string name="title_ehlo">Identification HELO/EHLO personnalisée</string>
@@ -1786,8 +1786,8 @@
     <string name="title_rule_tts_subject">Objet</string>
     <string name="title_rule_tts_content">Texte</string>
     <string name="title_rule_select_sound">Choisir un son</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Sonnerie</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Fichier audio</string>
+    <string name="title_rule_select_sound_ringtone">Sonnerie</string>
+    <string name="title_rule_select_sound_audio">Fichier audio</string>
     <string name="title_rule_use_as_alarm">Utiliser en tant qu\'alarme</string>
     <string name="title_rule_alarm_hint">Ceci ignorera les règles « Ne pas déranger »</string>
     <string name="title_rule_alarm_duration">Durée maximale de l\'alarme (secondes)</string>

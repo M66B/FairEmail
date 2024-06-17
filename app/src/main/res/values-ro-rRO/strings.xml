@@ -344,8 +344,7 @@
     <string name="title_setup_reset_full">Afișați mesajele originale</string>
     <string name="title_check_gmail_oauth">Conturile dumneavoastră Gmail vor continua să funcționeze și după 30 mai 2022</string>
     <string name="title_check_gmail_password">Este posibil ca unele dintre conturile tale de Gmail să nu mai funcționeze după 30 mai 2022</string>
-    <string name="title_check_outlook_oauth">Conturile Outlook vor continua să funcționeze și după 1 octombrie 2022</string>
-    <string name="title_check_outlook_password">Este posibil ca unele dintre conturile Outlook să nu mai funcționeze după 1 octombrie 2022</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Unele dintre conturile dvs. Outlook/Hotmail/Live nu vor mai funcționa după 16 septembrie 2024</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.        Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
@@ -853,7 +852,7 @@
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
     <string name="title_advanced_usage_hint">Acest lucru va crește utilizarea bateriei, a datelor și a spațiului de stocare</string>
-    <string name="title_advanced_plain_hint">Activarea acestei opțiuni va limita utilizarea datelor, dar mesajele vor fi afișate fără stilizare</string>
+    <string name="title_advanced_plain_hint">Activarea acestei opțiuni va limita utilizarea datelor, dar mesajele vor fi afișate fără stilizare și fără imagini</string>
     <string name="title_advanced_plain_remark">Textul simplu nu conține întotdeauna mesajul complet!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Activarea acesteia poate cauza probleme de conexiune pe unele dispozitive și poate crește utilizarea bateriei</string>
     <string name="title_advanced_validate_hint">Acest lucru poate duce la nesincronizarea mesajelor, de exemplu atunci când se utilizează un VPN, dar și în alte situații</string>
@@ -1002,6 +1001,7 @@
     <string name="title_case_sensitive">Numele de utilizator și parolele sunt de obicei sensibile la majuscule</string>
     <string name="title_login_before_send">Primește înainte de a trimite</string>
     <string name="title_client_certificate">Certificat client</string>
+    <string name="title_no_key_selected">Nici o cheie selectată sau nici o cheie disponibilă</string>
     <string name="title_realm">Domeniu</string>
     <string name="title_use_ip">Folosește adresa IP în loc de numele gazdei</string>
     <string name="title_ehlo">Identificare personalizată HELO/EHLO</string>
@@ -1796,8 +1796,8 @@
     <string name="title_rule_tts_subject">Subiect</string>
     <string name="title_rule_tts_content">Text</string>
     <string name="title_rule_select_sound">Alege sunet</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Sunet de notificare</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Fişier audio</string>
+    <string name="title_rule_select_sound_ringtone">Sunet de notificare</string>
+    <string name="title_rule_select_sound_audio">Fişier audio</string>
     <string name="title_rule_use_as_alarm">Utilizează ca alarmă</string>
     <string name="title_rule_alarm_hint">Acest lucru va ignora regulile \"nu deranjați\"</string>
     <string name="title_rule_alarm_duration">Durata maximă a alarmei (secunde)</string>

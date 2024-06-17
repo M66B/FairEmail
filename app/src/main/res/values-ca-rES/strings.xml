@@ -296,8 +296,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_setup_reset_full">Mostra el missatge original</string>
     <string name="title_check_gmail_oauth">Els teus comptes de Gmail continuaran funcionant després del 30 de maig de 2022</string>
     <string name="title_check_gmail_password">Algunes de les teves comptes de Gmail poden deixar de funcionar després del 30 de maig del 2022</string>
-    <string name="title_check_outlook_oauth">Els teus comptes de Gmail continuaran funcionant després del 30 de maig de 2022</string>
-    <string name="title_check_outlook_password">Algunes de les teves comptes de Gmail poden deixar de funcionar després del 30 de maig del 2022</string>
     <string name="title_advanced_hint_title">Més opcions avançades</string>
     <string name="title_advanced_hint_message">Esteu navegant a les opcions més avançades.
         Totes les opcions utilitzen habitualment valors estàndard que es poden canviar si teniu una preferència diferent.

@@ -344,8 +344,6 @@
     <string name="title_setup_reset_full">Prikaži izvorne poruke</string>
     <string name="title_check_gmail_oauth">Vaši Gmail računi radit će nakon 30. maja 2022.</string>
     <string name="title_check_gmail_password">Neki od vaših Gmail računa prestat će raditi nakon 30. maja 2022.</string>
-    <string name="title_check_outlook_oauth">Vaši Outlook računi će raditi nakon 1. oktobra 2022.</string>
-    <string name="title_check_outlook_password">Neki od vaših Outlook računa će prestati raditi nakon 1. oktobra 2022.</string>
     <string name="title_advanced_hint_title">Više naprednih opcija</string>
     <string name="title_advanced_hint_message">        Prebacujete se na više naprednih opcija.
         Sve opcije imaju postavljene uobičajene standardne vrijednosti, koje ne trebate mijenjati osim ako ne preferirate drugačije.
@@ -854,7 +852,6 @@
     <string name="title_advanced_metered_warning">Isključivanje ove opcije će zaustaviti prijem i slanje poruka na mobilnim internet konekcijama</string>
     <string name="title_advanced_rlah_hint">Pretpostavka da nema roaminga unutar EU</string>
     <string name="title_advanced_usage_hint">Ovo će povećati potrošnju baterije, podataka i skladišnog prostora</string>
-    <string name="title_advanced_plain_hint">Omogućavanje ove opcije ograničit će potrošnju podataka, ali će se poruke onda prikazivati bez stila</string>
     <string name="title_advanced_plain_remark">Dio običnog teksta ne sadrži uvijek cijelu poruku!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Omogućavanje ove opcije može uzrokovati probleme s konekcijom na nekim uređajima i povećati potrošnju baterije</string>
     <string name="title_advanced_validate_hint">Ovo može rezultirati u zaustavljanju sinhronizacije poruka, npr. kada se koristi VPN, ali i u drugim situacijama</string>
@@ -1799,8 +1796,8 @@
     <string name="title_rule_tts_subject">Predmet</string>
     <string name="title_rule_tts_content">Tekst</string>
     <string name="title_rule_select_sound">Izaberi zvuk</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Melodija zvona</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Zvučna datoteka</string>
+    <string name="title_rule_select_sound_ringtone">Melodija zvona</string>
+    <string name="title_rule_select_sound_audio">Zvučna datoteka</string>
     <string name="title_rule_use_as_alarm">Koristi kao alarm</string>
     <string name="title_rule_alarm_hint">Ovo će ignorisati pravila \"neometanja\"</string>
     <string name="title_rule_alarm_duration">Maksimalno trajanje alarma (sekunde)</string>

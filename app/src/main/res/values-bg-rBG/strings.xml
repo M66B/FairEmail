@@ -330,8 +330,6 @@
     <string name="title_setup_reset_full">Показване на оригиналните съобщения</string>
     <string name="title_check_gmail_oauth">Вашите акаунти в Gmail ще продължат да работят след 30 май 2022г.</string>
     <string name="title_check_gmail_password">Някои от акаунтите ви в Gmail може да спрат да работят след 30 май 2022г.</string>
-    <string name="title_check_outlook_oauth">Вашите акаунти в Outlook ще продължат да работят след 1 октомври 2022г.</string>
-    <string name="title_check_outlook_password">Някои от акаунтите ви в Outlook може да спрат да работят след 1 октомври 2022г.</string>
     <string name="title_advanced_hint_title">Още разширени възможности</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
@@ -839,7 +837,6 @@
     <string name="title_advanced_metered_warning">Деактивирането на тази опция ще деактивира получаването и изпращането на съобщения през мобилния интернет</string>
     <string name="title_advanced_rlah_hint">Ако не се допуска роуминг в рамките на ЕС</string>
     <string name="title_advanced_usage_hint">Това ще увеличи употребата на батерията, данните и мястото в хранилището</string>
-    <string name="title_advanced_plain_hint">Включването на това ще ограничи употребата на данните, но съобщенията ще се показват без стил</string>
     <string name="title_advanced_plain_remark">Частта с прост текст на съобщението не винаги съдържа пълното съобщение!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Включването на това може да причини проблеми с връзката в някои устройства и да увеличи употребата на батерията</string>
     <string name="title_advanced_validate_hint">Може да доведе до това, че съобщенията не се синхронизират, например, употребявайки VPN, но също в други ситуации</string>
@@ -1777,8 +1774,8 @@
     <string name="title_rule_tts_subject">Тема</string>
     <string name="title_rule_tts_content">Текст</string>
     <string name="title_rule_select_sound">Изберете звук</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Тон на звънене</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Звуков файл</string>
+    <string name="title_rule_select_sound_ringtone">Тон на звънене</string>
+    <string name="title_rule_select_sound_audio">Звуков файл</string>
     <string name="title_rule_use_as_alarm">Употреба като будило</string>
     <string name="title_rule_alarm_hint">Това ще пренебрегне правилата \"не ме притеснявайте\"</string>
     <string name="title_rule_alarm_duration">Най-дълго времетраене на будилника (секунди)</string>

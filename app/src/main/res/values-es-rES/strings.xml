@@ -330,8 +330,6 @@
     <string name="title_setup_reset_full">Mostrar el mensaje original</string>
     <string name="title_check_gmail_oauth">Tus cuentas de Gmail continuarán funcionando después del 30 de Mayo de 2022</string>
     <string name="title_check_gmail_password">Algunas de sus cuentas de Gmail podrían dejar de funcionar después del 30 de Mayo de 2022</string>
-    <string name="title_check_outlook_oauth">Sus cuentas de Outlook continuarán funcionando después del 1 de octubre de 2022</string>
-    <string name="title_check_outlook_password">Algunas de sus cuentas de Outlook pueden dejar de funcionar después del 1 de octubre de 2022</string>
     <string name="title_advanced_hint_title">Opciones más avanzadas</string>
     <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.        Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
     </string>
@@ -839,7 +837,6 @@
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
     <string name="title_advanced_usage_hint">Esto aumentará el uso de batería, datos y espacio de almacenamiento</string>
-    <string name="title_advanced_plain_hint">Activar esto limitará el uso de datos, pero los mensajes se mostrarán sin estilizar</string>
     <string name="title_advanced_plain_remark">¡La parte de texto plano no siempre contiene el mensaje completo!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Activar esto puede causar problemas de conexión en algunos dispositivos y puede aumentar el uso de la batería</string>
     <string name="title_advanced_validate_hint">Esto puede ocasionar que no sincronicen los mensajes, por ejemplo cuando se utiliza una VPN, pero también en otras situaciones</string>
@@ -1781,8 +1778,8 @@
     <string name="title_rule_tts_subject">Asunto</string>
     <string name="title_rule_tts_content">Texto</string>
     <string name="title_rule_select_sound">Seleccionar sonido</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Tono de notificación</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Archivo de audio</string>
+    <string name="title_rule_select_sound_ringtone">Tono de notificación</string>
+    <string name="title_rule_select_sound_audio">Archivo de audio</string>
     <string name="title_rule_use_as_alarm">Usar como alarma</string>
     <string name="title_rule_alarm_hint">Esto ignorará las reglas \"no molestar\"</string>
     <string name="title_rule_alarm_duration">Duración máxima de la alarma (segundos)</string>

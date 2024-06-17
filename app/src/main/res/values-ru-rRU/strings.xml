@@ -358,8 +358,7 @@
     <string name="title_setup_reset_full">Показывать исходные сообщения</string>
     <string name="title_check_gmail_oauth">Ваши учётные записи Gmail будут работать после 30 мая 2022 года</string>
     <string name="title_check_gmail_password">Некоторые из ваших учётных записей Gmail могут перестать работать после 30 мая 2022 года</string>
-    <string name="title_check_outlook_oauth">Ваши учётные записи Outlook будут работать после 1 октября 2022 года</string>
-    <string name="title_check_outlook_password">Некоторые из ваших учётных записей Outlook могут перестать работать после 1 октября 2022 года</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Некоторые из ваших учётных записей Outlook/Hotmail/Live перестанут работать после 16 сентября 2024 года</string>
     <string name="title_advanced_hint_title">Настройки для опытных</string>
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
         Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.    </string>
@@ -868,7 +867,7 @@
     <string name="title_advanced_metered_warning">Отключение прекратит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
     <string name="title_advanced_usage_hint">Увеличится расход заряда батареи, трафика и места в хранилище</string>
-    <string name="title_advanced_plain_hint">Включение уменьшит использование данных, но сообщения будут показаны без стиля</string>
+    <string name="title_advanced_plain_hint">Включение уменьшит использование данных, но сообщения будут показаны без стиля и без изображений</string>
     <string name="title_advanced_plain_remark">Текстовая часть не всегда содержит полное сообщение!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Включение может вызвать проблемы подключения на некоторых устройствах и увеличить использование батареи</string>
     <string name="title_advanced_validate_hint">Может привести к тому, что сообщения не синхронизируются, например, при использовании VPN, а также в других ситуациях</string>
@@ -1017,6 +1016,7 @@
     <string name="title_case_sensitive">Имена пользователей и пароли обычно чувствительны к регистру</string>
     <string name="title_login_before_send">Получение перед отправкой</string>
     <string name="title_client_certificate">Сертификат клиента</string>
+    <string name="title_no_key_selected">Ключ не выбран или нет доступных ключей</string>
     <string name="title_realm">Реалм</string>
     <string name="title_use_ip">Использовать локальный IP-адрес вместо имени хоста</string>
     <string name="title_ehlo">Пользовательская идентификация HELO/EHLO</string>
@@ -1813,8 +1813,8 @@
     <string name="title_rule_tts_subject">Тема</string>
     <string name="title_rule_tts_content">Текст</string>
     <string name="title_rule_select_sound">Выбрать звук</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Мелодия</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Аудиофайл</string>
+    <string name="title_rule_select_sound_ringtone">Мелодия</string>
+    <string name="title_rule_select_sound_audio">Аудиофайл</string>
     <string name="title_rule_use_as_alarm">Использовать как будильник</string>
     <string name="title_rule_alarm_hint">Это игнорирует правила \"не беспокоить\"</string>
     <string name="title_rule_alarm_duration">Максимальная длительность будильника (в секундах)</string>

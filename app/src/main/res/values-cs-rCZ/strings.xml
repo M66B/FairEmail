@@ -359,8 +359,6 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_reset_full">Zobrazit původní zprávy</string>
     <string name="title_check_gmail_oauth">Vaše Gmail účty budou fungovat i po 30. květnu 2022</string>
     <string name="title_check_gmail_password">Některé z vašich Gmail účtů mohou přestat fungovat po 30. květnu 2022</string>
-    <string name="title_check_outlook_oauth">Vaše účty Outlook budou fungovat i po 1. říjnu 2022</string>
-    <string name="title_check_outlook_password">Některé z vašich účtů Outlook mohou přestat fungovat po 1. říjnu 2022</string>
     <string name="title_advanced_hint_title">Pokročilé možnosti</string>
     <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.        Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
     </string>
@@ -868,7 +866,6 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
     <string name="title_advanced_usage_hint">Zvýší využití baterie, dat a úložného prostoru</string>
-    <string name="title_advanced_plain_hint">Pomocí této volby omezíte využití dat, zprávy však budou zobrazeny bez specifického formátování</string>
     <string name="title_advanced_plain_remark">Část zprávy v prostém textu ne vždy obsahuje celou zprávu!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Povolení této funkce může způsobit problémy s připojením na některých zařízeních a může zvýšit využití baterie</string>
     <string name="title_advanced_validate_hint">Může vést k nesynchronizovaným zprávám, například při použití VPN, ale i v jiných situacích</string>
@@ -1811,8 +1808,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_tts_subject">Předmět</string>
     <string name="title_rule_tts_content">Text</string>
     <string name="title_rule_select_sound">Vybrat zvuk</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Vyzváněcí tón</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Audio soubor</string>
+    <string name="title_rule_select_sound_ringtone">Vyzváněcí tón</string>
+    <string name="title_rule_select_sound_audio">Audio soubor</string>
     <string name="title_rule_use_as_alarm">Použít jako budík</string>
     <string name="title_rule_alarm_hint">Toto ignoruje pravidla režimu \"Nerušit\"</string>
     <string name="title_rule_alarm_duration">Maximální doba trvání budíku (sekundy)</string>

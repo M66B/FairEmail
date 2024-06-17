@@ -316,8 +316,6 @@
     <string name="title_setup_reset_full">显示原始邮件</string>
     <string name="title_check_gmail_oauth">您的 Gmail 账户在 2022 年 5 月 30 日之后可继续使用</string>
     <string name="title_check_gmail_password">您的部分 Gmail 账户可能会在 2022 年 5 月 30 日之后不可使用</string>
-    <string name="title_check_outlook_oauth">您的 Outlook 账户将在 2022 年 10 月 1 日之后可继续使用</string>
-    <string name="title_check_outlook_password">部分 Outlook 账户可能会在 2022 年 10 月 1 日之后不可使用</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
     <string name="title_advanced_hint_message">        您正在前往更多的高级选项        所有选项默认使用常用的标准值，若有特别偏好则可更改。
     </string>
@@ -825,7 +823,6 @@
     <string name="title_advanced_metered_warning">禁用此选项将禁用在移动互联网连接时接收和发送邮件</string>
     <string name="title_advanced_rlah_hint">假设欧盟境内不存在漫游</string>
     <string name="title_advanced_usage_hint">这将增加电池、数据和存储空间的使用</string>
-    <string name="title_advanced_plain_hint">启用此选项将限制数据使用量，但邮件将不会显示样式</string>
     <string name="title_advanced_plain_remark">纯文本部分并不总是包含完整的邮件！</string>
     <string name="title_advanced_tcp_keep_alive_hint">启用此功能可能会导致某些设备出现连接问题，并可能会增加电池使用量</string>
     <string name="title_advanced_validate_hint">这可能导致邮件停止同步，例如在使用 VPN 或其他情况下</string>
@@ -1766,8 +1763,8 @@
     <string name="title_rule_tts_subject">主题</string>
     <string name="title_rule_tts_content">文本</string>
     <string name="title_rule_select_sound">选择声音</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">铃声</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">音频文件</string>
+    <string name="title_rule_select_sound_ringtone">铃声</string>
+    <string name="title_rule_select_sound_audio">音频文件</string>
     <string name="title_rule_use_as_alarm">用作警报</string>
     <string name="title_rule_alarm_hint">这将忽略“勿扰”规则</string>
     <string name="title_rule_alarm_duration">警报最长持续时间 (秒)</string>

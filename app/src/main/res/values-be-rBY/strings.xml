@@ -359,8 +359,6 @@
     <string name="title_setup_reset_full">Паказаць зыходныя паведамленні</string>
     <string name="title_check_gmail_oauth">Вашы ўліковыя запісы Gmail працягнуць працаваць пасля 30 мая 2022 г.</string>
     <string name="title_check_gmail_password">Некаторыя з вашых уліковых запісаў Gmail могуць перастаць працаваць пасля 30 мая 2022 г.</string>
-    <string name="title_check_outlook_oauth">Вашы ўліковыя запісы Outlook працягнуць працаваць пасля 1 кастрычніка 2022 г.</string>
-    <string name="title_check_outlook_password">Некаторыя з вашых уліковых запісаў Outlook могуць перастаць працаваць пасля 1 кастрычніка 2022 г.</string>
     <string name="title_advanced_hint_title">Пашыраныя налады</string>
     <string name="title_advanced_hint_message">        Вы пераходзіце да пашыраных параметраў.
         Усе параметры звычайна маюць стандартныя значэнні, якія вам не трэба мяняць, калі ў вас няма іншых патрабаванняў.
@@ -868,7 +866,6 @@
     <string name="title_advanced_metered_warning">Адключэнне гэтай опцыі прывядзе да адключэння прыёму і адпраўкі паведамленняў пры злучэнні з выкарыстаннем мабільных даных</string>
     <string name="title_advanced_rlah_hint">Улічваць адсутнасць роўмінгу ў ЕС</string>
     <string name="title_advanced_usage_hint">Гэта опцыя прывядзе да павелічэння выкарыстання батарэі, даных і месца для захоўвання</string>
-    <string name="title_advanced_plain_hint">Уключэнне гэтай опцыі абмяжуе выкарыстанне даных, але паведамленні будуць паказвацца без стылізацыі</string>
     <string name="title_advanced_plain_remark">Частка звычайнага тэксту не заўсёды змяшчае поўнае паведамленне!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Уключэнне гэтай опцыі можа выклікаць праблемы са злучэннем на некаторых прыладах і павялічыць расход батарэі</string>
     <string name="title_advanced_validate_hint">Гэта можа прывесці да збою сінхранізацыі паведамленняў, напрыклад, пры выкарыстанні VPN, а таксама ў іншых сітуацыях</string>

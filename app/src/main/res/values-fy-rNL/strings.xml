@@ -328,8 +328,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_reset_full">Orizjinele berjochten toane</string>
     <string name="title_check_gmail_oauth">Jo Gmail-accounts sille wurkje bliuwe nei 30 maaie 2022</string>
     <string name="title_check_gmail_password">Guon fan jo Gmail-accounts wurkje mooglik net mear nei 30 maaie 2022</string>
-    <string name="title_check_outlook_oauth">Jo Outlook-accounts sille wurkje bliuwe nei 30 maaie 2022</string>
-    <string name="title_check_outlook_password">Guon fan jo Outlook-accounts wurkje mooglik net mear nei 30 maaie 2022</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Guon fan jo Outlook-/Hotmail-/Live-accounts sille nei 16 septimber 2024 net mear wurkje</string>
     <string name="title_advanced_hint_title">Mear avansearre opsjes</string>
     <string name="title_advanced_hint_message">        Jo navigearje nei de mear avansearre opsjes.
         Alle opsjes hawwe faak standertwearden brûkt dy’t wizige wurde kinne as jo in oare foarkar hawwe.
@@ -838,7 +837,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_metered_warning">Utskeakeljen fan dizze opsje sil it ûntfangen en ferstjoeren fan berjochten op mobile ynternetferbiningen útskeakelje</string>
     <string name="title_advanced_rlah_hint">Utgeande fan gjin ‘roaming’ binnen de EU</string>
     <string name="title_advanced_usage_hint">Dit sil gebrûk fan de batterij, gegevens en opslachromte ferheegje</string>
-    <string name="title_advanced_plain_hint">Dit ynskeakelje sil it gegevensgebrûk beheine, mar berjochten sille werjûn wurde sûnder opmaak</string>
+    <string name="title_advanced_plain_hint">Dit ynskeakelje sil it gegevensgebrûk beheine, mar berjochten sille werjûn wurde sûnder opmaak en sûnder ôfbyldingen</string>
     <string name="title_advanced_plain_remark">It plattetekstdiel befettet net altyd it folsleine berjocht!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Dit ynskeakelje kin ferbiningsproblemen feroarsaakje op guon apparaten en kin it batterijferbrûk ferheegje</string>
     <string name="title_advanced_validate_hint">Dit kin resultearje yn berjochten dy’t net syngronisearje, bygelyks as jo in VPN brûke, mar ek yn oare situaasjes</string>
@@ -987,6 +986,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_case_sensitive">Brûkersnammen en wachtwurden binne meastal haadlettergefoelich</string>
     <string name="title_login_before_send">Foar ferstjoeren ûntfange</string>
     <string name="title_client_certificate">Clientsertifikaat</string>
+    <string name="title_no_key_selected">Gjin kaai selektearre of gjin kaaien beskikber</string>
     <string name="title_realm">Domein</string>
     <string name="title_use_ip">Brûk lokaal IP-adres yn stee fan hostnamme</string>
     <string name="title_ehlo">Oanpaste HELO/EHLO-identifikaasje</string>
@@ -1778,6 +1778,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_rule_tts_subject">Underwerp</string>
     <string name="title_rule_tts_content">Tekst</string>
     <string name="title_rule_select_sound">Lûd selektearje</string>
+    <string name="title_rule_select_sound_ringtone">Beltoan</string>
+    <string name="title_rule_select_sound_audio">Audiobestân</string>
     <string name="title_rule_use_as_alarm">As alarm brûke</string>
     <string name="title_rule_alarm_hint">Dit sil ‘net steure’-regels negearje</string>
     <string name="title_rule_alarm_duration">Maksimale alarmdoer (sekonden)</string>

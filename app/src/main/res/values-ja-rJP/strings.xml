@@ -316,8 +316,6 @@
     <string name="title_setup_reset_full">元のメッセージの表示</string>
     <string name="title_check_gmail_oauth">あなたの Gmail アカウントは 2022 年 5 月 30 日以降も引き続き利用できます</string>
     <string name="title_check_gmail_password">あなたの Gmail アカウントの一部は 2022 年 5 月 30 日以降に停止される可能性があります</string>
-    <string name="title_check_outlook_oauth">あなたの Outlook アカウントは 2022 年 10 月 1 日以降も引き続き利用できます</string>
-    <string name="title_check_outlook_password">あなたの Outlook アカウントは 2022 年 10 月 1 日以降に停止される可能性があります</string>
     <string name="title_advanced_hint_title">詳細設定</string>
     <string name="title_advanced_hint_message">        詳細設定に移動しています。
         初期状態では特に変更しなくてもアプリを使用できる一般的な設定になっています。
@@ -826,7 +824,6 @@
     <string name="title_advanced_metered_warning">無効にするとモバイルネットワークでのメッセージの送受信が無効になります</string>
     <string name="title_advanced_rlah_hint">EU 加盟国の SIM カードで加盟国のネットワークを使用する場合、ローミングではないとみなします</string>
     <string name="title_advanced_usage_hint">これによりバッテリー使用量、データ使用量、ストレージ使用量が増加します</string>
-    <string name="title_advanced_plain_hint">有効にするとデータ使用量が制限されますが、スタイルを設定せずにメッセージが表示されます</string>
     <string name="title_advanced_plain_remark">常に完全な内容がプレーンテキスト部分に含まれないことがあります！</string>
     <string name="title_advanced_tcp_keep_alive_hint">有効にすると、一部の端末で接続の問題が発生したりバッテリー使用量が増加したりする可能性があります</string>
     <string name="title_advanced_validate_hint">これにより、VPN を使用している場合や、その他の状況でメッセージが同期されない可能性があります</string>
@@ -1771,8 +1768,8 @@
     <string name="title_rule_tts_subject">件名</string>
     <string name="title_rule_tts_content">本文</string>
     <string name="title_rule_select_sound">音声を選択</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">通知音</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">音声ファイル</string>
+    <string name="title_rule_select_sound_ringtone">通知音</string>
+    <string name="title_rule_select_sound_audio">音声ファイル</string>
     <string name="title_rule_use_as_alarm">アラームに設定</string>
     <string name="title_rule_alarm_hint">サイレントモードを無視します</string>
     <string name="title_rule_alarm_duration">自動消音時間 (秒)</string>

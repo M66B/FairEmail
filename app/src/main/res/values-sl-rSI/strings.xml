@@ -330,8 +330,6 @@
     <string name="title_setup_reset_full">Prikaži izvirna sporočila</string>
     <string name="title_check_gmail_oauth">Vaši računi Gmail bodo še naprej delovali po 30. maju 2022.</string>
     <string name="title_check_gmail_password">Nekateri od vaših računov Gmail bodo morda prenehali delovati po 30. maju 2022.</string>
-    <string name="title_check_outlook_oauth">Vaši računi Outlook bodo še naprej delovali po 1. okrobru 2022.</string>
-    <string name="title_check_outlook_password">Nekateri od vaših računov Outlook bodo morda prenehali delovati po 1. oktobru 2022.</string>
     <string name="title_advanced_hint_title">Več naprednih nastavitev</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
@@ -750,7 +748,6 @@
     <string name="title_advanced_metered_warning">Onemogočanje te možnosti bo onemogočilo prejemanje in pošiljanje sporočil pri mobilnih internetnih povezavah.</string>
     <string name="title_advanced_rlah_hint">Program predvideva, da v EU-ju ni gostovanja.</string>
     <string name="title_advanced_usage_hint">To bo povečalo porabo energije, podatkov in prostora za shranjevanje.</string>
-    <string name="title_advanced_plain_hint">Omogočanje tega bo omejilo porabo podatkov, vendar bodo sporočila prikazana brez slogov.</string>
     <string name="title_advanced_tcp_keep_alive_hint">Omogočanje tega lahko na nekaterih napravah povzroči težave s povezavo in lahko poveča porabo energije.</string>
     <string name="title_advanced_validate_hint">To lahko povzroči, da se sporočila ne sinhronizirajo, na primer ob uporabi VPN-a in tudi v drugih primerih.</string>
     <string name="title_advanced_timeout_hint">Časovna omejitev za branje/pisanje bo nastavljena na dvakratno vrednost časovne omejitve povezave.  Višje vrednosti bodo povzročile večjo porabo energije.</string>

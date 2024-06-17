@@ -358,8 +358,7 @@
     <string name="title_setup_reset_full">Pokaż oryginalne wiadomości</string>
     <string name="title_check_gmail_oauth">Twoje konta Gmail będą nadal działać po 30 maja 2022</string>
     <string name="title_check_gmail_password">Niektóre z Twoich kont Gmail mogą przestać działać po 30 maja 2022</string>
-    <string name="title_check_outlook_oauth">Twoje konta Outlook będą nadal działać po 1 października 2022</string>
-    <string name="title_check_outlook_password">Niektóre z Twoich kont Outlook mogą przestać działać po 1 października 2022</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Niektóre Twoje konta Outlook/Hotmail/Live przestaną działać po 16 września 2024 r.</string>
     <string name="title_advanced_hint_title">Ustawienia zaawansowane</string>
     <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.         Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
     </string>
@@ -867,7 +866,7 @@
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
     <string name="title_advanced_usage_hint">Zwiększy to zużycie baterii, danych i przestrzeni dyskowej</string>
-    <string name="title_advanced_plain_hint">Włączenie tej opcji ograniczy wykorzystanie danych, ale wiadomości będą wyświetlane bez stylizacji</string>
+    <string name="title_advanced_plain_hint">Włączenie tej opcji ograniczy zużycie danych, ale wiadomości będą wyświetlane bez stylizacji i obrazów</string>
     <string name="title_advanced_plain_remark">Część tekstowa nie zawsze zawiera pełną wiadomość!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Włączenie tej funkcji może powodować problemy z połączeniem na niektórych urządzeniach i może zwiększyć zużycie baterii</string>
     <string name="title_advanced_validate_hint">Może to skutkować brakiem synchronizacji wiadomości, na przykład podczas korzystania z VPN, ale również w innych sytuacjach</string>
@@ -1016,6 +1015,7 @@
     <string name="title_case_sensitive">W nazwach użytkowników i hasłach rozróżniane są małe i wielkie litery</string>
     <string name="title_login_before_send">Odbieraj przed wysyłaniem</string>
     <string name="title_client_certificate">Certyfikat klienta</string>
+    <string name="title_no_key_selected">Brak wybranego klucza lub brak dostępnych kluczy</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Użyj lokalnego adresu IP zamiast nazwy hosta</string>
     <string name="title_ehlo">Własna identyfikacja HELO/EHLO</string>
@@ -1811,8 +1811,8 @@
     <string name="title_rule_tts_subject">Temat</string>
     <string name="title_rule_tts_content">Tekst</string>
     <string name="title_rule_select_sound">Wybierz dźwięk</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Dzwonek</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Plik audio</string>
+    <string name="title_rule_select_sound_ringtone">Dzwonek</string>
+    <string name="title_rule_select_sound_audio">Plik audio</string>
     <string name="title_rule_use_as_alarm">Użyj jako alarmu</string>
     <string name="title_rule_alarm_hint">To zignoruje zasady \"nie przeszkadzać\"</string>
     <string name="title_rule_alarm_duration">Maksymalny czas trwania alarmu (sekundy)</string>

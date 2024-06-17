@@ -332,8 +332,6 @@
     <string name="title_setup_reset_full">Mostrar mensagens originais</string>
     <string name="title_check_gmail_oauth">As suas contas de Gmail continuarão a funcionar após 30 de maio de 2022</string>
     <string name="title_check_gmail_password">Algumas das suas contas de Gmail podem parar de funcionar após 30 de maio de 2022</string>
-    <string name="title_check_outlook_oauth">As suas contas do Outlook continuarão a funcionar após 1 de outubro de 2022</string>
-    <string name="title_check_outlook_password">Algumas das suas contas do Outlook podem deixar de funcionar após 1 de outubro de 2022</string>
     <string name="title_advanced_hint_title">Mais opções avançadas</string>
     <string name="title_advanced_hint_message">Está a navegar para as opções mais avançadas.        Todas as opções têm valores padrão geralmente utilizados que podem ser alterados se tiver uma preferência diferente.
     </string>
@@ -841,7 +839,6 @@
     <string name="title_advanced_metered_warning">Desactivar esta opção fará com que não sejam recebidas e enviadas mensagens em ligações móveis de Internet</string>
     <string name="title_advanced_rlah_hint">Presume que não há roaming dentro da UE</string>
     <string name="title_advanced_usage_hint">Isso aumentará o uso de bateria, dados e espaço de armazenamento</string>
-    <string name="title_advanced_plain_hint">Activar esta opção irá reduzir a utilização de dados, mas as mensagens serão mostradas sem formatação</string>
     <string name="title_advanced_plain_remark">A parte com texto simples, nem sempre contém a mensagem completa!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Habilitar isto pode causar problemas de ligação em alguns dispositivos e aumentar o uso da bateria</string>
     <string name="title_advanced_validate_hint">Isto pode resultar em problemas na sincronização de mensagens, por exemplo, ao utilizar uma VPN, mas também noutras situações</string>
@@ -1786,8 +1783,8 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_rule_tts_subject">Assunto</string>
     <string name="title_rule_tts_content">Texto</string>
     <string name="title_rule_select_sound">Selecionar som</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Toque</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Ficheiros de áudio</string>
+    <string name="title_rule_select_sound_ringtone">Toque</string>
+    <string name="title_rule_select_sound_audio">Ficheiros de áudio</string>
     <string name="title_rule_use_as_alarm">Utilizar como alarme</string>
     <string name="title_rule_alarm_hint">Isto irá ignorar as regras do \"não perturbe\"</string>
     <string name="title_rule_alarm_duration">Duração máxima do alarme (em segundos)</string>

@@ -330,8 +330,6 @@
     <string name="title_setup_reset_full">Näita algseid sõnumeid</string>
     <string name="title_check_gmail_oauth">Su Gmaili kontod jätkavad toimimist peale 30. maid 2022</string>
     <string name="title_check_gmail_password">Mõned su Gmaili kontod võivad lõpetada töö peale 30. Maid 2022</string>
-    <string name="title_check_outlook_oauth">Su Outlooki kontod jätkavad toimimist peale 1. oktoobrit 2022</string>
-    <string name="title_check_outlook_password">Mõned su Outlooki kontod võivad lõpetada töö peale 1. oktoobrit 2022</string>
     <string name="title_advanced_hint_title">Veel täpsemaid valikuid</string>
     <string name="title_advanced_hint_message">        Liigud edasijõudnute valikute juurde.
         Kõigil valikutel on tavaliselt kasutatavad vaikeväärtused, mida ei ole vaja muuta, kui sul ei ole teistsuguseid eelistusi.
@@ -840,7 +838,6 @@
     <string name="title_advanced_metered_warning">Selle valiku keelamisel keelatakse mobiilside ühenduse korral ka sõnumite saamine ja saatmine</string>
     <string name="title_advanced_rlah_hint">Eeldusel, et rändlus ei toimu ELis</string>
     <string name="title_advanced_usage_hint">See suurendab aku, andmekasutuse ja talletusruumi kasutust</string>
-    <string name="title_advanced_plain_hint">Selle lubamine vähendab andmekasutust, kuid sõnumeid näidatakse vorminduseta</string>
     <string name="title_advanced_plain_remark">Lihtteksti osa ei sisalda alati kogu sõnumit!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Selle lubamine võib põhjustada mõnedes seadmetes ühenduse probleeme ning suurendada aku kasutust</string>
     <string name="title_advanced_validate_hint">Selle tulemusel võivad sõnumid olla mittesünkroonitud, näiteks VPNi kasutamisel, kuid ka muudes olukordades</string>
@@ -1785,8 +1782,8 @@
     <string name="title_rule_tts_subject">Teema</string>
     <string name="title_rule_tts_content">Tekst</string>
     <string name="title_rule_select_sound">Vali heli</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Helin</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Helifail</string>
+    <string name="title_rule_select_sound_ringtone">Helin</string>
+    <string name="title_rule_select_sound_audio">Helifail</string>
     <string name="title_rule_use_as_alarm">Kasuta alarmina</string>
     <string name="title_rule_alarm_hint">See ignoreerib \"Ära häiri\" reegleid</string>
     <string name="title_rule_alarm_duration">Alarmi maksimumpikkus (sekundit)</string>

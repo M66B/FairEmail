@@ -339,8 +339,6 @@
     <string name="title_setup_reset_full">Zobrazovať pôvodné správy</string>
     <string name="title_check_gmail_oauth">Vaše účty Gmail ostanú funkčné po 30. máji 2022</string>
     <string name="title_check_gmail_password">Niektoré z vašich účtov Gmail môžu prestať fungovať po 30. máji 2022</string>
-    <string name="title_check_outlook_oauth">Vaše účty Outlook budú naďalej fungovať po 1 októbri 2022</string>
-    <string name="title_check_outlook_password">Niektoré vaše účty Outlook môžu prestať fungovať od 1 októbra 2022</string>
     <string name="title_advanced_hint_title">Pokročilejšie nastavenia</string>
     <string name="title_advanced_hint_message">        Vstupujete do veľmi pokročilých možností.        Všetky voľby majú prednastavené bežne používané štandardné hodnoty, ktoré nie je potrebné meniť, jedine že uprednostňujete iné nastavenie.
     </string>
@@ -793,7 +791,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_metered_warning">Vypnutím zakážete prijímanie a odosielanie správ cez mobilný internet</string>
     <string name="title_advanced_rlah_hint">Predpokladá sa žiaden roaming v krajinách EU</string>
     <string name="title_advanced_usage_hint">Zvýši využívanie batérie, údajov a úložného priestoru</string>
-    <string name="title_advanced_plain_hint">Zapnutím znížite nároky na prenos dát, ale správy sa zobrazia bez štýlov</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktiváciou môžete zvýšiť nárok na spotrebu energie a spôsobiť nestabilitu pripojenia na niektorých zariadeniach</string>
     <string name="title_advanced_validate_hint">Výsledkom môžu byť výpadky synchronizácie správ, najmä pri používaní VPN ale aj v iných občasných prípadoch</string>
     <string name="title_advanced_timeout_hint">Časový limit čítania/zápisu bude nastavený na dvojnásobok limitu spojenia. Čím vyššia hodnota, tým vyšší nárok na využívanie batérie.</string>

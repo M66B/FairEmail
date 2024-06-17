@@ -326,8 +326,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_reset_full">Orijinal mesajları göster</string>
     <string name="title_check_gmail_oauth">Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmaya devam edecek</string>
     <string name="title_check_gmail_password">Bazı Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmayı durdurabilir</string>
-    <string name="title_check_outlook_oauth">Outlook hesaplarınız 1 Ekim 2022\'den sonra çalışmaya devam edecek</string>
-    <string name="title_check_outlook_password">Bazı Outlook hesaplarınız 1 Ekim 2022\'den sonra çalışmayı durdurabilir</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.        Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
     </string>
@@ -835,7 +833,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
     <string name="title_advanced_usage_hint">Bu pil, veri ve depolama alanı kullanımını artıracaktır</string>
-    <string name="title_advanced_plain_hint">Bunu etkinleştirmek veri kullanımını sınırlayacaktır, ancak mesajlar stil olmadan gösterilecektir</string>
     <string name="title_advanced_plain_remark">Düz metin kısmı her zaman mesajın tamamını içermez!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Bunu etkinleştirmek bazı cihazlarda bağlantı sorunlarına neden olabilir ve pil kullanımını artırabilir</string>
     <string name="title_advanced_validate_hint">Bu, örneğin bir VPN kullanırken değil, diğer durumlarda da mesajların senkronize edilmemesine neden olabilir</string>
@@ -1772,8 +1769,8 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_tts_subject">Konu</string>
     <string name="title_rule_tts_content">Metin</string>
     <string name="title_rule_select_sound">Ses seç</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Zil sesi</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Ses dosyası</string>
+    <string name="title_rule_select_sound_ringtone">Zil sesi</string>
+    <string name="title_rule_select_sound_audio">Ses dosyası</string>
     <string name="title_rule_use_as_alarm">Alarm olarak kullan</string>
     <string name="title_rule_alarm_hint">Bu, \"rahatsız etmeyin\" kurallarını yok sayar</string>
     <string name="title_rule_alarm_duration">Maksimum alarm süresi (saniye)</string>

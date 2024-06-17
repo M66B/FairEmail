@@ -281,8 +281,6 @@
     <string name="title_setup_reset_full">Hiện thư gốc</string>
     <string name="title_check_gmail_oauth">Các tài khoản Gmail của bạn sẽ tiếp tục hoạt động sau 30 tháng 5, 2022</string>
     <string name="title_check_gmail_password">Một số tài khoản Gmail của bạn có thể dừng hoạt động sau 30 tháng 5, 2022</string>
-    <string name="title_check_outlook_oauth">Các tài khoản Outlook của bạn sẽ tiếp tục hoạt động sau 1 tháng 10, 2022</string>
-    <string name="title_check_outlook_password">Một số tài khoản Outlook của bạn có thể dừng hoạt động sau 1 tháng 10, 2022</string>
     <string name="title_advanced_hint_title">Tuỳ chọn nâng cao hơn</string>
     <string name="title_advanced_hint_message">        Bạn đang điều hướng đến các tùy chọn nâng cao hơn.        Tất cả các tùy chọn đều có các giá trị tiêu chuẩn thường được sử dụng, bạn không cần phải thay đổi trừ khi bạn có tùy chọn khác.
     </string>
@@ -669,7 +667,6 @@
     <string name="title_advanced_metered_warning">Việc tắt tuỳ chọn này sẽ tắt việc nhận và gửi thư khi dùng kết nối internet di động</string>
     <string name="title_advanced_rlah_hint">Giả sử là không chuyển vùng trong EU (Liên minh châu Âu)</string>
     <string name="title_advanced_usage_hint">Cái này sẽ làm tăng sử dụng pin, dữ liệu và không gian bộ nhớ</string>
-    <string name="title_advanced_plain_hint">Việc bật cái này sẽ giới hạn sử dụng dữ liệu, nhưng thư sẽ được hiện mà không được tạo kiểu</string>
     <string name="title_advanced_tcp_keep_alive_hint">Việc bật cái này có thể gây ra vấn đề kết nối ở một số thiết bị và gây hao pin nhiều hơn</string>
     <string name="title_advanced_validate_hint">Cái này có thể dẫn đến không đồng bộ hoá thư, ví dụ khi sử dụng VPN, nhưng cũng trong các trường hợp khác</string>
     <string name="title_advanced_timeout_hint">Thời gian chờ đọc/ghi sẽ được đặt thành gấp đôi thời gian chờ kết nối. Các giá trị cao hơn sẽ dẫn đến hao pin nhiều hơn.</string>

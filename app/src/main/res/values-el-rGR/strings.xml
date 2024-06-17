@@ -330,8 +330,6 @@
     <string name="title_setup_reset_full">Προβολή αρχικών μηνυμάτων</string>
     <string name="title_check_gmail_oauth">Οι λογαριασμοί σας Gmail θα συνεχίσουν να λειτουργούν μετά τις 30 Μαΐου 2022</string>
     <string name="title_check_gmail_password">Ορισμένοι από τους λογαριασμούς σας Gmail ενδέχεται να σταματήσουν να λειτουργούν μετά τις 30 Μαΐου 2022</string>
-    <string name="title_check_outlook_oauth">Οι λογαριασμοί σας Outlook θα εξακολουθήσουν να λειτουργούν μετά την 1η Οκτωβρίου 2022</string>
-    <string name="title_check_outlook_password">Ορισμένοι από τους λογαριασμούς σας Outlook ενδέχεται να σταματήσουν να λειτουργούν μετά την 1η Οκτωβρίου 2022</string>
     <string name="title_advanced_hint_title">Πιο προηγμένες επιλογές</string>
     <string name="title_advanced_hint_message">        Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.        Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, τις οποίες δεν χρειάζεται να αλλάξετε εκτός εάν έχετε μία διαφορετική προτίμηση.
     </string>
@@ -837,7 +835,6 @@
     <string name="title_advanced_metered_warning">Αν απενεργοποιηθεί, θα απενεργοποιηθούν η λήψη και η αποστολή μηνυμάτων σε κινητές συνδέσεις διαδικτύου</string>
     <string name="title_advanced_rlah_hint">Υπό την προϋπόθεση ότι δεν λαμβάνει χώρα περιαγωγή εντός της ΕΕ</string>
     <string name="title_advanced_usage_hint">Θα αυξήσει τη χρήση μπαταρίας, δεδομένων και χώρου αποθήκευσης</string>
-    <string name="title_advanced_plain_hint">Εάν ενεργοποιηθεί, θα περιοριστεί η χρήση δεδομένων, αλλά τα μηνύματα θα προβάλλονται χωρίς μορφοποίηση</string>
     <string name="title_advanced_plain_remark">Το τμήμα απλού κειμένου δεν περιέχει πάντα το πλήρες μήνυμα!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Αν ενεργοποιηθεί, μπορεί να προκαλέσει προβλήματα σύνδεσης σε ορισμένες συσκευές και ίσως αυξήσει την κατανάλωση μπαταρίας</string>
     <string name="title_advanced_validate_hint">Μπορεί να οδηγήσει σε μη συγχρονισμό μηνυμάτων, για παράδειγμα όταν χρησιμοποιείτε VPN, αλλά και σε άλλες περιπτώσεις</string>
@@ -1781,8 +1778,8 @@
     <string name="title_rule_tts_subject">Θέμα</string>
     <string name="title_rule_tts_content">Κείμενο</string>
     <string name="title_rule_select_sound">Επιλογή ήχου</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Ήχος κλήσης</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Αρχείο ήχου</string>
+    <string name="title_rule_select_sound_ringtone">Ήχος κλήσης</string>
+    <string name="title_rule_select_sound_audio">Αρχείο ήχου</string>
     <string name="title_rule_use_as_alarm">Να χρησιμοποιείται ως ξυπνητήρι</string>
     <string name="title_rule_alarm_hint">Αυτό θα αγνοήσει τους κανόνες \"Μην ενοχλείτε\"</string>
     <string name="title_rule_alarm_duration">Μέγιστη διάρκεια ξυπνητηριού (δευτερόλεπτα)</string>

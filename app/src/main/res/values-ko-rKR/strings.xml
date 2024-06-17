@@ -308,8 +308,6 @@
     <string name="title_setup_reset_full">원본 메시지 보기</string>
     <string name="title_check_gmail_oauth">Gmail 계정이 2022년 5월 30일 이후에도 계속 작동할 예정입니다</string>
     <string name="title_check_gmail_password">일부 Gmail 계정이 2022년 5월 30일 이후 정지될 수 있습니다</string>
-    <string name="title_check_outlook_oauth">Outlook 계정이 2022년 10월 1일 이후에도 계속 작동할 예정입니다</string>
-    <string name="title_check_outlook_password">일부 Outlook 계정이 2022년 10월 1일 이후 정지될 수 있습니다</string>
     <string name="title_advanced_hint_title">고급 설정 더보기</string>
     <string name="title_advanced_hint_message">        고급 옵션으로 이동 중입니다.
         모든 옵션에는 일반적으로 사용되는 표준 설이 있으므로 선호하는 설정이 없는 한 변경할 필요가 없습니다.
@@ -710,7 +708,6 @@
     <string name="title_advanced_write_below_hint">긴 메시지가 잘리는 등의 경우 받는사람이 답장을 보지 못할 수 있습니다</string>
     <string name="title_advanced_attach_new_hint">그렇지 않으면 공유 주소 또는 파일을 현재 임시저장 메시지에 추가합니다</string>
     <string name="title_advanced_usage_hint">이는 배터리, 데이터 및 저장 공간 사용량을 증가시킵니다</string>
-    <string name="title_advanced_plain_hint">이 옵션을 사용하면 데이터 사용이 제한되지만 메시지는 스타일링 없이 표시됩니다</string>
     <string name="title_advanced_tcp_keep_alive_hint">활성화하면 일부 기기에서 연결 문제가 발생할 수 있으며 배터리 사용량이 증가할 수 있습니다</string>
     <string name="title_advanced_validate_hint">이로 인해 VPN을 사용하는 등의 상황에서 메시지가 동기화되지 않을 수 있습니다.</string>
     <string name="title_advanced_timeout_hint">읽기/쓰기 타임아웃은 접속 타임아웃의 두 배로 설정됩니다. 값을 크게 하면 배터리 사용이 증가합니다.</string>

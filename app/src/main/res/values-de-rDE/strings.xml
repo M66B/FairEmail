@@ -331,8 +331,7 @@
     <string name="title_setup_reset_full">Originalnachrichten anzeigen</string>
     <string name="title_check_gmail_oauth">Ihre Gmail-Konten werden nach dem 30. Mai 2022 weiterhin funktionieren</string>
     <string name="title_check_gmail_password">Einige Ihrer Gmail-Konten funktionieren möglicherweise nicht mehr nach dem 30. Mai 2022</string>
-    <string name="title_check_outlook_oauth">Ihre Outlook-Konten werden nach dem 1. Oktober 2022 weiterhin funktionieren</string>
-    <string name="title_check_outlook_password">Einige Ihrer Outlook-Konten funktionieren möglicherweise nicht mehr nach dem 1. Oktober 2022</string>
+    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Einige Ihrer Outlook-/Hotmail-/Live-Konten funktionieren nach dem 16. September 2024 möglicherweise nicht mehr</string>
     <string name="title_advanced_hint_title">Erweiterte Optionen</string>
     <string name="title_advanced_hint_message">        Sie navigieren zu den erweiterten Optionen.
         Alle Optionen haben allgemein gebräuchliche Standardwerte, die nicht geändert werden müssen, es sei denn, Sie haben eine andere Präferenz.
@@ -842,7 +841,7 @@
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
     <string name="title_advanced_usage_hint">Dadurch wird der Akku-, Daten- und Speicherplatzverbrauch erhöht</string>
-    <string name="title_advanced_plain_hint">Das Aktivieren dieser Funktion reduziert den Datenverbrauch, aber Nachrichten werden ohne Formatierung angezeigt</string>
+    <string name="title_advanced_plain_hint">Das Aktivieren dieser Funktion reduziert den Datenverbrauch, aber Nachrichten werden ohne Formatierung und ohne Bilder angezeigt</string>
     <string name="title_advanced_plain_remark">Der einfache Textteil enthält nicht immer die vollständige Nachricht!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Das Aktivieren dieser Funktion kann bei einigen Geräten zu Verbindungsproblemen führen und den Akkuverbrauch erhöhen</string>
     <string name="title_advanced_validate_hint">Dadurch könnten Nachrichten nicht synchronisiert werden, zum Beispiel beim Verwenden eines VPNs, aber auch in anderen Situationen</string>
@@ -991,6 +990,7 @@
     <string name="title_case_sensitive">Bei Benutzernamen und Passwörtern wird normalerweise zwischen Groß- und Kleinschreibung unterschieden</string>
     <string name="title_login_before_send">Vor dem Senden empfangen</string>
     <string name="title_client_certificate">Clientzertifikat</string>
+    <string name="title_no_key_selected">Kein Schlüssel ausgewählt oder keine Schlüssel verfügbar</string>
     <string name="title_realm">Bereich</string>
     <string name="title_use_ip">Lokale IP-Adresse anstelle des Hostnamens verwenden</string>
     <string name="title_ehlo">Benutzerdefinierte HELO/EHLO-Identifikation</string>
@@ -1787,8 +1787,8 @@
     <string name="title_rule_tts_subject">Betreff</string>
     <string name="title_rule_tts_content">Text</string>
     <string name="title_rule_select_sound">Ton auswählen</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Klingelton</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Audiodatei</string>
+    <string name="title_rule_select_sound_ringtone">Klingelton</string>
+    <string name="title_rule_select_sound_audio">Audiodatei</string>
     <string name="title_rule_use_as_alarm">Als Wecker verwenden</string>
     <string name="title_rule_alarm_hint">Dies ignoriert die Nicht-stören-Regeln</string>
     <string name="title_rule_alarm_duration">Maximale Alarmdauer (Sekunden)</string>

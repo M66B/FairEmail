@@ -330,8 +330,6 @@
     <string name="title_setup_reset_full">Orijinal mesajları göstər</string>
     <string name="title_check_gmail_oauth">Gmail hesablarınız 30 May 2022-ci il tarixindən sonra işləməyə davam edəcək</string>
     <string name="title_check_gmail_password">Bəzi Gmail hesablarınız 30 May 2022-ci il tarixindən işləməyi dayandıra bilər</string>
-    <string name="title_check_outlook_oauth">Outlook hesablarınız 1 Oktyabr 2022-ci il tarixindən sonra işləməyə davam edəcək</string>
-    <string name="title_check_outlook_password">Bəzi Outlook hesablarınız 1 Oktyabr 2022-ci il tarixindən işləməyi dayandıra bilər</string>
     <string name="title_advanced_hint_title">Daha çox qabaqcıl seçimlər</string>
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.
         Bütün seçimlər, fərqli bir tərcihiniz olmadığı müddətcə dəyişdirməyinizə ehtiyac olmayan və geniş istifadə olunan standart dəyərlərə sahibdir.
@@ -840,7 +838,6 @@
     <string name="title_advanced_metered_warning">Bu seçimin sıradan çıxarılması, mobil internet bağlantılarında mesajların göndərilməsini və alınmasını dayandıracaq</string>
     <string name="title_advanced_rlah_hint">AB daxilində roaminqdə olmadığını hesab et</string>
     <string name="title_advanced_usage_hint">Bu, batareya, verilənlər və anbar sahəsi istifadəsini artıracaq</string>
-    <string name="title_advanced_plain_hint">Bunu fəallaşdırmaq verilənlər istifadəsini məhdudlaşdıracaq, ancaq mesajlar stil olmadan görünəcək</string>
     <string name="title_advanced_plain_remark">Düz mətn hissəsi həmişə tam mesajı ehtiva etmir!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Bunu fəallaşdırmaq, bəzi cihazlarda bağlantı problemlərinə və batareya istifadəsinin artmasına səbəb ola bilər</string>
     <string name="title_advanced_validate_hint">Bu, məsələn bir VPN istifadə edəndə və digər hallarda mesajların sinxronlaşdırılmaması ilə nəticələnə bilər</string>
@@ -1785,8 +1782,8 @@
     <string name="title_rule_tts_subject">Mövzu</string>
     <string name="title_rule_tts_content">Mətn</string>
     <string name="title_rule_select_sound">Səsi seç</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Zəng səsi</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Səs faylı</string>
+    <string name="title_rule_select_sound_ringtone">Zəng səsi</string>
+    <string name="title_rule_select_sound_audio">Səs faylı</string>
     <string name="title_rule_use_as_alarm">Alarm kimi istifadə et</string>
     <string name="title_rule_alarm_hint">Bu, \"narahat etməyin\" qaydalarına əhəmiyyət verməyəcək</string>
     <string name="title_rule_alarm_duration">Maksimum alarm müddəti (saniyə)</string>

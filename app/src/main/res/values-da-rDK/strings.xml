@@ -330,8 +330,6 @@
     <string name="title_setup_reset_full">Vis oprindelige beskeder</string>
     <string name="title_check_gmail_oauth">Gmail-konti vil fortsat fungere efter 3005-22</string>
     <string name="title_check_gmail_password">Visse Gmail-konti kan ophøre med at fungere efter 3005-22</string>
-    <string name="title_check_outlook_oauth">Aktuelle Outlook-konti vil fortsat fungere efter 1. okt. 2022</string>
-    <string name="title_check_outlook_password">Visse aktuelle Outlook-konti kan ophøre med at fungere efter 1. okt. 2022</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har alm. brugte standardværdier, som kun behøver ændring ifm. en evt. anden præference.
@@ -841,7 +839,6 @@
     <string name="title_advanced_metered_warning">Deaktivering af denne indstilling vil ikke gøre det muligt at modtage og sende meddelelser på mobildataforbindelser</string>
     <string name="title_advanced_rlah_hint">Antager ingen roaming inden for EU</string>
     <string name="title_advanced_usage_hint">Dette vil forøge batteri-, data- samt lagerpladsforbrug</string>
-    <string name="title_advanced_plain_hint">Aktivering af dette reducerer dataforbruget, men beskeder vises uden styling</string>
     <string name="title_advanced_plain_remark">Den rene tekstdel indeholder ikke altid den fulde besked!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Aktivering af dette kan forårsage forbindelsesproblemer på visse enheder samt øge strømforbruget</string>
     <string name="title_advanced_validate_hint">Dette kan betyde, at beskeder i visse situationer ikke synkes, bl.a. ved brug af VPN</string>
@@ -1786,8 +1783,8 @@
     <string name="title_rule_tts_subject">Emne</string>
     <string name="title_rule_tts_content">Tekst</string>
     <string name="title_rule_select_sound">Vælg lyd</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Ringetone</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">Lydfil</string>
+    <string name="title_rule_select_sound_ringtone">Ringetone</string>
+    <string name="title_rule_select_sound_audio">Lydfil</string>
     <string name="title_rule_use_as_alarm">Benyt som alarm</string>
     <string name="title_rule_alarm_hint">Dette vil tilsidesætte \"Forstyr ikke\"-regler</string>
     <string name="title_rule_alarm_duration">Maks. alarmvarighed (sekunder)</string>

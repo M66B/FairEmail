@@ -183,8 +183,6 @@
     <string name="title_setup_reset_full">ମୂଳ ଵାର୍ତ୍ତା ଦେଖାଅ</string>
     <string name="title_check_gmail_oauth">ଆପଣଙ୍କ Gmail ଆକାଉଣ୍ଟସବୁ ୩୦ ମଇ, ୨୦୨୨ ପରେ କାର୍ଯ୍ୟ ଜାରି ରଖିବ</string>
     <string name="title_check_gmail_password">ଆପଣଙ୍କର କିଛିଟା Gmail ଆକାଉଣ୍ଟ୍ ୩୦ ମଇ, ୨୦୨୨ ପରେ କାମ କରିବା ବନ୍ଦ କରିପାରେ</string>
-    <string name="title_check_outlook_oauth">ଆପଣଙ୍କ Outlook ଆକାଉଣ୍ଟସବୁ ୧ ଅକ୍ଟୋବର, ୨୦୨୨ ପରେ କାର୍ଯ୍ୟ ଜାରି ରଖିବ</string>
-    <string name="title_check_outlook_password">ଆପଣଙ୍କର କିଛିଟା Outlook ଆକାଉଣ୍ଟ୍ ୧ ଅକ୍ଟୋବର, ୨୦୨୨ ପରେ କାମ କରିବା ବନ୍ଦ କରିପାରେ</string>
     <string name="title_advanced_hint_title">ଅଧିକ ବିକଶିତ ବିକଳ୍ପଗୁଡ଼ିକ</string>
     <string name="title_advanced_hint_message">        ଆପଣ ଆହୁରି ଵିକଶିତ ଵିକଳ୍ପ ଆଡ଼କୁ ଯାଉଛନ୍ତି।
         ସମସ୍ତ ଵିକଳ୍ପ ସାଧାରଣତଃ ମାନକ ମୂଲ୍ୟ ଵ୍ୟଵହାର କରିଅଛି, ଯାହାକି ଆପଣଙ୍କର କିଛି ଭିନ୍ନ ଅଗ୍ରାଧିକାର ନହେବା ଯାଏଁ ଆପଣଙ୍କୁ ପରିଵର୍ତ୍ତନ କରିବାର ଆଵଶ୍ୟକତା ନାହିଁ।
@@ -338,7 +336,6 @@
     <string name="title_advanced_folder_nav_hint">ଏହା ସର୍ବଦା ଗୋଟେ ବାର୍ତ୍ତା ତାଲିକାରୁ ସମ୍ବନ୍ଧୀୟ ଆକାଉଣ୍ଟର ଫୋଲ୍ଡର୍ ତାଲିକାକୁ ଫେରିବ</string>
     <string name="title_advanced_remove_signature_hint">ଏହା ଫଳରେ ବହୁତ କମ୍ କିମ୍ୱା ଅତ୍ୟଧିକ ପାଠ୍ୟ ଅପସାରଣ ହୋଇପାରେ</string>
     <string name="title_advanced_usage_hint">ଏହା ବ୍ୟାଟେରୀ, ଡାଟା ଓ ଷ୍ଟୋରେଜ୍ ଜାଗା ଵ୍ୟଵହାର ଵୃଦ୍ଧି କରିବ</string>
-    <string name="title_advanced_plain_hint">ଏହାକୁ ସକ୍ଷମ କରିବା ଦ୍ୱାରା ଡାଟା ବ୍ୟବହାର ସୀମିତ ହେବ, କିନ୍ତୁ ଶୈଳିକରଣ ବିନା ବାର୍ତ୍ତା ଦେଖାଯିବ</string>
     <string name="title_advanced_cert_strict_hint">ଏହା ଅକ୍ଷମ କରିବା ଦ୍ୱାରା ସର୍ଵର୍ ସାର୍ଟିଫିକେଟ୍ ଯାଞ୍ଚ କରିବା କୋହଳ ହେବ</string>
     <string name="title_advanced_startup_hint">ସନ୍ନିଵିଷ୍ଟ ଫୋଲ୍ଡର୍ ତାଲିକାରେ ଯେକୌଣସି ଫୋଲ୍ଡରକୁ ଯୋଡ଼ିବା କିମ୍ୱା ଅପସାରଣ କରିବାକୁ ହେଲେ ଫୋଲ୍ଡର୍ ତାଲିକାରେ ଥିବା ସେଇ ଫୋଲ୍ଡରଟି ଉପରେ ଲମ୍ବା ସ୍ପର୍ଶ କରନ୍ତୁ</string>
     <string name="title_advanced_date_hint">ସମୟାନୁସାର ସଜାଯାଇଥିଲେ ହି ବାର୍ତ୍ତାଗୁଡ଼ିକ ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରାଯିବ</string>

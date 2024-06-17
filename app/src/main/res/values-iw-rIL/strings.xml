@@ -358,8 +358,6 @@
     <string name="title_setup_reset_full">הצגת ההודעה המקורית</string>
     <string name="title_check_gmail_oauth">חשבונות ה־Gmail שלך ימשיכו לעבוד גם אחרי 30 במאי 2022</string>
     <string name="title_check_gmail_password">חלק מחשבונות ה־Gmail שלך כנראה יפסיקו לעבוד אחרי 30 במאי 2022</string>
-    <string name="title_check_outlook_oauth">חשבונות ה־Outlook שלך ימשיכו לעבוד גם אחרי 1 באוקטובר 2022</string>
-    <string name="title_check_outlook_password">חלק מחשבונות ה־Outlook שלך כנראה יפסיקו לעבוד אחרי 1 באוקטובר 2022</string>
     <string name="title_advanced_hint_title">אפשרויות יותר מתקדמות</string>
     <string name="title_advanced_hint_message">        בחרת לנווט אל האפשרויות המתקדמות יותר.
         כל האפשרויות מוגדרות לפי ערכים מקובלים, שאין צורך לשנות אותם אלא אם כן יש לך העדפות שונות.
@@ -868,7 +866,6 @@
     <string name="title_advanced_metered_warning">השבתת אפשרות זאת תשבית קבלת ושליחת הודעות בחיבורי נתונים סלולריים</string>
     <string name="title_advanced_rlah_hint">להניח שאין נדידה בתוך אירופה</string>
     <string name="title_advanced_usage_hint">יגדיל את צריכת הסוללה, הנתונים ואת נפח האחסון</string>
-    <string name="title_advanced_plain_hint">הפעלת האפשרות תגביל את השימוש בנתונים אך הודעות תופענה ללא עיצוב</string>
     <string name="title_advanced_plain_remark">החלק עם הטקסט הפשוט לא תמיד מכיל את ההודעה המלאה!</string>
     <string name="title_advanced_tcp_keep_alive_hint">הפעלת אפשרות זו יכולה לגרום לתקלות תקשורת בחלק מהמכשירים ועלולה להגביר את צריכת הסוללה</string>
     <string name="title_advanced_validate_hint">יכול לגרום לכך שהודעות לא תסתנכרנה, למשל בעת שימוש ב־VPN, אך גם במקרים אחרים</string>
@@ -1813,8 +1810,8 @@
     <string name="title_rule_tts_subject">נושא</string>
     <string name="title_rule_tts_content">טקסט</string>
     <string name="title_rule_select_sound">בחירת צליל</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">צלצול</string>
-    <string name="title_rule_select_sound_audio" comment="title_rule_select_sound_audio&#10;Title of menu item in a popup menu to select an audio file">קובץ שמע</string>
+    <string name="title_rule_select_sound_ringtone">צלצול</string>
+    <string name="title_rule_select_sound_audio">קובץ שמע</string>
     <string name="title_rule_use_as_alarm">להשתמש כהתראה</string>
     <string name="title_rule_alarm_hint">יתעלם מכללי „לא להפריע”</string>
     <string name="title_rule_alarm_duration">משך ההתראה המרבי (שניות)</string>

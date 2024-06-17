@@ -329,8 +329,6 @@
     <string name="title_setup_reset_full">Eredeti szöveg megjelenítése</string>
     <string name="title_check_gmail_oauth">Gmail fiókjai 2022. május 30-a után is működni fognak</string>
     <string name="title_check_gmail_password">Előfordulhat, hogy némely Gmail fiókja nem fog működni 2022. május 30-a után</string>
-    <string name="title_check_outlook_oauth">Outlook fiókjai 2022. október elseje után is működni fognak</string>
-    <string name="title_check_outlook_password">Előfordulhat, hogy némely Outlook fiókja nem fog működni 2022. október elseje után</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
     <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.        Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.
     </string>
@@ -837,7 +835,6 @@
     <string name="title_advanced_metered_warning">Az opció kikapcsolása letiltja az üzenetek fogadását és küldését adatkapcsolaton keresztül</string>
     <string name="title_advanced_rlah_hint">Roaming figyelmen kívül hagyása az EU-n belül</string>
     <string name="title_advanced_usage_hint">Ez megnöveli az akkumulátor, adat és tárhely használatot</string>
-    <string name="title_advanced_plain_hint">Ezen opció bekapcsolása csökkenti az adathasználatot, de az üzenetek formázás nélkül fognak megjelenni</string>
     <string name="title_advanced_plain_remark">Az egyszerű szöveges rész nem mindig tartalmazza a teljes üzenetet!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Bekapcsolása esetén okozhat csatlakozási problémákat egyes eszközökön, és megnövelheti az akksi fogyasztást</string>
     <string name="title_advanced_validate_hint">Ez azt eredményezheti, hogy nem szinkronizálják az üzeneteket, például VPN használatakor, de más helyzetekben is</string>
@@ -1778,7 +1775,7 @@
     <string name="title_rule_tts_subject">Tárgy</string>
     <string name="title_rule_tts_content">Szöveg</string>
     <string name="title_rule_select_sound">Hang kiválasztása</string>
-    <string name="title_rule_select_sound_ringtone" comment="title_rule_select_sound_ringtone&#10;Title of menu item in a popup menu to select a ringtone">Csengőhang</string>
+    <string name="title_rule_select_sound_ringtone">Csengőhang</string>
     <string name="title_rule_use_as_alarm">Ébresztőként használni</string>
     <string name="title_rule_alarm_hint">Figyelmen kívűl hagyja a \"ne zavarjon\" szabályokat</string>
     <string name="title_rule_alarm_duration">Maximális ébresztő időtartam (másodperc)</string>

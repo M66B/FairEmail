@@ -317,8 +317,6 @@
     <string name="title_setup_reset_full">إظهار الرسائل الأصلية</string>
     <string name="title_check_gmail_oauth">سوف تستمر حسابات جيميل الخاصة بك في العمل بعد 30 مايو 2022</string>
     <string name="title_check_gmail_password">بعض حسابات الجيميل الخاصة بك قد تتوقف عن العمل بعد 30 مايو 2022</string>
-    <string name="title_check_outlook_oauth">ستستمر حسابات Outlook في العمل بعد 1 أكتوبر 2022</string>
-    <string name="title_check_outlook_password">قد تتوقف بعض حسابات Outlook الخاصة بك عن العمل بعد 1 أكتوبر 2022</string>
     <string name="title_advanced_hint_title">خيارات أكثر تقدماً</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
