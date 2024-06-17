@@ -18,8 +18,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2205 - 2024-06-15
 
+* Added attachments to templates
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
