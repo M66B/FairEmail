@@ -482,8 +482,6 @@ public class ApplicationEx extends Application
 
         if (version < BuildConfig.VERSION_CODE)
             editor.remove("crash_report_count");
-        if (version < BuildConfig.VERSION_CODE && !BuildConfig.DEBUG)
-            editor.remove("third_party_notified");
 
         if (!Log.isTestRelease())
             editor.remove("test1").remove("test2").remove("test3").remove("test4").remove("test5");
