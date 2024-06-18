@@ -284,14 +284,20 @@ class ImageHelper {
             SVG.setInternalEntitiesEnabled(false);
 
             SVG svg = SVG.getFromInputStream(is);
-            float w = svg.getDocumentWidth();
-            float h = svg.getDocumentHeight();
-            if (w < 0 || h < 0) {
-                w = scaleToPixels;
-                h = scaleToPixels;
+            float dw = svg.getDocumentWidth();
+            float dh = svg.getDocumentHeight();
+            if (dw <= 0 || dh <= 0) {
+                dw = scaleToPixels;
+                dh = scaleToPixels;
             }
 
-            Bitmap bm = Bitmap.createBitmap((int) w, (int) h, Bitmap.Config.ARGB_8888);
+            int w = Math.round(scaleToPixels);
+            int h = Math.round(scaleToPixels * dh / dw);
+
+            svg.setDocumentWidth("100%");
+            svg.setDocumentHeight("100%");
+
+            Bitmap bm = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
             bm.eraseColor(fillColor);
             Canvas canvas = new Canvas(bm);
             svg.renderToCanvas(canvas);
