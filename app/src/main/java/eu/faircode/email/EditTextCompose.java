@@ -167,9 +167,9 @@ public class EditTextCompose extends FixedEditText {
                     try {
                         int order = 1000;
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_brackets,
-                                order++, context.getString(R.string.title_insert_brackets));
+                                order++, "(" + context.getString(R.string.title_insert_brackets) + ")");
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_quotes,
-                                order++, context.getString(R.string.title_insert_quotes));
+                                order++, "\"" + context.getString(R.string.title_insert_quotes) + "\"");
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_lt_add,
                                 order++, context.getString(R.string.title_lt_add));
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_lt_delete,
