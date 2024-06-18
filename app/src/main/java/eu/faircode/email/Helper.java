@@ -186,6 +186,10 @@ import java.util.regex.Pattern;
 
 import javax.mail.internet.ContentType;
 import javax.mail.internet.ParseException;
+import javax.microedition.khronos.egl.EGL10;
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.egl.EGLContext;
+import javax.microedition.khronos.egl.EGLDisplay;
 
 public class Helper {
     private static Integer targetSdk = null;
@@ -919,6 +923,35 @@ public class Helper {
     }
 
     // View
+
+    static int getMaxTextureSize() {
+        int max = -1;
+        try {
+            EGL10 egl = (EGL10) EGLContext.getEGL();
+            EGLDisplay d = egl.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+
+            int[] version = new int[2];
+            egl.eglInitialize(d, version);
+
+            int[] count = new int[1];
+            egl.eglGetConfigs(d, null, 0, count);
+
+            EGLConfig[] configs = new EGLConfig[count[0]];
+            egl.eglGetConfigs(d, configs, count[0], count);
+
+            int[] textureSizeWidth = new int[1];
+
+            for (int i = 0; i < count[0]; i++) {
+                egl.eglGetConfigAttrib(d, configs[i], EGL10.EGL_MAX_PBUFFER_WIDTH, textureSizeWidth);
+                if (textureSizeWidth[0] > max)
+                    max = textureSizeWidth[0];
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
+        return max;
+    }
 
     static int getActionBarHeight(Context context) {
         return Helper.dp2pixels(context, 56);
