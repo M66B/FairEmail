@@ -291,7 +291,7 @@ class ImageHelper {
                 dh = scaleToPixels;
             }
 
-            int w = Math.round(scaleToPixels);
+            int w = scaleToPixels;
             int h = Math.round(scaleToPixels * dh / dw);
 
             svg.setDocumentWidth("100%");
