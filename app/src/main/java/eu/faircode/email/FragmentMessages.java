@@ -665,7 +665,8 @@ public class FragmentMessages extends FragmentBase
 
         // Wire controls
 
-        swipeRefresh.setColorSchemeColors(Color.WHITE, Color.WHITE, Color.WHITE);
+        int c = Helper.resolveColor(getContext(), R.attr.colorInfoForeground);
+        swipeRefresh.setColorSchemeColors(c, c, c);
         swipeRefresh.setProgressBackgroundColorSchemeColor(colorPrimary);
 
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
