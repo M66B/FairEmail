@@ -569,7 +569,7 @@ public class FragmentFolders extends FragmentBase {
                 }
 
                 if (force || reload)
-                    ServiceSynchronize.reload(context, null, force, "refresh");
+                    ServiceSynchronize.reload(context, aid < 0 ? null : aid, force, "refresh");
                 else
                     ServiceSynchronize.eval(context, "refresh");
 
