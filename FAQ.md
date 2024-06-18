@@ -5880,6 +5880,7 @@ Alternatively, see [this Wikipedia article](https://en.wikipedia.org/wiki/Certif
 
 When certificate transparency is enabled in the connection-settings tab page of the app,
 the [Chrome Certificate Transparency Policy](https://github.com/GoogleChrome/CertificateTransparency/blob/master/ct_policy.md) will be applied.
+The CT log will be downloaded from [https://www.gstatic.com/](https://www.gstatic.com/ct/log_list/v3/all_logs_list.json).
 
 FairEmail uses [this library](https://github.com/appmattus/certificatetransparency) to implement certificate transparency via a custom trust manager.
 
