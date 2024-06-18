@@ -961,7 +961,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                close(state, true);
+                close(state, false);
+                state.reset(true);
             }
         });
     }
@@ -984,7 +985,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         if (reset)
-            state.reset();
+            state.reset(false);
     }
 
     static class State {
@@ -1009,10 +1010,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 imessages[i - 1] = ifolder.getMessage(i + offset);
         }
 
-        void reset() {
-            Log.i("Boundary reset");
+        void reset(boolean _destroyed) {
+            Log.i("Boundary reset destroyed=" + _destroyed);
             queued.set(0);
-            destroyed = false;
+            destroyed = _destroyed;
             error = false;
             index = 0;
             offset = 0;
