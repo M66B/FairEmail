@@ -787,20 +787,20 @@ public class EntityOperation {
         sync(context, fid, false, force);
     }
 
-    static void sync(Context context, long fid, boolean foreground) {
-        sync(context, fid, foreground, false);
+    static boolean sync(Context context, long fid, boolean foreground) {
+        return sync(context, fid, foreground, false);
     }
 
-    static void sync(Context context, long fid, boolean foreground, boolean force) {
-        sync(context, fid, foreground, force, false);
+    static boolean sync(Context context, long fid, boolean foreground, boolean force) {
+        return sync(context, fid, foreground, force, false);
     }
 
-    static void sync(Context context, long fid, boolean foreground, boolean force, boolean outbox) {
+    static boolean sync(Context context, long fid, boolean foreground, boolean force, boolean outbox) {
         DB db = DB.getInstance(context);
 
         EntityFolder folder = db.folder().getFolder(fid);
         if (folder == null)
-            return;
+            return force;
 
         if (foreground) {
             long now = new Date().getTime();
@@ -864,6 +864,8 @@ public class EntityOperation {
                 Log.e("outbox");
                 ServiceSend.start(context);
             }
+
+        return force;
     }
 
     static void subscribe(Context context, long fid, boolean subscribe) {
