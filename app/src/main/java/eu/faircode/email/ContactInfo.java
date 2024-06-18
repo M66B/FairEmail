@@ -602,6 +602,12 @@ public class ContactInfo {
                 Log.e(ex);
             }
 
+        if (BuildConfig.DEBUG &&
+                info.bitmap != null &&
+                info.bitmap.getAllocationByteCount() > 1024 * 1024)
+            EntityLog.log(context, EntityLog.Type.Debug5, "Avatar " + info.email +
+                    " " + info.type + "=" + Helper.humanReadableByteCount(info.bitmap.getAllocationByteCount()));
+
         synchronized (emailContactInfo) {
             emailContactInfo.put(key, info);
         }
