@@ -6937,6 +6937,7 @@ public class FragmentMessages extends FragmentBase
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_EDIT_FOLDER)
                                 .putExtra("id", folder.id)
+                                .putExtra("account", folder.account)
                                 .putExtra("imap", args.getBoolean("imap")));
             }
 

@@ -1354,6 +1354,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     lbm.sendBroadcast(
                             new Intent(ActivityView.ACTION_EDIT_FOLDER)
                                     .putExtra("id", folder.id)
+                                    .putExtra("account", folder.account)
                                     .putExtra("imap", folder.accountProtocol == EntityAccount.TYPE_IMAP));
                 }
 
