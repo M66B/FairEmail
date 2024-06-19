@@ -18,6 +18,14 @@ For support you can use the contact form.
 
 Acantholipan
 
+Next version
+
+* Targeting Android 15
+* Reverted AndroidX Lifecycle to fix a crash
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
 1.2205 - 2024-06-15
 
 * Added attachments to templates
