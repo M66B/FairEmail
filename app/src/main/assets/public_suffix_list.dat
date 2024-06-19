@@ -13397,7 +13397,7 @@ freemyip.com
 // Submitted by Daniel A. Maierhofer <vorstand@funkfeuer.at>
 wien.funkfeuer.at
 
-// Future Versatile Group. ：https://www.fvg-on.net/
+// Future Versatile Group. : https://www.fvg-on.net/
 // T.Kabu <webmaster@fvg-on.net>
 daemon.asia
 dix.asia
@@ -13618,10 +13618,6 @@ london.cloudapps.digital
 // GOV.UK Pay : https://www.payments.service.gov.uk/
 // Submitted by Richard Baker <richard.baker@digital.cabinet-office.gov.uk>
 pymnt.uk
-
-// GlobeHosting, Inc.
-// Submitted by Zoltan Egresi <egresi@globehosting.com>
-ro.im
 
 // GoIP DNS Services : http://www.goip.de
 // Submitted by Christian Poulter <milchstrasse@goip.de>
@@ -14242,10 +14238,6 @@ mayfirst.org
 // Submitted by Ilya Zaretskiy <zaretskiy@corp.mail.ru>
 hb.cldmail.ru
 
-// Mail Transfer Platform : https://www.neupeer.com
-// Submitted by Li Hui <lihui@neupeer.com>
-cn.vu
-
 // Maze Play: https://www.mazeplay.com
 // Submitted by Adam Humpherys <adam@mws.dev>
 mazeplay.com
@@ -14797,8 +14789,8 @@ pstmn.io
 mock.pstmn.io
 httpbin.org
 
-//prequalifyme.today : https://prequalifyme.today
-//Submitted by DeepakTiwari deepak@ivylead.io
+// prequalifyme.today : https://prequalifyme.today
+// Submitted by DeepakTiwari deepak@ivylead.io
 prequalifyme.today
 
 // prgmr.com : https://prgmr.com/
