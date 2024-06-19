@@ -892,7 +892,7 @@ public class FragmentPop extends FragmentBase {
                     cbClientDelete.setChecked(account == null ? false : account.client_delete);
                     cbClientDelete.setEnabled(!cbLeaveServer.isChecked());
                     cbLeaveDeleted.setChecked(account == null ? true : account.leave_deleted);
-                    cbLeaveDevice.setChecked(account == null ? false : account.leave_on_device);
+                    cbLeaveDevice.setChecked(account == null ? true : account.leave_on_device);
 
                     if (account != null && account.max_messages != null)
                         etMax.setText(Integer.toString(account.max_messages));
