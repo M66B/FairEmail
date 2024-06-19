@@ -1268,9 +1268,12 @@
     <string name="title_primary_identity">Primary (default identity)</string>
     <string name="title_self_identity">Remove email address when replying</string>
     <string name="title_leave_on_server">Leave messages on server</string>
+    <string name="title_leave_on_server_hint">After synchronization, the downloaded messages will remain on the server</string>
     <string name="title_client_delete">Actively delete messages after downloading</string>
     <string name="title_leave_deleted">Leave deleted messages on server</string>
+    <string name="title_leave_deleted_hint">After deleting messages, the messages will remain on the server</string>
     <string name="title_leave_on_device">Leave messages on device</string>
+    <string name="title_leave_on_device_hint">After deleting messages from the server, the messages will remain on the device</string>
     <string name="title_max_messages">Maximum number of messages to download (blank for all)</string>
     <string name="title_max_messages_keep">This is the maximum number of messages that will be kept on the device</string>
     <string name="title_max_messages_remark">
