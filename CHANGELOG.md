@@ -18,9 +18,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2206 - 2024-06-19
 
-* Targeting Android 15
 * Reverted AndroidX Lifecycle to fix a crash
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
