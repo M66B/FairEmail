@@ -390,7 +390,17 @@ public class DnsHelper {
         try {
             Logger.getLogger(clazz).addHandler(handler);
             Log.w("DANE verify " + server + ":" + port);
-            boolean verified = new DaneVerifier().verifyCertificateChain(chain, server, port);
+
+            DnssecClient client = DnssecResolverApi.INSTANCE.getDnssecClient();
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                client.setDataSource(new AndroidDataSource());
+
+            client.getDataSource().setTimeout(LOOKUP_TIMEOUT * 1000);
+
+            client.setUseHardcodedDnsServers(false);
+
+            boolean verified = new DaneVerifier(client).verifyCertificateChain(chain, server, port);
             Log.w("DANE verified=" + verified + " " + server + ":" + port);
             if (!verified)
                 throw new CertificateException("DANE missing or invalid",
