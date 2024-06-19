@@ -57,6 +57,12 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
+import android.opengl.EGL14;
+import android.opengl.EGLConfig;
+import android.opengl.EGLContext;
+import android.opengl.EGLDisplay;
+import android.opengl.EGLSurface;
+import android.opengl.GLES20;
 import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -186,10 +192,6 @@ import java.util.regex.Pattern;
 
 import javax.mail.internet.ContentType;
 import javax.mail.internet.ParseException;
-import javax.microedition.khronos.egl.EGL10;
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.egl.EGLContext;
-import javax.microedition.khronos.egl.EGLDisplay;
 
 public class Helper {
     private static Integer targetSdk = null;
@@ -925,32 +927,87 @@ public class Helper {
     // View
 
     static int getMaxTextureSize() {
-        int max = -1;
         try {
-            EGL10 egl = (EGL10) EGLContext.getEGL();
-            EGLDisplay d = egl.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+            EGLDisplay display = EGL14.eglGetDisplay(EGL14.EGL_DEFAULT_DISPLAY);
+            if (display == EGL14.EGL_NO_DISPLAY) {
+                Log.e("eglGetDisplay failed");
+                return -1;
+            }
 
-            int[] version = new int[2];
-            egl.eglInitialize(d, version);
+            try {
+                int[] version = new int[2];
+                boolean result = EGL14.eglInitialize(display, version, 0, version, 1);
+                if (!result) {
+                    Log.e("eglInitialize failed");
+                    return -1;
+                }
 
-            int[] count = new int[1];
-            egl.eglGetConfigs(d, null, 0, count);
+                int[] attr = {
+                        EGL14.EGL_COLOR_BUFFER_TYPE, EGL14.EGL_RGB_BUFFER,
+                        EGL14.EGL_LEVEL, 0,
+                        EGL14.EGL_RENDERABLE_TYPE, EGL14.EGL_OPENGL_ES2_BIT,
+                        EGL14.EGL_SURFACE_TYPE, EGL14.EGL_PBUFFER_BIT,
+                        EGL14.EGL_NONE
+                };
+                EGLConfig[] configs = new EGLConfig[1];
+                int[] count = new int[1];
+                result = EGL14.eglChooseConfig(display, attr, 0,
+                        configs, 0, 1, count, 0);
+                if (!result || count[0] == 0) {
+                    Log.e("eglChooseConfig failed");
+                    return -1;
+                }
 
-            EGLConfig[] configs = new EGLConfig[count[0]];
-            egl.eglGetConfigs(d, configs, count[0], count);
+                int[] surfAttr = {
+                        EGL14.EGL_WIDTH, 64,
+                        EGL14.EGL_HEIGHT, 64,
+                        EGL14.EGL_NONE
+                };
+                EGLSurface surface = EGL14.eglCreatePbufferSurface(display, configs[0], surfAttr, 0);
+                if (surface == EGL14.EGL_NO_SURFACE) {
+                    Log.e("eglCreatePbufferSurface failed");
+                    return -1;
+                }
 
-            int[] textureSizeWidth = new int[1];
+                try {
+                    int[] ctxAttrib = {
+                            EGL14.EGL_CONTEXT_CLIENT_VERSION, 2,
+                            EGL14.EGL_NONE
+                    };
+                    EGLContext ctx = EGL14.eglCreateContext(display, configs[0], EGL14.EGL_NO_CONTEXT, ctxAttrib, 0);
+                    if (ctx == EGL14.EGL_NO_CONTEXT) {
+                        Log.e("eglCreateContext failed");
+                        return -1;
+                    }
 
-            for (int i = 0; i < count[0]; i++) {
-                egl.eglGetConfigAttrib(d, configs[i], EGL10.EGL_MAX_PBUFFER_WIDTH, textureSizeWidth);
-                if (textureSizeWidth[0] > max)
-                    max = textureSizeWidth[0];
+                    try {
+                        result = EGL14.eglMakeCurrent(display, surface, surface, ctx);
+                        if (!result) {
+                            Log.e("eglMakeCurrent failed");
+                            return -1;
+                        }
+
+                        try {
+                            int[] maxSize = new int[1];
+                            GLES20.glGetIntegerv(GLES20.GL_MAX_TEXTURE_SIZE, maxSize, 0);
+                            return maxSize[0];
+                        } finally {
+                            EGL14.eglMakeCurrent(display, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_CONTEXT);
+                        }
+                    } finally {
+                        EGL14.eglDestroyContext(display, ctx);
+                    }
+                } finally {
+                    EGL14.eglDestroySurface(display, surface);
+                }
+            } finally {
+                EGL14.eglTerminate(display);
             }
         } catch (Throwable ex) {
             Log.e(ex);
         }
 
-        return max;
+        return -1;
     }
 
     static int getActionBarHeight(Context context) {
