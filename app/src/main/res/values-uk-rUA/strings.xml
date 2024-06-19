@@ -359,7 +359,7 @@
     <string name="title_setup_reset_full">Показати оригінальні повідомлення</string>
     <string name="title_check_gmail_oauth">Ваші облікові записи Gmail продовжать працювати після 30 травня 2022 року</string>
     <string name="title_check_gmail_password">Деякі ваші облікові записи Gmail можуть перестати працювати після 30 травня 2022 року</string>
-    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Деякі ваші облікові записи Outlook/Hotmail/Live перестануть працювати після 16 вересня 2024 року</string>
+    <string name="title_check_outlook_password">Деякі ваші облікові записи Outlook/Hotmail/Live перестануть працювати після 16 вересня 2024 року</string>
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.        Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
     </string>
@@ -1024,9 +1024,12 @@
     <string name="title_primary_identity">Основний (профіль за замовчуванням)</string>
     <string name="title_self_identity">Видаляти адресу електронної пошти при відповіді</string>
     <string name="title_leave_on_server">Залишати повідомлення на сервері</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Після завантаження повідомлень із сервера, повідомлення залишаться на сервері</string>
     <string name="title_client_delete">Активно видаляти повідомлення після завантаження</string>
     <string name="title_leave_deleted">Залишати видалені повідомлення на сервері</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Після вилучення повідомлень з пристрою, повідомлення залишаться на сервері</string>
     <string name="title_leave_on_device">Залишати повідомлення на пристрої</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Коли повідомлення видаляються із сервера, повідомлення залишаються на пристрої</string>
     <string name="title_max_messages">Максимальна кількість повідомлень для завантаження (якщо порожньо то всі)</string>
     <string name="title_max_messages_keep">Це максимальна кількість повідомлень, які будуть зберігатися на пристрої</string>
     <string name="title_max_messages_remark">Задайте додатнє число для завантаження останніх повідомлень (використовується зазвичай)

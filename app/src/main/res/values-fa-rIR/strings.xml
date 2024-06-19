@@ -297,7 +297,7 @@
     <string name="title_setup_reset_full">مشاهده پیام‌های اصلی</string>
     <string name="title_check_gmail_oauth">حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، همچنان کار خواهند کرد</string>
     <string name="title_check_gmail_password">تعدادی از حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، ممکن است از کار بیافتند</string>
-    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">تعدادی از حساب‌های آوت‌لوک/هات‌میل/لایو شما پس از ۱۶ سپتامبر ۲۰۲۴ از کار خواهند افتاد</string>
+    <string name="title_check_outlook_password">تعدادی از حساب‌های آوت‌لوک/هات‌میل/لایو شما پس از ۱۶ سپتامبر ۲۰۲۴ از کار خواهند افتاد</string>
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
@@ -398,6 +398,7 @@
     <string name="title_advanced_download_limited">برای اتصالات بدون اندازه‌گیری نیز به کار رود</string>
     <string name="title_advanced_roaming">بارگیری پیام‌ها و پیوست‌ها هنگام رومینگ</string>
     <string name="title_advanced_rlah">رومینگ مانند اینکه در خانه‌ای</string>
+    <string name="title_advanced_download_eml">دانلود فایل‌های پیام خام</string>
     <string name="title_advanced_vpn_only">اتصال تنها به وسیله وی‌پی‌ان</string>
     <string name="title_advanced_timeout">اتصال برقرار نشد (ثانیه)</string>
     <string name="title_advanced_prefer_ip4">ترجیح IPv4 به IPv6</string>
@@ -405,6 +406,8 @@
     <string name="title_advanced_dns_custom">استفاده از DNS resolver انتخابی</string>
     <string name="title_advanced_ssl_update">استفاده از ارائه‌دهنده اس‌اس‌ال به روز</string>
     <string name="title_advanced_ssl_harden">اتصالات SSL را محکم کن</string>
+    <string name="title_advanced_ssl_harden_strict">نیازمند TLS 1.3</string>
+    <string name="title_advanced_cert_strict">بررسی سفت و سخت گواهینامه</string>
     <string name="title_advanced_cert_transparency">شفافیت گواهینامه</string>
     <string name="title_advanced_check_names">اسامی هاست‌ها را با گواهی‌های سرور مقایسه کنید</string>
     <string name="title_advanced_open_safe">فقط ارتباطات اوپن‌سورس</string>
@@ -418,7 +421,10 @@
     <string name="title_advanced_caption_message">پیام</string>
     <string name="title_advanced_caption_message_header">عنوان پیام</string>
     <string name="title_advanced_caption_message_body">متن پیام</string>
+    <string name="title_advanced_caption_file">فایل</string>
+    <string name="title_advanced_caption_integrations">یکپارچه سازی‌ها</string>
     <string name="title_advanced_portrait">حالت عمودی</string>
+    <string name="title_advanced_landscape">حالت افقی</string>
     <string name="title_advanced_two_row">استفاده از دو ردیف</string>
     <string name="title_advanced_two_col">استفاده از دو ستون</string>
     <string name="title_advanced_min_screen_size">کمترین اندازه صفحه برای تقسیم کردن صفحه</string>
@@ -711,8 +717,11 @@
     <string name="title_primary_identity">اصلی (هویت پیش فرض)</string>
     <string name="title_self_identity">حذف نشانی ایمیل هنگام پاسخ</string>
     <string name="title_leave_on_server">رها کردن پیام‌ها روی سرور</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">پس از دانلود پیام‌ها از سرور، آنها روی سرور باقی می‌مانند</string>
     <string name="title_leave_deleted">رهاکردن پیام‌های حذف شده روی سرور</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">پس از پاک کردن پیام‌ها ار دستگاه، آنها روی سرور باقی می‌مانند</string>
     <string name="title_leave_on_device">رها کردن پیام‌ها روی دستگاه</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">هنگامی که پیام‌ها از سرور حذف می‌شوند، آنها روی دستگاه باقی می‌مانند</string>
     <string name="title_unmetered_only">فقط از طریق شبکه‌های نامحدود وصل شو</string>
     <string name="title_ignore_schedule">خارج از زمان تعیین شده هم همگام‌رسانی کن</string>
     <string name="title_check">بررسی</string>

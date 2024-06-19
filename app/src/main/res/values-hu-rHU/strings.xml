@@ -329,7 +329,7 @@
     <string name="title_setup_reset_full">Eredeti szöveg megjelenítése</string>
     <string name="title_check_gmail_oauth">Gmail fiókjai 2022. május 30-a után is működni fognak</string>
     <string name="title_check_gmail_password">Előfordulhat, hogy némely Gmail fiókja nem fog működni 2022. május 30-a után</string>
-    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Egyes Outlook/Hotmail/Live fiókjai nem fognak működni 2024. szeptember 16. után</string>
+    <string name="title_check_outlook_password">Egyes Outlook/Hotmail/Live fiókjai nem fognak működni 2024. szeptember 16. után</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
     <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.        Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.
     </string>
@@ -994,9 +994,12 @@
     <string name="title_primary_identity">Elsődleges (alapértelmezett identitás)</string>
     <string name="title_self_identity">E-Mail címek törlése a válaszoknál</string>
     <string name="title_leave_on_server">Üzenetek megőrzése a szerveren</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Az üzenetek letöltés után, egy példány a kiszolgálón marad</string>
     <string name="title_client_delete">Az üzenetek törlése letöltés után</string>
     <string name="title_leave_deleted">Törölt üzenetek a szerveren hagyás</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Az eszközön végzett üzenettörlés után, az üzenet a kiszolgálón megmarad</string>
     <string name="title_leave_on_device">Üzenetek megőrzése a készüléken</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">A kiszolgálón végzett üzenettörlés esetén, az üzenet az eszközön megmarad</string>
     <string name="title_max_messages">Letöltendő üzenetek maximális száma (összes ha üres)</string>
     <string name="title_max_messages_keep">A készüléken tárolt üzenetek maximális száma</string>
     <string name="title_max_messages_remark">        Adjon meg egy pozitív számot az üzenetek letöltéséhez a végétől (leggyakoribb)

@@ -991,9 +991,12 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>
     <string name="title_self_identity">Yanıtlarken e-posta adresinizi kaldırın</string>
     <string name="title_leave_on_server">Mesajları sunucuda bırak</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Sunucudan mesajları indirdikten sonra, mesajlar sunucuda kalır</string>
     <string name="title_client_delete">İndirdikten sonra mesajları aktif olarak sil</string>
     <string name="title_leave_deleted">Silinen mesajları sunucuda bırak</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Mesajları cihazdan sildikten sonra, mesajlar sunucuda kalacaktır</string>
     <string name="title_leave_on_device">Mesajları cihazda bırak</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Mesajlar sunucudan silindiğinde, mesajlar cihazda kalır</string>
     <string name="title_max_messages">İndirilecek mesajların maksimum sayısı (hepsi için boş)</string>
     <string name="title_max_messages_keep">Bu, cihazda tutulacak maksimum mesaj sayısıdır</string>
     <string name="title_max_messages_remark">        Sondaki mesajları indirmek için pozitif bir sayı girin (en yaygın)

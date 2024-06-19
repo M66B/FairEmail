@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">بحث FairEmail</string>
-    <string name="app_send_self">إرسال إلى الذات</string>
+    <string name="app_send_self">الإرسال إلى الذات</string>
     <string name="app_changelog">سِجل التغييرات</string>
     <string name="app_welcome">FairEmail تطبيق مفتوح المصدر للبريد الإلكتروني يُركّز على الخصوصية والأمان. ولهذا السبب قد تعمل بعض الميزات بشكل مختلف مما كنت مُعتادًا عليه.</string>
     <string name="app_limitations">على سبيل المثال، يتم إعادة تنسيق الرسائل بشكل افتراضي لإزالة العناصر غير الآمنة وتحسين إمكانية القراءة، كما ويجب تأكيد فتح الروابط من أجل السلامة. وكلاهما يمكن أن يُعطلا إذا رُغب في ذلك.</string>
     <string name="app_unsupported">Bugs in the Android version of this particular device cause crashes</string>
-    <string name="app_data_loss">قد يتم فقدان جميع البيانات</string>
-    <string name="app_continue">استمر على أي حال</string>
+    <string name="app_data_loss">يمكن لكل الذاكرة أن تضيع</string>
+    <string name="app_continue">أستمر على أي حال</string>
     <string name="app_exit">اذهب إلى \"الوراء\" مجددًا للإغلاق</string>
     <string name="app_cake">مساحة تخزين غير كافية</string>
-    <string name="app_cake_remaining">مساحة التخزين المتبقية على الجهاز: %1$s</string>
-    <string name="app_cake_required">الحد الأدنى لمساحة التخزين المطلوبة: %1$s</string>
+    <string name="app_cake_remaining">الذاكرة المتبقية للجهاز هذا: %1$s</string>
+    <string name="app_cake_required">الحد الأدنى للذاكرة: %1$s</string>
     <string name="app_updated">آخر تحديث: %1$s</string>
-    <string name="app_download">نُزّل من: %1$s</string>
-    <string name="channel_service">المتابع</string>
+    <string name="app_download">تم التحميل من: %1$s</string>
+    <string name="app_motd">        مع الإصدار التجريبي لأندرويد 14 و15, إشعارات \"البرنامج لا يستجيب\" تتكرر بعدة.
+        حالياً جوجل تحاول ان تصلح هذا الخطأ.
+        رجاءً لا تظلمون البرنامج للخطأ هذا!
+    </string>
+    <string name="channel_service">راقِب</string>
     <string name="channel_send">إرسال</string>
     <string name="channel_notification">البريد</string>
     <string name="channel_progress">التقدم</string>
     <string name="channel_update">التحديثات</string>
-    <string name="channel_announcements">إعلانات</string>
+    <string name="channel_announcements">إعلانات جديدة</string>
     <string name="channel_warning">التحذيرات</string>
     <string name="channel_error">الأخطاء</string>
     <string name="channel_alert">تنبيهات الخادم</string>
@@ -115,7 +119,7 @@
         <item quantity="many">معاملة %1$d كرسائل غير مرغوب فيها؟</item>
         <item quantity="other">معاملة %1$d كرسائل غير مرغوب فيها؟</item>
     </plurals>
-    <string name="title_ask_spam_who">جعل الرسالة من %1$s كرسالة غير مرغوب فيها؟</string>
+    <string name="title_ask_spam_who">عامل رسالة %1$s كبريد مزعج؟</string>
     <string name="title_junk_hint">مزود البريد الإلكتروني الخاص بك هو المسؤول عن تصفية البريد غير المرغوب فيه. تطبيق البريد الإلكتروني لا يحتوي على جميع البيانات المطلوبة للقيام بذلك بشكل يُعتمد عليه.</string>
     <string name="title_junk_pop_hint">        لن يتم تنزيل الرسائل الواردة من المرسلين المحظورين.
         إذا لم يتم تمكين \"ترك الرسائل على الخادم\"، فستفقد هذه الرسائل نهائيا!

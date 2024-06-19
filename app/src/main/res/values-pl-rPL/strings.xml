@@ -358,7 +358,7 @@
     <string name="title_setup_reset_full">Pokaż oryginalne wiadomości</string>
     <string name="title_check_gmail_oauth">Twoje konta Gmail będą nadal działać po 30 maja 2022</string>
     <string name="title_check_gmail_password">Niektóre z Twoich kont Gmail mogą przestać działać po 30 maja 2022</string>
-    <string name="title_check_outlook_password" comment="title_check_outlook_password&#10;Warning that Outlook accounts authenticated with a password will stop working.">Niektóre Twoje konta Outlook/Hotmail/Live przestaną działać po 16 września 2024 r.</string>
+    <string name="title_check_outlook_password">Niektóre Twoje konta Outlook/Hotmail/Live przestaną działać po 16 września 2024 r.</string>
     <string name="title_advanced_hint_title">Ustawienia zaawansowane</string>
     <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.         Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
     </string>
@@ -1024,9 +1024,12 @@
     <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
     <string name="title_self_identity">Usuń adres e-mail podczas odpowiedzi</string>
     <string name="title_leave_on_server">Pozostaw wiadomości na serwerze</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Po pobraniu wiadomości z serwera wiadomości pozostają na serwerze</string>
     <string name="title_client_delete">Aktywnie usuwaj wiadomości po pobraniu</string>
     <string name="title_leave_deleted">Pozostaw usunięte wiadomości na serwerze</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Po usunięciu wiadomości z urządzenia wiadomości pozostaną na serwerze</string>
     <string name="title_leave_on_device">Pozostaw wiadomości na urządzeniu</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Gdy wiadomości zostaną usunięte z serwera, wiadomości pozostają na urządzeniu</string>
     <string name="title_max_messages">Maksymalna liczba wiadomości do pobrania (puste dla wszystkich)</string>
     <string name="title_max_messages_keep">To jest maksymalna liczba wiadomości, które będą przechowywane na urządzeniu</string>
     <string name="title_max_messages_remark">        Wpisz liczbę dodatnią, aby pobrać wiadomości na końcu (najczęściej spotykane)
