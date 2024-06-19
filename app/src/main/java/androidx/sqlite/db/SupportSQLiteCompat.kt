@@ -106,7 +106,7 @@ class SupportSQLiteCompat private constructor() {
             cursorFactory: CursorFactory
         ): Cursor {
             return sQLiteDatabase.rawQueryWithFactory(
-                cursorFactory, sql, selectionArgs, editTable,
+                cursorFactory, sql, selectionArgs, editTable ?: "",
                 cancellationSignal
             )
         }

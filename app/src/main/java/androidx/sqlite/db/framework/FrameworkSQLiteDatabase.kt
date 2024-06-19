@@ -154,7 +154,7 @@ internal class FrameworkSQLiteDatabase(
         }
 
         return delegate.rawQueryWithFactory(
-            cursorFactory, query.sql, EMPTY_STRING_ARRAY, null)
+            cursorFactory, query.sql, EMPTY_STRING_ARRAY, "")
     }
 
     @RequiresApi(16)
