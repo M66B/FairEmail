@@ -882,6 +882,12 @@ public class ApplicationEx extends Application
                 editor.putBoolean("forward_new", true);
         }
 
+        if (version < 2206) {
+            if (prefs.getInt("viewport_height", 0) == 16000 &&
+                    (Helper.isGoogle() || Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU))
+                editor.remove("viewport_height");
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
 
