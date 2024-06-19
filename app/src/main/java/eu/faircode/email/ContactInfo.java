@@ -602,11 +602,14 @@ public class ContactInfo {
                 Log.e(ex);
             }
 
-        if (BuildConfig.DEBUG &&
-                info.bitmap != null &&
-                info.bitmap.getAllocationByteCount() > 1024 * 1024)
-            EntityLog.log(context, EntityLog.Type.Debug5, "Avatar " + info.email +
-                    " " + info.type + "=" + Helper.humanReadableByteCount(info.bitmap.getAllocationByteCount()));
+        if (info.bitmap != null) {
+            int abc = info.bitmap.getAllocationByteCount();
+            if (abc > 1024 * 1024) {
+                Log.e("Avatar type=" + info.type + " size=" + abc);
+                EntityLog.log(context, EntityLog.Type.Debug5,
+                        "Avatar email=" + info.email + " type=" + info.type + " size=" + abc);
+            }
+        }
 
         synchronized (emailContactInfo) {
             emailContactInfo.put(key, info);
