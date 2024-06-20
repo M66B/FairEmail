@@ -24,11 +24,13 @@ Vous recevrez une réponse dans votre propre langue.
 There is a lot of technical information in this FAQ, mostly for specific problems or specific use cases.
 For other more common questions, please see the tutorials below or contact me via *Get support* below.
 
-<br>
+<br />
 
 ## Tutorials
 
 Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for tutorials &#x1F4D6;.
+
+<br />
 
 ## Index
 
@@ -38,6 +40,8 @@ Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for t
 * [Planned features](#planned-features)
 * [Frequently Asked Questions](#frequently-asked-questions) (FAQ)
 * [Get support](#get-support)
+
+<br />
 
 <h2><a name="authorizing-accounts"></a>Authorizing accounts</h2>
 
@@ -82,6 +86,8 @@ Related questions:
 * [Is OAuth supported?](#faq111)
 * [Why is ActiveSync &trade; not supported?](#faq133)
 
+<br />
+
 <a name="howto">
 
 ## How to ...?
@@ -109,7 +115,9 @@ Related questions:
 
 (*) Swipe actions for individual and POP3 accounts can be configured in the account setting: (Main) Settings, tap Manual setup, tap Accounts, tap account
 
-<h2><a name="known-problems"></a>Known problem</h2>
+<br />
+
+<h2><a name="known-problems"></a>Known problems</h2>
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23known-problems)
 
@@ -134,17 +142,18 @@ Related questions:
 * [A bug](https://techcommunity.microsoft.com/t5/outlook/outlook-office-365-imap-idle-is-broken/m-p/3616242) in the Outlook IMAP server causes delayed new message notifications.
 
 <a name="redmi"></a>
+<a name="realme"></a>
 <a name="oneplus"></a>
 <a name="oppo"></a>
 
 <br />
 
-**Xiaomi Redmi / OnePlus / Oppo**
+**Xiaomi Redmi / Realme / OnePlus / Oppo**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23redmi)
 
-On some Xiaomi Redmi (Note) devices, some OnePlus devices with Android 12 and some Oppo devices with Android 12 the database occasionally gets corrupted, resulting in total data loss
-(on the device only, unless you are using a POP3 account with the option *Leave messages on server* disabled).
+On some Xiaomi Redmi (Note) devices, some Realme devices, some OnePlus devices running Android 12 and some Oppo devices running Android 12 the database occasionally gets corrupted, especially after an update,
+resulting in total data loss (on the device only, unless you are using a POP3 account with the option *Leave messages on server* disabled).
 
 The cause of this problem are disk I/O errors due to an Android bug (more likely) or maybe a hardware issue (less likely),
 please [see here](https://www.sqlite.org/rescode.html#ioerr_write).
@@ -169,6 +178,8 @@ android.database.sqlite.SQLiteDiskIOException: disk I/O error (code 778)
 ```
 
 The cause might be [changes in Android 7 Nougat](https://ericsink.com/entries/sqlite_android_n.html), which is why sqlite isn't bundled anymore since version 1.1970.
+
+<br />
 
 <h2><a name="planned-features"></a>Planned features</h2>
 
@@ -209,6 +220,8 @@ The cause might be [changes in Android 7 Nougat](https://ericsink.com/entries/sq
 * Bottom action bar
 
 Anything on this list is in random order and *might* be added in the near future.
+
+<br />
 
 <h2><a name="frequently-asked-questions"></a>Frequently Asked Questions</h2>
 
