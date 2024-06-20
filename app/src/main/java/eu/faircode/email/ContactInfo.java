@@ -615,7 +615,8 @@ public class ContactInfo {
                         " " + info.bitmap.getWidth() + "x" + info.bitmap.getHeight() + " " + info.bitmap.getConfig() +
                         " play=" + BuildConfig.PLAY_STORE_RELEASE +
                         " cached=" + cached;
-                Log.e(msg);
+                if (!BuildConfig.DEBUG)
+                    Log.e(msg);
                 EntityLog.log(context, EntityLog.Type.Debug4, msg);
             }
         }
