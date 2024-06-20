@@ -888,6 +888,11 @@ public class ApplicationEx extends Application
                 editor.remove("viewport_height");
         }
 
+        if (version < 2208) {
+            if (!BuildConfig.DEBUG)
+                ContactInfo.clearCache(context); // SVG scale
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
 
