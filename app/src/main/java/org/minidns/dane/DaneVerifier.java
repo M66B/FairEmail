@@ -120,7 +120,8 @@ public class DaneVerifier {
         List<DaneCertificateException.CertificateMismatch> certificateMismatchExceptions = new LinkedList<>();
         boolean verified = false;
         for (Record<? extends Data> record : res.answerSection) {
-            if (record.type == Record.TYPE.TLSA && record.name.equals(req)) {
+            // https://github.com/MiniDNS/minidns/issues/140
+            if (record.type == Record.TYPE.TLSA /*&& record.name.equals(req)*/) {
                 TLSA tlsa = (TLSA) record.payloadData;
                 try {
                     verified |= checkCertificateMatches(chain[0], tlsa, hostName);
