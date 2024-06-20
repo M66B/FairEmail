@@ -128,7 +128,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         toolbar.setLayoutParams(lp);
 
         toolbar.setPopupTheme(getThemeId());
-        if (hide_toolbar) {
+        if (hide_toolbar && this instanceof ActivityView) {
             AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) toolbar.getLayoutParams();
             params.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL |
                     AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS);
