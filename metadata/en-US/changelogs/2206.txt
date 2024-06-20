@@ -20,7 +20,7 @@ Acantholipan
 
 Next version
 
-* Added MiniDNS patches
+* Fixed DANE with SHA-384 and CNAME
 * Small improvements and minor bug fixes
 * Updated translations
 

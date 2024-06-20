@@ -20,7 +20,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Added MiniDNS patches
+* Fixed DANE with SHA-384 and CNAME
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
