@@ -605,9 +605,11 @@ public class ContactInfo {
         if (info.bitmap != null) {
             int abc = info.bitmap.getAllocationByteCount();
             if (abc > 1024 * 1024) {
-                Log.e("Avatar type=" + info.type + " size=" + abc);
-                EntityLog.log(context, EntityLog.Type.Debug5,
-                        "Avatar email=" + info.email + " type=" + info.type + " size=" + abc);
+                String msg = "Avatar type=" + info.type +
+                        " size=" + abc + "/" + info.bitmap.getByteCount() +
+                        " " + info.bitmap.getWidth() + "x" + info.bitmap.getHeight() + " " + info.bitmap.getConfig();
+                Log.e(msg);
+                EntityLog.log(context, EntityLog.Type.Debug5, msg + " email=" + info.email);
             }
         }
 
