@@ -206,7 +206,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             try {
                 startForeground(NotificationHelper.NOTIFICATION_SYNCHRONIZE,
                         getNotificationService(null, null));
-                EntityLog.log(this, EntityLog.Type.Debug2,
+                EntityLog.log(this, EntityLog.Type.Debug3,
                         "onCreate class=" + this.getClass().getName());
             } catch (Throwable ex) {
                 if (Helper.isPlayStoreInstall())
@@ -1042,7 +1042,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     @Override
     public void onDestroy() {
-        EntityLog.log(this, "Service destroy");
+        EntityLog.log(this, EntityLog.Type.Debug3,
+                "Service destroy class=" + this.getClass().getName());
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.unregisterOnSharedPreferenceChangeListener(this);
@@ -3547,6 +3548,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     static void state(Context context, boolean foreground) {
+        EntityLog.log(context, EntityLog.Type.Debug3, "Foreground=" + foreground);
         start(context,
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("state")
