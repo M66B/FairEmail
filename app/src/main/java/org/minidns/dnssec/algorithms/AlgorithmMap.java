@@ -47,6 +47,12 @@ public final class AlgorithmMap {
             // SHA-256 is MANDATORY
             throw new DnssecValidatorInitializationException("SHA-256 is mandatory", e);
         }
+        try {
+            dsDigestMap.put(DigestAlgorithm.SHA384, new JavaSecDigestCalculator("SHA-384"));
+        } catch (NoSuchAlgorithmException e) {
+            // SHA-384 is OPTIONAL
+            LOGGER.log(Level.FINE, "Platform does not support SHA-384", e);
+        }
 
         try {
             signatureMap.put(SignatureAlgorithm.RSAMD5, new RsaSignatureVerifier("MD5withRSA"));
