@@ -998,9 +998,12 @@
     <string name="title_primary_identity">Principal (identidade padrão)</string>
     <string name="title_self_identity">Remover o endereço de correio electrónico ao responder</string>
     <string name="title_leave_on_server">Deixar as mensagens no servidor</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Depois de transferir mensagens do servidor, as mensagens permanecem no servidor</string>
     <string name="title_client_delete">Excluir mensagens ativamente após baixar</string>
     <string name="title_leave_deleted">Deixar as mensagens eliminadas no servidor</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Depois de apagar mensagens do dispositivo, as mensagens permanecem no servidor</string>
     <string name="title_leave_on_device">Deixar as mensagens no dispositivo</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Quando mensagens são apagadas do servidor, as mensagens permanecem no dispositivo</string>
     <string name="title_max_messages">Número máximo de mensagens a serem transferidas (espaço em branco para todas)</string>
     <string name="title_max_messages_keep">Este é o número máximo de mensagens que serão mantidas no dispositivo</string>
     <string name="title_max_messages_remark">        Insira um número positivo para baixar as mensagens no final (mais comum)

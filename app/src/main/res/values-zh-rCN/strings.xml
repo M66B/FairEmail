@@ -982,9 +982,12 @@
     <string name="title_primary_identity">主身份(默认身份)</string>
     <string name="title_self_identity">回复时去掉邮件地址</string>
     <string name="title_leave_on_server">在服务器上保留邮件</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">从服务器下载邮件后，邮件将保留在服务器上</string>
     <string name="title_client_delete">下载后主动删除邮件</string>
     <string name="title_leave_deleted">在服务器上保留已删除邮件</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">从设备中删除邮件后，这些邮件将保留在服务器上</string>
     <string name="title_leave_on_device">在设备上保留邮件</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">从服务器中删除邮件时，邮件仍保留在设备上</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
     <string name="title_max_messages_keep">此为设备上存储的最大邮件数</string>
     <string name="title_max_messages_remark">        输入一个正数下载末尾邮件(最常见)
