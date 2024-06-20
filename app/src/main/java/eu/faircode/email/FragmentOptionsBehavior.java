@@ -233,7 +233,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swConversationActions.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
         swConversationActions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -242,7 +241,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swConversationActionsReplies.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
         swConversationActionsReplies.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -707,8 +705,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             swSyncOnlaunch.setChecked(prefs.getBoolean("sync_on_launch", false));
             swDoubleBack.setChecked(prefs.getBoolean("double_back", false));
             swConversationActions.setChecked(prefs.getBoolean("conversation_actions", Helper.isGoogle()));
+            swConversationActions.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
             swConversationActionsReplies.setChecked(prefs.getBoolean("conversation_actions_replies", true));
-            swConversationActionsReplies.setEnabled(swConversationActions.isChecked());
+            swConversationActionsReplies.setEnabled(swConversationActions.isChecked() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q);
             swLanguageDetection.setChecked(prefs.getBoolean("language_detection", false));
 
             int default_snooze = prefs.getInt("default_snooze", 1);
