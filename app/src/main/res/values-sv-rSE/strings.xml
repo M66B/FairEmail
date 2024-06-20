@@ -986,9 +986,12 @@
     <string name="title_primary_identity">Primär (standardidentitet)</string>
     <string name="title_self_identity">Ta bort e-postadresser vid svar</string>
     <string name="title_leave_on_server">Spara alla meddelanden på servern</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Efter att meddelanden har hämtats från servern så finns de kvar på servern</string>
     <string name="title_client_delete">Ta bort meddelandena aktivt efter hämtning</string>
     <string name="title_leave_deleted">Lämna raderade meddelanden på servern</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Efter att meddelanden har raderats från enheten så finns de kvar på servern</string>
     <string name="title_leave_on_device">Spara meddelanden på enheten</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">När meddelanden raderas på servern så finns de kvar på enheten</string>
     <string name="title_max_messages">Maximalt antal meddelanden att ladda ner (lämna tomt för alla)</string>
     <string name="title_max_messages_keep">Detta är det maximala antalet meddelanden som kommer att lagras på enheten</string>
     <string name="title_max_messages_remark">        Ange ett positivt värde för att ladda ner meddelandena i slutet (vanligast)

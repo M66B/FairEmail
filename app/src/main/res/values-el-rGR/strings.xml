@@ -330,6 +330,7 @@
     <string name="title_setup_reset_full">Προβολή αρχικών μηνυμάτων</string>
     <string name="title_check_gmail_oauth">Οι λογαριασμοί σας Gmail θα συνεχίσουν να λειτουργούν μετά τις 30 Μαΐου 2022</string>
     <string name="title_check_gmail_password">Ορισμένοι από τους λογαριασμούς σας Gmail ενδέχεται να σταματήσουν να λειτουργούν μετά τις 30 Μαΐου 2022</string>
+    <string name="title_check_outlook_password">Κάποιοι από τους λογαριασμούς σας Outlook/Hotmail/Live θα σταματήσουν να λειτουργούν μετά τις 16 Σεπτεμβρίου 2024</string>
     <string name="title_advanced_hint_title">Πιο προηγμένες επιλογές</string>
     <string name="title_advanced_hint_message">        Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.        Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, τις οποίες δεν χρειάζεται να αλλάξετε εκτός εάν έχετε μία διαφορετική προτίμηση.
     </string>
@@ -835,6 +836,7 @@
     <string name="title_advanced_metered_warning">Αν απενεργοποιηθεί, θα απενεργοποιηθούν η λήψη και η αποστολή μηνυμάτων σε κινητές συνδέσεις διαδικτύου</string>
     <string name="title_advanced_rlah_hint">Υπό την προϋπόθεση ότι δεν λαμβάνει χώρα περιαγωγή εντός της ΕΕ</string>
     <string name="title_advanced_usage_hint">Θα αυξήσει τη χρήση μπαταρίας, δεδομένων και χώρου αποθήκευσης</string>
+    <string name="title_advanced_plain_hint">Εάν ενεργοποιηθεί, θα περιοριστεί η χρήση δεδομένων, αλλά τα μηνύματα θα προβάλλονται χωρίς μορφοποίηση και χωρίς εικόνες</string>
     <string name="title_advanced_plain_remark">Το τμήμα απλού κειμένου δεν περιέχει πάντα το πλήρες μήνυμα!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Αν ενεργοποιηθεί, μπορεί να προκαλέσει προβλήματα σύνδεσης σε ορισμένες συσκευές και ίσως αυξήσει την κατανάλωση μπαταρίας</string>
     <string name="title_advanced_validate_hint">Μπορεί να οδηγήσει σε μη συγχρονισμό μηνυμάτων, για παράδειγμα όταν χρησιμοποιείτε VPN, αλλά και σε άλλες περιπτώσεις</string>
@@ -983,6 +985,7 @@
     <string name="title_case_sensitive">Τα ονόματα χρηστών και οι κωδικοί πρόσβασης επηρεάζονται συνήθως από τις αλλαγές κεφαλαίων και μικρών γραμμάτων</string>
     <string name="title_login_before_send">Λήψη πριν από την αποστολή</string>
     <string name="title_client_certificate">Πιστοποιητικό πελάτη</string>
+    <string name="title_no_key_selected">Δεν έχει επιλεγεί κλειδί ή δεν υπάρχουν διαθέσιμα κλειδιά</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Χρήση τοπικής διεύθυνσης IP αντί για το όνομα του υπολογιστή</string>
     <string name="title_ehlo">Προσαρμοσμένη ταυτοποίηση HELO/EHLO</string>
@@ -991,9 +994,12 @@
     <string name="title_primary_identity">Κύρια (προεπιλεγμένη ταυτότητα)</string>
     <string name="title_self_identity">Αφαίρεση διεύθυνσης ηλ. ταχυδρομείου κατά την απάντηση</string>
     <string name="title_leave_on_server">Να παραμένουν τα μηνύματα στον διακομιστή</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Μετά τη λήψη μηνυμάτων από τον διακομιστή, τα μηνύματα παραμένουν στον διακομιστή</string>
     <string name="title_client_delete">Ενεργή διαγραφή μηνυμάτων μετά το κατέβασμα</string>
     <string name="title_leave_deleted">Να παραμένουν τα διεγραμμένα μηνύματα στον διακομιστή</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Μετά τη διαγραφή μηνυμάτων από τη συσκευή, τα μηνύματα θα παραμείνουν στον διακομιστή</string>
     <string name="title_leave_on_device">Να παραμένουν τα μηνύματα στη συσκευή</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Όταν τα μηνύματα διαγράφονται από τον διακομιστή, τα μηνύματα παραμένουν στη συσκευή</string>
     <string name="title_max_messages">Μέγιστος αριθμός μηνυμάτων για κατέβασμα (κενό για όλα)</string>
     <string name="title_max_messages_keep">Αυτός είναι ο μέγιστος αριθμός μηνυμάτων που θα διατηρηθούν στη συσκευή</string>
     <string name="title_max_messages_remark">        Εισάγετε έναν θετικό αριθμό για να κατεβάσετε τα μηνύματα στο τέλος (το πιο συνηθισμένο)
