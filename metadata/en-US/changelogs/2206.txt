@@ -18,7 +18,13 @@ For support you can use the contact form.
 
 Acantholipan
 
-1.2205 - 2024-06-19
+Next version
+
+* Added MiniDNS patches
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2206 - 2024-06-19
 
 * Reverted AndroidX Lifecycle to fix a crash
 * Small improvements and minor bug fixes
