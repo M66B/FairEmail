@@ -516,6 +516,9 @@ configurations.configureEach {
 
     // Markwon
     exclude group: "com.atlassian.commonmark", module: "commonmark"
+
+    // https://github.com/MiniDNS/minidns/issues/139
+    exclude group: "org.minidns", module: "minidns-dnssec"
 }
 
 configurations.configureEach {
@@ -756,6 +759,10 @@ dependencies {
     // https://github.com/MiniDNS/minidns
     // https://mvnrepository.com/artifact/org.minidns/minidns-hla
     implementation "org.minidns:minidns-hla:$minidns_version"
+    // Include
+    implementation "org.minidns:minidns-client:$minidns_version"
+    implementation "org.minidns:minidns-core:$minidns_version"
+    implementation "org.minidns:minidns-iterative-resolver:$minidns_version"
 
     // https://github.com/open-keychain/openpgp-api
     // https://mvnrepository.com/artifact/org.sufficientlysecure/openpgp-api
