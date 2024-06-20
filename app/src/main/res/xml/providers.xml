@@ -1237,7 +1237,7 @@
     <provider
         name="Laposte.net"
         domain="laposte\\.net"
-        link="https://www.laposte.fr/votre-vie-digitale/conseils-pratiques/configuration-webmail-laposte.net">
+        link="https://aide.laposte.net/contents/comment-parametrer-un-logiciel-de-messagerie-pour-envoyer-et-recevoir-mes-courriers-electroniques">
         <imap
             host="imap.laposte.net"
             port="993"
