@@ -607,15 +607,16 @@ public class ContactInfo {
 
         if (info.bitmap != null) {
             int abc = info.bitmap.getAllocationByteCount();
-            if (abc > 1024 * 1024) {
+            if (abc > 1024 * 1024 || BuildConfig.DEBUG) {
                 String msg = "Avatar type=" + info.type +
                         " domain=" + UriHelper.getEmailDomain(info.email) +
-                        " size=" + abc + "/" + info.bitmap.getByteCount() +
+                        " size=" + Helper.humanReadableByteCount(abc) +
+                        "/" + Helper.humanReadableByteCount(info.bitmap.getByteCount()) +
                         " " + info.bitmap.getWidth() + "x" + info.bitmap.getHeight() + " " + info.bitmap.getConfig() +
                         " play=" + BuildConfig.PLAY_STORE_RELEASE +
                         " cached=" + cached;
                 Log.e(msg);
-                EntityLog.log(context, EntityLog.Type.Debug5, msg);
+                EntityLog.log(context, EntityLog.Type.Debug4, msg);
             }
         }
 
