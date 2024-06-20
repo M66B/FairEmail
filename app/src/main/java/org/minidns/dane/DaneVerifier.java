@@ -17,6 +17,7 @@ import org.minidns.dnssec.DnssecQueryResult;
 import org.minidns.dnssec.DnssecUnverifiedReason;
 import org.minidns.record.Data;
 import org.minidns.record.Record;
+import org.minidns.record.CNAME;
 import org.minidns.record.TLSA;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -120,18 +121,23 @@ public class DaneVerifier {
         List<DaneCertificateException.CertificateMismatch> certificateMismatchExceptions = new LinkedList<>();
         boolean verified = false;
         for (Record<? extends Data> record : res.answerSection) {
-            // https://github.com/MiniDNS/minidns/issues/140
-            if (record.type == Record.TYPE.TLSA /*&& record.name.equals(req)*/) {
-                TLSA tlsa = (TLSA) record.payloadData;
-                try {
-                    verified |= checkCertificateMatches(chain[0], tlsa, hostName);
-                } catch (DaneCertificateException.CertificateMismatch certificateMismatchException) {
-                    // Record the mismatch and only throw an exception if no
-                    // TLSA RR is able to verify the cert. This allows for TLSA
-                    // certificate rollover.
-                    certificateMismatchExceptions.add(certificateMismatchException);
+            if (record.name.equals(req)) {
+                if (record.type == Record.TYPE.TLSA) {
+                    TLSA tlsa = (TLSA) record.payloadData;
+                    try {
+                        verified |= checkCertificateMatches(chain[0], tlsa, hostName);
+                    } catch (DaneCertificateException.CertificateMismatch certificateMismatchException) {
+                        // Record the mismatch and only throw an exception if no
+                        // TLSA RR is able to verify the cert. This allows for TLSA
+                        // certificate rollover.
+                        certificateMismatchExceptions.add(certificateMismatchException);
+                    }
+                    if (verified) break;
                 }
-                if (verified) break;
+                // https://github.com/MiniDNS/minidns/issues/140
+                else if (record.type == Record.TYPE.CNAME) {
+                    req = ((CNAME) record.payloadData).target;
+                }
             }
         }
 
