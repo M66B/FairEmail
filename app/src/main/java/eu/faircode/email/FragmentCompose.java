@@ -825,8 +825,11 @@ public class FragmentCompose extends FragmentBase {
                 if (tag == null || !tag.equals(checked)) {
                     cbSignature.setTag(checked);
                     tvSignature.setAlpha(checked ? 1.0f : Helper.LOW_LIGHT);
-                    if (tag != null)
-                        onAction(R.id.action_save, "signature");
+                    if (tag != null) {
+                        Bundle extras = new Bundle();
+                        extras.putBoolean("silent", true);
+                        onAction(R.id.action_save, extras, "signature");
+                    }
                 }
             }
         });
