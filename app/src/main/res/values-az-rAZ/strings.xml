@@ -330,6 +330,7 @@
     <string name="title_setup_reset_full">Orijinal mesajları göstər</string>
     <string name="title_check_gmail_oauth">Gmail hesablarınız 30 May 2022-ci il tarixindən sonra işləməyə davam edəcək</string>
     <string name="title_check_gmail_password">Bəzi Gmail hesablarınız 30 May 2022-ci il tarixindən işləməyi dayandıra bilər</string>
+    <string name="title_check_outlook_password">Outlook/Hotmail/Live hesablarınızdan bəziləri 16 sentyabr 2024-cü il tarixindən etibarən işləməyi dayandıracaq</string>
     <string name="title_advanced_hint_title">Daha çox qabaqcıl seçimlər</string>
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.
         Bütün seçimlər, fərqli bir tərcihiniz olmadığı müddətcə dəyişdirməyinizə ehtiyac olmayan və geniş istifadə olunan standart dəyərlərə sahibdir.
@@ -838,6 +839,7 @@
     <string name="title_advanced_metered_warning">Bu seçimin sıradan çıxarılması, mobil internet bağlantılarında mesajların göndərilməsini və alınmasını dayandıracaq</string>
     <string name="title_advanced_rlah_hint">AB daxilində roaminqdə olmadığını hesab et</string>
     <string name="title_advanced_usage_hint">Bu, batareya, verilənlər və anbar sahəsi istifadəsini artıracaq</string>
+    <string name="title_advanced_plain_hint">Bunu fəallaşdırmaq data istifadəsini məhdudlaşdıracaq, ancaq mesajlar stil və təsvir olmadan görünəcək</string>
     <string name="title_advanced_plain_remark">Düz mətn hissəsi həmişə tam mesajı ehtiva etmir!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Bunu fəallaşdırmaq, bəzi cihazlarda bağlantı problemlərinə və batareya istifadəsinin artmasına səbəb ola bilər</string>
     <string name="title_advanced_validate_hint">Bu, məsələn bir VPN istifadə edəndə və digər hallarda mesajların sinxronlaşdırılmaması ilə nəticələnə bilər</string>
@@ -986,6 +988,7 @@
     <string name="title_case_sensitive">İstifadəçi adları və parollar adətən böyük-kiçik hərflərə həssasdır</string>
     <string name="title_login_before_send">Göndərməzdən əvvəl al</string>
     <string name="title_client_certificate">Müştəri sertifikatı</string>
+    <string name="title_no_key_selected">Açar seçilməyib və ya açar mövcud deyil</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Host adı əvəzinə yerli IP ünvanı istifadə et</string>
     <string name="title_ehlo">Özəl HELO/EHLO kimliyi</string>
@@ -994,9 +997,12 @@
     <string name="title_primary_identity">Üstünlük verilən (ilkin kimlik)</string>
     <string name="title_self_identity">Cavablayanda e-poçt ünvanınızı çıxardın</string>
     <string name="title_leave_on_server">Mesajları serverdə burax</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Mesajları serverdən endirdikdən sonra, mesajlar serverdə qalır</string>
     <string name="title_client_delete">Endirdikdən sonra mesajları aktiv olaraq silin</string>
     <string name="title_leave_deleted">Silənən mesajları serverdə burax</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Mesajları cihazdan sildikdən sonra, mesajlar serverdə qalacaq</string>
     <string name="title_leave_on_device">Mesajları cihazda burax</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Mesajlar serverdən silindikdə, mesajlar cihazda qalır</string>
     <string name="title_max_messages">Endiriləcək mesajların maksimum sayı (hamısı üçün boş)</string>
     <string name="title_max_messages_keep">Bu, cihazda saxlanılacaq maksimum mesaj sayıdır</string>
     <string name="title_max_messages_remark">        Mesajları sonda endirmək üçün müsbət bir ədəd daxil edin (ən geniş yayılmış)

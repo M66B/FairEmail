@@ -983,9 +983,12 @@
     <string name="title_primary_identity">プライマリー (デフォルトのユーザー ID)</string>
     <string name="title_self_identity">返信するときにメールアドレスを削除する</string>
     <string name="title_leave_on_server">サーバーにメッセージを残す</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">サーバーからメッセージをダウンロードした後、メッセージがサーバーに残ります</string>
     <string name="title_client_delete">ダウンロードしたメッセージをアクティブに削除</string>
     <string name="title_leave_deleted">削除したメッセージをサーバーに残す</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">端末からメッセージを削除しても、メッセージはサーバーに残ります</string>
     <string name="title_leave_on_device">端末にメッセージを残す</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">メッセージがサーバーから削除されても、メッセージは端末に残ります</string>
     <string name="title_max_messages">ダウンロードするメッセージ件数の上限 (空白にするとすべてダウンロードします)</string>
     <string name="title_max_messages_keep">これは、端末に保存されるメッセージ件数の上限です</string>
     <string name="title_max_messages_remark">        正の数を入力すると、最後からメッセージをダウンロードします (推奨)
