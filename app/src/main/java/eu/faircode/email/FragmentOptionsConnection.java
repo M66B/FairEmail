@@ -352,7 +352,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swDnsCustom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
-                DnsHelper.clear(buttonView.getContext());
                 prefs.edit().putBoolean("dns_custom", checked).apply();
                 tvDnsExtra.setEnabled(checked || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
                 etDnsExtra.setEnabled(checked || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);

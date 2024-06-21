@@ -465,15 +465,6 @@ public class DnsHelper {
         return result;
     }
 
-    static void clear(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = prefs.edit();
-        for (String key : prefs.getAll().keySet())
-            if (key != null && key.startsWith("dns."))
-                editor.remove(key);
-        editor.apply();
-    }
-
     static boolean hasDnsSec() {
         if (BuildConfig.PLAY_STORE_RELEASE)
             return false;
