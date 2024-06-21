@@ -5432,7 +5432,7 @@ This feature was added in version 1.1942 and is available in non Play store vers
 When clicking on a link, by default, a confirmation dialog will be shown.
 The available browser(s) will be listed and if a browser supports [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/), it will be listed twice,
 once with an "open external" icon (the browser will be started standalone, independent of the app)
-and once without this icon (the browser will be started embedded as "Custom Tab", dependent on the app).
+and once without this icon (the browser will be started embedded as "Custom Tab", which looks like being part of the app, but in fact isn't).
 
 In addition, *Select app* will be listed, which means that the link will be handed over to Android, which will select how to open the link.
 In most cases, this will be with the default browser, which you can select in the Android settings.
