@@ -231,7 +231,12 @@
             android:launchMode="singleTask"
             android:parentActivityName=".ActivityMain"
             android:resizeableActivity="true"
-            android:taskAffinity="${applicationId}.SETUP" />
+            android:taskAffinity="${applicationId}.SETUP">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".ActivitySignature"

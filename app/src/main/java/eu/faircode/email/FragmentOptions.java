@@ -19,8 +19,10 @@ package eu.faircode.email;
     Copyright 2018-2024 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.MatrixCursor;
@@ -61,6 +63,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public class FragmentOptions extends FragmentBase {
     private ViewPager pager;
@@ -274,12 +277,21 @@ public class FragmentOptions extends FragmentBase {
                     .setText(title);
         }
 
-        String tab = getActivity().getIntent().getStringExtra("tab");
-        if (!TextUtils.isEmpty(tab)) {
-            int index = TAB_LABELS.indexOf(tab);
-            if (index >= 0)
-                pager.setCurrentItem(index);
-            getActivity().getIntent().removeExtra("tab");
+        Intent intent = getActivity().getIntent();
+        if (intent != null) {
+            String tab;
+
+            Set<String> categories = intent.getCategories();
+            if (categories != null && categories.contains(Notification.INTENT_CATEGORY_NOTIFICATION_PREFERENCES))
+                tab = "notifications";
+            else
+                tab = getActivity().getIntent().getStringExtra("tab");
+            if (!TextUtils.isEmpty(tab)) {
+                int index = TAB_LABELS.indexOf(tab);
+                if (index >= 0)
+                    pager.setCurrentItem(index);
+                getActivity().getIntent().removeExtra("tab");
+            }
         }
     }
 
