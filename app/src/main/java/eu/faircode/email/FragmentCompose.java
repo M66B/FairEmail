@@ -824,6 +824,7 @@ public class FragmentCompose extends FragmentBase {
                 Object tag = cbSignature.getTag();
                 if (tag == null || !tag.equals(checked)) {
                     cbSignature.setTag(checked);
+                    ibSignature.setEnabled(checked);
                     tvSignature.setAlpha(checked ? 1.0f : Helper.LOW_LIGHT);
                     if (tag != null) {
                         Bundle extras = new Bundle();
@@ -841,18 +842,27 @@ public class FragmentCompose extends FragmentBase {
                 if (identity == null || TextUtils.isEmpty(identity.signature))
                     return;
 
-                ClipboardManager clipboard = Helper.getSystemService(v.getContext(), ClipboardManager.class);
-                if (clipboard == null)
-                    return;
+                Document d = HtmlHelper.sanitizeCompose(v.getContext(), identity.signature, true);
+                SpannableStringBuilder spanned = HtmlHelper.fromDocument(v.getContext(), d, new HtmlHelper.ImageGetterEx() {
+                    @Override
+                    public Drawable getDrawable(Element element) {
+                        return ImageHelper.decodeImage(v.getContext(),
+                                working, element, true, zoom, 1.0f, etBody);
+                    }
+                }, null);
+                if (spanned.length() > 0 && spanned.charAt(spanned.length() - 1) != '\n')
+                    spanned.append('\n');
 
-                ClipData clip = ClipData.newHtmlText(
-                        v.getContext().getString(R.string.title_edit_signature_text),
-                        HtmlHelper.getText(v.getContext(), identity.signature),
-                        identity.signature);
-                clipboard.setPrimaryClip(clip);
+                Editable edit = etBody.getText();
+                if (edit.length() > 0 && edit.charAt(edit.length() - 1) != '\n')
+                    edit.append('\n');
 
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
-                    ToastEx.makeText(v.getContext(), R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                int start = edit.length();
+                edit.append(spanned);
+                etBody.setSelection(start);
+
+                cbSignature.setChecked(false);
+                ibSignature.setEnabled(false);
             }
         });
 
@@ -7960,6 +7970,7 @@ public class FragmentCompose extends FragmentBase {
                 ivMarkdown.setVisibility(markdown ? View.VISIBLE : View.GONE);
 
                 cbSignature.setChecked(draft.signature);
+                ibSignature.setEnabled(draft.signature);
                 tvSignature.setAlpha(draft.signature ? 1.0f : Helper.LOW_LIGHT);
 
                 boolean ref_has_images = args.getBoolean("ref_has_images");

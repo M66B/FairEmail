@@ -413,12 +413,12 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="6dp"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/title_clipboard_copy"
+                    android:contentDescription="@string/title_edit_signature"
                     android:padding="3dp"
-                    android:tooltipText="@string/title_clipboard_copy"
+                    android:tooltipText="@string/title_edit_signature"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cbSignature"
-                    app:srcCompat="@drawable/twotone_file_copy_24" />
+                    app:srcCompat="@drawable/twotone_edit_24" />
 
                 <View
                     android:id="@+id/vSeparatorSignature"
