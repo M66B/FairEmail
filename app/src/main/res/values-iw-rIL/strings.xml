@@ -1025,9 +1025,12 @@
     <string name="title_primary_identity">עיקרי (זהות בררת המחדל)</string>
     <string name="title_self_identity">הסרת כתובת הדוא״ל בעת מענה</string>
     <string name="title_leave_on_server">להשאיר הודעות על השרת</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">לאחר הורדת הודעות מהשרת, ההודעות נשארות בשרת</string>
     <string name="title_client_delete">למחוק הודעות באופן פעיל לאחר ההורדה</string>
     <string name="title_leave_deleted">להשאיר הודעות שנמחקו על השרת</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">לאחר מחיקת הודעות מהמכשיר, ההודעות תישארנה בשרת</string>
     <string name="title_leave_on_device">להשאיר הודעות במכשיר</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">כשהודעות נמחקות מהשרת, ההודעות תישארנה במכשיר</string>
     <string name="title_max_messages">מספר ההודעות המרבי להורדה (ריק בשביל כולן)</string>
     <string name="title_max_messages_keep">זה מספר ההודעות המרבי שיישמר במכשיר</string>
     <string name="title_max_messages_remark">        נא למלא מספר חיובי כדי להוריד את ההודעות בסוף (יותר נפוץ)

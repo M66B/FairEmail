@@ -996,9 +996,12 @@
     <string name="title_primary_identity">Основна (по подразбиране идентичност)</string>
     <string name="title_self_identity">Премахване на имейл адреса при отговор</string>
     <string name="title_leave_on_server">Оставяне съобщения на сървъра</string>
+    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Изтегляйки съобщения от сървъра, съобщенията остават на сървъра</string>
     <string name="title_client_delete">Дейно изтриване на съобщенията след изтегляне</string>
     <string name="title_leave_deleted">Оставяне на изтритите съобщения на сървъра</string>
+    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">След изтриването на съобщенията от устройството, съобщенията ще останат на сървъра</string>
     <string name="title_leave_on_device">Запази съобщенията на устройството</string>
+    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Когато съобщенията са изтрити от сървъра, съобщенията ще останат на устройството</string>
     <string name="title_max_messages">Максимален брой съобщения за изтегляне (празно за всички)</string>
     <string name="title_max_messages_keep">Това е най-големият възможен брой съобщения, които ще се съхраняват в устройството</string>
     <string name="title_max_messages_remark">        Въведете положително число за изтегляне на съобщенията в края (най-често)
