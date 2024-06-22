@@ -1168,6 +1168,10 @@ public class DebugHelper {
                 size += write(os, "cert_transparency=" + cert_transparency + (cert_transparency ? " !!!" : "") + "\r\n");
                 size += write(os, "open_safe=" + open_safe + "\r\n");
 
+                for (String key : prefs.getAll().keySet())
+                    if (key.startsWith("dns_"))
+                        size += write(os, key + "=" + prefs.getAll().get(key)+"\r\n");
+
                 size += write(os, "\r\n");
                 size += write(os, Log.getCiphers().toString());
 
