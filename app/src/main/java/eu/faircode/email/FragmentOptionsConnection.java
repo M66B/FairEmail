@@ -99,6 +99,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swDnsCustom;
     private TextView tvDnsExtra;
     private EditText etDnsExtra;
+    private SwitchCompat swDnsClear;
     private SwitchCompat swTcpKeepAlive;
     private SwitchCompat swSslUpdate;
     private SwitchCompat swSslHarden;
@@ -133,7 +134,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             "download_headers", "download_eml", "download_plain",
             "require_validated", "require_validated_captive", "vpn_only",
             "timeout", "prefer_ip4", "bind_socket", "standalone_vpn",
-            "dns_extra", "dns_custom",
+            "dns_extra", "dns_custom", "dns_clear",
             "tcp_keep_alive",
             "ssl_update", "ssl_harden", "ssl_harden_strict", "cert_strict", "cert_transparency", "check_names",
             "open_safe", "http_redirect",
@@ -169,6 +170,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swDnsCustom = view.findViewById(R.id.swDnsCustom);
         tvDnsExtra = view.findViewById(R.id.tvDnsExtra);
         etDnsExtra = view.findViewById(R.id.etDnsExtra);
+        swDnsClear = view.findViewById(R.id.swDnsClear);
         swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
         swSslUpdate = view.findViewById(R.id.swSslUpdate);
         swSslHarden = view.findViewById(R.id.swSslHarden);
@@ -352,6 +354,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swDnsCustom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                DnsHelper.clear(buttonView.getContext());
                 prefs.edit().putBoolean("dns_custom", checked).apply();
                 tvDnsExtra.setEnabled(checked || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
                 etDnsExtra.setEnabled(checked || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
@@ -372,6 +375,14 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void afterTextChanged(Editable s) {
                 // Do nothing
+            }
+        });
+
+        swDnsClear.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                DnsHelper.clear(buttonView.getContext());
+                prefs.edit().putBoolean("dns_clear", checked).apply();
             }
         });
 
@@ -764,6 +775,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             etDnsExtra.setText(prefs.getString("dns_extra", null));
             tvDnsExtra.setEnabled(swDnsCustom.isChecked() || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
             etDnsExtra.setEnabled(swDnsCustom.isChecked() || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
+            swDnsClear.setChecked(prefs.getBoolean("dns_clear", false));
             swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
             swSslUpdate.setChecked(prefs.getBoolean("ssl_update", true));
             swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));

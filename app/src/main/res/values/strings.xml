@@ -541,6 +541,7 @@
     <string name="title_advanced_standalone_vpn" translatable="false">Standalone VPN</string>
     <string name="title_advanced_dns">Preferred DNS server addresses (comma separated)</string>
     <string name="title_advanced_dns_custom">Use custom DNS resolver</string>
+    <string name="title_advanced_dns_clear">Clear DNS cache on connectivity changes</string>
     <string name="title_advanced_tcp_keep_alive" translatable="false">TCP keep alive</string>
     <string name="title_advanced_ssl_update">Use updated SSL provider</string>
     <string name="title_advanced_ssl_harden">Harden SSL connections</string>

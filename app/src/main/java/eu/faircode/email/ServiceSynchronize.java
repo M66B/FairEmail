@@ -3092,6 +3092,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (ConnectionHelper.isConnected(ServiceSynchronize.this, active)) {
                             lastActive = active;
                             lastAcquired = new Date().getTime();
+                            DnsHelper.clear(ServiceSynchronize.this);
                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Network,
                                     reason + ": new active network=" + active + "/" + lastActive);
                         }

@@ -637,8 +637,20 @@ public class EmailService implements AutoCloseable {
             //    throw new MailConnectException(
             //            new SocketConnectException("Debug", new IOException("Test"), host, port, 0));
 
-            main = DnsHelper.getByName(context, host, dnssec);
-            EntityLog.log(context, EntityLog.Type.Network, "Main address=" + main);
+            String key = "dns." + host;
+            try {
+                main = DnsHelper.getByName(context, host, dnssec);
+                EntityLog.log(context, EntityLog.Type.Network, "Main address=" + main);
+                prefs.edit().putString(key, main.getHostAddress()).apply();
+            } catch (UnknownHostException ex) {
+                String last = prefs.getString(key, null);
+                if (TextUtils.isEmpty(last))
+                    throw ex;
+                else {
+                    EntityLog.log(context, EntityLog.Type.Network, "Using " + key + "=" + last);
+                    main = DnsHelper.getByName(context, last, dnssec);
+                }
+            }
 
             boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", true);
             if (prefer_ip4 && main instanceof Inet6Address) {

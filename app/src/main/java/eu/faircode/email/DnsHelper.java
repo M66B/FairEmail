@@ -33,7 +33,9 @@ import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import org.minidns.AbstractDnsClient;
+import org.minidns.DnsCache;
 import org.minidns.DnsClient;
+import org.minidns.cache.LruCache;
 import org.minidns.dane.DaneVerifier;
 import org.minidns.dnsmessage.DnsMessage;
 import org.minidns.dnsqueryresult.DnsQueryResult;
@@ -463,6 +465,26 @@ public class DnsHelper {
         }
 
         return result;
+    }
+
+    static void clear(Context context) {
+        try {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = prefs.edit();
+            for (String key : prefs.getAll().keySet())
+                if (key != null && key.startsWith("dns."))
+                    editor.remove(key);
+            editor.apply();
+
+            for (ResolverApi resolver : new ResolverApi[]{DnssecResolverApi.INSTANCE, ResolverApi.INSTANCE}) {
+                AbstractDnsClient client = resolver.getClient();
+                DnsCache cache = client.getCache();
+                if (cache instanceof LruCache)
+                    ((LruCache) cache).clear();
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     static boolean hasDnsSec() {
