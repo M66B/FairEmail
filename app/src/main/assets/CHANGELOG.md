@@ -18,6 +18,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### 1.2208 - 2024-06-22
+
+* Changed copy signature button into edit signature button
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2207 - 2024-06-20
 
 * Fixed DANE with SHA-384 and CNAME TLSA
