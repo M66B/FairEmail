@@ -4971,7 +4971,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowAuth(TupleMessageEx message, String title) {
-            StringBuilder sb = new StringBuilder();
+            SpannableStringBuilder sb = new SpannableStringBuilderEx();
 
             if (title != null)
                 sb.append(title).append('\n');
@@ -5012,8 +5012,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (native_dkim && !TextUtils.isEmpty(message.signedby)) {
                 sb.append(context.getString(R.string.title_signed_by)).append(' ');
-                for (String signer : message.signedby.split(","))
-                    sb.append(signer).append('\n');
+                for (String signer : message.signedby.split(",")) {
+                    int start = sb.length();
+                    sb.append(signer);
+                    sb.setSpan(new StyleSpan(Typeface.BOLD), start, sb.length(), 0);
+                    sb.append('\n');
+                }
             }
 
             if (Boolean.TRUE.equals(message.blocklist))
@@ -5036,14 +5040,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message.from != null && message.from.length > 0) {
                 String email = ((InternetAddress) message.from[0]).getAddress();
                 String domain = UriHelper.getEmailDomain(email);
-                if (!TextUtils.isEmpty(domain))
-                    sb.insert(0, '\n').insert(0, domain);
+                if (!TextUtils.isEmpty(domain)) {
+                    sb.insert(0, "\n").insert(0, domain);
+                    sb.setSpan(new StyleSpan(Typeface.BOLD), 0, domain.length(), 0);
+                }
             }
 
             if (sb.length() > 0 && sb.charAt(sb.length() - 1) == '\n')
-                sb.deleteCharAt(sb.length() - 1);
+                sb.delete(sb.length() - 1, sb.length());
 
-            ToastEx.makeText(context, sb.toString(), Toast.LENGTH_LONG).show();
+            ToastEx.makeText(context, sb, Toast.LENGTH_LONG).show();
         }
 
         private void onShowPriority(TupleMessageEx message) {
