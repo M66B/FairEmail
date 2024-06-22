@@ -1491,7 +1491,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         onEval(intent);
 
-        ServiceSend.boot(this);
+        ServiceSend.watchdog(this);
 
         scheduleWatchdog(this);
     }

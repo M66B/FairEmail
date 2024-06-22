@@ -18,7 +18,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### 1.2208 - 2024-06-22
+### 1.2208 - 2024-06-22 *
 
 * Changed copy signature button into edit signature button
 * Small improvements and minor bug fixes
