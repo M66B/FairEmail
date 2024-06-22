@@ -183,7 +183,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     contact.type == EntityContact.TYPE_NO_JUNK
                     ? View.GONE : View.VISIBLE);
 
-            view.requestLayout();
+            //view.requestLayout();
         }
 
         @Override
