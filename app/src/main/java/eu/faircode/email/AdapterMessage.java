@@ -4971,10 +4971,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowAuth(TupleMessageEx message, String title) {
-            SpannableStringBuilder sb = new SpannableStringBuilderEx();
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
             if (title != null)
-                sb.append(title).append('\n');
+                ssb.append(title).append('\n');
 
             List<String> result = new ArrayList<>();
             if (Boolean.FALSE.equals(message.dkim))
@@ -4989,67 +4989,67 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 result.add("MX");
 
             if (result.size() > 0)
-                sb.append(context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)))
+                ssb.append(context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)))
                         .append('\n');
 
             if (authentication_indicator) {
                 if (check_tls)
-                    sb.append("TLS: ")
+                    ssb.append("TLS: ")
                             .append(message.tls == null ? "-" : (message.tls ? "✓" : "✗")).append('\n');
-                sb.append("DKIM: ")
+                ssb.append("DKIM: ")
                         .append(message.dkim == null ? "-" : (message.dkim ? "✓" : "✗")).append('\n');
-                sb.append("SPF: ")
+                ssb.append("SPF: ")
                         .append(message.spf == null ? "-" : (message.spf ? "✓" : "✗")).append('\n');
-                sb.append("DMARC: ")
+                ssb.append("DMARC: ")
                         .append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗")).append('\n');
                 if (message.auth != null)
-                    sb.append("SMTP: ")
+                    ssb.append("SMTP: ")
                             .append(message.auth ? "✓" : "✗").append('\n');
                 if (check_mx)
-                    sb.append("MX: ")
+                    ssb.append("MX: ")
                             .append(message.mx == null ? "-" : (message.mx ? "✓" : "✗")).append('\n');
             }
 
             if (native_dkim && !TextUtils.isEmpty(message.signedby)) {
-                sb.append(context.getString(R.string.title_signed_by)).append(' ');
+                ssb.append(context.getString(R.string.title_signed_by)).append(' ');
                 for (String signer : message.signedby.split(",")) {
-                    int start = sb.length();
-                    sb.append(signer);
-                    sb.setSpan(new StyleSpan(Typeface.BOLD), start, sb.length(), 0);
-                    sb.append('\n');
+                    int start = ssb.length();
+                    ssb.append(signer);
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                    ssb.append('\n');
                 }
             }
 
             if (Boolean.TRUE.equals(message.blocklist))
-                sb.append(context.getString(R.string.title_on_blocklist)).append('\n');
+                ssb.append(context.getString(R.string.title_on_blocklist)).append('\n');
 
             if (Boolean.FALSE.equals(message.from_domain) && message.smtp_from != null)
                 for (Address smtp_from : message.smtp_from) {
                     String domain = UriHelper.getEmailDomain(((InternetAddress) smtp_from).getAddress());
                     String root = UriHelper.getRootDomain(context, domain);
                     if (root != null)
-                        sb.append(context.getString(R.string.title_via, root)).append('\n');
+                        ssb.append(context.getString(R.string.title_via, root)).append('\n');
                 }
 
             if (Boolean.FALSE.equals(message.reply_domain)) {
                 String[] warning = message.checkReplyDomain(context);
                 if (warning != null)
-                    sb.append(context.getString(R.string.title_reply_domain, warning[0], warning[1])).append('\n');
+                    ssb.append(context.getString(R.string.title_reply_domain, warning[0], warning[1])).append('\n');
             }
 
             if (message.from != null && message.from.length > 0) {
                 String email = ((InternetAddress) message.from[0]).getAddress();
                 String domain = UriHelper.getEmailDomain(email);
                 if (!TextUtils.isEmpty(domain)) {
-                    sb.insert(0, "\n").insert(0, domain);
-                    sb.setSpan(new StyleSpan(Typeface.BOLD), 0, domain.length(), 0);
+                    ssb.insert(0, "\n").insert(0, domain);
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, domain.length(), 0);
                 }
             }
 
-            if (sb.length() > 0 && sb.charAt(sb.length() - 1) == '\n')
-                sb.delete(sb.length() - 1, sb.length());
+            if (ssb.length() > 0 && ssb.charAt(ssb.length() - 1) == '\n')
+                ssb.delete(ssb.length() - 1, ssb.length());
 
-            ToastEx.makeText(context, sb, Toast.LENGTH_LONG).show();
+            ToastEx.makeText(context, ssb, Toast.LENGTH_LONG).show();
         }
 
         private void onShowPriority(TupleMessageEx message) {
