@@ -1584,7 +1584,7 @@ public class EntityRule {
 
         try {
             Spanned summary = AI.getSummaryText(context, message, -1L);
-            message.preview = (summary == null ? null : summary.toString());
+            message.preview = (summary == null ? null : summary.toString().trim());
         } catch (Throwable ex) {
             message.error = Log.formatThrowable(ex);
             db.message().setMessageError(message.id, message.error);
