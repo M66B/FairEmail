@@ -182,6 +182,11 @@ public class EntityRule {
     private static boolean needs(List<EntityRule> rules, String what) {
         for (EntityRule rule : rules)
             try {
+                JSONObject jaction = new JSONObject(rule.action);
+                int type = jaction.getInt("type");
+                if (type == TYPE_SUMMARIZE)
+                    return true;
+
                 JSONObject jcondition = new JSONObject(rule.condition);
 
                 if (jcondition.has(what)) {
