@@ -2804,10 +2804,10 @@ Please see [here](https://developer.android.com/reference/java/util/regex/Patter
 Note that you need to match the complete text from the first to the last character.
 You can test a regex [here](https://regexr.com/).
 
-You can use a regex like this to match a top-level domain (tld):
+You can use a regex condition like this to match a top-level domain (tld):
 
 ```
-.*@.*\.xyz.*
+.*@.*\.xyz>
 ```
 
 Note that a regular expression supports an *or* operator, so if you want to match multiple senders, you can do this:

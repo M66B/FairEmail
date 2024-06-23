@@ -1530,8 +1530,8 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <pre><code>jsoup:html &gt; body &gt; div &gt; a[href=https://example.org]</code></pre>
 <p>You can use multiple rules, possibly with a <em>stop processing</em>, for an <em>or</em> or a <em>not</em> condition. Since version 1.2173 there is a <em>NOT</em> option for conditions that accept a regex.</p>
 <p>Matching is not case sensitive, unless you use <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>. Please see <a href="https://developer.android.com/reference/java/util/regex/Pattern">here</a> for the documentation of Java regular expressions. Note that you need to match the complete text from the first to the last character. You can test a regex <a href="https://regexr.com/">here</a>.</p>
-<p>You can use a regex like this to match a top-level domain (tld):</p>
-<pre><code>.*@.*\.xyz.*</code></pre>
+<p>You can use a regex condition like this to match a top-level domain (tld):</p>
+<pre><code>.*@.*\.xyz&gt;</code></pre>
 <p>Note that a regular expression supports an <em>or</em> operator, so if you want to match multiple senders, you can do this:</p>
 <pre><code>.*alice@example\.org.*|.*bob@example\.org.*|.*carol@example\.org.*</code></pre>
 <p>Note that <a href="https://developer.android.com/reference/java/util/regex/Pattern#DOTALL">dot all mode</a> is enabled to be able to match <a href="https://tools.ietf.org/html/rfc2822#section-3.2.3">unfolded headers</a>.</p>
