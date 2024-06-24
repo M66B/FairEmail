@@ -103,6 +103,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public String category;
     public String signature; // obsolete
     public Integer color;
+    @ColumnInfo(name = "prefix")
+    public String avatar;
     public String calendar;
 
     @NonNull
@@ -155,7 +157,6 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Boolean use_date = false; // Date header
     @NonNull
     public Boolean use_received = false; // Received header
-    public String prefix; // namespace, obsolete
     @NonNull
     public Boolean unicode = false;
 
@@ -482,6 +483,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
                 Objects.equals(a1.category, other.category) &&
                 // signature
                 Objects.equals(a1.color, other.color) &&
+                Objects.equals(a1.avatar, other.avatar) &&
                 Objects.equals(a1.calendar, other.calendar) &&
                 a1.synchronize.equals(other.synchronize) &&
                 Objects.equals(a1.ondemand, other.ondemand) &&
@@ -509,7 +511,6 @@ public class EntityAccount extends EntityOrder implements Serializable {
                 a1.ignore_size == other.ignore_size &&
                 a1.use_date == other.use_date &&
                 a1.use_received == other.use_received &&
-                // prefix
                 a1.unicode == other.unicode &&
                 Objects.equals(a1.conditions, other.conditions) &&
                 (!state || Objects.equals(a1.quota_usage, other.quota_usage)) &&

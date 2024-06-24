@@ -33,6 +33,20 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="6dp"
+                android:contentDescription="@string/title_legend_avatar"
+                android:padding="3dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@+id/tvUser"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toEndOf="@id/vwColor"
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/twotone_person_24" />
+
+            <ImageView
                 android:id="@+id/ivState"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -40,7 +54,7 @@
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_disconnected"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
-                app:layout_constraintStart_toEndOf="@id/vwColor"
+                app:layout_constraintStart_toEndOf="@id/ivAvatar"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 app:srcCompat="@drawable/twotone_cloud_off_24" />
 
@@ -205,11 +219,11 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:drawablePadding="6dp"
-                app:drawableTint="?attr/colorWarning"
                 android:ellipsize="start"
                 android:singleLine="true"
                 android:text="123/456 MB"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:drawableTint="?attr/colorWarning"
                 app:layout_constraintEnd_toStartOf="@+id/tvMaxSize"
                 app:layout_constraintStart_toEndOf="@+id/ivState"
                 app:layout_constraintTop_toBottomOf="@id/tvBackoff" />
@@ -328,10 +342,10 @@
                 android:backgroundTint="?attr/colorInfoBackground"
                 android:drawableEnd="@drawable/twotone_help_24"
                 android:drawablePadding="6dp"
-                app:drawableTint="?attr/colorInfoForeground"
                 android:text="@string/title_setup_help"
                 android:textColor="?attr/colorInfoForeground"
                 android:textStyle="bold"
+                app:drawableTint="?attr/colorInfoForeground"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvError" />
 

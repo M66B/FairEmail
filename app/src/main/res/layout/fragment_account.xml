@@ -537,6 +537,38 @@
             app:layout_constraintTop_toBottomOf="@id/tvColorHint" />
 
         <TextView
+            android:id="@+id/tvAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_avatar"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvColorPro" />
+
+        <Button
+            android:id="@+id/btnAvatar"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/twotone_image_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_select"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAvatar" />
+
+        <TextView
+            android:id="@+id/tvAvatarPro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_pro_feature"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAvatar" />
+
+        <TextView
             android:id="@+id/tvCalendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -544,7 +576,7 @@
             android:text="@string/title_calendar"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvColorPro" />
+            app:layout_constraintTop_toBottomOf="@id/tvAvatarPro" />
 
         <Button
             android:id="@+id/btnCalendar"
@@ -1260,7 +1292,8 @@
                 btnCertificate,tvCertificate,
                 tvRealm,etRealm,
                 tvName,tvNameRemark,etName,tvCategory,etCategory,
-                tvColor,btnColor,tvColorHint,tvColorPro" />
+                tvColor,btnColor,tvColorHint,tvColorPro,
+                tvAvatar,btnAvatar,tvAvatarPro" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpCalendar"

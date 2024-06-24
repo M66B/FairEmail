@@ -111,6 +111,8 @@ public class ContactInfo {
     private static final long CACHE_FAVICON_DURATION = 2 * 7 * 24 * 60 * 60 * 1000L; // milliseconds
     private static final float MIN_FAVICON_LUMINANCE = 0.2f;
 
+    static final int AVATAR_SIZE = FAVICON_ICON_SIZE;
+
     // https://realfavicongenerator.net/faq
     private static final String[] FIXED_FAVICONS = new String[]{
             "apple-touch-icon.png", // 57x57

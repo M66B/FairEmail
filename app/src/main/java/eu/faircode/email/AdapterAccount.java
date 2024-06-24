@@ -29,9 +29,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -70,6 +72,8 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -94,6 +98,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private boolean show_unexposed;
     private boolean debug;
 
+    private boolean hasAvatars = false;
     private List<TupleAccountFolder> all = new ArrayList<>();
     private List<TupleAccountFolder> items = new ArrayList<>();
 
@@ -103,6 +108,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private View vwColor;
+        private ImageView ivAvatar;
         private ImageView ivOAuth;
         private ImageView ivPrimary;
         private ImageView ivNotify;
@@ -135,6 +141,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
+            ivAvatar = itemView.findViewById(R.id.ivAvatar);
             ivSync = itemView.findViewById(R.id.ivSync);
             ibInbox = itemView.findViewById(R.id.ibInbox);
             ivOAuth = itemView.findViewById(R.id.ivOAuth);
@@ -209,6 +216,43 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 view.setAlpha(account.synchronize ? 1.0f : Helper.LOW_LIGHT);
                 vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
                 vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
+
+                if (account.avatar == null)
+                    ivAvatar.setVisibility(hasAvatars ? View.INVISIBLE : View.GONE);
+                else {
+                    Bundle args = new Bundle();
+                    args.putString("avatar", account.avatar);
+
+                    new SimpleTask<Bitmap>() {
+                        @Override
+                        protected Bitmap onExecute(Context context, Bundle args) throws Throwable {
+                            String avatar = args.getString("avatar");
+                            Uri uri = Uri.parse(avatar);
+                            Bitmap bm;
+                            int scaleToPixels = Helper.dp2pixels(context, ContactInfo.AVATAR_SIZE);
+                            try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+                                if (is == null)
+                                    throw new FileNotFoundException(uri.toString());
+                                bm = ImageHelper.getScaledBitmap(is, avatar, null, scaleToPixels);
+                                if (bm == null)
+                                    throw new FileNotFoundException(avatar);
+                                return bm;
+                            }
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Bitmap bitmap) {
+                            ivAvatar.setImageBitmap(bitmap);
+                            ivAvatar.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.w(ex);
+                            ivAvatar.setVisibility(hasAvatars ? View.INVISIBLE : View.GONE);
+                        }
+                    }.execute(context, owner, args, "account:avatar");
+                }
 
                 ivSync.setImageResource(account.synchronize ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
                 ivSync.setContentDescription(context.getString(account.synchronize ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
@@ -339,6 +383,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 view.setAlpha(account.synchronize ? 1.0f : Helper.LOW_LIGHT);
                 vwColor.setBackgroundColor(account.folderColor == null ? Color.TRANSPARENT : account.folderColor);
                 vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
+
+                ivAvatar.setVisibility(View.GONE);
 
                 ivSync.setVisibility(View.GONE);
 
@@ -958,6 +1004,13 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             TupleAccountFolder.sort(filtered, true, context);
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, filtered), false);
+
+        hasAvatars = false;
+        for (TupleAccountFolder account : accounts)
+            if (account.avatar != null) {
+                hasAvatars = true;
+                break;
+            }
 
         items = filtered;
 
