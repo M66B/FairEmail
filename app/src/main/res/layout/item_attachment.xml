@@ -54,6 +54,7 @@
             android:layout_marginEnd="6dp"
             android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toStartOf="@+id/ivStatus"
             app:layout_constraintHorizontal_weight="4"
             app:layout_constraintStart_toEndOf="@id/ivType"
