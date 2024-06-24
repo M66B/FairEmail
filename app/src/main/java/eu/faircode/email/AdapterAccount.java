@@ -236,8 +236,13 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                                 bm = ImageHelper.getScaledBitmap(is, avatar, null, scaleToPixels);
                                 if (bm == null)
                                     throw new FileNotFoundException(avatar);
-                                return bm;
                             }
+
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            boolean circular = prefs.getBoolean("circular", true);
+                            bm = ImageHelper.makeCircular(bm, circular ? null : Helper.dp2pixels(context, 3));
+
+                            return bm;
                         }
 
                         @Override
