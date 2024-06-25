@@ -1489,7 +1489,7 @@ public class EmailProvider implements Parcelable {
         }
 
         public boolean isSecure() {
-            return (score >= 100);
+            return (score >= 20); // Autoconfig or better
         }
 
         @Override
