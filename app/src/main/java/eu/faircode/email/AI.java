@@ -190,6 +190,10 @@ public class AI {
 
         HtmlHelper.truncate(d, MAX_SUMMARIZE_TEXT_SIZE);
 
+        String body = d.body().text().trim();
+        if (TextUtils.isEmpty(body))
+            return null;
+
         String templatePrompt = null;
         if (template > 0L) {
             DB db = DB.getInstance(context);
@@ -218,7 +222,7 @@ public class AI {
                         OpenAI.Content.get(ssb, message.id, context)));
             } else
                 input.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
-                        new OpenAI.Content(OpenAI.CONTENT_TEXT, d.text())}));
+                        new OpenAI.Content(OpenAI.CONTENT_TEXT, body)}));
 
             OpenAI.Message[] completions =
                     OpenAI.completeChat(context, model, input.toArray(new OpenAI.Message[0]), temperature, 1);
@@ -234,8 +238,6 @@ public class AI {
             String model = prefs.getString("gemini_model", Gemini.DEFAULT_MODEL);
             float temperature = prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE);
             String defaultPrompt = prefs.getString("gemini_summarize", Gemini.DEFAULT_SUMMARY_PROMPT);
-
-            String body = d.text();
 
             List<String> texts = new ArrayList<>();
             texts.add(templatePrompt == null ? defaultPrompt : templatePrompt);
