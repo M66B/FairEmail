@@ -89,6 +89,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
+    private boolean pro;
     private int dp24;
     private int colorStripeWidth;
     private int colorWarning;
@@ -217,7 +218,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
                 vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
-                if (account.avatar == null)
+                if (account.avatar == null || !pro)
                     ivAvatar.setVisibility(hasAvatars ? View.INVISIBLE : View.GONE);
                 else {
                     Bundle args = new Bundle();
@@ -962,6 +963,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
 
+        this.pro = ActivityBilling.isPro(context);
         this.dp24 = Helper.dp2pixels(context, 24);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -1011,11 +1013,12 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, filtered), false);
 
         hasAvatars = false;
-        for (TupleAccountFolder account : accounts)
-            if (account.avatar != null) {
-                hasAvatars = true;
-                break;
-            }
+        if (pro)
+            for (TupleAccountFolder account : accounts)
+                if (account.avatar != null) {
+                    hasAvatars = true;
+                    break;
+                }
 
         items = filtered;
 

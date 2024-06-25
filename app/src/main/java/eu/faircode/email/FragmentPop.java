@@ -1094,8 +1094,14 @@ public class FragmentPop extends FragmentBase {
     }
 
     private void onImageSelected(Uri uri) {
+        final Context context = getContext();
+
+        if (!ActivityBilling.isPro(context)) {
+            startActivity(new Intent(context, ActivityBilling.class));
+            return;
+        }
+
         try {
-            final Context context = getContext();
             NoStreamException.check(uri, context);
 
             context.getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
