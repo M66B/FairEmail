@@ -1488,6 +1488,10 @@ public class EmailProvider implements Parcelable {
             });
         }
 
+        public boolean isSecure() {
+            return (score >= 100);
+        }
+
         @Override
         public boolean equals(Object obj) {
             if (obj instanceof Server) {

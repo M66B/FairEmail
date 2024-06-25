@@ -588,7 +588,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                                 account.host = provider.imap.host;
                                 account.encryption = aencryption;
-                                account.insecure = BuildConfig.PLAY_STORE_RELEASE;
+                                account.insecure = (BuildConfig.PLAY_STORE_RELEASE && !provider.imap.isSecure());
                                 account.port = provider.imap.port;
                                 account.auth_type = AUTH_TYPE_PASSWORD;
                                 account.user = user;
@@ -638,6 +638,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                                 identity.host = provider.smtp.host;
                                 identity.encryption = iencryption;
+                                identity.insecure = (BuildConfig.PLAY_STORE_RELEASE && !provider.smtp.isSecure());
                                 identity.port = provider.smtp.port;
                                 identity.auth_type = AUTH_TYPE_PASSWORD;
                                 identity.user = user;
