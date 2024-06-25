@@ -878,6 +878,7 @@
     <string name="title_advanced_language">Language</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_integrations_hint">The cloud services below are not part of the app. Any payments will go directly to the cloud service and not to the app developer.</string>
+    <string name="title_advanced_integrations_inert">An integration which isn\'t configured is completely inert. No third-party libraries are being used to prevent tracking and analytics.</string>
     <string name="title_advanced_lt">LanguageTool integration</string>
     <string name="title_advanced_lt_sentence">Check every sentence</string>
     <string name="title_advanced_lt_auto">Check paragraph after a new line</string>
