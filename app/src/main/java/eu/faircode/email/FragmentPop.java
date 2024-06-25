@@ -413,6 +413,15 @@ public class FragmentPop extends FragmentBase {
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Workaround odd focus issue
+        if (scroll != null)
+            scroll.requestChildFocus(null, null);
+    }
+
     private void onSave(boolean should) {
         Bundle args = new Bundle();
         args.putLong("id", id);
