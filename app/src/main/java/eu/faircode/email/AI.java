@@ -212,10 +212,6 @@ public class AI {
                     new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT,
                             templatePrompt == null ? defaultPrompt : templatePrompt)}));
 
-            if (!TextUtils.isEmpty(message.subject))
-                input.add(new OpenAI.Message(OpenAI.USER,
-                        new OpenAI.Content[]{new OpenAI.Content(OpenAI.CONTENT_TEXT, message.subject)}));
-
             if (multimodal) {
                 SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
                 input.add(new OpenAI.Message(OpenAI.USER,
@@ -243,8 +239,6 @@ public class AI {
 
             List<String> texts = new ArrayList<>();
             texts.add(templatePrompt == null ? defaultPrompt : templatePrompt);
-            if (!TextUtils.isEmpty(message.subject))
-                texts.add(message.subject);
             if (!TextUtils.isEmpty(body))
                 texts.add(body);
             Gemini.Message content = new Gemini.Message(Gemini.USER, texts.toArray(new String[0]));
