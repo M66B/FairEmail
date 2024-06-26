@@ -457,6 +457,7 @@
     <string name="title_advanced_prefer_ip4">IPv4 preferálása IPv6 fölött</string>
     <string name="title_advanced_dns">Előnyben részesített DNS kiszolgáló címek (vesszővel elválasztva)</string>
     <string name="title_advanced_dns_custom">Használjon egyéni DNS feloldó kiszolgálót</string>
+    <string name="title_advanced_dns_clear">DNS gyorsítótár ürítése kapcsolat változáskor</string>
     <string name="title_advanced_ssl_update">Frissített SSL szolgáltató használata</string>
     <string name="title_advanced_ssl_harden">SSL kapcsolatok megerősítése</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 megkövetelése</string>
@@ -758,6 +759,7 @@
     <string name="title_advanced_language">Nyelv</string>
     <string name="title_advanced_language_system">Rendszer</string>
     <string name="title_advanced_integrations_hint">Az alábbi felhőszolgáltatások nem az alkalmazás részei. Az esetleges kifizetések közvetlenül a felhőszolgáltatónak történnek, nem az alkalmazás fejlesztőjének.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Egy nem konfigurált integráció teljesen inaktív. Nem használunk harmadik féltől származó könyvtárakat a nyomon követés és az analitika megakadályozására.</string>
     <string name="title_advanced_lt">LanguageTool integráció</string>
     <string name="title_advanced_lt_sentence">Minden mondat ellenőrzése</string>
     <string name="title_advanced_lt_auto">Bekezdés ellenőrzése új sor után</string>
@@ -954,6 +956,7 @@
     <string name="title_account_partial_fetch_hint">Csak hiányzó üzenet szövegek vagy hibás mellékletek esetén kapcsolja ki ezt az opciót</string>
     <string name="title_account_raw_fetch_hint">Engedélyezése magasabb akkumulátor- és adathasználattal jár</string>
     <string name="title_color">Szín</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Kép</string>
     <string name="title_calendar">Naptár</string>
     <string name="title_background">Háttér</string>
     <string name="title_transparent">Átlátszó</string>
@@ -994,12 +997,12 @@
     <string name="title_primary_identity">Elsődleges (alapértelmezett identitás)</string>
     <string name="title_self_identity">E-Mail címek törlése a válaszoknál</string>
     <string name="title_leave_on_server">Üzenetek megőrzése a szerveren</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Az üzenetek letöltés után, egy példány a kiszolgálón marad</string>
+    <string name="title_leave_on_server_hint">Az üzenetek letöltés után, egy példány a kiszolgálón marad</string>
     <string name="title_client_delete">Az üzenetek törlése letöltés után</string>
     <string name="title_leave_deleted">Törölt üzenetek a szerveren hagyás</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Az eszközön végzett üzenettörlés után, az üzenet a kiszolgálón megmarad</string>
+    <string name="title_leave_deleted_hint">Az eszközön végzett üzenettörlés után, az üzenet a kiszolgálón megmarad</string>
     <string name="title_leave_on_device">Üzenetek megőrzése a készüléken</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">A kiszolgálón végzett üzenettörlés esetén, az üzenet az eszközön megmarad</string>
+    <string name="title_leave_on_device_hint">A kiszolgálón végzett üzenettörlés esetén, az üzenet az eszközön megmarad</string>
     <string name="title_max_messages">Letöltendő üzenetek maximális száma (összes ha üres)</string>
     <string name="title_max_messages_keep">A készüléken tárolt üzenetek maximális száma</string>
     <string name="title_max_messages_remark">        Adjon meg egy pozitív számot az üzenetek letöltéséhez a végétől (leggyakoribb)

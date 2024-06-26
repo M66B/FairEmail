@@ -459,6 +459,7 @@
     <string name="title_advanced_prefer_ip4">Foretræk IPv4 frem for IPv6</string>
     <string name="title_advanced_dns">Foretrukne DNS-serveradresser (kommasepareret)</string>
     <string name="title_advanced_dns_custom">Brug tilpasset DNS-opløser</string>
+    <string name="title_advanced_dns_clear">Ryd DNS-cache ved konnektivitetsændringer</string>
     <string name="title_advanced_ssl_update">Benyt opdateret SSL-udbyder</string>
     <string name="title_advanced_ssl_harden">Hærd SSL-forbindelser</string>
     <string name="title_advanced_ssl_harden_strict">Kræv TLS 1.3</string>
@@ -761,6 +762,7 @@
     <string name="title_advanced_language">Sprog</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_integrations_hint">Cloud-tjenesterne nedenfor er ikke en del af appen, og evt. betalinger vil gå direkte til tjenesten og ikke til app-udvikleren.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">En ikke-opsat integration er helt inaktiv. Ingen tredjepartsbiblioteker bruges til at forhindre sporing og analysesystemer.</string>
     <string name="title_advanced_lt">LanguageTool-integration</string>
     <string name="title_advanced_lt_sentence">Tjek hver sætning</string>
     <string name="title_advanced_lt_auto">Tjek afsnit efter en ny linje</string>
@@ -958,6 +960,7 @@
     <string name="title_account_partial_fetch_hint">Deaktivér dette kun i tilfælde af tomme beskeder eller ødelagte vedhæftninger</string>
     <string name="title_account_raw_fetch_hint">Aktivering vil forøge strøm- og dataforbruget</string>
     <string name="title_color">Farve</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Billede</string>
     <string name="title_calendar">Kalender</string>
     <string name="title_background">Baggrund</string>
     <string name="title_transparent">Gennemsigtig</string>
@@ -998,12 +1001,12 @@
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_self_identity">Fjern e-mailadresse ved besvarelse</string>
     <string name="title_leave_on_server">Lad beskeder forblive på server</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Efter download af beskeder fra serveren, forbliver beskederne på serveren</string>
+    <string name="title_leave_on_server_hint">Efter download af beskeder fra serveren, forbliver beskederne på serveren</string>
     <string name="title_client_delete">Slet aktivt beskeder efter download</string>
     <string name="title_leave_deleted">Lad slettede beskeder forblive på serveren</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Efter sletning af beskeder fra enheden, forbliver beskederne på serveren</string>
+    <string name="title_leave_deleted_hint">Efter sletning af beskeder fra enheden, forbliver beskederne på serveren</string>
     <string name="title_leave_on_device">Lad beskeder forblive på enhed</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Når beskeder slettes fra serveren, forbliver meddelelserne på enheden</string>
+    <string name="title_leave_on_device_hint">Når beskeder slettes fra serveren, forbliver meddelelserne på enheden</string>
     <string name="title_max_messages">Maks. antal beskeder at downloade (tomt for samtlige)</string>
     <string name="title_max_messages_keep">Dette er det maksimale antal besked, som gemmes på enheden</string>
     <string name="title_max_messages_remark">        Angiv et positivt tal for at downloade meddelelserne i slutningen (mest almindeligt)

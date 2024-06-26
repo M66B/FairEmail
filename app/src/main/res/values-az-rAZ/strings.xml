@@ -459,6 +459,7 @@
     <string name="title_advanced_prefer_ip4">IPv6 əvəzinə IPv4 tərcih et</string>
     <string name="title_advanced_dns">Tərcih edilən DNS server ünvanları (vergüllə ayrılmış)</string>
     <string name="title_advanced_dns_custom">Özəl DNS həlledici istifadə et</string>
+    <string name="title_advanced_dns_clear">Bağlantı dəyişikliyində DNS keşini təmizlə</string>
     <string name="title_advanced_ssl_update">Güncəl SSL provayderini istifadə et</string>
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlam et</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 tələb et</string>
@@ -997,12 +998,12 @@
     <string name="title_primary_identity">Üstünlük verilən (ilkin kimlik)</string>
     <string name="title_self_identity">Cavablayanda e-poçt ünvanınızı çıxardın</string>
     <string name="title_leave_on_server">Mesajları serverdə burax</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Mesajları serverdən endirdikdən sonra, mesajlar serverdə qalır</string>
+    <string name="title_leave_on_server_hint">Mesajları serverdən endirdikdən sonra, mesajlar serverdə qalır</string>
     <string name="title_client_delete">Endirdikdən sonra mesajları aktiv olaraq silin</string>
     <string name="title_leave_deleted">Silənən mesajları serverdə burax</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Mesajları cihazdan sildikdən sonra, mesajlar serverdə qalacaq</string>
+    <string name="title_leave_deleted_hint">Mesajları cihazdan sildikdən sonra, mesajlar serverdə qalacaq</string>
     <string name="title_leave_on_device">Mesajları cihazda burax</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Mesajlar serverdən silindikdə, mesajlar cihazda qalır</string>
+    <string name="title_leave_on_device_hint">Mesajlar serverdən silindikdə, mesajlar cihazda qalır</string>
     <string name="title_max_messages">Endiriləcək mesajların maksimum sayı (hamısı üçün boş)</string>
     <string name="title_max_messages_keep">Bu, cihazda saxlanılacaq maksimum mesaj sayıdır</string>
     <string name="title_max_messages_remark">        Mesajları sonda endirmək üçün müsbət bir ədəd daxil edin (ən geniş yayılmış)

@@ -459,6 +459,7 @@
     <string name="title_advanced_prefer_ip4">Preferisce IPv4 su IPv6</string>
     <string name="title_advanced_dns">Indirizzi DNS server preferiti (separati da virgole)</string>
     <string name="title_advanced_dns_custom">Utilizza risolutore DNS personalizzato</string>
+    <string name="title_advanced_dns_clear">Svuota cache DNS in caso di modifiche di connettività</string>
     <string name="title_advanced_ssl_update">Utilizza il fornitore SSL aggiornato</string>
     <string name="title_advanced_ssl_harden">Indurisci connessioni SSL</string>
     <string name="title_advanced_ssl_harden_strict">Richiede TLS 1.3</string>
@@ -761,6 +762,7 @@
     <string name="title_advanced_language">Lingua</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_integrations_hint">I servizi cloud qui sotto non fanno parte dell\'app. Tutti i pagamenti andranno direttamente al servizio cloud e non allo sviluppatore dell\'app.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Un\'integrazione che non è configurata è totalmente inattiva. Non vengono utilizzate librerie di terze parti per impedire il tracciamento e le statistiche.</string>
     <string name="title_advanced_lt">Integrazione di LanguageTool</string>
     <string name="title_advanced_lt_sentence">Controlla ogni frase</string>
     <string name="title_advanced_lt_auto">Controlla il paragrafo dopo una nuova riga</string>
@@ -958,6 +960,7 @@
     <string name="title_account_partial_fetch_hint">Disabilitalo solo in caso di messaggi vuoti o allegati corrotti</string>
     <string name="title_account_raw_fetch_hint">Abilitarlo aumenterà il consumo di batteria e dati</string>
     <string name="title_color">Colore</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Immagine</string>
     <string name="title_calendar">Calendario</string>
     <string name="title_background">Sfondo</string>
     <string name="title_transparent">Trasparente</string>
@@ -998,12 +1001,12 @@
     <string name="title_primary_identity">Principale (identità predefinita)</string>
     <string name="title_self_identity">Rimuovi l\'indirizzo email alla risposta</string>
     <string name="title_leave_on_server">Lascia i messaggi sul server</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Dopo aver scaricato messaggi dal server, questi rimangono sul server</string>
+    <string name="title_leave_on_server_hint">Dopo aver scaricato messaggi dal server, questi rimangono sul server</string>
     <string name="title_client_delete">Elimina attivamente i messaggi dopo il download</string>
     <string name="title_leave_deleted">Lascia i messaggi eliminati sul server</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Dopo aver eliminato messaggi dal dispositivo, questi rimarranno sul server</string>
+    <string name="title_leave_deleted_hint">Dopo aver eliminato messaggi dal dispositivo, questi rimarranno sul server</string>
     <string name="title_leave_on_device">Lascia messaggi sul dispositivo</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Eliminando messaggi dal server, questi rimangono sul dispositivo</string>
+    <string name="title_leave_on_device_hint">Eliminando messaggi dal server, questi rimangono sul dispositivo</string>
     <string name="title_max_messages">Numero massimo di messaggi da scaricare (vuoto per tutti)</string>
     <string name="title_max_messages_keep">Questo è il numero massimo di messaggi che verranno mantenuti sul dispositivo</string>
     <string name="title_max_messages_remark">        Inserisci un numero positivo per scaricare i messaggi al termine (più comune)

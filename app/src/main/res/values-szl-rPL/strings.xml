@@ -486,6 +486,7 @@
     <string name="title_advanced_prefer_ip4">Preferuj IPv4 nad IPv6</string>
     <string name="title_advanced_dns">Preferowane adresy serwera DNS (oddzielone przecinkami)</string>
     <string name="title_advanced_dns_custom">Użyj własnego mechanizmu rozwiązywania DNS</string>
+    <string name="title_advanced_dns_clear">Wyczyść pamięć podręczną DNS przy zmianach połączenia</string>
     <string name="title_advanced_ssl_update">Użyj zaktualizowanego dostawcy SSL</string>
     <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
     <string name="title_advanced_ssl_harden_strict">Wymagaj TLS 1.3</string>
@@ -787,6 +788,7 @@
     <string name="title_advanced_language">Język</string>
     <string name="title_advanced_language_system">Systemowy</string>
     <string name="title_advanced_integrations_hint">Poniższe usługi w chmurze nie są częścią aplikacji. Wszelkie płatności zostaną przekazane bezpośrednio do usługi w chmurze, a nie do twórcy aplikacji.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Integracja, która nie jest skonfigurowana, jest całkowicie obojętna. Żadne biblioteki nie są używane do zapobiegania śledzeniu i analizowaniu.</string>
     <string name="title_advanced_lt">Integracja LanguageTool</string>
     <string name="title_advanced_lt_sentence">Sprawdzaj każde zdanie</string>
     <string name="title_advanced_lt_auto">Sprawdź akapit po nowym wierszu</string>
@@ -984,6 +986,7 @@
     <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
     <string name="title_account_raw_fetch_hint">Włączenie tej opcji spowoduje zwiększenie zużycia baterii i danych</string>
     <string name="title_color">Kolor</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Obraz</string>
     <string name="title_calendar">Kalendarz</string>
     <string name="title_background">Tło</string>
     <string name="title_transparent">Przeźroczysty</string>
@@ -1024,12 +1027,12 @@
     <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
     <string name="title_self_identity">Usuń adres e-mail podczas odpowiedzi</string>
     <string name="title_leave_on_server">Pozostaw wiadomości na serwerze</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Po pobraniu wiadomości z serwera wiadomości pozostają na serwerze</string>
+    <string name="title_leave_on_server_hint">Po pobraniu wiadomości z serwera wiadomości pozostają na serwerze</string>
     <string name="title_client_delete">Aktywnie usuwaj wiadomości po pobraniu</string>
     <string name="title_leave_deleted">Pozostaw usunięte wiadomości na serwerze</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Po usunięciu wiadomości z urządzenia wiadomości pozostaną na serwerze</string>
+    <string name="title_leave_deleted_hint">Po usunięciu wiadomości z urządzenia wiadomości pozostaną na serwerze</string>
     <string name="title_leave_on_device">Pozostaw wiadomości na urządzeniu</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Gdy wiadomości zostaną usunięte z serwera, wiadomości pozostają na urządzeniu</string>
+    <string name="title_leave_on_device_hint">Gdy wiadomości zostaną usunięte z serwera, wiadomości pozostają na urządzeniu</string>
     <string name="title_max_messages">Maksymalna liczba wiadomości do pobrania (puste dla wszystkich)</string>
     <string name="title_max_messages_keep">To jest maksymalna liczba wiadomości, które będą przechowywane na urządzeniu</string>
     <string name="title_max_messages_remark">        Wpisz liczbę dodatnią, aby pobrać wiadomości na końcu (najczęściej spotykane)

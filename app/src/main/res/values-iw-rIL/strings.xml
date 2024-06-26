@@ -487,6 +487,7 @@
     <string name="title_advanced_prefer_ip4">להעדיף IPv4 על פני IPv6</string>
     <string name="title_advanced_dns">כתובות שרתי DNS מועדפים (עם פסיקים בין לבין)</string>
     <string name="title_advanced_dns_custom">להשתמש בפותר DNS בהתאמה אישית</string>
+    <string name="title_advanced_dns_clear">פינוי מטמון DNS כשיש שינוי בחיבור</string>
     <string name="title_advanced_ssl_update">להשתמש בספק SSL עדכני</string>
     <string name="title_advanced_ssl_harden">הקשחת חיבורי SSL</string>
     <string name="title_advanced_ssl_harden_strict">לדרוש TLS‎ 1.3</string>
@@ -789,6 +790,7 @@
     <string name="title_advanced_language">שפה</string>
     <string name="title_advanced_language_system">מערכת</string>
     <string name="title_advanced_integrations_hint">שירותי הענן אינם עוד חלק מהיישום. יש לשלם ישירות לספק הענן ולא למפתחי התוכנה.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">שילוב שלא מוגדר כראוי אינו פעיל. לא נעשה שימוש בספריות מגורמי צד־שלישי כדי למנוע מעקב וניתוח.</string>
     <string name="title_advanced_lt">שילוב מול LanguageTool</string>
     <string name="title_advanced_lt_sentence">לבדוק כל משפט</string>
     <string name="title_advanced_lt_auto">בדיקת פסקה אחרי שורה חדשה</string>
@@ -985,6 +987,7 @@
     <string name="title_account_partial_fetch_hint">יש להשבית את זה רק במקרה של הודעות ריקות או קבצים מצורפים פגומים</string>
     <string name="title_account_raw_fetch_hint">הפעלת האפשרות תגדיל את ניצולת הסוללה והתעבורה</string>
     <string name="title_color">צבע</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">תמונה</string>
     <string name="title_calendar">לוח שנה</string>
     <string name="title_background">רקע</string>
     <string name="title_transparent">שקוף</string>
@@ -1025,12 +1028,12 @@
     <string name="title_primary_identity">עיקרי (זהות בררת המחדל)</string>
     <string name="title_self_identity">הסרת כתובת הדוא״ל בעת מענה</string>
     <string name="title_leave_on_server">להשאיר הודעות על השרת</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">לאחר הורדת הודעות מהשרת, ההודעות נשארות בשרת</string>
+    <string name="title_leave_on_server_hint">לאחר הורדת הודעות מהשרת, ההודעות נשארות בשרת</string>
     <string name="title_client_delete">למחוק הודעות באופן פעיל לאחר ההורדה</string>
     <string name="title_leave_deleted">להשאיר הודעות שנמחקו על השרת</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">לאחר מחיקת הודעות מהמכשיר, ההודעות תישארנה בשרת</string>
+    <string name="title_leave_deleted_hint">לאחר מחיקת הודעות מהמכשיר, ההודעות תישארנה בשרת</string>
     <string name="title_leave_on_device">להשאיר הודעות במכשיר</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">כשהודעות נמחקות מהשרת, ההודעות תישארנה במכשיר</string>
+    <string name="title_leave_on_device_hint">כשהודעות נמחקות מהשרת, ההודעות תישארנה במכשיר</string>
     <string name="title_max_messages">מספר ההודעות המרבי להורדה (ריק בשביל כולן)</string>
     <string name="title_max_messages_keep">זה מספר ההודעות המרבי שיישמר במכשיר</string>
     <string name="title_max_messages_remark">        נא למלא מספר חיובי כדי להוריד את ההודעות בסוף (יותר נפוץ)

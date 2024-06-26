@@ -460,6 +460,7 @@
     <string name="title_advanced_prefer_ip4">Preferir IPv4 sobre IPv6</string>
     <string name="title_advanced_dns">Endereços dos servidores DNS preferidos (separados por vírgula)</string>
     <string name="title_advanced_dns_custom">Usar servidor DNS personalizado</string>
+    <string name="title_advanced_dns_clear">Limpar cache de DNS quando existirem alterações de ligação</string>
     <string name="title_advanced_ssl_update">Usar provedor SSL atualizado</string>
     <string name="title_advanced_ssl_harden">Reforçar ligações SSL</string>
     <string name="title_advanced_ssl_harden_strict">Requer TLS 1.3</string>
@@ -762,6 +763,7 @@
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_integrations_hint">Os serviços de nuvem abaixo não fazem parte da aplicação. Quaisquer pagamentos irão diretamente para o serviço de nuvem e não para o desenvolvedor da aplicação.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Uma integração que não está configurada é completamente inerte. Nenhuma biblioteca de terceiros está em uso, para impedir o rastreamento e a análise.</string>
     <string name="title_advanced_lt">Integração LanguageTool</string>
     <string name="title_advanced_lt_sentence">Verifique cada frase</string>
     <string name="title_advanced_lt_auto">Verificar parágrafo depois de uma nova linha</string>
@@ -958,6 +960,7 @@
     <string name="title_account_partial_fetch_hint">Desactivar isto apenas em caso de mensagens vazias ou anexos corrompidos</string>
     <string name="title_account_raw_fetch_hint">Esta permissão aumentará a utilização de bateria e dados</string>
     <string name="title_color">Cor</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Imagem</string>
     <string name="title_calendar">Calendário</string>
     <string name="title_background">Fundo</string>
     <string name="title_transparent">Transparente</string>
@@ -998,12 +1001,12 @@
     <string name="title_primary_identity">Principal (identidade padrão)</string>
     <string name="title_self_identity">Remover o endereço de correio electrónico ao responder</string>
     <string name="title_leave_on_server">Deixar as mensagens no servidor</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Depois de transferir mensagens do servidor, as mensagens permanecem no servidor</string>
+    <string name="title_leave_on_server_hint">Depois de transferir mensagens do servidor, as mensagens permanecem no servidor</string>
     <string name="title_client_delete">Excluir mensagens ativamente após baixar</string>
     <string name="title_leave_deleted">Deixar as mensagens eliminadas no servidor</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Depois de apagar mensagens do dispositivo, as mensagens permanecem no servidor</string>
+    <string name="title_leave_deleted_hint">Depois de apagar mensagens do dispositivo, as mensagens permanecem no servidor</string>
     <string name="title_leave_on_device">Deixar as mensagens no dispositivo</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Quando mensagens são apagadas do servidor, as mensagens permanecem no dispositivo</string>
+    <string name="title_leave_on_device_hint">Quando mensagens são apagadas do servidor, as mensagens permanecem no dispositivo</string>
     <string name="title_max_messages">Número máximo de mensagens a serem transferidas (espaço em branco para todas)</string>
     <string name="title_max_messages_keep">Este é o número máximo de mensagens que serão mantidas no dispositivo</string>
     <string name="title_max_messages_remark">        Insira um número positivo para baixar as mensagens no final (mais comum)

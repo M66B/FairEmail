@@ -326,6 +326,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_reset_full">Orijinal mesajları göster</string>
     <string name="title_check_gmail_oauth">Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmaya devam edecek</string>
     <string name="title_check_gmail_password">Bazı Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmayı durdurabilir</string>
+    <string name="title_check_outlook_password">Outlook/Hotmail/Live hesaplarınızdan bazıları 16 Eylül 2024 tarihinden sonra çalışmayı durduracak</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.        Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
     </string>
@@ -453,6 +454,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_prefer_ip4">IPv6 yerine IPv4\'ü tercih edin</string>
     <string name="title_advanced_dns">Tercih edilen DNS sunucu adresleri (virgülle ayrılmış)</string>
     <string name="title_advanced_dns_custom">Özel DNS ayrıştırıcısu kullanma</string>
+    <string name="title_advanced_dns_clear">Bağlantı değişikliklerinde DNS önbelleğini temizleyin</string>
     <string name="title_advanced_ssl_update">Güncellenmiş SSL sağlayıcısı kullanın</string>
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlamlaştır</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 gerektir</string>
@@ -754,6 +756,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_integrations_hint">Aşağıdaki bulut hizmetleri uygulamanın bir parçası değildir. Herhangi bir ödeme, uygulama geliştiricisine değil, doğrudan bulut hizmetine gidecektir.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Yapılandırılmamış bir entegrasyon tamamen etkisizdir. İzleme ve analizleri önlemek için hiçbir üçüncü taraf kütüphanesi kullanılmaz.</string>
     <string name="title_advanced_lt">Dil Aracı entegrasyonu</string>
     <string name="title_advanced_lt_sentence">Her cümleyi kontrol et</string>
     <string name="title_advanced_lt_auto">Yeni bir satırdan sonra paragrafı kontrol et</string>
@@ -951,6 +954,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_account_partial_fetch_hint">Bunu yalnızca boş iletiler veya bozuk ekler olması durumunda devre dışı bırakın</string>
     <string name="title_account_raw_fetch_hint">Bunu etkinleştirmek pil ve veri kullanımını artıracaktır</string>
     <string name="title_color">Renk</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Resim</string>
     <string name="title_calendar">Takvim</string>
     <string name="title_background">Arka Plan</string>
     <string name="title_transparent">Şeffaf</string>
@@ -991,12 +995,12 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>
     <string name="title_self_identity">Yanıtlarken e-posta adresinizi kaldırın</string>
     <string name="title_leave_on_server">Mesajları sunucuda bırak</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Sunucudan mesajları indirdikten sonra, mesajlar sunucuda kalır</string>
+    <string name="title_leave_on_server_hint">Sunucudan mesajları indirdikten sonra, mesajlar sunucuda kalır</string>
     <string name="title_client_delete">İndirdikten sonra mesajları aktif olarak sil</string>
     <string name="title_leave_deleted">Silinen mesajları sunucuda bırak</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Mesajları cihazdan sildikten sonra, mesajlar sunucuda kalacaktır</string>
+    <string name="title_leave_deleted_hint">Mesajları cihazdan sildikten sonra, mesajlar sunucuda kalacaktır</string>
     <string name="title_leave_on_device">Mesajları cihazda bırak</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Mesajlar sunucudan silindiğinde, mesajlar cihazda kalır</string>
+    <string name="title_leave_on_device_hint">Mesajlar sunucudan silindiğinde, mesajlar cihazda kalır</string>
     <string name="title_max_messages">İndirilecek mesajların maksimum sayısı (hepsi için boş)</string>
     <string name="title_max_messages_keep">Bu, cihazda tutulacak maksimum mesaj sayısıdır</string>
     <string name="title_max_messages_remark">        Sondaki mesajları indirmek için pozitif bir sayı girin (en yaygın)

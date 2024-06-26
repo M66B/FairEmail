@@ -444,6 +444,7 @@
     <string name="title_advanced_prefer_ip4">IPv4 优先于 IPv6</string>
     <string name="title_advanced_dns">首选的DNS服务器地址 (逗号分隔)</string>
     <string name="title_advanced_dns_custom">使用自定义 DNS 解析器</string>
+    <string name="title_advanced_dns_clear">连接更改时清除 DNS 缓存</string>
     <string name="title_advanced_ssl_update">使用更新的 SSL 提供商</string>
     <string name="title_advanced_ssl_harden">加强 SSL 连接</string>
     <string name="title_advanced_ssl_harden_strict">需要 TLS 1.3</string>
@@ -745,6 +746,7 @@
     <string name="title_advanced_language">界面语言</string>
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_integrations_hint">下面的云服务不是应用的一部分。任何付款都将直接提供给云服务，而不是应用开发者。</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">未配置的集成是完全无效的。没有使用第三方库用于防止跟踪和分析。</string>
     <string name="title_advanced_lt">LanguageTool 集成</string>
     <string name="title_advanced_lt_sentence">检查每个句子</string>
     <string name="title_advanced_lt_auto">换行后检查段落</string>
@@ -942,6 +944,7 @@
     <string name="title_account_partial_fetch_hint">仅在邮件为空或附件损坏的情况下禁用此功能</string>
     <string name="title_account_raw_fetch_hint">启用此功能会增加耗电和数据使用量</string>
     <string name="title_color">颜色</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">图片</string>
     <string name="title_calendar">日历</string>
     <string name="title_background">背景</string>
     <string name="title_transparent">透明</string>
@@ -982,12 +985,12 @@
     <string name="title_primary_identity">主身份(默认身份)</string>
     <string name="title_self_identity">回复时去掉邮件地址</string>
     <string name="title_leave_on_server">在服务器上保留邮件</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">从服务器下载邮件后，邮件将保留在服务器上</string>
+    <string name="title_leave_on_server_hint">从服务器下载邮件后，邮件将保留在服务器上</string>
     <string name="title_client_delete">下载后主动删除邮件</string>
     <string name="title_leave_deleted">在服务器上保留已删除邮件</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">从设备中删除邮件后，这些邮件将保留在服务器上</string>
+    <string name="title_leave_deleted_hint">从设备中删除邮件后，这些邮件将保留在服务器上</string>
     <string name="title_leave_on_device">在设备上保留邮件</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">从服务器中删除邮件时，邮件仍保留在设备上</string>
+    <string name="title_leave_on_device_hint">从服务器中删除邮件时，邮件仍保留在设备上</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
     <string name="title_max_messages_keep">此为设备上存储的最大邮件数</string>
     <string name="title_max_messages_remark">        输入一个正数下载末尾邮件(最常见)

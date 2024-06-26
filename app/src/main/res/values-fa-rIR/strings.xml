@@ -404,6 +404,7 @@
     <string name="title_advanced_prefer_ip4">ترجیح IPv4 به IPv6</string>
     <string name="title_advanced_dns">آدرس سرورهای DNS ترجیحی (جدا شده با ویرگول)</string>
     <string name="title_advanced_dns_custom">استفاده از DNS resolver انتخابی</string>
+    <string name="title_advanced_dns_clear">پاک کردن کش DNS مربوط به تغییرات ارتباطی</string>
     <string name="title_advanced_ssl_update">استفاده از ارائه‌دهنده اس‌اس‌ال به روز</string>
     <string name="title_advanced_ssl_harden">اتصالات SSL را محکم کن</string>
     <string name="title_advanced_ssl_harden_strict">نیازمند TLS 1.3</string>
@@ -606,6 +607,7 @@
     <string name="title_advanced_language">زبان</string>
     <string name="title_advanced_language_system">سیستم</string>
     <string name="title_advanced_integrations_hint">سرویس‌های ابری زیر بخشی از اپلیکیشن نیستند. هرگونه پرداختی مستقیما به ارائه‌دهنده سرویس ابری و نه توسعه‌دهنده اپلیکیشن واریز خواهد شد.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">یکپارچه‌سازی که پیکربندی نشده است کاملا بی‌اثر است. از هیچ کتابخانه شخص ثالثی برای جلوگیری از ردیابی و تجزیه و تحلیل استفاده نمی‌شود.</string>
     <string name="title_advanced_lt">یکپارچگی ابزارهای زبانی</string>
     <string name="title_advanced_lt_description">نمایش پاپ‌آپ همراه با شرح مشکل</string>
     <string name="title_advanced_multi_modal">چند وجهی</string>
@@ -683,6 +685,7 @@
     <string name="title_account_name">نام حساب</string>
     <string name="title_account_name_hint">برای افتراق پوشه‌ها استفاده می‌شود</string>
     <string name="title_color">رنگ</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">عکس</string>
     <string name="title_calendar">تقویم</string>
     <string name="title_account_ondemand">همگام‌سازی دستی</string>
     <string name="title_account_notify">اعلانات جداگانه</string>
@@ -717,11 +720,11 @@
     <string name="title_primary_identity">اصلی (هویت پیش فرض)</string>
     <string name="title_self_identity">حذف نشانی ایمیل هنگام پاسخ</string>
     <string name="title_leave_on_server">رها کردن پیام‌ها روی سرور</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">پس از دانلود پیام‌ها از سرور، آنها روی سرور باقی می‌مانند</string>
+    <string name="title_leave_on_server_hint">پس از دانلود پیام‌ها از سرور، آنها روی سرور باقی می‌مانند</string>
     <string name="title_leave_deleted">رهاکردن پیام‌های حذف شده روی سرور</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">پس از پاک کردن پیام‌ها ار دستگاه، آنها روی سرور باقی می‌مانند</string>
+    <string name="title_leave_deleted_hint">پس از پاک کردن پیام‌ها ار دستگاه، آنها روی سرور باقی می‌مانند</string>
     <string name="title_leave_on_device">رها کردن پیام‌ها روی دستگاه</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">هنگامی که پیام‌ها از سرور حذف می‌شوند، آنها روی دستگاه باقی می‌مانند</string>
+    <string name="title_leave_on_device_hint">هنگامی که پیام‌ها از سرور حذف می‌شوند، آنها روی دستگاه باقی می‌مانند</string>
     <string name="title_unmetered_only">فقط از طریق شبکه‌های نامحدود وصل شو</string>
     <string name="title_ignore_schedule">خارج از زمان تعیین شده هم همگام‌رسانی کن</string>
     <string name="title_check">بررسی</string>

@@ -445,6 +445,7 @@
     <string name="title_advanced_prefer_ip4">IPv6 より IPv4 を優先する</string>
     <string name="title_advanced_dns">優先 DNS サーバーアドレス (カンマ区切り)</string>
     <string name="title_advanced_dns_custom">カスタム DNS リゾルバーを使用する</string>
+    <string name="title_advanced_dns_clear">接続が変更された場合、DNS キャッシュをクリアする</string>
     <string name="title_advanced_ssl_update">更新された SSL プロバイダーを使用する</string>
     <string name="title_advanced_ssl_harden">より強固な SSL 接続</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 を要求する</string>
@@ -747,6 +748,7 @@
     <string name="title_advanced_language">言語</string>
     <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_integrations_hint">以下のクラウドサービスはアプリの一部ではありません。すべての支払いはアプリ開発者ではなく、クラウドサービスに直接支払われます。</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">統合を設定していない場合は、自発的に動作することはありません。ユーザー追跡やトラッキング防止のため、サードパーティーのライブラリーは使用していません。</string>
     <string name="title_advanced_lt">LanguageTool を統合する</string>
     <string name="title_advanced_lt_sentence">一文ごとに確認する</string>
     <string name="title_advanced_lt_auto">改行後に段落を確認する</string>
@@ -943,6 +945,7 @@
     <string name="title_account_partial_fetch_hint">メッセージが空の場合や添付ファイルが破損している場合にのみ無効にする</string>
     <string name="title_account_raw_fetch_hint">有効にするとバッテリーとデータの使用量が増加します</string>
     <string name="title_color">色</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">画像</string>
     <string name="title_calendar">カレンダー</string>
     <string name="title_background">背景</string>
     <string name="title_transparent">透過</string>
@@ -983,12 +986,12 @@
     <string name="title_primary_identity">プライマリー (デフォルトのユーザー ID)</string>
     <string name="title_self_identity">返信するときにメールアドレスを削除する</string>
     <string name="title_leave_on_server">サーバーにメッセージを残す</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">サーバーからメッセージをダウンロードした後、メッセージがサーバーに残ります</string>
+    <string name="title_leave_on_server_hint">サーバーからメッセージをダウンロードした後、メッセージがサーバーに残ります</string>
     <string name="title_client_delete">ダウンロードしたメッセージをアクティブに削除</string>
     <string name="title_leave_deleted">削除したメッセージをサーバーに残す</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">端末からメッセージを削除しても、メッセージはサーバーに残ります</string>
+    <string name="title_leave_deleted_hint">端末からメッセージを削除しても、メッセージはサーバーに残ります</string>
     <string name="title_leave_on_device">端末にメッセージを残す</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">メッセージがサーバーから削除されても、メッセージは端末に残ります</string>
+    <string name="title_leave_on_device_hint">メッセージがサーバーから削除されても、メッセージは端末に残ります</string>
     <string name="title_max_messages">ダウンロードするメッセージ件数の上限 (空白にするとすべてダウンロードします)</string>
     <string name="title_max_messages_keep">これは、端末に保存されるメッセージ件数の上限です</string>
     <string name="title_max_messages_remark">        正の数を入力すると、最後からメッセージをダウンロードします (推奨)

@@ -330,6 +330,7 @@
     <string name="title_setup_reset_full">Mostrar el mensaje original</string>
     <string name="title_check_gmail_oauth">Tus cuentas de Gmail continuarán funcionando después del 30 de Mayo de 2022</string>
     <string name="title_check_gmail_password">Algunas de sus cuentas de Gmail podrían dejar de funcionar después del 30 de Mayo de 2022</string>
+    <string name="title_check_outlook_password">Algunas de sus cuentas de Outlook/Hotmail/Live dejarán de funcionar después del 16 de septiembre de 2024</string>
     <string name="title_advanced_hint_title">Opciones más avanzadas</string>
     <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.        Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
     </string>
@@ -457,6 +458,7 @@
     <string name="title_advanced_prefer_ip4">Preferir IPv4 sobre IPv6</string>
     <string name="title_advanced_dns">Direcciones de servidores DNS preferidas (separadas por comas)</string>
     <string name="title_advanced_dns_custom">Usar resolución DNS personalizada</string>
+    <string name="title_advanced_dns_clear">Limpiar caché DNS en los cambios de conectividad</string>
     <string name="title_advanced_ssl_update">Usar proveedor SSL actualizado</string>
     <string name="title_advanced_ssl_harden">Endurecer conexiones SSL</string>
     <string name="title_advanced_ssl_harden_strict">Requerir TLS 1.3</string>
@@ -758,6 +760,7 @@
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_integrations_hint">Los servicios en la nube a continuación no son parte de la aplicación. Cualquier pago irá directamente al servicio en la nube y no al desarrollador de la aplicación.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Una integración que no está configurada es completamente inerte. No se están utilizando librerías de terceros para prevenir el rastreo y el análisis.</string>
     <string name="title_advanced_lt">Integración con LanguageTool</string>
     <string name="title_advanced_lt_sentence">Comprobar cada oración</string>
     <string name="title_advanced_lt_auto">Comprobar párrafo después de una nueva línea</string>
@@ -837,6 +840,7 @@
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
     <string name="title_advanced_usage_hint">Esto aumentará el uso de batería, datos y espacio de almacenamiento</string>
+    <string name="title_advanced_plain_hint">Activar esto limitará el uso de datos, pero los mensajes se mostrarán sin estilos y sin imágenes</string>
     <string name="title_advanced_plain_remark">¡La parte de texto plano no siempre contiene el mensaje completo!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Activar esto puede causar problemas de conexión en algunos dispositivos y puede aumentar el uso de la batería</string>
     <string name="title_advanced_validate_hint">Esto puede ocasionar que no sincronicen los mensajes, por ejemplo cuando se utiliza una VPN, pero también en otras situaciones</string>
@@ -954,6 +958,7 @@
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
     <string name="title_account_raw_fetch_hint">Activar esto aumentará el uso de batería y datos</string>
     <string name="title_color">Color</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Imagen</string>
     <string name="title_calendar">Calendario</string>
     <string name="title_background">Fondo</string>
     <string name="title_transparent">Transparente</string>
@@ -985,6 +990,7 @@
     <string name="title_case_sensitive">Los nombres de usuario y contraseñas por lo general distinguen mayúsculas y minúsculas</string>
     <string name="title_login_before_send">Recibir antes de enviar</string>
     <string name="title_client_certificate">Certificado de cliente</string>
+    <string name="title_no_key_selected">Ninguna clave seleccionada o no hay claves disponibles</string>
     <string name="title_realm">Dominio</string>
     <string name="title_use_ip">Usar dirección IP local en lugar de nombre de dominio</string>
     <string name="title_ehlo">Identificación HELO/EHLO personalizada</string>
@@ -993,9 +999,12 @@
     <string name="title_primary_identity">Primaria (identidad predeterminada)</string>
     <string name="title_self_identity">Eliminar dirección de correo al responder</string>
     <string name="title_leave_on_server">Dejar mensajes en el servidor</string>
+    <string name="title_leave_on_server_hint">Después de descargar mensajes del servidor, los mensajes permanecen en el servidor</string>
     <string name="title_client_delete">Borrar mensajes activamente después de descargar</string>
     <string name="title_leave_deleted">Dejar mensajes borrados en el servidor</string>
+    <string name="title_leave_deleted_hint">Después de eliminar mensajes del dispositivo, los mensajes permanecerán en el servidor</string>
     <string name="title_leave_on_device">Dejar mensajes en el dispositivo</string>
+    <string name="title_leave_on_device_hint">Cuando los mensajes se eliminan del servidor, los mensajes permanecen en el dispositivo</string>
     <string name="title_max_messages">Número máximo de mensajes a descargar (en blanco para descargar todos)</string>
     <string name="title_max_messages_keep">Este es el número máximo de mensajes que se mantendrán en el dispositivo</string>
     <string name="title_max_messages_remark">        Introduzca un número positivo para descargar los mensajes al final (más común)

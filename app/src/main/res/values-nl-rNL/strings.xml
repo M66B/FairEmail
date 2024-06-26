@@ -457,6 +457,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_prefer_ip4">Geef de voorkeur aan IPv4 boven IPv6</string>
     <string name="title_advanced_dns">Voorkeurs DNS serveradressen (komma gescheiden)</string>
     <string name="title_advanced_dns_custom">Gebruik aangepaste DNS-resolver</string>
+    <string name="title_advanced_dns_clear">DNS-cache wissen bij verandering van connectiviteit</string>
     <string name="title_advanced_ssl_update">Gebruik bijgewerkte SSL provider</string>
     <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_ssl_harden_strict">Vereis TLS 1.3</string>
@@ -757,6 +758,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_integrations_hint">De onderstaande cloudservices maken geen deel uit van de app. Alle betalingen gaan direct naar de cloudservice en niet naar de app-ontwikkelaar.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Een integratie die niet is geconfigureerd is volledig inert. Er worden geen externe bibliotheken gebruikt om tracking en analytics te voorkomen.</string>
     <string name="title_advanced_lt">LanguageTool integratie</string>
     <string name="title_advanced_lt_sentence">Controleer elke zin</string>
     <string name="title_advanced_lt_auto">Controleer alinea na een nieuwe regel</string>
@@ -954,6 +956,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_account_partial_fetch_hint">Schakel dit alleen uit in het geval van lege berichten of corrupte bijlagen</string>
     <string name="title_account_raw_fetch_hint">Dit inschakelen zal het batterij- en gegevensverbruik verhogen</string>
     <string name="title_color">Kleur</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Afbeelding</string>
     <string name="title_calendar">Agenda</string>
     <string name="title_background">Achtergrond</string>
     <string name="title_transparent">Doorzichtig</string>
@@ -994,12 +997,12 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
     <string name="title_self_identity">Verwijder e-mailadres bij antwoorden</string>
     <string name="title_leave_on_server">Laat berichten achter op de server</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Na het downloaden van berichten van de server, blijven de berichten op de server</string>
+    <string name="title_leave_on_server_hint">Na het downloaden van berichten van de server, blijven de berichten op de server</string>
     <string name="title_client_delete">Actief berichten verwijderen na downloaden</string>
     <string name="title_leave_deleted">Laat verwijderde berichten achter op de server</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Na het verwijderen van berichten van het apparaat blijven de berichten op de server</string>
+    <string name="title_leave_deleted_hint">Na het verwijderen van berichten van het apparaat blijven de berichten op de server</string>
     <string name="title_leave_on_device">Laat berichten achter op apparaat</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Wanneer berichten van de server worden verwijderd, blijven de berichten op het apparaat</string>
+    <string name="title_leave_on_device_hint">Wanneer berichten van de server worden verwijderd, blijven de berichten op het apparaat</string>
     <string name="title_max_messages">Maximum aantal berichten om te downloaden (leeg voor allen)</string>
     <string name="title_max_messages_keep">Dit is het maximale aantal berichten dat op het apparaat zal worden bewaard</string>
     <string name="title_max_messages_remark">        Voer een positief getal in om berichten aan het einde te downloaden (meest gebruikelijk)

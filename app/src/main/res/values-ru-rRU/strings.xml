@@ -486,6 +486,7 @@
     <string name="title_advanced_prefer_ip4">Предпочитать IPv4</string>
     <string name="title_advanced_dns">Адреса предпочтительных DNS-серверов (через запятую)</string>
     <string name="title_advanced_dns_custom">Использовать пользовательский DNS</string>
+    <string name="title_advanced_dns_clear">Очищать кэш DNS при изменении подключения</string>
     <string name="title_advanced_ssl_update">Использовать обновлённый SSL-провайдер</string>
     <string name="title_advanced_ssl_harden">Усиленные SSL-подключения</string>
     <string name="title_advanced_ssl_harden_strict">Требовать TLS 1.3</string>
@@ -788,6 +789,7 @@
     <string name="title_advanced_language">Язык</string>
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_integrations_hint">Представленные ниже облачные сервисы не являются частью приложения. Все платежи будут поступать непосредственно в облачный сервис, а не разработчику приложения.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Интеграция без введённых настроек полностью инертна. Никакие сторонние библиотеки не используются для предотвращения отслеживания и анализа.</string>
     <string name="title_advanced_lt">Интеграция с LanguageTool</string>
     <string name="title_advanced_lt_sentence">Проверять каждое предложение</string>
     <string name="title_advanced_lt_auto">Проверять абзац после новой строки</string>
@@ -985,6 +987,7 @@
     <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или повреждённых вложений</string>
     <string name="title_account_raw_fetch_hint">Включение увеличит расход заряда батареи и места в хранилище</string>
     <string name="title_color">Цвет</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Изображение</string>
     <string name="title_calendar">Календарь</string>
     <string name="title_background">Фон</string>
     <string name="title_transparent">Прозрачность</string>
@@ -1025,12 +1028,12 @@
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
     <string name="title_self_identity">Удалять адрес электронной почты при ответе</string>
     <string name="title_leave_on_server">Оставлять сообщения на сервере</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">После загрузки сообщений с сервера они остаются на сервере</string>
+    <string name="title_leave_on_server_hint">После загрузки сообщений с сервера они остаются на сервере</string>
     <string name="title_client_delete">Активно удалять сообщения после загрузки</string>
     <string name="title_leave_deleted">Оставлять удалённые сообщения на сервере</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">После удаления сообщений с устройства они останутся на сервере</string>
+    <string name="title_leave_deleted_hint">После удаления сообщений с устройства они останутся на сервере</string>
     <string name="title_leave_on_device">Оставлять сообщения на устройстве</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Когда сообщения удаляются с сервера, они остаются на устройстве</string>
+    <string name="title_leave_on_device_hint">Когда сообщения удаляются с сервера, они остаются на устройстве</string>
     <string name="title_max_messages">Максимальное количество загружаемых сообщений (пусто для всех)</string>
     <string name="title_max_messages_keep">Максимальное количество сообщений, которые будут храниться на устройстве</string>
     <string name="title_max_messages_remark">        Введите положительное число для загрузки сообщений в конце (более распространённое)

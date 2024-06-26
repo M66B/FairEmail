@@ -994,12 +994,12 @@
     <string name="title_primary_identity">Κύρια (προεπιλεγμένη ταυτότητα)</string>
     <string name="title_self_identity">Αφαίρεση διεύθυνσης ηλ. ταχυδρομείου κατά την απάντηση</string>
     <string name="title_leave_on_server">Να παραμένουν τα μηνύματα στον διακομιστή</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Μετά τη λήψη μηνυμάτων από τον διακομιστή, τα μηνύματα παραμένουν στον διακομιστή</string>
+    <string name="title_leave_on_server_hint">Μετά τη λήψη μηνυμάτων από τον διακομιστή, τα μηνύματα παραμένουν στον διακομιστή</string>
     <string name="title_client_delete">Ενεργή διαγραφή μηνυμάτων μετά το κατέβασμα</string>
     <string name="title_leave_deleted">Να παραμένουν τα διεγραμμένα μηνύματα στον διακομιστή</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Μετά τη διαγραφή μηνυμάτων από τη συσκευή, τα μηνύματα θα παραμείνουν στον διακομιστή</string>
+    <string name="title_leave_deleted_hint">Μετά τη διαγραφή μηνυμάτων από τη συσκευή, τα μηνύματα θα παραμείνουν στον διακομιστή</string>
     <string name="title_leave_on_device">Να παραμένουν τα μηνύματα στη συσκευή</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Όταν τα μηνύματα διαγράφονται από τον διακομιστή, τα μηνύματα παραμένουν στη συσκευή</string>
+    <string name="title_leave_on_device_hint">Όταν τα μηνύματα διαγράφονται από τον διακομιστή, τα μηνύματα παραμένουν στη συσκευή</string>
     <string name="title_max_messages">Μέγιστος αριθμός μηνυμάτων για κατέβασμα (κενό για όλα)</string>
     <string name="title_max_messages_keep">Αυτός είναι ο μέγιστος αριθμός μηνυμάτων που θα διατηρηθούν στη συσκευή</string>
     <string name="title_max_messages_remark">        Εισάγετε έναν θετικό αριθμό για να κατεβάσετε τα μηνύματα στο τέλος (το πιο συνηθισμένο)

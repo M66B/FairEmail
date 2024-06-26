@@ -455,6 +455,7 @@
     <string name="title_advanced_prefer_ip4">Föredra IPv4 över IPv6</string>
     <string name="title_advanced_dns">Föredragna DNS-serveradresser (kommaseparerade)</string>
     <string name="title_advanced_dns_custom">Använd anpassad DNS-resolver</string>
+    <string name="title_advanced_dns_clear">Rensa DNS-cache vid ändringar i anslutning</string>
     <string name="title_advanced_ssl_update">Använd uppdaterad SSL-leverantör</string>
     <string name="title_advanced_ssl_harden">Strikta SSL-anslutningar</string>
     <string name="title_advanced_ssl_harden_strict">Kräv TLS 1.3</string>
@@ -753,6 +754,7 @@
     <string name="title_advanced_language">Språk</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_integrations_hint">Molntjänsterna nedan är inte en del av appen. Eventuella betalningar går direkt till molntjänsten och inte till apputvecklaren.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">En integration som inte är konfigurerad är helt passiv. Inga tredjepartskomponenter används för att förhindra spårning och analys.</string>
     <string name="title_advanced_lt">Språkintegration för verktyg</string>
     <string name="title_advanced_lt_sentence">Kontrollera varje mening</string>
     <string name="title_advanced_lt_auto">Kontrollera paragraf efter en ny rad</string>
@@ -947,6 +949,7 @@
     <string name="title_account_partial_fetch_hint">Inaktivera detta endast vid tomma meddelanden eller korrupta bilagor</string>
     <string name="title_account_raw_fetch_hint">Aktivering av detta kommer att öka batteri- och dataanvändningen</string>
     <string name="title_color">Färg</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Bild</string>
     <string name="title_calendar">Kalender</string>
     <string name="title_background">Bakgrund</string>
     <string name="title_transparent">Transparent</string>
@@ -986,12 +989,12 @@
     <string name="title_primary_identity">Primär (standardidentitet)</string>
     <string name="title_self_identity">Ta bort e-postadresser vid svar</string>
     <string name="title_leave_on_server">Spara alla meddelanden på servern</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Efter att meddelanden har hämtats från servern så finns de kvar på servern</string>
+    <string name="title_leave_on_server_hint">Efter att meddelanden har hämtats från servern så finns de kvar på servern</string>
     <string name="title_client_delete">Ta bort meddelandena aktivt efter hämtning</string>
     <string name="title_leave_deleted">Lämna raderade meddelanden på servern</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Efter att meddelanden har raderats från enheten så finns de kvar på servern</string>
+    <string name="title_leave_deleted_hint">Efter att meddelanden har raderats från enheten så finns de kvar på servern</string>
     <string name="title_leave_on_device">Spara meddelanden på enheten</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">När meddelanden raderas på servern så finns de kvar på enheten</string>
+    <string name="title_leave_on_device_hint">När meddelanden raderas på servern så finns de kvar på enheten</string>
     <string name="title_max_messages">Maximalt antal meddelanden att ladda ner (lämna tomt för alla)</string>
     <string name="title_max_messages_keep">Detta är det maximala antalet meddelanden som kommer att lagras på enheten</string>
     <string name="title_max_messages_remark">        Ange ett positivt värde för att ladda ner meddelandena i slutet (vanligast)

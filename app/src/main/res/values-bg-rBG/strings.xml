@@ -458,6 +458,7 @@
     <string name="title_advanced_prefer_ip4">Предпочитане на IPv4 пред IPv6</string>
     <string name="title_advanced_dns">Предпочитани адреси на сървъри на DNS (разделени със запетая)</string>
     <string name="title_advanced_dns_custom">Употреба на потребителски DNS преобразувател</string>
+    <string name="title_advanced_dns_clear">Изчистване на кеша на DNS при промени в свързаността</string>
     <string name="title_advanced_ssl_update">Употреба на обновения доставчик SSL</string>
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
     <string name="title_advanced_ssl_harden_strict">Изисква се TLS 1.3</string>
@@ -996,12 +997,12 @@
     <string name="title_primary_identity">Основна (по подразбиране идентичност)</string>
     <string name="title_self_identity">Премахване на имейл адреса при отговор</string>
     <string name="title_leave_on_server">Оставяне съобщения на сървъра</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Изтегляйки съобщения от сървъра, съобщенията остават на сървъра</string>
+    <string name="title_leave_on_server_hint">Изтегляйки съобщения от сървъра, съобщенията остават на сървъра</string>
     <string name="title_client_delete">Дейно изтриване на съобщенията след изтегляне</string>
     <string name="title_leave_deleted">Оставяне на изтритите съобщения на сървъра</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">След изтриването на съобщенията от устройството, съобщенията ще останат на сървъра</string>
+    <string name="title_leave_deleted_hint">След изтриването на съобщенията от устройството, съобщенията ще останат на сървъра</string>
     <string name="title_leave_on_device">Запази съобщенията на устройството</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Когато съобщенията са изтрити от сървъра, съобщенията ще останат на устройството</string>
+    <string name="title_leave_on_device_hint">Когато съобщенията са изтрити от сървъра, съобщенията ще останат на устройството</string>
     <string name="title_max_messages">Максимален брой съобщения за изтегляне (празно за всички)</string>
     <string name="title_max_messages_keep">Това е най-големият възможен брой съобщения, които ще се съхраняват в устройството</string>
     <string name="title_max_messages_remark">        Въведете положително число за изтегляне на съобщенията в края (най-често)

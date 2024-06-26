@@ -487,6 +487,7 @@
     <string name="title_advanced_prefer_ip4">Віддавати перевагу IPv4 над IPv6</string>
     <string name="title_advanced_dns">Бажані адреси DNS-серверів (через кому)</string>
     <string name="title_advanced_dns_custom">Використовувати нетиповий DNS resolver</string>
+    <string name="title_advanced_dns_clear">Очищати кеш DNS при зміні підключення</string>
     <string name="title_advanced_ssl_update">Використовувати оновленого SSL-провайдера</string>
     <string name="title_advanced_ssl_harden">Посилене SSL-з\'єднання</string>
     <string name="title_advanced_ssl_harden_strict">Вимагати TLS 1.3</string>
@@ -788,6 +789,7 @@
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Системи</string>
     <string name="title_advanced_integrations_hint">Хмарні сервіси, вказані внизу, не є частиною застосунку. Будь-які платежі потраплять безпосередньо до хмарного сервісу, а не до розробника застосунку.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Інтеграція, яка не налаштована, є повністю неактивною. Жодні сторонні бібліотеки, що перешкоджають відстеженню та аналітиці, не використовуються.</string>
     <string name="title_advanced_lt">Інтеграція з LanguageTool</string>
     <string name="title_advanced_lt_sentence">Перевіряти кожне речення</string>
     <string name="title_advanced_lt_auto">Перевіряти абзац після нового рядка</string>
@@ -984,6 +986,7 @@
     <string name="title_account_partial_fetch_hint">Вимкнути це лише у випадку пустих повідомлень або пошкоджених вкладень</string>
     <string name="title_account_raw_fetch_hint">Увімкнення цієї функції збільшить витрату заряду акумулятора та даних</string>
     <string name="title_color">Колір</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Зображення</string>
     <string name="title_calendar">Календар</string>
     <string name="title_background">Тло</string>
     <string name="title_transparent">Прозорість</string>
@@ -1024,12 +1027,12 @@
     <string name="title_primary_identity">Основний (профіль за замовчуванням)</string>
     <string name="title_self_identity">Видаляти адресу електронної пошти при відповіді</string>
     <string name="title_leave_on_server">Залишати повідомлення на сервері</string>
-    <string name="title_leave_on_server_hint" comment="title_leave_on_server_hint&#10;Remark text for the POP3 option &quot;Leave messages on the server&quot;">Після завантаження повідомлень із сервера, повідомлення залишаться на сервері</string>
+    <string name="title_leave_on_server_hint">Після завантаження повідомлень із сервера, повідомлення залишаться на сервері</string>
     <string name="title_client_delete">Активно видаляти повідомлення після завантаження</string>
     <string name="title_leave_deleted">Залишати видалені повідомлення на сервері</string>
-    <string name="title_leave_deleted_hint" comment="title_leave_deleted_hint&#10;Remark text for the POP3 option &quot;Leave deleted messages on the server&quot;">Після вилучення повідомлень з пристрою, повідомлення залишаться на сервері</string>
+    <string name="title_leave_deleted_hint">Після вилучення повідомлень з пристрою, повідомлення залишаться на сервері</string>
     <string name="title_leave_on_device">Залишати повідомлення на пристрої</string>
-    <string name="title_leave_on_device_hint" comment="title_leave_on_device_hint&#10;Remark text for the POP3 option &quot;Leave messages on the device&quot;">Коли повідомлення видаляються із сервера, повідомлення залишаються на пристрої</string>
+    <string name="title_leave_on_device_hint">Коли повідомлення видаляються із сервера, повідомлення залишаються на пристрої</string>
     <string name="title_max_messages">Максимальна кількість повідомлень для завантаження (якщо порожньо то всі)</string>
     <string name="title_max_messages_keep">Це максимальна кількість повідомлень, які будуть зберігатися на пристрої</string>
     <string name="title_max_messages_remark">Задайте додатнє число для завантаження останніх повідомлень (використовується зазвичай)
