@@ -4,7 +4,7 @@
 
 ### Notices
 
-It is now possible to check the integrity of APK files, see [the FAQ](https://m66b.github.io/FairEmail/#faq204) about how.
+It is now possible to check the integrity of APK files, see [the FAQ](https://m66b.github.io/FairEmail/#faq205) about how.
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
@@ -15,7 +15,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### Next version
 
 * Added account images (avatars)
-* Added APK file attestation, see [the FAQ](https://m66b.github.io/FairEmail/#faq204)
+* Added APK file attestation, see [the FAQ](https://m66b.github.io/FairEmail/#faq205)
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
