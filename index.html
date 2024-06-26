@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="shortcut icon" href="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/ic_launcher-web.png">
   <style>
@@ -418,6 +427,7 @@
 <li><a href="#faq202">(202) What is DNSSEC and what is DANE?</a></li>
 <li><a href="#faq203">(203) Where is my sent message?</a></li>
 <li><a href="#faq204">(204) How do I use Gemini?</a></li>
+<li><a href="#faq205">(205) How do I check the integrity of an APK file?</a></li>
 </ul>
 <p><a href="#get-support">I have another question.</a></p>
 <p><a name="faq1"></a> <strong>(1) Which permissions are needed and why?</strong></p>
@@ -2985,6 +2995,16 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <p>For usage instructions, please see <a href="#faq190">this FAQ</a>.</p>
 <p>Please read the privacy policy of <a href="https://support.google.com/gemini/answer/13594961">Gemini</a>. FairEmail does not use third-party libraries to avoid being tracked when Gemini is not being used.</p>
 <p>This feature is experimental and requires version 1.2171 or later for the GitHub version and version 1.2182 or later for the Play Store version.</p>
+<p><br></p>
+<p><a name="faq205"></a> <strong>(205) How do I check the integrity of an APK file?</strong></p>
+<p>You can verify in this way that an APK file was built and signed by a GitHub workflow:</p>
+<ol type="1">
+<li>Install the <a href="https://cli.github.com/">GitHub CLI</a></li>
+<li>Download and extract the <a href="https://github.com/M66B/FairEmail/actions">APK files</a></li>
+<li><a href="https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds#verifying-artifact-attestations-with-the-github-cli">Verify</a> attestation of an APK file</li>
+</ol>
+<pre><code>gh attestation verify xyz.apk -R M66B/FairEmail</code></pre>
+<p>Attestation of APK files is available from version 1.2209.</p>
 <p><br></p>
 <h2>
 <a name="get-support"></a>Get support

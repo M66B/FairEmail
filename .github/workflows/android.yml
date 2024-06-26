@@ -11,6 +11,12 @@ on:
         description: 'Branch'
         required: true
         default: 'master'
+
+permissions:
+    id-token: write
+    contents: read
+    attestations: write
+
 jobs:
   build:
 
@@ -52,6 +58,11 @@ jobs:
       run: ./gradlew lintGithubRelease
     - name: Build with Gradle
       run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease uploadBugsnagGithub-releaseMapping uploadBugsnagLarge-releaseMapping uploadBugsnagPlay-releaseMapping
+    #https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds
+    - name: Generate artifact attestation
+      uses: actions/attest-build-provenance@v1
+      with:
+        subject-path: 'app/build/outputs/apk/**/release/*.apk'
     - name: Upload to BitBucket
       run: |
         ./gradlew upload -Ptarget=play-preview-${{ github.event.inputs.branch }}

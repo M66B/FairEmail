@@ -429,6 +429,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(202) What is DNSSEC and what is DANE?](#faq202)
 * [(203) Where is my sent message?](#faq203)
 * [(204) How do I use Gemini?](#faq204)
+* [(205) How do I check the integrity of an APK file?](#faq205)
 
 [I have another question.](#get-support)
 
@@ -5983,6 +5984,24 @@ Please read the privacy policy of [Gemini](https://support.google.com/gemini/ans
 FairEmail does not use third-party libraries to avoid being tracked when Gemini is not being used.
 
 This feature is experimental and requires version 1.2171 or later for the GitHub version and version 1.2182 or later for the Play Store version.
+
+<br>
+
+<a name="faq205"></a>
+**(205) How do I check the integrity of an APK file?**
+
+You can verify in this way that an APK file was built and signed by a GitHub workflow:
+
+1. Install the [GitHub CLI](https://cli.github.com/)
+2. Download and extract the [APK files](https://github.com/M66B/FairEmail/actions)
+3. [Verify](https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds#verifying-artifact-attestations-with-the-github-cli) attestation of an APK file
+
+
+```
+gh attestation verify xyz.apk -R M66B/FairEmail
+```
+
+Attestation of APK files is available from version 1.2209.
 
 <br>
 
