@@ -17,6 +17,7 @@ Next version
 * Added account images (avatars)
 * Added APK file attestation, see the FAQ
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated Public Suffix List
 * Updated translations
 
