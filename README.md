@@ -128,12 +128,6 @@ Please see [this FAQ](https://m66b.github.io/FairEmail/#faq173) about the differ
 **Important**: after enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/)
 you cannot use third party email apps anymore, please see [this FAQ](https://m66b.github.io/FairEmail/#faq22) for more information.
 
-The Gmail quick setup wizard can be used in official releases only (Play store or GitHub) because Google approved the use of OAuth for one app signature only.
-
-**Important**: Gsuite accounts authorized with a username/password will stop working
-[in the near future](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
-Gsuite accounts authorized with the quick setup wizard (OAuth) will keep working.
-
 To download a GitHub release you might need to expand the assets section to download the [APK file](https://en.wikipedia.org/wiki/Android_application_package).
 
 The GitHub version is being updated more often than the Play store version.
@@ -146,6 +140,8 @@ To get updates in a timely fashion you are advised to use the GitHub release.
 Please [see here](https://m66b.github.io/FairEmail/#faq147) for more information on third-party builds.
 
 Because F-Droid builds and GitHub releases are signed differently, an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
+
+The best way to verify the integrity of an APK file is documented [here](https://m66b.github.io/FairEmail/#faq205).
 
 Certificate fingerprints:
 
