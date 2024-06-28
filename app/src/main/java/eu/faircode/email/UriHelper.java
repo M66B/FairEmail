@@ -418,9 +418,9 @@ public class UriHelper {
         if (path != null)
             path = path.toLowerCase(Locale.ROOT);
 
-        boolean first = "www.facebook.com".equals(host);
         String q = url.getEncodedQuery();
-        if (q != null) {
+        if (!TextUtils.isEmpty(q)) {
+            boolean first = "www.facebook.com".equals(host);
             StringBuilder sb = new StringBuilder();
             for (String kv : q.split("&")) {
                 int eq = kv.indexOf('=');
