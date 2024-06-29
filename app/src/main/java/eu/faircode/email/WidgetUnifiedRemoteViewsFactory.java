@@ -240,7 +240,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
             if (avatars) {
                 ContactInfo[] info = ContactInfo.get(context,
-                        message.account, null, message.bimi_selector,
+                        message.account, null,
+                        message.bimi_selector, Boolean.TRUE.equals(message.dmarc),
                         message.isForwarder() ? message.submitter : message.from);
                 views.setImageViewBitmap(R.id.avatar, info.length == 0 ? null : info[0].getPhotoBitmap());
             }

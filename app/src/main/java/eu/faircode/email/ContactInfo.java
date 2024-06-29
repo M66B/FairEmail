@@ -221,15 +221,15 @@ public class ContactInfo {
     }
 
     @NonNull
-    static ContactInfo[] get(Context context, long account, String folderType, String selector, Address[] addresses) {
-        return get(context, account, folderType, selector, addresses, false);
+    static ContactInfo[] get(Context context, long account, String folderType, String selector, boolean dmarc, Address[] addresses) {
+        return get(context, account, folderType, selector, dmarc, addresses, false);
     }
 
-    static ContactInfo[] getCached(Context context, long account, String folderType, String selector, Address[] addresses) {
-        return get(context, account, folderType, selector, addresses, true);
+    static ContactInfo[] getCached(Context context, long account, String folderType, String selector, boolean dmarc, Address[] addresses) {
+        return get(context, account, folderType, selector, dmarc, addresses, true);
     }
 
-    private static ContactInfo[] get(Context context, long account, String folderType, String selector, Address[] addresses, boolean cacheOnly) {
+    private static ContactInfo[] get(Context context, long account, String folderType, String selector, boolean dmarc, Address[] addresses, boolean cacheOnly) {
         if (addresses == null || addresses.length == 0) {
             ContactInfo anonymous = getAnonymous(context);
             return new ContactInfo[]{anonymous == null ? new ContactInfo() : anonymous};
@@ -237,7 +237,7 @@ public class ContactInfo {
 
         ContactInfo[] result = new ContactInfo[addresses.length];
         for (int i = 0; i < addresses.length; i++) {
-            result[i] = _get(context, account, folderType, selector, (InternetAddress) addresses[i], cacheOnly);
+            result[i] = _get(context, account, folderType, selector, dmarc, (InternetAddress) addresses[i], cacheOnly);
             if (result[i] == null) {
                 if (cacheOnly)
                     return null;
@@ -259,7 +259,7 @@ public class ContactInfo {
     private static ContactInfo _get(
             Context context,
             long account, String folderType,
-            String selector, InternetAddress address, boolean cacheOnly) {
+            String selector, boolean dmarc, InternetAddress address, boolean cacheOnly) {
         String key = MessageHelper.formatAddresses(new Address[]{address});
         synchronized (emailContactInfo) {
             ContactInfo info = emailContactInfo.get(key);
@@ -277,13 +277,14 @@ public class ContactInfo {
         final String ekey = (TextUtils.isEmpty(info.email) ? null : getKey(info.email));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean favicons_dmarc = prefs.getBoolean("favicons_dmarc", false);
         boolean avatars = prefs.getBoolean("avatars", true);
         boolean prefer_contact = prefs.getBoolean("prefer_contact", false);
         boolean distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
-        boolean bimi = (prefs.getBoolean("bimi", false) && !BuildConfig.PLAY_STORE_RELEASE);
-        boolean gravatars = (prefs.getBoolean("gravatars", false) && !BuildConfig.PLAY_STORE_RELEASE);
-        boolean libravatars = (prefs.getBoolean("libravatars", false) && !BuildConfig.PLAY_STORE_RELEASE);
-        boolean favicons = prefs.getBoolean("favicons", false);
+        boolean bimi = (prefs.getBoolean("bimi", false) && (!favicons_dmarc || dmarc) && !BuildConfig.PLAY_STORE_RELEASE);
+        boolean gravatars = (prefs.getBoolean("gravatars", false) && (!favicons_dmarc || dmarc) && !BuildConfig.PLAY_STORE_RELEASE);
+        boolean libravatars = (prefs.getBoolean("libravatars", false) && (!favicons_dmarc || dmarc) && !BuildConfig.PLAY_STORE_RELEASE);
+        boolean favicons = (prefs.getBoolean("favicons", false) && (!favicons_dmarc || dmarc));
         boolean generated = prefs.getBoolean("generated_icons", true);
         boolean identicons = prefs.getBoolean("identicons", false);
         boolean circular = prefs.getBoolean("circular", true);
