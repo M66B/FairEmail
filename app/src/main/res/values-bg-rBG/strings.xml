@@ -957,6 +957,7 @@
     <string name="title_account_partial_fetch_hint">Изключете това само в случай на празни съобщения или повредени прикачвания</string>
     <string name="title_account_raw_fetch_hint">Включването на това ще увеличи консумацията на батерията и данните</string>
     <string name="title_color">Цвят</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Образ</string>
     <string name="title_calendar">Календар</string>
     <string name="title_background">Фон</string>
     <string name="title_transparent">Прозрачност</string>

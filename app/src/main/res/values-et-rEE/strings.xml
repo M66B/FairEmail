@@ -330,6 +330,7 @@
     <string name="title_setup_reset_full">Näita algseid sõnumeid</string>
     <string name="title_check_gmail_oauth">Su Gmaili kontod jätkavad toimimist peale 30. maid 2022</string>
     <string name="title_check_gmail_password">Mõned su Gmaili kontod võivad lõpetada töö peale 30. Maid 2022</string>
+    <string name="title_check_outlook_password">Mõned su Outlooki/Hotmaili/Live kontodest lõpetavad toimimise peale 16. septembrit 2024</string>
     <string name="title_advanced_hint_title">Veel täpsemaid valikuid</string>
     <string name="title_advanced_hint_message">        Liigud edasijõudnute valikute juurde.
         Kõigil valikutel on tavaliselt kasutatavad vaikeväärtused, mida ei ole vaja muuta, kui sul ei ole teistsuguseid eelistusi.
@@ -458,6 +459,7 @@
     <string name="title_advanced_prefer_ip4">Eelista IPv4 IPv6 ees</string>
     <string name="title_advanced_dns">Eelistatud DNS serverite aadressid (komaga eraldatud)</string>
     <string name="title_advanced_dns_custom">Kasuta kohandatud DNS-resolverit</string>
+    <string name="title_advanced_dns_clear">Tühjenda ühenduse muutusel DNS-vahemälu</string>
     <string name="title_advanced_ssl_update">Kasuta uuendatud SSL pakkujat</string>
     <string name="title_advanced_ssl_harden">SSL-ühenduste karastamine</string>
     <string name="title_advanced_ssl_harden_strict">Nõua TLS 1.3</string>
@@ -760,6 +762,7 @@
     <string name="title_advanced_language">Keel</string>
     <string name="title_advanced_language_system">Süsteem</string>
     <string name="title_advanced_integrations_hint">Allpool olevad pilveteenused pole äpi osa. Mistahes maksed lähevad otse pilveteenusele, mitte äpi arendajale.</string>
+    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Integratsioon, mida ei ole konfigureeritud, on täiesti inertne. Kolmandate osapoolte teeke ei kasutata jälgimise ja analüüsi vältimiseks.</string>
     <string name="title_advanced_lt">LanguageTool lõiming</string>
     <string name="title_advanced_lt_sentence">Kontrolli igat lauset</string>
     <string name="title_advanced_lt_auto">Kontrolli lõiku peale igat reavahetust</string>
@@ -838,6 +841,7 @@
     <string name="title_advanced_metered_warning">Selle valiku keelamisel keelatakse mobiilside ühenduse korral ka sõnumite saamine ja saatmine</string>
     <string name="title_advanced_rlah_hint">Eeldusel, et rändlus ei toimu ELis</string>
     <string name="title_advanced_usage_hint">See suurendab aku, andmekasutuse ja talletusruumi kasutust</string>
+    <string name="title_advanced_plain_hint">Selle lubamine piirab küll andmekasutust, kuid sõnumeid näidatakse ilma kujunduse ja piltideta</string>
     <string name="title_advanced_plain_remark">Lihtteksti osa ei sisalda alati kogu sõnumit!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Selle lubamine võib põhjustada mõnedes seadmetes ühenduse probleeme ning suurendada aku kasutust</string>
     <string name="title_advanced_validate_hint">Selle tulemusel võivad sõnumid olla mittesünkroonitud, näiteks VPNi kasutamisel, kuid ka muudes olukordades</string>
@@ -955,6 +959,7 @@
     <string name="title_account_partial_fetch_hint">Keela see vaid tühjade sõnumite või rikutud manuste korral</string>
     <string name="title_account_raw_fetch_hint">Selle lubamine suurendab aku ja andmeside kasutust</string>
     <string name="title_color">Värv</string>
+    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Pilt</string>
     <string name="title_calendar">Kalender</string>
     <string name="title_background">Taust</string>
     <string name="title_transparent">Läbipaistev</string>
@@ -986,6 +991,7 @@
     <string name="title_case_sensitive">Kasutajanimed ja salasõnad on tavaliselt tõstutundlikud</string>
     <string name="title_login_before_send">Hangi enne saatmist</string>
     <string name="title_client_certificate">Kliendi sertifikaat</string>
+    <string name="title_no_key_selected">Võtit ei valitud või võtmed pole saadaval</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Kasuta hosti nime asemel lokaalset IP-aadressi</string>
     <string name="title_ehlo">Kohandatud HELO/EHLO identifitseerimine</string>
@@ -994,9 +1000,12 @@
     <string name="title_primary_identity">Peamine (vaikeidentiteet)</string>
     <string name="title_self_identity">Eemalda vastamisel e-postiaadress</string>
     <string name="title_leave_on_server">Jäta sõnumid serverisse</string>
+    <string name="title_leave_on_server_hint">Pärast sõnumite serverist allalaadimist jäävad sõnumid serverisse</string>
     <string name="title_client_delete">Peale alla laadimist kustuta sõnumeid aktiivselt</string>
     <string name="title_leave_deleted">Jäta kustutatud sõnumid serverisse</string>
+    <string name="title_leave_deleted_hint">Pärast sõnumite seadmest kustutamist jäävad sõnumid serverisse alles</string>
     <string name="title_leave_on_device">Jäta sõnumid seadmesse</string>
+    <string name="title_leave_on_device_hint">Kui sõnumid kustutatakse serverist, jäävad sõnumid seadmesse alles</string>
     <string name="title_max_messages">Allalaaditavate sõnumite maksimumarv (tühi kõigi jaoks)</string>
     <string name="title_max_messages_keep">See on seadmes hoitavate sõnumite maksimumarv</string>
     <string name="title_max_messages_remark">        Sisesta positiivne arv, et sõnumeid lõpus alla laadida (kõige tavalisem).
