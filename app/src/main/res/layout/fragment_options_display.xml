@@ -927,6 +927,19 @@
                     app:layout_constraintTop_toBottomOf="@id/swAvatars"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swBimiVmc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:tag="nosuggest"
+                    android:text="@string/title_advanced_bimi_vmc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swBimi"
+                    app:switchPadding="12dp" />
+
                 <TextView
                     android:id="@+id/tvBimiHint"
                     android:layout_width="wrap_content"
@@ -941,7 +954,7 @@
                     android:textColor="?attr/colorWarning"
                     app:drawableTint="?attr/colorWarning"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swBimi" />
+                    app:layout_constraintTop_toBottomOf="@id/swBimiVmc" />
 
                 <TextView
                     android:id="@+id/tvBimiUnverified"
@@ -1688,7 +1701,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="
-                    swBimi,tvBimiHint,tvBimiVerified,ibBimi,
+                    swBimi,swBimiVmc,BtvBimiHint,tvBimiVerified,ibBimi,
                     swGravatars,tvGravatarsHint,tvGravatarPrivacy,
                     swLibravatars,tvLibravatarsHint,tvLibravatarPrivacy" />
             </androidx.constraintlayout.widget.ConstraintLayout>

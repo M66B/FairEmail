@@ -118,6 +118,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private TextView tvBimiHint;
     private TextView tvBimiUnverified;
     private SwitchCompat swBimi;
+    private SwitchCompat swBimiVmc;
     private SwitchCompat swGravatars;
     private TextView tvGravatarPrivacy;
     private SwitchCompat swLibravatars;
@@ -216,7 +217,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "hide_toolbar", "edge_to_edge", "nav_options", "nav_categories", "nav_last_sync", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "show_unexposed",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_swap", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
-            "avatars", "bimi", "gravatars", "libravatars", "favicons", "favicons_partial", "favicons_manifest", "generated_icons", "identicons",
+            "avatars", "bimi", "bimi_vmc", "gravatars", "libravatars", "favicons", "favicons_partial", "favicons_manifest", "generated_icons", "identicons",
             "circular", "saturation", "brightness", "threshold",
             "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients", "reverse_addresses",
             "font_size_sender", "sender_ellipsize",
@@ -293,6 +294,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swColorStripeWide = view.findViewById(R.id.swColorStripeWide);
         swAvatars = view.findViewById(R.id.swAvatars);
         swBimi = view.findViewById(R.id.swBimi);
+        swBimiVmc = view.findViewById(R.id.swBimiVmc);
         tvBimiHint = view.findViewById(R.id.tvBimiHint);
         tvBimiUnverified = view.findViewById(R.id.tvBimiUnverified);
         ibBimi = view.findViewById(R.id.ibBimi);
@@ -820,6 +822,15 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("bimi", checked).apply();
+                swBimiVmc.setEnabled(checked);
+                ContactInfo.clearCache(compoundButton.getContext());
+            }
+        });
+
+        swBimiVmc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("bimi_vmc", checked).apply();
                 ContactInfo.clearCache(compoundButton.getContext());
             }
         });
@@ -1595,6 +1606,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             //swColorStripeWide.setEnabled(swColorStripe.isChecked());
             swAvatars.setChecked(prefs.getBoolean("avatars", true));
             swBimi.setChecked(prefs.getBoolean("bimi", false));
+            swBimiVmc.setChecked(prefs.getBoolean("bimi_vmc", false));
+            swBimiVmc.setEnabled(swBimi.isChecked());
             swGravatars.setChecked(prefs.getBoolean("gravatars", false));
             swLibravatars.setChecked(prefs.getBoolean("libravatars", false));
             swFavicons.setChecked(prefs.getBoolean("favicons", false));

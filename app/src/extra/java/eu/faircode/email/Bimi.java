@@ -20,11 +20,14 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
+
+import androidx.preference.PreferenceManager;
 
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.ASN1TaggedObject;
@@ -366,8 +369,13 @@ public class Bimi {
             }
         }
 
-        if (bitmap != null && !verified)
+        if (bitmap != null && !verified) {
             Log.i("BIMI unverified");
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean bimi_vmc = prefs.getBoolean("bimi_vmc", false);
+            if (bimi_vmc)
+                bitmap = null;
+        }
 
         return (bitmap == null ? null : new Pair<>(bitmap, verified));
     }
