@@ -3898,7 +3898,7 @@ public class FragmentMessages extends FragmentBase
 
                 args.putInt("answers", db.answer().getAnswerCount(false));
 
-                result.identities = db.identity().getComposableIdentities(message.account);
+                result.identities = db.identity().getComposableIdentities(null);
                 result.answers = db.answer().getAnswersByFavorite(true);
 
                 return result;
@@ -3926,16 +3926,11 @@ public class FragmentMessages extends FragmentBase
                 boolean experiments = prefs.getBoolean("experiments", false);
 
                 boolean canBounce = false;
-                if (message.return_path != null && message.return_path.length == 1) {
+                if (message.return_path != null && message.return_path.length > 0) {
                     canBounce = true;
-                    for (EntityIdentity identity : data.identities)
-                        if (identity.similarAddress(message.return_path[0])) {
-                            canBounce = false;
-                            break;
-                        }
-                    if (canBounce)
-                        for (Address recipient : recipients)
-                            if (MessageHelper.equalEmail(recipient, message.return_path[0])) {
+                    for (Address return_path : message.return_path)
+                        for (EntityIdentity identity : data.identities)
+                            if (identity.similarAddress(return_path)) {
                                 canBounce = false;
                                 break;
                             }
