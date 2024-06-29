@@ -3933,12 +3933,6 @@ public class FragmentMessages extends FragmentBase
                             canBounce = false;
                             break;
                         }
-                    if (canBounce)
-                        for (Address recipient : recipients)
-                            if (MessageHelper.equalEmail(recipient, message.return_path[0])) {
-                                canBounce = false;
-                                break;
-                            }
                 }
 
                 boolean canResend = message.content;
