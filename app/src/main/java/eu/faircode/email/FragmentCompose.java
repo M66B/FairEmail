@@ -4553,6 +4553,8 @@ public class FragmentCompose extends FragmentBase {
                     if (acertificates != null)
                         for (EntityCertificate acertificate : acertificates) {
                             X509Certificate cert = acertificate.getCertificate();
+                            if (!SmimeHelper.match(privkey, cert))
+                                continue;
                             try {
                                 cert.checkValidity();
                                 certs.add(cert);
@@ -4575,7 +4577,7 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 // Allow sender to decrypt own message
-                if (own)
+                if (own && SmimeHelper.match(privkey, chain[0]))
                     certs.add(chain[0]);
 
                 // Build signature

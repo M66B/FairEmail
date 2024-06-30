@@ -21,7 +21,11 @@ package eu.faircode.email;
 
 import android.content.Context;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.cert.X509Certificate;
 import java.util.List;
+import java.util.Objects;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -41,5 +45,14 @@ public class SmimeHelper {
         }
 
         return (all ? count == recipients.size() : count > 0);
+    }
+
+    static boolean match(PrivateKey privkey, X509Certificate cert) {
+        if (privkey == null || cert == null)
+            return false;
+        PublicKey pubkey = cert.getPublicKey();
+        if (pubkey == null)
+            return false;
+        return Objects.equals(privkey.getAlgorithm(), pubkey.getAlgorithm());
     }
 }
