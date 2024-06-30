@@ -3199,7 +3199,7 @@ public class HtmlHelper {
         return ssb;
     }
 
-    static void highlightSearched(Context context, Document document, String query) {
+    static void highlightSearched(Context context, Document document, String query, boolean partial) {
         try {
             int color = Helper.resolveColor(context, R.attr.colorHighlight);
 
@@ -3213,8 +3213,13 @@ public class HtmlHelper {
                     sb.append(Pattern.quote(w));
                 }
             }
-            sb.insert(0, ".*?\\b(");
-            sb.append(")\\b.*?");
+            if (partial) {
+                sb.insert(0, ".*?(");
+                sb.append(").*?");
+            } else {
+                sb.insert(0, ".*?\\b(");
+                sb.append(")\\b.*?");
+            }
 
             // TODO: match für for fur
             Pattern p = Pattern.compile(sb.toString(), Pattern.DOTALL | Pattern.CASE_INSENSITIVE);

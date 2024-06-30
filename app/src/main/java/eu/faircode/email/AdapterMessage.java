@@ -210,6 +210,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private String type;
     private boolean found;
     private String searched;
+    private boolean searchedPartial;
     private ViewType viewType;
     private boolean compact;
     private int zoom;
@@ -3328,7 +3329,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         HtmlHelper.autoLink(document);
 
                         if (message.ui_found && found && !TextUtils.isEmpty(searched))
-                            HtmlHelper.highlightSearched(context, document, searched);
+                            HtmlHelper.highlightSearched(context, document, searched, searchedPartial);
 
                         boolean overview_mode = prefs.getBoolean("overview_mode", false);
                         HtmlHelper.setViewport(document, overview_mode);
@@ -3357,7 +3358,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         HtmlHelper.autoLink(document);
 
                         if (message.ui_found && found && !TextUtils.isEmpty(searched))
-                            HtmlHelper.highlightSearched(context, document, searched);
+                            HtmlHelper.highlightSearched(context, document, searched, searchedPartial);
 
                         // Cleanup message
                         document = HtmlHelper.sanitizeView(context, document, show_images);
@@ -4686,7 +4687,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("lpos", getAdapterPosition())
                             .putExtra("filter_archive", filter_archive)
                             .putExtra("found", viewType == ViewType.SEARCH)
-                            .putExtra("searched", searched);
+                            .putExtra("searched", searched)
+                            .putExtra("searchedPartial", searchedPartial);
 
                     boolean doubletap = prefs.getBoolean("doubletap", false);
 
@@ -8176,7 +8178,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     AdapterMessage(Fragment parentFragment,
-                   String type, boolean found, String searched, ViewType viewType,
+                   String type, boolean found, String searched, boolean searchedPartial, ViewType viewType,
                    boolean compact, int zoom, boolean large_buttons, String sort, boolean ascending,
                    boolean filter_duplicates, boolean filter_trash,
                    final IProperties properties) {
@@ -8184,6 +8186,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.type = type;
         this.found = found;
         this.searched = searched;
+        this.searchedPartial = searchedPartial;
         this.viewType = viewType;
         this.compact = compact;
         this.zoom = zoom;

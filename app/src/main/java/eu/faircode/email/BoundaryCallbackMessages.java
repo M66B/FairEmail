@@ -1283,6 +1283,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             return term;
         }
 
+        boolean isPartial() {
+            return !this.fts;
+        }
+
         String getTitle(Context context) {
             List<String> flags = new ArrayList<>();
             if (with_unseen)

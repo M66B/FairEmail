@@ -327,6 +327,7 @@ public class FragmentMessages extends FragmentBase
     private boolean filter_archive;
     private boolean found;
     private String searched;
+    private boolean searchedPartial;
     private boolean pinned;
     private String msgid;
     private BoundaryCallbackMessages.SearchCriteria criteria = null;
@@ -471,11 +472,14 @@ public class FragmentMessages extends FragmentBase
         filter_archive = args.getBoolean("filter_archive", true);
         found = args.getBoolean("found", false);
         searched = args.getString("searched");
+        searchedPartial = args.getBoolean("searchedPartial");
         pinned = args.getBoolean("pinned", false);
         msgid = args.getString("msgid");
         criteria = (BoundaryCallbackMessages.SearchCriteria) args.getSerializable("criteria");
-        if (criteria != null)
+        if (criteria != null) {
             searched = criteria.query;
+            searchedPartial = criteria.isPartial();
+        }
         pane = args.getBoolean("pane", false);
         primary = args.getLong("primary", -1);
         connected = args.getBoolean("connected", false);
@@ -1260,7 +1264,7 @@ public class FragmentMessages extends FragmentBase
             filter_trash = false;
 
         adapter = new AdapterMessage(
-                this, type, found, searched, viewType,
+                this, type, found, searched, searchedPartial, viewType,
                 compact, zoom, large_buttons, sort, ascending,
                 filter_duplicates, filter_trash,
                 iProperties);
@@ -8082,6 +8086,7 @@ public class FragmentMessages extends FragmentBase
                         nargs.putInt("lpos", forward ^ reversed ? lpos + 1 : lpos - 1);
                 nargs.putBoolean("found", found);
                 nargs.putString("searched", searched);
+                nargs.putBoolean("searchedPartial", searchedPartial);
                 nargs.putBoolean("pane", pane);
                 nargs.putLong("primary", primary);
                 nargs.putBoolean("connected", connected);
