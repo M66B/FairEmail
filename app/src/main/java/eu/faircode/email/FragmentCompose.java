@@ -4600,6 +4600,9 @@ public class FragmentCompose extends FragmentBase {
                 // Encrypt
                 CMSEnvelopedDataGenerator cmsEnvelopedDataGenerator = new CMSEnvelopedDataGenerator();
                 if ("EC".equals(privkey.getAlgorithm())) {
+                    // openssl ecparam -name secp384r1 -genkey -out ecdsa.key
+                    // openssl req -new -x509 -days 365 -key ecdsa.key -sha256 -out ecdsa.crt
+                    // openssl pkcs12 -export -out ecdsa.pfx -inkey ecdsa.key -in ecdsa.crt
                     // https://datatracker.ietf.org/doc/html/draft-ietf-smime-3278bis
                     JceKeyAgreeRecipientInfoGenerator gen = new JceKeyAgreeRecipientInfoGenerator(
                             CMSAlgorithm.ECCDH_SHA256KDF,
@@ -4610,6 +4613,7 @@ public class FragmentCompose extends FragmentBase {
                         gen.addRecipient(cert);
                     cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
                     // https://security.stackexchange.com/a/53960
+                    // https://stackoverflow.com/questions/7073319/
                     // throw new IllegalArgumentException("ECDSA cannot be used for encryption");
                 } else {
                     for (X509Certificate cert : certs) {
