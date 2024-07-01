@@ -114,6 +114,14 @@ public class EntityCertificate {
                 .generateCertificate(new ByteArrayInputStream(encoded));
     }
 
+    String getSigAlgName() {
+        try {
+            return getCertificate().getSigAlgName();
+        } catch (Throwable ex) {
+            return null;
+        }
+    }
+
     String getPem() throws CertificateException, IOException {
         StringWriter writer = new StringWriter();
         JcaPEMWriter pemWriter = new JcaPEMWriter(writer);

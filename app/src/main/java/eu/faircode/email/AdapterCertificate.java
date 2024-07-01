@@ -194,7 +194,11 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         private void bindTo(EntityCertificate certificate) {
             tvEmail.setText(certificate.email);
             ivIntermediate.setVisibility(certificate.intermediate ? View.VISIBLE : View.INVISIBLE);
-            tvSubject.setText(certificate.subject);
+            String subject = certificate.subject;
+            String algo = certificate.getSigAlgName();
+            if (algo != null)
+                subject = algo + " " + subject;
+            tvSubject.setText(subject);
             tvAfter.setText(certificate.after == null ? null : TF.format(certificate.after));
             tvBefore.setText(certificate.before == null ? null : TF.format(certificate.before));
             tvExpired.setVisibility(certificate.isExpired() ? View.VISIBLE : View.GONE);
