@@ -519,6 +519,8 @@
     <string name="title_advanced_color_stripe">Mostrar franja de color</string>
     <string name="title_advanced_color_stripe_wide">Usar banda de color ancha</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
+    <string name="title_advanced_bimi">Mostrar Brand Indicators for Message Identification (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">Requerir un certificado VMC válido</string>
     <string name="title_advanced_bimi_unverified">Remitente no verificado</string>
     <string name="title_advanced_bimi_verified">Remitente verificado</string>
     <string name="title_advanced_gravatars">Mostrar Gravatares</string>
@@ -526,6 +528,7 @@
     <string name="title_advanced_favicons">Mostrar favicons</string>
     <string name="title_advanced_favicons_partial">Escanear solo los primeros %1$s de la página web</string>
     <string name="title_advanced_favicons_manifest">Escanear manifiestos de aplicación web</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Requerir verificación DMARC para imágenes externas</string>
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar iconos redondos</string>
