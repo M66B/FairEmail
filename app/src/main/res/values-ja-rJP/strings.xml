@@ -448,7 +448,7 @@
     <string name="title_advanced_dns_clear">接続が変更された場合、DNS キャッシュをクリアする</string>
     <string name="title_advanced_ssl_update">更新された SSL プロバイダーを使用する</string>
     <string name="title_advanced_ssl_harden">より強固な SSL 接続</string>
-    <string name="title_advanced_ssl_harden_strict">TLS 1.3 を要求する</string>
+    <string name="title_advanced_ssl_harden_strict">TLS 1.3 を必須にする</string>
     <string name="title_advanced_cert_strict">厳格な証明書確認</string>
     <string name="title_advanced_cert_transparency">証明書の透明性 (Certificate Transparency)</string>
     <string name="title_advanced_check_names">ホスト名をサーバー証明書と比較して確認する</string>
@@ -506,6 +506,8 @@
     <string name="title_advanced_color_stripe">カラーストライプを表示する</string>
     <string name="title_advanced_color_stripe_wide">幅広のカラーストライプを使用する</string>
     <string name="title_advanced_avatars">連絡先の写真を表示する</string>
+    <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) を表示する</string>
+    <string name="title_advanced_bimi_vmc">有効な VMC 証明書を必須にする</string>
     <string name="title_advanced_bimi_unverified">未確認の差出人</string>
     <string name="title_advanced_bimi_verified">認証済みの差出人</string>
     <string name="title_advanced_gravatars">Gravatar を表示する</string>
@@ -513,6 +515,7 @@
     <string name="title_advanced_favicons">ファビコンを表示する</string>
     <string name="title_advanced_favicons_partial">ウェブページの最初の %1$s だけをスキャンする</string>
     <string name="title_advanced_favicons_manifest">ウェブアプリマニフェストをスキャンする</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">外部の画像アイコンの表示に DMARC を必須にする</string>
     <string name="title_advanced_generated_icons">アイコンを生成して表示する</string>
     <string name="title_advanced_identicons">Identicon を表示する</string>
     <string name="title_advanced_circular">丸アイコンを表示する</string>
@@ -748,7 +751,7 @@
     <string name="title_advanced_language">言語</string>
     <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_integrations_hint">以下のクラウドサービスはアプリの一部ではありません。すべての支払いはアプリ開発者ではなく、クラウドサービスに直接支払われます。</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">統合を設定していない場合は、自発的に動作することはありません。ユーザー追跡やトラッキング防止のため、サードパーティーのライブラリーは使用していません。</string>
+    <string name="title_advanced_integrations_inert">統合を設定していない場合は、自発的に動作することはありません。ユーザー追跡やトラッキング防止のため、サードパーティーのライブラリーは使用していません。</string>
     <string name="title_advanced_lt">LanguageTool を統合する</string>
     <string name="title_advanced_lt_sentence">一文ごとに確認する</string>
     <string name="title_advanced_lt_auto">改行後に段落を確認する</string>
@@ -945,7 +948,7 @@
     <string name="title_account_partial_fetch_hint">メッセージが空の場合や添付ファイルが破損している場合にのみ無効にする</string>
     <string name="title_account_raw_fetch_hint">有効にするとバッテリーとデータの使用量が増加します</string>
     <string name="title_color">色</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">画像</string>
+    <string name="title_avatar">画像</string>
     <string name="title_calendar">カレンダー</string>
     <string name="title_background">背景</string>
     <string name="title_transparent">透過</string>

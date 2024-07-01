@@ -548,6 +548,8 @@
     <string name="title_advanced_color_stripe">Показувати смугу кольорів</string>
     <string name="title_advanced_color_stripe_wide">Використовувати широку смугу кольорів</string>
     <string name="title_advanced_avatars">Показувати фото контактів</string>
+    <string name="title_advanced_bimi">Показувати індикатори брендів для ідентифікації повідомлень (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">Вимагати чинного сертифіката VMC</string>
     <string name="title_advanced_bimi_unverified">Неперевірений відправник</string>
     <string name="title_advanced_bimi_verified">Перевірений відправник</string>
     <string name="title_advanced_gravatars">Показувати Gravatars</string>
@@ -555,6 +557,7 @@
     <string name="title_advanced_favicons">Показати піктограми сайтів</string>
     <string name="title_advanced_favicons_partial">Просканувати у вебсторінці тільки перші %1$s</string>
     <string name="title_advanced_favicons_manifest">Сканувати маніфести веб-додатків</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Вимагати перевірку DMARC для зовнішніх зображень</string>
     <string name="title_advanced_generated_icons">Показувати згенеровані іконки</string>
     <string name="title_advanced_identicons">Показувати ідентикони</string>
     <string name="title_advanced_circular">Показувати круглі іконки</string>
@@ -789,7 +792,7 @@
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Системи</string>
     <string name="title_advanced_integrations_hint">Хмарні сервіси, вказані внизу, не є частиною застосунку. Будь-які платежі потраплять безпосередньо до хмарного сервісу, а не до розробника застосунку.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Інтеграція, яка не налаштована, є повністю неактивною. Жодні сторонні бібліотеки, що перешкоджають відстеженню та аналітиці, не використовуються.</string>
+    <string name="title_advanced_integrations_inert">Інтеграція, яка не налаштована, є повністю неактивною. Жодні сторонні бібліотеки, що перешкоджають відстеженню та аналітиці, не використовуються.</string>
     <string name="title_advanced_lt">Інтеграція з LanguageTool</string>
     <string name="title_advanced_lt_sentence">Перевіряти кожне речення</string>
     <string name="title_advanced_lt_auto">Перевіряти абзац після нового рядка</string>
@@ -986,7 +989,7 @@
     <string name="title_account_partial_fetch_hint">Вимкнути це лише у випадку пустих повідомлень або пошкоджених вкладень</string>
     <string name="title_account_raw_fetch_hint">Увімкнення цієї функції збільшить витрату заряду акумулятора та даних</string>
     <string name="title_color">Колір</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Зображення</string>
+    <string name="title_avatar">Зображення</string>
     <string name="title_calendar">Календар</string>
     <string name="title_background">Тло</string>
     <string name="title_transparent">Прозорість</string>

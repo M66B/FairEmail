@@ -515,6 +515,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_color_stripe">Renk şeridini göster</string>
     <string name="title_advanced_color_stripe_wide">Geniş renkli şerit kullanın</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
+    <string name="title_advanced_bimi_vmc">Geçerli bir VMC sertifikası gerektirir</string>
     <string name="title_advanced_bimi_unverified">Doğrulanmamış gönderen</string>
     <string name="title_advanced_bimi_verified">Doğrulanmış gönderen</string>
     <string name="title_advanced_gravatars">Gravatar\'ları göster</string>
@@ -756,7 +757,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_integrations_hint">Aşağıdaki bulut hizmetleri uygulamanın bir parçası değildir. Herhangi bir ödeme, uygulama geliştiricisine değil, doğrudan bulut hizmetine gidecektir.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Yapılandırılmamış bir entegrasyon tamamen etkisizdir. İzleme ve analizleri önlemek için hiçbir üçüncü taraf kütüphanesi kullanılmaz.</string>
+    <string name="title_advanced_integrations_inert">Yapılandırılmamış bir entegrasyon tamamen etkisizdir. İzleme ve analizleri önlemek için hiçbir üçüncü taraf kütüphanesi kullanılmaz.</string>
     <string name="title_advanced_lt">Dil Aracı entegrasyonu</string>
     <string name="title_advanced_lt_sentence">Her cümleyi kontrol et</string>
     <string name="title_advanced_lt_auto">Yeni bir satırdan sonra paragrafı kontrol et</string>
@@ -954,7 +955,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_account_partial_fetch_hint">Bunu yalnızca boş iletiler veya bozuk ekler olması durumunda devre dışı bırakın</string>
     <string name="title_account_raw_fetch_hint">Bunu etkinleştirmek pil ve veri kullanımını artıracaktır</string>
     <string name="title_color">Renk</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Resim</string>
+    <string name="title_avatar">Resim</string>
     <string name="title_calendar">Takvim</string>
     <string name="title_background">Arka Plan</string>
     <string name="title_transparent">Şeffaf</string>

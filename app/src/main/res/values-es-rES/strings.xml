@@ -760,7 +760,7 @@
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_integrations_hint">Los servicios en la nube a continuación no son parte de la aplicación. Cualquier pago irá directamente al servicio en la nube y no al desarrollador de la aplicación.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Una integración que no está configurada es completamente inerte. No se están utilizando librerías de terceros para prevenir el rastreo y el análisis.</string>
+    <string name="title_advanced_integrations_inert">Una integración que no está configurada es completamente inerte. No se están utilizando librerías de terceros para prevenir el rastreo y el análisis.</string>
     <string name="title_advanced_lt">Integración con LanguageTool</string>
     <string name="title_advanced_lt_sentence">Comprobar cada oración</string>
     <string name="title_advanced_lt_auto">Comprobar párrafo después de una nueva línea</string>
@@ -958,7 +958,7 @@
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
     <string name="title_account_raw_fetch_hint">Activar esto aumentará el uso de batería y datos</string>
     <string name="title_color">Color</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Imagen</string>
+    <string name="title_avatar">Imagen</string>
     <string name="title_calendar">Calendario</string>
     <string name="title_background">Fondo</string>
     <string name="title_transparent">Transparente</string>

@@ -505,6 +505,8 @@
     <string name="title_advanced_color_stripe">头像前显示一条色带</string>
     <string name="title_advanced_color_stripe_wide">使用宽色条</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
+    <string name="title_advanced_bimi">显示消息识别的品牌指示器 (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">需要有效的 VMC 证书</string>
     <string name="title_advanced_bimi_unverified">未验证的发送者</string>
     <string name="title_advanced_bimi_verified">已验证的发送者</string>
     <string name="title_advanced_gravatars">显示 Gravatars 头像</string>
@@ -512,6 +514,7 @@
     <string name="title_advanced_favicons">显示网页图标</string>
     <string name="title_advanced_favicons_partial">只扫描网页的前 %1$s 数据</string>
     <string name="title_advanced_favicons_manifest">扫描Web应用清单</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">外部图像需要 DMARC 验证</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_circular">使用圆形图标</string>
@@ -746,7 +749,7 @@
     <string name="title_advanced_language">界面语言</string>
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_integrations_hint">下面的云服务不是应用的一部分。任何付款都将直接提供给云服务，而不是应用开发者。</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">未配置的集成是完全无效的。没有使用第三方库用于防止跟踪和分析。</string>
+    <string name="title_advanced_integrations_inert">未配置的集成是完全无效的。没有使用第三方库用于防止跟踪和分析。</string>
     <string name="title_advanced_lt">LanguageTool 集成</string>
     <string name="title_advanced_lt_sentence">检查每个句子</string>
     <string name="title_advanced_lt_auto">换行后检查段落</string>
@@ -944,7 +947,7 @@
     <string name="title_account_partial_fetch_hint">仅在邮件为空或附件损坏的情况下禁用此功能</string>
     <string name="title_account_raw_fetch_hint">启用此功能会增加耗电和数据使用量</string>
     <string name="title_color">颜色</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">图片</string>
+    <string name="title_avatar">图片</string>
     <string name="title_calendar">日历</string>
     <string name="title_background">背景</string>
     <string name="title_transparent">透明</string>

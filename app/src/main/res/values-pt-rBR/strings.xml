@@ -519,6 +519,8 @@
     <string name="title_advanced_color_stripe">Mostrar faixa de cores</string>
     <string name="title_advanced_color_stripe_wide">Use faixa de cores largas</string>
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
+    <string name="title_advanced_bimi">Mostrar Indicadores de Marca para Identificação de Mensagens (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">Exigir um certificado VMC válido</string>
     <string name="title_advanced_bimi_unverified">Remetente não verificado</string>
     <string name="title_advanced_bimi_verified">Remetente verificado</string>
     <string name="title_advanced_gravatars">Mostrar Gravatares</string>
@@ -526,6 +528,7 @@
     <string name="title_advanced_favicons">Mostrar ícone de favoritos</string>
     <string name="title_advanced_favicons_partial">Escanear apenas o primeiro %1$s da página web</string>
     <string name="title_advanced_favicons_manifest">Escanear manifestos do aplicativo web</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Exigir verificação DMARC para imagens externas</string>
     <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar ícones redondos</string>
@@ -760,7 +763,7 @@
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_integrations_hint">Os serviços em nuvem abaixo não fazem parte do aplicativo. Quaisquer pagamentos irão diretamente para o serviço em nuvem e não para o desenvolvedor do aplicativo.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Uma integração que não está configurada é completamente inerte. Nenhuma biblioteca de terceiros está sendo usada para impedir rastreamento e análise.</string>
+    <string name="title_advanced_integrations_inert">Uma integração que não está configurada é completamente inerte. Nenhuma biblioteca de terceiros está sendo usada para impedir rastreamento e análise.</string>
     <string name="title_advanced_lt">Integração com LanguageTool</string>
     <string name="title_advanced_lt_sentence">Verifique cada frase</string>
     <string name="title_advanced_lt_auto">Verificar parágrafo depois de uma nova linha</string>
@@ -958,7 +961,7 @@
     <string name="title_account_partial_fetch_hint">Desativar isto somente em caso de mensagens vazias ou anexos corrompidos</string>
     <string name="title_account_raw_fetch_hint">Habilitar isso aumentará o uso de bateria e dados</string>
     <string name="title_color">Cor</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Imagem</string>
+    <string name="title_avatar">Imagem</string>
     <string name="title_calendar">Calendário</string>
     <string name="title_background">Fundo</string>
     <string name="title_transparent">Transparente</string>

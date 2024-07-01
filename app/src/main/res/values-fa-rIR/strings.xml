@@ -450,6 +450,8 @@
     <string name="title_advanced_color_stripe">نمایش نوار رنگ</string>
     <string name="title_advanced_color_stripe_wide">استفاده از نوار رنگی پهن</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
+    <string name="title_advanced_bimi">نمایش نشانگرهای برند برای شناسایی پیام (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">نیازمند گواهینامه VMC معتبر</string>
     <string name="title_advanced_bimi_unverified">فرستنده تاییدنشده</string>
     <string name="title_advanced_bimi_verified">فرستنده تایید شده</string>
     <string name="title_advanced_gravatars">نمایش Gravatar ها</string>
@@ -457,6 +459,7 @@
     <string name="title_advanced_favicons">نمایش فاوآیکون‌ها</string>
     <string name="title_advanced_favicons_partial">تنها %1$s صفحه اول از صفحات وب را اسکن کن</string>
     <string name="title_advanced_favicons_manifest">اسکن فهرست اپلیکیشن‌های مبتنی بر وب</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">نیازمند تایید DMARC برای تصاویر خارجی</string>
     <string name="title_advanced_generated_icons">نمایس آیکون‌های تولید شده</string>
     <string name="title_advanced_identicons">نمایش identicons</string>
     <string name="title_advanced_circular">نمایش آیکون‌های گرد</string>
@@ -607,7 +610,7 @@
     <string name="title_advanced_language">زبان</string>
     <string name="title_advanced_language_system">سیستم</string>
     <string name="title_advanced_integrations_hint">سرویس‌های ابری زیر بخشی از اپلیکیشن نیستند. هرگونه پرداختی مستقیما به ارائه‌دهنده سرویس ابری و نه توسعه‌دهنده اپلیکیشن واریز خواهد شد.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">یکپارچه‌سازی که پیکربندی نشده است کاملا بی‌اثر است. از هیچ کتابخانه شخص ثالثی برای جلوگیری از ردیابی و تجزیه و تحلیل استفاده نمی‌شود.</string>
+    <string name="title_advanced_integrations_inert">یکپارچه‌سازی که پیکربندی نشده است کاملا بی‌اثر است. از هیچ کتابخانه شخص ثالثی برای جلوگیری از ردیابی و تجزیه و تحلیل استفاده نمی‌شود.</string>
     <string name="title_advanced_lt">یکپارچگی ابزارهای زبانی</string>
     <string name="title_advanced_lt_description">نمایش پاپ‌آپ همراه با شرح مشکل</string>
     <string name="title_advanced_multi_modal">چند وجهی</string>
@@ -685,7 +688,7 @@
     <string name="title_account_name">نام حساب</string>
     <string name="title_account_name_hint">برای افتراق پوشه‌ها استفاده می‌شود</string>
     <string name="title_color">رنگ</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">عکس</string>
+    <string name="title_avatar">عکس</string>
     <string name="title_calendar">تقویم</string>
     <string name="title_account_ondemand">همگام‌سازی دستی</string>
     <string name="title_account_notify">اعلانات جداگانه</string>

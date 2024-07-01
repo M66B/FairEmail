@@ -548,6 +548,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_color_stripe">Zobrazit barevný pruh</string>
     <string name="title_advanced_color_stripe_wide">Použít široký barevný pruh</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
+    <string name="title_advanced_bimi">Zobrazit Brand Indicators for Message Identification (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">Vyžaduje platný certifikát VMC</string>
     <string name="title_advanced_bimi_unverified">Neověřený odesílatel</string>
     <string name="title_advanced_bimi_verified">Ověřený odesílatel</string>
     <string name="title_advanced_gravatars">Zobrazit Gravatary</string>
@@ -555,6 +557,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_favicons">Zobrazit ikony stránek</string>
     <string name="title_advanced_favicons_partial">Skenovat pouze prvních %1$s na webové stránce</string>
     <string name="title_advanced_favicons_manifest">Skenovat manifest webové aplikace</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Vyžadovat ověření DMARC pro externí obrázky</string>
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
     <string name="title_advanced_circular">Zobrazit kulaté ikony</string>
@@ -789,7 +792,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_integrations_hint">Níže uvedené služby nejsou součástí aplikace. Veškeré platby budou směřovat přímo na účet cloudové služby a ne pro vývojáře aplikací.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Integrace, která není nakonfigurována, je zcela inerční. Žádné knihovny třetích stran nejsou používány k zabránění sledování a analýze.</string>
+    <string name="title_advanced_integrations_inert">Integrace, která není nakonfigurována, je zcela inerční. Žádné knihovny třetích stran nejsou používány k zabránění sledování a analýze.</string>
     <string name="title_advanced_lt">Integrace LanguageTool</string>
     <string name="title_advanced_lt_sentence">Zkontrolovat každou větu</string>
     <string name="title_advanced_lt_auto">Zkontrolujte odstavec po novém řádku</string>
@@ -987,7 +990,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_account_partial_fetch_hint">Vypnout pouze v případě prázdných zpráv nebo poškozených příloh</string>
     <string name="title_account_raw_fetch_hint">Povolením této funkce se zvýší využití baterie a dat</string>
     <string name="title_color">Barva</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Obrázek</string>
+    <string name="title_avatar">Obrázek</string>
     <string name="title_calendar">Kalendář</string>
     <string name="title_background">Pozadí</string>
     <string name="title_transparent">Průhledný</string>

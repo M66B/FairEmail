@@ -760,7 +760,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_integrations_hint">De ûndersteande cloudtsjinsten binne gjin ûnderdiel fan de app. Alle betellingen geane daliks nei de cloudtsjinst en net nei de app-ûntwikkeler.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">In yntegraasje dy’t net konfigurearreis, is folslein ynert. Der wurde gjin eksterne biblioteken brûkt om tracking en analytics foar te kommen.</string>
+    <string name="title_advanced_integrations_inert">In yntegraasje dy’t net konfigurearreis, is folslein ynert. Der wurde gjin eksterne biblioteken brûkt om tracking en analytics foar te kommen.</string>
     <string name="title_advanced_lt">LanguageTool-yntegraasje</string>
     <string name="title_advanced_lt_sentence">Kontrolearje elke sin</string>
     <string name="title_advanced_lt_auto">Alinea nei in nije rigel kontrolearje</string>
@@ -957,7 +957,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_account_partial_fetch_hint">Skeakelje dit allinnich út yn gefal fan lege berjochten of korrupte bylagen</string>
     <string name="title_account_raw_fetch_hint">Dit ynskeakelje sil it batterij- en gegevensferbrûk ferheegje</string>
     <string name="title_color">Kleur</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Ofbylding</string>
+    <string name="title_avatar">Ofbylding</string>
     <string name="title_calendar">Kalinder</string>
     <string name="title_background">Eftergrûn</string>
     <string name="title_transparent">Transparant</string>

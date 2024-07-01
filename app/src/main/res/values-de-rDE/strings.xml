@@ -521,6 +521,8 @@
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
     <string name="title_advanced_color_stripe_wide">Breite Farbstreifen verwenden</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
+    <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) anzeigen</string>
+    <string name="title_advanced_bimi_vmc">Gültiges VMC-Zertifikat voraussetzen</string>
     <string name="title_advanced_bimi_unverified">Ungeprüfter Absender</string>
     <string name="title_advanced_bimi_verified">Überprüfter Absender</string>
     <string name="title_advanced_gravatars">Gravatare anzeigen</string>
@@ -528,6 +530,7 @@
     <string name="title_advanced_favicons">Favicons anzeigen</string>
     <string name="title_advanced_favicons_partial">Nur die ersten %1$s der Webseite scannen</string>
     <string name="title_advanced_favicons_manifest">Web-App-Manifeste scannen</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">DMARC-Überprüfung für externe Bilder voraussetzen</string>
     <string name="title_advanced_generated_icons">Generierte Symbole anzeigen (Anfangsbuchstaben)</string>
     <string name="title_advanced_identicons">Identicons anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole anzeigen</string>
@@ -763,7 +766,7 @@
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_integrations_hint">Die nachfolgenden Cloud-Dienste sind nicht Teil der App. Alle Zahlungen gehen direkt an den Cloud-Dienst und nicht an den App-Entwickler.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Eine nicht konfigurierte Integration ist vollständig inaktiv. Um das Nachverfolgen und das Analysieren Ihres Verhaltens zu verhindern, werden keine Bibliotheken von Dritten verwendet.</string>
+    <string name="title_advanced_integrations_inert">Eine nicht konfigurierte Integration ist vollständig inaktiv. Um das Nachverfolgen und das Analysieren Ihres Verhaltens zu verhindern, werden keine Bibliotheken von Dritten verwendet.</string>
     <string name="title_advanced_lt">LanguageTool-Integration</string>
     <string name="title_advanced_lt_sentence">Jeden Satz prüfen</string>
     <string name="title_advanced_lt_auto">Absatz nach einer neuen Zeile prüfen</string>
@@ -961,7 +964,7 @@
     <string name="title_account_partial_fetch_hint">Nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen deaktivieren</string>
     <string name="title_account_raw_fetch_hint">Das Aktivieren dieser Funktion erhöht den Akku- und Datenverbrauch</string>
     <string name="title_color">Farbe</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Bild</string>
+    <string name="title_avatar">Bild</string>
     <string name="title_calendar">Kalender</string>
     <string name="title_background">Hintergrund</string>
     <string name="title_transparent">Transparent</string>

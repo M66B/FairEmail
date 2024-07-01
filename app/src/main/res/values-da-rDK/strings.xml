@@ -520,6 +520,8 @@
     <string name="title_advanced_color_stripe">Vis farvestripe</string>
     <string name="title_advanced_color_stripe_wide">Benyt bred farvestribe</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
+    <string name="title_advanced_bimi">Vis Brand Indicators for Message Identification (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">Kræv gyldigt VMC-certifikat</string>
     <string name="title_advanced_bimi_unverified">Ubekræftet afsender</string>
     <string name="title_advanced_bimi_verified">Bekræftet afsender</string>
     <string name="title_advanced_gravatars">Vis Gravatarer</string>
@@ -527,6 +529,7 @@
     <string name="title_advanced_favicons">Vis favoritkoner</string>
     <string name="title_advanced_favicons_partial">Skan kun de første %1$s af websiden</string>
     <string name="title_advanced_favicons_manifest">Skan web-app manifester</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Kræv DMARC-bekræftelse for eksterne billeder</string>
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
     <string name="title_advanced_identicons">Vis identikoner</string>
     <string name="title_advanced_circular">Vis runde ikoner</string>
@@ -762,7 +765,7 @@
     <string name="title_advanced_language">Sprog</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_integrations_hint">Cloud-tjenesterne nedenfor er ikke en del af appen, og evt. betalinger vil gå direkte til tjenesten og ikke til app-udvikleren.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">En ikke-opsat integration er helt inaktiv. Ingen tredjepartsbiblioteker bruges til at forhindre sporing og analysesystemer.</string>
+    <string name="title_advanced_integrations_inert">En ikke-opsat integration er helt inaktiv. Ingen tredjepartsbiblioteker bruges til at forhindre sporing og analysesystemer.</string>
     <string name="title_advanced_lt">LanguageTool-integration</string>
     <string name="title_advanced_lt_sentence">Tjek hver sætning</string>
     <string name="title_advanced_lt_auto">Tjek afsnit efter en ny linje</string>
@@ -960,7 +963,7 @@
     <string name="title_account_partial_fetch_hint">Deaktivér dette kun i tilfælde af tomme beskeder eller ødelagte vedhæftninger</string>
     <string name="title_account_raw_fetch_hint">Aktivering vil forøge strøm- og dataforbruget</string>
     <string name="title_color">Farve</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Billede</string>
+    <string name="title_avatar">Billede</string>
     <string name="title_calendar">Kalender</string>
     <string name="title_background">Baggrund</string>
     <string name="title_transparent">Gennemsigtig</string>

@@ -548,6 +548,8 @@
     <string name="title_advanced_color_stripe">הצגת פס צבע</string>
     <string name="title_advanced_color_stripe_wide">להשתמש בפס צבע רחב</string>
     <string name="title_advanced_avatars">הצגת תמונות אנשי קשר</string>
+    <string name="title_advanced_bimi">הצגת בוררי מיתוג לזיהוי הודעה (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">לדרוש אישור VMC תקין</string>
     <string name="title_advanced_bimi_unverified">מוען בלתי מאומת</string>
     <string name="title_advanced_bimi_verified">מוען מאומת</string>
     <string name="title_advanced_gravatars">הצגת Gravatarים</string>
@@ -555,6 +557,7 @@
     <string name="title_advanced_favicons">הצגת סמלי אתרים</string>
     <string name="title_advanced_favicons_partial">לסרוק רק את %1$s הראשונים של עמוד האינטרנט</string>
     <string name="title_advanced_favicons_manifest">סריקת מניפסטים של יישומוני דפדפן</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">לדרוש תיקוף DMARC לתמונות חיצוניות</string>
     <string name="title_advanced_generated_icons">הצגת סמלים שנוצרו אוטומטית</string>
     <string name="title_advanced_identicons">הצגת סמלי זיהוי</string>
     <string name="title_advanced_circular">הצגת סמלים מעוגלים</string>
@@ -790,7 +793,7 @@
     <string name="title_advanced_language">שפה</string>
     <string name="title_advanced_language_system">מערכת</string>
     <string name="title_advanced_integrations_hint">שירותי הענן אינם עוד חלק מהיישום. יש לשלם ישירות לספק הענן ולא למפתחי התוכנה.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">שילוב שלא מוגדר כראוי אינו פעיל. לא נעשה שימוש בספריות מגורמי צד־שלישי כדי למנוע מעקב וניתוח.</string>
+    <string name="title_advanced_integrations_inert">שילוב שלא מוגדר כראוי אינו פעיל. לא נעשה שימוש בספריות מגורמי צד־שלישי כדי למנוע מעקב וניתוח.</string>
     <string name="title_advanced_lt">שילוב מול LanguageTool</string>
     <string name="title_advanced_lt_sentence">לבדוק כל משפט</string>
     <string name="title_advanced_lt_auto">בדיקת פסקה אחרי שורה חדשה</string>
@@ -987,7 +990,7 @@
     <string name="title_account_partial_fetch_hint">יש להשבית את זה רק במקרה של הודעות ריקות או קבצים מצורפים פגומים</string>
     <string name="title_account_raw_fetch_hint">הפעלת האפשרות תגדיל את ניצולת הסוללה והתעבורה</string>
     <string name="title_color">צבע</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">תמונה</string>
+    <string name="title_avatar">תמונה</string>
     <string name="title_calendar">לוח שנה</string>
     <string name="title_background">רקע</string>
     <string name="title_transparent">שקוף</string>

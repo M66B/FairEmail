@@ -762,7 +762,7 @@
     <string name="title_advanced_language">Keel</string>
     <string name="title_advanced_language_system">Süsteem</string>
     <string name="title_advanced_integrations_hint">Allpool olevad pilveteenused pole äpi osa. Mistahes maksed lähevad otse pilveteenusele, mitte äpi arendajale.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Integratsioon, mida ei ole konfigureeritud, on täiesti inertne. Kolmandate osapoolte teeke ei kasutata jälgimise ja analüüsi vältimiseks.</string>
+    <string name="title_advanced_integrations_inert">Integratsioon, mida ei ole konfigureeritud, on täiesti inertne. Kolmandate osapoolte teeke ei kasutata jälgimise ja analüüsi vältimiseks.</string>
     <string name="title_advanced_lt">LanguageTool lõiming</string>
     <string name="title_advanced_lt_sentence">Kontrolli igat lauset</string>
     <string name="title_advanced_lt_auto">Kontrolli lõiku peale igat reavahetust</string>
@@ -959,7 +959,7 @@
     <string name="title_account_partial_fetch_hint">Keela see vaid tühjade sõnumite või rikutud manuste korral</string>
     <string name="title_account_raw_fetch_hint">Selle lubamine suurendab aku ja andmeside kasutust</string>
     <string name="title_color">Värv</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Pilt</string>
+    <string name="title_avatar">Pilt</string>
     <string name="title_calendar">Kalender</string>
     <string name="title_background">Taust</string>
     <string name="title_transparent">Läbipaistev</string>

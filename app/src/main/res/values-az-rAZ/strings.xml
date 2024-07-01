@@ -520,6 +520,8 @@
     <string name="title_advanced_color_stripe">Rəng zolağını göstər</string>
     <string name="title_advanced_color_stripe_wide">Geniş rəng zolağı istifadə et</string>
     <string name="title_advanced_avatars">Əlaqə fotolarını göstər</string>
+    <string name="title_advanced_bimi">Mesaj İdentifikasiyası üçün Marka İndikatorlarını (BIMI) göstər</string>
+    <string name="title_advanced_bimi_vmc">Yararlı bir VMC sertifikatını tələb et</string>
     <string name="title_advanced_bimi_unverified">Doğrulanmamış göndərən</string>
     <string name="title_advanced_bimi_verified">Doğrulanmış göndərən</string>
     <string name="title_advanced_gravatars">\"Gravatar\"ları göstər</string>
@@ -527,6 +529,7 @@
     <string name="title_advanced_favicons">\"Favicon\"ları göstər</string>
     <string name="title_advanced_favicons_partial">Veb səhifədəki yalnız ilk %1$s skan edilsin</string>
     <string name="title_advanced_favicons_manifest">Veb tətbiq manifestlərini skan et</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Xarici təsvirlər üçün DMARC doğrulamasını tələb et</string>
     <string name="title_advanced_generated_icons">Yaradılmış nişanları göstər</string>
     <string name="title_advanced_identicons">Kimlikləri göstər</string>
     <string name="title_advanced_circular">Dairəvi nişanları göstər</string>
@@ -762,7 +765,7 @@
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_integrations_hint">Aşağıdakı bulud xidmətləri tətbiqin bir hissəsi deyil. Bütün ödənişlər birbaşa bulud xidmətinə gedir, tətbiq tərtibatçısına deyil.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Konfiqurasiya olunmayan inteqrasiya tamamilə təsirsizdir. İzləməni və analitikanı önləmək üçün heç bir üçüncü tərəf kitabxana istifadə edilmir.</string>
+    <string name="title_advanced_integrations_inert">Konfiqurasiya olunmayan inteqrasiya tamamilə təsirsizdir. İzləməni və analitikanı önləmək üçün heç bir üçüncü tərəf kitabxana istifadə edilmir.</string>
     <string name="title_advanced_lt">LanguageTool inteqrasiyası</string>
     <string name="title_advanced_lt_sentence">Hər bir cümləni yoxla</string>
     <string name="title_advanced_lt_auto">Yeni bir sətirdən sonra paraqrafı yoxla</string>
@@ -959,7 +962,7 @@
     <string name="title_account_partial_fetch_hint">Bunu yalnız boş mesajlar və ya zədəli qoşmalar olduğu halda sıradan çıxardın</string>
     <string name="title_account_raw_fetch_hint">Bunu fəallaşdırmaq batareya və internet istifadəsini artıracaq</string>
     <string name="title_color">Rəng</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Təsvir</string>
+    <string name="title_avatar">Təsvir</string>
     <string name="title_calendar">Təqvim</string>
     <string name="title_background">Arxaplan</string>
     <string name="title_transparent">Şəffaf</string>

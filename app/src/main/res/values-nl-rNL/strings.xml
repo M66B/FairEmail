@@ -518,6 +518,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_color_stripe">Toon kleurenstreep</string>
     <string name="title_advanced_color_stripe_wide">Gebruik brede kleurenstreep</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
+    <string name="title_advanced_bimi">Toon Brand Indicators for Message Identification (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">Vereis een geldig VMC-certificaat</string>
     <string name="title_advanced_bimi_unverified">Niet-geverifieerde afzender</string>
     <string name="title_advanced_bimi_verified">Geverifieerde afzender</string>
     <string name="title_advanced_gravatars">Toon Gravatars</string>
@@ -525,6 +527,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_favicons">Toon favicons</string>
     <string name="title_advanced_favicons_partial">Alleen de eerste %1$s van de webpagina scannen</string>
     <string name="title_advanced_favicons_manifest">Scan webapp-manifesten</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Vereis DMARC-verificatie voor externe afbeeldingen</string>
     <string name="title_advanced_generated_icons">Toon gegenereerde pictogrammen</string>
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_circular">Toon ronde pictogrammen</string>
@@ -758,7 +761,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_integrations_hint">De onderstaande cloudservices maken geen deel uit van de app. Alle betalingen gaan direct naar de cloudservice en niet naar de app-ontwikkelaar.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Een integratie die niet is geconfigureerd is volledig inert. Er worden geen externe bibliotheken gebruikt om tracking en analytics te voorkomen.</string>
+    <string name="title_advanced_integrations_inert">Een integratie die niet is geconfigureerd is volledig inert. Er worden geen externe bibliotheken gebruikt om tracking en analytics te voorkomen.</string>
     <string name="title_advanced_lt">LanguageTool integratie</string>
     <string name="title_advanced_lt_sentence">Controleer elke zin</string>
     <string name="title_advanced_lt_auto">Controleer alinea na een nieuwe regel</string>
@@ -956,7 +959,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_account_partial_fetch_hint">Schakel dit alleen uit in het geval van lege berichten of corrupte bijlagen</string>
     <string name="title_account_raw_fetch_hint">Dit inschakelen zal het batterij- en gegevensverbruik verhogen</string>
     <string name="title_color">Kleur</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Afbeelding</string>
+    <string name="title_avatar">Afbeelding</string>
     <string name="title_calendar">Agenda</string>
     <string name="title_background">Achtergrond</string>
     <string name="title_transparent">Doorzichtig</string>

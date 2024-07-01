@@ -547,6 +547,8 @@
     <string name="title_advanced_color_stripe">Pokaż kolorowy pasek</string>
     <string name="title_advanced_color_stripe_wide">Użyj szerokiego kolorowego paska</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
+    <string name="title_advanced_bimi">Pokazuj \"Brand Indicators for Message Identification (BIMI)\"</string>
+    <string name="title_advanced_bimi_vmc">Wymagaj ważnego certyfikatu VMC</string>
     <string name="title_advanced_bimi_unverified">Niezweryfikowany nadawca</string>
     <string name="title_advanced_bimi_verified">Zweryfikowany nadawca</string>
     <string name="title_advanced_gravatars">Pokaż Gravatary</string>
@@ -554,6 +556,7 @@
     <string name="title_advanced_favicons">Pokaż favikony</string>
     <string name="title_advanced_favicons_partial">Skanuj tylko pierwsze %1$s strony internetowej</string>
     <string name="title_advanced_favicons_manifest">Skanuj manifesty aplikacji internetowych</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Wymagaj weryfikacji DMARC dla zewnętrznych obrazów</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokaż ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
@@ -788,7 +791,7 @@
     <string name="title_advanced_language">Język</string>
     <string name="title_advanced_language_system">Systemowy</string>
     <string name="title_advanced_integrations_hint">Poniższe usługi w chmurze nie są częścią aplikacji. Wszelkie płatności zostaną przekazane bezpośrednio do usługi w chmurze, a nie do twórcy aplikacji.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Integracja, która nie jest skonfigurowana, jest całkowicie obojętna. Żadne biblioteki nie są używane do zapobiegania śledzeniu i analizowaniu.</string>
+    <string name="title_advanced_integrations_inert">Integracja, która nie jest skonfigurowana, jest całkowicie obojętna. Żadne biblioteki nie są używane do zapobiegania śledzeniu i analizowaniu.</string>
     <string name="title_advanced_lt">Integracja LanguageTool</string>
     <string name="title_advanced_lt_sentence">Sprawdzaj każde zdanie</string>
     <string name="title_advanced_lt_auto">Sprawdź akapit po nowym wierszu</string>
@@ -986,7 +989,7 @@
     <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
     <string name="title_account_raw_fetch_hint">Włączenie tej opcji spowoduje zwiększenie zużycia baterii i danych</string>
     <string name="title_color">Kolor</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Obraz</string>
+    <string name="title_avatar">Obraz</string>
     <string name="title_calendar">Kalendarz</string>
     <string name="title_background">Tło</string>
     <string name="title_transparent">Przeźroczysty</string>

@@ -458,6 +458,7 @@
     <string name="title_advanced_prefer_ip4">Να προτιμάται IPv4 παρά IPv6</string>
     <string name="title_advanced_dns">Διευθύνσεις προτιμώμενων διακομιστών DNS (χωρισμένες με κόμμα)</string>
     <string name="title_advanced_dns_custom">Χρήση προσαρμοσμένου επιλυτή DNS</string>
+    <string name="title_advanced_dns_clear">Εκκαθάριση προσωρινής μνήμης DNS κατά τις αλλαγές συνδεσιμότητας</string>
     <string name="title_advanced_ssl_update">Χρήση ενημερωμένου παρόχου SSL</string>
     <string name="title_advanced_ssl_harden">Θωράκιση συνδέσεων SSL</string>
     <string name="title_advanced_ssl_harden_strict">Απαιτείται TLS 1.3</string>
@@ -518,6 +519,8 @@
     <string name="title_advanced_color_stripe">Προβολή χρωματιστής λωρίδας</string>
     <string name="title_advanced_color_stripe_wide">Χρήση φαρδιάς λωρίδας χρώματος</string>
     <string name="title_advanced_avatars">Προβολή φωτογραφιών επαφών</string>
+    <string name="title_advanced_bimi">Προβολή των Brand Indicators for Message Identification (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">Να απαιτείται έγκυρο πιστοποιητικό VMC</string>
     <string name="title_advanced_bimi_unverified">Μη επαληθευμένος αποστολέας</string>
     <string name="title_advanced_bimi_verified">Επαληθευμένος αποστολέας</string>
     <string name="title_advanced_gravatars">Προβολή Gravatar</string>
@@ -525,6 +528,7 @@
     <string name="title_advanced_favicons">Προβολή favicon</string>
     <string name="title_advanced_favicons_partial">Να σαρωθεί μόνο το πρώτο %1$s της ιστοσελίδας</string>
     <string name="title_advanced_favicons_manifest">Σάρωση των manifest της εφαρμογής ιστού</string>
+    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Να απαιτείται επαλήθευση DMARC για εξωτερικές εικόνες</string>
     <string name="title_advanced_generated_icons">Να προβάλλονται εικονίδια που δημιουργούνται αυτόματα</string>
     <string name="title_advanced_identicons">Προβολή identicon</string>
     <string name="title_advanced_circular">Στρογγυλεμένα εικονίδια</string>
@@ -758,6 +762,7 @@
     <string name="title_advanced_language">Γλώσσα</string>
     <string name="title_advanced_language_system">Σύστημα</string>
     <string name="title_advanced_integrations_hint">Οι παρακάτω υπηρεσίες νέφους (cloud) δεν αποτελούν μέρος της εφαρμογής. Οποιεσδήποτε πληρωμές θα πιστωθούν απευθείας στην υπηρεσία του νέφους και όχι στον προγραμματιστή της εφαρμογής.</string>
+    <string name="title_advanced_integrations_inert">Μια ενσωμάτωση που δεν έχει ρυθμιστεί, παραμένει τελείως αδρανής. Προκειμένου να αποτραπεί η παρακολούθηση και η ανάλυση της συμπεριφοράς σας, δεν χρησιμοποιούνται βιβλιοθήκες τρίτων.</string>
     <string name="title_advanced_lt">Ενσωμάτωση του LanguageTool</string>
     <string name="title_advanced_lt_sentence">Έλεγχος κάθε πρότασης</string>
     <string name="title_advanced_lt_auto">Έλεγχος της παραγράφου μετά από μία νέα γραμμή</string>
@@ -954,6 +959,7 @@
     <string name="title_account_partial_fetch_hint">Απενεργοποιήστε το μόνο σε περιπτώσεις κενών μηνυμάτων ή χαλασμένων συνημμένων</string>
     <string name="title_account_raw_fetch_hint">Αν ενεργοποιηθεί, θα αυξηθεί η κατανάλωση μπαταρίας και δεδομένων</string>
     <string name="title_color">Χρώμα</string>
+    <string name="title_avatar">Εικόνα</string>
     <string name="title_calendar">Ημερολόγιο</string>
     <string name="title_background">Φόντο</string>
     <string name="title_transparent">Διαφανές</string>

@@ -759,7 +759,7 @@
     <string name="title_advanced_language">Nyelv</string>
     <string name="title_advanced_language_system">Rendszer</string>
     <string name="title_advanced_integrations_hint">Az alábbi felhőszolgáltatások nem az alkalmazás részei. Az esetleges kifizetések közvetlenül a felhőszolgáltatónak történnek, nem az alkalmazás fejlesztőjének.</string>
-    <string name="title_advanced_integrations_inert" comment="title_advanced_integrations_inert&#10;Remark at the top of the integration settings tab page">Egy nem konfigurált integráció teljesen inaktív. Nem használunk harmadik féltől származó könyvtárakat a nyomon követés és az analitika megakadályozására.</string>
+    <string name="title_advanced_integrations_inert">Egy nem konfigurált integráció teljesen inaktív. Nem használunk harmadik féltől származó könyvtárakat a nyomon követés és az analitika megakadályozására.</string>
     <string name="title_advanced_lt">LanguageTool integráció</string>
     <string name="title_advanced_lt_sentence">Minden mondat ellenőrzése</string>
     <string name="title_advanced_lt_auto">Bekezdés ellenőrzése új sor után</string>
@@ -956,7 +956,7 @@
     <string name="title_account_partial_fetch_hint">Csak hiányzó üzenet szövegek vagy hibás mellékletek esetén kapcsolja ki ezt az opciót</string>
     <string name="title_account_raw_fetch_hint">Engedélyezése magasabb akkumulátor- és adathasználattal jár</string>
     <string name="title_color">Szín</string>
-    <string name="title_avatar" comment="title_avatar&#10;Title for button to select an image (avatar) for an account">Kép</string>
+    <string name="title_avatar">Kép</string>
     <string name="title_calendar">Naptár</string>
     <string name="title_background">Háttér</string>
     <string name="title_transparent">Átlátszó</string>
