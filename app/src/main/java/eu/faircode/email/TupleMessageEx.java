@@ -39,6 +39,7 @@ public class TupleMessageEx extends EntityMessage {
     public Integer accountColor;
     public boolean accountNotify;
     public boolean accountSummary;
+    public boolean accountLeaveOnServer;
     public boolean accountLeaveDeleted;
     public boolean accountAutoSeen;
     public String folderName;
@@ -136,6 +137,7 @@ public class TupleMessageEx extends EntityMessage {
                     Objects.equals(this.accountColor, other.accountColor) &&
                     this.accountNotify == other.accountNotify &&
                     this.accountSummary == other.accountSummary &&
+                    this.accountLeaveOnServer == other.accountLeaveOnServer &&
                     this.accountLeaveDeleted == other.accountLeaveDeleted &&
                     this.accountAutoSeen == other.accountAutoSeen &&
                     this.folderName.equals(other.folderName) &&

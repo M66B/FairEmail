@@ -6414,12 +6414,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setEnabled(message.uid != null ||
                             message.accountProtocol == EntityAccount.TYPE_POP)
                     .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP ||
-                            EntityFolder.INBOX.equals(message.folderType));
+                            (EntityFolder.INBOX.equals(message.folderType) && message.accountLeaveOnServer));
             popupMenu.getMenu().findItem(R.id.menu_charset)
                     .setEnabled(message.uid != null ||
                             message.accountProtocol == EntityAccount.TYPE_POP)
                     .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP ||
-                            EntityFolder.INBOX.equals(message.folderType));
+                            (EntityFolder.INBOX.equals(message.folderType) && message.accountLeaveOnServer));
 
             popupMenu.getMenu().findItem(R.id.menu_alternative)
                     .setTitle(message.isPlainOnly()
@@ -6427,7 +6427,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setEnabled(message.hasAlt() && !message.isEncrypted() &&
                             (message.uid != null || message.accountProtocol == EntityAccount.TYPE_POP))
                     .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP ||
-                            EntityFolder.INBOX.equals(message.folderType));
+                            (EntityFolder.INBOX.equals(message.folderType) && message.accountLeaveOnServer));
 
             popupMenu.insertIcons(context);
 
