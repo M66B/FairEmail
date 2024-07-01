@@ -3514,28 +3514,8 @@ class Core {
                             List<String> signers = helper.verifyDKIM(context);
                             message.dkim = !signers.isEmpty();
                             message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
-                            if (message.dkim) {
-                                boolean aligned = helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
-                                if (aligned)
-                                    message.dmarc = true;
-                                else if (message.dmarc != null) {
-                                    boolean found = false;
-                                    if (!strict_alignment) {
-                                        String asigner = helper.getSigner(authentication);
-                                        String adomain = UriHelper.getRootDomain(context, asigner);
-                                        if (adomain != null)
-                                            for (String signer : signers) {
-                                                String sdomain = UriHelper.getRootDomain(context, signer);
-                                                if (adomain.equalsIgnoreCase(sdomain)) {
-                                                    found = true;
-                                                    break;
-                                                }
-                                            }
-                                    }
-                                    if (!found)
-                                        message.dmarc = false;
-                                }
-                            }
+                            message.dmarc = helper.isAligned(context, signers,
+                                    message.return_path, message.smtp_from, message.from, helper.getSPF());
                         }
 
                         if (message.size == null && message.total != null)
@@ -4721,28 +4701,8 @@ class Core {
                 List<String> signers = helper.verifyDKIM(context);
                 message.dkim = !signers.isEmpty();
                 message.signedby = (signers.isEmpty() ? null : TextUtils.join(",", signers));
-                if (message.dkim) {
-                    boolean aligned = helper.isAligned(context, signers, message.return_path, message.smtp_from, message.from);
-                    if (aligned)
-                        message.dmarc = true;
-                    else if (message.dmarc != null) {
-                        boolean found = false;
-                        if (!strict_alignment) {
-                            String asigner = helper.getSigner(authentication);
-                            String adomain = UriHelper.getRootDomain(context, asigner);
-                            if (adomain != null)
-                                for (String signer : signers) {
-                                    String sdomain = UriHelper.getRootDomain(context, signer);
-                                    if (adomain.equalsIgnoreCase(sdomain)) {
-                                        found = true;
-                                        break;
-                                    }
-                                }
-                        }
-                        if (!found)
-                            message.dmarc = false;
-                    }
-                }
+                message.dmarc = helper.isAligned(context, signers,
+                        message.return_path, message.smtp_from, message.from, helper.getSPF());
             }
 
             // Borrow reply name from sender name

@@ -359,7 +359,7 @@ public class ActivityEML extends ActivityBase {
 
                         List<String> signers = helper.verifyDKIM(context);
                         boolean aligned = helper.isAligned(context, signers,
-                                helper.getReturnPath(), helper.getMailFrom(authentication), helper.getFrom());
+                                helper.getReturnPath(), helper.getMailFrom(authentication), helper.getFrom(), helper.getSPF());
 
                         ssb.append("TLS:   ").append(tls == null ? "-" : (tls ? "✓" : "✗")).append('\n');
                         ssb.append("DKIM:  ").append(dkim == null ? "-" : (dkim ? "✓" : "✗")).append('\n');

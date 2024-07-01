@@ -2718,13 +2718,18 @@ public class MessageHelper {
         return true;
     }
 
-    boolean isAligned(Context context, List<String> signers, Address[] return_path, Address[] smtp_from, Address[] from) {
+    boolean isAligned(Context context, List<String> signers,
+                      Address[] return_path, Address[] smtp_from, Address[] from,
+                      Boolean spf) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean strict_alignment = prefs.getBoolean("strict_alignment", false);
+
         List<Address> envelop = new ArrayList<>();
         if (return_path != null)
             envelop.addAll(Arrays.asList(return_path));
         if (from != null)
             envelop.addAll(Arrays.asList(from));
-        if (smtp_from != null)
+        if (smtp_from != null && !strict_alignment)
             envelop.addAll(Arrays.asList(smtp_from));
         for (String signer : signers) {
             String sdomain = UriHelper.getRootDomain(context, signer);
@@ -2736,6 +2741,10 @@ public class MessageHelper {
                     return true;
             }
         }
+
+        if (Boolean.TRUE.equals(spf) && !strict_alignment)
+            return true;
+
         return false;
     }
 
