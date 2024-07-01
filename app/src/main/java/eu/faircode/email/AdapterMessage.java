@@ -6397,12 +6397,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_show_html).setVisible(hasWebView && message.content);
 
-            boolean canRaw = (message.uid != null ||
-                    (EntityFolder.INBOX.equals(message.folderType) &&
-                            message.accountProtocol == EntityAccount.TYPE_POP));
-            popupMenu.getMenu().findItem(R.id.menu_raw_save).setEnabled(canRaw);
-            popupMenu.getMenu().findItem(R.id.menu_raw_send_message).setEnabled(canRaw);
-            popupMenu.getMenu().findItem(R.id.menu_raw_send_thread).setEnabled(canRaw);
+            boolean popReload = (message.accountProtocol == EntityAccount.TYPE_POP &&
+                    message.accountLeaveOnServer &&
+                    EntityFolder.INBOX.equals(message.folderType));
+
+            popupMenu.getMenu().findItem(R.id.menu_raw_save).setEnabled(message.uid != null || popReload);
+            popupMenu.getMenu().findItem(R.id.menu_raw_send_message).setEnabled(message.uid != null || popReload);
+            popupMenu.getMenu().findItem(R.id.menu_raw_send_thread).setEnabled(message.uid != null || popReload);
 
             popupMenu.getMenu().findItem(R.id.menu_thread_info)
                     .setVisible(BuildConfig.DEBUG || debug);
@@ -6413,21 +6414,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_resync)
                     .setEnabled(message.uid != null ||
                             message.accountProtocol == EntityAccount.TYPE_POP)
-                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP ||
-                            (EntityFolder.INBOX.equals(message.folderType) && message.accountLeaveOnServer));
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP || popReload);
             popupMenu.getMenu().findItem(R.id.menu_charset)
                     .setEnabled(message.uid != null ||
                             message.accountProtocol == EntityAccount.TYPE_POP)
-                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP ||
-                            (EntityFolder.INBOX.equals(message.folderType) && message.accountLeaveOnServer));
-
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP || popReload);
             popupMenu.getMenu().findItem(R.id.menu_alternative)
                     .setTitle(message.isPlainOnly()
                             ? R.string.title_alternative_html : R.string.title_alternative_text)
                     .setEnabled(message.hasAlt() && !message.isEncrypted() &&
                             (message.uid != null || message.accountProtocol == EntityAccount.TYPE_POP))
-                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP ||
-                            (EntityFolder.INBOX.equals(message.folderType) && message.accountLeaveOnServer));
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP || popReload);
 
             popupMenu.insertIcons(context);
 
