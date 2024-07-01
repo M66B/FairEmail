@@ -6416,14 +6416,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP ||
                             EntityFolder.INBOX.equals(message.folderType));
             popupMenu.getMenu().findItem(R.id.menu_charset)
-                    .setEnabled(message.uid != null)
-                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+                    .setEnabled(message.uid != null ||
+                            message.accountProtocol == EntityAccount.TYPE_POP)
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP ||
+                            EntityFolder.INBOX.equals(message.folderType));
 
             popupMenu.getMenu().findItem(R.id.menu_alternative)
                     .setTitle(message.isPlainOnly()
                             ? R.string.title_alternative_html : R.string.title_alternative_text)
-                    .setEnabled(message.uid != null && message.hasAlt() && !message.isEncrypted())
-                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+                    .setEnabled(message.hasAlt() && !message.isEncrypted() &&
+                            (message.uid != null || message.accountProtocol == EntityAccount.TYPE_POP))
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP ||
+                            EntityFolder.INBOX.equals(message.folderType));
 
             popupMenu.insertIcons(context);
 
