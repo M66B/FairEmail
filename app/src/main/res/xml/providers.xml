@@ -488,7 +488,8 @@
         documentation="Is &lt;a href=&quot;https://support.gmx.com/pop-imap/toggle.html&quot;&gt;IMAP enabled&lt;/a&gt;? Two factor authentication requires &lt;a href=&quot;https://support.gmx.com/security/2fa/application-specific-passwords.html&quot;&gt;an app password&lt;/a&gt;!"
         domain="gmx\\.com,gmx\\.us"
         keepalive="12"
-        link="https://support.gmx.com/pop-imap/imap/server.html#indexlink_help_pop-imap_imap">
+        link="https://support.gmx.com/pop-imap/imap/server.html#indexlink_help_pop-imap_imap"
+        partial="true">
         <imap
             host="imap.gmx.com"
             port="993"
