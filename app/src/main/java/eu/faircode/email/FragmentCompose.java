@@ -4409,11 +4409,14 @@ public class FragmentCompose extends FragmentBase {
                 PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
                 if (privkey == null)
                     throw new IllegalArgumentException("Private key missing");
+                Log.i("S/MIME privkey algo=" + privkey.getAlgorithm());
 
                 // Get public key
                 X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
                 if (chain == null || chain.length == 0)
                     throw new IllegalArgumentException("Certificate missing");
+                for (X509Certificate cert : chain)
+                    Log.i("S/MIME cert sign algo=" + cert.getSigAlgName() + " " + cert.getSigAlgOID());
 
                 if (check_certificate) {
                     // Check public key validity
@@ -4483,10 +4486,6 @@ public class FragmentCompose extends FragmentBase {
                 String signAlgorithm = prefs.getString("sign_algo_smime", "SHA-256");
 
                 String algorithm = privkey.getAlgorithm();
-                if (TextUtils.isEmpty(algorithm) || "RSA".equals(algorithm))
-                    Log.i("Private key algorithm=" + algorithm);
-                else
-                    Log.e("Private key algorithm=" + algorithm);
 
                 if (TextUtils.isEmpty(algorithm))
                     algorithm = "RSA";
@@ -4494,7 +4493,7 @@ public class FragmentCompose extends FragmentBase {
                     algorithm = "ECDSA";
 
                 algorithm = signAlgorithm.replace("-", "") + "with" + algorithm;
-                Log.i("Sign algorithm=" + algorithm);
+                Log.i("S/MIME using sign algo=" + algorithm);
 
                 ContentSigner contentSigner = new JcaContentSignerBuilder(algorithm)
                         .build(privkey);
@@ -4553,6 +4552,7 @@ public class FragmentCompose extends FragmentBase {
                     if (acertificates != null)
                         for (EntityCertificate acertificate : acertificates) {
                             X509Certificate cert = acertificate.getCertificate();
+                            Log.i("S/MIME " + email + " sign algo=" + cert.getSigAlgName() + " " + cert.getSigAlgOID());
                             if (!SmimeHelper.match(privkey, cert))
                                 continue;
                             try {
@@ -4645,7 +4645,7 @@ public class FragmentCompose extends FragmentBase {
                     default:
                         encryptionOID = CMSAlgorithm.AES128_CBC;
                 }
-                Log.i("Encryption algorithm=" + encryptAlgorithm + " OID=" + encryptionOID);
+                Log.i("S/MIME selected encryption algo=" + encryptAlgorithm + " OID=" + encryptionOID);
 
                 OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(encryptionOID)
                         .build();
