@@ -1787,6 +1787,8 @@ pm install -k --user 0 com.android.documentsui
 
 Alternatively, you might be able to enable the *Files* app again using the Android app settings.
 
+OneDrive doesn't support *view*, only *share*, which means that if you want to open an attachment in OneDrive you need to long press on an attachment.
+
 <br />
 
 <a name="faq26"></a>
