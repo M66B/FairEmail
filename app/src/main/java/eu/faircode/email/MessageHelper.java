@@ -3188,12 +3188,18 @@ public class MessageHelper {
         // Check if 'by' local address
         if (kv.containsKey("by")) {
             String by = kv.get("by").toString();
-            if (by.matches(".*\\.google\\.com"))
+            if (by.matches(".*\\.google\\.com")) {
+                Log.i("--- local by Google");
                 return true;
-            if (by.toLowerCase(Locale.ROOT).contains("sendmail"))
+            }
+            if (by.toLowerCase(Locale.ROOT).contains("sendmail")) {
+                Log.i("--- local by sendmail");
                 return true;
-            if (by.startsWith("filterdrecv-"))
+            }
+            if (by.startsWith("filterdrecv-")) {
+                Log.i("--- local by filterdrecv");
                 return true;
+            }
             if (isLocal(by)) {
                 Log.i("--- local by=" + by);
                 return true;
@@ -3231,8 +3237,10 @@ public class MessageHelper {
         int w = with.indexOf(' ');
         String protocol = (w < 0 ? with : with.substring(0, w)).toLowerCase(Locale.ROOT);
 
-        if (with.contains("TLS"))
+        if (with.contains("TLS")) {
+            Log.i("--- with TLS");
             return true;
+        }
 
         if ("local".equals(protocol)) {
             // Exim
