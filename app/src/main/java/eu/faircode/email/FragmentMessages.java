@@ -11139,6 +11139,7 @@ public class FragmentMessages extends FragmentBase
         Boolean isDrafts;
         boolean hasImap;
         boolean hasPop;
+        Boolean leave_on_server;
         Boolean leave_deleted;
         boolean read_only;
         List<Long> folders;
@@ -11182,7 +11183,7 @@ public class FragmentMessages extends FragmentBase
         boolean canMove() {
             if (read_only)
                 return false;
-            return (imapAccounts.size() > 0);
+            return (!hasPop || Boolean.TRUE.equals(leave_on_server)) && (imapAccounts.size() > 0);
         }
 
         static MoreResult get(Context context, long[] ids, boolean threading, boolean all) {
@@ -11305,6 +11306,12 @@ public class FragmentMessages extends FragmentBase
                     hasJunk = (junk != null && junk.selectable);
                 } else {
                     result.hasPop = true;
+
+                    if (result.leave_on_server == null)
+                        result.leave_on_server = account.leave_on_server;
+                    else
+                        result.leave_on_server = (result.leave_on_server && account.leave_on_server);
+
                     if (result.leave_deleted == null)
                         result.leave_deleted = account.leave_deleted;
                     else
