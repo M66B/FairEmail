@@ -42,7 +42,6 @@ public interface DaoMessage {
     String is_drafts = "folder.type = '" + EntityFolder.DRAFTS + "'";
     String is_outbox = "folder.type = '" + EntityFolder.OUTBOX + "'";
     String is_sent = "folder.type = '" + EntityFolder.SENT + "'";
-    String is_outgoing = is_drafts + " OR " + is_outbox + " OR " + is_sent;
 
     @Transaction
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
@@ -71,7 +70,7 @@ public interface DaoMessage {
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
             ", MAX(CASE WHEN" +
-            "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND NOT (" + is_outgoing + "))" +
+            "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "')" +
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
             "   OR (NOT :found AND folder.type = :type)" +
             "   THEN message.received ELSE 0 END) AS dummy" +
@@ -149,7 +148,7 @@ public interface DaoMessage {
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
             ", MAX(CASE WHEN" +
-            "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND NOT (" + is_outgoing + "))" +
+            "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "')" +
             "   OR (NOT :found AND folder.id = :folder)" +
             "   THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
@@ -1096,7 +1095,7 @@ public interface DaoMessage {
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
             ", MAX(CASE WHEN" +
-            "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND NOT (" + is_outgoing + "))" +
+            "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "')" +
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
             "   OR (NOT :found AND folder.type = :type)" +
             "   THEN message.received ELSE 0 END) AS dummy" +
@@ -1182,7 +1181,7 @@ public interface DaoMessage {
             ", message.priority AS ui_priority" +
             ", message.importance AS ui_importance" +
             ", MAX(CASE WHEN" +
-            "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND NOT (" + is_outgoing + "))" +
+            "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "')" +
             "   OR (NOT :found AND folder.id = :folder)" +
             "   THEN message.received ELSE 0 END) AS dummy" +
             " FROM (SELECT * FROM message" +
