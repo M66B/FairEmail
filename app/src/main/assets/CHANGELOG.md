@@ -12,7 +12,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2209 - 2024-07-03
 
 * Added account images (avatars)
 * Added APK file attestation, see [the FAQ](https://m66b.github.io/FairEmail/#faq205)
