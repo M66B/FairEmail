@@ -673,12 +673,17 @@ public class DnsHelper {
                 ex = new IOException("interrupted");
             }
 
-            if (ex == null) {
-                Log.i("DNS Android answer=" + result);
-                return result;
-            } else {
-                Log.i(ex);
-                throw ex;
+            try {
+                if (ex == null) {
+                    Log.i("DNS Android answer=" + result);
+                    return result;
+                } else {
+                    Log.i(ex);
+                    throw ex;
+                }
+            } finally {
+                ex = null;
+                result = null;
             }
         }
     }
