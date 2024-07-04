@@ -398,7 +398,7 @@
     <string name="title_check_gmail_oauth">Your Gmail accounts will continue to work after May 30, 2022</string>
     <string name="title_check_gmail_password">Some of your Gmail accounts may stop working after May 30, 2022</string>
 
-    <string name="title_check_outlook_oauth" translatable="false">Your Outlook accounts will continue to work after September 16, 2024</string>
+    <string name="title_check_outlook_oauth">Your Outlook accounts will continue to work after September 16, 2024</string>
     <string name="title_check_outlook_password">Some of your Outlook/Hotmail/Live accounts will stop working after September 16, 2024</string>
 
     <string name="title_advanced_hint_title">More advanced options</string>

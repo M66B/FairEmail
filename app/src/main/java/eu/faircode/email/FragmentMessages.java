@@ -5907,6 +5907,7 @@ public class FragmentMessages extends FragmentBase
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         long outlook_last_checked = prefs.getLong("outlook_last_checked", 0);
+        boolean outlook_checked = prefs.getBoolean("outlook_checked", false);
 
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MILLISECOND, 0);
@@ -5944,30 +5945,44 @@ public class FragmentMessages extends FragmentBase
 
             @Override
             protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                int oauth = 0;
                 int passwd = 0;
                 if (accounts != null)
                     for (EntityAccount account : accounts)
-                        if (account.isOutlook() &&
-                                account.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD)
-                            passwd++;
+                        if (account.isOutlook())
+                            if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH)
+                                oauth++;
+                            else if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD)
+                                passwd++;
 
-                if (passwd == 0)
+                if (oauth + passwd == 0)
                     return;
 
-                final Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(view, R.string.title_check_outlook_password, Snackbar.LENGTH_INDEFINITE));
+                if (oauth > 0 && passwd == 0 && outlook_checked)
+                    return;
+
+                boolean checked = (passwd == 0);
+                int resid = (checked ? R.string.title_check_outlook_oauth : R.string.title_check_outlook_password);
+                final Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(view, resid, Snackbar.LENGTH_INDEFINITE));
                 Helper.setSnackbarLines(snackbar, 5);
                 snackbar.setAction(R.string.title_info, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         snackbar.dismiss();
+                        if (checked)
+                            prefs.edit().putBoolean("outlook_checked", true).apply();
+                        else
+                            prefs.edit().putLong("outlook_last_checked", now).apply();
                         Helper.viewFAQ(v.getContext(), 14);
-                        prefs.edit().putLong("outlook_last_checked", now).apply();
                     }
                 });
                 snackbar.addCallback(new Snackbar.Callback() {
                     @Override
                     public void onDismissed(Snackbar transientBottomBar, int event) {
-                        prefs.edit().putLong("outlook_last_checked", now).apply();
+                        if (checked)
+                            prefs.edit().putBoolean("outlook_checked", true).apply();
+                        else
+                            prefs.edit().putLong("outlook_last_checked", now).apply();
                     }
                 });
                 snackbar.show();

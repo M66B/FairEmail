@@ -1274,6 +1274,8 @@ Using the search index is a pro feature.
 >
 > It takes just two minutes to be prepared.
 >
+> If the app said your Outlook accounts will continue to work, you don't need to do anything.
+>
 
 <br />
 
