@@ -658,6 +658,12 @@ public class FragmentPop extends FragmentBase {
                         BuildConfig.DEBUG));
                 Log.i("Account check=" + check);
 
+                boolean reload = (synchronize && !ondemand && account != null &&
+                        (account.leave_on_server != leave_server ||
+                                account.client_delete != client_delete ||
+                                account.leave_deleted != leave_deleted ||
+                                account.leave_on_device != leave_device));
+
                 Long last_connected = null;
                 if (account != null && synchronize == account.synchronize)
                     last_connected = account.last_connected;
@@ -777,6 +783,8 @@ public class FragmentPop extends FragmentBase {
 
                 if (reschedule)
                     ServiceSynchronize.reschedule(context);
+                else if (reload)
+                    ServiceSynchronize.reload(context, account.id, false, "POP3 leave");
                 else
                     ServiceSynchronize.eval(context, "POP3");
 
