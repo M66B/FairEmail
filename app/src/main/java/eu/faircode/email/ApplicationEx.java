@@ -893,6 +893,11 @@ public class ApplicationEx extends Application
                 ContactInfo.clearCache(context); // SVG scale
         }
 
+        if (version < 2210) {
+            if (!BuildConfig.DEBUG)
+                editor.remove("outlook_last_checked").remove("outlook_checked");
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
 
