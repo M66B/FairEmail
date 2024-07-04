@@ -25,11 +25,13 @@
         android:title="@string/title_send"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/menu_zoom"
-        android:icon="@drawable/twotone_format_size_24"
-        android:title="@string/title_zoom"
-        app:showAsAction="ifRoom" />
+    <group android:id="@+id/group_appearance">
+        <item
+            android:id="@+id/menu_zoom"
+            android:icon="@drawable/twotone_format_size_24"
+            android:title="@string/title_zoom"
+            app:showAsAction="ifRoom" />
+    </group>
 
     <group android:id="@+id/group_options">
         <item
