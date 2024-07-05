@@ -533,6 +533,15 @@ public class FragmentRule extends FragmentBase {
         adapterAction.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spAction.setAdapter(adapterAction);
 
+        spAction.setFocusableInTouchMode(true);
+        spAction.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus && spAction.getWindowToken() != null)
+                    spAction.performClick();
+            }
+        });
+
         btnFolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
