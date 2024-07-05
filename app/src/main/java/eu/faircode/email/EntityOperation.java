@@ -125,7 +125,7 @@ public class EntityOperation {
                 boolean ignore = jargs.optBoolean(1, true);
                 EntityAccount account = db.account().getAccount(message.id);
                 for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid, message.hash)) {
-                    if ((account != null && !account.isGmail()) &&
+                    if ((account != null && !account.isGmail() && !account.isWebDe()) &&
                             !Objects.equals(message.id, similar.id) &&
                             Objects.equals(message.msgid, similar.msgid))
                         continue;
