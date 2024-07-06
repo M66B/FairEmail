@@ -318,6 +318,7 @@ public class Bimi {
                         pparams.addCertStore(CertStore.getInstance("Collection", intermediates));
                         pparams.setRevocationEnabled(false);
                         pparams.setDate(null);
+                        // To ignore expired certificates: pparams.setDate(cert.getNotAfter());
 
                         CertPathBuilder builder = CertPathBuilder.getInstance("PKIX");
                         CertPathBuilderResult path = builder.build(pparams);
