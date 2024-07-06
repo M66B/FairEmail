@@ -5969,9 +5969,8 @@ public class FragmentMessages extends FragmentBase
                     @Override
                     public void onClick(View v) {
                         snackbar.dismiss();
-                        if (checked)
-                            prefs.edit().putBoolean("outlook_checked", true).apply();
-                        else
+                        prefs.edit().putBoolean("outlook_checked", true).apply();
+                        if (!checked)
                             prefs.edit().putLong("outlook_last_checked", now).apply();
                         Helper.viewFAQ(v.getContext(), 14);
                     }
@@ -5979,9 +5978,8 @@ public class FragmentMessages extends FragmentBase
                 snackbar.addCallback(new Snackbar.Callback() {
                     @Override
                     public void onDismissed(Snackbar transientBottomBar, int event) {
-                        if (checked)
-                            prefs.edit().putBoolean("outlook_checked", true).apply();
-                        else
+                        prefs.edit().putBoolean("outlook_checked", true).apply();
+                        if (!checked)
                             prefs.edit().putLong("outlook_last_checked", now).apply();
                     }
                 });
