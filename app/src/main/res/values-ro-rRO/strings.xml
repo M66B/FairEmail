@@ -344,6 +344,7 @@
     <string name="title_setup_reset_full">Afișați mesajele originale</string>
     <string name="title_check_gmail_oauth">Conturile dumneavoastră Gmail vor continua să funcționeze și după 30 mai 2022</string>
     <string name="title_check_gmail_password">Este posibil ca unele dintre conturile tale de Gmail să nu mai funcționeze după 30 mai 2022</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Conturile dvs. Outlook vor continua să funcționeze după 16 septembrie 2024</string>
     <string name="title_check_outlook_password">Unele dintre conturile dvs. Outlook/Hotmail/Live nu vor mai funcționa după 16 septembrie 2024</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.        Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
@@ -542,7 +543,7 @@
     <string name="title_advanced_favicons">Arată iconițe siteuri</string>
     <string name="title_advanced_favicons_partial">Scanează numai primele %1$s din pagina web</string>
     <string name="title_advanced_favicons_manifest">Scanarea manifestărilor aplicațiilor web</string>
-    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Necesită verificare DMARC pentru imagini externe</string>
+    <string name="title_advanced_favicons_dmarc">Necesită verificare DMARC pentru imagini externe</string>
     <string name="title_advanced_generated_icons">Arată pictograme cu literă</string>
     <string name="title_advanced_identicons">Arată pictograme generate pe baza identității</string>
     <string name="title_advanced_circular">Arată pictograme rotunde</string>

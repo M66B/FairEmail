@@ -329,6 +329,7 @@
     <string name="title_setup_reset_full">Eredeti szöveg megjelenítése</string>
     <string name="title_check_gmail_oauth">Gmail fiókjai 2022. május 30-a után is működni fognak</string>
     <string name="title_check_gmail_password">Előfordulhat, hogy némely Gmail fiókja nem fog működni 2022. május 30-a után</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Outlook fiókjai 2024. szeptember 16-a után is működni fognak</string>
     <string name="title_check_outlook_password">Egyes Outlook/Hotmail/Live fiókjai nem fognak működni 2024. szeptember 16. után</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
     <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.        Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.
@@ -518,6 +519,8 @@
     <string name="title_advanced_color_stripe">Színszalag megjelenítése</string>
     <string name="title_advanced_color_stripe_wide">Széles színcsík használata</string>
     <string name="title_advanced_avatars">Névjegyzék fényképeinek megjelenítése</string>
+    <string name="title_advanced_bimi">Mutassa a Márkajelzést Üzenetazonosításhoz (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">Érvényes VMC tanúsítvány megkövetelése</string>
     <string name="title_advanced_bimi_unverified">Nem ellenőrzött küldő</string>
     <string name="title_advanced_bimi_verified">Ellenőrzött küldő</string>
     <string name="title_advanced_gravatars">Gravatar képek megjelenítése</string>
@@ -525,6 +528,7 @@
     <string name="title_advanced_favicons">Faviconok megjelenítése</string>
     <string name="title_advanced_favicons_partial">Csak az első %1$s-t olvassa be a weboldalnak</string>
     <string name="title_advanced_favicons_manifest">Nézze át a webalkalmazás jegyzékét</string>
+    <string name="title_advanced_favicons_dmarc">DMARC ellenőrzés megkövetelése külső képek esetén</string>
     <string name="title_advanced_generated_icons">Generált ikonok megjelenítése</string>
     <string name="title_advanced_identicons">Azonosító-ikonok megjelenítése</string>
     <string name="title_advanced_circular">Megjelenített ikonok lekerekítése</string>
@@ -1785,6 +1789,7 @@
     <string name="title_rule_tts_content">Szöveg</string>
     <string name="title_rule_select_sound">Hang kiválasztása</string>
     <string name="title_rule_select_sound_ringtone">Csengőhang</string>
+    <string name="title_rule_select_sound_audio">Hangfájl</string>
     <string name="title_rule_use_as_alarm">Ébresztőként használni</string>
     <string name="title_rule_alarm_hint">Figyelmen kívűl hagyja a \"ne zavarjon\" szabályokat</string>
     <string name="title_rule_alarm_duration">Maximális ébresztő időtartam (másodperc)</string>

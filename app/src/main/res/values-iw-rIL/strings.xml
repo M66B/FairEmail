@@ -358,6 +358,7 @@
     <string name="title_setup_reset_full">הצגת ההודעה המקורית</string>
     <string name="title_check_gmail_oauth">חשבונות ה־Gmail שלך ימשיכו לעבוד גם אחרי 30 במאי 2022</string>
     <string name="title_check_gmail_password">חלק מחשבונות ה־Gmail שלך כנראה יפסיקו לעבוד אחרי 30 במאי 2022</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">חשבונות ה־Outlook שלך ימשיכו לעבוד גם אחרי 16 בספטמבר 2024</string>
     <string name="title_check_outlook_password">חלק מחשבונות ה־Outlook/Hotmail/Live שלך יפסיקו לעבוד אחרי 16 בספטמבר 2024</string>
     <string name="title_advanced_hint_title">אפשרויות יותר מתקדמות</string>
     <string name="title_advanced_hint_message">        בחרת לנווט אל האפשרויות המתקדמות יותר.
@@ -557,7 +558,7 @@
     <string name="title_advanced_favicons">הצגת סמלי אתרים</string>
     <string name="title_advanced_favicons_partial">לסרוק רק את %1$s הראשונים של עמוד האינטרנט</string>
     <string name="title_advanced_favicons_manifest">סריקת מניפסטים של יישומוני דפדפן</string>
-    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">לדרוש תיקוף DMARC לתמונות חיצוניות</string>
+    <string name="title_advanced_favicons_dmarc">לדרוש תיקוף DMARC לתמונות חיצוניות</string>
     <string name="title_advanced_generated_icons">הצגת סמלים שנוצרו אוטומטית</string>
     <string name="title_advanced_identicons">הצגת סמלי זיהוי</string>
     <string name="title_advanced_circular">הצגת סמלים מעוגלים</string>

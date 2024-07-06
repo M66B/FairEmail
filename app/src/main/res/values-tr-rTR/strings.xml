@@ -326,6 +326,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_reset_full">Orijinal mesajları göster</string>
     <string name="title_check_gmail_oauth">Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmaya devam edecek</string>
     <string name="title_check_gmail_password">Bazı Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmayı durdurabilir</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Outlook hesaplarınız 16 Ekim 2024 tarihinden sonra çalışmaya devam edecek</string>
     <string name="title_check_outlook_password">Outlook/Hotmail/Live hesaplarınızdan bazıları 16 Eylül 2024 tarihinden sonra çalışmayı durduracak</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.        Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
@@ -515,6 +516,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_color_stripe">Renk şeridini göster</string>
     <string name="title_advanced_color_stripe_wide">Geniş renkli şerit kullanın</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
+    <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) Göster</string>
     <string name="title_advanced_bimi_vmc">Geçerli bir VMC sertifikası gerektirir</string>
     <string name="title_advanced_bimi_unverified">Doğrulanmamış gönderen</string>
     <string name="title_advanced_bimi_verified">Doğrulanmış gönderen</string>
@@ -523,6 +525,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_favicons">Faviconları göster</string>
     <string name="title_advanced_favicons_partial">Web sayfasının yalnızca ilk %1$s tarayın</string>
     <string name="title_advanced_favicons_manifest">Web uygulaması bildirimlerini tarayın</string>
+    <string name="title_advanced_favicons_dmarc">Dış görseller için DMARC doğrulaması gerektir</string>
     <string name="title_advanced_generated_icons">Oluşturulan simgeleri göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
     <string name="title_advanced_circular">Yuvarlak simgeleri göster</string>
@@ -1071,7 +1074,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_certificate_error">..... Google\'ın Play Store politikaları nedeniyle, Play Store\'da dağıtılan FairEmail sürümü için sertifika sorunları olan e-posta sunucularına güvensiz bağlantıları desteklemek artık mümkün değildir  ...... Bu nedenle, bu sorun yalnızca e-posta sağlayıcınız tarafından çözülebilir - yukarıdaki hata bilgileri bu sorunu çözmelerine yardımcı olabilir.    </string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_expand_read">Genişletirken mesajları okundu olarak işaretle</string>
-    <string name="title_synchronize_now">Şimdi senkronize et</string>
+    <string name="title_synchronize_now">Şimdi eşzamanla</string>
     <string name="title_synchronize_subfolders">Alt Klasörler</string>
     <string name="title_synchronize_more">Daha fazla mesaj yükle</string>
     <string name="title_synchronize_more_hint">Bu, eski mesajların tek bir indirilmesiyle sonuçlanacak, bu nedenle günlük kullanım için daha fazla pil kullanımıyla sonuçlanmayacaktır</string>
@@ -1148,7 +1151,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_navigation_folder_hide">Gezinme menüsünde gizle</string>
     <string name="title_unified_inbox_add">Birleşik gelen kutusunda göster</string>
     <string name="title_unified_inbox_delete">Birleşik gelen kutusundan sil</string>
-    <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
+    <string name="title_synchronize_folder">Eşzamanla (iletileri al)</string>
     <string name="title_poll_folder">Sürekli senkronizasyon yerine belirli aralıklarla kontrol et</string>
     <string name="title_poll_folder_remark">Çoğu e-posta sunucusu push mesajlarına yalnızca birkaç klasör için izin verir!</string>
     <string name="title_download_folder">İleti metinlerini ve eklerini otomatik olarak indir</string>

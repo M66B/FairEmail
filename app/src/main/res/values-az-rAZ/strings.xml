@@ -529,7 +529,7 @@
     <string name="title_advanced_favicons">\"Favicon\"ları göstər</string>
     <string name="title_advanced_favicons_partial">Veb səhifədəki yalnız ilk %1$s skan edilsin</string>
     <string name="title_advanced_favicons_manifest">Veb tətbiq manifestlərini skan et</string>
-    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Xarici təsvirlər üçün DMARC doğrulamasını tələb et</string>
+    <string name="title_advanced_favicons_dmarc">Xarici təsvirlər üçün DMARC doğrulamasını tələb et</string>
     <string name="title_advanced_generated_icons">Yaradılmış nişanları göstər</string>
     <string name="title_advanced_identicons">Kimlikləri göstər</string>
     <string name="title_advanced_circular">Dairəvi nişanları göstər</string>

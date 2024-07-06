@@ -359,6 +359,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_reset_full">Zobrazit původní zprávy</string>
     <string name="title_check_gmail_oauth">Vaše Gmail účty budou fungovat i po 30. květnu 2022</string>
     <string name="title_check_gmail_password">Některé z vašich Gmail účtů mohou přestat fungovat po 30. květnu 2022</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Vaše účty Outlook budou fungovat i po 16. září 2024</string>
     <string name="title_check_outlook_password">Některé z vašich účtů Outlook/Hotmail/Live přestanou fungovat po 16. září 2024</string>
     <string name="title_advanced_hint_title">Pokročilé možnosti</string>
     <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.        Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.
@@ -557,7 +558,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_favicons">Zobrazit ikony stránek</string>
     <string name="title_advanced_favicons_partial">Skenovat pouze prvních %1$s na webové stránce</string>
     <string name="title_advanced_favicons_manifest">Skenovat manifest webové aplikace</string>
-    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Vyžadovat ověření DMARC pro externí obrázky</string>
+    <string name="title_advanced_favicons_dmarc">Vyžadovat ověření DMARC pro externí obrázky</string>
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
     <string name="title_advanced_circular">Zobrazit kulaté ikony</string>

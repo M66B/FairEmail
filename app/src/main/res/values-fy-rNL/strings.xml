@@ -328,6 +328,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_reset_full">Orizjinele berjochten toane</string>
     <string name="title_check_gmail_oauth">Jo Gmail-accounts sille wurkje bliuwe nei 30 maaie 2022</string>
     <string name="title_check_gmail_password">Guon fan jo Gmail-accounts wurkje mooglik net mear nei 30 maaie 2022</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Jo Outlook-accounts sille nei 16 septmber 2024 wurkje bliuwe</string>
     <string name="title_check_outlook_password">Guon fan jo Outlook-/Hotmail-/Live-accounts sille nei 16 septimber 2024 net mear wurkje</string>
     <string name="title_advanced_hint_title">Mear avansearre opsjes</string>
     <string name="title_advanced_hint_message">        Jo navigearje nei de mear avansearre opsjes.
@@ -518,6 +519,8 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_color_stripe">Kleurestreep toane</string>
     <string name="title_advanced_color_stripe_wide">Brede kleurestreep brûke</string>
     <string name="title_advanced_avatars">Kontaktfoto’s toane</string>
+    <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) toane</string>
+    <string name="title_advanced_bimi_vmc">Jildich VMC-sertifikaat fereaskje</string>
     <string name="title_advanced_bimi_unverified">Net-ferifiearre ôfstjoerder</string>
     <string name="title_advanced_bimi_verified">Ferifiearre ôfstjoerder</string>
     <string name="title_advanced_gravatars">Gravatars toane</string>
@@ -525,6 +528,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_favicons">Favicons toane</string>
     <string name="title_advanced_favicons_partial">Allinnich de earste %1$s fan de webside scanne</string>
     <string name="title_advanced_favicons_manifest">Webapp-manifesten scannen</string>
+    <string name="title_advanced_favicons_dmarc">DMARC-ferifikaasje foar eksterne ôfbyldingen fereaskje</string>
     <string name="title_advanced_generated_icons">Generearre ikoanen toane</string>
     <string name="title_advanced_identicons">Identykons toane</string>
     <string name="title_advanced_circular">Rûne ikoanen toane</string>

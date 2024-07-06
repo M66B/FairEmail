@@ -330,6 +330,7 @@
     <string name="title_setup_reset_full">Показване на оригиналните съобщения</string>
     <string name="title_check_gmail_oauth">Вашите акаунти в Gmail ще продължат да работят след 30 май 2022г.</string>
     <string name="title_check_gmail_password">Някои от акаунтите ви в Gmail може да спрат да работят след 30 май 2022г.</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Вашите акаунти в Outlook ще продължат работа след 16 септември 2024г.</string>
     <string name="title_check_outlook_password">Някои от акаунтите ви при Outlook/Hotmail/Live ще спрат да работят след 16 септември 2024г.</string>
     <string name="title_advanced_hint_title">Още разширени възможности</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
@@ -519,6 +520,8 @@
     <string name="title_advanced_color_stripe">Показване на цветна ивица</string>
     <string name="title_advanced_color_stripe_wide">Употреба на широка гама цветове</string>
     <string name="title_advanced_avatars">Показване на снимки на контакт</string>
+    <string name="title_advanced_bimi">Показване на „Brand Indicators for Message Identification“ (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">Изисква се действащо удостоверение на VMC</string>
     <string name="title_advanced_bimi_unverified">Непроверен подател</string>
     <string name="title_advanced_bimi_verified">Проверен подател</string>
     <string name="title_advanced_gravatars">Показване на граватарите (Gravatars)</string>
@@ -526,6 +529,7 @@
     <string name="title_advanced_favicons">Показване на иконата на сайта</string>
     <string name="title_advanced_favicons_partial">Сканиране само на първите %1$s от уебстраницата</string>
     <string name="title_advanced_favicons_manifest">Сканиране на манифести на уеб приложения</string>
+    <string name="title_advanced_favicons_dmarc">Изисква се проверка на DMARC за външни изображения</string>
     <string name="title_advanced_generated_icons">Показване на генерираните икони</string>
     <string name="title_advanced_identicons">Показване на икони за самоличност</string>
     <string name="title_advanced_circular">Закръглени икони</string>

@@ -928,7 +928,7 @@
     <string name="title_print">인쇄</string>
     <string name="title_print_header">제목 인쇄</string>
     <string name="title_print_images">사진 인쇄</string>
-    <string name="title_show_headers">제목 표시</string>
+    <string name="title_show_headers">헤더 표시</string>
     <string name="title_raw_send_message">메시지</string>
     <string name="title_raw_send_thread">대화</string>
     <string name="title_manage_keywords">키워드 관리</string>
@@ -1257,7 +1257,7 @@
     <string name="title_rule_recipient">받는사람 내용</string>
     <string name="title_rule_subject">제목에 포함됨</string>
     <string name="title_rule_attachments">첨부파일</string>
-    <string name="title_rule_header">제목 포함</string>
+    <string name="title_rule_header">해더 포함</string>
     <string name="title_rule_skip_quotes">인용한 텍스트 건너뛰기</string>
     <string name="title_rule_time_every_day">매일</string>
     <string name="title_rule_regex">정규표현식</string>

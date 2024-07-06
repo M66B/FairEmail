@@ -330,6 +330,7 @@
     <string name="title_setup_reset_full">Mostrar mensagens originais</string>
     <string name="title_check_gmail_oauth">Suas contas de Gmail continuarão funcionando após 30 de maio de 2022</string>
     <string name="title_check_gmail_password">Algumas de suas contas de Gmail podem parar de funcionar após 30 de maio de 2022</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Suas contas do Outlook continuarão funcionando após 16 de setembro de 2024</string>
     <string name="title_check_outlook_password">Algumas de suas contas Outlook/Hotmail/Live deixarão de funcionar após 16 de setembro de 2024</string>
     <string name="title_advanced_hint_title">Opções mais avançadas</string>
     <string name="title_advanced_hint_message">        Você está navegando para as opções mais avançadas.        Todas as opções têm comumente usados valores padrão, que você não precisa mudar a menos que você tenha uma preferência diferente.
@@ -528,7 +529,7 @@
     <string name="title_advanced_favicons">Mostrar ícone de favoritos</string>
     <string name="title_advanced_favicons_partial">Escanear apenas o primeiro %1$s da página web</string>
     <string name="title_advanced_favicons_manifest">Escanear manifestos do aplicativo web</string>
-    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Exigir verificação DMARC para imagens externas</string>
+    <string name="title_advanced_favicons_dmarc">Exigir verificação DMARC para imagens externas</string>
     <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar ícones redondos</string>

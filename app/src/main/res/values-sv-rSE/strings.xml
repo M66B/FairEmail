@@ -328,6 +328,7 @@
     <string name="title_setup_reset_full">Visa originalmeddelanden</string>
     <string name="title_check_gmail_oauth">Dina Gmail-konton kommer att fortsätta fungera efter den 30 maj 2022</string>
     <string name="title_check_gmail_password">Vissa av dina Gmail-konton kan sluta fungera efter den 30 maj 2022</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Dina Outlook-konton kommer att fortsätta fungera efter 16 september 2024</string>
     <string name="title_check_outlook_password">Några av dina Outlook/Hotmail/Live-konton kommer att sluta fungera efter 16 september 2024</string>
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
     <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.        Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
@@ -525,7 +526,7 @@
     <string name="title_advanced_favicons">Visa favicons</string>
     <string name="title_advanced_favicons_partial">Skanna bara den första %1$s av webbsidan</string>
     <string name="title_advanced_favicons_manifest">Skanna webbapp manifest efter favicon</string>
-    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Kräv DMARC-verifiering för externa bilder</string>
+    <string name="title_advanced_favicons_dmarc">Kräv DMARC-verifiering för externa bilder</string>
     <string name="title_advanced_generated_icons">Visa genererade ikoner</string>
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_circular">Visa runda ikoner</string>

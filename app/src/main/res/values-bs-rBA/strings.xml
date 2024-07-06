@@ -344,6 +344,7 @@
     <string name="title_setup_reset_full">Prikaži izvorne poruke</string>
     <string name="title_check_gmail_oauth">Vaši Gmail računi radit će nakon 30. maja 2022.</string>
     <string name="title_check_gmail_password">Neki od vaših Gmail računa prestat će raditi nakon 30. maja 2022.</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Vaši Outlook računi će nastaviti raditi nakon 16. septembra 2024.</string>
     <string name="title_check_outlook_password">Neki od vaših Outlook/Hotmail/Live računa će prestati raditi nakon 16. septembra 2024.</string>
     <string name="title_advanced_hint_title">Više naprednih opcija</string>
     <string name="title_advanced_hint_message">        Prebacujete se na više naprednih opcija.
@@ -543,7 +544,7 @@
     <string name="title_advanced_favicons">Prikaži fav ikonice</string>
     <string name="title_advanced_favicons_partial">Skeniraj samo prva(ih) %1$s web stranice</string>
     <string name="title_advanced_favicons_manifest">Skeniraj manifeste web aplikacija</string>
-    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Zahtjevaj DMARC provjeru za vanjske slike</string>
+    <string name="title_advanced_favicons_dmarc">Zahtjevaj DMARC provjeru za vanjske slike</string>
     <string name="title_advanced_generated_icons">Prikaži generisane ikonice</string>
     <string name="title_advanced_identicons">Prikaži identitet ikonice</string>
     <string name="title_advanced_circular">Prikaži zaobljene ikonice</string>

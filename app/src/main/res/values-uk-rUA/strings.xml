@@ -359,6 +359,7 @@
     <string name="title_setup_reset_full">Показати оригінальні повідомлення</string>
     <string name="title_check_gmail_oauth">Ваші облікові записи Gmail продовжать працювати після 30 травня 2022 року</string>
     <string name="title_check_gmail_password">Деякі ваші облікові записи Gmail можуть перестати працювати після 30 травня 2022 року</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Ваші облікові записи Outlook будуть продовжувати працювати після 16 вересня 2024 року</string>
     <string name="title_check_outlook_password">Деякі ваші облікові записи Outlook/Hotmail/Live перестануть працювати після 16 вересня 2024 року</string>
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.        Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
@@ -557,7 +558,7 @@
     <string name="title_advanced_favicons">Показати піктограми сайтів</string>
     <string name="title_advanced_favicons_partial">Просканувати у вебсторінці тільки перші %1$s</string>
     <string name="title_advanced_favicons_manifest">Сканувати маніфести веб-додатків</string>
-    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Вимагати перевірку DMARC для зовнішніх зображень</string>
+    <string name="title_advanced_favicons_dmarc">Вимагати перевірку DMARC для зовнішніх зображень</string>
     <string name="title_advanced_generated_icons">Показувати згенеровані іконки</string>
     <string name="title_advanced_identicons">Показувати ідентикони</string>
     <string name="title_advanced_circular">Показувати круглі іконки</string>

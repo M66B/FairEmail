@@ -161,7 +161,7 @@
     <string name="title_setup_quick">Γρήγορη ρύθμιση</string>
     <string name="title_setup_intro">Η ρύθμιση ενός λογαριασμού αποτελείται από τρία μόνο βήματα και μετά μπορείτε να στέλνετε και να λαμβάνετε μηνύματα ηλ. ταχυδρομείου</string>
     <string name="title_setup_simple">Δεν χρειάζεται να αλλάξετε άλλες επιλογές</string>
-    <string name="title_setup_issue">Το FairEmail αναπτύχθηκε για να προστατεύσει το ιδιωτικό σας απόρρητο, και αντιπροσωπεύει, κυριολεκτικά, χιλιάδες ώρες εργασίας. Αν αντιμετωπίζετε οποιοδήποτε πρόβλημα, παρακαλώ, επικοινωνήστε πρώτα μαζί μου για υποστήριξη, προτού γράψετε μια αρνητική κριτική. Θα χαρώ να σας βοηθήσω!</string>
+    <string name="title_setup_issue">Το FairEmail αναπτύχθηκε για να προστατεύσει το ιδιωτικό σας απόρρητο και αντιπροσωπεύει, κυριολεκτικά, χιλιάδες ώρες εργασίας. Αν αντιμετωπίζετε οποιοδήποτε πρόβλημα, παρακαλώ, επικοινωνήστε πρώτα μαζί μου για υποστήριξη, προτού γράψετε μια αρνητική κριτική. Θα χαρώ να σας βοηθήσω!</string>
     <string name="title_setup_analytics">Το FairEmail δεν προβάλλει διαφημίσεις και δεν παρακολουθεί ή αναλύει τη συμπεριφορά σας. Το Bugsnag χρησιμοποιείται για την αναφορά σφαλμάτων και είναι απενεργοποιημένο από προεπιλογή.</string>
     <string name="title_setup_quick_accounts">Προσθήκη ή αλλαγή λογαριασμών</string>
     <string name="title_setup_quick_support">Ορισμένοι πάροχοι δυσχεραίνουν την προσθήκη ενός λογαριασμού. Παρακαλούμε, μην κατηγορείτε το FairEmail για αυτό, αλλά δοκιμάστε να λάβετε υποστήριξη.</string>
@@ -528,7 +528,7 @@
     <string name="title_advanced_favicons">Προβολή favicon</string>
     <string name="title_advanced_favicons_partial">Να σαρωθεί μόνο το πρώτο %1$s της ιστοσελίδας</string>
     <string name="title_advanced_favicons_manifest">Σάρωση των manifest της εφαρμογής ιστού</string>
-    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">Να απαιτείται επαλήθευση DMARC για εξωτερικές εικόνες</string>
+    <string name="title_advanced_favicons_dmarc">Να απαιτείται επαλήθευση DMARC για εξωτερικές εικόνες</string>
     <string name="title_advanced_generated_icons">Να προβάλλονται εικονίδια που δημιουργούνται αυτόματα</string>
     <string name="title_advanced_identicons">Προβολή identicon</string>
     <string name="title_advanced_circular">Στρογγυλεμένα εικονίδια</string>

@@ -297,6 +297,7 @@
     <string name="title_setup_reset_full">مشاهده پیام‌های اصلی</string>
     <string name="title_check_gmail_oauth">حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، همچنان کار خواهند کرد</string>
     <string name="title_check_gmail_password">تعدادی از حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، ممکن است از کار بیافتند</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">حساب‌های آوت‌لوک شما پس از ۱۶ سپتامبر ۲۰۲۴ همچنان کار خواهند کرد</string>
     <string name="title_check_outlook_password">تعدادی از حساب‌های آوت‌لوک/هات‌میل/لایو شما پس از ۱۶ سپتامبر ۲۰۲۴ از کار خواهند افتاد</string>
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
@@ -459,7 +460,7 @@
     <string name="title_advanced_favicons">نمایش فاوآیکون‌ها</string>
     <string name="title_advanced_favicons_partial">تنها %1$s صفحه اول از صفحات وب را اسکن کن</string>
     <string name="title_advanced_favicons_manifest">اسکن فهرست اپلیکیشن‌های مبتنی بر وب</string>
-    <string name="title_advanced_favicons_dmarc" comment="title_advanced_favicons_dmarc&#10;Title for an option in the display-settings tab page to require DMARC for BIMI logos, favicons, Gravatars and Libravatars">نیازمند تایید DMARC برای تصاویر خارجی</string>
+    <string name="title_advanced_favicons_dmarc">نیازمند تایید DMARC برای تصاویر خارجی</string>
     <string name="title_advanced_generated_icons">نمایس آیکون‌های تولید شده</string>
     <string name="title_advanced_identicons">نمایش identicons</string>
     <string name="title_advanced_circular">نمایش آیکون‌های گرد</string>
