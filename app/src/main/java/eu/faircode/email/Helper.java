@@ -1997,8 +1997,6 @@ public class Helper {
                                     if (tv != null) {
                                         sb.append(" drawables");
                                         tv.setCompoundDrawables(null, null, null, null);
-                                        sb.append(" text");
-                                        tv.setText(new SpannableStringBuilderEx());
                                     }
                                 }
 
