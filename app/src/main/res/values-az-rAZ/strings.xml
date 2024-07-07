@@ -330,6 +330,7 @@
     <string name="title_setup_reset_full">Orijinal mesajları göstər</string>
     <string name="title_check_gmail_oauth">Gmail hesablarınız 30 May 2022-ci il tarixindən sonra işləməyə davam edəcək</string>
     <string name="title_check_gmail_password">Bəzi Gmail hesablarınız 30 May 2022-ci il tarixindən işləməyi dayandıra bilər</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Outlook hesablarınız 16 Sentyabr 2024-cü il tarixindən sonra işləməyə davam edəcək</string>
     <string name="title_check_outlook_password">Outlook/Hotmail/Live hesablarınızdan bəziləri 16 sentyabr 2024-cü il tarixindən etibarən işləməyi dayandıracaq</string>
     <string name="title_advanced_hint_title">Daha çox qabaqcıl seçimlər</string>
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.

@@ -330,6 +330,7 @@
     <string name="title_setup_reset_full">Προβολή αρχικών μηνυμάτων</string>
     <string name="title_check_gmail_oauth">Οι λογαριασμοί σας Gmail θα συνεχίσουν να λειτουργούν μετά τις 30 Μαΐου 2022</string>
     <string name="title_check_gmail_password">Ορισμένοι από τους λογαριασμούς σας Gmail ενδέχεται να σταματήσουν να λειτουργούν μετά τις 30 Μαΐου 2022</string>
+    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Οι λογαριασμοί σας Outlook θα εξακολουθήσουν να λειτουργούν μετά τη 16η Σεπτεμβρίου 2024</string>
     <string name="title_check_outlook_password">Κάποιοι από τους λογαριασμούς σας Outlook/Hotmail/Live θα σταματήσουν να λειτουργούν μετά τις 16 Σεπτεμβρίου 2024</string>
     <string name="title_advanced_hint_title">Πιο προηγμένες επιλογές</string>
     <string name="title_advanced_hint_message">        Τώρα περιηγείστε στις πιο προχωρημένες ρυθμίσεις.        Όλες οι επιλογές έχουν τις πιο συνηθισμένες τυπικές τιμές, τις οποίες δεν χρειάζεται να αλλάξετε εκτός εάν έχετε μία διαφορετική προτίμηση.

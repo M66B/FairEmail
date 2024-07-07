@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail претрага</string>
+    <string name="app_send_self">Пошаљи себи</string>
     <string name="app_changelog">Дневник измена</string>
     <string name="app_welcome">FairEmail је е-мејл апликација отвореног кода са фокусом на приватност и безбедност. Могуће је да ће из ових разлога неке функционалности бити другачије него што сте навикли.</string>
+    <string name="app_data_loss">Сви подаци могу бити изгубљени</string>
     <string name="app_continue">Ипак наставити</string>
     <string name="app_exit">За излаз још једном притисните „назад“</string>
+    <string name="app_download">Преузето са: %1$s</string>
     <string name="channel_send">Пошаљи</string>
+    <string name="channel_notification">Електронска пошта</string>
+    <string name="channel_progress">Напредак</string>
     <string name="channel_update">Ажурирања</string>
     <string name="channel_warning">Упозорења</string>
     <string name="channel_error">Грешке</string>
@@ -100,6 +105,7 @@
     <string name="title_setup">Поставке</string>
     <string name="title_setup_help">Помоћ</string>
     <string name="title_setup_quick">Брзо подешавање</string>
+    <string name="title_setup_quick_accounts">Додај или промени налоге</string>
     <string name="title_setup_quick_imap">IMAP сервер за примање порука</string>
     <string name="title_setup_quick_smtp">SMTP сервер за слање порука</string>
     <string name="title_setup_wizard">Чаробњак</string>
@@ -108,6 +114,7 @@
     <string name="title_setup_other">Остали провајдери</string>
     <string name="title_setup_gmail_rationale">Одобрите дозволе да се одабере налог и чита Ваше име</string>
     <string name="title_setup_gmail_permissions">Гугл ће питати за дозволе за читање, састављае, слање и трајно брисање свих Ваших мејлова. FairEmail никад неће обрисати Ваше поруке без Вашег експлицитног одобрења.</string>
+    <string name="title_setup_oauth_authorize">Ауторизуј</string>
     <string name="title_setup_select_account">Изабери налог</string>
     <string name="title_setup_instructions">Упутства за поставку</string>
     <string name="title_setup_no_settings">Нису нађене поставке за домен ’%1$s’</string>
@@ -117,6 +124,8 @@
     <string name="title_setup_grant_again">Одобри захтеване дозволе</string>
     <string name="title_setup_permissions">Одобравање дозвола</string>
     <string name="title_setup_permissions_remark">Да приступите контактима (опционо)</string>
+    <string name="title_setup_import_graph_new">Нови контакти: %1$s</string>
+    <string name="title_setup_doze">Онемогућите оптимизацију батерије</string>
     <string name="title_setup_doze_battery">Потрошња батерије?</string>
     <string name="title_setup_doze_stopped">Синхро заустављен?</string>
     <string name="title_setup_data">Укључена је штедња података</string>
