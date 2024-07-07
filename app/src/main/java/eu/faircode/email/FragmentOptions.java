@@ -457,8 +457,19 @@ public class FragmentOptions extends FragmentBase {
                         for (int i = 0; i <= group.getChildCount(); i++)
                             id = getSuggestions(query, id, tab, title, group.getChildAt(i), cursor);
                     } else if (view instanceof TextView) {
+                        boolean extra = false;
+                        if (tab == 0 && view.getId() == R.id.tvManual) {
+                            for (int e : new int[]{R.string.title_host, R.string.title_port}) {
+                                String text = view.getContext().getString(e);
+                                if (text.toLowerCase().contains(query)) {
+                                    extra = true;
+                                    break;
+                                }
+                            }
+                        }
+
                         String description = ((TextView) view).getText().toString();
-                        if (description.toLowerCase().contains(query)) {
+                        if (description.toLowerCase().contains(query) || extra) {
                             description = description
                                     .replace("%%", "%")
                                     .replaceAll("%([0-9]\\$)?[sd]", "#");
