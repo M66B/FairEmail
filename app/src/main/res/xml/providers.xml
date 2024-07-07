@@ -945,6 +945,7 @@
         name="Mailfence"
         appPassword="true"
         domain="mailfence\\.com"
+        documentation="If you &lt;a href=&quot;https://kb.mailfence.com/kb/service-specific-passwords/&quot;&gt;generated service-specific passwords&lt;/a&gt;, you may need to configure an account and and identity manually."
         link="https://mailfence.com/en/faq.jsp"
         useip="false"
         user="local">
