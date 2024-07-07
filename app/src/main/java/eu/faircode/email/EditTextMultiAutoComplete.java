@@ -106,7 +106,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         dark = Helper.isDarkTheme(context);
         colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
         colorAccent = ColorUtils.setAlphaComponent(colorAccent, 5 * 255 / 100);
-        ctx = new ContextThemeWrapper(context, dark ? R.style.ChipDark : R.style.ChipLight);
+        ctx = new ContextThemeWrapper(context.getApplicationContext(), dark ? R.style.ChipDark : R.style.ChipLight);
 
         addTextChangedListener(new TextWatcher() {
             private Integer backspace = null;
