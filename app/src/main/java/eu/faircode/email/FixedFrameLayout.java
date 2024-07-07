@@ -27,9 +27,6 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.util.Map;
-import java.util.WeakHashMap;
-
 public class FixedFrameLayout extends FrameLayout {
     public FixedFrameLayout(@NonNull Context context) {
         super(context);
@@ -74,47 +71,5 @@ public class FixedFrameLayout extends FrameLayout {
             Log.w(ex);
             return false;
         }
-    }
-
-    private Map<Runnable, Runnable> mapRunnable = null;
-
-    @NonNull
-    private Map<Runnable, Runnable> getMapRunnable() {
-        if (mapRunnable == null)
-            mapRunnable = new WeakHashMap<>();
-        return mapRunnable;
-    }
-
-    @Override
-    public boolean post(Runnable action) {
-        Runnable wrapped = new RunnableEx("post") {
-            @Override
-            protected void delegate() {
-                action.run();
-            }
-        };
-        getMapRunnable().put(action, wrapped);
-        return super.post(wrapped);
-    }
-
-    @Override
-    public boolean postDelayed(Runnable action, long delayMillis) {
-        Runnable wrapped = new RunnableEx("postDelayed") {
-            @Override
-            protected void delegate() {
-                action.run();
-            }
-        };
-        getMapRunnable().put(action, wrapped);
-        return super.postDelayed(wrapped, delayMillis);
-    }
-
-    @Override
-    public boolean removeCallbacks(Runnable action) {
-        Runnable wrapped = getMapRunnable().get(action);
-        if (wrapped == null)
-            return super.removeCallbacks(action);
-        else
-            return super.removeCallbacks(wrapped);
     }
 }
