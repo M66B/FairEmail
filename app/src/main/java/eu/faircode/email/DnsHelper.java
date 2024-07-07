@@ -698,6 +698,8 @@ public class DnsHelper {
         @Override
         public DnsQueryResult query(DnsMessage message, InetAddress address, int port) throws IOException {
             DnsQueryResult result = delegate.query(message, address, port);
+            if (result == null)
+                throw new UnknownHostException();
             DnsMessage answer = new DnsMessage(result.response.toArray())
                     .asBuilder()
                     .setRecursionAvailable(true)
