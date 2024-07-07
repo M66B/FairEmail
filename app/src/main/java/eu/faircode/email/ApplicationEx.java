@@ -139,7 +139,7 @@ public class ApplicationEx extends Application
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean crash_reports = prefs.getBoolean("crash_reports", false);
-        final boolean leak_canary = prefs.getBoolean("leak_canary", false);
+        final boolean leak_canary = prefs.getBoolean("leak_canary", BuildConfig.TEST_RELEASE);
         final boolean load_emoji = prefs.getBoolean("load_emoji", true);
 
         prev = Thread.getDefaultUncaughtExceptionHandler();
