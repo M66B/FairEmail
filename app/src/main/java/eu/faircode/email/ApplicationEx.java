@@ -492,21 +492,25 @@ public class ApplicationEx extends Application
             editor.remove("notify_reply");
             editor.remove("notify_flag");
             editor.remove("notify_seen");
+        }
 
-        } else if (version < 601) {
+        if (version < 601) {
             editor.putBoolean("contact_images", prefs.getBoolean("autoimages", true));
             editor.remove("autoimages");
+        }
 
-        } else if (version < 612) {
+        if (version < 612) {
             if (prefs.getBoolean("autonext", false))
                 editor.putString("onclose", "next");
             editor.remove("autonext");
+        }
 
-        } else if (version < 693) {
+        if (version < 693) {
             editor.remove("message_swipe");
             editor.remove("message_select");
+        }
 
-        } else if (version < 696) {
+        if (version < 696) {
             String theme = prefs.getString("theme", "light");
             if ("grey".equals(theme))
                 editor.putString("theme", "grey_dark");
@@ -515,37 +519,42 @@ public class ApplicationEx extends Application
                 editor.putBoolean("ascending_list", prefs.getBoolean("ascending", false));
                 editor.remove("ascending");
             }
+        }
 
-        } else if (version < 701) {
+        if (version < 701) {
             if (prefs.getBoolean("suggest_local", false)) {
                 editor.putBoolean("suggest_sent", true);
                 editor.remove("suggest_local");
             }
+        }
 
-        } else if (version < 703) {
+        if (version < 703) {
             if (!prefs.getBoolean("style_toolbar", true)) {
                 editor.putBoolean("compose_media", false);
                 editor.remove("style_toolbar");
             }
+        }
 
-        } else if (version < 709) {
+        if (version < 709) {
             if (prefs.getBoolean("swipe_reversed", false)) {
                 editor.putBoolean("reversed", true);
                 editor.remove("swipe_reversed");
             }
+        }
 
-        } else if (version < 741)
+        if (version < 741)
             editor.remove("send_dialog");
 
-        else if (version < 751) {
+        if (version < 751) {
             if (prefs.contains("notify_snooze_duration")) {
                 int minutes = prefs.getInt("notify_snooze_duration", 60);
                 int hours = (int) Math.ceil(minutes / 60.0);
                 editor.putInt("default_snooze", hours);
                 editor.remove("notify_snooze_duration");
             }
+        }
 
-        } else if (version < 819) {
+        if (version < 819) {
             if (prefs.contains("no_history")) {
                 editor.putBoolean("secure", prefs.getBoolean("no_history", false));
                 editor.remove("no_history");
@@ -557,119 +566,173 @@ public class ApplicationEx extends Application
                 editor.putInt("compose_zoom", zoom);
                 editor.remove("zoom");
             }
+        }
 
-        } else if (version < 844) {
+        if (version < 844) {
             if (prefs.getBoolean("schedule", false))
                 editor.putBoolean("enabled", true);
+        }
 
-        } else if (version < 874) {
+        if (version < 874) {
             if (prefs.contains("experiments") &&
                     prefs.getBoolean("experiments", false))
                 editor.putBoolean("quick_filter", true);
             editor.remove("experiments");
+        }
 
-        } else if (version < 889) {
+        if (version < 889) {
             if (prefs.contains("autoresize")) {
                 boolean autoresize = prefs.getBoolean("autoresize", true);
                 editor.putBoolean("resize_images", autoresize);
                 editor.putBoolean("resize_attachments", autoresize);
                 editor.remove("autoresize");
             }
-        } else if (version < 930) {
+        }
+
+        if (version < 930) {
             boolean large = context.getResources().getConfiguration()
                     .isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE);
             editor.putBoolean("landscape3", large);
-        } else if (version < 949) {
+        }
+
+        if (version < 949) {
             if (prefs.contains("automove")) {
                 boolean automove = prefs.getBoolean("automove", false);
                 editor.putBoolean("move_1_confirmed", automove);
                 editor.remove("automove");
             }
-        } else if (version < 972) {
+        }
+
+        if (version < 972) {
             if (prefs.contains("signature_end")) {
                 boolean signature_end = prefs.getBoolean("signature_end", false);
                 if (signature_end)
                     editor.putInt("signature_location", 2);
                 editor.remove("signature_end");
             }
-        } else if (version < 978) {
+        }
+
+        if (version < 978) {
             if (!prefs.contains("poll_interval"))
                 editor.putInt("poll_interval", 0);
             editor.remove("first");
-        } else if (version < 1021) {
+        }
+
+        if (version < 1021) {
             boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
             if (!highlight_unread)
                 editor.putBoolean("highlight_unread", highlight_unread);
-        } else if (version < 1121) {
+        }
+
+        if (version < 1121) {
             if (!Helper.isPlayStoreInstall())
                 editor.putBoolean("experiments", true);
-        } else if (version < 1124) {
+        }
+
+        if (version < 1124)
             editor.remove("experiments");
-        } else if (version < 1181) {
+
+        if (version < 1181) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 editor.remove("background_service");
-        } else if (version < 1195)
+        }
+
+        if (version < 1195)
             editor.remove("auto_optimize");
-        else if (version < 1229) {
+
+        if (version < 1229) {
             boolean monospaced = prefs.getBoolean("monospaced", false);
             if (monospaced && !BuildConfig.DEBUG)
                 editor.putBoolean("text_font", false);
-        } else if (version < 1238) {
+        }
+
+        if (version < 1238) {
             if (!prefs.contains("subject_ellipsize"))
                 editor.putString("subject_ellipsize", "middle");
             if (!prefs.contains("auto_optimize"))
                 editor.putBoolean("auto_optimize", false);
-        } else if (version < 1253) {
+        }
+
+        if (version < 1253) {
             int threads = prefs.getInt("query_threads", 4);
             if (threads == 4)
                 editor.remove("query_threads");
-        } else if (version < 1264) {
+        }
+
+        if (version < 1264) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N ||
                     "Blackview".equalsIgnoreCase(Build.MANUFACTURER) ||
                     "OnePlus".equalsIgnoreCase(Build.MANUFACTURER) ||
                     "HUAWEI".equalsIgnoreCase(Build.MANUFACTURER))
                 editor.putInt("query_threads", 2);
-        } else if (version < 1274)
+        }
+
+        if (version < 1274)
             ContactInfo.clearCache(context); // Favicon background
-        else if (version < 1336) {
+
+        if (version < 1336) {
             if (!prefs.contains("beige"))
                 editor.putBoolean("beige", false);
-        } else if (version < 1385)
+        }
+
+        if (version < 1385)
             editor.remove("parse_classes");
-        else if (version < 1401)
+
+        if (version < 1401)
             editor.remove("tcp_keep_alive");
-        else if (version < 1407)
+
+        if (version < 1407)
             editor.remove("print_html_confirmed");
-        else if (version < 1413)
+
+        if (version < 1413)
             editor.remove("experiments");
-        else if (version < 1439) {
+
+        if (version < 1439) {
             if (!BuildConfig.DEBUG)
                 editor.remove("experiments");
-        } else if (version < 1461) {
+        }
+
+        if (version < 1461) {
             if (!prefs.contains("theme"))
                 editor.putString("theme", "blue_orange_light");
-        } else if (version < 1463) {
+        }
+
+        if (version < 1463) {
             if (!prefs.contains("autoscroll"))
                 editor.putBoolean("autoscroll", true);
-        } else if (version < 1477) {
+        }
+
+        if (version < 1477) {
             if (!BuildConfig.DEBUG)
                 editor.remove("experiments");
-        } else if (version < 1524) {
+        }
+
+        if (version < 1524) {
             if (BuildConfig.PLAY_STORE_RELEASE)
                 editor.remove("experiments");
-        } else if (version < 1525) {
+        }
+
+        if (version < 1525) {
             if (!prefs.contains("download"))
                 editor.putInt("download", 512 * 1024);
-        } else if (version < 1533) {
+        }
+
+        if (version < 1533) {
             if (!prefs.contains("biometrics_notify"))
                 editor.putBoolean("biometrics_notify", false);
-        } else if (version < 1535) {
+        }
+
+        if (version < 1535) {
             editor.remove("identities_asked");
             editor.remove("identities_primary_hint");
-        } else if (version < 1539) {
+        }
+
+        if (version < 1539) {
             if (!prefs.contains("double_back"))
                 editor.putBoolean("double_back", true);
-        } else if (version < 1540) {
+        }
+
+        if (version < 1540) {
             Map<String, ?> all = prefs.getAll();
             for (String key : all.keySet())
                 if (key.startsWith("widget.") && key.endsWith(".semi")) {
@@ -682,24 +745,34 @@ public class ApplicationEx extends Application
                             Log.e(ex);
                         }
                 }
-        } else if (version < 1556) {
+        }
+
+        if (version < 1556) {
             if (prefs.contains("last_search")) {
                 editor.putString("last_search1", prefs.getString("last_search", null));
                 editor.remove("last_search");
             }
-        } else if (version < 1558) {
+        }
+
+        if (version < 1558) {
             if (!prefs.contains("button_extra"))
                 editor.putBoolean("button_extra", true);
-        } else if (version < 1598) {
+        }
+
+        if (version < 1598) {
             if (prefs.contains("deepl")) {
                 String key = prefs.getString("deepl", null);
                 editor.putString("deepl_key", key).remove("deepl");
             }
-        } else if (version < 1630) {
+        }
+
+        if (version < 1630) {
             boolean experiments = prefs.getBoolean("experiments", false);
             if (experiments)
                 editor.putBoolean("deepl_enabled", true);
-        } else if (version < 1678) {
+        }
+
+        if (version < 1678) {
             Configuration config = context.getResources().getConfiguration();
             boolean normal = config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL);
             if (!normal) {
@@ -708,14 +781,20 @@ public class ApplicationEx extends Application
                 if (!prefs.contains("landscape3"))
                     editor.putBoolean("landscape3", false);
             }
-        } else if (version < 1721) {
+        }
+
+        if (version < 1721) {
             if (!prefs.contains("discard_delete"))
                 editor.putBoolean("discard_delete", false);
-        } else if (version < 1753)
+        }
+
+        if (version < 1753)
             repairFolders(context);
-        else if (version < 1772)
+
+        if (version < 1772)
             editor.remove("conversation_actions");
-        else if (version < 1781) {
+
+        if (version < 1781) {
             if (prefs.contains("sort")) {
                 String sort = prefs.getString("sort", "time");
                 editor.putString("sort_unified", sort);
@@ -724,7 +803,9 @@ public class ApplicationEx extends Application
                 boolean ascending = prefs.getBoolean("ascending_list", false);
                 editor.putBoolean("ascending_unified", ascending);
             }
-        } else if (version < 1835) {
+        }
+
+        if (version < 1835) {
             boolean monospaced = prefs.getBoolean("monospaced", false);
 
             String compose_font = prefs.getString("compose_font", "");
@@ -738,77 +819,116 @@ public class ApplicationEx extends Application
             }
 
             editor.remove("monospaced");
-        } else if (version < 1837) {
+        }
+
+        if (version < 1837) {
             if (!prefs.contains("compact_folders"))
                 editor.putBoolean("compact_folders", false);
-        } else if (version < 1839) {
+        }
+
+        if (version < 1839) {
             boolean reply_all = prefs.getBoolean("reply_all", false);
             if (reply_all)
                 editor.remove("reply_all").putString("answer_action", "reply_all");
-        } else if (version < 1847) {
+        }
+
+        if (version < 1847) {
             if (Helper.isAccessibilityEnabled(context))
                 editor.putBoolean("send_chips", false);
-        } else if (version < 1855) {
+        }
+
+        if (version < 1855) {
             if (!prefs.contains("preview_lines"))
                 editor.putInt("preview_lines", 2);
-        } else if (version < 1874) {
+        }
+
+        if (version < 1874) {
             boolean cards = prefs.getBoolean("cards", true);
             if (!cards)
                 editor.remove("view_padding");
-        } else if (version < 1888) {
+        }
+
+        if (version < 1888) {
             int class_min_difference = prefs.getInt("class_min_difference", 50);
             if (class_min_difference == 0)
                 editor.putBoolean("classification", false);
-        } else if (version < 1918) {
+        }
+
+        if (version < 1918) {
             if (prefs.contains("browse_links")) {
                 boolean browse_links = prefs.getBoolean("browse_links", false);
                 editor.remove("browse_links")
                         .putBoolean("open_with_tabs", !browse_links);
             }
-        } else if (version < 1927) {
+        }
+
+        if (version < 1927) {
             if (!prefs.contains("auto_identity"))
                 editor.putBoolean("auto_identity", true);
-        } else if (version < 1931)
+        }
+
+        if (version < 1931)
             editor.remove("button_force_light").remove("fake_dark");
-        else if (version < 1933) {
+
+        if (version < 1933) {
             editor.putBoolean("lt_enabled", false);
             if (prefs.contains("disable_top")) {
                 editor.putBoolean("use_top", !prefs.getBoolean("disable_top", false));
                 editor.remove("disable_top");
             }
-        } else if (version < 1947)
+        }
+
+        if (version < 1947)
             editor.putBoolean("accept_unsupported", true);
-        else if (version < 1951) {
+
+        if (version < 1951) {
             if (prefs.contains("open_unsafe"))
                 editor.putBoolean("open_safe", !prefs.getBoolean("open_unsafe", true));
-        } else if (version < 1955) {
+        }
+
+        if (version < 1955) {
             if (!prefs.contains("doubletap"))
                 editor.putBoolean("doubletap", true);
-        } else if (version < 1960)
+        }
+
+        if (version < 1960)
             editor.remove("sqlite_auto_vacuum");
-        else if (version < 1961) {
+
+        if (version < 1961) {
             if (!prefs.contains("photo_picker"))
                 editor.putBoolean("photo_picker", true);
-        } else if (version < 1966)
+        }
+
+        if (version < 1966)
             editor.remove("hide_timezone");
-        else if (version < 1994) {
+
+        if (version < 1994) {
             // 2022-10-28 Spamcop blocks Google's addresses
             editor.putBoolean("blocklist.Spamcop", false);
-        } else if (version < 2013) {
+        }
+
+        if (version < 2013) {
             if (prefs.contains("compose_block")) {
                 if (prefs.getBoolean("experiments", false))
                     editor.putBoolean("compose_style", prefs.getBoolean("compose_block", false));
                 editor.remove("compose_block");
             }
-        } else if (version < 2016) {
+        }
+
+        if (version < 2016) {
             if (!prefs.contains("reset_snooze"))
                 editor.putBoolean("reset_snooze", false);
-        } else if (version < 2029) {
+        }
+
+        if (version < 2029) {
             if (!prefs.contains("plain_only_reply"))
                 editor.putBoolean("plain_only_reply", true);
-        } else if (version < 2046)
+        }
+
+        if (version < 2046)
             editor.remove("message_junk");
-        else if (version < 2069) {
+
+        if (version < 2069) {
             if (prefs.contains("swipe_sensitivity") && !prefs.contains("swipe_sensitivity_updated")) {
                 int swipe_sensitivity = prefs.getInt("swipe_sensitivity", FragmentOptionsBehavior.DEFAULT_SWIPE_SENSITIVITY);
                 if (swipe_sensitivity > 0) {
@@ -820,7 +940,9 @@ public class ApplicationEx extends Application
                                 .putBoolean("swipe_sensitivity_updated", true);
                 }
             }
-        } else if (version < 2075) {
+        }
+
+        if (version < 2075) {
             for (String name : new String[]{"seen", "unflagged", "unknown", "snoozed", "deleted"})
                 if (prefs.contains("filter_" + name))
                     for (String _type : new String[]{EntityFolder.ARCHIVE, EntityFolder.TRASH, EntityFolder.JUNK}) {
@@ -828,37 +950,53 @@ public class ApplicationEx extends Application
                         if (!prefs.contains("filter_" + type + "_" + name))
                             editor.putBoolean("filter_" + type + "_" + name, prefs.getBoolean("filter_" + name, false));
                     }
-        } else if (version < 2084) {
+        }
+
+        if (version < 2084) {
             boolean thread_sent_trash = prefs.getBoolean("thread_sent_trash", false);
             if (thread_sent_trash)
                 editor.putBoolean("move_thread_sent", true);
             editor.remove("thread_sent_trash");
-        } else if (version < 2086) {
+        }
+
+        if (version < 2086) {
             boolean override_width = prefs.getBoolean("override_width", false);
             if (override_width)
                 editor.putBoolean("overview_mode", true);
             editor.remove("override_width");
-        } else if (version < 2089) {
+        }
+
+        if (version < 2089) {
             if (!prefs.contains("auto_hide_answer"))
                 editor.putBoolean("auto_hide_answer", !Helper.isAccessibilityEnabled(context));
-        } else if (version < 2108) {
+        }
+
+        if (version < 2108) {
             if (!prefs.getBoolean("updown", false))
                 editor.putBoolean("updown", false);
-        } else if (version < 2113)
+        }
+
+        if (version < 2113)
             editor.remove("send_more");
-        else if (version < 2137) {
+
+        if (version < 2137) {
             // https://support.google.com/faqs/answer/6346016
             if (!prefs.contains("cert_strict"))
                 editor.putBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE);
-        } else if (version < 2162) {
+        }
+
+        if (version < 2162) {
             if (!BuildConfig.DEBUG)
                 editor.putBoolean("tabular_unread_bg", false);
-        } else if (version < 2168) {
+        }
+
+        if (version < 2168) {
             if (Helper.isGoogle())
                 editor.putBoolean("mod", true);
-        } else if (version < 2170) {
-            editor.putBoolean("mod", false);
         }
+
+        if (version < 2170)
+            editor.putBoolean("mod", false);
 
         if (version < 2180) {
             if (Helper.isAndroid15())
