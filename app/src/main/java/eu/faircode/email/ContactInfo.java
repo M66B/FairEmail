@@ -285,6 +285,7 @@ public class ContactInfo {
         boolean gravatars = (prefs.getBoolean("gravatars", false) && (!favicons_dmarc || dmarc) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean libravatars = (prefs.getBoolean("libravatars", false) && (!favicons_dmarc || dmarc) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean favicons = (prefs.getBoolean("favicons", false) && (!favicons_dmarc || dmarc));
+        boolean ddg_icons = (prefs.getBoolean("ddg_icons", false) && (!favicons_dmarc || dmarc) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean generated = prefs.getBoolean("generated_icons", true);
         boolean identicons = prefs.getBoolean("identicons", false);
         boolean circular = prefs.getBoolean("circular", true);
@@ -474,6 +475,18 @@ public class ContactInfo {
                                 host = host.substring(dot + 1);
                             }
                         }
+
+                        if (ddg_icons && !TextUtils.isEmpty(Avatar.DDG_URI))
+                            futures.add(Helper.getDownloadTaskExecutor().submit(new Callable<Favicon>() {
+                                @Override
+                                public Favicon call() throws Exception {
+                                    String parent = UriHelper.getRootDomain(context, domain);
+                                    String uri = Avatar.DDG_URI + Uri.encode(parent) + ".ico";
+                                    Favicon ddg = getFavicon(new URL(uri), null, scaleToPixels, context);
+                                    ddg.type = "ddg";
+                                    return ddg;
+                                }
+                            }));
 
                         Throwable ex = null;
                         for (Future<Favicon> future : futures)

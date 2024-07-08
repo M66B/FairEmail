@@ -26,6 +26,8 @@ import java.util.concurrent.Callable;
 public class Avatar {
     static final String GRAVATAR_PRIVACY_URI = "";
     static final String LIBRAVATAR_PRIVACY_URI = "";
+    static final String DDG_URI = "";
+    static final String DDG_PRIVACY_URI = "";
 
     static Callable<ContactInfo.Favicon> getGravatar(String email, int scaleToPixels, Context context) {
         return new Callable<ContactInfo.Favicon>() {

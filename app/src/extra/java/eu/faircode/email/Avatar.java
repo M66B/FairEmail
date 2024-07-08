@@ -31,6 +31,8 @@ import javax.net.ssl.HttpsURLConnection;
 public class Avatar {
     static final String GRAVATAR_PRIVACY_URI = "https://automattic.com/privacy/";
     static final String LIBRAVATAR_PRIVACY_URI = "https://www.libravatar.org/privacy/";
+    static final String DDG_URI = "https://icons.duckduckgo.com/ip3/";
+    static final String DDG_PRIVACY_URI = "https://duckduckgo.com/privacy";
 
     private static final String GRAVATAR_URI = "https://www.gravatar.com/avatar/";
     private static final int GRAVATAR_CONNECT_TIMEOUT = 5 * 1000; // milliseconds

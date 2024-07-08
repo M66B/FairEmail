@@ -124,9 +124,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swLibravatars;
     private TextView tvLibravatarPrivacy;
     private SwitchCompat swFavicons;
+    private TextView tvFaviconsHint;
     private SwitchCompat swFaviconsPartial;
     private SwitchCompat swFaviconsManifest;
-    private TextView tvFaviconsHint;
+    private SwitchCompat swDdg;
+    private TextView tvDdgPrivacy;
     private SwitchCompat swFaviconsDmarc;
     private SwitchCompat swGeneratedIcons;
     private SwitchCompat swIdenticons;
@@ -218,7 +220,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "hide_toolbar", "edge_to_edge", "nav_options", "nav_categories", "nav_last_sync", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "show_unexposed",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_swap", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
-            "avatars", "bimi", "bimi_vmc", "gravatars", "libravatars", "favicons", "favicons_partial", "favicons_manifest", "favicons_dmarc", "generated_icons", "identicons",
+            "avatars", "bimi", "bimi_vmc", "gravatars", "libravatars", "favicons", "favicons_partial", "favicons_manifest", "ddg_icons", "favicons_dmarc", "generated_icons", "identicons",
             "circular", "saturation", "brightness", "threshold",
             "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients", "reverse_addresses",
             "font_size_sender", "sender_ellipsize",
@@ -304,9 +306,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swLibravatars = view.findViewById(R.id.swLibravatars);
         tvLibravatarPrivacy = view.findViewById(R.id.tvLibravatarPrivacy);
         swFavicons = view.findViewById(R.id.swFavicons);
+        tvFaviconsHint = view.findViewById(R.id.tvFaviconsHint);
         swFaviconsPartial = view.findViewById(R.id.swFaviconsPartial);
         swFaviconsManifest = view.findViewById(R.id.swFaviconsManifest);
-        tvFaviconsHint = view.findViewById(R.id.tvFaviconsHint);
+        swDdg = view.findViewById(R.id.swDdg);
+        tvDdgPrivacy = view.findViewById(R.id.tvDdgPrivacy);
         swFaviconsDmarc = view.findViewById(R.id.swFaviconsDmarc);
         swGeneratedIcons = view.findViewById(R.id.swGeneratedIcons);
         swIdenticons = view.findViewById(R.id.swIdenticons);
@@ -894,6 +898,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        tvFaviconsHint.getPaint().setUnderlineText(true);
+        tvFaviconsHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.FAVICON_PRIVACY_URI), true);
+            }
+        });
+
         swFaviconsPartial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -910,11 +922,19 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        tvFaviconsHint.getPaint().setUnderlineText(true);
-        tvFaviconsHint.setOnClickListener(new View.OnClickListener() {
+        swDdg.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("ddg_icons", checked).apply();
+                ContactInfo.clearCache(compoundButton.getContext());
+            }
+        });
+
+        tvDdgPrivacy.getPaint().setUnderlineText(true);
+        tvDdgPrivacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.FAVICON_PRIVACY_URI), true);
+                Helper.view(v.getContext(), Uri.parse(Avatar.DDG_PRIVACY_URI), true);
             }
         });
 
@@ -1625,6 +1645,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swFaviconsPartial.setEnabled(swFavicons.isChecked());
             swFaviconsManifest.setChecked(prefs.getBoolean("favicons_manifest", false));
             swFaviconsManifest.setEnabled(swFavicons.isChecked());
+            swDdg.setChecked(prefs.getBoolean("ddg_icons", false));
             swFaviconsDmarc.setChecked(prefs.getBoolean("favicons_dmarc", false));
             swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
             swIdenticons.setChecked(prefs.getBoolean("identicons", false));
