@@ -330,7 +330,7 @@
     <string name="title_setup_reset_full">Vis oprindelige beskeder</string>
     <string name="title_check_gmail_oauth">Gmail-konti vil fortsat fungere efter 3005-22</string>
     <string name="title_check_gmail_password">Visse Gmail-konti kan ophøre med at fungere efter 3005-22</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Aktuelle Outlook-konti vil fortsat fungere efter 16. sept. 2024</string>
+    <string name="title_check_outlook_oauth">Aktuelle Outlook-konti vil fortsat fungere efter 16. sept. 2024</string>
     <string name="title_check_outlook_password">Visse eksisterende Outlook-/Hotmail-/Live-konti ophører med at fungere efter 16. sep. 2024</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.

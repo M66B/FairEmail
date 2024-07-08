@@ -233,6 +233,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_oauth_update">Znovu autorizovat existující účet (jinak vytvořit nový účet)</string>
     <string name="title_setup_oauth_updated">Autorizace účtu byla aktualizována</string>
     <string name="title_setup_oauth_brave">Při používání prohlížeče Brave musíte povolit v nastavení, aby se aplikace otevřela mimo prohlížeč</string>
+    <string name="title_setup_oauth_browser">Autorizace vyžaduje funkční prohlížeč</string>
     <string name="title_setup_oauth_authorize">Autorizovat</string>
     <string name="title_setup_select_account">Vybrat účet</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
@@ -359,7 +360,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_reset_full">Zobrazit původní zprávy</string>
     <string name="title_check_gmail_oauth">Vaše Gmail účty budou fungovat i po 30. květnu 2022</string>
     <string name="title_check_gmail_password">Některé z vašich Gmail účtů mohou přestat fungovat po 30. květnu 2022</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Vaše účty Outlook budou fungovat i po 16. září 2024</string>
+    <string name="title_check_outlook_oauth">Vaše účty Outlook budou fungovat i po 16. září 2024</string>
     <string name="title_check_outlook_password">Některé z vašich účtů Outlook/Hotmail/Live přestanou fungovat po 16. září 2024</string>
     <string name="title_advanced_hint_title">Pokročilé možnosti</string>
     <string name="title_advanced_hint_message">        Vcházíte do rozšířených možností.        Všechny volby jsou nastaveny dle běžných konvencí, tudíž je není potřeba měnit, nemáte-li odlišnou preferenci.

@@ -200,6 +200,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_oauth_update">Mevcut bir hesabı yeniden yetkilendir (aksi takdirde yeni bir hesap oluştur)</string>
     <string name="title_setup_oauth_updated">Hesap yetkilendirme güncellendi</string>
     <string name="title_setup_oauth_brave">Brave tarayıcısını kullanırken uygulama bağlantılarının Brave dışındaki uygulamalarda açılmasına izin vermek için Brave\'in ayarlarındaki seçeneği etkinleştirmeniz gerekir</string>
+    <string name="title_setup_oauth_browser">Yetkilendirme için çalışan bir tarayıcı gerekir</string>
     <string name="title_setup_oauth_authorize">Yetkilendir</string>
     <string name="title_setup_select_account">Hesap seç</string>
     <string name="title_setup_instructions">Kurulum yönergeleri</string>
@@ -326,7 +327,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_reset_full">Orijinal mesajları göster</string>
     <string name="title_check_gmail_oauth">Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmaya devam edecek</string>
     <string name="title_check_gmail_password">Bazı Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmayı durdurabilir</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Outlook hesaplarınız 16 Ekim 2024 tarihinden sonra çalışmaya devam edecek</string>
+    <string name="title_check_outlook_oauth">Outlook hesaplarınız 16 Ekim 2024 tarihinden sonra çalışmaya devam edecek</string>
     <string name="title_check_outlook_password">Outlook/Hotmail/Live hesaplarınızdan bazıları 16 Eylül 2024 tarihinden sonra çalışmayı durduracak</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.        Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.

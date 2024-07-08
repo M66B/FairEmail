@@ -182,6 +182,7 @@
     <string name="title_setup_oauth_rationale">برای دسترسی به %1$s حسابتان اجازه دهید</string>
     <string name="title_setup_oauth_update">به یک حساب موجود اجازه بدهید (در غیر این صورت یک حساب جدید بسازید)</string>
     <string name="title_setup_oauth_updated">تایید هویت حساب به روز شد</string>
+    <string name="title_setup_oauth_browser">مجوز نیاز به یک مرورگر فعال دارد</string>
     <string name="title_setup_oauth_authorize">اجازه دهید</string>
     <string name="title_setup_select_account">انتخاب حساب</string>
     <string name="title_setup_instructions">دستورالعمل های راه‌اندازی</string>
@@ -297,7 +298,7 @@
     <string name="title_setup_reset_full">مشاهده پیام‌های اصلی</string>
     <string name="title_check_gmail_oauth">حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، همچنان کار خواهند کرد</string>
     <string name="title_check_gmail_password">تعدادی از حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، ممکن است از کار بیافتند</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">حساب‌های آوت‌لوک شما پس از ۱۶ سپتامبر ۲۰۲۴ همچنان کار خواهند کرد</string>
+    <string name="title_check_outlook_oauth">حساب‌های آوت‌لوک شما پس از ۱۶ سپتامبر ۲۰۲۴ همچنان کار خواهند کرد</string>
     <string name="title_check_outlook_password">تعدادی از حساب‌های آوت‌لوک/هات‌میل/لایو شما پس از ۱۶ سپتامبر ۲۰۲۴ از کار خواهند افتاد</string>
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
@@ -460,6 +461,7 @@
     <string name="title_advanced_favicons">نمایش فاوآیکون‌ها</string>
     <string name="title_advanced_favicons_partial">تنها %1$s صفحه اول از صفحات وب را اسکن کن</string>
     <string name="title_advanced_favicons_manifest">اسکن فهرست اپلیکیشن‌های مبتنی بر وب</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">نمایش آیکون‌های DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">نیازمند تایید DMARC برای تصاویر خارجی</string>
     <string name="title_advanced_generated_icons">نمایس آیکون‌های تولید شده</string>
     <string name="title_advanced_identicons">نمایش identicons</string>

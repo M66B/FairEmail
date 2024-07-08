@@ -204,6 +204,7 @@
     <string name="title_setup_oauth_update">Mövcud bir hesaba yenidən səlahiyyət verin (əks halda yeni bir hesab yaradın)</string>
     <string name="title_setup_oauth_updated">Hesab səlahiyyətləndirmə güncəlləndi</string>
     <string name="title_setup_oauth_brave">Brave brauzeri istifadə edərkən tətbiq keçidlərinin Brave xaricindəki tətbiqlərdə açılmasına icazə vermək üçün Brave-in ayarlarındakı seçimi fəallaşdırmalısınız</string>
+    <string name="title_setup_oauth_browser">Səlahiyyətləndirmə, işləyən bir brauzer tələb edir</string>
     <string name="title_setup_oauth_authorize">Səlahiyyət ver</string>
     <string name="title_setup_select_account">Hesab seç</string>
     <string name="title_setup_instructions">Quraşdırma təlimatları</string>
@@ -330,7 +331,7 @@
     <string name="title_setup_reset_full">Orijinal mesajları göstər</string>
     <string name="title_check_gmail_oauth">Gmail hesablarınız 30 May 2022-ci il tarixindən sonra işləməyə davam edəcək</string>
     <string name="title_check_gmail_password">Bəzi Gmail hesablarınız 30 May 2022-ci il tarixindən işləməyi dayandıra bilər</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Outlook hesablarınız 16 Sentyabr 2024-cü il tarixindən sonra işləməyə davam edəcək</string>
+    <string name="title_check_outlook_oauth">Outlook hesablarınız 16 Sentyabr 2024-cü il tarixindən sonra işləməyə davam edəcək</string>
     <string name="title_check_outlook_password">Outlook/Hotmail/Live hesablarınızdan bəziləri 16 sentyabr 2024-cü il tarixindən etibarən işləməyi dayandıracaq</string>
     <string name="title_advanced_hint_title">Daha çox qabaqcıl seçimlər</string>
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.
@@ -530,6 +531,7 @@
     <string name="title_advanced_favicons">\"Favicon\"ları göstər</string>
     <string name="title_advanced_favicons_partial">Veb səhifədəki yalnız ilk %1$s skan edilsin</string>
     <string name="title_advanced_favicons_manifest">Veb tətbiq manifestlərini skan et</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">DuckDuckGo ikonlarını göstər</string>
     <string name="title_advanced_favicons_dmarc">Xarici təsvirlər üçün DMARC doğrulamasını tələb et</string>
     <string name="title_advanced_generated_icons">Yaradılmış nişanları göstər</string>
     <string name="title_advanced_identicons">Kimlikləri göstər</string>

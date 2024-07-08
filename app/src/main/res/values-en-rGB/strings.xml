@@ -14,6 +14,7 @@
     <string name="title_setup_oauth_rationale">Authorise access to your %1$s account</string>
     <string name="title_setup_oauth_update">Authorise an existing account again (otherwise create a new account)</string>
     <string name="title_setup_oauth_updated">Account authorisation was updated</string>
+    <string name="title_setup_oauth_browser">Authorisation requires a working browser</string>
     <string name="title_setup_oauth_authorize">Authorise</string>
     <string name="title_setup_quick_configure">To edit the name, colour, swipe actions, etc</string>
     <string name="title_setup_doze">Disable battery optimisations</string>
@@ -24,7 +25,7 @@
     <string name="title_setup_theme_reverse">Swap colours</string>
     <string name="title_setup_theme_you_hint">The Material You colours can be configured in the Android Wallpaper &amp; style settings</string>
     <string name="title_setup_theme_more_colors">I want more colours</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Your Outlook accounts will continue to work after 16 September 2024</string>
+    <string name="title_check_outlook_oauth">Your Outlook accounts will continue to work after 16 September 2024</string>
     <string name="title_check_outlook_password">Some of your Outlook/Hotmail/Live accounts will stop working after 16 September 2024</string>
     <string name="title_advanced_hint_remark">        The options are categorised by tab, divided into sections, organised by appearance or use, and searchable.
     </string>

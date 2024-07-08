@@ -204,6 +204,7 @@
     <string name="title_setup_oauth_update">Autorizar novamente uma conta existente (caso contrário, criar uma conta)</string>
     <string name="title_setup_oauth_updated">Autorização de conta actualizada</string>
     <string name="title_setup_oauth_brave">Ao usar o navegador Brave, deve ativar a opção nas configurações do Brave para permitir que os links abram em apps fora do Brave</string>
+    <string name="title_setup_oauth_browser">Autorização requer um navegador funcional</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Seleccionar conta</string>
     <string name="title_setup_instructions">Instruções de configuração</string>
@@ -332,7 +333,7 @@
     <string name="title_setup_reset_full">Mostrar mensagens originais</string>
     <string name="title_check_gmail_oauth">As suas contas de Gmail continuarão a funcionar após 30 de maio de 2022</string>
     <string name="title_check_gmail_password">Algumas das suas contas de Gmail podem parar de funcionar após 30 de maio de 2022</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">As suas contas do Outlook, continuarão a funcionar após 16 de setembro de 2024</string>
+    <string name="title_check_outlook_oauth">As suas contas do Outlook, continuarão a funcionar após 16 de setembro de 2024</string>
     <string name="title_check_outlook_password">Algumas das suas contas do Outlook/Hotmail/Live podem deixar de funcionar após 16 de Setembro de 2024</string>
     <string name="title_advanced_hint_title">Mais opções avançadas</string>
     <string name="title_advanced_hint_message">Está a navegar para as opções mais avançadas.        Todas as opções têm valores padrão geralmente utilizados que podem ser alterados se tiver uma preferência diferente.
@@ -531,6 +532,7 @@
     <string name="title_advanced_favicons">Mostrar \"favicons\"</string>
     <string name="title_advanced_favicons_partial">Digitalize apenas a primeira %1$s da página web</string>
     <string name="title_advanced_favicons_manifest">Verificar manifestos de aplicações Web</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Mostrar ícones do DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Requer verificação DMARC para imagens externas</string>
     <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>
     <string name="title_advanced_identicons">Mostrar Identicons</string>

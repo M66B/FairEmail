@@ -329,7 +329,7 @@
     <string name="title_setup_reset_full">Eredeti szöveg megjelenítése</string>
     <string name="title_check_gmail_oauth">Gmail fiókjai 2022. május 30-a után is működni fognak</string>
     <string name="title_check_gmail_password">Előfordulhat, hogy némely Gmail fiókja nem fog működni 2022. május 30-a után</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Outlook fiókjai 2024. szeptember 16-a után is működni fognak</string>
+    <string name="title_check_outlook_oauth">Outlook fiókjai 2024. szeptember 16-a után is működni fognak</string>
     <string name="title_check_outlook_password">Egyes Outlook/Hotmail/Live fiókjai nem fognak működni 2024. szeptember 16. után</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
     <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.        Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.

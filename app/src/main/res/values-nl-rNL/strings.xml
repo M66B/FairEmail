@@ -203,6 +203,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_oauth_update">Autoriseer een bestaand account opnieuw (anders een nieuwe account aanmaken)</string>
     <string name="title_setup_oauth_updated">Accountautorisatie is bijgewerkt</string>
     <string name="title_setup_oauth_brave">Bij het gebruik van Brave browser, moet u de optie in de instellingen van Brave\'s inschakelen om app links te laten openen in apps buiten Brave</string>
+    <string name="title_setup_oauth_browser">Autorisatie vereist een werkende browser</string>
     <string name="title_setup_oauth_authorize">Autoriseren</string>
     <string name="title_setup_select_account">Selecteer account</string>
     <string name="title_setup_instructions">Installatie-instructies</string>
@@ -329,7 +330,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_reset_full">Toon originele berichten</string>
     <string name="title_check_gmail_oauth">Uw Gmail accounts zullen blijven werken na 30 mei 2022</string>
     <string name="title_check_gmail_password">Sommige van uw Gmail accounts werken mogelijk niet meer na 30 mei 2022</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Uw Outlook accounts zullen blijven werken na 16 september 2024</string>
+    <string name="title_check_outlook_oauth">Uw Outlook accounts zullen blijven werken na 16 september 2024</string>
     <string name="title_check_outlook_password">Sommige van uw Outlook/Hotmail/Live accounts zullen na 16 september 2024 niet meer werken</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.        Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
@@ -528,6 +529,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_favicons">Toon favicons</string>
     <string name="title_advanced_favicons_partial">Alleen de eerste %1$s van de webpagina scannen</string>
     <string name="title_advanced_favicons_manifest">Scan webapp-manifesten</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Toon DuckDuckGo iconen</string>
     <string name="title_advanced_favicons_dmarc">Vereis DMARC-verificatie voor externe afbeeldingen</string>
     <string name="title_advanced_generated_icons">Toon gegenereerde pictogrammen</string>
     <string name="title_advanced_identicons">Toon identicons</string>

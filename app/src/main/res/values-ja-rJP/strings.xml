@@ -316,7 +316,7 @@
     <string name="title_setup_reset_full">元のメッセージの表示</string>
     <string name="title_check_gmail_oauth">あなたの Gmail アカウントは 2022 年 5 月 30 日以降も引き続き利用できます</string>
     <string name="title_check_gmail_password">あなたの Gmail アカウントの一部は 2022 年 5 月 30 日以降に停止される可能性があります</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">あなたの Outlook アカウントは 2024 年 9 月 16 日以降も引き続き利用できます</string>
+    <string name="title_check_outlook_oauth">あなたの Outlook アカウントは 2024 年 9 月 16 日以降も引き続き利用できます</string>
     <string name="title_check_outlook_password">一部の Outlook/Hotmail/Live アカウントは、2024 年 9 月 16 日以降に停止します。</string>
     <string name="title_advanced_hint_title">詳細設定</string>
     <string name="title_advanced_hint_message">        詳細設定に移動しています。

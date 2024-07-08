@@ -204,6 +204,7 @@
     <string name="title_setup_oauth_update">Auktorisera ett befintligt konto igen (annars skapa ett nytt konto)</string>
     <string name="title_setup_oauth_updated">Kontoauktorisering har uppdaterats</string>
     <string name="title_setup_oauth_brave">När du använder webbläsaren Brave så måste du aktivera alternativet i Braves inställningar för att tillåta att applänkar öppnas i appar utanför Brave</string>
+    <string name="title_setup_oauth_browser">Auktorisering kräver en fungerande webbläsare</string>
     <string name="title_setup_oauth_authorize">Auktorisera</string>
     <string name="title_setup_select_account">Välj konto</string>
     <string name="title_setup_instructions">Inställningsinstruktioner</string>
@@ -328,7 +329,7 @@
     <string name="title_setup_reset_full">Visa originalmeddelanden</string>
     <string name="title_check_gmail_oauth">Dina Gmail-konton kommer att fortsätta fungera efter den 30 maj 2022</string>
     <string name="title_check_gmail_password">Vissa av dina Gmail-konton kan sluta fungera efter den 30 maj 2022</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Dina Outlook-konton kommer att fortsätta fungera efter 16 september 2024</string>
+    <string name="title_check_outlook_oauth">Dina Outlook-konton kommer att fortsätta fungera efter 16 september 2024</string>
     <string name="title_check_outlook_password">Några av dina Outlook/Hotmail/Live-konton kommer att sluta fungera efter 16 september 2024</string>
     <string name="title_advanced_hint_title">Mer avancerade alternativ</string>
     <string name="title_advanced_hint_message">Du navigerar till de mer avancerade alternativen.        Alla alternativ har använt standardvärden som kan ändras om du har en annan inställning.    </string>
@@ -526,6 +527,7 @@
     <string name="title_advanced_favicons">Visa favicons</string>
     <string name="title_advanced_favicons_partial">Skanna bara den första %1$s av webbsidan</string>
     <string name="title_advanced_favicons_manifest">Skanna webbapp manifest efter favicon</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Visa DuckDuckGo ikoner</string>
     <string name="title_advanced_favicons_dmarc">Kräv DMARC-verifiering för externa bilder</string>
     <string name="title_advanced_generated_icons">Visa genererade ikoner</string>
     <string name="title_advanced_identicons">Visa identicons</string>

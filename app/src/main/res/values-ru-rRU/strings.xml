@@ -232,6 +232,7 @@
     <string name="title_setup_oauth_update">Авторизация существующей учётной записи (или создание новой)</string>
     <string name="title_setup_oauth_updated">Авторизация учётной записи обновлена</string>
     <string name="title_setup_oauth_brave">При использовании браузера Brave необходимо разрешить в его настройках открывать ссылки сторонними приложениями</string>
+    <string name="title_setup_oauth_browser">Для авторизации требуется работающий браузер</string>
     <string name="title_setup_oauth_authorize">Авторизироваться</string>
     <string name="title_setup_select_account">Выбрать учётную запись</string>
     <string name="title_setup_instructions">Инструкция по установке</string>
@@ -358,7 +359,7 @@
     <string name="title_setup_reset_full">Показывать исходные сообщения</string>
     <string name="title_check_gmail_oauth">Ваши учётные записи Gmail будут работать после 30 мая 2022 года</string>
     <string name="title_check_gmail_password">Некоторые из ваших учётных записей Gmail могут перестать работать после 30 мая 2022 года</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Ваши учётные записи Outlook будут работать после 16 сентября 2024 года</string>
+    <string name="title_check_outlook_oauth">Ваши учётные записи Outlook будут работать после 16 сентября 2024 года</string>
     <string name="title_check_outlook_password">Некоторые из ваших учётных записей Outlook/Hotmail/Live перестанут работать после 16 сентября 2024 года</string>
     <string name="title_advanced_hint_title">Настройки для опытных</string>
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
@@ -557,6 +558,7 @@
     <string name="title_advanced_favicons">Показывать значки сайтов</string>
     <string name="title_advanced_favicons_partial">Сканировать только %1$s в начале веб-страницы</string>
     <string name="title_advanced_favicons_manifest">Сканировать манифесты веб-приложения</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Показывать значки DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Требовать проверку DMARC для внешних изображений</string>
     <string name="title_advanced_generated_icons">Показывать сгенерированные значки</string>
     <string name="title_advanced_identicons">Показывать идентификаторы</string>

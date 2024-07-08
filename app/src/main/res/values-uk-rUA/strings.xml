@@ -233,6 +233,7 @@
     <string name="title_setup_oauth_update">Авторизувати наявний обліковий запис знову (або ж створити новий обліковий запис)</string>
     <string name="title_setup_oauth_updated">Авторизація облікового запису була оновлена</string>
     <string name="title_setup_oauth_brave">При використанні браузера Brave ви повинні в його налаштуваннях увімкнути опцію, що дозволяє іншим додаткам відкривати посилання в Brave</string>
+    <string name="title_setup_oauth_browser">Авторизація потребує браузера, що працює</string>
     <string name="title_setup_oauth_authorize">Авторизувати</string>
     <string name="title_setup_select_account">Обрати обліковий запис</string>
     <string name="title_setup_instructions">Інструкції з встановлення</string>
@@ -359,7 +360,7 @@
     <string name="title_setup_reset_full">Показати оригінальні повідомлення</string>
     <string name="title_check_gmail_oauth">Ваші облікові записи Gmail продовжать працювати після 30 травня 2022 року</string>
     <string name="title_check_gmail_password">Деякі ваші облікові записи Gmail можуть перестати працювати після 30 травня 2022 року</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Ваші облікові записи Outlook будуть продовжувати працювати після 16 вересня 2024 року</string>
+    <string name="title_check_outlook_oauth">Ваші облікові записи Outlook будуть продовжувати працювати після 16 вересня 2024 року</string>
     <string name="title_check_outlook_password">Деякі ваші облікові записи Outlook/Hotmail/Live перестануть працювати після 16 вересня 2024 року</string>
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.        Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
@@ -558,6 +559,7 @@
     <string name="title_advanced_favicons">Показати піктограми сайтів</string>
     <string name="title_advanced_favicons_partial">Просканувати у вебсторінці тільки перші %1$s</string>
     <string name="title_advanced_favicons_manifest">Сканувати маніфести веб-додатків</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Показати іконки від DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Вимагати перевірку DMARC для зовнішніх зображень</string>
     <string name="title_advanced_generated_icons">Показувати згенеровані іконки</string>
     <string name="title_advanced_identicons">Показувати ідентикони</string>

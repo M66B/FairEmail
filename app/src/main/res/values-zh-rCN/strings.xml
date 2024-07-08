@@ -190,6 +190,7 @@
     <string name="title_setup_oauth_update">重新授权现有账户（否则请新建账户）</string>
     <string name="title_setup_oauth_updated">账户授权已更新</string>
     <string name="title_setup_oauth_brave">使用 Brave 浏览器时，您必须在 Brave 的设置中启用该选项，允许在 Brave 之外的应用中打开应用链接</string>
+    <string name="title_setup_oauth_browser">授权需要一个运转正常的浏览器</string>
     <string name="title_setup_oauth_authorize">授权</string>
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
@@ -316,7 +317,7 @@
     <string name="title_setup_reset_full">显示原始邮件</string>
     <string name="title_check_gmail_oauth">您的 Gmail 账户在 2022 年 5 月 30 日之后可继续使用</string>
     <string name="title_check_gmail_password">您的部分 Gmail 账户可能会在 2022 年 5 月 30 日之后不可使用</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">你的 Outlook 账户在2024 年9月16日之后将继续工作</string>
+    <string name="title_check_outlook_oauth">你的 Outlook 账户在2024 年9月16日之后将继续工作</string>
     <string name="title_check_outlook_password">您的一些Outlook/Hotmail/Live 账户在2024年9月16日后将停止工作</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
     <string name="title_advanced_hint_message">        您正在前往更多的高级选项        所有选项默认使用常用的标准值，若有特别偏好则可更改。
@@ -515,6 +516,7 @@
     <string name="title_advanced_favicons">显示网页图标</string>
     <string name="title_advanced_favicons_partial">只扫描网页的前 %1$s 数据</string>
     <string name="title_advanced_favicons_manifest">扫描Web应用清单</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">显示 DuckDuckGo 图标</string>
     <string name="title_advanced_favicons_dmarc">外部图像需要 DMARC 验证</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>

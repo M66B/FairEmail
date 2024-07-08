@@ -202,6 +202,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_oauth_update">Autorisearje in besteand account opnij (oars in nij account oanmeitsje)</string>
     <string name="title_setup_oauth_updated">Accountautorisaasje is bywurke</string>
     <string name="title_setup_oauth_brave">By it gebrûk fan de Brave-browser, moatte jo de opsje yn de ynstellingen fan Brave om app-keppelingen yn apps bûten Brave iepenje te litten ynskeakelje</string>
+    <string name="title_setup_oauth_browser">Autorisaasje fereasket in wurkjende browser</string>
     <string name="title_setup_oauth_authorize">Autorisearje</string>
     <string name="title_setup_select_account">Selektearje account</string>
     <string name="title_setup_instructions">Ynstallaasjeynstruksjes</string>
@@ -328,7 +329,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_reset_full">Orizjinele berjochten toane</string>
     <string name="title_check_gmail_oauth">Jo Gmail-accounts sille wurkje bliuwe nei 30 maaie 2022</string>
     <string name="title_check_gmail_password">Guon fan jo Gmail-accounts wurkje mooglik net mear nei 30 maaie 2022</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Jo Outlook-accounts sille nei 16 septmber 2024 wurkje bliuwe</string>
+    <string name="title_check_outlook_oauth">Jo Outlook-accounts sille nei 16 septmber 2024 wurkje bliuwe</string>
     <string name="title_check_outlook_password">Guon fan jo Outlook-/Hotmail-/Live-accounts sille nei 16 septimber 2024 net mear wurkje</string>
     <string name="title_advanced_hint_title">Mear avansearre opsjes</string>
     <string name="title_advanced_hint_message">        Jo navigearje nei de mear avansearre opsjes.
@@ -528,6 +529,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_favicons">Favicons toane</string>
     <string name="title_advanced_favicons_partial">Allinnich de earste %1$s fan de webside scanne</string>
     <string name="title_advanced_favicons_manifest">Webapp-manifesten scannen</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">DuckDuckGo-piktogrammen toane</string>
     <string name="title_advanced_favicons_dmarc">DMARC-ferifikaasje foar eksterne ôfbyldingen fereaskje</string>
     <string name="title_advanced_generated_icons">Generearre ikoanen toane</string>
     <string name="title_advanced_identicons">Identykons toane</string>

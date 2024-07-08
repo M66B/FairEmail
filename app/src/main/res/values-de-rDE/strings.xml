@@ -205,6 +205,7 @@
     <string name="title_setup_oauth_update">Ein bestehendes Konto erneut autorisieren (oder ein neues Konto erstellen)</string>
     <string name="title_setup_oauth_updated">Kontoautorisierung wurde aktualisiert</string>
     <string name="title_setup_oauth_brave">Wenn Sie den Browser Brave verwenden, dann müssen Sie in den Datenschutz-Einstellungen »Erlauben, dass Anwendungslinks in Anwendungen außerhalb von Brave geöffnet werden« aktivieren</string>
+    <string name="title_setup_oauth_browser">Autorisierung erfordert einen funktionierenden Browser</string>
     <string name="title_setup_oauth_authorize">Autorisieren</string>
     <string name="title_setup_select_account">Konto auswählen</string>
     <string name="title_setup_instructions">Einrichtungsanleitung</string>
@@ -331,7 +332,7 @@
     <string name="title_setup_reset_full">Originalnachrichten anzeigen</string>
     <string name="title_check_gmail_oauth">Ihre Gmail-Konten werden nach dem 30. Mai 2022 weiterhin funktionieren</string>
     <string name="title_check_gmail_password">Einige Ihrer Gmail-Konten funktionieren möglicherweise nicht mehr nach dem 30. Mai 2022</string>
-    <string name="title_check_outlook_oauth" comment="title_check_outlook_oauth&#10;Message telling that all Outlook accounts are authenticated with OAuth">Ihre Outlook-Konten werden auch nach dem 16. September 2024 weiterhin funktionieren</string>
+    <string name="title_check_outlook_oauth">Ihre Outlook-Konten werden auch nach dem 16. September 2024 weiterhin funktionieren</string>
     <string name="title_check_outlook_password">Einige Ihrer Outlook-/Hotmail-/Live-Konten funktionieren nach dem 16. September 2024 möglicherweise nicht mehr</string>
     <string name="title_advanced_hint_title">Erweiterte Optionen</string>
     <string name="title_advanced_hint_message">        Sie navigieren zu den erweiterten Optionen.
@@ -531,6 +532,7 @@
     <string name="title_advanced_favicons">Favicons anzeigen</string>
     <string name="title_advanced_favicons_partial">Nur die ersten %1$s der Webseite scannen</string>
     <string name="title_advanced_favicons_manifest">Web-App-Manifeste scannen</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">DuckDuckGo-Symbole anzeigen</string>
     <string name="title_advanced_favicons_dmarc">DMARC-Überprüfung für externe Bilder voraussetzen</string>
     <string name="title_advanced_generated_icons">Generierte Symbole anzeigen (Anfangsbuchstaben)</string>
     <string name="title_advanced_identicons">Identicons anzeigen</string>
