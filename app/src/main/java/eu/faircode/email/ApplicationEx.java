@@ -36,6 +36,7 @@ import android.os.SystemClock;
 import android.os.strictmode.Violation;
 import android.text.TextUtils;
 import android.util.Printer;
+import android.view.ContextThemeWrapper;
 import android.webkit.CookieManager;
 
 import androidx.annotation.NonNull;
@@ -65,6 +66,7 @@ public class ApplicationEx extends Application
     private Thread.UncaughtExceptionHandler prev = null;
 
     private static final Object lock = new Object();
+    private static final Map<Integer, Context> themeCache = new HashMap<>();
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -118,6 +120,17 @@ public class ApplicationEx extends Application
         }
 
         return context;
+    }
+
+    static Context getThemedContext(Context context, int style) {
+        synchronized (themeCache) {
+            Context tcontext = themeCache.get(style);
+            if (tcontext == null) {
+                tcontext = new ContextThemeWrapper(context.getApplicationContext(), style);
+                themeCache.put(style, tcontext);
+            }
+            return tcontext;
+        }
     }
 
     @NonNull

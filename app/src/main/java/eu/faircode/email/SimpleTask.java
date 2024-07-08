@@ -19,14 +19,12 @@ package eu.faircode.email;
     Copyright 2018-2024 by Marcel Bokhorst (M66B)
 */
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.text.Spanned;
-import android.view.ContextThemeWrapper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -68,9 +66,6 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private Handler handler = null;
 
     private static PowerManager.WakeLock wl = null;
-    private static int themeId = -1;
-    @SuppressLint("StaticFieldLeak")
-    private static Context themedContext = null;
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
     private static final ExecutorService serialExecutor =
@@ -215,11 +210,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             int themeId = ((ActivityBase) context).getThemeId();
             if (themeId == 0)
                 themeId = context.getApplicationInfo().theme;
-            if (SimpleTask.themedContext == null || SimpleTask.themeId != themeId) {
-                SimpleTask.themeId = themeId;
-                SimpleTask.themedContext = new ContextThemeWrapper(context.getApplicationContext(), themeId);
-            }
-            tcontext = SimpleTask.themedContext;
+            tcontext = ApplicationEx.getThemedContext(context, themeId);
         } else
             tcontext = context.getApplicationContext();
 

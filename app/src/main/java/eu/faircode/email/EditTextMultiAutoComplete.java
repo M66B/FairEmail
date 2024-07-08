@@ -71,7 +71,6 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
     private SharedPreferences prefs;
     private boolean dark;
     private int colorAccent;
-    private ContextThemeWrapper ctx;
     private Tokenizer tokenizer;
     private Map<String, Integer> encryption = new ConcurrentHashMap<>();
 
@@ -106,7 +105,6 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         dark = Helper.isDarkTheme(context);
         colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
         colorAccent = ColorUtils.setAlphaComponent(colorAccent, 5 * 255 / 100);
-        ctx = new ContextThemeWrapper(context.getApplicationContext(), dark ? R.style.ChipDark : R.style.ChipLight);
 
         addTextChangedListener(new TextWatcher() {
             private Integer backspace = null;
@@ -346,6 +344,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                                     String text = (TextUtils.isEmpty(personal) ? email : personal);
 
                                     // https://github.com/material-components/material-components-android/blob/master/docs/components/Chip.md
+                                    Context ctx = ApplicationEx.getThemedContext(context, dark ? R.style.ChipDark : R.style.ChipLight);
                                     ChipDrawable cd = ChipDrawable.createFromResource(ctx, R.xml.chip);
                                     cd.setChipIcon(avatar);
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
