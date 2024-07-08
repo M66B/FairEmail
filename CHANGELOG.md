@@ -12,6 +12,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### Next version
+
+* Added optional DuckDuckGo favicons (GitHub version only)
+* Fixed two memory leaks
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2209 - 2024-07-03
 
 * Added account images (avatars)
