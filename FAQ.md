@@ -1280,6 +1280,12 @@ Using the search index is a pro feature.
 <br />
 
 >
+> tl;dr; go to settings via the navigation menu (left side menu), tap the wizard button, select Outlook/Hotmail/Live and follow the steps.
+>
+
+<br />
+
+>
 > **Important**: Basic Authentication [will be turned off for Office 365 accounts from October 1, 2022](https://techcommunity.microsoft.com/t5/exchange-team-blog/basic-authentication-deprecation-in-exchange-online-may-2022/ba-p/3301866).
 >
 > **Important**: Basic Authentication **[will be turned off for Outlook/Hotmail/Live accounts from September 16, 2024](https://techcommunity.microsoft.com/t5/outlook-blog/keeping-our-outlook-personal-email-users-safe-reinforcing-our/ba-p/4164184)**.
