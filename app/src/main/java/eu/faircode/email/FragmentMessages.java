@@ -5965,14 +5965,15 @@ public class FragmentMessages extends FragmentBase
                 int resid = (checked ? R.string.title_check_outlook_oauth : R.string.title_check_outlook_password);
                 final Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(view, resid, Snackbar.LENGTH_INDEFINITE));
                 Helper.setSnackbarLines(snackbar, 5);
-                snackbar.setAction(R.string.title_info, new View.OnClickListener() {
+                snackbar.setAction(checked ? android.R.string.ok : R.string.title_info, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         snackbar.dismiss();
                         prefs.edit().putBoolean("outlook_checked", true).apply();
-                        if (!checked)
+                        if (!checked) {
                             prefs.edit().putLong("outlook_last_checked", now).apply();
-                        Helper.viewFAQ(v.getContext(), 14);
+                            Helper.viewFAQ(v.getContext(), 14);
+                        }
                     }
                 });
                 snackbar.addCallback(new Snackbar.Callback() {
