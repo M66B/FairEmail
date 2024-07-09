@@ -401,7 +401,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvReceiptHint" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spEncrypt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -440,7 +440,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spEncrypt" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spPriority"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -464,7 +464,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spPriority" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spSensitivity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

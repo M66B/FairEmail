@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spAccount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spAccount" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spFolder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSeparatorLines" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spFontSize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spFontSize" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spPadding"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spPadding" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spSubjectLines"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

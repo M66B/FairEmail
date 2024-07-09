@@ -192,7 +192,7 @@
                     app:layout_constraintTop_toTopOf="@id/tvOptimizeHint"
                     app:srcCompat="@drawable/twotone_info_24" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spPollInterval"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

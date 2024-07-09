@@ -40,7 +40,7 @@
             app:layout_constraintTop_toTopOf="@id/tvTitle"
             app:srcCompat="@drawable/twotone_select_all_24" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spLanguage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

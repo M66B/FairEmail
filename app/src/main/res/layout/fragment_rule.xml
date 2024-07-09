@@ -741,7 +741,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorSchedule" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spScheduleDayStart"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -750,7 +750,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tvScheduleHourStart" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spScheduleDayEnd"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -902,7 +902,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvAction" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spAction"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -987,7 +987,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvColor" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spImportance"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1121,7 +1121,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cbMoveThread" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spIdent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1139,7 +1139,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/spIdent" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spAnswer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1416,7 +1416,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnColorNotes" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spUrlMethod"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

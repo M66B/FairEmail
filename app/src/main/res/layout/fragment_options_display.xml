@@ -112,7 +112,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnTheme" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spStartup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -405,7 +405,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPortrait2cHint" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spPortraitMinSize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -482,7 +482,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvLandscapeHint" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spLandscapeMinSize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1353,7 +1353,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorSender" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spNameEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1444,7 +1444,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swReverseAddresses" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spFontSizeSender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1465,7 +1465,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/spFontSizeSender" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spSenderEllipsize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1556,7 +1556,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvHighlightSubjectHint" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spFontSizeSubject"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1577,7 +1577,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/spFontSizeSubject" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spSubjectEllipsize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1703,7 +1703,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swPreviewItalic" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spPreviewLines"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1931,7 +1931,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvHyphenationHint" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spDisplayFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
+    <eu.faircode.email.SpinnerEx
         android:id="@+id/spType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

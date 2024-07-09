@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spAccount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -188,7 +188,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnAdvanced" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spProvider"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -1004,7 +1004,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbEncryptDefault" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spReceiptType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -1023,7 +1023,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spReceiptType" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spSensitivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

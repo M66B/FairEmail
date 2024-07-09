@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spIdentity"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

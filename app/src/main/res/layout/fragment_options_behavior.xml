@@ -587,7 +587,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swCollapseMultiple" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spSeenDelay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -649,7 +649,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvAutoCloseHint" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spOnClose"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -707,7 +707,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swCollapseMarked" />
 
-                <Spinner
+                <eu.faircode.email.SpinnerEx
                     android:id="@+id/spUndoTimeout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

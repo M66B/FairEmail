@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spProvider"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -1036,7 +1036,7 @@
             app:barrierDirection="end"
             app:constraint_referenced_ids="tvDrafts,tvSent,tvArchive,tvTrash,tvJunk,tvLeft,tvRight,tvMove" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spDrafts"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -1057,7 +1057,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spDrafts" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spSent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -1080,7 +1080,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spSent" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spArchive"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -1091,7 +1091,7 @@
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/tvSentWarning" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spTrash"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -1102,7 +1102,7 @@
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/spArchive" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spJunk"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -1122,7 +1122,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spJunk" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spLeft"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -1133,7 +1133,7 @@
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorSwipe" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spRight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -1153,7 +1153,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spRight" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spMove"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

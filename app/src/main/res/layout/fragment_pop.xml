@@ -751,7 +751,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cbVpnOnly" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spLeft"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -769,7 +769,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spLeft" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spRight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

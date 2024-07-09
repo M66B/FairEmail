@@ -227,7 +227,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNeverAgain" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spOpenWith"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

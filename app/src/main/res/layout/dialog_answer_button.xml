@@ -36,7 +36,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvCaption" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spAnswerActionSingle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spAnswerActionSingle" />
 
-        <Spinner
+        <eu.faircode.email.SpinnerEx
             android:id="@+id/spAnswerActionLong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
