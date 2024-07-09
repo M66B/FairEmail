@@ -12,7 +12,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2210 - 2024-07-09
 
 * Added optional DuckDuckGo favicons (GitHub version only)
 * Fixed two memory leaks
