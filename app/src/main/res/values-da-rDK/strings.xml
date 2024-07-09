@@ -204,6 +204,7 @@
     <string name="title_setup_oauth_update">Godkend en eksisterende konto igen (ellers opret en ny konto)</string>
     <string name="title_setup_oauth_updated">Kontogodkendelsen blev opdateret</string>
     <string name="title_setup_oauth_brave">Bruges Brave-browser skal valgmuligheden aktiveres i browserindstillingerne for at tillade åbning af app-links uden for Brave</string>
+    <string name="title_setup_oauth_browser">Godkendelse kræver en fungerende webbrowser</string>
     <string name="title_setup_oauth_authorize">Godkend</string>
     <string name="title_setup_select_account">Vælg konto</string>
     <string name="title_setup_instructions">Opsætningsinstruktioner</string>
@@ -530,6 +531,7 @@
     <string name="title_advanced_favicons">Vis favoritkoner</string>
     <string name="title_advanced_favicons_partial">Skan kun de første %1$s af websiden</string>
     <string name="title_advanced_favicons_manifest">Skan web-app manifester</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Vis DuckDuckGo-ikoner</string>
     <string name="title_advanced_favicons_dmarc">Kræv DMARC-bekræftelse for eksterne billeder</string>
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
     <string name="title_advanced_identicons">Vis identikoner</string>

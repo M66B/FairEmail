@@ -190,6 +190,7 @@
     <string name="title_setup_oauth_update">設定済みのアカウントをもう一度認証する (設定されていない場合、新しいアカウントを作成)</string>
     <string name="title_setup_oauth_updated">アカウントの認証情報が更新されました</string>
     <string name="title_setup_oauth_brave">Brave ブラウザを使用している場合、Brave の設定で「Brave外のアプリでアプリのリンクを開くことを許可」を有効にしてください</string>
+    <string name="title_setup_oauth_browser">認証には有効に動作するブラウザーが必要です</string>
     <string name="title_setup_oauth_authorize">認証</string>
     <string name="title_setup_select_account">アカウントを選択</string>
     <string name="title_setup_instructions">セットアップ方法</string>
@@ -516,6 +517,7 @@
     <string name="title_advanced_favicons">ファビコンを表示する</string>
     <string name="title_advanced_favicons_partial">ウェブページの最初の %1$s だけをスキャンする</string>
     <string name="title_advanced_favicons_manifest">ウェブアプリマニフェストをスキャンする</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">DuckDuckGo のアイコンを表示する</string>
     <string name="title_advanced_favicons_dmarc">外部の画像アイコンの表示に DMARC を必須にする</string>
     <string name="title_advanced_generated_icons">アイコンを生成して表示する</string>
     <string name="title_advanced_identicons">Identicon を表示する</string>
