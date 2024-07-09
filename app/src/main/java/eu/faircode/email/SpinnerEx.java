@@ -69,8 +69,12 @@ public class SpinnerEx extends Spinner {
 
     @Override
     protected void onFocusChanged(boolean gainFocus, int direction, @Nullable Rect previouslyFocusedRect) {
-        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
-        if (gainFocus && getWindowToken() != null)
-            performClick();
+        try {
+            super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
+            if (gainFocus && getWindowToken() != null)
+                performClick();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 }
