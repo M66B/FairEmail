@@ -944,8 +944,8 @@
     <provider
         name="Mailfence"
         appPassword="true"
-        domain="mailfence\\.com"
         documentation="If you &lt;a href=&quot;https://kb.mailfence.com/kb/service-specific-passwords/&quot;&gt;generated service-specific passwords&lt;/a&gt;, you may need to configure an account and and identity manually."
+        domain="mailfence\\.com"
         link="https://mailfence.com/en/faq.jsp"
         useip="false"
         user="local">
@@ -2307,5 +2307,18 @@
             host="secure.prxy.com"
             port="465"
             starttls="false" />
+    </provider>
+    <provider
+        name="Globenet.org"
+        link="https://www.globenet.org/Problemes-de-connexion-a-vos.html"
+        mx=".*\\.globenet\\.org">
+        <imap
+            host="mail.globenet.org"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.globenet.org"
+            port="587"
+            starttls="true" />
     </provider>
 </providers>
