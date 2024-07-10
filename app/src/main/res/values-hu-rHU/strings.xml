@@ -203,6 +203,7 @@
     <string name="title_setup_oauth_update">Ismételt bejelentkezés egy már meglevő fiókba (vagy új fiók létrehozása)</string>
     <string name="title_setup_oauth_updated">A fiókhitelesítés frissült</string>
     <string name="title_setup_oauth_brave">Ha Brave böngészőt használ, engedélyeznie kell a Brave beállításaiban az alkalmazás-hivatkozások megnyitását külső alkalmazásban</string>
+    <string name="title_setup_oauth_browser">A hitelesítés működő böngészőt igényel</string>
     <string name="title_setup_oauth_authorize">Engedélyezés</string>
     <string name="title_setup_select_account">Válasszon fiókot</string>
     <string name="title_setup_instructions">Telepítési útmutató</string>
@@ -528,6 +529,7 @@
     <string name="title_advanced_favicons">Faviconok megjelenítése</string>
     <string name="title_advanced_favicons_partial">Csak az első %1$s-t olvassa be a weboldalnak</string>
     <string name="title_advanced_favicons_manifest">Nézze át a webalkalmazás jegyzékét</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">DuckDuckGo ikonok mutatása</string>
     <string name="title_advanced_favicons_dmarc">DMARC ellenőrzés megkövetelése külső képek esetén</string>
     <string name="title_advanced_generated_icons">Generált ikonok megjelenítése</string>
     <string name="title_advanced_identicons">Azonosító-ikonok megjelenítése</string>

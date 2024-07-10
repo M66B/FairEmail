@@ -218,6 +218,7 @@
     <string name="title_setup_oauth_update">Autorizuj postojeći račun opet (u suprotnom, kreiraj novi račun)</string>
     <string name="title_setup_oauth_updated">Autorizacija računa je ažurirana</string>
     <string name="title_setup_oauth_brave">Pri korištenju Brave preglednika, morate u postavaka omogućiti opciju \"Dozvoli aplikaciji otvaranje linkova u drugim aplikacijama izvan Brave-a\"</string>
+    <string name="title_setup_oauth_browser">Autorizacija traži funkcionalan preglednik</string>
     <string name="title_setup_oauth_authorize">Autorizuj</string>
     <string name="title_setup_select_account">Izaberite račun</string>
     <string name="title_setup_instructions">Uputstva za postavljanje</string>
@@ -544,6 +545,7 @@
     <string name="title_advanced_favicons">Prikaži fav ikonice</string>
     <string name="title_advanced_favicons_partial">Skeniraj samo prva(ih) %1$s web stranice</string>
     <string name="title_advanced_favicons_manifest">Skeniraj manifeste web aplikacija</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Prikaži DuckDuckGo ikonice</string>
     <string name="title_advanced_favicons_dmarc">Zahtjevaj DMARC provjeru za vanjske slike</string>
     <string name="title_advanced_generated_icons">Prikaži generisane ikonice</string>
     <string name="title_advanced_identicons">Prikaži identitet ikonice</string>
