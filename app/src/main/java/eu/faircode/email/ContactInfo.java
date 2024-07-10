@@ -103,6 +103,7 @@ public class ContactInfo {
     private static Map<String, Lookup> emailLookup = new ConcurrentHashMap<>();
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
 
+    private static final int CONTACT_ICON_SIZE = 64; // dp
     private static final int GENERATED_ICON_SIZE = 48; // dp
     private static final int FAVICON_ICON_SIZE = 64; // dp
     private static final int FAVICON_CONNECT_TIMEOUT = 5 * 1000; // milliseconds
@@ -320,11 +321,12 @@ public class ContactInfo {
                         long contactId = cursor.getLong(colContactId);
                         String lookupKey = cursor.getString(colLookupKey);
                         Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+                        int px = Helper.dp2pixels(context, CONTACT_ICON_SIZE);
 
                         if (avatars)
                             try (InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(
                                     resolver, lookupUri, false)) {
-                                info.bitmap = BitmapFactory.decodeStream(is);
+                                info.bitmap = ImageHelper.getScaledBitmap(is, lookupUri.toString(), null, px);
                                 info.type = "contact";
                             } catch (Throwable ex) {
                                 Log.e(ex);
