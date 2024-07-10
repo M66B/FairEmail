@@ -803,7 +803,7 @@ class ImageHelper {
         while (options.outWidth / factor > scaleToPixels)
             factor *= 2;
 
-        Log.i("Download " + source + " factor=" + factor);
+        Log.i("Decode " + source + " factor=" + factor);
         bis.reset();
         if (factor > 1) {
             options.inJustDecodeBounds = false;
