@@ -137,7 +137,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     static final int DEFAULT_BACKOFF_POWER = 3; // 2^3=8 seconds (totally 8+2x20=48 seconds)
 
-    private static final long MSG_DELAY = 15 * 1000L; // milliseconds
+    private static final long MSG_START_DELAY = 15 * 1000L; // milliseconds
+    private static final long MSG_STOP_DELAY = 1000L + 500L; // milliseconds
     private static final long BACKUP_DELAY = 30 * 1000L; // milliseconds
     private static final long PURGE_DELAY = 30 * 1000L; // milliseconds
     private static final int QUIT_DELAY = 10; // seconds
@@ -754,12 +755,21 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         final TwoStateOwner cowner = new TwoStateOwner(this, "liveSynchronizing");
 
+        final Runnable updateStop = new Runnable() {
+            @Override
+            public void run() {
+                Log.i("Stop new messages");
+                cowner.stop();
+            }
+        };
+
         final Runnable updateNew = new Runnable() {
             @Override
             public void run() {
-                Log.i("Update new messages");
+                Log.i("Start new messages");
                 cowner.restart();
-                getMainHandler().postDelayed(this, MSG_DELAY);
+                getMainHandler().postDelayed(updateStop, MSG_STOP_DELAY);
+                getMainHandler().postDelayed(this, MSG_START_DELAY);
             }
         };
 
@@ -804,10 +814,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 if (syncing == 0) {
                     getMainHandler().removeCallbacks(updateNew);
+                    getMainHandler().removeCallbacks(updateStop);
                     cowner.start();
                 } else {
                     cowner.stop();
-                    getMainHandler().postDelayed(updateNew, MSG_DELAY);
+                    if (!getMainHandler().hasCallbacks(updateNew))
+                        getMainHandler().postDelayed(updateNew, MSG_START_DELAY);
                 }
 
                 if (!changed)
