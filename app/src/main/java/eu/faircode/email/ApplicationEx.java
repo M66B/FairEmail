@@ -1049,6 +1049,11 @@ public class ApplicationEx extends Application
                 editor.remove("outlook_last_checked").remove("outlook_checked");
         }
 
+        if (version < 2212) {
+            if (!BuildConfig.DEBUG)
+                ContactInfo.clearCache(context); // SVG scale
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
 
