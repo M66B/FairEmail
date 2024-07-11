@@ -332,7 +332,9 @@ public class Bimi {
                         String txt = "_dmarc." + domain;
                         Log.i("BIMI fetch TXT " + txt);
                         DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, txt, "txt");
-                        if (records.length == 0) {
+                        if (records.length == 0 ||
+                                records[0].response == null ||
+                                !records[0].response.toLowerCase(Locale.ROOT).contains("dmarc")) {
                             String parent = UriHelper.getParentDomain(context, domain);
                             if (parent != null) {
                                 txt = "_dmarc." + parent;
