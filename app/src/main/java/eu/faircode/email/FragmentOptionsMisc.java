@@ -184,6 +184,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SeekBar sbSqliteCache;
     private ImageButton ibSqliteCache;
     private SwitchCompat swLegacyQueries;
+    private SwitchCompat swCacheLists;
     private SwitchCompat swOauthTabs;
     private TextView tvStartDelay;
     private SeekBar sbStartDelay;
@@ -290,7 +291,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "emergency_file", "work_manager", "task_description", // "external_storage",
             "sqlite_integrity_check", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_auto_vacuum", "sqlite_sync_extra", "sqlite_cache",
             "legacy_queries",
-            "oauth_tabs",
+            "cache_lists", "oauth_tabs",
             "start_delay", "chunk_size", "thread_range",
             "autoscroll_editor", "undo_manager",
             "browser_zoom", "fake_dark",
@@ -442,6 +443,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         sbSqliteCache = view.findViewById(R.id.sbSqliteCache);
         ibSqliteCache = view.findViewById(R.id.ibSqliteCache);
         swLegacyQueries = view.findViewById(R.id.swLegacyQueries);
+        swCacheLists = view.findViewById(R.id.swCacheLists);
         swOauthTabs = view.findViewById(R.id.swOauthTabs);
         tvStartDelay = view.findViewById(R.id.tvStartDelay);
         sbStartDelay = view.findViewById(R.id.sbStartDelay);
@@ -1285,6 +1287,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 prefs.edit().putBoolean("legacy_queries", checked).apply();
                 ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
                 model.clear();
+            }
+        });
+
+        swCacheLists.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton v, boolean checked) {
+                prefs.edit().putBoolean("cache_lists", checked).apply();
             }
         });
 
@@ -2431,7 +2440,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             sbSqliteCache.setProgress(sqlite_cache);
 
             swLegacyQueries.setChecked(prefs.getBoolean("legacy_queries", false));
-
+            swCacheLists.setChecked(prefs.getBoolean("cache_lists", true));
             swOauthTabs.setChecked(prefs.getBoolean("oauth_tabs", true));
 
             int start_delay = prefs.getInt("start_delay", 0);

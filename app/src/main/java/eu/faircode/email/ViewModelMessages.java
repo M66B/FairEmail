@@ -90,6 +90,10 @@ public class ViewModelMessages extends ViewModel {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean legacy = prefs.getBoolean("legacy_queries", false);
+        boolean cache_lists = prefs.getBoolean("cache_lists", true);
+
+        if (!cache_lists)
+            models.clear();
 
         Args args = new Args(context,
                 viewType, type, account, folder,
@@ -302,6 +306,8 @@ public class ViewModelMessages extends ViewModel {
             last = viewType;
             Log.i("Last model=" + last);
         }
+
+        Helper.gc("model:get");
 
         Log.i("Returning model=" + viewType);
         dump();
