@@ -86,6 +86,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -293,6 +294,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             private int lastQuitId = -1;
             private List<Long> initialized = new ArrayList<>();
             private List<TupleAccountNetworkState> accountStates = new ArrayList<>();
+            private final Map<String, Semaphore> startSerializer = new HashMap<>();
             private PowerManager pm = Helper.getSystemService(ServiceSynchronize.this, PowerManager.class);
             private PowerManager.WakeLock wl = pm.newWakeLock(
                     PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":service");
@@ -556,6 +558,22 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void delegate() {
                         try {
+                            int start_delay = prefs.getInt("start_delay", 0);
+                            if (start_delay > 0) {
+                                Semaphore sem;
+                                synchronized (startSerializer) {
+                                    if (!startSerializer.containsKey(accountNetworkState.accountState.host))
+                                        startSerializer.put(accountNetworkState.accountState.host, new Semaphore(1));
+                                    sem = startSerializer.get(accountNetworkState.accountState.host);
+                                }
+                                sem.acquire();
+                                getMainHandler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        sem.release();
+                                    }
+                                }, start_delay * 1000L);
+                            }
                             monitorAccount(accountNetworkState.accountState, astate, sync, force);
                         } catch (Throwable ex) {
                             Log.e(accountNetworkState.accountState.name, ex);
