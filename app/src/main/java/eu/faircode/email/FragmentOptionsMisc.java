@@ -1298,8 +1298,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         sbStartDelay.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                int start_delay = progress * 10;
-                prefs.edit().putInt("start_delay", start_delay).apply();
+                prefs.edit().putInt("start_delay", progress).apply();
             }
 
             @Override
@@ -2437,7 +2436,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
             int start_delay = prefs.getInt("start_delay", 0);
             tvStartDelay.setText(getString(R.string.title_advanced_start_delay, start_delay));
-            sbStartDelay.setProgress(start_delay / 10);
+            sbStartDelay.setProgress(start_delay);
 
             int chunk_size = prefs.getInt("chunk_size", Core.DEFAULT_CHUNK_SIZE);
             tvChunkSize.setText(getString(R.string.title_advanced_chunk_size, chunk_size));

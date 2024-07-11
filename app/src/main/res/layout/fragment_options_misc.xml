@@ -1213,7 +1213,7 @@
                     android:id="@+id/sbStartDelay"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:max="30"
+                    android:max="60"
                     android:min="0"
                     android:progress="0"
                     app:layout_constraintEnd_toEndOf="parent"
