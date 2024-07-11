@@ -204,6 +204,7 @@
     <string name="title_setup_oauth_update">Volver a autorizar una cuenta existente (de lo contrario crear una nueva cuenta)</string>
     <string name="title_setup_oauth_updated">Se ha actualizado la autorización de la cuenta</string>
     <string name="title_setup_oauth_brave">Al usar el navegador Brave, debe activar la opción en la configuración de Brave para permitir que los enlaces de aplicaciones se abran en aplicaciones fuera de Brave</string>
+    <string name="title_setup_oauth_browser">La autorización requiere un navegador funcionando</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Seleccionar cuenta</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
@@ -529,6 +530,7 @@
     <string name="title_advanced_favicons">Mostrar favicons</string>
     <string name="title_advanced_favicons_partial">Escanear solo los primeros %1$s de la página web</string>
     <string name="title_advanced_favicons_manifest">Escanear manifiestos de aplicación web</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Mostrar iconos de DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Requerir verificación DMARC para imágenes externas</string>
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
