@@ -287,6 +287,7 @@ public class ContactInfo {
         boolean libravatars = (prefs.getBoolean("libravatars", false) && (!favicons_dmarc || dmarc) && !BuildConfig.PLAY_STORE_RELEASE);
         boolean favicons = (prefs.getBoolean("favicons", false) && (!favicons_dmarc || dmarc));
         boolean ddg_icons = (prefs.getBoolean("ddg_icons", false) && (!favicons_dmarc || dmarc) && !BuildConfig.PLAY_STORE_RELEASE);
+        String favicon_uri = prefs.getString("favicon_uri", null);
         boolean generated = prefs.getBoolean("generated_icons", true);
         boolean identicons = prefs.getBoolean("identicons", false);
         boolean circular = prefs.getBoolean("circular", true);
@@ -487,6 +488,19 @@ public class ContactInfo {
                                     Favicon ddg = getFavicon(new URL(uri), null, scaleToPixels, context);
                                     ddg.type = "ddg";
                                     return ddg;
+                                }
+                            }));
+
+                        if (!TextUtils.isEmpty(favicon_uri) && (!favicons_dmarc || dmarc))
+                            futures.add(Helper.getDownloadTaskExecutor().submit(new Callable<Favicon>() {
+                                @Override
+                                public Favicon call() throws Exception {
+                                    String parent = UriHelper.getRootDomain(context, domain);
+                                    String uri = favicon_uri.replace("{domain}", Uri.encode(parent));
+                                    Log.i("MMM uri=" + uri);
+                                    Favicon alt = getFavicon(new URL(uri), null, scaleToPixels, context);
+                                    alt.type = "uri";
+                                    return alt;
                                 }
                             }));
 

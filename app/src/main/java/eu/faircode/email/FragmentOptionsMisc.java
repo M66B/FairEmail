@@ -227,6 +227,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAnimate;
     private SwitchCompat swEasyCorrect;
     private SwitchCompat swPastePlain;
+    private EditText etFaviconUri;
     private SwitchCompat swInfra;
     private SwitchCompat swTldFlags;
     private SwitchCompat swJsonLd;
@@ -304,7 +305,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "exact_alarms",
             "native_dkim", "native_arc", "native_arc_whitelist", "strict_alignment",
             "webp", "animate_images",
-            "easy_correct", "paste_plain", "infra", "tld_flags", "json_ld", "dup_msgids", "thread_byref", "save_user_flags", "mdn",
+            "easy_correct", "paste_plain", "favicon_uri", "infra", "tld_flags", "json_ld", "dup_msgids", "thread_byref", "save_user_flags", "mdn",
             "app_chooser", "app_chooser_share", "share_task",
             "adjacent_links", "adjacent_documents", "adjacent_portrait", "adjacent_landscape",
             "delete_confirmation", "delete_notification", "global_keywords", "test_iab"
@@ -486,6 +487,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAnimate = view.findViewById(R.id.swAnimate);
         swEasyCorrect = view.findViewById(R.id.swEasyCorrect);
         swPastePlain = view.findViewById(R.id.swPastePlain);
+        etFaviconUri = view.findViewById(R.id.etFaviconUri);
         swInfra = view.findViewById(R.id.swInfra);
         swTldFlags = view.findViewById(R.id.swTldFlags);
         swJsonLd = view.findViewById(R.id.swJsonLd);
@@ -1647,6 +1649,27 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        etFaviconUri.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable edit) {
+                String uri = edit.toString().trim();
+                String prev = prefs.getString("favicon_uri", null);
+                prefs.edit().putString("favicon_uri", uri).apply();
+                if (uri.equals(prev))
+                    ContactInfo.clearCache(getContext());
+            }
+        });
+
         swInfra.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2215,6 +2238,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if ("viewport_height".equals(key))
             return;
 
+        if ("favicon_uri".equals(key))
+            return;
+
         if ("global_keywords".equals(key))
             return;
 
@@ -2503,6 +2529,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swAnimate.setChecked(prefs.getBoolean("animate_images", true));
             swEasyCorrect.setChecked(prefs.getBoolean("easy_correct", false));
             swPastePlain.setChecked(prefs.getBoolean("paste_plain", false));
+            etFaviconUri.setText(prefs.getString("favicon_uri", null));
             swInfra.setChecked(prefs.getBoolean("infra", false));
             swTldFlags.setChecked(prefs.getBoolean("tld_flags", false));
             swJsonLd.setChecked(prefs.getBoolean("json_ld", false));

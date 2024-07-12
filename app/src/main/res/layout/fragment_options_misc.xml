@@ -1719,6 +1719,41 @@
                     app:layout_constraintTop_toBottomOf="@id/swEasyCorrect"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvFaviconUri"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_favicon_uri"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swPastePlain" />
+
+                <EditText
+                    android:id="@+id/etFaviconUri"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textUri"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvFaviconUri" />
+
+                <TextView
+                    android:id="@+id/tvFaviconUriHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_favicon_uri_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etFaviconUri" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swInfra"
                     android:layout_width="0dp"
@@ -1727,7 +1762,7 @@
                     android:text="@string/title_advanced_infra"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swPastePlain"
+                    app:layout_constraintTop_toBottomOf="@id/tvFaviconUriHint"
                     app:switchPadding="12dp" />
 
                 <androidx.constraintlayout.helper.widget.Flow
