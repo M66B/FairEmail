@@ -497,7 +497,7 @@ public class ContactInfo {
                                 public Favicon call() throws Exception {
                                     String parent = UriHelper.getRootDomain(context, domain);
                                     String uri = favicon_uri.replace("{domain}", Uri.encode(parent));
-                                    Log.i("MMM uri=" + uri);
+                                    Log.i("Favicon uri=" + uri);
                                     Favicon alt = getFavicon(new URL(uri), null, scaleToPixels, context);
                                     alt.type = "uri";
                                     return alt;
