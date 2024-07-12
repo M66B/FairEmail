@@ -127,6 +127,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private TextView tvFaviconsHint;
     private SwitchCompat swFaviconsPartial;
     private SwitchCompat swFaviconsManifest;
+    private ImageButton ibFavicons;
     private SwitchCompat swDdg;
     private TextView tvDdgPrivacy;
     private SwitchCompat swFaviconsDmarc;
@@ -309,6 +310,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         tvFaviconsHint = view.findViewById(R.id.tvFaviconsHint);
         swFaviconsPartial = view.findViewById(R.id.swFaviconsPartial);
         swFaviconsManifest = view.findViewById(R.id.swFaviconsManifest);
+        ibFavicons = view.findViewById(R.id.ibFavicons);
         swDdg = view.findViewById(R.id.swDdg);
         tvDdgPrivacy = view.findViewById(R.id.tvDdgPrivacy);
         swFaviconsDmarc = view.findViewById(R.id.swFaviconsDmarc);
@@ -919,6 +921,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("favicons_manifest", checked).apply();
                 ContactInfo.clearCache(compoundButton.getContext());
+            }
+        });
+
+        ibFavicons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(view.getContext(), 154);
             }
         });
 

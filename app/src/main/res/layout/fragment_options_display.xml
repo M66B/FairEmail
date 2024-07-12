@@ -1142,6 +1142,19 @@
                     app:layout_constraintTop_toBottomOf="@id/swFaviconsPartial"
                     app:switchPadding="12dp" />
 
+                <ImageButton
+                    android:id="@+id/ibFavicons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:contentDescription="@string/title_info"
+                    android:tag="nosuggest"
+                    android:tooltipText="@string/title_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/swFaviconsManifest"
+                    app:srcCompat="@drawable/twotone_info_24" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swDdg"
                     android:layout_width="0dp"
@@ -1151,7 +1164,7 @@
                     android:text="@string/title_advanced_ddg"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swFaviconsManifest"
+                    app:layout_constraintTop_toBottomOf="@id/ibFavicons"
                     app:switchPadding="12dp" />
 
                 <TextView
