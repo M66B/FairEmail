@@ -378,7 +378,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(151) Can you add backup/restore of messages?](#faq151)
 * [(152) How can I insert a contact group?](#faq152)
 * [(153) Why does permanently deleting Gmail message not work?](#faq153)
-* [~~(154) Can you add favicons as contact photos?~~](#faq154)
+* [(154) Is there support for favicons as contact photos?](#faq154)
 * [(155) What is a winmail.dat file?](#faq155)
 * [(156) How can I set up an Office 365 account?](#faq156)
 * [(157) How can I set up an Free.fr account?](#faq157)
@@ -4791,12 +4791,28 @@ On the other hand, a star set via IMAP is being shown in the web interface and c
 <br />
 
 <a name="faq154"></a>
-**~~(154) Can you add favicons as contact photos?~~**
+**(154) Is there support for favicons as contact photos?**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq154)
 
-~~Besides that a [favicon](https://en.wikipedia.org/wiki/Favicon) might be shared by many email addresses with the same domain name~~
-~~and therefore is not directly related to an email address, favicons can be used to track you.~~
+Yes, favicons can be enabled in the display-settings tab page.
+
+To reduce privacy concerns, the app fetches favicons directly from the internet using the domain name of email addresses.
+In other words, no third-party service is used.
+
+Since version 1.2210 it is also possible to use DuckDuckGo's icon service (GitHub version only).
+There are concerns about [privacy](https://github.com/duckduckgo/Android/issues/527).
+
+Since version 1.2213 it is possible to configure an alternative URI to fetch favicons in the debug options
+by temporarily enabling debug mode in the miscellaneous-settings tab page.
+For example:
+
+
+```
+https://icons.duckduckgo.com/ip3/{domain}.ico
+https://www.google.com/s2/favicons?sz=128&domain={domain}
+https://favicon.yandex.net/favicon/{domain}
+```
 
 <br />
 

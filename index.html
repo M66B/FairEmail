@@ -367,7 +367,7 @@
 <li><a href="#faq151">(151) Can you add backup/restore of messages?</a></li>
 <li><a href="#faq152">(152) How can I insert a contact group?</a></li>
 <li><a href="#faq153">(153) Why does permanently deleting Gmail message not work?</a></li>
-<li><a href="#faq154"><del>(154) Can you add favicons as contact photos?</del></a></li>
+<li><a href="#faq154">(154) Is there support for favicons as contact photos?</a></li>
 <li><a href="#faq155">(155) What is a winmail.dat file?</a></li>
 <li><a href="#faq156">(156) How can I set up an Office 365 account?</a></li>
 <li><a href="#faq157">(157) How can I set up an Free.fr account?</a></li>
@@ -2439,9 +2439,15 @@ $NotDisplayed</code></pre>
 <pre><code>STORE &lt;message number&gt; -FLAGS (\Flagged)</code></pre>
 <p>On the other hand, a star set via IMAP is being shown in the web interface and can be removed via IMAP.</p>
 <p><br /></p>
-<p><a name="faq154"></a> <strong><del>(154) Can you add favicons as contact photos?</del></strong></p>
+<p><a name="faq154"></a> <strong>(154) Is there support for favicons as contact photos?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq154">Google Translate</a></p>
-<p><del>Besides that a <a href="https://en.wikipedia.org/wiki/Favicon">favicon</a> might be shared by many email addresses with the same domain name</del> <del>and therefore is not directly related to an email address, favicons can be used to track you.</del></p>
+<p>Yes, favicons can be enabled in the display-settings tab page.</p>
+<p>To reduce privacy concerns, the app fetches favicons directly from the internet using the domain name of email addresses. In other words, no third-party service is used.</p>
+<p>Since version 1.2210 it is also possible to use DuckDuckGo’s icon service (GitHub version only). There are concerns about <a href="https://github.com/duckduckgo/Android/issues/527">privacy</a>.</p>
+<p>Since version 1.2213 it is possible to configure an alternative URI to fetch favicons in the debug options by temporarily enabling debug mode in the miscellaneous-settings tab page. For example:</p>
+<pre><code>https://icons.duckduckgo.com/ip3/{domain}.ico
+https://www.google.com/s2/favicons?sz=128&amp;domain={domain}
+https://favicon.yandex.net/favicon/{domain}</code></pre>
 <p><br /></p>
 <p><a name="faq155"></a> <strong>(155) What is a winmail.dat file?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq155">Google Translate</a></p>
