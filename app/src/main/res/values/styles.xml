@@ -431,6 +431,17 @@
         <item name="snackbarStyle">@style/WhiteSnackBar</item>
     </style>
 
+    <style name="AppThemeBlank" parent="AppThemeBlueOrangeLight">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/blackAccent</item>
+
+        <item name="colorInfoForeground">@color/blackPrimary</item>
+        <item name="colorInfoBackground">@color/smoke</item>
+
+        <item name="snackbarStyle">@style/WhiteSnackBar</item>
+    </style>
+
     <style name="WhiteSnackBar" parent="Widget.Design.Snackbar">
         <item name="android:paddingLeft">0dp</item>
         <item name="android:paddingRight">0dp</item>
@@ -466,7 +477,7 @@
         <item name="colorFabBackground">@color/blackAndWhitePrimaryLight</item>
 
         <item name="colorInfoForeground">@color/white</item>
-        <item name="colorInfoBackground">@color/blackPrimary</item>
+        <item name="colorInfoBackground">@color/blackAndWhitePrimary</item>
 
         <item name="android:windowBackground">@drawable/background_black</item>
         <item name="colorDrawerBackground">@color/black</item>
@@ -523,7 +534,7 @@
         <item name="colorFabBackground">@color/darkSolarizedAccent</item>
 
         <item name="colorInfoForeground">@color/white</item>
-        <item name="colorInfoBackground">@color/darkSolarizedAccent</item>
+        <item name="colorInfoBackground">@color/darkSolarizedPrimary</item>
 
         <item name="android:textColorLink">@color/darkSolarizedAccent</item>
         <item name="android:textColorLinkInverse">@color/darkSolarizedAccent</item>
@@ -547,7 +558,7 @@
         <item name="colorFabBackground">@color/darkSolarizedAccent</item>
 
         <item name="colorInfoForeground">@color/white</item>
-        <item name="colorInfoBackground">@color/darkSolarizedAccent</item>
+        <item name="colorInfoBackground">@color/darkSolarizedPrimary</item>
 
         <item name="android:textColorLink">@color/darkSolarizedAccent</item>
         <item name="android:textColorLinkInverse">@color/darkSolarizedAccent</item>
