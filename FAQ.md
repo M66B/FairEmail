@@ -4800,6 +4800,9 @@ Yes, favicons can be enabled in the display-settings tab page.
 To reduce privacy concerns, the app fetches favicons directly from the internet using the domain name of email addresses.
 In other words, no third-party service is used.
 
+If no favicon is shown for an email address, please check for favicons via [this service](https://realfavicongenerator.net/),
+and if there are any, please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
+
 Since version 1.2210 it is also possible to use DuckDuckGo's icon service (GitHub version only).
 There are concerns about [privacy](https://github.com/duckduckgo/Android/issues/527).
 
