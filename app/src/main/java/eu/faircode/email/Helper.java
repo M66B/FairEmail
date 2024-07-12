@@ -924,6 +924,16 @@ public class Helper {
         }
     }
 
+    static boolean hasSmallMemoryClass(Context context) {
+        try {
+            ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
+            return (am.getMemoryClass() < 256);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
+    }
+
     // View
 
     static int getMaxTextureSize() {

@@ -429,11 +429,12 @@ public class DebugHelper {
         ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
-        sb.append(String.format("Memory class: %d/%d MB Large: %s Total: %s Low: %b\r\n",
+        sb.append(String.format("Memory class: %d/%d MB Large: %s Total: %s Low: %b Small: %b\r\n",
                 am.getMemoryClass(), am.getLargeMemoryClass(),
                 largeHeap == null ? "?" : Boolean.toString(largeHeap),
                 Helper.humanReadableByteCount(mi.totalMem),
-                am.isLowRamDevice()));
+                am.isLowRamDevice(),
+                Helper.hasSmallMemoryClass(context)));
 
         long storage_available = Helper.getAvailableStorageSpace();
         long storage_total = Helper.getTotalStorageSpace();
@@ -1170,7 +1171,7 @@ public class DebugHelper {
 
                 for (String key : prefs.getAll().keySet())
                     if (key.startsWith("dns_"))
-                        size += write(os, key + "=" + prefs.getAll().get(key)+"\r\n");
+                        size += write(os, key + "=" + prefs.getAll().get(key) + "\r\n");
 
                 size += write(os, "\r\n");
                 size += write(os, Log.getCiphers().toString());
