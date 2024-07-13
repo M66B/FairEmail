@@ -204,6 +204,7 @@
     <string name="title_setup_oauth_update">Упълномощаване пак на съществуващ акаунт (в противен случай създаване на нов акаунт)</string>
     <string name="title_setup_oauth_updated">Обновено упълномощаване на акаунта</string>
     <string name="title_setup_oauth_brave">Употребявайки браузъра Brave, трябва да включите възможността в настройките му да позволите на връзките в приложението да се отварят в приложения извън Brave</string>
+    <string name="title_setup_oauth_browser">Упълномощаването изисква работещ браузър</string>
     <string name="title_setup_oauth_authorize">Упълномощявам</string>
     <string name="title_setup_select_account">Избор на акаунт</string>
     <string name="title_setup_instructions">Указания за настройка</string>
@@ -529,6 +530,7 @@
     <string name="title_advanced_favicons">Показване на иконата на сайта</string>
     <string name="title_advanced_favicons_partial">Сканиране само на първите %1$s от уебстраницата</string>
     <string name="title_advanced_favicons_manifest">Сканиране на манифести на уеб приложения</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Показване на икони DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Изисква се проверка на DMARC за външни изображения</string>
     <string name="title_advanced_generated_icons">Показване на генерираните икони</string>
     <string name="title_advanced_identicons">Показване на икони за самоличност</string>

@@ -526,6 +526,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_favicons">Faviconları göster</string>
     <string name="title_advanced_favicons_partial">Web sayfasının yalnızca ilk %1$s tarayın</string>
     <string name="title_advanced_favicons_manifest">Web uygulaması bildirimlerini tarayın</string>
+    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">DuckDuckGo simgelerini göster</string>
     <string name="title_advanced_favicons_dmarc">Dış görseller için DMARC doğrulaması gerektir</string>
     <string name="title_advanced_generated_icons">Oluşturulan simgeleri göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
