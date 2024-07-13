@@ -431,6 +431,11 @@
         <item name="snackbarStyle">@style/WhiteSnackBar</item>
     </style>
 
+    <style name="WhiteSnackBar" parent="Widget.Design.Snackbar">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+    </style>
+
     <style name="AppThemeBlank" parent="AppThemeBlueOrangeLight">
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/white</item>
@@ -443,12 +448,24 @@
         <item name="colorInfoForeground">@color/blackPrimary</item>
         <item name="colorInfoBackground">@color/smoke</item>
 
-        <item name="snackbarStyle">@style/WhiteSnackBar</item>
+        <item name="snackbarStyle">@style/BlankSnackBar</item>
+        <item name="snackbarTextViewStyle">@style/BlankSnackBarText</item>
+        <item name="snackbarButtonStyle">@style/BlankSnackBarButton</item>
     </style>
 
-    <style name="WhiteSnackBar" parent="Widget.Design.Snackbar">
-        <item name="android:paddingLeft">0dp</item>
-        <item name="android:paddingRight">0dp</item>
+    <style name="BlankSnackBar" parent="Widget.Design.Snackbar">
+        <item name="android:background">@color/smoke</item>
+    </style>
+
+    <style name="BlankSnackBarText" parent="@style/Widget.MaterialComponents.Snackbar.TextView">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+
+    <style name="BlankSnackBarButton" parent="@style/Widget.MaterialComponents.Button.TextButton.Snackbar">
+        <item name="android:textColor">?colorAccent</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="AppThemeBlackAndWhite" parent="AppThemeBaseDark">
