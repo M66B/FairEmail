@@ -54,6 +54,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     private TextView tvYou;
     private RadioGroup rgThemeOptions;
     private TextView tvSystem;
+    private SwitchCompat swBeige;
     private SwitchCompat swBlack;
     private SwitchCompat swHtmlLight;
     private SwitchCompat swComposerLight;
@@ -97,6 +98,8 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         final Context context = getContext();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String theme = prefs.getString("theme", "blue_orange_system");
+        boolean cards = prefs.getBoolean("cards", true);
+        boolean beige = prefs.getBoolean("beige", true);
         boolean default_light = prefs.getBoolean("default_light", false);
         boolean composer_light = prefs.getBoolean("composer_light", false);
         boolean debug = prefs.getBoolean("debug", false);
@@ -109,6 +112,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         swReverse = dview.findViewById(R.id.swReverse);
         rgThemeOptions = dview.findViewById(R.id.rgThemeOptions);
         tvSystem = dview.findViewById(R.id.tvSystem);
+        swBeige = dview.findViewById(R.id.swBeige);
         swBlack = dview.findViewById(R.id.swBlack);
         swHtmlLight = dview.findViewById(R.id.swHtmlLight);
         swComposerLight = dview.findViewById(R.id.swComposerLight);
@@ -173,6 +177,8 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         else
             rgThemeOptions.check(R.id.rbThemeLight);
 
+        swBeige.setChecked(beige);
+        swBeige.setVisibility(cards ? View.VISIBLE : View.GONE);
         swBlack.setChecked(black);
         swHtmlLight.setChecked(default_light);
         swComposerLight.setChecked(composer_light);
@@ -304,6 +310,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                         boolean reverse = (swReverse.isEnabled() && swReverse.isChecked());
                         boolean dark = (rgThemeOptions.isEnabled() && optionId == R.id.rbThemeDark);
                         boolean system = (rgThemeOptions.isEnabled() && optionId == R.id.rbThemeSystem);
+                        boolean beige = swBeige.isChecked();
                         boolean black = (swBlack.isEnabled() && swBlack.isChecked());
 
                         SharedPreferences.Editor editor = prefs.edit();
@@ -378,6 +385,8 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                                         (reverse ? "you_mono_reversed" : "you_mono") +
                                                 (black ? "_black" : dark ? "_dark" : "_light")).apply();
                         }
+
+                        editor.putBoolean("beige", beige);
 
                         editor.putBoolean("default_light", swHtmlLight.isChecked());
                         editor.putBoolean("composer_light", swComposerLight.isChecked());
