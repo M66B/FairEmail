@@ -668,6 +668,26 @@ public class ConnectionHelper {
         boolean has4 = false;
         boolean has6 = false;
 
+        // props={
+        //   InterfaceName: rmnet16
+        //   LinkAddresses: [ 2a01:599:a1b:a486:9aa1:495d:81d9:5386/64 ]
+        //   DnsAddresses: [ /2a01:598:7ff:0:10:74:210:221,/2a01:598:7ff:0:10:74:210:222 ]
+        //   Domains: null
+        //   MTU: 1500
+        //   TcpBufferSizes: 2097152,6291456,16777216,512000,2097152,8388608
+        //   Routes: [ ::/0 -> :: rmnet16 mtu 1500,2a01:599:a1b:a486::/64 -> :: rmnet16 mtu 0 ]
+        //   Nat64Prefix: 64:ff9b::/96
+        //   Stacked: [[ {
+        //       InterfaceName: v4-rmnet16
+        //       LinkAddresses: [ 192.0.0.4/32 ]
+        //       DnsAddresses: [ ]
+        //       Domains: null
+        //       MTU: 0
+        //       Routes: [ 0.0.0.0/0 -> 192.0.0.4 v4-rmnet16 mtu 0 ]
+        //   } ]]
+        // }
+
+/*
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             try {
                 ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
@@ -693,22 +713,23 @@ public class ConnectionHelper {
             }
             return new boolean[]{has4, has6};
         }
-
+*/
         try {
             Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
             while (interfaces != null && interfaces.hasMoreElements()) {
                 NetworkInterface ni = interfaces.nextElement();
-                for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
-                    InetAddress addr = iaddr.getAddress();
-                    boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
-                    EntityLog.log(context, EntityLog.Type.Network,
-                            "Interface=" + ni + " addr=" + addr + " local=" + local);
-                    if (!local)
-                        if (addr instanceof Inet4Address)
-                            has4 = true;
-                        else if (addr instanceof Inet6Address)
-                            has6 = true;
-                }
+                if (ni != null && ni.isUp())
+                    for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
+                        InetAddress addr = iaddr.getAddress();
+                        boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
+                        EntityLog.log(context, EntityLog.Type.Network,
+                                "Interface=" + ni + " addr=" + addr + " local=" + local);
+                        if (!local)
+                            if (addr instanceof Inet4Address)
+                                has4 = true;
+                            else if (addr instanceof Inet6Address)
+                                has6 = true;
+                    }
             }
         } catch (Throwable ex) {
             Log.e(ex);
