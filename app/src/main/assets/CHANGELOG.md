@@ -12,7 +12,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### 1.2212 - 2024-07-11
+### Next version
+
+* Added white theme
+* Small improvements and minor bug fixes
+* Updated build tools (Android Studio, gradle)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2212 - 2024-07-11 *
 
 * Added resizing of contact photos to avoid using a lot of memory
 * Small improvements and minor bug fixes

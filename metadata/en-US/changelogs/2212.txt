@@ -12,7 +12,15 @@ For support you can use the contact form.
 
 Acantholipan
 
-1.2212 - 2024-07-11
+Next version
+
+* Added white theme
+* Small improvements and minor bug fixes
+* Updated build tools (Android Studio, gradle)
+* Updated Public Suffix List
+* Updated translations
+
+1.2212 - 2024-07-11 *
 
 * Added resizing of contact photos to avoid using a lot of memory
 * Small improvements and minor bug fixes
