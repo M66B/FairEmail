@@ -435,16 +435,6 @@
             app:layout_constraintTop_toBottomOf="@id/rgThemeOptions" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swBeige"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_advanced_cards_beige"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSystem" />
-
-        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swBlack"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -452,7 +442,7 @@
             android:text="@string/title_setup_theme_black_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swBeige" />
+            app:layout_constraintTop_toBottomOf="@id/tvSystem" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swHtmlLight"
