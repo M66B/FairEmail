@@ -179,7 +179,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             rgThemeOptions.check(R.id.rbThemeLight);
 
         swBeige.setChecked(beige);
-        swBeige.setVisibility(cards ? View.VISIBLE : View.GONE);
+        swBeige.setEnabled(cards);
         swBlack.setChecked(black);
         swHtmlLight.setChecked(default_light);
         swComposerLight.setChecked(composer_light);
