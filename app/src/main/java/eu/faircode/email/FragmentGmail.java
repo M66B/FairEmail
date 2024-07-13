@@ -33,14 +33,12 @@ import android.accounts.AuthenticatorException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Paint;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -287,20 +285,6 @@ public class FragmentGmail extends FragmentBase {
     private void setGranted(boolean granted) {
         btnGrant.setEnabled(!granted);
         tvGranted.setVisibility(granted ? View.VISIBLE : View.GONE);
-
-        boolean hasName = (etName.getText() != null && etName.getText().length() > 0);
-        if (granted && !hasName) {
-            try (Cursor cursor = getContext().getContentResolver().query(
-                    ContactsContract.Profile.CONTENT_URI,
-                    new String[]{ContactsContract.Profile.DISPLAY_NAME}, null, null, null)) {
-                if (cursor != null && cursor.moveToFirst()) {
-                    int colDisplay = cursor.getColumnIndex(ContactsContract.Profile.DISPLAY_NAME);
-                    etName.setText(cursor.getString(colDisplay));
-                }
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
-        }
 
         etName.setEnabled(granted);
         cbPop.setEnabled(granted);
