@@ -5060,6 +5060,9 @@ The theme colors are based on the color circle of [Johannes Itten](https://en.wi
 
 The *Solarized* theme is described in [this article](https://en.wikipedia.org/wiki/Solarized_(color_scheme)).
 
+The beige background is in fact [Cosmic Latte](https://en.wikipedia.org/wiki/Cosmic_latte),
+the average color of the galaxies of the universe as perceived from the Earth
+
 <br />
 
 <a name="faq165"></a>
