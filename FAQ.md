@@ -4677,6 +4677,9 @@ either *Play store*, *GitHub*, *F-Droid*, or *?* (for example in the case of a c
 [Aurora Store](https://f-droid.org/packages/com.aurora.store/) hosts the Play store version of the app,
 even though the Aurora Store app was downloaded from F-Droid.
 
+Please [see here](https://forum.f-droid.org/t/help-wanted-how-to-create-a-reproducible-build-fairemail/8860) why reproducible F-Droid builds are not an option.
+Instead, you can check the integrity of an APK file produced by a GitHub workflow, [see here](#faq205) on how.
+
 <br />
 
 <a name="faq148"></a>
