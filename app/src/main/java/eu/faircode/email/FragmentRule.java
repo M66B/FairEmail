@@ -529,7 +529,32 @@ public class FragmentRule extends FragmentBase {
             }
         });
 
-        adapterAction = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<Action>());
+        int dp6 = Helper.dp2pixels(getContext(), 6);
+        adapterAction = new ArrayAdapter<Action>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<>()) {
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                return getView(position, super.getView(position, convertView, parent));
+            }
+
+            @Override
+            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                return getView(position, super.getDropDownView(position, convertView, parent));
+            }
+
+            private View getView(int position, View view) {
+                Action action = getItem(position);
+                if (action != null) {
+                    TextView tv = view.findViewById(android.R.id.text1);
+                    if (tv != null) {
+                        tv.setText(action.name);
+                        tv.setCompoundDrawablePadding(dp6);
+                        tv.setCompoundDrawablesRelativeWithIntrinsicBounds(action.icon, 0, 0, 0);
+                    }
+                }
+                return view;
+            }
+        };
         adapterAction.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spAction.setAdapter(adapterAction);
 
@@ -654,31 +679,31 @@ public class FragmentRule extends FragmentBase {
         });
 
         List<Action> actions = new ArrayList<>();
-        actions.add(new Action(EntityRule.TYPE_NOOP, getString(R.string.title_rule_noop)));
-        actions.add(new Action(EntityRule.TYPE_SEEN, getString(R.string.title_rule_seen)));
-        actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_rule_unseen)));
-        actions.add(new Action(EntityRule.TYPE_HIDE, getString(R.string.title_rule_hide)));
-        actions.add(new Action(EntityRule.TYPE_IGNORE, getString(R.string.title_rule_ignore)));
-        actions.add(new Action(EntityRule.TYPE_SILENT, getString(R.string.title_rule_silent)));
+        actions.add(new Action(EntityRule.TYPE_NOOP, getString(R.string.title_rule_noop), R.drawable.twotone_close_24));
+        actions.add(new Action(EntityRule.TYPE_SEEN, getString(R.string.title_rule_seen), R.drawable.twotone_drafts_24));
+        actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_rule_unseen), R.drawable.twotone_mail_24));
+        actions.add(new Action(EntityRule.TYPE_HIDE, getString(R.string.title_rule_hide), R.drawable.twotone_visibility_off_24));
+        actions.add(new Action(EntityRule.TYPE_IGNORE, getString(R.string.title_rule_ignore), R.drawable.twotone_notifications_off_24));
+        actions.add(new Action(EntityRule.TYPE_SILENT, getString(R.string.title_rule_silent), R.drawable.twotone_volume_off_24));
         if (BuildConfig.DEBUG)
-            actions.add(new Action(EntityRule.TYPE_LOCAL_ONLY, getString(R.string.title_rule_local_only)));
-        actions.add(new Action(EntityRule.TYPE_SNOOZE, getString(R.string.title_rule_snooze)));
-        actions.add(new Action(EntityRule.TYPE_FLAG, getString(R.string.title_rule_flag)));
-        actions.add(new Action(EntityRule.TYPE_IMPORTANCE, getString(R.string.title_rule_importance)));
+            actions.add(new Action(EntityRule.TYPE_LOCAL_ONLY, getString(R.string.title_rule_local_only), R.drawable.twotone_android_24));
+        actions.add(new Action(EntityRule.TYPE_SNOOZE, getString(R.string.title_rule_snooze), R.drawable.twotone_timelapse_24));
+        actions.add(new Action(EntityRule.TYPE_FLAG, getString(R.string.title_rule_flag), R.drawable.twotone_star_24));
+        actions.add(new Action(EntityRule.TYPE_IMPORTANCE, getString(R.string.title_rule_importance), R.drawable.twotone_north_24));
         if (protocol == EntityAccount.TYPE_IMAP)
-            actions.add(new Action(EntityRule.TYPE_KEYWORD, getString(R.string.title_rule_keyword)));
-        actions.add(new Action(EntityRule.TYPE_NOTES, getString(R.string.title_rule_notes)));
-        actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move)));
+            actions.add(new Action(EntityRule.TYPE_KEYWORD, getString(R.string.title_rule_keyword), R.drawable.twotone_label_important_24));
+        actions.add(new Action(EntityRule.TYPE_NOTES, getString(R.string.title_rule_notes), R.drawable.twotone_sticky_note_2_24));
+        actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move), R.drawable.twotone_drive_file_move_24));
         if (protocol == EntityAccount.TYPE_IMAP)
-            actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy)));
-        actions.add(new Action(EntityRule.TYPE_DELETE, getString(R.string.title_rule_delete)));
-        actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_rule_answer)));
+            actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy), R.drawable.twotone_file_copy_24));
+        actions.add(new Action(EntityRule.TYPE_DELETE, getString(R.string.title_rule_delete), R.drawable.twotone_delete_forever_24));
+        actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_rule_answer), R.drawable.twotone_reply_24));
         if (AI.isAvailable(getContext()))
-            actions.add(new Action(EntityRule.TYPE_SUMMARIZE, getString(R.string.title_rule_summarize)));
-        actions.add(new Action(EntityRule.TYPE_TTS, getString(R.string.title_rule_tts)));
-        actions.add(new Action(EntityRule.TYPE_SOUND, getString(R.string.title_rule_sound)));
-        actions.add(new Action(EntityRule.TYPE_AUTOMATION, getString(R.string.title_rule_automation)));
-        actions.add(new Action(EntityRule.TYPE_URL, getString(R.string.title_rule_url)));
+            actions.add(new Action(EntityRule.TYPE_SUMMARIZE, getString(R.string.title_rule_summarize), R.drawable.twotone_smart_toy_24));
+        actions.add(new Action(EntityRule.TYPE_TTS, getString(R.string.title_rule_tts), R.drawable.twotone_record_voice_over_24));
+        actions.add(new Action(EntityRule.TYPE_SOUND, getString(R.string.title_rule_sound), R.drawable.twotone_play_arrow_24));
+        actions.add(new Action(EntityRule.TYPE_AUTOMATION, getString(R.string.title_rule_automation), R.drawable.twotone_auto_awesome_24));
+        actions.add(new Action(EntityRule.TYPE_URL, getString(R.string.title_rule_url), R.drawable.twotone_insert_link_45_24));
         adapterAction.addAll(actions);
 
         spAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -1897,10 +1922,12 @@ public class FragmentRule extends FragmentBase {
     private static class Action {
         int type;
         String name;
+        int icon;
 
-        Action(int type, String name) {
+        Action(int type, String name, int icon) {
             this.type = type;
             this.name = name;
+            this.icon = icon;
         }
 
         @NonNull
