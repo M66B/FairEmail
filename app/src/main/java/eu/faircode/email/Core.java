@@ -4583,7 +4583,7 @@ class Core {
 
             Long received;
             long future = new Date().getTime() + FUTURE_RECEIVED;
-            if (account.use_date) {
+            if (account.use_date || EntityFolder.SENT.equals(folder.type)) {
                 received = sent;
                 if (received == null || received == 0 || received > future)
                     received = helper.getReceived();
