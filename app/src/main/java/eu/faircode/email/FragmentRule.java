@@ -679,7 +679,7 @@ public class FragmentRule extends FragmentBase {
         });
 
         List<Action> actions = new ArrayList<>();
-        actions.add(new Action(EntityRule.TYPE_NOOP, getString(R.string.title_rule_noop), R.drawable.twotone_close_24));
+        actions.add(new Action(EntityRule.TYPE_NOOP, getString(R.string.title_rule_noop), R.drawable.twotone_remove_circle_outline_24));
         actions.add(new Action(EntityRule.TYPE_SEEN, getString(R.string.title_rule_seen), R.drawable.twotone_drafts_24));
         actions.add(new Action(EntityRule.TYPE_UNSEEN, getString(R.string.title_rule_unseen), R.drawable.twotone_mail_24));
         actions.add(new Action(EntityRule.TYPE_HIDE, getString(R.string.title_rule_hide), R.drawable.twotone_visibility_off_24));
