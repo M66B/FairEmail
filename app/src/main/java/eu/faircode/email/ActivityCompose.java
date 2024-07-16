@@ -274,6 +274,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         boolean attach_new = prefs.getBoolean("attach_new", true);
 
         if (!attach_new && !create &&
+                args != null &&
                 args.size() == 1 &&
                 (args.containsKey("to") ||
                         args.containsKey("attachments"))) {
