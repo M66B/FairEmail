@@ -448,19 +448,27 @@ public class CloudSync {
                             }
                         } else {
                             if (left != null) {
-                                left.account = raccount.id;
-                                left.setProperties();
-                                left.setSpecials(raccount);
-                                left.id = db.folder().insertFolder(left);
-                                raccount.swipe_left = left.id;
+                                EntityFolder existing = db.folder().getFolderByName(raccount.id, left.name);
+                                if (existing == null) {
+                                    left.account = raccount.id;
+                                    left.setProperties();
+                                    left.setSpecials(raccount);
+                                    left.id = db.folder().insertFolder(left);
+                                    raccount.swipe_left = left.id;
+                                } else
+                                    raccount.swipe_left = existing.id;
                             }
 
                             if (right != null) {
-                                right.account = raccount.id;
-                                right.setProperties();
-                                right.setSpecials(raccount);
-                                right.id = db.folder().insertFolder(right);
-                                raccount.swipe_right = right.id;
+                                EntityFolder existing = db.folder().getFolderByName(raccount.id, right.name);
+                                if (existing == null) {
+                                    right.account = raccount.id;
+                                    right.setProperties();
+                                    right.setSpecials(raccount);
+                                    right.id = db.folder().insertFolder(right);
+                                    raccount.swipe_right = right.id;
+                                } else
+                                    raccount.swipe_right = existing.id;
                             }
 
                             db.account().setAccountSwipes(raccount.id, raccount.swipe_left, raccount.swipe_right);
