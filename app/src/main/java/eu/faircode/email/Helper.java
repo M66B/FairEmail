@@ -3737,6 +3737,8 @@ public class Helper {
     // Miscellaneous
 
     static void gc(String reason) {
+        if (!BuildConfig.DEBUG)
+            return;
         try {
             Log.i("GC " + reason);
             Runtime.getRuntime().gc();
