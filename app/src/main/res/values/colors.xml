@@ -45,6 +45,8 @@
     <color name="lightActionForegroundDisabled">#ddd</color>
     <color name="lightActionBackground">#bbb</color>
 
+    <color name="whiteActionForegroundDisabled">#aaa</color>
+
     <color name="darkColorItemSelected">#444</color>
     <color name="darkColorSeparator">#444</color>
     <color name="darkColorThumb">#555</color>

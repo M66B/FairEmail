@@ -442,7 +442,7 @@
         <item name="colorAccent">@color/blackAccent</item>
 
         <item name="colorActionForeground">?android:attr/textColorSecondary</item>
-        <item name="colorActionForegroundDisabled">@color/darkActionForegroundDisabled</item>
+        <item name="colorActionForegroundDisabled">@color/whiteActionForegroundDisabled</item>
         <item name="colorActionBackground">@color/smoke</item>
 
         <item name="colorInfoForeground">@color/blackPrimary</item>
