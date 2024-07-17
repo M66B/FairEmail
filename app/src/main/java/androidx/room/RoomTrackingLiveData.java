@@ -118,8 +118,7 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
             if (isActive)
                 synchronized (lock) {
                     if (queued > 0)
-                        eu.faircode.email.Log.persist(eu.faircode.email.EntityLog.Type.Debug1,
-                                mComputeFunction + " queued=" + queued);
+                        eu.faircode.email.Log.i(mComputeFunction + " queued=" + queued);
                     else {
                         queued++;
                         getQueryExecutor().execute(mRefreshRunnable);
