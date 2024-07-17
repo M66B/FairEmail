@@ -220,6 +220,10 @@
 
         <item name="colorFabBackground">@color/lightPurpleAccent</item>
 
+        <item name="colorActionForeground">?android:attr/textColorSecondary</item>
+        <item name="colorActionForegroundDisabled">@color/whiteActionForegroundDisabled</item>
+        <item name="colorActionBackground">@color/smoke</item>
+
         <item name="colorInfoForeground">?android:textColorPrimary</item>
         <item name="colorInfoBackground">@color/lightYellowPrimary</item>
 
