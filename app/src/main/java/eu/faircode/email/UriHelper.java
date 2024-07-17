@@ -342,6 +342,18 @@ public class UriHelper {
             Uri result = getBraveDebounce(context, uri);
 
             if (result == null &&
+                    uri.getQueryParameter("redirect") != null) {
+                Uri redirected = Uri.parse(uri.getQueryParameter("redirect"));
+                if (redirected != null) {
+                    Uri.Builder builder = redirected.buildUpon();
+                    for (String key : uri.getQueryParameterNames())
+                        if (!"redirect".equals(key))
+                            builder.appendQueryParameter(key, uri.getQueryParameter(key));
+                    result = builder.build();
+                }
+            }
+
+            if (result == null &&
                     uri.getQueryParameter("redirectUrl") != null)
                 // https://.../link-tracker?redirectUrl=<base64>&sig=...&iat=...&a=...&account=...&email=...&s=...&i=...
                 try {
