@@ -12,6 +12,12 @@ For support you can use the contact form.
 
 Acantholipan
 
+Next version
+
+* Fixed all reported bugs
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2213 - 2024-07-13
 
 * Added white theme
