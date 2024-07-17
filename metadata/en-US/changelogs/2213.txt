@@ -15,6 +15,7 @@ Acantholipan
 Next version
 
 * Fixed all reported bugs
+* Performance improvements
 * Small improvements and minor bug fixes
 * Updated translations
 
