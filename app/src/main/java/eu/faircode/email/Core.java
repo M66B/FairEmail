@@ -1145,9 +1145,6 @@ class Core {
         if (target != folder.id)
             throw new IllegalArgumentException("Invalid folder");
 
-        if (account != null && account.isWebDe() && "Postausgang".equalsIgnoreCase(folder.name))
-            throw new IllegalArgumentException("'Postausgang' is read-only, use 'Gesendet' instead");
-
         // External draft might have a uid only
         if (TextUtils.isEmpty(message.msgid)) {
             message.msgid = EntityMessage.generateMessageId();
