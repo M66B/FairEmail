@@ -2321,4 +2321,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="emailn.de"
+        domain="emailn\\.de"
+        link="https://www.emailn.de/blog/imap-einrichten">
+        <imap
+            host="imap.emailn.de"
+            port="143"
+            starttls="true" />
+        <smtp
+            host="smtp.emailn.de"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
