@@ -1239,6 +1239,7 @@
     </provider>
     <provider
         name="Laposte.net"
+        documentation="Vous devez utiliser votre adresse e-mail principale. Il n'est plus possible d'utiliser une adresse alias pour authentifier un compte!"
         domain="laposte\\.net"
         link="https://aide.laposte.net/contents/comment-parametrer-un-logiciel-de-messagerie-pour-envoyer-et-recevoir-mes-courriers-electroniques">
         <imap
