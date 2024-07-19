@@ -1134,9 +1134,9 @@ You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
 <br />
 
-*pretty Easy privacy*
+*Planck Security* (formerly: *pretty Easy privacy* or p≡p)
 
-There is still [no approved standard](https://tools.ietf.org/id/draft-birk-pep-00.html) for pretty Easy privacy (p≡p) and not many people are using it.
+There is still no approved standard for p≡p and not many people are using it.
 
 However, FairEmail can send and receive PGP encrypted messages, which are compatible with p≡p.
 Also, FairEmail understands incoming p≡p messages since version 1.1519,
