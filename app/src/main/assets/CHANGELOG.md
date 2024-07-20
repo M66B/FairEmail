@@ -12,6 +12,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### 1.2215 - 2024-07-20 *
+
+* Small improvements and minor bug fixes
+
 ### 1.2214 - 2024-07-18
 
 * Fixed all reported bugs
