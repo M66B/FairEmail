@@ -5136,6 +5136,9 @@ The error *403 forbidden* means that the key and/or plan in invalid.
 Note that when reading a message, you can use the horizontal three-dots menu to translate too.
 If you use this frequently, you can configure a button for this.
 
+Some people have asked to add Google Translate on the assumption that it is free to use, but that is not the case if it is integrated into an app.
+Apart from that, DeepL is much easier to configure and the translations are of better quality.
+
 <br />
 
 <a name="faq168"></a>
