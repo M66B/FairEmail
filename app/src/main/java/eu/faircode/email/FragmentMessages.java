@@ -3312,12 +3312,7 @@ public class FragmentMessages extends FragmentBase
                     int importance = (message.importance == null ? EntityMessage.PRIORITIY_NORMAL : message.importance);
                     onActionSetImportanceSelection((importance + 1) % 3, message.id, false);
                 } else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
-                    if (ActivityBilling.isPro(getContext()))
-                        onActionSnooze(message);
-                    else {
-                        redraw(viewHolder);
-                        startActivity(new Intent(getContext(), ActivityBilling.class));
-                    }
+                    onSwipeSnooze(message, viewHolder);
                 else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
                     onActionHide(message);
                 else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action)) {
@@ -3559,6 +3554,48 @@ public class FragmentMessages extends FragmentBase
                     }
                 }
             });
+        }
+
+        private void onSwipeSnooze(TupleMessageEx message, RecyclerView.ViewHolder viewHolder) {
+            if (!ActivityBilling.isPro(getContext())) {
+                redraw(viewHolder);
+                startActivity(new Intent(getContext(), ActivityBilling.class));
+                return;
+            }
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            long duration = prefs.getInt("default_snooze", 1) * 3600 * 1000L;
+
+            if (duration == 0) {
+                redraw(viewHolder);
+                Bundle args = new Bundle();
+                args.putString("title", getString(R.string.title_snooze));
+                args.putLong("account", message.account);
+                args.putLong("folder", message.folder);
+                args.putString("thread", message.thread);
+                args.putLong("id", message.id);
+                if (message.ui_snoozed != null)
+                    args.putLong("time", message.ui_snoozed);
+
+                FragmentDialogDuration fragment = new FragmentDialogDuration();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_SNOOZE);
+                fragment.show(getParentFragmentManager(), "message:snooze");
+            } else {
+                Bundle args = new Bundle();
+                args.putLong("account", message.account);
+                args.putString("thread", message.thread);
+                args.putLong("id", message.id);
+                if (message.ui_snoozed == null) {
+                    args.putLong("duration", duration);
+                    args.putLong("time", new Date().getTime() + duration);
+                } else {
+                    args.putLong("duration", 0);
+                    args.putLong("time", 0);
+                }
+
+                onSnoozeOrHide(args);
+            }
         }
 
         private void onSwipeMove(final @NonNull TupleMessageEx message) {
@@ -4592,25 +4629,6 @@ public class FragmentMessages extends FragmentBase
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "messages:seen");
-    }
-
-    private void onActionSnooze(TupleMessageEx message) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        long duration = prefs.getInt("default_snooze", 1) * 3600 * 1000L;
-
-        Bundle args = new Bundle();
-        args.putLong("account", message.account);
-        args.putString("thread", message.thread);
-        args.putLong("id", message.id);
-        if (message.ui_snoozed == null) {
-            args.putLong("duration", duration);
-            args.putLong("time", new Date().getTime() + duration);
-        } else {
-            args.putLong("duration", 0);
-            args.putLong("time", 0);
-        }
-
-        onSnoozeOrHide(args);
     }
 
     private void onActionHide(TupleMessageEx message) {
