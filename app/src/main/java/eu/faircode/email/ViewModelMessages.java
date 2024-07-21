@@ -92,9 +92,6 @@ public class ViewModelMessages extends ViewModel {
         boolean legacy = prefs.getBoolean("legacy_queries", false);
         boolean cache_lists = prefs.getBoolean("cache_lists", true);
 
-        if (!cache_lists)
-            models.clear();
-
         Args args = new Args(context,
                 viewType, type, account, folder,
                 thread, id, threading,
@@ -295,12 +292,18 @@ public class ViewModelMessages extends ViewModel {
             }
         });
 
-        if (viewType == AdapterMessage.ViewType.UNIFIED)
-            models.remove(AdapterMessage.ViewType.FOLDER);
+        if (cache_lists) {
+            if (viewType == AdapterMessage.ViewType.UNIFIED)
+                models.remove(AdapterMessage.ViewType.FOLDER);
 
-        if (viewType != AdapterMessage.ViewType.SEARCH &&
-                viewType != AdapterMessage.ViewType.THREAD)
-            models.remove(AdapterMessage.ViewType.SEARCH);
+            if (viewType != AdapterMessage.ViewType.SEARCH &&
+                    viewType != AdapterMessage.ViewType.THREAD)
+                models.remove(AdapterMessage.ViewType.SEARCH);
+        } else {
+            for (AdapterMessage.ViewType v : AdapterMessage.ViewType.values())
+                if (v != viewType)
+                    models.remove(v);
+        }
 
         if (viewType != AdapterMessage.ViewType.THREAD) {
             last = viewType;
