@@ -69,6 +69,8 @@ public class FragmentDialogDuration extends FragmentDialogBase {
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         int default_snooze = prefs.getInt("default_snooze", 1);
+        if (default_snooze == 0)
+            default_snooze = 1;
 
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_duration, null);
         final Button btn1hour = dview.findViewById(R.id.btn1hour);
