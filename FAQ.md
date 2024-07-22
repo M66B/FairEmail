@@ -1784,6 +1784,9 @@ FairEmail does not request storage permissions, so this framework is required to
 No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
 Moreover, recent Android versions disallow access to all files for apps, except, under specific conditions, for file managers.
 
+To resolve this problem, the system component Google Play Services may need to be updated.
+Please [see here](https://support.google.com/googleplay/answer/9037938?hl=en) on how.
+
 The storage access framework is provided by the package *com.android.documentsui*,
 which is visible as *Files* app on some Android versions (notably OxygenOS).
 
