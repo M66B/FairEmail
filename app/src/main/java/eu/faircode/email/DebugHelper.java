@@ -676,6 +676,7 @@ public class DebugHelper {
                 boolean canSchedule = AlarmManagerCompatEx.canScheduleExactAlarms(context);
                 boolean auto_optimize = prefs.getBoolean("auto_optimize", false);
                 boolean schedule = prefs.getBoolean("schedule", false);
+                String startup = prefs.getString("startup", "unified");
 
                 String ds = ConnectionHelper.getDataSaving(context);
                 boolean vpn = ConnectionHelper.vpnActive(context);
@@ -736,6 +737,7 @@ public class DebugHelper {
                         " rules=" + db.rule().countTotal(null, null) +
                         " ops=" + db.operation().getOperationCount() +
                         " outbox=" + db.message().countOutbox() + "\r\n" +
+                        "startup=" + startup + "\r\n" +
                         "filter " + filters + " " + sorts +
                         "\r\n\r\n");
 
