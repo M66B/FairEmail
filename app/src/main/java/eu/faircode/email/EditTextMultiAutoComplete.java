@@ -43,7 +43,6 @@ import android.text.TextWatcher;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
-import android.view.ContextThemeWrapper;
 import android.view.MotionEvent;
 import android.view.View;
 
