@@ -2335,4 +2335,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Spark Xtra Mail"
+        domain="xtra\\.co\\.nz"
+        link="https://www.spark.co.nz/help/get-more/xtra/xtra-mail-setup/">
+        <imap
+            host="imap.xtra.co.nz"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="send.xtra.co.nz"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
