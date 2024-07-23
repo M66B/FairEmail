@@ -1406,6 +1406,27 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof IndexOutOfBoundsException)
+            /*
+                java.lang.IndexOutOfBoundsException: charAt: 128 >= length 128
+                    at android.text.SpannableStringBuilder.charAt(SpannableStringBuilder.java:125)
+                    at android.text.CharSequenceCharacterIterator.next(CharSequenceCharacterIterator.java:67)
+                    at android.icu.text.RuleBasedBreakIterator.handleNext(RuleBasedBreakIterator.java:886)
+                    at android.icu.text.RuleBasedBreakIterator.-$$Nest$mhandleNext(Unknown Source:0)
+                    at android.icu.text.RuleBasedBreakIterator$BreakCache.populateNear(RuleBasedBreakIterator.java:1486)
+                    at android.icu.text.RuleBasedBreakIterator.isBoundary(RuleBasedBreakIterator.java:552)
+                    at android.text.method.WordIterator.isBoundary(WordIterator.java:112)
+                    at android.widget.Editor$SelectionHandleView.positionAtCursorOffset(Editor.java:6319)
+                    at android.widget.Editor$HandleView.updatePosition(Editor.java:5290)
+                    at android.widget.Editor$PositionListener.onPreDraw(Editor.java:3730)
+                    at android.view.ViewTreeObserver.dispatchOnPreDraw(ViewTreeObserver.java:1176)
+                    at android.view.ViewRootImpl.performTraversals(ViewRootImpl.java:4029)
+             */
+            for (StackTraceElement elm : stack)
+                if ("android.text.method.WordIterator".equals(elm.getClassName()) &&
+                        "isBoundary".equals(elm.getMethodName()))
+                    return false;
+
         if (ex instanceof IllegalArgumentException && ex.getCause() != null) {
             for (StackTraceElement ste : ex.getCause().getStackTrace())
                 if ("android.view.textclassifier.TextClassifierImpl".equals(ste.getClassName()) &&
