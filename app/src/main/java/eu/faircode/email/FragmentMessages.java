@@ -5448,6 +5448,19 @@ public class FragmentMessages extends FragmentBase
 
             case SEARCH:
                 setSubtitle(criteria.getTitle(getContext()));
+                if (server) {
+                    tvNoEmailHint.setText(null);
+                    tvNoEmailHint.setCompoundDrawables(null, null, null, null);
+                    db.folder().liveFolderEx(folder).observe(getViewLifecycleOwner(), new Observer<TupleFolderEx>() {
+                        @Override
+                        public void onChanged(TupleFolderEx folder) {
+                            if (folder != null) {
+                                tvNoEmailHint.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.twotone_search_24, 0, 0, 0);
+                                tvNoEmailHint.setText(folder.accountName + "/" + folder.name);
+                            }
+                        }
+                    });
+                }
                 break;
         }
 
@@ -7407,13 +7420,15 @@ public class FragmentMessages extends FragmentBase
                 (language_detection && !TextUtils.isEmpty(filter_language) && !outbox));
 
         boolean none = (items == 0 && initialized);
-        boolean searching = (viewType == AdapterMessage.ViewType.SEARCH && server && (!initialized || loading) && items == 0);
+        boolean search = (viewType == AdapterMessage.ViewType.SEARCH && server);
+        boolean searching = (search && (!initialized || loading) && items == 0);
         boolean filtered = (filter_active && viewType != AdapterMessage.ViewType.SEARCH);
 
         pbWait.setVisibility(loading || tasks > 0 ? View.VISIBLE : View.GONE);
         tvNoEmail.setText(searching ? R.string.title_search_server_wait : R.string.title_no_messages);
         tvNoEmail.setVisibility(none || searching ? View.VISIBLE : View.GONE);
-        tvNoEmailHint.setVisibility(none && filtered ? View.VISIBLE : View.GONE);
+
+        tvNoEmailHint.setVisibility(none && (filtered || search) ? View.VISIBLE : View.GONE);
 
         if (BuildConfig.DEBUG)
             updateDebugInfo();
