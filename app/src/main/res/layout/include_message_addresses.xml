@@ -133,7 +133,8 @@
         android:tooltipText="@string/title_legend_contacts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/twotone_import_contacts_24" />
+        app:srcCompat="@drawable/twotone_import_contacts_24"
+        app:tint="?attr/colorAccent" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_action"
