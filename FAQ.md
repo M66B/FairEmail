@@ -6033,6 +6033,11 @@ This feature is experimental and requires version 1.2171 or later for the GitHub
 <a name="faq205"></a>
 **(205) How do I check the integrity of an APK file?**
 
+"*Artifact attestations enable you to create unfalsifiable provenance and integrity guarantees for the software you build.*
+*In turn, people who consume your software can verify where and how your software was built.*"
+
+Please [see here](https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds) for details.
+
 You can verify in this way that an APK file was built and signed by a GitHub workflow:
 
 1. Install the [GitHub CLI](https://cli.github.com/)
