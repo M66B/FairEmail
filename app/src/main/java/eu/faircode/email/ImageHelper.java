@@ -70,6 +70,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -661,6 +662,27 @@ class ImageHelper {
             int comma = source.indexOf(',');
             if (comma < 0)
                 throw new IllegalArgumentException("Comma missing");
+
+            int colon = source.indexOf(':');
+            int semi = source.indexOf(';');
+            String type = null;
+            if (colon > 0 && semi > colon)
+                type = source.substring(colon + 1, semi);
+            else if (colon > 0 && comma > colon)
+                type = source.substring(colon + 1, comma);
+            String enc = (semi > 0 && comma > semi ? source.substring(semi + 1, comma) : null);
+
+            if ("image/svg".equalsIgnoreCase(type) &&
+                    (enc == null || "utf8".equalsIgnoreCase(enc)))
+                try {
+                    InputStream is = new ByteArrayInputStream(source.substring(comma + 1).getBytes(StandardCharsets.UTF_8));
+                    Bitmap bm = ImageHelper.renderSvg(is, Color.WHITE, 1024);
+                    Helper.ByteArrayInOutStream s = new Helper.ByteArrayInOutStream();
+                    bm.compress(Bitmap.CompressFormat.PNG, 100, s);
+                    return s.getInputStream();
+                } catch (IOException ex) {
+                    throw new IllegalArgumentException("SVG", ex);
+                }
 
             String base64 = source.substring(comma + 1);
             byte[] bytes = Base64.decode(base64.getBytes(), 0);
