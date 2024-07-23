@@ -239,9 +239,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                                     throw new FileNotFoundException(avatar);
                             }
 
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            boolean circular = prefs.getBoolean("circular", true);
-                            bm = ImageHelper.makeCircular(bm, circular ? null : Helper.dp2pixels(context, 3));
+                            //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            //boolean circular = prefs.getBoolean("circular", true);
+                            //bm = ImageHelper.makeCircular(bm, circular ? null : Helper.dp2pixels(context, 3));
 
                             return bm;
                         }
