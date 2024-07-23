@@ -208,6 +208,13 @@ public class FairEmailBackupAgent extends BackupAgent {
                                         db.account().getAccountByUUID(account.uuid) != null)
                                     continue;
 
+                                if (jaccounts.length() == 1)
+                                    account.primary = true;
+
+                                EntityAccount primary = db.account().getPrimaryAccount();
+                                if (primary != null)
+                                    account.primary = false;
+
                                 if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_GMAIL)
                                     account.synchronize = false;
 
