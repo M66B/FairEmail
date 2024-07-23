@@ -5221,6 +5221,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 intent.putExtra("account", message.account);
                 intent.putExtra("protocol", message.accountProtocol);
                 intent.putExtra("auth_type", ServiceAuthenticator.AUTH_TYPE_GRAPH);
+                intent.putExtra("host", "");
                 intent.putExtra("identity", message.identity);
                 intent.putExtra("personal", message.identityName);
                 intent.putExtra("address", message.identityEmail);

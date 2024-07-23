@@ -456,6 +456,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     intent.putExtra("account", account.id);
                     intent.putExtra("protocol", account.protocol);
                     intent.putExtra("auth_type", account.auth_type);
+                    intent.putExtra("host", account.host);
                     intent.putExtra("personal", "personal");
                     intent.putExtra("address", "address");
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -916,6 +917,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     intent.putExtra("account", account.id);
                     intent.putExtra("protocol", account.protocol);
                     intent.putExtra("auth_type", account.auth_type);
+                    intent.putExtra("host", account.host);
                     intent.putExtra("personal", "personal");
                     intent.putExtra("address", "address");
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

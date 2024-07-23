@@ -540,6 +540,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                                             intent.putExtra("account", identity.account);
                                             intent.putExtra("protocol", protocol);
                                             intent.putExtra("auth_type", AUTH_TYPE_GRAPH);
+                                            intent.putExtra("host", identity.host);
                                             intent.putExtra("identity", identity.id);
                                             intent.putExtra("personal", identity.name);
                                             intent.putExtra("address", identity.user);

@@ -95,6 +95,7 @@ public class ActivityError extends ActivityBase {
         long identity = intent.getLongExtra("identity", -1L);
         int protocol = intent.getIntExtra("protocol", -1);
         int auth_type = intent.getIntExtra("auth_type", -1);
+        String host = intent.getStringExtra("host");
         int faq = intent.getIntExtra("faq", -1);
 
         boolean isCertificateException = (message != null && message.contains("CertificateException"));
@@ -199,6 +200,11 @@ public class ActivityError extends ActivityBase {
                 sb.append("auth_type=")
                         .append(ServiceAuthenticator.getAuthTypeName(auth_type))
                         .append("\n");
+
+                if (!TextUtils.isEmpty(host))
+                    sb.append("host=")
+                            .append(host)
+                            .append("\n");
 
                 if (account > 0)
                     sb.append("protocol=")
