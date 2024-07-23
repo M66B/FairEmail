@@ -39,7 +39,7 @@
                 android:layout_marginStart="6dp"
                 android:contentDescription="@string/title_legend_avatar"
                 android:padding="3dp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="@+id/tvUser"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
