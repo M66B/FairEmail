@@ -21,11 +21,10 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Spinner;
-
-import androidx.annotation.Nullable;
 
 public class SpinnerEx extends Spinner {
     public SpinnerEx(Context context) {
@@ -67,14 +66,23 @@ public class SpinnerEx extends Spinner {
         this.setFocusableInTouchMode(true);
     }
 
-    @Override
-    protected void onFocusChanged(boolean gainFocus, int direction, @Nullable Rect previouslyFocusedRect) {
-        try {
-            super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
-            if (gainFocus && getWindowToken() != null)
-                performClick();
-        } catch (Throwable ex) {
-            Log.e(ex);
+    private final OnFocusChangeListener listener = new OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+            setOnFocusChangeListener(null);
+            performClick();
         }
+    };
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int action = event.getAction();
+        if (action == MotionEvent.ACTION_DOWN) {
+            if (!hasFocus())
+                setOnFocusChangeListener(listener);
+        } else if (action == MotionEvent.ACTION_CANCEL)
+            setOnFocusChangeListener(null);
+
+        return super.onTouchEvent(event);
     }
 }
