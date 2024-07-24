@@ -657,37 +657,43 @@ class ImageHelper {
         // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
         // "5ErkJggg==\" alt=\"Red dot\" />";
 
+        // <img src="data:image/svg;utf8,&lt;svg ...
+
         // https://en.wikipedia.org/wiki/Data_URI_scheme
+        // https://datatracker.ietf.org/doc/html/rfc2397
         try {
+            // data:[<mediatype>][;base64],<data>
             int comma = source.indexOf(',');
+            int colon = source.indexOf(':');
+            int semi = source.indexOf(';');
+
             if (comma < 0)
                 throw new IllegalArgumentException("Comma missing");
 
-            int colon = source.indexOf(':');
-            int semi = source.indexOf(';');
             String type = null;
             if (colon > 0 && semi > colon)
-                type = source.substring(colon + 1, semi);
+                type = source.substring(colon + 1, semi).trim();
             else if (colon > 0 && comma > colon)
-                type = source.substring(colon + 1, comma);
-            String enc = (semi > 0 && comma > semi ? source.substring(semi + 1, comma) : null);
+                type = source.substring(colon + 1, comma).trim();
+
+            String enc = (semi > 0 && comma > semi ? source.substring(semi + 1, comma).trim() : null);
 
             if ("image/svg".equalsIgnoreCase(type) &&
-                    (enc == null || "utf8".equalsIgnoreCase(enc)))
-                try {
-                    InputStream is = new ByteArrayInputStream(source.substring(comma + 1).getBytes(StandardCharsets.UTF_8));
-                    Bitmap bm = ImageHelper.renderSvg(is, Color.WHITE, 1024);
-                    Helper.ByteArrayInOutStream s = new Helper.ByteArrayInOutStream();
-                    bm.compress(Bitmap.CompressFormat.PNG, 100, s);
-                    return s.getInputStream();
-                } catch (IOException ex) {
-                    throw new IllegalArgumentException("SVG", ex);
-                }
+                    (TextUtils.isEmpty(enc) /* ASCII */ || "utf8".equalsIgnoreCase(enc))) {
+                InputStream is = new ByteArrayInputStream(source.substring(comma + 1).getBytes(StandardCharsets.UTF_8));
+                Bitmap bm = ImageHelper.renderSvg(is, Color.WHITE, 768);
+                Helper.ByteArrayInOutStream s = new Helper.ByteArrayInOutStream();
+                bm.compress(Bitmap.CompressFormat.PNG, 100, s);
+                return s.getInputStream();
+            }
+
+            if (!"base64".equalsIgnoreCase(enc))
+                throw new IllegalArgumentException("Unknown encoding");
 
             String base64 = source.substring(comma + 1);
             byte[] bytes = Base64.decode(base64.getBytes(), 0);
             return new ByteArrayInputStream(bytes);
-        } catch (IllegalArgumentException ex) {
+        } catch (Throwable ex) {
             String excerpt = source.substring(0, Math.min(100, source.length()));
             throw new IllegalArgumentException(excerpt, ex);
         }
