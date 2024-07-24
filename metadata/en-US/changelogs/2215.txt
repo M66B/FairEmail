@@ -16,6 +16,7 @@ Next version
 
 * Added support for SVG data URI images
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated Public Suffix List
 * Updated translations
 
