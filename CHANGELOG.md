@@ -12,6 +12,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### Next version
+
+* Added support for SVG data URI images
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2215 - 2024-07-20 *
 
 * Small improvements and minor bug fixes
