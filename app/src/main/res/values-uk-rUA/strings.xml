@@ -404,7 +404,7 @@
     <string name="title_advanced_sync_shared_folders">Синхронізувати список спільних тек</string>
     <string name="title_advanced_sync_added">Увімкнути синхронізацію для нових тек користувача</string>
     <string name="title_advanced_subscriptions">Керувати підписками на теки</string>
-    <string name="title_advanced_check_authentication">Перевірити автентичність повідомлення</string>
+    <string name="title_advanced_check_authentication">Перевіряти автентичність повідомлення</string>
     <string name="title_advanced_check_tls">Перевіряти захист на транспортному рівні (TLS)</string>
     <string name="title_advanced_check_reply_domain">Перевіряти адреси електронної пошти для відповіді при синхронізації повідомлень</string>
     <string name="title_advanced_check_mx">Перевіряти адреси електронної пошти відправника при синхронізації повідомлень</string>
