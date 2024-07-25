@@ -6208,7 +6208,7 @@ public class MessageHelper {
                         return false;
                 }
 
-                if (EntityAttachment.PGP_CONTENT.equals(content) || boundary == null)
+                if (/*EntityAttachment.PGP_CONTENT.equals(content) ||*/ boundary == null)
                     line = line.replaceAll(" +$", "");
 
                 os.write(line.getBytes(StandardCharsets.ISO_8859_1));
