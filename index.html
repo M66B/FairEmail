@@ -2430,14 +2430,16 @@ $NotDisplayed</code></pre>
 <p><br /></p>
 <p><a name="faq153"></a> <strong>(153) Why does permanently deleting Gmail message not work?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq153">Google Translate</a></p>
-<p>You might need to change <a href="https://mail.google.com/mail/u/0/#settings/fwdandpop">the Gmail IMAP settings</a> on a desktop browser to make it work:</p>
+<p><del>You might need to change <a href="https://mail.google.com/mail/u/0/#settings/fwdandpop">the Gmail IMAP settings</a> on a desktop browser to make it work:</del></p>
 <ul>
-<li>When I mark a message in IMAP as deleted: Auto-Expunge off - Wait for the client to update the server.</li>
-<li>When a message is marked as deleted and expunged from the last visible IMAP folder: Immediately delete the message forever</li>
+<li><del>When I mark a message in IMAP as deleted: Auto-Expunge off - Wait for the client to update the server.</del></li>
+<li><del>When a message is marked as deleted and expunged from the last visible IMAP folder: Immediately delete the message forever</del></li>
 </ul>
-<p><img alt="External image" src="https://raw.githubusercontent.com/M66B/FairEmail/master/images/Gmail_IMAP_delete_settings.png" width="600" height="333" /></p>
-<p>Note that archived messages can be deleted only by moving them to the trash folder first.</p>
-<p>Some background: Gmail seems to have an additional message view for IMAP, which can be different from the main message view.</p>
+<p><del>Note that archived messages can be deleted only by moving them to the trash folder first.</del></p>
+<p><del>Some background: Gmail seems to have an additional message view for IMAP, which can be different from the main message view.</del></p>
+<p>Unfortunately, the above doesn’t work anymore.</p>
+<p>Since version 1.2216 there is an option <em>When permanently deleting a message, delete all Gmail labels</em> in the behavior-settings tab page, which will result in permanently deleting a message from all folders (=labels), including the archive (=all messages) folder.</p>
+<p><br /></p>
 <p>Another oddity is that a star (favorite message) set via the web interface cannot be removed with the IMAP command</p>
 <pre><code>STORE &lt;message number&gt; -FLAGS (\Flagged)</code></pre>
 <p>On the other hand, a star set via IMAP is being shown in the web interface and can be removed via IMAP.</p>

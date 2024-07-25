@@ -4776,16 +4776,21 @@ You can define contact groups with the Android contacts app, please see [here](h
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq153)
 
-You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:
+~~You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:~~
 
-* When I mark a message in IMAP as deleted: Auto-Expunge off - Wait for the client to update the server.
-* When a message is marked as deleted and expunged from the last visible IMAP folder: Immediately delete the message forever
+* ~~When I mark a message in IMAP as deleted: Auto-Expunge off - Wait for the client to update the server.~~
+* ~~When a message is marked as deleted and expunged from the last visible IMAP folder: Immediately delete the message forever~~
 
-<img alt="External image" src="https://raw.githubusercontent.com/M66B/FairEmail/master/images/Gmail_IMAP_delete_settings.png" width="600" height="333" />
+~~Note that archived messages can be deleted only by moving them to the trash folder first.~~
 
-Note that archived messages can be deleted only by moving them to the trash folder first.
+~~Some background: Gmail seems to have an additional message view for IMAP, which can be different from the main message view.~~
 
-Some background: Gmail seems to have an additional message view for IMAP, which can be different from the main message view.
+Unfortunately, the above doesn't work anymore.
+
+Since version 1.2216 there is an option *When permanently deleting a message, delete all Gmail labels* in the behavior-settings tab page,
+which will result in permanently deleting a message from all folders (=labels), including the archive (=all messages) folder.
+
+<br />
 
 Another oddity is that a star (favorite message) set via the web interface cannot be removed with the IMAP command
 
