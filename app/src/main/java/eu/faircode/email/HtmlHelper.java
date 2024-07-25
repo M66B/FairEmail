@@ -2483,12 +2483,12 @@ public class HtmlHelper {
             return;
 
         // Note that the browser will recognize meta elements in the body too
-        if (overview) {
+        if (overview && false) {
             // fit width
-            //meta.remove();
-            //document.head().prependElement("meta")
-            //        .attr("name", "viewport")
-            //        .attr("content", "width=device-width");
+            meta.remove();
+            document.head().prependElement("meta")
+                    .attr("name", "viewport")
+                    .attr("content", "width=device-width");
         } else {
             String content = meta.attr("content");
             String[] param = content.split("[;,]");
