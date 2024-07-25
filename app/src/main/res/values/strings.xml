@@ -744,6 +744,7 @@
     <string name="title_advanced_move_thread_all">When moving selected conversations, move all messages</string>
     <string name="title_advanced_move_thread_sent">When moving a conversation, also move sent messages</string>
     <string name="title_advanced_swipe_trash_all">When swiping a conversation to the trash, trash all messages</string>
+    <string name="title_advanced_gmail_delete_all">When permanently deleting a message, delete all Gmail labels</string>
     <string name="title_advanced_default_snooze">Default snooze/delay time</string>
     <string name="title_advanced_default_folder">Select default folder</string>
 

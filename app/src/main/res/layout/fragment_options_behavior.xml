@@ -913,6 +913,17 @@
                     app:layout_constraintTop_toBottomOf="@id/swMoveThreadSent"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swGmailDeleteAll"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_gmail_delete_all"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swSwipeTrashAll"
+                    app:switchPadding="12dp" />
+
                 <Button
                     android:id="@+id/btnDefaultFolder"
                     style="?android:attr/buttonStyleSmall"
@@ -924,7 +935,7 @@
                     android:tag="disable"
                     android:text="@string/title_advanced_default_folder"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swSwipeTrashAll" />
+                    app:layout_constraintTop_toBottomOf="@id/swGmailDeleteAll" />
 
                 <TextView
                     android:id="@+id/tvDefaultFolderHint"
