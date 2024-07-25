@@ -3871,7 +3871,7 @@ Which email provider is best for you depends on your wishes/requirements.
 Please see these websites for lists of privacy oriented email providers with advantages and disadvantages:
 
 * [Restore privacy](https://restoreprivacy.com/secure-email/)
-* [Privacy Guides](https://www.privacyguides.org/email/)
+* [Privacy Guides](https://www.privacyguides.org/en/email/)
 * [Privacy Tools](https://www.privacytools.io/providers/email/)
 
 **Important**: Some providers, like ProtonMail and Tutanota, use proprietary email protocols, which make it impossible to use third party email apps.
