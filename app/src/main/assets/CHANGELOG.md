@@ -15,6 +15,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### Next version
 
 * Added support for SVG data URI images
+* Added option to automatically unstar on unsnooze
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)

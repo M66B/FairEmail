@@ -15,6 +15,7 @@ Acantholipan
 Next version
 
 * Added support for SVG data URI images
+* Added option to automatically unstar on unsnooze
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated Public Suffix List
