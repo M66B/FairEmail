@@ -1957,7 +1957,8 @@ and that identities of other accounts will not be considered.
 Matching will be done only once on receiving a message, so changing the configuration will not change existing messages.
 You could clear local messages by long pressing a folder in the folder list and synchronize the messages again, though.
 
-It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the identity settings
+It is possible to configure a [regex](https://en.wikipedia.org/wiki/Regular_expression) in the advanced identity settings
+(Navigation menu > Settings > Manual setup and account options > Identities > tap the identity > Advanced)
 to match **the username** of an email address (the part before the @ sign).
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
