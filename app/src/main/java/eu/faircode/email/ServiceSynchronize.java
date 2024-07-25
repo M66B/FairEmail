@@ -1380,15 +1380,19 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 }
                             }
 
-                            // Show thread
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
                             boolean threading = prefs.getBoolean("threading", true);
+                            boolean flag_unsnoozed = prefs.getBoolean("flag_unsnoozed", false);
+
+                            // Show thread
                             List<EntityMessage> messages = db.message().getMessagesByThread(
                                     message.account, message.thread, threading ? null : message.id, null);
                             for (EntityMessage threaded : messages)
                                 db.message().setMessageSnoozed(threaded.id, null);
 
                             db.message().setMessageUnsnoozed(message.id, true);
+                            if (flag_unsnoozed)
+                                EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.FLAG, false);
                             EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.SEEN, false, false);
                         }
 
