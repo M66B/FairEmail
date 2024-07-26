@@ -88,6 +88,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FilterInputStream;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -6127,6 +6128,47 @@ public class MessageHelper {
 
         static boolean isFeedbackReport(String type) {
             return "message/feedback-report".equalsIgnoreCase(type);
+        }
+    }
+
+    static class StripStream extends FilterInputStream {
+        protected StripStream(InputStream in) {
+            super(in);
+        }
+
+        @Override
+        public int read() throws IOException {
+            int b = super.read();
+            if (b == ' ') {
+                super.mark(1000);
+                while (true) {
+                    b = super.read();
+                    if (b != ' ') {
+                        if (b == '\r' || b == '\n')
+                            return b;
+                        else {
+                            super.reset();
+                            return ' ';
+                        }
+                    }
+                }
+            } else
+                return b;
+        }
+
+        @Override
+        public int read(byte[] b) throws IOException {
+            for (int i = 0; i < b.length; i++) {
+                b[i] = (byte) read();
+                if (b[i] < 0)
+                    return i;
+            }
+            return b.length;
+        }
+
+        @Override
+        public int read(byte[] b, int off, int len) throws IOException {
+            throw new UnsupportedOperationException();
         }
     }
 

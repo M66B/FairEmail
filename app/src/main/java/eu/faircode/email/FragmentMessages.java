@@ -9015,7 +9015,7 @@ public class FragmentMessages extends FragmentBase
             Intent data = new Intent();
             data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
             data.putExtra(BuildConfig.APPLICATION_ID, id);
-            onPgp(data, auto);
+            onPgp(data, auto, false);
         }
     }
 
@@ -9035,7 +9035,7 @@ public class FragmentMessages extends FragmentBase
                     break;
                 case REQUEST_OPENPGP:
                     if (resultCode == RESULT_OK && data != null)
-                        onPgp(data, false);
+                        onPgp(data, false, false);
                     break;
                 case REQUEST_MESSAGE_DELETE:
                     if (resultCode == RESULT_OK && data != null)
@@ -9250,16 +9250,18 @@ public class FragmentMessages extends FragmentBase
         }.execute(this, args, "raw:save");
     }
 
-    private void onPgp(Intent data, boolean auto) {
+    private void onPgp(Intent data, boolean auto, boolean stripped) {
         Bundle args = new Bundle();
         args.putParcelable("data", data);
         args.putBoolean("auto", auto);
+        args.putBoolean("stripped", stripped);
 
         new SimpleTask<PendingIntent>() {
             @Override
             protected PendingIntent onExecute(Context context, Bundle args) throws Throwable {
                 // Get arguments
                 boolean auto = args.getBoolean("auto");
+                boolean stripped = args.getBoolean("stripped");
                 Intent data = args.getParcelable("data");
                 long id = data.getLongExtra(BuildConfig.APPLICATION_ID, -1);
 
@@ -9347,6 +9349,9 @@ public class FragmentMessages extends FragmentBase
                         return null;
                     else
                         throw new IllegalArgumentException(context.getString(R.string.title_not_encrypted));
+
+                if (stripped)
+                    in = new MessageHelper.StripStream((in));
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean autocrypt = prefs.getBoolean("autocrypt", true);
@@ -9542,8 +9547,13 @@ public class FragmentMessages extends FragmentBase
                             } else if (sresult == RESULT_KEY_MISSING)
                                 args.putString("sigresult", context.getString(R.string.title_signature_key_missing));
                             else {
-                                String text = context.getString(R.string.title_signature_invalid_reason, Integer.toString(sresult));
-                                args.putString("sigresult", text);
+                                if (stripped) {
+                                    String text = context.getString(R.string.title_signature_invalid_reason, Integer.toString(sresult));
+                                    args.putString("sigresult", text);
+                                } else {
+                                    onPgp(data, auto, true);
+                                    return null;
+                                }
                             }
 
                             break;
