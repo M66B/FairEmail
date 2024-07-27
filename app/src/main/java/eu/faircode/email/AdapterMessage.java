@@ -248,6 +248,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorVerified;
     private int colorEncrypt;
     private int colorSeparator;
+    private int colorBookmark;
     private int colorWarning;
     private int colorError;
     private int colorControlNormal;
@@ -1610,7 +1611,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvCount.setText(NF.format(message.visible));
 
                 if (selected)
-                    ivThread.setColorFilter(colorAccent);
+                    ivThread.setColorFilter(colorBookmark);
                 else
                     ivThread.clearColorFilter();
             }
@@ -8237,6 +8238,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorVerified = Helper.resolveColor(context, R.attr.colorVerified);
         this.colorEncrypt = Helper.resolveColor(context, R.attr.colorEncrypt);
         this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
+        this.colorBookmark = Helper.resolveColor(context, R.attr.colorBookmark);
         this.colorError = Helper.resolveColor(context, androidx.appcompat.R.attr.colorError);
         this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
         this.colorControlNormal = Helper.resolveColor(context, androidx.appcompat.R.attr.colorControlNormal);

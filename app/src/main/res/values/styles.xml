@@ -11,6 +11,7 @@
     <attr name="colorThumb" format="reference" />
     <attr name="colorWarning" format="reference" />
     <attr name="colorBadge" format="reference" />
+    <attr name="colorBookmark" format="reference" />
     <attr name="colorAccept" format="reference" />
     <attr name="colorDecline" format="reference" />
     <attr name="colorDrawerScrim" format="reference" />
@@ -68,6 +69,7 @@
         <item name="colorThumb">@color/lightColorThumb</item>
         <item name="colorWarning">@color/lightColorWarning</item>
         <item name="colorBadge">@color/red</item>
+        <item name="colorBookmark">?attr/colorAccent</item>
 
         <item name="colorAccept">@color/colorEncryptDark</item>
         <item name="colorDecline">@color/red</item>
@@ -140,6 +142,7 @@
         <item name="colorThumb">@color/darkColorThumb</item>
         <item name="colorWarning">@color/darkColorWarning</item>
         <item name="colorBadge">@color/red</item>
+        <item name="colorBookmark">?attr/colorAccent</item>
 
         <item name="colorAccept">@color/colorEncryptLight</item>
         <item name="colorDecline">@color/red</item>
@@ -497,6 +500,8 @@
         <item name="colorRead">@color/white</item>
         <item name="colorUnread">@color/white</item>
         <item name="colorUnreadHighlight">@color/white</item>
+
+        <item name="colorBookmark">@color/lightBluePrimary</item>
 
         <item name="colorFabForeground">@color/white</item>
         <item name="colorFabBackground">@color/blackAndWhitePrimaryLight</item>
