@@ -532,7 +532,7 @@
     <string name="title_advanced_favicons">Mostrar \"favicons\"</string>
     <string name="title_advanced_favicons_partial">Digitalize apenas a primeira %1$s da página web</string>
     <string name="title_advanced_favicons_manifest">Verificar manifestos de aplicações Web</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Mostrar ícones do DuckDuckGo</string>
+    <string name="title_advanced_ddg">Mostrar ícones do DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Requer verificação DMARC para imagens externas</string>
     <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>
     <string name="title_advanced_identicons">Mostrar Identicons</string>
@@ -642,6 +642,7 @@
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao mover mensagens</string>
     <string name="title_advanced_reset_importance">Reverter importância ao mover mensagens</string>
     <string name="title_advanced_star_snoozed">Adicionar estrela automaticamente ao adiar mensagens</string>
+    <string name="title_advanced_star_unsnoozed">Remover automaticamente a estrela de mensagens suspensas</string>
     <string name="title_advanced_auto_important">Marcar automaticamente mensagens com estrela como importantes</string>
     <string name="title_advanced_cancel_snooze">Cancelar a função \'adiar\' ao mover mensagens</string>
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente quando denunciar spam</string>
@@ -650,6 +651,7 @@
     <string name="title_advanced_move_thread_all">Quando mover conversas selecionadas, mover todas as mensagens</string>
     <string name="title_advanced_move_thread_sent">Ao mover uma conversa, também mover mensagens enviadas</string>
     <string name="title_advanced_swipe_trash_all">Quando deslizar uma conversa para a reciclagem, apagar todas as mensagens</string>
+    <string name="title_advanced_gmail_delete_all">Quando apagar permanentemente uma mensagem, apagar todos os rótulos do Gmail</string>
     <string name="title_advanced_default_snooze">Tempo pré-definido de repetição/adiamento</string>
     <string name="title_advanced_default_folder">Selecione a pasta padrão</string>
     <string name="title_advanced_notifications">Gerir notificações</string>

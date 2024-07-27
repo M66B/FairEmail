@@ -529,7 +529,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_favicons">Favicons toane</string>
     <string name="title_advanced_favicons_partial">Allinnich de earste %1$s fan de webside scanne</string>
     <string name="title_advanced_favicons_manifest">Webapp-manifesten scannen</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">DuckDuckGo-piktogrammen toane</string>
+    <string name="title_advanced_ddg">DuckDuckGo-piktogrammen toane</string>
     <string name="title_advanced_favicons_dmarc">DMARC-ferifikaasje foar eksterne ôfbyldingen fereaskje</string>
     <string name="title_advanced_generated_icons">Generearre ikoanen toane</string>
     <string name="title_advanced_identicons">Identykons toane</string>
@@ -639,6 +639,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_autounstar">By ferpleatsen fan berjochten automatysk stjerren fuortsmite</string>
     <string name="title_advanced_reset_importance">By ferpleatsen fan berjochten wichtichheid opnij ynstelle</string>
     <string name="title_advanced_star_snoozed">By slommerjen fan berjochten automatysk stjer tafoegje</string>
+    <string name="title_advanced_star_unsnoozed">Stjer automatysk fuorthelje by it ûntweitsjen fan berjochten</string>
     <string name="title_advanced_auto_important">Berjochten mei stjer automatyske wichtich meitsje</string>
     <string name="title_advanced_cancel_snooze">By it ferpleatsen fan berjochten it slommerjen annulearje</string>
     <string name="title_advanced_auto_block_sender">By it rapportearjen fan net-winske de ôfstjoerder automatysk blokkearje</string>
@@ -647,6 +648,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_move_thread_all">By it ferpleatsen fan selektearre petearen, alle berjochten ferpleatse</string>
     <string name="title_advanced_move_thread_sent">Wannear’t in petear ferpleatst wurdt, ek ferstjoerde berjochten ferpleatse</string>
     <string name="title_advanced_swipe_trash_all">By it feien fan in petear nei it jiskefet, alle berjochten nei it jiskefet ferpleats</string>
+    <string name="title_advanced_gmail_delete_all">Wannear’t in berjocht permanint fuortsmiten wurdt, alle Gmail-labels fuortsmite</string>
     <string name="title_advanced_default_snooze">Standert slommerdoer/fertragingstiid</string>
     <string name="title_advanced_default_folder">Standert map selektearje</string>
     <string name="title_advanced_notifications">Notifikaasjes beheare</string>

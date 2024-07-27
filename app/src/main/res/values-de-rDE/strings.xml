@@ -532,7 +532,7 @@
     <string name="title_advanced_favicons">Favicons anzeigen</string>
     <string name="title_advanced_favicons_partial">Nur die ersten %1$s der Webseite scannen</string>
     <string name="title_advanced_favicons_manifest">Web-App-Manifeste scannen</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">DuckDuckGo-Symbole anzeigen</string>
+    <string name="title_advanced_ddg">DuckDuckGo-Symbole anzeigen</string>
     <string name="title_advanced_favicons_dmarc">DMARC-Überprüfung für externe Bilder voraussetzen</string>
     <string name="title_advanced_generated_icons">Generierte Symbole anzeigen (Anfangsbuchstaben)</string>
     <string name="title_advanced_identicons">Identicons anzeigen</string>
@@ -641,7 +641,8 @@
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
     <string name="title_advanced_autounstar">Markierungen automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
     <string name="title_advanced_reset_importance">Wichtigkeit beim Verschieben von Nachrichten zurücksetzen</string>
-    <string name="title_advanced_star_snoozed">Zurückgestellte Nachrichten automatisch kennzeichnen</string>
+    <string name="title_advanced_star_snoozed">Zurückgestellte Nachrichten automatisch markieren</string>
+    <string name="title_advanced_star_unsnoozed">Markierung automatisch entfernen, wenn die Nachricht nicht länger zurückgestellt wird</string>
     <string name="title_advanced_auto_important">Markierte Nachrichten automatisch wichtig machen</string>
     <string name="title_advanced_cancel_snooze">»Zurückstellen« für verschobene Nachrichten deaktivieren</string>
     <string name="title_advanced_auto_block_sender">Absender automatisch sperren, wenn Spam gemeldet wird</string>
@@ -650,6 +651,7 @@
     <string name="title_advanced_move_thread_all">Beim Verschieben einer Unterhaltung alle zu dieser Unterhaltung gehörenden Nachrichten verschieben</string>
     <string name="title_advanced_move_thread_sent">Beim Verschieben einer Unterhaltung auch die zu dieser Unterhaltung gehörenden gesendeten Nachrichten verschieben</string>
     <string name="title_advanced_swipe_trash_all">Beim Wischen einer Unterhaltung in den Papierkorb alle zu dieser Unterhaltung gehörenden Nachrichten löschen</string>
+    <string name="title_advanced_gmail_delete_all">Beim endgültigen Löschen einer Gmail-Nachricht alle Gmail-Labels löschen</string>
     <string name="title_advanced_default_snooze">Standardzeit für Zurückstellen/Verzögern</string>
     <string name="title_advanced_default_folder">Standardordner auswählen</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>

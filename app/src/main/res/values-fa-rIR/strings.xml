@@ -461,7 +461,7 @@
     <string name="title_advanced_favicons">نمایش فاوآیکون‌ها</string>
     <string name="title_advanced_favicons_partial">تنها %1$s صفحه اول از صفحات وب را اسکن کن</string>
     <string name="title_advanced_favicons_manifest">اسکن فهرست اپلیکیشن‌های مبتنی بر وب</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">نمایش آیکون‌های DuckDuckGo</string>
+    <string name="title_advanced_ddg">نمایش آیکون‌های DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">نیازمند تایید DMARC برای تصاویر خارجی</string>
     <string name="title_advanced_generated_icons">نمایس آیکون‌های تولید شده</string>
     <string name="title_advanced_identicons">نمایش identicons</string>
@@ -543,9 +543,11 @@
     <string name="title_advanced_onclose">هنگام بستن یک گفتگو</string>
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
     <string name="title_advanced_autounstar">هنگام انتقال پیام‌ها ستاره‌ها را خودکار از پیام‌ها حذف کن</string>
+    <string name="title_advanced_star_unsnoozed">حذف خودکار ستاره پیام‌های از تعلیق درآمده</string>
     <string name="title_advanced_move_thread_all">هنگام جابجا کردن مکالمات انتخابی، کل پیام‌ها منتقل شود</string>
     <string name="title_advanced_move_thread_sent">به هنگام انتقال یک مکالمه، پیام‌های ارسالی را هم منتقل کن</string>
     <string name="title_advanced_swipe_trash_all">حذف همه پیام‌ها هنگام کشیدن مکالمه به سطل زباله</string>
+    <string name="title_advanced_gmail_delete_all">هنگام حذف دائمی یک پیام، همه برچسب‌های جیمیل را پاک کن</string>
     <string name="title_advanced_notifications">مدیریت اعلان‌ها</string>
     <string name="title_advanced_notifications_default">کانال پیش‌فرض</string>
     <string name="title_advanced_notifications_service">کانال نظارت</string>

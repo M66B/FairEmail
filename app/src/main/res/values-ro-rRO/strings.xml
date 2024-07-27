@@ -544,7 +544,7 @@
     <string name="title_advanced_favicons">Arată iconițe siteuri</string>
     <string name="title_advanced_favicons_partial">Scanează numai primele %1$s din pagina web</string>
     <string name="title_advanced_favicons_manifest">Scanarea manifestărilor aplicațiilor web</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Arată pictogramele DuckDuckGo</string>
+    <string name="title_advanced_ddg">Arată pictogramele DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Necesită verificare DMARC pentru imagini externe</string>
     <string name="title_advanced_generated_icons">Arată pictograme cu literă</string>
     <string name="title_advanced_identicons">Arată pictograme generate pe baza identității</string>

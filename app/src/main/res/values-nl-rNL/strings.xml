@@ -529,7 +529,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_favicons">Toon favicons</string>
     <string name="title_advanced_favicons_partial">Alleen de eerste %1$s van de webpagina scannen</string>
     <string name="title_advanced_favicons_manifest">Scan webapp-manifesten</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Toon DuckDuckGo iconen</string>
+    <string name="title_advanced_ddg">Toon DuckDuckGo iconen</string>
     <string name="title_advanced_favicons_dmarc">Vereis DMARC-verificatie voor externe afbeeldingen</string>
     <string name="title_advanced_generated_icons">Toon gegenereerde pictogrammen</string>
     <string name="title_advanced_identicons">Toon identicons</string>
@@ -639,6 +639,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_autounstar">Automatisch ster verwijderen van berichten bij verplaatsende berichten</string>
     <string name="title_advanced_reset_importance">Reset belang bij verplaatsen van berichten</string>
     <string name="title_advanced_star_snoozed">Voeg automatisch ster toe bij het sluimeren van berichten</string>
+    <string name="title_advanced_star_unsnoozed">Verwijder automatisch ster bij het ontwaken van berichten</string>
     <string name="title_advanced_auto_important">Automatisch berichten met een ster belangrijk maken</string>
     <string name="title_advanced_cancel_snooze">Annuleer sluimeren bij het verplaatsen van berichten</string>
     <string name="title_advanced_auto_block_sender">Blokkeer de afzender automatisch bij het rapporteren van spam</string>
@@ -647,6 +648,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_move_thread_all">Bij het verplaatsen van geselecteerde gesprekken, alle berichten verplaatsen</string>
     <string name="title_advanced_move_thread_sent">Wanneer een gesprek wordt verplaatst, verplaats ook verzonden berichten</string>
     <string name="title_advanced_swipe_trash_all">Bij het vegen van een gesprek naar de prullenbak, verplaats alle berichten naar de prullenbak</string>
+    <string name="title_advanced_gmail_delete_all">Wanneer een bericht permanent wordt verwijderd, alle Gmail-labels verwijderen</string>
     <string name="title_advanced_default_snooze">Standaard sluimer/vertragingstijd</string>
     <string name="title_advanced_default_folder">Selecteer standaard map</string>
     <string name="title_advanced_notifications">Beheer meldingen</string>
@@ -728,6 +730,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_sign_default">Standaard ondertekenen</string>
     <string name="title_advanced_encrypt_default">Standaard versleutelen</string>
     <string name="title_advanced_encrypt_auto">Automatisch versleutelen wanneer alle sleutels van de ontvanger beschikbaar zijn</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Automatisch versleutelen bij antwoorden op een versleuteld bericht</string>
     <string name="title_advanced_auto_verify">Ondertekende berichten automatisch verifiëren</string>
     <string name="title_advanced_auto_decrypt">Berichten automatisch ontsleutelen</string>
     <string name="title_advanced_auto_undo_decrypt">Maak het ontsleutelen ongedaan bij het sluiten van het gesprek</string>

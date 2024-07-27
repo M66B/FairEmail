@@ -530,7 +530,7 @@
     <string name="title_advanced_favicons">Προβολή favicon</string>
     <string name="title_advanced_favicons_partial">Να σαρωθεί μόνο το πρώτο %1$s της ιστοσελίδας</string>
     <string name="title_advanced_favicons_manifest">Σάρωση των manifest της εφαρμογής ιστού</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Προβολή εικονιδίων DuckDuckGo</string>
+    <string name="title_advanced_ddg">Προβολή εικονιδίων DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Να απαιτείται επαλήθευση DMARC για εξωτερικές εικόνες</string>
     <string name="title_advanced_generated_icons">Να προβάλλονται εικονίδια που δημιουργούνται αυτόματα</string>
     <string name="title_advanced_identicons">Προβολή identicon</string>

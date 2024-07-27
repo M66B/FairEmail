@@ -530,7 +530,7 @@
     <string name="title_advanced_favicons">Показване на иконата на сайта</string>
     <string name="title_advanced_favicons_partial">Сканиране само на първите %1$s от уебстраницата</string>
     <string name="title_advanced_favicons_manifest">Сканиране на манифести на уеб приложения</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Показване на икони DuckDuckGo</string>
+    <string name="title_advanced_ddg">Показване на икони DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Изисква се проверка на DMARC за външни изображения</string>
     <string name="title_advanced_generated_icons">Показване на генерираните икони</string>
     <string name="title_advanced_identicons">Показване на икони за самоличност</string>

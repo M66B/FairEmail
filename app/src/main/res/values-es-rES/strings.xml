@@ -530,7 +530,7 @@
     <string name="title_advanced_favicons">Mostrar favicons</string>
     <string name="title_advanced_favicons_partial">Escanear solo los primeros %1$s de la página web</string>
     <string name="title_advanced_favicons_manifest">Escanear manifiestos de aplicación web</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Mostrar iconos de DuckDuckGo</string>
+    <string name="title_advanced_ddg">Mostrar iconos de DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Requerir verificación DMARC para imágenes externas</string>
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>

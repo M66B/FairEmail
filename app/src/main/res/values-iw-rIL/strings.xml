@@ -232,6 +232,7 @@
     <string name="title_setup_oauth_update">אימות חשבון קיים שוב (אחרת ליצור חשבון חדש)</string>
     <string name="title_setup_oauth_updated">אישור החשבון עודכן</string>
     <string name="title_setup_oauth_brave">בעת שימוש בדפדפן Brave יש להפעיל את האפשרות בהגדרות של Brave לאפשר לקישורי יישומים להיפתח ביישומים מחוץ ל־Brave</string>
+    <string name="title_setup_oauth_browser">אימות דורש דפדפן מתפקד</string>
     <string name="title_setup_oauth_authorize">להרשות</string>
     <string name="title_setup_select_account">בחירת חשבון</string>
     <string name="title_setup_instructions">הנחיות הגדרה</string>
@@ -558,6 +559,7 @@
     <string name="title_advanced_favicons">הצגת סמלי אתרים</string>
     <string name="title_advanced_favicons_partial">לסרוק רק את %1$s הראשונים של עמוד האינטרנט</string>
     <string name="title_advanced_favicons_manifest">סריקת מניפסטים של יישומוני דפדפן</string>
+    <string name="title_advanced_ddg">הצגת סמלי DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">לדרוש תיקוף DMARC לתמונות חיצוניות</string>
     <string name="title_advanced_generated_icons">הצגת סמלים שנוצרו אוטומטית</string>
     <string name="title_advanced_identicons">הצגת סמלי זיהוי</string>
@@ -667,6 +669,7 @@
     <string name="title_advanced_autounstar">להסיר כוכבים מהודעות אוטומטית בעת העברת הודעות</string>
     <string name="title_advanced_reset_importance">איפוס החשיבות בעת העברת הודעות</string>
     <string name="title_advanced_star_snoozed">להוסיף כוכב על הודעות מושהות אוטומטית</string>
+    <string name="title_advanced_star_unsnoozed">הסרת כוכב אוטומטית על הודעות ביטול נודניק</string>
     <string name="title_advanced_auto_important">להפוך הודעות שסומנו בכוכב לחשובות אוטומטית</string>
     <string name="title_advanced_cancel_snooze">ביטול נודניק בעת העברת הודעות</string>
     <string name="title_advanced_auto_block_sender">לחסום את השולח אוטומטית בעת דיווח על ספאם</string>
@@ -675,6 +678,7 @@
     <string name="title_advanced_move_thread_all">בעת העברת הדיונים הנבחרים, להעביר את כל ההודעות</string>
     <string name="title_advanced_move_thread_sent">בעת העברת דיון, להעביר גם את ההודעות שנשלחו</string>
     <string name="title_advanced_swipe_trash_all">בעת החלקת דיון להעברתו לאשפה, להעביר את כל ההודעות איתו</string>
+    <string name="title_advanced_gmail_delete_all">בעת מחיקת הודעה לצמיתות, למחוק את כל תוויות ה־Gmail</string>
     <string name="title_advanced_default_snooze">זמן ברירת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_default_folder">בחירת תיקיית ברירת מחדל</string>
     <string name="title_advanced_notifications">ניהול התראות</string>

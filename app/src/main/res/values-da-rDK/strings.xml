@@ -531,7 +531,7 @@
     <string name="title_advanced_favicons">Vis favoritkoner</string>
     <string name="title_advanced_favicons_partial">Skan kun de første %1$s af websiden</string>
     <string name="title_advanced_favicons_manifest">Skan web-app manifester</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Vis DuckDuckGo-ikoner</string>
+    <string name="title_advanced_ddg">Vis DuckDuckGo-ikoner</string>
     <string name="title_advanced_favicons_dmarc">Kræv DMARC-bekræftelse for eksterne billeder</string>
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
     <string name="title_advanced_identicons">Vis identikoner</string>
@@ -640,7 +640,8 @@
     <string name="title_advanced_autoread">Auto-markér beskeder som læst, når de flyttes</string>
     <string name="title_advanced_autounstar">Fjern automatisk stjerner fra beskeder, når de flyttes</string>
     <string name="title_advanced_reset_importance">Nulstil vigtighed, når beskeder flyttes</string>
-    <string name="title_advanced_star_snoozed">Auto-tilføj stjerne på udsatte beskeder</string>
+    <string name="title_advanced_star_snoozed">Auto-tilføj stjerne, når beskeder slumres</string>
+    <string name="title_advanced_star_unsnoozed">Auto-fjern stjerne, når beskedslumring ophæves</string>
     <string name="title_advanced_auto_important">Gør automatisk stjernemarkerede beskeder vigtige</string>
     <string name="title_advanced_cancel_snooze">Afbryd udsættelse ved flytning af beskeder</string>
     <string name="title_advanced_auto_block_sender">Blokér automatisk afsenderen ved spamanmeldelse</string>
@@ -649,6 +650,7 @@
     <string name="title_advanced_move_thread_all">Når valgte samtaler flyttes, flyt alle beskeder</string>
     <string name="title_advanced_move_thread_sent">Når en samtale flyttes, flyt også sendte beskeder</string>
     <string name="title_advanced_swipe_trash_all">Stryges en samtale til papirkurven, kassér alle beskeder</string>
+    <string name="title_advanced_gmail_delete_all">Slet alle Gmail-etiketter ved permanent sletning af en besked</string>
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_default_folder">Vælg standardmappe</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>

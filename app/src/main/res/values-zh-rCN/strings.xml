@@ -516,7 +516,7 @@
     <string name="title_advanced_favicons">显示网页图标</string>
     <string name="title_advanced_favicons_partial">只扫描网页的前 %1$s 数据</string>
     <string name="title_advanced_favicons_manifest">扫描Web应用清单</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">显示 DuckDuckGo 图标</string>
+    <string name="title_advanced_ddg">显示 DuckDuckGo 图标</string>
     <string name="title_advanced_favicons_dmarc">外部图像需要 DMARC 验证</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
@@ -626,6 +626,7 @@
     <string name="title_advanced_autounstar">移动邮件时自动从邮件移除星标</string>
     <string name="title_advanced_reset_importance">移动邮件时重置其重要性</string>
     <string name="title_advanced_star_snoozed">自动给延后邮件添加星标</string>
+    <string name="title_advanced_star_unsnoozed">取消邮件延后通知时自动删除星标</string>
     <string name="title_advanced_auto_important">自动标注星标邮件为重要</string>
     <string name="title_advanced_cancel_snooze">移动邮件时取消延后</string>
     <string name="title_advanced_auto_block_sender">报告垃圾邮件时自动屏蔽发件人</string>
@@ -634,6 +635,7 @@
     <string name="title_advanced_move_thread_all">移动所选对话时，移动所有邮件</string>
     <string name="title_advanced_move_thread_sent">移动会话时也移动已发送的邮件</string>
     <string name="title_advanced_swipe_trash_all">当将对话滑动到回收站时，回收所有邮件</string>
+    <string name="title_advanced_gmail_delete_all">永久删除消息时，删除所有 Gmail 标签</string>
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
     <string name="title_advanced_default_folder">选择默认文件夹</string>
     <string name="title_advanced_notifications">管理通知</string>

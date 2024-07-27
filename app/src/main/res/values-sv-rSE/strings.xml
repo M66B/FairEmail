@@ -527,7 +527,7 @@
     <string name="title_advanced_favicons">Visa favicons</string>
     <string name="title_advanced_favicons_partial">Skanna bara den första %1$s av webbsidan</string>
     <string name="title_advanced_favicons_manifest">Skanna webbapp manifest efter favicon</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Visa DuckDuckGo ikoner</string>
+    <string name="title_advanced_ddg">Visa DuckDuckGo ikoner</string>
     <string name="title_advanced_favicons_dmarc">Kräv DMARC-verifiering för externa bilder</string>
     <string name="title_advanced_generated_icons">Visa genererade ikoner</string>
     <string name="title_advanced_identicons">Visa identicons</string>

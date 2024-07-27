@@ -558,7 +558,7 @@
     <string name="title_advanced_favicons">Pokaż favikony</string>
     <string name="title_advanced_favicons_partial">Skanuj tylko pierwsze %1$s strony internetowej</string>
     <string name="title_advanced_favicons_manifest">Skanuj manifesty aplikacji internetowych</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Pokaż ikony DuckDuckGo</string>
+    <string name="title_advanced_ddg">Pokaż ikony DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Wymagaj weryfikacji DMARC dla zewnętrznych obrazów</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokaż ikony kontaktów</string>
@@ -668,6 +668,7 @@
     <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
     <string name="title_advanced_reset_importance">Resetuj ważność przy przenoszeniu wiadomości</string>
     <string name="title_advanced_star_snoozed">Automatycznie dodawaj gwiazdkę przy usypianiu wiadomości</string>
+    <string name="title_advanced_star_unsnoozed">Automatycznie usuń gwiazdkę przy odkładaniu wiadomości</string>
     <string name="title_advanced_auto_important">Wiadomości oznaczone gwiazdką automatycznie ustaw jako ważne</string>
     <string name="title_advanced_cancel_snooze">Anuluj drzemkę przy przenoszeniu wiadomości</string>
     <string name="title_advanced_auto_block_sender">Automatycznie blokuj nadawcę podczas zgłaszania spamu</string>
@@ -676,6 +677,7 @@
     <string name="title_advanced_move_thread_all">Podczas przenoszenia wybranych konwersacji, przenoś wszystkie wiadomości</string>
     <string name="title_advanced_move_thread_sent">Podczas przenoszenia konwersacji, przeniesione zostaną również wysłane wiadomości</string>
     <string name="title_advanced_swipe_trash_all">Przeciągając konwersację do kosza, usuwa wszystkie wiadomości</string>
+    <string name="title_advanced_gmail_delete_all">Po trwałym usunięciu wiadomości usuń wszystkie etykiety Gmail</string>
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia/opóźnienia</string>
     <string name="title_advanced_default_folder">Wybierz folder domyślny</string>
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>

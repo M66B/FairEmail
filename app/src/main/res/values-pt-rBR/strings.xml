@@ -530,7 +530,7 @@
     <string name="title_advanced_favicons">Mostrar ícone de favoritos</string>
     <string name="title_advanced_favicons_partial">Escanear apenas o primeiro %1$s da página web</string>
     <string name="title_advanced_favicons_manifest">Escanear manifestos do aplicativo web</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Mostrar ícones do DuckDuckGo</string>
+    <string name="title_advanced_ddg">Mostrar ícones do DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Exigir verificação DMARC para imagens externas</string>
     <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
@@ -640,6 +640,7 @@
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao movê-las</string>
     <string name="title_advanced_reset_importance">Redefinir importância de mensagens em movimento</string>
     <string name="title_advanced_star_snoozed">Adicionar estrela automaticamente ao adiar mensagens</string>
+    <string name="title_advanced_star_unsnoozed">Remover automaticamente a estrela em mensagens suspensas</string>
     <string name="title_advanced_auto_important">Torne as mensagens com estrela automaticamente importantes</string>
     <string name="title_advanced_cancel_snooze">Cancelar soneca em mensagens em movimento</string>
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente ao denunciar spam</string>
@@ -648,6 +649,7 @@
     <string name="title_advanced_move_thread_all">Ao mover conversas selecionadas, mova todas as mensagens</string>
     <string name="title_advanced_move_thread_sent">Ao mover uma conversa, mova também as mensagens enviadas</string>
     <string name="title_advanced_swipe_trash_all">Ao deslizar uma conversa para a lixeira, jogue todas as mensagens na lixeira</string>
+    <string name="title_advanced_gmail_delete_all">Ao excluir permanentemente uma mensagem, exclua todos os marcadores do Gmail</string>
     <string name="title_advanced_default_snooze">Tempo de soneca/atraso padrão</string>
     <string name="title_advanced_default_folder">Selecionar pasta padrão</string>
     <string name="title_advanced_notifications">Gerenciar notificações</string>

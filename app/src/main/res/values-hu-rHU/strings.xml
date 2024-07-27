@@ -529,7 +529,7 @@
     <string name="title_advanced_favicons">Faviconok megjelenítése</string>
     <string name="title_advanced_favicons_partial">Csak az első %1$s-t olvassa be a weboldalnak</string>
     <string name="title_advanced_favicons_manifest">Nézze át a webalkalmazás jegyzékét</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">DuckDuckGo ikonok mutatása</string>
+    <string name="title_advanced_ddg">DuckDuckGo ikonok mutatása</string>
     <string name="title_advanced_favicons_dmarc">DMARC ellenőrzés megkövetelése külső képek esetén</string>
     <string name="title_advanced_generated_icons">Generált ikonok megjelenítése</string>
     <string name="title_advanced_identicons">Azonosító-ikonok megjelenítése</string>
@@ -639,6 +639,7 @@
     <string name="title_advanced_autounstar">Csillagok automatikus eltávolítása az üzenetek áthelyezésekor</string>
     <string name="title_advanced_reset_importance">Fontosság törlése áthelyezéskor</string>
     <string name="title_advanced_star_snoozed">Automatikusan csillagozza meg az üzenetet halasztáskor</string>
+    <string name="title_advanced_star_unsnoozed">Csillag automatikus eltávolítása az üzenet szundi kikapcsolásakor</string>
     <string name="title_advanced_auto_important">Automatikusan csináljon csillagozott üzeneteket fontossá</string>
     <string name="title_advanced_cancel_snooze">Szundi kikapcsolása üzenetek áthelyezésekor</string>
     <string name="title_advanced_auto_block_sender">Küldő automatikus letiltása levélszemét jelentésekor</string>
@@ -647,6 +648,7 @@
     <string name="title_advanced_move_thread_all">A kiválasztott beszélgetés mozgatasakor, az összes üzenetét helyezze át</string>
     <string name="title_advanced_move_thread_sent">Beszélgetés áthelyezésekor az elküldött üzeneteket is helyezze át</string>
     <string name="title_advanced_swipe_trash_all">Beszélgetés kukába húzásakor minden üzenetet töröljön</string>
+    <string name="title_advanced_gmail_delete_all">Üzenet végleges törlésekor az összes Gmail címkét is törölje</string>
     <string name="title_advanced_default_snooze">Alapértelmezett elhalasztás/késleltetés időtartama</string>
     <string name="title_advanced_default_folder">Válassza ki az alapértelmezett mappát</string>
     <string name="title_advanced_notifications">Értesítések kezelése</string>

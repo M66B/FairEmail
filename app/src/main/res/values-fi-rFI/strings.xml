@@ -530,7 +530,7 @@
     <string name="title_advanced_favicons">Näytä sivustokuvakkeet</string>
     <string name="title_advanced_favicons_partial">Lue vain ensimmäiset %1$s verkkosivusta</string>
     <string name="title_advanced_favicons_manifest">Skannaa web-sovellusten manifesteja</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Näytä DuckDuckGo-kuvakkeet</string>
+    <string name="title_advanced_ddg">Näytä DuckDuckGo-kuvakkeet</string>
     <string name="title_advanced_favicons_dmarc">Vaadi DMARC-vahvistus ulkoisille kuville</string>
     <string name="title_advanced_generated_icons">Näytä luodut kuvakkeet</string>
     <string name="title_advanced_identicons">Näytä identikonit</string>

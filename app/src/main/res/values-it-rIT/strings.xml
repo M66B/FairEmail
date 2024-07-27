@@ -531,7 +531,7 @@
     <string name="title_advanced_favicons">Mostra favicon</string>
     <string name="title_advanced_favicons_partial">Scansiona solo il primo %1$s della pagina web</string>
     <string name="title_advanced_favicons_manifest">Scansiona i manifesti dell\'app web</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Mostra icone DuckDuckGo</string>
+    <string name="title_advanced_ddg">Mostra icone DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Richiede la verifica DMARC per le immagini esterne</string>
     <string name="title_advanced_generated_icons">Mostra le icone generate</string>
     <string name="title_advanced_identicons">Mostra identicon</string>
@@ -641,6 +641,7 @@
     <string name="title_advanced_autounstar">Rimuovi automaticamente le stelle dai messaggi al loro spostamento</string>
     <string name="title_advanced_reset_importance">Ripristina l\'importanza allo spostamento dei messaggi</string>
     <string name="title_advanced_star_snoozed">Aggiungi automaticamente la stella posticipando i messaggi</string>
+    <string name="title_advanced_star_unsnoozed">Rimuovi automaticamente la stella dai messaggi alla fine della posticipazione</string>
     <string name="title_advanced_auto_important">Rendi automaticamente importanti i messaggi stellati</string>
     <string name="title_advanced_cancel_snooze">Annulla posticipazione allo spostamento dei messaggi</string>
     <string name="title_advanced_auto_block_sender">Blocca automaticamente il mittente alla segnalazione di spam</string>
@@ -649,6 +650,7 @@
     <string name="title_advanced_move_thread_all">Spostando le conversazioni selezionate, sposta tutti i messaggi</string>
     <string name="title_advanced_move_thread_sent">Spostando una conversazione, sposta anche i messaggi inviati</string>
     <string name="title_advanced_swipe_trash_all">Scorrando una conversazione nel cestino, sposti tutti i messaggi</string>
+    <string name="title_advanced_gmail_delete_all">Eliminando definitivamente un messaggio, eliminare tutte le etichette Gmail</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_default_folder">Seleziona la cartella predefinita</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>

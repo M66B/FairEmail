@@ -559,7 +559,7 @@
     <string name="title_advanced_favicons">Показати піктограми сайтів</string>
     <string name="title_advanced_favicons_partial">Просканувати у вебсторінці тільки перші %1$s</string>
     <string name="title_advanced_favicons_manifest">Сканувати маніфести веб-додатків</string>
-    <string name="title_advanced_ddg" comment="title_advanced_ddg&#10;Title for an option to fetch favicons via the icon service of DuckDuckGo">Показати іконки від DuckDuckGo</string>
+    <string name="title_advanced_ddg">Показати іконки від DuckDuckGo</string>
     <string name="title_advanced_favicons_dmarc">Вимагати перевірку DMARC для зовнішніх зображень</string>
     <string name="title_advanced_generated_icons">Показувати згенеровані іконки</string>
     <string name="title_advanced_identicons">Показувати ідентикони</string>
@@ -669,6 +669,7 @@
     <string name="title_advanced_autounstar">Автоматично прибирати повідомлення з обраних при їх переміщенні</string>
     <string name="title_advanced_reset_importance">Скидати важливість повідомлення при його переміщені</string>
     <string name="title_advanced_star_snoozed">Автоматично додавати відкладені повідомлення до обраних</string>
+    <string name="title_advanced_star_unsnoozed">Автоматично видаляти повідомлення з обраних при скасуванні відкладення</string>
     <string name="title_advanced_auto_important">Автоматично робити важливими повідомлення, відмічені як обрані</string>
     <string name="title_advanced_cancel_snooze">Скасовувати відкладення при переміщенні повідомлень</string>
     <string name="title_advanced_auto_block_sender">Автоматично блокувати відправника при інформуванні про спам</string>
@@ -677,6 +678,7 @@
     <string name="title_advanced_move_thread_all">При переміщенні обраних розмов, переміщати всі повідомлення</string>
     <string name="title_advanced_move_thread_sent">При переміщенні розмови також перемістити й надіслані повідомлення</string>
     <string name="title_advanced_swipe_trash_all">При змахуванні розмови до кошика, видалити всі повідомлення</string>
+    <string name="title_advanced_gmail_delete_all">При остаточному видаленні повідомлення видаляти всі мітки Gmail</string>
     <string name="title_advanced_default_snooze">Час повторного нагадування за замовчуванням</string>
     <string name="title_advanced_default_folder">Вибрати теку за замовчуванням</string>
     <string name="title_advanced_notifications">Керування сповіщеннями</string>
