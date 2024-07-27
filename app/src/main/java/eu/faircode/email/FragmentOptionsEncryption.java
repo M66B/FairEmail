@@ -88,6 +88,7 @@ public class FragmentOptionsEncryption extends FragmentBase
     private SwitchCompat swSign;
     private SwitchCompat swEncrypt;
     private SwitchCompat swEncryptAuto;
+    private SwitchCompat swEncryptReply;
     private SwitchCompat swAutoVerify;
     private SwitchCompat swAutoDecrypt;
     private SwitchCompat swAutoUndoDecrypt;
@@ -119,7 +120,7 @@ public class FragmentOptionsEncryption extends FragmentBase
     static final int REQUEST_IMPORT_CERTIFICATE = 1;
 
     final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
-            "sign_default", "encrypt_default", "encrypt_auto",
+            "sign_default", "encrypt_default", "encrypt_auto", "encrypt_reply",
             "auto_verify", "auto_decrypt", "auto_undecrypt",
             "openpgp_provider", "autocrypt", "autocrypt_mutual", "encrypt_subject",
             "sign_algo_smime", "encrypt_algo_smime", "check_certificate"
@@ -141,6 +142,7 @@ public class FragmentOptionsEncryption extends FragmentBase
         swSign = view.findViewById(R.id.swSign);
         swEncrypt = view.findViewById(R.id.swEncrypt);
         swEncryptAuto = view.findViewById(R.id.swEncryptAuto);
+        swEncryptReply = view.findViewById(R.id.swEncryptReply);
         swAutoVerify = view.findViewById(R.id.swAutoVerify);
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
         swAutoUndoDecrypt = view.findViewById(R.id.swAutoUndoDecrypt);
@@ -225,6 +227,13 @@ public class FragmentOptionsEncryption extends FragmentBase
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("encrypt_auto", checked).apply();
+            }
+        });
+
+        swEncryptReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("encrypt_reply", checked).apply();
             }
         });
 
@@ -664,6 +673,7 @@ public class FragmentOptionsEncryption extends FragmentBase
             swEncrypt.setChecked(prefs.getBoolean("encrypt_default", false));
             swSign.setEnabled(!swEncrypt.isChecked());
             swEncryptAuto.setChecked(prefs.getBoolean("encrypt_auto", false));
+            swEncryptReply.setChecked(prefs.getBoolean("encrypt_reply", false));
             swAutoVerify.setChecked(prefs.getBoolean("auto_verify", false));
             swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
             swAutoUndoDecrypt.setChecked(prefs.getBoolean("auto_undecrypt", false));

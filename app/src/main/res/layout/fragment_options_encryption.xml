@@ -131,6 +131,17 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swEncryptReply"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_encrypt_reply"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swEncryptAuto"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swAutoVerify"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -138,7 +149,7 @@
                     android:text="@string/title_advanced_auto_verify"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swEncryptAuto"
+                    app:layout_constraintTop_toBottomOf="@id/swEncryptReply"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

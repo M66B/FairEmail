@@ -5496,6 +5496,7 @@ public class FragmentCompose extends FragmentBase {
             boolean resize_reply = prefs.getBoolean("resize_reply", true);
             boolean sign_default = prefs.getBoolean("sign_default", false);
             boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
+            boolean encrypt_reply = prefs.getBoolean("encrypt_reply", false);
             boolean receipt_default = prefs.getBoolean("receipt_default", false);
             boolean write_below = prefs.getBoolean("write_below", false);
             boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
@@ -5981,17 +5982,21 @@ public class FragmentCompose extends FragmentBase {
                             // Encryption
                             List<Address> recipients = data.draft.getAllRecipients();
 
+                            boolean reply = (encrypt_reply && (
+                                    EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt) ||
+                                            EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)));
+
                             if (EntityMessage.PGP_SIGNONLY.equals(ref.ui_encrypt) ||
                                     EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt)) {
                                 if (PgpHelper.isOpenKeychainInstalled(context) &&
                                         selected.sign_key != null &&
-                                        PgpHelper.hasPgpKey(context, recipients, true))
+                                        (reply || PgpHelper.hasPgpKey(context, recipients, true)))
                                     data.draft.ui_encrypt = ref.ui_encrypt;
                             } else if (EntityMessage.SMIME_SIGNONLY.equals(ref.ui_encrypt) ||
                                     EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)) {
                                 if (ActivityBilling.isPro(context) &&
                                         selected.sign_key_alias != null &&
-                                        SmimeHelper.hasSmimeKey(context, recipients, true))
+                                        (reply || SmimeHelper.hasSmimeKey(context, recipients, true)))
                                     data.draft.ui_encrypt = ref.ui_encrypt;
                             }
                         }
