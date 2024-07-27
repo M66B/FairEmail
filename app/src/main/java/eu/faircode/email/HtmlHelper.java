@@ -2468,8 +2468,10 @@ public class HtmlHelper {
                         Uri uri = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file, attachment.name);
                         img.attr("src", uri.toString());
                         Log.i("Inline image uri=" + uri);
-                    } else
+                    } else {
                         img.attr("src", ImageHelper.getDataUri(file, attachment.type));
+                        Log.i("Inline image type=" + attachment.type);
+                    }
                 }
             }
         }
