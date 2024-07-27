@@ -183,6 +183,7 @@ import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.OpenPgpSignatureResult;
 import org.openintents.openpgp.util.OpenPgpApi;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -9351,7 +9352,7 @@ public class FragmentMessages extends FragmentBase
                         throw new IllegalArgumentException(context.getString(R.string.title_not_encrypted));
 
                 if (stripped)
-                    in = new MessageHelper.StripStream((in));
+                    in = new MessageHelper.StripStream(new BufferedInputStream(in));
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean autocrypt = prefs.getBoolean("autocrypt", true);
