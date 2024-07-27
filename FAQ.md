@@ -882,7 +882,7 @@ if your provider allows this. Considering the email address test@example.org you
 * "*@extra*" will result in the email address "*test@extra.example.org*"
 * "*Some name, username*" will result in the email address "*Some name, &lt;username@example.org&gt;*" (since version 1.2032)
 
-You can configure a default CC or BCC address in the advanced identity settings.
+You can configure a default CC, BCC and/or reply-to address in the advanced identity settings.
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
