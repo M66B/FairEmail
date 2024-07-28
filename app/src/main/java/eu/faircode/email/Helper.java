@@ -2018,6 +2018,14 @@ public class Helper {
                                     }
                                 }
 
+                                if (WebView.class.isAssignableFrom(type)) {
+                                    WebView wv = (WebView) field.get(instance);
+                                    if (wv != null) {
+                                        sb.append(" html");
+                                        wv.loadDataWithBaseURL(null, "", "text/html", StandardCharsets.UTF_8.name(), null);
+                                    }
+                                }
+
                                 if (Animator.class.isAssignableFrom(type)) {
                                     Animator animator = (Animator) field.get(instance);
                                     if (animator != null) {
