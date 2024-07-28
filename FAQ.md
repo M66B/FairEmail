@@ -3496,9 +3496,10 @@ You can enable/disable [authentication verification](https://en.wikipedia.org/wi
 The feature depends on the header [Authentication-Results](https://datatracker.ietf.org/doc/html/rfc7601), which the receiving email server should add.
 The shield will be green only if DMARC passes (=alignment)
 and either [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) or [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) passes.
+
 If the email server doesn't add an *Authentication-Results* header, which is optional,
 you can enable native DKIM in the debug panel, which appears when you enable debug mode in the miscellaneous settings tab page (last option).
-In this case, the shield will be green only when DKIM passes and the signer domain matches that of the sender.
+In this case, the shield will be green only when DKIM passes and the signer domain matches that of the sender (=alignment).
 Please be aware that this option will increase both data and battery usage.
 
 FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server.
