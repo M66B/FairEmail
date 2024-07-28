@@ -3429,8 +3429,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         },
                                         s, s + 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE | Spanned.SPAN_USER);
                             } else {
-                                for (Object span : ssb.getSpans(s, e, Object.class))
-                                    ssb.removeSpan(span);
+                                for (Object span : ssb.getSpans(s, e, Object.class)) {
+                                    int s0 = ssb.getSpanStart(span);
+                                    int e0 = ssb.getSpanEnd(span);
+                                    if (s0 >= s && e0 <= e)
+                                        ssb.removeSpan(span);
+                                }
                                 ssb.delete(s, e);
                                 ssb.insert(s - 1, "\n ");
                                 ssb.setSpan(
