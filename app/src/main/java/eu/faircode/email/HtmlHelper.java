@@ -3910,7 +3910,7 @@ public class HtmlHelper {
                             case "pre":
                             case "tt":
                                 // Signature
-                                setSpan(ssb, StyleHelper.getTypefaceSpan("Cousine", context), start, ssb.length());
+                                setSpan(ssb, StyleHelper.getTypefaceSpan("monospace", context), start, ssb.length());
                                 break;
                             case "style":
                                 // signatures
@@ -3970,7 +3970,7 @@ public class HtmlHelper {
 
                         if (monospaced_pre &&
                                 "true".equals(element.attr("x-plain")))
-                            setSpan(ssb, StyleHelper.getTypefaceSpan("Cousine", context), start, ssb.length());
+                            setSpan(ssb, StyleHelper.getTypefaceSpan("monospace", context), start, ssb.length());
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
