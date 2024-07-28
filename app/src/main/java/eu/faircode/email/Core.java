@@ -1815,21 +1815,24 @@ class Core {
                     IMAPFolder itrash = (IMAPFolder) istore.getFolder(trash.name);
                     Message[] imessages = ifolder.getMessagesByUID(Helper.toLongArray(uids));
 
-                    for (Message imessage : imessages)
-                        if (imessage instanceof GmailMessage)
-                            try {
-                                String[] labels = ((GmailMessage) imessage).getLabels();
-                                for (String label : labels)
-                                    if (!folders.containsKey(label)) {
-                                        EntityFolder f = db.folder().getFolderByName(account.id, label);
-                                        if (f != null)
-                                            folders.put(f.name, f.id);
-                                    }
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
+                    List<Message> imove = new ArrayList<>();
+                    if (imessages != null)
+                        for (Message imessage : imessages)
+                            if (imessage instanceof GmailMessage)
+                                try {
+                                    imove.add(imessage);
+                                    String[] labels = ((GmailMessage) imessage).getLabels();
+                                    for (String label : labels)
+                                        if (!folders.containsKey(label)) {
+                                            EntityFolder f = db.folder().getFolderByName(account.id, label);
+                                            if (f != null)
+                                                folders.put(f.name, f.id);
+                                        }
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
 
-                    ifolder.moveMessages(imessages, itrash);
+                    ifolder.moveMessages(imove.toArray(new Message[0]), itrash);
 
                     itrash.open(READ_WRITE);
                     try {
