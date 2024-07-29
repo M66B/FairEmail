@@ -731,6 +731,7 @@
     <string name="title_advanced_sign_default">Aláírás alapértelmezés szerint</string>
     <string name="title_advanced_encrypt_default">Titkosítás alapértelmezés szerint</string>
     <string name="title_advanced_encrypt_auto">Automatikus titkosítás ha az összes címzett kulcsa rendelkezésre áll</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Automatikusan titkosítsa a választ, ha a kapott üzenet titkosított</string>
     <string name="title_advanced_auto_verify">Aláírt üzenetek automatikus ellenőrzése</string>
     <string name="title_advanced_auto_decrypt">Üzenetek automatikus visszafejtése</string>
     <string name="title_advanced_auto_undo_decrypt">Dekódolás visszavonása beszélgetés bezárásakor</string>

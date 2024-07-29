@@ -651,7 +651,7 @@
     <string name="title_advanced_move_thread_all">Beim Verschieben einer Unterhaltung alle zu dieser Unterhaltung gehörenden Nachrichten verschieben</string>
     <string name="title_advanced_move_thread_sent">Beim Verschieben einer Unterhaltung auch die zu dieser Unterhaltung gehörenden gesendeten Nachrichten verschieben</string>
     <string name="title_advanced_swipe_trash_all">Beim Wischen einer Unterhaltung in den Papierkorb alle zu dieser Unterhaltung gehörenden Nachrichten löschen</string>
-    <string name="title_advanced_gmail_delete_all">Beim endgültigen Löschen einer Gmail-Nachricht alle Gmail-Labels löschen</string>
+    <string name="title_advanced_gmail_delete_all">Beim endgültigen Löschen einer Gmail-Nachricht auch alle dazugehörigen Gmail-Labels löschen</string>
     <string name="title_advanced_default_snooze">Standardzeit für Zurückstellen/Verzögern</string>
     <string name="title_advanced_default_folder">Standardordner auswählen</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
@@ -734,6 +734,7 @@
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_encrypt_auto">Automatisch verschlüsseln, wenn alle Empfängerschlüssel verfügbar sind</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Beim Antworten auf eine verschlüsselte Nachricht automatisch verschlüsseln</string>
     <string name="title_advanced_auto_verify">Signierte Nachrichten automatisch überprüfen</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
     <string name="title_advanced_auto_undo_decrypt">Unterhaltung beim Schließen erneut verschlüsseln</string>

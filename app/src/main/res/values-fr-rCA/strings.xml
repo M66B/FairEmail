@@ -733,6 +733,7 @@
     <string name="title_advanced_sign_default">Signer par défaut</string>
     <string name="title_advanced_encrypt_default">Chiffrer par défaut</string>
     <string name="title_advanced_encrypt_auto">Chiffrer automatiquement lorsque toutes les clés des destinataires sont disponibles</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Chiffrer automatiquement lors de la réponse à un message chiffré</string>
     <string name="title_advanced_auto_verify">Vérifier automatiquement les messages signés</string>
     <string name="title_advanced_auto_decrypt">Déchiffrer automatiquement les messages</string>
     <string name="title_advanced_auto_undo_decrypt">Annuler le déchiffrement lors de la fermeture de la conversation</string>

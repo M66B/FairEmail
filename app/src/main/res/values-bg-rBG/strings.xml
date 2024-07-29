@@ -640,6 +640,7 @@
     <string name="title_advanced_autounstar">Автоматично премахване на звездите от съобщенията при преместване им</string>
     <string name="title_advanced_reset_importance">Нулирай важността при преместване на съобщения</string>
     <string name="title_advanced_star_snoozed">Автоматично добавяне на звезда при отхвърлени съобщения</string>
+    <string name="title_advanced_star_unsnoozed">Автоматично премахване на звезда при неотложени съобщения</string>
     <string name="title_advanced_auto_important">Автоматично прави съобщенията със звезда важни</string>
     <string name="title_advanced_cancel_snooze">Отмяна на отлагането при премествани съобщения</string>
     <string name="title_advanced_auto_block_sender">Автоматично блокиране на подателя, докладвайки спам</string>
@@ -648,6 +649,7 @@
     <string name="title_advanced_move_thread_all">При преместване на избрани разговори, преместват се всички съобщения</string>
     <string name="title_advanced_move_thread_sent">Премествайки разговора, преместват се и изпратените съобщения</string>
     <string name="title_advanced_swipe_trash_all">Приплъзвайки разговор в кошчето, изхвърляте всички ненужни съобщения</string>
+    <string name="title_advanced_gmail_delete_all">Когато завинаги се изтрива съобщение, изтриват се и всички етикети на Gmail</string>
     <string name="title_advanced_default_snooze">Време за отлагане/закъснение по подразбиране</string>
     <string name="title_advanced_default_folder">Изберете подразбираща се папка</string>
     <string name="title_advanced_notifications">Управление на известията</string>
@@ -730,6 +732,7 @@
     <string name="title_advanced_sign_default">Подписване по подразбиране</string>
     <string name="title_advanced_encrypt_default">Криптиране по подразбиране</string>
     <string name="title_advanced_encrypt_auto">Автоматично криптиране при налични ключове на всички получатели</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Автоматично криптиране, отговаряйки на криптирано съобщение</string>
     <string name="title_advanced_auto_verify">Автоматична проверка на подписаните съобщения</string>
     <string name="title_advanced_auto_decrypt">Автоматично декриптиране на съобщение</string>
     <string name="title_advanced_auto_undo_decrypt">Отмяна на декриптиране, затваряйки разговора</string>
@@ -1380,6 +1383,11 @@
     <string name="title_third_party">Използвате версия на трета страна</string>
     <string name="title_expand_warning">Рзширеното съобщение ще се изтегли %1$s</string>
     <string name="title_download_message">Изтегляне &#8230;</string>
+    <string name="title_reformatted">        Това е безопасен преформатиран изглед на съобщение.
+        Може да чукнете на иконата &#x26F6; за преглед на по-малко безопасно първообразно съобщение и да го скриете.
+        Преформатираните съобщения отнемат някакво време в зависимост от големината на съобщението и бързината на устройството.
+        Понякога трябва да погледнете първообразното съобщение, за да видете QR-кода.
+    </string>
     <string name="title_compose">Ново съобщение</string>
     <string name="title_submitter">Изпратено от:</string>
     <string name="title_signed_by">Подписано от:</string>

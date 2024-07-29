@@ -727,6 +727,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
     <string name="title_advanced_encrypt_default">Varsayılan olarak şifrele</string>
     <string name="title_advanced_encrypt_auto">Tüm alıcıların anahtarları kullanılabilir olduğunda otomatik olarak şifrele</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Şifrelenmiş bir mesaja yanıt verirken otomatik olarak şifreleme</string>
     <string name="title_advanced_auto_verify">İmzalı mesajları otomatik olarak doğrula</string>
     <string name="title_advanced_auto_decrypt">İletilerin şifrelerini otomatik olarak çöz</string>
     <string name="title_advanced_auto_undo_decrypt">Görüşmeyi kapatırken şifre çözmeyi geri al</string>

@@ -733,6 +733,7 @@
     <string name="title_advanced_sign_default">Firma di default</string>
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
     <string name="title_advanced_encrypt_auto">Crittografa automaticamente quando le chiavi di tutti i destinatari sono disponibili</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Cifra automaticamente alla risposta a un messaggio cifrato</string>
     <string name="title_advanced_auto_verify">Verifica automaticamente i messaggi firmati</string>
     <string name="title_advanced_auto_decrypt">Decrittografa automaticamente i messaggi</string>
     <string name="title_advanced_auto_undo_decrypt">Annulla la decrittografia alla chiusura della conversazione</string>

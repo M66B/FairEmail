@@ -761,6 +761,7 @@
     <string name="title_advanced_sign_default">Підписувати за замовчуванням</string>
     <string name="title_advanced_encrypt_default">Шифрувати за замовчуванням</string>
     <string name="title_advanced_encrypt_auto">Автоматично шифрувати при доступності всіх ключів одержувачів</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Автоматично шифрувати при відповіді на зашифроване повідомлення</string>
     <string name="title_advanced_auto_verify">Автоматично перевіряти підписані повідомлення</string>
     <string name="title_advanced_auto_decrypt">Автоматично розшифровувати повідомлення</string>
     <string name="title_advanced_auto_undo_decrypt">Скасовувати розшифрування при закритті розмови</string>

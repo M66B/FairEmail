@@ -718,6 +718,7 @@
     <string name="title_advanced_sign_default">使用默认签名</string>
     <string name="title_advanced_encrypt_default">使用默认加密</string>
     <string name="title_advanced_encrypt_auto">当所有收件人的公钥可用时自动加密</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">回复加密消息时自动加密</string>
     <string name="title_advanced_auto_verify">自动验证已签名的邮件</string>
     <string name="title_advanced_auto_decrypt">自动解密邮件</string>
     <string name="title_advanced_auto_undo_decrypt">关闭对话时撤销解密</string>

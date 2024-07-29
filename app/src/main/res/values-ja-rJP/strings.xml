@@ -719,6 +719,7 @@
     <string name="title_advanced_sign_default">デフォルトでデジタル署名する</string>
     <string name="title_advanced_encrypt_default">デフォルトで暗号化する</string>
     <string name="title_advanced_encrypt_auto">すべての宛先の鍵が有効なときは自動で暗号化する</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">暗号化されたメッセージには暗号化して返信する</string>
     <string name="title_advanced_auto_verify">デジタル署名されたメッセージを自動で検証する</string>
     <string name="title_advanced_auto_decrypt">暗号化されたメッセージを自動で復号する</string>
     <string name="title_advanced_auto_undo_decrypt">会話スレッドの終了時に復号を元に戻す</string>

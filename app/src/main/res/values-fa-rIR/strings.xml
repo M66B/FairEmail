@@ -593,6 +593,7 @@
     <string name="title_advanced_clear_all_remark">اطلاعات اپلیکیشن به طور برگشت‌ناپذیر پاک خواهد شد!</string>
     <string name="title_advanced_sign_default">امضاء به‌صورت پیش‌فرض</string>
     <string name="title_advanced_encrypt_default">رمزگذاری به‌صورت پیش‌فرض</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">رمزگذاری خودکار هنگام پاسخ‌دهی به پیام‌های رمزگذاری شده</string>
     <string name="title_advanced_auto_verify">صحت‌سنجی خودکار پیام‌های امضاشده</string>
     <string name="title_advanced_auto_decrypt">رمزگشایی خودکار پیام‌ها</string>
     <string name="title_advanced_openpgp">فراهم کننده OpenPGP</string>

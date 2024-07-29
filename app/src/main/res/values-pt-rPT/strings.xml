@@ -734,6 +734,7 @@
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
     <string name="title_advanced_encrypt_auto">Criptografar automaticamente quando as chaves de todos os destinatários estiverem disponíveis</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Encriptar automaticamente ao responder a uma mensagem encriptada</string>
     <string name="title_advanced_auto_verify">Verificar automaticamente mensagens assinadas</string>
     <string name="title_advanced_auto_decrypt">Desencriptar mensagens automaticamente</string>
     <string name="title_advanced_auto_undo_decrypt">Reverter a descodificação ao fechar conversas</string>

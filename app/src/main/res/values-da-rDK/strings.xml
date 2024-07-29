@@ -733,6 +733,7 @@
     <string name="title_advanced_sign_default">Signér som standard</string>
     <string name="title_advanced_encrypt_default">Kryptér som standard</string>
     <string name="title_advanced_encrypt_auto">Kryptér automatisk, når alle modtageres nøgler er tilgængelige</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Kryptér automatisk, når en krypteret besked besvares</string>
     <string name="title_advanced_auto_verify">Bekræft automatisk signerede beskeder</string>
     <string name="title_advanced_auto_decrypt">Auto-dekryptér beskeder</string>
     <string name="title_advanced_auto_undo_decrypt">Fortryd dekryptering ved lukning af samtale</string>
