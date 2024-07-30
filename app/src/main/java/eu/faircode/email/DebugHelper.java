@@ -287,9 +287,17 @@ public class DebugHelper {
             Log.e(ex);
         }
 
+        String gms = null;
+        try {
+            PackageInfo pi = pm.getPackageInfo("com.google.android.gms", 0);
+            if (pi != null)
+                gms = pi.versionName + " #" + pi.versionCode;
+        } catch (Throwable ignored) {
+        }
+
         String installer = Helper.getInstallerName(context);
         sb.append(String.format("Release: %s\r\n", Log.getReleaseType(context)));
-        sb.append(String.format("Play Store: %s\r\n", Helper.hasPlayStore(context)));
+        sb.append(String.format("Play Store: %s Services: %s\r\n", Helper.hasPlayStore(context), gms));
         sb.append(String.format("Installer: %s\r\n", installer == null ? "-" : installer));
         sb.append(String.format("Installed: %s\r\n", new Date(Helper.getInstallTime(context))));
         sb.append(String.format("Updated: %s\r\n", new Date(Helper.getUpdateTime(context))));
