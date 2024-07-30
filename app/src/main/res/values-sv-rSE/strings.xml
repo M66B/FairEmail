@@ -637,6 +637,7 @@
     <string name="title_advanced_autounstar">Ta automatiskt bort stjärnmarkeringar från meddelanden när meddelanden flyttas</string>
     <string name="title_advanced_reset_importance">Återställ betydelsen när du flyttar meddelanden</string>
     <string name="title_advanced_star_snoozed">Stjärnmarkera automatiskt vid slumring av meddelanden</string>
+    <string name="title_advanced_star_unsnoozed">Ta automatiskt bort stjärnmarkering när meddelanden inte längre är vilande</string>
     <string name="title_advanced_auto_important">Gör automatiskt stjärnmärkta meddelanden viktiga</string>
     <string name="title_advanced_cancel_snooze">Avbryt snooze när meddelanden flyttas</string>
     <string name="title_advanced_auto_block_sender">Blockera avsändaren automatiskt vid rapportering av skräppost</string>
@@ -645,6 +646,7 @@
     <string name="title_advanced_move_thread_all">När du flyttar valda konversationer, flytta alla meddelanden</string>
     <string name="title_advanced_move_thread_sent">När en konversation flyttas, flytta också skickade meddelanden</string>
     <string name="title_advanced_swipe_trash_all">När du sveper en konversation till papperskorgen, kasta alla meddelanden</string>
+    <string name="title_advanced_gmail_delete_all">När du tar bort ett meddelande permanent, ta också bort alla Gmail-etiketter</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_default_folder">Välj standardmapp</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
@@ -724,6 +726,7 @@
     <string name="title_advanced_sign_default">Signera som standard</string>
     <string name="title_advanced_encrypt_default">Kryptera som standard</string>
     <string name="title_advanced_encrypt_auto">Kryptera automatiskt när alla mottagares nycklar är tillgängliga</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Kryptera ditt meddelande automatiskt när du svarar på ett krypterat meddelande</string>
     <string name="title_advanced_auto_verify">Verifiera signerade meddelanden automatiskt</string>
     <string name="title_advanced_auto_decrypt">Dekryptera meddelanden automatiskt</string>
     <string name="title_advanced_auto_undo_decrypt">Ångra dekryptering vid stängning av konversation</string>

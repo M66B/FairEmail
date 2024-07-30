@@ -732,6 +732,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_sign_default">Standert ûndertekenje</string>
     <string name="title_advanced_encrypt_default">Standert fersiferje</string>
     <string name="title_advanced_encrypt_auto">Automatysk fersiferje wannear’t alle kaaien fan de ûntfanger beskikber binne</string>
+    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Automatysk fersiferje by antwurdzjen op in fersifere berjocht</string>
     <string name="title_advanced_auto_verify">Undertekene berjochten automatysk ferifiearje</string>
     <string name="title_advanced_auto_decrypt">Berjochten automatysk ûntsiferje</string>
     <string name="title_advanced_auto_undo_decrypt">Untsifering ûngedien meitsje by sluten fan petear</string>

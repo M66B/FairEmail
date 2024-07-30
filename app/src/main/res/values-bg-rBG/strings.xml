@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_search">FairEmail търсене</string>
+    <string name="app_search">Търсене във FairEmail</string>
     <string name="app_send_self">Изпращане до себе си</string>
     <string name="app_changelog">Дневник с промените</string>
     <string name="app_welcome">FairEmail е приложение за имейл с отворен код, съсредоточено върху поверителността и сигурността. По тази причина някои функции могат да работят различно от това, с което сте свикнали.</string>
