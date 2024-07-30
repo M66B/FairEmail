@@ -180,6 +180,7 @@ public class MessageHelper {
     static final String HEADER_CORRELATION_ID = "X-Correlation-ID";
     static final String HEADER_MICROSOFT_ORIGINAL_MESSAGE_ID = "X-Microsoft-Original-Message-ID";
     static final String HEADER_GOOGLE_ORIGINAL_MESSAGE_ID = "X-Google-Original-Message-ID";
+    static final String HEADER_MODIFIED_TIME = "X-Modified-Time";
     static final int MAX_SUBJECT_AGE = 48; // hours
     static final int DEFAULT_THREAD_RANGE = 7; // 2^7 = 128 days
     static final int MAX_UNZIP_COUNT = 20;
@@ -3038,6 +3039,11 @@ public class MessageHelper {
 
         long size = imessage.getSize();
         return (size < 0 ? null : size);
+    }
+
+    boolean isModified() throws MessagingException {
+        ensureHeaders();
+        return (imessage.getHeader(HEADER_MODIFIED_TIME) != null);
     }
 
     Long getReceived() throws MessagingException {

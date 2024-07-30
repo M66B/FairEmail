@@ -2214,6 +2214,7 @@ class Core {
                 : message.references + " " + message.msgid);
         MimeMessage icopy = new MimeMessageEx((MimeMessage) imessage, msgid);
         icopy.addHeader("References", MessageHelper.limitReferences(ref));
+        icopy.addHeader(MessageHelper.HEADER_MODIFIED_TIME, Long.toString(new Date().getTime()));
         MessageHelper helper = new MessageHelper(icopy, context);
         MessageHelper.MessageParts parts = helper.getMessageParts();
         List<MessageHelper.AttachmentPart> aparts = parts.getAttachmentParts();
@@ -3244,6 +3245,7 @@ class Core {
         MimeMessage icopy = new MimeMessageEx((MimeMessage) imessage, msgid);
         icopy.setSubject(subject); // Update or delete subject
         icopy.addHeader("References", MessageHelper.limitReferences(ref));
+        icopy.addHeader(MessageHelper.HEADER_MODIFIED_TIME, Long.toString(new Date().getTime()));
 
         ifolder.appendMessages(new Message[]{icopy});
 
@@ -4643,7 +4645,7 @@ class Core {
 
             Long received;
             long future = new Date().getTime() + FUTURE_RECEIVED;
-            if (account.use_date || EntityFolder.SENT.equals(folder.type)) {
+            if (account.use_date || EntityFolder.SENT.equals(folder.type) || helper.isModified()) {
                 received = sent;
                 if (received == null || received == 0 || received > future)
                     received = helper.getReceived();
