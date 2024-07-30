@@ -57,6 +57,7 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.github.DetectHtml;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -454,6 +455,11 @@ public class FragmentAnswer extends FragmentBase {
         for (SuggestionSpan suggestion : suggestions)
             edit.removeSpan(suggestion);
 
+        Spanned spanned = etText.getText();
+        String html = (!BuildConfig.PLAY_STORE_RELEASE && DetectHtml.isHtml(spanned.toString())
+                ? spanned.toString()
+                : HtmlHelper.toHtml(spanned, getContext()));
+
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putString("name", etName.getText().toString().trim());
@@ -467,7 +473,7 @@ public class FragmentAnswer extends FragmentBase {
         args.putBoolean("hide", cbHide.isChecked());
         args.putBoolean("external", cbExternal.isChecked());
         args.putInt("color", btnColor.getColor());
-        args.putString("html", HtmlHelper.toHtml(etText.getText(), getContext()));
+        args.putString("html", html);
 
         new SimpleTask<Void>() {
             @Override
