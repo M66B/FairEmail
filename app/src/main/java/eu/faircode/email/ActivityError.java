@@ -110,7 +110,9 @@ public class ActivityError extends ActivityBase {
 
         boolean password = (auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD);
         boolean outlook = ("outlook.office365.com".equalsIgnoreCase(host) ||
-                "smtp.office365.com".equalsIgnoreCase(host));
+                "smtp.office365.com".equalsIgnoreCase(host) ||
+                "imap-mail.outlook.com".equalsIgnoreCase(host) ||
+                "smtp-mail.outlook.com".equalsIgnoreCase(host));
 
         btnPassword.setText(password && !outlook ? R.string.title_password : R.string.title_setup_oauth_authorize);
         btnPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(
