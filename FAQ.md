@@ -1272,7 +1272,11 @@ Using the search index is a pro feature.
 >
 > **IMPORTANT: If you came here via a warning in the app, you MUST take action!**
 >
-> It takes just two minutes to be prepared.
+> **IMPORTANT: Microsoft seems to disable (app) passwords ahead of schedule for more and more accounts, resulting in "*Authentication failed*" error messages.**
+>
+<br />
+
+> It takes just two minutes to be prepared (and to resolve "*Authentication failed*" errors).
 >
 > If the app said your Outlook accounts will continue to work, you don't need to do anything.
 >
