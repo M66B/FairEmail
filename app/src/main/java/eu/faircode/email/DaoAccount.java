@@ -148,7 +148,7 @@ public interface DaoAccount {
     EntityAccount getAccount(String name);
 
     @Query("SELECT * FROM account" +
-            " WHERE user = :user" +
+            " WHERE user = :user COLLATE NOCASE" +
             " AND pop = :protocol" +
             " AND tbd IS NULL")
     List<EntityAccount> getAccounts(String user, int protocol);
