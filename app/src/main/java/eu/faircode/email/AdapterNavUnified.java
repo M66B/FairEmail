@@ -59,6 +59,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     private boolean nav_count;
     private boolean nav_count_pinned;
     private boolean nav_unseen_drafts;
+    private boolean nav_categories;
     private int colorUnread;
     private int textColorSecondary;
     private boolean show_unexposed;
@@ -240,6 +241,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         this.nav_count = prefs.getBoolean("nav_count", false);
         this.nav_count_pinned = prefs.getBoolean("nav_count_pinned", false);
         this.nav_unseen_drafts = prefs.getBoolean("nav_unseen_drafts", false);
+        this.nav_categories = prefs.getBoolean("nav_categories", false);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
@@ -254,7 +256,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         Map<String, TupleFolderUnified> map = new HashMap<>();
         TupleFolderUnified unified = new TupleFolderUnified();
         for (TupleFolderUnified type : new ArrayList<>(folders)) {
-            if (!EntityFolder.INBOX.equals(type.type))
+            if (!nav_categories || !EntityFolder.INBOX.equals(type.type))
                 type.category = null;
             for (int i = 0; i < 1 + (type.category == null ? 0 : 1); i++) {
                 if (i > 0) {
