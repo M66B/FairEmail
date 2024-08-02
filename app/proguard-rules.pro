@@ -164,3 +164,4 @@
 
 #EvalEx
 -dontwarn lombok.Generated
+-keep class com.ezylang.evalex.** {*;}
