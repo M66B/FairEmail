@@ -23,6 +23,7 @@ import java.util.Objects;
 
 public class TupleFolderUnified {
     public String type;
+    public String category;
     public boolean unified;
     public int folders;
     public int messages;
@@ -32,11 +33,28 @@ public class TupleFolderUnified {
     public Integer color;
     public int colorCount;
 
+    TupleFolderUnified() {
+    }
+
+    TupleFolderUnified(TupleFolderUnified other) {
+        this.type = other.type;
+        this.category = other.category;
+        this.unified = other.unified;
+        this.folders = other.folders;
+        this.messages = other.messages;
+        this.unseen = other.unseen;
+        this.unexposed = other.unexposed;
+        this.sync_state = other.sync_state;
+        this.color = other.color;
+        this.colorCount = other.colorCount;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof TupleFolderUnified) {
             TupleFolderUnified other = (TupleFolderUnified) obj;
             return (Objects.equals(this.type, other.type) &&
+                    Objects.equals(this.category, other.category) &&
                     this.unified == other.unified &&
                     this.folders == other.folders &&
                     this.messages == other.messages &&

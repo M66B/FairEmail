@@ -319,6 +319,7 @@ public class FragmentMessages extends FragmentBase
     private ObjectAnimator animator;
 
     private String type;
+    private String category;
     private long account;
     private long folder;
     private boolean server;
@@ -339,7 +340,7 @@ public class FragmentMessages extends FragmentBase
 
     private boolean cards;
     private boolean dividers;
-    private boolean category;
+    private boolean group_category;
     private boolean date;
     private boolean date_week;
     private boolean date_fixed;
@@ -464,6 +465,7 @@ public class FragmentMessages extends FragmentBase
         // Get arguments
         Bundle args = getArguments();
         type = args.getString("type");
+        category = args.getString("category");
         account = args.getLong("account", -1);
         folder = args.getLong("folder", -1);
         server = args.getBoolean("server", false);
@@ -494,7 +496,7 @@ public class FragmentMessages extends FragmentBase
 
         cards = prefs.getBoolean("cards", true);
         dividers = prefs.getBoolean("dividers", true);
-        category = prefs.getBoolean("group_category", false);
+        group_category = (category == null && prefs.getBoolean("group_category", false));
         date = prefs.getBoolean("date", true);
         date_week = prefs.getBoolean("date_week", false);
         date_fixed = (!date && prefs.getBoolean("date_fixed", false));
@@ -1020,7 +1022,7 @@ public class FragmentMessages extends FragmentBase
                 if (message == null)
                     return null;
 
-                boolean ch = (category &&
+                boolean ch = (group_category &&
                         viewType == AdapterMessage.ViewType.UNIFIED &&
                         (pos == 0
                                 ? message.accountCategory != null
@@ -5392,7 +5394,7 @@ public class FragmentMessages extends FragmentBase
         // Folder
         switch (viewType) {
             case UNIFIED:
-                db.folder().liveUnified(type).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+                db.folder().liveUnified(type, category).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
                     @Override
                     public void onChanged(List<TupleFolderEx> folders) {
                         updateState(folders);
@@ -7045,7 +7047,7 @@ public class FragmentMessages extends FragmentBase
                 if (name == null)
                     name = getString(R.string.title_folder_unified);
             } else
-                name = "»" + EntityFolder.localizeType(context, type);
+                name = "»" + EntityFolder.localizeType(context, type) + (category == null ? "" : "/" + category);
         else {
             name = (folders.size() > 0 ? folders.get(0).getDisplayName(context) : "");
             if (folders.size() == 1) {
@@ -7291,7 +7293,7 @@ public class FragmentMessages extends FragmentBase
 
         ViewModelMessages.Model vmodel = model.getModel(
                 getContext(), getViewLifecycleOwner(),
-                viewType, type, account, folder, thread, id, threading, filter_archive, criteria, server);
+                viewType, type, category, account, folder, thread, id, threading, filter_archive, criteria, server);
 
         initialized = false;
         loading = false;

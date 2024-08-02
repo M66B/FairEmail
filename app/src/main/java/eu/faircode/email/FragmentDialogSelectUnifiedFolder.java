@@ -80,7 +80,7 @@ public class FragmentDialogSelectUnifiedFolder extends FragmentDialogBase {
             @Override
             protected List<TupleFolderEx> onExecute(Context context, Bundle args) {
                 DB db = DB.getInstance(context);
-                return db.folder().getUnified(null);
+                return db.folder().getUnified(null, null);
             }
 
             @Override

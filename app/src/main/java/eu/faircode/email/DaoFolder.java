@@ -120,13 +120,14 @@ public interface DaoFolder {
             " LEFT JOIN operation ON operation.folder = folder.id" +
             " WHERE account.`synchronize`" +
             " AND ((:type IS NULL AND folder.unified) OR folder.type = :type)" +
+            " AND (:category IS NULL OR account.category = :category)" +
             " GROUP BY folder.id";
 
     @Query(queryUnified)
-    LiveData<List<TupleFolderEx>> liveUnified(String type);
+    LiveData<List<TupleFolderEx>> liveUnified(String type, String category);
 
     @Query(queryUnified)
-    List<TupleFolderEx> getUnified(String type);
+    List<TupleFolderEx> getUnified(String type, String category);
 
     @Query("SELECT folder.account, folder.id AS folder, unified, sync_state" +
             " FROM folder" +
@@ -190,7 +191,7 @@ public interface DaoFolder {
             " ORDER BY name COLLATE NOCASE")
     List<EntityFolder> getChildFolders(long parent);
 
-    @Query("SELECT folder.type, folder.unified" +
+    @Query("SELECT folder.type, account.category, folder.unified" +
             ", COUNT(DISTINCT folder.id) AS folders" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +
@@ -204,7 +205,7 @@ public interface DaoFolder {
             " AND ((folder.type <> '" + EntityFolder.SYSTEM + "'" +
             " AND folder.type <> '" + EntityFolder.USER + "')" +
             " OR folder.unified)" +
-            " GROUP BY folder.type, folder.unified")
+            " GROUP BY folder.type, account.category, folder.unified")
     LiveData<List<TupleFolderUnified>> liveUnified();
 
     @Query("SELECT * FROM folder" +

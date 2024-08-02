@@ -2504,6 +2504,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         Bundle args = new Bundle();
         args.putString("type", intent.getStringExtra("type"));
+        args.putString("category", intent.getStringExtra("category"));
         args.putLong("account", intent.getLongExtra("account", -1));
         args.putLong("folder", intent.getLongExtra("folder", -1));
 

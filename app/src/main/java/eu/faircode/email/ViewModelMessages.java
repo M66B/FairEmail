@@ -82,7 +82,7 @@ public class ViewModelMessages extends ViewModel {
     Model getModel(
             final Context context, final LifecycleOwner owner,
             final AdapterMessage.ViewType viewType,
-            String type, long account, long folder,
+            String type, String category, long account, long folder,
             String thread, long id,
             boolean threading,
             boolean filter_archive,
@@ -93,7 +93,7 @@ public class ViewModelMessages extends ViewModel {
         boolean cache_lists = prefs.getBoolean("cache_lists", true);
 
         Args args = new Args(context,
-                viewType, type, account, folder,
+                viewType, type, category, account, folder,
                 thread, id, threading,
                 filter_archive, criteria, server);
         Log.i("Get model=" + viewType + " " + args);
@@ -128,6 +128,7 @@ public class ViewModelMessages extends ViewModel {
                     if (legacy)
                         pager = db.message().pagedUnifiedLegacy(
                                 args.type,
+                                args.category,
                                 args.threading,
                                 args.group_category,
                                 args.sort1, args.sort2, args.ascending,
@@ -142,6 +143,7 @@ public class ViewModelMessages extends ViewModel {
                     else
                         pager = db.message().pagedUnified(
                                 args.type,
+                                args.category,
                                 args.threading,
                                 args.group_category,
                                 args.sort1, args.sort2, args.ascending,
@@ -214,7 +216,7 @@ public class ViewModelMessages extends ViewModel {
                     if (args.folder < 0) {
                         if (legacy)
                             pager = db.message().pagedUnifiedLegacy(
-                                    null,
+                                    null, null,
                                     args.threading, false,
                                     criteria == null || criteria.touched == null ? "time" : "touched", "", false,
                                     false, false, false, false, false,
@@ -223,7 +225,7 @@ public class ViewModelMessages extends ViewModel {
                                     args.debug);
                         else
                             pager = db.message().pagedUnified(
-                                    null,
+                                    null, null,
                                     args.threading, false,
                                     criteria == null || criteria.touched == null ? "time" : "touched", "", false,
                                     false, false, false, false, false,
@@ -562,6 +564,7 @@ public class ViewModelMessages extends ViewModel {
     private class Args {
         private long account;
         private String type;
+        private String category;
         private long folder;
         private String thread;
         private long id;
@@ -584,12 +587,13 @@ public class ViewModelMessages extends ViewModel {
 
         Args(Context context,
              AdapterMessage.ViewType viewType,
-             String type, long account, long folder,
+             String type, String category, long account, long folder,
              String thread, long id, boolean threading,
              boolean filter_archive,
              BoundaryCallbackMessages.SearchCriteria criteria, boolean server) {
 
             this.type = type;
+            this.category = category;
             this.account = account;
             this.folder = folder;
             this.thread = thread;
@@ -626,6 +630,7 @@ public class ViewModelMessages extends ViewModel {
             if (obj instanceof Args) {
                 Args other = (Args) obj;
                 return (Objects.equals(this.type, other.type) &&
+                        Objects.equals(this.category, other.category) &&
                         this.account == other.account &&
                         this.folder == other.folder &&
                         Objects.equals(this.thread, other.thread) &&
@@ -653,7 +658,7 @@ public class ViewModelMessages extends ViewModel {
         @NonNull
         @Override
         public String toString() {
-            return "folder=" + type + ":" + account + ":" + folder +
+            return "folder=" + type + "/" + category + ":" + account + ":" + folder +
                     " thread=" + thread + ":" + id +
                     " criteria=" + criteria + ":" + server + "" +
                     " threading=" + threading +
