@@ -59,6 +59,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Folder;
@@ -74,6 +75,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private EditText etEmail;
     private TextInputLayout tilPassword;
     private TextView tvCharacters;
+    private TextView tvOutlookModern;
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
     private TextView tvPatience;
@@ -146,6 +148,7 @@ public class FragmentQuickSetup extends FragmentBase {
         etEmail = view.findViewById(R.id.etEmail);
         tilPassword = view.findViewById(R.id.tilPassword);
         tvCharacters = view.findViewById(R.id.tvCharacters);
+        tvOutlookModern = view.findViewById(R.id.tvOutlookModern);
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
         tvPatience = view.findViewById(R.id.tvPatience);
@@ -195,6 +198,26 @@ public class FragmentQuickSetup extends FragmentBase {
             }
         });
 
+        etEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String email = s.toString().toLowerCase(Locale.ROOT);
+                boolean outlook = (email.contains("@outlook.") ||
+                        email.contains("@hotmail.") ||
+                        email.contains("@live."));
+                tvOutlookModern.setVisibility(outlook ? View.VISIBLE : View.GONE);
+            }
+        });
         tilPassword.setHintEnabled(false);
 
         tilPassword.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -274,6 +297,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
         // Initialize
         tvCharacters.setVisibility(View.GONE);
+        tvOutlookModern.setVisibility(View.GONE);
         tvImapFingerprint.setText(null);
         tvSmtpFingerprint.setText(null);
         pbCheck.setVisibility(View.GONE);

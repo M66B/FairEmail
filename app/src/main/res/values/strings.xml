@@ -248,6 +248,7 @@
     <string name="title_setup_gmail_login">If Chrome is signed in to an account, a new account can only be added through Android. This can be avoided by logging out of Chrome via the Chrome sync settings.</string>
     <string name="title_setup_gmail_max">In case of the error message \"You\'re signed in to the maximum number of accounts\", you need to log out the browser from all Google accounts.</string>
     <string name="title_setup_outlook_hint">In the case of an alias address, the Office 365 wizard should probably be used.</string>
+    <string name="title_setup_outlook_modern">Due to changes in Microsoft\'s security policies, from September 16, 2024, only the Outlook/Hotmail/Live wizard will work.</string>
     <string name="title_setup_gmail_on_device">Why do I need to select an on-device account?</string>
     <string name="title_setup_gmail_password">I want to authorize an account with a password instead of an on-device account</string>
     <string name="title_setup_office_auth">The error \'AUTHENTICATE failed\' can be caused by IMAP/SMTP being disabled by the system administrator</string>
