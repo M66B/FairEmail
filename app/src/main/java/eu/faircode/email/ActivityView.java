@@ -2483,6 +2483,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             if (unified && "unified".equals(startup)) {
                 getSupportFragmentManager().popBackStack("unified", 0);
+                if (!drawerLayout.isLocked(drawerContainer))
+                    drawerLayout.closeDrawer(drawerContainer);
                 return;
             } else {
                 getSupportFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
