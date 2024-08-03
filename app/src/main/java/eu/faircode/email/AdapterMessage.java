@@ -1384,12 +1384,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     (message.accountColor == null || !ActivityBilling.isPro(context)
                             ? colorSeparator : message.accountColor);
 
-            if (account_color == 2)
+            if (account_color == 2 &&
+                    !Objects.equals(ivBadge.getTag(), colorBackground)) {
+                ivBadge.setTag(colorBackground);
                 ((GradientDrawable) ivBadge.getDrawable().mutate()).setColor(colorBackground);
+            }
             ivBadge.setVisibility(account_color == 2 ? View.VISIBLE : View.GONE);
 
             if (account_color == 1 &&
-                    !Objects.equals(vwColor.getTag() == null, colorBackground)) {
+                    !Objects.equals(vwColor.getTag(), colorBackground)) {
                 vwColor.setTag(colorBackground);
                 vwColor.setBackgroundColor(colorBackground);
             }
