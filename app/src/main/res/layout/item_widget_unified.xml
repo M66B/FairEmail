@@ -11,6 +11,14 @@
         android:orientation="horizontal">
 
         <FrameLayout
+            android:id="@+id/dot"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:background="@color/grey" />
+
+        <FrameLayout
             android:id="@+id/stripe"
             android:layout_width="3dp"
             android:layout_height="match_parent"

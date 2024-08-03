@@ -53,7 +53,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private boolean threading;
     private boolean subject_top;
     private boolean subject_italic;
-    private boolean color_stripe;
+    private int account_color;
     private long folder;
     private long account;
     private boolean unseen;
@@ -105,7 +105,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         threading = prefs.getBoolean("threading", true);
         subject_top = prefs.getBoolean("subject_top", false);
         subject_italic = prefs.getBoolean("subject_italic", true);
-        color_stripe = (prefs.getInt("account_color", 1) > 0);
+        account_color = prefs.getInt("account_color", 1);
 
         account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
         folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
@@ -167,13 +167,12 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         }
 
         hasColor = false;
-        allColors = color_stripe;
-        if (account < 0)
-            for (TupleMessageWidget message : messages)
-                if (message.accountColor == null)
-                    allColors = false;
-                else
-                    hasColor = true;
+        allColors = (account_color > 0);
+        for (TupleMessageWidget message : messages)
+            if (message.accountColor == null)
+                allColors = false;
+            else
+                hasColor = true;
     }
 
     @Override
@@ -233,10 +232,14 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
             int colorBackground =
                     (message.accountColor == null || !pro ? colorSeparator : message.accountColor);
+
+            views.setInt(R.id.dot, "setBackgroundColor", colorBackground);
+            views.setViewVisibility(R.id.dot, hasColor && account_color == 2 ? View.VISIBLE : View.GONE);
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
                 views.setViewLayoutWidth(R.id.stripe, colorStripeWidth, TypedValue.COMPLEX_UNIT_PX);
             views.setInt(R.id.stripe, "setBackgroundColor", colorBackground);
-            views.setViewVisibility(R.id.stripe, hasColor && color_stripe ? View.VISIBLE : View.GONE);
+            views.setViewVisibility(R.id.stripe, hasColor && account_color == 1 ? View.VISIBLE : View.GONE);
 
             if (avatars) {
                 ContactInfo[] info = ContactInfo.get(context,
