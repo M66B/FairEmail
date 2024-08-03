@@ -609,7 +609,7 @@
     <string name="title_advanced_threading_unread">Show number of unread messages in conversations</string>
     <string name="title_advanced_indentation">Left/right indent received/sent messages in conversations</string>
     <string name="title_advanced_highlight_unread">Highlight unread messages</string>
-    <string name="title_advanced_color_stripe">Show color stripe</string>
+    <string name="title_advanced_account_color">Show a color stripe or color dot</string>
     <string name="title_advanced_color_stripe_wide">Use wide color stripe</string>
     <string name="title_advanced_avatars">Show contact photos</string>
     <string name="title_advanced_bimi">Show Brand Indicators for Message Identification (BIMI)</string>
@@ -2885,6 +2885,12 @@
         <item>Medium</item>
         <item>Large</item>
         <item>Extra large</item>
+    </string-array>
+
+    <string-array name="accountColorNames">
+        <item>None</item>
+        <item>Stripe</item>
+        <item>Dot</item>
     </string-array>
 
     <string-array name="answerValues" translatable="false">

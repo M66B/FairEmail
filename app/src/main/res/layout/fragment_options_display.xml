@@ -869,28 +869,38 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swHighlightUnread" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swColorStripe"
+                <TextView
+                    android:id="@+id/tvAccountColor"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_color_stripe"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_account_color"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnHighlightColor"
-                    app:switchPadding="12dp" />
+                    app:layout_constraintTop_toBottomOf="@id/btnHighlightColor" />
+
+                <eu.faircode.email.SpinnerEx
+                    android:id="@+id/spAccountColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:entries="@array/accountColorNames"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAccountColor" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swColorStripeWide"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_color_stripe_wide"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swColorStripe"
+                    app:layout_constraintTop_toBottomOf="@id/spAccountColor"
                     app:switchPadding="12dp" />
 
                 <View

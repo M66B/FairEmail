@@ -1054,6 +1054,15 @@ public class ApplicationEx extends Application
                 ContactInfo.clearCache(context); // SVG scale
         }
 
+        if (version < 2218) {
+            if (prefs.contains("color_stripe")) {
+                boolean color_stripe = prefs.getBoolean("color_stripe", true);
+                editor
+                        .putInt("account_color", color_stripe ? 1 : 0)
+                        .remove("color_stripe");
+            }
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
 

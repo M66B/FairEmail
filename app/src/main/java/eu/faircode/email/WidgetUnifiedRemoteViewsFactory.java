@@ -105,7 +105,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         threading = prefs.getBoolean("threading", true);
         subject_top = prefs.getBoolean("subject_top", false);
         subject_italic = prefs.getBoolean("subject_italic", true);
-        color_stripe = prefs.getBoolean("color_stripe", true);
+        color_stripe = (prefs.getInt("account_color", 1) > 0);
 
         account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
         folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
