@@ -58,6 +58,7 @@ import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
+import android.view.inputmethod.BaseInputConnection;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -4139,6 +4140,12 @@ public class HtmlHelper {
         if (view == null)
             return;
         view.clearComposingText();
+    }
+
+    static void clearComposingText(Spannable text) {
+        if (text == null)
+            return;
+        BaseInputConnection.removeComposingSpans(text);
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {

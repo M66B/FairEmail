@@ -3726,8 +3726,6 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onAddAttachment(List<Uri> uris, String[] types, boolean image, int resize, boolean privacy, boolean focus) {
-        HtmlHelper.clearComposingText(etBody);
-
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putParcelableArrayList("uris", new ArrayList<>(uris));
@@ -3754,6 +3752,7 @@ public class FragmentCompose extends FragmentBase {
                 int start = args.getInt("start");
 
                 SpannableStringBuilder s = new SpannableStringBuilderEx(body);
+                HtmlHelper.clearComposingText(s);
                 if (start < 0)
                     start = 0;
                 if (start > s.length())
