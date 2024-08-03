@@ -430,7 +430,6 @@
     <string name="title_advanced_threading_unread">Mostrar o número de mensaxes sen ler nas conversas</string>
     <string name="title_advanced_indentation">Sangrar á esquerda/dereita as mensaxes enviadas/recibidas nas conversas</string>
     <string name="title_advanced_highlight_unread">Resaltar as mensaxes non lidas</string>
-    <string name="title_advanced_color_stripe">Mostrar a banda de cor</string>
     <string name="title_advanced_color_stripe_wide">Usar barra de cor longa</string>
     <string name="title_advanced_avatars">Mostrar as fotos dos contactos</string>
     <string name="title_advanced_bimi_unverified">Remitente non verificado</string>
@@ -1926,6 +1925,11 @@
         <item>Mediano</item>
         <item>Grande</item>
         <item>Extragrande</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Ningún</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatario</item>

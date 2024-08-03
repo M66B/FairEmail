@@ -194,6 +194,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_gmail_permissions">Google zal machtigingen vragen om al uw e-mail te lezen, op te stellen, te verzenden en definitief te verwijderen. FairEmail zal uw berichten nooit verwijderen zonder uw expliciete toestemming.</string>
     <string name="title_setup_gmail_login">Als Chrome is aangemeld bij een account, kan een nieuwe account alleen via Android worden toegevoegd. Dit kan worden voorkomen door uit te loggen uit Chrome via de Chrome synchronisatie-instellingen.</string>
     <string name="title_setup_gmail_max">In het geval van de foutmelding \"U bent aangemeld bij het maximale aantal accounts\", moet de browser worden uitgelogd van alle Google-accounts.</string>
+    <string name="title_setup_outlook_hint">In het geval van een alias adres moet waarschijnlijk de Office 365 wizard worden gebruikt.</string>
+    <string name="title_setup_outlook_modern">Door wijzigingen in het beveiligingsbeleid van Microsoft werkt vanaf 16 september 2024 alleen nog de wizard Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Waarom moet ik een account op het apparaat selecteren?</string>
     <string name="title_setup_gmail_password">Ik wil een account autoriseren met een wachtwoord in plaats van een account op het apparaat</string>
     <string name="title_setup_office_auth">De fout \'AUTHENTICATE failed\' kan worden veroorzaakt doordat IMAP/SMTP door de systeemadministrator is uitgeschakeld</string>
@@ -517,7 +519,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_threading_unread">Toon aantal ongelezen berichten in gesprekken</string>
     <string name="title_advanced_indentation">Links/rechts inspringen van ontvangen/verzonden berichten in gesprekken</string>
     <string name="title_advanced_highlight_unread">Ongelezen berichten markeren</string>
-    <string name="title_advanced_color_stripe">Toon kleurenstreep</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Een kleurenstreep of kleurstip weergeven</string>
     <string name="title_advanced_color_stripe_wide">Gebruik brede kleurenstreep</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_bimi">Toon Brand Indicators for Message Identification (BIMI)</string>
@@ -730,7 +732,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_sign_default">Standaard ondertekenen</string>
     <string name="title_advanced_encrypt_default">Standaard versleutelen</string>
     <string name="title_advanced_encrypt_auto">Automatisch versleutelen wanneer alle sleutels van de ontvanger beschikbaar zijn</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Automatisch versleutelen bij antwoorden op een versleuteld bericht</string>
+    <string name="title_advanced_encrypt_reply">Automatisch versleutelen bij antwoorden op een versleuteld bericht</string>
     <string name="title_advanced_auto_verify">Ondertekende berichten automatisch verifiëren</string>
     <string name="title_advanced_auto_decrypt">Berichten automatisch ontsleutelen</string>
     <string name="title_advanced_auto_undo_decrypt">Maak het ontsleutelen ongedaan bij het sluiten van het gesprek</string>
@@ -2302,6 +2304,11 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>Gemiddeld</item>
         <item>Groot</item>
         <item>Extra groot</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Geen</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Streep</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Stip</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Ontvanger</item>

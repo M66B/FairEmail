@@ -518,7 +518,6 @@
     <string name="title_advanced_threading_unread">Näytä lukemattomien viestien lukumäärä keskusteluissa</string>
     <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
-    <string name="title_advanced_color_stripe">Näytä väriliuska</string>
     <string name="title_advanced_color_stripe_wide">Käytä leveää väriraitaa</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_bimi">Näytä Brand Indicators for Message Identification (BIMI)</string>
@@ -2307,6 +2306,11 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
         <item>Keskikokoinen</item>
         <item>Suuri</item>
         <item>Erittäin suuri</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Ei mitään</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Vastaanottaja</item>

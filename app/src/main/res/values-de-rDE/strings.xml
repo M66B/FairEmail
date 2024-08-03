@@ -196,6 +196,8 @@
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
     <string name="title_setup_gmail_login">Wenn Chrome bei einem Konto angemeldet ist, kann ein neues Konto nur über Android hinzugefügt werden. Dies kann vermieden werden, indem Sie sich über die Chrome-Synchronisationseinstellungen bei Chrome abmelden.</string>
     <string name="title_setup_gmail_max">Im Falle der Fehlermeldung »Sie sind bei der maximalen Anzahl an Konten angemeldet« müssen Sie den Browser von allen Google-Konten abmelden.</string>
+    <string name="title_setup_outlook_hint">Bei einer Alias-Adresse sollten Sie möglicherweise den Assistenten für Office 365 verwenden.</string>
+    <string name="title_setup_outlook_modern">Ab dem 16. September 2024 wird nur noch der Assistent für Outlook/Hotmail/Live funktionieren. Grund dafür sind Änderungen an den Sicherheitsrichtlinien von Microsoft.</string>
     <string name="title_setup_gmail_on_device">Warum muss ich ein Konto auf dem Gerät auswählen?</string>
     <string name="title_setup_gmail_password">Ich möchte ein Gmail-Konto mit einem eigenen App-Passwort anstatt über das geräteinterne Google-Konto autorisieren</string>
     <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
@@ -520,7 +522,7 @@
     <string name="title_advanced_threading_unread">Anzahl ungelesener Nachrichten in Unterhaltungen anzeigen</string>
     <string name="title_advanced_indentation">Empfangene/gesendete Nachrichten im Themenbaum links/rechts einrücken</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten hervorheben</string>
-    <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Farbstreifen oder Farbpunkt anzeigen</string>
     <string name="title_advanced_color_stripe_wide">Breite Farbstreifen verwenden</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) anzeigen</string>
@@ -734,7 +736,7 @@
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_encrypt_auto">Automatisch verschlüsseln, wenn alle Empfängerschlüssel verfügbar sind</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Beim Antworten auf eine verschlüsselte Nachricht automatisch verschlüsseln</string>
+    <string name="title_advanced_encrypt_reply">Beim Antworten auf eine verschlüsselte Nachricht automatisch verschlüsseln</string>
     <string name="title_advanced_auto_verify">Signierte Nachrichten automatisch überprüfen</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
     <string name="title_advanced_auto_undo_decrypt">Unterhaltung beim Schließen erneut verschlüsseln</string>
@@ -2318,6 +2320,11 @@
         <item>Mittel</item>
         <item>Groß</item>
         <item>Sehr groß</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Keine</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Streifen</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Punkt</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Empfänger</item>

@@ -456,7 +456,6 @@
     <string name="title_advanced_threading_unread">顯示會話中的未讀訊息數</string>
     <string name="title_advanced_indentation">使用左/右縮進形式來表示會話中的已接收/傳送訊息</string>
     <string name="title_advanced_highlight_unread">標亮未讀訊息</string>
-    <string name="title_advanced_color_stripe">顯示彩色條紋</string>
     <string name="title_advanced_color_stripe_wide">使用寬幅彩色條紋</string>
     <string name="title_advanced_avatars">顯示聯絡人照片</string>
     <string name="title_advanced_bimi_unverified">未經驗證的寄件者</string>
@@ -2055,6 +2054,11 @@
         <item>中</item>
         <item>大</item>
         <item>超大</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>無</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>接收者</item>

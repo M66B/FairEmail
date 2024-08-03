@@ -517,7 +517,6 @@
     <string name="title_advanced_threading_unread">Olvasatlan üzenetek számának mutatása beszélgetésekben</string>
     <string name="title_advanced_indentation">Beérkezett/elküldött üzenetek balra/jobbra tördelése a beszélgetésekben</string>
     <string name="title_advanced_highlight_unread">Olvasatlan üzenetek kiemelése</string>
-    <string name="title_advanced_color_stripe">Színszalag megjelenítése</string>
     <string name="title_advanced_color_stripe_wide">Széles színcsík használata</string>
     <string name="title_advanced_avatars">Névjegyzék fényképeinek megjelenítése</string>
     <string name="title_advanced_bimi">Mutassa a Márkajelzést Üzenetazonosításhoz (BIMI)</string>
@@ -731,7 +730,7 @@
     <string name="title_advanced_sign_default">Aláírás alapértelmezés szerint</string>
     <string name="title_advanced_encrypt_default">Titkosítás alapértelmezés szerint</string>
     <string name="title_advanced_encrypt_auto">Automatikus titkosítás ha az összes címzett kulcsa rendelkezésre áll</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Automatikusan titkosítsa a választ, ha a kapott üzenet titkosított</string>
+    <string name="title_advanced_encrypt_reply">Automatikusan titkosítsa a választ, ha a kapott üzenet titkosított</string>
     <string name="title_advanced_auto_verify">Aláírt üzenetek automatikus ellenőrzése</string>
     <string name="title_advanced_auto_decrypt">Üzenetek automatikus visszafejtése</string>
     <string name="title_advanced_auto_undo_decrypt">Dekódolás visszavonása beszélgetés bezárásakor</string>
@@ -2308,6 +2307,11 @@
         <item>Közepes</item>
         <item>Nagy</item>
         <item>Óriási</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Egyik sem</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Címzett</item>

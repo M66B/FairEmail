@@ -181,6 +181,8 @@
     <string name="title_setup_gmail_permissions">Google はすべてのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmail が明示的な同意なしにメッセージを削除することはありません。</string>
     <string name="title_setup_gmail_login">Chrome でアカウントにログインしている場合、新しいアカウントは Android の設定から追加する必要があります。Chrome の同期設定からログアウトすると回避できます。</string>
     <string name="title_setup_gmail_max">「最大ログイン アカウント数に達しています」というエラーメッセージが表示される場合、ブラウザーのすべての Google アカウントからログアウトする必要があります。</string>
+    <string name="title_setup_outlook_hint">エイリアスの場合、Office 365 ウィザードを使用する必要があります。</string>
+    <string name="title_setup_outlook_modern">Microsoft のセキュリティポリシーの変更により、2024 年 9 月 16 日から、Outlook/Hotmail/Live ウィザードのみ動作します。</string>
     <string name="title_setup_gmail_on_device">なぜ端末上のアカウントから選択するのですか？</string>
     <string name="title_setup_gmail_password">端末上のアカウントの代わりにパスワードで別のアカウントを認証したい</string>
     <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によって IMAP/SMTP が無効にされていることが原因である可能性があります</string>
@@ -505,7 +507,6 @@
     <string name="title_advanced_threading_unread">会話スレッド内の未読メッセージ数を表示する</string>
     <string name="title_advanced_indentation">会話スレッドの中の受信/送信メッセージの左/右インデント</string>
     <string name="title_advanced_highlight_unread">未読メッセージをハイライト表示する</string>
-    <string name="title_advanced_color_stripe">カラーストライプを表示する</string>
     <string name="title_advanced_color_stripe_wide">幅広のカラーストライプを使用する</string>
     <string name="title_advanced_avatars">連絡先の写真を表示する</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) を表示する</string>
@@ -719,7 +720,7 @@
     <string name="title_advanced_sign_default">デフォルトでデジタル署名する</string>
     <string name="title_advanced_encrypt_default">デフォルトで暗号化する</string>
     <string name="title_advanced_encrypt_auto">すべての宛先の鍵が有効なときは自動で暗号化する</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">暗号化されたメッセージには暗号化して返信する</string>
+    <string name="title_advanced_encrypt_reply">暗号化されたメッセージには暗号化して返信する</string>
     <string name="title_advanced_auto_verify">デジタル署名されたメッセージを自動で検証する</string>
     <string name="title_advanced_auto_decrypt">暗号化されたメッセージを自動で復号する</string>
     <string name="title_advanced_auto_undo_decrypt">会話スレッドの終了時に復号を元に戻す</string>
@@ -2301,6 +2302,11 @@
         <item>中</item>
         <item>大</item>
         <item>特大</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>なし</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>宛先</item>

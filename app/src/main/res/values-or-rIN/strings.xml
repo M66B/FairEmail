@@ -944,6 +944,11 @@
         <item>ବଡ଼</item>
         <item>ଅତିରିକ୍ତ ବଡ଼</item>
     </string-array>
+    <string-array name="accountColorNames">
+        <item>କିଛି ନୁହେଁ</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+    </string-array>
     <string-array name="contactTypes">
         <item>ପ୍ରାପ୍ତେସୁ</item>
         <item>ପ୍ରେରକ</item>

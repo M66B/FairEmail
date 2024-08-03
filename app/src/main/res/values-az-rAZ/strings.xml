@@ -519,7 +519,6 @@
     <string name="title_advanced_threading_unread">Danışıqda oxunmamış mesaj sayını göstər</string>
     <string name="title_advanced_indentation">Danışıqlarda alınan/göndərilən mesajların sol/sağ boşluğu</string>
     <string name="title_advanced_highlight_unread">Oxunmamış mesajları vurğula</string>
-    <string name="title_advanced_color_stripe">Rəng zolağını göstər</string>
     <string name="title_advanced_color_stripe_wide">Geniş rəng zolağı istifadə et</string>
     <string name="title_advanced_avatars">Əlaqə fotolarını göstər</string>
     <string name="title_advanced_bimi">Mesaj İdentifikasiyası üçün Marka İndikatorlarını (BIMI) göstər</string>
@@ -2308,6 +2307,11 @@
         <item>Orta</item>
         <item>Böyük</item>
         <item>Çox böyük</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Heç biri</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Alıcı</item>

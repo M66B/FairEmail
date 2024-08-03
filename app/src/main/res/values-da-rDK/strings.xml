@@ -519,7 +519,6 @@
     <string name="title_advanced_threading_unread">Vis antal ulæste beskeder i samtaler</string>
     <string name="title_advanced_indentation">Venstre-/-højreindryk modtagne/sendte beskeder i samtaler</string>
     <string name="title_advanced_highlight_unread">Fremhæv ulæste beskeder</string>
-    <string name="title_advanced_color_stripe">Vis farvestripe</string>
     <string name="title_advanced_color_stripe_wide">Benyt bred farvestribe</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
     <string name="title_advanced_bimi">Vis Brand Indicators for Message Identification (BIMI)</string>
@@ -733,7 +732,7 @@
     <string name="title_advanced_sign_default">Signér som standard</string>
     <string name="title_advanced_encrypt_default">Kryptér som standard</string>
     <string name="title_advanced_encrypt_auto">Kryptér automatisk, når alle modtageres nøgler er tilgængelige</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Kryptér automatisk, når en krypteret besked besvares</string>
+    <string name="title_advanced_encrypt_reply">Kryptér automatisk, når en krypteret besked besvares</string>
     <string name="title_advanced_auto_verify">Bekræft automatisk signerede beskeder</string>
     <string name="title_advanced_auto_decrypt">Auto-dekryptér beskeder</string>
     <string name="title_advanced_auto_undo_decrypt">Fortryd dekryptering ved lukning af samtale</string>
@@ -2317,6 +2316,11 @@
         <item>Mellem</item>
         <item>Stor</item>
         <item>Ekstra stor</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Ingen</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Modtager</item>

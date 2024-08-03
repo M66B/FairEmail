@@ -457,7 +457,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_threading_unread">Mostra el nombre de missatges sense llegir a les converses</string>
     <string name="title_advanced_indentation">Sagnat dret/esquerra als missatges enviats/rebuts en les converses</string>
     <string name="title_advanced_highlight_unread">Ressalteu els missatges sense llegir</string>
-    <string name="title_advanced_color_stripe">Mostra la franja de color</string>
     <string name="title_advanced_color_stripe_wide">Utilitzeu una franja de colors amples</string>
     <string name="title_advanced_avatars">Mostra les fotos dels contactes</string>
     <string name="title_advanced_bimi_unverified">Remitent no verificat</string>
@@ -1529,6 +1528,11 @@ Ambdues opcions es poden desactivar si es desitja.</string>
         <item>Mitjà</item>
         <item>Gran</item>
         <item>Extra gran</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Cap</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatari</item>

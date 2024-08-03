@@ -533,7 +533,6 @@
     <string name="title_advanced_threading_unread">Prikaži broj nepročitanih poruka u konverzacijama</string>
     <string name="title_advanced_indentation">Lijevo/desno poravnanje primljenih/poslanih poruka u konverzacijama</string>
     <string name="title_advanced_highlight_unread">Markiraj nepročitane poruke</string>
-    <string name="title_advanced_color_stripe">Prikaži obojene pruge</string>
     <string name="title_advanced_color_stripe_wide">Koristi široku traku s bojama</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI)</string>
@@ -2323,6 +2322,11 @@
         <item>Srednji</item>
         <item>Veliki</item>
         <item>Vrlo veliko</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Nijedno</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Primalac</item>

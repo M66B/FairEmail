@@ -497,7 +497,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_threading_unread">Tampilkan jumlah pesan yang belum dibaca dalam obrolan</string>
     <string name="title_advanced_indentation">Indentasi kiri/kanan menerima/mengirim pesan dalam sebuah obrolan</string>
     <string name="title_advanced_highlight_unread">Sorot pesan yang belum dibaca</string>
-    <string name="title_advanced_color_stripe">Tampilkan garis warna</string>
     <string name="title_advanced_color_stripe_wide">Gunakan garis warna lebar</string>
     <string name="title_advanced_avatars">Tampilkan kontak foto</string>
     <string name="title_advanced_bimi_unverified">Pengirim belum di verifikasi</string>
@@ -2252,6 +2251,11 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
         <item>Sedang</item>
         <item>Besar</item>
         <item>Ekstra besar</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Tidak ada</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Penerima</item>

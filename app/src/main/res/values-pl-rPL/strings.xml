@@ -546,7 +546,6 @@
     <string name="title_advanced_threading_unread">Pokaż liczbę nieprzeczytanych wiadomości w konwersacjach</string>
     <string name="title_advanced_indentation">Otrzymane/wysłane wiadomości z lewej/prawej strony konwersacji</string>
     <string name="title_advanced_highlight_unread">Podświetl nieprzeczytane wiadomości</string>
-    <string name="title_advanced_color_stripe">Pokaż kolorowy pasek</string>
     <string name="title_advanced_color_stripe_wide">Użyj szerokiego kolorowego paska</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_bimi">Pokazuj \"Brand Indicators for Message Identification (BIMI)\"</string>
@@ -760,7 +759,7 @@
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
     <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
     <string name="title_advanced_encrypt_auto">Automatycznie zaszyfruj, gdy wszystkie klucze odbiorców są dostępne</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Automatycznie zaszyfruj przy odpowiadaniu na zaszyfrowaną wiadomość</string>
+    <string name="title_advanced_encrypt_reply">Automatycznie zaszyfruj przy odpowiadaniu na zaszyfrowaną wiadomość</string>
     <string name="title_advanced_auto_verify">Automatycznie weryfikuj podpisane wiadomości</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>
     <string name="title_advanced_auto_undo_decrypt">Cofnij odszyfrowanie przy zamykaniu konwersacji</string>
@@ -2342,6 +2341,11 @@
         <item>Średnie</item>
         <item>Duże</item>
         <item>Bardzo duży</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Żaden</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Adresat</item>

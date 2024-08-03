@@ -195,6 +195,8 @@
     <string name="title_setup_gmail_permissions">Google ще поиска разрешения за четене, съставяне, изпращане и окончателно изтриване на целия ви имейл. FairEmail никога няма да изтрие вашите съобщения без вашето изрично съгласие.</string>
     <string name="title_setup_gmail_login">Ако в Chrome е изпълнено влизане в акаунт, то нов акаунт може да се добави само през Android. Това може да се избегне, излизайки от акаунта в Chrome чрез настройките му за синхронизиране.</string>
     <string name="title_setup_gmail_max">В случай на съобщение за грешка \"Влезли сте в максималния брой акаунти\", то трябва да излезете от всичките си Google акаунти в браузъра.</string>
+    <string name="title_setup_outlook_hint">В случай на псевдоним на имейл, вълшебника на Office 365 вероятно трябва да се употребява.</string>
+    <string name="title_setup_outlook_modern">Поради промени в политиката за сигурност на Microsoft, започващи от 16 септември 2024 година, само вълшебника на Outlook/Hotmail/Live ще работи.</string>
     <string name="title_setup_gmail_on_device">Защо трябва да избера акаунт на устройството?</string>
     <string name="title_setup_gmail_password">Искам да упълномощя акаунт с парола вместо акаунт на устройството</string>
     <string name="title_setup_office_auth">Грешката „УДОСТОВЕРЯВАНЕТО неуспешно“ може да се причини от изключването на IMAP/SMTP от системния администратор</string>
@@ -518,7 +520,6 @@
     <string name="title_advanced_threading_unread">Показване на броя на непрочетените съобщения в разговорите</string>
     <string name="title_advanced_indentation">Ляв/десен отстъп на получени/изпратени съобщения в разговори</string>
     <string name="title_advanced_highlight_unread">Маркирай непрочетените съобщения</string>
-    <string name="title_advanced_color_stripe">Показване на цветна ивица</string>
     <string name="title_advanced_color_stripe_wide">Употреба на широка гама цветове</string>
     <string name="title_advanced_avatars">Показване на снимки на контакт</string>
     <string name="title_advanced_bimi">Показване на „Brand Indicators for Message Identification“ (BIMI)</string>
@@ -732,7 +733,7 @@
     <string name="title_advanced_sign_default">Подписване по подразбиране</string>
     <string name="title_advanced_encrypt_default">Криптиране по подразбиране</string>
     <string name="title_advanced_encrypt_auto">Автоматично криптиране при налични ключове на всички получатели</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Автоматично криптиране, отговаряйки на криптирано съобщение</string>
+    <string name="title_advanced_encrypt_reply">Автоматично криптиране, отговаряйки на криптирано съобщение</string>
     <string name="title_advanced_auto_verify">Автоматична проверка на подписаните съобщения</string>
     <string name="title_advanced_auto_decrypt">Автоматично декриптиране на съобщение</string>
     <string name="title_advanced_auto_undo_decrypt">Отмяна на декриптиране, затваряйки разговора</string>
@@ -2313,6 +2314,11 @@
         <item>Среден</item>
         <item>Голяма</item>
         <item>Много голям</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Нищо</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Получател</item>

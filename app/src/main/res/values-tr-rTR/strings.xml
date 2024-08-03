@@ -191,6 +191,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
     <string name="title_setup_gmail_login">Chrome bir hesapta oturum açtıysa, yalnızca Android üzerinden yeni bir hesap eklenebilir. Bu, Chrome senkronizasyon ayarları aracılığıyla Chrome\'dan çıkış yapılarak önlenebilir.</string>
     <string name="title_setup_gmail_max">\"Maksimum sayıda hesapta oturum açtınız\" hata mesajının görüntülenmesi durumunda, tarayıcınızdan tüm Google hesaplarından çıkış yapmanız gerekir.</string>
+    <string name="title_setup_outlook_hint">Bir takma ad adresi söz konusu olduğunda, Office 365 sihirbazı muhtemelen kullanılmalıdır.</string>
+    <string name="title_setup_outlook_modern">Microsoft\'un güvenlik politikalarındaki değişiklikler nedeniyle, 16 Eylül 2024 tarihinden itibaren yalnızca Outlook/Hotmail/Live sihirbazı çalışacaktır.</string>
     <string name="title_setup_gmail_on_device">Neden bir cihaz hesabı seçmem gerekiyor?</string>
     <string name="title_setup_gmail_password">Cihazdaki bir hesap yerine şifreli bir hesabı yetkilendirmek istiyorum</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
@@ -514,7 +516,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_threading_unread">Sohbetlerde okunmamış mesajların sayısını göster</string>
     <string name="title_advanced_indentation">Sohbetlerde alınan/gönderilen mesajları sola/sağa girintile</string>
     <string name="title_advanced_highlight_unread">Okunmamış iletileri vurgula</string>
-    <string name="title_advanced_color_stripe">Renk şeridini göster</string>
     <string name="title_advanced_color_stripe_wide">Geniş renkli şerit kullanın</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) Göster</string>
@@ -727,7 +728,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
     <string name="title_advanced_encrypt_default">Varsayılan olarak şifrele</string>
     <string name="title_advanced_encrypt_auto">Tüm alıcıların anahtarları kullanılabilir olduğunda otomatik olarak şifrele</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Şifrelenmiş bir mesaja yanıt verirken otomatik olarak şifreleme</string>
+    <string name="title_advanced_encrypt_reply">Şifrelenmiş bir mesaja yanıt verirken otomatik olarak şifreleme</string>
     <string name="title_advanced_auto_verify">İmzalı mesajları otomatik olarak doğrula</string>
     <string name="title_advanced_auto_decrypt">İletilerin şifrelerini otomatik olarak çöz</string>
     <string name="title_advanced_auto_undo_decrypt">Görüşmeyi kapatırken şifre çözmeyi geri al</string>
@@ -2301,6 +2302,11 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
         <item>Orta</item>
         <item>Büyük</item>
         <item>Ekstra büyük</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Şifreleme kapalı</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Alıcı</item>

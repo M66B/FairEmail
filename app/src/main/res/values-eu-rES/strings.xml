@@ -385,7 +385,6 @@
     <string name="title_advanced_threading_unread">Erakutsi irakurri gabeko mezu kopurua elkarrizketetan</string>
     <string name="title_advanced_indentation">Ezker/eskuin marjina elkarrizketetan jaso/bidalitako mezuetan</string>
     <string name="title_advanced_highlight_unread">Nabarmendu irakurri gabeko mezuak</string>
-    <string name="title_advanced_color_stripe">Erakutsi kolorezko marra</string>
     <string name="title_advanced_avatars">Erakutsi kontaktuen argazkiak</string>
     <string name="title_advanced_bimi_unverified">Egiaztatu gabeko igorlea</string>
     <string name="title_advanced_bimi_verified">Egiaztatutako igorlea</string>
@@ -1678,6 +1677,11 @@
         <item>Ertaina</item>
         <item>Handia</item>
         <item>Oso handia</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Bat ere ez</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Hartzailea</item>

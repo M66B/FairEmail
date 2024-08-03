@@ -10,6 +10,7 @@
     <string name="title_setup_analytics">FairEmail does not display ads and does not track or analyse your behaviour. Bugsnag is used for error reporting and is disabled by default.</string>
     <string name="title_setup_account_identity_hint">You can configure the name, colour and swipe actions in the account settings, and configure a signature in the identity settings</string>
     <string name="title_setup_gmail_support">Authorising Google accounts will work in the Play Store and GitHub version only because Android checks the digital app signature</string>
+    <string name="title_setup_outlook_modern">Due to changes in Microsoft\'s security policies, from 16 September 2024, only the Outlook/Hotmail/Live wizard will work.</string>
     <string name="title_setup_gmail_password">I want to authorise an account with a password instead of an on-device account</string>
     <string name="title_setup_oauth_rationale">Authorise access to your %1$s account</string>
     <string name="title_setup_oauth_update">Authorise an existing account again (otherwise create a new account)</string>
@@ -48,7 +49,7 @@
     <string name="title_advanced_tabular_background">Use card colour as background colour when using tabular style</string>
     <string name="title_advanced_cards_shadow_highlight">Use highlight colour instead of accent colour</string>
     <string name="title_advanced_tabular_unread_bg">Use a grey background colour for unread messages when using table style</string>
-    <string name="title_advanced_color_stripe">Show colour stripe</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Show a colour stripe or colour dot</string>
     <string name="title_advanced_color_stripe_wide">Use wide colour stripe</string>
     <string name="title_advanced_color_threshold">Threshold letter colour: %1$s %%</string>
     <string name="title_advanced_highlight_color">Highlight colour</string>

@@ -224,6 +224,8 @@
     <string name="title_setup_gmail_login">Pokud je Chrome přihlášený k účtu, nový účet může být přidán pouze přes Android. Tomu lze předejít odhlášením z Chrome přes nastavení synchronizace Chrome.</string>
     <string name="title_setup_gmail_max">V případě chybové zprávy \"Jste přihlášeni k maximálnímu počtu účtů\", se musíte odhlásit 
 v prohlížeči ze všech Google účtů.</string>
+    <string name="title_setup_outlook_hint">V případě aliasové adresy by měl být pravděpodobně použit průvodce Office 365.</string>
+    <string name="title_setup_outlook_modern">Vzhledem ke změnám v zásadách zabezpečení společnosti Microsoft bude od 16. září 2024 fungovat pouze průvodce Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Proč potřebuji vybrat účet na zařízení?</string>
     <string name="title_setup_gmail_password">Chci autorizovat účet s pomocí hesla namísto účtu v zařízení</string>
     <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
@@ -547,7 +549,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_threading_unread">Zobrazit počet nepřečtených zpráv v konverzacích</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
     <string name="title_advanced_highlight_unread">Zvýraznit nepřečtené zprávy</string>
-    <string name="title_advanced_color_stripe">Zobrazit barevný pruh</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Zobrazit barevný pruh nebo barevný bod</string>
     <string name="title_advanced_color_stripe_wide">Použít široký barevný pruh</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_bimi">Zobrazit Brand Indicators for Message Identification (BIMI)</string>
@@ -761,7 +763,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_sign_default">Automaticky podepisovat</string>
     <string name="title_advanced_encrypt_default">Automaticky šifrovat</string>
     <string name="title_advanced_encrypt_auto">Automaticky zašifrovat, když jsou k dispozici klíče všech příjemců</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Automaticky šifrovat při odpovědi na šifrovanou zprávu</string>
+    <string name="title_advanced_encrypt_reply">Automaticky šifrovat při odpovědi na šifrovanou zprávu</string>
     <string name="title_advanced_auto_verify">Automaticky ověřovat podepsané zprávy</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
     <string name="title_advanced_auto_undo_decrypt">Zpátky zašifrovat při zavření konverzace</string>
@@ -2343,6 +2345,11 @@ v prohlížeči ze všech Google účtů.</string>
         <item>Střední</item>
         <item>Velké</item>
         <item>Velmi velké</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Žádné</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Pruh</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Tečka</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Příjemce</item>

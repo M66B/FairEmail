@@ -480,7 +480,6 @@
     <string name="title_advanced_threading_unread">Prikaži število neprebranih sporočil v pogovorih</string>
     <string name="title_advanced_indentation">V pogovorih zamakni prejeta/poslana sporočila levo/desno</string>
     <string name="title_advanced_highlight_unread">Poudari neprebrana sporočila</string>
-    <string name="title_advanced_color_stripe">Prikaži barvno črto</string>
     <string name="title_advanced_color_stripe_wide">Uporabi široko barvno črto</string>
     <string name="title_advanced_avatars">Prikaži slike stikov</string>
     <string name="title_advanced_bimi_unverified">Nepreverjen pošiljatelj</string>
@@ -2065,6 +2064,11 @@
         <item>Srednja</item>
         <item>Velika</item>
         <item>Zelo velika</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Brez</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Prejemnik</item>

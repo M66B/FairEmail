@@ -518,7 +518,6 @@
     <string name="title_advanced_threading_unread">Mostrar número de mensajes no leídos en conversaciones</string>
     <string name="title_advanced_indentation">Sangría izquierda/derecha para mensajes recibidos/enviados en conversaciones</string>
     <string name="title_advanced_highlight_unread">Resaltar mensajes no leídos</string>
-    <string name="title_advanced_color_stripe">Mostrar franja de color</string>
     <string name="title_advanced_color_stripe_wide">Usar banda de color ancha</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_bimi">Mostrar Brand Indicators for Message Identification (BIMI)</string>
@@ -732,7 +731,7 @@
     <string name="title_advanced_sign_default">Firmar por defecto</string>
     <string name="title_advanced_encrypt_default">Cifrar por defecto</string>
     <string name="title_advanced_encrypt_auto">Cifrar automáticamente cuando las claves de todos los destinatarios están disponibles</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Cifrar automáticamente al responder a un mensaje cifrado</string>
+    <string name="title_advanced_encrypt_reply">Cifrar automáticamente al responder a un mensaje cifrado</string>
     <string name="title_advanced_auto_verify">Verificar automáticamente mensajes firmados</string>
     <string name="title_advanced_auto_decrypt">Descifrar automáticamente los mensajes</string>
     <string name="title_advanced_auto_undo_decrypt">Deshacer descifrado al cerrar la conversación</string>
@@ -2311,6 +2310,11 @@
         <item>Mediano</item>
         <item>Grande</item>
         <item>Extra grande</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Ninguna</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatario</item>

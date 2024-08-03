@@ -224,6 +224,8 @@
     <string name="title_setup_gmail_permissions">Google буде запитувати про дозволи на читання, створення, надсилання та остаточне видаляння всієї вашої електронної пошти. FairEmail ніколи не буде видаляти ваші повідомлення без вашої явної згоди.</string>
     <string name="title_setup_gmail_login">Якщо Chrome увійшов до облікового запису, то новий обліковий запис можна додавати лише через Android. Цього можна уникнути, виходячи з Chrome за допомогою налаштувань синхронізації Chrome.</string>
     <string name="title_setup_gmail_max">У випадку повідомлення про помилку \"Ви ввійшли з досягненням максимальної кількості одночасних авторизацій для облікового запису\", Вам потрібно вийти з браузера з усіх облікових записів Google.</string>
+    <string name="title_setup_outlook_hint">У випадку альтернативної адреси, ймовірно слід використовувати майстер Office 365.</string>
+    <string name="title_setup_outlook_modern">Через зміни в політиці безпеки Microsoft, починаючи з 16 вересня 2024 року, працюватиме лише майстер Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Навіщо мені обрати обліковий запис на пристрої?</string>
     <string name="title_setup_gmail_password">Я хочу авторизувати обліковий запис за допомогою пароля замість облікового запису на пристрої</string>
     <string name="title_setup_office_auth">Помилка \'Автентифікація не вдалася\' викликана помилкою IMAP/SMTP можливо вимкненою системним адміністратором</string>
@@ -547,8 +549,8 @@
     <string name="title_advanced_threading_unread">Показувати кількість непрочитаних повідомлень у розмовах</string>
     <string name="title_advanced_indentation">Відступати ліворуч чи праворуч для отриманих або надісланих повідомлень у розмовах</string>
     <string name="title_advanced_highlight_unread">Підсвічувати непрочитані повідомлення</string>
-    <string name="title_advanced_color_stripe">Показувати смугу кольорів</string>
-    <string name="title_advanced_color_stripe_wide">Використовувати широку смугу кольорів</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Показувати кольорову смугу або кольорову крапку</string>
+    <string name="title_advanced_color_stripe_wide">Використовувати широку кольорову смугу</string>
     <string name="title_advanced_avatars">Показувати фото контактів</string>
     <string name="title_advanced_bimi">Показувати індикатори брендів для ідентифікації повідомлень (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Вимагати чинного сертифіката VMC</string>
@@ -761,7 +763,7 @@
     <string name="title_advanced_sign_default">Підписувати за замовчуванням</string>
     <string name="title_advanced_encrypt_default">Шифрувати за замовчуванням</string>
     <string name="title_advanced_encrypt_auto">Автоматично шифрувати при доступності всіх ключів одержувачів</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Автоматично шифрувати при відповіді на зашифроване повідомлення</string>
+    <string name="title_advanced_encrypt_reply">Автоматично шифрувати при відповіді на зашифроване повідомлення</string>
     <string name="title_advanced_auto_verify">Автоматично перевіряти підписані повідомлення</string>
     <string name="title_advanced_auto_decrypt">Автоматично розшифровувати повідомлення</string>
     <string name="title_advanced_auto_undo_decrypt">Скасовувати розшифрування при закритті розмови</string>
@@ -2344,6 +2346,11 @@
         <item>Середній</item>
         <item>Великий</item>
         <item>Дуже великий</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Нічого</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Смуга</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Крапка</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Одержувач</item>

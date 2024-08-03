@@ -449,7 +449,6 @@
     <string name="title_advanced_threading_unread">شمار پیام‌های خوانده نشده را در گفتگوها نمایش بده</string>
     <string name="title_advanced_indentation">تورفتگی چپ/راست پیام‌های دریافت/فرستاده شده در مکالمات</string>
     <string name="title_advanced_highlight_unread">برجسته‌سازی پیام‌های خوانده نشده</string>
-    <string name="title_advanced_color_stripe">نمایش نوار رنگ</string>
     <string name="title_advanced_color_stripe_wide">استفاده از نوار رنگی پهن</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_advanced_bimi">نمایش نشانگرهای برند برای شناسایی پیام (BIMI)</string>
@@ -593,7 +592,7 @@
     <string name="title_advanced_clear_all_remark">اطلاعات اپلیکیشن به طور برگشت‌ناپذیر پاک خواهد شد!</string>
     <string name="title_advanced_sign_default">امضاء به‌صورت پیش‌فرض</string>
     <string name="title_advanced_encrypt_default">رمزگذاری به‌صورت پیش‌فرض</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">رمزگذاری خودکار هنگام پاسخ‌دهی به پیام‌های رمزگذاری شده</string>
+    <string name="title_advanced_encrypt_reply">رمزگذاری خودکار هنگام پاسخ‌دهی به پیام‌های رمزگذاری شده</string>
     <string name="title_advanced_auto_verify">صحت‌سنجی خودکار پیام‌های امضاشده</string>
     <string name="title_advanced_auto_decrypt">رمزگشایی خودکار پیام‌ها</string>
     <string name="title_advanced_openpgp">فراهم کننده OpenPGP</string>
@@ -1662,6 +1661,11 @@
         <item>متوسط</item>
         <item>بزرگ</item>
         <item>خیلی بزرگ</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>هیچ کدام</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>گیرنده</item>

@@ -518,7 +518,6 @@
     <string name="title_advanced_threading_unread">Προβολή αριθμού μη αναγνωσμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_indentation">Αριστερή/δεξιά εσοχή ειλημμένων/απεσταλμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_highlight_unread">Να επισημαίνονται τα μη αναγνωσμένα μηνύματα</string>
-    <string name="title_advanced_color_stripe">Προβολή χρωματιστής λωρίδας</string>
     <string name="title_advanced_color_stripe_wide">Χρήση φαρδιάς λωρίδας χρώματος</string>
     <string name="title_advanced_avatars">Προβολή φωτογραφιών επαφών</string>
     <string name="title_advanced_bimi">Προβολή των Brand Indicators for Message Identification (BIMI)</string>
@@ -732,7 +731,7 @@
     <string name="title_advanced_sign_default">Υπογραφή από προεπιλογή</string>
     <string name="title_advanced_encrypt_default">Κρυπτογράφηση από προεπιλογή</string>
     <string name="title_advanced_encrypt_auto">Αυτόματη κρυπτογράφηση όταν τα κλειδιά όλων των παραληπτών είναι διαθέσιμα</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Αυτόματη κρυπτογράφηση κατά την απάντηση σε ένα κρυπτογραφημένο μήνυμα</string>
+    <string name="title_advanced_encrypt_reply">Αυτόματη κρυπτογράφηση κατά την απάντηση σε ένα κρυπτογραφημένο μήνυμα</string>
     <string name="title_advanced_auto_verify">Αυτόματη επαλήθευση υπογεγραμμένων μηνυμάτων</string>
     <string name="title_advanced_auto_decrypt">Αυτόματη αποκρυπτογράφηση μηνυμάτων</string>
     <string name="title_advanced_auto_undo_decrypt">Αναίρεση αποκρυπτογράφησης κατά το κλείσιμο μιας συζήτησης</string>
@@ -2311,6 +2310,11 @@
         <item>Μεσαίο</item>
         <item>Μεγάλο</item>
         <item>Πολύ μεγάλο</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Καμία</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Παραλήπτης</item>

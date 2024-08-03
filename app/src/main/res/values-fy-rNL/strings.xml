@@ -517,7 +517,6 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_threading_unread">Net-lêzen berjochten yn petearen toane</string>
     <string name="title_advanced_indentation">Links/rjochts ynspringe fan ûntfongen/ferstjoerde berjochten yn petearen</string>
     <string name="title_advanced_highlight_unread">Net-lêzen berjochten markearje</string>
-    <string name="title_advanced_color_stripe">Kleurestreep toane</string>
     <string name="title_advanced_color_stripe_wide">Brede kleurestreep brûke</string>
     <string name="title_advanced_avatars">Kontaktfoto’s toane</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) toane</string>
@@ -732,7 +731,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_sign_default">Standert ûndertekenje</string>
     <string name="title_advanced_encrypt_default">Standert fersiferje</string>
     <string name="title_advanced_encrypt_auto">Automatysk fersiferje wannear’t alle kaaien fan de ûntfanger beskikber binne</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Automatysk fersiferje by antwurdzjen op in fersifere berjocht</string>
+    <string name="title_advanced_encrypt_reply">Automatysk fersiferje by antwurdzjen op in fersifere berjocht</string>
     <string name="title_advanced_auto_verify">Undertekene berjochten automatysk ferifiearje</string>
     <string name="title_advanced_auto_decrypt">Berjochten automatysk ûntsiferje</string>
     <string name="title_advanced_auto_undo_decrypt">Untsifering ûngedien meitsje by sluten fan petear</string>
@@ -2308,6 +2307,11 @@ https://en.wikipedia.org/wiki/ASCII</string>
         <item>Gemiddeld</item>
         <item>Grut</item>
         <item>Ekstra grut</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Gjin</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Untfanger</item>

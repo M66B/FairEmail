@@ -503,7 +503,6 @@
     <string name="title_advanced_threading_unread">Zobrazovať počet neprečítaných správ v konverzáciách</string>
     <string name="title_advanced_indentation">Ľavé/pravé odsadenie prijatých/odoslaných správ v konverzáciách</string>
     <string name="title_advanced_highlight_unread">Zvýrazniť neprečítané správy</string>
-    <string name="title_advanced_color_stripe">Zobraziť farebný prúžok</string>
     <string name="title_advanced_color_stripe_wide">Použiť širší farebný pruh</string>
     <string name="title_advanced_avatars">Zobraziť fotografie kontaktov</string>
     <string name="title_advanced_bimi_unverified">Neoverený odosielateľ</string>
@@ -2156,6 +2155,11 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Stredná</item>
         <item>Veľká</item>
         <item>Veľmi veľká</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Nič</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Adresát</item>

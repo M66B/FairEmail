@@ -223,6 +223,8 @@
     <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и безвозвратное удаление всех ваших сообщений. FairEmail никогда не будет удалять ваши сообщения без вашего явного согласия.</string>
     <string name="title_setup_gmail_login">Если в Chrome выполнен вход в учётную запись, новую учётную запись можно добавить только через Android. Этого можно избежать, выйдя из учётной записи в Chrome через его настройки синхронизации.</string>
     <string name="title_setup_gmail_max">В случае появления сообщения об ошибке \"Вы вошли в максимальное количество учётных записей\", необходимр выйти в браузере из всех учётных записей Google.</string>
+    <string name="title_setup_outlook_hint">При использовании псевдонима адреса следует воспользоваться мастером Office 365.</string>
+    <string name="title_setup_outlook_modern">Из-за изменений в политике безопасности Microsoft с 16 сентября 2024 года будет работать только мастер Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Зачем выбирать учётную запись на устройстве?</string>
     <string name="title_setup_gmail_password">Я хочу авторизовать учётную запись паролем вместо учётной записи на устройстве</string>
     <string name="title_setup_office_auth">Ошибка \"AUTHENTICATE failed\" может быть вызвана отключением IMAP/SMTP системным администратором</string>
@@ -546,7 +548,6 @@
     <string name="title_advanced_threading_unread">Показывать количество непрочитанных сообщений в диалогах</string>
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
-    <string name="title_advanced_color_stripe">Показывать цветовую полосу</string>
     <string name="title_advanced_color_stripe_wide">Использовать широкий диапазон цветов</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_bimi">Показывать индикаторы бренда для идентификации сообщений (BIMI)</string>
@@ -760,7 +761,7 @@
     <string name="title_advanced_sign_default">Подписывать по умолчанию</string>
     <string name="title_advanced_encrypt_default">Шифровать по умолчанию</string>
     <string name="title_advanced_encrypt_auto">Автоматически шифровать, если доступны ключи всех получателей</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Автоматически шифровать при ответе на зашифрованное сообщение</string>
+    <string name="title_advanced_encrypt_reply">Автоматически шифровать при ответе на зашифрованное сообщение</string>
     <string name="title_advanced_auto_verify">Автоматически проверять подписанные сообщения</string>
     <string name="title_advanced_auto_decrypt">Автоматически расшифровывать сообщения</string>
     <string name="title_advanced_auto_undo_decrypt">Убирать расшифрованное при закрытии диалога</string>
@@ -2346,6 +2347,11 @@
         <item>Средний</item>
         <item>Большой</item>
         <item>Очень большой</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Нет</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Получатель</item>

@@ -420,7 +420,6 @@
     <string name="title_advanced_threading_unread">Hiện số thư chưa đọc trong các cuộc hội thoại</string>
     <string name="title_advanced_indentation">Lùi trái/phải các thư đã nhận/đã gửi trong cuộc hội thoại</string>
     <string name="title_advanced_highlight_unread">Đánh dấu các thư chưa đọc</string>
-    <string name="title_advanced_color_stripe">Hiện dải màu</string>
     <string name="title_advanced_color_stripe_wide">Sử dụng dải màu rộng</string>
     <string name="title_advanced_avatars">Hiện ảnh liên hệ</string>
     <string name="title_advanced_bimi_unverified">Người gửi chưa được xác minh</string>
@@ -1912,6 +1911,11 @@
         <item>Vừa</item>
         <item>Lớn</item>
         <item>Rất lớn</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Không có</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Người nhận</item>

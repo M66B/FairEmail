@@ -548,7 +548,6 @@
     <string name="title_advanced_threading_unread">Паказваць колькасць непрачытаных паведамленняў у размовах</string>
     <string name="title_advanced_indentation">Водступ злева/справа для атрыманых/адпраўленых паведамленняў у размовах</string>
     <string name="title_advanced_highlight_unread">Вылучаць непрачытаныя паведамленні</string>
-    <string name="title_advanced_color_stripe">Паказваць каляровую палоску</string>
     <string name="title_advanced_color_stripe_wide">Выкарыстоўваць шырокую каляровую палоску</string>
     <string name="title_advanced_avatars">Паказваць фота кантактаў</string>
     <string name="title_advanced_bimi">Паказаць індыкатары брэнда для ідэнтыфікацыі паведамленняў (BIMI)</string>
@@ -762,7 +761,7 @@
     <string name="title_advanced_sign_default">Падпісваць па змаўчанні</string>
     <string name="title_advanced_encrypt_default">Шыфраваць па змаўчанні</string>
     <string name="title_advanced_encrypt_auto">Аўтаматычна шыфраваць, калі ключы ўсіх атрымальнікаў даступныя</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Аўтаматычна шыфраваць пры адказе на зашыфраванае паведамленне</string>
+    <string name="title_advanced_encrypt_reply">Аўтаматычна шыфраваць пры адказе на зашыфраванае паведамленне</string>
     <string name="title_advanced_auto_verify">Аўтаматычна правяраць падпісаныя паведамленні</string>
     <string name="title_advanced_auto_decrypt">Аўтаматычная расшыфроўваць паведамленні</string>
     <string name="title_advanced_auto_undo_decrypt">Скасаваць расшыфроўку пры закрыцці размовы</string>
@@ -2338,6 +2337,11 @@
         <item>Сярэдні</item>
         <item>Вялікі</item>
         <item>Вельмі вялікі</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Нічога</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Атрымальнік</item>

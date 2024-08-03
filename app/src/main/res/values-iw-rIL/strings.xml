@@ -547,7 +547,6 @@
     <string name="title_advanced_threading_unread">הצגת מספר ההודעות שלא נקראו בדיונים</string>
     <string name="title_advanced_indentation">הזחה שמאלית/ימנית להודעות שהתקבלו/נשלחו בדיונים</string>
     <string name="title_advanced_highlight_unread">הדגשת הודעות שלא נקראו</string>
-    <string name="title_advanced_color_stripe">הצגת פס צבע</string>
     <string name="title_advanced_color_stripe_wide">להשתמש בפס צבע רחב</string>
     <string name="title_advanced_avatars">הצגת תמונות אנשי קשר</string>
     <string name="title_advanced_bimi">הצגת בוררי מיתוג לזיהוי הודעה (BIMI)</string>
@@ -761,7 +760,7 @@
     <string name="title_advanced_sign_default">חתימה כברירת מחדל</string>
     <string name="title_advanced_encrypt_default">הצפנה כברירת מחדל</string>
     <string name="title_advanced_encrypt_auto">להצפין אוטומטית כשכל מפתחות הנמענים זמינים</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">להצפין אוטומטית בעת כתיבת תשובה להודעה מוצפנת</string>
+    <string name="title_advanced_encrypt_reply">להצפין אוטומטית בעת כתיבת תשובה להודעה מוצפנת</string>
     <string name="title_advanced_auto_verify">לאמת הודעות חתומות אוטומטית</string>
     <string name="title_advanced_auto_decrypt">פענוח הודעות אוטומטית</string>
     <string name="title_advanced_auto_undo_decrypt">להשתמש בפענוח עם סגירת דיון</string>
@@ -2339,6 +2338,11 @@
         <item>בינוני</item>
         <item>גודל</item>
         <item>גדול במיוחד</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>אין</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>נמען</item>

@@ -181,6 +181,8 @@
     <string name="title_setup_gmail_permissions">Google 会请求读取、撰写、发送和永久删除您的所有电子邮件的权限。相比之下，未经您的明确同意，FairEmail 永远不会删除您的邮件。</string>
     <string name="title_setup_gmail_login">如果 Chrome 登录到 Google 账户，那么只能通过 Android 添加一个新账户。 通过 Chrome 同步设置退出 Chrome 账户登录可以避免这种情况。</string>
     <string name="title_setup_gmail_max">如果出现错误消息“您登录的账号数已达上限”，您需要从浏览器登出所有 Google 账号。</string>
+    <string name="title_setup_outlook_hint">对于别名地址，也许应使用 Office 365 向导。</string>
+    <string name="title_setup_outlook_modern">由于微软的安全政策发生变化，从2024年9月16日起，只有Outlook/Hotmail/Live 向导才能正常工作。</string>
     <string name="title_setup_gmail_on_device">为什么我需要选择设备上账户？</string>
     <string name="title_setup_gmail_password">我想使用密码而不是设备上的帐户进行授权</string>
     <string name="title_setup_office_auth">“认证失败”的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
@@ -504,7 +506,6 @@
     <string name="title_advanced_threading_unread">显示对话中未读邮件数</string>
     <string name="title_advanced_indentation">在对话中向左/向右缩进已收到/发送的邮件</string>
     <string name="title_advanced_highlight_unread">高亮未读邮件</string>
-    <string name="title_advanced_color_stripe">头像前显示一条色带</string>
     <string name="title_advanced_color_stripe_wide">使用宽色条</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_bimi">显示消息识别的品牌指示器 (BIMI)</string>
@@ -718,7 +719,7 @@
     <string name="title_advanced_sign_default">使用默认签名</string>
     <string name="title_advanced_encrypt_default">使用默认加密</string>
     <string name="title_advanced_encrypt_auto">当所有收件人的公钥可用时自动加密</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">回复加密消息时自动加密</string>
+    <string name="title_advanced_encrypt_reply">回复加密消息时自动加密</string>
     <string name="title_advanced_auto_verify">自动验证已签名的邮件</string>
     <string name="title_advanced_auto_decrypt">自动解密邮件</string>
     <string name="title_advanced_auto_undo_decrypt">关闭对话时撤销解密</string>
@@ -2294,6 +2295,11 @@
         <item>中等</item>
         <item>大</item>
         <item>特大</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>无</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>收件人</item>

@@ -195,6 +195,8 @@
     <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, scrivere, inviare ed eliminare permanentemente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza il tuo consenso esplicito.</string>
     <string name="title_setup_gmail_login">Se Chrome è connesso a un profilo, puoi aggiungere un nuovo profilo solo tramite Android. Ciò si può evitare disconnettendosi da Chrome tramite le impostazioni di sincronizzazione di Chrome.</string>
     <string name="title_setup_gmail_max">In caso di messaggio d\'errore \"Sei connesso al numero massimo di profili\", devi disconnettere il browser da tutti i profili di Google.</string>
+    <string name="title_setup_outlook_hint">Nel caso di un indirizzo di alias, la procedura guidata Office 365 dovrebbe probabilmente essere utilizzata.</string>
+    <string name="title_setup_outlook_modern">A causa dei cambiamenti nelle politiche di sicurezza di Microsoft, dal 16 settembre 2024, solo la procedura guidata Outlook/Hotmail/Live funzionerà.</string>
     <string name="title_setup_gmail_on_device">Perché devo selezionare un profilo presente sul dispositivo?</string>
     <string name="title_setup_gmail_password">Desidero autorizzare un profilo con una password, invece di un profilo su dispositivo</string>
     <string name="title_setup_office_auth">L\'errore \'AUTHENTICATE fallita\' può esser causato dalla disabilitazione di IMAP/SMTP dall\'amministratore di sistema</string>
@@ -519,7 +521,6 @@
     <string name="title_advanced_threading_unread">Mostra il numero di messaggi non letti nelle conversazioni</string>
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
-    <string name="title_advanced_color_stripe">Mostra striscia di colore</string>
     <string name="title_advanced_color_stripe_wide">Usa un\'ampia striscia di colore</string>
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
     <string name="title_advanced_bimi">Mostra gli indicatori di marca per l\'identificazione dei messaggi (BIMI)</string>
@@ -733,7 +734,7 @@
     <string name="title_advanced_sign_default">Firma di default</string>
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
     <string name="title_advanced_encrypt_auto">Crittografa automaticamente quando le chiavi di tutti i destinatari sono disponibili</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Cifra automaticamente alla risposta a un messaggio cifrato</string>
+    <string name="title_advanced_encrypt_reply">Cifra automaticamente alla risposta a un messaggio cifrato</string>
     <string name="title_advanced_auto_verify">Verifica automaticamente i messaggi firmati</string>
     <string name="title_advanced_auto_decrypt">Decrittografa automaticamente i messaggi</string>
     <string name="title_advanced_auto_undo_decrypt">Annulla la decrittografia alla chiusura della conversazione</string>
@@ -2317,6 +2318,11 @@
         <item>Medio</item>
         <item>Grande</item>
         <item>Molto grande</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Nessuna</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatario</item>

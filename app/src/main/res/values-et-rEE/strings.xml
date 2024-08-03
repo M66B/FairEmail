@@ -517,7 +517,6 @@
     <string name="title_advanced_threading_unread">Näita lugemata sõnumite arvu vestlustes</string>
     <string name="title_advanced_indentation">Vastuvõetud/saadud sõnumite vasak/parempoolne taane vestlustes</string>
     <string name="title_advanced_highlight_unread">Tõsta lugemata sõnumid esile</string>
-    <string name="title_advanced_color_stripe">Näita värvivööti</string>
     <string name="title_advanced_color_stripe_wide">Kasuta laia värvivööti</string>
     <string name="title_advanced_avatars">Näita kontakti fotot</string>
     <string name="title_advanced_bimi_unverified">Kontrollimata saatja</string>
@@ -2300,6 +2299,11 @@
         <item>Keskmine</item>
         <item>Suur</item>
         <item>Eriti suur</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Pole</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Saaja</item>

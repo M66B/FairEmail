@@ -532,7 +532,6 @@
     <string name="title_advanced_threading_unread">Arată numărul de mesaje necitite în conversații</string>
     <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
     <string name="title_advanced_highlight_unread">Evidențiază mesajele necitite</string>
-    <string name="title_advanced_color_stripe">Arată banda de culori</string>
     <string name="title_advanced_color_stripe_wide">Utilizați bandă largă de culoare</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_bimi">Arată Brand Indicators for Message Identification (BIMI)</string>
@@ -746,7 +745,7 @@
     <string name="title_advanced_sign_default">Semnare în mod implicit</string>
     <string name="title_advanced_encrypt_default">Criptare în mod implicit</string>
     <string name="title_advanced_encrypt_auto">Criptează automat când sunt disponibile cheile tuturor destinatarilor</string>
-    <string name="title_advanced_encrypt_reply" comment="title_advanced_encrypt_reply&#10;Title for an option in the encryption settings tab page to always encrypt when replying to an encrypted message, even though the keys are not available (yet).">Criptează automat atunci când se răspunde la un mesaj criptat</string>
+    <string name="title_advanced_encrypt_reply">Criptează automat atunci când se răspunde la un mesaj criptat</string>
     <string name="title_advanced_auto_verify">Verifică automat mesajele semnate</string>
     <string name="title_advanced_auto_decrypt">Decriptează automat mesajele</string>
     <string name="title_advanced_auto_undo_decrypt">Anulează decriptarea la închiderea conversației</string>
@@ -2327,6 +2326,11 @@
         <item>Mediu</item>
         <item>Mare</item>
         <item>Foarte mare</item>
+    </string-array>
+    <string-array name="accountColorNames">
+        <item>Fără</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatar</item>
