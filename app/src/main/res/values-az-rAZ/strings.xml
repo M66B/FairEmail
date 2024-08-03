@@ -195,6 +195,8 @@
     <string name="title_setup_gmail_permissions">Google, bütün e-poçtları oxumaq, yaratmaq, göndərmək və birdəfəlik silmək üçün icazə istəyəcək. FairEmail, açıq-aşkar razılığınız olmadan heç vaxt mesajlarınızı silməyəcək.</string>
     <string name="title_setup_gmail_login">Chrome bir hesabda giriş edibsə, yeni hesab yalnız Android üzərindən əlavə edilə bilər. Chrome sinxr. ayarları vasitəsilə Chrome-dan çıxış edilərək bunun qarşısı alına bilər.</string>
     <string name="title_setup_gmail_max">\"Maksimum sayda hesaba daxil olmusunuz\" xəta mesajını aldıqda, brauzerin bütün Google hesablarından çıxış etməlisiniz.</string>
+    <string name="title_setup_outlook_hint">Ləqəb ünvanı halında, Office 365 sehrbazı istifadə edilməlidir.</string>
+    <string name="title_setup_outlook_modern">Microsoft-un təhlükəsizlik siyasətlərindəki dəyişikliklərə görə 16 sentyabr 2024-cü ildən etibarən yalnız Outlook/Hotmail/Live sehrbazları işləyəcək.</string>
     <string name="title_setup_gmail_on_device">Niyə bir cihaz hesabı seçməliyəm?</string>
     <string name="title_setup_gmail_password">Cihazdakı bir hesabın əvəzinə parollu bir hesaba səlahiyyət vermək istəyirəm</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem administratorunun IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
@@ -519,6 +521,7 @@
     <string name="title_advanced_threading_unread">Danışıqda oxunmamış mesaj sayını göstər</string>
     <string name="title_advanced_indentation">Danışıqlarda alınan/göndərilən mesajların sol/sağ boşluğu</string>
     <string name="title_advanced_highlight_unread">Oxunmamış mesajları vurğula</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Rəngli bir zolaq və ya rəngli nöqtə göstər</string>
     <string name="title_advanced_color_stripe_wide">Geniş rəng zolağı istifadə et</string>
     <string name="title_advanced_avatars">Əlaqə fotolarını göstər</string>
     <string name="title_advanced_bimi">Mesaj İdentifikasiyası üçün Marka İndikatorlarını (BIMI) göstər</string>
@@ -732,6 +735,7 @@
     <string name="title_advanced_sign_default">İlkin olaraq imzala</string>
     <string name="title_advanced_encrypt_default">İlkin olaraq şifrələ</string>
     <string name="title_advanced_encrypt_auto">Bütün alıcıların açarları əlçatan olduqda avtomatik şifrələ</string>
+    <string name="title_advanced_encrypt_reply">Şifrələnmiş bir mesaja cavab verdikdə avtomatik şifrələ</string>
     <string name="title_advanced_auto_verify">İmzalı mesajları avtomatik doğrula</string>
     <string name="title_advanced_auto_decrypt">Mesajların şifrələrini avtomatik aç</string>
     <string name="title_advanced_auto_undo_decrypt">Danışığı bağlayanda şifrə açmanı geri al</string>
@@ -2310,8 +2314,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Heç biri</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Zolaq</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Nöqtə</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Alıcı</item>

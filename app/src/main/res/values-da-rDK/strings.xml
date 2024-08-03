@@ -195,6 +195,8 @@
     <string name="title_setup_gmail_permissions">Google vil bede om tilladelse til at læse, komponere, sende samt permanent slette alle dine e-mails. FairEmail sletter aldrig dine beskeder uden dit samtykke.</string>
     <string name="title_setup_gmail_login">Er Chrome logget ind på en konto, kan en ny konto kun tilføjes via Android. Dette kan undgås ved at logge ud af Chrome via dens synkindstillinger.</string>
     <string name="title_setup_gmail_max">I tilfælde af fejlmeddelelsen \"Du er logget ind på det maksimale antal konti\", skal der logges ud på alle Google-konti i browseren.</string>
+    <string name="title_setup_outlook_hint">I tilfælde af en aliasadresse bør Office 365-guiden sandsynligvis anvendes.</string>
+    <string name="title_setup_outlook_modern">Pr. 16. september 2024 vil kun guiden til Outlook/Hotmail/Live fungere grundet ændringer i Microsofts sikkerhedspolitikker.</string>
     <string name="title_setup_gmail_on_device">Hvorfor skal der vælges en enhedsbaseret konto?</string>
     <string name="title_setup_gmail_password">Jeg ønsker at godkende en konto med en adgangskode i stedet for en enhedskonto</string>
     <string name="title_setup_office_auth">Fejlen \'GODKENDELSE mislykkedes\' kan skyldes, at IMAP/SMTP er deaktiveret af systemadministratoren</string>
@@ -519,6 +521,7 @@
     <string name="title_advanced_threading_unread">Vis antal ulæste beskeder i samtaler</string>
     <string name="title_advanced_indentation">Venstre-/-højreindryk modtagne/sendte beskeder i samtaler</string>
     <string name="title_advanced_highlight_unread">Fremhæv ulæste beskeder</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Vis en farvestribe eller farveprik</string>
     <string name="title_advanced_color_stripe_wide">Benyt bred farvestribe</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
     <string name="title_advanced_bimi">Vis Brand Indicators for Message Identification (BIMI)</string>
@@ -2319,8 +2322,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Ingen</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stribe</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Prik</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Modtager</item>

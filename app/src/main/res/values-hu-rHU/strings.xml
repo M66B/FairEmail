@@ -194,6 +194,8 @@
     <string name="title_setup_gmail_permissions">A Google engedélyeket fog kérni hogy olvashasson, írhasson, küldhessen és véglegesen törölhessen üzeneteket. A FairEmail sosem törli az üzeneteit az Ön beleegyezése nélkül.</string>
     <string name="title_setup_gmail_login">Ha be van jelentkezve a Chrome-ban, akkor új fiókot csak az Androidban adhat hozzá. Mindez elkerülhető, ha a Chrome szinkronizálási beállításainál kijelentkezik.</string>
     <string name="title_setup_gmail_max">A \"Bejelentkezések száma elérte a maximumot\" hibaüzenet esetén a böngészőben jelentkezzen ki az összes Google fiókból.</string>
+    <string name="title_setup_outlook_hint">Alias cím esetén valószínűleg az Office 365 varázslóját érdemes használni.</string>
+    <string name="title_setup_outlook_modern">A Microsoft biztonsági eljárásainak változása miatt 2024 szeptember 16-tól csak az Outlook/Hotmail/Live varázslók fognak működni.</string>
     <string name="title_setup_gmail_on_device">Miért kell egy fiókot kiválasztanom az eszközön?</string>
     <string name="title_setup_gmail_password">Jelszóval védett fiókot hozok létre az eszköz fiókjával történő összekapcsolás helyett</string>
     <string name="title_setup_office_auth">Az \'AUTHENTICATE failed\' hibának oka lehet hogy a rendszeradminisztrátor kikapcsolta az IMAP/SMTP-t</string>
@@ -517,6 +519,7 @@
     <string name="title_advanced_threading_unread">Olvasatlan üzenetek számának mutatása beszélgetésekben</string>
     <string name="title_advanced_indentation">Beérkezett/elküldött üzenetek balra/jobbra tördelése a beszélgetésekben</string>
     <string name="title_advanced_highlight_unread">Olvasatlan üzenetek kiemelése</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Színes sáv, vagy pötty mutatása</string>
     <string name="title_advanced_color_stripe_wide">Széles színcsík használata</string>
     <string name="title_advanced_avatars">Névjegyzék fényképeinek megjelenítése</string>
     <string name="title_advanced_bimi">Mutassa a Márkajelzést Üzenetazonosításhoz (BIMI)</string>

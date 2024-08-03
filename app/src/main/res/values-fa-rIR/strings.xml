@@ -449,6 +449,7 @@
     <string name="title_advanced_threading_unread">شمار پیام‌های خوانده نشده را در گفتگوها نمایش بده</string>
     <string name="title_advanced_indentation">تورفتگی چپ/راست پیام‌های دریافت/فرستاده شده در مکالمات</string>
     <string name="title_advanced_highlight_unread">برجسته‌سازی پیام‌های خوانده نشده</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">نمایش یک نوار رنگی یا نقطه رنگی</string>
     <string name="title_advanced_color_stripe_wide">استفاده از نوار رنگی پهن</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_advanced_bimi">نمایش نشانگرهای برند برای شناسایی پیام (BIMI)</string>
@@ -1663,9 +1664,9 @@
         <item>خیلی بزرگ</item>
     </string-array>
     <string-array name="accountColorNames">
-        <item>هیچ کدام</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item>هیچکدام</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">نوار</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">نقطه</item>
     </string-array>
     <string-array name="contactTypes">
         <item>گیرنده</item>

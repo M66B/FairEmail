@@ -223,6 +223,8 @@
     <string name="title_setup_gmail_permissions">Google יבקש לקרוא, לכתוב, לשלוח, ולמחוק את כל ההודעות שלך לצמיתות. Fairmail לעולם לא ימחק ללא הסכמתך המפורשת.</string>
     <string name="title_setup_gmail_login">אם נכנסת לחשבון ב־Chrome אפשר להוסיף חשבון חדש רק דרך Android. אפשר להימנע מזה על ידי יציאה מהחשבון ב־Chrome דרך הגדרות הסנכרון של Chrome.</string>
     <string name="title_setup_gmail_max">אם מופיעה הודעת השגיאה „נכנסת לכמות המרבית של חשבונות”, יש להוציא את הדפדפן מכל חשבונות Google.</string>
+    <string name="title_setup_outlook_hint">אם זאת כתובת כינוי, עדיף להשתמש באשף Office 365.</string>
+    <string name="title_setup_outlook_modern">עקב שינויים במדיניות האבטחה של Microsoft, החל מ־16 בספטמבר, 2024, רק אשף Outlook/Hotmail/Live יפעל.</string>
     <string name="title_setup_gmail_on_device">מדוע עלי לבחור בחשבון שכבר מחובר במכשיר?</string>
     <string name="title_setup_gmail_password">ארצה לאמת חשבון עם סיסמה במקום חשבון פנימי במכשיר</string>
     <string name="title_setup_office_auth">השגיאה ‚AUTHENTICATE נכשל’ עלולה להיגרם עקב IMAP/SMTP שהושבתו על ידי הנהלת המערכת</string>

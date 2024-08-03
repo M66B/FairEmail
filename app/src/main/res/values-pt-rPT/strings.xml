@@ -195,6 +195,8 @@
     <string name="title_setup_gmail_permissions">O Google pedirá permissões para ler, compor, enviar e eliminar permanentemente todos os seus e-mails. O FairEmail nunca apagará as suas mensagens sem o seu consentimento explícito.</string>
     <string name="title_setup_gmail_login">Se o Chrome estiver ligado a uma conta, só é possível adicionar outra conta através do Android. Esta situação pode ser evitada, terminando a sessão nas definições de sincronização do Chrome.</string>
     <string name="title_setup_gmail_max">Caso receba a mensagem de erro \"Já atingiu o número máximo de contas permitido\", terá de terminar a sessão de todas as contas Google no navegador.</string>
+    <string name="title_setup_outlook_hint">No caso de um endereço de pseudônimo, o assistente do Office 365 deve provavelmente ser usado.</string>
+    <string name="title_setup_outlook_modern">Devido a mudanças nas políticas de segurança da Microsoft, a partir de 16 de setembro de 2024, apenas o assistente Outlook/Hotmail/Live funcionará.</string>
     <string name="title_setup_gmail_on_device">Por que é que preciso selecionar uma conta no dispositivo?</string>
     <string name="title_setup_gmail_password">Quero autorizar uma conta com a palavra-passe ao invés da conta em utilização no dispositivo</string>
     <string name="title_setup_office_auth">O erro \'AUTHENTICATE failed\' pode ser causado pelo protocolo IMAP/SMTP ter sido desactivado pelo administrador do sistema</string>
@@ -520,6 +522,7 @@
     <string name="title_advanced_threading_unread">Mostrar número de mensagens não lidas nas conversas</string>
     <string name="title_advanced_indentation">Indentação esquerda/direita para mensagens recebidas/enviadas em conversas</string>
     <string name="title_advanced_highlight_unread">Destacar mensagens não lidas</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Mostrar uma faixa de cor ou ponto de cor</string>
     <string name="title_advanced_color_stripe_wide">Usar ampla faixa de cores</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_bimi">Mostrar indicadores de marca para identificação da mensagem (BIMI)</string>
@@ -2312,8 +2315,8 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     </string-array>
     <string-array name="accountColorNames">
         <item>Nenhuma</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Lista</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Ponto</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatário</item>

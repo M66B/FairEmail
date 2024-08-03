@@ -521,6 +521,7 @@
     <string name="title_advanced_threading_unread">Mostra il numero di messaggi non letti nelle conversazioni</string>
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Mostra una striscia di colore o un punto di colore</string>
     <string name="title_advanced_color_stripe_wide">Usa un\'ampia striscia di colore</string>
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
     <string name="title_advanced_bimi">Mostra gli indicatori di marca per l\'identificazione dei messaggi (BIMI)</string>
@@ -2321,8 +2322,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Nessuna</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Striscia</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Punto</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatario</item>
