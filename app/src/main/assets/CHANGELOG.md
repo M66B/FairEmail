@@ -12,6 +12,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### Next version
+
+* Fixed rule expression conditions
+* Added option for color dot instead of color stripe
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2217 - 2024-08-02
 
 * Added inbox per account category to navigation menu (optional)
