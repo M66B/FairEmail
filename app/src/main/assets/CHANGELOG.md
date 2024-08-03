@@ -12,7 +12,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2218 - 2024-08-03
 
 * Fixed rule expression conditions
 * Added option for color dot instead of color stripe
