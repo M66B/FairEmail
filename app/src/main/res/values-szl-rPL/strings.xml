@@ -223,6 +223,8 @@
     <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do odczytu, tworzenia, wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez Twojej wyraźnej zgody.</string>
     <string name="title_setup_gmail_login">Jeśli Chrome jest zalogowany do konta, nowe konto można dodać tylko przez Androida. Można tego uniknąć wylogowując się z Chrome poprzez ustawienia synchronizacji Chrome.</string>
     <string name="title_setup_gmail_max">W przypadku komunikatu o błędzie \"Zalogowano się do maksymalnej liczby kont\", musisz wylogować się przeglądarką ze wszystkich kont Google.</string>
+    <string name="title_setup_outlook_hint">W przypadku aliasu należy prawdopodobnie użyć kreatora Office 365.</string>
+    <string name="title_setup_outlook_modern">Z powodu zmiany w polityce bezpieczeństwa Microsoftu, od 16 września 2024 r. tylko kreator Outlook/Hotmail/Live będzie działać.</string>
     <string name="title_setup_gmail_on_device">Dlaczego muszę wybrać konto na urządzeniu?</string>
     <string name="title_setup_gmail_password">Chcę autoryzować konto za pomocą hasła zamiast konta na urządzeniu</string>
     <string name="title_setup_office_auth">Błąd \"AUTHENTICATE failed\" może być spowodowany wyłączeniem protokołu IMAP/SMTP przez administratora systemu</string>
@@ -546,6 +548,7 @@
     <string name="title_advanced_threading_unread">Pokaż liczbę nieprzeczytanych wiadomości w konwersacjach</string>
     <string name="title_advanced_indentation">Otrzymane/wysłane wiadomości z lewej/prawej strony konwersacji</string>
     <string name="title_advanced_highlight_unread">Podświetl nieprzeczytane wiadomości</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Pokaż kolorowy pasek lub kolorową kropkę</string>
     <string name="title_advanced_color_stripe_wide">Użyj szerokiego kolorowego paska</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_bimi">Pokazuj \"Brand Indicators for Message Identification (BIMI)\"</string>
@@ -2344,8 +2347,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Żaden</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Pasek</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Kropka</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Adresat</item>
