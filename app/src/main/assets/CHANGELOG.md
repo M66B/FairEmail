@@ -12,8 +12,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2219 - 2024-08-04
 
+* Fixed right-to-left script support
 * Small improvements and minor bug fixes
 * Updated libraries, including [EvalEx](https://github.com/ezylang/EvalEx/releases) (rule expressions)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
