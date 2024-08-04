@@ -1387,7 +1387,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (account_color == 2 &&
                     !Objects.equals(ivBadge.getTag(), colorBackground)) {
                 ivBadge.setTag(colorBackground);
-                ((GradientDrawable) ivBadge.getDrawable().mutate()).setColor(colorBackground);
+                Helper.setColor(ivBadge.getDrawable(), colorBackground);
             }
             ivBadge.setVisibility(account_color == 2 ? View.VISIBLE : View.GONE);
 

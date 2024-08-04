@@ -56,6 +56,10 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.net.Uri;
 import android.opengl.EGL14;
 import android.opengl.EGLConfig;
@@ -1956,6 +1960,16 @@ public class Helper {
 
     static String getRequestKey(Fragment fragment) {
         return fragment.getClass().getName() + ":result:" + getWho(fragment);
+    }
+
+    static void setColor(Drawable drawable, int color) {
+        drawable = drawable.mutate();
+        if (drawable instanceof ShapeDrawable)
+            ((ShapeDrawable) drawable).getPaint().setColor(color);
+        else if (drawable instanceof GradientDrawable)
+            ((GradientDrawable) drawable).setColor(color);
+        else if (drawable instanceof ColorDrawable)
+            ((ColorDrawable) drawable).setColor(color);
     }
 
     static void clearViews(Object instance) {
