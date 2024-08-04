@@ -12,6 +12,12 @@ For support you can use the contact form.
 
 Acantholipan
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated libraries, including EvalEx
+* Updated translations
+
 1.2218 - 2024-08-03
 
 * Fixed rule expression conditions
