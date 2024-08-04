@@ -549,6 +549,7 @@
     <string name="title_advanced_threading_unread">הצגת מספר ההודעות שלא נקראו בדיונים</string>
     <string name="title_advanced_indentation">הזחה שמאלית/ימנית להודעות שהתקבלו/נשלחו בדיונים</string>
     <string name="title_advanced_highlight_unread">הדגשת הודעות שלא נקראו</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">הצגת פס או נקודת צבע</string>
     <string name="title_advanced_color_stripe_wide">להשתמש בפס צבע רחב</string>
     <string name="title_advanced_avatars">הצגת תמונות אנשי קשר</string>
     <string name="title_advanced_bimi">הצגת בוררי מיתוג לזיהוי הודעה (BIMI)</string>
@@ -2342,9 +2343,9 @@
         <item>גדול במיוחד</item>
     </string-array>
     <string-array name="accountColorNames">
-        <item>אין</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item>בלי</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">פס</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">נקודה</item>
     </string-array>
     <string-array name="contactTypes">
         <item>נמען</item>
