@@ -16,6 +16,7 @@ Next version
 
 * Small improvements and minor bug fixes
 * Updated libraries, including EvalEx
+* Updated Public Suffix List
 * Updated translations
 
 1.2218 - 2024-08-03
