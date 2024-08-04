@@ -288,13 +288,8 @@ class ImageHelper {
             float dw = svg.getDocumentWidth();
             float dh = svg.getDocumentHeight();
             if (dw <= 0 || dh <= 0) {
-                RectF rect = svg.getDocumentViewBox();
-                dw = rect.width();
-                dh = rect.height();
-                if (dw <= 0 || dh <= 0) {
-                    dw = scaleToPixels;
-                    dh = scaleToPixels;
-                }
+                dw = scaleToPixels;
+                dh = scaleToPixels;
             }
 
             int w, h;
