@@ -53,6 +53,7 @@ android {
         }
 
         // https://developer.android.com/ndk/downloads
+        // https://developer.android.com/guide/practices/page-sizes
         ndkVersion "26.3.11579264" // r26d
         ndk {
             // Bugsnag, sqlite
@@ -258,7 +259,7 @@ android {
             manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes(("fdroid" + getVersionCode() + getRevision()).getBytes()).toString();
             externalNativeBuild {
                 cmake {
-                    arguments "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,--build-id=none"
+                    arguments "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,--build-id=none" // -z,max-page-size=16384
                     // https://f-droid.org/docs/Reproducible_Builds/
                     // The build ID is a 160-bit SHA1 string computed over the elf header bits and section contents in the file.
                     // It is bundled in the elf file as an entry in the notes section.
