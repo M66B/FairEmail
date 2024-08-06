@@ -193,6 +193,8 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_gmail_permissions">Google sil om tagongsrjochten freegje om al jo e-mail te lêzen, op te stellen, te ferstjoeren en te wiskjen. FairEmail sil jo berjochten nea wiskje sûnder jo eksplisite tastimming.</string>
     <string name="title_setup_gmail_login">As Chrome oanmeld is by in account, kin in nij account allinnich fia Android tafoege wurde. Dit kin foarkommen wurde troch ôf te melden út Chrome fia de Chrome-syngronisaasjeynstellingen.</string>
     <string name="title_setup_gmail_max">Yn it gefal fan de flatermelding \"Jo binne oanmeld by it maksimale oantal accounts\", moat de browser ôfmeld wurde fan alle Google-accounts.</string>
+    <string name="title_setup_outlook_hint">Yn it gefal fan in aliasadres moat wierskynlik de Office 365-wizard brûkt wurde.</string>
+    <string name="title_setup_outlook_modern">Troch wizigingen yn it befeiligingsbelied fan Microsoft wurket fan 16 septimber 2024 ôf allinnich noch de wizard Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Wêrom moat ik in account op it apparaat selektearje?</string>
     <string name="title_setup_gmail_password">Ik wol in account autorisearje mei in wachtwurd yn stee fan in account op it apparaat</string>
     <string name="title_setup_office_auth">De flater ‘AUTENTIKAASJE is mislearre’ kin feroarsake wurde troch dat IMAP/SMTP troch de systeembehearder útskeakele is</string>
@@ -517,6 +519,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_threading_unread">Net-lêzen berjochten yn petearen toane</string>
     <string name="title_advanced_indentation">Links/rjochts ynspringe fan ûntfongen/ferstjoerde berjochten yn petearen</string>
     <string name="title_advanced_highlight_unread">Net-lêzen berjochten markearje</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">In kleurestreek of kleurestip toane</string>
     <string name="title_advanced_color_stripe_wide">Brede kleurestreep brûke</string>
     <string name="title_advanced_avatars">Kontaktfoto’s toane</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) toane</string>
@@ -2310,8 +2313,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     </string-array>
     <string-array name="accountColorNames">
         <item>Gjin</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Streek</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Stip</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Untfanger</item>

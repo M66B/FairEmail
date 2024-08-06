@@ -12,7 +12,7 @@
     <string name="app_cake">Unzureichender Speicherplatz</string>
     <string name="app_cake_remaining">Verbleibender Speicherplatz auf dem Gerät: %1$s</string>
     <string name="app_cake_required">Minimaler erforderlicher Speicherplatz: %1$s</string>
-    <string name="app_updated">Letzte Aktualisierung: %1$s</string>
+    <string name="app_updated">Zuletzt aktualisiert: %1$s</string>
     <string name="app_download">Heruntergeladen von: %1$s</string>
     <string name="app_motd">        Unter Android 14 / 15 Beta kann es gelegentlich zur Fehlermeldung »App reagiert nicht« kommen.
         Google arbeitet bereits an einer Lösung.
@@ -145,7 +145,7 @@
     <string name="title_welcome">Willkommen</string>
     <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
     <string name="title_license">Quelloffene Lizenz</string>
-    <string name="title_contributors">Unterstützer</string>
+    <string name="title_contributors">Mitwirkende</string>
     <string name="title_agree">Ich stimme zu</string>
     <string name="title_disagree">Ich stimme nicht zu</string>
     <string name="title_version">Version %1$s</string>
@@ -1284,7 +1284,7 @@
     <string name="title_quick_actions_normal">Normale Wichtigkeit</string>
     <string name="title_quick_actions_high">Hohe Wichtigkeit</string>
     <string name="title_quick_actions_snooze">Zurückstellen</string>
-    <string name="title_quick_actions_clear">Auswahl nach Aktion löschen</string>
+    <string name="title_quick_actions_clear">Auswahl nach Aktion aufheben</string>
     <string name="title_trash">Löschen</string>
     <string name="title_trash_selection">Auswahl löschen</string>
     <string name="title_copy">Kopieren &#8230;</string>

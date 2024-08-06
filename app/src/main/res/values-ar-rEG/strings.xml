@@ -121,6 +121,7 @@
     <string name="title_list_identities">الهويات</string>
     <string name="title_edit_account">تعديل الحساب</string>
     <string name="title_edit_identity">تعديل الهوية</string>
+    <string name="title_new_folder">مجلد جديد</string>
     <string name="title_edit_folder">تعديل المجلد</string>
     <string name="title_disable_gmail">تعطيل تطبيق جيميل</string>
     <string name="title_setup">الإعدادات</string>
