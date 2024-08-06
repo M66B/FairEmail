@@ -11215,10 +11215,6 @@ aaa.vodka
 a2hosted.com
 cpserver.com
 
-// accesso Technology Group, plc. : https://accesso.com/
-// Submitted by accesso Team <accessoecommerce@accesso.com>
-*.devcdnaccesso.com
-
 // Acorn Labs : https://acorn.io
 // Submitted by Craig Jellick <domains@acorn.io>
 *.on-acorn.io
@@ -15209,6 +15205,10 @@ streamlitapp.com
 // Snowplow Analytics : https://snowplowanalytics.com/
 // Submitted by Ian Streeter <ian@snowplowanalytics.com>
 try-snowplow.com
+
+// Software Consulting Michal Zalewski : https://www.mafelo.com
+// Submitted by Michal Zalewski <security@mafelo.com>
+mafelo.net
 
 // SourceHut : https://sourcehut.org
 // Submitted by Drew DeVault <sir@cmpwn.com>
