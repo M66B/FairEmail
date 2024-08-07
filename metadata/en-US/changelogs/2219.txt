@@ -12,6 +12,12 @@ For support you can use the contact form.
 
 Acantholipan
 
+Next version
+
+* Fixed verifying PGP signature in some cases
+* Updated Public Suffix List
+* Updated translations
+
 1.2219 - 2024-08-04
 
 * Fixed right-to-left script support
