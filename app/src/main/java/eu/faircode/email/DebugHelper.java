@@ -70,6 +70,8 @@ import android.text.TextUtils;
 import android.view.Display;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
+import android.view.textservice.SpellCheckerInfo;
+import android.view.textservice.TextServicesManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -316,6 +318,17 @@ public class DebugHelper {
             for (int i = 0; i < ll.size(); i++)
                 sb.append(String.format("System: %s\r\n", ll.get(i)));
         }
+
+        if (BuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+            try {
+                TextServicesManager tsm = (TextServicesManager) context.getSystemService(Context.TEXT_SERVICES_MANAGER_SERVICE);
+                SpellCheckerInfo sci = (tsm == null ? null : tsm.getCurrentSpellCheckerInfo());
+                if (sci != null)
+                    for (int i = 0; i < sci.getSubtypeCount(); i++)
+                        sb.append(String.format("Spell: %s\r\n", sci.getSubtypeAt(i).getLocale()));
+            } catch (Throwable ex) {
+                sb.append(ex).append("\r\n");
+            }
 
         sb.append("\r\n");
 
