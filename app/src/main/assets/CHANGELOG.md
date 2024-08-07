@@ -12,7 +12,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2220 - 2024-08-07 *
 
 * Fixed verifying PGP signature in some cases
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
