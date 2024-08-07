@@ -9554,7 +9554,15 @@ public class FragmentMessages extends FragmentBase
                                     String text = context.getString(R.string.title_signature_invalid_reason, Integer.toString(sresult));
                                     args.putString("sigresult", text);
                                 } else {
-                                    onPgp(data, auto, true);
+                                    View v = view;
+                                    if (v == null)
+                                        return null;
+                                    v.post(new RunnableEx("stripped") {
+                                        @Override
+                                        protected void delegate() {
+                                            onPgp(data, auto, true);
+                                        }
+                                    });
                                     return null;
                                 }
                             }
