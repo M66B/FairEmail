@@ -1740,8 +1740,11 @@ public class MessageHelper {
         for (String ref : refs)
             before.addAll(db.message().getMessagesByMsgId(account, ref));
 
+        String origin = null;
+
         for (EntityMessage message : before)
             if (!TextUtils.isEmpty(message.thread)) {
+                origin = "before";
                 thread = message.thread;
                 break;
             }
@@ -1750,6 +1753,7 @@ public class MessageHelper {
             List<EntityMessage> similar = db.message().getMessagesByMsgId(account, msgid);
             for (EntityMessage message : similar)
                 if (!TextUtils.isEmpty(message.thread) && Objects.equals(message.hash, getHash())) {
+                    origin = "similar";
                     thread = message.thread;
                     break;
                 }
@@ -1758,23 +1762,27 @@ public class MessageHelper {
         // Common reference
         if (thread == null && refs.size() > 0) {
             String ref = refs.get(0);
-            if (!Objects.equals(ref, msgid))
+            if (!Objects.equals(ref, msgid)) {
+                origin = "common";
                 thread = ref;
+            }
         }
 
-        if (thread == null)
+        if (thread == null) {
+            origin = "hash";
             thread = getHash() + ":" + uid;
+        }
 
         for (EntityMessage message : before)
             if (!thread.equals(message.thread)) {
-                Log.w("Updating before thread from " + message.thread + " to " + thread);
+                Log.w("Updating before thread from " + message.thread + " to " + thread + " origin=" + origin);
                 db.message().updateMessageThread(message.account, message.thread, thread, null);
             }
 
         List<EntityMessage> after = db.message().getMessagesByInReplyTo(account, msgid);
         for (EntityMessage message : after)
             if (!thread.equals(message.thread)) {
-                Log.w("Updating after thread from " + message.thread + " to " + thread);
+                Log.w("Updating after thread from " + message.thread + " to " + thread + " origin=" + origin);
                 db.message().updateMessageThread(message.account, message.thread, thread, null);
             }
 
