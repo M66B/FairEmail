@@ -1733,6 +1733,8 @@ public class MessageHelper {
             if (!TextUtils.isEmpty(inreplyto) && !refs.contains(inreplyto))
                 refs.add(inreplyto);
 
+        Collections.sort(refs);
+
         DB db = DB.getInstance(context);
         List<EntityMessage> before = new ArrayList<>();
         for (String ref : refs)
