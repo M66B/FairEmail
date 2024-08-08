@@ -12,6 +12,12 @@ For support you can use the contact form.
 
 Acantholipan
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 1.2220 - 2024-08-07 *
 
 * Fixed verifying PGP signature in some cases
