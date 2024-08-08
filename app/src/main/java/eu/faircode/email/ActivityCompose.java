@@ -82,6 +82,8 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             String[] tos = intent.getStringArrayExtra(Intent.EXTRA_EMAIL);
             boolean cloud = (tos != null && tos.length == 1 && BuildConfig.CLOUD_EMAIL.equals(tos[0]));
 
+            Log.i("Compose exit shared=" + shared + " widget=" + widget + " cloud=" + cloud);
+
             if (cloud) {
                 Intent setup = new Intent(this, ActivitySetup.class)
                         .setAction("misc")
@@ -90,6 +92,8 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                 startActivity(setup);
             } else if (!shared && !widget) {
                 Intent parent = getParentActivityIntent();
+                Log.i("Compose exit parent=" + parent +
+                        " recreate=" + (parent == null ? null : shouldUpRecreateTask(parent)));
                 if (parent != null)
                     if (shouldUpRecreateTask(parent))
                         TaskStackBuilder.create(this)
