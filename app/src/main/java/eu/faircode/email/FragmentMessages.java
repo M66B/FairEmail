@@ -4045,6 +4045,7 @@ public class FragmentMessages extends FragmentBase
                     public boolean onMenuItemClick(MenuItem target) {
                         if (target.getGroupId() == Menu.FIRST) {
                             startActivity(new Intent(context, ActivityCompose.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra("action", "reply")
                                     .putExtra("reference", message.id)
                                     .putExtra("answer", target.getIntent().getLongExtra("id", -1)));
@@ -4121,6 +4122,7 @@ public class FragmentMessages extends FragmentBase
             selected = null;
 
         Intent reply = new Intent(context, ActivityCompose.class)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 .putExtra("action", action)
                 .putExtra("reference", message.id)
                 .putExtra("selected", selected);
@@ -4225,6 +4227,7 @@ public class FragmentMessages extends FragmentBase
 
     private void onMenuDsn(TupleMessageEx message, int type) {
         Intent reply = new Intent(getContext(), ActivityCompose.class)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 .putExtra("action", "dsn")
                 .putExtra("reference", message.id)
                 .putExtra("dsn", type);
@@ -4233,6 +4236,7 @@ public class FragmentMessages extends FragmentBase
 
     private void onMenuNew(TupleMessageEx message, Address[] to) {
         Intent reply = new Intent(getContext(), ActivityCompose.class)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 .putExtra("action", "new")
                 .putExtra("identity", message.identity == null ? -1 : message.identity)
                 .putExtra("to", MessageHelper.formatAddressesCompose(to));
@@ -4276,6 +4280,7 @@ public class FragmentMessages extends FragmentBase
                             }
 
                             startActivity(new Intent(context, ActivityCompose.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra("action", "reply")
                                     .putExtra("reference", message.id)
                                     .putExtra("answer", intent.getLongExtra("id", -1)));

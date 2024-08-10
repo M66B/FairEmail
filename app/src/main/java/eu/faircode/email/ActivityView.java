@@ -1578,6 +1578,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     return;
                 startActivity(
                         new Intent(ActivityView.this, ActivityCompose.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                 .putExtra("action", "edit")
                                 .putExtra("id", id));
             }
@@ -2380,6 +2381,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (id == null)
                     return;
                 startActivity(new Intent(ActivityView.this, ActivityCompose.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         .putExtra("action", "edit")
                         .putExtra("id", id));
             }

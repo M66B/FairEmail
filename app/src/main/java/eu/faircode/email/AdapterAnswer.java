@@ -196,6 +196,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
                 private void onActionCompose() {
                     context.startActivity(new Intent(context, ActivityCompose.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                             .putExtra("action", "new")
                             .putExtra("answer", answer.id));
                 }

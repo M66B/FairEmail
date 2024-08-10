@@ -3672,6 +3672,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         private void onReply() {
                             Intent reply = new Intent(context, ActivityCompose.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra("action", "reply")
                                     .putExtra("reference", message.id)
                                     .putExtra("text", action.getTextReply());
@@ -4265,6 +4266,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Helper.share(context, (File) result, "text/calendar", status + ".ics");
                         else {
                             Intent reply = new Intent(context, ActivityCompose.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra("action", "participation")
                                     .putExtra("reference", args.getLong("id"))
                                     .putExtra("ics", (File) result)
@@ -4688,6 +4690,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)) {
                     context.startActivity(
                             new Intent(context, ActivityCompose.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra("action", "edit")
                                     .putExtra("id", message.id));
                     properties.setValue("selected", message.id, true);
@@ -5322,6 +5325,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ToastEx.makeText(context, R.string.title_legend_receipt, Toast.LENGTH_LONG).show();
             else {
                 Intent reply = new Intent(context, ActivityCompose.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         .putExtra("action", "dsn")
                         .putExtra("dsn", EntityMessage.DSN_RECEIPT)
                         .putExtra("reference", message.id);
@@ -5509,6 +5513,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))
                 context.startActivity(
                         new Intent(context, ActivityCompose.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                 .putExtra("action", "edit")
                                 .putExtra("id", message.id));
             else {

@@ -517,6 +517,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 if (id == null)
                     return;
                 startActivity(new Intent(ActivitySetup.this, ActivityCompose.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         .putExtra("action", "edit")
                         .putExtra("id", id));
             }

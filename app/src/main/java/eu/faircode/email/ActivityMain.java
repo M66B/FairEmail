@@ -281,7 +281,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                             long composing = prefs.getLong("last_composing", -1L);
                             if (ActivityCompose.class.getName().equals(last_activity) && composing >= 0)
                                 view = new Intent(ActivityMain.this, ActivityCompose.class)
-                                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                         .putExtra("action", "edit")
                                         .putExtra("id", composing);
                         }

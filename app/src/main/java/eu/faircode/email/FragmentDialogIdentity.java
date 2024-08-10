@@ -74,6 +74,7 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                 if (tag != null && !tag.equals(position)) {
                     TupleIdentityEx identity = (TupleIdentityEx) spIdentity.getAdapter().getItem(position);
                     startActivity(new Intent(v.getContext(), ActivityCompose.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                             .putExtra("action", "new")
                             .putExtra("account", identity.account)
                             .putExtra("identity", identity.id)
@@ -201,6 +202,7 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                         TupleIdentityEx identity = (TupleIdentityEx) spIdentity.getSelectedItem();
                         if (identity != null)
                             startActivity(new Intent(context, ActivityCompose.class)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra("action", "new")
                                     .putExtra("account", identity.account)
                                     .putExtra("identity", identity.id)
@@ -257,6 +259,7 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                     fragment.show(manager, "identity:select");
                 } else
                     context.startActivity(new Intent(context, ActivityCompose.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                             .putExtra("action", "new")
                             .putExtra("account", account)
                             .putExtra("identity", args.getLong("identity", -1L)));

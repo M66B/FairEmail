@@ -1198,7 +1198,7 @@ class NotificationHelper {
                             .putExtra("action", "reply")
                             .putExtra("reference", message.id)
                             .putExtra("group", group);
-                    reply.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    reply.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     PendingIntent piReply = PendingIntentCompat.getActivity(
                             context, ActivityCompose.PI_REPLY, reply, PendingIntent.FLAG_UPDATE_CURRENT);
                     NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
