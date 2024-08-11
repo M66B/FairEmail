@@ -354,7 +354,8 @@ public class FragmentGmail extends FragmentBase {
                                 } catch (Throwable ex) {
                                     // android.accounts.OperationCanceledException = ServiceDisabled?
                                     if (ex instanceof AuthenticatorException &&
-                                            "ServiceDisabled".equals(ex.getMessage()))
+                                            ("ERROR".equals(ex.getMessage())||
+                                                    "ServiceDisabled".equals(ex.getMessage())))
                                         ex = new IllegalArgumentException(disabled, ex);
 
                                     Log.e(ex);
