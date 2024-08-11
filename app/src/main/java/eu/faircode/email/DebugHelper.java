@@ -1620,6 +1620,28 @@ public class DebugHelper {
                 size += write(os, "\r\n");
 
                 try {
+                    Intent open = new Intent(Intent.ACTION_GET_CONTENT);
+                    open.addCategory(Intent.CATEGORY_OPENABLE);
+                    open.setType("*/*");
+
+                    ResolveInfo main = pm.resolveActivity(open, 0);
+
+                    List<ResolveInfo> ris = pm.queryIntentActivities(open, flags);
+                    size += write(os, "File selectors=" + (ris == null ? null : ris.size()) + "\r\n");
+                    if (ris != null)
+                        for (ResolveInfo ri : ris) {
+                            boolean p = Objects.equals(main == null ? null : main.activityInfo.packageName, ri.activityInfo.packageName);
+                            CharSequence label = pm.getApplicationLabel(ri.activityInfo.applicationInfo);
+                            size += write(os, String.format("File selector %s%s (%s)\r\n",
+                                    ri.activityInfo.packageName, p ? "*" : "", label == null ? null : label.toString()));
+                        }
+
+                } catch (Throwable ex) {
+                    size += write(os, "\r\n");
+                }
+                size += write(os, "\r\n");
+
+                try {
                     Intent intent = new Intent(Intent.ACTION_VIEW)
                             //.addCategory(Intent.CATEGORY_BROWSABLE)
                             .setData(Uri.parse("http://example.com/"));
