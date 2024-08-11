@@ -319,7 +319,7 @@ public class DebugHelper {
                 sb.append(String.format("System: %s\r\n", ll.get(i)));
         }
 
-        if (BuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+        if (false && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
             try {
                 TextServicesManager tsm = (TextServicesManager) context.getSystemService(Context.TEXT_SERVICES_MANAGER_SERVICE);
                 SpellCheckerInfo sci = (tsm == null ? null : tsm.getCurrentSpellCheckerInfo());
