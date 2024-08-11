@@ -281,6 +281,17 @@ public class CalendarHelper {
                             " location=" + location +
                             " status=" + status);
                 } else {
+                    /*
+                        java.lang.IllegalArgumentException: Cannot have both DTEND and DURATION in an event
+                                at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:172)
+                                at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:142)
+                                at android.content.ContentProviderProxy.update(ContentProviderNative.java:685)
+                                at android.content.ContentResolver.update(ContentResolver.java:2416)
+                                at android.content.ContentResolver.update(ContentResolver.java:2378)
+                                at eu.faircode.email.CalendarHelper.insert(CalendarHelper:285)
+                     */
+                    values.put(CalendarContract.Events.DURATION, "");
+
                     Uri uri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, existId);
                     int rows = resolver.update(uri, values, null, null);
                     EntityLog.log(context, EntityLog.Type.General, message, "Updated event" +
