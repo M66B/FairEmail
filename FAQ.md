@@ -866,10 +866,14 @@ Please see [this FAQ](#faq111) about OAuth support.
 
 Identities represent email addresses you are sending *from* via an email (SMTP) server.
 
-Some providers allow you to have multiple aliases.
-The easiest way to create an alias is to copy the main identity, and change the email address and perhaps the (display) name.
+Some providers allow you to have multiple aliases addresses.
+
+The easiest way to create an alias address is to use the mini *Create alias* wizard.
+For this, please go to the settings via the navigation menu (left side menu),
+tap on *Manual setup and account options*, tap on *Identities*, long press the main identity, and select *Create alias*.
+
+For more options, you can copy the main identity by long pressing on it, and change the email address and perhaps the (display) name.
 You should not change the username!
-For this, please go to the settings via the navigation menu (left side menu), tap on *Manual setup and account options*, tap on *Identities*, long press the main identity, and select to copy it.
 
 **Important**: In the case of an Outlook account, you should first authenticate the account again with the "Office 365" wizard. You don't need to remove the account for this.
 
