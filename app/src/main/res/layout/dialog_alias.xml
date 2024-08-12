@@ -74,7 +74,7 @@
             android:layout_marginTop="12dp"
             android:labelFor="@+id/etName"
             android:text="@string/title_advanced_create_alias_remark"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
