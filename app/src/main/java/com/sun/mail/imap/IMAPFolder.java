@@ -2843,7 +2843,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 		m.setUID(uids[i]);
 		m.setExpunged(true);
 	    }
-	    msgs[i++] = m;
+	    msgs[i] = m;
 	}
 	return msgs;
     }
