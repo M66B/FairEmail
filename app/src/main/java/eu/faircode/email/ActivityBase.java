@@ -1066,16 +1066,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         performBack();
     }
 
-    @Override
-    public boolean shouldUpRecreateTask(Intent targetIntent) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            ComponentName cn = targetIntent.getComponent();
-            if (cn != null && BuildConfig.APPLICATION_ID.equals(cn.getPackageName()))
-                return false;
-        }
-        return super.shouldUpRecreateTask(targetIntent);
-    }
-
     Handler getMainHandler() {
         return ApplicationEx.getMainHandler();
     }

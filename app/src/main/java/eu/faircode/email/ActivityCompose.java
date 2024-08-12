@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.app.NotificationManager;
 import android.content.ClipData;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -92,10 +93,16 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                 startActivity(setup);
             } else if (!shared && !widget) {
                 Intent parent = getParentActivityIntent();
-                Log.i("Compose exit parent=" + parent +
-                        " recreate=" + (parent == null ? null : shouldUpRecreateTask(parent)));
-                if (parent != null)
-                    if (shouldUpRecreateTask(parent))
+                if (parent != null) {
+                    boolean recreate;
+                    ComponentName cn = parent.getComponent();
+                    if (cn != null && BuildConfig.APPLICATION_ID.equals(cn.getPackageName()))
+                        recreate = false;
+                    else
+                        recreate = shouldUpRecreateTask(parent);
+
+                    Log.i("Compose exit parent=" + parent + " recreate=" + recreate);
+                    if (recreate)
                         TaskStackBuilder.create(this)
                                 .addNextIntentWithParentStack(parent)
                                 .startActivities();
@@ -103,6 +110,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                         parent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(parent);
                     }
+                }
             }
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
