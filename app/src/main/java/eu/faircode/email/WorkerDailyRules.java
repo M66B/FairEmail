@@ -158,7 +158,7 @@ public class WorkerDailyRules extends Worker {
                         new PeriodicWorkRequest.Builder(WorkerDailyRules.class, 1, TimeUnit.DAYS)
                                 .setInitialDelay(delay, TimeUnit.MILLISECONDS);
                 WorkManager.getInstance(context)
-                        .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, builder.build());
+                        .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.UPDATE, builder.build());
                 EntityLog.log(context, EntityLog.Type.Rules, "Queued " + getName());
             } else {
                 EntityLog.log(context, EntityLog.Type.Rules, "Cancelling " + getName());
