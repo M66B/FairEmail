@@ -12,7 +12,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2221 - 2024-08-13
 
 * Fixed bug in JavaMail causing iCloud sync issues
 * Fixed back navigation for older Android versions
