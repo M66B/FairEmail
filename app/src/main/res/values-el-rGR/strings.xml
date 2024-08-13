@@ -195,6 +195,8 @@
     <string name="title_setup_gmail_permissions">Η Google θα ζητήσει άδειες που αφορούν στην ανάγνωση, σύνταξη, αποστολή και οριστική διαγραφή όλων των μηνυμάτων σας. Το FairEmail δεν θα διαγράψει ποτέ τα μηνύματά σας χωρίς τη ρητή συγκατάθεσή σας.</string>
     <string name="title_setup_gmail_login">Εάν το Chrome είναι συνδεδεμένο με έναν λογαριασμό, μπορεί να προστεθεί ένας καινούργιος λογαριασμός μόνον μέσα από το Android. Αυτό μπορεί να αποφευχθεί, εάν αποσυνδεθείτε από το Chrome μέσω των ρυθμίσεων συγχρονισμού στο Chrome.</string>
     <string name="title_setup_gmail_max">Σε περίπτωση μηνύματος σφάλματος \"Είστε συνδεδεμένοι στον μέγιστο αριθμό λογαριασμών\", πρέπει να αποσυνδεθείτε από όλους τους λογαριασμούς Google στον περιηγητή.</string>
+    <string name="title_setup_outlook_hint">Σε περίπτωση μιας ψευδώνυμης διεύθυνσης, θα πρέπει πιθανώς να χρησιμοποιηθεί ο οδηγός του Office 365.</string>
+    <string name="title_setup_outlook_modern">Λόγω αλλαγών στις πολιτικές ασφαλείας της Microsoft, από τις 16 Σεπτεμβρίου 2024, μόνο ο οδηγός Outlook/Hotmail/Live θα λειτουργεί.</string>
     <string name="title_setup_gmail_on_device">Γιατί πρέπει να επιλέξω έναν λογαριασμό περασμένο στη συσκευή;</string>
     <string name="title_setup_gmail_password">Θέλω να εξουσιοδοτήσω έναν λογαριασμό με έναν κωδικό πρόσβασης αντί για έναν λογαριασμό στη συσκευή</string>
     <string name="title_setup_office_auth">Το σφάλμα \'ΠΙΣΤΟΠΟΙΗΣΗ απέτυχε\' μπορεί να προκληθεί επειδή το IMAP/SMTP έχει απενεργοποιηθεί από το διαχειριστή του συστήματος</string>
@@ -518,6 +520,7 @@
     <string name="title_advanced_threading_unread">Προβολή αριθμού μη αναγνωσμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_indentation">Αριστερή/δεξιά εσοχή ειλημμένων/απεσταλμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_highlight_unread">Να επισημαίνονται τα μη αναγνωσμένα μηνύματα</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Προβολή μιας χρωματιστής λωρίδας ή μιας χρωματιστής κουκκίδας</string>
     <string name="title_advanced_color_stripe_wide">Χρήση φαρδιάς λωρίδας χρώματος</string>
     <string name="title_advanced_avatars">Προβολή φωτογραφιών επαφών</string>
     <string name="title_advanced_bimi">Προβολή των Brand Indicators for Message Identification (BIMI)</string>
@@ -2313,8 +2316,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Καμία</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Λωρίδα</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Κουκκίδα</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Παραλήπτης</item>

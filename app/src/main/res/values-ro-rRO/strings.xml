@@ -209,11 +209,13 @@
     <string name="title_setup_gmail_permissions">Google va cere permisiunea de a citi, compune, trimite și șterge în mod permanent mesajele dumneavoastră. de email. FairEmail nu vă va șterge niciodată mesajele fără consimțământul dumneavoastră explicit.</string>
     <string name="title_setup_gmail_login">Dacă Chrome este conectat la un cont, un nou cont poate fi adăugat doar prin Android. Acest lucru poate fi evitat prin deconectarea de la Chrome prin intermediul setărilor de sincronizare Chrome.</string>
     <string name="title_setup_gmail_max">În cazul în care apare mesajul de eroare \"V-ați conectat la numărul maxim de conturi\", trebuie să vă deconectați din browser de la toate conturile Google.</string>
+    <string name="title_setup_outlook_hint">În cazul unei adrese alias, probabil ar trebui folosit expertul Office 365.</string>
+    <string name="title_setup_outlook_modern">Din cauza modificărilor politicilor de securitate ale Microsoft, începând cu 16 septembrie 2024, doar asistentul Outlook/Hotmail/Live va funcționa.</string>
     <string name="title_setup_gmail_on_device">De ce trebuie să selectez un cont pe dispozitiv?</string>
     <string name="title_setup_gmail_password">Vreau să autorizez un cont cu o parolă în loc de un cont pe dispozitiv</string>
     <string name="title_setup_office_auth">Eroarea \'Autentificare eșuată\' poate fi cauzată de dezactivarea administrativă a IMAP/SMTP</string>
     <string name="title_setup_office_auth_5_7_3">Vă rugăm să încercați expertul de configurare rapidă \'Alt furnizor\'.</string>
-    <string name="title_setup_office_auth_5_7_139">Vă rugăm să încercați \"Outlook/Hotmail/Live\" pentru configurare rapidă.</string>
+    <string name="title_setup_office_auth_5_7_139">Vă rugăm să încercați asistentul \"Outlook/Hotmail/Live\" pentru configurare rapidă.</string>
     <string name="title_setup_oauth_rationale">Autorizare acces la contul %1$s</string>
     <string name="title_setup_oauth_update">Autorizați din nou un cont existent (în caz contrar, creați un cont nou)</string>
     <string name="title_setup_oauth_updated">Autorizarea contului a fost actualizată</string>
@@ -306,7 +308,7 @@
     <string name="title_importing_account">Cont %1$s</string>
     <string name="title_importing_identity">Identitate %1$s</string>
     <string name="title_importing_exists">Sărit: există deja</string>
-    <string name="title_importing_wizard">Rulați expertul pentru a vă autentifica din nou</string>
+    <string name="title_importing_wizard">Rulați asistentul pentru a vă autentifica din nou</string>
     <string name="title_setup_reorder_accounts">Ordine conturi</string>
     <string name="title_setup_reorder_folders">Ordine dosare</string>
     <string name="title_reset_order">Resetare ordine</string>
@@ -352,7 +354,7 @@
     </string>
     <string name="title_advanced_hint_remark">        Opțiunile sunt clasificate pe file, împărțite în secțiuni, organizate în funcție de aspect sau utilizare și pot fi căutate.
     </string>
-    <string name="title_advanced_hint_setup">Puteți configura un cont apăsând pe butonul wizard din ecranul principal de configurare.</string>
+    <string name="title_advanced_hint_setup">Puteți configura un cont apăsând pe butonul asistent din ecranul principal de configurare.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Primire</string>
     <string name="title_advanced_section_send">Trimitere</string>
@@ -532,6 +534,7 @@
     <string name="title_advanced_threading_unread">Arată numărul de mesaje necitite în conversații</string>
     <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
     <string name="title_advanced_highlight_unread">Evidențiază mesajele necitite</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Arată o bandă de culoare sau un punct de culoare</string>
     <string name="title_advanced_color_stripe_wide">Utilizați bandă largă de culoare</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_bimi">Arată Brand Indicators for Message Identification (BIMI)</string>
@@ -989,7 +992,7 @@
     <string name="title_account_left">Glisare spre stânga</string>
     <string name="title_account_right">Glisare spre dreapta</string>
     <string name="title_account_move">Implicit mută la</string>
-    <string name="title_account_gmail">Pentru sincronizarea fiabilă a unui cont Google, expertul de configurare rapidă Gmail trebuie utilizat ori de câte ori este posibil</string>
+    <string name="title_account_gmail">Pentru sincronizarea fiabilă a unui cont Google, asistentul de configurare rapidă Gmail trebuie utilizat ori de câte ori este posibil</string>
     <string name="title_domain">Nume domeniu</string>
     <string name="title_autoconfig">Obține setări</string>
     <string name="title_aliases">Aliasuri</string>
@@ -2329,8 +2332,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Fără</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Benzi</item>
+        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Punct</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatar</item>
