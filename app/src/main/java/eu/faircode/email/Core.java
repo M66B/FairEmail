@@ -5254,9 +5254,9 @@ class Core {
                 uidExpunge(context, ifolder, uids);
                 Log.i(ifolder.getName() + " expunged " + TextUtils.join(",", uids));
             } else {
-                Log.i(ifolder.getName() + " expunging all");
+                Log.i(ifolder.getName() + " expunging all=" + messages.size());
                 ifolder.expunge();
-                Log.i(ifolder.getName() + " expunged all");
+                Log.i(ifolder.getName() + " expunged all=" + messages.size());
             }
 
             return true;
