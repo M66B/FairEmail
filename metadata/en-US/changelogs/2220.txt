@@ -14,8 +14,11 @@ Acantholipan
 
 Next version
 
+* Fixed bug in JavaMail causing iCloud sync issues
+* Fixed back navigation for older Android versions
 * Small improvements and minor bug fixes
 * Updated AndroidX
+* Updated Public Suffix List
 * Updated translations
 
 1.2220 - 2024-08-07 *

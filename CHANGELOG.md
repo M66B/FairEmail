@@ -14,8 +14,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Fixed bug in JavaMail causing iCloud sync issues
+* Fixed back navigation for older Android versions
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2220 - 2024-08-07 *
