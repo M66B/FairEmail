@@ -1454,6 +1454,8 @@ class Core {
                 Message imessage = ifolder.getMessageByUID(message.uid);
                 if (imessage == null)
                     throw new MessageRemovedException("move without message");
+                if (imessage.isExpunged())
+                    throw new MessageRemovedException("move of expunged message");
                 map.put(imessage, message);
             } catch (MessageRemovedException ex) {
                 Log.e(ex);
