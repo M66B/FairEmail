@@ -2810,8 +2810,8 @@ public class HtmlHelper {
 
         // <div class="moz-signature">
         // <pre class="moz-signature" cols="72">
-        d.body().select("div.moz-signature").remove();
-        d.body().select("pre.moz-signature").remove();
+        //d.body().select("div.moz-signature").remove();
+        //d.body().select("pre.moz-signature").remove();
 
         // Apple: <br id="lineBreakAtBeginningOfSignature"> <div dir="ltr">
         for (Element br : d.body().select("br#lineBreakAtBeginningOfSignature")) {
