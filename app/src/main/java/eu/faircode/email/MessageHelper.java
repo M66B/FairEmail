@@ -1531,7 +1531,7 @@ public class MessageHelper {
 
     @NonNull
     String[] getKeywords() throws MessagingException {
-        List<String> keywords = Arrays.asList(imessage.getFlags().getUserFlags());
+        List<String> keywords = new ArrayList<>(Arrays.asList(imessage.getFlags().getUserFlags()));
         while (keywords.size() > MAX_KEYWORDS)
             keywords.remove(keywords.size() - 1);
         Collections.sort(keywords);
