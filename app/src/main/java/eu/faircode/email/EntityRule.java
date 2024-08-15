@@ -147,10 +147,11 @@ public class EntityRule {
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
+    static final String EXTRA_RECEIVED = "received";
     static final String EXTRA_SENDER = "sender";
     static final String EXTRA_NAME = "name";
     static final String EXTRA_SUBJECT = "subject";
-    static final String EXTRA_RECEIVED = "received";
+    static final String EXTRA_PREVIEW = "preview";
 
     static final String[] EXTRA_ALL = new String[]{
             EXTRA_RULE, EXTRA_SENDER, EXTRA_NAME, EXTRA_SUBJECT, EXTRA_RECEIVED
@@ -1246,10 +1247,11 @@ public class EntityRule {
 
         Intent automation = new Intent(ACTION_AUTOMATION);
         automation.putExtra(EXTRA_RULE, name);
+        automation.putExtra(EXTRA_RECEIVED, DTF.format(message.received));
         automation.putExtra(EXTRA_SENDER, iaddr == null ? null : iaddr.getAddress());
         automation.putExtra(EXTRA_NAME, iaddr == null ? null : iaddr.getPersonal());
         automation.putExtra(EXTRA_SUBJECT, message.subject);
-        automation.putExtra(EXTRA_RECEIVED, DTF.format(message.received));
+        automation.putExtra(EXTRA_PREVIEW, message.preview);
 
         List<String> extras = Log.getExtras(automation.getExtras());
         EntityLog.log(context, EntityLog.Type.Rules, message,

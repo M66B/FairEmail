@@ -3020,9 +3020,10 @@ Note that not all email servers support IMAP keywords.
 The automation action will broadcast the intent *eu.faircode.email.AUTOMATION* with the following string extras:
 
 * *rule*
+* *received* (ISO 8601 date/time)
 * *sender*
 * *subject*
-* *received* (ISO 8601 date/time)
+* *preview* (since version 1.2222)
 
 An app like Tasker can listen for this intent and perform some action.
 Please [see here](https://tasker.joaoapps.com/userguide/en/intents.html) about receiving intents in Tasker.
