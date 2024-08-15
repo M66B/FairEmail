@@ -3643,11 +3643,14 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 		if (uidset != null) {
 			List<Message> msgs = new ArrayList<>();
 			for (long uid : UIDSet.toArray(uidset)) {
-				Message m = uidTable.get(uid);
+				IMAPMessage m = uidTable.get(uid);
 				if (m != null && m.getMessageNumber() > 0) {
-					realTotal--;
-					messageCache.expungeMessage(m.getMessageNumber());
-					msgs.add(m);
+					if (doExpungeNotification) {
+						realTotal--;
+						messageCache.expungeMessage(m.getMessageNumber());
+						msgs.add(m);
+					} else
+						m.setExpunged(true);
 				}
 			}
 			if (!msgs.isEmpty() &&
