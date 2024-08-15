@@ -446,8 +446,10 @@
         appPassword="true"
         documentation="You might need an app password; You can\'t use third party email apps with the basic plan, please &lt;a href=&quot;https://www.fastmail.help/hc/en-us/articles/360058752854-App-passwords&quot;&gt;see here&lt;/a&gt;."
         domain="fastmail\\..*"
+        id="fastmail"
         link="https://www.fastmail.com/help/technical/servernamesandports.html"
-        order="9">
+        order="9"
+        register="https://app.fastmail.com/signup/">
         <imap
             host="imap.fastmail.com"
             port="993"
@@ -457,14 +459,18 @@
             port="465"
             starttls="false" />
         <!-- https://twitter.com/fastmail/status/569046903855271937 -->
+        <pop
+            host="pop.fastmail.com"
+            port="995"
+            starttls="false" />
         <oauth
             askAccount="true"
             authorizationEndpoint="https://api.fastmail.com/oauth/authorize"
-            clientId=""
-            enabled="false"
+            clientId="353941ae"
+            enabled="true"
             privacy="https://www.fastmail.com/features/privacy/"
-            redirectUri=""
-            scopes="urn:ietf:params:jmap:core,urn:ietf:params:jmap:mail,urn:ietf:params:jmap:submission"
+            redirectUri="http://localhost:49491/"
+            scopes="https://www.fastmail.com/dev/protocol-imap,https://www.fastmail.com/dev/protocol-smtp,https://www.fastmail.com/dev/protocol-pop"
             tokenEndpoint="https://api.fastmail.com/oauth/refresh">
             <!-- https://www.fastmail.com/dev/#o-auth-at-fastmail -->
         </oauth>
