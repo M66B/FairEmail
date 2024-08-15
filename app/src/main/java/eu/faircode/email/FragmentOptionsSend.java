@@ -32,6 +32,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -48,6 +49,7 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -102,6 +104,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private RadioGroup rgFwd;
     private SwitchCompat swSeparateReply;
     private SwitchCompat swExtendedReply;
+    private EditText etTemplateReply;
+    private TextView tvTemplateReplyHint;
     private SwitchCompat swWriteBelow;
     private SwitchCompat swQuoteReply;
     private SwitchCompat swQuoteLimit;
@@ -143,7 +147,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "sound_sent",
             "compose_color", "compose_font", "compose_monospaced",
             "prefix_once", "prefix_count", "alt_re", "alt_fwd",
-            "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit",
+            "separate_reply", "extended_reply", "template_reply", "write_below", "quote_reply", "quote_limit",
             "resize_reply", "resize_paste",
             "signature_location", "signature_new", "signature_reply", "signature_reply_once", "signature_forward",
             "send_at_top", "attach_new", "auto_link", "plain_only", "plain_only_reply",
@@ -198,6 +202,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         rgFwd = view.findViewById(R.id.rgFwd);
         swSeparateReply = view.findViewById(R.id.swSeparateReply);
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
+        etTemplateReply = view.findViewById(R.id.etTemplateReply);
+        tvTemplateReplyHint = view.findViewById(R.id.tvTemplateReplyHint);
         swWriteBelow = view.findViewById(R.id.swWriteBelow);
         swQuoteReply = view.findViewById(R.id.swQuoteReply);
         swQuoteLimit = view.findViewById(R.id.swQuoteLimit);
@@ -603,8 +609,32 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("extended_reply", checked).apply();
+                etTemplateReply.setEnabled(!checked);
             }
         });
+
+        etTemplateReply.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String template = s.toString();
+                if (TextUtils.isEmpty(template.trim()))
+                    prefs.edit().remove("template_reply").apply();
+                else
+                    prefs.edit().putString("template_reply", template).apply();
+            }
+        });
+
+        tvTemplateReplyHint.setText(getString(R.string.title_advanced_template_reply_hint, "$from$ $to$ $cc$ $time$ $subject$"));
 
         swWriteBelow.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -863,6 +893,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if (!RESET_OPTIONS.contains(key))
             return;
+        if ("template_reply".equals(key))
+            return;
         if ("purge_contact_age".equals(key) || "purge_contact_freq".equals(key))
             return;
         if ("send_retry_max".equals(key))
@@ -973,6 +1005,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
             swSeparateReply.setChecked(prefs.getBoolean("separate_reply", false));
             swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
+            etTemplateReply.setText(prefs.getString("template_reply", null));
+            etTemplateReply.setEnabled(!swExtendedReply.isChecked());
             swWriteBelow.setChecked(prefs.getBoolean("write_below", false));
             swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
             swQuoteLimit.setChecked(prefs.getBoolean("quote_limit", true));

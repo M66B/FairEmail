@@ -557,6 +557,7 @@ public class EntityMessage implements Serializable {
     Element getReplyHeader(Context context, Document document, boolean separate, boolean extended) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean hide_timezone = prefs.getBoolean("hide_timezone", false);
+        String template_reply = prefs.getString("template_reply", null);
         boolean language_detection = prefs.getBoolean("language_detection", false);
         String compose_font = prefs.getString("compose_font", "");
         String l = (language_detection ? language : null);
@@ -604,8 +605,17 @@ public class EntityMessage implements Serializable {
                 p.appendText(subject);
                 p.appendElement("br");
             }
-        } else
+        } else if (TextUtils.isEmpty(template_reply))
             p.text(date + " " + MessageHelper.formatAddresses(from) + ":");
+        else {
+            template_reply = template_reply.replace("$from$", MessageHelper.formatAddresses(from));
+            template_reply = template_reply.replace("$to$", MessageHelper.formatAddresses(to));
+            template_reply = template_reply.replace("$cc$", MessageHelper.formatAddresses(cc));
+            template_reply = template_reply.replace("$time$", date);
+            template_reply = template_reply.replace("$subject$", subject);
+            p.html(template_reply);
+        }
+
 
         Element div = document.createElement("div")
                 .attr("fairemail", "reply");

@@ -497,6 +497,7 @@
     <string name="title_advanced_prefix_count">Add count to reply prefix</string>
     <string name="title_advanced_separate_reply">Insert a horizontal line before a reply/forward header</string>
     <string name="title_advanced_extended_reply">Use extended reply/forward header</string>
+    <string name="title_advanced_template_reply">Reply/forward header template</string>
     <string name="title_advanced_write_above">Write above the sender\'s text</string>
     <string name="title_advanced_write_below">Write below the sender\'s text</string>
     <string name="title_advanced_quote_reply">Quote replied text</string>
@@ -1063,6 +1064,7 @@
     <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>
     <string name="title_advanced_reply_move_hint">The email server could still add the messages to the sent message folder</string>
     <string name="title_advanced_compose_color_hint">Very light or very dark colors will result in illegible messages on the recipients\' side</string>
+    <string name="title_advanced_template_reply_hint">HTML is allowed. Available placeholders: %1$s</string>
     <string name="title_advanced_write_below_hint">A recipient might miss your reply, for example when a longer message is being truncated</string>
     <string name="title_advanced_attach_new_hint">Otherwise, add shared addresses or files to the current draft message</string>
     <string name="title_advanced_usenet_hint">Insert \'-- \' between the text and the signature</string>

@@ -694,6 +694,46 @@
                     app:layout_constraintTop_toBottomOf="@id/swSeparateReply"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvTemplateReply"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_template_reply"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swExtendedReply" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etTemplateReply"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:hint="$time$ $from$:"
+                    android:imeOptions="actionDone"
+                    android:inputType="text|textNoSuggestions"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTemplateReply" />
+
+                <TextView
+                    android:id="@+id/tvTemplateReplyHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_template_reply_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etTemplateReply" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWriteBelow"
                     android:layout_width="0dp"
@@ -703,7 +743,7 @@
                     android:text="@string/title_advanced_write_below"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swExtendedReply"
+                    app:layout_constraintTop_toBottomOf="@id/tvTemplateReplyHint"
                     app:switchPadding="12dp" />
 
                 <TextView
