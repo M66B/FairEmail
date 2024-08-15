@@ -6120,9 +6120,10 @@ public class FragmentCompose extends FragmentBase {
                                 e.tagName("p");
                             reply.appendChild(e);
 
-                            if (wb && data.draft.wasforwardedfrom == null)
+                            if (wb && data.draft.wasforwardedfrom == null) {
+                                reply.appendElement("br");
                                 document.body().prependChild(reply);
-                            else
+                            } else
                                 document.body().appendChild(reply);
 
                             addSignature(context, document, data.draft, selected);
