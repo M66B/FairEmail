@@ -63,6 +63,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -255,17 +256,22 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
-        ibClear.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
-                (BuildConfig.DEBUG || debug) ? View.VISIBLE : View.GONE);
+        ibClear.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
         ibClear.setOnClickListener(new View.OnClickListener() {
             @Override
             @RequiresApi(api = Build.VERSION_CODES.O)
             public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putBoolean("debug", BuildConfig.DEBUG || debug);
+
                 new SimpleTask<Pair<String[], String[]>>() {
                     @Override
                     protected Pair<String[], String[]> onExecute(Context context, Bundle args) throws Throwable {
+                        boolean debug = args.getBoolean("debug");
+
                         String[] ids = NotificationHelper.getChannelIds(context);
-                        String[] titles = new String[ids.length];
+                        List<String> channels = new ArrayList<>();
+                        List<String> titles = new ArrayList<>();
 
                         DB db = DB.getInstance(context);
 
@@ -275,23 +281,32 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                                     long fid = Long.parseLong(ids[i].split("\\.")[2]);
                                     EntityFolder folder = db.folder().getFolder(fid);
                                     EntityAccount account = db.account().getAccount(folder == null ? -1L : folder.account);
-                                    titles[i] = (folder == null ? ids[i] : account.name + "/" + folder.name);
+                                    channels.add(ids[i]);
+                                    titles.add(folder == null ? ids[i] : account.name + "/" + folder.name);
                                 } else if (ids[i].startsWith("notification.")) {
                                     String[] parts = ids[i].split("\\.");
                                     if (parts.length == 2 && TextUtils.isDigitsOnly(parts[1])) {
-                                        long aid = Long.parseLong(parts[1]);
-                                        EntityAccount account = db.account().getAccount(aid);
-                                        titles[i] = (account == null ? ids[i] : account.name);
-                                    } else
-                                        titles[i] = ids[i].substring("notification.".length());
-                                } else
-                                    titles[i] = ids[i];
+                                        if (debug) {
+                                            long aid = Long.parseLong(parts[1]);
+                                            EntityAccount account = db.account().getAccount(aid);
+                                            channels.add(ids[i]);
+                                            titles.add(account == null ? ids[i] : account.name);
+                                        }
+                                    } else {
+                                        channels.add(ids[i]);
+                                        titles.add(ids[i].substring("notification.".length()));
+                                    }
+                                } else {
+                                    channels.add(ids[i]);
+                                    titles.add(ids[i]);
+                                }
                             } catch (Throwable ex) {
                                 Log.e(ex);
-                                titles[i] = ids[i];
+                                channels.add(ids[i]);
+                                titles.add(ids[i]);
                             }
 
-                        return new Pair<>(ids, titles);
+                        return new Pair<>(channels.toArray(new String[0]), titles.toArray(new String[0]));
                     }
 
                     @Override
@@ -359,7 +374,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
-                }.execute(FragmentOptionsNotifications.this, new Bundle(), "channel:list");
+                }.execute(FragmentOptionsNotifications.this, args, "channel:list");
             }
         });
 
