@@ -467,7 +467,7 @@
             askAccount="true"
             authorizationEndpoint="https://api.fastmail.com/oauth/authorize"
             clientId="353941ae"
-            enabled="true"
+            enabled="false"
             privacy="https://www.fastmail.com/features/privacy/"
             redirectUri="http://localhost:49491/"
             scopes="https://www.fastmail.com/dev/protocol-imap,https://www.fastmail.com/dev/protocol-smtp,https://www.fastmail.com/dev/protocol-pop"
