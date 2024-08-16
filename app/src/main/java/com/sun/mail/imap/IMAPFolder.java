@@ -3638,20 +3638,18 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 		ir.readAtomStringList(); // Skip EARLIER
 		String uids = ir.readAtom();
 		UIDSet[] uidset = UIDSet.parseUIDSets(uids);
-		if (uidset != null) {
-			List<Message> msgs = new ArrayList<>();
-			for (long uid : UIDSet.toArray(uidset)) {
-				Message m = uidTable.get(uid);
-				if (m != null && m.getMessageNumber() > 0) {
-					realTotal--;
-					messageCache.expungeMessage(m.getMessageNumber());
-					msgs.add(m);
-				}
+		List<Message> msgs = new ArrayList<>();
+		for (long uid : UIDSet.toArray(uidset)) {
+			Message m = uidTable.get(uid);
+			if (m != null && m.getMessageNumber() > 0) {
+				realTotal--;
+				messageCache.expungeMessage(m.getMessageNumber());
+				msgs.add(m);
 			}
-			if (!msgs.isEmpty() &&
-					doExpungeNotification && hasMessageCountListener)
-				notifyMessageRemovedListeners(true, msgs.toArray(new Message[0]));
 		}
+		if (!msgs.isEmpty() &&
+				doExpungeNotification && hasMessageCountListener)
+			notifyMessageRemovedListeners(true, msgs.toArray(new Message[0]));
 /*
 	    String[] s = ir.readAtomStringList();
 	    if (s == null) {	// no (EARLIER)
