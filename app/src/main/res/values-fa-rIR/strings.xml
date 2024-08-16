@@ -369,6 +369,7 @@
     <string name="title_advanced_auto_identity">برای پیام‌های جدید، هویت را خودکار انتخاب کن</string>
     <string name="title_advanced_prefix_count">افزودن تعداد به پیشوند پاسخ</string>
     <string name="title_advanced_extended_reply">استفاده از هدر پاسخ/فوروارد توسعه یافته</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">پاسخ/فوروارد قالب عنوان</string>
     <string name="title_advanced_write_above">در بالای نوشته فرستنده بنویسید</string>
     <string name="title_advanced_write_below">در پایین نوشته فرستنده بنویسید</string>
     <string name="title_advanced_quote_reply">متن پاسخ نقل قول شده</string>
@@ -449,7 +450,7 @@
     <string name="title_advanced_threading_unread">شمار پیام‌های خوانده نشده را در گفتگوها نمایش بده</string>
     <string name="title_advanced_indentation">تورفتگی چپ/راست پیام‌های دریافت/فرستاده شده در مکالمات</string>
     <string name="title_advanced_highlight_unread">برجسته‌سازی پیام‌های خوانده نشده</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">نمایش یک نوار رنگی یا نقطه رنگی</string>
+    <string name="title_advanced_account_color">نمایش یک نوار رنگی یا نقطه رنگی</string>
     <string name="title_advanced_color_stripe_wide">استفاده از نوار رنگی پهن</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_advanced_bimi">نمایش نشانگرهای برند برای شناسایی پیام (BIMI)</string>
@@ -640,6 +641,7 @@
     <string name="title_advanced_pull_all_hint">همزمان با پایین کشیدن لیست حساب‌ها یا پرونده‌ها</string>
     <string name="title_advanced_auto_identity_hint">این گزینه، آخرین هویت استفاده شده را به عنوان گیرنده پیام‌های جدید انتخاب خواهد کرد</string>
     <string name="title_advanced_send_reminders_hint">هنگامی که موضوع یا متن پیام خالی است یا یک پیوست ممکن است وجود نداشته باشد، یک هشدار نشان بده</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML مجاز است. جایبان‌های موجود: %1$s</string>
     <string name="title_advanced_usenet_hint">بین متن و امضا \'-- \' درج کنید</string>
     <string name="title_advanced_metered_hint">اتصال‌های حجمی عموما شبکه‌های موبایل یا یک هات اسپات غیر رایگان می‌باشند</string>
     <string name="title_advanced_metered_warning">غیرفعال‌سازی این گزینه، دریافت و فرستادن پیام‌ها را روی داده همراه غیرفعال خواهد کرد</string>
@@ -1665,8 +1667,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>هیچکدام</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">نوار</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">نقطه</item>
+        <item>نوار</item>
+        <item>نقطه</item>
     </string-array>
     <string-array name="contactTypes">
         <item>گیرنده</item>

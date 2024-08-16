@@ -506,7 +506,7 @@
     <string name="title_advanced_threading_unread">显示对话中未读邮件数</string>
     <string name="title_advanced_indentation">在对话中向左/向右缩进已收到/发送的邮件</string>
     <string name="title_advanced_highlight_unread">高亮未读邮件</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">显示颜色条纹或颜色点</string>
+    <string name="title_advanced_account_color">显示颜色条纹或颜色点</string>
     <string name="title_advanced_color_stripe_wide">使用宽色条</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_bimi">显示消息识别的品牌指示器 (BIMI)</string>
@@ -2299,8 +2299,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>无</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">条纹</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">点</item>
+        <item>条纹</item>
+        <item>点</item>
     </string-array>
     <string-array name="contactTypes">
         <item>收件人</item>

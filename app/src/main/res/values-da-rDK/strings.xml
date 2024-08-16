@@ -521,7 +521,7 @@
     <string name="title_advanced_threading_unread">Vis antal ulæste beskeder i samtaler</string>
     <string name="title_advanced_indentation">Venstre-/-højreindryk modtagne/sendte beskeder i samtaler</string>
     <string name="title_advanced_highlight_unread">Fremhæv ulæste beskeder</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Vis en farvestribe eller farveprik</string>
+    <string name="title_advanced_account_color">Vis en farvestribe eller farveprik</string>
     <string name="title_advanced_color_stripe_wide">Benyt bred farvestribe</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
     <string name="title_advanced_bimi">Vis Brand Indicators for Message Identification (BIMI)</string>
@@ -2322,8 +2322,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Ingen</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stribe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Prik</item>
+        <item>Stribe</item>
+        <item>Prik</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Modtager</item>

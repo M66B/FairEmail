@@ -420,6 +420,7 @@
     <string name="title_advanced_prefix_count">Prefiksi cavablandırmaq üçün sayğac əlavə et</string>
     <string name="title_advanced_separate_reply">Cavablama/yönləndirmə başlığından əvvəl üfüqi bir xətt əlavə et</string>
     <string name="title_advanced_extended_reply">Genişləndirilmiş cavablama/yönləndirmə başlığı istifadə et</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Cavabla/yönləndir başlıq şablonu</string>
     <string name="title_advanced_write_above">Göndərən mətninin üstünə yaz</string>
     <string name="title_advanced_write_below">Göndərən mətninin altına yaz</string>
     <string name="title_advanced_quote_reply">Cavablanan mətndən sitat gətir</string>
@@ -521,7 +522,7 @@
     <string name="title_advanced_threading_unread">Danışıqda oxunmamış mesaj sayını göstər</string>
     <string name="title_advanced_indentation">Danışıqlarda alınan/göndərilən mesajların sol/sağ boşluğu</string>
     <string name="title_advanced_highlight_unread">Oxunmamış mesajları vurğula</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Rəngli bir zolaq və ya rəngli nöqtə göstər</string>
+    <string name="title_advanced_account_color">Rəngli bir zolaq və ya rəngli nöqtə göstər</string>
     <string name="title_advanced_color_stripe_wide">Geniş rəng zolağı istifadə et</string>
     <string name="title_advanced_avatars">Əlaqə fotolarını göstər</string>
     <string name="title_advanced_bimi">Mesaj İdentifikasiyası üçün Marka İndikatorlarını (BIMI) göstər</string>
@@ -844,6 +845,7 @@
     <string name="title_advanced_send_reminders_hint">Mesaj mətni və ya mövzu boş olanda və ya bir qoşma əskik olanda bir xəbərdarlıq göstər</string>
     <string name="title_advanced_reply_move_hint">E-poçt serveri, mesajları yenə də göndərilən mesaj qovluğuna əlavə edə bilər</string>
     <string name="title_advanced_compose_color_hint">Çox açıq və ya çox tünd rənglər, alıcının mesajları oxuya bilməməsi ilə nəticələnir</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML-ə icazə verilir. Mövcud placeholder: %1$s</string>
     <string name="title_advanced_write_below_hint">Alıcı, məsələn uzun mesaj kəsiləndə cavabınızı buraxa bilər</string>
     <string name="title_advanced_attach_new_hint">Əks halda, paylaşılan ünvanları və ya faylları hazırkı qaralama mesajına əlavə edin</string>
     <string name="title_advanced_usenet_hint">Mətn və imza arasına \'-- \' əlavə et</string>
@@ -2314,8 +2316,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Heç biri</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Zolaq</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Nöqtə</item>
+        <item>Zolaq</item>
+        <item>Nöqtə</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Alıcı</item>

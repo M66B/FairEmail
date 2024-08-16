@@ -1692,8 +1692,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>없음</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item>Stripe</item>
+        <item>Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>받는사람</item>

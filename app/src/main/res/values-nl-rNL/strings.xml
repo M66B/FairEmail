@@ -418,6 +418,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_prefix_count">Aantal toevoegen aan antwoord voorvoegsel</string>
     <string name="title_advanced_separate_reply">Voeg een horizontale lijn in voor een antwoord/doorsturen kop</string>
     <string name="title_advanced_extended_reply">Gebruik uitgebreide kop bij antwoorden/doorsturen</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Antwoord/doorsturen sjabloon</string>
     <string name="title_advanced_write_above">Schrijf boven de tekst van de afzender</string>
     <string name="title_advanced_write_below">Schrijf onder de tekst van de afzender</string>
     <string name="title_advanced_quote_reply">Haal beantwoorde tekst aan</string>
@@ -519,7 +520,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_threading_unread">Toon aantal ongelezen berichten in gesprekken</string>
     <string name="title_advanced_indentation">Links/rechts inspringen van ontvangen/verzonden berichten in gesprekken</string>
     <string name="title_advanced_highlight_unread">Ongelezen berichten markeren</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Een kleurenstreep of kleurstip weergeven</string>
+    <string name="title_advanced_account_color">Een kleurenstreep of kleurstip weergeven</string>
     <string name="title_advanced_color_stripe_wide">Gebruik brede kleurenstreep</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_bimi">Toon Brand Indicators for Message Identification (BIMI)</string>
@@ -841,6 +842,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_send_reminders_hint">Toon een waarschuwing wanneer de berichttekst of het onderwerp leeg is of wanneer een bijlage zou kunnen ontbreken</string>
     <string name="title_advanced_reply_move_hint">De e-mailserver kan de berichten nog steeds toevoegen aan de map met verzonden berichten</string>
     <string name="title_advanced_compose_color_hint">Zeer lichte of zeer donkere kleuren leiden tot onleesbare berichten aan de kant van de ontvanger</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML is toegestaan. Beschikbare plaatsvervangers: %1$s</string>
     <string name="title_advanced_write_below_hint">Een ontvanger mist mogelijk uw antwoord, bijvoorbeeld wanneer een langer bericht wordt ingekort</string>
     <string name="title_advanced_attach_new_hint">Voeg anders gedeelde adressen of bestanden toe aan het huidige conceptbericht</string>
     <string name="title_advanced_usenet_hint">Voeg \'-- \' in tussen de tekst en de handtekening</string>
@@ -2307,8 +2309,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     </string-array>
     <string-array name="accountColorNames">
         <item>Geen</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Streep</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Stip</item>
+        <item>Streep</item>
+        <item>Stip</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Ontvanger</item>

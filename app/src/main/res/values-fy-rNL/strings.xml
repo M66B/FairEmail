@@ -519,7 +519,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_threading_unread">Net-lêzen berjochten yn petearen toane</string>
     <string name="title_advanced_indentation">Links/rjochts ynspringe fan ûntfongen/ferstjoerde berjochten yn petearen</string>
     <string name="title_advanced_highlight_unread">Net-lêzen berjochten markearje</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">In kleurestreek of kleurestip toane</string>
+    <string name="title_advanced_account_color">In kleurestreek of kleurestip toane</string>
     <string name="title_advanced_color_stripe_wide">Brede kleurestreep brûke</string>
     <string name="title_advanced_avatars">Kontaktfoto’s toane</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) toane</string>
@@ -2313,8 +2313,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     </string-array>
     <string-array name="accountColorNames">
         <item>Gjin</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Streek</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Stip</item>
+        <item>Streek</item>
+        <item>Stip</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Untfanger</item>

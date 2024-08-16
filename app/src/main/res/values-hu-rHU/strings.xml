@@ -418,6 +418,7 @@
     <string name="title_advanced_prefix_count">Számláló hozzáadása a válasz előtaghoz</string>
     <string name="title_advanced_separate_reply">Fekvő vonal elhelyezése a válasz/továbbítás fejléc előtt</string>
     <string name="title_advanced_extended_reply">Kiterjesztett válasz/továbbítás fejléc használata</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Válasz/továbbítás címzés sablon</string>
     <string name="title_advanced_write_above">Írás a küldő szövege fölé</string>
     <string name="title_advanced_write_below">Írás a küldő szövege alatt</string>
     <string name="title_advanced_quote_reply">Megválaszolt szöveg idézése</string>
@@ -519,7 +520,7 @@
     <string name="title_advanced_threading_unread">Olvasatlan üzenetek számának mutatása beszélgetésekben</string>
     <string name="title_advanced_indentation">Beérkezett/elküldött üzenetek balra/jobbra tördelése a beszélgetésekben</string>
     <string name="title_advanced_highlight_unread">Olvasatlan üzenetek kiemelése</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Színes sáv, vagy pötty mutatása</string>
+    <string name="title_advanced_account_color">Színes sáv, vagy pötty mutatása</string>
     <string name="title_advanced_color_stripe_wide">Széles színcsík használata</string>
     <string name="title_advanced_avatars">Névjegyzék fényképeinek megjelenítése</string>
     <string name="title_advanced_bimi">Mutassa a Márkajelzést Üzenetazonosításhoz (BIMI)</string>
@@ -841,6 +842,7 @@
     <string name="title_advanced_send_reminders_hint">Figyelmeztetés megjelenítése, ha az üzenet szövege vagy a tárgy üres, illetve ha a melléklet feltehetőleg hiányzik</string>
     <string name="title_advanced_reply_move_hint">Az e-mail szerver továbbra is felveheti az üzeneteket az elküldött üzenetek mappájába</string>
     <string name="title_advanced_compose_color_hint">Nagyon világos vagy sötét szín választása a címzett számára olvashatatlan üzenetet eredményezhet</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML használható. Elérhető helyőrzők: %1$s</string>
     <string name="title_advanced_write_below_hint">A címzett így lemaradhat az ön válaszáról, például ha hosszú üzenetváltást rövidebbre metszenek</string>
     <string name="title_advanced_attach_new_hint">Vagy, a megosztás során kapott címet vagy fájlokat adja hozzá a jelenlegi vázlathoz</string>
     <string name="title_advanced_usenet_hint">Elválasztó \'--\' beillesztése a szövegtörzs és az aláírás közé</string>
@@ -2313,8 +2315,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Egyik sem</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Stripe</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Dot</item>
+        <item>Stripe</item>
+        <item>Dot</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Címzett</item>

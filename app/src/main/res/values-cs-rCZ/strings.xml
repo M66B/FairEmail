@@ -549,7 +549,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_threading_unread">Zobrazit počet nepřečtených zpráv v konverzacích</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
     <string name="title_advanced_highlight_unread">Zvýraznit nepřečtené zprávy</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Zobrazit barevný pruh nebo barevný bod</string>
+    <string name="title_advanced_account_color">Zobrazit barevný pruh nebo barevný bod</string>
     <string name="title_advanced_color_stripe_wide">Použít široký barevný pruh</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_bimi">Zobrazit Brand Indicators for Message Identification (BIMI)</string>
@@ -2348,8 +2348,8 @@ v prohlížeči ze všech Google účtů.</string>
     </string-array>
     <string-array name="accountColorNames">
         <item>Žádné</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Pruh</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Tečka</item>
+        <item>Pruh</item>
+        <item>Tečka</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Příjemce</item>

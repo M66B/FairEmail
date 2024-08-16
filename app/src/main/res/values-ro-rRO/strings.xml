@@ -534,7 +534,7 @@
     <string name="title_advanced_threading_unread">Arată numărul de mesaje necitite în conversații</string>
     <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
     <string name="title_advanced_highlight_unread">Evidențiază mesajele necitite</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Arată o bandă de culoare sau un punct de culoare</string>
+    <string name="title_advanced_account_color">Arată o bandă de culoare sau un punct de culoare</string>
     <string name="title_advanced_color_stripe_wide">Utilizați bandă largă de culoare</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_bimi">Arată Brand Indicators for Message Identification (BIMI)</string>
@@ -2332,8 +2332,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Fără</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Benzi</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Punct</item>
+        <item>Benzi</item>
+        <item>Punct</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatar</item>

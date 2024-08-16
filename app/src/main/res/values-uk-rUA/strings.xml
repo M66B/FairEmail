@@ -549,7 +549,7 @@
     <string name="title_advanced_threading_unread">Показувати кількість непрочитаних повідомлень у розмовах</string>
     <string name="title_advanced_indentation">Відступати ліворуч чи праворуч для отриманих або надісланих повідомлень у розмовах</string>
     <string name="title_advanced_highlight_unread">Підсвічувати непрочитані повідомлення</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Показувати кольорову смугу або кольорову крапку</string>
+    <string name="title_advanced_account_color">Показувати кольорову смугу або кольорову крапку</string>
     <string name="title_advanced_color_stripe_wide">Використовувати широку кольорову смугу</string>
     <string name="title_advanced_avatars">Показувати фото контактів</string>
     <string name="title_advanced_bimi">Показувати індикатори брендів для ідентифікації повідомлень (BIMI)</string>
@@ -2349,8 +2349,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Нічого</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Смуга</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Крапка</item>
+        <item>Смуга</item>
+        <item>Крапка</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Одержувач</item>

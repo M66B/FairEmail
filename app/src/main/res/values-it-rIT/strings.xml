@@ -420,6 +420,7 @@
     <string name="title_advanced_prefix_count">Aggiungi conteggio al prefisso di risposta</string>
     <string name="title_advanced_separate_reply">Inserisci una riga orizzontale prima di un\'intestazione di risposta/inoltro</string>
     <string name="title_advanced_extended_reply">Usa intestazione estesa di risposto/inoltro</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Modello intestazione risposta/inoltro</string>
     <string name="title_advanced_write_above">Scrivi sopra al testo del mittente</string>
     <string name="title_advanced_write_below">Scrivi sotto il testo del mittente</string>
     <string name="title_advanced_quote_reply">Cita il testo risposto</string>
@@ -521,7 +522,7 @@
     <string name="title_advanced_threading_unread">Mostra il numero di messaggi non letti nelle conversazioni</string>
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Mostra una striscia colorata o un punto colorato</string>
+    <string name="title_advanced_account_color">Mostra una striscia colorata o un punto colorato</string>
     <string name="title_advanced_color_stripe_wide">Usa un\'ampia striscia di colore</string>
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
     <string name="title_advanced_bimi">Mostra il logo del mittente (BIMI, Brand Indicators for Message Identification)</string>
@@ -790,10 +791,10 @@
     <string name="title_advanced_openai_moderation">Moderazione dei contenuti</string>
     <string name="title_advanced_gemini">Integrazione di Gemini</string>
     <string name="title_advanced_multi_modal">Multimodale</string>
-    <string name="title_advanced_summarize_prompt">Invito per riassumere</string>
-    <string name="title_advanced_answer_prompt">Invito per rispondere</string>
+    <string name="title_advanced_summarize_prompt">Comando per riassumere</string>
+    <string name="title_advanced_answer_prompt">Comando per rispondere</string>
     <string name="title_advanced_system_instructions">Istruzioni di sistema</string>
-    <string name="title_advanced_default_prompt">Invito di default</string>
+    <string name="title_advanced_default_prompt">Comando predefinito</string>
     <string name="title_advanced_entered_text">Testo inserito</string>
     <string name="title_advanced_sdcard">Desidero usare una scheda sd</string>
     <string name="title_advanced_watchdog">Verifica periodicamente se FairEmail è ancora attivo</string>
@@ -845,6 +846,7 @@
     <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo o l\'oggetto del messaggio sono vuoti o quando un allegato potrebbe mancare</string>
     <string name="title_advanced_reply_move_hint">Il server email potrebbe ancora aggiungere i messaggi alla cartella dei messaggi inviati</string>
     <string name="title_advanced_compose_color_hint">Colori molto chiari o molto scuri renderanno i messaggi illeggibili dai destinatari</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML consentito. Segnaposti disponibili: %1$s</string>
     <string name="title_advanced_write_below_hint">Un destinatario potrebbe perdere la risposta, ad esempio quando un messaggio più lungo viene troncato</string>
     <string name="title_advanced_attach_new_hint">Altrimenti, aggiungi gli indirizzi o file condivisi al messaggio di bozza corrente</string>
     <string name="title_advanced_usenet_hint">Inserisci \'--\' tra il testo e la firma</string>
@@ -853,7 +855,7 @@
     <string name="title_advanced_metered_warning">Disabilitare quest\'opzione disabiliterà la ricezione e l\'invio dei messaggi su connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi che non ci sia roaming nell\'UE</string>
     <string name="title_advanced_usage_hint">Questo aumenterà l\'uso di batteria, dati e spazio d\'archiviazione</string>
-    <string name="title_advanced_plain_hint">Abilitarlo limiterà l\'uso dei dati ma i messaggi saranno mostrati senza stile e senza immagini</string>
+    <string name="title_advanced_plain_hint">Abilitarlo limiterà l\'uso dei dati, ma i messaggi saranno mostrati senza stili e senza immagini</string>
     <string name="title_advanced_plain_remark">La parte in testo semplice non contiene sempre il messaggio completo!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Abilitarlo può causare problemi di connessione su alcuni dispositivi e può aumentare l\'uso della batteria</string>
     <string name="title_advanced_validate_hint">Questo può risultare nel non sincronizzare i messaggi, ad esempio usando una VPN, ma anche altre situazioni</string>
@@ -873,8 +875,8 @@
     <string name="title_advanced_indentation_hint">Soltanto per lo stile della carta</string>
     <string name="title_advanced_highlight_hint">Il colore secondario del tema sarà usato per l\'evidenziazione</string>
     <string name="title_advanced_free">Questo servizio cloud è gratuito da usare</string>
-    <string name="title_advanced_free_tier">Questo servizio cloud è limitato da usare gratuitamente</string>
-    <string name="title_advanced_paid_service">Questo servizio cloud richiede pagamento</string>
+    <string name="title_advanced_free_tier">Questo servizio cloud ha un uso gratuito limitato</string>
+    <string name="title_advanced_paid_service">Questo servizio cloud richiede il pagamento</string>
     <string name="title_advanced_privacy_risk">Potrebbe esistere un rischio per la privacy</string>
     <string name="title_advanced_name_email_hint">I nomi saranno mostrati solo quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando il testo del messaggio è stato scaricato</string>
@@ -942,7 +944,7 @@
     <string name="title_identity_name">Il tuo nome</string>
     <string name="title_identity_email">Il tuo indirizzo email</string>
     <string name="title_identity_tenant_hint">Questo campo dovrebbe esser vuoto in gran parte dei casi</string>
-    <string name="title_identity_receive_first_hint">Raramente è necessario attivare questa opzione e inoltre, l\'utilizzo dei dati aumenterà!</string>
+    <string name="title_identity_receive_first_hint">Raramente è necessario attivare questa opzione e inoltre l\'utilizzo dei dati aumenterà!</string>
     <string name="title_identity_color_hint">I colori dell\'identità hanno la precedenza sui colori della cartella e del profilo</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo del mittente</string>
     <string name="title_advanced_sender_name">Usa il nome quando l\'indirizzo del mittente è modificato</string>
@@ -1012,12 +1014,12 @@
     <string name="title_primary_identity">Principale (identità predefinita)</string>
     <string name="title_self_identity">Rimuovi l\'indirizzo email alla risposta</string>
     <string name="title_leave_on_server">Lascia i messaggi sul server</string>
-    <string name="title_leave_on_server_hint">Dopo aver scaricato messaggi dal server, questi rimangono sul server</string>
+    <string name="title_leave_on_server_hint">Dopo aver scaricato i messaggi dal server, questi rimangono sul server</string>
     <string name="title_client_delete">Elimina attivamente i messaggi dopo il download</string>
     <string name="title_leave_deleted">Lascia i messaggi eliminati sul server</string>
-    <string name="title_leave_deleted_hint">Dopo aver eliminato messaggi dal dispositivo, questi rimarranno sul server</string>
+    <string name="title_leave_deleted_hint">Dopo aver eliminato i messaggi dal dispositivo, questi rimarranno sul server</string>
     <string name="title_leave_on_device">Lascia messaggi sul dispositivo</string>
-    <string name="title_leave_on_device_hint">Eliminando messaggi dal server, questi rimangono sul dispositivo</string>
+    <string name="title_leave_on_device_hint">Quando si eliminano i messaggi dal server, questi rimangono sul dispositivo</string>
     <string name="title_max_messages">Numero massimo di messaggi da scaricare (vuoto per tutti)</string>
     <string name="title_max_messages_keep">Questo è il numero massimo di messaggi che verranno mantenuti sul dispositivo</string>
     <string name="title_max_messages_remark">        Inserisci un numero positivo per scaricare i messaggi al termine (più comune)
@@ -1110,7 +1112,7 @@
     <string name="title_expunge_remark">Questo eliminerà permanentemente tutti i messaggi contrassegnati per l\'eliminazione</string>
     <string name="title_empty_trash">Svuota il cestino</string>
     <string name="title_empty_spam">Svuota lo spam</string>
-    <string name="title_edit_color">Modifica colore</string>
+    <string name="title_edit_color">Modifica il colore</string>
     <string name="title_edit_properties">Modifica le proprietà</string>
     <string name="title_edit_rules">Modifica le regole</string>
     <string name="title_execute_rules">Esegui le regole</string>
@@ -1369,9 +1371,9 @@
     <string name="title_ask_show_html">Mostrare il messaggio originale potrebbe causare una fuga di informazioni sensibili sulla privacy</string>
     <string name="title_ask_show_html_remark">Mostrare il messaggio originale su uno sfondo scuro è impossibile poiché potrebbe rendere i testi e le immagini scuri invisibili</string>
     <string name="title_ask_show_html_images">Mostra sempre le immagini mostrando i messaggi originali</string>
-    <string name="title_ask_show_html_always">Mostra i messaggi originali di default</string>
+    <string name="title_ask_show_html_always">Mostra sempre i messaggi originali</string>
     <string name="title_ask_show_image">Mostrare le immagini potrebbe causare una fuga di informazioni sensibili sulla privacy</string>
-    <string name="title_ask_show_images_always">Mostra le immagini di default</string>
+    <string name="title_ask_show_images_always">Mostra sempre le immagini</string>
     <string name="title_ask_show_image_hint">Le immagini riconosciute come di monitoraggio non saranno mostrate</string>
     <string name="title_ask_show_amp">Mostrare la variante AMP del messaggio?</string>
     <string name="title_ask_show_amp_hint">I messaggi AMP sono progettati per esser dinamici e interagire con l\'Internet e possono dunque, per definizione, esser usati per monitorarti</string>
@@ -1389,10 +1391,10 @@
     <string name="title_third_party">Stai usando una versione di terze parti</string>
     <string name="title_expand_warning">Espandere questo messaggio scaricherà %1$s</string>
     <string name="title_download_message">Scaricando&#8230;</string>
-    <string name="title_reformatted">        Questa è la visualizzazione di messaggio sicuro e riformattato.
+    <string name="title_reformatted">        Questa è la visualizzazione sicura del messaggio riformattato.
         Puoi toccare l\'icona &#x26F6; per visualizzare il messaggio originale meno sicuro e nascondere questo.
         La riformattazione dei messaggi richiede un po\' di tempo, in base alla dimensione del messaggio e alla velocità del tuo dispositivo.
-        A volte, il messaggio originale deve essere visualizzato per vedere i codici QR.
+        A volte il messaggio originale deve essere visualizzato per vedere i codici QR.
     </string>
     <string name="title_compose">Scrivi</string>
     <string name="title_submitter">Inviato da:</string>
@@ -1545,7 +1547,7 @@
     <string name="title_dsn_reminder">Gli hard bounce danneggiano la reputazione dell\'email del mittente originale!</string>
     <string name="title_size_reminder">Messaggio (%1$s) più grande del limite del server (%2$s)</string>
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
-    <string name="title_download_attachments">Scarica allegati</string>
+    <string name="title_download_attachments">Scarica gli allegati</string>
     <string name="title_attachments_download">Allegati scaricati: %1$s</string>
     <string name="title_attachments_no_download">Questo non sarà più mostrato e gli allegati non saranno più scaricati automaticamente</string>
     <string name="title_dialog_hint">Questa finestra è riabilitabile tramite il menu a tre puntini nella barra d\'azione superiore</string>
@@ -2322,8 +2324,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Nessuna</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Striscia</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Punto</item>
+        <item>Striscia</item>
+        <item>Punto</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatario</item>

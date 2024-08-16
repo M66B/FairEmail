@@ -520,7 +520,7 @@
     <string name="title_advanced_threading_unread">Προβολή αριθμού μη αναγνωσμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_indentation">Αριστερή/δεξιά εσοχή ειλημμένων/απεσταλμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_highlight_unread">Να επισημαίνονται τα μη αναγνωσμένα μηνύματα</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Προβολή μιας χρωματιστής λωρίδας ή μιας χρωματιστής κουκκίδας</string>
+    <string name="title_advanced_account_color">Προβολή μιας χρωματιστής λωρίδας ή μιας χρωματιστής κουκκίδας</string>
     <string name="title_advanced_color_stripe_wide">Χρήση φαρδιάς λωρίδας χρώματος</string>
     <string name="title_advanced_avatars">Προβολή φωτογραφιών επαφών</string>
     <string name="title_advanced_bimi">Προβολή των Brand Indicators for Message Identification (BIMI)</string>
@@ -2316,8 +2316,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Καμία</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Λωρίδα</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Κουκκίδα</item>
+        <item>Λωρίδα</item>
+        <item>Κουκκίδα</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Παραλήπτης</item>

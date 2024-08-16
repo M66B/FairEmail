@@ -421,6 +421,7 @@
     <string name="title_advanced_prefix_count">Zähler zum Antwortpräfix hinzufügen</string>
     <string name="title_advanced_separate_reply">Eine horizontale Linie vor einer Antwort/Weiterleitung einfügen</string>
     <string name="title_advanced_extended_reply">Erweiterte Antwort-/Weiterleitungs-Kopfzeile verwenden</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Kopfzeilenvorlage für Antworten/Weiterleiten</string>
     <string name="title_advanced_write_above">Oberhalb des zitierten Textes des Absenders schreiben</string>
     <string name="title_advanced_write_below">Unter dem zitierten Text des Absenders schreiben</string>
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
@@ -522,7 +523,7 @@
     <string name="title_advanced_threading_unread">Anzahl ungelesener Nachrichten in Unterhaltungen anzeigen</string>
     <string name="title_advanced_indentation">Empfangene/gesendete Nachrichten im Themenbaum links/rechts einrücken</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten hervorheben</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Farbstreifen oder Farbpunkt anzeigen</string>
+    <string name="title_advanced_account_color">Farbstreifen oder Farbpunkt anzeigen</string>
     <string name="title_advanced_color_stripe_wide">Breite Farbstreifen verwenden</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) anzeigen</string>
@@ -846,6 +847,7 @@
     <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
     <string name="title_advanced_reply_move_hint">Der E-Mail-Server könnte die Nachrichten trotzdem in den Ordner für gesendete Nachrichten hinzufügen</string>
     <string name="title_advanced_compose_color_hint">Sehr helle oder sehr dunkle Farben führen zu unleserlichen Nachrichten auf der Seite des Empfängers</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML ist erlaubt. Verfügbare Platzhalter: %1$s</string>
     <string name="title_advanced_write_below_hint">Ein Empfänger könnte Ihre Antwort verpassen, wenn zum Beispiel eine längere Nachricht abgeschnitten wird</string>
     <string name="title_advanced_attach_new_hint">Anderenfalls dem aktuellen Nachrichtenentwurf freigegebene Adressen oder Dateien hinzufügen</string>
     <string name="title_advanced_usenet_hint">Signaturtrenner »-- « zwischen Text und Signatur einfügen</string>
@@ -2323,8 +2325,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Keine</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Streifen</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Punkt</item>
+        <item>Streifen</item>
+        <item>Punkt</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Empfänger</item>

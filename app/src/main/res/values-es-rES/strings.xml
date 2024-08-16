@@ -419,6 +419,7 @@
     <string name="title_advanced_prefix_count">Añadir contador a prefijo de respuesta</string>
     <string name="title_advanced_separate_reply">Insertar una línea horizontal antes de un encabezado de respuesta/reenvío</string>
     <string name="title_advanced_extended_reply">Usar encabezado de respuesta/reenvío extendido</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Plantilla de cabecera de respuesta/redirección</string>
     <string name="title_advanced_write_above">Escribir sobre el texto del remitente</string>
     <string name="title_advanced_write_below">Escribir debajo del texto del remitente</string>
     <string name="title_advanced_quote_reply">Citar texto a responder</string>
@@ -520,7 +521,7 @@
     <string name="title_advanced_threading_unread">Mostrar número de mensajes no leídos en conversaciones</string>
     <string name="title_advanced_indentation">Sangría izquierda/derecha para mensajes recibidos/enviados en conversaciones</string>
     <string name="title_advanced_highlight_unread">Resaltar mensajes no leídos</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Mostrar línea de color o punto de color</string>
+    <string name="title_advanced_account_color">Mostrar línea de color o punto de color</string>
     <string name="title_advanced_color_stripe_wide">Usar banda de color ancha</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_bimi">Mostrar Brand Indicators for Message Identification (BIMI)</string>
@@ -843,6 +844,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar una advertencia cuando el texto del mensaje o el asunto estén vacíos o cuando un archivo adjunto pueda estar ausente</string>
     <string name="title_advanced_reply_move_hint">El servidor de correo electrónico todavía puede añadir los mensajes a la carpeta de mensajes enviados</string>
     <string name="title_advanced_compose_color_hint">Los colores muy claros o muy oscuros resultarán en mensajes ilegibles en el lado de los destinatarios</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML está permitido. Marcadores de posición disponibles: %1$s</string>
     <string name="title_advanced_write_below_hint">Un destinatario puede perderse su respuesta, por ejemplo cuando un mensaje más largo está siendo truncado</string>
     <string name="title_advanced_attach_new_hint">De lo contrario, añadir direcciones compartidas o archivos al mensaje de borrador actual</string>
     <string name="title_advanced_usenet_hint">Insertar \'-- \' entre el texto y la firma</string>
@@ -2316,8 +2318,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Ninguna</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Línea</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Punto</item>
+        <item>Línea</item>
+        <item>Punto</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatario</item>

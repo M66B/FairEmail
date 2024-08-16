@@ -520,7 +520,7 @@
     <string name="title_advanced_threading_unread">Показване на броя на непрочетените съобщения в разговорите</string>
     <string name="title_advanced_indentation">Ляв/десен отстъп на получени/изпратени съобщения в разговори</string>
     <string name="title_advanced_highlight_unread">Маркирай непрочетените съобщения</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Показване на цветна ивица или точка</string>
+    <string name="title_advanced_account_color">Показване на цветна ивица или точка</string>
     <string name="title_advanced_color_stripe_wide">Употреба на широка гама цветове</string>
     <string name="title_advanced_avatars">Показване на снимки на контакт</string>
     <string name="title_advanced_bimi">Показване на „Brand Indicators for Message Identification“ (BIMI)</string>
@@ -2318,8 +2318,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Нищо</item>
-        <item comment="accountColorNames&#10;Title for selecting a color stripe (display-settings tab page)">Ивица</item>
-        <item comment="accountColorNames&#10;Title for selecting a color dot (display-settings tab page)">Точка</item>
+        <item>Ивица</item>
+        <item>Точка</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Получател</item>
