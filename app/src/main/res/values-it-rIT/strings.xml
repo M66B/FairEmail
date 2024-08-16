@@ -14,7 +14,7 @@
     <string name="app_cake_required">Spazio di archiviazione minimo necessario: %1$s</string>
     <string name="app_updated">Ultimo aggiornamento: %1$s</string>
     <string name="app_download">Scaricata da: %1$s</string>
-    <string name="app_motd">        Con Android 14/15 beta, \'App non risponde\' le notifiche occasionalmente si verificano.
+    <string name="app_motd">        Con Android 14/15 beta, può succedere di vedere la notifica \'L\'app non risponde\'.
         Google sta lavorando su una correzione.
         Non incolpare l\'app per questo problema Android!
     </string>
@@ -195,8 +195,8 @@
     <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, scrivere, inviare ed eliminare permanentemente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza il tuo consenso esplicito.</string>
     <string name="title_setup_gmail_login">Se Chrome è connesso a un profilo, puoi aggiungere un nuovo profilo solo tramite Android. Ciò si può evitare disconnettendosi da Chrome tramite le impostazioni di sincronizzazione di Chrome.</string>
     <string name="title_setup_gmail_max">In caso di messaggio d\'errore \"Sei connesso al numero massimo di profili\", devi disconnettere il browser da tutti i profili di Google.</string>
-    <string name="title_setup_outlook_hint">Nel caso di un indirizzo di alias, la procedura guidata Office 365 dovrebbe probabilmente essere utilizzata.</string>
-    <string name="title_setup_outlook_modern">A causa dei cambiamenti nelle politiche di sicurezza di Microsoft, dal 16 settembre 2024, solo la procedura guidata Outlook/Hotmail/Live funzionerà.</string>
+    <string name="title_setup_outlook_hint">Nel caso di un indirizzo alias, la procedura guidata Office 365 dovrebbe probabilmente essere utilizzata.</string>
+    <string name="title_setup_outlook_modern">A causa dei cambiamenti nelle politiche di sicurezza di Microsoft, dal 16 settembre 2024, funzionerà solo la procedura guidata Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Perché devo selezionare un profilo presente sul dispositivo?</string>
     <string name="title_setup_gmail_password">Desidero autorizzare un profilo con una password, invece di un profilo su dispositivo</string>
     <string name="title_setup_office_auth">L\'errore \'AUTHENTICATE fallita\' può esser causato dalla disabilitazione di IMAP/SMTP dall\'amministratore di sistema</string>
@@ -206,7 +206,7 @@
     <string name="title_setup_oauth_update">Autorizza nuovamente un profilo esistente (altrimenti creane uno nuovo)</string>
     <string name="title_setup_oauth_updated">Autorizzazione del profilo aggiornata</string>
     <string name="title_setup_oauth_brave">Utilizzando il browser Brave, devi abilitare l\'opzione nelle sue impostazioni, per consentire ai link dell\'app di essere aperti in app esterne a Brave</string>
-    <string name="title_setup_oauth_browser">L\'autorizzazione richiede un browser funzionale</string>
+    <string name="title_setup_oauth_browser">L\'autorizzazione richiede un browser funzionante</string>
     <string name="title_setup_oauth_authorize">Autorizza</string>
     <string name="title_setup_select_account">Seleziona profilo</string>
     <string name="title_setup_instructions">Istruzioni di configurazione</string>
@@ -401,7 +401,7 @@
     <string name="title_advanced_send_nav_color">Utilizza il colore dell\'identità per la barra delle azioni inferiore</string>
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_send_delayed">Ritarda invio dei messaggi</string>
-    <string name="title_advanced_send_top">Mostra il pulsante Inviare in cima</string>
+    <string name="title_advanced_send_top">Mostra il pulsante Invia in cima</string>
     <string name="title_advanced_attach_new">Crea un nuovo messaggio di bozza per indirizzi e file condivisi</string>
     <string name="title_advanced_answer_caption">Impostazioni del pulsante di risposta</string>
     <string name="title_advanced_answer_default">La pressione breve del pulsante di risposta:</string>
@@ -463,7 +463,7 @@
     <string name="title_advanced_prefer_ip4">Preferisce IPv4 su IPv6</string>
     <string name="title_advanced_dns">Indirizzi DNS server preferiti (separati da virgole)</string>
     <string name="title_advanced_dns_custom">Utilizza risolutore DNS personalizzato</string>
-    <string name="title_advanced_dns_clear">Svuota cache DNS in caso di modifiche di connettività</string>
+    <string name="title_advanced_dns_clear">Svuota la cache DNS in caso di modifiche alla connettività</string>
     <string name="title_advanced_ssl_update">Utilizza il fornitore SSL aggiornato</string>
     <string name="title_advanced_ssl_harden">Indurisci connessioni SSL</string>
     <string name="title_advanced_ssl_harden_strict">Richiede TLS 1.3</string>
@@ -521,10 +521,10 @@
     <string name="title_advanced_threading_unread">Mostra il numero di messaggi non letti nelle conversazioni</string>
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
-    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Mostra una striscia di colore o un punto di colore</string>
+    <string name="title_advanced_account_color" comment="title_advanced_account_color&#10;Title for an option in the display settings tab page to select none, color stripe or color dot">Mostra una striscia colorata o un punto colorato</string>
     <string name="title_advanced_color_stripe_wide">Usa un\'ampia striscia di colore</string>
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
-    <string name="title_advanced_bimi">Mostra gli indicatori di marca per l\'identificazione dei messaggi (BIMI)</string>
+    <string name="title_advanced_bimi">Mostra il logo del mittente (BIMI, Brand Indicators for Message Identification)</string>
     <string name="title_advanced_bimi_vmc">Richiede un certificato VMC valido</string>
     <string name="title_advanced_bimi_unverified">Mittente non verificato</string>
     <string name="title_advanced_bimi_verified">Mittente verificato</string>
@@ -533,8 +533,8 @@
     <string name="title_advanced_favicons">Mostra favicon</string>
     <string name="title_advanced_favicons_partial">Scansiona solo il primo %1$s della pagina web</string>
     <string name="title_advanced_favicons_manifest">Scansiona i manifesti dell\'app web</string>
-    <string name="title_advanced_ddg">Mostra icone DuckDuckGo</string>
-    <string name="title_advanced_favicons_dmarc">Richiede la verifica DMARC per le immagini esterne</string>
+    <string name="title_advanced_ddg">Mostra le icone DuckDuckGo</string>
+    <string name="title_advanced_favicons_dmarc">Richiedi la verifica DMARC per le immagini esterne</string>
     <string name="title_advanced_generated_icons">Mostra le icone generate</string>
     <string name="title_advanced_identicons">Mostra identicon</string>
     <string name="title_advanced_circular">Mostra icone rotonde</string>
@@ -651,8 +651,8 @@
     <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
     <string name="title_advanced_move_thread_all">Spostando le conversazioni selezionate, sposta tutti i messaggi</string>
     <string name="title_advanced_move_thread_sent">Spostando una conversazione, sposta anche i messaggi inviati</string>
-    <string name="title_advanced_swipe_trash_all">Scorrando una conversazione nel cestino, sposti tutti i messaggi</string>
-    <string name="title_advanced_gmail_delete_all">Eliminando definitivamente un messaggio, eliminare tutte le etichette Gmail</string>
+    <string name="title_advanced_swipe_trash_all">Spostando una conversazione nel cestino, sposta tutti i messaggi</string>
+    <string name="title_advanced_gmail_delete_all">Eliminando definitivamente un messaggio, elimina tutte le etichette Gmail</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_default_folder">Seleziona la cartella predefinita</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
@@ -735,7 +735,7 @@
     <string name="title_advanced_sign_default">Firma di default</string>
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
     <string name="title_advanced_encrypt_auto">Crittografa automaticamente quando le chiavi di tutti i destinatari sono disponibili</string>
-    <string name="title_advanced_encrypt_reply">Cifra automaticamente alla risposta a un messaggio cifrato</string>
+    <string name="title_advanced_encrypt_reply">Cifra automaticamente quando si risponde a un messaggio cifrato</string>
     <string name="title_advanced_auto_verify">Verifica automaticamente i messaggi firmati</string>
     <string name="title_advanced_auto_decrypt">Decrittografa automaticamente i messaggi</string>
     <string name="title_advanced_auto_undo_decrypt">Annulla la decrittografia alla chiusura della conversazione</string>
