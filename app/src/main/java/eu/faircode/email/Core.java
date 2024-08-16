@@ -1576,6 +1576,11 @@ class Core {
                 try {
                     imessage.setFlag(Flags.Flag.DELETED, true);
                     deleted.add(imessage);
+                    if (!folder.synchronize || folder.poll || !MessageHelper.hasCapability(ifolder, "IDLE")) {
+                        EntityMessage m = map.get(imessage);
+                        if (m != null && m.uid != null)
+                            EntityOperation.queue(context, folder, EntityOperation.FETCH, m.uid, false, true);
+                    }
                 } catch (MessageRemovedException ex) {
                     Log.w(ex);
                 }
