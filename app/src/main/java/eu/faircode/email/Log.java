@@ -1261,6 +1261,21 @@ public class Log {
                  */
             return false;
 
+        if (ex instanceof NullPointerException &&
+                stack.length > 0 &&
+                "android.widget.Editor$ActionPinnedPopupWindow".equals(stack[0].getClassName()) &&
+                "computeLocalPosition".equals(stack[0].getMethodName()))
+                /*
+                    java.lang.NullPointerException: Attempt to invoke virtual method 'float android.text.Layout.getPrimaryHorizontal(int)' on a null object reference
+                        at android.widget.Editor$ActionPinnedPopupWindow.computeLocalPosition(Editor.java:4134)
+                        at android.widget.Editor$PinnedPopupWindow.show(Editor.java:3737)
+                        at android.widget.Editor$ActionPinnedPopupWindow.show(Editor.java:4282)
+                        at android.widget.Editor$ActionPopupWindow.show(Editor.java:5224)
+                        at android.widget.Editor$HandleView$2.run(Editor.java:6783)
+                        at android.os.Handler.handleCallback(Handler.java:938)
+                 */
+            return false;
+
         if (ex instanceof IndexOutOfBoundsException &&
                 stack.length > 0 &&
                 "android.text.SpannableStringInternal".equals(stack[0].getClassName()) &&
