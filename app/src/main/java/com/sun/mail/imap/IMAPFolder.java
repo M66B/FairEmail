@@ -3635,22 +3635,6 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 	    // response
 
 	    // "VANISHED" SP ["(EARLIER)"] SP known-uids
-		ir.readAtomStringList(); // Skip EARLIER
-		String uids = ir.readAtom();
-		UIDSet[] uidset = UIDSet.parseUIDSets(uids);
-		List<Message> msgs = new ArrayList<>();
-		for (long uid : UIDSet.toArray(uidset)) {
-			Message m = uidTable.get(uid);
-			if (m != null && m.getMessageNumber() > 0) {
-				realTotal--;
-				messageCache.expungeMessage(m.getMessageNumber());
-				msgs.add(m);
-			}
-		}
-		if (!msgs.isEmpty() &&
-				doExpungeNotification && hasMessageCountListener)
-			notifyMessageRemovedListeners(true, msgs.toArray(new Message[0]));
-/*
 	    String[] s = ir.readAtomStringList();
 	    if (s == null) {	// no (EARLIER)
 		String uids = ir.readAtom();
@@ -3667,7 +3651,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 		    notifyMessageRemovedListeners(true, msgs);
 		}
 	    } // else if (EARLIER), ignore
-*/
+
 	} else if (ir.keyEquals("FETCH")) {
 	    assert ir instanceof FetchResponse : "!ir instanceof FetchResponse";
 	    Message msg = processFetchResponse((FetchResponse)ir);
