@@ -3644,7 +3644,7 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 		long[] luid = UIDSet.toArray(uidset);
 		Message[] msgs = createMessagesForUIDs(luid);
 		for (Message m : msgs) {
-			// Avoid creating seqnums
+			// Avoid creating/updating seqnums
 		    if (m != null)
 			((IMAPMessage)m).setExpunged(true);
 		}

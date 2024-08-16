@@ -218,7 +218,7 @@ public class MessageCache {
 	while (oldnum <= size) {
 	    // is message expunged?
 		IMAPMessage m = getMessage(oldnum);
-	    if (seqnumOf(oldnum) <= 0 || (m !=null && m.isExpunged())) {
+	    if (seqnumOf(oldnum) <= 0 || (m != null && m.isExpunged())) {
 		mlist.add(m);
 	    } else {
 		// keep this message
