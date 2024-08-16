@@ -3644,8 +3644,9 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 		long[] luid = UIDSet.toArray(uidset);
 		Message[] msgs = createMessagesForUIDs(luid);
 		for (Message m : msgs) {
-		    if (m.getMessageNumber() > 0)
-			messageCache.expungeMessage(m.getMessageNumber());
+			// Avoid creating seqnums
+		    if (m != null)
+			((IMAPMessage)m).setExpunged(true);
 		}
 		if (doExpungeNotification && hasMessageCountListener) {
 		    notifyMessageRemovedListeners(true, msgs);
