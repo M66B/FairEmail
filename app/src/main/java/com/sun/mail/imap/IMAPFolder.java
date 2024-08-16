@@ -3635,10 +3635,8 @@ public class IMAPFolder extends Folder implements UIDFolder, ResponseHandler {
 	    // response
 
 	    // "VANISHED" SP ["(EARLIER)"] SP known-uids
-		// https://datatracker.ietf.org/doc/html/rfc7162#section-3.2.10
-		String[] earlier = ir.readAtomStringList(); // Skip EARLIER
+		ir.readAtomStringList(); // Skip EARLIER
 		String uids = ir.readAtom();
-		eu.faircode.email.Log.w("VANISHED earlier=" + (earlier != null) + " uids=" + uids);
 		UIDSet[] uidset = UIDSet.parseUIDSets(uids);
 		if (uidset != null) {
 			List<Message> msgs = new ArrayList<>();
