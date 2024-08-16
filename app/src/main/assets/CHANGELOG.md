@@ -12,7 +12,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2222 - 2024-08-16
 
 * Fixed bug in JavaMail causing iCloud move issues
 * Added reply/forward header template option
