@@ -8,10 +8,16 @@ It is now possible to check the integrity of APK files, see [the FAQ](https://m6
 
 <br>
 
-People keep asking me to add new features to the app and other people complain about too many features.
-Both groups of people leave bad reviews for this, which is quite frustrating, also because there are already enough bad reviews for the wrong reasons.
-In my opinion, there are already more than enough features and therefore no new features will be added from today.
-The app will continue to be maintained and supported.
+People keep asking me to add new features to the app, to whom I often say “no,” and other people complain about too many features.
+Both groups of people leave bad reviews for this, which is quite frustrating, also because there are already enough bad reviews for the wrong reasons
+(email server problems, which unfortunately happen too often, etc.).
+In my opinion, there are already more than enough features and therefore no new features will be added as of today.
+However, the app will continue to be maintained and supported.
+
+I enjoy developing software, but it is often difficult to deal with unreasonable people, a group that only seems to grow.
+It is no wonder that many open-source developers have given up,
+and that the number of commercial apps, often with advertisements and other privacy-unfriendly things, only increases.
+What too many people do not understand is that email is much more complicated than it seems, especially because of all the security measures.
 
 <br>
 
