@@ -6,11 +6,25 @@
 
 It is now possible to check the integrity of APK files, see [the FAQ](https://m66b.github.io/FairEmail/#faq205) about how.
 
+<br>
+
+People keep asking me to add new features to the app and other people complain about too many features.
+Both groups of people leave bad reviews for this, which is quite frustrating, also because there are already enough bad reviews for the wrong reasons.
+In my opinion, there are already more than enough features and therefore no new features will be added from today.
+The app will continue to be maintained and supported.
+
+<br>
+
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
 <br>
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
+
+### Next version
+
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2222 - 2024-08-16
 
