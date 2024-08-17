@@ -382,7 +382,7 @@
     <string name="title_advanced_suggest_frequently">候補に表示するアドレスを使用頻度で並べ替える</string>
     <string name="title_advanced_suggest_account">表示される候補を現在のアカウントに関連するものに制限する</string>
     <string name="title_advanced_auto_delete_local">作成または最後の使用から次の期間より経過したローカルの連絡先を自動で削除する:</string>
-    <string name="title_advanced_alt_re_fwd">返信/転送のプレフィックスを変更する</string>
+    <string name="title_advanced_alt_re_fwd">返信/転送プレフィックスを変更する</string>
     <string name="title_advanced_send_chips">アドレスバルーンを表示する</string>
     <string name="title_advanced_send_nav_color">下部のボタンアクションバーをユーザー ID の色にする</string>
     <string name="title_advanced_send_reminders">リマインダーを表示する</string>
@@ -402,10 +402,11 @@
     <string name="title_advanced_compose_font">デフォルトのフォント</string>
     <string name="title_advanced_compose_monospaced">プレーンテキストメッセージに等幅フォントを使用する</string>
     <string name="title_advanced_auto_identity">メッセージを新規作成するとき、ユーザー ID を自動で選択する</string>
-    <string name="title_advanced_prefix_once">返信/転送のプレフィックスを 1 つだけにする</string>
-    <string name="title_advanced_prefix_count">返信のプレフィックスにカウントを追加する</string>
-    <string name="title_advanced_separate_reply">返信/転送の見出しの前に水平線を挿入する</string>
-    <string name="title_advanced_extended_reply">返信/転送の見出しを拡張する</string>
+    <string name="title_advanced_prefix_once">返信/転送プレフィックスを 1 つだけにする</string>
+    <string name="title_advanced_prefix_count">返信プレフィックスにカウントを追加する</string>
+    <string name="title_advanced_separate_reply">返信/転送ヘッダーの前に水平線を挿入する</string>
+    <string name="title_advanced_extended_reply">返信/転送ヘッダーを拡張する</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">返信/転送ヘッダーのテンプレート</string>
     <string name="title_advanced_write_above">引用した本文の上に返信を書く</string>
     <string name="title_advanced_write_below">引用した本文の下に返信を書く</string>
     <string name="title_advanced_quote_reply">引用したテキストに引用符を付けて返信する</string>
@@ -507,6 +508,7 @@
     <string name="title_advanced_threading_unread">会話スレッド内の未読メッセージ数を表示する</string>
     <string name="title_advanced_indentation">会話スレッドの中の受信/送信メッセージの左/右インデント</string>
     <string name="title_advanced_highlight_unread">未読メッセージをハイライト表示する</string>
+    <string name="title_advanced_account_color">カラーストライプまたはドットを表示する</string>
     <string name="title_advanced_color_stripe_wide">幅広のカラーストライプを使用する</string>
     <string name="title_advanced_avatars">連絡先の写真を表示する</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) を表示する</string>
@@ -829,6 +831,7 @@
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
     <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加できます</string>
     <string name="title_advanced_compose_color_hint">極端に明るいまたは暗い色を設定すると、受信者がメッセージを判読できなくなることがあります</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML を使用できます。使用できるプレースホルダー: %1$s</string>
     <string name="title_advanced_write_below_hint">受信者が長いメッセージをよく読まないなどの理由で、あなたの返信が見落とされる場合があります</string>
     <string name="title_advanced_attach_new_hint">OFF にすると、作成中の下書きメッセージに共有されたアドレスやファイルを追加します</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「--」を挿入します</string>
@@ -2305,8 +2308,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>なし</item>
-        <item>Stripe</item>
-        <item>Dot</item>
+        <item>ストライプ</item>
+        <item>ドット</item>
     </string-array>
     <string-array name="contactTypes">
         <item>宛先</item>

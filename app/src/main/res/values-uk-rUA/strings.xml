@@ -448,6 +448,7 @@
     <string name="title_advanced_prefix_count">Додати лічильник до префікса відповіді</string>
     <string name="title_advanced_separate_reply">Вставити горизонтальну лінію перед заголовком відповіді/пересилання</string>
     <string name="title_advanced_extended_reply">Використовувати розширений заголовок відповіді/пересилання</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Шаблон заголовка відповіді/пересилання</string>
     <string name="title_advanced_write_above">Писати перед текстом відправника</string>
     <string name="title_advanced_write_below">Писати під текстом відправника</string>
     <string name="title_advanced_quote_reply">Цитувати текст, на який ви відповідаєте</string>
@@ -871,6 +872,7 @@
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення, або тема пуста, або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти все ще може додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_compose_color_hint">Використання дуже світлих або дуже темних кольорів може призвести до того, що отримувач не зможе прочитати ваше повідомлення</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">Використання HTML дозволене. Доступні заповнювачі: %1$s</string>
     <string name="title_advanced_write_below_hint">Одержувач може пропустити вашу відповідь, наприклад, у разі скорочення довгого повідомлення</string>
     <string name="title_advanced_attach_new_hint">В іншому випадку додавати поширювані адреси чи файли до чернетки поточного повідомлення</string>
     <string name="title_advanced_usenet_hint">Вставити «--» між текстом і підписом</string>
