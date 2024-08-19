@@ -421,6 +421,7 @@
     <string name="title_advanced_prefix_count">Adicionar contador ao prefixo de resposta</string>
     <string name="title_advanced_separate_reply">Insira uma linha horizontal antes de um cabeçalho de resposta/redirecionamento</string>
     <string name="title_advanced_extended_reply">Usar cabeçalho de resposta/encaminhamento extendido</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Responder/Encaminhar modelo do cabeçalho</string>
     <string name="title_advanced_write_above">Escreva acima do texto do remetente</string>
     <string name="title_advanced_write_below">Escreva abaixo do texto do remetente</string>
     <string name="title_advanced_quote_reply">Citar texto respondido</string>
@@ -845,6 +846,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de correio electrónico ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_compose_color_hint">Cores muito claras ou muito escuras resultarão em mensagens ilegíveis do lado dos destinatários</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML permitido. Espaços reservados disponíveis: %1$s</string>
     <string name="title_advanced_write_below_hint">Um destinatário pode perder a sua resposta, por exemplo, quando uma mensagem mais longa estiver sendo encurtada</string>
     <string name="title_advanced_attach_new_hint">Caso contrário, adicionar endereços ou arquivos partilhados à mensagem rascunho atual</string>
     <string name="title_advanced_usenet_hint">Coloca \'-- \' entre o texto e a assinatura</string>
