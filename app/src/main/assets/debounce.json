@@ -1,6 +1,7 @@
 [
   {
     "include": [
+      "*://llo.to/e/*",
       "*://g-o-media.digidip.net/visit?*",
       "*://www.dpbolvw.net/click-*",
       "*://www.tkqlhce.com/click-",
@@ -194,6 +195,7 @@
   },
   {
     "include": [
+      "*://*.evyy.net/c/*",
       "*://*.uikc.net/c/*",
       "*://*.ztk5.net/*",
       "*://*.rg35.net/*",
@@ -434,6 +436,15 @@
     "prepend_scheme": "https",
     "action": "regex-path",
     "param": "^/amp/s/(.*)$"
+  },
+  {
+     "include": [
+       "https://buy.geni.us/Proxy.ashx?*"
+     ],
+     "exclude": [
+     ],
+     "action": "redirect",
+     "param": "GR_URL"
   },
   {
     "include": [
