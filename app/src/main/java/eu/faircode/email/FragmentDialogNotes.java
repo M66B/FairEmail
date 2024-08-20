@@ -123,6 +123,8 @@ public class FragmentDialogNotes extends FragmentDialogBase {
                     db.endTransaction();
                 }
 
+                WidgetUnified.updateData(context);
+
                 return null;
             }
 
