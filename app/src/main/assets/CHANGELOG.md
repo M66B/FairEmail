@@ -18,8 +18,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2224 - 2024-08-20 *
 
+* Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2223 - 2024-08-17
