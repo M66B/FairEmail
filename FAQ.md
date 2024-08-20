@@ -6092,7 +6092,7 @@ Changes in the past resulted too often in lots of complaints of other people.
 
 Requested features should:
 
-* within the scope of the app
+* be within the scope of the app
 * be useful to more than a few people
 * fit logically and consistently within the app
 * fit within the philosophy of the app (privacy-oriented, security-minded)
