@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -32,11 +33,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentDialogSync extends FragmentDialogBase {
+    private static final int DEFAULT_KEEP = 3; // months
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -51,15 +55,21 @@ public class FragmentDialogSync extends FragmentDialogBase {
         final EditText etMonths = view.findViewById(R.id.etMonths);
         final TextView tvRemark = view.findViewById(R.id.tvRemark);
 
+        String key;
         if (fid < 0) {
+            key = "default_keep" + (TextUtils.isEmpty(type) ? "" : "." + type);
             if (TextUtils.isEmpty(type))
                 tvFolder.setText(R.string.title_folder_unified);
             else
                 tvFolder.setText(EntityFolder.localizeType(context, type));
-        } else
+        } else {
+            key = "default_keep." + fid;
             tvFolder.setText(name);
+        }
 
-        etMonths.setText("3");
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int def = prefs.getInt(key, DEFAULT_KEEP);
+        etMonths.setText(def < 0 ? null : Integer.toString(def));
 
         tvRemark.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,11 +86,14 @@ public class FragmentDialogSync extends FragmentDialogBase {
                         String months = etMonths.getText().toString();
 
                         Bundle args = getArguments();
-                        if (TextUtils.isEmpty(months))
+                        if (TextUtils.isEmpty(months)) {
+                            prefs.edit().putInt(key, -1).apply();
                             args.putInt("months", 0);
-                        else
+                        } else
                             try {
-                                args.putInt("months", Integer.parseInt(months));
+                                int m = Integer.parseInt(months);
+                                prefs.edit().putInt(key, m).apply();
+                                args.putInt("months", m);
                             } catch (NumberFormatException ex) {
                                 Log.e(ex);
                                 return;
