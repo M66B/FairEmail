@@ -223,6 +223,8 @@
     <string name="title_setup_gmail_permissions">Google запытае дазвол на чытанне, напісанне, адпраўку і незваротнае выдаленне ўсёй вашай электроннай пошты. FairEmail ніколі не выдаліць вашыя паведамленні без вашай відавочнай згоды.</string>
     <string name="title_setup_gmail_login">Калі ў Chrome выкананы ўваход ва ўліковы запіс, новы ўліковы запіс можна дадаць толькі праз Android. Гэтага можна пазбегнуць, выйшаўшы з уліковага запісу ў Chrome праз налады сінхранізацыі.</string>
     <string name="title_setup_gmail_max">У выпадку з\'яўлення паведамлення пра памылку \"Вы ўвайшлі ў максімальную колькасць уліковых запісаў\", вам неабходна выйсці з усіх уліковых запісаў Google у браўзеры.</string>
+    <string name="title_setup_outlook_hint">У выпадку выкарыстання псеўданіма варта выкарыстоўваць майстар Office 365.</string>
+    <string name="title_setup_outlook_modern">У выніку змяненняў у палітыках бяспекі Microsoft, з 16 верасня 2024 г. будзе працаваць толькі майстар Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Чаму мне неабходна выбраць уліковы запіс на прыладзе?</string>
     <string name="title_setup_gmail_password">Я хачу аўтарызаваць уліковы запіс з дапамогай пароля замест уліковага запісу на прыладзе</string>
     <string name="title_setup_office_auth">Памылка \'Збой АЎТЭНТЫФІКАЦЫІ\' можа быць выклікана тым, што пратаколы IMAP/SMTP адключаны сістэмным адміністратарам</string>
@@ -447,6 +449,7 @@
     <string name="title_advanced_prefix_count">Дадаваць лічыльнік да прэфікса адказу</string>
     <string name="title_advanced_separate_reply">Устаўляць гарызантальную лінію перад загалоўкам адказу/перасылкі</string>
     <string name="title_advanced_extended_reply">Выкарыстоўваць пашыраны загаловак для адказу/перасылкі</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Шаблон загалоўка адказу/перасылкі</string>
     <string name="title_advanced_write_above">Пісаць над тэкстам адпраўніка</string>
     <string name="title_advanced_write_below">Пісаць пад тэкстам адпраўніка</string>
     <string name="title_advanced_quote_reply">Цытаваць тэкст пры адказе</string>
@@ -548,6 +551,7 @@
     <string name="title_advanced_threading_unread">Паказваць колькасць непрачытаных паведамленняў у размовах</string>
     <string name="title_advanced_indentation">Водступ злева/справа для атрыманых/адпраўленых паведамленняў у размовах</string>
     <string name="title_advanced_highlight_unread">Вылучаць непрачытаныя паведамленні</string>
+    <string name="title_advanced_account_color">Паказваць каляровую палоску або каляровую кропку</string>
     <string name="title_advanced_color_stripe_wide">Выкарыстоўваць шырокую каляровую палоску</string>
     <string name="title_advanced_avatars">Паказваць фота кантактаў</string>
     <string name="title_advanced_bimi">Паказаць індыкатары брэнда для ідэнтыфікацыі паведамленняў (BIMI)</string>
@@ -870,6 +874,7 @@
     <string name="title_advanced_send_reminders_hint">Паказваць папярэджанне, калі тэкст або тэма паведамлення пустыя або калі існуе верагоднасць адсутнасці ўкладання</string>
     <string name="title_advanced_reply_move_hint">Сервер электроннай пошты ўсё яшчэ можа дадаваць паведамленні ў папку адпраўленых паведамленняў</string>
     <string name="title_advanced_compose_color_hint">Вельмі светлыя або вельмі цёмныя колеры зробяць паведамленні нечытэльнымі для атрымальнікаў</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">Выкарыстанне HTML дазволена. Даступныя наступныя запаўняльнікі: %1$s</string>
     <string name="title_advanced_write_below_hint">Атрымальнік можа прапусціць ваш адказ, напрыклад, пры скарачэнні доўгага паведамлення</string>
     <string name="title_advanced_attach_new_hint">У адваротным выпадку дадаваць абагуленыя адрасы або файлы ў бягучы чарнавік паведамлення</string>
     <string name="title_advanced_usenet_hint">Устаўляць \'—\' паміж тэкстам і подпісам</string>
@@ -1038,9 +1043,12 @@
     <string name="title_primary_identity">Асноўны (ідэнтыфікатар па змаўчанні)</string>
     <string name="title_self_identity">Выдаляць адрас электроннай пошты пры адказе</string>
     <string name="title_leave_on_server">Пакідаць паведамленні на серверы</string>
+    <string name="title_leave_on_server_hint">Пасля загрузкі паведамленняў з сервера яны застаюцца на серверы</string>
     <string name="title_client_delete">Актыўна выдаляць паведамленні пасля загрузкі</string>
     <string name="title_leave_deleted">Пакідаць выдаленыя паведамленні на серверы</string>
+    <string name="title_leave_deleted_hint">Пасля выдалення паведамленняў з прылады яны застануцца на серверы</string>
     <string name="title_leave_on_device">Пакідаць паведамленні на прыладзе</string>
+    <string name="title_leave_on_device_hint">Калі паведамленні выдаляюцца з сервера, яны застаюцца на прыладзе</string>
     <string name="title_max_messages">Максімальная колькасць паведамленняў для загрузкі (калі пуста, то для ўсіх)</string>
     <string name="title_max_messages_keep">Максімальная колькасць паведамленняў, якія будуць захоўвацца на прыладзе</string>
     <string name="title_max_messages_remark">        Увядзіце дадатны лік для загрузкі апошніх паведамленняў (найбольш распаўсюджана)
@@ -1571,6 +1579,7 @@
     <string name="title_attachments_missing">Не ўсе ўкладанні былі загружаны</string>
     <string name="title_download_attachments">Загрузіць укладанні</string>
     <string name="title_attachments_download">Загружана ўкладанняў: %1$s</string>
+    <string name="title_attachments_no_download">Гэта апавяшчэнне больш не будзе паказвацца, і ўкладанні не будуць загружаецца аўтаматычна</string>
     <string name="title_dialog_hint">Гэта дыялогавае акно можна зноў уключыць праз меню з трыма кропкамі ў верхняй панэлі дзеянняў</string>
     <string name="title_draft_deleted">Чарнавік адхілены</string>
     <string name="title_draft_saved">Чарнавік захаваны</string>
@@ -2340,8 +2349,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Нічога</item>
-        <item>Stripe</item>
-        <item>Dot</item>
+        <item>Палоска</item>
+        <item>Кропка</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Атрымальнік</item>
