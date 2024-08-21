@@ -553,17 +553,17 @@ dependencies {
     //implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     def desugar_version = "2.0.4"
-    def startup_version = "1.2.0-alpha02"
-    def annotation_version_experimental = "1.4.1"
+    def startup_version = "1.2.0-alpha02" // 1.2.0-beta01
+    def annotation_version_experimental = "1.4.1" // 1.5.0-alpha01
     def core_version = "1.13.1" // 1.15.0-alpha01
     def appcompat_version = "1.7.0"
-    def emoji_version = "1.4.0" // 1.5.0-beta01
+    def emoji_version = "1.4.0" // 1.5.0-rc01
     def flatbuffers_version = "2.0.0"
     def activity_version = " 1.9.1" // 1.10.0-alpha01
     def fragment_version = "1.8.2"
     def windows_version = "1.3.0" // 1.4.0-alpha01
-    def webkit_version = "1.10.0" // 1.11.0/1.12.0-alpha02
-    def recyclerview_version = "1.3.2" // 1.4.0-alpha02
+    def webkit_version = "1.10.0" // 1.11.0/1.12.0-beta01
+    def recyclerview_version = "1.3.2" // 1.4.0-beta01
     def coordinatorlayout_version = "1.2.0" // 1.3.0-alpha02
     def constraintlayout_version = "2.1.4" // 2.2.0-alpha14
     def material_version = "1.11.0" // 1.12.0 / 1.13.0-alpha03
@@ -573,8 +573,8 @@ dependencies {
     def documentfile_version = "1.1.0-alpha01"
     def lifecycle_version = "2.8.4"
     def lifecycle_extensions_version = "2.2.0"
-    def room_version = "2.4.3" // 2.5.2/2.6.1/2.7.0-alpha06
-    def sqlite_version = "2.4.0" // 2.5.0-alpha06
+    def room_version = "2.4.3" // 2.5.2/2.6.1/2.7.0-alpha07
+    def sqlite_version = "2.4.0" // 2.5.0-alpha07
     def requery_version = "3.39.2"
     def paging_version = "2.1.2" // 3.3.0-rc01
     def preference_version = "1.2.1"
