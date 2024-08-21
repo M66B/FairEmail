@@ -1828,6 +1828,7 @@ public class FragmentCompose extends FragmentBase {
         if (state == State.LOADED) {
             Bundle extras = new Bundle();
             extras.putBoolean("autosave", true);
+            extras.putBoolean("silent", true);
             onAction(R.id.action_save, extras, "pause");
         }
 
