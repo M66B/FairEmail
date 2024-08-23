@@ -7660,6 +7660,7 @@ public class FragmentCompose extends FragmentBase {
 
             } else if (action == R.id.action_save) {
                 boolean autosave = extras.getBoolean("autosave");
+                boolean silent = extras.getBoolean("silent");
                 boolean finish = extras.getBoolean("finish");
 
                 if (finish)
