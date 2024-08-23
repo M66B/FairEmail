@@ -18,7 +18,12 @@ For support you can use the contact form.
 
 Acantholipan
 
-1.2224 - 2024-08-20 *
+Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2224 - 2024-08-20
 
 * Small improvements and minor bug fixes
 * Updated translations
