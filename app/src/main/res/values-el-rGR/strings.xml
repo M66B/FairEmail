@@ -419,6 +419,7 @@
     <string name="title_advanced_prefix_count">Προσθήκη μετρητή στο πρόθεμα απάντησης</string>
     <string name="title_advanced_separate_reply">Εισαγωγή μιας οριζόντιας γραμμής πριν από την κεφαλίδα μιας απάντησης/προώθησης</string>
     <string name="title_advanced_extended_reply">Χρήση εκτεταμένων κεφαλίδων κατά την απάντηση/προώθηση</string>
+    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Πρότυπο κεφαλίδας για απάντηση/προώθηση</string>
     <string name="title_advanced_write_above">Συγγραφή πάνω από το κείμενο του αποστολέα</string>
     <string name="title_advanced_write_below">Συγγραφή κάτω από το κείμενο του αποστολέα</string>
     <string name="title_advanced_quote_reply">Παράθεση του προς απάντηση κειμένου</string>
@@ -841,6 +842,7 @@
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
     <string name="title_advanced_reply_move_hint">Ο διακομιστής ηλ. ταχυδρομείου ενδέχεται να προσθέτει ακόμα τα μηνύματα στον φάκελο απεσταλμένων</string>
     <string name="title_advanced_compose_color_hint">Πολύ ανοικτά ή πολύ σκούρα χρώματα θα έχουν ως αποτέλεσμα δυσανάγνωστα μηνύματα για τους παραλήπτες</string>
+    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">Επιτρέπεται HTML. Διαθέσιμα σύμβολα υποκατάστασης: %1$s</string>
     <string name="title_advanced_write_below_hint">Ένας παραλήπτης μπορεί να χάσει την απάντησή σας, για παράδειγμα, όταν ένα μακρύτερο μήνυμα περικόπτεται</string>
     <string name="title_advanced_attach_new_hint">Διαφορετικά, προσθήκη κοινόχρηστων διευθύνσεων ή αρχείων στο τρέχον προσχέδιο μηνύματος</string>
     <string name="title_advanced_usenet_hint">Να παρεμβάλλεται ένα \'-- \' ανάμεσα στο κείμενο και την υπογραφή</string>
@@ -1697,7 +1699,7 @@
     <string name="title_answer_ai">Χρήση ως προτροπή τεχνητής νοημοσύνης</string>
     <string name="title_answer_hide">Απόκρυψη από τα μενού</string>
     <string name="title_answer_text">Κείμενο προτύπου</string>
-    <string name="title_answer_placeholder">Κρατημένη θέση</string>
+    <string name="title_answer_placeholder">Σύμβολο υποκατάστασης</string>
     <string name="title_answer_placeholder_name">Πλήρες όνομα αποστολέα</string>
     <string name="title_answer_placeholder_email">Διεύθυνση ηλ. ταχυδρομείου αποστολέα</string>
     <string name="title_answer_placeholder_firstname">Όνομα αποστολέα</string>
