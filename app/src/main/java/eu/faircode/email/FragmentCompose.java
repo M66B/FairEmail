@@ -1827,7 +1827,6 @@ public class FragmentCompose extends FragmentBase {
 
         if (state == State.LOADED) {
             Bundle extras = new Bundle();
-            extras.putBoolean("autosave", true);
             extras.putBoolean("silent", true);
             onAction(R.id.action_save, extras, "pause");
         }
@@ -7665,12 +7664,12 @@ public class FragmentCompose extends FragmentBase {
 
                 if (finish)
                     finish();
-                else
+                else if (!autosave && !silent)
                     setFocus(
                             args.getInt("focus"),
                             args.getInt("start", -1),
                             args.getInt("end", -1),
-                            args.getBoolean("ime") && !autosave);
+                            args.getBoolean("ime"));
 
             } else if (action == R.id.action_check) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
