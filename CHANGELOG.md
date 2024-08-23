@@ -4,11 +4,13 @@
 
 ### Notices
 
-People keep asking me to add new features to the app, to whom I often say “no”, and other people complain about too many features.
-Both groups of people leave bad reviews for this, which is quite frustrating, also because there are already enough bad reviews for the wrong reasons
+People keep asking me to add new, often exotic, features to the app, to whom I often say "no", and other people complain about too many features.
+Both groups of people leave bad reviews for this, which is frustrating, also because there are already enough bad reviews for the wrong reasons
 (email server problems, which unfortunately happen too often, etc.).
+The main problem is that more features now make more people unhappy than happy.
 Therefore, [the rules for new features](https://m66b.github.io/FairEmail/#get-support) will be strictly followed from today.
-The app will continue to be maintained and supported as usual.
+
+No worries, the app will continue to be maintained and supported as usual.
 
 <br>
 
