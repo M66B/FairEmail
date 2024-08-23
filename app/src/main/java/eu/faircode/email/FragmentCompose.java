@@ -2635,7 +2635,7 @@ public class FragmentCompose extends FragmentBase {
     private void onMenuPrint() {
         Bundle extras = new Bundle();
         extras.putBoolean("silent", true);
-        onAction(R.id.action_save, extras, "paragraph");
+        onAction(R.id.action_save, extras, "print");
 
         CharSequence selected = null;
         int start = etBody.getSelectionStart();
