@@ -82,4 +82,7 @@ add_definitions(-DHAVE_MEMRCHR -DHAVE_PTHREAD)
 
 target_compile_options(fairemail PRIVATE -Wno-c++11-narrowing -Wno-undefined-var-template)
 
+#https://developer.android.com/guide/practices/page-sizes#cmake
+target_link_options(fairemail PRIVATE "-Wl,-z,max-page-size=16384")
+
 target_link_libraries(fairemail ${log-lib})

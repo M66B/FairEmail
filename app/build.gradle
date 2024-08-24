@@ -207,7 +207,7 @@ android {
             manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes(("github" + getVersionCode() + getRevision()).getBytes()).toString();
             externalNativeBuild {
                 cmake {
-                    arguments "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,--build-id=none" // -z,max-page-size=16384
+                    arguments "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,--build-id=none"
                 }
             }
             buildConfigField "boolean", "TEST_RELEASE", "false"
@@ -264,7 +264,7 @@ android {
             manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes(("fdroid" + getVersionCode() + getRevision()).getBytes()).toString();
             externalNativeBuild {
                 cmake {
-                    arguments "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,--build-id=none" // -z,max-page-size=16384
+                    arguments "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,--build-id=none"
                     // https://f-droid.org/docs/Reproducible_Builds/
                     // The build ID is a 160-bit SHA1 string computed over the elf header bits and section contents in the file.
                     // It is bundled in the elf file as an entry in the notes section.
@@ -783,7 +783,7 @@ dependencies {
     // https://github.com/bugsnag/bugsnag-android
     // https://mvnrepository.com/artifact/com.bugsnag/bugsnag-android
     implementation("com.bugsnag:bugsnag-android:$bugsnag_version") {
-        //exclude group: "com.bugsnag", module: "bugsnag-plugin-android-anr"
+        exclude group: "com.bugsnag", module: "bugsnag-plugin-android-anr"
         exclude group: "com.bugsnag", module: "bugsnag-plugin-android-ndk"
         exclude group: "com.bugsnag", module: "bugsnag-android-core"
     }
