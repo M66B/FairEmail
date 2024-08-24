@@ -2644,30 +2644,31 @@ public class HtmlHelper {
         boolean preview_hidden = prefs.getBoolean("preview_hidden", true);
         boolean preview_quotes = prefs.getBoolean("preview_quotes", true);
 
-        for (Element e : d.select("*")) {
-            String style = e.attr("style");
-            if (TextUtils.isEmpty(style))
-                continue;
-
-            String[] params = style.split(";");
-            for (String param : params) {
-                int colon = param.indexOf(':');
-                if (colon <= 0)
+        if (!preview_hidden)
+            for (Element e : d.select("*")) {
+                String style = e.attr("style");
+                if (TextUtils.isEmpty(style))
                     continue;
-                String key = param.substring(0, colon)
-                        .trim()
-                        .toLowerCase(Locale.ROOT);
-                String value = param.substring(colon + 1)
-                        .replace("!important", "")
-                        .trim()
-                        .toLowerCase(Locale.ROOT)
-                        .replaceAll("\\s+", " ");
-                if (!preview_hidden && "display".equals(key) && "none".equals(value)) {
-                    e.remove();
-                    break;
+
+                String[] params = style.split(";");
+                for (String param : params) {
+                    int colon = param.indexOf(':');
+                    if (colon <= 0)
+                        continue;
+                    String key = param.substring(0, colon)
+                            .trim()
+                            .toLowerCase(Locale.ROOT);
+                    String value = param.substring(colon + 1)
+                            .replace("!important", "")
+                            .trim()
+                            .toLowerCase(Locale.ROOT)
+                            .replaceAll("\\s+", " ");
+                    if ("display".equals(key) && "none".equals(value)) {
+                        e.remove();
+                        break;
+                    }
                 }
             }
-        }
 
         if (!preview_quotes) {
             if (!removeQuotes(d, false)) {
