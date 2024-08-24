@@ -437,7 +437,7 @@ public class EntityRule {
 
                 Document d = JsoupEx.parse(html);
                 if (skip_quotes)
-                    HtmlHelper.removeQuotes(d);
+                    HtmlHelper.removeQuotes(d, true);
                 if (jsoup) {
                     String selector = value.substring(JSOUP_PREFIX.length());
                     if (d.select(selector).isEmpty() != not)

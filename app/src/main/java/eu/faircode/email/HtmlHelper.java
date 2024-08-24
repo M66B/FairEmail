@@ -2670,9 +2670,11 @@ public class HtmlHelper {
         }
 
         if (!preview_quotes) {
-            Element top = d.select("blockquote").first();
-            if (top != null && top.previousElementSibling() == null)
-                top.remove();
+            if (!removeQuotes(d, false)) {
+                Element top = d.select("blockquote").first();
+                if (top != null && top.previousElementSibling() == null)
+                    top.remove();
+            }
         }
 
         for (Element bq : d.select("blockquote"))
@@ -2875,51 +2877,54 @@ public class HtmlHelper {
         });
     }
 
-    static void removeQuotes(Document d) {
+    static boolean removeQuotes(Document d, boolean all) {
         Elements quotes = d.body().select(".fairemail_quote");
-        if (quotes.size() > 0) {
+        if (!quotes.isEmpty()) {
             quotes.remove();
-            return;
+            return true;
         }
 
         // Gmail
         quotes = d.body().select(".gmail_quote");
-        if (quotes.size() > 0) {
+        if (!quotes.isEmpty()) {
             quotes.remove();
-            return;
+            return true;
         }
 
         // Outlook: <div id="appendonsend">
         quotes = d.body().select("div#appendonsend");
-        if (quotes.size() > 0) {
+        if (!quotes.isEmpty()) {
             quotes.nextAll().remove();
             quotes.remove();
-            return;
+            return true;
         }
 
         // ms-outlook-mobile
         quotes = d.body().select("div#divRplyFwdMsg");
-        if (quotes.size() > 0) {
+        if (!quotes.isEmpty()) {
             quotes.nextAll().remove();
             quotes.remove();
-            return;
+            return true;
         }
 
         // Microsoft Word 15
         quotes = d.body().select("div#mail-editor-reference-message-container");
-        if (quotes.size() > 0) {
+        if (!quotes.isEmpty()) {
             quotes.remove();
-            return;
+            return true;
         }
 
         // Web.de: <div id="aqm-original"
         quotes = d.body().select("div#aqm-original");
-        if (quotes.size() > 0) {
+        if (!quotes.isEmpty()) {
             quotes.remove();
-            return;
+            return true;
         }
 
-        d.select("blockquote").remove();
+        if (!all)
+            return false;
+
+        return !d.select("blockquote").remove().isEmpty();
     }
 
     static String truncate(String text, int at) {

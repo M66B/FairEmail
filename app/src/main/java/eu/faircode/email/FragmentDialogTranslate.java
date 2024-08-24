@@ -359,7 +359,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
         if (remove_signatures)
             HtmlHelper.removeSignatures(d);
 
-        HtmlHelper.removeQuotes(d);
+        HtmlHelper.removeQuotes(d, true);
 
         d = HtmlHelper.sanitizeView(context, d, false);
 
