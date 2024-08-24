@@ -2615,30 +2615,34 @@ public class HtmlHelper {
         return truncate(preview, PREVIEW_SIZE);
     }
 
-    static String getFullText(String body, boolean hidden) {
+    static String getFullText(Context context, String body) {
         try {
             if (body == null)
                 return null;
             Document d = JsoupEx.parse(body);
-            return _getText(d, hidden);
+            return _getText(context, d);
         } catch (OutOfMemoryError ex) {
             Log.e(ex);
             return null;
         }
     }
 
-    static String getFullText(File file, boolean hidden) throws IOException {
+    static String getFullText(Context context, File file) throws IOException {
         try {
             Document d = JsoupEx.parse(file);
-            return _getText(d, hidden);
+            return _getText(context, d);
         } catch (OutOfMemoryError ex) {
             Log.e(ex);
             return null;
         }
     }
 
-    private static String _getText(Document d, boolean hidden) {
+    private static String _getText(Context context, Document d) {
         truncate(d, MAX_FULL_TEXT_SIZE);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean preview_hidden = prefs.getBoolean("preview_hidden", true);
+        boolean preview_quotes = prefs.getBoolean("preview_quotes", true);
 
         for (Element e : d.select("*")) {
             String style = e.attr("style");
@@ -2658,11 +2662,17 @@ public class HtmlHelper {
                         .trim()
                         .toLowerCase(Locale.ROOT)
                         .replaceAll("\\s+", " ");
-                if (!hidden && "display".equals(key) && "none".equals(value)) {
+                if (!preview_hidden && "display".equals(key) && "none".equals(value)) {
                     e.remove();
                     break;
                 }
             }
+        }
+
+        if (!preview_quotes) {
+            Element top = d.select("blockquote").first();
+            if (top != null && top.previousElementSibling() == null)
+                top.remove();
         }
 
         for (Element bq : d.select("blockquote"))

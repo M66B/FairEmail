@@ -9467,7 +9467,7 @@ public class FragmentMessages extends FragmentBase
                                     Helper.writeText(message.getFile(context), html);
                                     Log.i("pgp html=" + (html == null ? null : html.length()));
 
-                                    String text = HtmlHelper.getFullText(html, true);
+                                    String text = HtmlHelper.getFullText(context, html);
                                     message.preview = HtmlHelper.getPreview(text);
                                     message.language = HtmlHelper.getLanguage(context, message.subject, text);
 
@@ -10205,7 +10205,7 @@ public class FragmentMessages extends FragmentBase
                 Helper.writeText(message.getFile(context), html);
                 Log.i("s/mime html=" + (html == null ? null : html.length()));
 
-                String text = HtmlHelper.getFullText(html, true);
+                String text = HtmlHelper.getFullText(context, html);
                 message.preview = HtmlHelper.getPreview(text);
                 message.language = HtmlHelper.getLanguage(context, message.subject, text);
 

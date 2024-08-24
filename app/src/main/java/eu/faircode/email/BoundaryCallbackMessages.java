@@ -885,7 +885,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     if (criteria.in_message) {
                         // This won't match <p>An <b>example</b><p> when searching for "An example"
                         if (contains(html, criteria.query, partial, true)) {
-                            String text = HtmlHelper.getFullText(html, false);
+                            String text = HtmlHelper.getFullText(context, html);
                             if (contains(text, criteria.query, partial, false))
                                 return true;
                         }

@@ -6179,7 +6179,7 @@ public class FragmentCompose extends FragmentBase {
                     Helper.writeText(data.draft.getFile(context), html);
                     Helper.writeText(data.draft.getFile(context, data.draft.revision), html);
 
-                    String text = HtmlHelper.getFullText(html, true);
+                    String text = HtmlHelper.getFullText(context, html);
                     data.draft.preview = HtmlHelper.getPreview(text);
                     data.draft.language = HtmlHelper.getLanguage(context, data.draft.subject, text);
                     db.message().setMessageContent(data.draft.id,
@@ -6369,7 +6369,7 @@ public class FragmentCompose extends FragmentBase {
                         Helper.writeText(file, html);
                         Helper.writeText(data.draft.getFile(context, data.draft.revision), html);
 
-                        String text = HtmlHelper.getFullText(html, true);
+                        String text = HtmlHelper.getFullText(context, html);
                         data.draft.preview = HtmlHelper.getPreview(text);
                         data.draft.language = HtmlHelper.getLanguage(context, data.draft.subject, text);
                         db.message().setMessageContent(data.draft.id,
@@ -7236,7 +7236,7 @@ public class FragmentCompose extends FragmentBase {
                     if (f.length() > MAX_REASONABLE_SIZE)
                         args.putBoolean("large", true);
 
-                    String full = HtmlHelper.getFullText(body, true);
+                    String full = HtmlHelper.getFullText(context, body);
                     draft.preview = HtmlHelper.getPreview(full);
                     draft.language = HtmlHelper.getLanguage(context, draft.subject, full);
                     db.message().setMessageContent(draft.id,

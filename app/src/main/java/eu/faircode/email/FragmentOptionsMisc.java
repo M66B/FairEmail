@@ -225,6 +225,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swStrictAlignment;
     private SwitchCompat swWebp;
     private SwitchCompat swAnimate;
+    private SwitchCompat swPreviewHidden;
+    private SwitchCompat swPreviewQuotes;
     private SwitchCompat swEasyCorrect;
     private SwitchCompat swPastePlain;
     private EditText etFaviconUri;
@@ -305,6 +307,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "exact_alarms",
             "native_dkim", "native_arc", "native_arc_whitelist", "strict_alignment",
             "webp", "animate_images",
+            "preview_hidden", "preview_quotes",
             "easy_correct", "paste_plain", "favicon_uri", "infra", "tld_flags", "json_ld", "dup_msgids", "thread_byref", "save_user_flags", "mdn",
             "app_chooser", "app_chooser_share", "share_task",
             "adjacent_links", "adjacent_documents", "adjacent_portrait", "adjacent_landscape",
@@ -485,6 +488,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swStrictAlignment = view.findViewById(R.id.swStrictAlignment);
         swWebp = view.findViewById(R.id.swWebp);
         swAnimate = view.findViewById(R.id.swAnimate);
+        swPreviewHidden = view.findViewById(R.id.swPreviewHidden);
+        swPreviewQuotes = view.findViewById(R.id.swPreviewQuotes);
         swEasyCorrect = view.findViewById(R.id.swEasyCorrect);
         swPastePlain = view.findViewById(R.id.swPastePlain);
         etFaviconUri = view.findViewById(R.id.etFaviconUri);
@@ -1635,6 +1640,20 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swPreviewHidden.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("preview_hidden", checked).apply();
+            }
+        });
+
+        swPreviewQuotes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("preview_quotes", checked).apply();
+            }
+        });
+
         swEasyCorrect.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2527,6 +2546,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swStrictAlignment.setChecked(prefs.getBoolean("strict_alignment", false));
             swWebp.setChecked(prefs.getBoolean("webp", true));
             swAnimate.setChecked(prefs.getBoolean("animate_images", true));
+            swPreviewHidden.setChecked(prefs.getBoolean("preview_hidden", true));
+            swPreviewQuotes.setChecked(prefs.getBoolean("preview_quotes", true));
             swEasyCorrect.setChecked(prefs.getBoolean("easy_correct", false));
             swPastePlain.setChecked(prefs.getBoolean("paste_plain", false));
             etFaviconUri.setText(prefs.getString("favicon_uri", null));

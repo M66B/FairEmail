@@ -989,6 +989,8 @@
     <string name="title_advanced_strict_alignment" translatable="false">Strict alignment</string>
     <string name="title_advanced_webp" translatable="false">WebP</string>
     <string name="title_advanced_animate" translatable="false">Animate images (GIF, etc.)</string>
+    <string name="title_advanced_preview_hidden" translatable="false">Preview hidden</string>
+    <string name="title_advanced_preview_quotes" translatable="false">Preview quotes</string>
     <string name="title_advanced_easy_correct" translatable="false">Easy correct</string>
     <string name="title_advanced_paste_plain" translatable="false">Add paste as plain text</string>
     <string name="title_advanced_favicon_uri" translatable="false">Favicon alternative URI</string>

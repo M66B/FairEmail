@@ -347,7 +347,7 @@ public class ServiceExternal extends ServiceBase {
 
         File file = msg.getFile(context);
         Helper.writeText(file, body);
-        String text = HtmlHelper.getFullText(body, true);
+        String text = HtmlHelper.getFullText(context, body);
         msg.preview = HtmlHelper.getPreview(text);
         msg.language = HtmlHelper.getLanguage(context, msg.subject, text);
         db.message().setMessageContent(msg.id,

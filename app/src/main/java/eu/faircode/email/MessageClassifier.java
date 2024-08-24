@@ -177,7 +177,7 @@ public class MessageClassifier {
         if (message.subject != null)
             texts.add(message.subject);
 
-        String text = HtmlHelper.getFullText(file, false);
+        String text = HtmlHelper.getFullText(context, file);
         if (text != null)
             texts.add(text);
 
