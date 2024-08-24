@@ -10,7 +10,7 @@ Both groups of people leave bad reviews for this, which is frustrating, also bec
 The main problem is that more features now make more people unhappy than happy.
 Therefore, [the rules for new features](https://m66b.github.io/FairEmail/#get-support) will be strictly followed from today.
 
-No worries, the app will continue to be maintained and supported as usual.
+No worries, the app will [continue to be maintained](https://github.com/M66B/FairEmail/commits/) and supported as usual.
 
 <br>
 
