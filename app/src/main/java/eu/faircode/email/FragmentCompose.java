@@ -1560,6 +1560,16 @@ public class FragmentCompose extends FragmentBase {
                         draft.ui_encrypt = null;
                 }
 
+                if (!PgpHelper.isOpenKeychainInstalled(context) &&
+                        (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt) ||
+                                EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt)))
+                    draft.ui_encrypt = null;
+
+                if (!ActivityBilling.isPro(context) &&
+                        (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt) ||
+                                EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt)))
+                    draft.ui_encrypt = null;
+
                 db.message().setMessageUiEncrypt(draft.id, draft.ui_encrypt);
 
                 db.message().setMessageSensitivity(draft.id, identity.sensitivity < 1 ? null : identity.sensitivity);
@@ -5670,15 +5680,21 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.plain_only = 1;
 
                         if (encrypt_default || selected.encrypt_default)
-                            if (selected.encrypt == 0)
-                                data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
-                            else
-                                data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+                            if (selected.encrypt == 0) {
+                                if (PgpHelper.isOpenKeychainInstalled(context))
+                                    data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                            } else {
+                                if (ActivityBilling.isPro(context))
+                                    data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+                            }
                         else if (sign_default || selected.sign_default)
-                            if (selected.encrypt == 0)
-                                data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
-                            else
-                                data.draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
+                            if (selected.encrypt == 0) {
+                                if (PgpHelper.isOpenKeychainInstalled(context))
+                                    data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
+                            } else {
+                                if (ActivityBilling.isPro(context))
+                                    data.draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
+                            }
                     }
 
                     if (receipt_default)
