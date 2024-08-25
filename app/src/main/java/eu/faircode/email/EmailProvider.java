@@ -305,8 +305,11 @@ public class EmailProvider implements Parcelable {
                         provider.pop.port = getAttributeIntValue(xml, "port", 0);
                         provider.pop.starttls = getAttributeBooleanValue(xml, "starttls", false);
                     } else if ("oauth".equals(name)) {
+                        String val = xml.getAttributeValue(null, "enabled");
+                        boolean enabled = ("debug".equals(val) ? BuildConfig.DEBUG : Boolean.parseBoolean(val));
+
                         provider.oauth = new OAuth();
-                        provider.oauth.enabled = getAttributeBooleanValue(xml, "enabled", false);
+                        provider.oauth.enabled = enabled;
                         provider.oauth.askAccount = getAttributeBooleanValue(xml, "askAccount", false);
                         provider.oauth.clientId = xml.getAttributeValue(null, "clientId");
                         provider.oauth.clientSecret = xml.getAttributeValue(null, "clientSecret");
