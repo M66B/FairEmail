@@ -342,23 +342,24 @@ public class FragmentDialogSend extends FragmentDialogBase {
                     spEncrypt.setTag(position);
                     setEncrypt(encryptValues[position]);
 
+                    tvEncrypt.setPaintFlags(tvEncrypt.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
+                    tvEncrypt.setOnClickListener(null);
+
                     if ((encryptValues[position] == EntityMessage.PGP_SIGNONLY ||
                             encryptValues[position] == EntityMessage.PGP_ENCRYPTONLY ||
-                            encryptValues[position] == EntityMessage.PGP_SIGNENCRYPT) &&
-                            PgpHelper.isOpenKeychainInstalled(context)) {
-                        tvEncrypt.setPaintFlags(tvEncrypt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-                        tvEncrypt.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                String pkg = PgpHelper.getPackageName(v.getContext());
-                                PackageManager pm = v.getContext().getPackageManager();
-                                v.getContext().startActivity(pm.getLaunchIntentForPackage(pkg));
-                            }
-                        });
-                    } else {
-                        tvEncrypt.setPaintFlags(tvEncrypt.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
-                        tvEncrypt.setOnClickListener(null);
-                    }
+                            encryptValues[position] == EntityMessage.PGP_SIGNENCRYPT))
+                        if (PgpHelper.isOpenKeychainInstalled(context)) {
+                            tvEncrypt.setPaintFlags(tvEncrypt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                            tvEncrypt.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    String pkg = PgpHelper.getPackageName(v.getContext());
+                                    PackageManager pm = v.getContext().getPackageManager();
+                                    v.getContext().startActivity(pm.getLaunchIntentForPackage(pkg));
+                                }
+                            });
+                        } else
+                            ToastEx.makeText(context, R.string.title_no_openpgp, ToastEx.LENGTH_LONG).show();
                 }
             }
 
