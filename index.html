@@ -774,6 +774,7 @@ openssl pkcs12 -export -legacy -in certbag.pem &gt;legacy.p12</code></pre>
 <p>Please see <a href="https://support.google.com/pixelphone/answer/2844832?hl=en">here</a> how you can import certificates into the Android key store.</p>
 <p>The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.</p>
 <p>If you are looking for a free (test) S/MIME certificate, see <a href="http://kb.mozillazine.org/Getting_an_SMIME_certificate">here</a> for the options. Please be sure to <a href="https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219">read this first</a> if you want to request an S/MIME Actalis certificate.</p>
+<p>Posteo offers cheap certificates, <a href="https://posteo.de/blog/neu-bei-posteo-smime-zertifikate-erstellen-und-sofort-nutzen">see here</a> (German).</p>
 <p>How to extract a public key from a S/MIME certificate:</p>
 <pre><code>openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem</code></pre>
 <p>You can verify the signature of a raw message file (EML file) like this:</p>

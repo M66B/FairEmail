@@ -1122,6 +1122,8 @@ If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mo
 Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219)
 if you want to request an S/MIME Actalis certificate.
 
+Posteo offers cheap certificates, [see here](https://posteo.de/blog/neu-bei-posteo-smime-zertifikate-erstellen-und-sofort-nutzen) (German).
+
 How to extract a public key from a S/MIME certificate:
 
 ```
