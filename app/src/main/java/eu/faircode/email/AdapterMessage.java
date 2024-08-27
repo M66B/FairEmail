@@ -46,7 +46,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.graphics.text.LineBreaker;
 import android.net.Uri;
 import android.os.Build;
