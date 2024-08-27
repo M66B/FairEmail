@@ -3635,6 +3635,14 @@ public class FragmentMessages extends FragmentBase
         }
 
         private void onSwipeTTS(final @NonNull TupleMessageEx message) {
+            boolean tts = iProperties.getValue("tts", message.id, false);
+            iProperties.setValue("tts", message.id, !tts);
+
+            if (tts) {
+                TTSHelper.speak(getContext(), "tts:" + message.id, "", message.language, true);
+                return;
+            }
+
             Bundle args = new Bundle();
             args.putLong("id", message.id);
 
@@ -3671,7 +3679,7 @@ public class FragmentMessages extends FragmentBase
                 @Override
                 protected void onExecuted(Bundle args, String text) {
                     if (text != null)
-                        TTSHelper.speak(getContext(), "tts:" + message.id, text, message.language);
+                        TTSHelper.speak(getContext(), "tts:" + message.id, text, message.language, true);
                 }
 
                 @Override

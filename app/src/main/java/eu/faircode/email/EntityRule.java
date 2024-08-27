@@ -1315,7 +1315,7 @@ public class EntityRule {
             sb.append(context.getString(R.string.title_rule_tts_content))
                     .append(' ').append(preview);
 
-        TTSHelper.speak(context, "rule:" + message.id, sb.toString(), message.language);
+        TTSHelper.speak(context, "rule:" + message.id, sb.toString(), message.language, false);
     }
 
     private boolean onActionSnooze(Context context, EntityMessage message, JSONObject jargs) throws JSONException {

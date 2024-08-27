@@ -41,7 +41,8 @@ public class TTSHelper {
             @NonNull final Context context,
             @NonNull final String utteranceId,
             @NonNull final String text,
-            final String language) {
+            final String language,
+            final boolean flush) {
 
         Locale locale = (language == null ? Locale.getDefault() : new Locale(language));
 
@@ -55,7 +56,7 @@ public class TTSHelper {
                             " available=" + available +
                             " utterance=" + utteranceId +
                             " text=" + text);
-                    instance.speak(text, TextToSpeech.QUEUE_ADD, null, utteranceId);
+                    instance.speak(text, flush ? TextToSpeech.QUEUE_FLUSH : TextToSpeech.QUEUE_ADD, null, utteranceId);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
