@@ -3658,6 +3658,11 @@ public class FragmentMessages extends FragmentBase
 
                     StringBuilder sb = new StringBuilder();
 
+                    if (message.received != null) {
+                        DateFormat DF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+                        sb.append(DF.format(message.received)).append(". ");
+                    }
+
                     if (message.from != null && message.from.length > 0)
                         sb.append(context.getString(R.string.title_rule_tts_from))
                                 .append(' ').append(MessageHelper.formatAddressesShort(message.from)).append(". ");
