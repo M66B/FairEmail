@@ -442,7 +442,7 @@
             starttls="false" />
     </provider>
     <provider
-        name="FastMail"
+        name="Fastmail"
         appPassword="true"
         documentation="You might need an app password; You can\'t use third party email apps with the basic plan, please &lt;a href=&quot;https://www.fastmail.help/hc/en-us/articles/360058752854-App-passwords&quot;&gt;see here&lt;/a&gt;."
         domain="fastmail\\..*"
@@ -467,9 +467,9 @@
             askAccount="true"
             authorizationEndpoint="https://api.fastmail.com/oauth/authorize"
             clientId="353941ae"
-            enabled="debug"
+            enabled="true"
             privacy="https://www.fastmail.com/features/privacy/"
-            redirectUri="http://localhost:49491/"
+            redirectUri="https://oauth.faircode.eu/"
             scopes="https://www.fastmail.com/dev/protocol-imap,https://www.fastmail.com/dev/protocol-smtp,https://www.fastmail.com/dev/protocol-pop"
             tokenEndpoint="https://api.fastmail.com/oauth/refresh">
             <!-- https://www.fastmail.com/dev/#o-auth-at-fastmail -->
