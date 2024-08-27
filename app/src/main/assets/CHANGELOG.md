@@ -20,10 +20,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2226 - 2024-08-27
 
 * Added Fastmail OAuth
-* Added swipe to speak
+* Added text-to-speech swipe action
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
