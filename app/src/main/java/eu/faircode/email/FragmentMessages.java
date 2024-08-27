@@ -3174,6 +3174,8 @@ public class FragmentMessages extends FragmentBase
                                 ? R.drawable.twotone_visibility_24 : R.drawable.twotone_timer_off_24));
             else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action))
                 icon = R.drawable.twotone_folder_24;
+            else if (EntityMessage.SWIPE_ACTION_TTS.equals(action))
+                icon = R.drawable.twotone_play_arrow_24;
             else if (EntityMessage.SWIPE_ACTION_SUMMARIZE.equals(action))
                 icon = R.drawable.twotone_smart_toy_24;
             else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action))
@@ -3333,6 +3335,9 @@ public class FragmentMessages extends FragmentBase
                 else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action)) {
                     redraw(viewHolder);
                     onSwipeMove(message);
+                } else if (EntityMessage.SWIPE_ACTION_TTS.equals(action)) {
+                    redraw(viewHolder);
+                    onSwipeTTS(message);
                 } else if (EntityMessage.SWIPE_ACTION_SUMMARIZE.equals(action)) {
                     redraw(viewHolder);
                     onSwipeSummarize(message);
@@ -3627,6 +3632,53 @@ public class FragmentMessages extends FragmentBase
             fragment.setArguments(args);
             fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_MOVE);
             fragment.show(getParentFragmentManager(), "swipe:move");
+        }
+
+        private void onSwipeTTS(final @NonNull TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return null;
+
+                    StringBuilder sb = new StringBuilder();
+
+                    if (message.from != null && message.from.length > 0)
+                        sb.append(context.getString(R.string.title_rule_tts_from))
+                                .append(' ').append(MessageHelper.formatAddressesShort(message.from)).append(". ");
+
+                    if (!TextUtils.isEmpty(message.subject))
+                        sb.append(context.getString(R.string.title_rule_tts_subject))
+                                .append(' ').append(message.subject).append(". ");
+
+                    String body = Helper.readText(message.getFile(context));
+                    String text = HtmlHelper.getFullText(context, body);
+
+                    if (!TextUtils.isEmpty(text))
+                        sb.append(context.getString(R.string.title_rule_tts_content))
+                                .append(' ').append(text);
+
+                    return sb.toString();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String text) {
+                    if (text != null)
+                        TTSHelper.speak(getContext(), "tts:" + message.id, text, message.language);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(FragmentMessages.this, args, "tts");
         }
 
         private void onSwipeSummarize(final @NonNull TupleMessageEx message) {

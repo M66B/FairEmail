@@ -2227,6 +2227,11 @@ public class FragmentAccount extends FragmentBase {
         importance.name = context.getString(R.string.title_set_importance);
         folders.add(importance);
 
+        EntityFolder tts = new EntityFolder();
+        tts.id = EntityMessage.SWIPE_ACTION_TTS;
+        tts.name = context.getString(R.string.title_rule_tts);
+        folders.add(tts);
+
         if (AI.isAvailable(context)) {
             EntityFolder summarize = new EntityFolder();
             summarize.id = EntityMessage.SWIPE_ACTION_SUMMARIZE;

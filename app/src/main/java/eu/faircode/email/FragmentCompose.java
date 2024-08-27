@@ -3673,7 +3673,7 @@ public class FragmentCompose extends FragmentBase {
         Context context = getContext();
         PackageManager pm = context.getPackageManager();
         if (photo) {
-            // https://developer.android.com/training/camera/photobasics
+            // https://developer.android.com/reference/android/provider/MediaStore#ACTION_IMAGE_CAPTURE
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             if (intent.resolveActivity(pm) == null) { // action whitelisted
                 Snackbar snackbar = Helper.setSnackbarOptions(

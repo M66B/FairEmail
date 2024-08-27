@@ -128,6 +128,7 @@ public class EntityMessage implements Serializable {
     static final Long SWIPE_ACTION_REPLY = -9L;
     static final Long SWIPE_ACTION_IMPORTANCE = -10L;
     static final Long SWIPE_ACTION_SUMMARIZE = -11L;
+    static final Long SWIPE_ACTION_TTS = -12L;
 
     private static final int MAX_SNOOZED = 300;
 
@@ -777,6 +778,8 @@ public class EntityMessage implements Serializable {
             return "reply";
         if (SWIPE_ACTION_SUMMARIZE.equals(type))
             return "summarize";
+        if (SWIPE_ACTION_TTS.equals(type))
+            return "TTS";
         return "???";
     }
 
