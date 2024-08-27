@@ -20,6 +20,13 @@ For support you can use the contact form.
 
 Acantholipan
 
+Next version
+
+* Added Fastmail OAuth
+* Added swipe to speak
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2225 - 2024-08-24
 
 * Small improvements and minor bug fixes
