@@ -41,7 +41,9 @@ public class TTSHelper {
             @NonNull final Context context,
             @NonNull final String utteranceId,
             @NonNull final String text,
-            @NonNull final Locale locale) {
+            final String language) {
+
+        Locale locale = (language == null ? Locale.getDefault() : new Locale(language));
 
         Runnable speak = new Runnable() {
             @Override

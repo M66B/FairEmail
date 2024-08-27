@@ -1296,21 +1296,15 @@ public class EntityRule {
         if (message.ui_seen)
             return;
 
-        Locale locale = (message.language == null ? Locale.getDefault() : new Locale(message.language));
-
-        Configuration configuration = new Configuration(context.getResources().getConfiguration());
-        configuration.setLocale(locale);
-        Resources res = context.createConfigurationContext(configuration).getResources();
-
         StringBuilder sb = new StringBuilder();
-        sb.append(res.getString(R.string.title_rule_tts_prefix)).append(". ");
+        sb.append(context.getString(R.string.title_rule_tts_prefix)).append(". ");
 
         if (message.from != null && message.from.length > 0)
-            sb.append(res.getString(R.string.title_rule_tts_from))
+            sb.append(context.getString(R.string.title_rule_tts_from))
                     .append(' ').append(MessageHelper.formatAddressesShort(message.from)).append(". ");
 
         if (!TextUtils.isEmpty(message.subject))
-            sb.append(res.getString(R.string.title_rule_tts_subject))
+            sb.append(context.getString(R.string.title_rule_tts_subject))
                     .append(' ').append(message.subject).append(". ");
 
         String body = Helper.readText(message.getFile(context));
@@ -1318,10 +1312,10 @@ public class EntityRule {
         String preview = HtmlHelper.getPreview(text);
 
         if (!TextUtils.isEmpty(preview))
-            sb.append(res.getString(R.string.title_rule_tts_content))
+            sb.append(context.getString(R.string.title_rule_tts_content))
                     .append(' ').append(preview);
 
-        TTSHelper.speak(context, "rule:" + message.id, sb.toString(), locale);
+        TTSHelper.speak(context, "rule:" + message.id, sb.toString(), message.language);
     }
 
     private boolean onActionSnooze(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
