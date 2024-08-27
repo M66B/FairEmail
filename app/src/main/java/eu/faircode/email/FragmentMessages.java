@@ -254,6 +254,7 @@ public class FragmentMessages extends FragmentBase
     private TextView tvNotifications;
     private TextView tvBatteryOptimizations;
     private TextView tvDataSaver;
+    private TextView tvVpnActive;
     private TextView tvSupport;
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
@@ -282,6 +283,7 @@ public class FragmentMessages extends FragmentBase
     private Group grpNotifications;
     private Group grpBatteryOptimizations;
     private Group grpDataSaver;
+    private Group grpVpnActive;
     private Group grpSupport;
     private Group grpHintSupport;
     private Group grpHintSwipe;
@@ -601,6 +603,7 @@ public class FragmentMessages extends FragmentBase
         tvNotifications = view.findViewById(R.id.tvNotifications);
         tvBatteryOptimizations = view.findViewById(R.id.tvBatteryOptimizations);
         tvDataSaver = view.findViewById(R.id.tvDataSaver);
+        tvVpnActive = view.findViewById(R.id.tvVpnActive);
         tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
@@ -630,6 +633,7 @@ public class FragmentMessages extends FragmentBase
         grpNotifications = view.findViewById(R.id.grpNotifications);
         grpBatteryOptimizations = view.findViewById(R.id.grpBatteryOptimizations);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
+        grpVpnActive = view.findViewById(R.id.grpVpnActive);
         grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
@@ -712,6 +716,13 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 new FragmentDialogDataSaver().show(getParentFragmentManager(), "datasaver");
+            }
+        });
+
+        tvVpnActive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new FragmentDialogVPN().show(getParentFragmentManager(), "vpn");
             }
         });
 
@@ -2003,6 +2014,7 @@ public class FragmentMessages extends FragmentBase
         grpNotifications.setVisibility(View.GONE);
         grpBatteryOptimizations.setVisibility(View.GONE);
         grpDataSaver.setVisibility(View.GONE);
+        grpVpnActive.setVisibility(View.GONE);
         tvNoEmail.setVisibility(View.GONE);
         tvNoEmailHint.setVisibility(View.GONE);
         etSearch.setVisibility(View.GONE);
@@ -5646,6 +5658,9 @@ public class FragmentMessages extends FragmentBase
                             ? View.VISIBLE : View.GONE);
         }
 
+        if (grpVpnActive != null && "vpn_reminder".equals(key))
+            updateVPN();
+
         if (grpSupport != null &&
                 ("pro".equals(key) || "banner_hidden".equals(key))) {
             boolean pro = ActivityBilling.isPro(getContext());
@@ -5673,14 +5688,16 @@ public class FragmentMessages extends FragmentBase
         }
 
         private void check() {
-            getMainHandler().post(new Runnable() {
+            getMainHandler().post(new RunnableEx("messages:network") {
                 @Override
-                public void run() {
+                public void delegate() {
                     if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                         return;
                     if (!rvMessage.isComputingLayout())
                         adapter.checkInternet();
                     updateAirplaneMode(ConnectionHelper.airplaneMode(getContext()));
+
+                    updateVPN();
                 }
             });
         }
@@ -5697,6 +5714,13 @@ public class FragmentMessages extends FragmentBase
     private void updateAirplaneMode(boolean on) {
         on = on && !ConnectionHelper.getNetworkState(getContext()).isConnected();
         grpAirplane.setVisibility(on ? View.VISIBLE : View.GONE);
+    }
+
+    private void updateVPN() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean vpn_reminder = prefs.getBoolean("vpn_reminder", true);
+        grpVpnActive.setVisibility(vpn_reminder && ConnectionHelper.vpnActive(getContext())
+                ? View.VISIBLE : View.GONE);
     }
 
     private boolean checkRedmiNote() {

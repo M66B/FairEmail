@@ -119,6 +119,32 @@
                 app:layout_constraintTop_toBottomOf="@id/tvDataSaver" />
 
             <TextView
+                android:id="@+id/tvVpnActive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableStart="@drawable/twotone_vpn_key_24"
+                android:drawableEnd="@drawable/twotone_settings_24"
+                android:drawablePadding="6dp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="@string/title_hint_vpn_active"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:drawableTint="?android:attr/textColorSecondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vSeparatorDataSaver" />
+
+            <View
+                android:id="@+id/vSeparatorVpnActive"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvVpnActive" />
+
+            <TextView
                 android:id="@+id/tvSupport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -128,7 +154,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vSeparatorDataSaver" />
+                app:layout_constraintTop_toBottomOf="@+id/vSeparatorVpnActive" />
 
             <View
                 android:id="@+id/vSeparatorSupport"
@@ -598,6 +624,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="tvDataSaver,vSeparatorDataSaver" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpVpnActive"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvVpnActive,vSeparatorVpnActive" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpSupport"
