@@ -406,7 +406,7 @@
     <string name="title_advanced_prefix_count">返信プレフィックスにカウントを追加する</string>
     <string name="title_advanced_separate_reply">返信/転送ヘッダーの前に水平線を挿入する</string>
     <string name="title_advanced_extended_reply">返信/転送ヘッダーを拡張する</string>
-    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">返信/転送ヘッダーのテンプレート</string>
+    <string name="title_advanced_template_reply">返信/転送ヘッダーのテンプレート</string>
     <string name="title_advanced_write_above">引用した本文の上に返信を書く</string>
     <string name="title_advanced_write_below">引用した本文の下に返信を書く</string>
     <string name="title_advanced_quote_reply">引用したテキストに引用符を付けて返信する</string>
@@ -831,7 +831,7 @@
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
     <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加できます</string>
     <string name="title_advanced_compose_color_hint">極端に明るいまたは暗い色を設定すると、受信者がメッセージを判読できなくなることがあります</string>
-    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML を使用できます。使用できるプレースホルダー: %1$s</string>
+    <string name="title_advanced_template_reply_hint">HTML を使用できます。使用できるプレースホルダー: %1$s</string>
     <string name="title_advanced_write_below_hint">受信者が長いメッセージをよく読まないなどの理由で、あなたの返信が見落とされる場合があります</string>
     <string name="title_advanced_attach_new_hint">OFF にすると、作成中の下書きメッセージに共有されたアドレスやファイルを追加します</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「--」を挿入します</string>

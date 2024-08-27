@@ -448,7 +448,7 @@
     <string name="title_advanced_prefix_count">הוספת מונה לקידומת תגובה</string>
     <string name="title_advanced_separate_reply">הוספת קו אופקי לפני כותרת תגובה/העברה</string>
     <string name="title_advanced_extended_reply">להשתמש בכותרת תגובה/העברה נרחבת</string>
-    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">תבנית כותרת תגובה/העברה</string>
+    <string name="title_advanced_template_reply">תבנית כותרת תגובה/העברה</string>
     <string name="title_advanced_write_above">לכתוב מעל לטקסט המוען</string>
     <string name="title_advanced_write_below">לכתוב מתחת לטקסט המוען</string>
     <string name="title_advanced_quote_reply">ציטוט הטקסט לתגובה</string>
@@ -873,7 +873,7 @@
     <string name="title_advanced_send_reminders_hint">להציג אזהרה כאשר טקסט ההודעה או הנושא ריקים או כאשר קובץ לא צורף לכאורה</string>
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
     <string name="title_advanced_compose_color_hint">צבעים בהירים או כהים מדי יובילו להודעות בלתי קריאות בצד המקבל</string>
-    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">מותר HTML. ממלאי מקום זמינים: %1$s</string>
+    <string name="title_advanced_template_reply_hint">מותר HTML. ממלאי מקום זמינים: %1$s</string>
     <string name="title_advanced_write_below_hint">נמענים עלולים להחמיץ את התגובה שלך, למשל כאשר הודעה ארוכה יותר מקוצרת</string>
     <string name="title_advanced_attach_new_hint">אם לא, להוסיף כתובות או קבצים משותפים להודעת הטיוטה הנוכחית</string>
     <string name="title_advanced_usenet_hint">להוסיף ‚--’ בין הטקסט והחתימה</string>
@@ -1967,10 +1967,12 @@
     <string name="title_hint_folder_actions">לחיצה ארוכה על תיקייה מציגה אפשרויות כגון הוספת התיקייה לתפריט הניווט לגישה מהירה</string>
     <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כברירת מחדל</string>
     <string name="title_hint_airplane">מצב טיסה מופעל</string>
+    <string name="title_hint_vpn_active">VPN פעיל</string>
     <string name="title_hint_notifications">אין הרשאות להתראות</string>
     <string name="title_hint_notifications_remark">נדרשות הרשאות גם להתראות (חשבון). אפשר לכבות התראות על הודעות חדשות בהגדרות.</string>
     <string name="title_hint_battery_optimizations">מיטובי סוללה עדיין פעילים</string>
     <string name="title_hint_data_saver">אם מצב חיסכון בסוללה פעיל, היישומון לא יוכל להסתנכרן ברקע ועלולות לצוץ שגיאות בחיבור.</string>
+    <string name="title_hint_vpn">שרתי דוא״ל בדרך כלל חוסמים חיבורים דרך VPN. רק ספק הדוא״ל יכול לפתור את זה.</string>
     <string name="title_hint_dismiss">אפשר להתעלם מהחלונית הסרת כדי להסיר את ההתראה.</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>

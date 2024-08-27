@@ -420,7 +420,7 @@
     <string name="title_advanced_prefix_count">Prefiksi cavablandırmaq üçün sayğac əlavə et</string>
     <string name="title_advanced_separate_reply">Cavablama/yönləndirmə başlığından əvvəl üfüqi bir xətt əlavə et</string>
     <string name="title_advanced_extended_reply">Genişləndirilmiş cavablama/yönləndirmə başlığı istifadə et</string>
-    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Cavabla/yönləndir başlıq şablonu</string>
+    <string name="title_advanced_template_reply">Cavabla/yönləndir başlıq şablonu</string>
     <string name="title_advanced_write_above">Göndərən mətninin üstünə yaz</string>
     <string name="title_advanced_write_below">Göndərən mətninin altına yaz</string>
     <string name="title_advanced_quote_reply">Cavablanan mətndən sitat gətir</string>
@@ -845,7 +845,7 @@
     <string name="title_advanced_send_reminders_hint">Mesaj mətni və ya mövzu boş olanda və ya bir qoşma əskik olanda bir xəbərdarlıq göstər</string>
     <string name="title_advanced_reply_move_hint">E-poçt serveri, mesajları yenə də göndərilən mesaj qovluğuna əlavə edə bilər</string>
     <string name="title_advanced_compose_color_hint">Çox açıq və ya çox tünd rənglər, alıcının mesajları oxuya bilməməsi ilə nəticələnir</string>
-    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML-ə icazə verilir. Mövcud placeholder: %1$s</string>
+    <string name="title_advanced_template_reply_hint">HTML-ə icazə verilir. Mövcud placeholder: %1$s</string>
     <string name="title_advanced_write_below_hint">Alıcı, məsələn uzun mesaj kəsiləndə cavabınızı buraxa bilər</string>
     <string name="title_advanced_attach_new_hint">Əks halda, paylaşılan ünvanları və ya faylları hazırkı qaralama mesajına əlavə edin</string>
     <string name="title_advanced_usenet_hint">Mətn və imza arasına \'-- \' əlavə et</string>
@@ -1939,6 +1939,7 @@
     <string name="title_hint_folder_actions">Cəld müraciət üçün bir qovluğu naviqasiya menyusuna əlavə etmək kimi, seçimlər üçün bir qovluğa uzun basın</string>
     <string name="title_hint_folder_sync">Batareya və şəbəkə istifadəsini məhdudlaşdırmaq üçün bütün qovluqlar və bütün mesajlar ilkin olaraq sinxronlaşdırılmayacaq</string>
     <string name="title_hint_airplane">Təyyarə rejimi açıqdır</string>
+    <string name="title_hint_vpn_active">VPN aktivdir</string>
     <string name="title_hint_notifications">Bildiriş icazəsi yoxdur</string>
     <string name="title_hint_notifications_remark">(Hesab) xəbərdarlıqları üçün bildiriş icazələri tələb olunur. Yeni mesajlar üçün bildirişlər ayarlarında söndürülə bilər.</string>
     <string name="title_hint_battery_optimizations">Batareya optimallaşdırma hələ də fəaldır</string>

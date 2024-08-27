@@ -447,7 +447,7 @@
     <string name="title_advanced_prefix_count">Dodaj liczbę do prefiksu odpowiedzi</string>
     <string name="title_advanced_separate_reply">Wstaw poziomą linię przed nagłówkiem odpowiedzi/przekazania</string>
     <string name="title_advanced_extended_reply">Użyj rozszerzonego nagłówka odpowiedzi/przesyłania dalej</string>
-    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Odpowiedz/przekaż nagłówek szablonu</string>
+    <string name="title_advanced_template_reply">Odpowiedz/przekaż nagłówek szablonu</string>
     <string name="title_advanced_write_above">Napisz powyżej tekstu nadawcy</string>
     <string name="title_advanced_write_below">Napisz poniżej tekstu nadawcy</string>
     <string name="title_advanced_quote_reply">Cytuj treść w odpowiedzi</string>
@@ -872,7 +872,7 @@
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_reply_move_hint">Serwer e-mail może nadal dodawać wiadomości do folderu wysłanych wiadomości</string>
     <string name="title_advanced_compose_color_hint">Bardzo jasne lub bardzo ciemne kolory spowodują, że wiadomości po stronie odbiorcy będą nieczytelne</string>
-    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML jest dozwolony. Dostępne symbole zastępcze: %1$s</string>
+    <string name="title_advanced_template_reply_hint">HTML jest dozwolony. Dostępne symbole zastępcze: %1$s</string>
     <string name="title_advanced_write_below_hint">Odbiorca może przegapić Twoją odpowiedź, np. gdy dłuższa wiadomość zostanie skrócona</string>
     <string name="title_advanced_attach_new_hint">W innym przypadku dodaj udostępniane adresy lub pliki do aktualnej wersji roboczej wiadomości</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>
@@ -1965,10 +1965,12 @@
     <string name="title_hint_folder_actions">Naciśnij długo folder, aby wyświetlić opcje, takie jak dodanie folderu do menu nawigacji w celu szybkiego dostępu</string>
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_airplane">Tryb samolotowy jest włączony</string>
+    <string name="title_hint_vpn_active">VPN aktywny</string>
     <string name="title_hint_notifications">Brak uprawnień dla powiadomień</string>
     <string name="title_hint_notifications_remark">Uprawnienia powiadomień są również wymagane dla ostrzeżeń dotyczących konta. Powiadomienia dla nowych wiadomości mogą być wyłączone w ustawieniach.</string>
     <string name="title_hint_battery_optimizations">Optymalizacja baterii jest nadal włączona</string>
     <string name="title_hint_data_saver">Jeśli oszczędzanie danych jest włączone, aplikacja nie będzie w stanie wykonywać synchronizacji w tle i mogą wystąpić błędy z połączeniem.</string>
+    <string name="title_hint_vpn">Serwery poczty e-mail często blokują połączenia przez VPN. Tylko dostawca poczty e-mail może to rozwiązać.</string>
     <string name="title_hint_dismiss">Możesz odrzucić to okno dialogowe, aby usunąć to powiadomienie.</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>

@@ -418,7 +418,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_prefix_count">Aantal toevoegen aan antwoord voorvoegsel</string>
     <string name="title_advanced_separate_reply">Voeg een horizontale lijn in voor een antwoord/doorsturen kop</string>
     <string name="title_advanced_extended_reply">Gebruik uitgebreide kop bij antwoorden/doorsturen</string>
-    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Antwoord/doorsturen sjabloon</string>
+    <string name="title_advanced_template_reply">Sjabloon voor Antwoord/Doorsturen</string>
     <string name="title_advanced_write_above">Schrijf boven de tekst van de afzender</string>
     <string name="title_advanced_write_below">Schrijf onder de tekst van de afzender</string>
     <string name="title_advanced_quote_reply">Haal beantwoorde tekst aan</string>
@@ -842,7 +842,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_send_reminders_hint">Toon een waarschuwing wanneer de berichttekst of het onderwerp leeg is of wanneer een bijlage zou kunnen ontbreken</string>
     <string name="title_advanced_reply_move_hint">De e-mailserver kan de berichten nog steeds toevoegen aan de map met verzonden berichten</string>
     <string name="title_advanced_compose_color_hint">Zeer lichte of zeer donkere kleuren leiden tot onleesbare berichten aan de kant van de ontvanger</string>
-    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML is toegestaan. Beschikbare plaatsvervangers: %1$s</string>
+    <string name="title_advanced_template_reply_hint">HTML is toegestaan. Beschikbare plaatsvervangers: %1$s</string>
     <string name="title_advanced_write_below_hint">Een ontvanger mist mogelijk uw antwoord, bijvoorbeeld wanneer een langer bericht wordt ingekort</string>
     <string name="title_advanced_attach_new_hint">Voeg anders gedeelde adressen of bestanden toe aan het huidige conceptbericht</string>
     <string name="title_advanced_usenet_hint">Voeg \'-- \' in tussen de tekst en de handtekening</string>
@@ -1927,10 +1927,12 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_hint_folder_actions">Druk lang op de map voor opties, zoals het toevoegen van een map aan het navigatiemenu voor snelle toegang</string>
     <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
     <string name="title_hint_airplane">Vliegtuigmodus is ingeschakeld</string>
+    <string name="title_hint_vpn_active">VPN actief</string>
     <string name="title_hint_notifications">Geen meldingsrechten</string>
     <string name="title_hint_notifications_remark">Meldingsrechten zijn vereist voor (account) meldingen. Meldingen voor nieuwe berichten kunnen worden uitgeschakeld in de instellingen.</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaties nog steeds ingeschakeld</string>
     <string name="title_hint_data_saver">Als gegevensbesparing is ingeschakeld, kan de app niet op de achtergrond synchroniseren en kunnen er verbindingsfouten optreden.</string>
+    <string name="title_hint_vpn">Mailservers blokkeren vaak verbindingen via een VPN. Alleen de mailprovider kan dit oplossen.</string>
     <string name="title_hint_dismiss">U kunt dit dialoogvenster sluiten om de melding te verwijderen.</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veegacties kunnen worden geconfigureerd in de accountinstellingen</string>

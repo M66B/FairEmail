@@ -420,7 +420,7 @@
     <string name="title_advanced_prefix_count">Tilføj antal som svarpræfiks</string>
     <string name="title_advanced_separate_reply">Indsæt en vandret linje før en svar-/videresendelsesoverskrift</string>
     <string name="title_advanced_extended_reply">Benyt udvidet svar-/videresendoverskrift</string>
-    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Besvar/videresend header-skabelon</string>
+    <string name="title_advanced_template_reply">Besvar/videresend header-skabelon</string>
     <string name="title_advanced_write_above">Skriv over afsenderteksten</string>
     <string name="title_advanced_write_below">Skriv under afsenderens tekst</string>
     <string name="title_advanced_quote_reply">Citat af svartekst</string>
@@ -846,7 +846,7 @@
     <string name="title_advanced_send_reminders_hint">Vis en advarsel, når beskedtekst eller emne er tomt, eller en vedhæftet fil muligvis mangler</string>
     <string name="title_advanced_reply_move_hint">E-mailserveren kan dog stadig føje beskederne til beskedafsendelsesmappen</string>
     <string name="title_advanced_compose_color_hint">Meget lyse eller mørke farver vil gøre meddelelser ulæselige for modtageren</string>
-    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML er tilladt. Tilgængelige pladsholdere: %1$s</string>
+    <string name="title_advanced_template_reply_hint">HTML er tilladt. Tilgængelige pladsholdere: %1$s</string>
     <string name="title_advanced_write_below_hint">En modtager kan gå glip af dit svar, når eksempelvis en længere besked afkortes</string>
     <string name="title_advanced_attach_new_hint">Ellers føj delte adresser eller filer til det aktuelle beskedudkast</string>
     <string name="title_advanced_usenet_hint">Indsæt \'-- \' mellem teksten og signaturen</string>

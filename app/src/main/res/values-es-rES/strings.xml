@@ -419,7 +419,7 @@
     <string name="title_advanced_prefix_count">Añadir contador a prefijo de respuesta</string>
     <string name="title_advanced_separate_reply">Insertar una línea horizontal antes de un encabezado de respuesta/reenvío</string>
     <string name="title_advanced_extended_reply">Usar encabezado de respuesta/reenvío extendido</string>
-    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Plantilla de cabecera de respuesta/redirección</string>
+    <string name="title_advanced_template_reply">Plantilla de cabecera de respuesta/redirección</string>
     <string name="title_advanced_write_above">Escribir sobre el texto del remitente</string>
     <string name="title_advanced_write_below">Escribir debajo del texto del remitente</string>
     <string name="title_advanced_quote_reply">Citar texto a responder</string>
@@ -844,7 +844,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar una advertencia cuando el texto del mensaje o el asunto estén vacíos o cuando un archivo adjunto pueda estar ausente</string>
     <string name="title_advanced_reply_move_hint">El servidor de correo electrónico todavía puede añadir los mensajes a la carpeta de mensajes enviados</string>
     <string name="title_advanced_compose_color_hint">Los colores muy claros o muy oscuros resultarán en mensajes ilegibles en el lado de los destinatarios</string>
-    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML está permitido. Marcadores de posición disponibles: %1$s</string>
+    <string name="title_advanced_template_reply_hint">HTML está permitido. Marcadores de posición disponibles: %1$s</string>
     <string name="title_advanced_write_below_hint">Un destinatario puede perderse su respuesta, por ejemplo cuando un mensaje más largo está siendo truncado</string>
     <string name="title_advanced_attach_new_hint">De lo contrario, añadir direcciones compartidas o archivos al mensaje de borrador actual</string>
     <string name="title_advanced_usenet_hint">Insertar \'-- \' entre el texto y la firma</string>
@@ -1935,10 +1935,12 @@
     <string name="title_hint_folder_actions">Mantenga pulsada una carpeta para las opciones, como añadir una carpeta al menú de navegación para acceso rápido</string>
     <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
     <string name="title_hint_airplane">El modo avión está activado</string>
+    <string name="title_hint_vpn_active">VPN activa</string>
     <string name="title_hint_notifications">Sin permisos de notificación</string>
     <string name="title_hint_notifications_remark">Los permisos de notificación también son necesarios para las alertas (de cuenta). Las notificaciones de nuevos mensajes pueden desactivarse en la configuración.</string>
     <string name="title_hint_battery_optimizations">Optimizaciones de uso de batería habilitadas</string>
     <string name="title_hint_data_saver">Si el ahorro de datos está habilitado, la aplicación no podrá sincronizar en segundo plano y pueden producirse errores de conexión.</string>
+    <string name="title_hint_vpn">Los servidores de correo electrónico a menudo bloquean conexiones a través de una VPN. Sólo el proveedor de correo puede resolver esto.</string>
     <string name="title_hint_dismiss">Puede descartar este diálogo para eliminar el aviso.</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Desliza a la izquierda para enviar a la papelera; Desliza a la derecha para archivar (si está disponible); las acciones de deslizamiento pueden configurarse en la configuración de la cuenta</string>

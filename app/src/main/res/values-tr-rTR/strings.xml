@@ -415,7 +415,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_prefix_count">Yanıt önekine sayım ekle</string>
     <string name="title_advanced_separate_reply">Yanıtlama / iletme başlığından önce yatay bir çizgi ekleyin</string>
     <string name="title_advanced_extended_reply">Genişletilmiş cevapla/ilet başlığı kullan</string>
-    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Yanıtla/yönlendir başlık şablonu</string>
+    <string name="title_advanced_template_reply">Yanıtla/yönlendir başlık şablonu</string>
     <string name="title_advanced_write_above">Gönderenin metninin üstüne yazın</string>
     <string name="title_advanced_write_below">Gönderenin metninin altına yazın</string>
     <string name="title_advanced_quote_reply">Cevap metnini alıntıla</string>
@@ -840,7 +840,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_send_reminders_hint">Mesaj metni veya konu boş olduğunda veya bir ek eksik olduğunda bir uyarı göster</string>
     <string name="title_advanced_reply_move_hint">E-posta sunucusu, iletileri gönderilen ileti klasörüne eklemeye devam edebilir</string>
     <string name="title_advanced_compose_color_hint">Çok açık veya çok koyu renkler, alıcı tarafında okunaksız mesajlara neden olur</string>
-    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML\'ye izin verildi. Kullanılabilir yer tutucular: %1$s</string>
+    <string name="title_advanced_template_reply_hint">HTML\'ye izin verildi. Kullanılabilir yer tutucular: %1$s</string>
     <string name="title_advanced_write_below_hint">Bir alıcı, örneğin daha uzun bir mesaj kesilirken yanıtınızı kaçırabilir</string>
     <string name="title_advanced_attach_new_hint">Aksi takdirde, paylaşılan adresleri veya dosyaları mevcut taslak mesaja ekle</string>
     <string name="title_advanced_usenet_hint">Metin ve imza arasına \'-- \' ekle</string>
@@ -1926,10 +1926,12 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_hint_folder_actions">Hızlı erişim için navigasyon menüsüne klasör eklerkenki gibi, seçenekler için bir klasöre uzun basın</string>
     <string name="title_hint_folder_sync">Pil ve ağ kullanımını sınırlamak için tüm klasörler ve tüm mesajlar varsayılan olarak senkronize edilmeyecektir</string>
     <string name="title_hint_airplane">Uçak modu açık</string>
+    <string name="title_hint_vpn_active">VPN etkin</string>
     <string name="title_hint_notifications">Bildirim izni yok</string>
     <string name="title_hint_notifications_remark">(Hesap) uyarıları için de bildirim izinleri gereklidir. Yeni mesajlara ilişkin bildirimler ayarlardan kapatılabilir.</string>
     <string name="title_hint_battery_optimizations">Pil optimizasyonu halen etkin</string>
     <string name="title_hint_data_saver">Veri tasarrufu etkinleştirilirse, uygulama arka planda senkronizasyon yapamaz ve bağlantı hataları oluşabilir.</string>
+    <string name="title_hint_vpn">E-posta sunucuları genellikle VPN üzerinden bağlantıları engeller. Bunu yalnızca e-posta sağlayıcısı çözebilir.</string>
     <string name="title_hint_dismiss">Bildirimi kaldırmak için bu iletişim kutusunu kapatabilirsiniz.</string>
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp için sola kaydırın; Arşiv için sağa kaydırın (mevcut ise); Kaydırma eylemleri hesap ayarlarından yapılandırılabilir</string>

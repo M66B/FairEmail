@@ -418,6 +418,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_prefix_count">Oantal tafoegje oan antwurd foarfoechsel</string>
     <string name="title_advanced_separate_reply">Foegje in horizontale line foar in antwurd/foarút koptekst ta</string>
     <string name="title_advanced_extended_reply">Brûk útwreide antwurd / koptekst foarút</string>
+    <string name="title_advanced_template_reply">Sjabloan foar Antwurd/Trochstjoere</string>
     <string name="title_advanced_write_above">Skriuw boppe de tekst fan de ôfstjoerder</string>
     <string name="title_advanced_write_below">Skriuw ûnder de tekst fan de ôfstjoerder</string>
     <string name="title_advanced_quote_reply">Sitearje beäntwurde tekst</string>
@@ -842,6 +843,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_send_reminders_hint">Toan in warskôging as de tekst fan it berjocht of it ûnderwerp leech is of as in bylage miskien mist</string>
     <string name="title_advanced_reply_move_hint">De e-mailserver koe de berjochten noch hieltyd tafoegje oan de map ferstjoerde berjochten</string>
     <string name="title_advanced_compose_color_hint">Bot ljochte of bot donkere kleuren liede ta net-lêsbere berjochten oan de kant fan de ûntfanger</string>
+    <string name="title_advanced_template_reply_hint">HTML is tastien. Beskikbere plakferfangers: %1$s</string>
     <string name="title_advanced_write_below_hint">In ûntfanger mist mooglik jo antwurd, bygelyks wannear’t in langer berjocht ynkoarte wurdt</string>
     <string name="title_advanced_attach_new_hint">Foegje oars dielde adressen of bestannen ta oan it aktuele konseptberjocht</string>
     <string name="title_advanced_usenet_hint">Foegje \'-- \' yn tusken de tekst en de hantekening</string>
@@ -1930,10 +1932,12 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_hint_folder_actions">Druk lang op in map foar opsjes, lykas in map tafoegje oan it navigaasjemenu foar flugge tagong</string>
     <string name="title_hint_folder_sync">Om batterij- en netwurkgebrûk te beheinen sille net alle mappen en net alle berjochten standert syngronisearre wurde</string>
     <string name="title_hint_airplane">Fleantúchmodus is ynskeakele</string>
+    <string name="title_hint_vpn_active">VPN aktyf</string>
     <string name="title_hint_notifications">Gjin meldingsrjochten</string>
     <string name="title_hint_notifications_remark">Meldingsrjochten binne fereaske foar (account)meldingen. Meldingen foar nije berjochten kinne útskeakele wurde yn de ynstellingen.</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaasjes noch hieltyd ynskeakele</string>
     <string name="title_hint_data_saver">As gegevensbesparring ynskeakele is, kin de app net op de eftergrûn syngronisearje en kinne der ferbiningsflaters barre.</string>
+    <string name="title_hint_vpn">Mailservers blokkearje faaks ferbiningen fia in VPN. Allinnich de mailprovider kin dit oplosse.</string>
     <string name="title_hint_dismiss">Jo kinne dit dialoochfienster slute om de melding fuort te smiten.</string>
     <string name="title_hint_support">As jo in fraach of in probleem hawwe, brûk dan it stipemenu om help te krijen</string>
     <string name="title_hint_message_actions">Fei links nei jiskefet; Fei rjochts nei argyf (as beskikber); De fei-aksjes kinne ynsteld wurde yn de accountynstellingen</string>

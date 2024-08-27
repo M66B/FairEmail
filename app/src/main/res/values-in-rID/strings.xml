@@ -404,7 +404,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_prefix_count">Tambahkan jumlah ke awalan balasan</string>
     <string name="title_advanced_separate_reply">Tambahkan garis horizontal sebelum header balasan/teruskan</string>
     <string name="title_advanced_extended_reply">Gunakan header balasan/penerusan yang diperpanjang</string>
-    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Templat tajuk balasan/meneruskan</string>
+    <string name="title_advanced_template_reply">Templat tajuk balasan/meneruskan</string>
     <string name="title_advanced_write_above">Tulis diatas tulisan pengirim</string>
     <string name="title_advanced_write_below">Tulis di bawah teks pengirim</string>
     <string name="title_advanced_quote_reply">Kutip teks balasan</string>
@@ -828,7 +828,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_send_reminders_hint">Menampilkan peringatan ketika teks pesan atau subjek kosong atau mungkin ketika lampiran pesan hilang</string>
     <string name="title_advanced_reply_move_hint">Server email bisa menambahkan pesan pada folder pesan terkirim</string>
     <string name="title_advanced_compose_color_hint">Warna yang terlalu terang atau terlalu gelap akan mengakibatkan pesan yang sulit dibaca pada sisi penerima</string>
-    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML diperbolehkan. Penampung yang tersedia: %1$s</string>
+    <string name="title_advanced_template_reply_hint">HTML diperbolehkan. Penampung yang tersedia: %1$s</string>
     <string name="title_advanced_write_below_hint">Penerima mungkin melewatkan balasan Anda, misalnya saat pesan yang lebih panjang terpotong</string>
     <string name="title_advanced_attach_new_hint">Jika tidak, tambahkan alamat atau file bersama ke draf pesan saat ini</string>
     <string name="title_advanced_usenet_hint">Sisipkan \'-- \' antara teks dan tanda tangan</string>

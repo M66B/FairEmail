@@ -449,7 +449,7 @@
     <string name="title_advanced_prefix_count">Дадаваць лічыльнік да прэфікса адказу</string>
     <string name="title_advanced_separate_reply">Устаўляць гарызантальную лінію перад загалоўкам адказу/перасылкі</string>
     <string name="title_advanced_extended_reply">Выкарыстоўваць пашыраны загаловак для адказу/перасылкі</string>
-    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Шаблон загалоўка адказу/перасылкі</string>
+    <string name="title_advanced_template_reply">Шаблон загалоўка адказу/перасылкі</string>
     <string name="title_advanced_write_above">Пісаць над тэкстам адпраўніка</string>
     <string name="title_advanced_write_below">Пісаць пад тэкстам адпраўніка</string>
     <string name="title_advanced_quote_reply">Цытаваць тэкст пры адказе</string>
@@ -874,7 +874,7 @@
     <string name="title_advanced_send_reminders_hint">Паказваць папярэджанне, калі тэкст або тэма паведамлення пустыя або калі існуе верагоднасць адсутнасці ўкладання</string>
     <string name="title_advanced_reply_move_hint">Сервер электроннай пошты ўсё яшчэ можа дадаваць паведамленні ў папку адпраўленых паведамленняў</string>
     <string name="title_advanced_compose_color_hint">Вельмі светлыя або вельмі цёмныя колеры зробяць паведамленні нечытэльнымі для атрымальнікаў</string>
-    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">Выкарыстанне HTML дазволена. Даступныя наступныя запаўняльнікі: %1$s</string>
+    <string name="title_advanced_template_reply_hint">Выкарыстанне HTML дазволена. Даступныя наступныя запаўняльнікі: %1$s</string>
     <string name="title_advanced_write_below_hint">Атрымальнік можа прапусціць ваш адказ, напрыклад, пры скарачэнні доўгага паведамлення</string>
     <string name="title_advanced_attach_new_hint">У адваротным выпадку дадаваць абагуленыя адрасы або файлы ў бягучы чарнавік паведамлення</string>
     <string name="title_advanced_usenet_hint">Устаўляць \'—\' паміж тэкстам і подпісам</string>

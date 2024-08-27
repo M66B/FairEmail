@@ -195,6 +195,8 @@
     <string name="title_setup_gmail_permissions">Google küsib lugemise, loomise, saatmise ja kõigi kirjade jäädava kustutamise luba. FairEmail ei kustuta kunagi su kirju ilma su otsese nõusolekuta.</string>
     <string name="title_setup_gmail_login">Kui Chromega on kontosse sisse logitud, saab uut kontot lisada vaid Androidi kaudu. Seda saab vältida, kui logida Chrome sünkroniseerimisseadetes Chromest välja.</string>
     <string name="title_setup_gmail_max">Veateate \"Oled sisse logitud maksimaalsele arvule kontodele\" korral pead veebilehitsejas välja logima kõikidest Google\'i kontodest.</string>
+    <string name="title_setup_outlook_hint">Alias-aadressi korral tuleks tõenäoliselt kasutada Office 365 viisardit.</string>
+    <string name="title_setup_outlook_modern">Microsofti turvareeglite muudatuste tõttu toimib alates 16. septembrist 2024 vaid Outlook/Hotmail/Live viisard.</string>
     <string name="title_setup_gmail_on_device">Miks ma pean valima seadmesisese konto?</string>
     <string name="title_setup_gmail_password">Ma tahan autoriseerida kontot parooliga ja mitte seadmes oleva kontoga</string>
     <string name="title_setup_office_auth">Vea \"AUTHENTICATE failed\" põhjuseks võib olla, et IMAP/SMTP on süsteemi administraatori poolt keelatud</string>
@@ -204,6 +206,7 @@
     <string name="title_setup_oauth_update">Autoriseeri uuesti olemasolev konto (muul juhul loo uus konto)</string>
     <string name="title_setup_oauth_updated">Konto autoriseering on uuendatud</string>
     <string name="title_setup_oauth_brave">Brave\'i brauseri kasutamisel tuleb Brave\'i seadetes lubada rakenduse linkide avamine väljaspool Brave\'i asuvates rakendustes</string>
+    <string name="title_setup_oauth_browser">Autoriseerimine vajab toimivat veebilehitsejat</string>
     <string name="title_setup_oauth_authorize">Autoriseeri</string>
     <string name="title_setup_select_account">Konto valimine</string>
     <string name="title_setup_instructions">Seadistamise juhised</string>
@@ -330,6 +333,7 @@
     <string name="title_setup_reset_full">Näita algseid sõnumeid</string>
     <string name="title_check_gmail_oauth">Su Gmaili kontod jätkavad toimimist peale 30. maid 2022</string>
     <string name="title_check_gmail_password">Mõned su Gmaili kontod võivad lõpetada töö peale 30. Maid 2022</string>
+    <string name="title_check_outlook_oauth">Sinu Outlooki kontod jätkavad toimimist peale 16. septembrit 2024</string>
     <string name="title_check_outlook_password">Mõned su Outlooki/Hotmaili/Live kontodest lõpetavad toimimise peale 16. septembrit 2024</string>
     <string name="title_advanced_hint_title">Veel täpsemaid valikuid</string>
     <string name="title_advanced_hint_message">        Liigud edasijõudnute valikute juurde.
@@ -416,6 +420,7 @@
     <string name="title_advanced_prefix_count">Lisa vastuse eesliitele loendur</string>
     <string name="title_advanced_separate_reply">Lisa vastamise/edastamise päise ette horisontaaljoon</string>
     <string name="title_advanced_extended_reply">Kasuta vastamise-edastamise laiendatud päist</string>
+    <string name="title_advanced_template_reply">Vasta/saada edasi päisemall</string>
     <string name="title_advanced_write_above">Kirjuta saatja teksti kohale</string>
     <string name="title_advanced_write_below">Kirjuta saatja tekstist allapoole</string>
     <string name="title_advanced_quote_reply">Vastatava teksti tsiteerimine</string>
@@ -517,8 +522,11 @@
     <string name="title_advanced_threading_unread">Näita lugemata sõnumite arvu vestlustes</string>
     <string name="title_advanced_indentation">Vastuvõetud/saadud sõnumite vasak/parempoolne taane vestlustes</string>
     <string name="title_advanced_highlight_unread">Tõsta lugemata sõnumid esile</string>
+    <string name="title_advanced_account_color">Näita värvilist triipu või punkti</string>
     <string name="title_advanced_color_stripe_wide">Kasuta laia värvivööti</string>
     <string name="title_advanced_avatars">Näita kontakti fotot</string>
+    <string name="title_advanced_bimi">Näita sõnumi tunnusena Brändi tunnuseid (BIMI)</string>
+    <string name="title_advanced_bimi_vmc">Nõua kehtivat VMC-sertifikaati</string>
     <string name="title_advanced_bimi_unverified">Kontrollimata saatja</string>
     <string name="title_advanced_bimi_verified">Kontrollitud saatja</string>
     <string name="title_advanced_gravatars">Näita Gravatare</string>
@@ -526,6 +534,8 @@
     <string name="title_advanced_favicons">Näita favicone</string>
     <string name="title_advanced_favicons_partial">Veebilehe vaid esimese %1$s skännimine</string>
     <string name="title_advanced_favicons_manifest">Skänni veebiäpi manifesti</string>
+    <string name="title_advanced_ddg">Näita DuckDuckGo ikoone</string>
+    <string name="title_advanced_favicons_dmarc">Nõua väliste piltide puhul DMARC kontrolli</string>
     <string name="title_advanced_generated_icons">Näita genereeritud ikoone</string>
     <string name="title_advanced_identicons">Näita identicone</string>
     <string name="title_advanced_circular">Näita ümmargusi ikoone</string>
@@ -634,6 +644,7 @@
     <string name="title_advanced_autounstar">Eemalda sõnumite liigutamisel sõnumitelt tärn automaatselt</string>
     <string name="title_advanced_reset_importance">Lähtesta sõnumite liigutamisel tähtsus</string>
     <string name="title_advanced_star_snoozed">Lisa tukastanud sõnumitele automaatselt tärn</string>
+    <string name="title_advanced_star_unsnoozed">Eemalda üles äratatud sõnumitelt automaatselt tärn</string>
     <string name="title_advanced_auto_important">Muuda kõik tärniga sõnumid automaatselt oluliseks</string>
     <string name="title_advanced_cancel_snooze">Tühista sõnumite liigutamisel tukastamine</string>
     <string name="title_advanced_auto_block_sender">Blokeeri saatja spämmi raporteerimisel automaatselt</string>
@@ -642,6 +653,7 @@
     <string name="title_advanced_move_thread_all">Valitud vestluste liigutamisel liiguta kõiki sõnumeid</string>
     <string name="title_advanced_move_thread_sent">Vestluse liigutamisel liiguta ka saadetud sõnumeid</string>
     <string name="title_advanced_swipe_trash_all">Kui pühkida vestlus prügisse, vii prügisse kõik sõnumid</string>
+    <string name="title_advanced_gmail_delete_all">Sõnumi püsival kustutamisel kustuta ka kõik Gmaili sildid</string>
     <string name="title_advanced_default_snooze">Tukastamise vaikeaeg</string>
     <string name="title_advanced_default_folder">Vali vaikekaust</string>
     <string name="title_advanced_notifications">Halda teavitamist</string>
@@ -724,6 +736,7 @@
     <string name="title_advanced_sign_default">Allkirjasta vaikimisi</string>
     <string name="title_advanced_encrypt_default">Krüpteeri vaikimisi</string>
     <string name="title_advanced_encrypt_auto">Krüpteeri automaatselt, kui kõigi saajate võtmed on saadaval</string>
+    <string name="title_advanced_encrypt_reply">Automaatne krüpteerimine kui vastatakse krüpteeritud sõnumile</string>
     <string name="title_advanced_auto_verify">Kontrolli allkirjastatud sõnumeid automaatselt</string>
     <string name="title_advanced_auto_decrypt">Dekrüpteeri sõnumid automaatselt</string>
     <string name="title_advanced_auto_undo_decrypt">Võta vestluse sulgemisel dekrüpteerimine tagasi</string>
@@ -832,6 +845,7 @@
     <string name="title_advanced_send_reminders_hint">Näita hoiatust, kui sõnum on tühi või puudub teema või sõnumilt võib puududa manus</string>
     <string name="title_advanced_reply_move_hint">Meiliserver võib sellegipoolest sõnumid saadetud sõnumite kausta lisada</string>
     <string name="title_advanced_compose_color_hint">Väga heledad või väga tumedad värvid põhjustavad vastuvõtjate poolel loetamatuid sõnumeid</string>
+    <string name="title_advanced_template_reply_hint">HTML on lubatud. Saadaval kohatäited: %1$s</string>
     <string name="title_advanced_write_below_hint">Vastuvõtja võib vastusest ilma jääda, näiteks kui pikem sõnum kärbitakse</string>
     <string name="title_advanced_attach_new_hint">Muul juhul lisa jagatud aadressid või failid praegusele mustandsõnumile</string>
     <string name="title_advanced_usenet_hint">Lisa \"-- \" teksti ja allkirja vahele</string>
@@ -2302,8 +2316,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Pole</item>
-        <item>Stripe</item>
-        <item>Dot</item>
+        <item>Triip</item>
+        <item>Punkt</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Saaja</item>

@@ -419,7 +419,7 @@
     <string name="title_advanced_prefix_count">Adicionar contagem ao prefixo de resposta</string>
     <string name="title_advanced_separate_reply">Insira uma linha horizontal antes de um cabeçalho de resposta</string>
     <string name="title_advanced_extended_reply">Usar cabeçalho de resposta/encaminhamento estendido</string>
-    <string name="title_advanced_template_reply" comment="title_advanced_template_reply&#10;Title for an option in the send settings tab page for defining a template of the reply header">Modelo de cabeçalho de resposta/encaminhamento</string>
+    <string name="title_advanced_template_reply">Modelo de cabeçalho de resposta/encaminhamento</string>
     <string name="title_advanced_write_above">Escreva acima do texto do remetente</string>
     <string name="title_advanced_write_below">Escreva abaixo do texto do remetente</string>
     <string name="title_advanced_quote_reply">Citar texto respondido</string>
@@ -844,7 +844,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo puder estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de e-mail ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_compose_color_hint">Cores muito claras ou muito escuras resultarão em mensagens ilegíveis do lado dos destinatários</string>
-    <string name="title_advanced_template_reply_hint" comment="title_advanced_template_reply_hint&#10;Remarks for an option in the send settings tab page for defining a template of the reply header">HTML é permitido. Espaços reservados disponíveis: %1$s</string>
+    <string name="title_advanced_template_reply_hint">HTML é permitido. Espaços reservados disponíveis: %1$s</string>
     <string name="title_advanced_write_below_hint">Um destinatário pode perder a sua resposta, por exemplo, quando uma mensagem mais longa estiver sendo truncada</string>
     <string name="title_advanced_attach_new_hint">Caso contrário, adicione endereços ou arquivos compartilhados à mensagem de rascunho atual</string>
     <string name="title_advanced_usenet_hint">Inserir \'-- \' entre o texto e a assinatura</string>
@@ -1936,10 +1936,12 @@
     <string name="title_hint_folder_actions">Pressione e segure uma pasta para opções, como adicionar uma pasta ao menu de navegação para acesso rápido</string>
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e de rede nem todas as pastas e mensagens serão sincronizadas por padrão</string>
     <string name="title_hint_airplane">Modo avião está ativado</string>
+    <string name="title_hint_vpn_active">VPN ativa</string>
     <string name="title_hint_notifications">Sem permissões de notificação</string>
     <string name="title_hint_notifications_remark">As permissões de notificação também são necessárias para alerta (de conta). As notificações de novas mensagens podem ser desativadas nas configurações.</string>
     <string name="title_hint_battery_optimizations">Otimizações de bateria continuam ativadas</string>
     <string name="title_hint_data_saver">Se a economia de dados estiver ativada, o aplicativo não poderá sincronizar em segundo plano e poderão ocorrer erros de conexão.</string>
+    <string name="title_hint_vpn">Os servidores de e-mail geralmente bloqueiam conexões por meio de VPN. Somente o provedor de e-mail pode resolver isso.</string>
     <string name="title_hint_dismiss">Você pode descartar esta caixa de diálogo para remover o aviso.</string>
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para a lixeira; Deslize para a direita para o arquivo (se disponível); As ações de deslize podem ser configuradas nas configurações da conta</string>
