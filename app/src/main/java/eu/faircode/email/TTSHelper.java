@@ -45,7 +45,7 @@ public class TTSHelper {
 
         Locale locale = (language == null ? Locale.getDefault() : new Locale(language));
 
-        Runnable speak = new Runnable() {
+        final Runnable speak = new Runnable() {
             @Override
             public void run() {
                 try {
