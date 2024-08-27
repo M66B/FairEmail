@@ -90,18 +90,4 @@ public class TTSHelper {
                 speak.run();
         }
     }
-
-    static void shutdown() {
-        synchronized (lock) {
-            if (instance != null)
-                try {
-                    Log.i("TTS shutdown");
-                    instance.shutdown();
-                    instance = null;
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            status = null;
-        }
-    }
 }
