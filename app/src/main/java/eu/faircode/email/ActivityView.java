@@ -96,6 +96,7 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -487,8 +488,41 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         ibForceSync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ServiceSynchronize.reload(ActivityView.this, null, true, "nav:sync");
-                ToastEx.makeText(ActivityView.this, R.string.title_force_sync, Toast.LENGTH_LONG).show();
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
+                            for (EntityAccount account : accounts) {
+                                List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
+                                for (EntityFolder folder : folders)
+                                    EntityOperation.sync(context, folder.id, true, true, true);
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        ServiceSynchronize.reload(context, null, true, "refresh");
+                        ServiceSend.start(context);
+
+                        return null;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Void data) {
+                        ToastEx.makeText(ActivityView.this, R.string.title_force_sync, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getSupportFragmentManager(), ex);
+                    }
+                }.execute(ActivityView.this, new Bundle(), "nav:force");
             }
         });
 
