@@ -1940,10 +1940,12 @@
     <string name="title_hint_folder_actions">Langt tryk på en mappe for indstillinger, såsom tilføjelse af en mappe til navigeringsmenuen for hurtig adgang</string>
     <string name="title_hint_folder_sync">For at reducere strøm- og dataforbruget synkroniseres visse mapper og beskeder ikke som standard</string>
     <string name="title_hint_airplane">Flytilstand er Til</string>
+    <string name="title_hint_vpn_active">VPN aktiv</string>
     <string name="title_hint_notifications">Ingen notifikationstilladelser</string>
     <string name="title_hint_notifications_remark">Notifikationstilladelser kræves også for (konto-)advarsler. Notifikationer til nye beskeder kan slås fra i indstillingerne.</string>
     <string name="title_hint_battery_optimizations">Batterioptimering er stadig slået til</string>
     <string name="title_hint_data_saver">Er datasparefunktionen aktiveret, vil appen ikke kunne synke i baggrunden og forbindelsesfejl kan forekomme.</string>
+    <string name="title_hint_vpn">E-mailservere blokerer ofte VPN-forbindelser. Kun e-mailudbyderen kan løse dette.</string>
     <string name="title_hint_dismiss">Denne dialog kan afvises for at fjerne beskeden.</string>
     <string name="title_hint_support">Har du et spørgsmål eller problem, så benyt venligst supportmenuen for at få hjælp</string>
     <string name="title_hint_message_actions">Stryg til venstre for Papirkurv; Stryg til højre for at arkivere (hvis tilgængeligt); Strygehandlingerne kan opsættes i kontoindstillingerne</string>

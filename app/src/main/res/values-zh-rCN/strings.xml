@@ -1920,10 +1920,12 @@
     <string name="title_hint_folder_actions">长按文件夹查看选项，例如将文件夹添加到导航菜单以便快速访问</string>
     <string name="title_hint_folder_sync">为了降低电量和网络流量的消耗，默认不会同步全部的文件夹和邮件</string>
     <string name="title_hint_airplane">飞行模式已开启</string>
+    <string name="title_hint_vpn_active">VPN 处于活跃状态</string>
     <string name="title_hint_notifications">无通知权限</string>
     <string name="title_hint_notifications_remark">(账户) 提醒也需要通知权限。新邮件的通知可以在设置中关闭。</string>
     <string name="title_hint_battery_optimizations">电池优化仍已启用</string>
     <string name="title_hint_data_saver">如果启用数据节省，应用将无法在后台同步，可能发生连接错误。</string>
+    <string name="title_hint_vpn">电子邮件服务器阻止经由 VPN 的连接。只有电子邮件供应商可以解决这个问题。</string>
     <string name="title_hint_dismiss">您可以关闭此对话框来删除消息。</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑移动到回收站；向右滑存档（如果支持） ；可在账户设置中配置滑动操作</string>
