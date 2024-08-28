@@ -46,7 +46,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  */
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-public final class SpannableBuilder extends eu.faircode.email.SpannableStringBuilderEx {
+public final class SpannableBuilder extends SpannableStringBuilder {
     /**
      * DynamicLayout$ChangeWatcher class.
      */
