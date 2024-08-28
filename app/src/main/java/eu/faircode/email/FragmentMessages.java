@@ -3639,7 +3639,7 @@ public class FragmentMessages extends FragmentBase
             iProperties.setValue("tts", message.id, !tts);
 
             if (tts) {
-                TTSHelper.speak(getContext(), "tts:" + message.id, "", message.language, true);
+                TTSHelper.speak(getContext(), "tts:" + message.id, "", message.language, true, null);
                 return;
             }
 
@@ -3684,7 +3684,13 @@ public class FragmentMessages extends FragmentBase
                 @Override
                 protected void onExecuted(Bundle args, String text) {
                     if (text != null)
-                        TTSHelper.speak(getContext(), "tts:" + message.id, text, message.language, true);
+                        TTSHelper.speak(getContext(), "tts:" + message.id, text, message.language, true,
+                                new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        iProperties.setValue("tts", message.id, false);
+                                    }
+                                });
                 }
 
                 @Override

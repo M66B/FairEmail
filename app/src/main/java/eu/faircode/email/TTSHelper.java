@@ -21,17 +21,21 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class TTSHelper {
     private static Integer status = null;
     private static TextToSpeech instance = null;
-    private static List<Runnable> queue = new ArrayList<>();
+    private static final List<Runnable> queue = new ArrayList<>();
+    private static final Map<String, Runnable> listeners = new HashMap<>();
     private static final Object lock = new Object();
 
     // https://developer.android.com/reference/android/speech/tts/TextToSpeech
@@ -42,7 +46,8 @@ public class TTSHelper {
             @NonNull final String utteranceId,
             @NonNull final String text,
             final String language,
-            final boolean flush) {
+            final boolean flush,
+            final Runnable listener) {
 
         Locale locale = (language == null ? Locale.getDefault() : new Locale(language));
 
@@ -64,6 +69,9 @@ public class TTSHelper {
         };
 
         synchronized (lock) {
+            if (listener != null)
+                listeners.put(utteranceId, listener);
+
             if (status == null) {
                 queue.add(speak);
                 if (instance == null)
@@ -72,6 +80,33 @@ public class TTSHelper {
                         instance = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
                             @Override
                             public void onInit(int initStatus) {
+                                instance.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                                    @Override
+                                    public void onStart(String utteranceId) {
+                                        Log.i("TTS start=" + utteranceId);
+                                    }
+
+                                    @Override
+                                    public void onDone(String utteranceId) {
+                                        Log.i("TTS done=" + utteranceId);
+                                        report(utteranceId);
+                                    }
+
+                                    @Override
+                                    public void onError(String utteranceId) {
+                                        Log.i("TTS error=" + utteranceId);
+                                        report(utteranceId);
+                                    }
+
+                                    private void report(String utteranceId) {
+                                        synchronized (lock) {
+                                            Runnable listener = listeners.remove(utteranceId);
+                                            if (listener != null)
+                                                ApplicationEx.getMainHandler().post(listener);
+                                        }
+                                    }
+                                });
+
                                 synchronized (lock) {
                                     status = initStatus;
                                     boolean ok = (status == TextToSpeech.SUCCESS);
