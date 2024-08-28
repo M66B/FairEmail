@@ -20,6 +20,12 @@ For support you can use the contact form.
 
 Acantholipan
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 1.2226 - 2024-08-27
 
 * Added Fastmail OAuth
