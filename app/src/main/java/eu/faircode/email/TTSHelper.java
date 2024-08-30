@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.os.OperationCanceledException;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 
@@ -61,7 +62,9 @@ public class TTSHelper {
                             " available=" + available +
                             " utterance=" + utteranceId +
                             " text=" + text);
-                    instance.speak(text, flush ? TextToSpeech.QUEUE_FLUSH : TextToSpeech.QUEUE_ADD, null, utteranceId);
+                    int error = instance.speak(text, flush ? TextToSpeech.QUEUE_FLUSH : TextToSpeech.QUEUE_ADD, null, utteranceId);
+                    if (error != TextToSpeech.SUCCESS)
+                        throw new OperationCanceledException("TTS error=" + error);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
@@ -125,5 +128,9 @@ public class TTSHelper {
             } else if (status == TextToSpeech.SUCCESS)
                 speak.run();
         }
+    }
+
+    static int getMaxTextSize() {
+        return TextToSpeech.getMaxSpeechInputLength();
     }
 }

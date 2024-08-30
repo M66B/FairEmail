@@ -3673,11 +3673,13 @@ public class FragmentMessages extends FragmentBase
 
                     String body = Helper.readText(message.getFile(context));
                     String text = HtmlHelper.getFullText(context, body);
-                    String preview = HtmlHelper.getPreview(text);
 
-                    if (!TextUtils.isEmpty(preview))
+                    // Avoid: Not enough namespace quota ... for ...
+                    text = HtmlHelper.truncate(text, TTSHelper.getMaxTextSize() / 3);
+
+                    if (!TextUtils.isEmpty(text))
                         sb.append(context.getString(R.string.title_rule_tts_content))
-                                .append(' ').append(preview);
+                                .append(' ').append(text);
 
                     return sb.toString();
                 }
