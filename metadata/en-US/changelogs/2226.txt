@@ -23,7 +23,7 @@ Acantholipan
 Next version
 
 * Small improvements and minor bug fixes
-* Updated AndroidX
+* Updated build tools
 * Updated translations
 
 1.2226 - 2024-08-27
