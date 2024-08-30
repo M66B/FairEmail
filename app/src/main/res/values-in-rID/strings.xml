@@ -1917,10 +1917,12 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_hint_folder_actions">Tekan lama pada folder untuk pilihan, seperti menambahkan folder ke menu navigasi untuk akses cepat</string>
     <string name="title_hint_folder_sync">Untuk membatasi penggunaan baterai dan jaringan tidak semua folder dan pesan di selaraskan secara awalan</string>
     <string name="title_hint_airplane">Mode pesawat aktif</string>
+    <string name="title_hint_vpn_active">VPN aktif</string>
     <string name="title_hint_notifications">Tidak ada izin pemberitahuan</string>
     <string name="title_hint_notifications_remark">Ijin pemberitahuan juga diperlukan untuk peringatan (akun). Pemberitahuan untuk pesan-pesan baru dapat dimatikan dalam pengaturan.</string>
     <string name="title_hint_battery_optimizations">Optimalisasi baterai diaktifkan</string>
     <string name="title_hint_data_saver">Jika penghemat data diaktifkan, aplikasi tidak akan dapat melakukan sinkronisasi di latar belakang dan kesalahan koneksi dapat terjadi.</string>
+    <string name="title_hint_vpn">Server e-mail sering kali memblokir koneksi melalui VPN. Hanya penyedia e-mail yang dapat mengatasi hal ini.</string>
     <string name="title_hint_dismiss">Anda dapat menutup kotak dialog ini untuk menghapus pemberitahuan.</string>
     <string name="title_hint_support">Jika Anda memiliki pertanyaan atau masalah, silakan gunakan menu bantuan untuk mendapatkan bantuan</string>
     <string name="title_hint_message_actions">Geser ke kiri untuk membuang; Geser ke kanan untuk mengarsip (jika tersedia); Tindakan saat digeser dapat dikonfigurasi di pengaturan akun</string>

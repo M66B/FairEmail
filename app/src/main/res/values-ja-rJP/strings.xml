@@ -1925,10 +1925,12 @@
     <string name="title_hint_folder_actions">フォルダーを長押して、ナビゲーションメニューにフォルダーのショートカットを表示するなどの設定ができます</string>
     <string name="title_hint_folder_sync">バッテリーとネットワークの使用を抑えるためにデフォルトでは一部のフォルダーとメッセージのみ同期されます</string>
     <string name="title_hint_airplane">機内モードが ON です</string>
+    <string name="title_hint_vpn_active">VPN が有効です</string>
     <string name="title_hint_notifications">通知が許可されていません</string>
     <string name="title_hint_notifications_remark">(アカウントの) アラートにも通知の権限が必要です。新着メッセージの通知は設定でオフにもできます。</string>
     <string name="title_hint_battery_optimizations">まだ電池最適化が有効です</string>
     <string name="title_hint_data_saver">データセーバーが有効になっている場合、アプリはバックグラウンドで同期できなくなり、接続エラーが発生する可能性があります。</string>
+    <string name="title_hint_vpn">メールサーバーは VPN 経由の接続をブロックすることがあります。この問題はメールプロバイダーのみ解決できます。</string>
     <string name="title_hint_dismiss">このダイアログボックスを閉じて通知を削除できます。</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてごみ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>

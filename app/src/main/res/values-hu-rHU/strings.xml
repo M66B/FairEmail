@@ -1932,10 +1932,12 @@
     <string name="title_hint_folder_actions">Nyomjon hosszan egy mappát az opciók megjelenítéséhez, mint pl. hozzáadás a navigációs menühöz gyors hozzáféréshez</string>
     <string name="title_hint_folder_sync">Az akkumulátor- és hálózathasználat limitálása érdekében nem minden mappa és üzenet lesz szinkronizálva alapértelmezésként</string>
     <string name="title_hint_airplane">Repülő üzemmód bekapcsolva</string>
+    <string name="title_hint_vpn_active">VPN aktív</string>
     <string name="title_hint_notifications">Nincs értesítési engedély</string>
     <string name="title_hint_notifications_remark">Az értesítések engedélyezése szükséges a (fiók) riasztásokhoz is. Az új üzenet értesítések kikapcsolhatók a beállításokban.</string>
     <string name="title_hint_battery_optimizations">Az akku-optimalizáció még mindig be van kapcsolva</string>
     <string name="title_hint_data_saver">Az adatkorlátozás bekapcsolása esetén az alkalmazás nem tud szinkronizálni a háttérben, és kapcsolati hibák jelentkezhetnek.</string>
+    <string name="title_hint_vpn">Az email kiszolgálók gyakran blokkolják a VPN-en keresztül kapcsolódást. Csak az email szolgáltató tud ebben segíteni.</string>
     <string name="title_hint_dismiss">A párbeszéd ablakot bezárva, a figyelmeztetést is kikapcsolja.</string>
     <string name="title_hint_support">Ha kérdésed vagy problémád van, használd a támogatási menüt segítségért</string>
     <string name="title_hint_message_actions">Törlés balra csúsztatásra; Archiválás jobbra csúsztatásra (ha elérhető); A csúsztatáshoz tartozó műveletek módosíthatóak a fiók beállításai között</string>
