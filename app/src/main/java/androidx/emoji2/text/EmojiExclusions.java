@@ -19,6 +19,7 @@ package androidx.emoji2.text;
 import android.annotation.SuppressLint;
 import android.os.Build;
 
+import androidx.annotation.DoNotInline;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
@@ -43,6 +44,7 @@ class EmojiExclusions {
         private EmojiExclusions_Api34() { /* cannot instantiate */ }
 
         @NonNull
+        @DoNotInline
         static Set<int[]> getExclusions() {
             // TODO: Call directly when API34 is published
             return EmojiExclusions_Reflections.getExclusions();

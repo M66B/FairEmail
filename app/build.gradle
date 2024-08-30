@@ -557,7 +557,7 @@ dependencies {
     def annotation_version_experimental = "1.4.1" // 1.5.0-alpha01
     def core_version = "1.13.1" // 1.15.0-alpha01
     def appcompat_version = "1.7.0"
-    def emoji_version = "1.5.0-rc01"
+    def emoji_version = "1.4.0" // 1.5.0-rc01
     def flatbuffers_version = "2.0.0"
     def activity_version = " 1.9.1" // 1.10.0-alpha01
     def fragment_version = "1.8.2"
@@ -637,13 +637,11 @@ dependencies {
     // https://mvnrepository.com/artifact/androidx.fragment/fragment
     // https://mvnrepository.com/artifact/androidx.window/window-java
     implementation "androidx.appcompat:appcompat:$appcompat_version"
+    //implementation "androidx.emoji2:emoji2:$emoji_version"
+    implementation "com.google.flatbuffers:flatbuffers-java:$flatbuffers_version"
     implementation "androidx.activity:activity:$activity_version"
     implementation "androidx.fragment:fragment:$fragment_version"
     implementation "androidx.window:window-java:$windows_version"
-
-    // https://mvnrepository.com/artifact/androidx.emoji2/emoji2
-    //implementation "androidx.emoji2:emoji2:$emoji_version"
-    implementation "com.google.flatbuffers:flatbuffers-java:$flatbuffers_version"
 
     // https://developer.android.com/jetpack/androidx/releases/webkit
     // https://mvnrepository.com/artifact/androidx.webkit/webkit

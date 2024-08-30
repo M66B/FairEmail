@@ -21,6 +21,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 
+import androidx.annotation.DoNotInline;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
@@ -80,19 +81,15 @@ class ConcurrencyHelpers {
         }
     }
 
-    static Executor mainThreadExecutor() {
-        return convertHandlerToExecutor(mainHandlerAsync());
-    }
-
     /**
-     * Convert a handler to an executor.
-     *
-     * We need to do this in places where Context is not available, and cannot use ContextCompat.
+     * @deprecated Exists only for upgrade path, remove with
+     * {@link FontRequestEmojiCompatConfig#setHandler(Handler)}
      *
      * @param handler a background thread handler
      * @return an executor that posts all work to that handler
      */
     @NonNull
+    @Deprecated
     static Executor convertHandlerToExecutor(@NonNull Handler handler) {
         return handler::post;
     }
@@ -103,6 +100,7 @@ class ConcurrencyHelpers {
             // Non-instantiable.
         }
 
+        @DoNotInline
         public static Handler createAsync(Looper looper) {
             return Handler.createAsync(looper);
         }
