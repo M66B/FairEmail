@@ -5790,6 +5790,17 @@ Note that starred (favorite) messages will be kept on your device "forever".
 
 Instead of downloading many messages to your device, consider [searching for messages on the email server](#faq13).
 
+Longer explanation: the app has a sync and a keep window per folder.
+The *Fetch more messages* menu item is, in fact, a mini wizard to change the keep window of one or more folders at the same time,
+and to initiate a corresponding synchronization operation.
+If you long press on a folder in the folder list and select *Edit properties*, you can change the sync and keep window of the folder.
+The sync window determines which messages will be checked with a standard sync operation (default 7 days),
+and the keep window determines how long messages will be kept on the device (default 30 days).
+If you sync another time within 30 seconds, all messages in the keep window will be checked,
+which is useful when you have been moving around messages with another email client, for example on your desktop computer.
+It is mostly pointless to check all messages all the time, especially considering that this will use battery power,
+which is why there is a separate sync and keep window, and why the app checks messages younger than a week only.
+
 <br>
 
 <a name="faq192"></a>
