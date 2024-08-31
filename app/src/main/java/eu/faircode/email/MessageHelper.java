@@ -2205,8 +2205,13 @@ public class MessageHelper {
         for (String header : headers) {
             if (signer == null)
                 signer = getSigner(header);
-            else if (!signer.equals(getSigner(header)))
-                break;
+            else {
+                String signer2 = getSigner(header);
+                if (!signer.equals(signer2)) {
+                    Log.i("Different signer=" + signer + "/" + signer2);
+                    break;
+                }
+            }
 
             String v = getKeyValues(header).get(type);
             if (v == null)
