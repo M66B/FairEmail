@@ -502,6 +502,8 @@ public class FragmentQuickSetup extends FragmentBase {
                                 boolean other = false;
                                 for (EntityFolder folder : folders)
                                     switch (folder.type) {
+                                        case EntityFolder.INBOX:
+                                            break;
                                         case EntityFolder.DRAFTS:
                                             drafts = true;
                                             break;
