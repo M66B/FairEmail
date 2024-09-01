@@ -3,14 +3,14 @@
     <string name="app_search">Ricerca di FairEmail</string>
     <string name="app_send_self">Invia a te stesso</string>
     <string name="app_changelog">Changelog</string>
-    <string name="app_welcome">FairEmail è un\'app di email open source, concentrata sulla privacy e la sicurezza. Per questo motivo, alcune funzionalità potrebbero funzionare diversamente da ciò a cui sei abituato.</string>
-    <string name="app_limitations">Ad esempio, i messaggi sono riformattati di default, per rimuovere gli elementi non sicuri e migliorare la leggibilità e, l\'apertura dei link dev\'essere confermata per sicurezza. Entrambi possono essere disabilitati, se desiderato.</string>
+    <string name="app_welcome">FairEmail è un\'app open source per gestire la posta elettronica, concentrata sulla privacy e la sicurezza. Per questo motivo alcune caratteristiche potrebbero funzionare in un modo diverso da ciò a cui sei abituato.</string>
+    <string name="app_limitations">Ad esempio, i messaggi vengono riformattati per opzione predefinita in modo da rimuovere gli elementi non sicuri e migliorarne la leggibilità; l\'apertura dei link, inoltre, dev\'essere confermata per sicurezza. Entrambe queste funzionalità possono essere disabilitate, se lo si desidera.</string>
     <string name="app_unsupported">I bug nella versione Android di questo specifico dispositivo causano crash</string>
     <string name="app_data_loss">Tutti i dati potrebbero esser persi</string>
     <string name="app_continue">Continua comunque</string>
     <string name="app_exit">Torna \'indietro\' di nuovo per uscire</string>
-    <string name="app_cake">Spazio di archiviazione rimanente insufficiente</string>
-    <string name="app_cake_remaining">Spazio di archiviazione rimanente sul dispositivo: %1$s</string>
+    <string name="app_cake">Spazio di archiviazione rimasto insufficiente</string>
+    <string name="app_cake_remaining">Spazio di archiviazione rimasto sul dispositivo: %1$s</string>
     <string name="app_cake_required">Spazio di archiviazione minimo necessario: %1$s</string>
     <string name="app_updated">Ultimo aggiornamento: %1$s</string>
     <string name="app_download">Scaricata da: %1$s</string>
@@ -18,7 +18,7 @@
         Google sta lavorando su una correzione.
         Non è responsabilità dell\'app questo problema Android!
     </string>
-    <string name="channel_service">Controllo in corso</string>
+    <string name="channel_service">Monitoraggio</string>
     <string name="channel_send">Invia</string>
     <string name="channel_notification">Email</string>
     <string name="channel_progress">Avanzamento</string>
@@ -116,7 +116,7 @@
     <string name="title_junk_blocklist">Usa le blacklist per lo spam</string>
     <string name="title_junk_clear">Cancella</string>
     <string name="title_junk_clear_hint">Questo eliminerà tutte le regole di blocco del mittente</string>
-    <string name="title_notification_sending">Inviando i messaggi</string>
+    <string name="title_notification_sending">Invio dei messaggi in corso</string>
     <string name="title_notification_waiting">In attesa di una connessione adatta</string>
     <string name="title_notification_idle">Inattivo</string>
     <string name="title_notification_failed">Errore nell\'account \'%1$s\'</string>
@@ -336,8 +336,8 @@
     <string name="title_check_outlook_oauth">I propri account Outlook continueranno a funzionare dopo il 16 settembre 2024</string>
     <string name="title_check_outlook_password">Alcuni dei propri account Outlook/Hotmail/Live smetteranno di funzionare dopo il 16 settembre 2024</string>
     <string name="title_advanced_hint_title">Opzioni più avanzate</string>
-    <string name="title_advanced_hint_message">        Stai navigando alle opzioni più avanzate.
-        Tutte le opzioni hanno comunemente usato valori standard, che non devi modificare a meno che tu non abbia una preferenza differente.
+    <string name="title_advanced_hint_message">        Stai entrando nelle opzioni più avanzate.
+        Tutte le opzioni hanno valori standard di uso comune, che non vanno modificate a meno che si non abbia una preferenza differente.
     </string>
     <string name="title_advanced_hint_remark">        Le opzioni sono categorizzate dalla scheda, divise in sezioni, organizzate per aspetto o uso e ricercabili.
     </string>
@@ -425,14 +425,14 @@
     <string name="title_advanced_write_below">Scrivi sotto il testo del mittente</string>
     <string name="title_advanced_quote_reply">Cita il testo risposto</string>
     <string name="title_advanced_limit_reply">Limita il numero di citazioni nidificate</string>
-    <string name="title_advanced_resize_reply">Ridimensione le immagini nel testo di risposta</string>
+    <string name="title_advanced_resize_reply">Ridimensiona le immagini nel testo di risposta</string>
     <string name="title_advanced_resize_paste">Ridimensiona le immagini incollate</string>
     <string name="title_advanced_signature_location">Posizione della firma</string>
     <string name="title_advanced_signature_new">Utilizza la firma per i nuovi messaggi</string>
-    <string name="title_advanced_signature_reply">Usa la firma quando rispondi</string>
+    <string name="title_advanced_signature_reply">Usa la firma nelle risposte</string>
     <string name="title_advanced_signature_reply_once">Solo per la prima risposta</string>
-    <string name="title_advanced_signature_forward">Usa la firma quando inoltri</string>
-    <string name="title_advanced_discard_delete">Scartando la bozza, eliminala permanentemente</string>
+    <string name="title_advanced_signature_forward">Usa la firma negli inoltri</string>
+    <string name="title_advanced_discard_delete">Quando la bozza viene scartata, eliminala permanentemente</string>
     <string name="title_advanced_reply_move">Alla risposta a un messaggio, salvala nella stessa cartella</string>
     <string name="title_advanced_reply_move_inbox">Anche per i messaggi nella posta in arrivo</string>
     <string name="title_advanced_send_retry_max">Tentativi di invio massimi</string>
@@ -446,7 +446,7 @@
     <string name="title_advanced_flow">\'format flowed\' per il testo semplice</string>
     <string name="title_advanced_usenet_signature">Segue la convenzione di firma di Usenet</string>
     <string name="title_advanced_remove_signatures">Rimuovi le firme riconosciute</string>
-    <string name="title_advanced_receipt">Richiedendo una ricevuta</string>
+    <string name="title_advanced_receipt">Quando si chiede una ricevuta</string>
     <string name="title_advanced_forward_new">Avvia una nuova conversazione quando inoltri</string>
     <string name="title_advanced_lookup_mx">Controlla gli indirizzi email dei destinatari prima di inviare</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
@@ -899,7 +899,7 @@
     <string name="title_advanced_sender_hint">Gran parte dei provider non consentono gli indirizzi modificati del mittente</string>
     <string name="title_advanced_bcc_hint">L\'indirizzo non sarà mostrato, ma aggiunto all\'invio</string>
     <string name="title_advanced_envelope_from_hint">Questo indirizzo sarà utilizzato per SMTP MAIL FROM</string>
-    <string name="title_advanced_internal_hint">Ci sarà un avviso inviando a un altro dominio</string>
+    <string name="title_advanced_internal_hint">Sarà mostrato un avviso quando si invia a un altro dominio</string>
     <string name="title_advanced_uri">I dettagli del contatto selezionato saranno utilizzati per gli allegati vCard</string>
     <string name="title_advanced_e2e_encryption">Opzioni per la crittografia end-to-end</string>
     <string name="title_advanced_display_harmful_hint">Disabilitare quest\'opzione potrebbe esser dannoso per la tua privacy</string>
@@ -1535,8 +1535,8 @@
     <string name="title_smime_reminder">Chiavi S/MIME disponibili</string>
     <string name="title_to_missing">Destinatario mancante</string>
     <string name="title_extra_missing">Nome utente mancante</string>
-    <string name="title_noreply_reminder">Inviando un indirizzo \'no-reply\'</string>
-    <string name="title_external_reminder">Inviando a un indirizzo esterno</string>
+    <string name="title_noreply_reminder">Invio a un indirizzo \'no-reply\'</string>
+    <string name="title_external_reminder">Invio a un indirizzo esterno</string>
     <string name="title_subject_reminder">Oggetto vuoto</string>
     <string name="title_text_reminder">Messaggio vuoto</string>
     <string name="title_attachment_keywords">allegato,allegati,incluso,inclusi</string>
@@ -1554,7 +1554,7 @@
     <string name="title_draft_deleted">Bozza scartata</string>
     <string name="title_draft_saved">Bozza salvata</string>
     <string name="title_ask_send_via">Inviare messaggio a %1$s tramite %2$s?</string>
-    <string name="title_queued">Inviando il messaggio</string>
+    <string name="title_queued">Invio del messaggio in corso</string>
     <string name="title_queued_at">Il messaggio sarà inviato circa alle %1$s</string>
     <string name="title_sign">Firma</string>
     <string name="title_verify">Verifica</string>
@@ -1688,7 +1688,7 @@
     <string name="title_edit_signature_remark">Sebbene Android non possa mostrare tutto lo HTML, sarà inviata così com\'è</string>
     <string name="title_edit_signature_text">Testo della firma</string>
     <string name="title_edit_signature_image">Inserisci immagine</string>
-    <string name="title_edit_signature_image_hint">        Inviando un messaggio, l\'immagine è copiata nel messaggio dalla posizione selezionata.
+    <string name="title_edit_signature_image_hint">        Quando si invia un messaggio, l\'immagine viene copiata nel messaggio dalla posizione selezionata.
         Quindi, non eliminare il file immagine!
     </string>
     <string name="title_answer_define_name">Nome</string>
@@ -1766,7 +1766,7 @@
     <string name="title_rule_hours">Ore</string>
     <string name="title_rule_schedule_end">Dal termine della condizione temporale</string>
     <string name="title_rule_folder">Cartella</string>
-    <string name="title_rule_folder_create">Crea cartella secondaria</string>
+    <string name="title_rule_folder_create">Crea una sottocartella</string>
     <string name="title_rule_thread">Tutti i messaggi nella stessa conversazione e cartella</string>
     <string name="title_rule_identity">Identità</string>
     <string name="title_rule_template">Modello di risposta</string>
