@@ -42,7 +42,7 @@
     <color name="lightColorBackground_cards_beige">#fff8e7</color>
 
     <color name="lightActionForeground">#fff</color>
-    <color name="lightActionForegroundDisabled">#ccc</color>
+    <color name="lightActionForegroundDisabled">#ddd</color>
     <color name="lightActionBackground">#bbb</color>
 
     <color name="whiteActionForegroundDisabled">#aaa</color>
