@@ -222,8 +222,8 @@ public class Send {
 
             JSONObject jconfirm = new JSONObject(queue.remove(0));
             Log.i("Send confirm=" + jconfirm);
-            if (!jconfirm.getBoolean("ok"))
-                throw new FileNotFoundException();
+            if (!jconfirm.optBoolean("ok"))
+                throw new FileNotFoundException(jconfirm.toString());
         } finally {
             ws.disconnect();
         }
