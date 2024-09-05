@@ -5,16 +5,16 @@
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F)
 
 &#x1F1EC;&#x1F1E7; If you have a question, please check the following frequently asked questions first.
-[At the bottom](#quick-support),
+[At the bottom](#get-support),
 you can find out how to ask other questions, request features, and report bugs.
 You will receive an answer in your own language.
 
 &#x1F1E9;&#x1F1EA; Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen.
-[Unten](#quick-support) erfahren Sie, wie Sie andere Fragen stellen, Funktionen anfordern und Fehler melden können.
+[Unten](#get-support) erfahren Sie, wie Sie andere Fragen stellen, Funktionen anfordern und Fehler melden können.
 Sie erhalten eine Antwort in Ihrer eigenen Sprache.
 
 &#x1F1EB;&#x1F1F7; Si vous avez une question, veuillez d'abord vérifier les questions fréquemment posées suivantes.
-[En bas](#quick-support), vous pouvez découvrir comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
+[En bas](#get-support), vous pouvez découvrir comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
 Vous recevrez une réponse dans votre propre langue.
 
 <br>
@@ -6128,8 +6128,6 @@ This is also to keep maintenance and support in the long term feasible.
 Please see also this Wikipedia article about [feature creep](https://en.wikipedia.org/wiki/Feature_creep).
 
 Note that there are already more features and options in FairEmail than in any other Android email client.
-
-<a name="quick-support"></a>
 
 <br />
 
