@@ -5074,14 +5074,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ToastEx.makeText(context, ssb, Toast.LENGTH_LONG).show();
         }
 
-        private void onShowPriority(TupleMessageEx message) {
+        private int getPriority(TupleMessageEx message) {
+            int resid = -1;
             if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority))
-                ToastEx.makeText(context, R.string.title_legend_priority, Toast.LENGTH_LONG).show();
+                resid = R.string.title_legend_priority;
             else
-                ToastEx.makeText(context, R.string.title_legend_priority_low, Toast.LENGTH_LONG).show();
+                resid = R.string.title_legend_priority_low;
+            return resid;
         }
 
-        private void onShowSensitivity(TupleMessageEx message) {
+        private void onShowPriority(TupleMessageEx message) {
+            int resid = getPriority(message);
+            if (resid > 0)
+                ToastEx.makeText(context, resid, Toast.LENGTH_LONG).show();
+        }
+
+        private int getSensitivity(TupleMessageEx message) {
             int resid = -1;
             if (EntityMessage.SENSITIVITY_PERSONAL.equals(message.sensitivity))
                 resid = R.string.title_legend_sensitivity_personal;
@@ -5089,26 +5097,41 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 resid = R.string.title_legend_sensitivity_private;
             else if (EntityMessage.SENSITIVITY_CONFIDENTIAL.equals(message.sensitivity))
                 resid = R.string.title_legend_sensitivity_confidential;
+            return resid;
+        }
+
+        private void onShowSensitivity(TupleMessageEx message) {
+            int resid = getSensitivity(message);
             if (resid > 0)
                 ToastEx.makeText(context, resid, Toast.LENGTH_LONG).show();
         }
 
-        private void onShowSigned(TupleMessageEx message) {
+        private int getSigned(TupleMessageEx message) {
             int resid = -1;
             if (EntityMessage.PGP_SIGNONLY.equals(message.ui_encrypt))
                 resid = R.string.title_advanced_caption_pgp;
             else if (EntityMessage.SMIME_SIGNONLY.equals(message.ui_encrypt))
                 resid = R.string.title_advanced_caption_smime;
+            return resid;
+        }
+
+        private void onShowSigned(TupleMessageEx message) {
+            int resid = getSigned(message);
             if (resid > 0)
                 ToastEx.makeText(context, resid, Toast.LENGTH_LONG).show();
         }
 
-        private void onShowEncrypted(TupleMessageEx message) {
+        private int getEncrypted(TupleMessageEx message) {
             int resid = -1;
             if (EntityMessage.PGP_SIGNENCRYPT.equals(message.ui_encrypt))
                 resid = R.string.title_advanced_caption_pgp;
             else if (EntityMessage.SMIME_SIGNENCRYPT.equals(message.ui_encrypt))
                 resid = R.string.title_advanced_caption_smime;
+            return resid;
+        }
+
+        private void onShowEncrypted(TupleMessageEx message) {
+            int resid = getEncrypted(message);
             if (resid > 0)
                 ToastEx.makeText(context, resid, Toast.LENGTH_LONG).show();
         }
@@ -8107,19 +8130,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 result.add(context.getString(
                         message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
 
-                if (tvCount.getVisibility() == View.VISIBLE)
+                if (tvCount.getVisibility() == View.VISIBLE) {
                     result.add(context.getResources().getQuantityString(
                             R.plurals.title_accessibility_messages, message.visible, message.visible));
+                            tvCount.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
-                if (ibExpander.getVisibility() == View.VISIBLE)
+                if (ibExpander.getVisibility() == View.VISIBLE) {
                     result.add(context.getString(
                             expanded ? R.string.title_accessibility_expanded : R.string.title_accessibility_collapsed));
+                    ibExpander.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
                 if (message.drafts > 0)
                     result.add(context.getString(R.string.title_legend_draft));
 
-                if (message.ui_answered)
+                if (ivAnswered.getVisibility() == View.VISIBLE) {
                     result.add(context.getString(R.string.title_accessibility_answered));
+                    ivAnswered.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
+
+                if (ivForwarded.getVisibility() == View.VISIBLE) {
+                    result.add(context.getString(R.string.title_accessibility_forwarded));
+                    ivForwarded.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
                 if (ibFlagged.getVisibility() == View.VISIBLE && ibFlagged.isEnabled()) {
                     int flagged = (message.count - message.unflagged);
@@ -8127,13 +8161,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         result.add(context.getString(R.string.title_accessibility_flagged));
                 }
 
-                if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority))
-                    result.add(context.getString(R.string.title_legend_priority));
-                else if (EntityMessage.PRIORITIY_LOW.equals(message.ui_priority))
-                    result.add(context.getString(R.string.title_legend_priority_low));
+                if (ibPriority.getVisibility() == View.VISIBLE) {
+                    result.add(context.getString(getPriority(message)));
+                    ibPriority.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
-                if (message.attachments > 0)
+                if (ibSensitivity.getVisibility() == View.VISIBLE) {
+                    result.add(context.getString(getSensitivity(message)));
+                    ibSensitivity.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
+
+                if (ivAttachments.getVisibility() == View.VISIBLE) {
                     result.add(context.getString(R.string.title_accessibility_attachment));
+                    ivAttachments.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
+
+                if (tvNotes.getVisibility() == View.VISIBLE) {
+                    result.add(tvNotes.getText().toString());
+                    tvNotes.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
                 boolean outgoing = isOutgoing(message);
                 Address[] addresses = (EntityFolder.isOutgoing(message.folderType) &&
@@ -8151,20 +8197,34 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     result.add(tvTime.getText().toString());
                     result.add(message.subject);
                 }
+                tvFrom.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                tvSubject.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                tvTime.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
-                if (message.isSigned())
-                    result.add(context.getString(R.string.title_legend_encrypted));
-                else if (message.isEncrypted())
-                    result.add(context.getString(R.string.title_legend_signed));
+                if (ibSigned.getVisibility() == View.VISIBLE) {
+                    result.add(context.getString(R.string.title_legend_signed) + " " + context.getString(getSigned(message)));
+                    ibSigned.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
-                if (ibAuth.getVisibility() == View.VISIBLE)
+                if (ibEncrypted.getVisibility() == View.VISIBLE) {
+                    result.add(context.getString(R.string.title_legend_encrypted) + " " + context.getString(getEncrypted(message)));
+                    ibEncrypted.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
+
+                if (ibAuth.getVisibility() == View.VISIBLE) {
                     result.add(context.getString(R.string.title_legend_auth));
+                    ibAuth.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
-                if (ivFound.getVisibility() == View.VISIBLE)
+                if (ivFound.getVisibility() == View.VISIBLE) {
                     result.add(context.getString(R.string.title_legend_found));
+                    ivFound.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
-                if (ibSnoozed.getVisibility() == View.VISIBLE)
+                if (ibSnoozed.getVisibility() == View.VISIBLE) {
                     result.add(context.getString(R.string.title_legend_snoozed));
+                    ibSnoozed.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
                 if (expanded) {
                     if (message.receipt_request != null && message.receipt_request)
@@ -8175,17 +8235,40 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         result.add(context.getString(R.string.title_legend_browsed));
                 }
 
-                if (tvFolder.getVisibility() == View.VISIBLE)
+                if (tvFolder.getVisibility() == View.VISIBLE) {
                     result.add(tvFolder.getText().toString());
+                    tvFolder.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
-                if (tvSize.getVisibility() == View.VISIBLE)
+                if (tvLabels.getVisibility() == View.VISIBLE) {
+                    result.add(tvLabels.getText().toString());
+                    tvLabels.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
+
+                if (tvSize.getVisibility() == View.VISIBLE) {
                     result.add(tvSize.getText().toString());
+                    tvSize.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
-                if (tvError.getVisibility() == View.VISIBLE)
+                if (tvError.getVisibility() == View.VISIBLE) {
                     result.add(tvError.getText().toString());
+                    tvError.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
-                if (tvPreview.getVisibility() == View.VISIBLE)
+                if (tvExpand.getVisibility() == View.VISIBLE) {
+                    result.add(tvExpand.getText().toString());
+                    tvExpand.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
+
+                if (tvPreview.getVisibility() == View.VISIBLE) {
                     result.add(tvPreview.getText().toString());
+                    tvPreview.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
+
+                if (tvKeywords.getVisibility() == View.VISIBLE) {
+                    result.add(tvKeywords.getText().toString());
+                    tvKeywords.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                }
 
                 return TextUtils.join(", ", result);
             }

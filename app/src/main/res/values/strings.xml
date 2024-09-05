@@ -2541,6 +2541,7 @@
     <string name="title_accessibility_view_help">View help</string>
     <string name="title_accessibility_selected">Selected</string>
     <string name="title_accessibility_answered">Replied</string>
+    <string name="title_accessibility_forwarded">Forwarded</string>
     <string name="title_accessibility_scroll_down">Scroll down</string>
     <string name="title_accessibility_scroll_up">Scroll up</string>
     <string name="title_accessibility_filter_out_seen">Toggle read messages filter</string>
