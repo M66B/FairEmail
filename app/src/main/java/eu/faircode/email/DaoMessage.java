@@ -88,8 +88,9 @@ public interface DaoMessage {
             " OR (NOT :found AND :type IS NULL AND folder.unified)" +
             " OR (NOT :found AND :type IS NOT NULL AND folder.type = :type)) > 0)" + // thread can be the same in different accounts
             " AND SUM(NOT message.ui_hide OR :debug) > 0" +
-            " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
-            " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
+            " AND (NOT (:filter_seen AND NOT :filter_unflagged) OR SUM(1 - message.ui_seen) > 0)" +
+            " AND (NOT (:filter_unflagged AND NOT :filter_seen) OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
+            " AND (NOT (:filter_seen AND :filter_unflagged) OR SUM(1 - message.ui_seen) > 0 OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
             " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
@@ -165,8 +166,9 @@ public interface DaoMessage {
             " HAVING (SUM((:found AND message.ui_found)" +
             " OR (NOT :found AND message.folder = :folder)) > 0)" +
             " AND SUM(NOT message.ui_hide OR :debug) > 0" +
-            " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
-            " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
+            " AND (NOT (:filter_seen AND NOT :filter_unflagged) OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
+            " AND (NOT (:filter_unflagged AND NOT :filter_seen) OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
+            " AND (NOT (:filter_seen AND :filter_unflagged) OR SUM(1 - message.ui_seen) > 0 OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0" +
             "   OR " + is_outbox + " OR " + is_drafts + " OR " + is_sent + ")" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
