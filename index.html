@@ -1583,6 +1583,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p>Example conditions:</p>
 <p><code>header("X-Mailer") contains "Open-Xchange" &amp;&amp; from matches ".*service@.*"</code></p>
 <p><code>!onBlocklist() &amp;&amp; hasMx() &amp;&amp; attachments() &gt; 0</code></p>
+<p><code>(received + 7*24*60*60*1000) &lt; DT_DATE_TO_EPOCH(DT_NOW())</code></p>
 <p><br></p>
 <p><strong>Actions</strong></p>
 <p>You can select one of these actions to apply to matching messages:</p>
