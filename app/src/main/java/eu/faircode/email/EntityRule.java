@@ -43,6 +43,7 @@ import androidx.room.PrimaryKey;
 
 import com.ezylang.evalex.EvaluationException;
 import com.ezylang.evalex.Expression;
+import com.ezylang.evalex.data.EvaluationValue;
 import com.ezylang.evalex.parser.ParseException;
 
 import org.json.JSONException;
@@ -496,8 +497,9 @@ public class EntityRule {
                     throw new IllegalArgumentException(context.getString(R.string.title_rule_no_headers));
 
                 Log.i("EXPR evaluating='" + jcondition.getString("expression") + "'");
-                Boolean result = expression.evaluate().getBooleanValue();
-                Log.i("EXPR evaluated=" + result);
+                EvaluationValue val = expression.evaluate();
+                Boolean result = val.getBooleanValue();
+                Log.i("EXPR evaluated=" + result + " value=" + val);
                 if (!Boolean.TRUE.equals(result))
                     return false;
             }
