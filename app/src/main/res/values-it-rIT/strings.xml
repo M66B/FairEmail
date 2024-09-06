@@ -8,7 +8,7 @@
     <string name="app_unsupported">I bug nella versione Android di questo specifico dispositivo causano crash</string>
     <string name="app_data_loss">Tutti i dati potrebbero esser persi</string>
     <string name="app_continue">Continua comunque</string>
-    <string name="app_exit">Torna \'indietro\' di nuovo per uscire</string>
+    <string name="app_exit">Torna di nuovo indietro per uscire</string>
     <string name="app_cake">Spazio di archiviazione rimasto insufficiente</string>
     <string name="app_cake_remaining">Spazio di archiviazione rimasto sul dispositivo: %1$s</string>
     <string name="app_cake_required">Spazio di archiviazione minimo necessario: %1$s</string>
@@ -28,7 +28,7 @@
     <string name="channel_error">Errori</string>
     <string name="channel_alert">Avvisi server</string>
     <string name="channel_group_contacts">Contatti</string>
-    <string name="channel_service_description">Sincronizzazione e monitoraggio dei profili</string>
+    <string name="channel_service_description">Sincronizzazione e monitoraggio degli account</string>
     <string name="channel_send_description">Invio dei messaggi</string>
     <string name="channel_notification_description">Notifiche dei nuovi messaggi</string>
     <string name="channel_progress_description">Notifiche di avanzamento di attività a lungo termine</string>
@@ -52,8 +52,8 @@
         <item quantity="other">Monitoraggio degli account %1$d</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="one">%1$d operazione in sospeso</item>
-        <item quantity="other">%1$d operazioni in sospeso</item>
+        <item quantity="one">%1$d operazione in coda</item>
+        <item quantity="other">%1$d operazioni in coda</item>
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">%1$d nuovo messaggio</item>
@@ -273,7 +273,7 @@
         La password è necessaria per importare nuovamente le impostazioni, per cui non va dimenticata!
     </string>
     <string name="title_setup_export_do">Il file d\'esportazione conterrà tutte le impostazioni e i dati, ma nessun messaggio e nessun\'immagine riferita nelle firme</string>
-    <string name="title_setup_scroll">Le finestre di input possono essere scorrevoli!</string>
+    <string name="title_setup_scroll">Le finestre di input potrebbero essere di tipo scorrevole!</string>
     <string name="title_setup_backup">Come eseguire il backup dei messaggi?</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_chars">La password contiene caratteri di controllo o spazi vuoti</string>
@@ -416,7 +416,7 @@
     <string name="title_advanced_compose_font">Font predefinito</string>
     <string name="title_advanced_compose_monospaced">Utilizza i caratteri monospaziati per i messaggi di testo semplice</string>
     <string name="title_advanced_auto_identity">Seleziona automaticamente le identità per i nuovi messaggi</string>
-    <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta alla risposta o l\'inoltro</string>
+    <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta quando si risponde o si inoltra</string>
     <string name="title_advanced_prefix_count">Aggiungi conteggio al prefisso di risposta</string>
     <string name="title_advanced_separate_reply">Inserisci una riga orizzontale prima di un\'intestazione di risposta/inoltro</string>
     <string name="title_advanced_extended_reply">Usa intestazione estesa di risposto/inoltro</string>
@@ -545,16 +545,16 @@
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
     <string name="title_advanced_replace_name">Preferisci un nome di contatto a un nome inviato</string>
     <string name="title_advanced_only_name">Mostra solo i nomi del contatto</string>
-    <string name="title_advanced_distinguish_contacts">Sottolinea il mittente quando è noto come il contatto locale \'a\'</string>
+    <string name="title_advanced_distinguish_contacts">Sottolinea il mittente quando è in rubrica</string>
     <string name="title_advanced_show_recipients">Mostra i destinatari nell\'intestazione del messaggio</string>
-    <string name="title_advanced_reverse_addresses">Mostra destinatario per i messaggi inviati</string>
+    <string name="title_advanced_reverse_addresses">Mostra il destinatario nei messaggi inviati</string>
     <string name="title_advanced_font_size_sender">Dimensione testo del mittente</string>
     <string name="title_advanced_sender_ellipsize">Se necessario, abbrevia il mittente</string>
-    <string name="title_advanced_subject_top">Mostra oggetto sul mittente</string>
-    <string name="title_advanced_subject_italic">Mostra oggetto in corsivo</string>
+    <string name="title_advanced_subject_top">Mostra l\'oggetto sopra il mittente</string>
+    <string name="title_advanced_subject_italic">Mostra l\'oggetto in corsivo</string>
     <string name="title_advanced_highlight_subject">Evidenzia l\'oggetto</string>
     <string name="title_advanced_font_size_subject">Dimensione testo dell\'oggetto</string>
-    <string name="title_advanced_subject_ellipsize">Se necessario, abbrevia l\'oggetto</string>
+    <string name="title_advanced_subject_ellipsize">Se necessario, accorcia l\'oggetto</string>
     <string name="title_advanced_compact_mode_remark">Modalità solo compatta</string>
     <string name="title_advanced_highlight_color">Colore di evidenziazione</string>
     <string name="title_advanced_keywords">Mostra parole chiave nell\'intestazione del messaggio</string>
@@ -650,9 +650,9 @@
     <string name="title_advanced_auto_block_sender">Blocca automaticamente il mittente alla segnalazione di spam</string>
     <string name="title_advanced_auto_hide_answer">Nascondi automaticamente il pulsante di risposta durante lo scorrimento</string>
     <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
-    <string name="title_advanced_move_thread_all">Spostando le conversazioni selezionate, sposta tutti i messaggi</string>
-    <string name="title_advanced_move_thread_sent">Spostando una conversazione, sposta anche i messaggi inviati</string>
-    <string name="title_advanced_swipe_trash_all">Spostando una conversazione nel cestino, sposta tutti i messaggi</string>
+    <string name="title_advanced_move_thread_all">Quando si spostano le conversazioni selezionate, spostare tutti i messaggi</string>
+    <string name="title_advanced_move_thread_sent">Quando si sposta una conversazione, spostare anche i messaggi inviati</string>
+    <string name="title_advanced_swipe_trash_all">Quando si sposta una conversazione nel cestino, spostare tutti i messaggi</string>
     <string name="title_advanced_gmail_delete_all">Eliminando definitivamente un messaggio, elimina tutte le etichette Gmail</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_default_folder">Seleziona la cartella predefinita</string>
@@ -1303,7 +1303,7 @@
     <string name="title_unsubscribe">Disiscriviti</string>
     <string name="title_message_rule">Crea una regola</string>
     <string name="title_no_junk">Non spam</string>
-    <string name="title_edit_subject">Modifica l\'oggetto&#8230;</string>
+    <string name="title_edit_subject">Modifica l\'oggetto &#8230;</string>
     <string name="title_move_to">Sposta in&#8230;</string>
     <string name="title_move_to_folder">Sposta in&#8230;</string>
     <string name="title_move_to_account">Sposta in %1$s&#8230;</string>
@@ -1324,7 +1324,7 @@
     <string name="title_reply_hard_bounce">Invia hard bounce</string>
     <string name="title_reply_template">Rispondi con modello</string>
     <string name="title_reply_menu">Mostra il menu di selezione</string>
-    <string name="title_move_undo">Spostando in %1$s (%2$d)</string>
+    <string name="title_move_undo">Spostamento in %1$s (%2$d)</string>
     <string name="title_authentication_failed">Autenticazione %1$s fallita</string>
     <string name="title_on_blocklist">Sull\'elenco di blocco spam</string>
     <string name="title_receipt_subject">Conferma di lettura: %1$s</string>
@@ -1962,7 +1962,7 @@
     <string name="title_hint_reformat">Di default, FairEmail riformatta i messaggi per motivi di privacy e sicurezza. Per vedere il messaggio originale, tocca l\'icona \'schermo interno\' sul testo del messaggio.</string>
     <string name="title_hint_design">Il design è intenzionalmente non distraente, ma mantenuto altamente funzionale. Ci sono molte opzioni per personalizzare l\'aspetto, ma sei pregato di comprendere che sia impossibile per rendere tutti completamente felici allo stesso tempo.</string>
     <string name="title_hint_junk">Il filtraggio antispam dovrebbe esser fatto dal server email e non può esser fatto affidabilmente su un dispositivo alimentato da batteria con capacità limitate.</string>
-    <string name="title_hint_junk_learn">Spostando i messaggi da e verso la cartella di spam, il server email \"impara\" cos\'è lo spam</string>
+    <string name="title_hint_junk_learn">Quando si spostano i messaggi verso la cartella di spam e viceversa, il server email \"apprende\" come riconoscerlo meglio</string>
     <string name="title_hint_contact_actions">Tieni premuto per le opzioni</string>
     <string name="title_hint_eml">Questo è un riepilogo del contenuto del file di un messaggio non elaborato. Salva il messaggio non elaborato con l\'icona di salvataggio nella barra d\'azione per vedere tutto il contenuto.</string>
     <string name="title_open_link">Apri link</string>
