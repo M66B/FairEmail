@@ -20,6 +20,13 @@ For support you can use the contact form.
 
 Acantholipan
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
 1.2227 - 2024-08-31
 
 * Small improvements and minor bug fixes
