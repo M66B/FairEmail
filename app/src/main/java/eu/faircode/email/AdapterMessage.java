@@ -5599,7 +5599,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         continue;
                     if (!TextHelper.isSingleScript(personal))
                         return true;
-                    if (!BuildConfig.PLAY_STORE_RELEASE && Helper.EMAIL_ADDRESS.matcher(personal).find())
+                    if (false && !BuildConfig.PLAY_STORE_RELEASE && Helper.EMAIL_ADDRESS.matcher(personal).find())
                         return true;
                 }
 
@@ -8133,7 +8133,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (tvCount.getVisibility() == View.VISIBLE) {
                     result.add(context.getResources().getQuantityString(
                             R.plurals.title_accessibility_messages, message.visible, message.visible));
-                            tvCount.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                    tvCount.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
                 }
 
                 if (ibExpander.getVisibility() == View.VISIBLE) {
