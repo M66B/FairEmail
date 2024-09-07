@@ -637,9 +637,18 @@ public class EmailService implements AutoCloseable {
             //    throw new MailConnectException(
             //            new SocketConnectException("Debug", new IOException("Test"), host, port, 0));
 
+            boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", true);
+
             String key = "dns." + host;
             try {
                 main = DnsHelper.getByName(context, host, dnssec);
+                if (!prefer_ip4 && false)
+                    for (InetAddress iaddr : DnsHelper.getAllByName(context, host, dnssec))
+                        if (iaddr instanceof Inet6Address) {
+                            main = iaddr;
+                            break;
+                        }
+
                 EntityLog.log(context, EntityLog.Type.Network, "Main address=" + main);
                 prefs.edit().putString(key, main.getHostAddress()).apply();
             } catch (UnknownHostException ex) {
@@ -652,7 +661,6 @@ public class EmailService implements AutoCloseable {
                 }
             }
 
-            boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", true);
             if (prefer_ip4 && main instanceof Inet6Address) {
                 boolean[] has46 = ConnectionHelper.has46(context);
                 if (has46[0])
