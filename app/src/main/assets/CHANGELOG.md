@@ -20,6 +20,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### 1.2229 - 2024-09-07
+
+* Fixed foreground service permission
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2228 - 2024-09-07
 
 * Accessibility improvements (thanks @pvagner)
