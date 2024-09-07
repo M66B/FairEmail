@@ -6124,6 +6124,7 @@ There are requests daily to change the appearance in this or that way, but the p
 To prevent making other people unhappy, changes in the appearance always need to clearly and objectively contribute to the usability of the app to be considered.
 
 A feature will be considered useful to most people if more than 0.5% of the users request a feature, which in practice means about 2500 people.
+Assuming that only 10% of the app's users will ask for a new feature, about 250 requests are needed to add a new feature.
 
 Features not fulfilling these requirements will likely be rejected.
 This is also to keep maintenance and support in the long term feasible.
