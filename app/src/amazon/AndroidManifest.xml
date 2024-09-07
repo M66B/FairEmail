@@ -614,7 +614,11 @@
         <service
             android:name=".ServiceSynchronize"
             android:exported="false"
-            android:foregroundServiceType="dataSync" />
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="FairEmail is an email app. Users expect to receive instant new email notifications, and the app to be auto-started. A foreground service is required to keep a continuous connection to email servers to listen for push messages via IMAP IDLE, for which there is no Firebase Cloud Messaging integration. Other foreground service types do not fit this use case, or can't be used on Android 15 because there are time limits or auto-starting on boot is not allowed. Using the Android work manager isn't an option either." />
+        </service>
 
         <service
             android:name=".ServiceSend"
