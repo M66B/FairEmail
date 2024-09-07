@@ -176,7 +176,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             "sync_folders",
             "sync_shared_folders",
             "download_headers", "download_eml",
-            "prefer_ip4", "bind_socket", "standalone_vpn", // force reconnect
+            "prefer_ip4", "prefer_ip6", "bind_socket", "standalone_vpn", // force reconnect
             "dns_extra", "dns_custom", // force reconnect
             "tcp_keep_alive", // force reconnect
             "ssl_harden", "ssl_harden_strict", "cert_strict", "cert_transparency", "check_names", "bouncy_castle", "bc_fips", // force reconnect

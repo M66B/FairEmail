@@ -637,18 +637,9 @@ public class EmailService implements AutoCloseable {
             //    throw new MailConnectException(
             //            new SocketConnectException("Debug", new IOException("Test"), host, port, 0));
 
-            boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", true);
-
             String key = "dns." + host;
             try {
                 main = DnsHelper.getByName(context, host, dnssec);
-                if (!prefer_ip4 && false)
-                    for (InetAddress iaddr : DnsHelper.getAllByName(context, host, dnssec))
-                        if (iaddr instanceof Inet6Address) {
-                            main = iaddr;
-                            break;
-                        }
-
                 EntityLog.log(context, EntityLog.Type.Network, "Main address=" + main);
                 prefs.edit().putString(key, main.getHostAddress()).apply();
             } catch (UnknownHostException ex) {
@@ -661,12 +652,14 @@ public class EmailService implements AutoCloseable {
                 }
             }
 
-            if (prefer_ip4 && main instanceof Inet6Address) {
+            boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", true);
+            boolean prefer_ip6 = !prefer_ip4 && prefs.getBoolean("prefer_ip6", false);
+            if ((prefer_ip4 && main instanceof Inet6Address) || (prefer_ip6 && main instanceof Inet4Address)) {
                 boolean[] has46 = ConnectionHelper.has46(context);
-                if (has46[0])
+                if (prefer_ip4 ? has46[0] : has46[1])
                     try {
                         for (InetAddress iaddr : DnsHelper.getAllByName(context, host, dnssec))
-                            if (iaddr instanceof Inet4Address) {
+                            if ((prefer_ip4 && iaddr instanceof Inet4Address) || (prefer_ip6 && iaddr instanceof Inet6Address)) {
                                 main = iaddr;
                                 EntityLog.log(context, EntityLog.Type.Network, "Preferring=" + main);
                                 break;
@@ -761,17 +754,22 @@ public class EmailService implements AutoCloseable {
 
                     boolean[] has46 = ConnectionHelper.has46(context);
 
+                    boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", true);
+                    boolean prefer_ip6 = !prefer_ip4 && prefs.getBoolean("prefer_ip6", false);
+
                     EntityLog.log(context, EntityLog.Type.Network, "Address main=" + main +
                             " count=" + iaddrs.length +
-                            " ip4=" + ip4 + " max4=" + MAX_IPV4 + " has4=" + has46[0] +
-                            " ip6=" + ip6 + " max6=" + MAX_IPV6 + " has6=" + has46[1]);
+                            " ip4=" + ip4 + " max4=" + MAX_IPV4 + " has4=" + has46[0] + " pref4=" + prefer_ip4 +
+                            " ip6=" + ip6 + " max6=" + MAX_IPV6 + " has6=" + has46[1] + " pref6=" + prefer_ip6);
 
-                    boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", true);
-                    if (prefer_ip4)
+                    if (prefer_ip4 || prefer_ip6)
                         Arrays.sort(iaddrs, new Comparator<InetAddress>() {
                             @Override
                             public int compare(InetAddress a1, InetAddress a2) {
-                                return -Boolean.compare(a1 instanceof Inet4Address, a2 instanceof Inet4Address);
+                                int s = Boolean.compare(a1 instanceof Inet4Address, a2 instanceof Inet4Address);
+                                if (prefer_ip4)
+                                    s = -s;
+                                return s;
                             }
                         });
 

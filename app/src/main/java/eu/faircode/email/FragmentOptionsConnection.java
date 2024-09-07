@@ -94,6 +94,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swVpnOnly;
     private EditText etTimeout;
     private SwitchCompat swPreferIp4;
+    private SwitchCompat swPreferIp6;
     private SwitchCompat swBindSocket;
     private SwitchCompat swStandaloneVpn;
     private SwitchCompat swDnsCustom;
@@ -133,7 +134,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             "metered", "download", "download_limited", "roaming", "rlah",
             "download_headers", "download_eml", "download_plain",
             "require_validated", "require_validated_captive", "vpn_only",
-            "timeout", "prefer_ip4", "bind_socket", "standalone_vpn",
+            "timeout", "prefer_ip4", "prefer_ip6", "bind_socket", "standalone_vpn",
             "dns_extra", "dns_custom", "dns_clear",
             "tcp_keep_alive",
             "ssl_update", "ssl_harden", "ssl_harden_strict", "cert_strict", "cert_transparency", "check_names",
@@ -165,6 +166,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swVpnOnly = view.findViewById(R.id.swVpnOnly);
         etTimeout = view.findViewById(R.id.etTimeout);
         swPreferIp4 = view.findViewById(R.id.swPreferIp4);
+        swPreferIp6 = view.findViewById(R.id.swPreferIp6);
         swBindSocket = view.findViewById(R.id.swBindSocket);
         swStandaloneVpn = view.findViewById(R.id.swStandaloneVpn);
         swDnsCustom = view.findViewById(R.id.swDnsCustom);
@@ -330,6 +332,14 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("prefer_ip4", checked).apply();
+                swPreferIp6.setEnabled(!checked);
+            }
+        });
+
+        swPreferIp6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("prefer_ip6", checked).apply();
             }
         });
 
@@ -769,6 +779,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             etTimeout.setHint(Integer.toString(EmailService.DEFAULT_CONNECT_TIMEOUT));
 
             swPreferIp4.setChecked(prefs.getBoolean("prefer_ip4", true));
+            swPreferIp6.setChecked(prefs.getBoolean("prefer_ip6", false));
+            swPreferIp6.setEnabled(!swPreferIp4.isChecked());
             swBindSocket.setChecked(prefs.getBoolean("bind_socket", false));
             swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
             swDnsCustom.setChecked(prefs.getBoolean("dns_custom", false));
