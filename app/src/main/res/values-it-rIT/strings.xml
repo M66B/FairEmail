@@ -7,14 +7,14 @@
     <string name="app_limitations">Ad esempio, i messaggi vengono riformattati per opzione predefinita in modo da rimuovere gli elementi non sicuri e migliorarne la leggibilità; l\'apertura dei link, inoltre, dev\'essere confermata per sicurezza. Entrambe queste funzionalità possono essere disabilitate, se lo si desidera.</string>
     <string name="app_unsupported">I bug nella versione Android di questo specifico dispositivo causano crash</string>
     <string name="app_data_loss">Tutti i dati potrebbero esser persi</string>
-    <string name="app_continue">Continua comunque</string>
-    <string name="app_exit">Torna di nuovo indietro per uscire</string>
+    <string name="app_continue">Continuare comunque</string>
+    <string name="app_exit">Tornare ancora indietro per uscire</string>
     <string name="app_cake">Spazio di archiviazione rimasto insufficiente</string>
     <string name="app_cake_remaining">Spazio di archiviazione rimasto sul dispositivo: %1$s</string>
     <string name="app_cake_required">Spazio di archiviazione minimo necessario: %1$s</string>
     <string name="app_updated">Ultimo aggiornamento: %1$s</string>
     <string name="app_download">Scaricata da: %1$s</string>
-    <string name="app_motd">        Con Android 14/15 beta può capitare di vedere la notifica \'L\'app non risponde\'.
+    <string name="app_motd">        Con Android 14/15 beta può capitare di vedere la notifica «L\'app non risponde».
         Google sta lavorando su una correzione.
         Non è responsabilità dell\'app questo problema Android!
     </string>
@@ -26,7 +26,7 @@
     <string name="channel_announcements">Annunci</string>
     <string name="channel_warning">Avvisi</string>
     <string name="channel_error">Errori</string>
-    <string name="channel_alert">Avvisi server</string>
+    <string name="channel_alert">Avvisi del server</string>
     <string name="channel_group_contacts">Contatti</string>
     <string name="channel_service_description">Sincronizzazione e monitoraggio degli account</string>
     <string name="channel_send_description">Invio dei messaggi</string>
@@ -84,20 +84,20 @@
         <item quantity="other">Trattare %1$d messaggi come spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Trattare il messaggio da %1$s come spam?</string>
-    <string name="title_junk_hint">Il provider della tua email è responsabile del filtraggio dello spam. Un\'app email non ha tutti i dati necessari per farlo in modo affidabile.</string>
+    <string name="title_junk_hint">Il tuo fornitore di posta elettronica è responsabile del filtraggio dello spam. Un\'applicazione di posta elettronica non dispone di tutti i dati necessari per farlo in modo affidabile.</string>
     <string name="title_junk_pop_hint">        I messaggi dei mittenti bloccati non saranno scaricati.
-        Se \"Lascia i messaggi sul server\" non è abilitato, questi messaggi saranno persi permanentemente!
+        Se l\'opzione \"Lascia i messaggi sul server\" non è abilitata, questi messaggi saranno persi permanentemente!
     </string>
     <string name="title_block">Blocca %1$s</string>
     <string name="title_block_sender">Blocca mittente</string>
-    <string name="title_block_sender_domain">Blocca il dominio \'%1$s\'</string>
+    <string name="title_block_sender_domain">Blocca il dominio «%1$s»</string>
     <string name="title_block_sender_remark">Bloccare significa spostare automaticamente nella cartella di spam</string>
     <string name="title_block_sender_hint">        Il blocco di un mittente è una funzionalità gratuita.
         Il blocco del dominio di un mittente usa le regole del filtro, una funzionalità pro.
     </string>
     <string name="title_blocked_senders">Mittenti bloccati</string>
     <string name="title_unblock_all">Sblocca tutti</string>
-    <string name="title_unblock_all_remark">Questo ripristinerà tutti gli elenchi e le opzioni che potrebbero risultare nel blocco dei mittenti</string>
+    <string name="title_unblock_all_remark">Quest\'azione reimposterà tutti gli elenchi e le opzioni, cosa che potrebbero comportare il blocco dei mittenti</string>
     <string name="title_unblock_all_hint">Nota che l\'app non può impedire al server dell\'email di spostare messaggi nella cartella dello spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloccare il mittente di %1$s messaggio?</item>
@@ -111,18 +111,18 @@
         <item quantity="one">%1$s giorno</item>
         <item quantity="other">%1$s giorni</item>
     </plurals>
-    <string name="title_junk_filter">Usa filtro spam locale</string>
+    <string name="title_junk_filter">Usa il filtro spam locale</string>
     <string name="title_junk_filter_hint">Questo può aumentare l\'uso della batteria e contrassegnare erroneamente i messaggi come spam</string>
     <string name="title_junk_blocklist">Usa le blacklist per lo spam</string>
     <string name="title_junk_clear">Cancella</string>
-    <string name="title_junk_clear_hint">Questo eliminerà tutte le regole di blocco del mittente</string>
-    <string name="title_notification_sending">Invio dei messaggi in corso</string>
+    <string name="title_junk_clear_hint">Quest\'azione eliminerà tutte le regole di blocco dei mittenti</string>
+    <string name="title_notification_sending">Invio dei messaggi</string>
     <string name="title_notification_waiting">In attesa di una connessione adatta</string>
     <string name="title_notification_idle">Inattivo</string>
-    <string name="title_notification_failed">Errore nell\'account \'%1$s\'</string>
-    <string name="title_notification_alert">Avviso server: \'%1$s\'</string>
+    <string name="title_notification_failed">Errore nell\'account «%1$s»</string>
+    <string name="title_notification_alert">Avviso del server: «%1$s»</string>
     <string name="title_notification_sending_left">Tentativi rimasti: %1$d</string>
-    <string name="title_notification_sending_retry">L\'invio sarà riprovato in caso di modifiche alla connessione Internet o aggiornando la posta in uscita</string>
+    <string name="title_notification_sending_retry">L\'invio sarà ritentato in caso di modifiche alla connessione Internet o quando si aggiorna la posta in uscita</string>
     <string name="title_notification_sending_failed">Invio a %1$s fallito</string>
     <string name="title_notification_redacted">Redatto: autenticazione biometrica o PIN abilitata</string>
     <string name="title_factor_minutes">%1$d minuti</string>
@@ -132,7 +132,7 @@
     <string name="menu_contacts">Contatti locali</string>
     <string name="menu_setup">Impostazioni</string>
     <string name="menu_legend">Legenda</string>
-    <string name="menu_test">Programma di prova</string>
+    <string name="menu_test">Versione di test</string>
     <string name="menu_faq">Supporto</string>
     <string name="menu_translate">Aiuta a tradurre</string>
     <string name="menu_issue">Segnala problema</string>
@@ -161,8 +161,8 @@
     <string name="title_setup_quick">Configurazione rapida</string>
     <string name="title_setup_intro">Configurare un account richiede solo tre passaggi per poter inviare e ricevere email</string>
     <string name="title_setup_simple">Non serve cambiare altre opzioni</string>
-    <string name="title_setup_issue">FairEmail è stata sviluppata per aiutarti a proteggere la tua privacy e rappresenta letteralmente migliaia di ore di lavoro. Se riscontri qualche problema, sei pregato di contattarmi per supporto prima di lasciare una brutta recensione. Sono felice d\'aiutarti!</string>
-    <string name="title_setup_analytics">FairEmail non visualizza annunci e non monitora o analizza il tuo comportamento. Bugsnag è usato per la segnalazione degli errori ed è disabilitato di default.</string>
+    <string name="title_setup_issue">FairEmail è stata sviluppata per aiutare a proteggere la propria privacy e sono state necessarie letteralmente migliaia di ore di lavoro. Se si riscontrano problemi, contattare lo sviluppatore per supporto prima di lasciare una brutta recensione. Sarà felice di dare una mano!</string>
+    <string name="title_setup_analytics">FairEmail non visualizza annunci e non monitora o analizza il proprio comportamento. Bugsnag è usato per la segnalazione degli errori ed è disabilitato per impostazione predefinita.</string>
     <string name="title_setup_quick_accounts">Aggiungi o cambia gli account</string>
     <string name="title_setup_quick_support">Alcuni provider rendono difficile aggiungere un account. Di questo non è responsabile FairEmail, semmai è necessario chiedere supporto.</string>
     <string name="title_setup_quick_hint">L\'indirizzo email inserito è usato per interrogare il server email e autoconfig.thunderbird.net per le informazioni di configurazione</string>
@@ -170,18 +170,18 @@
     <string name="title_setup_quick_imap">Server IMAP per ricevere i messaggi</string>
     <string name="title_setup_quick_smtp">Server SMTP per inviare i messaggi</string>
     <string name="title_setup_quick_certificates">Certificati del server</string>
-    <string name="title_setup_wizard">Procedura Guidata</string>
+    <string name="title_setup_wizard">Procedura guidata</string>
     <string name="title_setup_wizard_intro">In gran parte dei casi, il pulsante della procedura guidata è utilizzabile per aggiungere un account; in caso contrario, è possibile inserire o modificare manualmente gli indirizzi del server tramite l\'opzione di configurazione manuale</string>
     <string name="title_setup_wizard_tutorials">Tutorial</string>
-    <string name="title_setup_wizard_multiple">Si può usare più volte la procedura guidata per configurare altri account</string>
+    <string name="title_setup_wizard_multiple">Per configurare ulteriori account si può usare più volte la procedura guidata</string>
     <string name="title_setup_wizard_new">Mi serve un nuovo indirizzo email</string>
     <string name="title_setup_manual">Configurazione manuale e opzioni dell\'account</string>
     <string name="title_setup_classic">Configurazione classica</string>
-    <string name="title_setup_wizard_hint">Solitamente, anche la procedura guidata di configurazione per un \"Altro fornitore\", di cui sopra, funziona, ed è più facile da utilizzare, rispetto all\'inserimento di tutti i dati del server.</string>
-    <string name="title_setup_documentation">Sei pregato di consultare la documentazione del tuo provider email per la corretta configurazione del server email</string>
+    <string name="title_setup_wizard_hint">Di solito la procedura guidata per «Altro provider» di qui sopra funziona ed è più facile da utilizzare rispetto all\'inserimento di tutti i dati del server.</string>
+    <string name="title_setup_documentation">Consultare la documentazione del provider email per la corretta configurazione del server di posta</string>
     <string name="title_setup_account_remark">Ricevi email</string>
     <string name="title_setup_identity_remark">Invia email</string>
-    <string name="title_setup_account_identity_hint">Puoi configurare il nome, il colore e le azioni di scorrimento nelle impostazioni dell\'account, e configurare una firma nelle impostazioni dell\'identità</string>
+    <string name="title_setup_account_identity_hint">È possibile configurare il nome, il colore e le azioni di scorrimento nelle impostazioni dell\'account e una firma nelle impostazioni dell\'identità</string>
     <string name="title_setup_accounts">Account</string>
     <string name="title_setup_identities">Identità</string>
     <string name="title_setup_google_sign_in">Accedi con Google</string>
@@ -194,30 +194,30 @@
     <string name="title_setup_gmail_rationale">Dare i permessi per selezionare un account e leggere il vostro nome</string>
     <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, scrivere, inviare ed eliminare permanentemente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza il tuo consenso esplicito.</string>
     <string name="title_setup_gmail_login">Se Chrome è connesso a un account, si può aggiungere un nuovo account solo tramite Android. Ciò si può evitare disconnettendosi da Chrome tramite le impostazioni di sincronizzazione di Chrome.</string>
-    <string name="title_setup_gmail_max">In caso di messaggio d\'errore \"Sei connesso al numero massimo di account\", devi disconnettere il browser da tutti gli account Google.</string>
+    <string name="title_setup_gmail_max">In caso di messaggio d\'errore «Sei connesso al numero massimo di account», è necessario disconnettere il browser da tutti gli account Google.</string>
     <string name="title_setup_outlook_hint">Nel caso di un indirizzo alias, si dovrebbe probabilmente usare la procedura guidata Office 365.</string>
     <string name="title_setup_outlook_modern">A causa dei cambiamenti nelle politiche di sicurezza di Microsoft, dal 16 settembre 2024 funzionerà solo la procedura guidata Outlook/Hotmail/Live.</string>
-    <string name="title_setup_gmail_on_device">Perché devo selezionare un profilo presente sul dispositivo?</string>
+    <string name="title_setup_gmail_on_device">Perché è necessario selezionare un profilo presente sul dispositivo?</string>
     <string name="title_setup_gmail_password">Desidero autorizzare un account con una password, invece di un account su dispositivo</string>
-    <string name="title_setup_office_auth">L\'errore \'AUTHENTICATE fallita\' può esser causato dalla disabilitazione di IMAP/SMTP dall\'amministratore di sistema</string>
-    <string name="title_setup_office_auth_5_7_3">Sei pregato di provare la procedura guidata rapida \'Altro fornitore\'.</string>
-    <string name="title_setup_office_auth_5_7_139">Prova la procedura guidata rapida \"Outlook/Hotmail/Live\".</string>
-    <string name="title_setup_oauth_rationale">Autorizza l\'accesso al tuo account %1$s</string>
-    <string name="title_setup_oauth_update">Autorizza nuovamente un account esistente (altrimenti creane uno nuovo)</string>
+    <string name="title_setup_office_auth">L\'errore «AUTHENTICATE failed» può esser causato dalla disabilitazione di IMAP/SMTP da parte dell\'amministratore di sistema</string>
+    <string name="title_setup_office_auth_5_7_3">Si provi la procedura guidata «Altro provider».</string>
+    <string name="title_setup_office_auth_5_7_139">Si provi la procedura guidata «Outlook/Hotmail/Live».</string>
+    <string name="title_setup_oauth_rationale">Autorizzare l\'accesso al proprio account %1$s</string>
+    <string name="title_setup_oauth_update">Autorizzare nuovamente un account esistente (altrimenti crearne uno nuovo)</string>
     <string name="title_setup_oauth_updated">Autorizzazione dell\'account aggiornata</string>
-    <string name="title_setup_oauth_brave">Utilizzando il browser Brave, devi abilitare l\'opzione nelle sue impostazioni, per consentire ai link dell\'app di essere aperti in app esterne a Brave</string>
+    <string name="title_setup_oauth_brave">Se si usa il browser Brave, è necessario abilitare l\'opzione nelle sue impostazioni per consentire ai link dell\'app di essere aperti in app esterne a Brave</string>
     <string name="title_setup_oauth_browser">L\'autorizzazione richiede un browser funzionante</string>
     <string name="title_setup_oauth_authorize">Autorizza</string>
-    <string name="title_setup_select_account">Seleziona un account</string>
+    <string name="title_setup_select_account">Selezionare un account</string>
     <string name="title_setup_instructions">Istruzioni di configurazione</string>
-    <string name="title_setup_no_settings">Nessun\'impostazione trovata per il dominio \'%1$s\'</string>
-    <string name="title_setup_no_settings_hint">Prova a configurare manualmente un profilo usando le impostazioni fornite dal provider della tua email</string>
-    <string name="title_setup_no_auth_hint">Ricontrollare il proprio indirizzo email e la password e assicurarsi che l\'accesso esterno (IMAP/SMTP) sia abilitato per il proprio account</string>
+    <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio «%1$s»</string>
+    <string name="title_setup_no_settings_hint">Provare a configurare manualmente un account usando le impostazioni fornite dal proprio provider di email</string>
+    <string name="title_setup_no_auth_hint">Ricontrollare l\'indirizzo email e la password e assicurarsi che l\'accesso esterno (IMAP/SMTP) sia abilitato per il proprio account</string>
     <string name="title_setup_app_password_hint">Questo provider richiede una password dell\'app invece di quella dell\'account. Verificare le istruzioni del proprio provider</string>
     <string name="title_setup_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_setup_advanced_protection">Quando iscritto al programma di protezione avanzata è impossibile usare un\'app email di terze parti. Questa è una restrizione imposta da Google.</string>
     <string name="title_setup_quick_success">Un account è stato aggiunto correttamente</string>
-    <string name="title_setup_quick_no_sent">Nessuna cartella dei messaggi inviati sono stati selezionati. I messaggi inviati potrebbero non esser memorizzati.</string>
+    <string name="title_setup_quick_no_sent">Non è stata selezionata nessuna cartella dei messaggi inviati. I messaggi inviati potrebbero non essere memorizzati.</string>
     <string name="title_setup_quick_configure">Per modificare il nome, il colore, le azioni di scorrimento, ecc.</string>
     <string name="title_setup_manage">Gestisci</string>
     <string name="title_setup_grant">Concedi</string>
@@ -228,7 +228,7 @@
     <string name="title_setup_permissions">Concedi autorizzazioni</string>
     <string name="title_setup_permissions_remark">Per accedere alle informazioni di contatto (opzionale)</string>
     <string name="title_setup_permissions_calendar">Per memorizzare gli inviti (facoltativo)</string>
-    <string name="title_setup_permissions_explanation">Le autorizzazioni di contatto sono necessarie per cercare informazioni di contatto e suggerire contatti</string>
+    <string name="title_setup_permissions_explanation">Le autorizzazioni di accesso ai contatti sono necessarie per cercare le loro informazioni e per i suggerimenti</string>
     <string name="title_setup_permissions_notify">Per mostrare le notifiche dei nuovi messaggi (opzionale)</string>
     <string name="title_setup_permissions_notify_explanation">Le autorizzazioni di notifica sono necessarie per mostrare le notifiche per i nuovi messaggi nella barra di stato</string>
     <string name="title_setup_permission_why">Quali autorizzazioni sono necessarie e perché?</string>
@@ -236,9 +236,9 @@
     <string name="title_setup_import_graph_contact">Contatti di Outlook</string>
     <string name="title_setup_import_graph_new">Nuovi contatti: %1$s</string>
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
-    <string name="title_setup_doze_remark">Per inviare e ricevere email affidabilmente in background</string>
-    <string name="title_setup_doze_explanation">Le ottimizzazioni della batteria dovrebbero esser disabilitate per l\'app, per assicurare un\'affidabile invio e ricezione dei messaggi in background</string>
-    <string name="title_setup_doze_hint">Sebbene questo possa sembrare contraddittorio, disattivare le ottimizzazioni della batteria per quest\'app risulterà in un minore uso della batteria</string>
+    <string name="title_setup_doze_remark">Per inviare e ricevere email in background in modo affidabile</string>
+    <string name="title_setup_doze_explanation">Le ottimizzazioni della batteria dovrebbero essere disabilitate per l\'app, in modo da assicurare invio e ricezione affidabili dei messaggi in background</string>
+    <string name="title_setup_doze_hint">Sebbene possa sembrare contraddittorio, disattivare le ottimizzazioni della batteria per quest\'app comporterà un minore uso della batteria</string>
     <string name="title_setup_doze_aggressively">Questo dispositivo potrebbe interrompere il servizio di sincronizzazione</string>
     <string name="title_setup_doze_why">Perché le ottimizzazioni della batteria dovrebbero esser disabilitate?</string>
     <string name="title_setup_doze_instructions">Nella prossima finestra di Android cambia \"Non ottimizzata\" a \"Tutte le app\", seleziona quest\'app e seleziona \"Non ottimizzare\"</string>

@@ -1844,7 +1844,7 @@
     <string name="title_legend_sent">Envoyés</string>
     <string name="title_legend_archive">Archives</string>
     <string name="title_legend_trash">Corbeille</string>
-    <string name="title_legend_junk">Indésirables</string>
+    <string name="title_legend_junk">Indésirable</string>
     <string name="title_legend_primary">Principal</string>
     <string name="title_legend_subscribed">Abonné à</string>
     <string name="title_legend_rule">A des règles</string>
