@@ -755,6 +755,11 @@ A common cause for this problem is using a VPN, a firewall app or an ad blocker 
 Please make sure permissions were granted to the app via setup step 2.
 You can try to workaround this issue by using the quick setup wizard *Gmail (Oauth)* or by using an app password.
 
+*[ALERT] IMAP access is not allowed for this account.*
+
+This means that it is a [Google Family Link](https://families.google.com/familylink/) account for a child under the age of 13.
+Please see [here](https://www.reddit.com/r/ios/comments/x0dklz/i_give_up_adding_google_email_account_to_my/) for a solution.
+
 <br />
 
 <a name="faq6-app"></a>
