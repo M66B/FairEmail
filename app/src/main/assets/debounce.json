@@ -1,6 +1,11 @@
 [
   {
     "include": [
+      "*://howl.me/link/?*",
+      "*://www.pntrac.com/t/*",
+      "*://track.flexlinks.com/a.ashx?*",
+      "*://www.wordseed.com/go/*",
+      "*://visit.ws/visit/*",
       "*://llo.to/e/*",
       "*://g-o-media.digidip.net/visit?*",
       "*://www.dpbolvw.net/click-*",
@@ -195,6 +200,9 @@
   },
   {
     "include": [
+      "*://*.c9ftyd.net/c/*",
+      "*://*.iyhh.net/c/*",
+      "*://*.glg9ob.net/c/*",
       "*://*.evyy.net/c/*",
       "*://*.uikc.net/c/*",
       "*://*.ztk5.net/*",
@@ -425,6 +433,15 @@
     "prepend_scheme": "https",
     "action": "regex-path",
     "param": "^/([^/]+)/s(/.*)$"
+  },
+  {
+    "include": [
+      "*://shopping.yahoo.com/rdlw?*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "gcReferrer"
   },
   {
     "include": [
