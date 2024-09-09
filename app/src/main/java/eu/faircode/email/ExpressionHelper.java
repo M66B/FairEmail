@@ -211,7 +211,7 @@ public class ExpressionHelper {
             }
 
             Log.i("EXPR header(" + parameterValues[0] + ")=" + TextUtils.join(", ", result));
-            return new EvaluationValue(result, ExpressionConfiguration.defaultConfiguration());
+            return EvaluationValue.of(result, ExpressionConfiguration.defaultConfiguration());
         }
     }
 
@@ -244,7 +244,7 @@ public class ExpressionHelper {
             }
 
             Log.i("EXPR message(" + parameterValues[0] + ")=" + TextUtils.join(", ", result));
-            return new EvaluationValue(result, ExpressionConfiguration.defaultConfiguration());
+            return EvaluationValue.of(result, ExpressionConfiguration.defaultConfiguration());
         }
     }
 
@@ -374,7 +374,7 @@ public class ExpressionHelper {
                 }
 
             Log.i("EXPR jsoup(" + parameterValues[0] + ")=" + TextUtils.join(", ", result));
-            return new EvaluationValue(result, ExpressionConfiguration.defaultConfiguration());
+            return EvaluationValue.of(result, ExpressionConfiguration.defaultConfiguration());
         }
     }
 
