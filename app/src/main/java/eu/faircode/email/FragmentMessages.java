@@ -2303,7 +2303,9 @@ public class FragmentMessages extends FragmentBase
             }
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-        IntentFilter iff = new IntentFilter(SimpleTask.ACTION_TASK_COUNT);
+        IntentFilter iff = new IntentFilter();
+        iff.addAction(SimpleTask.ACTION_TASK_COUNT);
+        iff.addAction(ServiceTTS.ACTION_TTS_COMPLETED);
         lbm.registerReceiver(treceiver, iff);
 
         return view;
@@ -3634,7 +3636,12 @@ public class FragmentMessages extends FragmentBase
             iProperties.setValue("tts", message.id, !tts);
 
             if (tts) {
-                TTSHelper.speak(getContext(), "tts:" + message.id, "", message.language, true, null);
+                Intent intent = new Intent(getContext(), ServiceTTS.class);
+                intent.putExtra(ServiceTTS.EXTRA_FLUSH, true);
+                intent.putExtra(ServiceTTS.EXTRA_TEXT, "");
+                intent.putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language);
+                intent.putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + message.id);
+                getContext().startService(intent);
                 return;
             }
 
@@ -3670,7 +3677,7 @@ public class FragmentMessages extends FragmentBase
                     String text = HtmlHelper.getFullText(context, body);
 
                     // Avoid: Not enough namespace quota ... for ...
-                    text = HtmlHelper.truncate(text, TTSHelper.getMaxTextSize() / 3);
+                    text = HtmlHelper.truncate(text, ServiceTTS.getMaxTextSize() / 3);
 
                     if (!TextUtils.isEmpty(text))
                         sb.append(context.getString(R.string.title_rule_tts_content))
@@ -3681,14 +3688,15 @@ public class FragmentMessages extends FragmentBase
 
                 @Override
                 protected void onExecuted(Bundle args, String text) {
-                    if (text != null)
-                        TTSHelper.speak(getContext(), "tts:" + message.id, text, message.language, true,
-                                new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        iProperties.setValue("tts", message.id, false);
-                                    }
-                                });
+                    if (text == null)
+                        return;
+
+                    Intent intent = new Intent(getContext(), ServiceTTS.class);
+                    intent.putExtra(ServiceTTS.EXTRA_FLUSH, true);
+                    intent.putExtra(ServiceTTS.EXTRA_TEXT, text);
+                    intent.putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language);
+                    intent.putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + message.id);
+                    getContext().startService(intent);
                 }
 
                 @Override
@@ -9016,7 +9024,11 @@ public class FragmentMessages extends FragmentBase
     private BroadcastReceiver treceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            onTaskCount(intent);
+            String action = intent.getAction();
+            if (SimpleTask.ACTION_TASK_COUNT.equals(action))
+                onTaskCount(intent);
+            else if (ServiceTTS.ACTION_TTS_COMPLETED.equals(action))
+                onTTSCompleted(intent);
         }
     };
 
@@ -9037,6 +9049,18 @@ public class FragmentMessages extends FragmentBase
 
     private void onTaskCount(Intent intent) {
         updateListState("Tasks", intent.getIntExtra("count", 0), adapter.getItemCount());
+    }
+
+    private void onTTSCompleted(Intent intent) {
+        String utteranceId = intent.getStringExtra(ServiceTTS.EXTRA_UTTERANCE_ID);
+        if (utteranceId != null && utteranceId.startsWith("tts:"))
+            try {
+                long id = Long.parseLong(utteranceId.substring("tts:".length()));
+                Log.i("TTS completed id=" + id);
+                iProperties.setValue("tts", id, false);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
     }
 
     private void onStoreRaw(Intent intent) {
