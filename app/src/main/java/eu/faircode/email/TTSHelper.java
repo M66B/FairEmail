@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.os.OperationCanceledException;
+import android.os.PowerManager;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 
@@ -35,9 +36,12 @@ import java.util.Map;
 public class TTSHelper {
     private static Integer status = null;
     private static TextToSpeech instance = null;
+    private static PowerManager.WakeLock wl = null;
     private static final List<Runnable> queue = new ArrayList<>();
     private static final Map<String, Runnable> listeners = new HashMap<>();
     private static final Object lock = new Object();
+
+    private static final long MAX_WAKELOCK_DURATION = 3 * 60 * 1000L; // milliseconds
 
     // https://developer.android.com/reference/android/speech/tts/TextToSpeech
     // https://android-developers.googleblog.com/2009/09/introduction-to-text-to-speech-in.html
@@ -49,6 +53,11 @@ public class TTSHelper {
             final String language,
             final boolean flush,
             final Runnable listener) {
+
+        if (wl == null) {
+            PowerManager pm = Helper.getSystemService(context, PowerManager.class);
+            wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":tts");
+        }
 
         Locale locale = (language == null ? Locale.getDefault() : new Locale(language));
 
@@ -103,6 +112,7 @@ public class TTSHelper {
                                                 } finally {
                                                     status = null;
                                                     instance = null;
+                                                    wl.release();
                                                 }
                                         }
                                     }
@@ -133,6 +143,7 @@ public class TTSHelper {
                                 }
                             }
                         });
+                        wl.acquire(MAX_WAKELOCK_DURATION);
                     } catch (Throwable ex) {
                         Log.e(ex);
                         status = TextToSpeech.ERROR;
