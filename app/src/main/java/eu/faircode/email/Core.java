@@ -2406,15 +2406,11 @@ class Core {
         //   Seznam: Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
 
         // Some email servers are slow with adding sent messages
-        if (retry) {
+        if (retry)
             Log.w(folder.name + " EXISTS retry" +
                     " found=" + (imessages == null ? null : imessages.length) +
                     " host=" + account.host);
-            if (account.isYahoo()) {
-                EntityOperation.sync(context, folder.id, false);
-                return;
-            }
-        } else if (imessages == null || imessages.length == 0) {
+        else if (imessages == null || imessages.length == 0) {
             long next = new Date().getTime() + EXISTS_RETRY_DELAY;
 
             Intent intent = new Intent(context, ServiceSynchronize.class);
@@ -2450,7 +2446,10 @@ class Core {
                 Log.e(folder.name + " EXISTS messages=" + imessages.length + " retry=" + retry);
             EntityLog.log(context, folder.name +
                     " EXISTS messages=" + (imessages == null ? null : imessages.length));
-            EntityOperation.queue(context, message, EntityOperation.ADD);
+            if (account.isYahoo())
+                EntityOperation.sync(context, folder.id, false);
+            else
+                EntityOperation.queue(context, message, EntityOperation.ADD);
         }
     }
 
