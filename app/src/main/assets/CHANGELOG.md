@@ -20,6 +20,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### Next version
+
+* Fixed text-to-speak stops working on some devices
+* Fixed duplicate sent-messages in some cases for Yahoo
+* Added option to prefer IPv6 over IPv4
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2229 - 2024-09-07
 
 * Fixed foreground service permission
