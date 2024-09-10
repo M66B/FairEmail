@@ -2314,7 +2314,7 @@
     <string name="title_hint_notifications_remark">Notification permissions are required for (account) alerts too. Notifications for new messages can be turned off in the settings.</string>
     <string name="title_hint_battery_optimizations">Battery optimizations still enabled</string>
     <string name="title_hint_data_saver">If the data saver is enabled, the app will not be able to sync in the background and connection errors may occur.</string>
-    <string name="title_hint_vpn">E-mail servers often block connections through a VPN. Only the email provider can resolve this.</string>
+    <string name="title_hint_vpn">E-mail servers sometimes block connections through a VPN. If this happens, only the e-mail provider can resolve this.</string>
     <string name="title_hint_dismiss">You can dismiss this dialog box to remove the notice.</string>
     <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
     <string name="title_hint_message_actions">Swipe left to trash; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
