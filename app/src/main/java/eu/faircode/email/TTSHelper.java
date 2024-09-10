@@ -101,6 +101,7 @@ public class TTSHelper {
                                                 } catch (Throwable ex) {
                                                     Log.e(ex);
                                                 } finally {
+                                                    status = null;
                                                     instance = null;
                                                 }
                                         }
