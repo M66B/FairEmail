@@ -444,6 +444,7 @@ The following Android permissions are **required**:
 * *view network connections* (ACCESS_NETWORK_STATE): to monitor connectivity changes (mobile data, WiFi)
 * *run at startup* (RECEIVE_BOOT_COMPLETED): to start sending and receiving on device start
 * *run foreground service* (FOREGROUND_SERVICE/DATA_SYNC/SPECIAL_USE): to run a foreground service on Android 9 Pie and later, see also the next question
+* *run foreground service* (FOREGROUND_SERVICE_MEDIA_PLAYBACK): for text-to-speech
 * *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later), for example to snooze messages
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while performing actions, like synchronization of messages
 * *use fingerprint hardware* (USE_FINGERPRINT) and *use biometric hardware* (USE_BIOMETRIC): to use biometric authentication (fingerprint, face unlock, etc)
