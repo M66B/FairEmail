@@ -93,6 +93,17 @@ public class TTSHelper {
                                     public void onDone(String utteranceId) {
                                         Log.i("TTS done=" + utteranceId);
                                         report(utteranceId);
+                                        synchronized (lock) {
+                                            if (queue.isEmpty())
+                                                try {
+                                                    Log.i("TTS shutdown");
+                                                    instance.shutdown();
+                                                } catch (Throwable ex) {
+                                                    Log.e(ex);
+                                                } finally {
+                                                    instance = null;
+                                                }
+                                        }
                                     }
 
                                     @Override
