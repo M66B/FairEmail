@@ -20,7 +20,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2230 2024-09-11
 
 * Fixed text-to-speak stops working on some devices
 * Fixed duplicate sent-messages in some cases for Yahoo
