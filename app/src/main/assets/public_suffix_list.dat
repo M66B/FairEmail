@@ -13758,18 +13758,17 @@ hoplix.shop
 orx.biz
 biz.gl
 biz.ng
+co.biz.ng
+dl.biz.ng
+go.biz.ng
+lg.biz.ng
+on.biz.ng
 col.ng
 firm.ng
 gen.ng
 ltd.ng
 ngo.ng
 plc.ng
-// Reserved Third Level Subdomains for BIZ.NG
-co.biz.ng
-dl.biz.ng
-go.biz.ng
-lg.biz.ng
-on.biz.ng
 
 // HostFly : https://www.ie.ua
 // Submitted by Bohdan Dub <support@hostfly.com.ua>
@@ -15569,9 +15568,11 @@ express.val.run
 web.val.run
 
 // Vercel, Inc : https://vercel.com/
-// Submitted by Connor Davis <security@vercel.com>
+// Submitted by Max Leiter <security@vercel.com>
 vercel.app
+v0.build
 vercel.dev
+vusercontent.net
 now.sh
 
 // VeryPositive SIA : http://very.lv
