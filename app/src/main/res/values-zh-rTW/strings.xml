@@ -1218,7 +1218,7 @@
     <string name="title_search_in_text">在本文中搜尋 &#8230;</string>
     <string name="title_forward">轉寄</string>
     <string name="title_resend">重新寄出</string>
-    <string name="title_fetching_headers">正在下載信頭 (message headers) &#8230;</string>
+    <string name="title_fetching_headers">正在下載訊息標頭&#8230;</string>
     <string name="title_new_message">新訊息</string>
     <string name="title_editasnew">當作新訊息編輯</string>
     <string name="title_edit_notes">編輯本地附註</string>
@@ -1251,7 +1251,7 @@
     <string name="title_save_all">全部保存</string>
     <string name="title_save_eml">保存元訊息檔</string>
     <string name="title_save_file">儲存檔案</string>
-    <string name="title_eml_remark">欲轉寄訊息，首先需要自電子郵件伺服器下載元 (原始) 訊息。需有互聯網連線，元訊息必須仍存在於電子郵件伺服器上。</string>
+    <string name="title_eml_remark">要轉寄訊息，必須從電子郵件伺服器下載原始訊息。這需要網路連線，且訊息必須仍然儲存在電子郵件伺服器上。</string>
     <string name="title_eml_option">透過於連線設定中啟用總是下載元訊息檔，可以防止此情況的發生</string>
     <string name="title_eml_downloaded">已下載元訊息: %1$s</string>
     <string name="title_auto_confirm">%1秒後自動拒絕</string>
@@ -1301,7 +1301,7 @@
     <string name="title_reply_to_all">回覆所有人</string>
     <string name="title_reply_list">回覆至清單</string>
     <string name="title_reply_receipt">傳送已讀回條</string>
-    <string name="title_reply_hard_bounce">發出“強制退信”</string>
+    <string name="title_reply_hard_bounce">發送硬退信（Hard Bounce）</string>
     <string name="title_reply_template">以模板回覆</string>
     <string name="title_reply_menu">顯示選取菜單</string>
     <string name="title_move_undo">正在移動至 %1$s (%2$d)</string>
@@ -1318,9 +1318,8 @@
     <string name="title_no_camera">無適用的相機程式</string>
     <string name="title_no_saf">儲存空間存取架構不可用</string>
     <string name="title_no_stream">FairEmail 沒有讀取此文件的權限</string>
-    <string name="title_no_stream_help">欲解決此問題，可藉更現代的文件管理器選擇文件或授予文件讀取權
-这可以通过使用更现代的文件管理器选择文件或授予文件读取权限来解决</string>
-    <string name="title_no_permissions">選擇文件的APP未授予文件讀取權</string>
+    <string name="title_no_stream_help">這可以透過選擇一個較現代的檔案管理應用程式來解決，或是授予讀取檔案的權限</string>
+    <string name="title_no_permissions">用來選擇檔案的應用程式未授予讀取該檔案的權限</string>
     <string name="title_no_internet">無網際網路連線或連線不合宜</string>
     <string name="title_no_connection">正在連線至一個或多個帳戶 &#8230;</string>
     <string name="title_no_folder">資料夾不存在</string>
@@ -1356,8 +1355,8 @@
     <string name="title_ask_show_image">顯示圖片可能會洩露隱私敏感資訊</string>
     <string name="title_ask_show_images_always">預設顯示圖片</string>
     <string name="title_ask_show_image_hint">已辨識為追蹤的圖片將不會予以顯示</string>
-    <string name="title_ask_show_amp">要顯示這條信息的AMP變種嗎？</string>
-    <string name="title_ask_show_amp_hint">AMP 訊息旨在與網際網路進行互動，因此依定義可用來追蹤您</string>
+    <string name="title_ask_show_amp">顯示訊息的 AMP 變體？</string>
+    <string name="title_ask_show_amp_hint">AMP 訊息的設計目的是動態互動，並且與網際網路連接，因此本質上可以用來追蹤你</string>
     <string name="title_ask_view_file">檢視檔案 %1$s？</string>
     <string name="title_ask_delete_local">您要刪除本地訊息嗎？訊息仍將留存在遠端伺服器上。</string>
     <string name="title_ask_help">協助改善 FairEmail</string>
@@ -1504,18 +1503,18 @@
     <string name="title_send_plain_text">僅純文字</string>
     <string name="title_send_dsn">狀態報告</string>
     <string name="title_send_receipt">請求回條</string>
-    <string name="title_send_receipt_remark">大多數的電子郵件供應商和用戶端都會忽略回條請求</string>
-    <string name="title_vt_unknown">VirusTotal 尚不知道此文件</string>
+    <string name="title_send_receipt_remark">大多數服務提供商和電子郵件用戶端會忽略回執請求</string>
+    <string name="title_vt_unknown">此檔案尚未被 VirusTotal 認識</string>
     <string name="title_vt_summary">%1$s 病毒掃描器報告此檔案為惡意檔案</string>
     <string name="title_vt_report">完整報告</string>
     <string name="title_vt_upload">上傳</string>
-    <string name="title_vt_analyzing">VirusTotal 正在分析文件，請稍候</string>
+    <string name="title_vt_analyzing">VirusTotal 正在分析該檔案，這可能需要一些時間&#8230;</string>
     <string name="title_from_missing">寄件者缺失</string>
     <string name="title_pgp_reminder">PGP金鑰可用</string>
     <string name="title_smime_reminder">S/MIME 金鑰可用</string>
     <string name="title_to_missing">收件者缺失</string>
     <string name="title_extra_missing">用戶名缺失</string>
-    <string name="title_noreply_reminder">正在傳送至 ‘無回覆’ 地址</string>
+    <string name="title_noreply_reminder">寄送至「no-reply」地址</string>
     <string name="title_external_reminder">正在傳送至外部地址</string>
     <string name="title_subject_reminder">主旨為空</string>
     <string name="title_text_reminder">訊息內容為空</string>
@@ -1524,7 +1523,7 @@
     <string name="title_attachment_warning">潛在危險：%1$s</string>
     <string name="title_attachment_filename">某些電子郵件客戶端無法處理超過 60 個字元的檔案名稱</string>
     <string name="title_plain_reminder">所有的文字格式化都會丟失</string>
-    <string name="title_dsn_reminder">強制退信會傷害到原寄件者的電子郵件發信信譽！</string>
+    <string name="title_dsn_reminder">硬退信會損害原始寄件者的電子郵件聲譽！</string>
     <string name="title_size_reminder">訊息大小 (%1$s) 超出伺服器所限 (%2$s)</string>
     <string name="title_attachments_missing">有部分附件未下載</string>
     <string name="title_download_attachments">下載附件</string>
@@ -1756,14 +1755,14 @@
     <string name="title_rule_attached">附加原始訊息檔案</string>
     <string name="title_rule_cc">回覆至副本地址</string>
     <string name="title_rule_with_attachments">包含附件</string>
-    <string name="title_rule_answer_remark">對於任一會話，僅有一個回覆會被傳送以避免回覆循環</string>
+    <string name="title_rule_answer_remark">為避免回覆循環，每次對話僅會發送一次回覆</string>
     <string name="title_rule_name_missing">規則名稱缺失</string>
     <string name="title_rule_condition_missing">條件缺失</string>
     <string name="title_rule_folder_missing">資料夾缺失</string>
     <string name="title_rule_identity_missing">身分缺失</string>
     <string name="title_rule_answer_missing">模板缺失</string>
     <string name="title_rule_keyword_missing">關鍵字缺失</string>
-    <string name="title_rule_automation_hint">這將傳送附帶額外 \'%2$s\' 的 Intent \'%1$s\'</string>
+    <string name="title_rule_automation_hint">這將會發送意圖「%1$s」並附加「%2$s」</string>
     <string name="title_rule_notes_missing">本機備註遺失</string>
     <string name="title_rule_url_missing">URL 遺失或無效</string>
     <string name="title_rule_delete_hint">永久删除是不可逆轉的，請再三確認規則條件是正確的！</string>
@@ -1787,7 +1786,7 @@
     <string name="title_rule_select_sound_ringtone">鈴聲</string>
     <string name="title_rule_select_sound_audio">音訊檔案</string>
     <string name="title_rule_use_as_alarm">用作警報</string>
-    <string name="title_rule_alarm_hint">這將忽略\"零打擾\"規則</string>
+    <string name="title_rule_alarm_hint">這將會忽略「請勿打擾」規則</string>
     <string name="title_rule_alarm_duration">警報最長持續時間 (秒)</string>
     <string name="title_rule_alarm_title">警報</string>
     <string name="title_rule_alarm_stop">停止</string>
@@ -1811,7 +1810,7 @@
     <string name="title_legend_connecting">正在連線</string>
     <string name="title_legend_connected">已連線</string>
     <string name="title_legend_backoff">失敗後等待</string>
-    <string name="title_legend_quota">郵箱快滿了</string>
+    <string name="title_legend_quota">信箱快滿了</string>
     <string name="title_legend_executing">執行操作</string>
     <string name="title_legend_synchronizing">正在同步</string>
     <string name="title_legend_downloading">正在下載</string>
@@ -1916,7 +1915,7 @@
     <string name="title_legend_r">回覆</string>
     <string name="title_legend_s">選擇/取消選擇</string>
     <string name="title_legend_t">聚焦本文</string>
-    <string name="title_hint_folder_actions">長按資料夾項以獲取選項，例如為快速訪問而新增資料夾項至導航功能表的‘顯示於導航功能表中’</string>
+    <string name="title_hint_folder_actions">長按資料夾以顯示選項，例如將資料夾加入導航選單以快速存取</string>
     <string name="title_hint_folder_sync">出於限制電池和網路使用量的目的，預設情況下並非所有的資料夾和訊息都會被同步</string>
     <string name="title_hint_airplane">飛航模式已開啟</string>
     <string name="title_hint_vpn_active">VPN 啟動中</string>
@@ -1930,22 +1929,22 @@
     <string name="title_hint_message_actions">向左滑動移入垃圾桶； 向右滑動封存 (如果可用)； 可在帳戶設定中配置滑動動作</string>
     <string name="title_hint_outbox">您可以向左或向右滑動來取消發送</string>
     <string name="title_hint_message_selection">長按一則訊息以開始選擇多則訊息； 按住並向上或向下滑動以選擇更多訊息</string>
-    <string name="title_hint_message_junk">電子郵件客戶端基本上只顯示電子郵件伺服器上的訊息。
-垃圾郵件的過濾應由電子郵件伺服器負責，而非電子郵件客戶端。
-如果您收到大量垃圾郵件，請聯繫您的電子郵件提供商，不要責怪應用程式！    </string>
+    <string name="title_hint_message_junk">電子郵件用戶端基本上是顯示電子郵件伺服器上的訊息。
+電子郵件伺服器負責過濾垃圾郵件，而不是電子郵件用戶端。
+如果你收到大量垃圾郵件，請聯絡你的電子郵件提供商，不要責怪應用程式！    </string>
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">下載訊息可能會花費一些時間，具體取決於供應商的速度、互聯網連線、使用的裝置和訊息的數量。在下載訊息期間，應用程式的響應可能會變慢。</string>
     <string name="title_hint_sync_note">預設情況下，為了限制存儲空間及電池和數據使用量，並非所有訊息都會被下載。您可以在資料夾列表中長按某個資料夾，然後選擇「獲取更多訊息」來更改此設定。</string>
     <string name="title_hint_battery">由於預設情況下 FairEmail 會時刻接收訊息，因此 Android 會將 FairEmail 回報為始終處於活動中。看似 FairEmail 一直在消耗電量，但事實並非如此 。</string>
-    <string name="title_hint_reformat">出於隱私和安全原因，FairEmail 預設重排訊息。 要檢視原始訊息，請輕觸訊息本文上方的“鋪滿螢幕”圖示。</string>
+    <string name="title_hint_reformat">預設情況下，FairEmail 會為了隱私和安全原因重新格式化訊息。要查看原始訊息，請點擊訊息文字上方的「全螢幕」圖示。</string>
     <string name="title_hint_design">本程式介面設計並非意圖使您分心，而是意圖保持高度的實用性。 程式內有許多可供自訂外觀的選項，但請您理解，這些自訂項所提供的內容不可能令得每個人都完全滿意。</string>
     <string name="title_hint_junk">垃圾郵件篩選應由電子郵件伺服器執行完成，而在能力有限的由電池所驅動的裝置上執行，產生的結果並不可靠。</string>
-    <string name="title_hint_junk_learn">透過移動訊息進出垃圾郵件資料夾，電子郵件伺服器將會“記住”什麼是垃圾郵件</string>
+    <string name="title_hint_junk_learn">透過將訊息移入或移出垃圾郵件資料夾，電子郵件伺服器會「學習」什麼是垃圾郵件</string>
     <string name="title_hint_contact_actions">長按以獲取選項</string>
-    <string name="title_hint_eml">這是元訊息檔的內容摘要。 欲檢視全部內容，請先利用工具列中的保存圖示將元訊息保存。</string>
+    <string name="title_hint_eml">這是原始訊息檔案內容的摘要。請使用操作欄中的儲存圖示來保存原始訊息，以檢視全部內容。</string>
     <string name="title_open_link">開啟連結</string>
     <string name="title_image_link">圖片連結</string>
-    <string name="title_different_link">標題中所展示的網域和實際連結地址中的有不同</string>
+    <string name="title_different_link">標題與連結地址不同</string>
     <string name="title_tracking_link">該網站可能會追蹤您</string>
     <string name="title_suspicious_link">此連結很可疑</string>
     <string name="title_link_http">流量不會被加密</string>
@@ -2029,23 +2028,22 @@
     <string name="title_pro_purchase">購買</string>
     <string name="title_pro_one_time">%1$s (一次購買)</string>
     <string name="title_pro_no_play">未找到 Play Store 程式</string>
-    <string name="title_pro_info">        開發 FairEmail 實際上花費了數千小時，儘管如此，大多數功能仍可供免費使用。
-        FairEmail 認真對待您的隱私，不會展示廣告，也不會使用追踪或分析來賺錢。
-        為了提供 FairEmail 的長期維護和支援，一些便利和高級功能不提供免費使用。
-        為助您瞭解以上資訊，FairEmail 會顯示一則簡短的信息。一旦您購買專業版功能，即會令其關閉。
-    </string>
-    <string name="title_pro_whichever">無論選擇將哪個功能納入專業版，都會有人抱怨說該功能應該免費，請不要做那樣的人。</string>
+    <string name="title_pro_info">開發 FairEmail 實際上耗費了數千個小時，儘管如此，大多數功能仍可免費使用。
+FairEmail 非常重視你的隱私，不會顯示廣告，也不使用追蹤或分析來賺錢。
+為了長期維護和支援 FairEmail，一些方便與進階的功能不提供免費使用。
+FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊息將會被移除。    </string>
+    <string name="title_pro_whichever">無論哪些功能被選為專業功能，總有人會抱怨某個功能應該免費。請不要成為那樣的人。</string>
     <string name="title_pro_google">FairEmail 啟動 Play 商店購買，但最終 Google 管理整個購買流程。因此，若有任何問題，請不要責怪應用程式！</string>
-    <string name="title_pro_hide">將這一信息隱藏 %1$d 週</string>
+    <string name="title_pro_hide">隱藏小訊息 %1$d 週</string>
     <string name="title_pro_hint">購買完整專業版功能將使您能夠使用當前和未來的所有專業功能，並保持該應用程式繼續受到維護與支援。</string>
     <string name="title_pro_price">為什麼專業版功能如此昂貴？</string>
     <string name="title_pro_family">我可以利用 Google Play 家庭媒體庫嗎？</string>
     <string name="title_pro_restore">如何恢復購買 (於另一部裝置上)？</string>
     <string name="title_pro_pending">購買待處理</string>
-    <string name="title_pro_activated">所有專業版功能均已激活</string>
-    <string name="title_pro_valid">已激活所有專業版功能</string>
+    <string name="title_pro_activated">所有專業功能已啟用</string>
+    <string name="title_pro_valid">所有專業功能已啟用</string>
     <string name="title_pro_invalid">無效的回應</string>
-    <string name="title_pro_support">FairEmail 需要您的協助。 輕觸即可購買專業版功能幫助專案繼續走下去，或者選擇關閉此信息。</string>
+    <string name="title_pro_support">FairEmail 需要你的幫助。點擊購買專業功能以支持專案持續運作，或關閉此訊息。</string>
     <string name="title_boundary_error">自郵件伺服器下載訊息時出錯</string>
     <string name="title_boundary_retry">再試一次</string>
     <string name="title_unexpected_error">意外的錯誤</string>
@@ -2058,14 +2056,14 @@
     <string name="title_rules_delete_all_confirm">您要刪除掉所有規則嗎？</string>
     <string name="title_debug_info">除錯資訊</string>
     <string name="title_debug_info_remark">請描述問題並寫明問題發生的時間：</string>
-    <string name="title_crash_info_remark">請描述應用程式崩潰時您正在做什麼：</string>
+    <string name="title_crash_info_remark">請描述當應用程式崩潰時你正在進行的操作：</string>
     <string name="title_debug_info_issue">問題描述（必填）</string>
     <string name="title_debug_info_issue_remark">細節（如問題的估計時間、確切的錯誤訊息等）很重要</string>
     <string name="title_debug_info_contact">我們最近已經就此問題聯繫過</string>
     <string name="title_debug_info_send">立即傳送</string>
     <string name="title_debug_info_send_remark">通常，偵錯資訊會先儲存為草稿訊息，讓您可以檢查將要發送的內容</string>
     <string name="title_debug_info_question">如果您只是有問題，請使用資訊按鈕</string>
-    <string name="title_unexpected_info_remark">請描述遭遇錯誤時您都在做些什麼：</string>
+    <string name="title_unexpected_info_remark">請描述當你遇到錯誤時正在進行的操作：</string>
     <string name="title_widget_title_count">新訊息計數</string>
     <string name="title_widget_title_list">訊息清單</string>
     <string name="title_widget_title_sync">同步處理開關</string>

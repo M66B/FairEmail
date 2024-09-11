@@ -461,6 +461,7 @@
     <string name="title_advanced_vpn_only">Conectar somente via VPN</string>
     <string name="title_advanced_timeout">Conexão expira em (segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 ao invés de IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Prefirir IPv6 em vez de IPv4</string>
     <string name="title_advanced_dns">Endereços de servidor DNS preferenciais (separados por vírgula)</string>
     <string name="title_advanced_dns_custom">Usar resolvedor DNS personalizado</string>
     <string name="title_advanced_dns_clear">Limpar o cache DNS em alterações de conectividade</string>
@@ -1941,6 +1942,7 @@
     <string name="title_hint_notifications_remark">As permissões de notificação também são necessárias para alerta (de conta). As notificações de novas mensagens podem ser desativadas nas configurações.</string>
     <string name="title_hint_battery_optimizations">Otimizações de bateria continuam ativadas</string>
     <string name="title_hint_data_saver">Se a economia de dados estiver ativada, o aplicativo não poderá sincronizar em segundo plano e poderão ocorrer erros de conexão.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Os servidores de e-mail às vezes bloqueiam conexões por meio de VPN. Se isso acontecer, somente o provedor de e-mail poderá resolver o problema.</string>
     <string name="title_hint_dismiss">Você pode descartar esta caixa de diálogo para remover o aviso.</string>
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para a lixeira; Deslize para a direita para o arquivo (se disponível); As ações de deslize podem ser configuradas nas configurações da conta</string>
@@ -2148,6 +2150,7 @@
     <string name="title_accessibility_view_help">Ver ajuda</string>
     <string name="title_accessibility_selected">Selecionado</string>
     <string name="title_accessibility_answered">Respondido</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Encaminhado</string>
     <string name="title_accessibility_scroll_down">Rolar para baixo</string>
     <string name="title_accessibility_scroll_up">Rolar para cima</string>
     <string name="title_accessibility_filter_out_seen">Alternar filtro de mensagens de leitura</string>
