@@ -1286,6 +1286,17 @@ Using the search index is a pro feature.
 >
 > **IMPORTANT: Microsoft seems to disable (app) passwords ahead of schedule for more and more accounts, resulting in "*Authentication failed*" error messages.**
 >
+
+<br />
+
+>
+> &#x1F1EC;&#x1F1E7; In short: go to settings via the navigation menu (left side menu), tap the wizard button, select Outlook/Hotmail/Live and follow the steps.
+>
+> &#x1F1E9;&#x1F1EA; Kurz gesagt: Gehen Sie über das Navigationsmenü (Menü auf der linken Seite) zu den Einstellungen, tippen Sie auf die Schaltfläche Assistent, wählen Sie Outlook/Hotmail/Live und folgen Sie den Schritten.
+>
+> &#x1F1EB;&#x1F1F7; En bref : allez dans les paramètres via le menu de navigation (menu de gauche), appuyez sur le bouton de l'assistant, sélectionnez Outlook/Hotmail/Live et suivez les étapes.
+>
+
 <br />
 
 > It takes just two minutes to be prepared (and to resolve "*Authentication failed*" errors).
@@ -1297,6 +1308,8 @@ Using the search index is a pro feature.
 
 >
 > tl;dr; go to settings via the navigation menu (left side menu), tap the wizard button, select Outlook/Hotmail/Live and follow the steps.
+>
+> <sub>If you don't use the account anymore, you can delete it via a button in the "extra" section at the bottom of the main settings screen.</sub>
 >
 
 <br />
