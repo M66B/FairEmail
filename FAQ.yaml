@@ -14,6 +14,7 @@ header-includes: |
       a:hover { color: #039BE5; }
       a:active { color: #039BE5; }
       img { filter: invert(0%); }
+      blockquote { border-left: 3px solid #333; padding-left: 12px; margin-inline-start: 12px; }
     }
     @media (prefers-color-scheme: dark) {
       body {
@@ -25,6 +26,7 @@ header-includes: |
       a:hover { color: #01579B; }
       a:active { color: #01579B; }
       img { filter: invert(75%); }
+      blockquote { border-left: 3px solid #ddd; padding-left: 12px; margin-inline-start: 12px; }
     }
   </style>
 ---
