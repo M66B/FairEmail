@@ -461,6 +461,7 @@
     <string name="title_advanced_vpn_only">Σύνδεση μόνο μέσω VPN</string>
     <string name="title_advanced_timeout">Χρονικό όριο σύνδεσης (δευτερόλεπτα)</string>
     <string name="title_advanced_prefer_ip4">Να προτιμάται IPv4 παρά IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Να προτιμάται IPv6 αντί για IPv4</string>
     <string name="title_advanced_dns">Διευθύνσεις προτιμώμενων διακομιστών DNS (χωρισμένες με κόμμα)</string>
     <string name="title_advanced_dns_custom">Χρήση προσαρμοσμένου επιλυτή DNS</string>
     <string name="title_advanced_dns_clear">Εκκαθάριση προσωρινής μνήμης DNS κατά τις αλλαγές συνδεσιμότητας</string>
@@ -1940,7 +1941,7 @@
     <string name="title_hint_notifications_remark">Άδειες ειδοποίησης απαιτούνται επίσης και για τις ειδοποιήσεις λογαριασμού. Οι ειδοποιήσεις για νέα μηνύματα μπορούν να απενεργοποιηθούν στις ρυθμίσεις.</string>
     <string name="title_hint_battery_optimizations">Οι βελτιστοποιήσεις μπαταρίας είναι ακόμη ενεργοποιημένες</string>
     <string name="title_hint_data_saver">Εάν είναι ενεργοποιημένη η εξοικονόμηση δεδομένων, η εφαρμογή δεν θα μπορεί να συγχρονίζει στο παρασκήνιο και ενδέχεται να προκύπτουν σφάλματα σύνδεσης.</string>
-    <string name="title_hint_vpn">Οι διακομιστές ηλεκτρονικού ταχυδρομείου συχνά μπλοκάρουν συνδέσεις μέσω VPN. Μόνον ο πάροχος ηλεκτρονικού ταχυδρομείου μπορεί επιλύσει το πρόβλημα.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Οι διακομιστές ηλεκτρονικού ταχυδρομείου μερικές φορές μπλοκάρουν συνδέσεις μέσω ενός VPN. Αν συμβεί αυτό, μόνον ο πάροχος ηλεκτρονικού ταχυδρομείου μπορεί να το επιλύσει.</string>
     <string name="title_hint_dismiss">Μπορείτε να απορρίψετε αυτό το παράθυρο διαλόγου, για να αφαιρέσετε την ειδοποίηση.</string>
     <string name="title_hint_support">Αν έχετε μία ερώτηση ή ένα πρόβλημα, παρακαλώ χρησιμοποιήστε το μενού \"Υποστήριξη\" για να λάβετε βοήθεια</string>
     <string name="title_hint_message_actions">Σάρωση αριστερά για απορρίμματα• σάρωση δεξιά για αρχειοθέτηση (αν είναι διαθέσιμη)• μπορείτε να ρυθμίσετε τις ενέργειες σάρωσης στις ρυθμίσεις του λογαριασμού</string>
@@ -2148,6 +2149,7 @@
     <string name="title_accessibility_view_help">Προβολή βοήθειας</string>
     <string name="title_accessibility_selected">Επιλεγμένο</string>
     <string name="title_accessibility_answered">Απαντημένο</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Προωθημένο</string>
     <string name="title_accessibility_scroll_down">Κύλιση προς τα κάτω</string>
     <string name="title_accessibility_scroll_up">Κύλιση προς τα πάνω</string>
     <string name="title_accessibility_filter_out_seen">(Απ-/)ενεργοποίηση φίλτρου αναγνωσμένων μηνυμάτων</string>

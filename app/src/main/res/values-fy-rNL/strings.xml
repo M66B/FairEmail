@@ -460,6 +460,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_vpn_only">Allinnich fia in VPN ferbine</string>
     <string name="title_advanced_timeout">Timeout foar ferbining (sekonden)</string>
     <string name="title_advanced_prefer_ip4">Foarkar IPv4 boppe IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">IPv6 boppe IPv4 ferkieze</string>
     <string name="title_advanced_dns">Foarkar DNS-serveradressen (kommaskieden)</string>
     <string name="title_advanced_dns_custom">Gebruik een aangepaste DNS-resolver</string>
     <string name="title_advanced_dns_clear">DNS-buffer wiskje by wiziging fan ferbining</string>
@@ -1937,7 +1938,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_hint_notifications_remark">Meldingsrjochten binne fereaske foar (account)meldingen. Meldingen foar nije berjochten kinne útskeakele wurde yn de ynstellingen.</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaasjes noch hieltyd ynskeakele</string>
     <string name="title_hint_data_saver">As gegevensbesparring ynskeakele is, kin de app net op de eftergrûn syngronisearje en kinne der ferbiningsflaters barre.</string>
-    <string name="title_hint_vpn">Mailservers blokkearje faaks ferbiningen fia in VPN. Allinnich de mailprovider kin dit oplosse.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Mailservers blokkearje somtiden ferbiningen fia in VPN. As dit bart, dan kin allinnich de mailprovider dit oplosse.</string>
     <string name="title_hint_dismiss">Jo kinne dit dialoochfienster slute om de melding fuort te smiten.</string>
     <string name="title_hint_support">As jo in fraach of in probleem hawwe, brûk dan it stipemenu om help te krijen</string>
     <string name="title_hint_message_actions">Fei links nei jiskefet; Fei rjochts nei argyf (as beskikber); De fei-aksjes kinne ynsteld wurde yn de accountynstellingen</string>
@@ -2145,6 +2146,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_accessibility_view_help">Help besjen</string>
     <string name="title_accessibility_selected">Selektearre</string>
     <string name="title_accessibility_answered">Beäntwurde</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Trochstjoerd</string>
     <string name="title_accessibility_scroll_down">Skow omleech</string>
     <string name="title_accessibility_scroll_up">Skow omheech</string>
     <string name="title_accessibility_filter_out_seen">Filter foar lêzen berjochten yn-/útskeakelje</string>

@@ -334,7 +334,7 @@
     <string name="title_check_gmail_oauth">I propri account Gmail continueranno a funzionare dopo il 30 Maggio 2022</string>
     <string name="title_check_gmail_password">Alcuni degli account Gmail potrebbero smettere di funzionare dopo il 30 Maggio 2022</string>
     <string name="title_check_outlook_oauth">I propri account Outlook continueranno a funzionare dopo il 16 settembre 2024</string>
-    <string name="title_check_outlook_password">Alcuni dei propri account Outlook/Hotmail/Live smetteranno di funzionare dopo il 16 settembre 2024</string>
+    <string name="title_check_outlook_password">Alcuni dei propri account Outlook, Hotmail, Live smetteranno di funzionare dopo il 16 settembre 2024</string>
     <string name="title_advanced_hint_title">Opzioni più avanzate</string>
     <string name="title_advanced_hint_message">        Stai entrando nelle opzioni più avanzate.
         Tutte le opzioni hanno valori standard di uso comune, che non vanno modificate a meno che si non abbia una preferenza differente.
@@ -396,7 +396,7 @@
     <string name="title_advanced_suggest_frequently">Ordinare gli indirizzi suggeriti per frequenza d\'uso</string>
     <string name="title_advanced_suggest_account">Limitare i suggerimenti all\'account corrente</string>
     <string name="title_advanced_auto_delete_local">Eliminare automaticamente i contatti locali più vecchi di e meno utilizzati di:</string>
-    <string name="title_advanced_alt_re_fwd">Prefisso alternativo di risposta/inoltro</string>
+    <string name="title_advanced_alt_re_fwd">Prefisso alternativo di risposta e inoltro</string>
     <string name="title_advanced_send_chips">Mostrare le bolle degli indirizzi</string>
     <string name="title_advanced_send_nav_color">Usare il colore dell\'identità per la barra delle azioni inferiore</string>
     <string name="title_advanced_send_reminders">Mostrare i promemoria</string>
@@ -419,7 +419,7 @@
     <string name="title_advanced_prefix_once">Prefissare l\'oggetto solo una volta quando si risponde o si inoltra</string>
     <string name="title_advanced_prefix_count">Aggiungere il conteggio al prefisso di risposta</string>
     <string name="title_advanced_separate_reply">Inserire una riga orizzontale prima dell\'intestazione di risposta o di inoltro</string>
-    <string name="title_advanced_extended_reply">Usare l\'intestazione estesa di risposta o di inoltro</string>
+    <string name="title_advanced_extended_reply">Usare l\'intestazione estesa di risposta e di inoltro</string>
     <string name="title_advanced_template_reply">Modello di intestazione per risposta e inoltro</string>
     <string name="title_advanced_write_above">Scrivere sopra il testo del mittente</string>
     <string name="title_advanced_write_below">Scrivere sotto il testo del mittente</string>
@@ -462,6 +462,7 @@
     <string name="title_advanced_vpn_only">Collegarsi solo tramite una VPN</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
     <string name="title_advanced_prefer_ip4">Preferire IPv4 su IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Preferire IPv6 su IPv4</string>
     <string name="title_advanced_dns">Indirizzi dei DNS server preferiti (separati da virgola)</string>
     <string name="title_advanced_dns_custom">Usare un resolver DNS personalizzato</string>
     <string name="title_advanced_dns_clear">Svuotare la cache DNS in caso di modifiche alla connettività</string>
@@ -520,7 +521,7 @@
     <string name="title_advanced_date_time">Mostrare sempre sia una data che un\'ora</string>
     <string name="title_advanced_threading">Thread della conversazione</string>
     <string name="title_advanced_threading_unread">Mostrare il numero di messaggi da leggere nelle conversazioni</string>
-    <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
+    <string name="title_advanced_indentation">Messaggi ricevuti e inviati con rientro a sinistra e destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenziare i messaggi da leggere</string>
     <string name="title_advanced_account_color">Mostrare una striscia colorata o un punto colorato</string>
     <string name="title_advanced_color_stripe_wide">Usare un\'ampia striscia di colore</string>
@@ -765,7 +766,7 @@
     <string name="title_advanced_shortcuts">Mostrare i contatti usati frequentemente nel menu di condivisione di Android</string>
     <string name="title_advanced_ical_tentative">Memorizza gli inviti ricevuti come provvisori</string>
     <string name="title_advanced_fts">Creare indice di ricerca</string>
-    <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
+    <string name="title_advanced_fts_indexed">%1$d su %2$d messaggi indicizzati (%3$s)</string>
     <string name="title_advanced_classification">Classificare i messaggi</string>
     <string name="title_advanced_class_min_chance">Probabilità minima di classe: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Differenza minima di classe: %1$s %%</string>
@@ -1507,7 +1508,7 @@
     <string name="title_translate_highlight">Evidenzia il testo tradotto</string>
     <string name="title_translate_html">Preserva formattazione</string>
     <string name="title_translate_html_hint">Questo consumerà più caratteri</string>
-    <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_usage">Uso: %1$s su %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tocca il testo da tradurre</string>
     <string name="title_suggestions_check">Verifica in corso&#8230;</string>
     <string name="title_suggestions_none">Nessun suggerimento</string>
@@ -1684,7 +1685,7 @@
     <string name="title_language_all">Tutte</string>
     <string name="title_previous">Precedente</string>
     <string name="title_next">Successivo</string>
-    <string name="title_edit_signature">Modificare la firma</string>
+    <string name="title_edit_signature">Modifica la firma</string>
     <string name="title_edit_signature_remark">Sebbene Android non possa mostrare tutto l\'HTML, sarà inviata così com\'è</string>
     <string name="title_edit_signature_text">Testo della firma</string>
     <string name="title_edit_signature_image">Inserisci immagine</string>
@@ -1850,8 +1851,8 @@
     <string name="title_legend_rule">Ha regole</string>
     <string name="title_legend_similar">Cerca messaggi simili</string>
     <string name="title_legend_notify">Notifica ai nuovi messaggi</string>
-    <string name="title_legend_sync_keep">Numero di giorni per sincronizzare / mantenere i messaggi</string>
-    <string name="title_legend_download_fetch">Numero di messaggi scaricati / intestazioni recuperati</string>
+    <string name="title_legend_sync_keep">Numero di giorni per sincronizzare e mantenere i messaggi</string>
+    <string name="title_legend_download_fetch">Numero di messaggi scaricati e intestazioni recuperate</string>
     <string name="title_legend_stop">Interrompi l\'elaborazione delle regole</string>
     <string name="title_legend_thread">Conversazione</string>
     <string name="title_legend_bookmark">Ultima conversazione aperta</string>
@@ -1945,7 +1946,7 @@
     <string name="title_hint_notifications_remark">Le autorizzazioni di notifica sono necessarie anche per gli avvisi (dell\'account). Le notifiche per i nuovi messaggi possono essere disattivate nelle impostazioni.</string>
     <string name="title_hint_battery_optimizations">Le ottimizzazioni della batteria sono ancora abilitate</string>
     <string name="title_hint_data_saver">Se il risparmio dei dati è abilitato, l\'app non potrà sincronizzarsi in background e potrebbero verificarsi degli errori di connessione.</string>
-    <string name="title_hint_vpn">I server di posta elettronica spesso bloccano le connessioni attraverso una VPN. Solo il provider di posta elettronica può risolvere questo problema.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">I server di posta elettronica a volte bloccano le connessioni attraverso una VPN. Se ciò accade, solo il provider di posta elettronica può risolvere il problema.</string>
     <string name="title_hint_dismiss">È possibile ignorare questa finestra per rimuovere l\'avviso.</string>
     <string name="title_hint_support">In caso di domande o problemi, usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorrere a sinistra per cestinare. Scorrere a destra per archiviare (se disponibile). Le azioni di scorrimento sono configurabili nelle impostazioni dell\'account</string>
@@ -2154,6 +2155,7 @@
     <string name="title_accessibility_view_help">Visualizza aiuto</string>
     <string name="title_accessibility_selected">Selezionato</string>
     <string name="title_accessibility_answered">Risposto</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Inoltrato</string>
     <string name="title_accessibility_scroll_down">Scorri in giù</string>
     <string name="title_accessibility_scroll_up">Scorri in su</string>
     <string name="title_accessibility_filter_out_seen">Attiva/disattiva filtro messaggi letti</string>

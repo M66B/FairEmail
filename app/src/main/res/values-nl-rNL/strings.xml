@@ -460,6 +460,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_vpn_only">Alleen via een VPN verbinden</string>
     <string name="title_advanced_timeout">Verbinding timeout (seconden)</string>
     <string name="title_advanced_prefer_ip4">Geef de voorkeur aan IPv4 boven IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Geef de voorkeur aan IPv6 boven IPv4</string>
     <string name="title_advanced_dns">Voorkeurs DNS serveradressen (komma gescheiden)</string>
     <string name="title_advanced_dns_custom">Gebruik aangepaste DNS-resolver</string>
     <string name="title_advanced_dns_clear">DNS-cache wissen bij verandering van connectiviteit</string>
@@ -1932,7 +1933,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_hint_notifications_remark">Meldingsrechten zijn vereist voor (account) meldingen. Meldingen voor nieuwe berichten kunnen worden uitgeschakeld in de instellingen.</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaties nog steeds ingeschakeld</string>
     <string name="title_hint_data_saver">Als gegevensbesparing is ingeschakeld, kan de app niet op de achtergrond synchroniseren en kunnen er verbindingsfouten optreden.</string>
-    <string name="title_hint_vpn">Mailservers blokkeren vaak verbindingen via een VPN. Alleen de mailprovider kan dit oplossen.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Mailservers blokkeren soms verbindingen via een VPN. Als dit gebeurt, kan alleen de mailprovider dit oplossen.</string>
     <string name="title_hint_dismiss">U kunt dit dialoogvenster sluiten om de melding te verwijderen.</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veegacties kunnen worden geconfigureerd in de accountinstellingen</string>
@@ -2139,6 +2140,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_accessibility_view_help">Help bekijken</string>
     <string name="title_accessibility_selected">Geselecteerd</string>
     <string name="title_accessibility_answered">Beantwoord</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Doorgestuurd</string>
     <string name="title_accessibility_scroll_down">Scroll omlaag</string>
     <string name="title_accessibility_scroll_up">Scroll omhoog</string>
     <string name="title_accessibility_filter_out_seen">Filter voor gelezen berichten in-/uitschakelen</string>

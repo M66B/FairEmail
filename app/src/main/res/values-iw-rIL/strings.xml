@@ -490,6 +490,7 @@
     <string name="title_advanced_vpn_only">התחברות רק דרך VPN</string>
     <string name="title_advanced_timeout">זמן קצוב לחיבור (בשניות)</string>
     <string name="title_advanced_prefer_ip4">להעדיף IPv4 על פני IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">להעדיף IPv6 על פני IPv4</string>
     <string name="title_advanced_dns">כתובות שרתי DNS מועדפים (עם פסיקים בין לבין)</string>
     <string name="title_advanced_dns_custom">להשתמש בפותר DNS בהתאמה אישית</string>
     <string name="title_advanced_dns_clear">פינוי מטמון DNS כשיש שינוי בחיבור</string>
@@ -1972,7 +1973,7 @@
     <string name="title_hint_notifications_remark">נדרשות הרשאות גם להתראות (חשבון). אפשר לכבות התראות על הודעות חדשות בהגדרות.</string>
     <string name="title_hint_battery_optimizations">מיטובי סוללה עדיין פעילים</string>
     <string name="title_hint_data_saver">אם מצב חיסכון בסוללה פעיל, היישומון לא יוכל להסתנכרן ברקע ועלולות לצוץ שגיאות בחיבור.</string>
-    <string name="title_hint_vpn">שרתי דוא״ל בדרך כלל חוסמים חיבורים דרך VPN. רק ספק הדוא״ל יכול לפתור את זה.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">שרתי דוא״ל לפעמים חוסמים חיבורים דרך VPN. אם זה קורה, רק ספק הדוא״ל יכול לפתור את זה.</string>
     <string name="title_hint_dismiss">אפשר להתעלם מהחלונית הסרת כדי להסיר את ההתראה.</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
@@ -2183,6 +2184,7 @@
     <string name="title_accessibility_view_help">הצגת עזרה</string>
     <string name="title_accessibility_selected">נבחר</string>
     <string name="title_accessibility_answered">ענית</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">הועבר</string>
     <string name="title_accessibility_scroll_down">גלילה מטה</string>
     <string name="title_accessibility_scroll_up">גלילה מעלה</string>
     <string name="title_accessibility_filter_out_seen">החלפת מצב מסנן הודעות שנקראו</string>

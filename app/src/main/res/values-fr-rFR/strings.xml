@@ -462,6 +462,7 @@
     <string name="title_advanced_vpn_only">Se connecter uniquement via un VPN</string>
     <string name="title_advanced_timeout">Délai d’expiration de la connexion (secondes)</string>
     <string name="title_advanced_prefer_ip4">Préférer IPv4 à IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Préférer IPv6 à IPv4</string>
     <string name="title_advanced_dns">Adresses de serveurs DNS favoris (séparées par des virgules)</string>
     <string name="title_advanced_dns_custom">Utiliser un résolveur DNS personnalisé</string>
     <string name="title_advanced_dns_clear">Vider le cache DNS lors d\'un changement de connectivité</string>
@@ -1945,7 +1946,7 @@
     <string name="title_hint_notifications_remark">Les autorisations de notification sont également obligatoires pour les alertes (comptes). Les notifications de nouveaux messages peuvent être désactivées dans les paramètres.</string>
     <string name="title_hint_battery_optimizations">Les optimisations de la batterie sont toujours activées</string>
     <string name="title_hint_data_saver">Si l\'économiseur de données est activé, l\'application ne sera pas en mesure de synchroniser en arrière-plan et des erreurs de connexion pourraient se produire.</string>
-    <string name="title_hint_vpn">Les serveurs de messagerie bloquent souvent les connexions via un VPN. Seul le fournisseur de messagerie peut résoudre ce problème.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Les serveurs de messagerie bloquent parfois les connexions via un VPN. Si cela se produit, seul le fournisseur de messagerie peut résoudre ce problème.</string>
     <string name="title_hint_dismiss">Vous pouvez fermer cette boîte de dialogue pour supprimer la notification.</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu « Assistance » pour obtenir de l’aide</string>
     <string name="title_hint_message_actions">Balayez vers la gauche pour mettre à la corbeille ; balayez vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
@@ -2154,6 +2155,7 @@
     <string name="title_accessibility_view_help">Afficher l’aide</string>
     <string name="title_accessibility_selected">Sélectionné</string>
     <string name="title_accessibility_answered">Répondu</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Transféré</string>
     <string name="title_accessibility_scroll_down">Défiler vers le bas</string>
     <string name="title_accessibility_scroll_up">Défiler vers le haut</string>
     <string name="title_accessibility_filter_out_seen">Activer/désactiver le filtre de messages lus</string>

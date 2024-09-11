@@ -462,6 +462,7 @@
     <string name="title_advanced_vpn_only">Yalnız VPN vasitəsilə bağlantı qurun</string>
     <string name="title_advanced_timeout">Bağlantı bitmə vaxtı (saniyə)</string>
     <string name="title_advanced_prefer_ip4">IPv6 əvəzinə IPv4 tərcih et</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">IPv4 əvəzinə IPv6 tərcih et</string>
     <string name="title_advanced_dns">Tərcih edilən DNS server ünvanları (vergüllə ayrılmış)</string>
     <string name="title_advanced_dns_custom">Özəl DNS həlledici istifadə et</string>
     <string name="title_advanced_dns_clear">Bağlantı dəyişikliyində DNS keşini təmizlə</string>
@@ -1944,7 +1945,7 @@
     <string name="title_hint_notifications_remark">(Hesab) xəbərdarlıqları üçün bildiriş icazələri tələb olunur. Yeni mesajlar üçün bildirişlər ayarlarında söndürülə bilər.</string>
     <string name="title_hint_battery_optimizations">Batareya optimallaşdırma hələ də fəaldır</string>
     <string name="title_hint_data_saver">İnternetə qənaət fəal olsa, tətbiq arxaplanda sinxronlaşdırıla bilməyəcək və bağlantı xətaları baş verə bilər.</string>
-    <string name="title_hint_vpn">E-poçt serverləri tez-tez VPN üzərindən gələn bağlantıları əngəlləyir. Yalnız e-poçt provayderi bunu həll edə bilər.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">E-poçt serverləri bəzən VPN üzərindən gələn bağlantıları əngəlləyir. Belə bir halda yalnız e-poçt provayderi bunu həll edə bilər.</string>
     <string name="title_hint_dismiss">Bildirişi silmək üçün bu dialoq qutusunu bağlaya bilərsiniz.</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantıya atmaq üçün sola sürüşdürün; (əgər varsa) arxivləmək üçün sağa; Sürüşdürmə əməliyyatları hesab ayarlarında konfiqurasiya edilə bilər</string>
@@ -2153,6 +2154,7 @@
     <string name="title_accessibility_view_help">Köməyə bax</string>
     <string name="title_accessibility_selected">Seçildi</string>
     <string name="title_accessibility_answered">Cavablandı</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Yönləndirildi</string>
     <string name="title_accessibility_scroll_down">Aşağı sürüşdürün</string>
     <string name="title_accessibility_scroll_up">Yuxarı sürüşdürün</string>
     <string name="title_accessibility_filter_out_seen">Oxunan mesajlar filtrini aç/bağla</string>

@@ -457,6 +457,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_vpn_only">Yalnızca bir VPN aracılığıyla bağlanın</string>
     <string name="title_advanced_timeout">Bağlantı zaman aşımı (saniye)</string>
     <string name="title_advanced_prefer_ip4">IPv6 yerine IPv4\'ü tercih edin</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">IPv4 yerine IPv6\'yı tercih edin</string>
     <string name="title_advanced_dns">Tercih edilen DNS sunucu adresleri (virgülle ayrılmış)</string>
     <string name="title_advanced_dns_custom">Özel DNS ayrıştırıcısu kullanma</string>
     <string name="title_advanced_dns_clear">Bağlantı değişikliklerinde DNS önbelleğini temizleyin</string>
@@ -1931,7 +1932,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_hint_notifications_remark">(Hesap) uyarıları için de bildirim izinleri gereklidir. Yeni mesajlara ilişkin bildirimler ayarlardan kapatılabilir.</string>
     <string name="title_hint_battery_optimizations">Pil optimizasyonu halen etkin</string>
     <string name="title_hint_data_saver">Veri tasarrufu etkinleştirilirse, uygulama arka planda senkronizasyon yapamaz ve bağlantı hataları oluşabilir.</string>
-    <string name="title_hint_vpn">E-posta sunucuları genellikle VPN üzerinden bağlantıları engeller. Bunu yalnızca e-posta sağlayıcısı çözebilir.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">E-posta sunucuları bazen VPN üzerinden bağlantıları engelleyebilir. Böyle bir durumda, bu sorunu yalnızca e-posta sağlayıcısı çözebilir.</string>
     <string name="title_hint_dismiss">Bildirimi kaldırmak için bu iletişim kutusunu kapatabilirsiniz.</string>
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp için sola kaydırın; Arşiv için sağa kaydırın (mevcut ise); Kaydırma eylemleri hesap ayarlarından yapılandırılabilir</string>
@@ -2139,6 +2140,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_accessibility_view_help">Yardımı görüntüle</string>
     <string name="title_accessibility_selected">Seçildi</string>
     <string name="title_accessibility_answered">Yanıtlandı</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">İletildi</string>
     <string name="title_accessibility_scroll_down">Aşağı kaydır</string>
     <string name="title_accessibility_scroll_up">Yukarı kaydır</string>
     <string name="title_accessibility_filter_out_seen">Okunan mesajlar filtresini aç/kapat</string>

@@ -124,7 +124,7 @@
     <plurals name="title_ask_block_sender">
         <item quantity="one">Заблокувати відправника %1$s повідомлення?</item>
         <item quantity="few">Заблокувати відправників %1$s повідомлень?</item>
-        <item quantity="many">Заблокувати відправників повідомлень %1$s?</item>
+        <item quantity="many">Заблокувати відправників %1$s повідомлень?</item>
         <item quantity="other">Заблокувати відправників %1$s повідомлень?</item>
     </plurals>
     <plurals name="title_hours">
@@ -224,7 +224,7 @@
     <string name="title_setup_gmail_permissions">Google буде запитувати про дозволи на читання, створення, надсилання та остаточне видаляння всієї вашої електронної пошти. FairEmail ніколи не буде видаляти ваші повідомлення без вашої явної згоди.</string>
     <string name="title_setup_gmail_login">Якщо Chrome увійшов до облікового запису, то новий обліковий запис можна додавати лише через Android. Цього можна уникнути, виходячи з Chrome за допомогою налаштувань синхронізації Chrome.</string>
     <string name="title_setup_gmail_max">У випадку повідомлення про помилку \"Ви ввійшли з досягненням максимальної кількості одночасних авторизацій для облікового запису\", Вам потрібно вийти з браузера з усіх облікових записів Google.</string>
-    <string name="title_setup_outlook_hint">У випадку альтернативної адреси, ймовірно слід використовувати майстер Office 365.</string>
+    <string name="title_setup_outlook_hint">У разі використання адреси-псевдоніма, ймовірно слід скористатись майстром Office 365.</string>
     <string name="title_setup_outlook_modern">Через зміни в політиці безпеки Microsoft, починаючи з 16 вересня 2024 року, працюватиме лише майстер Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Навіщо мені обрати обліковий запис на пристрої?</string>
     <string name="title_setup_gmail_password">Я хочу авторизувати обліковий запис за допомогою пароля замість облікового запису на пристрої</string>
@@ -490,6 +490,7 @@
     <string name="title_advanced_vpn_only">Під’єднуватися тільки через VPN</string>
     <string name="title_advanced_timeout">Час очікування підключення (секунди)</string>
     <string name="title_advanced_prefer_ip4">Віддавати перевагу IPv4 над IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Віддавати перевагу IPv6 над IPv4</string>
     <string name="title_advanced_dns">Бажані адреси DNS-серверів (через кому)</string>
     <string name="title_advanced_dns_custom">Використовувати нетиповий DNS resolver</string>
     <string name="title_advanced_dns_clear">Очищати кеш DNS при зміні підключення</string>
@@ -821,7 +822,7 @@
     <string name="title_advanced_summarize_prompt">Наказ на підсумовування</string>
     <string name="title_advanced_answer_prompt">Підказка для відповіді</string>
     <string name="title_advanced_system_instructions">Системні інструкції</string>
-    <string name="title_advanced_default_prompt">Запит по замовчуванню</string>
+    <string name="title_advanced_default_prompt">Підказка за замовчуванням</string>
     <string name="title_advanced_entered_text">Введений текст</string>
     <string name="title_advanced_sdcard">Я хочу використовувати SD-карту</string>
     <string name="title_advanced_watchdog">Періодично перевіряти, чи FairEmail є все ще активним</string>
@@ -1970,7 +1971,7 @@
     <string name="title_hint_notifications_remark">Дозволи на показ сповіщень також необхідні для попереджень (зокрема щодо облікових записів). Сповіщення про нові повідомлення можна вимкнути в налаштуваннях.</string>
     <string name="title_hint_battery_optimizations">Оптимізація батареї все ще увімкнена</string>
     <string name="title_hint_data_saver">Якщо увімкнений режим заощадження даних, застосунок не зможе здійснювати синхронізацію у фоновому режимі та можуть виникнути помилки підключення.</string>
-    <string name="title_hint_vpn">Сервери електронної пошти часто блокують підключення через VPN. Лише постачальник електронної пошти може вирішити це.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Сервери електронної пошти іноді блокують підключення через VPN. Якщо це станеться, тільки постачальник послуг електронної пошти може розв\'язати цю проблему.</string>
     <string name="title_hint_dismiss">Ви можете відхилити це діалогове вікно, щоб видалити сповіщення.</string>
     <string name="title_hint_support">Якщо у вас є питання або проблема, будь ласка, використовуйте меню підтримки для отримання допомоги</string>
     <string name="title_hint_message_actions">Проведіть ліворуч для переміщення в кошик; проведіть праворуч щоб архівувати (якщо доступно); ці дії можна налаштувати в налаштуваннях облікового запису</string>
@@ -2181,6 +2182,7 @@
     <string name="title_accessibility_view_help">Показати довідку</string>
     <string name="title_accessibility_selected">Вибрано</string>
     <string name="title_accessibility_answered">Була відповідь</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Переслано</string>
     <string name="title_accessibility_scroll_down">Прокрутити вниз</string>
     <string name="title_accessibility_scroll_up">Прокрутити догори</string>
     <string name="title_accessibility_filter_out_seen">Перемкнути фільтр прочитаних повідомлень</string>

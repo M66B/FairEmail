@@ -1955,7 +1955,6 @@
     <string name="title_hint_notifications_remark">Permisiunile de notificare sunt necesare și pentru alerte (cont). Notificările pentru mesaje noi pot fi dezactivate în setări.</string>
     <string name="title_hint_battery_optimizations">Optimizările bateriei sunt încă activate</string>
     <string name="title_hint_data_saver">Dacă economizorul de date este activat, aplicația nu va putea sincroniza în fundal și pot apărea erori de conexiune.</string>
-    <string name="title_hint_vpn">Serverele de e-mail blochează adesea conexiunile prin intermediul unui VPN. Numai furnizorul de e-mail poate rezolva acest lucru.</string>
     <string name="title_hint_dismiss">Puteți respinge această casetă de dialog pentru a elimina notificarea.</string>
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
     <string name="title_hint_message_actions">Glisați stânga pentru Gunoi sau dreapta pentru Arhivă (dacă este disponibilă). Acțiunile de glisare se pot configura în setările contului</string>

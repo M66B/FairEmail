@@ -447,6 +447,7 @@
     <string name="title_advanced_vpn_only">仅通过 VPN 连接</string>
     <string name="title_advanced_timeout">连接超时 (秒)</string>
     <string name="title_advanced_prefer_ip4">IPv4 优先于 IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">IPv6 优先于 IPv4</string>
     <string name="title_advanced_dns">首选的DNS服务器地址 (逗号分隔)</string>
     <string name="title_advanced_dns_custom">使用自定义 DNS 解析器</string>
     <string name="title_advanced_dns_clear">连接更改时清除 DNS 缓存</string>
@@ -1925,7 +1926,7 @@
     <string name="title_hint_notifications_remark">(账户) 提醒也需要通知权限。新邮件的通知可以在设置中关闭。</string>
     <string name="title_hint_battery_optimizations">电池优化仍已启用</string>
     <string name="title_hint_data_saver">如果启用数据节省，应用将无法在后台同步，可能发生连接错误。</string>
-    <string name="title_hint_vpn">电子邮件服务器阻止经由 VPN 的连接。只有电子邮件供应商可以解决这个问题。</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">电子邮件服务器有时会阻止VPN连接。如果发生这种情况，只有电子邮件提供者可以解决这个问题。</string>
     <string name="title_hint_dismiss">您可以关闭此对话框来删除消息。</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑移动到回收站；向右滑存档（如果支持） ；可在账户设置中配置滑动操作</string>
@@ -2131,6 +2132,7 @@
     <string name="title_accessibility_view_help">查看帮助</string>
     <string name="title_accessibility_selected">已选</string>
     <string name="title_accessibility_answered">已回复</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">已转发</string>
     <string name="title_accessibility_scroll_down">向下滚动</string>
     <string name="title_accessibility_scroll_up">向上滚动</string>
     <string name="title_accessibility_filter_out_seen">切换已读邮件过滤器</string>

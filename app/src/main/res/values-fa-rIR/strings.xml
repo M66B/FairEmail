@@ -405,6 +405,7 @@
     <string name="title_advanced_vpn_only">اتصال تنها به وسیله وی‌پی‌ان</string>
     <string name="title_advanced_timeout">اتصال برقرار نشد (ثانیه)</string>
     <string name="title_advanced_prefer_ip4">ترجیح IPv4 به IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">ترجیح IPv6 به IPv4</string>
     <string name="title_advanced_dns">آدرس سرورهای DNS ترجیحی (جدا شده با ویرگول)</string>
     <string name="title_advanced_dns_custom">استفاده از DNS resolver انتخابی</string>
     <string name="title_advanced_dns_clear">پاک کردن کش DNS مربوط به تغییرات ارتباطی</string>
@@ -1365,7 +1366,7 @@
     <string name="title_hint_vpn_active">وی‌پی‌ان فعال</string>
     <string name="title_hint_notifications">اجازه اعلان داده نشده</string>
     <string name="title_hint_data_saver">اگر کاهنده مصرف داده فعال باشد، برنامه نمی‌تواند در پس‌زمینه همگام‌سازی شود و ممکن است خطاهای اتصال رخ دهد.</string>
-    <string name="title_hint_vpn">خدمات‌دهندگان ایمیل اغلب برقراری ارتباط با وی‌پی‌ان را مسدود می‌کنند. تنها ارائه‌دهنده ایمیل می‌تواند این مشکل را رفع کند.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">خدمات‌دهندگان ایمیل اغلب برقراری ارتباط با وی‌پی‌ان را مسدود می‌کنند. در صورت مواجهه با این مشکل، تنها ارائه‌دهنده ایمیل می‌تواند این مشکل را رفع کند.</string>
     <string name="title_hint_dismiss">برای حذف اعلان، می‌توانید این کادر محاوره‌ای را رد کنید.</string>
     <string name="title_hint_support">اگر سوال یا مشکلی دارید لطفا از قسمت پشتیبانی برای کمک گرفتن استفاده کنید</string>
     <string name="title_hint_message_actions">برای حذف به چپ بکشید؛ برای بایگانی به راست بکشید (اگر در دسترس باشد)؛ کنش‌های کشیدن می‌تواند در تنظیمات حساب پیکربندی شوند</string>
@@ -1504,6 +1505,7 @@
     <string name="title_accessibility_view_help">نمایش کمک</string>
     <string name="title_accessibility_selected">انتخاب شده</string>
     <string name="title_accessibility_answered">پاسخ داده شده</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">ارسال شد به دیگری</string>
     <string name="title_accessibility_scroll_down">پیمایش به پایین</string>
     <string name="title_accessibility_scroll_up">پیمایش به بالا</string>
     <string name="title_accessibility_filter_out_seen">تغییر پالایش خواندن پیام‌ها</string>

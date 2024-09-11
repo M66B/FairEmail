@@ -490,6 +490,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_vpn_only">Připojit pouze pomocí VPN</string>
     <string name="title_advanced_timeout">Časový limit připojení (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Upřednostňovat IPv4 před IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Upřednostňovat IPv6 před IPv4</string>
     <string name="title_advanced_dns">Adresy preferovaných DNS serverů (oddělených čárkami)</string>
     <string name="title_advanced_dns_custom">Použít vlastní DNS resolver</string>
     <string name="title_advanced_dns_clear">Vymazat mezipaměť DNS při změnách připojení</string>
@@ -1970,7 +1971,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_hint_notifications_remark">Oprávnění k notifikacím jsou vyžadována také pro upozornění pro (účet). Upozornění pro nové zprávy mohou být vypnuta v nastavení.</string>
     <string name="title_hint_battery_optimizations">Optimalizace baterie je stále povolena</string>
     <string name="title_hint_data_saver">Pokud je spořič dat aktivní, aplikace nebude moci synchronizovat na pozadí a může dojít k chybám připojení.</string>
-    <string name="title_hint_vpn">E-mailové servery často blokují spojení prostřednictvím VPN. Pouze poskytovatel e-mailu to může vyřešit.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">E-mailové servery někdy blokují spojení prostřednictvím VPN. Pokud se tak stane, může to vyřešit pouze poskytovatel e-mailu.</string>
     <string name="title_hint_dismiss">Pro odstranění oznámení můžete toto dialogové okno odmítnout.</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (je-li k dispozici); Akce tažením lze změnit v nastavení účtu</string>
@@ -2180,6 +2181,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_accessibility_view_help">Zobrazit nápovědu</string>
     <string name="title_accessibility_selected">Označené</string>
     <string name="title_accessibility_answered">Odpovězeno</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Přeposláno</string>
     <string name="title_accessibility_scroll_down">Rolovat dolů</string>
     <string name="title_accessibility_scroll_up">Rolovat nahoru</string>
     <string name="title_accessibility_filter_out_seen">Přepnout filtr přečtených zpráv</string>

@@ -460,6 +460,7 @@
     <string name="title_advanced_vpn_only">Csatlakozás csak VPN-en keresztül</string>
     <string name="title_advanced_timeout">Kapcsolat időtúllépés (másodpercben)</string>
     <string name="title_advanced_prefer_ip4">IPv4 preferálása IPv6 fölött</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">IPv6 preferálása IPv4 helyett</string>
     <string name="title_advanced_dns">Előnyben részesített DNS kiszolgáló címek (vesszővel elválasztva)</string>
     <string name="title_advanced_dns_custom">Használjon egyéni DNS feloldó kiszolgálót</string>
     <string name="title_advanced_dns_clear">DNS gyorsítótár ürítése kapcsolat változáskor</string>
@@ -1937,7 +1938,7 @@
     <string name="title_hint_notifications_remark">Az értesítések engedélyezése szükséges a (fiók) riasztásokhoz is. Az új üzenet értesítések kikapcsolhatók a beállításokban.</string>
     <string name="title_hint_battery_optimizations">Az akku-optimalizáció még mindig be van kapcsolva</string>
     <string name="title_hint_data_saver">Az adatkorlátozás bekapcsolása esetén az alkalmazás nem tud szinkronizálni a háttérben, és kapcsolati hibák jelentkezhetnek.</string>
-    <string name="title_hint_vpn">Az email kiszolgálók gyakran blokkolják a VPN-en keresztül kapcsolódást. Csak az email szolgáltató tud ebben segíteni.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Az email kiszolgálók néha blokkolják a VPN-en keresztül kapcsolódást. Ha ez előfordul, csak az email szolgáltató tud segíteni.</string>
     <string name="title_hint_dismiss">A párbeszéd ablakot bezárva, a figyelmeztetést is kikapcsolja.</string>
     <string name="title_hint_support">Ha kérdésed vagy problémád van, használd a támogatási menüt segítségért</string>
     <string name="title_hint_message_actions">Törlés balra csúsztatásra; Archiválás jobbra csúsztatásra (ha elérhető); A csúsztatáshoz tartozó műveletek módosíthatóak a fiók beállításai között</string>
@@ -2145,6 +2146,7 @@
     <string name="title_accessibility_view_help">Súgó megjelenítése</string>
     <string name="title_accessibility_selected">Kiválasztva</string>
     <string name="title_accessibility_answered">Válaszolt</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Továbbítva</string>
     <string name="title_accessibility_scroll_down">Görgetés lefelé</string>
     <string name="title_accessibility_scroll_up">Görgetés felfelé</string>
     <string name="title_accessibility_filter_out_seen">Olvasott üzenetek szűrő váltása</string>

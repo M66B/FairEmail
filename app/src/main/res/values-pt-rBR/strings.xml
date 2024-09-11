@@ -1941,7 +1941,6 @@
     <string name="title_hint_notifications_remark">As permissões de notificação também são necessárias para alerta (de conta). As notificações de novas mensagens podem ser desativadas nas configurações.</string>
     <string name="title_hint_battery_optimizations">Otimizações de bateria continuam ativadas</string>
     <string name="title_hint_data_saver">Se a economia de dados estiver ativada, o aplicativo não poderá sincronizar em segundo plano e poderão ocorrer erros de conexão.</string>
-    <string name="title_hint_vpn">Os servidores de e-mail geralmente bloqueiam conexões por meio de VPN. Somente o provedor de e-mail pode resolver isso.</string>
     <string name="title_hint_dismiss">Você pode descartar esta caixa de diálogo para remover o aviso.</string>
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para a lixeira; Deslize para a direita para o arquivo (se disponível); As ações de deslize podem ser configuradas nas configurações da conta</string>

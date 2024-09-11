@@ -463,6 +463,7 @@
     <string name="title_advanced_vpn_only">Nur über ein VPN verbinden</string>
     <string name="title_advanced_timeout">Zeitüberschreitung der Verbindung (Sekunden)</string>
     <string name="title_advanced_prefer_ip4">IPv4 gegenüber IPv6 bevorzugen</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">IPv6 gegenüber IPv4 bevorzugen</string>
     <string name="title_advanced_dns">Bevorzugte DNS-Server-Adressen (durch Kommas getrennt)</string>
     <string name="title_advanced_dns_custom">Benutzerdefinierten DNS-Resolver verwenden</string>
     <string name="title_advanced_dns_clear">DNS-Cache bei Verbindungsänderungen leeren</string>
@@ -1946,7 +1947,7 @@
     <string name="title_hint_notifications_remark">Benachrichtigungsberechtigungen sind auch für (Konto-)Benachrichtigungen erforderlich. Benachrichtigungen für neue Nachrichten können in den Einstellungen deaktiviert werden.</string>
     <string name="title_hint_battery_optimizations">Akkuoptimierung ist immer noch aktiv</string>
     <string name="title_hint_data_saver">Wenn die Datenspar-Funktion aktiviert ist, kann die App im Hintergrund nicht synchronisiert werden und es können Verbindungsfehler auftreten.</string>
-    <string name="title_hint_vpn">Oftmals werden Verbindungen über ein VPN vom E-Mail-Server gesperrt. Nur der E-Mail-Anbieter kann dieses Problem lösen.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Manchmal werden Verbindungen über ein VPN vom E-Mail-Server gesperrt. Nur der E-Mail-Anbieter kann dieses Problem lösen.</string>
     <string name="title_hint_dismiss">Sie können dieses Dialogfeld schließen, um den Hinweis zu entfernen.</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Für den Papierkorb nach links wischen; zum Archivieren nach rechts wischen (falls verfügbar); die Wischgesten können in den Kontoeinstellungen konfiguriert werden</string>
@@ -2155,6 +2156,7 @@
     <string name="title_accessibility_view_help">Hilfe anzeigen</string>
     <string name="title_accessibility_selected">Ausgewählt</string>
     <string name="title_accessibility_answered">Beantwortet</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Weitergeleitet</string>
     <string name="title_accessibility_scroll_down">Nach unten scrollen</string>
     <string name="title_accessibility_scroll_up">Nach oben scrollen</string>
     <string name="title_accessibility_filter_out_seen">Filter für gelesene Nachrichten umschalten</string>

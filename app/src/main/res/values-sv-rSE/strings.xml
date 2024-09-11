@@ -1924,7 +1924,6 @@
     <string name="title_hint_notifications_remark">Aviseringsbehörigheter krävs för (konto) varningar också. Aviseringar för nya meddelanden kan stängas av i inställningarna.</string>
     <string name="title_hint_battery_optimizations">Batterioptimeringar är fortfarande aktiverade</string>
     <string name="title_hint_data_saver">Om dataspararen är aktiverad kommer appen inte att kunna synkronisera i bakgrunden och anslutningsfel kan uppstå.</string>
-    <string name="title_hint_vpn">E-postservrar blockerar ofta anslutningar via ett VPN. Endast e-postleverantören kan lösa detta.</string>
     <string name="title_hint_dismiss">Du kan avfärda denna dialogruta för att ta bort meddelandet.</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_message_actions">Dra åt vänster för att kasta; Svep åt höger för att arkivera (om tillgängligt); Svepåtgärderna kan konfigureras i kontoinställningarna</string>
