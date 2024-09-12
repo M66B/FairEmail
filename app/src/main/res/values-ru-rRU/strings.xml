@@ -489,6 +489,7 @@
     <string name="title_advanced_vpn_only">Подключаться только через VPN</string>
     <string name="title_advanced_timeout">Время ожидания подключения (сек.)</string>
     <string name="title_advanced_prefer_ip4">Предпочитать IPv4</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Предпочитать IPv6 вместо IPv4</string>
     <string name="title_advanced_dns">Адреса предпочтительных DNS-серверов (через запятую)</string>
     <string name="title_advanced_dns_custom">Использовать пользовательский DNS</string>
     <string name="title_advanced_dns_clear">Очищать кэш DNS при изменении подключения</string>
@@ -1972,6 +1973,7 @@
     <string name="title_hint_notifications_remark">Разрешения на уведомления также необходимы для предупреждений (учётной записи). Уведомления о новых сообщениях можно отключить в настройках.</string>
     <string name="title_hint_battery_optimizations">Оптимизация энергопотребления всё ещё включена</string>
     <string name="title_hint_data_saver">Если включена функция экономии данных, приложение не сможет синхронизироваться в фоновом режиме, и могут возникать ошибки подключения.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Серверы электронной почты иногда блокируют соединения через VPN. Если это происходит, только провайдер электронной почты может решить данную проблему.</string>
     <string name="title_hint_dismiss">Можно закрыть диалоговое окно, чтобы удалить уведомление.</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи.</string>
     <string name="title_hint_message_actions">Смахните влево, чтобы поместить в корзину; смахните вправо, чтобы поместить в архив (если имеется); действия жестов можно изменить в настройках учётной записи.</string>
@@ -2182,6 +2184,7 @@
     <string name="title_accessibility_view_help">Посмотреть справку</string>
     <string name="title_accessibility_selected">Выбранные</string>
     <string name="title_accessibility_answered">Отвечено</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Переслано</string>
     <string name="title_accessibility_scroll_down">Прокрутить вниз</string>
     <string name="title_accessibility_scroll_up">Прокрутить вверх</string>
     <string name="title_accessibility_filter_out_seen">Переключить фильтр прочитанных сообщений</string>

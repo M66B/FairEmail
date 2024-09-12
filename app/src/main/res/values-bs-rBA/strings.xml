@@ -209,6 +209,8 @@
     <string name="title_setup_gmail_permissions">Google će pitati za dopuštenja za čitanje, pisanje, slanje i trajno brisanje svih vaših poruka. FairEmail nikada neće brisati vaše poruke bez vaše saglasnosti.</string>
     <string name="title_setup_gmail_login">Ako je u Chrome-u prijavljen račun, novi račun (nalog) može se dodati samo u postavkama Androida. Da biste izbjegli ovu situaciju, odjavite se iz Chrome-a preko postavki za sinhronizaciju.</string>
     <string name="title_setup_gmail_max">U slučaju poruke o greški \"Prijavljeni ste s maksimalnim brojem računa\", trebate se odjaviti sa svih Google računa u pregledniku.</string>
+    <string name="title_setup_outlook_hint">U slučaju korištenja aliasa adrese, treba koristiti čarobnjak paketa Office 365.</string>
+    <string name="title_setup_outlook_modern">Zbog promjena sigurnosne politike Microsofta, od 16. septembra 2024. jedino čarobnjak za Outlook/Hotmail/Live račune će raditi.</string>
     <string name="title_setup_gmail_on_device">Zašto trebam izabrati račun na lokalnom uređaju?</string>
     <string name="title_setup_gmail_password">Želim autorizovati račun sa lozinkom umjesto lokalnog računa na uređaju</string>
     <string name="title_setup_office_auth">Greška \'PROVJERA nije uspjela\' može biti uzrokovana postavkama IMAP/SMTP-a koje je isključio sistemski administrator</string>
@@ -432,6 +434,7 @@
     <string name="title_advanced_prefix_count">Dodaj brojač prefiksu odgovora</string>
     <string name="title_advanced_separate_reply">Ubaci vodoravnu liniju prije zaglavlja odgovora/prosljeđenja</string>
     <string name="title_advanced_extended_reply">Koristi prošireno zaglavlje odgovora/prosljeđenja</string>
+    <string name="title_advanced_template_reply">Šablon zaglavlja za Odgovor/prosljeđivanje</string>
     <string name="title_advanced_write_above">Piši iznad teksta od pošiljaoca</string>
     <string name="title_advanced_write_below">Piši ispod teksta od pošiljaoca</string>
     <string name="title_advanced_quote_reply">Citiraj tekst \"odgovorene poruke\"</string>
@@ -473,6 +476,7 @@
     <string name="title_advanced_vpn_only">Poveži se samo putem VPN-a</string>
     <string name="title_advanced_timeout">Konekcija na isteku (sekunde)</string>
     <string name="title_advanced_prefer_ip4">Preferiraj IPv4 preko IPv6</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Preferiraj IPv6 preko IPv4</string>
     <string name="title_advanced_dns">Adrese preferiranog DNS servera (odvojene zarezom)</string>
     <string name="title_advanced_dns_custom">Koristi prilagođeni DNS resolver</string>
     <string name="title_advanced_dns_clear">Očisti DNS keš pri promjeni konekcije</string>
@@ -533,6 +537,7 @@
     <string name="title_advanced_threading_unread">Prikaži broj nepročitanih poruka u konverzacijama</string>
     <string name="title_advanced_indentation">Lijevo/desno poravnanje primljenih/poslanih poruka u konverzacijama</string>
     <string name="title_advanced_highlight_unread">Markiraj nepročitane poruke</string>
+    <string name="title_advanced_account_color">Prikaži obojenu traku ili tačku</string>
     <string name="title_advanced_color_stripe_wide">Koristi široku traku s bojama</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI)</string>
@@ -746,6 +751,7 @@
     <string name="title_advanced_sign_default">Potpiši po zadanom</string>
     <string name="title_advanced_encrypt_default">Šifriraj po zadanom</string>
     <string name="title_advanced_encrypt_auto">Automatski šifriraj kada svi ključevi primalaca budu dostupni</string>
+    <string name="title_advanced_encrypt_reply">Automatsko šifriranje tokom odgovora na šifriranu poruku</string>
     <string name="title_advanced_auto_verify">Automatski provjeri potpisane poruke</string>
     <string name="title_advanced_auto_decrypt">Automatski dešifriraj poruke</string>
     <string name="title_advanced_auto_undo_decrypt">Poništi dešifriranje pri zatvaranju konverzacije</string>
@@ -854,6 +860,7 @@
     <string name="title_advanced_send_reminders_hint">Prikazuje upozorenje kada su tekst poruke ili predmet prazni ili kada nedostaje prilog</string>
     <string name="title_advanced_reply_move_hint">E-mail server još može dodavati poruke u folder za poslane poruke</string>
     <string name="title_advanced_compose_color_hint">Presvijetle ili pretamne boje mogu prouzrokovati nečitke poruke s primaočeve strane</string>
+    <string name="title_advanced_template_reply_hint">HTML je dozvoljen. Dostupna mjesta za prikaz su: %1$s</string>
     <string name="title_advanced_write_below_hint">Primalac može propustiti vaš odgovor, npr. kada se duža poruka skrati</string>
     <string name="title_advanced_attach_new_hint">U suprotnom, dodaj dijeljene adrese ili datoteke u trenutni nacrt poruke</string>
     <string name="title_advanced_usenet_hint">Ubaci \'-- \' između teksta i potpisa</string>
@@ -1947,10 +1954,12 @@
     <string name="title_hint_folder_actions">Dugi dodir na folder za opcije, poput dodavanja foldera u navigacijski meni za brzi pristup</string>
     <string name="title_hint_folder_sync">Da bi ograničili potrošnju baterije i podataka, po zadanom neće biti sinhronizirani svi folderi i poruke</string>
     <string name="title_hint_airplane">Način rada u avionu je uključen</string>
+    <string name="title_hint_vpn_active">VPN aktivan</string>
     <string name="title_hint_notifications">Nema dozvola za notifikacije</string>
     <string name="title_hint_notifications_remark">Dozvole za obavještenja su neophodne i za upozorenja računa. Obavještenja za nove poruke mogu se isključiti u postavkama.</string>
     <string name="title_hint_battery_optimizations">Optimizacije baterije su još uključene</string>
     <string name="title_hint_data_saver">Ako je omogućena ušteda podataka, aplikacija neće moći sinhronizovati sadržaj u pozadini pa su moguće greške u konekciji.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">E-mail serveri ponekad blokiraju povezivanje kroz VPN. Ako se to dogodi, samo e-mail provajder može riješiti taj problem.</string>
     <string name="title_hint_dismiss">Možete odbaciti ovaj dijaloški okvir kako bi uklonili obavijest.</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevucite lijevo za otpad; Prevucite desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
@@ -2160,6 +2169,7 @@
     <string name="title_accessibility_view_help">Prikaži pomoć</string>
     <string name="title_accessibility_selected">Označeno</string>
     <string name="title_accessibility_answered">Odgovoeno</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Proslijeđeno</string>
     <string name="title_accessibility_scroll_down">Pomakni dolje</string>
     <string name="title_accessibility_scroll_up">Pomakni gore</string>
     <string name="title_accessibility_filter_out_seen">Uključeno/isključeno filtriranje pročitanih poruka</string>
@@ -2325,8 +2335,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Nijedno</item>
-        <item>Stripe</item>
-        <item>Dot</item>
+        <item>Traka</item>
+        <item>Tačka</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Primalac</item>
