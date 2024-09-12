@@ -2369,7 +2369,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     boolean delete = (inTrash || !hasTrash || inJunk || outbox || message.uid == null || pop);
                     boolean forever = (delete && (!pop || !message.accountLeaveDeleted));
-                    boolean report = (pop ? inInbox : !inJunk && move);
+                    boolean report = (pop ? inInbox : !inJunk && move && !inSent);
                     boolean headers = (message.uid != null || (pop && message.headers != null));
                     boolean raw = (message.uid != null ||
                             (EntityFolder.INBOX.equals(message.folderType) &&
