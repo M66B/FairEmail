@@ -13887,6 +13887,10 @@ app-ionos.space
 // Submitted by Roman Azarenko <roman.azarenko@iopsys.eu>
 iopsys.se
 
+// IPFS Project : https://ipfs.tech/
+// Submitted by Interplanetary Shipyard <domains@ipshipyard.com>
+*.dweb.link
+
 // IPiFony Systems, Inc. : https://www.ipifony.com/
 // Submitted by Matthew Hardeman <mhardeman@ipifony.com>
 ipifony.net
@@ -14072,7 +14076,7 @@ lpusercontent.com
 lelux.site
 
 // libp2p project : https://libp2p.io
-// Submitted by Interplanetary Shipyard <psl@ipshipyard.com>
+// Submitted by Interplanetary Shipyard <domains@ipshipyard.com>
 libp2p.direct
 
 // Libre IT Ltd : https://libre.nz
@@ -14749,10 +14753,6 @@ xen.prgmr.com
 // priv.at : http://www.nic.priv.at/
 // Submitted by registry <lendl@nic.at>
 priv.at
-
-// Protocol Labs : https://protocol.ai/
-// Submitted by Michael Burns <noc@protocol.ai>
-*.dweb.link
 
 // Protonet GmbH : http://protonet.io
 // Submitted by Martin Meier <admin@protonet.io>
