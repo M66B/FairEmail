@@ -1654,6 +1654,7 @@
     <string name="title_too_large">Message too large to completely reformat</string>
     <string name="title_truncated">Message too large to display completely</string>
     <string name="title_insufficient_memory">Message too large for the available memory (%1$d)</string>
+    <string name="title_screen_recording">The screen is being recorded!</string>
     <string name="title_show_full">Show full message</string>
     <string name="title_fullscreen">Show fullscreen</string>
     <string name="title_fit_width">Fit width</string>

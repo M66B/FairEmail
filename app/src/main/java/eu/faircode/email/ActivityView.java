@@ -24,6 +24,7 @@ import static androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_OPEN;
 import static androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -39,6 +40,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -49,6 +51,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -1165,11 +1168,33 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         setIntent(intent);
     }
 
+    private final java.util.function.Consumer<Integer> recordingCallback = new java.util.function.Consumer<Integer>() {
+        @Override
+        public void accept(Integer state) {
+            if (state == WindowManager.SCREEN_RECORDING_STATE_VISIBLE)
+                getMainHandler().post(new RunnableEx("screenrecording") {
+                    @Override
+                    public void delegate() {
+                        ToastEx.makeText(ActivityView.this, R.string.title_screen_recording, Toast.LENGTH_LONG).show();
+                    }
+                });
+        }
+    };
+
     @Override
     protected void onStart() {
         super.onStart();
         if (!Helper.isPlayStoreInstall())
             infoTracker.addWindowLayoutInfoListener(this, Runnable::run, layoutStateChangeCallback);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM &&
+                hasPermission(Manifest.permission.DETECT_SCREEN_RECORDING))
+            try {
+                WindowManager wm = Helper.getSystemService(this, WindowManager.class);
+                wm.addScreenRecordingCallback(Helper.getUIExecutor(), recordingCallback);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
     }
 
     @Override
@@ -1177,6 +1202,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         super.onStop();
         if (!Helper.isPlayStoreInstall())
             infoTracker.removeWindowLayoutInfoListener(layoutStateChangeCallback);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM &&
+                hasPermission(Manifest.permission.DETECT_SCREEN_RECORDING))
+            try {
+                WindowManager wm = Helper.getSystemService(this, WindowManager.class);
+                wm.removeScreenRecordingCallback(recordingCallback);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
     }
 
     @Override
