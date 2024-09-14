@@ -3727,7 +3727,7 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 * Error reports will automatically be sent anonymously to [Bugsnag](https://www.bugsnag.com/)
 * [Telemetry](https://docs.bugsnag.com/platforms/android/configuration-options/#telemetry) is always disabled
 * Bugsnag for Android is [open source](https://github.com/bugsnag/bugsnag-android)
-* See [here](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) about what data will be sent in case of errors
+* See [here](https://docs.bugsnag.com/platforms/android/automatically-captured-data/) about what data will be sent in case of errors; FairEmail uses a random user ID.
 * See [here](https://docs.bugsnag.com/legal/privacy-policy/) for the privacy policy of Bugsnag
 * Error reports will be sent to *sessions.bugsnag.com:443* and *notify.bugsnag.com:443*
 
