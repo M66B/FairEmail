@@ -1463,6 +1463,8 @@ public class MimeBodyPart extends BodyPart implements MimePart {
 	    ContentType cType = new ContentType(type);
 	    if (cType.match("multipart/*"))
 		return null;
+	    if (cType.match("message/rfc822") && encoding.equalsIgnoreCase("base64"))
+	    return encoding;
 	    if (cType.match("message/*") &&
 		    !PropUtil.getBooleanSystemProperty(
 			"mail.mime.allowencodedmessages", false))
