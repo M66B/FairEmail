@@ -81,6 +81,12 @@ public class MimePartDataSource implements DataSource, MessageAware {
 	    
 	    String encoding =
 		MimeBodyPart.restrictEncoding(part, part.getEncoding());
+		try {
+			eu.faircode.email.Log.i("MimePartDataSource encoding=" + encoding +
+					" name=" + part.getFileName());
+		} catch (Throwable ex) {
+			eu.faircode.email.Log.e(ex);
+		}
 	    if (encoding != null)
 		return MimeUtility.decode(is, encoding);
 	    else
