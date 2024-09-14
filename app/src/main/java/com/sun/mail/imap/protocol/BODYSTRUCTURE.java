@@ -271,9 +271,9 @@ public class BODYSTRUCTURE implements Item {
 		    throw new ParsingException(
 			    "BODYSTRUCTURE parse error: bad ``lines'' element");
 	    } else if (type.equalsIgnoreCase("message") &&
-		     subtype.equalsIgnoreCase("rfc822") && false) {
+		     subtype.equalsIgnoreCase("rfc822")) {
 		// Nested message
-		processedType = NESTED;
+		//processedType = NESTED;
 		// The envelope comes next, but sadly Gmail handles nested
 		// messages just like simple body parts and fails to return
 		// the envelope and body structure of the message (sort of
@@ -285,13 +285,19 @@ public class BODYSTRUCTURE implements Item {
 			System.out.println(
 			    "DEBUG IMAP: got envelope of nested message");
 		    BODYSTRUCTURE[] bs = { new BODYSTRUCTURE(r) };
-		    bodies = bs;
-		    lines = r.readNumber();
+		    //bodies = bs;
+		    int l = r.readNumber();
+		    eu.faircode.email.Log.w("message/rfc822" +
+			    " " + type + "/" + subtype + " " + encoding +
+			    " bs=" + bs[0].type + "/"+ bs[0].subtype + " " + bs[0].encoding +
+			    " lines=" + l);
 		    if (parseDebug)
 			System.out.println("DEBUG IMAP: lines " + lines);
+/*
 		    if (lines < 0)
 			throw new ParsingException(
 			    "BODYSTRUCTURE parse error: bad ``lines'' element");
+ */
 		} else {
 		    if (parseDebug)
 			System.out.println("DEBUG IMAP: " +
