@@ -683,6 +683,7 @@ public class FragmentMessages extends FragmentBase
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                Helper.performHapticFeedback(swipeRefresh, HapticFeedbackConstants.CONFIRM);
                 onSwipeRefresh();
             }
         });

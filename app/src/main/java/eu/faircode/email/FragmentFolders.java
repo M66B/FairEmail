@@ -34,6 +34,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -197,6 +198,7 @@ public class FragmentFolders extends FragmentBase {
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                Helper.performHapticFeedback(swipeRefresh, HapticFeedbackConstants.CONFIRM);
                 onSwipeRefresh();
             }
         });
