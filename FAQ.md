@@ -1645,6 +1645,10 @@ Authenticating the account again with the quick setup wizard will probably resol
 Another possible cause is a bug in an older Exchange version, please [see here](https://bugzilla.mozilla.org/show_bug.cgi?id=886261).
 In this case the system administrator needs to update the server software.
 
+The error *... Invalid ID Token Issued at time is more than 10 minutes before or after the current time ...*
+means that the clock time of the device deviates too much from the clock time of the email server.
+Please make sure the clock time, including the time zone, of the device is correct.
+
 Please [see here](#faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
 Please [see here](#faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
