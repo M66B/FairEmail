@@ -89,7 +89,7 @@
         Se l\'opzione «Lascia i messaggi sul server» non è abilitata, questi messaggi saranno persi definitivamente!
     </string>
     <string name="title_block">Blocca %1$s</string>
-    <string name="title_block_sender">Blocca mittente</string>
+    <string name="title_block_sender">Blocca il mittente</string>
     <string name="title_block_sender_domain">Blocca il dominio «%1$s»</string>
     <string name="title_block_sender_remark">Bloccare significa spostare automaticamente nella cartella di spam</string>
     <string name="title_block_sender_hint">        Il blocco di un mittente è una funzionalità gratuita.
@@ -97,7 +97,7 @@
     </string>
     <string name="title_blocked_senders">Mittenti bloccati</string>
     <string name="title_unblock_all">Sblocca tutti</string>
-    <string name="title_unblock_all_remark">Quest\'azione reimposterà tutti gli elenchi e le opzioni, cosa che potrebbero comportare il blocco dei mittenti</string>
+    <string name="title_unblock_all_remark">Quest\'azione reimposterà tutti gli elenchi e le opzioni di blocco dei mittenti</string>
     <string name="title_unblock_all_hint">Nota che l\'app non può impedire al server dell\'email di spostare messaggi nella cartella dello spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloccare il mittente di %1$s messaggio?</item>
@@ -449,7 +449,7 @@
     <string name="title_advanced_receipt">Quando si chiede una ricevuta</string>
     <string name="title_advanced_forward_new">Avviare una nuova conversazione quando si inoltra</string>
     <string name="title_advanced_lookup_mx">Controllare gli indirizzi email dei destinatari prima di inviare</string>
-    <string name="title_advanced_metered">Usa connessioni a consumo</string>
+    <string name="title_advanced_metered">Usa le connessioni a consumo</string>
     <string name="title_advanced_download">Scaricare automaticamente messaggi e allegati su una connessione a consumo fino a</string>
     <string name="title_advanced_download_limited">Applicare anche alle reti non a consumo</string>
     <string name="title_advanced_roaming">Scaricare messaggi e allegati quando si è in roaming</string>
@@ -820,7 +820,7 @@
     <string name="title_advanced_manual_hint">Se la ricezione dei messaggi è disabilitata, è ancora possibile ricevere manualmente i messaggi scorrendo in giù nell\'elenco dei messaggi</string>
     <string name="title_advanced_poll_battery">Questo può causare un elevato uso della batteria!</string>
     <string name="title_advanced_poll_hint">Il controllo periodico di nuovi messaggi richiede ogni volta un confronto tra i messaggi locali e remoti: è un\'operazione costosa e potrebbe comportare un uso aggiuntivo della batteria, specialmente se ci sono molti messaggi. Ricevere sempre lo impedirà seguendo continuamente le modifiche.</string>
-    <string name="title_advanced_optimize_hint">Questo potrebbe cambiare la frequenza di sincronizzazione per risparmiare sull\'uso della batteria in base alle capacità e il comportamento dei server email</string>
+    <string name="title_advanced_optimize_hint">Questa opzione potrebbe cambiare la frequenza di sincronizzazione in modo da risparmiare sull\'uso della batteria a seconda delle funzionalità e del comportamento dei server di posta elettronica</string>
     <string name="title_advanced_schedule_hint">Toccare sull\'orario per impostarlo</string>
     <string name="title_advanced_schedule_ignore">Le pianificazioni possono esser disabilitate nelle impostazioni avanzate dell\'account</string>
     <string name="title_advanced_quick_sync_hint">Questo riduce l\'uso dei dati, ma i nuovi messaggi potrebbero esser perduti se il server email non segue gli standard</string>
@@ -1095,7 +1095,7 @@
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_synchronize_subfolders">Sottocartelle</string>
     <string name="title_synchronize_more">Recupera altri messaggi</string>
-    <string name="title_synchronize_more_hint">Sarà eseguito un solo download dei messaggi più vecchi, che quindi non comporterà un maggiore uso della batteria per l\'uso quotidiano</string>
+    <string name="title_synchronize_more_hint">Sarà eseguito un solo download dei messaggi più vecchi, che quindi non comporterà un maggiore consumo della batteria per l\'uso quotidiano</string>
     <string name="title_synchronize_more_hint2">        I messaggi saranno recuperati alla velocità con cui il server email può consegnarli e memorizzati alla velocità con cui il dispositivo può memorizzarli e indicizzarli.
         Il fattore limitante è di solito la velocità del sistema di archiviazione interno del dispositivo.
     </string>
@@ -1664,7 +1664,7 @@
     <string name="title_sort_on_last_applied">Ultima applicazione</string>
     <string name="title_filter">Filtra</string>
     <string name="title_filter_seen">Letti</string>
-    <string name="title_filter_unflagged">Non contrassegnati</string>
+    <string name="title_filter_unflagged">Senza stella</string>
     <string name="title_filter_unknown">Mittenti sconosciuti</string>
     <string name="title_filter_hidden">Nascosti</string>
     <string name="title_filter_deleted">Eliminati</string>
@@ -1739,7 +1739,7 @@
     <string name="title_rule_name">Nome</string>
     <string name="title_rule_group">Gruppo</string>
     <string name="title_rule_order">Ordine</string>
-    <string name="title_rule_enabled">Abilitato</string>
+    <string name="title_rule_enabled">Abilitata</string>
     <string name="title_rule_daily">Esegui ogni giorno (soltanto)</string>
     <string name="title_rule_age">Messaggi precedenti a (giorni)</string>
     <string name="title_rule_stop">Ferma l\'elaborazione delle regole dopo l\'esecuzione di questa regola</string>
