@@ -20,6 +20,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### 1.2232 2024-09-16
+
+* Fixed resuming sending after restarting the device
+
 ### 1.2231 2024-09-16
 
 * Fixed downloading raw message files (EML files) in some situations
