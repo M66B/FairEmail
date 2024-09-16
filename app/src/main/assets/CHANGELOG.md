@@ -20,7 +20,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
-### Next version
+### 1.2231 2024-09-16
 
 * Fixed downloading raw message files (EML files) in some situations
 * Added detection of screen recording (Android 15+)
