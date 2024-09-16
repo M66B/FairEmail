@@ -20,6 +20,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Acantholipan](https://en.wikipedia.org/wiki/Acantholipan)
 
+### Next version
+
+* Fixed downloading raw message files (EML files) in some situations
+* Added detection of screen recording (Android 15+)
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2230 2024-09-11
 
 * Fixed text-to-speak stops working on some devices
