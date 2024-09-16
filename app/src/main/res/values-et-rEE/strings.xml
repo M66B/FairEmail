@@ -462,6 +462,7 @@
     <string name="title_advanced_vpn_only">Ühendu vaid üle VPN-i</string>
     <string name="title_advanced_timeout">Ühendus üle ajapiiri (sekundid)</string>
     <string name="title_advanced_prefer_ip4">Eelista IPv4 IPv6 ees</string>
+    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Eelistus IPv6 IPv4 asemel</string>
     <string name="title_advanced_dns">Eelistatud DNS serverite aadressid (komaga eraldatud)</string>
     <string name="title_advanced_dns_custom">Kasuta kohandatud DNS-resolverit</string>
     <string name="title_advanced_dns_clear">Tühjenda ühenduse muutusel DNS-vahemälu</string>
@@ -1939,10 +1940,12 @@
     <string name="title_hint_folder_actions">Kaustal pikalt vajutamine avab valikud. Näiteks kausta lisamine navigeerimismenüsse, et seda hõlpsamalt avada</string>
     <string name="title_hint_folder_sync">Vaikimisi ei sünkroonita kõiki kaustu ja kõiki sõnumeid, et säästa aku ja andmeside kasutust</string>
     <string name="title_hint_airplane">Lennukirežiim on sees</string>
+    <string name="title_hint_vpn_active">VPN aktiivne</string>
     <string name="title_hint_notifications">Pole teavituste õigust</string>
     <string name="title_hint_notifications_remark">Ka (konto)hoiatusteadete jaoks on vaja teavitamisõigusi. Uute sõnumite teavitused saab seadetes välja lülitada.</string>
     <string name="title_hint_battery_optimizations">Aku optimeerimine on ikka veel lubatud</string>
     <string name="title_hint_data_saver">Kui andmesäästja on sisse lülitatud, ei saa äpp taustal töötada ning juhtuda võivad ühenduse vead.</string>
+    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Mõnikord blokeerivad E-posti serverid ühendust läbi VPNi. Kui nii juhtub, saab vaid e-posti teenusepakkuja selle lahendada.</string>
     <string name="title_hint_dismiss">Hülga see dialoogikast, et teade eemaldada.</string>
     <string name="title_hint_support">Kui sul on küsimus või probleem, kasuta abi saamiseks palun toe \"support\" menüüd</string>
     <string name="title_hint_message_actions">Prügisse viimiseks pühi vasakule, arhiivimiseks (kui saadaval) pühi paremale. Pühkimistegevusi saab häälestada konto seadetes</string>
@@ -2151,6 +2154,7 @@
     <string name="title_accessibility_view_help">Vaata abi</string>
     <string name="title_accessibility_selected">Valitud</string>
     <string name="title_accessibility_answered">Vastatud</string>
+    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Edastatud</string>
     <string name="title_accessibility_scroll_down">Rulli alla</string>
     <string name="title_accessibility_scroll_up">Rulli üles</string>
     <string name="title_accessibility_filter_out_seen">Lülita sõnumite loetuse filtrit</string>

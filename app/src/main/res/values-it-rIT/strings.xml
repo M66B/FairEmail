@@ -98,7 +98,7 @@
     <string name="title_blocked_senders">Mittenti bloccati</string>
     <string name="title_unblock_all">Sblocca tutti</string>
     <string name="title_unblock_all_remark">Quest\'azione reimposterà tutti gli elenchi e le opzioni di blocco dei mittenti</string>
-    <string name="title_unblock_all_hint">Nota che l\'app non può impedire al server dell\'email di spostare messaggi nella cartella dello spam!</string>
+    <string name="title_unblock_all_hint">Si tenga presente che l\'app non può impedire al server dell\'email di spostare messaggi nella cartella dello spam!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloccare il mittente di %1$s messaggio?</item>
         <item quantity="other">Bloccare il mittente di %1$s messaggi?</item>
@@ -397,7 +397,7 @@
     <string name="title_advanced_suggest_account">Limitare i suggerimenti all\'account corrente</string>
     <string name="title_advanced_auto_delete_local">Eliminare automaticamente i contatti locali più vecchi di e meno utilizzati di:</string>
     <string name="title_advanced_alt_re_fwd">Prefisso alternativo di risposta e inoltro</string>
-    <string name="title_advanced_send_chips">Mostrare le bolle degli indirizzi</string>
+    <string name="title_advanced_send_chips">Mostrare gli indirizzi come etichette</string>
     <string name="title_advanced_send_nav_color">Usare il colore dell\'identità per la barra delle azioni inferiore</string>
     <string name="title_advanced_send_reminders">Mostrare i promemoria</string>
     <string name="title_advanced_send_delayed">Ritardare l\'invio dei messaggi</string>
@@ -453,7 +453,7 @@
     <string name="title_advanced_download">Scaricare automaticamente messaggi e allegati su una connessione a consumo fino a</string>
     <string name="title_advanced_download_limited">Applicare anche alle reti non a consumo</string>
     <string name="title_advanced_roaming">Scaricare messaggi e allegati quando si è in roaming</string>
-    <string name="title_advanced_rlah">Roaming come a casa</string>
+    <string name="title_advanced_rlah">Ignorare il roaming in Europa</string>
     <string name="title_advanced_download_headers">Scaricare tutte le intestazioni del messaggio</string>
     <string name="title_advanced_download_eml">Scaricare i file dei messaggi non elaborati</string>
     <string name="title_advanced_download_plain">Scaricare le parti in solo testo semplice di default (se disponibile)</string>
@@ -853,7 +853,7 @@
     <string name="title_advanced_usenet_hint">Inserisci «--» tra il testo e la firma</string>
     <string name="title_advanced_remove_signature_hint">Può comportare la rimozione di troppo o troppo poco testo</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
-    <string name="title_advanced_metered_warning">Disabilitare quest\'opzione disabiliterà la ricezione e l\'invio dei messaggi su connessioni internet mobili</string>
+    <string name="title_advanced_metered_warning">Disabilitare quest\'opzione impedirà la ricezione e l\'invio dei messaggi su connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumere che non ci sia roaming nell\'UE</string>
     <string name="title_advanced_usage_hint">L\'uso di batteria, dati e spazio d\'archiviazione sarà aumentato</string>
     <string name="title_advanced_plain_hint">Abilitarlo limiterà l\'uso dei dati, ma i messaggi saranno mostrati senza stili e senza immagini</string>
@@ -1832,7 +1832,7 @@
     <string name="title_legend_disconnected">Disconnesso</string>
     <string name="title_legend_connecting">Connessione</string>
     <string name="title_legend_connected">Connesso</string>
-    <string name="title_legend_backoff">Attendi dopo il fallimento</string>
+    <string name="title_legend_backoff">In attesa dopo il fallimento della connessione</string>
     <string name="title_legend_quota">Casella email quasi piena</string>
     <string name="title_legend_executing">Esecuzione operazioni</string>
     <string name="title_legend_synchronizing">Sincronizzazione</string>
