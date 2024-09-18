@@ -18,13 +18,15 @@ For support you can use the contact form.
 
 ---
 
-Acantholipan
+Barsboldia
 
 Next version
 
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
 * Updated translations
+
+Acantholipan
 
 1.2232 2024-09-16
 
