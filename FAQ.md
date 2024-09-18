@@ -111,7 +111,7 @@ Related questions:
 * Delete a contact: please [see this FAQ](#faq171)
 * Store sent messages in the inbox: please [see this FAQ](#faq142)
 * Change system folders: (Main) Settings, tap Manual setup, tap Accounts, tap account, at the bottom
-* Export/import settings: (Main) Settings, navigation (left side) menu
+* Export/import settings: via the backup settings tab page (last tab page)
 
 (*) Swipe actions for individual and POP3 accounts can be configured in the account setting: (Main) Settings, tap Manual setup, tap Accounts, tap account
 
