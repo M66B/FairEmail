@@ -2,7 +2,7 @@
 
 Das Einrichten von FairEmail ist ziemlich einfach. Sie müssen mindestens ein Konto hinzufügen, um E-Mails zu empfangen, und mindestens eine Identität, um E-Mails zu senden. Die Schnelleinrichtung wird ein Konto und eine Identität in einem Schritt für die meisten großen Anbieter hinzufügen.
 
-## Anforderungen
+## Voraussetzungen
 
 Für die Einrichtung von Konten und Identitäten ist eine Internetverbindung erforderlich.
 

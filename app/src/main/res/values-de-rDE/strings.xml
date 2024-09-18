@@ -18,9 +18,9 @@
         Google arbeitet bereits an einer Lösung.
         Bitte machen Sie nicht die App für dieses Problem verantwortlich!
     </string>
-    <string name="channel_service">Überwachen</string>
+    <string name="channel_service">Überwachung</string>
     <string name="channel_send">Senden</string>
-    <string name="channel_notification">Neue E-Mail</string>
+    <string name="channel_notification">E-Mail</string>
     <string name="channel_progress">Fortschritt</string>
     <string name="channel_update">Aktualisierungen</string>
     <string name="channel_announcements">Ankündigungen</string>
@@ -29,7 +29,7 @@
     <string name="channel_alert">Serverbenachrichtigungen</string>
     <string name="channel_group_contacts">Kontakte</string>
     <string name="channel_service_description">Synchronisation und Überwachung von Konten</string>
-    <string name="channel_send_description">Benachrichtigungen für den Versand</string>
+    <string name="channel_send_description">Versand von Nachrichten</string>
     <string name="channel_notification_description">Benachrichtigungen für neue Nachrichten</string>
     <string name="channel_progress_description">Fortschrittsbenachrichtigungen von länger laufenden Aktivitäten</string>
     <plurals name="page_conversation">
