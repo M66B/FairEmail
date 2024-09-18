@@ -6026,6 +6026,8 @@ Some email providers known to support DANE for client-to-server traffic:
 * [Freenet.de](https://email.freenet.de/)
 * [Mailbox.org](https://mailbox.org/)
 * [Posteo.de](https://posteo.de/)
+* [web.de](https://web.de/email/)
+* [GMX](https://www.gmx.net/mail)
 
 This is not a complete and exhaustive list.
 
