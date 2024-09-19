@@ -201,6 +201,7 @@ import biweekly.property.Method;
 import biweekly.property.Organizer;
 import biweekly.property.RawProperty;
 import biweekly.property.RecurrenceRule;
+import biweekly.property.Status;
 import biweekly.property.Summary;
 import biweekly.property.Transparency;
 import biweekly.util.ICalDate;
@@ -4228,6 +4229,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             if (status != null) {
                                 args.putString("status", status);
+                                ev.setStatus(Status.confirmed());
                                 Summary summary = ev.getSummary();
                                 ev.setSummary(status + ": " + (summary == null ? "" : summary.getValue()));
                             }
