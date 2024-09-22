@@ -3093,6 +3093,22 @@ This website might be useful for testing webhooks:
 
 <br />
 
+<a name="autoanswer">
+**Auto reply/answer**
+
+First, create a template with the text to reply/answer with via the navigation menu (left side menu).
+
+After creating a template text, go to the rules via the navigation menu (left side menu), and create a rule for the inbox like this:
+
+* **Name**: anything you like to find back the rule later
+* **Sender contains**: @ (this will match all senders)
+* **Action**: Reply/forward
+* **Identity**: select the email address to reply with
+* **Reply template**: select the created text template
+* **Save** the rule with the button in the bottom action bar
+
+<br />
+
 Using rules is a pro feature.
 
 <br />
