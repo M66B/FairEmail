@@ -252,7 +252,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 " portrait rows=" + portrait2 + " cols=" + portrait2c + " min=" + portrait_min_size +
                 " landscape cols=" + landscape + " min=" + landscape_min_size);
         boolean duo = Helper.isSurfaceDuo();
-        boolean close_pane = prefs.getBoolean("close_pane", !duo);
+        boolean fold6 = Helper.isFold6();
+        boolean close_pane = prefs.getBoolean("close_pane", !duo && !fold6);
         boolean nav_categories = prefs.getBoolean("nav_categories", false);
 
         // 1=small, 2=normal, 3=large, 4=xlarge
@@ -278,16 +279,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         if (content_pane != null) {
             // Special: Surface Duo
-            if (duo) {
+            if (duo || fold6) {
                 View content_frame = findViewById(R.id.content_frame);
                 ViewGroup.LayoutParams lparam = content_frame.getLayoutParams();
                 if (lparam instanceof LinearLayout.LayoutParams) {
                     ((LinearLayout.LayoutParams) lparam).weight = 1; // 50/50
                     content_frame.setLayoutParams(lparam);
                 }
-                // https://docs.microsoft.com/en-us/dual-screen/android/duo-dimensions
-                int seam = (Helper.isSurfaceDuo2() ? 26 : 34);
-                content_separator.getLayoutParams().width = Helper.dp2pixels(this, seam);
+                if (duo) {
+                    // https://docs.microsoft.com/en-us/dual-screen/android/duo-dimensions
+                    int seam = (Helper.isSurfaceDuo2() ? 26 : 34);
+                    content_separator.getLayoutParams().width = Helper.dp2pixels(this, seam);
+                }
             } else {
                 int column_width = prefs.getInt("column_width", 67);
                 ViewGroup.LayoutParams lparam = content_pane.getLayoutParams();

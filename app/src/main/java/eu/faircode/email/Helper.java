@@ -1719,6 +1719,10 @@ public class Helper {
         return ("Microsoft".equalsIgnoreCase(Build.MANUFACTURER) && "Surface Duo 2".equals(Build.MODEL));
     }
 
+    static boolean isFold6() {
+        return ("Samsung".equalsIgnoreCase(Build.MANUFACTURER) && "SM-F956U1".equals(Build.MODEL));
+    }
+
     static boolean isArc() {
         // https://github.com/google/talkback/blob/master/utils/src/main/java/com/google/android/accessibility/utils/FeatureSupport.java
         return (Build.DEVICE != null) && Build.DEVICE.matches(".+_cheets|cheets_.+");
