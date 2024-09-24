@@ -439,6 +439,7 @@ public class ServiceUI extends IntentService {
 
     private void onSnooze(long id) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean flag_snoozed = prefs.getBoolean("flag_snoozed", false);
         int default_snooze = prefs.getInt("default_snooze", 1);
         if (default_snooze == 0)
             default_snooze = 1;
@@ -456,6 +457,9 @@ public class ServiceUI extends IntentService {
             db.message().setMessageSnoozed(id, wakeup);
             db.message().setMessageUiIgnored(message.id, true);
             EntityMessage.snooze(this, id, wakeup);
+
+            if (flag_snoozed)
+                EntityOperation.queue(this, message, EntityOperation.FLAG, true);
 
             db.setTransactionSuccessful();
 
