@@ -493,6 +493,7 @@ public class DebugHelper {
         sb.append(String.format("Density 1dp=%f\r\n", density));
         sb.append(String.format("Resolution: %.2f x %.2f dp\r\n", dim.x / density, dim.y / density));
         //sb.append(String.format("Max. texture: %d px\r\n", Helper.getMaxTextureSize()));
+        sb.append(String.format("Foldable: %b\r\n", Helper.canFold(context)));
 
         Configuration config = context.getResources().getConfiguration();
 

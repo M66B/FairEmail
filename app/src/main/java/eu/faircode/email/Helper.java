@@ -1728,6 +1728,16 @@ public class Helper {
         return (Build.DEVICE != null) && Build.DEVICE.matches(".+_cheets|cheets_.+");
     }
 
+    static boolean canFold(Context context) {
+        try {
+            PackageManager pm = context.getPackageManager();
+            return pm.hasSystemFeature(PackageManager.FEATURE_SENSOR_HINGE_ANGLE);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
+    }
+
     static boolean isWatch(Context context) {
         if (isSmartwatch == null)
             isSmartwatch = _isWatch(context);

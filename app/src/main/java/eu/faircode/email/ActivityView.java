@@ -252,8 +252,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 " portrait rows=" + portrait2 + " cols=" + portrait2c + " min=" + portrait_min_size +
                 " landscape cols=" + landscape + " min=" + landscape_min_size);
         boolean duo = Helper.isSurfaceDuo();
-        boolean fold6 = Helper.isFold6();
-        boolean close_pane = prefs.getBoolean("close_pane", !duo && !fold6);
+        boolean canFold = Helper.canFold(this);
+        boolean close_pane = prefs.getBoolean("close_pane", !duo && !canFold);
         boolean nav_categories = prefs.getBoolean("nav_categories", false);
 
         // 1=small, 2=normal, 3=large, 4=xlarge
@@ -279,7 +279,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         if (content_pane != null) {
             // Special: Surface Duo
-            if (duo || fold6) {
+            if (duo || canFold) {
                 View content_frame = findViewById(R.id.content_frame);
                 ViewGroup.LayoutParams lparam = content_frame.getLayoutParams();
                 if (lparam instanceof LinearLayout.LayoutParams) {
