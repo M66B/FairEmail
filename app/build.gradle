@@ -535,7 +535,7 @@ configurations.configureEach {
         } else if (details.requested.group == "androidx.lifecycle" &&
                 details.requested.name != "lifecycle-extensions") {
             //print("Pinning " + details.requested.group + ":" + details.requested.name + "\n")
-            details.useVersion "2.8.5"
+            details.useVersion "2.8.6"
         } else if (details.requested.group == "org.apache.poi") {
             //print("Pinning " + details.requested.group + ":" + details.requested.name + "\n")
             details.useVersion "3.17"
@@ -571,7 +571,7 @@ dependencies {
     def lbm_version = "1.1.0"
     def swiperefresh_version = "1.2.0-alpha01"
     def documentfile_version = "1.1.0-alpha01"
-    def lifecycle_version = "2.8.5" // 2.8.6/2.9.0-alpha02
+    def lifecycle_version = "2.8.6" // 2.9.0-alpha02
     def lifecycle_extensions_version = "2.2.0"
     def room_version = "2.4.3" // 2.5.2/2.6.1/2.7.0-alpha08
     def sqlite_version = "2.4.0" // 2.5.0-alpha08
