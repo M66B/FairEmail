@@ -312,7 +312,7 @@ public class ContactInfo {
                                 ContactsContract.Contacts.LOOKUP_KEY,
                                 ContactsContract.Contacts.DISPLAY_NAME
                         },
-                        null, null, null)) {
+                        null, null, ContactsContract.Contacts.DISPLAY_NAME)) {
 
                     if (cursor != null && cursor.moveToNext()) {
                         int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
@@ -1155,7 +1155,7 @@ public class ContactInfo {
                             ContactsContract.Contacts.DISPLAY_NAME
                     },
                     ContactsContract.CommonDataKinds.Email.ADDRESS + " <> ''",
-                    null, null)) {
+                    null, ContactsContract.Contacts.DISPLAY_NAME)) {
                 while (cursor != null && cursor.moveToNext()) {
                     long contactId = cursor.getLong(0);
                     String lookupKey = cursor.getString(1);

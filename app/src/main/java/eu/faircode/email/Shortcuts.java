@@ -185,7 +185,7 @@ class Shortcuts {
                             ContactsContract.Contacts.DISPLAY_NAME
                     },
                     ContactsContract.CommonDataKinds.Email.ADDRESS + " = ?",
-                    new String[]{email}, null)) {
+                    new String[]{email}, ContactsContract.Contacts.DISPLAY_NAME)) {
                 if (cursor != null && cursor.moveToNext()) {
                     int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
                     int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);

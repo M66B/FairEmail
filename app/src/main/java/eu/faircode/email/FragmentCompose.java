@@ -1280,7 +1280,7 @@ public class FragmentCompose extends FragmentBase {
                                         " OR LOWER(" + ContactsContract.Contacts.DISPLAY_NAME + ") GLOB ?" +
                                         " OR " + ContactsContract.CommonDataKinds.Email.DATA + " LIKE ?)",
                                 new String[]{wildcard, glob, wildcard},
-                                null)) {
+                                ContactsContract.Contacts.DISPLAY_NAME)) {
 
                             while (cursor != null && cursor.moveToNext()) {
                                 EntityContact item = new EntityContact();
@@ -3479,7 +3479,7 @@ public class FragmentCompose extends FragmentBase {
                                 ContactsContract.CommonDataKinds.Email.ADDRESS,
                                 ContactsContract.Contacts.DISPLAY_NAME
                         },
-                        null, null, null)) {
+                        null, null, ContactsContract.Contacts.DISPLAY_NAME)) {
                     // https://issuetracker.google.com/issues/118400813
                     // https://developer.android.com/guide/topics/providers/content-provider-basics#DisplayResults
                     if (cursor != null && cursor.getCount() == 0)
@@ -4867,7 +4867,7 @@ public class FragmentCompose extends FragmentBase {
                                     },
                                     ContactsContract.Data.CONTACT_ID + " = ?",
                                     new String[]{cursor.getString(0)},
-                                    null)) {
+                                    ContactsContract.Contacts.DISPLAY_NAME)) {
                                 if (contact != null && contact.moveToNext()) {
                                     String name = contact.getString(0);
                                     String email = contact.getString(1);
