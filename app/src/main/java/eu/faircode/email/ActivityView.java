@@ -1186,8 +1186,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onStart() {
         super.onStart();
-        if (!Helper.isPlayStoreInstall())
-            infoTracker.addWindowLayoutInfoListener(this, Runnable::run, layoutStateChangeCallback);
+
+        infoTracker.addWindowLayoutInfoListener(this, Runnable::run, layoutStateChangeCallback);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM &&
                 hasPermission(Manifest.permission.DETECT_SCREEN_RECORDING))
@@ -1202,8 +1202,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onStop() {
         super.onStop();
-        if (!Helper.isPlayStoreInstall())
-            infoTracker.removeWindowLayoutInfoListener(layoutStateChangeCallback);
+
+        infoTracker.removeWindowLayoutInfoListener(layoutStateChangeCallback);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM &&
                 hasPermission(Manifest.permission.DETECT_SCREEN_RECORDING))
