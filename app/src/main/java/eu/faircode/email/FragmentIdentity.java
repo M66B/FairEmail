@@ -1695,7 +1695,7 @@ public class FragmentIdentity extends FragmentBase {
                             ContactsContract.Contacts.DISPLAY_NAME_PRIMARY
                     },
                     null, null, null)) {
-                if (cursor.moveToNext())
+                if (cursor != null && cursor.moveToNext())
                     return cursor.getString(0);
             }
         } catch (Throwable ex) {
