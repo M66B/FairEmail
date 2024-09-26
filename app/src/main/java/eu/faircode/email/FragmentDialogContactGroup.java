@@ -92,7 +92,7 @@ public class FragmentDialogContactGroup extends FragmentDialogBase {
                 if (permission)
                     try {
                         ContentResolver resolver = context.getContentResolver();
-                        contacts = resolver.query(
+                        Cursor cursor = resolver.query(
                                 ContactsContract.Groups.CONTENT_SUMMARY_URI,
                                 projection,
                                 // ContactsContract.Groups.GROUP_VISIBLE + " = 1" + " AND " +
@@ -101,6 +101,8 @@ public class FragmentDialogContactGroup extends FragmentDialogBase {
                                 null,
                                 ContactsContract.Groups.TITLE
                         );
+                        if (cursor != null)
+                            contacts = cursor;
                     } catch (SecurityException ex) {
                         Log.w(ex);
                     }
