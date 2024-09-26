@@ -99,7 +99,6 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -2748,6 +2747,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private final Consumer<WindowLayoutInfo> layoutStateChangeCallback = new Consumer<WindowLayoutInfo>() {
         @Override
         public void accept(WindowLayoutInfo info) {
+            // Window layout=WindowLayoutInfo{
+            //   DisplayFeatures[HardwareFoldingFeature {
+            //       Bounds { [1104,0,1104,1840] }, type=FOLD, state=FLAT }
+            //   ]
+            // }
             EntityLog.log(ActivityView.this, "Window layout=" + info);
         }
     };
