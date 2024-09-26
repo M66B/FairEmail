@@ -1142,7 +1142,7 @@ public class MessageHelper {
                                         ContactsContract.Contacts._ID,
                                         ContactsContract.Contacts.DISPLAY_NAME_PRIMARY,
                                 }, null, null, null)) {
-                            if (cursor.moveToFirst()) {
+                            if (cursor != null && cursor.moveToFirst()) {
                                 String contactId = cursor.getString(0);
                                 String display = cursor.getString(1);
 
