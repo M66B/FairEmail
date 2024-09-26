@@ -116,6 +116,14 @@ public class FragmentDialogContactGroup extends FragmentDialogBase {
 
             @Override
             protected void onExecuted(Bundle args, Cursor cursor) {
+                if (cursor == null)
+                    EntityLog.log(getContext(), "MMM cursor is null");
+                else {
+                    EntityLog.log(getContext(), "MMM cursor count=" + cursor.getCount());
+                    for (int col = 0; col < cursor.getColumnCount(); col++)
+                        EntityLog.log(getContext(), "MMM " + col + "=" + cursor.getColumnName(col));
+                }
+
                 SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                         context,
                         R.layout.spinner_contact_group,

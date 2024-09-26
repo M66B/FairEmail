@@ -11160,8 +11160,14 @@ public class FragmentMessages extends FragmentBase
                             if (message == null)
                                 continue;
 
-                            if (message.uid != null || account.protocol == EntityAccount.TYPE_POP)
+                            if (account.protocol == EntityAccount.TYPE_POP)
                                 db.message().setMessageUiHide(message.id, true);
+                            else {
+                                if (message.uid == null)
+                                    db.message().deleteMessage(id);
+                                else
+                                    db.message().setMessageUiHide(message.id, true);
+                            }
                         }
 
                         EntityOperation.queue(context, folder, EntityOperation.PURGE);
