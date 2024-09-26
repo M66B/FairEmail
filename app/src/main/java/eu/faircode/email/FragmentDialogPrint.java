@@ -210,12 +210,9 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                                         "padding-left: 0; padding-right: 0;"));
                     }
 
-                if (print_html_margins) {
-                    Element body = document.body();
-                    String style = body.attr("style");
-                    body.attr("style", HtmlHelper.mergeStyles(style,
-                            "margin: 1cm !important;")); // 0.4 inch
-                }
+                if (print_html_margins)
+                    document.head().appendElement("style")
+                            .text("@page { margin: 1cm; }");
 
                 HtmlHelper.markText(document);
 
