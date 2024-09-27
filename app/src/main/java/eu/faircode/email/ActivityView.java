@@ -2540,8 +2540,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         String to = intent.getStringExtra("to");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean send_undo = prefs.getBoolean("send_undo", false);
         int send_delayed = prefs.getInt("send_delayed", 0) * 1000;
-        if (send_delayed == 0)
+
+        if (!send_undo || send_delayed == 0)
             return;
 
         long timeout = at - new Date().getTime();
@@ -2563,7 +2565,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
 
             @Override
-            protected Long onExecute(Context context, Bundle args) throws Throwable {
+            protected Long onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 return ActivityCompose.undoSend(id, context);
             }

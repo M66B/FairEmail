@@ -477,6 +477,7 @@
     <string name="title_advanced_send_nav_color">Use the identity color for the bottom action bar</string>
     <string name="title_advanced_send_reminders">Show reminders</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>
+    <string name="title_advanced_send_undo">Show undo send option</string>
     <string name="title_advanced_send_top">Show send button at the top</string>
     <string name="title_advanced_attach_new">Create a new draft message for shared addresses and files</string>
     <string name="title_advanced_answer_caption">Answer button settings</string>

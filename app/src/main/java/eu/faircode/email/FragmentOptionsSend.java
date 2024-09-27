@@ -91,6 +91,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAutoSaveDot;
     private SwitchCompat swDiscardDelete;
     private Spinner spSendDelayed;
+    private SwitchCompat swSendUndo;
     private Spinner spAnswerActionSingle;
     private Spinner spAnswerActionLong;
     private Button btnSound;
@@ -142,7 +143,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "purge_contact_age", "purge_contact_freq",
             "send_reminders", "send_chips", "send_nav_color", "send_pending",
             "save_revisions", "auto_save_paragraph", "auto_save_dot", "discard_delete",
-            "send_delayed",
+            "send_delayed", "send_undo",
             "answer_single", "answer_action",
             "sound_sent",
             "compose_color", "compose_font", "compose_monospaced",
@@ -189,6 +190,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swAutoSaveDot = view.findViewById(R.id.swAutoSaveDot);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
+        swSendUndo = view.findViewById(R.id.swSendUndo);
         spAnswerActionSingle = view.findViewById(R.id.spAnswerActionSingle);
         spAnswerActionLong = view.findViewById(R.id.spAnswerActionLong);
         btnSound = view.findViewById(R.id.btnSound);
@@ -436,12 +438,21 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 int[] values = getResources().getIntArray(R.array.sendDelayedValues);
-                prefs.edit().putInt("send_delayed", values[position]).apply();
+                int send_delayed = values[position];
+                prefs.edit().putInt("send_delayed", send_delayed).apply();
+                swSendUndo.setEnabled(send_delayed > 0);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("send_delayed").apply();
+            }
+        });
+
+        swSendUndo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("send_undo", checked).apply();
             }
         });
 
@@ -965,6 +976,9 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                     spSendDelayed.setSelection(pos);
                     break;
                 }
+
+            swSendUndo.setChecked(prefs.getBoolean("send_undo", false));
+            swSendUndo.setEnabled(send_delayed > 0);
 
             String[] answerValues = getResources().getStringArray(R.array.answerValues);
 
