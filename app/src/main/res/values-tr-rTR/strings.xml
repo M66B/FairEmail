@@ -1412,7 +1412,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_save">Kaydet</string>
     <string name="title_send">Gönder</string>
     <string name="title_sending">Gönderiliyor&#8230;</string>
-    <string name="title_sending_to">1$s\'ye gönderiliyor</string>
+    <string name="title_sending_to">Gönderiliyor: %1$s</string>
     <string name="title_send_now">Şimdi gönder</string>
     <string name="title_send_via">Üzerinden gönder</string>
     <string name="title_send_at">&#8230;\'te gönder</string>
