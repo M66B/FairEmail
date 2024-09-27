@@ -429,6 +429,7 @@
     <string name="title_advanced_send_nav_color">Використовувати колір профілю як фон нижньої панелі інструментів</string>
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
+    <string name="title_advanced_send_undo">Показувати опцію скасування надсилання</string>
     <string name="title_advanced_send_top">Показувати кнопку відправки вгорі</string>
     <string name="title_advanced_attach_new">Створити чернетку нового повідомлення для адрес та файлів, якими ви поділилися з інших додатків</string>
     <string name="title_advanced_answer_caption">Налаштування кнопки відповіді</string>
@@ -490,7 +491,7 @@
     <string name="title_advanced_vpn_only">Під’єднуватися тільки через VPN</string>
     <string name="title_advanced_timeout">Час очікування підключення (секунди)</string>
     <string name="title_advanced_prefer_ip4">Віддавати перевагу IPv4 над IPv6</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Віддавати перевагу IPv6 над IPv4</string>
+    <string name="title_advanced_prefer_ip6">Надавати перевагу IPv6 над IPv4</string>
     <string name="title_advanced_dns">Бажані адреси DNS-серверів (через кому)</string>
     <string name="title_advanced_dns_custom">Використовувати нетиповий DNS resolver</string>
     <string name="title_advanced_dns_clear">Очищати кеш DNS при зміні підключення</string>
@@ -1376,6 +1377,7 @@
     <string name="title_too_large">Лист завеликий для повного переформатування</string>
     <string name="title_truncated">Лист завеликий для показу</string>
     <string name="title_insufficient_memory">Повідомлення занадто велике для доступної пам\'яті (%1$d)</string>
+    <string name="title_screen_recording">Екран записується!</string>
     <string name="title_show_full">Показати повне повідомлення</string>
     <string name="title_fullscreen">Показати на весь екран</string>
     <string name="title_fit_width">За шириною</string>
@@ -1448,6 +1450,7 @@
     <string name="title_save">Зберегти</string>
     <string name="title_send">Надіслати</string>
     <string name="title_sending">Надсилання &#8230;</string>
+    <string name="title_sending_to">Надсилається %1$s</string>
     <string name="title_send_now">Надісл. зараз</string>
     <string name="title_send_via">Надіслати через</string>
     <string name="title_send_at">Надіслати &#8230;</string>
@@ -1971,7 +1974,7 @@
     <string name="title_hint_notifications_remark">Дозволи на показ сповіщень також необхідні для попереджень (зокрема щодо облікових записів). Сповіщення про нові повідомлення можна вимкнути в налаштуваннях.</string>
     <string name="title_hint_battery_optimizations">Оптимізація батареї все ще увімкнена</string>
     <string name="title_hint_data_saver">Якщо увімкнений режим заощадження даних, застосунок не зможе здійснювати синхронізацію у фоновому режимі та можуть виникнути помилки підключення.</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Сервери електронної пошти іноді блокують підключення через VPN. Якщо це станеться, тільки постачальник послуг електронної пошти може розв\'язати цю проблему.</string>
+    <string name="title_hint_vpn">Сервери електронної пошти іноді блокують підключення через VPN. Якщо це станеться, тільки постачальник послуг електронної пошти може розв\'язати цю проблему.</string>
     <string name="title_hint_dismiss">Ви можете відхилити це діалогове вікно, щоб видалити сповіщення.</string>
     <string name="title_hint_support">Якщо у вас є питання або проблема, будь ласка, використовуйте меню підтримки для отримання допомоги</string>
     <string name="title_hint_message_actions">Проведіть ліворуч для переміщення в кошик; проведіть праворуч щоб архівувати (якщо доступно); ці дії можна налаштувати в налаштуваннях облікового запису</string>
@@ -2182,7 +2185,7 @@
     <string name="title_accessibility_view_help">Показати довідку</string>
     <string name="title_accessibility_selected">Вибрано</string>
     <string name="title_accessibility_answered">Була відповідь</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Переслано</string>
+    <string name="title_accessibility_forwarded">Переслано</string>
     <string name="title_accessibility_scroll_down">Прокрутити вниз</string>
     <string name="title_accessibility_scroll_up">Прокрутити догори</string>
     <string name="title_accessibility_filter_out_seen">Перемкнути фільтр прочитаних повідомлень</string>
@@ -2208,9 +2211,10 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ні</item>
+        <item>5 секунд</item>
         <item>15 секунд</item>
         <item>30 секунд</item>
-        <item>1 хвилину</item>
+        <item>1 хвилина</item>
         <item>2 хвилини</item>
         <item>5 хвилин</item>
         <item>10 хвилин</item>

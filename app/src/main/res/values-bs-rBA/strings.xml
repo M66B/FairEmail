@@ -476,7 +476,7 @@
     <string name="title_advanced_vpn_only">Poveži se samo putem VPN-a</string>
     <string name="title_advanced_timeout">Konekcija na isteku (sekunde)</string>
     <string name="title_advanced_prefer_ip4">Preferiraj IPv4 preko IPv6</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Preferiraj IPv6 preko IPv4</string>
+    <string name="title_advanced_prefer_ip6">Preferiraj IPv6 preko IPv4</string>
     <string name="title_advanced_dns">Adrese preferiranog DNS servera (odvojene zarezom)</string>
     <string name="title_advanced_dns_custom">Koristi prilagođeni DNS resolver</string>
     <string name="title_advanced_dns_clear">Očisti DNS keš pri promjeni konekcije</string>
@@ -1959,7 +1959,7 @@
     <string name="title_hint_notifications_remark">Dozvole za obavještenja su neophodne i za upozorenja računa. Obavještenja za nove poruke mogu se isključiti u postavkama.</string>
     <string name="title_hint_battery_optimizations">Optimizacije baterije su još uključene</string>
     <string name="title_hint_data_saver">Ako je omogućena ušteda podataka, aplikacija neće moći sinhronizovati sadržaj u pozadini pa su moguće greške u konekciji.</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">E-mail serveri ponekad blokiraju povezivanje kroz VPN. Ako se to dogodi, samo e-mail provajder može riješiti taj problem.</string>
+    <string name="title_hint_vpn">E-mail serveri ponekad blokiraju povezivanje kroz VPN. Ako se to dogodi, samo e-mail provajder može riješiti taj problem.</string>
     <string name="title_hint_dismiss">Možete odbaciti ovaj dijaloški okvir kako bi uklonili obavijest.</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevucite lijevo za otpad; Prevucite desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
@@ -2169,7 +2169,7 @@
     <string name="title_accessibility_view_help">Prikaži pomoć</string>
     <string name="title_accessibility_selected">Označeno</string>
     <string name="title_accessibility_answered">Odgovoeno</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Proslijeđeno</string>
+    <string name="title_accessibility_forwarded">Proslijeđeno</string>
     <string name="title_accessibility_scroll_down">Pomakni dolje</string>
     <string name="title_accessibility_scroll_up">Pomakni gore</string>
     <string name="title_accessibility_filter_out_seen">Uključeno/isključeno filtriranje pročitanih poruka</string>
@@ -2195,6 +2195,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Bez odlaganja</item>
+        <item>5 seconds</item>
         <item>15 sekundi</item>
         <item>30 sekundi</item>
         <item>1 minuta</item>

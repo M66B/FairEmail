@@ -429,6 +429,7 @@
     <string name="title_advanced_send_nav_color">להשתמש בצבע הזהות לסרגל הפעולות התחתון</string>
     <string name="title_advanced_send_reminders">הצגת תזכורות</string>
     <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
+    <string name="title_advanced_send_undo">הצגת אפשרות ביטול שליחה</string>
     <string name="title_advanced_send_top">הצגת כפתור שליחה בחלק העליון</string>
     <string name="title_advanced_attach_new">יצירת הודעת טיוטה לכתובות וקבצים משותפים</string>
     <string name="title_advanced_answer_caption">הגדרות כפתור מענה</string>
@@ -490,7 +491,7 @@
     <string name="title_advanced_vpn_only">התחברות רק דרך VPN</string>
     <string name="title_advanced_timeout">זמן קצוב לחיבור (בשניות)</string>
     <string name="title_advanced_prefer_ip4">להעדיף IPv4 על פני IPv6</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">להעדיף IPv6 על פני IPv4</string>
+    <string name="title_advanced_prefer_ip6">להעדיף IPv6 על פני IPv4</string>
     <string name="title_advanced_dns">כתובות שרתי DNS מועדפים (עם פסיקים בין לבין)</string>
     <string name="title_advanced_dns_custom">להשתמש בפותר DNS בהתאמה אישית</string>
     <string name="title_advanced_dns_clear">פינוי מטמון DNS כשיש שינוי בחיבור</string>
@@ -1377,6 +1378,7 @@
     <string name="title_too_large">ההודעה גדולה מכדי לעבור עיצוב מלא מחדש</string>
     <string name="title_truncated">ההודעה גדולה מכדי להופיע במלואה</string>
     <string name="title_insufficient_memory">ההודעה גדולה מדי לזיכרון הזמין (%1$d)</string>
+    <string name="title_screen_recording">המסך מוקלט!</string>
     <string name="title_show_full">הצגת ההודעה המלאה</string>
     <string name="title_fullscreen">הצגה במסך מלא</string>
     <string name="title_fit_width">התאמה לרוחב</string>
@@ -1450,6 +1452,7 @@
     <string name="title_save">שמירה</string>
     <string name="title_send">לשלוח</string>
     <string name="title_sending">מתבצעת שליחה&#8230;</string>
+    <string name="title_sending_to">שליחה אל %1$s</string>
     <string name="title_send_now">לשלוח כעת</string>
     <string name="title_send_via">לשלוח דרך</string>
     <string name="title_send_at">לשלוח ב־&#8230;</string>
@@ -1973,7 +1976,7 @@
     <string name="title_hint_notifications_remark">נדרשות הרשאות גם להתראות (חשבון). אפשר לכבות התראות על הודעות חדשות בהגדרות.</string>
     <string name="title_hint_battery_optimizations">מיטובי סוללה עדיין פעילים</string>
     <string name="title_hint_data_saver">אם מצב חיסכון בסוללה פעיל, היישומון לא יוכל להסתנכרן ברקע ועלולות לצוץ שגיאות בחיבור.</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">שרתי דוא״ל לפעמים חוסמים חיבורים דרך VPN. אם זה קורה, רק ספק הדוא״ל יכול לפתור את זה.</string>
+    <string name="title_hint_vpn">שרתי דוא״ל לפעמים חוסמים חיבורים דרך VPN. אם זה קורה, רק ספק הדוא״ל יכול לפתור את זה.</string>
     <string name="title_hint_dismiss">אפשר להתעלם מהחלונית הסרת כדי להסיר את ההתראה.</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
@@ -2184,7 +2187,7 @@
     <string name="title_accessibility_view_help">הצגת עזרה</string>
     <string name="title_accessibility_selected">נבחר</string>
     <string name="title_accessibility_answered">ענית</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">הועבר</string>
+    <string name="title_accessibility_forwarded">הועבר</string>
     <string name="title_accessibility_scroll_down">גלילה מטה</string>
     <string name="title_accessibility_scroll_up">גלילה מעלה</string>
     <string name="title_accessibility_filter_out_seen">החלפת מצב מסנן הודעות שנקראו</string>
@@ -2210,6 +2213,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>לא</item>
+        <item>5 שניות</item>
         <item>15 שניות</item>
         <item>חצי דקה</item>
         <item>דקה</item>

@@ -461,7 +461,7 @@
     <string name="title_advanced_vpn_only">Свързване само чрез VPN</string>
     <string name="title_advanced_timeout">Време на изчакване на връзката (секунди)</string>
     <string name="title_advanced_prefer_ip4">Предпочитане на IPv4 пред IPv6</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Предпочитане на IPv6 пред IPv4</string>
+    <string name="title_advanced_prefer_ip6">Предпочитане на IPv6 пред IPv4</string>
     <string name="title_advanced_dns">Предпочитани адреси на сървъри на DNS (разделени със запетая)</string>
     <string name="title_advanced_dns_custom">Употреба на потребителски DNS преобразувател</string>
     <string name="title_advanced_dns_clear">Изчистване на кеша на DNS при промени в свързаността</string>
@@ -1347,6 +1347,7 @@
     <string name="title_too_large">Съобщението е твърде голямо, за да се преформатира напълно</string>
     <string name="title_truncated">Съобщението е твърде голямо, за да се покаже напълно</string>
     <string name="title_insufficient_memory">Съобщението е преголямо за наличната памет (%1$d)</string>
+    <string name="title_screen_recording">Екранът се записва!</string>
     <string name="title_show_full">Покажи цялото съобщение</string>
     <string name="title_fullscreen">Покажи на цял екран</string>
     <string name="title_fit_width">Побиране в ширина</string>
@@ -1419,6 +1420,7 @@
     <string name="title_save">Запази</string>
     <string name="title_send">Изпращане</string>
     <string name="title_sending">Изпращане &#8230;</string>
+    <string name="title_sending_to">Изпращане до %1$s</string>
     <string name="title_send_now">Изпращане сега</string>
     <string name="title_send_via">Изпращане чрез</string>
     <string name="title_send_at">Изпрати като &#8230;</string>
@@ -1942,7 +1944,7 @@
     <string name="title_hint_notifications_remark">Позволенията за известия се изискват също за предупреждение (акаунта). Известията за нови съобщения може да се изключат в настройките.</string>
     <string name="title_hint_battery_optimizations">Оптимизирането на батерията все още е включено</string>
     <string name="title_hint_data_saver">Ако пестенето на данни е включено, то приложението няма да може да синхронизира на заден план и може да възникне грешка при свързване.</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Сървърите за имейл понякога блокират връзките през VPN. Ако това се случи, то само доставчика на имейл може да разреши това.</string>
+    <string name="title_hint_vpn">Сървърите за имейл понякога блокират връзките през VPN. Ако това се случи, то само доставчика на имейл може да разреши това.</string>
     <string name="title_hint_dismiss">Може да отхвърлите този диалогов прозорец, за да премахнете известието.</string>
     <string name="title_hint_support">Ако имате въпрос или проблем, то използвайте менюто поддръжка, за да получите помощ</string>
     <string name="title_hint_message_actions">Прелистване наляво за изхвърляне в кошчето; Прелистване надясно за архивирне (ако е налично); Действията по прелистване може да се конфигурират в настройките на акаунта</string>
@@ -2151,7 +2153,7 @@
     <string name="title_accessibility_view_help">Вижте помощ</string>
     <string name="title_accessibility_selected">Избрано</string>
     <string name="title_accessibility_answered">Отговорено</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Препратено</string>
+    <string name="title_accessibility_forwarded">Препратено</string>
     <string name="title_accessibility_scroll_down">Превъртане надолу</string>
     <string name="title_accessibility_scroll_up">Превърти нагоре</string>
     <string name="title_accessibility_filter_out_seen">Превключва филтър за четене на съобщения</string>
@@ -2177,6 +2179,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Без</item>
+        <item>5 секунди</item>
         <item>15 секунди</item>
         <item>30 секунди</item>
         <item>1 минута</item>

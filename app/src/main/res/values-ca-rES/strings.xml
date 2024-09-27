@@ -1400,6 +1400,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>No</item>
+        <item>5 seconds</item>
         <item>15 segons</item>
         <item>30 segons</item>
         <item>1 minut</item>

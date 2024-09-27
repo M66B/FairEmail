@@ -429,6 +429,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_send_nav_color">Použít barvu identity pro dolní panel akcí</string>
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
+    <string name="title_advanced_send_undo">Zobrazit možnost vrátit zpět odeslání</string>
     <string name="title_advanced_send_top">Zobrazit tlačítko pro odeslání nahoře</string>
     <string name="title_advanced_attach_new">Vytvořit nový koncept zprávy pro sdílené adresy a soubory</string>
     <string name="title_advanced_answer_caption">Nastavení tlačítka pro odpověď</string>
@@ -490,7 +491,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_vpn_only">Připojit pouze pomocí VPN</string>
     <string name="title_advanced_timeout">Časový limit připojení (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Upřednostňovat IPv4 před IPv6</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Upřednostňovat IPv6 před IPv4</string>
+    <string name="title_advanced_prefer_ip6">Upřednostňovat IPv6 před IPv4</string>
     <string name="title_advanced_dns">Adresy preferovaných DNS serverů (oddělených čárkami)</string>
     <string name="title_advanced_dns_custom">Použít vlastní DNS resolver</string>
     <string name="title_advanced_dns_clear">Vymazat mezipaměť DNS při změnách připojení</string>
@@ -1376,6 +1377,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_too_large">Zpráva je příliš velká pro úplné přeformátování</string>
     <string name="title_truncated">Zpráva je příliš velká pro úplné zobrazení</string>
     <string name="title_insufficient_memory">Zpráva je příliš velká na dostupnou paměť (%1$d)</string>
+    <string name="title_screen_recording">Obrazovka se nahrává!</string>
     <string name="title_show_full">Zobrazit celou zprávu</string>
     <string name="title_fullscreen">Zobrazit na celou obrazovku</string>
     <string name="title_fit_width">Přizpůsobit šířku</string>
@@ -1448,6 +1450,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_save">Uložit</string>
     <string name="title_send">Odeslat</string>
     <string name="title_sending">Odesílání &#8230;</string>
+    <string name="title_sending_to">Odesílání do %1$s</string>
     <string name="title_send_now">Odeslat nyní</string>
     <string name="title_send_via">Odeslat přes</string>
     <string name="title_send_at">Odeslat později &#8230;</string>
@@ -1971,7 +1974,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_hint_notifications_remark">Oprávnění k notifikacím jsou vyžadována také pro upozornění pro (účet). Upozornění pro nové zprávy mohou být vypnuta v nastavení.</string>
     <string name="title_hint_battery_optimizations">Optimalizace baterie je stále povolena</string>
     <string name="title_hint_data_saver">Pokud je spořič dat aktivní, aplikace nebude moci synchronizovat na pozadí a může dojít k chybám připojení.</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">E-mailové servery někdy blokují spojení prostřednictvím VPN. Pokud se tak stane, může to vyřešit pouze poskytovatel e-mailu.</string>
+    <string name="title_hint_vpn">E-mailové servery někdy blokují spojení prostřednictvím VPN. Pokud se tak stane, může to vyřešit pouze poskytovatel e-mailu.</string>
     <string name="title_hint_dismiss">Pro odstranění oznámení můžete toto dialogové okno odmítnout.</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (je-li k dispozici); Akce tažením lze změnit v nastavení účtu</string>
@@ -2181,7 +2184,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_accessibility_view_help">Zobrazit nápovědu</string>
     <string name="title_accessibility_selected">Označené</string>
     <string name="title_accessibility_answered">Odpovězeno</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Přeposláno</string>
+    <string name="title_accessibility_forwarded">Přeposláno</string>
     <string name="title_accessibility_scroll_down">Rolovat dolů</string>
     <string name="title_accessibility_scroll_up">Rolovat nahoru</string>
     <string name="title_accessibility_filter_out_seen">Přepnout filtr přečtených zpráv</string>
@@ -2207,6 +2210,7 @@ v prohlížeči ze všech Google účtů.</string>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nepozdržovat</item>
+        <item>5 vteřin</item>
         <item>15 vteřin</item>
         <item>30 vteřin</item>
         <item>1 minuta</item>

@@ -448,7 +448,7 @@
     <string name="title_advanced_vpn_only">僅透過 VPN 連線</string>
     <string name="title_advanced_timeout">連線時限 (秒)</string>
     <string name="title_advanced_prefer_ip4">偏好使用 IPv4 而非 IPv6</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">優先使用 IPv6 而非 IPv4</string>
+    <string name="title_advanced_prefer_ip6">優先使用 IPv6 而非 IPv4</string>
     <string name="title_advanced_dns">偏好的 DNS 伺服器位址（逗號分隔）</string>
     <string name="title_advanced_dns_custom">使用自訂 DNS 解析器</string>
     <string name="title_advanced_dns_clear">在連接變更時清除 DNS 快取</string>
@@ -1923,7 +1923,7 @@
     <string name="title_hint_notifications_remark">通知權限對（帳戶）警報也是必要的。可以在設定中關閉新訊息通知。</string>
     <string name="title_hint_battery_optimizations">電池最佳化功能仍啟用中</string>
     <string name="title_hint_data_saver">如果節省數據功能已啟用，應用程式將無法在背景同步，並且可能會出現連線錯誤。</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">電子郵件伺服器有時會封鎖通過 VPN 的連線。如果發生這種情況，只有電子郵件提供者能解決此問題。</string>
+    <string name="title_hint_vpn">電子郵件伺服器有時會封鎖通過 VPN 的連線。如果發生這種情況，只有電子郵件提供者能解決此問題。</string>
     <string name="title_hint_dismiss">您可以關閉此對話框以移除通知。</string>
     <string name="title_hint_support">如果您有什麼疑問或是遇到了什麼問題，請輕觸支援導航功能表項以獲取幫助</string>
     <string name="title_hint_message_actions">向左滑動移入垃圾桶； 向右滑動封存 (如果可用)； 可在帳戶設定中配置滑動動作</string>
@@ -2129,7 +2129,7 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
     <string name="title_accessibility_view_help">檢視幫助</string>
     <string name="title_accessibility_selected">已選</string>
     <string name="title_accessibility_answered">已回覆</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">已轉寄</string>
+    <string name="title_accessibility_forwarded">已轉寄</string>
     <string name="title_accessibility_scroll_down">向下滾動</string>
     <string name="title_accessibility_scroll_up">向上滾動</string>
     <string name="title_accessibility_filter_out_seen">已讀訊息篩選開關</string>
@@ -2155,6 +2155,7 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
     </string-array>
     <string-array name="sendDelayedNames">
         <item>否</item>
+        <item>5 seconds</item>
         <item>15 秒</item>
         <item>30 秒</item>
         <item>1 分鐘</item>

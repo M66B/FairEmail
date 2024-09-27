@@ -475,7 +475,7 @@
     <string name="title_advanced_vpn_only">Conectați-vă numai prin intermediul unui VPN</string>
     <string name="title_advanced_timeout">Expirarea conexiunii (secunde)</string>
     <string name="title_advanced_prefer_ip4">Preferă IPv4 înaintea IPv6</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Preferă IPv6 înaintea IPv4</string>
+    <string name="title_advanced_prefer_ip6">Preferă IPv6 înaintea IPv4</string>
     <string name="title_advanced_dns">Adrese server DNS preferate (separate prin virgulă)</string>
     <string name="title_advanced_dns_custom">Folosiți un server DNS personalizat</string>
     <string name="title_advanced_dns_clear">Șterge cache-ul DNS la modificările de conectivitate</string>
@@ -1956,7 +1956,7 @@
     <string name="title_hint_notifications_remark">Permisiunile de notificare sunt necesare și pentru alerte (cont). Notificările pentru mesaje noi pot fi dezactivate în setări.</string>
     <string name="title_hint_battery_optimizations">Optimizările bateriei sunt încă activate</string>
     <string name="title_hint_data_saver">Dacă economizorul de date este activat, aplicația nu va putea sincroniza în fundal și pot apărea erori de conexiune.</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Uneori, serverele de e-mail blochează conexiunile prin intermediul unui VPN. Dacă se întâmplă acest lucru, numai furnizorul de e-mail poate rezolva acest lucru.</string>
+    <string name="title_hint_vpn">Uneori, serverele de e-mail blochează conexiunile prin intermediul unui VPN. Dacă se întâmplă acest lucru, numai furnizorul de e-mail poate rezolva acest lucru.</string>
     <string name="title_hint_dismiss">Puteți respinge această casetă de dialog pentru a elimina notificarea.</string>
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
     <string name="title_hint_message_actions">Glisați stânga pentru Gunoi sau dreapta pentru Arhivă (dacă este disponibilă). Acțiunile de glisare se pot configura în setările contului</string>
@@ -2165,7 +2165,7 @@
     <string name="title_accessibility_view_help">Vizualizare ajutor</string>
     <string name="title_accessibility_selected">Selectat</string>
     <string name="title_accessibility_answered">Răspuns</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Redirecționat</string>
+    <string name="title_accessibility_forwarded">Redirecționat</string>
     <string name="title_accessibility_scroll_down">Derulează în jos</string>
     <string name="title_accessibility_scroll_up">Derulează în sus</string>
     <string name="title_accessibility_filter_out_seen">Comută filtrarea mesajelor citite</string>
@@ -2191,6 +2191,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Fără</item>
+        <item>5 seconds</item>
         <item>15 secunde</item>
         <item>30 de secunde</item>
         <item>1 minut</item>

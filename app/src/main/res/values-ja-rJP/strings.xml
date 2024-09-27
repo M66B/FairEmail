@@ -387,6 +387,7 @@
     <string name="title_advanced_send_nav_color">下部のボタンアクションバーをユーザー ID の色にする</string>
     <string name="title_advanced_send_reminders">リマインダーを表示する</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させる</string>
+    <string name="title_advanced_send_undo">送信取り消しオプションを表示する</string>
     <string name="title_advanced_send_top">送信ボタンを上部に表示する</string>
     <string name="title_advanced_attach_new">URI やファイルをアプリに共有したとき、新しい下書きを作成する</string>
     <string name="title_advanced_answer_caption">返信ボタン設定</string>
@@ -448,7 +449,7 @@
     <string name="title_advanced_vpn_only">VPN 経由でのみ接続する</string>
     <string name="title_advanced_timeout">接続タイムアウト (秒)</string>
     <string name="title_advanced_prefer_ip4">IPv6 より IPv4 を優先する</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">IPv4 より IPv6 を優先する</string>
+    <string name="title_advanced_prefer_ip6">IPv4 より IPv6 を優先する</string>
     <string name="title_advanced_dns">優先 DNS サーバーアドレス (カンマ区切り)</string>
     <string name="title_advanced_dns_custom">カスタム DNS リゾルバーを使用する</string>
     <string name="title_advanced_dns_clear">接続が変更された場合、DNS キャッシュをクリアする</string>
@@ -1335,6 +1336,7 @@
     <string name="title_too_large">メッセージのサイズがが大きすぎるため再フォーマットを完了できませんでした</string>
     <string name="title_truncated">メッセージが大きすぎて完全には表示できません</string>
     <string name="title_insufficient_memory">使用可能なメモリーに対してメッセージが大きすぎます (%1$d)</string>
+    <string name="title_screen_recording">画面が録画されています！</string>
     <string name="title_show_full">メッセージ全体を表示</string>
     <string name="title_fullscreen">全画面表示</string>
     <string name="title_fit_width">幅に合わせる</string>
@@ -1408,6 +1410,7 @@
     <string name="title_save">保存</string>
     <string name="title_send">送信</string>
     <string name="title_sending">送信しています&#8230;</string>
+    <string name="title_sending_to">%1$s に送信中</string>
     <string name="title_send_now">今すぐ送信</string>
     <string name="title_send_via">送信に使用するアドレス</string>
     <string name="title_send_at">日時を指定して送信&#8230;</string>
@@ -1931,7 +1934,7 @@
     <string name="title_hint_notifications_remark">(アカウントの) アラートにも通知の権限が必要です。新着メッセージの通知は設定でオフにもできます。</string>
     <string name="title_hint_battery_optimizations">まだ電池最適化が有効です</string>
     <string name="title_hint_data_saver">データセーバーが有効になっている場合、アプリはバックグラウンドで同期できなくなり、接続エラーが発生する可能性があります。</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">メールサーバーは VPN 経由の接続をブロックすることがあります。この問題はメールプロバイダーのみ解決できます。</string>
+    <string name="title_hint_vpn">メールサーバーは VPN 経由の接続をブロックすることがあります。この問題はメールプロバイダーのみ解決できます。</string>
     <string name="title_hint_dismiss">このダイアログボックスを閉じて通知を削除できます。</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてごみ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>
@@ -2139,7 +2142,7 @@
     <string name="title_accessibility_view_help">ヘルプを表示</string>
     <string name="title_accessibility_selected">選択済み</string>
     <string name="title_accessibility_answered">返信済み</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">転送されました</string>
+    <string name="title_accessibility_forwarded">転送されました</string>
     <string name="title_accessibility_scroll_down">下にスクロール</string>
     <string name="title_accessibility_scroll_up">上にスクロール</string>
     <string name="title_accessibility_filter_out_seen">既読メッセージフィルターを切り替える</string>
@@ -2165,6 +2168,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>いいえ</item>
+        <item>5 秒</item>
         <item>15 秒</item>
         <item>30 秒</item>
         <item>1 分</item>

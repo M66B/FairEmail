@@ -1774,6 +1774,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Không</item>
+        <item>5 seconds</item>
         <item>15 giây</item>
         <item>30 giây</item>
         <item>1 phút</item>

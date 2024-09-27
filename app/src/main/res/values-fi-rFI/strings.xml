@@ -2162,6 +2162,7 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ei</item>
+        <item>5 seconds</item>
         <item>15 sekuntia</item>
         <item>30 sekuntia</item>
         <item>1 minuutti</item>

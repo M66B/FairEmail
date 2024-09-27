@@ -82,6 +82,7 @@
     <string name="title_accessibility_folders">Папкалар</string>
     <string-array name="sendDelayedNames">
         <item>Юк</item>
+        <item>5 seconds</item>
         <item>15 seconds</item>
         <item>30 seconds</item>
         <item>1 minute</item>

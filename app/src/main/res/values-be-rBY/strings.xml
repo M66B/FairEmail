@@ -2209,12 +2209,13 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Не</item>
+        <item>5 seconds</item>
         <item>15 секунд</item>
         <item>30 секунд</item>
         <item>1 хвіліна</item>
         <item>2 хвіліны</item>
         <item>5 хвілін</item>
-        <item>10 хвілін</item>
+        <item>10 minutes</item>
     </string-array>
     <string-array name="startupNames">
         <item>Агульная паштовая скрыня</item>

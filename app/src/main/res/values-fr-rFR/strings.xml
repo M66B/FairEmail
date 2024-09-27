@@ -401,6 +401,7 @@
     <string name="title_advanced_send_nav_color">Utiliser la couleur d\'identité pour la barre d\'action du bas</string>
     <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
+    <string name="title_advanced_send_undo">Afficher l\'option d\'annulation d\'envoi</string>
     <string name="title_advanced_send_top">Afficher le bouton Envoyer en haut</string>
     <string name="title_advanced_attach_new">Créer un nouveau brouillon pour les adresses et les fichiers partagés</string>
     <string name="title_advanced_answer_caption">Paramètres du bouton de réponse</string>
@@ -462,7 +463,7 @@
     <string name="title_advanced_vpn_only">Se connecter uniquement via un VPN</string>
     <string name="title_advanced_timeout">Délai d’expiration de la connexion (secondes)</string>
     <string name="title_advanced_prefer_ip4">Préférer IPv4 à IPv6</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Préférer IPv6 à IPv4</string>
+    <string name="title_advanced_prefer_ip6">Préférer IPv6 à IPv4</string>
     <string name="title_advanced_dns">Adresses de serveurs DNS favoris (séparées par des virgules)</string>
     <string name="title_advanced_dns_custom">Utiliser un résolveur DNS personnalisé</string>
     <string name="title_advanced_dns_clear">Vider le cache DNS lors d\'un changement de connectivité</string>
@@ -1350,6 +1351,7 @@
     <string name="title_too_large">Message trop volumineux pour être complètement reformaté</string>
     <string name="title_truncated">Message trop volumineux pour être affiché complètement</string>
     <string name="title_insufficient_memory">Message trop volumineux pour la mémoire disponible (%1$d)</string>
+    <string name="title_screen_recording">L\'affichage est en cours d\'enregistrement !</string>
     <string name="title_show_full">Afficher le message complet</string>
     <string name="title_fullscreen">Afficher en plein écran</string>
     <string name="title_fit_width">Ajuster à la largeur</string>
@@ -1423,6 +1425,7 @@
     <string name="title_save">Enregistrer</string>
     <string name="title_send">Envoyer</string>
     <string name="title_sending">Envoi en cours&#8230;</string>
+    <string name="title_sending_to">Envoi à %1$s</string>
     <string name="title_send_now">Env. maint.</string>
     <string name="title_send_via">Envoyer via</string>
     <string name="title_send_at">Envoyer plus tard&#8230;</string>
@@ -1946,7 +1949,7 @@
     <string name="title_hint_notifications_remark">Les autorisations de notification sont également obligatoires pour les alertes (comptes). Les notifications de nouveaux messages peuvent être désactivées dans les paramètres.</string>
     <string name="title_hint_battery_optimizations">Les optimisations de la batterie sont toujours activées</string>
     <string name="title_hint_data_saver">Si l\'économiseur de données est activé, l\'application ne sera pas en mesure de synchroniser en arrière-plan et des erreurs de connexion pourraient se produire.</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Les serveurs de messagerie bloquent parfois les connexions via un VPN. Si cela se produit, seul le fournisseur de messagerie peut résoudre ce problème.</string>
+    <string name="title_hint_vpn">Les serveurs de messagerie bloquent parfois les connexions via un VPN. Si cela se produit, seul le fournisseur de messagerie peut résoudre ce problème.</string>
     <string name="title_hint_dismiss">Vous pouvez fermer cette boîte de dialogue pour supprimer la notification.</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu « Assistance » pour obtenir de l’aide</string>
     <string name="title_hint_message_actions">Balayez vers la gauche pour mettre à la corbeille ; balayez vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
@@ -2155,7 +2158,7 @@
     <string name="title_accessibility_view_help">Afficher l’aide</string>
     <string name="title_accessibility_selected">Sélectionné</string>
     <string name="title_accessibility_answered">Répondu</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Transféré</string>
+    <string name="title_accessibility_forwarded">Transféré</string>
     <string name="title_accessibility_scroll_down">Défiler vers le bas</string>
     <string name="title_accessibility_scroll_up">Défiler vers le haut</string>
     <string name="title_accessibility_filter_out_seen">Activer/désactiver le filtre de messages lus</string>
@@ -2181,6 +2184,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Non</item>
+        <item>5 secondes</item>
         <item>15 secondes</item>
         <item>30 secondes</item>
         <item>1 minute</item>

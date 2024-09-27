@@ -167,7 +167,7 @@
     <string name="title_legend_r">Reply</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronised by default</string>
     <string name="title_hint_battery_optimizations">Battery optimisations still enabled</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Email servers sometimes block connections through a VPN. If this happens, only the email provider can resolve this.</string>
+    <string name="title_hint_vpn">Email servers sometimes block connections through a VPN. If this happens, only the email provider can resolve this.</string>
     <string name="title_hint_message_actions">Swipe left to delete; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
     <string name="title_hint_design">The design is intentionally not distracting, but kept highly functional. There are many options to customise the appearance, but please understand that it is impossible to make everybody completely happy at the same time.</string>
     <string name="title_enable">Enable</string>

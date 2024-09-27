@@ -489,7 +489,7 @@
     <string name="title_advanced_vpn_only">Połącz tylko przez VPN</string>
     <string name="title_advanced_timeout">Limit czasu połączenia (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Preferuj IPv4 nad IPv6</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Preferuj IPv6 nad IPv4</string>
+    <string name="title_advanced_prefer_ip6">Preferuj IPv6 nad IPv4</string>
     <string name="title_advanced_dns">Preferowane adresy serwera DNS (oddzielone przecinkami)</string>
     <string name="title_advanced_dns_custom">Użyj własnego mechanizmu rozwiązywania DNS</string>
     <string name="title_advanced_dns_clear">Wyczyść pamięć podręczną DNS przy zmianach połączenia</string>
@@ -1971,7 +1971,7 @@
     <string name="title_hint_notifications_remark">Uprawnienia powiadomień są również wymagane dla ostrzeżeń dotyczących konta. Powiadomienia dla nowych wiadomości mogą być wyłączone w ustawieniach.</string>
     <string name="title_hint_battery_optimizations">Optymalizacja baterii jest nadal włączona</string>
     <string name="title_hint_data_saver">Jeśli oszczędzanie danych jest włączone, aplikacja nie będzie w stanie wykonywać synchronizacji w tle i mogą wystąpić błędy z połączeniem.</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Serwery poczty e-mail czasami blokują połączenia przez VPN. W takim przypadku tylko dostawca poczty e-mail może rozwiązać ten problem.</string>
+    <string name="title_hint_vpn">Serwery poczty e-mail czasami blokują połączenia przez VPN. W takim przypadku tylko dostawca poczty e-mail może rozwiązać ten problem.</string>
     <string name="title_hint_dismiss">Możesz odrzucić to okno dialogowe, aby usunąć to powiadomienie.</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
@@ -2180,7 +2180,7 @@
     <string name="title_accessibility_view_help">Zobacz pomoc</string>
     <string name="title_accessibility_selected">Wybrane</string>
     <string name="title_accessibility_answered">Odpowiedziane</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Przekazana dalej</string>
+    <string name="title_accessibility_forwarded">Przekazana dalej</string>
     <string name="title_accessibility_scroll_down">Przewiń w dół</string>
     <string name="title_accessibility_scroll_up">Przewiń w górę</string>
     <string name="title_accessibility_filter_out_seen">Przełącz filtr przeczytanych wiadomości</string>
@@ -2206,6 +2206,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Brak</item>
+        <item>5 seconds</item>
         <item>15 sekund</item>
         <item>30 sekund</item>
         <item>1 minuta</item>

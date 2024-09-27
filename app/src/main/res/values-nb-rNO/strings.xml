@@ -1371,6 +1371,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nei</item>
+        <item>5 seconds</item>
         <item>15 sekunder</item>
         <item>30 sekunder</item>
         <item>1 minutt</item>

@@ -1533,6 +1533,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ez</item>
+        <item>5 seconds</item>
         <item>15 segundo</item>
         <item>30 segundo</item>
         <item>minutu 1</item>

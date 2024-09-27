@@ -401,6 +401,7 @@
     <string name="title_advanced_send_nav_color">Usare il colore dell\'identità per la barra delle azioni inferiore</string>
     <string name="title_advanced_send_reminders">Mostrare i promemoria</string>
     <string name="title_advanced_send_delayed">Ritardare l\'invio dei messaggi</string>
+    <string name="title_advanced_send_undo">Mostra l\'opzione di annullamento invio</string>
     <string name="title_advanced_send_top">Mostrare in cima il pulsante Invia</string>
     <string name="title_advanced_attach_new">Creare un nuovo messaggio di bozza per indirizzi e file condivisi</string>
     <string name="title_advanced_answer_caption">Impostazioni del pulsante di risposta</string>
@@ -462,7 +463,7 @@
     <string name="title_advanced_vpn_only">Collegarsi solo tramite una VPN</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
     <string name="title_advanced_prefer_ip4">Preferire IPv4 su IPv6</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Preferire IPv6 su IPv4</string>
+    <string name="title_advanced_prefer_ip6">Preferire IPv6 su IPv4</string>
     <string name="title_advanced_dns">Indirizzi dei DNS server preferiti (separati da virgola)</string>
     <string name="title_advanced_dns_custom">Usare un resolver DNS personalizzato</string>
     <string name="title_advanced_dns_clear">Svuotare la cache DNS in caso di modifiche alla connettività</string>
@@ -1350,6 +1351,7 @@
     <string name="title_too_large">Messaggio troppo grande per una riformattazione completa</string>
     <string name="title_truncated">Messaggio troppo grande da mostrare completamente</string>
     <string name="title_insufficient_memory">Messaggio troppo grande per la memoria disponibile (%1$d)</string>
+    <string name="title_screen_recording">Lo schermo è in corso di registrazione!</string>
     <string name="title_show_full">Mostra messaggio completo</string>
     <string name="title_fullscreen">Mostra a schermo intero</string>
     <string name="title_fit_width">Adatta la larghezza</string>
@@ -1423,6 +1425,7 @@
     <string name="title_save">Salva</string>
     <string name="title_send">Invia</string>
     <string name="title_sending">Invio in corso&#8230;</string>
+    <string name="title_sending_to">Invio a %1$s</string>
     <string name="title_send_now">Invia ora</string>
     <string name="title_send_via">Invia tramite</string>
     <string name="title_send_at">Invia alle&#8230;</string>
@@ -1946,7 +1949,7 @@
     <string name="title_hint_notifications_remark">Le autorizzazioni di notifica sono necessarie anche per gli avvisi (dell\'account). Le notifiche per i nuovi messaggi possono essere disattivate nelle impostazioni.</string>
     <string name="title_hint_battery_optimizations">Le ottimizzazioni della batteria sono ancora abilitate</string>
     <string name="title_hint_data_saver">Se il risparmio dei dati è abilitato, l\'app non potrà sincronizzarsi in background e potrebbero verificarsi degli errori di connessione.</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">I server di posta elettronica a volte bloccano le connessioni attraverso una VPN. Se ciò accade, solo il provider di posta elettronica può risolvere il problema.</string>
+    <string name="title_hint_vpn">I server di posta elettronica a volte bloccano le connessioni attraverso una VPN. Se ciò accade, solo il provider di posta elettronica può risolvere il problema.</string>
     <string name="title_hint_dismiss">È possibile ignorare questa finestra per rimuovere l\'avviso.</string>
     <string name="title_hint_support">In caso di domande o problemi, usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorrere a sinistra per cestinare. Scorrere a destra per archiviare (se disponibile). Le azioni di scorrimento sono configurabili nelle impostazioni dell\'account</string>
@@ -2155,7 +2158,7 @@
     <string name="title_accessibility_view_help">Visualizza aiuto</string>
     <string name="title_accessibility_selected">Selezionato</string>
     <string name="title_accessibility_answered">Risposto</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Inoltrato</string>
+    <string name="title_accessibility_forwarded">Inoltrato</string>
     <string name="title_accessibility_scroll_down">Scorri in giù</string>
     <string name="title_accessibility_scroll_up">Scorri in su</string>
     <string name="title_accessibility_filter_out_seen">Attiva/disattiva filtro messaggi letti</string>
@@ -2181,6 +2184,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nessuno</item>
+        <item>5 secondi</item>
         <item>15 secondi</item>
         <item>30 secondi</item>
         <item>1 minuto</item>

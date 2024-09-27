@@ -462,7 +462,7 @@
     <string name="title_advanced_vpn_only">Tilslut kun vha. VPN</string>
     <string name="title_advanced_timeout">Forbindelses-timeout (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Foretræk IPv4 frem for IPv6</string>
-    <string name="title_advanced_prefer_ip6" comment="title_advanced_prefer_ip6&#10;Title for an option in the connection settings tab page. There is a similar option to prefer IPv4 over IPv6. Please translate this option in a similar way.">Foretræk IPv6 frem for IPv4</string>
+    <string name="title_advanced_prefer_ip6">Foretræk IPv6 frem for IPv4</string>
     <string name="title_advanced_dns">Foretrukne DNS-serveradresser (kommasepareret)</string>
     <string name="title_advanced_dns_custom">Brug tilpasset DNS-opløser</string>
     <string name="title_advanced_dns_clear">Ryd DNS-cache ved konnektivitetsændringer</string>
@@ -1350,6 +1350,7 @@
     <string name="title_too_large">Besked for stor til fuldstændig omformatering</string>
     <string name="title_truncated">Besked for stor til fuldstændig visning</string>
     <string name="title_insufficient_memory">Besked for stor ift. tilgængelige hukommelse (%1$d)</string>
+    <string name="title_screen_recording">Skærmen bliver optaget!</string>
     <string name="title_show_full">Vis fuld besked</string>
     <string name="title_fullscreen">Vis fuldskærm</string>
     <string name="title_fit_width">Tilpas bredde</string>
@@ -1423,6 +1424,7 @@
     <string name="title_save">Gem</string>
     <string name="title_send">Send</string>
     <string name="title_sending">Afsendelse &#8230;</string>
+    <string name="title_sending_to">Sender til %1$s</string>
     <string name="title_send_now">Send nu</string>
     <string name="title_send_via">Send via</string>
     <string name="title_send_at">Sendt kl. &#8230;</string>
@@ -1946,7 +1948,7 @@
     <string name="title_hint_notifications_remark">Notifikationstilladelser kræves også for (konto-)advarsler. Notifikationer til nye beskeder kan slås fra i indstillingerne.</string>
     <string name="title_hint_battery_optimizations">Batterioptimering er stadig slået til</string>
     <string name="title_hint_data_saver">Er datasparefunktionen aktiveret, vil appen ikke kunne synke i baggrunden og forbindelsesfejl kan forekomme.</string>
-    <string name="title_hint_vpn" comment="title_hint_vpn&#10;Notice about possible problems when using a VPN">Visse e-mailservere blokerer forbindelser via VPN. I så tilfælde kan kun e-mailudbyderen kan løse dette.</string>
+    <string name="title_hint_vpn">Visse e-mailservere blokerer forbindelser via VPN. I så tilfælde kan kun e-mailudbyderen kan løse dette.</string>
     <string name="title_hint_dismiss">Denne dialog kan afvises for at fjerne beskeden.</string>
     <string name="title_hint_support">Har du et spørgsmål eller problem, så benyt venligst supportmenuen for at få hjælp</string>
     <string name="title_hint_message_actions">Stryg til venstre for Papirkurv; Stryg til højre for at arkivere (hvis tilgængeligt); Strygehandlingerne kan opsættes i kontoindstillingerne</string>
@@ -2155,7 +2157,7 @@
     <string name="title_accessibility_view_help">Vis Hjælp</string>
     <string name="title_accessibility_selected">Valgt(e)</string>
     <string name="title_accessibility_answered">Besvaret</string>
-    <string name="title_accessibility_forwarded" comment="title_accessibility_forwarded&#10;Text to be read by accessibility tools to say that a message was forwarded">Videresendt</string>
+    <string name="title_accessibility_forwarded">Videresendt</string>
     <string name="title_accessibility_scroll_down">Rul ned</string>
     <string name="title_accessibility_scroll_up">Rul op</string>
     <string name="title_accessibility_filter_out_seen">Omskift læste beskeder-filter</string>
@@ -2181,6 +2183,7 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nej</item>
+        <item>5 seconds</item>
         <item>15 sekunder</item>
         <item>30 sekunder</item>
         <item>1 minut</item>
