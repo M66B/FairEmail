@@ -123,6 +123,7 @@ public class FragmentOAuth extends FragmentBase {
     private CheckBox cbPop;
     private CheckBox cbRecent;
     private CheckBox cbUpdate;
+    private TextView tvEdge;
     private TextView tvBrave;
     private Button btnOAuth;
     private ContentLoadingProgressBar pbOAuth;
@@ -185,6 +186,7 @@ public class FragmentOAuth extends FragmentBase {
         cbPop = view.findViewById(R.id.cbPop);
         cbRecent = view.findViewById(R.id.cbRecent);
         cbUpdate = view.findViewById(R.id.cbUpdate);
+        tvEdge = view.findViewById(R.id.tvEdge);
         tvBrave = view.findViewById(R.id.tvBrave);
         btnOAuth = view.findViewById(R.id.btnOAuth);
         pbOAuth = view.findViewById(R.id.pbOAuth);
@@ -259,6 +261,7 @@ public class FragmentOAuth extends FragmentBase {
         }
 
 
+        boolean edge = false;
         boolean brave = false;
         try {
             PackageManager pm = getContext().getPackageManager();
@@ -268,16 +271,17 @@ public class FragmentOAuth extends FragmentBase {
             int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
             List<ResolveInfo> browsers = pm.queryIntentActivities(intent, flags);
             for (ResolveInfo browser : browsers)
-                if (browser.activityInfo.packageName.startsWith("com.brave.browser")) {
-                    // _beta _nightly
+                if (TextUtils.isEmpty(browser.activityInfo.packageName))
+                    continue;
+                else if (browser.activityInfo.packageName.startsWith("com.brave.browser")) // _beta _nightly
                     brave = true;
-                    break;
-                }
+                else if (browser.activityInfo.packageName.startsWith("com.microsoft.emmx")) // .beta .canary .dev
+                    edge = true;
         } catch (Throwable ex) {
             Log.e(ex);
-            brave = true;
         }
 
+        tvEdge.setVisibility(edge ? View.VISIBLE : View.GONE);
         tvBrave.setVisibility(brave ? View.VISIBLE : View.GONE);
 
         btnOAuth.setOnClickListener(new View.OnClickListener() {
@@ -511,6 +515,11 @@ public class FragmentOAuth extends FragmentBase {
 
             @Override
             public boolean matches(@NonNull BrowserDescriptor descriptor) {
+                if (BuildConfig.DEBUG) {
+                    boolean edge = "com.microsoft.emmx".equals(descriptor.packageName);
+                    Log.i("MMM " + descriptor.packageName + "=" + edge);
+                    return edge;
+                }
                 boolean accept = !(SBROWSER.matches(descriptor) || SBROWSER_TAB.matches(descriptor));
 
                 if (descriptor.useCustomTab && !tabs)
