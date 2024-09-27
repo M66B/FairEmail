@@ -5186,9 +5186,11 @@ DeepL offers free translation of 500,000 characters (~100,000 words; ~250 pages)
 1. Make sure you have the latest version of the app installed
 1. Check if [DeepL](https://www.deepl.com/) supports your language
 1. Enable DeepL support in the integration settings
-1. [Sign up](https://www.deepl.com/en/signup) to use **DeepL API Free** (credit card required for verification; won't be charged)
-1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
+1. [Sign up](https://www.deepl.com/en/signup) to use [DeepL API Free](https://www.deepl.com/en/pro-api) "*Get started for free*" (credit card required for verification; won't be charged)
+1. [Copy](https://www.deepl.com/en/your-account/keys) the authentication key
 1. In the message composer tap on the translate button (文A) in the top action bar, select *Configure* and paste the key
+
+Note that DeepL seems to be hiding the DeepL API Free plan. It is still there, though!
 
 This feature requires an internet connection.
 

@@ -8,19 +8,10 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="shortcut icon" href="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/ic_launcher-web.png">
   <meta name="theme-color" content="#006db3">
@@ -2629,10 +2620,11 @@ https://favicon.yandex.net/favicon/{domain}</code></pre>
 <li>Make sure you have the latest version of the app installed</li>
 <li>Check if <a href="https://www.deepl.com/">DeepL</a> supports your language</li>
 <li>Enable DeepL support in the integration settings</li>
-<li><a href="https://www.deepl.com/en/signup">Sign up</a> to use <strong>DeepL API Free</strong> (credit card required for verification; won’t be charged)</li>
-<li><a href="https://www.deepl.com/pro-account/plan">Copy</a> the authentication key</li>
+<li><a href="https://www.deepl.com/en/signup">Sign up</a> to use <a href="https://www.deepl.com/en/pro-api">DeepL API Free</a> “<em>Get started for free</em>” (credit card required for verification; won’t be charged)</li>
+<li><a href="https://www.deepl.com/en/your-account/keys">Copy</a> the authentication key</li>
 <li>In the message composer tap on the translate button (文A) in the top action bar, select <em>Configure</em> and paste the key</li>
 </ol>
+<p>Note that DeepL seems to be hiding the DeepL API Free plan. It is still there, though!</p>
 <p>This feature requires an internet connection.</p>
 <p>Note that you can’t use <a href="https://www.deepl.com/pro">the regular pro plans</a>. The error <em>403 forbidden</em> means that the key and/or plan in invalid.</p>
 <p>Note that when reading a message, you can use the horizontal three-dots menu to translate too. If you use this frequently, you can configure a button for this.</p>
