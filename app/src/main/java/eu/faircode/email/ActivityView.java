@@ -72,6 +72,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -184,6 +185,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_RULES = BuildConfig.APPLICATION_ID + ".EDIT_RULES";
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
     static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
+    static final String ACTION_SENT_MESSAGE = BuildConfig.APPLICATION_ID + ".SENT_MESSAGE";
 
     private static final int UPDATE_TIMEOUT = 15 * 1000; // milliseconds
     private static final long EXIT_DELAY = 2500L; // milliseconds
@@ -219,6 +221,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_NEW_MESSAGE);
+        iff.addAction((ACTION_SENT_MESSAGE));
         lbm.registerReceiver(creceiver, iff);
 
         if (savedInstanceState != null) {
@@ -1522,14 +1525,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             undo(undo_timeout, title, args, move, show);
     }
 
-    private void undo(long undo_timeout, String title, final Bundle args, final SimpleTask move, final SimpleTask show) {
+    private Snackbar undo(long undo_timeout, String title, final Bundle args, final SimpleTask move, final SimpleTask show) {
         if (drawerLayout == null || drawerLayout.getChildCount() == 0) {
             Log.e("Undo: drawer missing");
             if (show != null) {
                 show.execute(this, args, "undo:show");
-                move.cancel(this);
+                if (move != null)
+                    move.cancel(this);
             }
-            return;
+            return null;
         }
 
         final View content = drawerLayout.getChildAt(0);
@@ -1547,7 +1551,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 snackbar.dismiss();
                 if (move != null) {
                     move.execute(ActivityView.this, args, "undo:move");
-                    show.cancel(ActivityView.this);
+                    if (show != null)
+                        show.cancel(ActivityView.this);
                 }
             }
         };
@@ -1560,7 +1565,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 snackbar.dismiss();
                 if (show != null) {
                     show.execute(ActivityView.this, args, "undo:show");
-                    move.cancel(ActivityView.this);
+                    if (move != null)
+                        move.cancel(ActivityView.this);
                 }
             }
         });
@@ -1584,6 +1590,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         snackbar.show();
 
         content.postDelayed(timeout, undo_timeout);
+
+        return snackbar;
     }
 
     private void checkFirst() {
@@ -2489,6 +2497,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             String action = intent.getAction();
             if (ACTION_NEW_MESSAGE.equals(action))
                 onNewMessage(intent);
+            else if (ACTION_SENT_MESSAGE.equals(action))
+                onSentMessage(intent);
         }
     };
 
@@ -2522,6 +2532,91 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             if (!updatedFolders.contains(punified))
                 updatedFolders.add(punified);
         }
+    }
+
+    private void onSentMessage(Intent intent) {
+        long id = intent.getLongExtra("id", -1L);
+        long at = intent.getLongExtra("at", -1L);
+        String to = intent.getStringExtra("to");
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        int send_delayed = prefs.getInt("send_delayed", 0) * 1000;
+        if (send_delayed == 0)
+            return;
+
+        long timeout = at - new Date().getTime();
+        if (timeout < 10 * 1000L)
+            return;
+        if (timeout > send_delayed)
+            timeout = send_delayed;
+
+        DB db = DB.getInstance(this);
+        LiveData<TupleMessageEx> ld = db.message().liveMessage(id);
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        final SimpleTask<Long> undo = new SimpleTask<Long>() {
+            @Override
+            protected void onPostExecute(Bundle args) {
+                ld.removeObservers(ActivityView.this);
+            }
+
+            @Override
+            protected Long onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                return ActivityCompose.undoSend(id, context);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Long id) {
+                if (id == null)
+                    return;
+
+                startActivity(
+                        new Intent(ActivityView.this, ActivityCompose.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                .putExtra("action", "edit")
+                                .putExtra("id", id));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getSupportFragmentManager(), ex);
+            }
+        };
+
+        final SimpleTask<Void> done = new SimpleTask<Void>() {
+            @Override
+            protected void onPostExecute(Bundle args) {
+                ld.removeObservers(ActivityView.this);
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getSupportFragmentManager(), ex);
+            }
+        };
+
+        final Snackbar snackbar = undo(timeout, getString(R.string.title_sending_to, to), args, done, undo);
+        if (snackbar == null)
+            return;
+
+        ld.observe(this, new Observer<TupleMessageEx>() {
+            @Override
+            public void onChanged(TupleMessageEx value) {
+                if (value != null)
+                    return;
+                if (snackbar.isShown())
+                    snackbar.dismiss();
+                ld.removeObserver(this);
+            }
+        });
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {

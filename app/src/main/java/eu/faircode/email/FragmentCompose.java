@@ -128,6 +128,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7540,6 +7541,15 @@ public class FragmentCompose extends FragmentBase {
                         EntityMessage tbd = db.message().getMessage(did);
                         if (tbd != null)
                             EntityOperation.queue(context, tbd, EntityOperation.DELETE);
+
+                        if (draft.ui_snoozed != null) {
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                            Intent sent = new Intent(ActivityView.ACTION_SENT_MESSAGE);
+                            sent.putExtra("id", draft.id);
+                            sent.putExtra("at", draft.ui_snoozed);
+                            sent.putExtra("to", MessageHelper.formatAddressesShort(draft.to));
+                            lbm.sendBroadcast(sent);
+                        }
 
                         final String feedback;
                         if (draft.ui_snoozed == null) {
