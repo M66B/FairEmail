@@ -2547,7 +2547,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             return;
 
         long timeout = at - new Date().getTime();
-        if (timeout < 10 * 1000L)
+        if (timeout < 1000L)
             return;
         if (timeout > send_delayed)
             timeout = send_delayed;
