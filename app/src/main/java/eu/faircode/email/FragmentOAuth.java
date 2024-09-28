@@ -281,7 +281,7 @@ public class FragmentOAuth extends FragmentBase {
             Log.e(ex);
         }
 
-        tvEdge.setVisibility(edge ? View.VISIBLE : View.GONE);
+        tvEdge.setVisibility(edge && false ? View.VISIBLE : View.GONE);
         tvBrave.setVisibility(brave ? View.VISIBLE : View.GONE);
 
         btnOAuth.setOnClickListener(new View.OnClickListener() {
