@@ -6,6 +6,7 @@
         domain="gmail\\.com"
         id="gmail"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq6"
+        noop="true"
         order="1"
         type="com.google">
         <imap
