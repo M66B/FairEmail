@@ -262,7 +262,7 @@ public class EmailProvider implements Parcelable {
 
                         provider.order = getAttributeIntValue(xml, "order", Integer.MAX_VALUE);
                         provider.keepalive = getAttributeIntValue(xml, "keepalive", 0);
-                        provider.noop = getAttributeBooleanValue(xml, "noop", false);
+                        provider.noop = getAttributeBooleanValue(xml, "noop", true);
                         provider.partial = getAttributeBooleanValue(xml, "partial", true);
                         provider.raw = getAttributeBooleanValue(xml, "raw", false);
                         provider.useip = getAttributeBooleanValue(xml, "useip", true);

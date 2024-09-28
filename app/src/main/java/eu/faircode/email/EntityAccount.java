@@ -140,7 +140,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Integer poll_interval = DEFAULT_KEEP_ALIVE_INTERVAL;
     @NonNull
-    public Boolean keep_alive_noop = false;
+    public Boolean keep_alive_noop = true;
     @NonNull
     public Boolean keep_alive_ok = false;
     @NonNull

@@ -70,7 +70,7 @@ import javax.mail.internet.InternetAddress;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 299,
+        version = 300,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -3038,6 +3038,13 @@ public abstract class DB extends RoomDatabase {
                         logMigration(startVersion, endVersion);
                         db.execSQL("UPDATE account SET keep_alive_noop = 1" +
                                 " WHERE host = 'imap.mail.me.com' AND pop = " + EntityAccount.TYPE_IMAP);
+                    }
+                }).addMigrations(new Migration(299, 300) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("UPDATE account SET keep_alive_noop = 1" +
+                                " WHERE pop = " + EntityAccount.TYPE_IMAP);
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
