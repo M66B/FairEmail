@@ -24,6 +24,7 @@ Next version
 
 * Added option for undo send bar/action
 * Small improvements and minor bug fixes
+* Updated libraries
 * Updated Public Suffix List
 * Updated translations
 
