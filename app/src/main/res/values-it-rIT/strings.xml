@@ -205,6 +205,7 @@
     <string name="title_setup_oauth_rationale">Autorizzare l\'accesso al proprio account %1$s</string>
     <string name="title_setup_oauth_update">Autorizzare nuovamente un account esistente (altrimenti crearne uno nuovo)</string>
     <string name="title_setup_oauth_updated">Autorizzazione dell\'account aggiornata</string>
+    <string name="title_setup_oauth_edge">Se si usa il browser Edge, assicurarsi che sia disattivata l\'opzione «Blocca l\'apertura di app esterne» nelle impostazioni di «Privacy, sicurezza e servizi»</string>
     <string name="title_setup_oauth_brave">Se si usa il browser Brave, è necessario abilitare l\'opzione nelle sue impostazioni per consentire ai link dell\'app di essere aperti in app esterne a Brave</string>
     <string name="title_setup_oauth_browser">L\'autorizzazione richiede un browser funzionante</string>
     <string name="title_setup_oauth_authorize">Autorizza</string>
@@ -2185,7 +2186,7 @@
     <string-array name="sendDelayedNames">
         <item>Nessuno</item>
         <item>5 secondi</item>
-        <item>10 seconds</item>
+        <item>10 secondi</item>
         <item>15 secondi</item>
         <item>30 secondi</item>
         <item>1 minuto</item>

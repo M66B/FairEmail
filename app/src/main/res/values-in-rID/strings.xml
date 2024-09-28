@@ -191,6 +191,7 @@
     <string name="title_setup_oauth_rationale">Izinkan akses ke akun %1$s Anda</string>
     <string name="title_setup_oauth_update">Otorisasi kembali akun yang sudah ada (jika tidak, buat akun baru)</string>
     <string name="title_setup_oauth_updated">Ulang kembali otorisasi akun</string>
+    <string name="title_setup_oauth_edge">Saat menggunakan peramban Edge, pastikan bahwa \'Blokir pembukaan aplikasi eksternal\' di pengaturan \'Privasi, keamanan, dan layanan\' \'Nonaktif\'</string>
     <string name="title_setup_oauth_brave">Ketika menggunakan Brave browser, anda harus mengaktifkan pilihan di pengaturan Brave untuk mengizinkan link app membuka aplikasi di luar Brave</string>
     <string name="title_setup_oauth_browser">Otorisasi memerlukan browser yang berfungsi</string>
     <string name="title_setup_oauth_authorize">Perizinan</string>

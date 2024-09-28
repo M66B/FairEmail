@@ -205,6 +205,7 @@
     <string name="title_setup_oauth_rationale">%1$s hesabınıza müraciət üçün səlahiyyət verin</string>
     <string name="title_setup_oauth_update">Mövcud bir hesaba yenidən səlahiyyət verin (əks halda yeni bir hesab yaradın)</string>
     <string name="title_setup_oauth_updated">Hesab səlahiyyətləndirmə güncəlləndi</string>
+    <string name="title_setup_oauth_edge">Edge brauzeri istifadə edərkən \"Gizlilik, güvənlik və xidmətlər\" ayarlarında \"Xarici tətbiqlərin açılmasını əngəllə\" ayarının \"Bağlı\" olduğuna əmin olun.</string>
     <string name="title_setup_oauth_brave">Brave brauzeri istifadə edərkən tətbiq keçidlərinin Brave xaricindəki tətbiqlərdə açılmasına icazə vermək üçün Brave-in ayarlarındakı seçimi fəallaşdırmalısınız</string>
     <string name="title_setup_oauth_browser">Səlahiyyətləndirmə, işləyən bir brauzer tələb edir</string>
     <string name="title_setup_oauth_authorize">Səlahiyyət ver</string>
@@ -401,6 +402,7 @@
     <string name="title_advanced_send_nav_color">Alt əməliyyat sətri üçün kimlik rəngini istifadə et</string>
     <string name="title_advanced_send_reminders">Xatırladıcıları göstər</string>
     <string name="title_advanced_send_delayed">Göndərilən mesajların gecikməsi</string>
+    <string name="title_advanced_send_undo">Göndərməni geri al seçimini göstər</string>
     <string name="title_advanced_send_top">Göndər düyməsini ən üstdə göstər</string>
     <string name="title_advanced_attach_new">Paylaşılan ünvanlar və fayllar üçün yeni bir qaralama mesajı yaradın</string>
     <string name="title_advanced_answer_caption">Cavab düyməsi ayarları</string>
@@ -2182,8 +2184,8 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Xeyr</item>
-        <item>5 seconds</item>
-        <item>10 seconds</item>
+        <item>5 saniyə</item>
+        <item>10 saniyə</item>
         <item>15 saniyə</item>
         <item>30 saniyə</item>
         <item>1 dəqiqə</item>

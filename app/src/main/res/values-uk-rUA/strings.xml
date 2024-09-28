@@ -234,6 +234,7 @@
     <string name="title_setup_oauth_rationale">Авторизувати доступ до вашого облікового запису %1$s</string>
     <string name="title_setup_oauth_update">Авторизувати наявний обліковий запис знову (або ж створити новий обліковий запис)</string>
     <string name="title_setup_oauth_updated">Авторизація облікового запису була оновлена</string>
+    <string name="title_setup_oauth_edge">При використанні браузера Edge, переконайтеся в тому, що параметр «Блокувати відкриття зовнішніх програм» в розділі «Приватність, безпека та сервіси» є вимкненим</string>
     <string name="title_setup_oauth_brave">При використанні браузера Brave ви повинні в його налаштуваннях увімкнути опцію, що дозволяє іншим додаткам відкривати посилання в Brave</string>
     <string name="title_setup_oauth_browser">Авторизація потребує браузера, що працює</string>
     <string name="title_setup_oauth_authorize">Авторизувати</string>

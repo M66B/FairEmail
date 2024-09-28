@@ -191,6 +191,7 @@
     <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可する</string>
     <string name="title_setup_oauth_update">設定済みのアカウントをもう一度認証する (設定されていない場合、新しいアカウントを作成)</string>
     <string name="title_setup_oauth_updated">アカウントの認証情報が更新されました</string>
+    <string name="title_setup_oauth_edge">Edge ブラウザを使用している場合、「プライバシーとセキュリティ」の設定で「外部アプリを開くことをブロック」が「オフ」であることを確認してください</string>
     <string name="title_setup_oauth_brave">Brave ブラウザを使用している場合、Brave の設定で「Brave外のアプリでアプリのリンクを開くことを許可」を有効にしてください</string>
     <string name="title_setup_oauth_browser">認証には有効に動作するブラウザーが必要です</string>
     <string name="title_setup_oauth_authorize">認証</string>
@@ -2169,7 +2170,7 @@
     <string-array name="sendDelayedNames">
         <item>いいえ</item>
         <item>5 秒</item>
-        <item>10 seconds</item>
+        <item>10 秒</item>
         <item>15 秒</item>
         <item>30 秒</item>
         <item>1 分</item>

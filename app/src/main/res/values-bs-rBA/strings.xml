@@ -219,6 +219,7 @@
     <string name="title_setup_oauth_rationale">Autorizuj pristup vašem%1$s računu</string>
     <string name="title_setup_oauth_update">Autorizuj postojeći račun opet (u suprotnom, kreiraj novi račun)</string>
     <string name="title_setup_oauth_updated">Autorizacija računa je ažurirana</string>
+    <string name="title_setup_oauth_edge">Kada koristite preglednik Edge, isključite opciju \'Blokiraj otvaranje vanjskih aplikacija\' u postavkama za \'Privatnost, sigurnost i usluge\'</string>
     <string name="title_setup_oauth_brave">Pri korištenju Brave preglednika, morate u postavaka omogućiti opciju \"Dozvoli aplikaciji otvaranje linkova u drugim aplikacijama izvan Brave-a\"</string>
     <string name="title_setup_oauth_browser">Autorizacija traži funkcionalan preglednik</string>
     <string name="title_setup_oauth_authorize">Autorizuj</string>
@@ -415,6 +416,7 @@
     <string name="title_advanced_send_nav_color">Koristi boju identiteta za donju alatnu traku</string>
     <string name="title_advanced_send_reminders">Prikaži podsjetnike</string>
     <string name="title_advanced_send_delayed">Odgodi slanje poruka</string>
+    <string name="title_advanced_send_undo">Prikaži opciju poništavanja slanja</string>
     <string name="title_advanced_send_top">Prikaži dugme za slanje na vrhu</string>
     <string name="title_advanced_attach_new">Kreiraj novu skicu poruke za dijeljene adrese i datoteke</string>
     <string name="title_advanced_answer_caption">Postavke dugmeta za odgovor</string>
@@ -1363,6 +1365,7 @@
     <string name="title_too_large">Poruka je prevelika da bi se potpuno preformatirala</string>
     <string name="title_truncated">Poruka je prevelika da bi se potpuno prikazala</string>
     <string name="title_insufficient_memory">Poruka je prevelika za dostupnu memoriju (%1$d)</string>
+    <string name="title_screen_recording">Snimanje ekrana u toku!</string>
     <string name="title_show_full">Prikaži cijelu poruku</string>
     <string name="title_fullscreen">Prikaži na cijelom ekranu</string>
     <string name="title_fit_width">Uklopi širinu</string>
@@ -1436,6 +1439,7 @@
     <string name="title_save">Sačuvaj</string>
     <string name="title_send">Slanje</string>
     <string name="title_sending">Slanje &#8230;</string>
+    <string name="title_sending_to">Slanje za %1$s</string>
     <string name="title_send_now">Pošalji odmah</string>
     <string name="title_send_via">Pošalji preko</string>
     <string name="title_send_at">Pošalji u &#8230;</string>
@@ -2195,8 +2199,8 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Bez odlaganja</item>
-        <item>5 seconds</item>
-        <item>10 seconds</item>
+        <item>5 sekundi</item>
+        <item>10 sekundi</item>
         <item>15 sekundi</item>
         <item>30 sekundi</item>
         <item>1 minuta</item>

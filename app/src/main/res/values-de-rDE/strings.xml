@@ -206,7 +206,8 @@
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
     <string name="title_setup_oauth_update">Ein bestehendes Konto erneut autorisieren (oder ein neues Konto erstellen)</string>
     <string name="title_setup_oauth_updated">Kontoautorisierung wurde aktualisiert</string>
-    <string name="title_setup_oauth_brave">Wenn Sie den Browser Brave verwenden, dann müssen Sie in den Datenschutz-Einstellungen »Erlauben, dass Anwendungslinks in Anwendungen außerhalb von Brave geöffnet werden« aktivieren</string>
+    <string name="title_setup_oauth_edge">Wenn Sie den Edge-Browser verwenden, vergewissern Sie sich, dass in den Einstellungen »Datenschutz und Sicherheit« die Einstellung »Öffnen externer Apps blockieren« auf »Aus« gestellt ist</string>
+    <string name="title_setup_oauth_brave">Wenn Sie den Brave-Browser verwenden, dann müssen Sie in den Datenschutz-Einstellungen »Erlauben, dass Anwendungslinks in Anwendungen außerhalb von Brave geöffnet werden« aktivieren</string>
     <string name="title_setup_oauth_browser">Autorisierung erfordert einen funktionierenden Browser</string>
     <string name="title_setup_oauth_authorize">Autorisieren</string>
     <string name="title_setup_select_account">Konto auswählen</string>

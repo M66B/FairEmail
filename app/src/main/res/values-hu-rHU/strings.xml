@@ -204,6 +204,7 @@
     <string name="title_setup_oauth_rationale">Engedélyezze a hozzáférést a %1$s fiókjához</string>
     <string name="title_setup_oauth_update">Ismételt bejelentkezés egy már meglevő fiókba (vagy új fiók létrehozása)</string>
     <string name="title_setup_oauth_updated">A fiókhitelesítés frissült</string>
+    <string name="title_setup_oauth_edge">Edge böngésző használatakor győződjön meg, hogy a \"Külső alkalmazások megnyitásának tiltása\" az \"Adatvédelem, biztonság és szolgáltatások\" beállításnál \"Ki\" van kapcsolva</string>
     <string name="title_setup_oauth_brave">Ha Brave böngészőt használ, engedélyeznie kell a Brave beállításaiban az alkalmazás-hivatkozások megnyitását külső alkalmazásban</string>
     <string name="title_setup_oauth_browser">A hitelesítés működő böngészőt igényel</string>
     <string name="title_setup_oauth_authorize">Engedélyezés</string>
@@ -2176,7 +2177,7 @@
     <string-array name="sendDelayedNames">
         <item>Nincs</item>
         <item>5 másodperc</item>
-        <item>10 seconds</item>
+        <item>10 másodperc</item>
         <item>15 másodperc</item>
         <item>30 másodperc</item>
         <item>1 perc</item>

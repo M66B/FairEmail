@@ -182,6 +182,7 @@
     <string name="title_setup_oauth_rationale">برای دسترسی به %1$s حسابتان اجازه دهید</string>
     <string name="title_setup_oauth_update">به یک حساب موجود اجازه بدهید (در غیر این صورت یک حساب جدید بسازید)</string>
     <string name="title_setup_oauth_updated">تایید هویت حساب به روز شد</string>
+    <string name="title_setup_oauth_edge">هنگام استفاده از مرورگر اج، از خاموش بودن \'مسدود کردن باز کردن اپ‌های خارجی\' در تنظیمات \'حریم شخصی، امنیتی و خدمات\' مطمئن باشید</string>
     <string name="title_setup_oauth_browser">مجوز نیاز به یک مرورگر فعال دارد</string>
     <string name="title_setup_oauth_authorize">اجازه دهید</string>
     <string name="title_setup_select_account">انتخاب حساب</string>
@@ -1533,7 +1534,7 @@
     <string-array name="sendDelayedNames">
         <item>خیر</item>
         <item>۵ ثانیه</item>
-        <item>10 seconds</item>
+        <item>۱۰ ثانیه</item>
         <item>۱۵ ثانیه</item>
         <item>۳۰ ثانیه</item>
         <item>۱ دقیقه</item>
