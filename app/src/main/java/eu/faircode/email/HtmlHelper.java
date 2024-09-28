@@ -2990,7 +2990,7 @@ public class HtmlHelper {
             int end = ssb.getSpanEnd(span);
 
             if (!source.toLowerCase(Locale.ROOT).startsWith("data:"))
-                ssb.insert(end, "[" + source + "]");
+                ssb.insert(end, "[" + context.getString(R.string.title_avatar) + "]");
 
             for (int i = start; i < end; i++)
                 if (ssb.charAt(i) == '\uFFFC') {
