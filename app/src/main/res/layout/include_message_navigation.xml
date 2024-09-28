@@ -154,8 +154,10 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_rule_notes"
             android:padding="6dp"
             android:scaleType="fitCenter"
+            android:tooltipText="@string/title_rule_notes"
             app:srcCompat="@drawable/twotone_sticky_note_2_24"
             tools:ignore="MissingConstraints" />
 
@@ -176,8 +178,10 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_manage_keywords"
             android:padding="6dp"
             android:scaleType="fitCenter"
+            android:tooltipText="@string/title_manage_keywords"
             app:srcCompat="@drawable/twotone_label_important_24"
             tools:ignore="MissingConstraints" />
 
@@ -186,8 +190,10 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_manage_labels"
             android:padding="6dp"
             android:scaleType="fitCenter"
+            android:tooltipText="@string/title_manage_labels"
             app:srcCompat="@drawable/twotone_label_24"
             tools:ignore="MissingConstraints" />
 
