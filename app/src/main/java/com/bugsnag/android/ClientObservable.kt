@@ -22,7 +22,8 @@ internal class ClientObservable : BaseObservable() {
                 conf.releaseStage,
                 lastRunInfoPath,
                 consecutiveLaunchCrashes,
-                conf.sendThreads
+                conf.sendThreads,
+                conf.maxBreadcrumbs
             )
         }
     }

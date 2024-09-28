@@ -14,7 +14,7 @@ import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock
 
 internal abstract class FileStore(
-    private val storageDir: File,
+    val storageDir: File,
     private val maxStoreCount: Int,
     private val comparator: Comparator<in File?>,
     protected open val logger: Logger,

@@ -13,6 +13,12 @@ class ThreadInternal internal constructor(
 
     var stacktrace: MutableList<Stackframe> = stacktrace.trace.toMutableList()
 
+    fun addStackframe(method: String?, file: String?, lineNumber: Long): Stackframe {
+        val frame = Stackframe(method, file, lineNumber, null)
+        stacktrace.add(frame)
+        return frame
+    }
+
     @Throws(IOException::class)
     override fun toStream(writer: JsonStream) {
         writer.beginObject()

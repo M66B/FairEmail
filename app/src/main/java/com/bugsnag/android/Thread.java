@@ -160,6 +160,16 @@ public class Thread implements JsonStream.Streamable {
         return impl.getStacktrace();
     }
 
+    /**
+     * Add a new stackframe to the end of this thread returning the new Stackframe data object.
+     */
+    @NonNull
+    public Stackframe addStackframe(@Nullable String method,
+                                    @Nullable String file,
+                                    long lineNumber) {
+        return impl.addStackframe(method, file, lineNumber);
+    }
+
     @Override
     public void toStream(@NonNull JsonStream stream) throws IOException {
         impl.toStream(stream);

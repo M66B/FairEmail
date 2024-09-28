@@ -21,6 +21,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+
 /**
  * Used as the entry point for native code to allow proguard to obfuscate other areas if needed
  */
@@ -427,6 +428,25 @@ public class NativeInterface {
                 filename = filename.replace(".json", "startupcrash.json");
             }
             eventStore.enqueueContentForDelivery(payload, filename);
+        }
+    }
+
+    /**
+     * Attempt to deliver an existing event file that is not current enqueued for delivery. The
+     * filename is expected to be in the standard {@link EventFilenameInfo} format, and the file
+     * should contain a correctly formatted {@link Event} object. This method will attempt to
+     * move the file into place, and flush the queue asynchronously. If the file cannot be moved
+     * into the queue directory, the file is deleted before returning.
+     *
+     * @param reportFile the file to enqueue for delivery
+     */
+    public static void deliverReport(@NonNull File reportFile) {
+        EventStore eventStore = getClient().eventStore;
+        File eventFile = new File(eventStore.getStorageDir(), reportFile.getName());
+        if (reportFile.renameTo(eventFile)) {
+            eventStore.flushAsync();
+        } else {
+            reportFile.delete();
         }
     }
 

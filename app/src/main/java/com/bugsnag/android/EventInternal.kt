@@ -6,6 +6,7 @@ import com.bugsnag.android.internal.InternalMetricsNoop
 import com.bugsnag.android.internal.JsonHelper
 import com.bugsnag.android.internal.TrimMetrics
 import java.io.IOException
+import java.util.Date
 import java.util.regex.Pattern
 
 internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, MetadataAware, UserAware {
@@ -119,6 +120,8 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
      */
     internal var userImpl: User
 
+    var traceCorrelation: TraceCorrelation? = null
+
     fun getUnhandledOverridden(): Boolean = severityReason.unhandledOverridden
 
     fun getOriginalUnhandled(): Boolean = severityReason.originalUnhandled
@@ -192,6 +195,10 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
         writer.endArray()
 
         writer.name("featureFlags").value(featureFlags)
+
+        traceCorrelation?.let { correlation ->
+            writer.name("correlation").value(correlation)
+        }
 
         if (session != null) {
             val copy = Session.copySession(session)
@@ -318,4 +325,72 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
     override fun clearFeatureFlag(name: String) = featureFlags.clearFeatureFlag(name)
 
     override fun clearFeatureFlags() = featureFlags.clearFeatureFlags()
+
+    fun addError(thrownError: Throwable?): Error {
+        if (thrownError == null) {
+            val newError = Error(
+                ErrorInternal("null", null, Stacktrace(ArrayList())),
+                logger
+            )
+            errors.add(newError)
+            return newError
+        } else {
+            val newErrors = Error.createError(thrownError, projectPackages, logger)
+            errors.addAll(newErrors)
+            return newErrors.first()
+        }
+    }
+
+    fun addError(errorClass: String?, errorMessage: String?, errorType: ErrorType?): Error {
+        val error = Error(
+            ErrorInternal(
+                errorClass.toString(),
+                errorMessage,
+                Stacktrace(ArrayList()),
+                errorType ?: ErrorType.ANDROID
+            ),
+            logger
+        )
+        errors.add(error)
+        return error
+    }
+
+    fun addThread(
+        id: String?,
+        name: String?,
+        errorType: ErrorType,
+        isErrorReportingThread: Boolean,
+        state: String
+    ): Thread {
+        val thread = Thread(
+            ThreadInternal(
+                id.toString(),
+                name.toString(),
+                errorType,
+                isErrorReportingThread,
+                state,
+                Stacktrace(ArrayList())
+            ),
+            logger
+        )
+        threads.add(thread)
+        return thread
+    }
+
+    fun leaveBreadcrumb(
+        message: String?,
+        type: BreadcrumbType?,
+        metadata: MutableMap<String, Any?>?
+    ): Breadcrumb {
+        val breadcrumb = Breadcrumb(
+            message.toString(),
+            type ?: BreadcrumbType.MANUAL,
+            metadata,
+            Date(),
+            logger
+        )
+
+        breadcrumbs.add(breadcrumb)
+        return breadcrumb
+    }
 }

@@ -1,6 +1,7 @@
 package com.bugsnag.android
 
 import java.io.IOException
+import kotlin.math.min
 
 /**
  * Serialize an exception stacktrace and mark frames as "in-project"
@@ -25,11 +26,35 @@ internal class Stacktrace : JsonStream.Streamable {
                 else -> null
             }
         }
+
+        fun serializeStackframe(
+            el: StackTraceElement,
+            projectPackages: Collection<String>,
+            logger: Logger
+        ): Stackframe? {
+            try {
+                val className = el.className
+                val methodName = when {
+                    className.isNotEmpty() -> className + "." + el.methodName
+                    else -> el.methodName
+                }
+
+                return Stackframe(
+                    methodName,
+                    el.fileName ?: "Unknown",
+                    el.lineNumber,
+                    inProject(className, projectPackages)
+                )
+            } catch (lineEx: Exception) {
+                logger.w("Failed to serialize stacktrace", lineEx)
+                return null
+            }
+        }
     }
 
-    val trace: List<Stackframe>
+    val trace: MutableList<Stackframe>
 
-    constructor(frames: List<Stackframe>) {
+    constructor(frames: MutableList<Stackframe>) {
         trace = limitTraceLength(frames)
     }
 
@@ -38,45 +63,23 @@ internal class Stacktrace : JsonStream.Streamable {
         projectPackages: Collection<String>,
         logger: Logger
     ) {
-        val frames = limitTraceLength(stacktrace)
-        trace = frames.mapNotNull { serializeStackframe(it, projectPackages, logger) }
-    }
-
-    private fun limitTraceLength(frames: Array<StackTraceElement>): Array<StackTraceElement> {
-        return when {
-            frames.size >= STACKTRACE_TRIM_LENGTH -> frames.sliceArray(0 until STACKTRACE_TRIM_LENGTH)
-            else -> frames
+        // avoid allocating new subLists or Arrays by only copying the required number of frames
+        // mapping them to our internal Stackframes as we go, roughly equivalent to
+        // stacktrace.take(STACKTRACE_TRIM_LENGTH).mapNotNullTo(ArrayList()) { ... }
+        val frameCount = min(STACKTRACE_TRIM_LENGTH, stacktrace.size)
+        trace = ArrayList(frameCount)
+        for (i in 0 until frameCount) {
+            val frame = serializeStackframe(stacktrace[i], projectPackages, logger)
+            if (frame != null) {
+                trace.add(frame)
+            }
         }
     }
 
-    private fun limitTraceLength(frames: List<Stackframe>): List<Stackframe> {
+    private fun limitTraceLength(frames: MutableList<Stackframe>): MutableList<Stackframe> {
         return when {
             frames.size >= STACKTRACE_TRIM_LENGTH -> frames.subList(0, STACKTRACE_TRIM_LENGTH)
             else -> frames
-        }
-    }
-
-    private fun serializeStackframe(
-        el: StackTraceElement,
-        projectPackages: Collection<String>,
-        logger: Logger
-    ): Stackframe? {
-        try {
-            val className = el.className
-            val methodName = when {
-                className.isNotEmpty() -> className + "." + el.methodName
-                else -> el.methodName
-            }
-
-            return Stackframe(
-                methodName,
-                el.fileName ?: "Unknown",
-                el.lineNumber,
-                inProject(className, projectPackages)
-            )
-        } catch (lineEx: Exception) {
-            logger.w("Failed to serialize stacktrace", lineEx)
-            return null
         }
     }
 

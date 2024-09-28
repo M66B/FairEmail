@@ -28,11 +28,11 @@ public final class Session implements JsonStream.Streamable, UserAware {
     private App app;
     private Device device;
 
-    private final AtomicBoolean autoCaptured = new AtomicBoolean(false);
+    private volatile boolean autoCaptured = false;
     private final AtomicInteger unhandledCount = new AtomicInteger();
     private final AtomicInteger handledCount = new AtomicInteger();
     private final AtomicBoolean tracked = new AtomicBoolean(false);
-    final AtomicBoolean isPaused = new AtomicBoolean(false);
+    private final AtomicBoolean isPaused = new AtomicBoolean(false);
 
     private String apiKey;
 
@@ -41,7 +41,7 @@ public final class Session implements JsonStream.Streamable, UserAware {
                 session.unhandledCount.get(), session.handledCount.get(), session.notifier,
                 session.logger, session.getApiKey());
         copy.tracked.set(session.tracked.get());
-        copy.autoCaptured.set(session.isAutoCaptured());
+        copy.autoCaptured = session.isAutoCaptured();
         return copy;
     }
 
@@ -68,7 +68,7 @@ public final class Session implements JsonStream.Streamable, UserAware {
         this.id = id;
         this.startedAt = new Date(startedAt.getTime());
         this.user = user;
-        this.autoCaptured.set(autoCaptured);
+        this.autoCaptured = autoCaptured;
         this.apiKey = apiKey;
     }
 
@@ -198,16 +198,28 @@ public final class Session implements JsonStream.Streamable, UserAware {
         return copySession(this);
     }
 
-    AtomicBoolean isTracked() {
-        return tracked;
+    boolean markTracked() {
+        return tracked.compareAndSet(false, true);
+    }
+
+    boolean markResumed() {
+        return isPaused.compareAndSet(true, false);
+    }
+
+    void markPaused() {
+        isPaused.set(true);
+    }
+
+    boolean isPaused() {
+        return isPaused.get();
     }
 
     boolean isAutoCaptured() {
-        return autoCaptured.get();
+        return autoCaptured;
     }
 
     void setAutoCaptured(boolean autoCaptured) {
-        this.autoCaptured.set(autoCaptured);
+        this.autoCaptured = autoCaptured;
     }
 
     /**

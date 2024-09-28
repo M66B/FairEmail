@@ -53,7 +53,7 @@ class InternalMetricsImpl(source: Map<String, Any>? = null) : InternalMetrics {
         // This is currently the only place where we set static data.
         // When that changes in future, we'll need a StaticData object to properly merge data
         // coming from multiple sources.
-        NdkPluginCaller.setStaticData(mapOf("usage" to mapOf("config" to configDifferences)))
+        NdkPluginCaller.setStaticData(mapOf("config" to configDifferences))
     }
 
     override fun setCallbackCounts(newCallbackCounts: Map<String, Int>) {

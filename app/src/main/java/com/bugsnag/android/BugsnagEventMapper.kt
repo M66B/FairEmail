@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
+import java.util.UUID
 
 internal class BugsnagEventMapper(
     private val logger: Logger
@@ -92,6 +93,16 @@ internal class BugsnagEventMapper(
 
         // populate internalMetrics
         event.internalMetrics = InternalMetricsImpl(map["usage"] as MutableMap<String, Any>?)
+
+        // populate correlation
+        (map["correlation"] as? Map<String, String>)?.let {
+            val traceId = parseTraceId(it["traceId"])
+            val spanId = it["spanId"]?.parseUnsignedLong()
+
+            if (traceId != null && spanId != null) {
+                event.traceCorrelation = TraceCorrelation(traceId, spanId)
+            }
+        }
 
         return event
     }
@@ -184,14 +195,14 @@ internal class BugsnagEventMapper(
             thread.readEntry("name"),
             ErrorType.fromDescriptor(thread.readEntry("type")) ?: ErrorType.ANDROID,
             thread["errorReportingThread"] == true,
-            thread.readEntry("state"),
+            thread["state"] as? String ?: "",
             (thread["stacktrace"] as? List<Map<String, Any?>>)?.let { convertStacktrace(it) }
-                ?: Stacktrace(emptyList())
+                ?: Stacktrace(mutableListOf())
         )
     }
 
     internal fun convertStacktrace(trace: List<Map<String, Any?>>): Stacktrace {
-        return Stacktrace(trace.map { Stackframe(it) })
+        return Stacktrace(trace.mapTo(ArrayList(trace.size)) { Stackframe(it) })
     }
 
     internal fun deserializeSeverityReason(
@@ -234,21 +245,47 @@ internal class BugsnagEventMapper(
         }
     }
 
+    private fun String.toDate(): Date {
+        if (isNotEmpty() && this[0] == 't') {
+            // date is in the format 't{epoch millis}'
+            val timestamp = substring(1)
+            timestamp.toLongOrNull()?.let {
+                return Date(it)
+            }
+        }
+
+        return try {
+            DateUtils.fromIso8601(this)
+        } catch (pe: IllegalArgumentException) {
+            ndkDateFormatHolder.get()!!.parse(this)
+                ?: throw IllegalArgumentException("cannot parse date $this")
+        }
+    }
+
+    private fun parseTraceId(traceId: String?): UUID? {
+        if (traceId?.length != 32) return null
+        val mostSigBits = traceId.substring(0, 16).parseUnsignedLong() ?: return null
+        val leastSigBits = traceId.substring(16).parseUnsignedLong() ?: return null
+
+        return UUID(mostSigBits, leastSigBits)
+    }
+
+    private fun String.parseUnsignedLong(): Long? {
+        if (length != 16) return null
+        return try {
+            (substring(0, 2).toLong(16) shl 56) or
+                substring(2).toLong(16)
+        } catch (nfe: NumberFormatException) {
+            null
+        }
+    }
+
     // SimpleDateFormat isn't thread safe, cache one instance per thread as needed.
     private val ndkDateFormatHolder = object : ThreadLocal<DateFormat>() {
         override fun initialValue(): DateFormat {
             return SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US).apply {
                 timeZone = TimeZone.getTimeZone("UTC")
             }
-        }
-    }
-
-    private fun String.toDate(): Date {
-        return try {
-            DateUtils.fromIso8601(this)
-        } catch (pe: IllegalArgumentException) {
-            ndkDateFormatHolder.get()!!.parse(this)
-                ?: throw IllegalArgumentException("cannot parse date $this")
         }
     }
 }

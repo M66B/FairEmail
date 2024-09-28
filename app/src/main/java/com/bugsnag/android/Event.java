@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 /**
@@ -50,8 +51,8 @@ public class Event implements JsonStream.Streamable, MetadataAware, UserAware, F
     }
 
     /**
-     * The Throwable object that caused the event in your application.
-     *
+     * The {@link Throwable} object that caused the event in your application.
+     * <p>
      * Manipulating this field does not affect the error information reported to the
      * Bugsnag dashboard. Use {@link Event#getErrors()} to access and amend the representation of
      * the error that will be sent.
@@ -65,13 +66,42 @@ public class Event implements JsonStream.Streamable, MetadataAware, UserAware, F
      * Information extracted from the {@link Throwable} that caused the event can be found in this
      * field. The list contains at least one {@link Error} that represents the thrown object
      * with subsequent elements in the list populated from {@link Throwable#getCause()}.
-     *
+     * <p>
      * A reference to the actual {@link Throwable} object that caused the event is available
      * through {@link Event#getOriginalError()} ()}.
      */
     @NonNull
     public List<Error> getErrors() {
         return impl.getErrors();
+    }
+
+    /**
+     * Add a new error to this event and return its Error data. The new Error will appear at the
+     * end of the {@link #getErrors() errors list}.
+     */
+    @NonNull
+    public Error addError(@NonNull Throwable error) {
+        return impl.addError(error);
+    }
+
+    /**
+     * Add a new empty {@link ErrorType#ANDROID android} error to this event and return its Error
+     * data. The new Error will appear at the end of the {@link #getErrors() errors list}.
+     */
+    @NonNull
+    public Error addError(@NonNull String errorClass, @Nullable String errorMessage) {
+        return impl.addError(errorClass, errorMessage, ErrorType.ANDROID);
+    }
+
+    /**
+     * Add a new empty error to this event and return its Error data. The new Error will appear
+     * at the end of the {@link #getErrors() errors list}.
+     */
+    @NonNull
+    public Error addError(@NonNull String errorClass,
+                          @Nullable String errorMessage,
+                          @NonNull ErrorType errorType) {
+        return impl.addError(errorClass, errorMessage, errorType);
     }
 
     /**
@@ -84,12 +114,72 @@ public class Event implements JsonStream.Streamable, MetadataAware, UserAware, F
     }
 
     /**
+     * Create, add and return a new empty {@link Thread} object to this event with a given id
+     * and name. This can be used to augment the event with thread data that would not be picked
+     * up as part of a normal event being generated (for example: native threads managed
+     * by cross-platform toolkits).
+     *
+     * @return a new Thread object of type {@link ErrorType#ANDROID} with no stacktrace
+     */
+    @NonNull
+    public Thread addThread(@NonNull String id,
+                            @NonNull String name) {
+        return impl.addThread(
+                id,
+                name,
+                ErrorType.ANDROID,
+                false,
+                Thread.State.RUNNABLE.getDescriptor()
+        );
+    }
+
+    /**
+     * Create, add and return a new empty {@link Thread} object to this event with a given id
+     * and name. This can be used to augment the event with thread data that would not be picked
+     * up as part of a normal event being generated (for example: native threads managed
+     * by cross-platform toolkits).
+     *
+     * @return a new Thread object of type {@link ErrorType#ANDROID} with no stacktrace
+     */
+    @NonNull
+    public Thread addThread(long id,
+                            @NonNull String name) {
+        return impl.addThread(
+                Long.toString(id),
+                name,
+                ErrorType.ANDROID,
+                false,
+                Thread.State.RUNNABLE.getDescriptor()
+        );
+    }
+
+    /**
      * A list of breadcrumbs leading up to the event. These values can be accessed and amended
      * if necessary. See {@link Breadcrumb} for details of the data available.
      */
     @NonNull
     public List<Breadcrumb> getBreadcrumbs() {
         return impl.getBreadcrumbs();
+    }
+
+    /**
+     * Add a new breadcrumb to this event and return its Breadcrumb object. The new breadcrumb
+     * will be added to the end of the {@link #getBreadcrumbs() breadcrumbs list} by this method.
+     */
+    @NonNull
+    public Breadcrumb leaveBreadcrumb(@NonNull String message,
+                                      @NonNull BreadcrumbType type,
+                                      @Nullable Map<String, Object> metadata) {
+        return impl.leaveBreadcrumb(message, type, metadata);
+    }
+
+    /**
+     * Add a new breadcrumb to this event and return its Breadcrumb object. The new breadcrumb
+     * will be added to the end of the {@link #getBreadcrumbs() breadcrumbs list} by this# method.
+     */
+    @NonNull
+    public Breadcrumb leaveBreadcrumb(@NonNull String message) {
+        return impl.leaveBreadcrumb(message, BreadcrumbType.MANUAL, null);
     }
 
     /**
@@ -166,7 +256,7 @@ public class Event implements JsonStream.Streamable, MetadataAware, UserAware, F
      * All events with the same grouping hash will be grouped together into one error. This is an
      * advanced usage of the library and mis-using it will cause your events not to group properly
      * in your dashboard.
-     *
+     * <p>
      * As the name implies, this option accepts a hash of sorts.
      */
     public void setGroupingHash(@Nullable String groupingHash) {
@@ -178,7 +268,7 @@ public class Event implements JsonStream.Streamable, MetadataAware, UserAware, F
      * All events with the same grouping hash will be grouped together into one error. This is an
      * advanced usage of the library and mis-using it will cause your events not to group properly
      * in your dashboard.
-     *
+     * <p>
      * As the name implies, this option accepts a hash of sorts.
      */
     @Nullable
@@ -380,6 +470,21 @@ public class Event implements JsonStream.Streamable, MetadataAware, UserAware, F
      */
     public void setUnhandled(boolean unhandled) {
         impl.setUnhandled(unhandled);
+    }
+
+    /**
+     * Associate this event with a specific trace. This is usually done automatically when
+     * using bugsnag-android-performance, but can also be set manually if required.
+     *
+     * @param traceId the ID of the trace the event occurred within
+     * @param spanId  the ID of the span that the event occurred within
+     */
+    public void setTraceCorrelation(@NonNull UUID traceId, long spanId) {
+        if (traceId != null) {
+            impl.setTraceCorrelation(new TraceCorrelation(traceId, spanId));
+        } else {
+            logNull("traceId");
+        }
     }
 
     protected boolean shouldDiscardClass() {

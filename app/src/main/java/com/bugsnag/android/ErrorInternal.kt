@@ -7,17 +7,30 @@ internal class ErrorInternal @JvmOverloads internal constructor(
     var type: ErrorType = ErrorType.ANDROID
 ) : JsonStream.Streamable {
 
-    val stacktrace: List<Stackframe> = stacktrace.trace
+    val stacktrace: MutableList<Stackframe> = stacktrace.trace
+
+    fun addStackframe(method: String?, file: String?, lineNumber: Long): Stackframe {
+        val frame = Stackframe(method, file, lineNumber, null)
+        stacktrace.add(frame)
+        return frame
+    }
 
     internal companion object {
-        fun createError(exc: Throwable, projectPackages: Collection<String>, logger: Logger): MutableList<Error> {
+        fun createError(
+            exc: Throwable,
+            projectPackages: Collection<String>,
+            logger: Logger
+        ): MutableList<Error> {
             return exc.safeUnrollCauses()
                 .mapTo(mutableListOf()) { currentEx ->
                     // Somehow it's possible for stackTrace to be null in rare cases
                     val stacktrace = currentEx.stackTrace ?: arrayOf<StackTraceElement>()
                     val trace = Stacktrace(stacktrace, projectPackages, logger)
-                    val errorInternal =
-                        ErrorInternal(currentEx.javaClass.name, currentEx.localizedMessage, trace)
+                    val errorInternal = ErrorInternal(
+                        currentEx.javaClass.name,
+                        currentEx.localizedMessage,
+                        trace
+                    )
 
                     return@mapTo Error(errorInternal, logger)
                 }

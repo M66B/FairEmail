@@ -36,7 +36,7 @@ class SessionTracker extends BaseObservable implements ForegroundDetector.OnActi
     private volatile Session currentSession = null;
     final BackgroundTaskService backgroundTaskService;
     final Logger logger;
-    private boolean shouldSuppressFirstAutoSession = false;
+    private boolean shouldSuppressFirstAutoSession = true;
 
     SessionTracker(ImmutableConfig configuration,
                    CallbackState callbackState,
@@ -108,8 +108,12 @@ class SessionTracker extends BaseObservable implements ForegroundDetector.OnActi
                     && existingSession != null
                     && !existingSession.isAutoCaptured()
                     && shouldSuppressFirstAutoSession) {
-                shouldSuppressFirstAutoSession = true;
+                shouldSuppressFirstAutoSession = false;
                 return true;
+            }
+
+            if (autoCaptured) {
+                shouldSuppressFirstAutoSession = false;
             }
         }
         return false;
@@ -120,7 +124,7 @@ class SessionTracker extends BaseObservable implements ForegroundDetector.OnActi
         Session session = currentSession;
 
         if (session != null) {
-            session.isPaused.set(true);
+            session.markPaused();
             updateState(StateEvent.PauseSession.INSTANCE);
         }
     }
@@ -133,7 +137,7 @@ class SessionTracker extends BaseObservable implements ForegroundDetector.OnActi
             session = startSession(false);
             resumed = false;
         } else {
-            resumed = session.isPaused.compareAndSet(true, false);
+            resumed = session.markResumed();
         }
 
         if (session != null) {
@@ -191,7 +195,7 @@ class SessionTracker extends BaseObservable implements ForegroundDetector.OnActi
         session.setDevice(client.getDeviceDataCollector().generateDevice());
         boolean deliverSession = callbackState.runOnSessionTasks(session, logger);
 
-        if (deliverSession && session.isTracked().compareAndSet(false, true)) {
+        if (deliverSession && session.markTracked()) {
             currentSession = session;
             notifySessionStartObserver(session);
             flushInMemorySession(session);
@@ -205,7 +209,7 @@ class SessionTracker extends BaseObservable implements ForegroundDetector.OnActi
     Session getCurrentSession() {
         Session session = currentSession;
 
-        if (session != null && !session.isPaused.get()) {
+        if (session != null && !session.isPaused()) {
             return session;
         }
         return null;
