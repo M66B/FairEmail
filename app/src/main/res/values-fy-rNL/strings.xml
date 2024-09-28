@@ -2173,6 +2173,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string-array name="sendDelayedNames">
         <item>Gjin</item>
         <item>5 seconds</item>
+        <item>10 seconds</item>
         <item>15 sekonden</item>
         <item>30 sekonden</item>
         <item>1 minút</item>

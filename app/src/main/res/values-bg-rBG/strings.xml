@@ -2180,6 +2180,7 @@
     <string-array name="sendDelayedNames">
         <item>Без</item>
         <item>5 секунди</item>
+        <item>10 seconds</item>
         <item>15 секунди</item>
         <item>30 секунди</item>
         <item>1 минута</item>

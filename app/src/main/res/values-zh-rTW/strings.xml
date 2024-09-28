@@ -2156,6 +2156,7 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
     <string-array name="sendDelayedNames">
         <item>否</item>
         <item>5 seconds</item>
+        <item>10 seconds</item>
         <item>15 秒</item>
         <item>30 秒</item>
         <item>1 分鐘</item>

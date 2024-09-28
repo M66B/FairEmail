@@ -1553,6 +1553,7 @@
     <string-array name="sendDelayedNames">
         <item>없음</item>
         <item>5 seconds</item>
+        <item>10 seconds</item>
         <item>15초</item>
         <item>30초</item>
         <item>1분</item>

@@ -2183,6 +2183,7 @@
     <string-array name="sendDelayedNames">
         <item>Xeyr</item>
         <item>5 seconds</item>
+        <item>10 seconds</item>
         <item>15 saniyə</item>
         <item>30 saniyə</item>
         <item>1 dəqiqə</item>

@@ -2214,6 +2214,7 @@
     <string-array name="sendDelayedNames">
         <item>לא</item>
         <item>5 שניות</item>
+        <item>10 seconds</item>
         <item>15 שניות</item>
         <item>חצי דקה</item>
         <item>דקה</item>

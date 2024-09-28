@@ -2153,6 +2153,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string-array name="sendDelayedNames">
         <item>Jangan</item>
         <item>5 seconds</item>
+        <item>10 detik</item>
         <item>15 detik</item>
         <item>30 detik</item>
         <item>1 menit</item>

@@ -2170,6 +2170,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string-array name="sendDelayedNames">
         <item>Hayır</item>
         <item>5 saniye</item>
+        <item>10 seconds</item>
         <item>15 saniye</item>
         <item>30 saniye</item>
         <item>1 dakika</item>

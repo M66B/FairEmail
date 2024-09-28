@@ -1533,6 +1533,7 @@
     <string-array name="sendDelayedNames">
         <item>خیر</item>
         <item>۵ ثانیه</item>
+        <item>10 seconds</item>
         <item>۱۵ ثانیه</item>
         <item>۳۰ ثانیه</item>
         <item>۱ دقیقه</item>

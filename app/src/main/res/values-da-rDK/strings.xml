@@ -401,6 +401,7 @@
     <string name="title_advanced_send_nav_color">Brug identitetsfarven til den nederste handlingsbjælke</string>
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
+    <string name="title_advanced_send_undo">Vis Fortryd send-muligheder</string>
     <string name="title_advanced_send_top">Vis Send-knap øverst</string>
     <string name="title_advanced_attach_new">Opret et nyt beskedudkast til delte adresser og filer</string>
     <string name="title_advanced_answer_caption">Indstillinger for svar-knap</string>
@@ -2183,8 +2184,9 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nej</item>
-        <item>5 seconds</item>
-        <item>15 sekunder</item>
+        <item>5 sekunder</item>
+        <item>10 seconds</item>
+        <item>5 sekunder</item>
         <item>30 sekunder</item>
         <item>1 minut</item>
         <item>2 minutter</item>

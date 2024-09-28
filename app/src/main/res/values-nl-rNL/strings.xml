@@ -204,6 +204,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_oauth_rationale">Autoriseer toegang tot uw %1$s account</string>
     <string name="title_setup_oauth_update">Autoriseer een bestaand account opnieuw (anders een nieuwe account aanmaken)</string>
     <string name="title_setup_oauth_updated">Accountautorisatie is bijgewerkt</string>
+    <string name="title_setup_oauth_edge">Als je de Edge-browser gebruikt, zorg er dan voor dat \'Het openen van externe apps blokkeren\' in de instellingen voor \'Privacy, beveiliging en services\' op \'Uit\' staat</string>
     <string name="title_setup_oauth_brave">Bij het gebruik van Brave browser, moet u de optie in de instellingen van Brave\'s inschakelen om app links te laten openen in apps buiten Brave</string>
     <string name="title_setup_oauth_browser">Autorisatie vereist een werkende browser</string>
     <string name="title_setup_oauth_authorize">Autoriseren</string>
@@ -2170,6 +2171,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string-array name="sendDelayedNames">
         <item>Geen</item>
         <item>5 seconden</item>
+        <item>10 seconden</item>
         <item>15 seconden</item>
         <item>30 seconden</item>
         <item>1 minuut</item>

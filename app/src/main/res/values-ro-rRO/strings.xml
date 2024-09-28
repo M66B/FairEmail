@@ -2192,6 +2192,7 @@
     <string-array name="sendDelayedNames">
         <item>Fără</item>
         <item>5 seconds</item>
+        <item>10 seconds</item>
         <item>15 secunde</item>
         <item>30 de secunde</item>
         <item>1 minut</item>

@@ -428,6 +428,7 @@
     <string name="title_advanced_send_nav_color">Użyj koloru identyfikatora w dolnym pasku zadań</string>
     <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
+    <string name="title_advanced_send_undo">Pokazuj opcję cofnięcia wysyłania</string>
     <string name="title_advanced_send_top">Pokaż przycisk wysyłania na górze</string>
     <string name="title_advanced_attach_new">Utwórz nowy szkic wiadomości dla udostępnianych adresów i plików</string>
     <string name="title_advanced_answer_caption">Ustawienia przycisku odpowiedzi</string>
@@ -1375,6 +1376,7 @@
     <string name="title_too_large">Wiadomość jest zbyt duża, aby całkowicie sformatować</string>
     <string name="title_truncated">Wiadomość jest za duża, aby wyświetlić ją w całości</string>
     <string name="title_insufficient_memory">Wiadomość jest zbyt duża dla dostępnej pamięci (%1$d)</string>
+    <string name="title_screen_recording">Ekran jest nagrywany!</string>
     <string name="title_show_full">Pokaż pełną wiadomość</string>
     <string name="title_fullscreen">Pokaż na pełnym ekranie</string>
     <string name="title_fit_width">Dopasuj szerokość</string>
@@ -1447,6 +1449,7 @@
     <string name="title_save">Zapisz</string>
     <string name="title_send">Wyślij</string>
     <string name="title_sending">Wysyłanie&#8230;</string>
+    <string name="title_sending_to">Wysyłanie do %1$s</string>
     <string name="title_send_now">Wyślij teraz</string>
     <string name="title_send_via">Wyślij przez</string>
     <string name="title_send_at">Wysłać o &#8230;</string>
@@ -2206,7 +2209,8 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Brak</item>
-        <item>5 seconds</item>
+        <item>5 sekund</item>
+        <item>10 seconds</item>
         <item>15 sekund</item>
         <item>30 sekund</item>
         <item>1 minuta</item>

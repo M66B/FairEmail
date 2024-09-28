@@ -2169,6 +2169,7 @@
     <string-array name="sendDelayedNames">
         <item>いいえ</item>
         <item>5 秒</item>
+        <item>10 seconds</item>
         <item>15 秒</item>
         <item>30 秒</item>
         <item>1 分</item>

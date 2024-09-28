@@ -386,6 +386,7 @@
     <string name="title_advanced_send_nav_color">将身份颜色用于底部操作栏</string>
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_send_delayed">延迟发送邮件</string>
+    <string name="title_advanced_send_undo">显示撤销发送选项</string>
     <string name="title_advanced_send_top">在顶部显示发送按钮</string>
     <string name="title_advanced_attach_new">为分享的地址和文件新建邮件草稿</string>
     <string name="title_advanced_answer_caption">回复按钮设置</string>
@@ -1331,6 +1332,7 @@
     <string name="title_too_large">邮件内容太多，无法完全重新格式化</string>
     <string name="title_truncated">邮件内容太多，无法完全显示</string>
     <string name="title_insufficient_memory">邮件过大，内存不足（可用内存为 %1$d）</string>
+    <string name="title_screen_recording">正在录制屏幕！</string>
     <string name="title_show_full">显示完整邮件</string>
     <string name="title_fullscreen">全屏显示</string>
     <string name="title_fit_width">自适应宽度</string>
@@ -1403,6 +1405,7 @@
     <string name="title_save">保存</string>
     <string name="title_send">发送</string>
     <string name="title_sending">发送中 &#8230;</string>
+    <string name="title_sending_to">正在发送给 %1$s</string>
     <string name="title_send_now">立即发送</string>
     <string name="title_send_via">发送方式</string>
     <string name="title_send_at">发送于 &#8230;</string>
@@ -2158,7 +2161,8 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>否</item>
-        <item>5 seconds</item>
+        <item>5 秒</item>
+        <item>10 seconds</item>
         <item>15秒</item>
         <item>30秒</item>
         <item>1分钟</item>

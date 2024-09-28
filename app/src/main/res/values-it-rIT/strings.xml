@@ -410,7 +410,7 @@
     <string name="title_advanced_answer_hint">Le azioni del pulsante di risposta sono configurabili anche nella scheda delle impostazioni di invio</string>
     <string name="title_advanced_answer_warning">Non tutte le azioni sono possibili senza un menu di selezione!</string>
     <string name="title_advanced_send_pending">Mostrare un\'icona non vistosa per l\'invio posticipato</string>
-    <string name="title_advanced_save_revisions">Salvare le revisioni delle bozze per annullamento e ripetizione</string>
+    <string name="title_advanced_save_revisions">Salvare le revisioni delle bozze per le azioni Annulla e Ripristina</string>
     <string name="title_advanced_auto_save_paragraph">Salvare automaticamente una bozza dopo ogni paragrafo</string>
     <string name="title_advanced_auto_save_dot">Salvare automaticamente una bozza dopo ogni frase</string>
     <string name="title_advanced_compose_color">Colore predefinito del testo</string>
@@ -820,7 +820,7 @@
     <string name="title_advanced_debug">Modalità di debug</string>
     <string name="title_advanced_manual_hint">Se la ricezione dei messaggi è disabilitata, è ancora possibile ricevere manualmente i messaggi scorrendo in giù nell\'elenco dei messaggi</string>
     <string name="title_advanced_poll_battery">Questo può causare un elevato uso della batteria!</string>
-    <string name="title_advanced_poll_hint">Il controllo periodico di nuovi messaggi richiede ogni volta un confronto tra i messaggi locali e remoti: è un\'operazione costosa e potrebbe comportare un uso aggiuntivo della batteria, specialmente se ci sono molti messaggi. Ricevere sempre lo impedirà seguendo continuamente le modifiche.</string>
+    <string name="title_advanced_poll_hint">Il controllo periodico di nuovi messaggi richiede ogni volta un confronto tra i messaggi locali e remoti: è un\'operazione impegnativa che potrebbe comportare un consumo aggiuntivo della batteria, specialmente se ci sono molti messaggi. La ricezione continua delle modifiche lo impedirà.</string>
     <string name="title_advanced_optimize_hint">Questa opzione potrebbe cambiare la frequenza di sincronizzazione in modo da risparmiare sull\'uso della batteria a seconda delle funzionalità e del comportamento dei server di posta elettronica</string>
     <string name="title_advanced_schedule_hint">Toccare sull\'orario per impostarlo</string>
     <string name="title_advanced_schedule_ignore">Le pianificazioni possono esser disabilitate nelle impostazioni avanzate dell\'account</string>
@@ -1781,7 +1781,7 @@
     <string name="title_rule_attached">Allega il file del messaggio non elaborato</string>
     <string name="title_rule_cc">Rispondi agli indirizzi CC</string>
     <string name="title_rule_with_attachments">Con allegati</string>
-    <string name="title_rule_answer_remark">Sarà inviata solo una risposta per ogni conversazione, per evitarne ripetizioni</string>
+    <string name="title_rule_answer_remark">Sarà inviata solo una risposta per ogni conversazione, per evitare cicli di replica</string>
     <string name="title_rule_name_missing">Nome della regola mancante</string>
     <string name="title_rule_condition_missing">Condizione mancante</string>
     <string name="title_rule_folder_missing">Cartella mancante</string>
@@ -1992,7 +1992,7 @@
     <string name="title_later">Più tardi</string>
     <string name="title_paste_plain">Incolla come testo semplice</string>
     <string name="title_undo">Annulla</string>
-    <string name="title_redo">Ripeti</string>
+    <string name="title_redo">Ripristina</string>
     <string name="title_insert_line">Inserisci riga</string>
     <string name="title_select_block">Seleziona blocco di testo</string>
     <string name="title_insert_brackets">Tra parentesi</string>
@@ -2185,6 +2185,7 @@
     <string-array name="sendDelayedNames">
         <item>Nessuno</item>
         <item>5 secondi</item>
+        <item>10 seconds</item>
         <item>15 secondi</item>
         <item>30 secondi</item>
         <item>1 minuto</item>

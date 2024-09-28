@@ -2176,6 +2176,7 @@
     <string-array name="sendDelayedNames">
         <item>Όχι</item>
         <item>5 seconds</item>
+        <item>10 seconds</item>
         <item>15 δευτερόλεπτα</item>
         <item>30 δευτερόλεπτα</item>
         <item>1 λεπτό</item>

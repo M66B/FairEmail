@@ -2211,6 +2211,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string-array name="sendDelayedNames">
         <item>Nepozdržovat</item>
         <item>5 vteřin</item>
+        <item>10 vteřin</item>
         <item>15 vteřin</item>
         <item>30 vteřin</item>
         <item>1 minuta</item>
