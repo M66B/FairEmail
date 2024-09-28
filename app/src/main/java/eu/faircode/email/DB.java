@@ -3046,11 +3046,6 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("UPDATE account SET keep_alive_noop = 1" +
                                 " WHERE pop = " + EntityAccount.TYPE_IMAP);
                     }
-                }).addMigrations(new Migration(300, 299) {
-                    @Override
-                    public void migrate(@NonNull SupportSQLiteDatabase db) {
-                        logMigration(startVersion, endVersion);
-                    }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
