@@ -1419,6 +1419,10 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq16)
 
+Synchronization problems are seldom the fault of the app, but are almost always caused by internet connectivity or email server problems.
+The first thing to check is whether battery optimzations are **disabled** via setup step 3 in the main settings screen.
+If you can't solve the problem, [please contact me](#get-support), and I'll explain how to send the debug info for a proper anaylysis.
+
 Possible causes of messages not being synchronized (sent or received) are:
 
 * The account or folder(s) are not set to synchronize
