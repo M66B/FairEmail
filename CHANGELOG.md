@@ -20,6 +20,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
+### Next version
+
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2234 2024-09-28
 
 * Added option for undo send bar/action

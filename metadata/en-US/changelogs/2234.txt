@@ -20,6 +20,10 @@ For support you can use the contact form.
 
 Barsboldia
 
+Next version
+
+* Updated translations
+
 1.2234 2024-09-28
 
 * Added option for undo send bar/action
