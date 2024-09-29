@@ -1823,6 +1823,7 @@ Moreover, recent Android versions disallow access to all files for apps, except,
 
 To resolve this problem, the system component Google Play Services may need to be updated.
 Please [see here](https://support.google.com/googleplay/answer/9037938?hl=en) on how.
+Please note that you will need to restart your device after the update!
 
 The storage access framework is provided by the package *com.android.documentsui*,
 which is visible as *Files* app on some Android versions (notably OxygenOS).
