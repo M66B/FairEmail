@@ -113,7 +113,7 @@ public class ServiceTTS extends ServiceBase {
 
     private Notification getNotification() {
         NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this, "service")
+                new NotificationCompat.Builder(this, "progress")
                         .setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_DEFAULT)
                         .setSmallIcon(R.drawable.twotone_play_arrow_24)
                         .setContentTitle(getString(R.string.title_rule_tts))
