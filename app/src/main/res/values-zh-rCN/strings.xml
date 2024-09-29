@@ -191,6 +191,7 @@
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
     <string name="title_setup_oauth_update">重新授权现有账户（否则请新建账户）</string>
     <string name="title_setup_oauth_updated">账户授权已更新</string>
+    <string name="title_setup_oauth_edge">当使用 Edge 浏览器时，请确保“隐私、安全和服务”设置中的“阻止打开外部应用程序”为“关闭”</string>
     <string name="title_setup_oauth_brave">使用 Brave 浏览器时，您必须在 Brave 的设置中启用该选项，允许在 Brave 之外的应用中打开应用链接</string>
     <string name="title_setup_oauth_browser">授权需要一个运转正常的浏览器</string>
     <string name="title_setup_oauth_authorize">授权</string>
@@ -2162,7 +2163,7 @@
     <string-array name="sendDelayedNames">
         <item>否</item>
         <item>5 秒</item>
-        <item>10 seconds</item>
+        <item>10 秒</item>
         <item>15秒</item>
         <item>30秒</item>
         <item>1分钟</item>

@@ -205,6 +205,7 @@
     <string name="title_setup_oauth_rationale">Godkend adgang til din %1$s-konto</string>
     <string name="title_setup_oauth_update">Godkend en eksisterende konto igen (ellers opret en ny konto)</string>
     <string name="title_setup_oauth_updated">Kontogodkendelsen blev opdateret</string>
+    <string name="title_setup_oauth_edge">Sørg ved brug af Edge-webbrowser for, at \'Blokér åbning af eksterne apps\' i indstillingerne \'Fortrolighed, sikkerhed og tjenester\' er sat til \'Fra\'</string>
     <string name="title_setup_oauth_brave">Bruges Brave-browser skal valgmuligheden aktiveres i browserindstillingerne for at tillade åbning af app-links uden for Brave</string>
     <string name="title_setup_oauth_browser">Godkendelse kræver en fungerende webbrowser</string>
     <string name="title_setup_oauth_authorize">Godkend</string>
@@ -2185,7 +2186,7 @@
     <string-array name="sendDelayedNames">
         <item>Nej</item>
         <item>5 sekunder</item>
-        <item>10 seconds</item>
+        <item>10 sekunder</item>
         <item>5 sekunder</item>
         <item>30 sekunder</item>
         <item>1 minut</item>
