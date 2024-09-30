@@ -22,9 +22,10 @@ Barsboldia
 
 Next version
 
+* Small improvements and minor bug fixes
 * Updated translations
 
-1.2234 2024-09-28
+1.2234 2024-09-28 *
 
 * Added option for undo send bar/action
 * Small improvements and minor bug fixes
