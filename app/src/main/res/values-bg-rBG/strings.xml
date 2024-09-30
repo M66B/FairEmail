@@ -205,6 +205,7 @@
     <string name="title_setup_oauth_rationale">Упълномощете достъпа до своя акаунт %1$s</string>
     <string name="title_setup_oauth_update">Упълномощаване пак на съществуващ акаунт (в противен случай създаване на нов акаунт)</string>
     <string name="title_setup_oauth_updated">Обновено упълномощаване на акаунта</string>
+    <string name="title_setup_oauth_edge">Употребявайки браузъра Edge, уверете се, че е изключено \'Блокиране на отваряне във външни приложения\' от настройките при \'Поверителност, сигурност и услуги\'</string>
     <string name="title_setup_oauth_brave">Употребявайки браузъра Brave, трябва да включите възможността в настройките му да позволите на връзките в приложението да се отварят в приложения извън Brave</string>
     <string name="title_setup_oauth_browser">Упълномощаването изисква работещ браузър</string>
     <string name="title_setup_oauth_authorize">Упълномощявам</string>
@@ -400,6 +401,7 @@
     <string name="title_advanced_send_nav_color">Употреба на цвят за самоличност за долната лента с действия</string>
     <string name="title_advanced_send_reminders">Показване на напомняния</string>
     <string name="title_advanced_send_delayed">Отложено изпращане на съобщение</string>
+    <string name="title_advanced_send_undo">Показване на опция за отмяна на изпращане</string>
     <string name="title_advanced_send_top">Показване копчето „изпращане“ най-отгоре</string>
     <string name="title_advanced_attach_new">Сътворяване на ново черново съобщение за споделени адреси и файлове</string>
     <string name="title_advanced_answer_caption">Настройки на бутона отговор</string>
@@ -2180,7 +2182,7 @@
     <string-array name="sendDelayedNames">
         <item>Без</item>
         <item>5 секунди</item>
-        <item>10 seconds</item>
+        <item>10 секунди</item>
         <item>15 секунди</item>
         <item>30 секунди</item>
         <item>1 минута</item>

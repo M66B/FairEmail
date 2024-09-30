@@ -233,6 +233,7 @@
     <string name="title_setup_oauth_rationale">Autoryzuj dostęp do Twojego konta %1$s</string>
     <string name="title_setup_oauth_update">Autoryzuj istniejące konto ponownie (w przeciwnym razie utwórz nowe konto)</string>
     <string name="title_setup_oauth_updated">Autoryzacja konta została zaktualizowana</string>
+    <string name="title_setup_oauth_edge">Korzystając z przeglądarki Edge, upewnij się, że opcja „Blokuj otwieranie zewnętrznych aplikacji” w ustawieniach „Prywatność, bezpieczeństwo i usługi” jest wyłączona</string>
     <string name="title_setup_oauth_brave">Podczas korzystania z przeglądarki Brave, musisz włączyć opcję w jej ustawieniach, aby umożliwić otwieranie linków w innych aplikacjach</string>
     <string name="title_setup_oauth_browser">Autoryzacja wymaga działającej przeglądarki</string>
     <string name="title_setup_oauth_authorize">Autoryzuj</string>
@@ -2210,7 +2211,7 @@
     <string-array name="sendDelayedNames">
         <item>Brak</item>
         <item>5 sekund</item>
-        <item>10 seconds</item>
+        <item>10 sekund</item>
         <item>15 sekund</item>
         <item>30 sekund</item>
         <item>1 minuta</item>

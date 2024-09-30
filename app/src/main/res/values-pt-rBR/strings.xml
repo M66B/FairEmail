@@ -205,6 +205,7 @@
     <string name="title_setup_oauth_rationale">Autorizar acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar uma conta existente novamente (caso contrário, crie uma nova conta)</string>
     <string name="title_setup_oauth_updated">Autorização da conta foi atualizada</string>
+    <string name="title_setup_oauth_edge">Ao usar o navegador Edge, certifique-se de que ‘Bloquear abertura de aplicativos externos’ nas configurações de ‘Privacidade, segurança e serviços’ esteja ‘Desativado’</string>
     <string name="title_setup_oauth_brave">Ao usar o navegador Brave, você deve ativar a opção nas configurações do Brave para permitir que links de aplicativos sejam abertos em aplicativos fora do Brave</string>
     <string name="title_setup_oauth_browser">A autorização requer um navegador funcional</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
@@ -400,6 +401,7 @@
     <string name="title_advanced_send_nav_color">Use a cor de identidade para a barra de ação inferior</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atraso ao enviar mensagens</string>
+    <string name="title_advanced_send_undo">Mostrar opção de desfazer envio</string>
     <string name="title_advanced_send_top">Mostrar botão enviar na parte superior</string>
     <string name="title_advanced_attach_new">Criar um novo rascunho de mensagem para endereços e arquivos compartilhados</string>
     <string name="title_advanced_answer_caption">Configurações do botão de resposta</string>
@@ -1347,6 +1349,7 @@
     <string name="title_too_large">Mensagem muito grande para reformar completamente</string>
     <string name="title_truncated">Mensagem muito grande para exibir completamente</string>
     <string name="title_insufficient_memory">Mensagem muito grande para a memória disponível (%1$d)</string>
+    <string name="title_screen_recording">A tela está sendo gravada!</string>
     <string name="title_show_full">Mostrar mensagem completa</string>
     <string name="title_fullscreen">Mostrar tela cheia</string>
     <string name="title_fit_width">Ajustar largura</string>
@@ -1419,6 +1422,7 @@
     <string name="title_save">Salvar</string>
     <string name="title_send">Enviar</string>
     <string name="title_sending">Enviando &#8230;</string>
+    <string name="title_sending_to">Enviando para %1$s</string>
     <string name="title_send_now">Envie agora</string>
     <string name="title_send_via">Enviar via</string>
     <string name="title_send_at">Enviar em &#8230;</string>
@@ -2176,8 +2180,8 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Não</item>
-        <item>5 seconds</item>
-        <item>10 seconds</item>
+        <item>5 segundos</item>
+        <item>10 segundos</item>
         <item>15 segundos</item>
         <item>30 segundos</item>
         <item>1 minuto</item>
