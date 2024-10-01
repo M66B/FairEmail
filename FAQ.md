@@ -3212,6 +3212,23 @@ so there is little room for performance improvements.
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq78)
 
 In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*.
+
+The schedule section shows two parts, *Workdays* and *Weekend*.
+Each of them has a start time and a finish time.
+Pressing on any one of these means the time can be edited.
+
+Below these sections, there is a list of day names, *Sunday* through to *Saturday*.
+Some of these may be in bold text.
+The ones that are in bold are set using the cog next to the *Weekend* section.
+If you press the cog, you can choose which days you define to be the weekend.
+Typically, it will be *Sunday* and *Saturday*, but you can choose any day.
+Ticking one of these means that that will now be shown as bold in the list of days.
+
+The times under the *Weekend* section apply to those days which are in bold.
+The days which are not in bold are regarded as the workdays.
+
+You can untick any of the days in the list of days and that means that the schedule will not apply to those days.
+
 Note that an end time equal to or earlier than the start time is considered to be 24 hours later.
 
 Since version 1.1880 is is possible to exclude accounts from scheduling in the advanced account settings.
