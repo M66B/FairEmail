@@ -22,6 +22,7 @@ Barsboldia
 
 Next version
 
+* Added option to show stars in message list widget
 * Small improvements and minor bug fixes
 * Updated translations
 
