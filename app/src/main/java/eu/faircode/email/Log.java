@@ -991,13 +991,13 @@ public class Log {
                   at android.app.ActivityThread.handleUnbindService(ActivityThread.java:4352)
 
                 java.lang.RuntimeException: Could not get application info.
-                  at CH0.a(PG:11)
-                  at org.chromium.content.browser.ChildProcessLauncherHelperImpl.a(PG:34)
-                  at Fn2.run(PG:5)
-                  at android.os.Handler.handleCallback(Handler.java:874)
-                  at android.os.Handler.dispatchMessage(Handler.java:100)
-                  at android.os.Looper.loop(Looper.java:198)
-                  at android.os.HandlerThread.run(HandlerThread.java:65)
+                  at CH0.a(PG:11)
+                  at org.chromium.content.browser.ChildProcessLauncherHelperImpl.a(PG:34)
+                  at Fn2.run(PG:5)
+                  at android.os.Handler.handleCallback(Handler.java:874)
+                  at android.os.Handler.dispatchMessage(Handler.java:100)
+                  at android.os.Looper.loop(Looper.java:198)
+                  at android.os.HandlerThread.run(HandlerThread.java:65)
 
                 java.lang.RuntimeException: Unable to create service eu.faircode.email.ServiceSynchronize: java.lang.NullPointerException: Attempt to invoke interface method 'java.util.List android.os.IUserManager.getProfiles(int, boolean)' on a null object reference
                   at android.app.ActivityThread.handleCreateService(ActivityThread.java:2739)
@@ -1275,6 +1275,11 @@ public class Log {
                         at android.os.Handler.handleCallback(Handler.java:938)
                  */
             return false;
+
+        if (ex instanceof NullPointerException)
+            for (StackTraceElement ste : stack)
+                if ("java.lang.Daemons$FinalizerWatchdogDaemon".equals(ste.getClassName()))
+                    return false;
 
         if (ex instanceof IndexOutOfBoundsException &&
                 stack.length > 0 &&
