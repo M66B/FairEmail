@@ -30,6 +30,7 @@
             android:layout_width="36dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="3dp"
+            android:layout_weight="0"
             android:adjustViewBounds="true"
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
@@ -39,6 +40,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="vertical"
             android:paddingTop="6dp"
             android:paddingBottom="6dp">
@@ -123,6 +125,17 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="?android:textColorPrimary" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivFlagged"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="3dp"
+            android:layout_weight="0"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:src="@drawable/twotone_star_24"
+            android:tint="?android:textColorPrimary" />
     </LinearLayout>
 
     <FrameLayout

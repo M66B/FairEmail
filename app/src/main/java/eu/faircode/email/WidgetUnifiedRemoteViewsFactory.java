@@ -59,6 +59,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private boolean unseen;
     private boolean show_unseen;
     private boolean flagged;
+    private boolean show_flagged;
     private boolean daynight;
     private boolean highlight;
     private int highlight_color;
@@ -77,6 +78,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private int colorWidgetForeground;
     private int colorWidgetUnread;
     private int colorWidgetRead;
+    private int colorFlagged;
     private int colorSeparator;
     private boolean pro;
     private boolean hasColor;
@@ -112,6 +114,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         show_unseen = prefs.getBoolean("widget." + appWidgetId + ".show_unseen", true);
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
+        show_flagged = prefs.getBoolean("widget." + appWidgetId + ".show_flagged", false);
         daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
         highlight_color = prefs.getInt("widget." + appWidgetId + ".highlight_color", Color.TRANSPARENT);
@@ -148,6 +151,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             colorWidgetUnread = ColorUtils.setAlphaComponent(highlight_color, 255);
         } else
             colorWidgetUnread = colorWidgetForeground;
+
+        colorFlagged = ContextCompat.getColor(context, lum > 0.7f ? R.color.lightYellowAccent : R.color.darkYellowAccent);
 
         pro = ActivityBilling.isPro(context);
 
@@ -324,6 +329,14 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             views.setTextViewText(R.id.tvNotes, message.notes);
             views.setTextColor(R.id.tvNotes, message.notes_color == null ? colorWidgetRead : message.notes_color);
             views.setViewVisibility(R.id.tvNotes, message.notes == null ? View.GONE : View.VISIBLE);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                views.setImageViewResource(R.id.ivFlagged, message.ui_flagged ? R.drawable.baseline_star_24 : R.drawable.twotone_star_border_24);
+                views.setColorStateList(R.id.ivFlagged, "setImageTintList",
+                        ColorStateList.valueOf(message.ui_flagged ? colorFlagged : colorSeparator));
+                views.setViewVisibility(R.id.ivFlagged, !flagged && show_flagged ? View.VISIBLE : View.GONE);
+            } else
+                views.setViewVisibility(R.id.ivFlagged, View.GONE);
 
             views.setViewVisibility(R.id.separator, separators ? View.VISIBLE : View.GONE);
 

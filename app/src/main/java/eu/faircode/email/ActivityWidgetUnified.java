@@ -63,6 +63,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private CheckBox cbUnseen;
     private CheckBox cbShowUnseen;
     private CheckBox cbFlagged;
+    private CheckBox cbShowFlagged;
     private CheckBox cbDayNight;
     private CheckBox cbHighlight;
     private ViewButtonColor btnHighlight;
@@ -110,6 +111,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         boolean unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         boolean show_unseen = prefs.getBoolean("widget." + appWidgetId + ".show_unseen", true);
         boolean flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
+        boolean show_flagged = prefs.getBoolean("widget." + appWidgetId + ".show_flagged", false);
         boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         boolean highlight = prefs.getBoolean("widget." + appWidgetId + ".highlight", false);
         int highlight_color = prefs.getInt("widget." + appWidgetId + ".highlight_color", Color.TRANSPARENT);
@@ -139,6 +141,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         cbUnseen = findViewById(R.id.cbUnseen);
         cbShowUnseen = findViewById(R.id.cbShowUnseen);
         cbFlagged = findViewById(R.id.cbFlagged);
+        cbShowFlagged = findViewById(R.id.cbShowFlagged);
         cbDayNight = findViewById(R.id.cbDayNight);
         cbHighlight = findViewById(R.id.cbHighlight);
         btnHighlight = findViewById(R.id.btnHighlight);
@@ -169,6 +172,15 @@ public class ActivityWidgetUnified extends ActivityBase {
                 cbShowUnseen.setEnabled(isChecked);
             }
         });
+
+        cbFlagged.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                cbShowFlagged.setEnabled(!isChecked);
+            }
+        });
+
+        cbShowFlagged.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.S ? View.GONE : View.VISIBLE);
 
         cbDayNight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -306,6 +318,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putBoolean("widget." + appWidgetId + ".show_unseen", cbShowUnseen.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".daynight", cbDayNight.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
+                editor.putBoolean("widget." + appWidgetId + ".show_flagged", cbShowFlagged.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".highlight", cbHighlight.isChecked());
                 editor.putInt("widget." + appWidgetId + ".highlight_color", btnHighlight.getColor());
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
@@ -436,6 +449,8 @@ public class ActivityWidgetUnified extends ActivityBase {
         cbShowUnseen.setChecked(show_unseen);
         cbShowUnseen.setEnabled(cbUnseen.isChecked());
         cbFlagged.setChecked(flagged);
+        cbShowFlagged.setChecked(show_flagged);
+        cbShowFlagged.setEnabled(!flagged);
         cbDayNight.setChecked(daynight);
         cbDayNight.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.S ? View.GONE : View.VISIBLE);
         cbHighlight.setChecked(highlight);
