@@ -281,7 +281,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         if (content_pane != null) {
             // Special: Surface Duo
-            if (duo || canFold) {
+            if (duo) {
                 View content_frame = findViewById(R.id.content_frame);
                 ViewGroup.LayoutParams lparam = content_frame.getLayoutParams();
                 if (lparam instanceof LinearLayout.LayoutParams) {
@@ -294,7 +294,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     content_separator.getLayoutParams().width = Helper.dp2pixels(this, seam);
                 }
             } else {
-                int column_width = prefs.getInt("column_width", 67);
+                int column_width = prefs.getInt("column_width", canFold ? 50 : 67);
                 ViewGroup.LayoutParams lparam = content_pane.getLayoutParams();
                 if (lparam instanceof LinearLayout.LayoutParams) {
                     ((LinearLayout.LayoutParams) lparam).weight =
