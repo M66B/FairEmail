@@ -1308,6 +1308,29 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof IndexOutOfBoundsException &&
+                stack.length > 0 &&
+                "android.text.PackedIntVector".equals(stack[0].getClassName()) &&
+                "getValue".equals(stack[0].getMethodName()))
+            /*
+                java.lang.IndexOutOfBoundsException: 2, 1
+                    at android.text.PackedIntVector.getValue(PackedIntVector.java:75)
+                    at android.text.DynamicLayout.getLineTop(DynamicLayout.java:1001)
+                    at android.text.Layout.getLineBottom(Layout.java:1652)
+                    at android.widget.Editor.getCurrentLineAdjustedForSlop(Editor.java:6851)
+                    at android.widget.Editor.access$8700(Editor.java:175)
+                    at android.widget.Editor$InsertionHandleView.updatePosition(Editor.java:6317)
+                    at android.widget.Editor$HandleView.onTouchEvent(Editor.java:5690)
+                    at android.widget.Editor$InsertionHandleView.onTouchEvent(Editor.java:6235)
+                    at android.view.View.dispatchTouchEvent(View.java:13484)
+                    at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3222)
+                    at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2904)
+                    at android.view.ViewGroup.dispatchTransformedTouchEvent(ViewGroup.java:3222)
+                    at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2904)
+                    at android.widget.PopupWindow$PopupDecorView.dispatchTouchEvent(PopupWindow.java:2700)
+            */
+            return false;
+
         if (ex instanceof IndexOutOfBoundsException) {
             for (StackTraceElement ste : stack)
                 if ("android.widget.NumberPicker$SetSelectionCommand".equals(ste.getClassName()) &&
