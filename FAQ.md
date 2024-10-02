@@ -6115,6 +6115,8 @@ To use [Gemini](https://gemini.google.com/), please follow these steps:
 1. Enter the API key in the integration settings tab page
 1. Enable Gemini integration in the integration settings tab page
 
+Please note that connections through a VPN are mostly refused.
+
 <br>
 
 For usage instructions, please see [this FAQ](#faq190).
