@@ -24,6 +24,8 @@ Next version
 
 * Added option to show stars in message list widget
 * Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
 * Updated translations
 
 1.2234 2024-09-28 *
