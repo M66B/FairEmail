@@ -2133,6 +2133,7 @@
     <string name="title_widget_unseen">Лише непрочитані повідомлення</string>
     <string name="title_widget_show_unseen">Показувати як непрочитані</string>
     <string name="title_widget_flagged">Лише обрані повідомлення</string>
+    <string name="title_widget_show_flagged">Показувати позначку «Зірка»</string>
     <string name="title_widget_font_size">Розмір тексту</string>
     <string name="title_widget_padding">Розмір відступів</string>
     <string name="title_widget_separator_lines">Використовувати розділюючі лінії</string>

@@ -2131,6 +2131,7 @@
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
     <string name="title_widget_show_unseen">Pokaż jako nieprzeczytane</string>
     <string name="title_widget_flagged">Tylko oznaczone</string>
+    <string name="title_widget_show_flagged">Pokaż gwiazdki</string>
     <string name="title_widget_font_size">Rozmiar tekstu</string>
     <string name="title_widget_padding">Rozmiar wypełnienia</string>
     <string name="title_widget_separator_lines">Pokaż linie rozdzielające</string>

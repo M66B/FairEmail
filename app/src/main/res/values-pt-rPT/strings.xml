@@ -2108,6 +2108,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_widget_unseen">Apenas mensagens não lidas</string>
     <string name="title_widget_show_unseen">Exibir como não lidas</string>
     <string name="title_widget_flagged">Apenas mensagens com estrela</string>
+    <string name="title_widget_show_flagged">Mostrar estrelas</string>
     <string name="title_widget_font_size">Tamanho do texto</string>
     <string name="title_widget_padding">Tamanho do espaçamento</string>
     <string name="title_widget_separator_lines">Mostrar linhas a separar</string>

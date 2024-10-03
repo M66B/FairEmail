@@ -2107,6 +2107,7 @@
     <string name="title_widget_unseen">Yalnız oxunmamış mesajlar</string>
     <string name="title_widget_show_unseen">Oxunmadı olaraq göstər</string>
     <string name="title_widget_flagged">Yalnız ulduzlu mesajlar</string>
+    <string name="title_widget_show_flagged">Ulduzları göstər</string>
     <string name="title_widget_font_size">Mətn ölçüsü</string>
     <string name="title_widget_padding">Boşluğun ölçüsü</string>
     <string name="title_widget_separator_lines">Ayırıcı xəttləri göstər</string>

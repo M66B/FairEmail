@@ -191,6 +191,7 @@
     <string name="title_setup_oauth_rationale">授權存取您的 %1$s 帳戶</string>
     <string name="title_setup_oauth_update">重新授權現有帳戶 (否則請新建帳戶)</string>
     <string name="title_setup_oauth_updated">帳戶授權已更新</string>
+    <string name="title_setup_oauth_edge">使用 Edge 瀏覽器時，請確認「隱私、安全性和服務」設定中的「阻止開啟外部應用程式」已關閉</string>
     <string name="title_setup_oauth_brave">在使用 Brave 瀏覽器時，您必須在 Brave 的設定中啟用允許應用程式連結在 Brave 之外的應用程式中開啟的選項。</string>
     <string name="title_setup_oauth_browser">授權需要一個可運作的瀏覽器</string>
     <string name="title_setup_oauth_authorize">授權</string>
@@ -387,6 +388,7 @@
     <string name="title_advanced_send_nav_color">對底部動作欄使用身份顏色</string>
     <string name="title_advanced_send_reminders">顯示提醒</string>
     <string name="title_advanced_send_delayed">延後傳送訊息</string>
+    <string name="title_advanced_send_undo">顯示撤銷傳送選項</string>
     <string name="title_advanced_send_top">在頂部顯示傳送按鈕</string>
     <string name="title_advanced_attach_new">為共享地址和檔案建立新的草稿郵件</string>
     <string name="title_advanced_answer_caption">回覆按鈕設定</string>
@@ -1329,6 +1331,7 @@
     <string name="title_too_large">訊息太大，無法完整重排</string>
     <string name="title_truncated">訊息太大，無法完整顯示</string>
     <string name="title_insufficient_memory">訊息太大，剩下存儲容量不足 (剩下可用容量: %1$d)</string>
+    <string name="title_screen_recording">正在錄製螢幕！</string>
     <string name="title_show_full">顯示完整訊息</string>
     <string name="title_fullscreen">全屏顯示</string>
     <string name="title_fit_width">適配寬度</string>
@@ -1401,6 +1404,7 @@
     <string name="title_save">保存</string>
     <string name="title_send">傳送</string>
     <string name="title_sending">正在傳送 &#8230;</string>
+    <string name="title_sending_to">正在發送至 %1$s</string>
     <string name="title_send_now">立即傳送</string>
     <string name="title_send_via">傳送方式</string>
     <string name="title_send_at">傳送於 &#8230;</string>
@@ -2079,6 +2083,7 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
     <string name="title_widget_unseen">僅未讀訊息</string>
     <string name="title_widget_show_unseen">顯示為未讀</string>
     <string name="title_widget_flagged">僅已加星號訊息</string>
+    <string name="title_widget_show_flagged">顯示星號</string>
     <string name="title_widget_font_size">文字大小</string>
     <string name="title_widget_padding">填充大小</string>
     <string name="title_widget_separator_lines">顯示分隔線</string>
@@ -2155,8 +2160,8 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
     </string-array>
     <string-array name="sendDelayedNames">
         <item>否</item>
-        <item>5 seconds</item>
-        <item>10 seconds</item>
+        <item>5 秒</item>
+        <item>10 秒</item>
         <item>15 秒</item>
         <item>30 秒</item>
         <item>1 分鐘</item>

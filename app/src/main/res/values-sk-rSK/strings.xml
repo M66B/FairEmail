@@ -2117,6 +2117,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_widget_folder_unified">Priečinky spoločnej doručenej pošty</string>
     <string name="title_widget_unseen">Len neprečítané správy</string>
     <string name="title_widget_flagged">Len obľúbené správy</string>
+    <string name="title_widget_show_flagged">Zobraziť hviezdičky</string>
     <string name="title_widget_font_size">Veľkosť textu</string>
     <string name="title_widget_padding">Veľkosť odsadenia</string>
     <string name="title_widget_separator_lines">Zobrazovať deliace čiary</string>

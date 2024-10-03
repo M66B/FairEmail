@@ -2109,6 +2109,7 @@
     <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>
     <string name="title_widget_show_unseen">Als ungelesen anzeigen</string>
     <string name="title_widget_flagged">Nur markierte Nachrichten</string>
+    <string name="title_widget_show_flagged">Sterne anzeigen</string>
     <string name="title_widget_font_size">Schriftgröße</string>
     <string name="title_widget_padding">Abstand zwischen den Texten</string>
     <string name="title_widget_separator_lines">Trennlinien anzeigen</string>

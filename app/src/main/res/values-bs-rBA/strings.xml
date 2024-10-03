@@ -2121,6 +2121,7 @@
     <string name="title_widget_unseen">Samo nepročitane poruke</string>
     <string name="title_widget_show_unseen">Prikaži kao nepročitano</string>
     <string name="title_widget_flagged">Samo poruke sa zvjezdicom</string>
+    <string name="title_widget_show_flagged">Prikaži zvjezdice</string>
     <string name="title_widget_font_size">Veličina teksta</string>
     <string name="title_widget_padding">Veličina razmaka</string>
     <string name="title_widget_separator_lines">Prikaži linije razdvajanja</string>

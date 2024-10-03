@@ -2092,6 +2092,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>
     <string name="title_widget_show_unseen">Okunmamış olarak göster</string>
     <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
+    <string name="title_widget_show_flagged">Yıldızları göster</string>
     <string name="title_widget_font_size">Metin boyutu</string>
     <string name="title_widget_padding">Boşluk boyutu</string>
     <string name="title_widget_separator_lines">Ayırıcı çizgileri göster</string>

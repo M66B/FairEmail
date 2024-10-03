@@ -219,6 +219,7 @@
     <string name="title_setup_oauth_rationale">Autorizare acces la contul %1$s</string>
     <string name="title_setup_oauth_update">Autorizați din nou un cont existent (în caz contrar, creați un cont nou)</string>
     <string name="title_setup_oauth_updated">Autorizarea contului a fost actualizată</string>
+    <string name="title_setup_oauth_edge">Atunci când utilizați browser-ul Edge, asigurați-vă că \'Blocarea deschiderii aplicațiilor externe\' în setările \'Confidențialitate, securitate și servicii\' este oprită</string>
     <string name="title_setup_oauth_brave">Când folosiți browserul Brave, trebuie să activați opțiunea din setările Brave pentru a permite adreselor din aplicației să fie deschide de aplicații din afara Brave</string>
     <string name="title_setup_oauth_browser">Autorizarea necesită un browser funcțional</string>
     <string name="title_setup_oauth_authorize">Autorizare</string>
@@ -414,6 +415,7 @@
     <string name="title_advanced_send_nav_color">Utilizați culoarea de identitate pentru bara de acțiune de jos</string>
     <string name="title_advanced_send_reminders">Arată mementouri</string>
     <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
+    <string name="title_advanced_send_undo">Arată opțiunea de anulare a trimiterii</string>
     <string name="title_advanced_send_top">Arată butonul de trimitere în partea de sus</string>
     <string name="title_advanced_attach_new">Creați un mesaj ciornă nou pentru adresele și fișierele partajate</string>
     <string name="title_advanced_answer_caption">Setări buton de răspuns</string>
@@ -1361,6 +1363,7 @@
     <string name="title_too_large">Mesaj prea mare pentru a fi complet reformatat</string>
     <string name="title_truncated">Mesaj prea mare pentru a-l putea afișa complet</string>
     <string name="title_insufficient_memory">Mesaj prea mare pentru memoria disponibilă (%1$d)</string>
+    <string name="title_screen_recording">Ecranul este înregistrat!</string>
     <string name="title_show_full">Arată mesajul întreg</string>
     <string name="title_fullscreen">Afișează pe ecranul complet</string>
     <string name="title_fit_width">Potrivește lățimea</string>
@@ -1433,6 +1436,7 @@
     <string name="title_save">Salvează</string>
     <string name="title_send">Trimite</string>
     <string name="title_sending">Se trimite &#8230;</string>
+    <string name="title_sending_to">Trimite la %1$s</string>
     <string name="title_send_now">Trimite acum</string>
     <string name="title_send_via">Trimite prin</string>
     <string name="title_send_at">Trimite la &#8230;</string>
@@ -2113,6 +2117,7 @@
     <string name="title_widget_unseen">Numai mesajele necitite</string>
     <string name="title_widget_show_unseen">Arată ca necitit</string>
     <string name="title_widget_flagged">Numai mesajele cu stea</string>
+    <string name="title_widget_show_flagged">Arată cu stea</string>
     <string name="title_widget_font_size">Mărime text</string>
     <string name="title_widget_padding">Mărime spațiu liber</string>
     <string name="title_widget_separator_lines">Arată liniile separatoare</string>
@@ -2191,8 +2196,8 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Fără</item>
-        <item>5 seconds</item>
-        <item>10 seconds</item>
+        <item>5 secunde</item>
+        <item>10 secunde</item>
         <item>15 secunde</item>
         <item>30 de secunde</item>
         <item>1 minut</item>

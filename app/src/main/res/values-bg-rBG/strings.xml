@@ -2104,6 +2104,7 @@
     <string name="title_widget_unseen">Непрочетени съобщения</string>
     <string name="title_widget_show_unseen">Показване като непрочетено</string>
     <string name="title_widget_flagged">Само съобщения със звезда</string>
+    <string name="title_widget_show_flagged">Показване на звездите</string>
     <string name="title_widget_font_size">Големина на текста</string>
     <string name="title_widget_padding">Размер на отстъпа</string>
     <string name="title_widget_separator_lines">Показване на разделителни линии</string>

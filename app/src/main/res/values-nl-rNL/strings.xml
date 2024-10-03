@@ -2093,6 +2093,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_unseen">Alleen ongelezen berichten</string>
     <string name="title_widget_show_unseen">Toon als ongelezen</string>
     <string name="title_widget_flagged">Alleen berichten met een ster</string>
+    <string name="title_widget_show_flagged">Toon sterren</string>
     <string name="title_widget_font_size">Tekstgrootte</string>
     <string name="title_widget_padding">Opvul grootte</string>
     <string name="title_widget_separator_lines">Gebruik scheidingslijnen</string>

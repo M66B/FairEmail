@@ -2103,6 +2103,7 @@
     <string name="title_widget_unseen">Vaid lugemata sõnumid</string>
     <string name="title_widget_show_unseen">Näita kui lugemata</string>
     <string name="title_widget_flagged">Vaid tärniga sõnumid</string>
+    <string name="title_widget_show_flagged">Näita tärne</string>
     <string name="title_widget_font_size">Teksti suurus</string>
     <string name="title_widget_padding">Polstri suurus</string>
     <string name="title_widget_separator_lines">Näita eraldusjooni</string>

@@ -205,6 +205,7 @@
     <string name="title_setup_oauth_rationale">Παραχωρήστε πρόσβαση στον λογαριασμό σας %1$s</string>
     <string name="title_setup_oauth_update">Εκ νέου εξουσιοδότηση ενός ήδη υπάρχοντος λογαριασμού (διαφορετικά, δημιουργήστε έναν καινούργιο λογαριασμό)</string>
     <string name="title_setup_oauth_updated">Η εξουσιοδότηση λογαριασμού ενημερώθηκε</string>
+    <string name="title_setup_oauth_edge">Όταν χρησιμοποιείτε τον περιηγητή Edge, βεβαιωθείτε ότι το \"Αποκλεισμός ανοίγματος εξωτερικών εφαρμογών\" στις ρυθμίσεις \"Ιδιωτικότητα, ασφάλεια και υπηρεσίες\" είναι \"Απενεργοποιημένο\"</string>
     <string name="title_setup_oauth_brave">Όταν χρησιμοποιείτε τον περιηγητή Brave, πρέπει να ενεργοποιήσετε την επιλογή στις ρυθμίσεις του Brave, για να επιτρέπεται στους συνδέσμους εφαρμογών να ανοίγουν σε εφαρμογές έξω από το Brave</string>
     <string name="title_setup_oauth_browser">Η εξουσιοδότηση απαιτεί ένα λειτουργικό πρόγραμμα περιήγησης</string>
     <string name="title_setup_oauth_authorize">Εξουσιοδότηση</string>
@@ -400,6 +401,7 @@
     <string name="title_advanced_send_nav_color">Χρήση του χρώματος ταυτότητας για την κάτω γραμμή ενεργειών</string>
     <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
     <string name="title_advanced_send_delayed">Καθυστέρηση αποστολής μηνυμάτων</string>
+    <string name="title_advanced_send_undo">Προβολή επιλογής για αναίρεση αποστολής</string>
     <string name="title_advanced_send_top">Προβολή κουμπιού αποστολής στην κορυφή</string>
     <string name="title_advanced_attach_new">Δημιουργία νέου προσχεδίου μηνύματος για κοινόχρηστες διευθύνσεις και αρχεία</string>
     <string name="title_advanced_answer_caption">Ρυθμίσεις κουμπιού απάντησης</string>
@@ -1345,6 +1347,7 @@
     <string name="title_too_large">Το μήνυμα είναι υπερβολικά μεγάλο για να αναμορφοποιηθεί πλήρως</string>
     <string name="title_truncated">Το μύνημα είναι πολύ μεγάλο για να προβληθεί ολόκληρο</string>
     <string name="title_insufficient_memory">Υπερβολικά μεγάλο μήνυμα για τη διαθέσιμη μνήμη (%1$d)</string>
+    <string name="title_screen_recording">Η οθόνη καταγράφεται!</string>
     <string name="title_show_full">Προβολή πλήρους μηνύματος</string>
     <string name="title_fullscreen">Προβολή σε πλήρη οθόνη</string>
     <string name="title_fit_width">Προσαρμογή στο πλάτος οθόνης</string>
@@ -1418,6 +1421,7 @@
     <string name="title_save">Αποθήκευση</string>
     <string name="title_send">Αποστολή</string>
     <string name="title_sending">Αποστέλλεται &#8230;</string>
+    <string name="title_sending_to">Αποστολή σε %1$s</string>
     <string name="title_send_now">Αποστολή τώρα</string>
     <string name="title_send_via">Αποστολή μέσω</string>
     <string name="title_send_at">Αποστολή στις &#8230;</string>
@@ -2098,6 +2102,7 @@
     <string name="title_widget_unseen">Μη αναγνωσμένα μηνύματα μόνο</string>
     <string name="title_widget_show_unseen">Προβολή ως μη αναγνωσμένο</string>
     <string name="title_widget_flagged">Μηνύματα με αστέρι μόνο</string>
+    <string name="title_widget_show_flagged">Να προβάλλονται τα αστέρια</string>
     <string name="title_widget_font_size">Μέγεθος κειμένου</string>
     <string name="title_widget_padding">Μέγεθος διαστήματος μεταξύ μηνυμάτων</string>
     <string name="title_widget_separator_lines">Προβολή διαχωριστικών γραμμών</string>
@@ -2175,8 +2180,8 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Όχι</item>
-        <item>5 seconds</item>
-        <item>10 seconds</item>
+        <item>5 δευτερόλεπτα</item>
+        <item>10 δευτερόλεπτα</item>
         <item>15 δευτερόλεπτα</item>
         <item>30 δευτερόλεπτα</item>
         <item>1 λεπτό</item>

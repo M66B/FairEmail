@@ -2131,6 +2131,7 @@
     <string name="title_widget_unseen">Толькі непрачытаныя паведамленні</string>
     <string name="title_widget_show_unseen">Паказваць як непрачытаныя</string>
     <string name="title_widget_flagged">Толькі пазначаныя паведамленні</string>
+    <string name="title_widget_show_flagged">Паказваць пазначаныя</string>
     <string name="title_widget_font_size">Памер тэксту</string>
     <string name="title_widget_padding">Памер водступу</string>
     <string name="title_widget_separator_lines">Паказаць раздзяляльныя лініі</string>

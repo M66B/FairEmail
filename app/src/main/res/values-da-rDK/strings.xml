@@ -2108,6 +2108,7 @@
     <string name="title_widget_unseen">Kun ulæste beskeder</string>
     <string name="title_widget_show_unseen">Vis som ulæst</string>
     <string name="title_widget_flagged">Kun stjerne-beskeder</string>
+    <string name="title_widget_show_flagged">Vis stjernemarkeringer</string>
     <string name="title_widget_font_size">Tekststørrelse</string>
     <string name="title_widget_padding">Polstringsstørrelse</string>
     <string name="title_widget_separator_lines">Vis separatorlinjer</string>

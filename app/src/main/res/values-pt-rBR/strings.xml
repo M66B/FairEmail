@@ -2103,6 +2103,7 @@
     <string name="title_widget_unseen">Apenas mensagens não lidas</string>
     <string name="title_widget_show_unseen">Mostrar como não lido</string>
     <string name="title_widget_flagged">Apenas mensagens com estrela</string>
+    <string name="title_widget_show_flagged">Mostrar estrelas</string>
     <string name="title_widget_font_size">Tamanho do texto</string>
     <string name="title_widget_padding">Tamanho do preenchimento</string>
     <string name="title_widget_separator_lines">Mostrar linhas separadoras</string>

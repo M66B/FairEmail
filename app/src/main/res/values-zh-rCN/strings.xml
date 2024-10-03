@@ -2086,6 +2086,7 @@
     <string name="title_widget_unseen">仅未读邮件</string>
     <string name="title_widget_show_unseen">显示为未读</string>
     <string name="title_widget_flagged">仅带有星标的邮件</string>
+    <string name="title_widget_show_flagged">显示星标</string>
     <string name="title_widget_font_size">文本大小</string>
     <string name="title_widget_padding">内边距尺寸</string>
     <string name="title_widget_separator_lines">显示分隔符行</string>

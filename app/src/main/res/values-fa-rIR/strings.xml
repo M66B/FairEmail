@@ -1472,6 +1472,7 @@
     <string name="title_widget_unseen">فقط پیام‌های خوانده نشده</string>
     <string name="title_widget_show_unseen">به عنوان خوانده نشده نشان بده</string>
     <string name="title_widget_flagged">فقط پیام‌های ستاره‌دار</string>
+    <string name="title_widget_show_flagged">نمایش ستاره‌ها</string>
     <string name="title_widget_font_size">اندازه متن</string>
     <string name="title_widget_padding">اندازه لایه‌گذاری</string>
     <string name="title_widget_separator_lines">نمایش خطوط جدا کننده</string>

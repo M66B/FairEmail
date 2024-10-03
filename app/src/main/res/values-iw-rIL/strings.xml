@@ -2134,6 +2134,7 @@
     <string name="title_widget_unseen">הודעות שלא נקראו בלבד</string>
     <string name="title_widget_show_unseen">הצגה כלא נקרא</string>
     <string name="title_widget_flagged">הודעות שמסומנות בכוכב בלבד</string>
+    <string name="title_widget_show_flagged">הצגת כוכבים</string>
     <string name="title_widget_font_size">גודל טקסט</string>
     <string name="title_widget_padding">גודל ריפוד</string>
     <string name="title_widget_separator_lines">הצגת קווים מפרידים</string>

@@ -203,6 +203,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_oauth_rationale">Autorisearje tagong ta jo %1$s-account</string>
     <string name="title_setup_oauth_update">Autorisearje in besteand account opnij (oars in nij account oanmeitsje)</string>
     <string name="title_setup_oauth_updated">Accountautorisaasje is bywurke</string>
+    <string name="title_setup_oauth_edge">As jo de Edge-browser bruke, soargje der dan foar dat ‘Het openen van externe apps blokkeren’ yn de ynstellingen foar ‘Privacy, beveiliging en services’ op \'Uit\' stiet</string>
     <string name="title_setup_oauth_brave">By it gebrûk fan de Brave-browser, moatte jo de opsje yn de ynstellingen fan Brave om app-keppelingen yn apps bûten Brave iepenje te litten ynskeakelje</string>
     <string name="title_setup_oauth_browser">Autorisaasje fereasket in wurkjende browser</string>
     <string name="title_setup_oauth_authorize">Autorisearje</string>
@@ -399,6 +400,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_send_nav_color">Brûk de identiteitskleur foar de ûnderste aksjebalke</string>
     <string name="title_advanced_send_reminders">Oantinkens toane</string>
     <string name="title_advanced_send_delayed">Ferstjoeren fan berjochten útstelle</string>
+    <string name="title_advanced_send_undo">Opsje om ferstjoeren ûngedien te meitsjen toane</string>
     <string name="title_advanced_send_top">Ferstjoerknop boppeyn toane</string>
     <string name="title_advanced_attach_new">Meitsje in nij konsept foar dielde adressen en bestannen</string>
     <string name="title_advanced_answer_caption">Ynstellingen fan de antwurdknop</string>
@@ -1344,6 +1346,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_too_large">Berjocht te grut om opnij op te meitsjen</string>
     <string name="title_truncated">Berjocht te grut om folslein te toanen</string>
     <string name="title_insufficient_memory">Berjocht te grut foar it beskikbere ûnthâld (%1$d)</string>
+    <string name="title_screen_recording">It skerm wurdt opnommen!</string>
     <string name="title_show_full">Folsleine berjocht toane</string>
     <string name="title_fullscreen">Folslein skerm toane</string>
     <string name="title_fit_width">Breedte oanpasse</string>
@@ -1416,6 +1419,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_save">Bewarje</string>
     <string name="title_send">Ferstjoere</string>
     <string name="title_sending">Ferstjoere&#8230;</string>
+    <string name="title_sending_to">Ferstjoere nei %1$s</string>
     <string name="title_send_now">No ferstjoere</string>
     <string name="title_send_via">Ferstjoere fia</string>
     <string name="title_send_at">Ferstjoerd om&#8230;</string>
@@ -2095,6 +2099,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_widget_unseen">Allinnich net-lêzen berjochten</string>
     <string name="title_widget_show_unseen">As net-lêzen toane</string>
     <string name="title_widget_flagged">Allinnich berjochten mei stjer</string>
+    <string name="title_widget_show_flagged">Stjerren toane</string>
     <string name="title_widget_font_size">Tekstgrutte</string>
     <string name="title_widget_padding">Opfolgrutte</string>
     <string name="title_widget_separator_lines">Skiedingslinen brûke</string>
@@ -2172,8 +2177,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Gjin</item>
-        <item>5 seconds</item>
-        <item>10 seconds</item>
+        <item>5 sekonden</item>
+        <item>10 sekonden</item>
         <item>15 sekonden</item>
         <item>30 sekonden</item>
         <item>1 minút</item>

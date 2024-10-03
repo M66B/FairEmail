@@ -1717,6 +1717,7 @@
     <string name="title_widget_folder_unified">Cartafoles unificados de entrada</string>
     <string name="title_widget_unseen">Só mensaxes sen ler</string>
     <string name="title_widget_flagged">Só mensaxes con estrelas</string>
+    <string name="title_widget_show_flagged">Ver estrelas</string>
     <string name="title_widget_font_size">Tamaño do texto</string>
     <string name="title_widget_padding">Tamaño de sangría</string>
     <string name="title_widget_separator_lines">Mostrar liñas de separación</string>

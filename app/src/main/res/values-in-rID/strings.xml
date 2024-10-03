@@ -2078,6 +2078,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_widget_unseen">Hanya pesan yang belum dibaca</string>
     <string name="title_widget_show_unseen">Tampilkan sebagai belum dibaca</string>
     <string name="title_widget_flagged">Hanya pesan-pesan yang dibintangi</string>
+    <string name="title_widget_show_flagged">Tampilkan bintang</string>
     <string name="title_widget_font_size">Ukuran teks</string>
     <string name="title_widget_padding">Ukuran padding</string>
     <string name="title_widget_separator_lines">Tampilkan garis pemisah</string>

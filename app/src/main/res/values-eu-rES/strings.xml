@@ -1475,6 +1475,7 @@
     <string name="title_widget_folder_unified">Bateratutako sarrera-ontziko karpetak</string>
     <string name="title_widget_unseen">Irakurri gabeko mezuak soilik</string>
     <string name="title_widget_flagged">Izardun mezuak soilik</string>
+    <string name="title_widget_show_flagged">Erakutsi izarrak</string>
     <string name="title_widget_font_size">Letra-tamaina</string>
     <string name="title_widget_padding">Betegarriaren tamaina</string>
     <string name="title_widget_separator_lines">Erakutsi banaketa-lerroak</string>

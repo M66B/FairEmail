@@ -205,7 +205,7 @@
     <string name="title_setup_oauth_rationale">Autoriser l\'accès à votre compte %1$s</string>
     <string name="title_setup_oauth_update">Autoriser à nouveau un compte existant (sinon créer un nouveau compte)</string>
     <string name="title_setup_oauth_updated">L\'autorisation du compte a été mise à jour</string>
-    <string name="title_setup_oauth_edge">Lorsque vous utilisez le navigateur Edge, assurez-vous que \'Bloquer l\'ouverture d\'applications externes\' dans les paramètres \'Confidentialité, sécurité et services\' est \'Désactivé\'</string>
+    <string name="title_setup_oauth_edge">Lorsque vous utilisez le navigateur Edge, assurez-vous que \"Bloquer l\'ouverture d\'applications externes\" dans les paramètres \"Confidentialité, sécurité et services\" est \"Désactivé\"</string>
     <string name="title_setup_oauth_brave">Lorsque vous utilisez le navigateur Brave, vous devez activer l\'option dans les paramètres de Brave pour permettre l\'ouverture des liens des applications en dehors de Brave</string>
     <string name="title_setup_oauth_browser">L\'autorisation requiert un navigateur fonctionnel</string>
     <string name="title_setup_oauth_authorize">Autoriser</string>
@@ -402,7 +402,7 @@
     <string name="title_advanced_send_nav_color">Utiliser la couleur d\'identité pour la barre d\'action du bas</string>
     <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
-    <string name="title_advanced_send_undo">Afficher les options d\'annulation d\'envoi</string>
+    <string name="title_advanced_send_undo">Afficher l\'option d\'annulation d\'envoi</string>
     <string name="title_advanced_send_top">Afficher le bouton Envoyer en haut</string>
     <string name="title_advanced_attach_new">Créer un nouveau brouillon pour les adresses et les fichiers partagés</string>
     <string name="title_advanced_answer_caption">Paramètres du bouton de réponse</string>
@@ -1426,7 +1426,7 @@
     <string name="title_save">Enregistrer</string>
     <string name="title_send">Envoyer</string>
     <string name="title_sending">Envoi en cours&#8230;</string>
-    <string name="title_sending_to">Envoi vers %1$s</string>
+    <string name="title_sending_to">Envoi à %1$s</string>
     <string name="title_send_now">Env. maint.</string>
     <string name="title_send_via">Envoyer via</string>
     <string name="title_send_at">Envoyer plus tard&#8230;</string>
@@ -2108,6 +2108,7 @@
     <string name="title_widget_unseen">Messages non lus seulement</string>
     <string name="title_widget_show_unseen">Afficher comme non lu</string>
     <string name="title_widget_flagged">Messages suivis seulement</string>
+    <string name="title_widget_show_flagged">Afficher les étoiles de suivi</string>
     <string name="title_widget_font_size">Taille de police</string>
     <string name="title_widget_padding">Espacement des messages</string>
     <string name="title_widget_separator_lines">Afficher des lignes de séparation</string>

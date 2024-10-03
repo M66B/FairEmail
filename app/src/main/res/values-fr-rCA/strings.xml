@@ -2108,6 +2108,7 @@
     <string name="title_widget_unseen">Messages non lus seulement</string>
     <string name="title_widget_show_unseen">Afficher comme non lu</string>
     <string name="title_widget_flagged">Messages suivis seulement</string>
+    <string name="title_widget_show_flagged">Afficher les étoiles de suivi</string>
     <string name="title_widget_font_size">Taille de police</string>
     <string name="title_widget_padding">Espacement des messages</string>
     <string name="title_widget_separator_lines">Afficher des lignes de séparation</string>

@@ -2099,6 +2099,7 @@
     <string name="title_widget_unseen">Csak olvasatlan üzenetek</string>
     <string name="title_widget_show_unseen">Olvasatlanként mutassa</string>
     <string name="title_widget_flagged">Csak csillagozott üzenetek</string>
+    <string name="title_widget_show_flagged">Csillagok megjelenítése</string>
     <string name="title_widget_font_size">Szövegméret</string>
     <string name="title_widget_padding">Helykitöltés mérete</string>
     <string name="title_widget_separator_lines">Választóvonalak mutatása</string>

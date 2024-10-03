@@ -1496,6 +1496,7 @@
     <string name="title_widget_account_all">모두</string>
     <string name="title_widget_folder">폴더</string>
     <string name="title_widget_folder_unified">통합 받은메일함 폴더</string>
+    <string name="title_widget_show_flagged">즐겨찾기 보기</string>
     <string name="title_widget_font_size">글씨 크기</string>
     <string name="title_widget_padding">여백 크기</string>
     <string name="title_widget_subject_lines">제목의 최대 줄 수</string>

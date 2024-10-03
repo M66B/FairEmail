@@ -1351,6 +1351,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_widget_folder_unified">Carpetes unificades de la safata d\'entrada</string>
     <string name="title_widget_unseen">Missatges no llegits només</string>
     <string name="title_widget_flagged">Missatges senyalats només</string>
+    <string name="title_widget_show_flagged">Mostra estels</string>
     <string name="title_widget_font_size">Mida del text</string>
     <string name="title_widget_padding">Separació del text</string>
     <string name="title_widget_background">Color de fons</string>

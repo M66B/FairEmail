@@ -2132,6 +2132,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_widget_unseen">Pouze nepřečtené zprávy</string>
     <string name="title_widget_show_unseen">Zobrazit jako nepřečtené</string>
     <string name="title_widget_flagged">Pouze zprávy označené hvězdičkou</string>
+    <string name="title_widget_show_flagged">Zobrazit hvězdičky</string>
     <string name="title_widget_font_size">Velikost textu</string>
     <string name="title_widget_padding">Velikost odsazení položek</string>
     <string name="title_widget_separator_lines">Použít oddělovací čáry</string>

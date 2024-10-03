@@ -2093,6 +2093,7 @@
     <string name="title_widget_unseen">未読メッセージのみ</string>
     <string name="title_widget_show_unseen">未読として表示</string>
     <string name="title_widget_flagged">スター付きメッセージのみ</string>
+    <string name="title_widget_show_flagged">スターを表示する</string>
     <string name="title_widget_font_size">テキストサイズ</string>
     <string name="title_widget_padding">余白サイズ</string>
     <string name="title_widget_separator_lines">区切り線を表示する</string>
