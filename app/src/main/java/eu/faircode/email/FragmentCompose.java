@@ -5304,8 +5304,9 @@ public class FragmentCompose extends FragmentBase {
             if (resize > 0)
                 resizeAttachment(context, attachment, resize);
 
-            if (privacy && resize == 0)
+            if (privacy)
                 try {
+                    Log.i("Removing meta tags");
                     ExifInterface exif = new ExifInterface(file);
 
                     exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, null);
