@@ -342,7 +342,7 @@
     </string>
     <string name="title_advanced_hint_remark">        Le opzioni sono categorizzate dalla scheda, divise in sezioni, organizzate per aspetto o uso e ricercabili.
     </string>
-    <string name="title_advanced_hint_setup">Puoi configurare un account toccando il pulsante di procedura guidata sulla schermata di configurazione principale.</string>
+    <string name="title_advanced_hint_setup">È possibile configurare un account toccando il pulsante della procedura guidata nella schermata di configurazione principale.</string>
     <string name="title_advanced_section_main">Principale</string>
     <string name="title_advanced_section_synchronize">Ricezione</string>
     <string name="title_advanced_section_send">Invio</string>
@@ -386,7 +386,7 @@
     <string name="title_advanced_check_blocklist">Controllare se il nome del dominio del mittente è in una lista di blocco dello spam</string>
     <string name="title_advanced_use_blocklist">Spostare nella cartella di spam i messaggi dai domini in blacklist</string>
     <string name="title_advanced_use_blocklist_pop3">Saltare i messaggi dai domini in blacklist (solo POP3)</string>
-    <string name="title_advanced_tune_keep_alive">Regolare automaticamente l\'intervallo keep-alive</string>
+    <string name="title_advanced_tune_keep_alive">Regolare automaticamente l\'intervallo di keep-alive</string>
     <string name="title_advanced_blocklist_warning">Le blacklist non sono perfette e potrebbero bloccare altro oltre allo spam!</string>
     <string name="title_advanced_keyboard">Mostrare la tastiera in modo predefinito</string>
     <string name="title_advanced_keyboard_no_fullscreen">Impedire la tastiera a schermo intero</string>
@@ -451,7 +451,7 @@
     <string name="title_advanced_receipt">Quando si chiede una ricevuta</string>
     <string name="title_advanced_forward_new">Avviare una nuova conversazione quando si inoltra</string>
     <string name="title_advanced_lookup_mx">Controllare gli indirizzi email dei destinatari prima di inviare</string>
-    <string name="title_advanced_metered">Usa le connessioni a consumo</string>
+    <string name="title_advanced_metered">Usare le connessioni a consumo</string>
     <string name="title_advanced_download">Scaricare automaticamente messaggi e allegati su una connessione a consumo fino a</string>
     <string name="title_advanced_download_limited">Applicare anche alle reti non a consumo</string>
     <string name="title_advanced_roaming">Scaricare messaggi e allegati quando si è in roaming</string>
@@ -571,7 +571,7 @@
     <string name="title_advanced_addresses">Espandere i dettagli dell\'indirizzo di default</string>
     <string name="title_advanced_hide_attachments">Contrai gli allegati di default</string>
     <string name="title_advanced_unzip">Mostrare i contenuti degli allegati compressi</string>
-    <string name="title_advanced_attachments_alt">Mostrare allegati dopo il testo del messaggio</string>
+    <string name="title_advanced_attachments_alt">Mostrare gli allegati dopo il testo del messaggio</string>
     <string name="title_advanced_thumbnails">Mostrare le miniature delle immagini dopo il testo del messaggio</string>
     <string name="title_advanced_pdf_preview">Mostrare le miniature dei file PDF</string>
     <string name="title_advanced_video_preview">Mostrare le miniature dei video</string>
@@ -709,7 +709,7 @@
     <string name="title_advanced_adguard">Usare l\'elenco di filtri di AdGuard</string>
     <string name="title_advanced_adguard_weekly">Scaricare automaticamente ogni settimana</string>
     <string name="title_advanced_check_links_dbl">Controllare le liste di blocco di dominio per i link sospetti</string>
-    <string name="title_advanced_confirm_images">Non mostrare alcun immagine di default</string>
+    <string name="title_advanced_confirm_images">Non mostrare nessuna immagine per impostazione predefinita</string>
     <string name="title_advanced_ask_images">Confermare la visualizzazione delle immagini</string>
     <string name="title_advanced_confirm_html">Mostrare di default i messaggi riformattati</string>
     <string name="title_advanced_ask_html">Confermare la visualizzazione dei messaggi originali</string>
@@ -748,8 +748,8 @@
     <string name="title_advanced_autocrypt_mutual">Modalità reciproca di Autocrypt</string>
     <string name="title_advanced_encrypt_subject">Cifrare l\'oggetto</string>
     <string name="title_advanced_import_pgp">Importare la chiave</string>
-    <string name="title_advanced_sign_algo">Algoritmo della firma</string>
-    <string name="title_advanced_encrypt_algo">Algoritmo crittografico</string>
+    <string name="title_advanced_sign_algo">Algoritmo di firma</string>
+    <string name="title_advanced_encrypt_algo">Algoritmo di cifratura</string>
     <string name="title_advanced_remark_algo">        Si tenga presente che non tutti i client email supportano tutti gli algoritmi.
         Gli algoritmi predefiniti SHA256 e AES128 sono comunemente supportati.
     </string>
@@ -766,7 +766,7 @@
     <string name="title_advanced_external_search">Aggiungere «Ricerca di FairEmail» al menu di selezione del testo di Android</string>
     <string name="title_advanced_sort_answers">Ordinare i modelli di risposta per frequenza d\'uso</string>
     <string name="title_advanced_shortcuts">Mostrare i contatti usati frequentemente nel menu di condivisione di Android</string>
-    <string name="title_advanced_ical_tentative">Memorizza gli inviti ricevuti come provvisori</string>
+    <string name="title_advanced_ical_tentative">Memorizzare gli inviti ricevuti come provvisori</string>
     <string name="title_advanced_fts">Creare indice di ricerca</string>
     <string name="title_advanced_fts_indexed">%1$d su %2$d messaggi indicizzati (%3$s)</string>
     <string name="title_advanced_classification">Classificare i messaggi</string>
@@ -833,7 +833,7 @@
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia extra della batteria, specialmente se sono memorizzati molti messaggi sul dispositivo</string>
     <string name="title_advanced_gmail_thread_hint">Ciò si applica solo ai messaggi appena ricevuti e può corrompere i gruppi esistenti</string>
     <string name="title_advanced_subject_threading_hint">Solo i messaggi ricevuti nelle ultime %1$d ore</string>
-    <string name="title_advanced_sync_folders_hint">Disabilitarlo ridurrà in qualche modo l\'uso dei dati e della batteria, ma disabiliterà anche l\'aggiornamento dell\'elenco delle cartelle</string>
+    <string name="title_advanced_sync_folders_hint">La disattivazione di questa opzione ridurrà in qualche modo l\'uso dei dati e della batteria, ma disattiverà anche l\'aggiornamento dell\'elenco delle cartelle</string>
     <string name="title_advanced_poll_folders_hint">Dopo la connessione a un account, sincronizza periodicamente anche l\'elenco delle cartelle</string>
     <string name="title_advanced_check_authentication_hint">Verranno controllati i risultati dell\'autenticazione DKIM, SPF e DMARC come eseguiti dal server email</string>
     <string name="title_advanced_check_tls_hint">Verrà mostrato uno scudo verde solo se un messaggio è stato trasferito in modo sicuro da tutti i server</string>
@@ -855,16 +855,16 @@
     <string name="title_advanced_usenet_hint">Inserisci «--» tra il testo e la firma</string>
     <string name="title_advanced_remove_signature_hint">Può comportare la rimozione di troppo o troppo poco testo</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
-    <string name="title_advanced_metered_warning">Disabilitare quest\'opzione impedirà la ricezione e l\'invio dei messaggi su connessioni internet mobili</string>
+    <string name="title_advanced_metered_warning">La disattivazione di questa opzione impedirà la ricezione e l\'invio dei messaggi su connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumere che non ci sia roaming nell\'UE</string>
     <string name="title_advanced_usage_hint">L\'uso di batteria, dati e spazio d\'archiviazione sarà aumentato</string>
     <string name="title_advanced_plain_hint">Abilitarlo limiterà l\'uso dei dati, ma i messaggi saranno mostrati senza stili e senza immagini</string>
     <string name="title_advanced_plain_remark">La parte in testo semplice non contiene sempre il messaggio completo!</string>
-    <string name="title_advanced_tcp_keep_alive_hint">Abilitarlo può causare problemi di connessione su alcuni dispositivi e può aumentare l\'uso della batteria</string>
+    <string name="title_advanced_tcp_keep_alive_hint">L\'attivazione di questa opzione può causare problemi di connessione su alcuni dispositivi e può aumentare l\'uso della batteria</string>
     <string name="title_advanced_validate_hint">Può comportare la mancata sincronizzazione dei messaggi, ad esempio quando si usa una VPN, ma anche in altre situazioni</string>
     <string name="title_advanced_timeout_hint">Il timeout di lettura/scrittura sarà impostato al doppio del timeout di connessione. Valori superiori risulteranno in un maggiore uso della batteria.</string>
-    <string name="title_advanced_cert_strict_hint">Disabilitarlo rilasserà la verifica dei certificati del server</string>
-    <string name="title_advanced_ssl_harden_hint">Attivare questa opzione disabiliterà i protocolli SSL e i cifrari deboli, che possono condurre a problemi di connessione</string>
+    <string name="title_advanced_cert_strict_hint">La disattivazione di questa opzione renderà meno rigorosa la verifica dei certificati del server</string>
+    <string name="title_advanced_ssl_harden_hint">L\'attivazione di questa opzione disabiliterà i protocolli SSL e i cifrari deboli, che possono causare problemi di connessione</string>
     <string name="title_advanced_open_safe_hint">Abilitarlo richiederà connessioni sicure per scaricare immagini, etc.</string>
     <string name="title_advanced_roaming_hint">Le intestazioni dei messaggi saranno sempre recuperate in roaming. Puoi usare le impostazioni di roaming del dispositivo per disabilitare internet in roaming.</string>
     <string name="title_advanced_browse_hint">Recuperare altri messaggi scorrendo in giù</string>
@@ -880,7 +880,7 @@
     <string name="title_advanced_free">Questo servizio cloud è gratuito da usare</string>
     <string name="title_advanced_free_tier">Questo servizio cloud ha un uso gratuito limitato</string>
     <string name="title_advanced_paid_service">Questo servizio cloud richiede il pagamento</string>
-    <string name="title_advanced_privacy_risk">Potrebbe esistere un rischio per la privacy</string>
+    <string name="title_advanced_privacy_risk">Potrebbe essere un rischio per la privacy</string>
     <string name="title_advanced_name_email_hint">I nomi saranno mostrati solo quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando il testo del messaggio è stato scaricato</string>
     <string name="title_advanced_preview_lines_hint">%s caratteri massimi in totale</string>
@@ -905,7 +905,7 @@
     <string name="title_advanced_internal_hint">Sarà mostrato un avviso quando si invia a un altro dominio</string>
     <string name="title_advanced_uri">I dettagli del contatto selezionato saranno utilizzati per gli allegati vCard</string>
     <string name="title_advanced_e2e_encryption">Opzioni per la cifratura end-to-end</string>
-    <string name="title_advanced_display_harmful_hint">Disabilitare quest\'opzione potrebbe esser dannoso per la tua privacy</string>
+    <string name="title_advanced_display_harmful_hint">La disattivazione di questa opzione potrebbe essere un rischio per la tua privacy</string>
     <string name="title_advanced_display_hidden_hint">Può comportare la visualizzazione di testi strani e doppi</string>
     <string name="title_advanced_display_pin_hint">Un PIN ha la precedenza sull\'autenticazione biometrica</string>
     <string name="title_advanced_user_agent_hint">Alcuni server non accettano una stringa di user agent generico</string>
@@ -914,7 +914,7 @@
     <string name="title_advanced_notify_action_hint">Saranno mostrate al massimo tre azioni</string>
     <string name="title_advanced_notify_car_hint">Connesso indica che qualcosa è in proiezione, come una mappa per la navigazione</string>
     <string name="title_advanced_notify_remove_hint">Le notifiche dei nuovi messaggi saranno sempre rimosse scorrendo via e contrassegnando i messaggi come letti</string>
-    <string name="title_advanced_notify_manage_hint">Tocca sul nome del canale per impostare le proprietà del canale</string>
+    <string name="title_advanced_notify_manage_hint">Toccare sul nome del canale per impostare le proprietà del canale</string>
     <string name="title_advanced_notify_manage_default_hint">Per impostare il suono predefinito, etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Per disabilitare la notifica di monitoraggio</string>
     <string name="title_advanced_notify_separate_hint">Come configurare le notifiche per gli account, le cartelle e i mittenti?</string>
@@ -1029,7 +1029,7 @@
         e un numero negativo per scaricarli all\'inizio (meno comune)
     </string>
     <string name="title_keep_poll_interval">Intervallo di controllo (minuti)</string>
-    <string name="title_keep_alive_interval">Intervallo di mantenimento attivo (minuti)</string>
+    <string name="title_keep_alive_interval">Intervallo di keep-alive (in minuti)</string>
     <string name="title_keep_alive_noop">Riavviare periodicamente IDLE IMAP</string>
     <string name="title_server_time">Usare l\'orario di ricezione (server)</string>
     <string name="title_received_header">Usare l\'intestazione «Received»</string>
@@ -1087,7 +1087,7 @@
     <string name="title_service_vpn">Potrebbe esser causato dalla VPN in uso</string>
     <string name="title_service_token">Il gestore degli account di Android potrebbe esser bloccato da una VPN, un firewall, un adblocker, ecc., impedendogli di ottenere un token d\'accesso</string>
     <string name="title_service_port">Ricontrollare il numero della porta</string>
-    <string name="title_service_protocol">Ricontrollare il protocollo (SSL/TLS o STARTTLS)</string>
+    <string name="title_service_protocol">Verificare il protocollo (SSL/TLS o STARTTLS)</string>
     <string name="title_service_error10">Questo account necessita di essere nuovamente autenticato, tramite la procedura guidata di configurazione rapida</string>
     <string name="title_certificate_error">        A causa delle politiche del Play Store di Googlee, non è più possibile supportare le connessioni non sicure ai server email con problemi di certificato per la versione di FairEmail distribuita sul Play Store.
         Dunque, questo problema è risolvibile soltanto dal fornitore della tua email; l\'informazione precedente sull\'errore potrebbe aiutarlo a risolverlo.
@@ -1964,7 +1964,7 @@
     <string name="title_hint_sync">Scaricare i messaggi può richiedere un po\' di tempo, in base alla velocità del provider, la connessione internet, il dispositivo e il numero di messaggi. Durante il download dei messaggi l\'app potrebbe rispondere più lentamente.</string>
     <string name="title_hint_sync_note">Di default, non tutti i messaggi saranno scaricati per limitare il consumo di spazio d\'archiviazione, batteria e dati. Puoi modificarlo tenendo premuto una cartella nell\'elenco delle cartelle e selezionando \'Recupera altri messaggi\'.</string>
     <string name="title_hint_battery">Poiché FairEmail di default riceve sempre i messaggi, Android la segnalerà sempre come attiva. Dunque potrebbe sembrare che FairEmail stia sempre consumando energia della batteria sebbene difatti non sia il caso.</string>
-    <string name="title_hint_reformat">Di default, FairEmail riformatta i messaggi per motivi di privacy e sicurezza. Per vedere il messaggio originale, tocca l\'icona \'schermo interno\' sul testo del messaggio.</string>
+    <string name="title_hint_reformat">Per impostazione predefinita, FairEmail riformatta i messaggi per motivi di privacy e sicurezza. Per vedere il messaggio originale, toccare l\'icona «schermo intero» sul testo del messaggio.</string>
     <string name="title_hint_design">Il design è intenzionalmente non distraente, ma mantenuto altamente funzionale. Ci sono molte opzioni per personalizzare l\'aspetto, ma sei pregato di comprendere che sia impossibile per rendere tutti completamente felici allo stesso tempo.</string>
     <string name="title_hint_junk">Il filtraggio antispam dovrebbe esser fatto dal server email e non può esser fatto affidabilmente su un dispositivo alimentato da batteria con capacità limitate.</string>
     <string name="title_hint_junk_learn">Quando si spostano i messaggi verso la cartella di spam e viceversa, il server email \"apprende\" come riconoscerlo meglio</string>
