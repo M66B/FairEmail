@@ -736,8 +736,8 @@
     <string name="title_advanced_default_encryption">        Il metodo crittografico predefinito (PGP o S/MIME) sarà memorizzato per identità, dopo l\'invio di un messaggio firmato o crittografato.
         Il metodo crittografico è selezionabile prima dell\'invio nella casella delle opzioni di invio (pressione prolungata del pulsante di invio).
     </string>
-    <string name="title_advanced_sign_default">Firmare di default</string>
-    <string name="title_advanced_encrypt_default">Cifrare di default</string>
+    <string name="title_advanced_sign_default">Firmare per impostazione predefinita</string>
+    <string name="title_advanced_encrypt_default">Cifrare per impostazione predefinita</string>
     <string name="title_advanced_encrypt_auto">Cifrare automaticamente quando le chiavi di tutti i destinatari sono disponibili</string>
     <string name="title_advanced_encrypt_reply">Cifrare automaticamente quando si risponde a un messaggio cifrato</string>
     <string name="title_advanced_auto_verify">Verificare automaticamente i messaggi firmati</string>
