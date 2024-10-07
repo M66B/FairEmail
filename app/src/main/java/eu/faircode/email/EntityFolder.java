@@ -842,7 +842,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
                 String name1 = f1.getDisplayName(context);
                 String name2 = f2.getDisplayName(context);
-                return Normalizer.normalize(name1, Normalizer.Form.NFD).compareTo(
+                return Normalizer.normalize(name1, Normalizer.Form.NFD).compareToIgnoreCase(
                         Normalizer.normalize(name2, Normalizer.Form.NFD));
             }
         };
