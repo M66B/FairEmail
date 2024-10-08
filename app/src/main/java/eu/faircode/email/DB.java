@@ -3046,6 +3046,13 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("UPDATE account SET keep_alive_noop = 1" +
                                 " WHERE host = 'imap.gmail.com' AND pop = " + EntityAccount.TYPE_IMAP);
                     }
+                }).addMigrations(new Migration(300, 301) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("UPDATE account SET keep_alive_noop = 0" +
+                                " WHERE host = 'imap.gmail.com' AND pop = " + EntityAccount.TYPE_IMAP);
+                    }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
