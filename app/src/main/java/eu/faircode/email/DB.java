@@ -70,7 +70,7 @@ import javax.mail.internet.InternetAddress;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 300,
+        version = 301,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
