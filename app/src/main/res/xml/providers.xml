@@ -69,7 +69,6 @@
         domain="live\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
-        noop="true"
         order="3"
         partial="false"
         useip="false">
@@ -90,7 +89,6 @@
         domain="hotmail\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
-        noop="true"
         order="4"
         partial="false"
         useip="false">
@@ -124,7 +122,6 @@
         id="office365"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
-        noop="true"
         order="5"
         partial="false"
         useip="false">
@@ -163,7 +160,6 @@
         id="office365pcke"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
-        noop="true"
         order="5"
         partial="false"
         useip="false">
@@ -204,7 +200,6 @@
         id="outlookgraph"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
-        noop="true"
         order="6"
         partial="false"
         useip="false">
@@ -257,7 +252,6 @@
         id="outlook"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
-        noop="true"
         order="5"
         partial="false"
         useip="false">

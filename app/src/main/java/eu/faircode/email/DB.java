@@ -3052,6 +3052,8 @@ public abstract class DB extends RoomDatabase {
                         logMigration(startVersion, endVersion);
                         db.execSQL("UPDATE account SET keep_alive_noop = 0" +
                                 " WHERE host = 'imap.gmail.com' AND pop = " + EntityAccount.TYPE_IMAP);
+                        db.execSQL("UPDATE account SET keep_alive_noop = 0" +
+                                " WHERE host = 'outlook.office365.com' AND pop = " + EntityAccount.TYPE_IMAP);
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
