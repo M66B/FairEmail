@@ -81,6 +81,8 @@ public class EditTextCompose extends FixedEditText {
     private int quoteStripe;
     private boolean lt_description;
     private boolean undo_manager;
+    private boolean paste_plain;
+    private boolean paste_quote;
 
     public EditTextCompose(Context context) {
         super(context);
@@ -108,6 +110,8 @@ public class EditTextCompose extends FixedEditText {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.lt_description = prefs.getBoolean("lt_description", false);
         this.undo_manager = prefs.getBoolean("undo_manager", false);
+        this.paste_plain = prefs.getBoolean("paste_plain", false);
+        this.paste_quote = prefs.getBoolean("paste_quote", false);
 
         addTextChangedListener(new TextWatcher() {
             private Integer replace;
@@ -290,12 +294,11 @@ public class EditTextCompose extends FixedEditText {
                 @Override
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                     try {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                        boolean paste_plain = prefs.getBoolean("paste_plain", false);
-
                         int order = 1000;
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O || paste_plain)
                             menu.add(Menu.CATEGORY_SECONDARY, android.R.id.pasteAsPlainText, order++, getTitle(R.string.title_paste_plain));
+                        if (paste_quote)
+                            menu.add(Menu.CATEGORY_SECONDARY, R.string.title_paste_as_quote, order++, getTitle(R.string.title_paste_as_quote));
                         if (undo_manager && can(android.R.id.undo))
                             menu.add(Menu.CATEGORY_SECONDARY, R.string.title_undo, order++, getTitle(R.string.title_undo));
                         if (undo_manager && can(android.R.id.redo))
@@ -330,6 +333,8 @@ public class EditTextCompose extends FixedEditText {
                         int id = item.getItemId();
                         if (id == android.R.id.pasteAsPlainText)
                             return insertPlain();
+                        else if (id == R.string.title_paste_as_quote && paste_quote)
+                            return pasteAsQuote();
                         else if (id == R.string.title_undo && undo_manager)
                             return EditTextCompose.super.onTextContextMenuItem(android.R.id.undo);
                         else if (id == R.string.title_redo && undo_manager)
@@ -375,6 +380,51 @@ public class EditTextCompose extends FixedEditText {
                     getText().insert(start, plain);
 
                     StyleHelper.markAsInserted(getText(), start, start + plain.length());
+
+                    return true;
+                }
+
+                private boolean pasteAsQuote() {
+                    ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
+                    if (!cbm.hasPrimaryClip())
+                        return true;
+
+                    ClipData clip = cbm.getPrimaryClip();
+                    if (clip == null || clip.getItemCount() < 1)
+                        return true;
+
+                    ClipData.Item item = clip.getItemAt(0);
+                    if (item == null)
+                        return true;
+
+                    String h = item.getHtmlText();
+                    if (TextUtils.isEmpty(h)) {
+                        CharSequence t = item.getText();
+                        if (TextUtils.isEmpty(t))
+                            return true;
+                        h = "<div>" + HtmlHelper.formatPlainText(t.toString(), false) + "</div>";
+                    }
+                    String style = HtmlHelper.getQuoteStyle("", 0, 0);
+                    String html = "<blockquote style=\"" + style + "\">" + h + "</blockquote>";
+
+                    Helper.getUIExecutor().submit(new RunnableEx("pasteq") {
+                        @Override
+                        public void delegate() {
+                            SpannableStringBuilder ssb = getSpanned(context, html);
+
+                            EditTextCompose.this.post(new RunnableEx("pasteq") {
+                                @Override
+                                public void delegate() {
+                                    int start = getSelectionStart();
+                                    if (start < 0)
+                                        start = 0;
+                                    getText().insert(start, ssb);
+
+                                    StyleHelper.markAsInserted(getText(), start, start + ssb.length());
+                                }
+                            });
+                        }
+                    });
 
                     return true;
                 }

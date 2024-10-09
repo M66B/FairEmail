@@ -996,6 +996,7 @@
     <string name="title_advanced_preview_quotes" translatable="false">Preview quotes</string>
     <string name="title_advanced_easy_correct" translatable="false">Easy correct</string>
     <string name="title_advanced_paste_plain" translatable="false">Add paste as plain text</string>
+    <string name="title_advanced_paste_quote" translatable="false">Add paste as quote</string>
     <string name="title_advanced_favicon_uri" translatable="false">Favicon alternative URI</string>
     <string name="title_advanced_favicon_uri_hint" translatable="false">{domain} will be replaced</string>
     <string name="title_advanced_infra" translatable="false">Show infrastructure</string>
@@ -2363,6 +2364,7 @@
     <string name="title_no">No</string>
     <string name="title_later">Later</string>
     <string name="title_paste_plain">Paste as plain text</string>
+    <string name="title_paste_as_quote">Paste as quote</string>
     <string name="title_undo">Undo</string>
     <string name="title_redo">Redo</string>
     <string name="title_insert_line">Insert line</string>

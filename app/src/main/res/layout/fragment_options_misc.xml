@@ -1746,6 +1746,17 @@
                     app:layout_constraintTop_toBottomOf="@id/swEasyCorrect"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swPasteQuote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_paste_quote"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swPastePlain"
+                    app:switchPadding="12dp" />
+
                 <TextView
                     android:id="@+id/tvFaviconUri"
                     android:layout_width="0dp"
@@ -1757,7 +1768,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swPastePlain" />
+                    app:layout_constraintTop_toBottomOf="@id/swPasteQuote" />
 
                 <EditText
                     android:id="@+id/etFaviconUri"
