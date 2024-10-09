@@ -1611,8 +1611,11 @@ class Core {
                             throw new IllegalArgumentException("move: msgid missing");
 
                         Long uid = findUid(context, account, itarget, msgid);
-                        if (uid == null)
-                            throw new IllegalArgumentException("move: uid not found");
+                        if (uid == null) {
+                            Log.w("move: uid not found msgid=" + msgid);
+                            db.message().deleteMessage(message.id);
+                            continue;
+                        }
 
                         if (draft || duplicate) {
                             Message icopy = itarget.getMessageByUID(uid);
