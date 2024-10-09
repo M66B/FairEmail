@@ -132,7 +132,11 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
     private void handle(Intent intent, boolean create) {
         Bundle args;
         String action = intent.getAction();
-        Log.i("Handle action=" + action + " create=" + create + " " + this);
+        Log.i("Handle action=" + action +
+                " shared=" + isShared(action) +
+                " create=" + create +
+                " uri=" + intent.getData() +
+                " " + this);
 
         if (isShared(action)) {
             args = new Bundle();
@@ -280,6 +284,8 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
         } else
             args = intent.getExtras();
+
+        Log.logBundle(args);
 
         FragmentManager fm = getSupportFragmentManager();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
