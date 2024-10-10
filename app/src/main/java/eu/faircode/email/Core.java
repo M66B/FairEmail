@@ -1612,7 +1612,12 @@ class Core {
 
                         Long uid = findUid(context, account, itarget, msgid);
                         if (uid == null)
-                            throw new IllegalArgumentException("move: uid not found");
+                            if (duplicate)
+                                throw new IllegalArgumentException("move: uid not found");
+                            else {
+                                Log.w("move: uid not found");
+                                continue;
+                            }
 
                         if (draft || duplicate) {
                             Message icopy = itarget.getMessageByUID(uid);
