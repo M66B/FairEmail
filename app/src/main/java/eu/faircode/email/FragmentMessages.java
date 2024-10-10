@@ -5606,6 +5606,15 @@ public class FragmentMessages extends FragmentBase
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         cm.registerNetworkCallback(builder.build(), networkCallback);
+        /*
+            android.net.ConnectivityManager$TooManyRequestsException
+                at android.net.ConnectivityManager.convertServiceException(ConnectivityManager.java:3771)
+                at android.net.ConnectivityManager.sendRequestForNetwork(ConnectivityManager.java:3960)
+                at android.net.ConnectivityManager.sendRequestForNetwork(ConnectivityManager.java:3967)
+                at android.net.ConnectivityManager.registerNetworkCallback(ConnectivityManager.java:4349)
+                at android.net.ConnectivityManager.registerNetworkCallback(ConnectivityManager.java:4319)
+                at eu.faircode.email.FragmentMessages.onResume(SourceFile:69)
+         */
 
         updateAirplaneMode(ConnectionHelper.airplaneMode(context));
         ContextCompat.registerReceiver(context,
