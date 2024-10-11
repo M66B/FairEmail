@@ -233,6 +233,7 @@
     <string name="title_setup_oauth_rationale">להרשות גישה לחשבון %1$s שלך</string>
     <string name="title_setup_oauth_update">אימות חשבון קיים שוב (אחרת ליצור חשבון חדש)</string>
     <string name="title_setup_oauth_updated">אישור החשבון עודכן</string>
+    <string name="title_setup_oauth_edge">בעת שימוש בדפדפן Edge, חשוב שההגדרה ‚חסימת פתיחה ביישומונים חיצוניים’ תחת ‚פרטיות, אבטחה ושירותים’ תהיה ‚כבויה’</string>
     <string name="title_setup_oauth_brave">בעת שימוש בדפדפן Brave יש להפעיל את האפשרות בהגדרות של Brave לאפשר לקישורי יישומים להיפתח ביישומים מחוץ ל־Brave</string>
     <string name="title_setup_oauth_browser">אימות דורש דפדפן מתפקד</string>
     <string name="title_setup_oauth_authorize">להרשות</string>
@@ -2018,6 +2019,7 @@
     <string name="title_no">לא</string>
     <string name="title_later">אחר כך</string>
     <string name="title_paste_plain">הדבקה כטקסט פשוט</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">הדבקה כציטוט</string>
     <string name="title_undo">ביטול</string>
     <string name="title_redo">ביצוע מחדש</string>
     <string name="title_insert_line">הוספת שורה</string>
@@ -2215,7 +2217,7 @@
     <string-array name="sendDelayedNames">
         <item>לא</item>
         <item>5 שניות</item>
-        <item>10 seconds</item>
+        <item>10 שניות</item>
         <item>15 שניות</item>
         <item>חצי דקה</item>
         <item>דקה</item>

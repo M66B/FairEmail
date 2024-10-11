@@ -1993,6 +1993,7 @@
     <string name="title_no">Nein</string>
     <string name="title_later">Später</string>
     <string name="title_paste_plain">Als einfachen Text einfügen</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Als Zitat einfügen</string>
     <string name="title_undo">Rückgängig</string>
     <string name="title_redo">Wiederherstellen</string>
     <string name="title_insert_line">Linie einfügen</string>

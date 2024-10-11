@@ -2017,6 +2017,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_no">Ne</string>
     <string name="title_later">Později</string>
     <string name="title_paste_plain">Vložit jako prostý text</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Vložit jako citaci</string>
     <string name="title_undo">Zpět</string>
     <string name="title_redo">Znovu</string>
     <string name="title_insert_line">Vložit řádek</string>

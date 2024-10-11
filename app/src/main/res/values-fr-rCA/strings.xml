@@ -1992,6 +1992,7 @@
     <string name="title_no">Non</string>
     <string name="title_later">Plus tard</string>
     <string name="title_paste_plain">Coller comme texte brut</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Coller en tant que citation</string>
     <string name="title_undo">Annuler</string>
     <string name="title_redo">Rétablir</string>
     <string name="title_insert_line">Insérer une ligne</string>

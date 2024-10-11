@@ -2017,6 +2017,7 @@
     <string name="title_no">Ні</string>
     <string name="title_later">Пізніше</string>
     <string name="title_paste_plain">Вставити як простий текст</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Вставити як цитату</string>
     <string name="title_undo">Скасувати</string>
     <string name="title_redo">Повторити</string>
     <string name="title_insert_line">Вставити лінію</string>

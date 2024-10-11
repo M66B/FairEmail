@@ -1988,6 +1988,7 @@
     <string name="title_no">Não</string>
     <string name="title_later">Depois</string>
     <string name="title_paste_plain">Colar como texto simples</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Colar como citação</string>
     <string name="title_undo">Desfazer</string>
     <string name="title_redo">Refazer</string>
     <string name="title_insert_line">Inserir linha</string>

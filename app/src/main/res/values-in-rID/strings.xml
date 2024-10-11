@@ -1963,6 +1963,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_no">Tidak</string>
     <string name="title_later">Nanti</string>
     <string name="title_paste_plain">Tempel sebagai teks biasa</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Tempel sebagai kutipan</string>
     <string name="title_undo">Undo</string>
     <string name="title_redo">Ulangi</string>
     <string name="title_insert_line">Sisipkan baris</string>

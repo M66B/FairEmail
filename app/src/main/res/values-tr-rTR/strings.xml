@@ -1977,6 +1977,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_no">Hayır</string>
     <string name="title_later">Daha sonra</string>
     <string name="title_paste_plain">Düz metin olarak yapıştır</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Alıntı olarak yapıştır</string>
     <string name="title_undo">Geri Al</string>
     <string name="title_redo">Yinele</string>
     <string name="title_insert_line">Satır ekle</string>

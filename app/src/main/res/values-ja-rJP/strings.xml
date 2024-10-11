@@ -1977,6 +1977,7 @@
     <string name="title_no">いいえ</string>
     <string name="title_later">あとで</string>
     <string name="title_paste_plain">書式なしテキストとして貼り付け</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">引用として貼り付け</string>
     <string name="title_undo">元に戻す</string>
     <string name="title_redo">やり直す</string>
     <string name="title_insert_line">線を挿入</string>

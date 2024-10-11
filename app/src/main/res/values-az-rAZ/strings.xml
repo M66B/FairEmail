@@ -1991,6 +1991,7 @@
     <string name="title_no">Xeyr</string>
     <string name="title_later">Sonra</string>
     <string name="title_paste_plain">Düz mətn kimi yapışdır</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Sitat kimi yapışdır</string>
     <string name="title_undo">Geri qaytar</string>
     <string name="title_redo">Təkrar et</string>
     <string name="title_insert_line">Sətir daxil et</string>

@@ -1992,6 +1992,7 @@
     <string name="title_no">Nej</string>
     <string name="title_later">Senere</string>
     <string name="title_paste_plain">Indsæt som simpel tekst</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Indsæt som citat</string>
     <string name="title_undo">Fortryd</string>
     <string name="title_redo">Annullér fortryd</string>
     <string name="title_insert_line">Indsæt linje</string>

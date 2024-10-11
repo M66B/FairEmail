@@ -1984,6 +1984,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_no">Nee</string>
     <string name="title_later">Letter</string>
     <string name="title_paste_plain">As platte tekst plakke</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">As sitaat plakke</string>
     <string name="title_undo">Ungedien meitsje</string>
     <string name="title_redo">Opnij</string>
     <string name="title_insert_line">Rigel ynfoegje</string>

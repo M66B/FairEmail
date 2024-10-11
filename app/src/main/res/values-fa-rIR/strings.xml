@@ -1392,6 +1392,7 @@
     <string name="title_no">خير</string>
     <string name="title_later">بعدا</string>
     <string name="title_paste_plain">جای‌گذاری به عنوان متن ساده</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">درج کردن به عنوان نقل‌قول</string>
     <string name="title_undo">عقبگرد</string>
     <string name="title_redo">انجام دوباره</string>
     <string name="title_add">افزودن</string>

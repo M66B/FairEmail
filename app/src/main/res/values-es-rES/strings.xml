@@ -1987,6 +1987,7 @@
     <string name="title_no">No</string>
     <string name="title_later">Más tarde</string>
     <string name="title_paste_plain">Pegar como texto plano</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Pegar como cita</string>
     <string name="title_undo">Deshacer</string>
     <string name="title_redo">Rehacer</string>
     <string name="title_insert_line">Insertar línea</string>

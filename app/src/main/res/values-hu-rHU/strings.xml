@@ -1984,6 +1984,7 @@
     <string name="title_no">Nem</string>
     <string name="title_later">Később</string>
     <string name="title_paste_plain">Beillesztés egyszerű szövegként</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Beillesztés idézetként</string>
     <string name="title_undo">Visszavonás</string>
     <string name="title_redo">Mégis</string>
     <string name="title_insert_line">Sor beszúrása</string>
