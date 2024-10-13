@@ -2002,6 +2002,7 @@
     <string name="title_no">Nu</string>
     <string name="title_later">Mai târziu</string>
     <string name="title_paste_plain">Inserați ca text simplu</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Lipește citat</string>
     <string name="title_undo">Anulează</string>
     <string name="title_redo">Refacere</string>
     <string name="title_insert_line">Inserați linia</string>
