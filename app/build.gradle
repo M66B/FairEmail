@@ -295,7 +295,7 @@ android {
         }
         play {
             dimension "all"
-            //minSdkVersion 23
+            minSdkVersion 23
             manifestPlaceholders.largeHeap = false
             manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes(("play" + getVersionCode() + getRevision()).getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
