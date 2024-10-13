@@ -1367,26 +1367,31 @@ public class DebugHelper {
 
             File logcat = new File(context.getFilesDir(), "logcat.txt");
 
-            // https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html#java
-            ProcessBuilder pb = new ProcessBuilder("logcat", // CASA "/system/bin/logcat",
-                    "-d",
-                    "-v", "threadtime",
-                    //"-t", "1000",
-                    "fairemail" + ":I");
-            Map<String, String> env = pb.environment();
-            env.clear();
-            pb.directory(context.getFilesDir());
+            try {
 
-            Process proc = null;
-            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(logcat))) {
-                proc = pb.start();
-                Helper.copy(proc.getInputStream(), os);
-            } finally {
-                if (proc != null)
-                    proc.destroy();
+                // https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html#java
+                ProcessBuilder pb = new ProcessBuilder("logcat", // CASA "/system/bin/logcat",
+                        "-d",
+                        "-v", "threadtime",
+                        //"-t", "1000",
+                        "fairemail" + ":I");
+                Map<String, String> env = pb.environment();
+                env.clear();
+                pb.directory(context.getFilesDir());
+
+                Process proc = null;
+                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(logcat))) {
+                    proc = pb.start();
+                    Helper.copy(proc.getInputStream(), os);
+                } finally {
+                    if (proc != null)
+                        proc.destroy();
+                }
+
+                files.add(logcat);
+            } catch (Throwable ex) {
+                Log.e(ex);
             }
-
-            files.add(logcat);
 
             attachment.zip(context, files.toArray(new File[0]));
 
