@@ -1281,6 +1281,18 @@ public class Log {
                 if ("java.lang.Daemons$FinalizerWatchdogDaemon".equals(ste.getClassName()))
                     return false;
 
+        if (ex instanceof NullPointerException &&
+                ex.getMessage() != null && ex.getMessage().contains("android.window.BackMotionEvent"))
+            /*
+                java.lang.NullPointerException: Attempt to invoke virtual method 'float android.window.BackMotionEvent.getTouchX()' on a null object reference
+                    at android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper.lambda$onBackStarted$1(WindowOnBackInvokedDispatcher.java:353)
+                    at android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper.$r8$lambda$jWVwe-YeLRxW3tAMLuWZynG6e1k(Unknown Source:0)
+                    at android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper$$ExternalSyntheticLambda4.run(Unknown Source:4)
+                    at android.os.Handler.handleCallback(Handler.java:958)
+                    at android.os.Handler.dispatchMessage(Handler.java:99)
+            */
+            return false;
+
         if (ex instanceof IndexOutOfBoundsException &&
                 stack.length > 0 &&
                 "android.text.SpannableStringInternal".equals(stack[0].getClassName()) &&
