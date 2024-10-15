@@ -1968,6 +1968,7 @@
     <string name="title_no">否</string>
     <string name="title_later">以後再說</string>
     <string name="title_paste_plain">以純文字貼上</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">以引用形式貼上</string>
     <string name="title_undo">撤銷</string>
     <string name="title_redo">重做</string>
     <string name="title_insert_line">插入線</string>

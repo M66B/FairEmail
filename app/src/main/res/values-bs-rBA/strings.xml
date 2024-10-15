@@ -2005,6 +2005,7 @@
     <string name="title_no">Ne</string>
     <string name="title_later">Kasnije</string>
     <string name="title_paste_plain">Zalijepi kao obični tekst</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Zalijepi kao citat</string>
     <string name="title_undo">Vrati</string>
     <string name="title_redo">Vrati</string>
     <string name="title_insert_line">Ubaci liniju</string>
