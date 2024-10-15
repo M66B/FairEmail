@@ -563,13 +563,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 }
             }
 
-            if (settings)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, order++, R.string.title_edit_properties);
-
-            if (account.protocol == EntityAccount.TYPE_IMAP && settings)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, order++, R.string.title_copy);
-
             if (settings) {
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, order++, R.string.title_edit_properties);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, order++, R.string.title_copy);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_log, order++, R.string.title_log);
             }

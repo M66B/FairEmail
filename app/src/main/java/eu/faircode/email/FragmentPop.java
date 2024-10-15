@@ -129,6 +129,7 @@ public class FragmentPop extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
 
     private long id = -1;
+    private long copy = -1;
     private int auth = AUTH_TYPE_PASSWORD;
     private String avatar = null;
     private String calendar = null;
@@ -146,7 +147,10 @@ public class FragmentPop extends FragmentBase {
 
         // Get arguments
         Bundle args = getArguments();
-        id = args.getLong("id", -1);
+        if (args.getBoolean("copy"))
+            copy = args.getLong("id", -1);
+        else
+            id = args.getLong("id", -1);
     }
 
     @Override
@@ -872,7 +876,7 @@ public class FragmentPop extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         Bundle args = new Bundle();
-        args.putLong("id", id);
+        args.putLong("id", copy < 0 ? id : copy);
 
         new SimpleTask<EntityAccount>() {
             @Override
