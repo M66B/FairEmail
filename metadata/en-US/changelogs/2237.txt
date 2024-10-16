@@ -23,6 +23,7 @@ Barsboldia
 1.2237 2024-10-14
 
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated Public Suffix List
 * Updated translations
 
