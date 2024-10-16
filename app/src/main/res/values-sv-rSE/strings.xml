@@ -1971,6 +1971,7 @@
     <string name="title_no">Nej</string>
     <string name="title_later">Senare</string>
     <string name="title_paste_plain">Klistra in som oformaterad text</string>
+    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Klistra in som citerad text</string>
     <string name="title_undo">Ångra</string>
     <string name="title_redo">Gör om</string>
     <string name="title_insert_line">Infoga rad</string>
