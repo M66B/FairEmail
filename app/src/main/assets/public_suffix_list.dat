@@ -15362,8 +15362,7 @@ tabitorder.co.il
 taifun-dns.de
 
 // Tailscale Inc. : https://www.tailscale.com
-// Submitted by David Anderson <danderson@tailscale.com>
-beta.tailscale.net
+// Submitted by David Anderson <infra+public-suffix-list@tailscale.com>
 ts.net
 *.c.ts.net
 
