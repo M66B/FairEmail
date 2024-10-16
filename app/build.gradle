@@ -524,7 +524,7 @@ configurations.configureEach {
     exclude group: "com.atlassian.commonmark", module: "commonmark"
 
     // https://github.com/MiniDNS/minidns/issues/139
-    exclude group: "org.minidns", module: "minidns-dnssec"
+    //exclude group: "org.minidns", module: "minidns-dnssec"
 }
 
 configurations.configureEach {
