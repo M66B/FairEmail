@@ -4998,7 +4998,7 @@ public class MessageHelper {
                         Multipart mp = (Multipart) content;
                         for (int i = 0; i < mp.getCount(); i++) {
                             BodyPart bp = mp.getBodyPart(i);
-                            if (isMimeType(bp, "multipart/signed") || isMimeType(bp, "multipart/encrypted")) {
+                            if (isMimeType(bp, "multipart/encrypted")) {
                                 for (int j = 0; j < mp.getCount(); j++)
                                     if (j != i)
                                         getMessageParts(part, mp.getBodyPart(j), parts, null);
