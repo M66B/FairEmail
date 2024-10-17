@@ -4999,9 +4999,14 @@ public class MessageHelper {
                         for (int i = 0; i < mp.getCount(); i++) {
                             BodyPart bp = mp.getBodyPart(i);
                             if (isMimeType(bp, "multipart/signed") || isMimeType(bp, "multipart/encrypted")) {
+                                for (int j = 0; j < mp.getCount(); j++)
+                                    if (j != i)
+                                        getMessageParts(part, mp.getBodyPart(j), parts, null);
                                 part = (MimePart) bp;
                                 break;
                             } else if (isMimeType(bp, "application/pgp-encrypted") && i + 1 < mp.getCount()) {
+                                for (int j = 0; j < i; j++)
+                                    getMessageParts(part, mp.getBodyPart(j), parts, null);
                                 // Workaround Outlook problem
                                 //  --_xxxoutlookfr_
                                 // Content-Type: text/plain; charset="us-ascii"
