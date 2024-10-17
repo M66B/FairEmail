@@ -20,10 +20,19 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
+### 1.2238 2024-10-17
+
+* Fixed zooming with always shown inline images
+* Added copying of POP3 accounts
+* Removed inline build of MiniDNS
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2237 2024-10-14
 
 * Small improvements and minor bug fixes
-* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
