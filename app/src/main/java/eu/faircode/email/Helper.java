@@ -3326,7 +3326,7 @@ public class Helper {
                 return true;
 
             if (autolock_nav && pausing)
-                last_authentication = now - biometrics_timeout + biometrics_timeout;
+                last_authentication = now - biometrics_timeout + 5 * 1000L;
             else
                 last_authentication = now;
             prefs.edit().putLong("last_authentication", last_authentication).apply();
