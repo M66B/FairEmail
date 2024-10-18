@@ -717,8 +717,6 @@ Some people ask:
 > * Fill in the fields and follow the steps
 > * Repeat for each account
 >
-> Note that this won't work on devices without Google Play Store/Services, such as recent Huawei devices. In this case you will need to use an app password, see below.
->
 > **Note that other email apps, possibly on other devices, which still use your account password could cause your account to be blocked!**
 >
 
