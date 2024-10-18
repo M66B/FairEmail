@@ -1765,8 +1765,18 @@ public class HtmlHelper {
                         e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
                     }
                 } else {
-                    e.remove();
-                    Log.i("Removed tag=" + tag + " ns=" + ns + " content=" + e.text());
+                    if ("o:p".equals(tag) && "\u00a0".equals(e.wholeText())) {
+                        // <meta name=Generator content="Microsoft Word 15 (filtered medium)">
+                        // <p class=MsoNormal>
+                        //    <span style='font-family:"Calibri",sans-serif'>
+                        //       <o:p>&nbsp;</o:p>
+                        //    </span>
+                        // </p>
+                        e.tagName("br");
+                    } else {
+                        e.remove();
+                        Log.i("Removed tag=" + tag + " ns=" + ns + " content=" + e.text());
+                    }
                 }
             } else if (!"html".equals(tag) && !"body".equals(tag) && !"w".equals(tag)) {
                 String xmlns = e.attr("xmlns").toLowerCase(Locale.ROOT);
