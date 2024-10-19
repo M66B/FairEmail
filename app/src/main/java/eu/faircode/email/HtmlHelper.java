@@ -1764,19 +1764,18 @@ public class HtmlHelper {
                         String style = e.attr("style");
                         e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
                     }
+                } else if (TextUtils.isEmpty(e.text()) && !"\u00a0".equals(e.wholeText())) {
+                    // <meta name=Generator content="Microsoft Word 15 (filtered medium)">
+                    // <p class=MsoNormal>
+                    //    <span style='font-family:"Calibri",sans-serif'>
+                    //       <o:p>&nbsp;</o:p>
+                    //    </span>
+                    // </p>
+                    e.remove();
+                    Log.i("Removed tag=" + tag + " ns=" + ns +
+                            " content=" + Helper.getPrintableString(e.wholeText(), true));
                 } else {
-                    if ("o:p".equals(tag) && "\u00a0".equals(e.wholeText())) {
-                        // <meta name=Generator content="Microsoft Word 15 (filtered medium)">
-                        // <p class=MsoNormal>
-                        //    <span style='font-family:"Calibri",sans-serif'>
-                        //       <o:p>&nbsp;</o:p>
-                        //    </span>
-                        // </p>
-                        e.tagName("br");
-                    } else {
-                        e.remove();
-                        Log.i("Removed tag=" + tag + " ns=" + ns + " content=" + e.text());
-                    }
+                    // Leave tag with unknown namespace to ensure all text is being displayed
                 }
             } else if (!"html".equals(tag) && !"body".equals(tag) && !"w".equals(tag)) {
                 String xmlns = e.attr("xmlns").toLowerCase(Locale.ROOT);
