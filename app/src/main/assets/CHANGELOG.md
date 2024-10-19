@@ -20,6 +20,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
+### 1.2240 2024-10-19
+
+* Fixed newlines for messages sent with Outlook 2024
+
 ### 1.2239 2024-10-18
 
 * Fixed workaround for invalid PGP messages

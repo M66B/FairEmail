@@ -3,8 +3,8 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
-def getVersionCode = { -> return 2239 }
-def getRevision = { -> return "b" }
+def getVersionCode = { -> return 2240 }
+def getRevision = { -> return "a" }
 def getReleaseName = { -> return "Barsboldia" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
