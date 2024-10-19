@@ -1834,7 +1834,7 @@ public class StyleHelper {
         if (faces.contains("cousine"))
             return "Cousine, \"Courier New\", Courier, monospace";
         if (faces.contains("lato"))
-            return "Lato, Carlito, Calibri, sans-serif";
+            return "Lato, Carlito, Calibri, Aptos, sans-serif";
         if (faces.contains("caladea"))
             return "Caladea, Cambo, Cambria, serif";
         if (faces.contains("comic sans"))
@@ -1896,7 +1896,8 @@ public class StyleHelper {
 
                 if (faces.contains("lato") ||
                         faces.contains("carlito") ||
-                        faces.contains("calibri"))
+                        faces.contains("calibri") ||
+                        faces.contains("aptos"))
                     return ResourcesCompat.getFont(context.getApplicationContext(), R.font.lato);
 
                 if (faces.contains("caladea") ||
