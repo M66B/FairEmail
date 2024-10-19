@@ -2356,7 +2356,12 @@ public class Helper {
     // https://issuetracker.google.com/issues/37054851
 
     static String getPrintableString(String value, boolean debug) {
-        if (TextUtils.isEmpty(value))
+        if (debug) {
+            if (value == null)
+                return "<null>";
+            if (TextUtils.isEmpty(value))
+                return "<empty>";
+        } else
             return value;
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < value.length(); ) {
