@@ -216,8 +216,8 @@ The cause might be [changes in Android 7 Nougat](https://ericsink.com/entries/sq
 * &#x2714; ~~Move notification action~~
 * &#x2714; ~~S/MIME support~~
 * &#x2714; ~~Search for settings~~
-* POP3 folders
-* Bottom action bar
+* &#x274C; ~~POP3 folders~~
+* &#x2714; ~~Bottom action bar~~
 
 Anything on this list is in random order and *might* be added in the near future.
 

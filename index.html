@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="shortcut icon" href="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/ic_launcher-web.png">
   <meta name="theme-color" content="#006db3">
@@ -209,8 +218,8 @@
 <li>✔ <del>Move notification action</del></li>
 <li>✔ <del>S/MIME support</del></li>
 <li>✔ <del>Search for settings</del></li>
-<li>POP3 folders</li>
-<li>Bottom action bar</li>
+<li>❌ <del>POP3 folders</del></li>
+<li>✔ <del>Bottom action bar</del></li>
 </ul>
 <p>Anything on this list is in random order and <em>might</em> be added in the near future.</p>
 <p><br /></p>
