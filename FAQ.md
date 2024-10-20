@@ -1441,7 +1441,10 @@ Some Android versions, especially those of Samsung, OnePlus, Huawei and Xiaomi, 
 See [this dedicated website](https://dontkillmyapp.com/) "*Don't kill my app*" for solutions,
 and [this Android issue](https://issuetracker.google.com/issues/122098785) (requires logging in with a Google account) for more information.
 
-If you have a Doogee device, please [see here](https://android.stackexchange.com/questions/214639/background-apps-get-killed-by-something-other-than-battery-optimization).
+If you have a **Doogee** device, please [see here](https://android.stackexchange.com/questions/214639/background-apps-get-killed-by-something-other-than-battery-optimization).
+
+On recent **Honor** devices you should disable *Manage all automatically* under *App launch* in the Android settings,
+and enable all manual options for FairEmail by tapping on the app entry, to allow the app to run in the backrgound.
 
 Disabling battery optimizations (setup step 3) reduces the chance Android will stop the synchronization service.
 
