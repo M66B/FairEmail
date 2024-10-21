@@ -801,8 +801,11 @@ public class HtmlHelper {
                                     }
                                 }
 
-                                if (color != null)
-                                    element.attr("x-color", "true");
+                                if (color != null) {
+                                    double lum = ColorUtils.calculateLuminance(color);
+                                    if (dark ? lum > 1 - MIN_LUMINANCE_VIEW : lum < MIN_LUMINANCE_VIEW)
+                                        element.attr("x-color", "true");
+                                }
                             } else /* background */ {
                                 if (color != null && !hasColor(color))
                                     color = Color.TRANSPARENT;
