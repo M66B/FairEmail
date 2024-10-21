@@ -392,12 +392,27 @@ public class ActivitySignature extends ActivityBase {
     }
 
     private void delete() {
-        Intent result = getIntent();
-        if (result == null)
-            result = new Intent();
-        result.putExtra("html", (String) null);
-        setResult(RESULT_OK, result);
-        finish();
+        new AlertDialog.Builder(this)
+                .setIcon(R.drawable.twotone_gesture_24)
+                .setTitle(R.string.title_edit_signature_delete)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent result = getIntent();
+                        if (result == null)
+                            result = new Intent();
+                        result.putExtra("html", (String) null);
+                        setResult(RESULT_OK, result);
+                        finish();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing
+                    }
+                })
+                .show();
     }
 
     private void save() {

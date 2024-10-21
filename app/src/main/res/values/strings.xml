@@ -2040,6 +2040,7 @@
         When sending a message, the image is copied into the message from the selected location.
         So, don\'t delete the image file!
     </string>
+    <string name="title_edit_signature_delete">Delete signature?</string>
 
     <string name="title_answer_define_name">Name</string>
     <string name="title_answer_define_value">Value</string>
