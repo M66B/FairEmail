@@ -277,6 +277,10 @@ public class FragmentOAuth extends FragmentBase {
                     brave = true;
                 else if (browser.activityInfo.packageName.startsWith("com.microsoft.emmx")) // .beta .canary .dev
                     edge = true;
+                else if (browser.activityInfo.packageName.startsWith("org.mozilla.firefox"))
+                    ;
+                else if (browser.activityInfo.packageName.equals("org.mozilla.focus"))
+                    ;
         } catch (Throwable ex) {
             Log.e(ex);
         }
@@ -516,7 +520,7 @@ public class FragmentOAuth extends FragmentBase {
             @Override
             public boolean matches(@NonNull BrowserDescriptor descriptor) {
                 if (BuildConfig.DEBUG) {
-                    boolean edge = "com.microsoft.emmx".equals(descriptor.packageName);
+                    boolean edge = "org.mozilla.focus".equals(descriptor.packageName);
                     Log.i("MMM " + descriptor.packageName + "=" + edge);
                     return edge;
                 }
