@@ -6430,6 +6430,7 @@ public class FragmentCompose extends FragmentBase {
             if (activity != null) {
                 Intent intent = activity.getIntent();
                 if (intent != null) {
+                    intent.setAction(null);
                     intent.putExtra("id", data.draft.id);
                     intent.putExtra("action", "edit");
                 }
