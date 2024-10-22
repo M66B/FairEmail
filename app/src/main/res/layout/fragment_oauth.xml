@@ -176,7 +176,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_setup_oauth_browser"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic|bold"
+            android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBrave" />
 

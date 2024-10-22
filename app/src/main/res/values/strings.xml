@@ -259,7 +259,7 @@
     <string name="title_setup_oauth_updated">Account authorization was updated</string>
     <string name="title_setup_oauth_edge">When using Edge browser, make sure that \'Block opening external apps\' in the \'Privacy, security and services\' settings is \'Off\'</string>
     <string name="title_setup_oauth_brave">When using Brave browser, you must enable the option in Brave\'s settings to allow app links to open in apps outside of Brave</string>
-    <string name="title_setup_oauth_browser">Authorization requires a working browser</string>
+    <string name="title_setup_oauth_browser">Authorization requires a working browser which allows opening app links (often a security setting), so that at the end the authorization token can be transferred to the app</string>
     <string name="title_setup_oauth_authorize">Authorize</string>
     <string name="title_setup_select_account">Select account</string>
     <string name="title_setup_instructions">Setup instructions</string>
