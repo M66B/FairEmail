@@ -33,6 +33,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
+import android.text.Editable;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
@@ -4167,7 +4168,27 @@ public class HtmlHelper {
     static void clearComposingText(TextView view) {
         if (view == null)
             return;
-        view.clearComposingText();
+
+        CharSequence edit = view.getText();
+        if (!(edit instanceof Spannable))
+            return;
+
+        // Copied from BaseInputConnection.removeComposingSpans
+        Spannable text = (Spannable) edit;
+        Object[] sps = text.getSpans(0, text.length(), Object.class);
+        if (sps != null) {
+            for (int i = sps.length - 1; i >= 0; i--) {
+                Object o = sps[i];
+                if (o instanceof ImageSpan) {
+                    String source = ((ImageSpan) o).getSource();
+                    if (source != null && source.startsWith("cid:"))
+                        continue;
+                }
+                if ((text.getSpanFlags(o) & Spanned.SPAN_COMPOSING) != 0) {
+                    text.removeSpan(o);
+                }
+            }
+        }
     }
 
     static void clearComposingText(Spannable text) {
