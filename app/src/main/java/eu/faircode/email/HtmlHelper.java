@@ -2826,7 +2826,7 @@ public class HtmlHelper {
         d.body().select("div#ms-outlook-mobile-signature").remove();
 
         // Yahoo/Android: <div id="ymail_android_signature">
-        d.body().select("div#ymail_android_signature").remove();
+        //d.body().select("div#`ymail_android_signature").remove();
 
         // Spark: <div name="messageSignatureSection">
         d.body().select("div[name=messageSignatureSection]").remove();
