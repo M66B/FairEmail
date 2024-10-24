@@ -8192,17 +8192,67 @@ public class FragmentMessages extends FragmentBase
         if (seen_delay == 0)
             return;
 
+        Bundle dargs = new Bundle();
+        dargs.putLong("id", id);
+        dargs.putBoolean("seen", true);
+
         view.postDelayed(new RunnableEx("seen_delay") {
             @Override
             public void delegate() {
-                if (values.containsKey("expanded") && values.get("expanded").contains(id)) {
-                    Bundle dargs = new Bundle();
-                    dargs.putLong("id", id);
-                    dargs.putBoolean("seen", true);
+                if (values.containsKey("expanded") && values.get("expanded").contains(id))
                     taskExpand.execute(FragmentMessages.this, dargs, "messages:seen_delay");
-                }
             }
         }, seen_delay);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+
+                Long reload = null;
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityMessage message = db.message().getMessageEx(id);
+                    if (message == null)
+                        return null;
+
+                    EntityFolder folder = db.folder().getFolder(message.folder);
+                    if (folder == null || folder.account == null)
+                        return null;
+
+                    EntityAccount account = db.account().getAccount(folder.account);
+                    if (account == null)
+                        return null;
+
+                    if (!"connected".equals(account.state) && !account.isTransient(context))
+                        reload = account.id;
+
+                    if (account.protocol != EntityAccount.TYPE_IMAP || message.uid != null) {
+                        if (!message.content)
+                            EntityOperation.queue(context, message, EntityOperation.BODY);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                if (reload == null)
+                    ServiceSynchronize.eval(context, "expand");
+                else
+                    ServiceSynchronize.reload(context, reload, false, "expand");
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.setLog(false).execute(this, dargs, "messages:expand");
     }
 
     private void handleAutoClose() {
