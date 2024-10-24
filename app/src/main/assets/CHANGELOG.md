@@ -20,6 +20,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
+### 1.2241 2024-10-24
+
+* Fixed interaction sharing email / biometric authentication
+* Added trash/archive to swipe/ask popup menu
+* Added confirmation for signature deletion
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2240 2024-10-19
 
 * Fixed newlines for messages sent with Outlook 2024
