@@ -3793,7 +3793,7 @@ public class Helper {
             return new ArrayList<>();
         List<List<T>> result = new ArrayList<>(list.size() / size);
         for (int i = 0; i < list.size(); i += size)
-            result.add(list.subList(i, i + size < list.size() ? i + size : list.size()));
+            result.add(new ArrayList<>(list.subList(i, i + size < list.size() ? i + size : list.size())));
         return result;
     }
 
