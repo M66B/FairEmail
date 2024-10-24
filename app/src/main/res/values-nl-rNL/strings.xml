@@ -206,7 +206,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_oauth_updated">Accountautorisatie is bijgewerkt</string>
     <string name="title_setup_oauth_edge">Als je de Edge-browser gebruikt, zorg er dan voor dat \'Het openen van externe apps blokkeren\' in de instellingen voor \'Privacy, beveiliging en services\' op \'Uit\' staat</string>
     <string name="title_setup_oauth_brave">Bij het gebruik van Brave browser, moet u de optie in de instellingen van Brave\'s inschakelen om app links te laten openen in apps buiten Brave</string>
-    <string name="title_setup_oauth_browser">Autorisatie vereist een werkende browser</string>
+    <string name="title_setup_oauth_browser">Autorisatie vereist een werkende browser die app-links kan openen (vaak een beveiligingsinstelling), zodat aan het einde de autorisatietoken kan worden overgedragen aan de app</string>
     <string name="title_setup_oauth_authorize">Autoriseren</string>
     <string name="title_setup_select_account">Selecteer account</string>
     <string name="title_setup_instructions">Installatie-instructies</string>
@@ -1683,6 +1683,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_edit_signature_image">Afbeelding invoegen</string>
     <string name="title_edit_signature_image_hint">Bij het verzenden van een bericht wordt de afbeelding vanaf de geselecteerde locatie naar het bericht gekopieerd.
          Verwijder het afbeeldingsbestand dus niet!    </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Handtekening verwijderen?</string>
     <string name="title_answer_define_name">Naam</string>
     <string name="title_answer_define_value">Waarde</string>
     <string name="title_answer_caption">Bewerk sjabloon</string>
@@ -1979,7 +1980,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_no">Nee</string>
     <string name="title_later">Later</string>
     <string name="title_paste_plain">Plakken als platte tekst</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Als citaat plakken</string>
+    <string name="title_paste_as_quote">Als citaat plakken</string>
     <string name="title_undo">Herstel</string>
     <string name="title_redo">Opnieuw</string>
     <string name="title_insert_line">Lijn invoegen</string>

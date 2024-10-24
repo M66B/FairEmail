@@ -207,7 +207,6 @@
     <string name="title_setup_oauth_updated">Η εξουσιοδότηση λογαριασμού ενημερώθηκε</string>
     <string name="title_setup_oauth_edge">Όταν χρησιμοποιείτε τον περιηγητή Edge, βεβαιωθείτε ότι το \"Αποκλεισμός ανοίγματος εξωτερικών εφαρμογών\" στις ρυθμίσεις \"Ιδιωτικότητα, ασφάλεια και υπηρεσίες\" είναι \"Απενεργοποιημένο\"</string>
     <string name="title_setup_oauth_brave">Όταν χρησιμοποιείτε τον περιηγητή Brave, πρέπει να ενεργοποιήσετε την επιλογή στις ρυθμίσεις του Brave, για να επιτρέπεται στους συνδέσμους εφαρμογών να ανοίγουν σε εφαρμογές έξω από το Brave</string>
-    <string name="title_setup_oauth_browser">Η εξουσιοδότηση απαιτεί ένα λειτουργικό πρόγραμμα περιήγησης</string>
     <string name="title_setup_oauth_authorize">Εξουσιοδότηση</string>
     <string name="title_setup_select_account">Επιλογή λογαριασμού</string>
     <string name="title_setup_instructions">Οδηγίες ρύθμισης</string>
@@ -1987,7 +1986,7 @@
     <string name="title_no">Όχι</string>
     <string name="title_later">Αργότερα</string>
     <string name="title_paste_plain">Επικόλληση ως απλό κείμενο</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Επικόλληση ως παράθεμα</string>
+    <string name="title_paste_as_quote">Επικόλληση ως παράθεμα</string>
     <string name="title_undo">Αναίρεση</string>
     <string name="title_redo">Επαναφορά</string>
     <string name="title_insert_line">Εισαγωγή γραμμής</string>

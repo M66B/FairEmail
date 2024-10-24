@@ -202,7 +202,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_oauth_update">Mevcut bir hesabı yeniden yetkilendir (aksi takdirde yeni bir hesap oluştur)</string>
     <string name="title_setup_oauth_updated">Hesap yetkilendirme güncellendi</string>
     <string name="title_setup_oauth_brave">Brave tarayıcısını kullanırken uygulama bağlantılarının Brave dışındaki uygulamalarda açılmasına izin vermek için Brave\'in ayarlarındaki seçeneği etkinleştirmeniz gerekir</string>
-    <string name="title_setup_oauth_browser">Yetkilendirme için çalışan bir tarayıcı gerekir</string>
+    <string name="title_setup_oauth_browser">Yetkilendirme, uygulama bağlantılarının açılmasına izin veren çalışan bir tarayıcı gerektirir (genellikle bir güvenlik ayarı), böylece sonunda yetkilendirme belirteci uygulamaya aktarılabilir</string>
     <string name="title_setup_oauth_authorize">Yetkilendir</string>
     <string name="title_setup_select_account">Hesap seç</string>
     <string name="title_setup_instructions">Kurulum yönergeleri</string>
@@ -1681,6 +1681,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_edit_signature_image_hint">        Mesaj gönderirken, görüntü seçilen konumdan mesajın içine kopyalanır.
         Bu nedenle, görüntü dosyasını silmeyin!
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">İmza silinsin mi?</string>
     <string name="title_answer_define_name">Ad</string>
     <string name="title_answer_define_value">Değer</string>
     <string name="title_answer_caption">Kalıbı Düzenle</string>
@@ -1977,7 +1978,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_no">Hayır</string>
     <string name="title_later">Daha sonra</string>
     <string name="title_paste_plain">Düz metin olarak yapıştır</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Alıntı olarak yapıştır</string>
+    <string name="title_paste_as_quote">Alıntı olarak yapıştır</string>
     <string name="title_undo">Geri Al</string>
     <string name="title_redo">Yinele</string>
     <string name="title_insert_line">Satır ekle</string>

@@ -235,7 +235,7 @@
     <string name="title_setup_oauth_updated">Autoryzacja konta została zaktualizowana</string>
     <string name="title_setup_oauth_edge">Korzystając z przeglądarki Edge, upewnij się, że opcja „Blokuj otwieranie zewnętrznych aplikacji” w ustawieniach „Prywatność, bezpieczeństwo i usługi” jest wyłączona</string>
     <string name="title_setup_oauth_brave">Podczas korzystania z przeglądarki Brave, musisz włączyć opcję w jej ustawieniach, aby umożliwić otwieranie linków w innych aplikacjach</string>
-    <string name="title_setup_oauth_browser">Autoryzacja wymaga działającej przeglądarki</string>
+    <string name="title_setup_oauth_browser">Autoryzacja wymaga działającej przeglądarki, która umożliwia otwieranie linków do aplikacji (często jest to ustawienie bezpieczeństwa), aby na końcu token autoryzacji mógł zostać przekazany do aplikacji</string>
     <string name="title_setup_oauth_authorize">Autoryzuj</string>
     <string name="title_setup_select_account">Wybierz konto</string>
     <string name="title_setup_instructions">Instrukcja konfiguracji</string>
@@ -1721,6 +1721,7 @@
         Nie usuwaj więc pliku z obrazem!
     
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Usunąć podpis?</string>
     <string name="title_answer_define_name">Nazwa</string>
     <string name="title_answer_define_value">Wartość</string>
     <string name="title_answer_caption">Edytuj szablon</string>
@@ -2017,7 +2018,7 @@
     <string name="title_no">Nie</string>
     <string name="title_later">Później</string>
     <string name="title_paste_plain">Wklej jako zwykły tekst</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Wklej jako cytat</string>
+    <string name="title_paste_as_quote">Wklej jako cytat</string>
     <string name="title_undo">Cofnij</string>
     <string name="title_redo">Ponów</string>
     <string name="title_insert_line">Wstaw linię</string>

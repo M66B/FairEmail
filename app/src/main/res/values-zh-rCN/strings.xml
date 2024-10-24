@@ -193,7 +193,7 @@
     <string name="title_setup_oauth_updated">账户授权已更新</string>
     <string name="title_setup_oauth_edge">当使用 Edge 浏览器时，请确保“隐私、安全和服务”设置中的“阻止打开外部应用程序”为“关闭”</string>
     <string name="title_setup_oauth_brave">使用 Brave 浏览器时，您必须在 Brave 的设置中启用该选项，允许在 Brave 之外的应用中打开应用链接</string>
-    <string name="title_setup_oauth_browser">授权需要一个运转正常的浏览器</string>
+    <string name="title_setup_oauth_browser">授权需要一个允许打开应用链接的浏览器 (通常是安全设置)，以便在授权过程结束时，授权令牌可以转移到应用</string>
     <string name="title_setup_oauth_authorize">授权</string>
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
@@ -1676,6 +1676,7 @@
     <string name="title_edit_signature_image_hint">        发送邮件时，图像从所选位置被复制到邮件中。
         因此，不要删除图像文件！
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">删除签名？</string>
     <string name="title_answer_define_name">名称</string>
     <string name="title_answer_define_value">值</string>
     <string name="title_answer_caption">编辑模板</string>
@@ -1972,7 +1973,7 @@
     <string name="title_no">否</string>
     <string name="title_later">稍后再说</string>
     <string name="title_paste_plain">粘贴为纯文本</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">粘贴为引用</string>
+    <string name="title_paste_as_quote">粘贴为引用</string>
     <string name="title_undo">撤销</string>
     <string name="title_redo">重做</string>
     <string name="title_insert_line">插入行</string>

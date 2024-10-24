@@ -233,8 +233,9 @@
     <string name="title_setup_oauth_rationale">Аўтарызуйце доступ да вашага ўліковага запісу %1$s</string>
     <string name="title_setup_oauth_update">Паўторна аўтарызаваць існуючы ўліковы запіс (у адваротным выпадку стварыць новы ўліковы запіс)</string>
     <string name="title_setup_oauth_updated">Аўтарызацыя ўліковага запісу была абноўлена</string>
+    <string name="title_setup_oauth_edge">Калі вы карыстаецеся браўзерам Edge, пераканайцеся, што опцыя «Блакіраваць адкрыццё знешніх праграм» у раздзеле «Прыватнасць, бяспека і паслугі» адключана</string>
     <string name="title_setup_oauth_brave">Пры выкарыстанні браўзера Brave вам неабходна ўключыць опцыю ў наладах Brave, якая дазваляе адкрыццё спасылак на праграмы ў знешніх праграмах</string>
-    <string name="title_setup_oauth_browser">Для аўтарызацыі неабходны функцыянуючы браўзер</string>
+    <string name="title_setup_oauth_browser">Аўтарызацыя патрабуе працаздольны браўзер, які дазваляе адкрываць спасылкі на праграмы (часцей за ўсё гэта рэгулююць параметры бяспекі), так каб у канцы токен аўтарызацыі мог быць перададзены ў праграму</string>
     <string name="title_setup_oauth_authorize">Аўтарызавацца</string>
     <string name="title_setup_select_account">Выберыце ўліковы запіс</string>
     <string name="title_setup_instructions">Інструкцыі па канфігурацыі</string>
@@ -430,6 +431,7 @@
     <string name="title_advanced_send_nav_color">Выкарыстоўваць колер ідэнтыфікатара для ніжняй панэлі дзеянняў</string>
     <string name="title_advanced_send_reminders">Паказваць напаміны</string>
     <string name="title_advanced_send_delayed">Затрымка адпраўкі паведамленняў</string>
+    <string name="title_advanced_send_undo">Паказваць параметры адмены адпраўкі</string>
     <string name="title_advanced_send_top">Паказваць кнопку адпраўкі ўверсе</string>
     <string name="title_advanced_attach_new">Ствараць новы чарнавік паведамлення для абагуленых адрасоў і файлаў</string>
     <string name="title_advanced_answer_caption">Налады кнопкі адказу</string>
@@ -491,6 +493,7 @@
     <string name="title_advanced_vpn_only">Ажыццяўляць злучэнне толькі праз VPN</string>
     <string name="title_advanced_timeout">Час чакання злучэння (секунды)</string>
     <string name="title_advanced_prefer_ip4">Аддаваць перавагу пратаколу IPv4 перад IPv6</string>
+    <string name="title_advanced_prefer_ip6">Аддаваць перавагу пратаколу IPv6 перад IPv4</string>
     <string name="title_advanced_dns">Пажаданыя адрасы DNS-сервераў (падзеленыя коскамі)</string>
     <string name="title_advanced_dns_custom">Выкарыстоўваць карыстальніцкі DNS</string>
     <string name="title_advanced_dns_clear">Ачышчаць кэш DNS пры змене падключэння</string>
@@ -1379,6 +1382,7 @@
     <string name="title_too_large">Паведамленне занадта вялікае для поўнага перафарматавання</string>
     <string name="title_truncated">Паведамленне занадта вялікае для поўнага адлюстравання</string>
     <string name="title_insufficient_memory">Паведамленне занадта вялікае для даступнай памяці (%1$d)</string>
+    <string name="title_screen_recording">Ідзе запіс экрана!</string>
     <string name="title_show_full">Паказаць поўнае паведамленне</string>
     <string name="title_fullscreen">Паказаць на ўвесь экран</string>
     <string name="title_fit_width">Паводле шырыні</string>
@@ -1452,6 +1456,7 @@
     <string name="title_save">Захаваць</string>
     <string name="title_send">Адправіць</string>
     <string name="title_sending">Адпраўка &#8230;</string>
+    <string name="title_sending_to">Адпраўка %1$s</string>
     <string name="title_send_now">Адправіць цяпер</string>
     <string name="title_send_via">Адправіць праз</string>
     <string name="title_send_at">Адправіць а &#8230;</string>
@@ -1721,6 +1726,7 @@
     <string name="title_edit_signature_image_hint">         Пры адпраўцы паведамлення выява капіруецца ў паведамленне з выбранага месца.
          Таму не выдаляйце зыходны файл выявы!
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Выдаліць подпіс?</string>
     <string name="title_answer_define_name">Імя</string>
     <string name="title_answer_define_value">Значэнне</string>
     <string name="title_answer_caption">Рэдагаваць шаблон</string>
@@ -1970,10 +1976,12 @@
     <string name="title_hint_folder_actions">Доўгае націсканне на папку адкрые меню выбару такіх опцый як, дадаванне папкі ў меню навігацыі для хуткага доступу і т. п.</string>
     <string name="title_hint_folder_sync">Для абмежавання выкарыстання батарэі і сеткі, не ўсе папкі і не ўсе паведамленні будуць сінхранізаваны па змаўчанні</string>
     <string name="title_hint_airplane">Рэжым палёту ўключаны</string>
+    <string name="title_hint_vpn_active">VPN уключаны</string>
     <string name="title_hint_notifications">Няма дазволаў на апавяшчэнні</string>
     <string name="title_hint_notifications_remark">Дазволы на апавяшчэнні таксама патрабуюцца для папярэджанняў (для ўліковага запісу). Апавяшчэнні аб новых паведамленнях можна адключыць у наладах.</string>
     <string name="title_hint_battery_optimizations">Аптцміўацыя батарэі ўсё яшчэ ўключана</string>
     <string name="title_hint_data_saver">Пры ўключаным рэжыме эканоміі даных праграма не зможа сінхранізавацца ў фоне і могуць узнікнуць памылкі злучэння.</string>
+    <string name="title_hint_vpn">Серверы электроннай пошты часам блакіруюць злучэнне праз VPN. Калі гэта адбудзецца — праблему зможа вырашыць толькі правайдар электроннай пошты.</string>
     <string name="title_hint_dismiss">Вы можаце закрыць гэта дыялогавае акно, каб схаваць гэту падказку.</string>
     <string name="title_hint_support">Калі ў вас ёсць пытанне або праблема, калі ласка, па дапамогу звяртайцеся праз меню падтрымкі</string>
     <string name="title_hint_message_actions">Для выдалення правядзіце пальцам улева; Для архівацыі (калі даступна) правядзіце пальцам управа; Жэсты можна наладзіць у наладах уліковага запісу</string>
@@ -2015,6 +2023,7 @@
     <string name="title_no">Не</string>
     <string name="title_later">Пазней</string>
     <string name="title_paste_plain">Уставіць як звычайны тэкст</string>
+    <string name="title_paste_as_quote">Уставіць як цытату</string>
     <string name="title_undo">Адмяніць</string>
     <string name="title_redo">Паўтарыць</string>
     <string name="title_insert_line">Уставіць радок</string>
@@ -2185,6 +2194,7 @@
     <string name="title_accessibility_view_help">Паглядзець даведку</string>
     <string name="title_accessibility_selected">Выбраныя</string>
     <string name="title_accessibility_answered">З адказам</string>
+    <string name="title_accessibility_forwarded">Пераслана</string>
     <string name="title_accessibility_scroll_down">Пракруціць уніз</string>
     <string name="title_accessibility_scroll_up">Пракруціць уверх</string>
     <string name="title_accessibility_filter_out_seen">Пераключыць фільтр прачытаных паведамленняў</string>
@@ -2210,14 +2220,14 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Не</item>
-        <item>5 seconds</item>
-        <item>10 seconds</item>
+        <item>5 секунд</item>
+        <item>10 секунд</item>
         <item>15 секунд</item>
         <item>30 секунд</item>
         <item>1 хвіліна</item>
         <item>2 хвіліны</item>
         <item>5 хвілін</item>
-        <item>10 minutes</item>
+        <item>10 хвілін</item>
     </string-array>
     <string-array name="startupNames">
         <item>Агульная паштовая скрыня</item>

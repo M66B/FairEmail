@@ -207,7 +207,7 @@
     <string name="title_setup_oauth_updated">Hesab səlahiyyətləndirmə güncəlləndi</string>
     <string name="title_setup_oauth_edge">Edge brauzeri istifadə edərkən \"Gizlilik, güvənlik və xidmətlər\" ayarlarında \"Xarici tətbiqlərin açılmasını əngəllə\" ayarının \"Bağlı\" olduğuna əmin olun.</string>
     <string name="title_setup_oauth_brave">Brave brauzeri istifadə edərkən tətbiq keçidlərinin Brave xaricindəki tətbiqlərdə açılmasına icazə vermək üçün Brave-in ayarlarındakı seçimi fəallaşdırmalısınız</string>
-    <string name="title_setup_oauth_browser">Səlahiyyətləndirmə, işləyən bir brauzer tələb edir</string>
+    <string name="title_setup_oauth_browser">Səlahiyyətləndirmə, tətbiq keçidlərini (adətən təhlükəsizlik ayarını) açmağa imkan verən bir brauzer tələb edir, beləliklə, nəhayət səlahiyyətləndirmə tokeni tətbiqə köçürülə bilər</string>
     <string name="title_setup_oauth_authorize">Səlahiyyət ver</string>
     <string name="title_setup_select_account">Hesab seç</string>
     <string name="title_setup_instructions">Quraşdırma təlimatları</string>
@@ -1695,6 +1695,7 @@
     <string name="title_edit_signature_image_hint">        Bir mesaj göndəriləndə, təsvir, seçilən bölmədən mesaja kopyalanır.
         Ona görə də, təsvir faylını silməyin!
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">İmza silinsin?</string>
     <string name="title_answer_define_name">Ad</string>
     <string name="title_answer_define_value">Dəyər</string>
     <string name="title_answer_caption">Şablona düzəliş et</string>
@@ -1991,7 +1992,7 @@
     <string name="title_no">Xeyr</string>
     <string name="title_later">Sonra</string>
     <string name="title_paste_plain">Düz mətn kimi yapışdır</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Sitat kimi yapışdır</string>
+    <string name="title_paste_as_quote">Sitat kimi yapışdır</string>
     <string name="title_undo">Geri qaytar</string>
     <string name="title_redo">Təkrar et</string>
     <string name="title_insert_line">Sətir daxil et</string>

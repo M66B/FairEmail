@@ -207,7 +207,7 @@
     <string name="title_setup_oauth_updated">Autorizzazione dell\'account aggiornata</string>
     <string name="title_setup_oauth_edge">Se si usa il browser Edge, assicurarsi che sia disattivata l\'opzione «Blocca l\'apertura di app esterne» nelle impostazioni di «Privacy, sicurezza e servizi»</string>
     <string name="title_setup_oauth_brave">Se si usa il browser Brave, è necessario abilitare l\'opzione nelle sue impostazioni per consentire ai link dell\'app di essere aperti in app esterne a Brave</string>
-    <string name="title_setup_oauth_browser">L\'autorizzazione richiede un browser funzionante</string>
+    <string name="title_setup_oauth_browser">L\'autorizzazione richiede un browser funzionante che consenta di aprire i link delle app (spesso si tratta di un\'impostazione di sicurezza), in modo che alla fine il token di autorizzazione possa essere trasferito all\'app</string>
     <string name="title_setup_oauth_authorize">Autorizza</string>
     <string name="title_setup_select_account">Selezionare un account</string>
     <string name="title_setup_instructions">Istruzioni di configurazione</string>
@@ -1696,6 +1696,7 @@
     <string name="title_edit_signature_image_hint">        Quando si invia un messaggio, l\'immagine viene copiata nel messaggio dalla posizione selezionata.
         Quindi, non eliminare il file immagine!
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Eliminare la firma?</string>
     <string name="title_answer_define_name">Nome</string>
     <string name="title_answer_define_value">Valore</string>
     <string name="title_answer_caption">Modifica modello</string>
@@ -1992,7 +1993,7 @@
     <string name="title_no">No</string>
     <string name="title_later">Più tardi</string>
     <string name="title_paste_plain">Incolla come testo semplice</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Incolla come citazione</string>
+    <string name="title_paste_as_quote">Incolla come citazione</string>
     <string name="title_undo">Annulla</string>
     <string name="title_redo">Ripristina</string>
     <string name="title_insert_line">Inserisci riga</string>
@@ -2046,7 +2047,7 @@
     <string name="title_global_default">Usa valori predefiniti globali</string>
     <string name="title_not_existing">Questo messaggio non esiste più sul server dell\'email</string>
     <string name="title_conversation_actions">Azioni</string>
-    <string name="title_conversation_action_reply">Rispondi con: \'%1$s\'</string>
+    <string name="title_conversation_action_reply">Rispondi con: «%1$s»</string>
     <string name="title_conversation_action_copy">Copia: \'%1$s\'</string>
     <string name="title_icalendar_accept">Accetta</string>
     <string name="title_icalendar_decline">Nega</string>

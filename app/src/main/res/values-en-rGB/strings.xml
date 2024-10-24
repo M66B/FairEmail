@@ -15,7 +15,7 @@
     <string name="title_setup_oauth_rationale">Authorise access to your %1$s account</string>
     <string name="title_setup_oauth_update">Authorise an existing account again (otherwise create a new account)</string>
     <string name="title_setup_oauth_updated">Account authorisation was updated</string>
-    <string name="title_setup_oauth_browser">Authorisation requires a working browser</string>
+    <string name="title_setup_oauth_browser">Authorisation requires a working browser which allows opening app links (often a security setting), so that at the end the authorisation token can be transferred to the app</string>
     <string name="title_setup_oauth_authorize">Authorise</string>
     <string name="title_setup_quick_configure">To edit the name, colour, swipe actions, etc</string>
     <string name="title_setup_doze">Disable battery optimisations</string>

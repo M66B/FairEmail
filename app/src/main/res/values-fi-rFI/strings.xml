@@ -204,7 +204,6 @@
     <string name="title_setup_oauth_update">Valtuuta olemassa oleva tili uudelleen (muussa tapauksessa luo uusi tili)</string>
     <string name="title_setup_oauth_updated">Tilin valtuutus päivitettiin</string>
     <string name="title_setup_oauth_brave">Brave-selaimessa täytyy ottaa asetuksissa käyttöön valinta, jotta sovelluslinkit voidaan avata muissa sovelluksissa</string>
-    <string name="title_setup_oauth_browser">Valtuutus vaatii toimivan selaimen</string>
     <string name="title_setup_oauth_authorize">Valtuuta</string>
     <string name="title_setup_select_account">Valitse tili</string>
     <string name="title_setup_instructions">Asetusohjeet</string>

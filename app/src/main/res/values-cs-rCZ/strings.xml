@@ -236,7 +236,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_oauth_updated">Autorizace účtu byla aktualizována</string>
     <string name="title_setup_oauth_edge">Při použití prohlížeče Edge se ujistěte, že \'Blokovat otevírání externích aplikací\" v nastavení \'Soukromí, bezpečnost a služby\' je vypnuto</string>
     <string name="title_setup_oauth_brave">Při používání prohlížeče Brave musíte povolit v nastavení, aby se aplikace otevřela mimo prohlížeč</string>
-    <string name="title_setup_oauth_browser">Autorizace vyžaduje funkční prohlížeč</string>
+    <string name="title_setup_oauth_browser">Autorizace vyžaduje funkční prohlížeč, který umožňuje otevírání odkazů aplikací (často v nastavení zabezpečení), tak, aby na konci mohl být autorizační token přenesen do aplikace</string>
     <string name="title_setup_oauth_authorize">Autorizovat</string>
     <string name="title_setup_select_account">Vybrat účet</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
@@ -1721,6 +1721,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_edit_signature_image_hint">        Při odesílání zprávy je obrázek zkopírován do zprávy z vybraného umístění.
         Takže neodstraňujte obrázek!
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Odstranit podpis?</string>
     <string name="title_answer_define_name">Název</string>
     <string name="title_answer_define_value">Hodnota</string>
     <string name="title_answer_caption">Upravit šablonu</string>
@@ -2017,7 +2018,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_no">Ne</string>
     <string name="title_later">Později</string>
     <string name="title_paste_plain">Vložit jako prostý text</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Vložit jako citaci</string>
+    <string name="title_paste_as_quote">Vložit jako citaci</string>
     <string name="title_undo">Zpět</string>
     <string name="title_redo">Znovu</string>
     <string name="title_insert_line">Vložit řádek</string>

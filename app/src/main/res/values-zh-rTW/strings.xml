@@ -193,7 +193,6 @@
     <string name="title_setup_oauth_updated">帳戶授權已更新</string>
     <string name="title_setup_oauth_edge">使用 Edge 瀏覽器時，請確認「隱私、安全性和服務」設定中的「阻止開啟外部應用程式」已關閉</string>
     <string name="title_setup_oauth_brave">在使用 Brave 瀏覽器時，您必須在 Brave 的設定中啟用允許應用程式連結在 Brave 之外的應用程式中開啟的選項。</string>
-    <string name="title_setup_oauth_browser">授權需要一個可運作的瀏覽器</string>
     <string name="title_setup_oauth_authorize">授權</string>
     <string name="title_setup_select_account">選擇帳戶</string>
     <string name="title_setup_instructions">設置說明</string>
@@ -1968,7 +1967,7 @@
     <string name="title_no">否</string>
     <string name="title_later">以後再說</string>
     <string name="title_paste_plain">以純文字貼上</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">以引用形式貼上</string>
+    <string name="title_paste_as_quote">以引用形式貼上</string>
     <string name="title_undo">撤銷</string>
     <string name="title_redo">重做</string>
     <string name="title_insert_line">插入線</string>

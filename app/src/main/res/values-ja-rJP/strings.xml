@@ -193,7 +193,6 @@
     <string name="title_setup_oauth_updated">アカウントの認証情報が更新されました</string>
     <string name="title_setup_oauth_edge">Edge ブラウザを使用している場合、「プライバシーとセキュリティ」の設定で「外部アプリを開くことをブロック」が「オフ」であることを確認してください</string>
     <string name="title_setup_oauth_brave">Brave ブラウザを使用している場合、Brave の設定で「Brave外のアプリでアプリのリンクを開くことを許可」を有効にしてください</string>
-    <string name="title_setup_oauth_browser">認証には有効に動作するブラウザーが必要です</string>
     <string name="title_setup_oauth_authorize">認証</string>
     <string name="title_setup_select_account">アカウントを選択</string>
     <string name="title_setup_instructions">セットアップ方法</string>
@@ -1977,7 +1976,7 @@
     <string name="title_no">いいえ</string>
     <string name="title_later">あとで</string>
     <string name="title_paste_plain">書式なしテキストとして貼り付け</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">引用として貼り付け</string>
+    <string name="title_paste_as_quote">引用として貼り付け</string>
     <string name="title_undo">元に戻す</string>
     <string name="title_redo">やり直す</string>
     <string name="title_insert_line">線を挿入</string>

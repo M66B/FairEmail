@@ -205,7 +205,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_oauth_updated">Accountautorisaasje is bywurke</string>
     <string name="title_setup_oauth_edge">As jo de Edge-browser bruke, soargje der dan foar dat ‘Het openen van externe apps blokkeren’ yn de ynstellingen foar ‘Privacy, beveiliging en services’ op \'Uit\' stiet</string>
     <string name="title_setup_oauth_brave">By it gebrûk fan de Brave-browser, moatte jo de opsje yn de ynstellingen fan Brave om app-keppelingen yn apps bûten Brave iepenje te litten ynskeakelje</string>
-    <string name="title_setup_oauth_browser">Autorisaasje fereasket in wurkjende browser</string>
+    <string name="title_setup_oauth_browser">Autorisaasje fereasket in wurkjende browser dy’t app-keppelingen iepenje kin (faaks in befeiligingsynstelling), sadat oan de app oan it ein de autorisaasjetoken oerdroegen wurde kin</string>
     <string name="title_setup_oauth_authorize">Autorisearje</string>
     <string name="title_setup_select_account">Selektearje account</string>
     <string name="title_setup_instructions">Ynstallaasjeynstruksjes</string>
@@ -1688,6 +1688,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_edit_signature_image">Ofbylding ynfoegje</string>
     <string name="title_edit_signature_image_hint">By it ferstjoeren fan in berjocht wurdt de ôfbylding fan de selektearre lokaasje ôf nei it berjocht kopiearre.
          Smyt it ôfbyldingsbestân dus net fuort!    </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Hantekening fuortsmite?</string>
     <string name="title_answer_define_name">Namme</string>
     <string name="title_answer_define_value">Wearde</string>
     <string name="title_answer_caption">Sjabloan bewurkje</string>
@@ -1984,7 +1985,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_no">Nee</string>
     <string name="title_later">Letter</string>
     <string name="title_paste_plain">As platte tekst plakke</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">As sitaat plakke</string>
+    <string name="title_paste_as_quote">As sitaat plakke</string>
     <string name="title_undo">Ungedien meitsje</string>
     <string name="title_redo">Opnij</string>
     <string name="title_insert_line">Rigel ynfoegje</string>

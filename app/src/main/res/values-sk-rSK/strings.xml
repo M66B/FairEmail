@@ -235,7 +235,6 @@
     <string name="title_setup_oauth_updated">Autorizácia účtu bola aktualizovaná</string>
     <string name="title_setup_oauth_edge">Pri používaní prehliadača Edge sa uistite, že „Blokovať otváranie externých aplikácií“ v nastaveniach „Ochrana súkromia, bezpečnosť a služby“ je „Vypnuté“</string>
     <string name="title_setup_oauth_brave">Ak používate prehliadač Brawe, mali by ste v jeho nastaveniach povoliť otváranie odkazov na aplikácie mimo prostredia Brawe</string>
-    <string name="title_setup_oauth_browser">Na autorizáciu je vyžadovaný funkčný webový prehliadač</string>
     <string name="title_setup_oauth_authorize">Autorizovať</string>
     <string name="title_setup_select_account">Vybrať účet</string>
     <string name="title_setup_instructions">Pokyny pre nastavenie</string>

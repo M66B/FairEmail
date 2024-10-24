@@ -207,7 +207,7 @@
     <string name="title_setup_oauth_updated">L\'autorisation du compte a été mise à jour</string>
     <string name="title_setup_oauth_edge">Lorsque vous utilisez le navigateur Edge, assurez-vous que \"Bloquer l\'ouverture d\'applications externes\" dans les paramètres \"Confidentialité, sécurité et services\" est \"Désactivé\"</string>
     <string name="title_setup_oauth_brave">Lorsque vous utilisez le navigateur Brave, vous devez activer l\'option dans les paramètres de Brave pour permettre l\'ouverture des liens des applications en dehors de Brave</string>
-    <string name="title_setup_oauth_browser">L\'autorisation requiert un navigateur fonctionnel</string>
+    <string name="title_setup_oauth_browser">L\'autorisation nécessite un navigateur fonctionnel qui permet d\'ouvrir les liens des applications (souvent via un paramètre de sécurité), de façon à ce que, in fine, le jeton d\'autorisation puisse être transféré à l\'application</string>
     <string name="title_setup_oauth_authorize">Autoriser</string>
     <string name="title_setup_select_account">Sélectionner un compte</string>
     <string name="title_setup_instructions">Instructions de configuration</string>
@@ -1696,6 +1696,7 @@
     <string name="title_edit_signature_image_hint">        Lors de l\'envoi d\'un message, l\'image est copiée dans le message à partir de l\'emplacement sélectionné.
         Donc, ne supprimez pas le fichier image !
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Supprimer la signature ?</string>
     <string name="title_answer_define_name">Nom</string>
     <string name="title_answer_define_value">Valeur</string>
     <string name="title_answer_caption">Modifier le modèle</string>
@@ -1992,7 +1993,7 @@
     <string name="title_no">Non</string>
     <string name="title_later">Plus tard</string>
     <string name="title_paste_plain">Coller comme texte brut</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Coller en tant que citation</string>
+    <string name="title_paste_as_quote">Coller en tant que citation</string>
     <string name="title_undo">Annuler</string>
     <string name="title_redo">Rétablir</string>
     <string name="title_insert_line">Insérer une ligne</string>

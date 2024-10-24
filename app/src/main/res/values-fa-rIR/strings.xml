@@ -183,7 +183,7 @@
     <string name="title_setup_oauth_update">به یک حساب موجود اجازه بدهید (در غیر این صورت یک حساب جدید بسازید)</string>
     <string name="title_setup_oauth_updated">تایید هویت حساب به روز شد</string>
     <string name="title_setup_oauth_edge">هنگام استفاده از مرورگر اج، از خاموش بودن \'مسدود کردن باز کردن اپ‌های خارجی\' در تنظیمات \'حریم شخصی، امنیتی و خدمات\' مطمئن باشید</string>
-    <string name="title_setup_oauth_browser">مجوز نیاز به یک مرورگر فعال دارد</string>
+    <string name="title_setup_oauth_browser">مجوز نیاز به مرورگر فعالی دارد که اجازه می‌دهد پیوندهای برنامه را باز کند (اغلب یکی تنظیمات امنیتی)، به طوری که در پایان توکن مجوز را بتوان به برنامه منتقل کرد</string>
     <string name="title_setup_oauth_authorize">اجازه دهید</string>
     <string name="title_setup_select_account">انتخاب حساب</string>
     <string name="title_setup_instructions">دستورالعمل های راه‌اندازی</string>
@@ -1187,6 +1187,7 @@
     <string name="title_edit_signature">ویرایش امضا</string>
     <string name="title_edit_signature_text">متن امضا</string>
     <string name="title_edit_signature_image">درج تصویر</string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">حذف امضا؟</string>
     <string name="title_answer_define_name">نام</string>
     <string name="title_answer_define_value">مقدار</string>
     <string name="title_answer_caption">ویرایش قالب</string>
@@ -1392,7 +1393,7 @@
     <string name="title_no">خير</string>
     <string name="title_later">بعدا</string>
     <string name="title_paste_plain">جای‌گذاری به عنوان متن ساده</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">درج کردن به عنوان نقل‌قول</string>
+    <string name="title_paste_as_quote">درج کردن به عنوان نقل‌قول</string>
     <string name="title_undo">عقبگرد</string>
     <string name="title_redo">انجام دوباره</string>
     <string name="title_add">افزودن</string>

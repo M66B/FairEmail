@@ -235,7 +235,7 @@
     <string name="title_setup_oauth_updated">אישור החשבון עודכן</string>
     <string name="title_setup_oauth_edge">בעת שימוש בדפדפן Edge, חשוב שההגדרה ‚חסימת פתיחה ביישומונים חיצוניים’ תחת ‚פרטיות, אבטחה ושירותים’ תהיה ‚כבויה’</string>
     <string name="title_setup_oauth_brave">בעת שימוש בדפדפן Brave יש להפעיל את האפשרות בהגדרות של Brave לאפשר לקישורי יישומים להיפתח ביישומים מחוץ ל־Brave</string>
-    <string name="title_setup_oauth_browser">אימות דורש דפדפן מתפקד</string>
+    <string name="title_setup_oauth_browser">אימות דורש דפדפן עובד שמאפשר לפתוח קישורי יישומונים (בדרך כלל הגדרת אבטחה), כדי שבסוף יועבר אסימון אימות ליישומון</string>
     <string name="title_setup_oauth_authorize">להרשות</string>
     <string name="title_setup_select_account">בחירת חשבון</string>
     <string name="title_setup_instructions">הנחיות הגדרה</string>
@@ -1723,6 +1723,7 @@
     <string name="title_edit_signature_image_hint">        בעת שליחת הודעה, התמונה מועתקת להודעה מהמיקום הנבחר.
         לכן, אין למחוק את קובץ התמונה!
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">למחוק חתימה?</string>
     <string name="title_answer_define_name">שם</string>
     <string name="title_answer_define_value">ערך</string>
     <string name="title_answer_caption">עריכת תבנית</string>
@@ -2019,7 +2020,7 @@
     <string name="title_no">לא</string>
     <string name="title_later">אחר כך</string>
     <string name="title_paste_plain">הדבקה כטקסט פשוט</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">הדבקה כציטוט</string>
+    <string name="title_paste_as_quote">הדבקה כציטוט</string>
     <string name="title_undo">ביטול</string>
     <string name="title_redo">ביצוע מחדש</string>
     <string name="title_insert_line">הוספת שורה</string>

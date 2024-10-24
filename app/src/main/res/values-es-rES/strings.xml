@@ -207,7 +207,6 @@
     <string name="title_setup_oauth_updated">Se ha actualizado la autorización de la cuenta</string>
     <string name="title_setup_oauth_edge">Al usar el navegador Edge, asegúrese de que \'Bloquear abrir aplicaciones externas\' en la configuración \'Privacidad, seguridad y servicios\' está \'apagado\'</string>
     <string name="title_setup_oauth_brave">Al usar el navegador Brave, debe activar la opción en la configuración de Brave para permitir que los enlaces de aplicaciones se abran en aplicaciones fuera de Brave</string>
-    <string name="title_setup_oauth_browser">La autorización requiere un navegador funcionando</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Seleccionar cuenta</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
@@ -1987,7 +1986,7 @@
     <string name="title_no">No</string>
     <string name="title_later">Más tarde</string>
     <string name="title_paste_plain">Pegar como texto plano</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Pegar como cita</string>
+    <string name="title_paste_as_quote">Pegar como cita</string>
     <string name="title_undo">Deshacer</string>
     <string name="title_redo">Rehacer</string>
     <string name="title_insert_line">Insertar línea</string>

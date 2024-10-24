@@ -207,7 +207,7 @@
     <string name="title_setup_oauth_updated">Autorização de conta actualizada</string>
     <string name="title_setup_oauth_edge">Ao usar o navegador Edge, certifique-se de que \'Bloquear abertura de aplicações externas\' nas configurações de \'Privacidade, segurança e serviços\' está \'Desativado\'</string>
     <string name="title_setup_oauth_brave">Ao usar o navegador Brave, deve ativar a opção nas configurações do Brave para permitir que os links abram em apps fora do Brave</string>
-    <string name="title_setup_oauth_browser">Autorização requer um navegador funcional</string>
+    <string name="title_setup_oauth_browser">Autorização requer um navegador que permite abrir links de aplicações (muitas vezes uma configuração de segurança), para que, no final, o token de autorização possa ser transferido para o FairEmail</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Seleccionar conta</string>
     <string name="title_setup_instructions">Instruções de configuração</string>
@@ -1696,6 +1696,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_edit_signature_image_hint">        Quando enviar uma mensagem, a imagem é copiada para a mensagem a partir do local seleccionado.
         Por isso, não elimine o ficheiro da imagem!
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Apagar assinatura?</string>
     <string name="title_answer_define_name">Nome</string>
     <string name="title_answer_define_value">Valor</string>
     <string name="title_answer_caption">Editar modelo</string>
@@ -1992,7 +1993,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_no">Não</string>
     <string name="title_later">Mais tarde</string>
     <string name="title_paste_plain">Colar como texto simples</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Colar como citação</string>
+    <string name="title_paste_as_quote">Colar como citação</string>
     <string name="title_undo">Anular</string>
     <string name="title_redo">Refazer</string>
     <string name="title_insert_line">Inserir linha</string>

@@ -208,7 +208,7 @@
     <string name="title_setup_oauth_updated">Kontoautorisierung wurde aktualisiert</string>
     <string name="title_setup_oauth_edge">Wenn Sie den Edge-Browser verwenden, vergewissern Sie sich, dass in den Einstellungen »Datenschutz und Sicherheit« die Einstellung »Öffnen externer Apps blockieren« auf »Aus« gestellt ist</string>
     <string name="title_setup_oauth_brave">Wenn Sie den Brave-Browser verwenden, dann müssen Sie in den Datenschutz-Einstellungen »Erlauben, dass Anwendungslinks in Anwendungen außerhalb von Brave geöffnet werden« aktivieren</string>
-    <string name="title_setup_oauth_browser">Autorisierung erfordert einen funktionierenden Browser</string>
+    <string name="title_setup_oauth_browser">Die Autorisierung erfordert einen funktionierenden Browser, der das Öffnen von App-Links (oft eine Sicherheitseinstellung) erlaubt, damit am Ende der Autorisierungstoken an die App übertragen werden kann</string>
     <string name="title_setup_oauth_authorize">Autorisieren</string>
     <string name="title_setup_select_account">Konto auswählen</string>
     <string name="title_setup_instructions">Einrichtungsanleitung</string>
@@ -1697,6 +1697,7 @@
     <string name="title_edit_signature_image_hint">        Erst beim Versenden einer Nachricht wird die Bilddatei vom gewählten Speicherort in die Nachricht kopiert.
         Löschen Sie deshalb nicht die Bilddatei, bevor die Nachricht gesendet wurde!
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Signatur löschen?</string>
     <string name="title_answer_define_name">Name</string>
     <string name="title_answer_define_value">Inhalt</string>
     <string name="title_answer_caption">Vorlage bearbeiten</string>
@@ -1993,7 +1994,7 @@
     <string name="title_no">Nein</string>
     <string name="title_later">Später</string>
     <string name="title_paste_plain">Als einfachen Text einfügen</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Als Zitat einfügen</string>
+    <string name="title_paste_as_quote">Als Zitat einfügen</string>
     <string name="title_undo">Rückgängig</string>
     <string name="title_redo">Wiederherstellen</string>
     <string name="title_insert_line">Linie einfügen</string>

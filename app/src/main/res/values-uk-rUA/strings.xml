@@ -236,7 +236,7 @@
     <string name="title_setup_oauth_updated">Авторизація облікового запису була оновлена</string>
     <string name="title_setup_oauth_edge">При використанні браузера Edge, переконайтеся в тому, що параметр «Блокувати відкриття зовнішніх програм» в розділі «Приватність, безпека та сервіси» є вимкненим</string>
     <string name="title_setup_oauth_brave">При використанні браузера Brave ви повинні в його налаштуваннях увімкнути опцію, що дозволяє іншим додаткам відкривати посилання в Brave</string>
-    <string name="title_setup_oauth_browser">Авторизація потребує браузера, що працює</string>
+    <string name="title_setup_oauth_browser">Для авторизації потрібен робочий браузер, який дозволяє відкривати посилання на додаток (часто це налаштування безпеки), щоб в кінці можна було передати токен авторизації в додаток</string>
     <string name="title_setup_oauth_authorize">Авторизувати</string>
     <string name="title_setup_select_account">Обрати обліковий запис</string>
     <string name="title_setup_instructions">Інструкції з встановлення</string>
@@ -1721,6 +1721,7 @@
     <string name="title_edit_signature_image_hint">        При надсиланні повідомлення зображення копіюється в повідомлення з вибраного розташування.
         Отже, не видаляйте файл зображення!
     </string>
+    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Видалити підпис?</string>
     <string name="title_answer_define_name">Ім\'я</string>
     <string name="title_answer_define_value">Значення</string>
     <string name="title_answer_caption">Редагувати шаблон</string>
@@ -2017,7 +2018,7 @@
     <string name="title_no">Ні</string>
     <string name="title_later">Пізніше</string>
     <string name="title_paste_plain">Вставити як простий текст</string>
-    <string name="title_paste_as_quote" comment="title_paste_as_quote&#10;Title for an additional menu option in the Android copy/paste popup menu">Вставити як цитату</string>
+    <string name="title_paste_as_quote">Вставити як цитату</string>
     <string name="title_undo">Скасувати</string>
     <string name="title_redo">Повторити</string>
     <string name="title_insert_line">Вставити лінію</string>

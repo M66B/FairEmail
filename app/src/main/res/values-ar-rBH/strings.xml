@@ -137,6 +137,7 @@
     <string name="title_setup_google_sign_in">تسجيل الدخول باستخدام جوجل</string>
     <string name="title_setup_other">مزود اخر</string>
     <string name="title_setup_inbound">البريد الإلكتروني الوارد فقط (لا يمكن إرسال البريد الإلكتروني!)</string>
+    <string name="title_setup_imap">حساب IMAP</string>
     <string name="title_setup_pop3">حساب POP3</string>
     <string name="title_setup_oauth_permission">مزود البريد الإلكتروني وافق على OAuth فقط لإصدارة متجر Play وإصدارة GitHub</string>
     <string name="title_setup_gmail_support">تفويض حسابات جوجل سيعمل فقط مع إصدارة متجر Play وإصدارة GitHub لأن أندرويد يفحص توقيع التطبيق الرقمي</string>
@@ -318,9 +319,11 @@
     <string name="title_advanced_signature_location">موضوع التوقيع</string>
     <string name="title_advanced_plain_only_reply">تلقائياً نص عادي فقط عند الرد على رسالة نص عادي فقط</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
+    <string name="title_advanced_ssl_harden_strict">يتطلب TLS 1.3</string>
     <string name="title_advanced_caption_general">الاعدادات العامة</string>
     <string name="title_advanced_caption_list">قائمة</string>
     <string name="title_advanced_caption_conversation">المحادثة</string>
+    <string name="title_advanced_caption_message">رسالة</string>
     <string name="title_advanced_caption_message_header">عنوان الرسالة</string>
     <string name="title_advanced_caption_message_body">نص الرسالة</string>
     <string name="title_advanced_caption_file">الملف</string>
