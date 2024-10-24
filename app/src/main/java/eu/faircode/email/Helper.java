@@ -3789,6 +3789,8 @@ public class Helper {
     }
 
     static <T> List<List<T>> chunkList(List<T> list, int size) {
+        if (list == null || list.isEmpty())
+            return new ArrayList<>();
         List<List<T>> result = new ArrayList<>(list.size() / size);
         for (int i = 0; i < list.size(); i += size)
             result.add(list.subList(i, i + size < list.size() ? i + size : list.size()));

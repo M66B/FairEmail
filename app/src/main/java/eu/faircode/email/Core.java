@@ -4172,7 +4172,22 @@ class Core {
                                 if (chunk_size < 200 &&
                                         (account.isGmail() || account.isOutlook()))
                                     chunk_size = 200;
-                                List<List<Pair<Long, Long>>> chunks = Helper.chunkList(ranges, chunk_size);
+
+                                List<List<Pair<Long, Long>>> chunks = new ArrayList<>();
+
+                                int s = 0;
+                                List<Pair<Long, Long>> r = new ArrayList<>();
+                                for (Pair<Long, Long> range : ranges) {
+                                    long n = range.second - range.first + 1;
+                                    if (s + n > range_size) {
+                                        chunks.addAll(Helper.chunkList(r, chunk_size));
+                                        s = 0;
+                                        r.clear();
+                                    }
+                                    s += n;
+                                    r.add(range);
+                                }
+                                chunks.addAll(Helper.chunkList(r, chunk_size));
 
                                 Log.i(folder.name + " executing uid fetch count=" + uids.size() +
                                         " ranges=" + ranges.size() + " chunks=" + chunks.size() +
