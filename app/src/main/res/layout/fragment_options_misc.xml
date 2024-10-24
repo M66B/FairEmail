@@ -1235,6 +1235,29 @@
                     app:layout_constraintTop_toBottomOf="@id/tvStartDelay" />
 
                 <TextView
+                    android:id="@+id/tvRangeSize"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_range_size"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbStartDelay" />
+
+                <SeekBar
+                    android:id="@+id/sbRangeSize"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:max="1000"
+                    android:min="0"
+                    android:progress="100"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvRangeSize" />
+
+                <TextView
                     android:id="@+id/tvChunkSize"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1244,7 +1267,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sbStartDelay" />
+                    app:layout_constraintTop_toBottomOf="@id/sbRangeSize" />
 
                 <SeekBar
                     android:id="@+id/sbChunkSize"

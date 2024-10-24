@@ -957,6 +957,7 @@
     <string name="title_advanced_cache_lists" translatable="false">Cache lists</string>
     <string name="title_advanced_oauth_tabs" translatable="false">OAuth tabs</string>
     <string name="title_advanced_start_delay" translatable="false">Start delay: %1$d s</string>
+    <string name="title_advanced_range_size" translatable="false">Range size: %1$d</string>
     <string name="title_advanced_chunk_size" translatable="false">Chunk size: %1$d</string>
     <string name="title_advanced_thread_range" translatable="false">Thread range: %1$d days</string>
     <string name="title_advanced_auto_scroll" translatable="false">Auto scroll editor</string>

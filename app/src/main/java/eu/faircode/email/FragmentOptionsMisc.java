@@ -188,6 +188,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swOauthTabs;
     private TextView tvStartDelay;
     private SeekBar sbStartDelay;
+    private TextView tvRangeSize;
+    private SeekBar sbRangeSize;
     private TextView tvChunkSize;
     private SeekBar sbChunkSize;
     private TextView tvThreadRange;
@@ -296,7 +298,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "sqlite_integrity_check", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_auto_vacuum", "sqlite_sync_extra", "sqlite_cache",
             "legacy_queries",
             "cache_lists", "oauth_tabs",
-            "start_delay", "chunk_size", "thread_range",
+            "start_delay", "range_size", "chunk_size", "thread_range",
             "autoscroll_editor", "undo_manager",
             "browser_zoom", "fake_dark",
             "ignore_formatted_size",
@@ -452,6 +454,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swOauthTabs = view.findViewById(R.id.swOauthTabs);
         tvStartDelay = view.findViewById(R.id.tvStartDelay);
         sbStartDelay = view.findViewById(R.id.sbStartDelay);
+        tvRangeSize = view.findViewById(R.id.tvRangeSize);
+        sbRangeSize = view.findViewById(R.id.sbRangeSize);
         tvChunkSize = view.findViewById(R.id.tvChunkSize);
         sbChunkSize = view.findViewById(R.id.sbChunkSize);
         tvThreadRange = view.findViewById(R.id.tvThreadRange);
@@ -1317,6 +1321,27 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 prefs.edit().putInt("start_delay", progress).apply();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+        });
+
+        sbRangeSize.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progress = progress / 10;
+                if (progress < 1)
+                    progress = 1;
+                progress = progress * 10;
+                prefs.edit().putInt("range_size", progress).apply();
             }
 
             @Override
@@ -2500,6 +2525,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             int start_delay = prefs.getInt("start_delay", 0);
             tvStartDelay.setText(getString(R.string.title_advanced_start_delay, start_delay));
             sbStartDelay.setProgress(start_delay);
+
+            int range_size = prefs.getInt("range_size", Core.DEFAULT_RANGE_SIZE);
+            tvRangeSize.setText(getString(R.string.title_advanced_range_size, range_size));
+            sbRangeSize.setProgress(range_size);
 
             int chunk_size = prefs.getInt("chunk_size", Core.DEFAULT_CHUNK_SIZE);
             tvChunkSize.setText(getString(R.string.title_advanced_chunk_size, chunk_size));

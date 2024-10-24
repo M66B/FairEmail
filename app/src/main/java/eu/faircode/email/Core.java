@@ -124,6 +124,7 @@ import javax.mail.search.SearchTerm;
 import javax.mail.search.SentDateTerm;
 
 class Core {
+    static final int DEFAULT_RANGE_SIZE = 1000;
     static final int DEFAULT_CHUNK_SIZE = 50;
 
     private static final int SYNC_BATCH_SIZE = 20;
@@ -4145,6 +4146,10 @@ class Core {
                             public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
                                 protocol.select(folder.name);
 
+                                // Yahoo range size: 2000
+                                // https://help.yahoo.com/kb/download-email-yahoo-mail-third-party-sln28681.html
+                                int range_size = prefs.getInt("range_size", DEFAULT_RANGE_SIZE);
+
                                 // Build ranges
                                 List<Pair<Long, Long>> ranges = new ArrayList<>();
                                 long first = -1;
@@ -4152,7 +4157,7 @@ class Core {
                                 for (long uid : uids)
                                     if (first < 0)
                                         first = uid;
-                                    else if ((last < 0 ? first : last) + 1 == uid)
+                                    else if ((last < 0 ? first : last) + 1 == uid && (uid - first + 1 <= range_size))
                                         last = uid;
                                     else {
                                         ranges.add(new Pair<>(first, last < 0 ? first : last));
@@ -4170,10 +4175,10 @@ class Core {
                                 List<List<Pair<Long, Long>>> chunks = Helper.chunkList(ranges, chunk_size);
 
                                 Log.i(folder.name + " executing uid fetch count=" + uids.size() +
-                                        " ranges=" + ranges.size() + " chunks=" + chunks.size());
+                                        " ranges=" + ranges.size() + " chunks=" + chunks.size() +
+                                        " range_size=" + range_size + " chunk_size=" + chunk_size);
                                 for (int c = 0; c < chunks.size(); c++) {
                                     List<Pair<Long, Long>> chunk = chunks.get(c);
-                                    Log.i(folder.name + " chunk #" + c + " size=" + chunk.size());
 
                                     StringBuilder sb = new StringBuilder();
                                     for (Pair<Long, Long> range : chunk) {
@@ -4184,6 +4189,8 @@ class Core {
                                         else
                                             sb.append(range.first).append(':').append(range.second);
                                     }
+                                    Log.i(folder.name + " chunk #" + c + " " + sb);
+
                                     String command = "UID FETCH " + sb + " (UID FLAGS)";
                                     Response[] responses = protocol.command(command, null);
 
