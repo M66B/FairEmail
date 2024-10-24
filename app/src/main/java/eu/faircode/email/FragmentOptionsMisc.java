@@ -1337,10 +1337,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         sbRangeSize.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                progress = progress / 10;
+                progress = progress / 100;
                 if (progress < 1)
                     progress = 1;
-                progress = progress * 10;
+                progress = progress * 100;
                 prefs.edit().putInt("range_size", progress).apply();
             }
 

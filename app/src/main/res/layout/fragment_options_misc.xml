@@ -1250,9 +1250,9 @@
                     android:id="@+id/sbRangeSize"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:max="1000"
+                    android:max="5000"
                     android:min="0"
-                    android:progress="100"
+                    android:progress="1000"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvRangeSize" />
