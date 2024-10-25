@@ -1681,7 +1681,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_edit_signature_image_hint">        Mesaj gönderirken, görüntü seçilen konumdan mesajın içine kopyalanır.
         Bu nedenle, görüntü dosyasını silmeyin!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">İmza silinsin mi?</string>
+    <string name="title_edit_signature_delete">İmza silinsin mi?</string>
     <string name="title_answer_define_name">Ad</string>
     <string name="title_answer_define_value">Değer</string>
     <string name="title_answer_caption">Kalıbı Düzenle</string>
@@ -2296,6 +2296,8 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
         <item>7.5 s</item>
         <item>10 s</item>
         <item>15 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 sn</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 sn</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>El yazısı</item>

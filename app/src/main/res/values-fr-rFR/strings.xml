@@ -4,7 +4,7 @@
     <string name="app_send_self">Envoyer à soi-même</string>
     <string name="app_changelog">Historique des modifications</string>
     <string name="app_welcome">FairEmail est une application de messagerie open source centrée sur la confidentialité et la sécurité. C’est pourquoi certaines fonctionnalités peuvent être différentes de ce à quoi vous êtes habitué.</string>
-    <string name="app_limitations">Par exemple, les messages sont reformatés par défaut pour supprimer tout élément dangereux ainsi qu\'améliorer la lisibilité et l\'ouverture des liens doit être confirmée pour des raisons de sécurité. Les deux options peuvent être désactivées si souhaité.</string>
+    <string name="app_limitations">Par exemple, les messages sont reformatés par défaut pour supprimer tout élément dangereux et améliorer la lisibilité, et l\'ouverture des liens doit être confirmée par sécurité. Les deux options peuvent être désactivées si souhaité.</string>
     <string name="app_unsupported">Des bogues dans la version d\'Android de cet appareil spécifique provoquent des plantages</string>
     <string name="app_data_loss">Toutes les données peuvent être perdues</string>
     <string name="app_continue">Poursuivre tout de même</string>
@@ -1165,7 +1165,7 @@
     <string name="title_edit_account_color">Modifier la couleur du compte</string>
     <string name="title_hide_folder">Masquer le dossier</string>
     <string name="title_hide_seen_folder">Masquer le dossier si tous les messages sont lus</string>
-    <string name="title_hide_seen_folder_hint">Seulement dans le compte et dans la liste des dossiers unifiés</string>
+    <string name="title_hide_seen_folder_hint">Seulement dans la liste des comptes et des dossiers unifiés</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_navigation_folder">Afficher dans le menu de navigation</string>
     <string name="title_navigation_folder_hide">Masquer dans le menu de navigation</string>
@@ -1696,7 +1696,7 @@
     <string name="title_edit_signature_image_hint">        Lors de l\'envoi d\'un message, l\'image est copiée dans le message à partir de l\'emplacement sélectionné.
         Donc, ne supprimez pas le fichier image !
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Supprimer la signature ?</string>
+    <string name="title_edit_signature_delete">Supprimer la signature ?</string>
     <string name="title_answer_define_name">Nom</string>
     <string name="title_answer_define_value">Valeur</string>
     <string name="title_answer_caption">Modifier le modèle</string>
@@ -2312,6 +2312,8 @@
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

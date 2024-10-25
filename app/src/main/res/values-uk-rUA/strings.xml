@@ -1721,7 +1721,7 @@
     <string name="title_edit_signature_image_hint">        При надсиланні повідомлення зображення копіюється в повідомлення з вибраного розташування.
         Отже, не видаляйте файл зображення!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Видалити підпис?</string>
+    <string name="title_edit_signature_delete">Видалити підпис?</string>
     <string name="title_answer_define_name">Ім\'я</string>
     <string name="title_answer_define_value">Значення</string>
     <string name="title_answer_caption">Редагувати шаблон</string>
@@ -2339,6 +2339,8 @@
         <item>7,5 с</item>
         <item>10 с</item>
         <item>15 с</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 с</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 с</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсив</item>

@@ -1187,7 +1187,7 @@
     <string name="title_edit_signature">ویرایش امضا</string>
     <string name="title_edit_signature_text">متن امضا</string>
     <string name="title_edit_signature_image">درج تصویر</string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">حذف امضا؟</string>
+    <string name="title_edit_signature_delete">حذف امضا؟</string>
     <string name="title_answer_define_name">نام</string>
     <string name="title_answer_define_value">مقدار</string>
     <string name="title_answer_caption">ویرایش قالب</string>
@@ -1660,6 +1660,8 @@
         <item>7.5 s</item>
         <item>10 s</item>
         <item>15 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">۳۰ ثانیه</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">۶۰ ثانیه</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

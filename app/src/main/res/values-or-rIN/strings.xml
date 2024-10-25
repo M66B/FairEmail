@@ -930,6 +930,8 @@
         <item>୭.୫ ସେକେଣ୍ଡ</item>
         <item>୧୦ ସେକେଣ୍ଡ</item>
         <item>୧୫ ସେକେଣ୍ଡ</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">

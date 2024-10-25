@@ -1726,7 +1726,7 @@
     <string name="title_edit_signature_image_hint">         Пры адпраўцы паведамлення выява капіруецца ў паведамленне з выбранага месца.
          Таму не выдаляйце зыходны файл выявы!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Выдаліць подпіс?</string>
+    <string name="title_edit_signature_delete">Выдаліць подпіс?</string>
     <string name="title_answer_define_name">Імя</string>
     <string name="title_answer_define_value">Значэнне</string>
     <string name="title_answer_caption">Рэдагаваць шаблон</string>
@@ -2337,6 +2337,8 @@
         <item>7,5 с</item>
         <item>10 с</item>
         <item>15 с</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсіў</item>

@@ -1695,7 +1695,7 @@
     <string name="title_edit_signature_image_hint">        Bir mesaj göndəriləndə, təsvir, seçilən bölmədən mesaja kopyalanır.
         Ona görə də, təsvir faylını silməyin!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">İmza silinsin?</string>
+    <string name="title_edit_signature_delete">İmza silinsin?</string>
     <string name="title_answer_define_name">Ad</string>
     <string name="title_answer_define_value">Dəyər</string>
     <string name="title_answer_caption">Şablona düzəliş et</string>
@@ -2304,6 +2304,8 @@
         <item>7.5 s</item>
         <item>10 s</item>
         <item>15 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Əl yazısı</item>

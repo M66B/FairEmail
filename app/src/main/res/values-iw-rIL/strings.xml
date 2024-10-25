@@ -1723,7 +1723,7 @@
     <string name="title_edit_signature_image_hint">        בעת שליחת הודעה, התמונה מועתקת להודעה מהמיקום הנבחר.
         לכן, אין למחוק את קובץ התמונה!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">למחוק חתימה?</string>
+    <string name="title_edit_signature_delete">למחוק חתימה?</string>
     <string name="title_answer_define_name">שם</string>
     <string name="title_answer_define_value">ערך</string>
     <string name="title_answer_caption">עריכת תבנית</string>
@@ -2334,6 +2334,8 @@
         <item>7.5 שנ׳</item>
         <item>10 שנ׳</item>
         <item>15 שנ׳</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>מחובר</item>

@@ -2284,6 +2284,8 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
         <item>7.5 秒</item>
         <item>10 秒</item>
         <item>15 秒</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>草書</item>

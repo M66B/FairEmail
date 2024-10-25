@@ -1721,7 +1721,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_edit_signature_image_hint">        Při odesílání zprávy je obrázek zkopírován do zprávy z vybraného umístění.
         Takže neodstraňujte obrázek!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Odstranit podpis?</string>
+    <string name="title_edit_signature_delete">Odstranit podpis?</string>
     <string name="title_answer_define_name">Název</string>
     <string name="title_answer_define_value">Hodnota</string>
     <string name="title_answer_caption">Upravit šablonu</string>
@@ -2338,6 +2338,8 @@ v prohlížeči ze všech Google účtů.</string>
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kurzíva</item>

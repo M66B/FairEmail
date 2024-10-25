@@ -1688,7 +1688,7 @@
     <string name="title_edit_signature_image_hint">        Üzenet küldésekor a képet beemeljük az üzenetbe a kijelölt helyről.
         Úgyhogy, ne törölje le a kép fájlt!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Aláírás törlése?</string>
+    <string name="title_edit_signature_delete">Aláírás törlése?</string>
     <string name="title_answer_define_name">Név</string>
     <string name="title_answer_define_value">Érték</string>
     <string name="title_answer_caption">Sablon szerkesztése</string>
@@ -2303,6 +2303,8 @@
         <item>7,5 mp</item>
         <item>10 mp</item>
         <item>15 mp</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Folyóírás</item>

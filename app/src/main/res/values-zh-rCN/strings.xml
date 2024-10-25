@@ -1676,7 +1676,7 @@
     <string name="title_edit_signature_image_hint">        发送邮件时，图像从所选位置被复制到邮件中。
         因此，不要删除图像文件！
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">删除签名？</string>
+    <string name="title_edit_signature_delete">删除签名？</string>
     <string name="title_answer_define_name">名称</string>
     <string name="title_answer_define_value">值</string>
     <string name="title_answer_caption">编辑模板</string>
@@ -2289,6 +2289,8 @@
         <item>7.5 秒</item>
         <item>10 秒</item>
         <item>15 秒</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30秒</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 秒</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>草写体</item>

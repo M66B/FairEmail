@@ -1697,7 +1697,7 @@
     <string name="title_edit_signature_image_hint">        Erst beim Versenden einer Nachricht wird die Bilddatei vom gewählten Speicherort in die Nachricht kopiert.
         Löschen Sie deshalb nicht die Bilddatei, bevor die Nachricht gesendet wurde!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Signatur löschen?</string>
+    <string name="title_edit_signature_delete">Signatur löschen?</string>
     <string name="title_answer_define_name">Name</string>
     <string name="title_answer_define_value">Inhalt</string>
     <string name="title_answer_caption">Vorlage bearbeiten</string>
@@ -2308,11 +2308,13 @@
     </string-array>
     <string-array name="undoNames">
         <item>Aus</item>
-        <item>2,5 Sekunden</item>
-        <item>5 Sekunden</item>
-        <item>7,5 Sekunden</item>
-        <item>10 Sekunden</item>
-        <item>15 Sekunden</item>
+        <item>2,5 Sek.</item>
+        <item>5 Sek.</item>
+        <item>7,5 Sek.</item>
+        <item>10 Sek.</item>
+        <item>15 Sek.</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 Sek.</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 Sek.</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>

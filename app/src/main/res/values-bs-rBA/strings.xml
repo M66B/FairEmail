@@ -1709,7 +1709,7 @@
     <string name="title_edit_signature_image_hint">        Pri slanju poruke, slika se kopira u tijelo poruke sa izabrane lokacije.
         Zbog toga nemojte brisati datoteku slike!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Izbrisati potpis?</string>
+    <string name="title_edit_signature_delete">Izbrisati potpis?</string>
     <string name="title_answer_define_name">Naziv</string>
     <string name="title_answer_define_value">Vrijednost</string>
     <string name="title_answer_caption">Uredi prijedložak</string>
@@ -2319,6 +2319,8 @@
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kurziv</item>

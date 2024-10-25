@@ -207,6 +207,7 @@
     <string name="title_setup_oauth_updated">Η εξουσιοδότηση λογαριασμού ενημερώθηκε</string>
     <string name="title_setup_oauth_edge">Όταν χρησιμοποιείτε τον περιηγητή Edge, βεβαιωθείτε ότι το \"Αποκλεισμός ανοίγματος εξωτερικών εφαρμογών\" στις ρυθμίσεις \"Ιδιωτικότητα, ασφάλεια και υπηρεσίες\" είναι \"Απενεργοποιημένο\"</string>
     <string name="title_setup_oauth_brave">Όταν χρησιμοποιείτε τον περιηγητή Brave, πρέπει να ενεργοποιήσετε την επιλογή στις ρυθμίσεις του Brave, για να επιτρέπεται στους συνδέσμους εφαρμογών να ανοίγουν σε εφαρμογές έξω από το Brave</string>
+    <string name="title_setup_oauth_browser">Η εξουσιοδότηση απαιτεί ένα λειτουργικό πρόγραμμα περιήγησης που επιτρέπει να ανοίγουν σύνδεσμοι εφαρμογών (συχνά μέσω μιας ρύθμισης ασφαλείας), έτσι ώστε, στο τέλος, το διακριτικό εξουσιοδότησης να μπορεί να μεταφερθεί στην εφαρμογή</string>
     <string name="title_setup_oauth_authorize">Εξουσιοδότηση</string>
     <string name="title_setup_select_account">Επιλογή λογαριασμού</string>
     <string name="title_setup_instructions">Οδηγίες ρύθμισης</string>
@@ -1690,6 +1691,7 @@
     <string name="title_edit_signature_image_hint">        Κατά την αποστολή μηνύματος, η εικόνα αντιγράφεται στο μήνυμα από την επιλεγμένη τοποθεσία.
         Άρα, μην διαγράψετε το αρχείο εικόνας!
     </string>
+    <string name="title_edit_signature_delete">Διαγραφή υπογραφής;</string>
     <string name="title_answer_define_name">Όνομα</string>
     <string name="title_answer_define_value">Τιμή</string>
     <string name="title_answer_caption">Επεξεργασία προτύπου</string>
@@ -2304,6 +2306,8 @@
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 δευτ.</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 δευτ.</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 δευτ.</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Επισεσυρμένη</item>

@@ -2286,6 +2286,8 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursivoitu</item>

@@ -1696,7 +1696,7 @@
     <string name="title_edit_signature_image_hint">        Ved beskedafsendelse kopieres billedet ind i beskeden fra den valgte placering.
         Slet derfor ikke billedfilen!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Slet signatur?</string>
+    <string name="title_edit_signature_delete">Slet signatur?</string>
     <string name="title_answer_define_name">Navn</string>
     <string name="title_answer_define_value">Værdi</string>
     <string name="title_answer_caption">Redigér skabelon</string>
@@ -2312,6 +2312,8 @@
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>

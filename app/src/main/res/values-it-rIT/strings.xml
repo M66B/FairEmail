@@ -1696,7 +1696,7 @@
     <string name="title_edit_signature_image_hint">        Quando si invia un messaggio, l\'immagine viene copiata nel messaggio dalla posizione selezionata.
         Quindi, non eliminare il file immagine!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Eliminare la firma?</string>
+    <string name="title_edit_signature_delete">Eliminare la firma?</string>
     <string name="title_answer_define_name">Nome</string>
     <string name="title_answer_define_value">Valore</string>
     <string name="title_answer_caption">Modifica modello</string>
@@ -2312,6 +2312,8 @@
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 sec.</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 sec.</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

@@ -1696,7 +1696,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_edit_signature_image_hint">        Quando enviar uma mensagem, a imagem é copiada para a mensagem a partir do local seleccionado.
         Por isso, não elimine o ficheiro da imagem!
     </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Apagar assinatura?</string>
+    <string name="title_edit_signature_delete">Apagar assinatura?</string>
     <string name="title_answer_define_name">Nome</string>
     <string name="title_answer_define_value">Valor</string>
     <string name="title_answer_caption">Editar modelo</string>
@@ -2305,6 +2305,8 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursivo</item>

@@ -1683,7 +1683,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_edit_signature_image">Afbeelding invoegen</string>
     <string name="title_edit_signature_image_hint">Bij het verzenden van een bericht wordt de afbeelding vanaf de geselecteerde locatie naar het bericht gekopieerd.
          Verwijder het afbeeldingsbestand dus niet!    </string>
-    <string name="title_edit_signature_delete" comment="title_edit_signature_delete&#10;Text for a dialog box to confirm deleting a signature">Handtekening verwijderen?</string>
+    <string name="title_edit_signature_delete">Handtekening verwijderen?</string>
     <string name="title_answer_define_name">Naam</string>
     <string name="title_answer_define_value">Waarde</string>
     <string name="title_answer_caption">Bewerk sjabloon</string>
@@ -2297,6 +2297,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Schrijfletter</item>
