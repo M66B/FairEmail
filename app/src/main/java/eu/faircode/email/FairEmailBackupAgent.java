@@ -153,7 +153,13 @@ public class FairEmailBackupAgent extends BackupAgent {
     @Override
     public void onRestore(BackupDataInput data, int appVersionCode, ParcelFileDescriptor newState) {
         try {
-            EntityLog.log(this, "Restore start version=" + appVersionCode);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean enabled = prefs.getBoolean("google_backup", BuildConfig.PLAY_STORE_RELEASE);
+
+            EntityLog.log(this, "Restore start enabled=" + enabled + " version=" + appVersionCode);
+
+            if (!enabled)
+                return;
 
             while (data.readNextHeader()) {
                 String dataKey = data.getKey();
@@ -175,7 +181,6 @@ public class FairEmailBackupAgent extends BackupAgent {
                         JSONObject jroot = new JSONObject(new String(dataBuf, StandardCharsets.UTF_8));
                         EntityLog.log(this, "Restore version=" + jroot.optInt("version", 0));
 
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                         SharedPreferences.Editor editor = prefs.edit();
                         JSONObject jsettings = jroot.getJSONObject("settings");
                         editor.putBoolean("enabled", jsettings.optBoolean("enabled"));
