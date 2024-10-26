@@ -97,8 +97,6 @@ public class EntityContact implements Serializable {
     @NonNull
     public Integer state = STATE_DEFAULT;
 
-    private static int MAX_AGE = EntityFolder.DEFAULT_KEEP;
-
     static void received(
             @NonNull Context context,
             @NonNull EntityAccount account,
@@ -106,8 +104,6 @@ public class EntityContact implements Serializable {
             @NonNull EntityMessage message) {
         if (account.protocol == EntityAccount.TYPE_IMAP) {
             int days = (folder.isOutgoing() ? folder.keep_days : folder.sync_days);
-            if (days > MAX_AGE)
-                days = MAX_AGE;
             if (message.received < account.created - days * 24 * 3600 * 1000L)
                 return;
         }
