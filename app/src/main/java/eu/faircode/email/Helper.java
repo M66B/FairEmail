@@ -1289,6 +1289,7 @@ public class Helper {
                             : CustomTabsIntent.COLOR_SCHEME_LIGHT)
                     .setShareState(CustomTabsIntent.SHARE_STATE_ON)
                     .setUrlBarHidingEnabled(true)
+                    .setSendToExternalDefaultHandlerEnabled(true)
                     .setStartAnimations(context, R.anim.activity_open_enter, R.anim.activity_open_exit)
                     .setExitAnimations(context, R.anim.activity_close_enter, R.anim.activity_close_exit);
 
