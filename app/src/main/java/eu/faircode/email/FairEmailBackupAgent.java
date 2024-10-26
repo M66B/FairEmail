@@ -65,49 +65,48 @@ public class FairEmailBackupAgent extends BackupAgent {
 
             EntityLog.log(this, "Backup start enabled=" + enabled);
 
-            if (!enabled)
-                return;
-
             JSONObject jroot = new JSONObject();
             jroot.put("version", 1);
 
-            JSONObject jsettings = new JSONObject();
-            jsettings.put("enabled", prefs.getBoolean("enabled", true));
-            jsettings.put("poll_interval", prefs.getInt("poll_interval", 0));
-            jsettings.put("startup", prefs.getString("startup", "unified"));
-            String theme = prefs.getString("theme", null);
-            if (!TextUtils.isEmpty(theme))
-                jsettings.put("theme", theme);
-            jsettings.put("beige", prefs.getBoolean("beige", true));
-            jsettings.put("cards", prefs.getBoolean("cards", true));
-            jsettings.put("threading", prefs.getBoolean("threading", true));
-            jroot.put("settings", jsettings);
+            if (enabled) {
+                JSONObject jsettings = new JSONObject();
+                jsettings.put("enabled", prefs.getBoolean("enabled", true));
+                jsettings.put("poll_interval", prefs.getInt("poll_interval", 0));
+                jsettings.put("startup", prefs.getString("startup", "unified"));
+                String theme = prefs.getString("theme", null);
+                if (!TextUtils.isEmpty(theme))
+                    jsettings.put("theme", theme);
+                jsettings.put("beige", prefs.getBoolean("beige", true));
+                jsettings.put("cards", prefs.getBoolean("cards", true));
+                jsettings.put("threading", prefs.getBoolean("threading", true));
+                jroot.put("settings", jsettings);
 
-            JSONArray jaccounts = new JSONArray();
-            List<EntityAccount> accounts = db.account().getAccounts();
-            EntityLog.log(this, "Backup accounts=" + accounts.size());
-            for (EntityAccount account : accounts)
-                try {
-                    JSONObject jaccount = account.toJSON();
+                JSONArray jaccounts = new JSONArray();
+                List<EntityAccount> accounts = db.account().getAccounts();
+                EntityLog.log(this, "Backup accounts=" + accounts.size());
+                for (EntityAccount account : accounts)
+                    try {
+                        JSONObject jaccount = account.toJSON();
 
-                    JSONArray jfolders = new JSONArray();
-                    List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
-                    for (EntityFolder folder : folders)
-                        if (!EntityFolder.USER.equals(folder.type))
-                            jfolders.put(folder.toJSON());
-                    jaccount.put("folders", jfolders);
+                        JSONArray jfolders = new JSONArray();
+                        List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
+                        for (EntityFolder folder : folders)
+                            if (!EntityFolder.USER.equals(folder.type))
+                                jfolders.put(folder.toJSON());
+                        jaccount.put("folders", jfolders);
 
-                    JSONArray jidentities = new JSONArray();
-                    List<EntityIdentity> identities = db.identity().getIdentities(account.id);
-                    for (EntityIdentity identity : identities)
-                        jidentities.put(identity.toJSON());
-                    jaccount.put("identities", jidentities);
+                        JSONArray jidentities = new JSONArray();
+                        List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                        for (EntityIdentity identity : identities)
+                            jidentities.put(identity.toJSON());
+                        jaccount.put("identities", jidentities);
 
-                    jaccounts.put(jaccount);
-                } catch (JSONException ex) {
-                    Log.e(ex);
-                }
-            jroot.put("accounts", jaccounts);
+                        jaccounts.put(jaccount);
+                    } catch (JSONException ex) {
+                        Log.e(ex);
+                    }
+                jroot.put("accounts", jaccounts);
+            }
 
             byte[] dataBuf = jroot.toString().getBytes(StandardCharsets.UTF_8);
             String dataHash = Helper.sha256(dataBuf);
@@ -153,13 +152,10 @@ public class FairEmailBackupAgent extends BackupAgent {
     @Override
     public void onRestore(BackupDataInput data, int appVersionCode, ParcelFileDescriptor newState) {
         try {
+            EntityLog.log(this, "Restore start version=" + appVersionCode);
+
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             boolean enabled = prefs.getBoolean("google_backup", BuildConfig.PLAY_STORE_RELEASE);
-
-            EntityLog.log(this, "Restore start enabled=" + enabled + " version=" + appVersionCode);
-
-            if (!enabled)
-                return;
 
             while (data.readNextHeader()) {
                 String dataKey = data.getKey();
@@ -180,6 +176,11 @@ public class FairEmailBackupAgent extends BackupAgent {
 
                         JSONObject jroot = new JSONObject(new String(dataBuf, StandardCharsets.UTF_8));
                         EntityLog.log(this, "Restore version=" + jroot.optInt("version", 0));
+
+                        if (!enabled || !jroot.has("accounts")) {
+                            EntityLog.log(this, "Restore empty or disabled");
+                            continue;
+                        }
 
                         SharedPreferences.Editor editor = prefs.edit();
                         JSONObject jsettings = jroot.getJSONObject("settings");
