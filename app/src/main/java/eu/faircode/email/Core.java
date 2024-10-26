@@ -1613,7 +1613,7 @@ class Core {
 
                         Long uid = findUid(context, account, itarget, msgid);
                         if (uid == null)
-                            if (duplicate)
+                            if (duplicate || !EntityFolder.TRASH.equals(folder.type))
                                 throw new IllegalArgumentException("move: uid not found");
                             else {
                                 Log.w("move: uid not found");
