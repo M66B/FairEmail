@@ -334,7 +334,7 @@ public class WorkerCleanup extends Worker {
                     Fts4DbHelper.optimize(sdb);
             }
 
-            int purge_contact_age = prefs.getInt("purge_contact_age", 0);
+            int purge_contact_age = prefs.getInt("purge_contact_age", 1);
             int purge_contact_freq = prefs.getInt("purge_contact_freq", 0);
 
             Log.breadcrumb("worker", "cleanup", "contacts" +

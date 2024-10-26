@@ -944,7 +944,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-            int purge_contact_age = prefs.getInt("purge_contact_age", 0);
+            int purge_contact_age = prefs.getInt("purge_contact_age", 1);
             int purge_contact_freq = prefs.getInt("purge_contact_freq", 0);
 
             swKeyboard.setChecked(prefs.getBoolean("keyboard", true));

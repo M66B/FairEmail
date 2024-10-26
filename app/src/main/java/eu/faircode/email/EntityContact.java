@@ -39,6 +39,7 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -102,9 +103,13 @@ public class EntityContact implements Serializable {
             @NonNull EntityAccount account,
             @NonNull EntityFolder folder,
             @NonNull EntityMessage message) {
-        if (account.protocol == EntityAccount.TYPE_IMAP) {
-            int days = (folder.isOutgoing() ? folder.keep_days : folder.sync_days);
-            if (message.received < account.created - days * 24 * 3600 * 1000L)
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int purge_contact_age = prefs.getInt("purge_contact_age", 1);
+        if (purge_contact_age > 0) {
+            long now = new Date().getTime();
+            long ago = now - purge_contact_age * 30 * 24 * 3600 * 1000L;
+            if (message.received < ago)
                 return;
         }
 
@@ -114,7 +119,6 @@ public class EntityContact implements Serializable {
                 EntityFolder.JUNK.equals(folder.type))
             return;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
         boolean suggest_received = prefs.getBoolean("suggest_received", false);
 
