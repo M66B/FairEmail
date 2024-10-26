@@ -2334,8 +2334,8 @@
         <item>7.5 שנ׳</item>
         <item>10 שנ׳</item>
         <item>15 שנ׳</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 שניות</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 שניות</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>מחובר</item>

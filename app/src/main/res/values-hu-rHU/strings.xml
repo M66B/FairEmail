@@ -100,7 +100,7 @@
     <string name="title_unblock_all_hint">Vegye figyelembe, hogy az alkalmazás nem tudja megakadályozni, hogy a szerver az üzeneteket a levélszemét mappába tegye!</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Letiltja az üzenet küldőjét?</item>
-        <item quantity="other">Letiltja az %1$s üzenet küldőjét?</item>
+        <item quantity="other">Letiltja %1$s üzenet küldőjét?</item>
     </plurals>
     <plurals name="title_hours">
         <item quantity="one">%1$s óra</item>
@@ -2303,8 +2303,8 @@
         <item>7,5 mp</item>
         <item>10 mp</item>
         <item>15 mp</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 mp</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 mp</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Folyóírás</item>
@@ -2330,8 +2330,8 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>Egyik sem</item>
-        <item>Stripe</item>
-        <item>Dot</item>
+        <item>Csík</item>
+        <item>Pötty</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Címzett</item>
