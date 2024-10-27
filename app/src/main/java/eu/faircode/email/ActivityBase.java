@@ -71,6 +71,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -214,10 +215,18 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     if (cf != null) {
                         Insets nav = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
                         int pad = Math.max(0, cfpb + (nav.bottom - nav.top));
+                        Snackbar.SnackbarLayout sl = Helper.findSnackbarLayout(cf.getRootView());
+                        if (sl != null) {
+                            pad = cfpb;
+                            if (sl.getPaddingBottom() != nav.bottom - nav.top)
+                                sl.setPaddingRelative(
+                                        sl.getPaddingStart(), sl.getPaddingTop(),
+                                        sl.getPaddingEnd(), nav.bottom - nav.top);
+                        }
                         if (pad != cf.getPaddingBottom())
                             cf.setPaddingRelative(
                                     cf.getPaddingStart(), cf.getPaddingTop(),
-                                    cf.getPaddingEnd(), cfpb + (nav.bottom - nav.top));
+                                    cf.getPaddingEnd(), pad);
                     }
                     //for (View child : Helper.getViewsWithTag(v, "inset")) {
                     //    mlp = (ViewGroup.MarginLayoutParams) child.getLayoutParams();
