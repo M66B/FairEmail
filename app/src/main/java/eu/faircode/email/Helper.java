@@ -1036,6 +1036,20 @@ public class Helper {
             return context.getResources().getDimensionPixelSize(resid);
     }
 
+    static Snackbar.SnackbarLayout findSnackbarLayout(View rootView) {
+        if (rootView instanceof Snackbar.SnackbarLayout)
+            return (Snackbar.SnackbarLayout) rootView;
+
+        if (rootView instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) rootView).getChildCount(); i++)
+                if (findSnackbarLayout(((ViewGroup) rootView).getChildAt(i)) != null)
+                    return findSnackbarLayout(((ViewGroup) rootView).getChildAt(i));
+            return null;
+        }
+
+        return null;
+    }
+
     static @NonNull List<View> getViewsWithTag(@NonNull View view, @NonNull String tag) {
         List<View> result = new ArrayList<>();
         if (view != null && tag.equals(view.getTag()))
