@@ -2127,7 +2127,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                             EntityOperation.sync(this, folder.id, false, force && !forced);
 
-                            if (capNotify && subscriptions && EntityFolder.INBOX.equals(folder.type))
+                            if (capNotify && subscriptions &&
+                                    EntityFolder.INBOX.equals(folder.type) &&
+                                    MessageHelper.hasCapability(ifolder, "NOTIFY"))
                                 ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                                     @Override
                                     public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
@@ -2144,8 +2146,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                         if (responses.length == 0)
                                             throw new ProtocolException("No response");
-                                        if (!responses[responses.length - 1].isOK())
-                                            throw new ProtocolException(responses[responses.length - 1]);
+                                        if (!responses[responses.length - 1].isOK()) {
+                                            Log.w(new ProtocolException(responses[responses.length - 1]));
+                                            return null;
+                                        }
 
                                         for (int i = 0; i < responses.length - 1; i++) {
                                             EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, account,
