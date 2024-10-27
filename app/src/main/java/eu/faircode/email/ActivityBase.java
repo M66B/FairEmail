@@ -170,6 +170,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         FragmentDialogTheme.setBackground(this, holder, this instanceof ActivityCompose);
 
+        View cf = view.findViewById(R.id.content_frame);
+        int cfpb = (cf == null ? 0 : cf.getPaddingBottom());
+
         ViewCompat.setOnApplyWindowInsetsListener(holder, (v, windowInsets) -> {
             try {
                 Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -208,9 +211,19 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 }
 
                 if (edge_to_edge) {
-                    b = v.getPaddingBottom();
-                    Insets nav = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
-                    v.setPaddingRelative(0, 0, 0, b + (nav.bottom - nav.top));
+                    if (cf != null) {
+                        Insets nav = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
+                        int pad = Math.max(0, cfpb + (nav.bottom - nav.top));
+                        if (pad != cf.getPaddingBottom())
+                            cf.setPaddingRelative(
+                                    cf.getPaddingStart(), cf.getPaddingTop(),
+                                    cf.getPaddingEnd(), cfpb + (nav.bottom - nav.top));
+                    }
+                    //for (View child : Helper.getViewsWithTag(v, "inset")) {
+                    //    mlp = (ViewGroup.MarginLayoutParams) child.getLayoutParams();
+                    //    mlp.bottomMargin = insets.bottom;
+                    //    child.setLayoutParams(mlp);
+                    //}
                 }
 
             } catch (Throwable ex) {

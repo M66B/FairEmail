@@ -647,7 +647,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swEdgeToEdge.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        //swEdgeToEdge.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         swEdgeToEdge.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
