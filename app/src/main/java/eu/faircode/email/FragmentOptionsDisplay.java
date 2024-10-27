@@ -413,7 +413,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean debug = prefs.getBoolean("debug", false);
+        boolean experiments = prefs.getBoolean("experiments", false);
 
         ibHelp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -647,7 +647,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        //swEdgeToEdge.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        swEdgeToEdge.setVisibility(experiments ? View.VISIBLE : View.GONE);
         swEdgeToEdge.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
