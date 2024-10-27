@@ -207,12 +207,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                         v.setPaddingRelative(0, 0, 0, 0);
                 }
 
-                if (edge_to_edge)
-                    for (View child : Helper.getViewsWithTag(v, "inset")) {
-                        mlp = (ViewGroup.MarginLayoutParams) child.getLayoutParams();
-                        mlp.bottomMargin = insets.bottom;
-                        child.setLayoutParams(mlp);
-                    }
+                if (edge_to_edge) {
+                    b = v.getPaddingBottom();
+                    Insets nav = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
+                    v.setPaddingRelative(0, 0, 0, b + (nav.bottom - nav.top));
+                }
 
             } catch (Throwable ex) {
                 Log.e(ex);
