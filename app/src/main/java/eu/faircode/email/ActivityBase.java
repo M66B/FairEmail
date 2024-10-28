@@ -104,7 +104,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     @Override
-    public void setContentView(View view) {
+    public void setContentView(@NonNull View view) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean hide_toolbar = prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
         boolean edge_to_edge = prefs.getBoolean("edge_to_edge", false);
@@ -192,7 +192,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         View cf = view.findViewById(R.id.content_frame);
         View content = (cf == null ? view : cf);
-        int cpad = (content == null ? 0 : content.getPaddingBottom());
+        int cpad = content.getPaddingBottom();
 
         ViewCompat.setOnApplyWindowInsetsListener(holder, (v, windowInsets) -> {
             try {
@@ -212,7 +212,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     changed = true;
                     mlp.rightMargin = insets.right;
                 }
-                if (!edge_to_edge || content == null)
+                if (!edge_to_edge)
                     if (mlp.bottomMargin != insets.bottom) {
                         changed = true;
                         mlp.bottomMargin = insets.bottom;
@@ -232,24 +232,21 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 }
 
                 if (edge_to_edge) {
-                    if (content != null) {
-                        Insets nav = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
-                        int pad = Math.max(0, cpad + (nav.bottom - nav.top));
-                        Snackbar.SnackbarLayout sl = Helper.findSnackbarLayout(content.getRootView());
-                        if (sl != null) {
-                            pad = cpad;
-                            if (sl.getPaddingBottom() != nav.bottom - nav.top)
-                                sl.setPaddingRelative(
-                                        sl.getPaddingStart(), sl.getPaddingTop(),
-                                        sl.getPaddingEnd(), nav.bottom - nav.top);
-                        }
-                        if (pad != content.getPaddingBottom())
-                            content.setPaddingRelative(
-                                    content.getPaddingStart(), content.getPaddingTop(),
-                                    content.getPaddingEnd(), pad);
+                    Insets nav = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
+                    int pad = Math.max(0, cpad + (nav.bottom - nav.top));
+                    Snackbar.SnackbarLayout sl = Helper.findSnackbarLayout(content.getRootView());
+                    if (sl != null) {
+                        pad = cpad;
+                        if (sl.getPaddingBottom() != nav.bottom - nav.top)
+                            sl.setPaddingRelative(
+                                    sl.getPaddingStart(), sl.getPaddingTop(),
+                                    sl.getPaddingEnd(), nav.bottom - nav.top);
                     }
+                    if (pad != content.getPaddingBottom())
+                        content.setPaddingRelative(
+                                content.getPaddingStart(), content.getPaddingTop(),
+                                content.getPaddingEnd(), pad);
                 }
-
             } catch (Throwable ex) {
                 Log.e(ex);
             }
