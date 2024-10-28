@@ -1583,7 +1583,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            android:tag="inset"
             app:itemIconTint="@color/action_foreground"
             app:itemTextColor="@color/action_foreground"
             app:labelVisibilityMode="labeled"

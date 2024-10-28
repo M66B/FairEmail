@@ -78,7 +78,6 @@
         android:orientation="vertical"
         android:padding="12dp"
         android:scrollbarStyle="outsideOverlay"
-        android:tag="inset"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCopyright">

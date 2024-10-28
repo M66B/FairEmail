@@ -228,11 +228,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                                     cf.getPaddingStart(), cf.getPaddingTop(),
                                     cf.getPaddingEnd(), pad);
                     }
-                    //for (View child : Helper.getViewsWithTag(v, "inset")) {
-                    //    mlp = (ViewGroup.MarginLayoutParams) child.getLayoutParams();
-                    //    mlp.bottomMargin = insets.bottom;
-                    //    child.setLayoutParams(mlp);
-                    //}
                 }
 
             } catch (Throwable ex) {
