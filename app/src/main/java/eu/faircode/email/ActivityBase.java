@@ -172,7 +172,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         FragmentDialogTheme.setBackground(this, holder, this instanceof ActivityCompose);
 
         View cf = view.findViewById(R.id.content_frame);
-        int cfpb = (cf == null ? 0 : cf.getPaddingBottom());
+        View content = (cf == null ? view : cf);
+        int cpad = (content == null ? 0 : content.getPaddingBottom());
 
         ViewCompat.setOnApplyWindowInsetsListener(holder, (v, windowInsets) -> {
             try {
@@ -192,7 +193,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     changed = true;
                     mlp.rightMargin = insets.right;
                 }
-                if (!edge_to_edge)
+                if (!edge_to_edge || content == null)
                     if (mlp.bottomMargin != insets.bottom) {
                         changed = true;
                         mlp.bottomMargin = insets.bottom;
@@ -212,21 +213,21 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 }
 
                 if (edge_to_edge) {
-                    if (cf != null) {
+                    if (content != null) {
                         Insets nav = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars());
-                        int pad = Math.max(0, cfpb + (nav.bottom - nav.top));
-                        Snackbar.SnackbarLayout sl = Helper.findSnackbarLayout(cf.getRootView());
+                        int pad = Math.max(0, cpad + (nav.bottom - nav.top));
+                        Snackbar.SnackbarLayout sl = Helper.findSnackbarLayout(content.getRootView());
                         if (sl != null) {
-                            pad = cfpb;
+                            pad = cpad;
                             if (sl.getPaddingBottom() != nav.bottom - nav.top)
                                 sl.setPaddingRelative(
                                         sl.getPaddingStart(), sl.getPaddingTop(),
                                         sl.getPaddingEnd(), nav.bottom - nav.top);
                         }
-                        if (pad != cf.getPaddingBottom())
-                            cf.setPaddingRelative(
-                                    cf.getPaddingStart(), cf.getPaddingTop(),
-                                    cf.getPaddingEnd(), pad);
+                        if (pad != content.getPaddingBottom())
+                            content.setPaddingRelative(
+                                    content.getPaddingStart(), content.getPaddingTop(),
+                                    content.getPaddingEnd(), pad);
                     }
                 }
 
