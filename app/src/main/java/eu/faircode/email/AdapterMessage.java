@@ -4206,9 +4206,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                   at biweekly.ICalendar.write(SourceFile:2)
                              */
                             if (!TextUtils.isEmpty(email))
-                                email = email.replaceAll("\\s+", "");
+                                email = email
+                                        .replace("\n", " ")
+                                        .replace("\r", " ")
+                                        .replace("\"", "'");
                             if (!TextUtils.isEmpty(name))
-                                name = name.replaceAll("\\s+", " ");
+                                name = name
+                                        .replace("\n", " ")
+                                        .replace("\r", " ")
+                                        .replace("\"", "'");
 
                             Attendee attendee = new Attendee(name, email);
                             //attendee.setCalendarUserType(CalendarUserType.INDIVIDUAL);
