@@ -1577,7 +1577,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) content.getLayoutParams();
                 lparam.bottomMargin = snackbar.getView().getHeight();
                 content.setLayoutParams(lparam);
-                content.requestApplyInsets();
             }
 
             @Override
@@ -1585,7 +1584,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) content.getLayoutParams();
                 lparam.bottomMargin = 0;
                 content.setLayoutParams(lparam);
-                content.requestApplyInsets();
             }
         });
 

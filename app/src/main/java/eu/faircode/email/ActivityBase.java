@@ -152,6 +152,25 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         holder.removeView(placeholder);
         holder.addView(view, placeholder.getLayoutParams());
 
+        if (edge_to_edge)
+            holder.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                private boolean has = false;
+
+                @Override
+                public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                    try {
+                        Snackbar.SnackbarLayout sl = Helper.findSnackbarLayout(v.getRootView());
+                        boolean h = (sl != null);
+                        if (has != h) {
+                            has = h;
+                            v.requestApplyInsets();
+                        }
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+
         int abh = Helper.getActionBarHeight(this);
         appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
