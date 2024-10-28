@@ -176,7 +176,7 @@
     <string name="title_setup_imap">IMAP アカウント</string>
     <string name="title_setup_pop3">POP3 アカウント</string>
     <string name="title_setup_oauth_permission">OAuth 認証はメールプロバイダーより Play ストア版と GitHub版でのみ承認されています</string>
-    <string name="title_setup_gmail_support">Android がアプリの署名を確認するため、Google アカウントを認証する機能は Play ストア版と GitHub 版でのみ動作します</string>
+    <string name="title_setup_gmail_support">Android がアプリの署名を確認するため、Google アカウントで認可する機能は Play ストア版と GitHub 版でのみ動作します</string>
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス権限を付与してください</string>
     <string name="title_setup_gmail_permissions">Google はすべてのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmail が明示的な同意なしにメッセージを削除することはありません。</string>
     <string name="title_setup_gmail_login">Chrome でアカウントにログインしている場合、新しいアカウントは Android の設定から追加する必要があります。Chrome の同期設定からログアウトすると回避できます。</string>
@@ -188,12 +188,13 @@
     <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によって IMAP/SMTP が無効にされていることが原因である可能性があります</string>
     <string name="title_setup_office_auth_5_7_3">クイック セットアップ ウィザードの「その他のプロバイダー」をお試しください。</string>
     <string name="title_setup_office_auth_5_7_139">「Outlook/Hotmail/Live」のセットアップウィザードをお試しください。</string>
-    <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可する</string>
-    <string name="title_setup_oauth_update">設定済みのアカウントをもう一度認証する (設定されていない場合、新しいアカウントを作成)</string>
-    <string name="title_setup_oauth_updated">アカウントの認証情報が更新されました</string>
+    <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを認可する</string>
+    <string name="title_setup_oauth_update">設定済みのアカウントをもう一度認可する (設定されていない場合、新しいアカウントを作成)</string>
+    <string name="title_setup_oauth_updated">アカウントの認可が更新されました</string>
     <string name="title_setup_oauth_edge">Edge ブラウザを使用している場合、「プライバシーとセキュリティ」の設定で「外部アプリを開くことをブロック」が「オフ」であることを確認してください</string>
     <string name="title_setup_oauth_brave">Brave ブラウザを使用している場合、Brave の設定で「Brave外のアプリでアプリのリンクを開くことを許可」を有効にしてください</string>
-    <string name="title_setup_oauth_authorize">認証</string>
+    <string name="title_setup_oauth_browser">認可の完了後に認可トークンをアプリに転送する必要があるため、動作中のブラウザーでアプリがリンクを開くことが許可 (セキュリティ設定内などで変更可) されている必要があります</string>
+    <string name="title_setup_oauth_authorize">認可</string>
     <string name="title_setup_select_account">アカウントを選択</string>
     <string name="title_setup_instructions">セットアップ方法</string>
     <string name="title_setup_no_settings">ドメイン \'%1$s\' の設定が見つかりませんでした</string>
@@ -1046,7 +1047,7 @@
     <string name="title_identity_required">メールを送信するにはユーザー ID が必要です</string>
     <string name="title_drafts_required">メールを送信するには下書きフォルダーが必要です</string>
     <string name="title_drafts_select">メールを送信するには、アカウント設定で下書きフォルダーを選択する必要があります</string>
-    <string name="title_account_auth_update">認証を更新</string>
+    <string name="title_account_auth_update">認可を更新</string>
     <string name="title_account_auth_password">パスワード認証に変更する</string>
     <string name="title_change_password">パスワードを変更</string>
     <string name="title_delete_account">アカウントを削除</string>
@@ -1680,6 +1681,7 @@
     <string name="title_edit_signature_image_hint">        毎回メッセージを送信するときに、画像を選択した時点の保存場所からコピーします。
         画像ファイルは削除しないでください！
     </string>
+    <string name="title_edit_signature_delete">署名を削除しますか？</string>
     <string name="title_answer_define_name">名前</string>
     <string name="title_answer_define_value">値</string>
     <string name="title_answer_caption">テンプレートを編集</string>
@@ -1809,7 +1811,7 @@
     <string name="title_legend_section_messages">メッセージ</string>
     <string name="title_legend_section_compose">作成</string>
     <string name="title_legend_section_keyboard">キーボード</string>
-    <string name="title_legend_oauth">OAuth 認証</string>
+    <string name="title_legend_oauth">OAuth 認可</string>
     <string name="title_legend_folder_connected">接続されているフォルダー</string>
     <string name="title_legend_folder_disconnected">接続されていないフォルダー</string>
     <string name="title_legend_download_on">メッセージコンテンツを自動でダウンロード</string>
@@ -2294,8 +2296,8 @@
         <item>7.5 秒</item>
         <item>10 秒</item>
         <item>15 秒</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
+        <item comment="undoNames - 30 seconds (abbreviated)">30 秒</item>
+        <item comment="undoNames - 60 seconds (abbreviated)">60 秒</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>筆記体</item>
