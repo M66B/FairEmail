@@ -494,6 +494,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_close_pane">Rij of kolom samenvouwen bij het sluiten van een gesprek</string>
     <string name="title_advanced_column_width">Berichtkolom breedte / rij hoogte: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Bovenste werkbalk verbergen bij het scrollen van berichten</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Gebruik achtergrondkleur van de app voor Android navigatiebalk</string>
     <string name="title_advanced_nav_options">Toon navigatiemenu opties</string>
     <string name="title_advanced_nav_categories">Toon account categorieën in het navigatiemenu</string>
     <string name="title_advanced_nav_pin">Navigatiemenu vastzetten</string>
@@ -2297,8 +2298,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
+        <item>30 s</item>
+        <item>60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Schrijfletter</item>

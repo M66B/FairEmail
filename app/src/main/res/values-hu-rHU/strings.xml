@@ -494,6 +494,7 @@
     <string name="title_advanced_close_pane">Sor vagy oszlop összecsukása beszélgetés bezárásánál</string>
     <string name="title_advanced_column_width">Üzenet oszlopszélesség / sormagasság: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Felső eszköztár elrejtése üzenetek görgetésekor</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Az alkalmazás háttérszínét alkalmazza az Android navigációs sávra is</string>
     <string name="title_advanced_nav_options">Navigációs menü opciók mutatása</string>
     <string name="title_advanced_nav_categories">Fiókkategória mutatása a navigációs menüben</string>
     <string name="title_advanced_nav_pin">Navigációs menü kitűzése</string>
@@ -2303,8 +2304,8 @@
         <item>7,5 mp</item>
         <item>10 mp</item>
         <item>15 mp</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 mp</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 mp</item>
+        <item>30 mp</item>
+        <item>60 mp</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Folyóírás</item>

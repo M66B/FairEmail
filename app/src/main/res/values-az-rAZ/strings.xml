@@ -496,6 +496,7 @@
     <string name="title_advanced_close_pane">Bir danışığı bağlayarkən sətri və ya sütunu yığcamlaşdır</string>
     <string name="title_advanced_column_width">Mesajın sütun eni / sətir hündürlüyü: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Mesajları sürüşdürərkən üstdəki alət sətrini gizlət</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Android naviqasiya çubuğu üçün tətbiq arxaplan rəngini istifadə et</string>
     <string name="title_advanced_nav_options">Naviqasiya menyu seçimlərini göstər</string>
     <string name="title_advanced_nav_categories">Naviqasiya menyusunda hesab kateqoriyalarını göstər</string>
     <string name="title_advanced_nav_pin">Naviqasiya menyusunu sancaqla</string>
@@ -2304,8 +2305,8 @@
         <item>7.5 s</item>
         <item>10 s</item>
         <item>15 s</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
+        <item>30 s</item>
+        <item>60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Əl yazısı</item>

@@ -2296,8 +2296,8 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
         <item>7.5 s</item>
         <item>10 s</item>
         <item>15 s</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 sn</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 sn</item>
+        <item>30 sn</item>
+        <item>60 sn</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>El yazısı</item>

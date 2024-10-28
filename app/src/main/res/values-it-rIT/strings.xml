@@ -423,8 +423,8 @@
     <string name="title_advanced_separate_reply">Inserire una riga orizzontale prima dell\'intestazione di risposta o di inoltro</string>
     <string name="title_advanced_extended_reply">Usare l\'intestazione estesa di risposta e di inoltro</string>
     <string name="title_advanced_template_reply">Modello di intestazione per risposta e inoltro</string>
-    <string name="title_advanced_write_above">Scrivere sopra il testo del mittente</string>
-    <string name="title_advanced_write_below">Scrivere sotto il testo del mittente</string>
+    <string name="title_advanced_write_above">Scrivi sopra il testo del mittente</string>
+    <string name="title_advanced_write_below">Scrivi sotto il testo del mittente</string>
     <string name="title_advanced_quote_reply">Citare il testo cui si risponde</string>
     <string name="title_advanced_limit_reply">Limitare il numero di citazioni nidificate</string>
     <string name="title_advanced_resize_reply">Ridimensionare le immagini nel testo di risposta</string>
@@ -496,6 +496,7 @@
     <string name="title_advanced_close_pane">Comprimere la riga o la colonna chiudendo una conversazione</string>
     <string name="title_advanced_column_width">Larghezza colonna/altezza riga del messaggio: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Nascondere la barra degli strumenti superiore scorrendo i messaggi</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Usare il colore dello sfondo dell\'app per la barra di navigazione Android</string>
     <string name="title_advanced_nav_options">Mostrare le opzioni del menu di navigazione</string>
     <string name="title_advanced_nav_categories">Mostrare le categorie degli account nel menu di navigazione</string>
     <string name="title_advanced_nav_pin">Fissare il menu di navigazione</string>
@@ -2312,8 +2313,8 @@
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 sec.</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 sec.</item>
+        <item>30 sec.</item>
+        <item>60 sec.</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

@@ -481,6 +481,7 @@
     <string name="title_advanced_close_pane">关闭会话时收起行或列</string>
     <string name="title_advanced_column_width">邮件列宽/行高：%1$s %%</string>
     <string name="title_advanced_hide_toolbar">滚动邮件时隐藏顶部工具栏</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Android 导航栏使用应用背景色</string>
     <string name="title_advanced_nav_options">显示导航菜单选项</string>
     <string name="title_advanced_nav_categories">在导航菜单中显示账户类别</string>
     <string name="title_advanced_nav_pin">固定导航菜单</string>
@@ -2289,8 +2290,8 @@
         <item>7.5 秒</item>
         <item>10 秒</item>
         <item>15 秒</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30秒</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 秒</item>
+        <item>30秒</item>
+        <item>60 秒</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>草写体</item>

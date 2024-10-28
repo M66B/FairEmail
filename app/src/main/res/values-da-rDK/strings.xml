@@ -496,6 +496,7 @@
     <string name="title_advanced_close_pane">Skjul række eller kolonne, når en samtale lukkes</string>
     <string name="title_advanced_column_width">Beskedkolonnebredde/-rækkehøjde: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Skjul øverste værktøjsbjælke ved rulning gennem beskeder</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Brug app-baggrundsfarven til Android-navigationsbjælken</string>
     <string name="title_advanced_nav_options">Vis navigeringsmenuindstillinger</string>
     <string name="title_advanced_nav_categories">Vis kontokategorier i navigeringsmenuen</string>
     <string name="title_advanced_nav_pin">Fastgør navigeringsmenu</string>
@@ -2312,8 +2313,8 @@
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
+        <item>30 s</item>
+        <item>60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>

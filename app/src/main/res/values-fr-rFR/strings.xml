@@ -496,6 +496,7 @@
     <string name="title_advanced_close_pane">Replier la ligne ou la colonne lors de la fermeture d\'une conversation</string>
     <string name="title_advanced_column_width">Largeur de colonne / hauteur de ligne du message : %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Masquer la barre d\'outils supérieure lors du défilement des messages</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Utiliser la couleur d\'arrière-plan de l\'application pour la barre de navigation Android</string>
     <string name="title_advanced_nav_options">Afficher les options du menu de navigation</string>
     <string name="title_advanced_nav_categories">Afficher les catégories de compte dans le menu de navigation</string>
     <string name="title_advanced_nav_pin">Épingler le menu de navigation</string>
@@ -2312,8 +2313,8 @@
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
+        <item>30 s</item>
+        <item>60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

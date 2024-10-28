@@ -2306,8 +2306,8 @@
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 δευτ.</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 δευτ.</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 δευτ.</item>
+        <item>30 δευτ.</item>
+        <item>60 δευτ.</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Επισεσυρμένη</item>

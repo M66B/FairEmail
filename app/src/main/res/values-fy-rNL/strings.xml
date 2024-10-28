@@ -494,6 +494,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_close_pane">Rige of kolom ynklappe by it sluten fan in petear</string>
     <string name="title_advanced_column_width">Berjochtkolombreedte / rigehichte: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Boppeste arkbalke ferstopje by it skowen fan berjochten</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Eftergrûnkleur van de app voor Android-navigaasjebalke brûke</string>
     <string name="title_advanced_nav_options">Navigaasjemenuopties</string>
     <string name="title_advanced_nav_categories">Accountkategoryen yn it navigaasjemenu toane</string>
     <string name="title_advanced_nav_pin">Navigaasjemenu fêstsette</string>
@@ -2303,8 +2304,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
+        <item>30 s</item>
+        <item>60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursyf</item>

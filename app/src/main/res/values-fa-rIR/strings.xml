@@ -436,6 +436,7 @@
     <string name="title_advanced_two_col">استفاده از دو ستون</string>
     <string name="title_advanced_min_screen_size">کمترین اندازه صفحه برای تقسیم کردن صفحه</string>
     <string name="title_advanced_column_width">عرض ستون / ارتفاع ردیف پیام %1$s %%</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">استفاده از رنگ پس‌زمینه برنامه برای نوار پیمایش اندروید</string>
     <string name="title_advanced_nav_options">نشان دادن گزینه‌های منوی ناوبری</string>
     <string name="title_advanced_nav_categories">دسته‌بندی‌های حساب را در منوی ناوبری نمایش بده</string>
     <string name="title_advanced_nav_pin">سنجاق کردن منوی ناوبری</string>
@@ -1660,8 +1661,8 @@
         <item>7.5 s</item>
         <item>10 s</item>
         <item>15 s</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">۳۰ ثانیه</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">۶۰ ثانیه</item>
+        <item>۳۰ ثانیه</item>
+        <item>۶۰ ثانیه</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursive</item>

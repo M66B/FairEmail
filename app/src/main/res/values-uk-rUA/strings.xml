@@ -524,6 +524,7 @@
     <string name="title_advanced_close_pane">Згортати рядок або стовпець при закритті розмови</string>
     <string name="title_advanced_column_width">Співвідношення ширини стовпця або висоти рядка, в яких показується повідомлення, до ширини або висоти екрана: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Приховувати верхню панель інструментів під час прокрутки повідомлень</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Використовувати фоновий колір програми для навігаційної панелі Android</string>
     <string name="title_advanced_nav_options">Показувати параметри меню навігації</string>
     <string name="title_advanced_nav_categories">Показувати категорії облікових записів у навігаційному меню</string>
     <string name="title_advanced_nav_pin">Прикріпити меню навігації</string>
@@ -2339,8 +2340,8 @@
         <item>7,5 с</item>
         <item>10 с</item>
         <item>15 с</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 с</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 с</item>
+        <item>30 с</item>
+        <item>60 с</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсив</item>

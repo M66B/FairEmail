@@ -2296,8 +2296,8 @@
         <item>7.5 秒</item>
         <item>10 秒</item>
         <item>15 秒</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 秒</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 秒</item>
+        <item>30 秒</item>
+        <item>60 秒</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>筆記体</item>

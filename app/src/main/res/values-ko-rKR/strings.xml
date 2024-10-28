@@ -1670,8 +1670,8 @@
         <item>7.5초</item>
         <item>10초</item>
         <item>15초</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
+        <item>30 s</item>
+        <item>60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>필기체</item>

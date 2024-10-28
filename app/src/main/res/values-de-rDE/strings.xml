@@ -497,6 +497,7 @@
     <string name="title_advanced_close_pane">Zeile oder Spalte beim Schließen einer Unterhaltung zusammenklappen</string>
     <string name="title_advanced_column_width">Spaltenbreite/Zeilenhöhe der Nachricht: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim Scrollen von Nachrichten ausblenden</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">App-Hintergrundfarbe für die Android-Navigationsleiste verwenden</string>
     <string name="title_advanced_nav_options">Optionen im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_categories">Kontokategorien im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_pin">Navigationsmenü anheften</string>
@@ -2313,14 +2314,14 @@
         <item>7,5 Sek.</item>
         <item>10 Sek.</item>
         <item>15 Sek.</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 Sek.</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 Sek.</item>
+        <item>30 Sek.</item>
+        <item>60 Sek.</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>
         <item>Serife</item>
         <item>Serifenlos</item>
-        <item>Festbreitenschriftart</item>
+        <item>Festbreitenschrift</item>
         <item>Fantasie</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

@@ -524,6 +524,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_close_pane">Sbalit řádek nebo sloupec při zavření konverzace</string>
     <string name="title_advanced_column_width">Šířka sloupce zprávy / výška řádku: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Skrýt horní panel nástrojů při posouvání zpráv</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Použít barvu pozadí aplikace pro navigační panel Androidu</string>
     <string name="title_advanced_nav_options">Zobrazit možnosti navigačního menu</string>
     <string name="title_advanced_nav_categories">Zobrazit kategorie účtu v navigačním menu</string>
     <string name="title_advanced_nav_pin">Připnout navigační menu</string>
@@ -2338,8 +2339,8 @@ v prohlížeči ze všech Google účtů.</string>
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
-        <item comment="undoNames - 30 seconds (abbreviated)">30 s</item>
-        <item comment="undoNames - 60 seconds (abbreviated)">60 s</item>
+        <item>30 s</item>
+        <item>60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kurzíva</item>
