@@ -583,7 +583,7 @@
     <string name="title_advanced_close_pane">Collapse row or column when closing a conversation</string>
     <string name="title_advanced_column_width">Message column width / row height: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Hide top toolbar when scrolling messages</string>
-    <string name="title_advanced_edge_to_edge" translatable="false">Edge-to-edge (experimental)</string>
+    <string name="title_advanced_edge_to_edge">Use app background color for Android navigation bar</string>
     <string name="title_advanced_nav_options">Show navigation menu options</string>
     <string name="title_advanced_nav_categories">Show account categories in the navigation menu</string>
     <string name="title_advanced_nav_pin">Pin navigation menu</string>

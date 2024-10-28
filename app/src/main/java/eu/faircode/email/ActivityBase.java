@@ -107,7 +107,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     public void setContentView(@NonNull View view) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean hide_toolbar = prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
-        boolean edge_to_edge = prefs.getBoolean("edge_to_edge", false);
+        boolean edge_to_edge = prefs.getBoolean("edge_to_edge", !BuildConfig.PLAY_STORE_RELEASE);
 
         int colorPrimary = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimary);
         double lum = ColorUtils.calculateLuminance(colorPrimary);
