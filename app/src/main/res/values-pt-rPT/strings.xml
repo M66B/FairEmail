@@ -497,6 +497,7 @@
     <string name="title_advanced_close_pane">Recolher linha ou coluna ao fechar uma conversa</string>
     <string name="title_advanced_column_width">Largura / altura da linha da Mensagem: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ocultar barra de ferramentas superior quando rolar as mensagens</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Usar cor de fundo da aplicação para a barra de navegação do Android</string>
     <string name="title_advanced_nav_options">Mostrar opções do menu de navegação</string>
     <string name="title_advanced_nav_categories">Mostrar categorias da conta no menu de navegação</string>
     <string name="title_advanced_nav_pin">Fixar menu de navegação</string>

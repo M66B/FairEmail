@@ -490,6 +490,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_close_pane">Bir konuşmayı kapatırken satırı veya sütunu daralt</string>
     <string name="title_advanced_column_width">Mesaj sütun genişliği / satır yüksekliği: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Mesajları kaydırırken üstteki araç çubuğunu gizle</string>
+    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Android gezinme çubuğu için uygulama arka plan rengini kullanma</string>
     <string name="title_advanced_nav_options">Gezinme menüsü seçeneklerini göster</string>
     <string name="title_advanced_nav_categories">Gezinme menüsünde hesap kategorilerini göster</string>
     <string name="title_advanced_nav_pin">Gezinme menüsünü sabitle</string>
