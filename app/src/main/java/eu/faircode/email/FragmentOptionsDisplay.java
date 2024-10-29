@@ -1619,7 +1619,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             sbColumnWidth.setProgress(column_width);
 
             swHideToolbar.setChecked(prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE));
-            swEdgeToEdge.setChecked(prefs.getBoolean("edge_to_edge", !BuildConfig.PLAY_STORE_RELEASE));
+            swEdgeToEdge.setChecked(prefs.getBoolean("edge_to_edge", false));
             swNavOptions.setChecked(prefs.getBoolean("nav_options", true));
             swNavCategories.setChecked(prefs.getBoolean("nav_categories", false));
             swNavLastSync.setChecked(prefs.getBoolean("nav_last_sync", true));
