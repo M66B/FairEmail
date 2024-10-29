@@ -20,7 +20,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2242 2024-10-29
 
 * Updated MiniDNS to version 1.1.1
 * Small improvements and minor bug fixes
