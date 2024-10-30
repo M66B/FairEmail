@@ -545,7 +545,7 @@ public class HtmlHelper {
             sheets = parseStyles(parsed.head().select("style"));
 
         Safelist safelist = Safelist.relaxed()
-                .addTags("hr", "abbr", "big", "font", "dfn", "ins", "del", "s", "tt", "mark", "address", "input")
+                .addTags("hr", "abbr", "big", "font", "dfn", "ins", "del", "s", "tt", "mark", "address", "input", "samp")
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
                 .addAttributes("span", "dir")
@@ -1191,7 +1191,8 @@ public class HtmlHelper {
 
         // Pre formatted text
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
-        for (Element pre : document.select("pre")) {
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
+        for (Element pre : document.select("pre,samp")) {
             NodeTraversor.traverse(new NodeVisitor() {
                 private int index = 0;
                 private boolean inElement = false;
@@ -3943,6 +3944,7 @@ public class HtmlHelper {
                                 break;
                             case "pre":
                             case "tt":
+                            case "samp":
                                 // Signature
                                 setSpan(ssb, StyleHelper.getTypefaceSpan("monospace", context), start, ssb.length());
                                 break;
