@@ -4215,14 +4215,6 @@ public class HtmlHelper {
                     .attr("name", "viewport")
                     .attr("content", "width=device-width, initial-scale=1.0");
 
-        // https://stackoverflow.design/email/base/mso/
-        if (!doc.body().select("mark").isEmpty())
-            doc.head().append("<!--[if mso]>\n" +
-                    "  <style>\n" +
-                    "    mark { background:yellow; mso-highlight:yellow; }\n" +
-                    "  </style>\n" +
-                    "<![endif]-->\n");
-
         for (Element span : doc.select("span")) {
             if (span.attr("dir").equals("rtl")) {
                 Element next = span.nextElementSibling();
