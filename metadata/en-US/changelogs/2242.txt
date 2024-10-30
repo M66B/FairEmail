@@ -20,6 +20,12 @@ For support you can use the contact form.
 
 Barsboldia
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 1.2242 2024-10-29
 
 * Updated MiniDNS to version 1.1.1
