@@ -755,7 +755,13 @@ public class FragmentQuickSetup extends FragmentBase {
                 Helper.hideKeyboard(view);
 
                 if (ex instanceof AuthenticationFailedException) {
-                    String message = getString(R.string.title_setup_no_auth_hint);
+                    String message;
+                    if (provider != null && provider.imap != null &&
+                            ("outlook.office365.com".equals(provider.imap.host) ||
+                                    "imap-mail.outlook.com".equals(provider.imap.host)))
+                        message = getString(R.string.title_setup_no_auth_outlook);
+                    else
+                        message = getString(R.string.title_setup_no_auth_hint);
                     if (provider != null && provider.appPassword)
                         message += "\n\n" + getString(R.string.title_setup_app_password_hint);
                     tvErrorHint.setText(message);
