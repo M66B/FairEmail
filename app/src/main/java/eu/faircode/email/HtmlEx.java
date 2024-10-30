@@ -410,7 +410,7 @@ public class HtmlEx {
                         out.append("<u>");
                     }
                     if (style[j] instanceof StyleHelper.MarkSpan) {
-                        out.append("<mark>");
+                        out.append("<mark style=\"mso-highlight: yellow;\">");
                     }
                     if (style[j] instanceof StrikethroughSpan) {
                         out.append("<span style=\"text-decoration:line-through;\">");
