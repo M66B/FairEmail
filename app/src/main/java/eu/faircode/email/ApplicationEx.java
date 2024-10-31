@@ -1063,6 +1063,14 @@ public class ApplicationEx extends Application
             }
         }
 
+        if (version < 2243 && "a".equals(BuildConfig.REVISION)) {
+            boolean beige = prefs.getBoolean("beige", true);
+            String theme = prefs.getString("theme", "blue_orange_system");
+            boolean you = theme.startsWith("you_");
+            if (you && beige)
+                editor.putBoolean("beige", false);
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
 

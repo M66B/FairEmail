@@ -663,11 +663,14 @@ public class FragmentDialogTheme extends FragmentDialogBase {
 
         Integer color = null;
         if (cards) {
-            if (you && (!dark || !black) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
-                color = ContextCompat.getColor(context, dark
-                        ? android.R.color.system_background_dark
-                        : android.R.color.system_background_light);
-            else {
+            if (you && (!dark || !black) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                if (beige)
+                    color = ContextCompat.getColor(context, R.color.lightColorBackground_cards_beige);
+                else
+                    color = ContextCompat.getColor(context, dark
+                            ? android.R.color.system_background_dark
+                            : android.R.color.system_background_light);
+            } else {
                 if (compose) {
                     if (!dark || solarized)
                         color = Helper.resolveColor(context, R.attr.colorCardBackground);
