@@ -214,6 +214,7 @@
     <string name="title_setup_no_settings">\'%1$s\' domeni üçün heç bir ayar tapılmadı</string>
     <string name="title_setup_no_settings_hint">E-poçt provayderiniz tərəfindən təmin edilən ayarları istifadə edərək əllə bir hesab quraşdırmağa çalışın</string>
     <string name="title_setup_no_auth_hint">Zəhmət olamsa e-poçt ünvanınızı və parolunuzu iki dəfə yoxlayın və hesabınız üçün xarici müraciətin (IMAP/SMTP) fəal olduğuna əmin olun</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Bu hesab üçün Outlook/Office 365 cəld quraşdırma sehrbazını istifadə etməlisiniz (Microsoft tərəfindən tələb olunur)</string>
     <string name="title_setup_app_password_hint">Bu provayder, hesabınızın parolu əvəzinə tətbiq parolunuz tələb edir, zəhmət olmasa provayderinizin təlimatlarına baxın</string>
     <string name="title_setup_no_inbox">Gələn qutusu tapılmadı</string>
     <string name="title_setup_advanced_protection">Qabaqcıl qoruma proqramına qoşulanda, üçüncü tərəf e-poçt tətbiqi istifadə etməyiniz mümkünsüz olur. Bu, Google tərəfindən tətbiq edilən bir məhdudiyyətdir.</string>
@@ -496,7 +497,7 @@
     <string name="title_advanced_close_pane">Bir danışığı bağlayarkən sətri və ya sütunu yığcamlaşdır</string>
     <string name="title_advanced_column_width">Mesajın sütun eni / sətir hündürlüyü: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Mesajları sürüşdürərkən üstdəki alət sətrini gizlət</string>
-    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Android naviqasiya çubuğu üçün tətbiq arxaplan rəngini istifadə et</string>
+    <string name="title_advanced_edge_to_edge">Android naviqasiya çubuğu üçün tətbiq arxaplan rəngini istifadə et</string>
     <string name="title_advanced_nav_options">Naviqasiya menyu seçimlərini göstər</string>
     <string name="title_advanced_nav_categories">Naviqasiya menyusunda hesab kateqoriyalarını göstər</string>
     <string name="title_advanced_nav_pin">Naviqasiya menyusunu sancaqla</string>

@@ -221,12 +221,14 @@
     <string name="title_setup_oauth_updated">Autorizarea contului a fost actualizată</string>
     <string name="title_setup_oauth_edge">Atunci când utilizați browser-ul Edge, asigurați-vă că \'Blocarea deschiderii aplicațiilor externe\' în setările \'Confidențialitate, securitate și servicii\' este oprită</string>
     <string name="title_setup_oauth_brave">Când folosiți browserul Brave, trebuie să activați opțiunea din setările Brave pentru a permite adreselor din aplicației să fie deschide de aplicații din afara Brave</string>
+    <string name="title_setup_oauth_browser">Autorizarea necesită un browser funcțional care să permită deschiderea linkurilor către aplicații (adesea o setare de securitate), astfel încât, la final, tokenul de autorizare să poată fi transferat către aplicație</string>
     <string name="title_setup_oauth_authorize">Autorizare</string>
     <string name="title_setup_select_account">Selectare cont</string>
     <string name="title_setup_instructions">Instrucțiuni de configurare</string>
     <string name="title_setup_no_settings">Nu s-au găsit setări pentru domeniul \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Încercați să configurați manual un cont folosind setările furnizate de furnizorul dumneavoastră de e-mail</string>
     <string name="title_setup_no_auth_hint">Vă rugăm să verificați iar adresa de e-mail și parola și asigurați-vă că accesul extern (IMAP/SMTP) este activat pentru contul dumneavoastră</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Trebuie să utilizați expertul de configurare rapidă Outlook / Office 365 pentru acest cont (solicitat de Microsoft)</string>
     <string name="title_setup_app_password_hint">Acest furnizor necesită o parolă de aplicație în locul parolei contului, vă rugăm să verificați instrucțiunile furnizorului dumneavoastră</string>
     <string name="title_setup_no_inbox">Dosarul Primite nu a fost găsit</string>
     <string name="title_setup_advanced_protection">Când sunteți înscris în programul avansat de protecție, nu este posibilă utilizarea unei aplicații de e-mail a unei terțe părți. Aceasta este o restricție impusă de Google.</string>
@@ -508,6 +510,7 @@
     <string name="title_advanced_close_pane">Restrângerea unui rând sau a unei coloane la închiderea unei conversații</string>
     <string name="title_advanced_column_width">Lățimea coloanei mesajului / înălțimea rândului: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ascunde bara de instrumente de sus la derularea mesajelor</string>
+    <string name="title_advanced_edge_to_edge">Utilizați culoarea de fundal a aplicației pentru bara de navigare Android</string>
     <string name="title_advanced_nav_options">Afișați opțiunile din meniul de navigare</string>
     <string name="title_advanced_nav_categories">Afișați categoriile de conturi în meniul de navigare</string>
     <string name="title_advanced_nav_pin">Meniul de navigare Pin</string>
@@ -1705,6 +1708,7 @@
     <string name="title_edit_signature_image_hint">        Când trimiteți un mesaj, imaginea este copiată în mesaj din locația selectată.
         Deci, nu ștergeți fișierul imagine!
     </string>
+    <string name="title_edit_signature_delete">Ștergeți semnătura?</string>
     <string name="title_answer_define_name">Nume</string>
     <string name="title_answer_define_value">Valoare</string>
     <string name="title_answer_caption">Editare șablon</string>
@@ -2320,8 +2324,8 @@
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
-        <item>30 s</item>
-        <item>60 s</item>
+        <item>30s</item>
+        <item>60s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Cursiv</item>

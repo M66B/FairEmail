@@ -189,6 +189,7 @@
     <string name="title_setup_instructions">دستورالعمل های راه‌اندازی</string>
     <string name="title_setup_no_settings">برای دامنه \'%1$s\' هیچ تنظیماتی یافت نشد</string>
     <string name="title_setup_no_auth_hint">لطفا نشانی ایمیل و گذرواژه خود را دوباره بررسی کنید و اطمینان یابید که دسترسی بیرونی (IMAP/SMTP) برای حسابتان فعال می‌باشد</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">شما باید از برنامه راه‌اندازی سریع آوت‌لوک / آفیس ۳۶۵ برای این حساب استفاده کنید (الزامی توسط مایکروسافت)</string>
     <string name="title_setup_app_password_hint">فراهم‌کننده به‌جای گذرواژه حساب نیاز به گذرواژه برنامه دارد، لطفا دستورات فراهم‌کننده خود را دنبال کنید</string>
     <string name="title_setup_no_inbox">صندوق دریافتی پیدا نشد</string>
     <string name="title_setup_quick_success">یک حساب با موفقیت افزوده شده است</string>
@@ -436,7 +437,7 @@
     <string name="title_advanced_two_col">استفاده از دو ستون</string>
     <string name="title_advanced_min_screen_size">کمترین اندازه صفحه برای تقسیم کردن صفحه</string>
     <string name="title_advanced_column_width">عرض ستون / ارتفاع ردیف پیام %1$s %%</string>
-    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">استفاده از رنگ پس‌زمینه برنامه برای نوار پیمایش اندروید</string>
+    <string name="title_advanced_edge_to_edge">استفاده از رنگ پس‌زمینه برنامه برای نوار پیمایش اندروید</string>
     <string name="title_advanced_nav_options">نشان دادن گزینه‌های منوی ناوبری</string>
     <string name="title_advanced_nav_categories">دسته‌بندی‌های حساب را در منوی ناوبری نمایش بده</string>
     <string name="title_advanced_nav_pin">سنجاق کردن منوی ناوبری</string>

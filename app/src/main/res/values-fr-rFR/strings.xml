@@ -214,6 +214,7 @@
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour le domaine \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Essayez de configurer un compte manuellement en utilisant les paramètres fournis par votre fournisseur de messagerie</string>
     <string name="title_setup_no_auth_hint">Veuillez revérifier votre adresse e-mail et votre mot de passe et vous assurer que l’accès externe (IMAP/SMTP) est activé pour votre compte</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Vous devez utiliser l\'assistant d\'installation rapide d\'Outlook / Office 365 pour ce compte (requis par Microsoft)</string>
     <string name="title_setup_app_password_hint">Ce fournisseur requiert un mot de passe d\'application au lieu du mot de passe du compte, veuillez vérifier les instructions de votre fournisseur</string>
     <string name="title_setup_no_inbox">Boîte de réception introuvable</string>
     <string name="title_setup_advanced_protection">Une fois inscrit au programme de protection avancée, il n’est plus possible d’utiliser une application de messagerie tierce. Il s’agit d’une restriction imposée par Google.</string>
@@ -496,7 +497,7 @@
     <string name="title_advanced_close_pane">Replier la ligne ou la colonne lors de la fermeture d\'une conversation</string>
     <string name="title_advanced_column_width">Largeur de colonne / hauteur de ligne du message : %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Masquer la barre d\'outils supérieure lors du défilement des messages</string>
-    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Utiliser la couleur d\'arrière-plan de l\'application pour la barre de navigation Android</string>
+    <string name="title_advanced_edge_to_edge">Utiliser la couleur d\'arrière-plan de l\'application pour la barre de navigation Android</string>
     <string name="title_advanced_nav_options">Afficher les options du menu de navigation</string>
     <string name="title_advanced_nav_categories">Afficher les catégories de compte dans le menu de navigation</string>
     <string name="title_advanced_nav_pin">Épingler le menu de navigation</string>

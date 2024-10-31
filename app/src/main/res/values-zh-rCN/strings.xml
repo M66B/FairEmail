@@ -200,6 +200,7 @@
     <string name="title_setup_no_settings">找不到域名\"%1$s\"的设置</string>
     <string name="title_setup_no_settings_hint">尝试使用电子邮件供应商提供的设置手动设置一个帐户</string>
     <string name="title_setup_no_auth_hint">请仔细检查您的电子邮件地址和密码，并确保您的账户启用外部访问 (IMAP/SMTP)</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">此账户您必须使用 Outlook / Office 365 快速设置向导 (微软要求)</string>
     <string name="title_setup_app_password_hint">此供应商需要应用密码而不是帐户密码，请查看供应商的说明</string>
     <string name="title_setup_no_inbox">未找到收件箱</string>
     <string name="title_setup_advanced_protection">当加入了高级保护程序后，将无法使用第三方电子邮件APP, 这是 Google 强加的限制</string>
@@ -481,7 +482,7 @@
     <string name="title_advanced_close_pane">关闭会话时收起行或列</string>
     <string name="title_advanced_column_width">邮件列宽/行高：%1$s %%</string>
     <string name="title_advanced_hide_toolbar">滚动邮件时隐藏顶部工具栏</string>
-    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Android 导航栏使用应用背景色</string>
+    <string name="title_advanced_edge_to_edge">Android 导航栏使用应用背景色</string>
     <string name="title_advanced_nav_options">显示导航菜单选项</string>
     <string name="title_advanced_nav_categories">在导航菜单中显示账户类别</string>
     <string name="title_advanced_nav_pin">固定导航菜单</string>

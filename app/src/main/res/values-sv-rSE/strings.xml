@@ -213,6 +213,7 @@
     <string name="title_setup_no_settings">Inga inställningar hittades för domänen \"%1$s\"</string>
     <string name="title_setup_no_settings_hint">Försök att konfigurera ett konto manuellt med de inställningar som tillhandahålls av din e-postleverantör</string>
     <string name="title_setup_no_auth_hint">Vänligen dubbelkolla din e-postadress och lösenord och se till att extern åtkomst (IMAP/SMTP) är aktiverad för ditt konto</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Du måste använda guiden Outlook / Office 365 för snabbinstallation för detta konto (krävs av Microsoft)</string>
     <string name="title_setup_app_password_hint">Denna leverantör kräver ett app-lösenord istället för kontots lösenord, vänligen kontrollera instruktionerna hos din leverantör</string>
     <string name="title_setup_no_inbox">Inkorgen hittades inte</string>
     <string name="title_setup_advanced_protection">När du är inskriven i det avancerade skyddsprogrammet är det inte möjligt att använda en tredje parts e-postapp. Detta är en begränsning som införts av Google.</string>
@@ -491,6 +492,7 @@
     <string name="title_advanced_close_pane">Kollapsa rad eller kolumn när en konversation stängs</string>
     <string name="title_advanced_column_width">Meddelandekolumnens bredd / radhöjd: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Dölj övre verktygsfältet vid bläddring i meddelanden</string>
+    <string name="title_advanced_edge_to_edge">Använd appens bakgrundsfärg för Androids navigeringsfält</string>
     <string name="title_advanced_nav_options">Visa alternativ för navigeringsmeny</string>
     <string name="title_advanced_nav_categories">Visa kontokategorier i navigeringsmenyn</string>
     <string name="title_advanced_nav_pin">Fäst navigeringsmenyn</string>

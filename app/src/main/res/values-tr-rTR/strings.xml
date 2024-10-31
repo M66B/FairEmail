@@ -209,6 +209,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_no_settings">\'%1$s\' alan adı için ayar bulunamadı</string>
     <string name="title_setup_no_settings_hint">E-posta sağlayıcınız tarafından sağlanan ayarları kullanarak manuel olarak bir hesap oluşturmayı deneyin</string>
     <string name="title_setup_no_auth_hint">Lütfen e-posta adresinizi ve parolanızı tekrar kontrol edin ve hesabınız için harici erişimin (IMAP/SMTP) etkinleştirilmiş olduğundan emin olun</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Bu hesap için Outlook / Office 365 hızlı kurulum sihirbazını kullanmanız gerekir (Microsoft tarafından zorunlu kılınmıştır)</string>
     <string name="title_setup_app_password_hint">Bu sağlayıcı, hesabınızın parolası yerine ayrı bir uygulama parolası istemektedir. Ayrıntılar için sağlayıcınızın size sunduğu yönergelere bakınız</string>
     <string name="title_setup_no_inbox">Gelen kutusu bulunamadı</string>
     <string name="title_setup_advanced_protection">Gelişmiş koruma programına dahil olduğunuzda, üçüncü parti bir e-posta istemcisi kullanamazsınız. Bu, Google\'ın bir kısıtlamasıdır.</string>
@@ -490,7 +491,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_close_pane">Bir konuşmayı kapatırken satırı veya sütunu daralt</string>
     <string name="title_advanced_column_width">Mesaj sütun genişliği / satır yüksekliği: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Mesajları kaydırırken üstteki araç çubuğunu gizle</string>
-    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Android gezinme çubuğu için uygulama arka plan rengini kullanma</string>
+    <string name="title_advanced_edge_to_edge">Android gezinme çubuğu için uygulama arka plan rengini kullanma</string>
     <string name="title_advanced_nav_options">Gezinme menüsü seçeneklerini göster</string>
     <string name="title_advanced_nav_categories">Gezinme menüsünde hesap kategorilerini göster</string>
     <string name="title_advanced_nav_pin">Gezinme menüsünü sabitle</string>

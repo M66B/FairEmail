@@ -214,6 +214,7 @@
     <string name="title_setup_no_settings">Δεν βρέθηκαν ρυθμίσεις για τον τομέα %1$s</string>
     <string name="title_setup_no_settings_hint">Προσπαθήστε να ρυθμίσετε ένα λογαριασμό χειροκίνητα, χρησιμοποιώντας τις ρυθμίσεις που παρέχονται από τον πάροχο ηλ. ταχυδρομείου σας</string>
     <string name="title_setup_no_auth_hint">Παρακαλούμε, ελέγξτε πάλι τη διεύθυνση ηλ. ταχυδρομείου και τον κωδικό σας, και βεβαιωθείτε ότι η εξωτερική πρόσβαση (IMAP/SMTP) είναι ενεργοποιημένη για τον λογαριασμό σας</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Πρέπει να χρησιμοποιήσετε τον οδηγό γρήγορης ρύθμισης του Outlook / Office 365 για αυτόν τον λογαριασμό (απαιτείται από τη Microsoft)</string>
     <string name="title_setup_app_password_hint">Ο πάροχος απαιτεί έναν κωδικό εφαρμογής αντί για τον κωδικό του λογαριασμού σας. Παρακαλούμε, ελέγξτε τις οδηγίες του παρόχου σας</string>
     <string name="title_setup_no_inbox">Δεν βρέθηκαν εισερχόμενα</string>
     <string name="title_setup_advanced_protection">Δεν επιτρέπεται η χρήση ανεξάρτητων εφαρμογών ηλεκτρονικού ταχυδρομείου σε χρήστες εγγεγραμμένους/-ες σε πρόγραμμα αυξημένης ασφάλειας. Ο περιορισμός αυτός έχει επιβληθεί από την Google.</string>
@@ -495,6 +496,7 @@
     <string name="title_advanced_close_pane">Σύμπτυξη γραμμής ή στήλης κατά το κλείσιμο μιας συζήτησης</string>
     <string name="title_advanced_column_width">Πλάτος στήλης / ύψος γραμμής μηνύματος: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Απόκρυψη της πάνω γραμμής εργαλείων κατά την κύλιση μηνυμάτων</string>
+    <string name="title_advanced_edge_to_edge">Να χρησιμοποιείται το χρώμα φόντου της εφαρμογής για την μπάρα πλοήγησης του Android</string>
     <string name="title_advanced_nav_options">Να προβάλλονται οι επιλογές του μενού πλοήγησης</string>
     <string name="title_advanced_nav_categories">Να προβάλλονται οι κατηγορίες λογαριασμών στο μενού πλοήγησης</string>
     <string name="title_advanced_nav_pin">Καρφίτσωμα του μενού πλοήγησης</string>

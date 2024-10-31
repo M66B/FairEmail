@@ -213,6 +213,7 @@
     <string name="title_setup_no_settings">Nem találhatók beállítások a következő domainhez: %1$s</string>
     <string name="title_setup_no_settings_hint">Próbálj meg beállítani egy fiókot kézileg az e-mail szolgáltatód által megadott adatokkal</string>
     <string name="title_setup_no_auth_hint">Ellenőrizze az email címét és jelszavát, illetve bizonyosodjon meg róla hogy a fiókja elérhető SMTP/IMAP protokollokon keresztül</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Ehhez a fiókhoz az Outlook / Office 365 gyorsbeállítás varázslót kell használnia (a Microsoft megköveteli)</string>
     <string name="title_setup_app_password_hint">Ez a szolgáltó alkalmazásjelszót igényel a fiók jelszava helyett, kérlek ellenőrizd a szolgáltatód instrukcióit</string>
     <string name="title_setup_no_inbox">Bejövő mappa nem található</string>
     <string name="title_setup_advanced_protection">Az \"Advanced Protection\" programban részt vevők fiókjaihoz való hozzáférést a Google letiltotta minden harmadik féltől származó app számára.</string>
@@ -494,7 +495,7 @@
     <string name="title_advanced_close_pane">Sor vagy oszlop összecsukása beszélgetés bezárásánál</string>
     <string name="title_advanced_column_width">Üzenet oszlopszélesség / sormagasság: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Felső eszköztár elrejtése üzenetek görgetésekor</string>
-    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Az alkalmazás háttérszínét alkalmazza az Android navigációs sávra is</string>
+    <string name="title_advanced_edge_to_edge">Az alkalmazás háttérszínét alkalmazza az Android navigációs sávra is</string>
     <string name="title_advanced_nav_options">Navigációs menü opciók mutatása</string>
     <string name="title_advanced_nav_categories">Fiókkategória mutatása a navigációs menüben</string>
     <string name="title_advanced_nav_pin">Navigációs menü kitűzése</string>

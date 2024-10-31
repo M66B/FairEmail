@@ -214,6 +214,7 @@
     <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio «%1$s»</string>
     <string name="title_setup_no_settings_hint">Provare a configurare manualmente un account usando le impostazioni fornite dal proprio provider di email</string>
     <string name="title_setup_no_auth_hint">Ricontrollare l\'indirizzo email e la password e assicurarsi che l\'accesso esterno (IMAP/SMTP) sia abilitato per il proprio account</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">È necessario utilizzare la procedura guidata di configurazione rapida di Outlook / Office 365 per questo account (richiesto da Microsoft)</string>
     <string name="title_setup_app_password_hint">Questo provider richiede una password dell\'app invece di quella dell\'account. Verificare le istruzioni del proprio provider</string>
     <string name="title_setup_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_setup_advanced_protection">Quando iscritto al programma di protezione avanzata è impossibile usare un\'app email di terze parti. Questa è una restrizione imposta da Google.</string>
@@ -496,7 +497,7 @@
     <string name="title_advanced_close_pane">Comprimere la riga o la colonna chiudendo una conversazione</string>
     <string name="title_advanced_column_width">Larghezza colonna/altezza riga del messaggio: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Nascondere la barra degli strumenti superiore scorrendo i messaggi</string>
-    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Usare il colore dello sfondo dell\'app per la barra di navigazione Android</string>
+    <string name="title_advanced_edge_to_edge">Usare il colore dello sfondo dell\'app per la barra di navigazione Android</string>
     <string name="title_advanced_nav_options">Mostrare le opzioni del menu di navigazione</string>
     <string name="title_advanced_nav_categories">Mostrare le categorie degli account nel menu di navigazione</string>
     <string name="title_advanced_nav_pin">Fissare il menu di navigazione</string>

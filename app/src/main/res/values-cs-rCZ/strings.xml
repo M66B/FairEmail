@@ -243,6 +243,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_no_settings">Pro doménu „%1$s“ nebylo nalezeno žádné nastavení</string>
     <string name="title_setup_no_settings_hint">Pokuste se nastavit účet ručně pomocí nastavení poskytnutých vaším poskytovatelem e-mailu</string>
     <string name="title_setup_no_auth_hint">Překontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Pro tento účet musíte použít průvodce rychlým nastavením aplikace Outlook / Office 365 (vyžadováno společností Microsoft)</string>
     <string name="title_setup_app_password_hint">Tento poskytovatel vyžaduje heslo pro aplikaci, namísto hesla k účtu, podívejte se prosím na pokyny svého poskytovatele</string>
     <string name="title_setup_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_setup_advanced_protection">Jste-li zaregistrováni do programu pokročilé ochrany, není možné použít e-mailovou aplikaci třetí strany. Toto je omezení vynucené Googlem.</string>
@@ -524,7 +525,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_close_pane">Sbalit řádek nebo sloupec při zavření konverzace</string>
     <string name="title_advanced_column_width">Šířka sloupce zprávy / výška řádku: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Skrýt horní panel nástrojů při posouvání zpráv</string>
-    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Použít barvu pozadí aplikace pro navigační panel Androidu</string>
+    <string name="title_advanced_edge_to_edge">Použít barvu pozadí aplikace pro navigační panel Androidu</string>
     <string name="title_advanced_nav_options">Zobrazit možnosti navigačního menu</string>
     <string name="title_advanced_nav_categories">Zobrazit kategorie účtu v navigačním menu</string>
     <string name="title_advanced_nav_pin">Připnout navigační menu</string>

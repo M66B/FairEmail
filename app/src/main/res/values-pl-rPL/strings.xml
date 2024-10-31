@@ -523,7 +523,7 @@
     <string name="title_advanced_close_pane">Zwiń wiersz lub kolumnę podczas zamykania konwersacji</string>
     <string name="title_advanced_column_width">Szerokość kolumny wiadomości / wysokość wiersza: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ukryj górny pasek narzędzi podczas przewijania wiadomości</string>
-    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Użyj koloru tła aplikacji dla paska nawigacji systemu Android</string>
+    <string name="title_advanced_edge_to_edge">Użyj koloru tła aplikacji dla paska nawigacji systemu Android</string>
     <string name="title_advanced_nav_options">Pokaż opcje menu nawigacji</string>
     <string name="title_advanced_nav_categories">Pokaż kategorie kont w menu nawigacji</string>
     <string name="title_advanced_nav_pin">Przypnij menu nawigacji</string>

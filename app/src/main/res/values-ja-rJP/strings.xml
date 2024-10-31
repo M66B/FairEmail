@@ -482,7 +482,7 @@
     <string name="title_advanced_close_pane">会話スレッドを閉じるときに、行または列を閉じる</string>
     <string name="title_advanced_column_width">本文の列の幅 / 行の高さ: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">メッセージをスクロールするとき上部ツールバーを隠す</string>
-    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Android のナビゲーションバーでアプリの背景色を使用する</string>
+    <string name="title_advanced_edge_to_edge">Android のナビゲーションバーでアプリの背景色を使用する</string>
     <string name="title_advanced_nav_options">ナビゲーションメニューにオプションを表示する</string>
     <string name="title_advanced_nav_categories">ナビゲーションメニューにアカウントのカテゴリーを表示する</string>
     <string name="title_advanced_nav_pin">ナビゲーションメニューをピン留め</string>

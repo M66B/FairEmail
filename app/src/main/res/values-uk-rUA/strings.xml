@@ -243,6 +243,7 @@
     <string name="title_setup_no_settings">Не знайдено налаштувань для домену \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Спробуйте вручну налаштувати обліковий запис за допомогою налаштувань, що надаються провайдером електронної пошти</string>
     <string name="title_setup_no_auth_hint">Будь ласка, двічі перевірте свою електронну адресу і пароль та переконайтеся, що для вашого облікового запису увімкнений зовнішній доступ (IMAP/SMTP)</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Для цього облікового запису потрібно скористатися майстром швидкого налаштування Outlook / Office 365 (вимога Microsoft)</string>
     <string name="title_setup_app_password_hint">Цей постачальник вимагає пароль для додатків замість пароля для облікового запису. Будь ласка, перевірте інструкції вашого постачальника.</string>
     <string name="title_setup_no_inbox">Вхідних повідомлень не знайдено</string>
     <string name="title_setup_advanced_protection">Коли прийнято до програми розширеного захисту – неможливо використати сторонні додатки для роботи з електронною поштою. Це обмеження, накладене Google.</string>
@@ -524,7 +525,7 @@
     <string name="title_advanced_close_pane">Згортати рядок або стовпець при закритті розмови</string>
     <string name="title_advanced_column_width">Співвідношення ширини стовпця або висоти рядка, в яких показується повідомлення, до ширини або висоти екрана: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Приховувати верхню панель інструментів під час прокрутки повідомлень</string>
-    <string name="title_advanced_edge_to_edge" comment="title_advanced_edge_to_edge&#10;Title for option in display settings tab page&#10;Android navigation bar = small bar at the bottom of the screen">Використовувати фоновий колір програми для навігаційної панелі Android</string>
+    <string name="title_advanced_edge_to_edge">Використовувати фоновий колір програми для навігаційної панелі Android</string>
     <string name="title_advanced_nav_options">Показувати параметри меню навігації</string>
     <string name="title_advanced_nav_categories">Показувати категорії облікових записів у навігаційному меню</string>
     <string name="title_advanced_nav_pin">Прикріпити меню навігації</string>
