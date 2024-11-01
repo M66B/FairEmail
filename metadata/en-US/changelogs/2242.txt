@@ -22,6 +22,7 @@ Barsboldia
 
 Next version
 
+* Added AI interference to expression conditions
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations

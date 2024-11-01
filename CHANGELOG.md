@@ -22,6 +22,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Added AI interference to [expression conditions](https://m66b.github.io/FairEmail/#faq71)
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
