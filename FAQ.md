@@ -22,7 +22,7 @@ Vous recevrez une réponse dans votre propre langue.
 **Important**
 
 There is a lot of technical information in this FAQ, mostly for specific problems or specific use cases.
-For other more common questions, please see the tutorials below or contact me via *Get support* below.
+For other, more common questions, please see the tutorials below or contact me via *Get support* below.
 
 <br />
 
@@ -77,7 +77,7 @@ For authorizing:
 * T-online.de: please make sure you use [an email password](https://www.telekom.de/hilfe/festnetz-internet-tv/e-mail/e-mail-adresse-passwoerter-und-sicherheit/passwort-fuer-e-mail-programme-einrichten) (German) and not your account password
 * Ionos (1und1): please make sure you use [an email password](https://www.ionos.de/hilfe/e-mail/problemloesungen-mail-basicmail-business/passwort-fuer-e-mail-konto-bei-11-ionos-aendern/) (German) and not your account password
 * Yandex: please check if [IMAP is enabled](https://yandex.com/support/mail/mail-clients/others.html)
-* Comcast/Xfinity: please check if [third part email access](https://www.xfinity.com/support/articles/third-party-email-access) is enabled
+* Comcast/Xfinity: please check if [third party email access](https://www.xfinity.com/support/articles/third-party-email-access) is enabled
 
 Please see [here](#faq22) for common error messages and solutions.
 
@@ -105,8 +105,8 @@ Related questions:
 * Add a folder to the navigation menu: long press the folder in the folder list and tick *Show in navigation menu*
 * Load more messages: long press a folder in the folder list, select *Fetch more messages*
 * Delete a message, skipping trash: long press the trash icon
-* Delete an account/identity: (Main) Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
-* Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
+* Delete an account/identity: (Main) Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, tap the trash icon in the top right corner
+* Delete a folder: long press the folder in the folder list, Edit properties, tap the trash icon in the top right corner
 * Undo send: Outbox, swipe the message in the list left or right
 * Delete a contact: please [see this FAQ](#faq171)
 * Store sent messages in the inbox: please [see this FAQ](#faq142)
@@ -160,11 +160,11 @@ please [see here](https://www.sqlite.org/rescode.html#ioerr_write).
 
 "*This error might result from a hardware malfunction or because a filesystem came unmounted while the file was open.*"
 
-This can't be fixed by the app and should be fixed by manufacturer of the device.
+This can't be fixed by the app and should be fixed by the device manufacturer.
 
 **Please do not blame the app for this!**
 
-For the record the stack trace:
+For the record, the stack trace:
 
 ```
 android.database.sqlite.SQLiteDiskIOException: disk I/O error (code 778)
@@ -196,15 +196,15 @@ The cause might be [changes in Android 7 Nougat](https://ericsink.com/entries/sq
 * &#x2714; ~~Search for messages with/without attachments~~ (on-device only because IMAP doesn't support searching for attachments)
 * &#x2714; ~~Search for a folder~~
 * &#x2714; ~~Search suggestions~~
-* &#x274C; ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
+* &#x274C; ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys, too)
 * &#x2714; ~~Generic unified folders~~
-* &#x2714; ~~New per account message notification schedules~~ (implemented by adding a time condition to rules so messages can be snoozed during selected periods)
+* &#x2714; ~~New per-account message notification schedules~~ (implemented by adding a time condition to rules, so that messages can be snoozed during selected periods)
 * &#x2714; ~~Copy accounts and identities~~
-* &#x2714; ~~Pinch zoom~~
+* &#x2714; ~~Pinch to zoom~~
 * &#x2714; ~~More compact folder view~~
 * &#x2714; ~~Compose lists~~
 * &#x274C; ~~Compose tables~~ (the Android editor doesn't support tables)
-* &#x2714; ~~Pinch zoom text size~~
+* &#x2714; ~~Pinch to zoom text size~~
 * &#x2714; ~~Display GIFs~~
 * &#x2714; ~~Themes~~
 * &#x274C; ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
@@ -233,7 +233,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(4) How can I use an invalid security certificate / empty password / plain text connection?](#faq4)
 * [(5) How can I customize the message view?](#faq5)
 * [(6) How can I login to Gmail / G suite?](#faq6)
-* [(7) Why are sent messages not appearing (directly) in the sent folder?](#faq7)
+* [(7) Why are sent messages not appearing (immediately) in the sent folder?](#faq7)
 * [(8) Can I use a Microsoft Exchange account?](#faq8)
 * [(9) What are identities / how do I add an alias / configure a default CC or BCC address?](#faq9)
 * [~~(11) Why is POP not supported?~~](#faq11)
@@ -447,8 +447,8 @@ The following Android permissions are **required**:
 * *run foreground service* (FOREGROUND_SERVICE_MEDIA_PLAYBACK): for text-to-speech
 * *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later), for example to snooze messages
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while performing actions, like synchronization of messages
-* *use fingerprint hardware* (USE_FINGERPRINT) and *use biometric hardware* (USE_BIOMETRIC): to use biometric authentication (fingerprint, face unlock, etc)
-* *ask to ingore battery optimizations* (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS): to disable battery optimizations, please see [this FAQ](#faq175) for more information
+* *use fingerprint hardware* (USE_FINGERPRINT) and *use biometric hardware* (USE_BIOMETRIC): to use biometric authentication (fingerprint, face unlock, etc.)
+* *ask to ignore battery optimizations* (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS): to disable battery optimizations, please see [this FAQ](#faq175) for more information
 * *allow the app to show notifications* (POST_NOTIFICATIONS): to show new message notifications and (account) warnings and errors (Android 13 and later only)
 * *Google Play (in-app) billing service* (BILLING): for in-app purchases
 
@@ -456,7 +456,7 @@ The following Android permissions are **required**:
 
 The following Android permissions are **optional**:
 
-* *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
+* *read your contacts* (READ_CONTACTS): to auto-complete addresses, to show contact photos and [to select contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
 * *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
 * *read the contents of your shared storage (SD card)* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#faq49)
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
@@ -464,7 +464,7 @@ The following Android permissions are **optional**:
 * GitHub version only: *read and write calendar data* (READ_CALENDAR/WRITE_CALENDAR): to [auto-store invitations](#faq186)
 
 [Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only.
-On earlier Android versions you will be asked to grant the permissions on installing FairEmail.
+On earlier Android versions, you will be asked to grant the permissions on installing FairEmail.
 
 <br />
 
@@ -491,10 +491,10 @@ The following permissions are needed to show the count of unread messages as a b
 <br />
 
 FairEmail will keep a list of addresses you receive messages from and send messages to
-and will use this list for contact suggestions when no contacts permissions is granted to FairEmail.
+and will use this list for contact suggestions when no contacts permission is granted to FairEmail.
 This means you can use FairEmail without the Android contacts provider (address book).
-Note that you can still pick contacts without granting contacts permissions to FairEmail,
-only suggesting contacts won't work without contacts permissions.
+Note that you can still select contacts without granting the contacts permission to FairEmail,
+only suggesting contacts won't work without contacts permission.
 
 <br />
 
@@ -505,7 +505,7 @@ only suggesting contacts won't work without contacts permissions.
 
 *If you came here by clicking on the "monitoring" notification, you should know that the next click will open the unified inbox.*
 
-To reliably receive messages in the background the app needs to start a service,
+To reliably receive messages in the background, the app needs to start a service,
 which will let Android display a status bar notification notifying you about potential battery usage.
 
 The service can't be started without a notification and the app can't disable the notification either.
@@ -514,7 +514,7 @@ However, you can disable the notification yourself, without side effects, via th
 * Android 8 Oreo and later: tap the *Monitoring channel* button and disable the channel via the Android settings (this won't disable new message notifications)
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting first
 
-You can also switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power.
+You can also switch to periodical synchronization of messages in the receive settings, in order to remove the notification, but be aware that this might use more battery power.
 See [here](#faq39) for more details about battery usage.
 
 Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*.
@@ -526,8 +526,8 @@ The service is a [foreground service](https://developer.android.com/reference/an
 and is needed to prevent Android from stopping the service when the device is sleeping
 ([doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)).
 
-Most, if not all, other email apps don't show a notification
-with a "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+Most, if not all, other email apps don’t show a notification,
+which leads to new messages often not being shown or reported later and messages not being sent at all or sent later.
 
 Some other email apps download all your messages to their servers first and push messages via
 [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) to your device.
@@ -589,7 +589,7 @@ or by installing the GitHub version of the app (as an update) and enabling insec
 *... Invalid security certificate (Can't verify identity of server) ...*<br />
 *... Chain validation failed ... timestamp check failed ... Certificate expired at ...*<br />
 
-This can be caused by using an incorrect host name, so first double check the host name in the advanced identity/account settings (tap *Manual setup and account options*).
+This can be caused by using an incorrect host name, so first double-check the host name in the advanced identity/account settings (tap *Manual setup and account options*).
 Please see the documentation of the email provider about the right host name.
 Sometimes the right host name is in the error message.
 
@@ -602,7 +602,7 @@ The quick, but unsafe solution (not advised), is to enable *Insecure connections
 
 Alternatively, you can accept the fingerprint of invalid server certificates like this:
 
-1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc)
+1. Make sure you are using a trusted internet connection (no public Wi-Fi networks, etc.)
 1. Go to the setup screen via the navigation menu (swipe from the left side inwards)
 1. Tap Manual setup, tap Accounts/Identities and tap the faulty account and identity
 1. Check/save the account and identity
@@ -627,7 +627,7 @@ You can fix the first problem by downloading and installing the root certificate
 
 The second problem should be fixed by changing the server configuration or by importing the intermediate certificates on your device.
 
-You can pin the certificate too, see above.
+You can pin the certificate, too, see above.
 
 <br />
 
@@ -640,10 +640,10 @@ Your username is likely easily guessed, so this is pretty insecure, unless the S
 Your username and password and all messages will be sent and received unencrypted, which is **very insecure**
 because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
 
-If you still want to use an invalid security certificate, an empty password or a plain text connection
+If you still want to use an invalid security certificate, an empty password or a plain text connection,
 you'll need to enable insecure connections in the account and/or identity settings.
 STARTTLS should be selected for plain text connections.
-If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
+If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, such as are offered in hotels, airports, etc.
 
 <br />
 
@@ -680,8 +680,8 @@ You can change this in the connection settings.
 
 Some people ask:
 
-* to show the subject bold, but bold is already being used to highlight unread messages
-* to move the star to the left, but it is much easier to operate the star on the right side
+* to show the subject text in bold font, but that is already being used as an indicator for unread messages
+* to move the star to the left, but it is much easier to toggle the star on the right side
 
 <br />
 
@@ -722,7 +722,7 @@ Some people ask:
 
 If you use the Play store or GitHub version of FairEmail,
 you can use the quick setup wizard to easily setup a Gmail account and identity.
-The Gmail quick setup wizard is not available for third party builds, like the F-Droid build
+The Gmail quick setup wizard is not available for third party builds, such as the F-Droid build,
 because Google approved the use of OAuth for official builds only.
 
 When using OAuth with multiple Google accounts, other Google accounts probably need to be logged out first.
@@ -731,15 +731,15 @@ The "*Gmail (Android)*" quick setup wizard won't work if the Android account man
 which is typically the case if the account selection is being *canceled* right away.
 
 If you don't want to use or can't use OAuth or an on-device Google account, for example on recent Huawei devices,
-you can ~~either enable access for "less secure apps" and use your account password (not advised)~~
-or enable two factor authentication and use an app specific password.
-To use a password you can use the quick setup wizard and select *Other provider*.
+you can ~~either enable access for "less secure apps" and use your account password (not advised) or~~
+enable two factor authentication and use an app specific password.
+To use a password, you can use the quick setup wizard and select *Other provider*.
 
 **Important**: sometimes Google issues this alert:
 
 *[ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)*
 
-This Google security check is triggered more often with *less secure apps* enabled, less with an app password, and hardly when using an on-device account (OAuth).
+This Google security check is triggered more often with *less secure apps* enabled, even less with an app password, and hardly ever when using an on-device account (OAuth).
 You might see the error *OAUTH2 asked for more*, which basically says the connection is temporarily blocked, until you confirm it is you.
 
 Note that an app specific password is required when two factor authentication is enabled.
@@ -752,7 +752,7 @@ or that getting an access token was not allowed,
 for example when the account is a [Family Link](https://support.google.com/families/answer/7101025) account, in which case you can use the Gmail app only.
 A common cause for this problem is using a VPN, a firewall app or an ad blocker which blocks internet access for the Android account manager.
 Please make sure permissions were granted to the app via setup step 2.
-You can try to workaround this issue by using the quick setup wizard *Gmail (Oauth)* or by using an app password.
+You can try to work around this issue by using the quick setup wizard *Gmail (Oauth)* or by using an app password.
 
 *[ALERT] IMAP access is not allowed for this account.*
 
@@ -809,21 +809,21 @@ and [here](https://support.google.com/mail/accounts/answer/78754) for troublesho
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing (directly) in the sent folder?**
+**(7) Why are sent messages not appearing (immediately) in the sent folder?**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq7)
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder.
 This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 
-Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider.
-In these cases FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent.
+Some providers do not keep track of sent messages, or the used SMTP server might not be related to the provider.
+In these cases, FairEmail, will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message has been sent.
 Note that this will result in extra internet traffic.
 
 ~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~
-~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~
-~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~
-~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+~~In these cases, you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~
+~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder, too.~~
+~~Also beware of enabling this setting since it will result in extra data usage, especially when sending messages with large attachments.~~
 
 ~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~
 ~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~
@@ -2054,13 +2054,13 @@ that might not only cause privacy sensitive information to leak, but can also be
 
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
-FairEmail formats messages again causing messages to look different from the original, but also uncovering phishing links, etc.
+FairEmail formats messages again, causing messages to look different from the original, but also uncovering phishing links, etc.
 
-Note that reformatted messages are often better readable than original messages because the margins are removed, and font colors and sizes are standardized.
+Note that reformatted messages are often easier to read than original messages because the margins are removed, and font colors and sizes are standardized.
 
 The Gmail app shows images by default by downloading the images through a Google proxy server.
 Since the images are downloaded from the source server [in real-time](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/),
-this is even less secure because Google is involved too without providing much benefit.
+this is even less secure, because Google is involved, too, without providing much benefit.
 
 You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
 You might need to reset the questions via a button in the miscellaneous-settings tab page.
@@ -5314,12 +5314,12 @@ A contact can be stored in the Android address book or in the local contact data
 
 When a contact is stored in the Android address book, you can use the Android contacts app to delete the contact.
 
-When a contact is store in the local contact database, you can delete it like this:
+When a contact is stored in the local contact database, you can delete it like this:
 
 * Go to the settings via the navigation menu (left side menu)
 * Go to the send settings tab page
 * Tap on the *Manage* button under *Suggest locally stored contacts*
-* Locate the contact (you can use the magnifier glass in the top action bar)
+* Locate the contact (you can use the magnifier glass in the top action bar to search for it)
 * Long press the contact and select to delete it
 
 <br />
