@@ -711,7 +711,7 @@
 </ul>
 <p>To sign/encrypt a message, just select the appropriate method in the send dialog. The simplest way to show the send dialog (again) is to long press the <em>Send</em> button in the bottom action bar. It might be necessary to disable signing/encryption with the padlock icon in the top action bar first, to prevent the select key dialog, etc. from being in the way. The encryption method will be remembered for the selected identity (at the top of the message editor).</p>
 <p>To verify a signature or to decrypt a received message, open the message and just tap the gesture or padlock icon just below the message action bar.</p>
-<p>The first time you send a signed/encrypted message, you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select <em>Reset sign key</em>. The selected sign key is visible in the list of identities. If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.</p>
+<p>The first time you send a signed/encrypted message, you might be asked for a sign key. FairEmail will automatically store the selected sign key in the used identity for the next time. If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select <em>Reset sign key</em>. The selected sign key is visible in the list of identities. If you need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.</p>
 <p>In the encryption settings, you can select the default encryption method (PGP or S/MIME), enable <em>Sign by default</em>, <em>Encrypt by default</em> and <em>Automatically decrypt messages</em>, but be aware that automatic decryption is not possible if user interaction is required, like selecting a key or reading a security token.</p>
 <p>The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. If you want to undo decryption, you can tap on the “close” padlock icon.</p>
 <p><br /></p>
@@ -2181,10 +2181,10 @@ category:promotions</code></pre>
 <p><br /></p>
 <p><em>Resend (version 1.1788+)</em></p>
 <p>Resend a message as defined in <a href="https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6">rfc2822 section 3.6.6</a> via the reply/answer menu.</p>
-<p>To resend a message, the original message headers are required. You can enable downloading of messages headers for all messages in the connection settings of the app. Alternative, you can show messages headers via the horizontal three-dots menu just above the message text to download the message headers for a single message. The resend menu item will be shown grayed (dimmed) if the message headers are not available (yet).</p>
+<p>To resend a message, the original message headers are required. You can enable downloading of message headers for all messages in the connection settings of the app. Alternatively, you can show messages headers via the horizontal three-dots menu just above the message text to download the message headers for a single message. The resend menu item will be shown grayed (dimmed) if the message headers are not available (yet).</p>
 <p>Remarks:</p>
 <ul>
-<li>Messages to, CC or BCC <em>undisclosed-recipients:</em> cannot be resend</li>
+<li>Messages to, CC or BCC <em>undisclosed-recipients:</em> cannot be resent</li>
 <li>The original subject is sent as-is, unless it is being changed</li>
 <li>The original message text will be sent as-is, unless text is being entered</li>
 <li>The original attachments are sent as they are, unless attachments are being added or removed</li>
@@ -2238,7 +2238,7 @@ $NotDisplayed</code></pre>
 <p><br /></p>
 <p><a name="faq127"></a> <strong>(127) How can I fix ‘Syntactically invalid HELO argument(s)’?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq127">Google Translate</a></p>
-<p>The error <em>… Syntactically invalid HELO argument(s) …</em> means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced indentity option <em>Use local IP address instead of host name</em>.</p>
+<p>The error <em>… Syntactically invalid HELO argument(s) …</em> means that the SMTP server rejected the local IP address or host name. You can likely fix this error by enabling or disabling the advanced identity option <em>Use local IP address instead of host name</em>.</p>
 <p><br /></p>
 <p><a name="faq128"></a> <strong>(128) How can I reset asked questions, for example to show images?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq128">Google Translate</a></p>

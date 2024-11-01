@@ -970,7 +970,7 @@ The first time you send a signed/encrypted message, you might be asked for a sig
 FairEmail will automatically store the selected sign key in the used identity for the next time.
 If you need to reset the sign key, just save the identity or long press the identity in the list of identities and select *Reset sign key*.
 The selected sign key is visible in the list of identities.
-If need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
+If you need to select a key on a case by case basis, you can create multiple identities for the same account with the same email address.
 
 In the encryption settings, you can select the default encryption method (PGP or S/MIME),
 enable *Sign by default*, *Encrypt by default* and *Automatically decrypt messages*,
@@ -4201,13 +4201,13 @@ For some background, see for [this Wikipedia article](https://en.wikipedia.org/w
 Resend a message as defined in [rfc2822 section 3.6.6](https://datatracker.ietf.org/doc/html/rfc2822#section-3.6.6) via the reply/answer menu.
 
 To resend a message, the original message headers are required.
-You can enable downloading of messages headers for all messages in the connection settings of the app.
-Alternative, you can show messages headers via the horizontal three-dots menu just above the message text to download the message headers for a single message.
+You can enable downloading of message headers for all messages in the connection settings of the app.
+Alternatively, you can show messages headers via the horizontal three-dots menu just above the message text to download the message headers for a single message.
 The resend menu item will be shown grayed (dimmed) if the message headers are not available (yet).
 
 Remarks:
 
-* Messages to, CC or BCC *undisclosed-recipients:* cannot be resend
+* Messages to, CC or BCC *undisclosed-recipients:* cannot be resent
 * The original subject is sent as-is, unless it is being changed
 * The original message text will be sent as-is, unless text is being entered
 * The original attachments are sent as they are, unless attachments are being added or removed
@@ -4313,7 +4313,7 @@ The workaround is to disable this notification, see [this FAQ](#faq2).
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq127)
 
 The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name.
-You can likely fix this error by enabling or disabling the advanced indentity option *Use local IP address instead of host name*.
+You can likely fix this error by enabling or disabling the advanced identity option *Use local IP address instead of host name*.
 
 <br />
 
