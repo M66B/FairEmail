@@ -115,6 +115,7 @@ public class ExpressionHelper {
         JsoupFunction fJsoup = new JsoupFunction(context, message);
         SizeFunction fSize = new SizeFunction();
         KnownFunction fKnown = new KnownFunction(context, message);
+        AIFunction fAI = new AIFunction(context, doc);
 
         ContainsOperator oContains = new ContainsOperator(false);
         ContainsOperator oMatches = new ContainsOperator(true);
@@ -130,6 +131,7 @@ public class ExpressionHelper {
         configuration.getFunctionDictionary().addFunction("Jsoup", fJsoup);
         configuration.getFunctionDictionary().addFunction("Size", fSize);
         configuration.getFunctionDictionary().addFunction("knownContact", fKnown);
+        configuration.getFunctionDictionary().addFunction("AI", fAI);
 
         configuration.getOperatorDictionary().addOperator("Contains", oContains);
         configuration.getOperatorDictionary().addOperator("Matches", oMatches);
@@ -179,6 +181,17 @@ public class ExpressionHelper {
             for (String variable : expression.getUsedVariables())
                 if ("text".equalsIgnoreCase(variable))
                     return true;
+
+            expression.validate();
+            for (ASTNode node : expression.getAllASTNodes()) {
+                Token token = node.getToken();
+                Log.i("EXPR token=" + token.getType() + ":" + token.getValue());
+                if (token.getType() == Token.TokenType.FUNCTION &&
+                        "AI".equalsIgnoreCase(token.getValue())) {
+                    Log.i("EXPR needs body");
+                    return true;
+                }
+            }
         } catch (Throwable ex) {
             Log.e("EXPR", ex);
         }
@@ -440,6 +453,36 @@ public class ExpressionHelper {
                 }
 
             Log.i("EXPR known()=" + result);
+            return expression.convertValue(result);
+        }
+    }
+
+    @FunctionParameter(name = "value")
+    public static class AIFunction extends AbstractFunction {
+        private final Context context;
+        private final Document doc;
+
+        AIFunction(Context context, Document doc) {
+            this.context = context;
+            this.doc = doc;
+        }
+
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token functionToken, EvaluationValue... parameterValues) {
+            String result = null;
+
+            try {
+                if (doc != null && parameterValues.length == 1) {
+                    String prompt = parameterValues[0].getStringValue();
+                    if (!TextUtils.isEmpty(prompt))
+                        result = AI.completeChat(context, -1L, doc.text(), null, prompt).toString();
+                }
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+
+            Log.i("EXPR AI()=" + result);
             return expression.convertValue(result);
         }
     }

@@ -26,6 +26,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import org.json.JSONException;
@@ -78,6 +79,11 @@ public class AI {
             }
         }
 
+        return completeChat(context, id, body, reply, templatePrompt);
+    }
+
+    @NonNull
+    static Spanned completeChat(Context context, long id, CharSequence body, String reply, String prompt) throws JSONException, IOException {
         StringBuilder sb = new StringBuilder();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (OpenAI.isAvailable(context)) {
@@ -94,9 +100,9 @@ public class AI {
                         new OpenAI.Content(OpenAI.CONTENT_TEXT, systemPrompt)}));
 
             if (reply == null) {
-                if (templatePrompt != null)
+                if (prompt != null)
                     messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
-                            new OpenAI.Content(OpenAI.CONTENT_TEXT, templatePrompt)}));
+                            new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt)}));
                 if (body instanceof Spannable && multimodal)
                     messages.add(new OpenAI.Message(OpenAI.USER,
                             OpenAI.Content.get((Spannable) body, id, context)));
@@ -104,10 +110,10 @@ public class AI {
                     messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
                             new OpenAI.Content(OpenAI.CONTENT_TEXT, body.toString())}));
             } else {
-                if (templatePrompt == null && body.length() > 0)
-                    templatePrompt = body.toString();
+                if (prompt == null && body.length() > 0)
+                    prompt = body.toString();
                 messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
-                        new OpenAI.Content(OpenAI.CONTENT_TEXT, templatePrompt == null ? defaultPrompt : templatePrompt)}));
+                        new OpenAI.Content(OpenAI.CONTENT_TEXT, prompt == null ? defaultPrompt : prompt)}));
                 messages.add(new OpenAI.Message(OpenAI.USER, new OpenAI.Content[]{
                         new OpenAI.Content(OpenAI.CONTENT_TEXT, reply)}));
             }
@@ -132,14 +138,14 @@ public class AI {
             List<Gemini.Message> messages = new ArrayList<>();
 
             if (reply == null) {
-                if (templatePrompt != null)
-                    messages.add(new Gemini.Message(Gemini.USER, new String[]{templatePrompt}));
+                if (prompt != null)
+                    messages.add(new Gemini.Message(Gemini.USER, new String[]{prompt}));
                 messages.add(new Gemini.Message(Gemini.USER,
                         new String[]{Gemini.truncateParagraphs(body.toString())}));
             } else {
-                if (templatePrompt == null && body.length() > 0)
-                    templatePrompt = body.toString();
-                messages.add(new Gemini.Message(Gemini.USER, new String[]{templatePrompt == null ? defaultPrompt : templatePrompt}));
+                if (prompt == null && body.length() > 0)
+                    prompt = body.toString();
+                messages.add(new Gemini.Message(Gemini.USER, new String[]{prompt == null ? defaultPrompt : prompt}));
                 messages.add(new Gemini.Message(Gemini.USER, new String[]{reply}));
             }
 
