@@ -20,7 +20,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2243 2024-11-01
 
 * Added AI interference to [expression conditions](https://m66b.github.io/FairEmail/#faq71)
 * Small improvements and minor bug fixes
