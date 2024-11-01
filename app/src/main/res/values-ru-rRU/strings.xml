@@ -4,21 +4,21 @@
     <string name="app_send_self">Отправить себе</string>
     <string name="app_changelog">Список изменений</string>
     <string name="app_welcome">FairEmail — это почтовое приложение с открытым исходным кодом, ориентированное на конфиденциальность и безопасность. По этой причине некоторые функции могут работать не так, как вы привыкли.</string>
-    <string name="app_limitations">Например, по умолчанию сообщения переформатируются, так чтобы удалять небезопасные элементы и улучшать читаемость, а открытие ссылок нужно в целях безопасности подтверждать. Обе функции можно отключить.</string>
+    <string name="app_limitations">Например, по умолчанию сообщения переформатируются для удаления небезопасных элементов и улучшения читаемости, а открытие ссылок, также в целях безопасности, нужно подтверждать. Обе функции отключаемы.</string>
     <string name="app_unsupported">Ошибки в версии Android этого конкретного устройства вызывают сбои</string>
-    <string name="app_data_loss">Все данные могут быть потеряны</string>
+    <string name="app_data_loss">Могут быть утеряны все данные</string>
     <string name="app_continue">Всё равно продолжить</string>
     <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
     <string name="app_cake">Недостаточно места</string>
     <string name="app_cake_remaining">Оставшееся место на устройстве: %1$s</string>
     <string name="app_cake_required">Минимально необходимое место: %1$s</string>
     <string name="app_updated">Последнее обновление: %1$s</string>
-    <string name="app_download">Загружено из: %1$s</string>
-    <string name="app_motd">        На Android 14/15 beta иногда появляется уведомление \"Приложение не отвечает\".
+    <string name="app_download">Скачано с: %1$s</string>
+    <string name="app_motd">        На Android 14/15 beta иногда появляется уведомление: \"Приложение не отвечает\".
         Google работает над исправлением данной ошибки.
-        Пожалуйста, не вините приложение из-за проблемы в Android!
+        Просьба не жаловаться на приложение из-за этой неисправности Android!
     </string>
-    <string name="channel_service">Отслеживание</string>
+    <string name="channel_service">Наблюдение</string>
     <string name="channel_send">Отправка</string>
     <string name="channel_notification">Эл. почта</string>
     <string name="channel_progress">Выполнение</string>

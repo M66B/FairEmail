@@ -242,6 +242,7 @@
     <string name="title_setup_no_settings">אין הגדרת לשם התחום ‚%1$s’</string>
     <string name="title_setup_no_settings_hint">כדי להגדיר חשבון ידנית באמצעות ההגדרות שסופקו על ידי ספק הדוא״ל שלך</string>
     <string name="title_setup_no_auth_hint">נא לבדוק היטב את כתובת הדוא״ל ואת הסיסמה שלך כמו גם שהגישה החיצונית לחשבון שלך (IMAP/SMTP) זמינה</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">חובה להשתמש באשף ההגדרה המהיר של Outlook / Office 365 עבור החשבון הזה (דרישה של Microsoft)</string>
     <string name="title_setup_app_password_hint">הספק הזה דורש סיסמת יישומון במקום את סיסמת החשבון, נא לבדוק מה ההנחיות של הספק שלך</string>
     <string name="title_setup_no_inbox">לא נמצא תיבת דואר נכנס</string>
     <string name="title_setup_advanced_protection">רישום לתכנית ההגנה המתקדמת מונעת שימוש ביישומון דוא״ל מגורמי צד־שלישי. זאת הגבלה שנאכפת על ידי Google.</string>

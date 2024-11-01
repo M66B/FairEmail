@@ -207,12 +207,14 @@
     <string name="title_setup_oauth_updated">Se ha actualizado la autorización de la cuenta</string>
     <string name="title_setup_oauth_edge">Al usar el navegador Edge, asegúrese de que \'Bloquear abrir aplicaciones externas\' en la configuración \'Privacidad, seguridad y servicios\' está \'apagado\'</string>
     <string name="title_setup_oauth_brave">Al usar el navegador Brave, debe activar la opción en la configuración de Brave para permitir que los enlaces de aplicaciones se abran en aplicaciones fuera de Brave</string>
+    <string name="title_setup_oauth_browser">La autorización requiere un navegador funcional que permita abrir enlaces de aplicaciones (a menudo una configuración de seguridad), para que al final el token de autorización pueda ser transferido a la aplicación</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Seleccionar cuenta</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para el dominio \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Intenta configurar una cuenta manualmente usando la configuración proporcionada por tu proveedor de correo</string>
     <string name="title_setup_no_auth_hint">Por favor, compruebe su dirección de correo electrónico y contraseña y asegúrese de que el acceso externo (IMAP/SMTP) está habilitado para su cuenta</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Debe utilizar el asistente de configuración rápida de Outlook / Office 365 para esta cuenta (requerido por Microsoft)</string>
     <string name="title_setup_app_password_hint">Este proveedor requiere una contraseña de aplicación en lugar de la contraseña de la cuenta, por favor revise las instrucciones de su proveedor</string>
     <string name="title_setup_no_inbox">Bandeja de entrada no encontrada</string>
     <string name="title_setup_advanced_protection">Al inscribirse en el programa de protección avanzada no es posible utilizar una aplicación de correo electrónico de terceros. Esta es una restricción impuesta por Google.</string>
@@ -494,6 +496,7 @@
     <string name="title_advanced_close_pane">Colapsar fila o columna al cerrar una conversación</string>
     <string name="title_advanced_column_width">Ancho de columna de mensaje / altura de fila: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ocultar barra de herramientas superior al desplazar mensajes</string>
+    <string name="title_advanced_edge_to_edge">Usar color de fondo de la aplicación para la barra de navegación de Android</string>
     <string name="title_advanced_nav_options">Mostrar opciones de menú de navegación</string>
     <string name="title_advanced_nav_categories">Mostrar categorías de cuentas en el menú de navegación</string>
     <string name="title_advanced_nav_pin">Fijar menú de navegación</string>
@@ -1690,6 +1693,7 @@
     <string name="title_edit_signature_image_hint">        Al enviar un mensaje, la imagen se copia en el mensaje desde la ubicación seleccionada.
         ¡Así que no borre el archivo de imagen!
     </string>
+    <string name="title_edit_signature_delete">¿Eliminar firma?</string>
     <string name="title_answer_define_name">Nombre</string>
     <string name="title_answer_define_value">Valor</string>
     <string name="title_answer_caption">Editar plantilla</string>

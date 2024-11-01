@@ -114,9 +114,9 @@
     <string name="title_block_sender">Заблакіраваць адпраўніка</string>
     <string name="title_block_sender_domain">Блакіраваць дамен \'%1$s\'</string>
     <string name="title_block_sender_remark">Блакіраванне азначае аўтаматычнае перамяшчэнне ў папку са спамам</string>
-    <string name="title_block_sender_hint">         Блакіраванне адпраўніка - бясплатная функцыя.
-         Блакіроўка дамена адпраўніка выкарыстоўвае правілы фільтра, што з\'яўляецца функцыяй з прафесійнай версіі.
-   </string>
+    <string name="title_block_sender_hint">Блакіраванне адпраўніка - бясплатная функцыя.
+         Блакіроўка дамена адпраўніка выкарыстоўвае правілы фільтрацыі, якія належаць да прафесійнай функцыі праграмы.
+    </string>
     <string name="title_blocked_senders">Заблакіраваныя адпраўнікi</string>
     <string name="title_unblock_all">Разблакіраваць усе</string>
     <string name="title_unblock_all_remark">Гэта прывядзе да скідвання ўсіх спісаў і параметраў і ў выніку — да блакіроўкі адпраўнікоў</string>
@@ -242,6 +242,7 @@
     <string name="title_setup_no_settings">Налады для дамена \'%1$s\' не знойдзены</string>
     <string name="title_setup_no_settings_hint">Паспрабуйце наладзіць уліковы запіс уручную, выкарыстоўваючы налады, прадстаўленыя вашым правайдарам электроннай пошты</string>
     <string name="title_setup_no_auth_hint">Калі ласка, яшчэ раз праверце свой адрас электроннай пошты і пароль, а таксама пераканайцеся, што для вашага ўліковага запісу ўключаны знешні доступ (IMAP/SMTP)</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Для гэтага ўліковага запісу неабходна скарыстацца майстрам хуткіх наладаў Outlook / Office 365 (патрабаванне Microsoft)</string>
     <string name="title_setup_app_password_hint">Гэты правайдар патрабуе пароль праграмы замест пароля ўліковага запісу, калі ласка, праверце інструкцыі вашага правайдара</string>
     <string name="title_setup_no_inbox">Папка для ўваходных паведамленняў не знойдзена</string>
     <string name="title_setup_advanced_protection">Выкарыстанне старонніх паштовых праграм недазволена, калі вы зарэгістраваны ў праграме пашыранай абароны. Гэта абмежаванне накладзена Google.</string>
@@ -525,6 +526,7 @@
     <string name="title_advanced_close_pane">Згортваць радок або слупок пры закрыцці размовы</string>
     <string name="title_advanced_column_width">Шырыня слупка паведамлення / вышыня радка: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Хаваць верхнюю панэль інструментаў пры пракручванні паведамленняў</string>
+    <string name="title_advanced_edge_to_edge">Выкарыстоўваць колер фону праграмы для панэлі навігацыі Android</string>
     <string name="title_advanced_nav_options">Паказваць опцыі меню навігацыі</string>
     <string name="title_advanced_nav_categories">Паказваць катэгорыі ўліковых запісаў у меню навігацыі</string>
     <string name="title_advanced_nav_pin">Замацаваць меню навігацыі</string>
@@ -919,8 +921,8 @@
     <string name="title_advanced_inline_hint">Убудаваныя выявы - гэта выявы, уключаныя ў паведамленне</string>
     <string name="compressed">Не будзе паказвацца змест для сціснутых файлаў (%1$s), якія маюць %2$s файлаў і больш, або якія змяшчаюць файлы памерам %3$s і больш</string>
     <string name="title_advanced_parse_classes_hint">Гэта опцыя дазволіць больш дакладна адлюстроўваць паведамленні, але з верагоднасцю затрымкі</string>
-    <string name="title_advanced_default_folder_hint">       Android можа запытаць дазвол на доступ да выбранай папкі, нават калі праграме ён не патрэбны.
-       Вы можаце скасаваць дыялогавае акно выбару, каб аднавіць папку па змаўчанні (звычайна гэта папка \'Спампоўкі\').
+    <string name="title_advanced_default_folder_hint">Android можа запытаць дазвол на доступ да выбранай папкі, нават калі праграме ён не патрэбны.
+       Вы можаце скасаваць дыялогавае акно выбару, каб аднавіць прадвызначаную папку (звычайна гэта папка «Спампоўкі»).
     
     </string>
     <string name="title_advanced_restore_on_launch_hint">Аднаўляць апошні стан праграмы пры перазагрузцы праз ярлык праграмы на працягу %1$d хвілін</string>
@@ -1987,7 +1989,7 @@
     <string name="title_hint_message_actions">Для выдалення правядзіце пальцам улева; Для архівацыі (калі даступна) правядзіце пальцам управа; Жэсты можна наладзіць у наладах уліковага запісу</string>
     <string name="title_hint_outbox">Вы можаце правесці пальцам улева або ўправа, каб скасаваць адпраўку</string>
     <string name="title_hint_message_selection">Для выбару некалькіх паведамленняў націсніце і на паведамленне і ўтрымлівайце, а затым правядзіце пальцам уверх або ўніз і выберыце неабходныя паведамленні</string>
-    <string name="title_hint_message_junk">        Кліент электроннай пошты звычайна адлюстроўвае паведамленні з сервера электроннай пошты.
+    <string name="title_hint_message_junk">Кліент электроннай пошты звычайна адлюстроўвае паведамленні на серверы электроннай пошты.
         За фільтрацыю спама адказвае сервер электроннай пошты, а не паштовы кліент.
         Калі вы атрымліваеце шмат спама, звярніцеся да правайдара электроннай пошты і не абвінавачвайце праграму!
     </string>
@@ -2337,8 +2339,8 @@
         <item>7,5 с</item>
         <item>10 с</item>
         <item>15 с</item>
-        <item>30 s</item>
-        <item>60 s</item>
+        <item>30 с</item>
+        <item>60 с</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсіў</item>
