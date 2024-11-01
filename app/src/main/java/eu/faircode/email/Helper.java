@@ -261,26 +261,6 @@ public class Helper {
                     ")+"
     );
 
-    // https://support.google.com/mail/answer/6590#zippy=%2Cmessages-that-have-attachments
-    static final List<String> DANGEROUS_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(
-            "ade", "adp", "apk", "appx", "appxbundle",
-            "bat",
-            "cab", "chm", "cmd", "com", "cpl",
-            "dll", "dmg",
-            "ex", "ex_", "exe",
-            "hta",
-            "ins", "isp", "iso",
-            "jar", "js", "jse",
-            "lib", "lnk",
-            "mde", "msc", "msi", "msix", "msixbundle", "msp", "mst",
-            "nsh",
-            "pif", "ps1",
-            "rdp", // https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/
-            "scr", "sct", "shb", "sys",
-            "vb", "vbe", "vbs", "vxd",
-            "wsc", "wsf", "wsh"
-    ));
-
     private static ExecutorService sSerialExecutor = null;
     private static ExecutorService sParallelExecutor = null;
     private static ExecutorService sUIExecutor = null;

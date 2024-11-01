@@ -7438,7 +7438,7 @@ public class FragmentCompose extends FragmentBase {
                                 else if (attachment.isAttachment())
                                     attached++;
                                 String ext = Helper.getExtension(attachment.name);
-                                if (Helper.DANGEROUS_EXTENSIONS.contains(ext))
+                                if (EntityAttachment.DANGEROUS_EXTENSIONS.contains(ext))
                                     dangerous.add(attachment.name);
                             }
                             if (dangerous.size() > 0)

@@ -167,7 +167,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                                 ? View.VISIBLE : View.INVISIBLE);
             }
 
-            boolean dangerous = Helper.DANGEROUS_EXTENSIONS.contains(Helper.getExtension(attachment.name));
+            boolean dangerous = EntityAttachment.DANGEROUS_EXTENSIONS.contains(Helper.getExtension(attachment.name));
             tvName.setText(attachment.name);
             tvName.setTextColor(dangerous ? colorWarning : textColorPrimary);
             tvName.setTypeface(null, dangerous ? Typeface.BOLD : Typeface.NORMAL);
