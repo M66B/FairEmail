@@ -33,7 +33,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
-import android.text.Editable;
 import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
