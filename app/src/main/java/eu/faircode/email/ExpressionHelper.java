@@ -115,7 +115,7 @@ public class ExpressionHelper {
         JsoupFunction fJsoup = new JsoupFunction(context, message);
         SizeFunction fSize = new SizeFunction();
         KnownFunction fKnown = new KnownFunction(context, message);
-        AIFunction fAI = new AIFunction(context, doc);
+        AIFunction fAI = new AIFunction(context, message, doc);
 
         ContainsOperator oContains = new ContainsOperator(false);
         ContainsOperator oMatches = new ContainsOperator(true);
@@ -460,10 +460,12 @@ public class ExpressionHelper {
     @FunctionParameter(name = "value")
     public static class AIFunction extends AbstractFunction {
         private final Context context;
+        private final EntityMessage message;
         private final Document doc;
 
-        AIFunction(Context context, Document doc) {
+        AIFunction(Context context, EntityMessage message, Document doc) {
             this.context = context;
+            this.message = message;
             this.doc = doc;
         }
 
@@ -475,8 +477,11 @@ public class ExpressionHelper {
             try {
                 if (doc != null && parameterValues.length == 1) {
                     String prompt = parameterValues[0].getStringValue();
-                    if (!TextUtils.isEmpty(prompt))
+                    EntityLog.log(context, EntityLog.Type.Rules, message, "AI prompt=" + prompt);
+                    if (!TextUtils.isEmpty(prompt)) {
                         result = AI.completeChat(context, -1L, doc.text(), null, prompt).toString();
+                        EntityLog.log(context, EntityLog.Type.Rules, message, "AI result=" + result);
+                    }
                 }
             } catch (Throwable ex) {
                 Log.w(ex);
