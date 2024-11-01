@@ -2915,7 +2915,7 @@ Example conditions:
 
 ```(received + 7*24*60*60*1000) < DT_DATE_TO_EPOCH(DT_NOW())```
 
-```AI("Is this a scam? Answer with yes or no.") contains "yes"```
+```AI("Is the message below a scam? Answer in English with just yes or no.") contains "yes"```
 
 <br>
 
