@@ -3938,7 +3938,7 @@ class Core {
 
             Calendar cal_keep_unread = Calendar.getInstance();
             cal_keep_unread.add(Calendar.DAY_OF_MONTH,
-                    delete_unseen ? keep_days * 6 : -Math.max(keep_days * 6, EntityFolder.DEFAULT_KEEP * 6));
+                    delete_unseen ? -keep_days * 6 : -Math.max(keep_days * 6, EntityFolder.DEFAULT_KEEP * 6));
             cal_keep_unread.set(Calendar.HOUR_OF_DAY, 0);
             cal_keep_unread.set(Calendar.MINUTE, 0);
             cal_keep_unread.set(Calendar.SECOND, 0);
