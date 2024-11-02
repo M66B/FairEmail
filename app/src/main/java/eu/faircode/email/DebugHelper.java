@@ -1468,6 +1468,13 @@ public class DebugHelper {
                     size += write(os, options.toString());
                 }
 
+                List<EntityAccount> accounts = db.account().getAccounts();
+                for (EntityAccount account : accounts) {
+                    size += write(os, String.format("%d %s notify=%b\r\n",
+                            account.id, account.name, account.notify));
+                }
+                size += write(os, "\r\n");
+
                 for (NotificationChannel channel : nm.getNotificationChannels())
                     try {
                         JSONObject jchannel = NotificationHelper.channelToJSON(channel);
