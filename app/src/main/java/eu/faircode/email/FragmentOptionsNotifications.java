@@ -286,12 +286,10 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                                 } else if (ids[i].startsWith("notification.")) {
                                     String[] parts = ids[i].split("\\.");
                                     if (parts.length == 2 && TextUtils.isDigitsOnly(parts[1])) {
-                                        if (debug) {
-                                            long aid = Long.parseLong(parts[1]);
-                                            EntityAccount account = db.account().getAccount(aid);
-                                            channels.add(ids[i]);
-                                            titles.add(account == null ? ids[i] : account.name);
-                                        }
+                                        long aid = Long.parseLong(parts[1]);
+                                        EntityAccount account = db.account().getAccount(aid);
+                                        channels.add(ids[i]);
+                                        titles.add(account == null ? ids[i] : account.name);
                                     } else {
                                         channels.add(ids[i]);
                                         titles.add(ids[i].substring("notification.".length()));
