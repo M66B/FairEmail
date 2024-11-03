@@ -20,6 +20,11 @@ For support you can use the contact form.
 
 Barsboldia
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2244 2024-11-01
 
 * Fixed deleting old unread messages
