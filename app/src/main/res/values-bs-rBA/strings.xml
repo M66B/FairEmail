@@ -228,6 +228,7 @@
     <string name="title_setup_no_settings">Nema postavki za domenu \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Pokušajte ručno postaviti račun koristeći postavke od vašeg provajdera e-pošte</string>
     <string name="title_setup_no_auth_hint">Molimo da provjerite još jednom svoju e-mail adresu i lozinku i osigurate vanjski pristup (IMAP/SMTP) za vaš račun</string>
+    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Morate koristiti čarobnjaka za brze postavke ovog Outlook / Office 365 računa (Microsoft to zahtijeva)</string>
     <string name="title_setup_app_password_hint">Ovaj provajder zahtijeva lozinku aplikacije umjesto računa, molimo da provjerite uputstva vašeg provajdera</string>
     <string name="title_setup_no_inbox">Inbox nije pronađen</string>
     <string name="title_setup_advanced_protection">Ako ste učesnik napredne zaštite programa, onda nije moguće koristiti e-mail aplikaciju trećih strana. Ovo ograničenje je uveo Google.</string>
