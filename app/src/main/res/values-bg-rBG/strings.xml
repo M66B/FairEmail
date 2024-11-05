@@ -207,6 +207,7 @@
     <string name="title_setup_oauth_updated">Обновено упълномощаване на акаунта</string>
     <string name="title_setup_oauth_edge">Употребявайки браузъра Edge, уверете се, че е изключено \'Блокиране на отваряне във външни приложения\' от настройките при \'Поверителност, сигурност и услуги\'</string>
     <string name="title_setup_oauth_brave">Употребявайки браузъра Brave, трябва да включите възможността в настройките му да позволите на връзките в приложението да се отварят в приложения извън Brave</string>
+    <string name="title_setup_oauth_browser">Упълномощаването изисква работещ браузър, позволяващ отваряне на връзки (често настройката за сигурност), така че накрая маркерът за упълномощаване да може да бъде прехвърлен към приложението</string>
     <string name="title_setup_oauth_authorize">Упълномощявам</string>
     <string name="title_setup_select_account">Избор на акаунт</string>
     <string name="title_setup_instructions">Указания за настройка</string>
@@ -1691,6 +1692,7 @@
     <string name="title_edit_signature_image_hint">        Изпращайки съобщение, образът се копира в него от избраното местоположение.
         Затова не трийте файлът с образа!
     </string>
+    <string name="title_edit_signature_delete">Изтривате ли подписа?</string>
     <string name="title_answer_define_name">Име</string>
     <string name="title_answer_define_value">Стойност</string>
     <string name="title_answer_caption">Промяна на образец</string>
@@ -2306,8 +2308,8 @@
         <item>7,5 с</item>
         <item>10 с</item>
         <item>15 с</item>
-        <item>30 s</item>
-        <item>60 s</item>
+        <item>30 сек.</item>
+        <item>60 сек.</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Курсив</item>

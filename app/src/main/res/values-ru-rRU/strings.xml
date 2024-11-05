@@ -8,15 +8,15 @@
     <string name="app_unsupported">Ошибки в версии Android этого конкретного устройства вызывают сбои</string>
     <string name="app_data_loss">Могут быть утеряны все данные</string>
     <string name="app_continue">Всё равно продолжить</string>
-    <string name="app_exit">Для выхода снова перейдите \"назад\"</string>
+    <string name="app_exit">Вернитесь \"назад\", чтобы выйти</string>
     <string name="app_cake">Недостаточно места</string>
     <string name="app_cake_remaining">Оставшееся место на устройстве: %1$s</string>
     <string name="app_cake_required">Минимально необходимое место: %1$s</string>
     <string name="app_updated">Последнее обновление: %1$s</string>
     <string name="app_download">Скачано с: %1$s</string>
-    <string name="app_motd">        На Android 14/15 beta иногда появляется уведомление: \"Приложение не отвечает\".
+    <string name="app_motd">        На Android 14/15 beta иногда появляется уведомление \"Приложение не отвечает\".
         Google работает над исправлением данной ошибки.
-        Просьба не жаловаться на приложение из-за этой неисправности Android!
+        Пожалуйста, не вините приложение из-за проблемы в Android!
     </string>
     <string name="channel_service">Наблюдение</string>
     <string name="channel_send">Отправка</string>
