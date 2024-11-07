@@ -1395,7 +1395,10 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                             String name = xml.getName();
                             switch (name) {
                                 case "account":
+                                    String uuid = xml.getAttributeValue(null, "uuid");
                                     account = new EntityAccount();
+                                    if (!TextUtils.isEmpty(uuid))
+                                        account.uuid = uuid;
                                     account.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
                                     account.password = "";
                                     account.synchronize = false;
@@ -1463,9 +1466,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                     break;
                                 case "authentication-type":
                                     eventType = xml.next();
-                                    if (eventType != XmlPullParser.TEXT || !"PLAIN".equals(xml.getText())) {
-                                        account = null;
-                                        identity = null;
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        String atype = xml.getText();
+                                        // PLAIN, CRAM_MD5
                                     }
                                     break;
                                 case "username":
@@ -1505,35 +1508,42 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                             String name = xml.getName();
                             switch (name) {
                                 case "account":
-                                    if (account != null && identity != null) {
-                                        if (TextUtils.isEmpty(account.name))
-                                            account.name = account.user;
-                                        if (BuildConfig.DEBUG)
-                                            account.name = "K9/" + account.name;
+                                    try {
+                                        if (account != null && identity != null) {
+                                            if (TextUtils.isEmpty(account.name))
+                                                account.name = account.user;
+                                            if (BuildConfig.DEBUG)
+                                                account.name = "K9/" + account.name;
 
-                                        try {
-                                            db.beginTransaction();
+                                            try {
+                                                db.beginTransaction();
 
-                                            account.id = db.account().insertAccount(account);
-                                            identity.account = account.id;
-                                            for (Pair<String, String> i : identities) {
-                                                identity.id = null;
-                                                identity.name = i.first;
-                                                identity.email = i.second;
-                                                if (TextUtils.isEmpty(identity.name))
-                                                    identity.name = identity.user;
-                                                if (TextUtils.isEmpty(identity.email))
-                                                    identity.email = identity.user;
-                                                identity.id = db.identity().insertIdentity(identity);
+                                                EntityAccount existing = db.account().getAccountByUUID(account.uuid);
+                                                if (existing == null) {
+
+                                                    account.id = db.account().insertAccount(account);
+                                                    identity.account = account.id;
+                                                    for (Pair<String, String> i : identities) {
+                                                        identity.id = null;
+                                                        identity.name = i.first;
+                                                        identity.email = i.second;
+                                                        if (TextUtils.isEmpty(identity.name))
+                                                            identity.name = identity.user;
+                                                        if (TextUtils.isEmpty(identity.email))
+                                                            identity.email = identity.user;
+                                                        identity.id = db.identity().insertIdentity(identity);
+                                                    }
+                                                }
+
+                                                db.setTransactionSuccessful();
+                                            } finally {
+                                                db.endTransaction();
                                             }
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            account = null;
-                                            identity = null;
-                                            identities.clear();
-                                            db.endTransaction();
                                         }
+                                    } finally {
+                                        account = null;
+                                        identity = null;
+                                        identities.clear();
                                     }
                                     break;
                                 case "identity":
