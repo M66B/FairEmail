@@ -27,7 +27,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2245 2024-11-08
 
 * Added manage keywords for multiple selected messages
 * Small improvements and minor bug fixes
