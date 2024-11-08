@@ -15,6 +15,7 @@
             android:id="@+id/cbKeyword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:paddingStart="6dp"
             android:text="Keyword"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="parent"
