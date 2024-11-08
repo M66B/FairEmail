@@ -679,8 +679,6 @@ class NotificationHelper {
         boolean pro = ActivityBilling.isPro(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean badge = prefs.getBoolean("badge", true);
-        boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);
         boolean notify_grouping = prefs.getBoolean("notify_grouping", true);
         boolean notify_private = prefs.getBoolean("notify_private", true);
         boolean notify_newest_first = prefs.getBoolean("notify_newest_first", false);
@@ -782,20 +780,13 @@ class NotificationHelper {
                                     : R.drawable.baseline_mail_white_24)
                             .setContentTitle(title)
                             .setContentIntent(piContent)
+                            .setNumber(total_messages)
                             .setDeleteIntent(piClear)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(notify_summary
                                     ? NotificationCompat.CATEGORY_EMAIL : NotificationCompat.CATEGORY_STATUS)
                             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                             .setAllowSystemGeneratedContextualActions(false);
-
-            // https://github.com/leolin310148/ShortcutBadger/issues/266
-            if (badge && !unseen_ignored /* Unseen */ &&
-                    Helper.isSamsung() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-                EntityLog.log(context, "Notify no number" +
-                        " badge=" + badge + " unseen_ignored=" + unseen_ignored);
-            else
-                builder.setNumber(total_messages);
 
             if (latest != null)
                 builder.setWhen(latest).setShowWhen(true);
