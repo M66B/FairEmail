@@ -22,7 +22,9 @@ Barsboldia
 
 Next version
 
+* Added manage keywords for multiple selected messages
 * Small improvements and minor bug fixes
+* Updated Public Suffix List
 * Updated translations
 
 1.2244 2024-11-01
