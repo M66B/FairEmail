@@ -63,6 +63,7 @@ public class FragmentDialogQuickActions extends FragmentDialogBase {
         final CheckBox cbDelete = dview.findViewById(R.id.cbDelete);
         final CheckBox cbJunk = dview.findViewById(R.id.cbJunk);
         final CheckBox cbInbox = dview.findViewById(R.id.cbInbox);
+        final CheckBox cbKeywords = dview.findViewById(R.id.cbKeywords);
         final CheckBox cbClear = dview.findViewById(R.id.cbClear);
 
         cbSummarize.setVisibility(AI.isAvailable(context) ? View.VISIBLE : View.GONE);
@@ -86,6 +87,7 @@ public class FragmentDialogQuickActions extends FragmentDialogBase {
         cbDelete.setChecked(prefs.getBoolean("more_delete", false));
         cbJunk.setChecked(prefs.getBoolean("more_junk", true));
         cbInbox.setChecked(prefs.getBoolean("more_inbox", true));
+        cbKeywords.setChecked(prefs.getBoolean("more_keywords", false));
         cbClear.setChecked(prefs.getBoolean("more_clear", true));
 
         return new AlertDialog.Builder(getContext())
@@ -111,6 +113,7 @@ public class FragmentDialogQuickActions extends FragmentDialogBase {
                         editor.putBoolean("more_delete", cbDelete.isChecked());
                         editor.putBoolean("more_junk", cbJunk.isChecked());
                         editor.putBoolean("more_inbox", cbInbox.isChecked());
+                        editor.putBoolean("more_keywords", cbKeywords.isChecked());
                         editor.putBoolean("more_clear", cbClear.isChecked());
                         editor.apply();
                         sendResult(Activity.RESULT_OK);

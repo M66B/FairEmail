@@ -252,6 +252,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbJunk" />
 
+        <CheckBox
+            android:id="@+id/cbKeywords"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_label_important_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_manage_keywords"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbInbox" />
+
         <View
             android:id="@+id/vSeparator"
             android:layout_width="0dp"
@@ -260,7 +273,7 @@
             android:background="?attr/colorSeparator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbInbox" />
+            app:layout_constraintTop_toBottomOf="@id/cbKeywords" />
 
         <CheckBox
             android:id="@+id/cbClear"

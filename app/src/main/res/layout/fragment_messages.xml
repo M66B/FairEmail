@@ -973,6 +973,20 @@
                 app:tint="@color/action_foreground" />
 
             <ImageButton
+                android:id="@+id/ibKeywords"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_manage_keywords"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:tooltipText="@string/title_manage_keywords"
+                app:layout_constraintEnd_toStartOf="@id/ibInbox"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/twotone_label_important_24"
+                app:tint="@color/action_foreground" />
+
+            <ImageButton
                 android:id="@+id/ibMoreSettings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -981,7 +995,7 @@
                 android:padding="3dp"
                 android:paddingVertical="6dp"
                 android:tooltipText="@string/title_setup"
-                app:layout_constraintEnd_toStartOf="@id/ibInbox"
+                app:layout_constraintEnd_toStartOf="@id/ibKeywords"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/twotone_settings_24"
                 app:tint="@color/action_foreground" />

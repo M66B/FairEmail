@@ -315,6 +315,7 @@ public class FragmentMessages extends FragmentBase
     private ImageButton ibDelete;
     private ImageButton ibJunk;
     private ImageButton ibInbox;
+    private ImageButton ibKeywords;
     private ImageButton ibMoreSettings;
     private FloatingActionButton fabSearch;
     private FloatingActionButton fabError;
@@ -666,6 +667,7 @@ public class FragmentMessages extends FragmentBase
         ibDelete = view.findViewById(R.id.ibDelete);
         ibJunk = view.findViewById(R.id.ibJunk);
         ibInbox = view.findViewById(R.id.ibInbox);
+        ibKeywords = view.findViewById(R.id.ibKeywords);
         ibMoreSettings = view.findViewById(R.id.ibMoreSettings);
         fabSearch = view.findViewById(R.id.fabSearch);
         fabError = view.findViewById(R.id.fabError);
@@ -1828,6 +1830,14 @@ public class FragmentMessages extends FragmentBase
                     onActionJunkSelection();
 
                 return true;
+            }
+        });
+
+        ibKeywords.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean more_clear = prefs.getBoolean("more_clear", true);
+                onActionManageKeywords(more_clear);
             }
         });
 
@@ -4686,7 +4696,7 @@ public class FragmentMessages extends FragmentBase
                             onActionMoveSelectionAccount(result.copyto.id, true, result.folders);
                             return true;
                         } else if (itemId == R.string.title_manage_keywords) {
-                            onActionManageKeywords();
+                            onActionManageKeywords(false);
                             return true;
                         } else if (itemId == R.string.title_search_sender) {
                             long[] ids = getSelection();
@@ -5188,7 +5198,7 @@ public class FragmentMessages extends FragmentBase
         fragment.show(getParentFragmentManager(), "messages:move");
     }
 
-    private void onActionManageKeywords() {
+    private void onActionManageKeywords(boolean clear) {
         Bundle args = new Bundle();
         args.putLongArray("ids", getSelection());
 
@@ -5280,6 +5290,14 @@ public class FragmentMessages extends FragmentBase
                                 FragmentDialogKeywordAdd fragment = new FragmentDialogKeywordAdd();
                                 fragment.setArguments(args);
                                 fragment.show(getParentFragmentManager(), "keywords:add");
+                            }
+                        })
+                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialog) {
+                                if (clear && selectionTracker != null)
+                                    selectionTracker.clearSelection();
+
                             }
                         })
                         .show();
@@ -7390,6 +7408,7 @@ public class FragmentMessages extends FragmentBase
                         boolean more_trash = prefs.getBoolean("more_trash", true);
                         boolean more_delete = prefs.getBoolean("more_delete", false);
                         boolean more_move = prefs.getBoolean("more_move", true);
+                        boolean more_keywords = prefs.getBoolean("more_keywords", false);
 
                         boolean inTrash = EntityFolder.TRASH.equals(type);
                         boolean inJunk = EntityFolder.JUNK.equals(type);
@@ -7424,6 +7443,10 @@ public class FragmentMessages extends FragmentBase
 
                         boolean inbox = ((more_inbox || (more_junk && inJunk)) && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canInbox());
                         if (inbox)
+                            count++;
+
+                        boolean keywords = (more_keywords && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && !result.hasPop && result.hasImap);
+                        if (keywords)
                             count++;
 
                         boolean importance_high = (more_importance_high && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS &&
@@ -7497,6 +7520,7 @@ public class FragmentMessages extends FragmentBase
                         ibDelete.setVisibility(delete ? View.VISIBLE : View.GONE);
                         ibJunk.setVisibility(junk ? View.VISIBLE : View.GONE);
                         ibInbox.setVisibility(inbox ? View.VISIBLE : View.GONE);
+                        ibKeywords.setVisibility(keywords ? View.VISIBLE : View.GONE);
                         cardMore.setTag(fabMore.isOrWillBeShown() ? result : null);
                         cardMore.setVisibility(fabMore.isOrWillBeShown() ? View.VISIBLE : View.GONE);
                     }
