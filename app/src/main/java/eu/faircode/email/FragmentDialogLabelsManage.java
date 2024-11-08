@@ -87,6 +87,7 @@ public class FragmentDialogLabelsManage extends FragmentDialogBase {
                         }.execute(FragmentDialogLabelsManage.this, args, "label:set");
                     }
                 })
+                .setNegativeButton(R.string.title_setup_done, null)
                 .create();
     }
 }
