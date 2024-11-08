@@ -55,6 +55,16 @@ public class TupleKeyword {
     public static class Persisted {
         public String[] selected;
         public String[] available;
+
+        public Persisted() {
+            selected = new String[0];
+            available = new String[0];
+        }
+
+        public Persisted(List<String> selected, List<String> available) {
+            this.selected = selected.toArray(new String[0]);
+            this.available = available.toArray(new String[0]);
+        }
     }
 
     static List<TupleKeyword> from(Context context, Persisted data) {
@@ -77,6 +87,12 @@ public class TupleKeyword {
                 all.add(keyword);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        String global = prefs.getString("global_keywords", null);
+        if (global != null)
+            for (String kw : global.split(" "))
+                if (!all.contains(kw))
+                    all.add(kw);
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc

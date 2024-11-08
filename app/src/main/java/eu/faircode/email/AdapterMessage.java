@@ -7516,7 +7516,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onMenuManageKeywords(TupleMessageEx message) {
             Bundle args = new Bundle();
-            args.putLong("id", message.id);
+            args.putLongArray("ids", new long[]{message.id});
 
             FragmentDialogKeywordManage fragment = new FragmentDialogKeywordManage();
             fragment.setArguments(args);

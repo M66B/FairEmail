@@ -21,7 +21,7 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +31,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Observer;
-import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,65 +38,62 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class FragmentDialogKeywordManage extends FragmentDialogBase {
+    private View dview;
+    private RecyclerView rvKeyword;
+    private FloatingActionButton fabAdd;
+    private ContentLoadingProgressBar pbWait;
+    private AdapterKeyword adapter;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        final long id = getArguments().getLong("id");
+        final Bundle args = getArguments();
 
         final Context context = getContext();
-        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_keyword_manage, null);
-        final RecyclerView rvKeyword = dview.findViewById(R.id.rvKeyword);
-        final FloatingActionButton fabAdd = dview.findViewById(R.id.fabAdd);
-        final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
+        dview = LayoutInflater.from(context).inflate(R.layout.dialog_keyword_manage, null);
+        rvKeyword = dview.findViewById(R.id.rvKeyword);
+        fabAdd = dview.findViewById(R.id.fabAdd);
+        pbWait = dview.findViewById(R.id.pbWait);
 
         rvKeyword.setHasFixedSize(false);
         final LinearLayoutManager llm = new LinearLayoutManager(context);
         rvKeyword.setLayoutManager(llm);
 
-        final AdapterKeyword adapter = new AdapterKeyword(context, getViewLifecycleOwner());
+        adapter = new AdapterKeyword(context, getViewLifecycleOwner());
         rvKeyword.setAdapter(adapter);
 
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle args = new Bundle();
-                args.putLongArray("ids", new long[]{id});
-
                 FragmentDialogKeywordAdd fragment = new FragmentDialogKeywordAdd();
                 fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentDialogKeywordManage.this, 1);
                 fragment.show(getParentFragmentManager(), "keyword:add");
             }
         });
 
         pbWait.setVisibility(View.VISIBLE);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        long[] ids = args.getLongArray("ids");
+        if (ids.length == 1) {
+            DB db = DB.getInstance(context);
+            db.message().liveMessageKeywords(ids[0]).observe(getViewLifecycleOwner(), new Observer<TupleKeyword.Persisted>() {
+                @Override
+                public void onChanged(TupleKeyword.Persisted data) {
+                    if (data == null)
+                        data = new TupleKeyword.Persisted();
 
-        DB db = DB.getInstance(context);
-        db.message().liveMessageKeywords(id).observe(getViewLifecycleOwner(), new Observer<TupleKeyword.Persisted>() {
-            @Override
-            public void onChanged(TupleKeyword.Persisted data) {
-                if (data == null)
-                    data = new TupleKeyword.Persisted();
-
-                String global = prefs.getString("global_keywords", null);
-                if (global != null) {
-                    List<String> available = new ArrayList<>();
-                    if (data.available != null)
-                        available.addAll(Arrays.asList(data.available));
-                    for (String kw : global.split(" "))
-                        if (!available.contains(kw))
-                            available.add(kw);
-                    data.available = available.toArray(new String[0]);
+                    pbWait.setVisibility(View.GONE);
+                    adapter.set(ids, TupleKeyword.from(context, data));
                 }
-
-                pbWait.setVisibility(View.GONE);
-                adapter.set(id, TupleKeyword.from(context, data));
-            }
-        });
+            });
+        } else {
+            task.execute(context, getViewLifecycleOwner(), args, "keywords:get");
+        }
 
         return new AlertDialog.Builder(context)
                 .setIcon(R.drawable.twotone_label_important_24)
@@ -114,4 +110,51 @@ public class FragmentDialogKeywordManage extends FragmentDialogBase {
         dialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
         //dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        task.execute(getContext(), getViewLifecycleOwner(), getArguments(), "keywords:get");
+    }
+
+    final SimpleTask<TupleKeyword.Persisted> task = new SimpleTask<TupleKeyword.Persisted>() {
+        @Override
+        protected TupleKeyword.Persisted onExecute(Context context, Bundle args) {
+            long[] ids = args.getLongArray("ids");
+
+            List<String> selected = new ArrayList<>();
+            List<String> available = new ArrayList<>();
+
+            DB db = DB.getInstance(context);
+            if (ids != null)
+                for (long id : ids) {
+                    TupleKeyword.Persisted kws = db.message().getMessageKeywords(id);
+                    List<String> list = (kws == null || kws.selected == null
+                            ? Collections.emptyList() : Arrays.asList(kws.selected));
+                    if (id == ids[0]) // First
+                        selected.addAll(list);
+                    else // Check if all message have all keywords
+                        for (String kw : new ArrayList<>(selected))
+                            if (!list.contains(kw))
+                                selected.remove(kw);
+
+                    if (kws != null && kws.available != null)
+                        for (String kw : kws.available)
+                            if (!available.contains(kw))
+                                available.add(kw);
+                }
+
+            return new TupleKeyword.Persisted(selected, available);
+        }
+
+        @Override
+        protected void onExecuted(Bundle args, TupleKeyword.Persisted data) {
+            pbWait.setVisibility(View.GONE);
+            adapter.set(args.getLongArray("ids"), TupleKeyword.from(getContext(), data));
+        }
+
+        @Override
+        protected void onException(Bundle args, Throwable ex) {
+            Log.unexpectedError(getParentFragmentManager(), ex);
+        }
+    };
 }
