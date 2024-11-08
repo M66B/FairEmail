@@ -16,6 +16,8 @@
 
 package com.sun.mail.iap;
 
+import android.text.TextUtils;
+
 import java.util.Properties;
 import java.io.*;
 import java.nio.channels.SocketChannel;
@@ -680,6 +682,8 @@ public class Protocol {
 		    localHostName = "[" + localHost.getHostAddress() + "]";
 	    }
 	}
+	if (TextUtils.isEmpty(localHostName))
+		localHostName = "localhost";
 	return localHostName;
     }
 
