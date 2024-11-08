@@ -37,8 +37,7 @@ public class FragmentDialogKeywordAdd extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        final long id = getArguments().getLong("id");
-
+        Bundle args = getArguments();
         final Context context = getContext();
 
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_keyword_add, null);
@@ -52,25 +51,24 @@ public class FragmentDialogKeywordAdd extends FragmentDialogBase {
                     public void onClick(DialogInterface dialog, int which) {
                         String keyword = MessageHelper.sanitizeKeyword(etKeyword.getText().toString());
                         if (!TextUtils.isEmpty(keyword)) {
-                            Bundle args = new Bundle();
-                            args.putLong("id", id);
                             args.putString("keyword", keyword);
 
                             new SimpleTask<Void>() {
                                 @Override
                                 protected Void onExecute(Context context, Bundle args) {
-                                    long id = args.getLong("id");
+                                    long[] ids = args.getLongArray("ids");
                                     String keyword = args.getString("keyword");
 
                                     DB db = DB.getInstance(context);
                                     try {
                                         db.beginTransaction();
 
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message == null)
-                                            return null;
-
-                                        EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, true);
+                                        if (ids != null)
+                                            for (long id : ids) {
+                                                EntityMessage message = db.message().getMessage(id);
+                                                if (message != null)
+                                                    EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, true);
+                                            }
 
                                         db.setTransactionSuccessful();
                                     } finally {

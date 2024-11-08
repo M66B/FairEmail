@@ -64,7 +64,7 @@ public class FragmentDialogKeywordManage extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
-                args.putLong("id", id);
+                args.putLongArray("ids", new long[]{id});
 
                 FragmentDialogKeywordAdd fragment = new FragmentDialogKeywordAdd();
                 fragment.setArguments(args);
@@ -101,7 +101,7 @@ public class FragmentDialogKeywordManage extends FragmentDialogBase {
                 .setIcon(R.drawable.twotone_label_important_24)
                 .setTitle(R.string.title_manage_keywords)
                 .setView(dview)
-                .setPositiveButton(android.R.string.ok, null)
+                .setNegativeButton(R.string.title_setup_done, null)
                 .create();
     }
 
