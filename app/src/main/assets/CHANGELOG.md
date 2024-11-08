@@ -4,6 +4,13 @@
 
 ### Notices
 
+Google requires FairEmail to undergo an annual [CASA](https://appdefensealliance.dev/casa) security audit,
+which must be conducted by an authorized assessor (this year [TAC Security](https://casa.tacsecurity.com/site/home)).
+Besides being time-consuming, this is no longer free as of this year.
+This is one of the reasons why the app cannot be completely free.
+
+<br>
+
 People keep asking me to add new, often exotic, features to the app, to whom I often say "no", and other people complain about too many features.
 Both groups of people leave bad reviews for this, which is frustrating, also because there are already enough bad reviews for the wrong reasons
 (email server problems, which unfortunately happen too often, etc.).
