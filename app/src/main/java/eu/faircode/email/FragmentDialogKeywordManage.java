@@ -86,9 +86,11 @@ public class FragmentDialogKeywordManage extends FragmentDialogBase {
                 String global = prefs.getString("global_keywords", null);
                 if (global != null) {
                     List<String> available = new ArrayList<>();
-                    available.addAll(Arrays.asList(global.split(" ")));
                     if (data.available != null)
                         available.addAll(Arrays.asList(data.available));
+                    for (String kw : global.split(" "))
+                        if (!available.contains(kw))
+                            available.add(kw);
                     data.available = available.toArray(new String[0]);
                 }
 
