@@ -98,6 +98,7 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
         private void bindTo(TupleKeyword keyword) {
             cbKeyword.setText(getTitle(keyword.name));
             cbKeyword.setChecked(keyword.selected);
+            cbKeyword.setAlpha(keyword.partial ? Helper.LOW_LIGHT : 1.0f);
             btnColor.setColor(keyword.color, true);
             grpNotEdit.setVisibility(View.VISIBLE);
             grpEdit.setVisibility(View.GONE);
@@ -111,6 +112,7 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
 
             TupleKeyword keyword = all.get(pos);
             keyword.selected = isChecked;
+            buttonView.setAlpha(1.0f);
 
             Bundle args = new Bundle();
             args.putLongArray("ids", ids);

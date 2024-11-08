@@ -121,6 +121,7 @@ public class FragmentDialogKeywordManage extends FragmentDialogBase {
         protected TupleKeyword.Persisted onExecute(Context context, Bundle args) {
             long[] ids = args.getLongArray("ids");
 
+            List<String> all = new ArrayList<>();
             List<String> selected = new ArrayList<>();
             List<String> available = new ArrayList<>();
 
@@ -137,13 +138,17 @@ public class FragmentDialogKeywordManage extends FragmentDialogBase {
                             if (!list.contains(kw))
                                 selected.remove(kw);
 
+                    for (String kw : list)
+                        if (!all.contains(kw))
+                            all.add(kw);
+
                     if (kws != null && kws.available != null)
                         for (String kw : kws.available)
                             if (!available.contains(kw))
                                 available.add(kw);
                 }
 
-            return new TupleKeyword.Persisted(selected, available);
+            return new TupleKeyword.Persisted(selected, all, available);
         }
 
         @Override
