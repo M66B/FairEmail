@@ -4610,6 +4610,10 @@ public class FragmentMessages extends FragmentBase
                     popupMenu.getMenu().add(Menu.FIRST, R.string.title_copy_to, order++, R.string.title_copy_to)
                             .setIcon(R.drawable.twotone_file_copy_24);
 
+                if (!result.hasPop && result.hasImap)
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_manage_keywords, order++, R.string.title_manage_keywords)
+                            .setIcon(R.drawable.twotone_label_important_24);
+
                 if (ids.length == 1)
                     popupMenu.getMenu().add(Menu.FIRST, R.string.title_search_sender, order++, R.string.title_search_sender)
                             .setIcon(R.drawable.twotone_search_24);
@@ -4680,6 +4684,9 @@ public class FragmentMessages extends FragmentBase
                             return true;
                         } else if (itemId == R.string.title_copy_to) {
                             onActionMoveSelectionAccount(result.copyto.id, true, result.folders);
+                            return true;
+                        } else if (itemId == R.string.title_manage_keywords) {
+                            onActionManageKeywords();
                             return true;
                         } else if (itemId == R.string.title_search_sender) {
                             long[] ids = getSelection();
@@ -5179,6 +5186,110 @@ public class FragmentMessages extends FragmentBase
         fragment.setArguments(args);
         fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_MOVE);
         fragment.show(getParentFragmentManager(), "messages:move");
+    }
+
+    private void onActionManageKeywords() {
+        Bundle args = new Bundle();
+        args.putLongArray("ids", getSelection());
+
+        new SimpleTask<Pair<List<String>, List<String>>>() {
+            @Override
+            protected Pair<List<String>, List<String>> onExecute(Context context, Bundle args) {
+                long[] ids = args.getLongArray("ids");
+
+                List<String> selected = new ArrayList<>();
+                List<String> available = new ArrayList<>();
+
+                DB db = DB.getInstance(context);
+                if (ids != null)
+                    for (long id : ids) {
+                        TupleKeyword.Persisted kws = db.message().getMessageKeywords(id);
+                        List<String> list = (kws == null || kws.selected == null
+                                ? Collections.emptyList() : Arrays.asList(kws.selected));
+                        if (id == ids[0]) // First
+                            selected.addAll(list);
+                        else // Check if all message have all keywords
+                            for (String kw : new ArrayList<>(selected))
+                                if (!list.contains(kw))
+                                    selected.remove(kw);
+
+                        if (kws != null && kws.available != null)
+                            for (String kw : kws.available)
+                                if (!available.contains(kw))
+                                    available.add(kw);
+                    }
+
+                Collections.sort(available);
+
+                return new Pair<>(selected, available);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Pair<List<String>, List<String>> data) {
+                boolean[] checked = new boolean[data.second.size()];
+                for (int i = 0; i < checked.length; i++)
+                    if (data.first.contains(data.second.get(i)))
+                        checked[i] = true;
+
+                new AlertDialog.Builder(getContext())
+                        .setIcon(R.drawable.twotone_label_important_24)
+                        .setTitle(R.string.title_manage_keywords)
+                        .setMultiChoiceItems(data.second.toArray(new String[0]), checked, new DialogInterface.OnMultiChoiceClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                                args.putString("keyword", data.second.get(which));
+                                args.putBoolean("set", isChecked);
+
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onExecute(Context context, Bundle args) {
+                                        long[] ids = args.getLongArray("ids");
+                                        String keyword = args.getString("keyword");
+                                        boolean set = args.getBoolean("set");
+
+                                        DB db = DB.getInstance(context);
+                                        try {
+                                            db.beginTransaction();
+
+                                            if (ids != null)
+                                                for (long id : ids) {
+                                                    EntityMessage message = db.message().getMessage(id);
+                                                    if (message != null)
+                                                        EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, set);
+                                                }
+
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            db.endTransaction();
+                                        }
+
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Log.unexpectedError(getParentFragmentManager(), ex);
+                                    }
+                                }.execute(FragmentMessages.this, args, "keywords:set");
+                            }
+                        })
+                        .setNegativeButton(R.string.title_setup_done, null)
+                        .setNeutralButton(R.string.title_add, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                FragmentDialogKeywordAdd fragment = new FragmentDialogKeywordAdd();
+                                fragment.setArguments(args);
+                                fragment.show(getParentFragmentManager(), "keywords:add");
+                            }
+                        })
+                        .show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "keywords:get");
     }
 
     private void onActionMoveSelection(Bundle args) {

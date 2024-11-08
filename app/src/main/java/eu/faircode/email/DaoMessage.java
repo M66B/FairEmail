@@ -548,11 +548,16 @@ public interface DaoMessage {
     @Query(FETCH_MESSAGE)
     TupleMessageEx getMessageEx(long id);
 
-    @Query("SELECT message.keywords AS selected, folder.keywords AS available" +
+    String FETCH_KEYWORDS = "SELECT message.keywords AS selected, folder.keywords AS available" +
             " FROM message" +
             " JOIN folder ON folder.id = message.folder" +
-            " WHERE message.id = :id")
+            " WHERE message.id = :id";
+
+    @Query(FETCH_KEYWORDS)
     LiveData<TupleKeyword.Persisted> liveMessageKeywords(long id);
+
+    @Query(FETCH_KEYWORDS)
+    TupleKeyword.Persisted getMessageKeywords(long id);
 
     @Transaction
     @Query("SELECT message.*" +
