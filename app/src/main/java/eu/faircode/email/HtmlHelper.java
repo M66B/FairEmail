@@ -4199,7 +4199,8 @@ public class HtmlHelper {
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {
-        Document document = JsoupEx.parse(html);
+        Document parsed = JsoupEx.parse(html);
+        Document document = sanitizeView(context, parsed, false);
         return fromDocument(context, document, null, null);
     }
 
