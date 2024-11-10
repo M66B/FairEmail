@@ -344,7 +344,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "junk_hint",
             "last_update_check", "last_announcement_check",
             "motd",
-            "outlook_last_checked", "outlook_checked"
+            "outlook_last_checked", "outlook_checked",
+            "send_archive"
     };
 
     @Override
