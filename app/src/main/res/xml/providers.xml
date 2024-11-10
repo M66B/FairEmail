@@ -2387,4 +2387,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Reagan.com"
+        domain="reagan\\.com"
+        link="https://www.reagan.com/support-outlook-express">
+        <imap
+            host="secure.emailsrvr.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="secure.emailsrvr.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
