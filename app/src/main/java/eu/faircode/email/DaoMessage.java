@@ -338,6 +338,17 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageIdsByFolder(Long folder);
 
+    @Query("SELECT `to` FROM message" +
+            " JOIN folder_view AS folder ON folder.id = message.folder" +
+            " WHERE message.account = :account" +
+            " AND folder.type = '" + EntityFolder.SENT + "'" +
+            " AND message.sent > :after" +
+            " AND message.wasforwardedfrom IS NOT NULL" +
+            " GROUP BY `to`" +
+            " ORDER BY COUNT(*) DESC" +
+            " LIMIT 20")
+    List<String> getForwardAddresses(long account, long after);
+
     @Query("SELECT identity, COUNT(*) AS count" +
             " FROM message" +
             " WHERE folder = :folder" +

@@ -31,6 +31,13 @@
         android:title="@string/title_forward" />
 
     <item
+        android:id="@+id/menu_forward_to"
+        android:icon="@drawable/twotone_fast_forward_24"
+        android:title="@string/title_forward_to">
+        <menu />
+    </item>
+
+    <item
         android:id="@+id/menu_forward_raw"
         android:icon="@drawable/twotone_attachment_24"
         android:title="@string/title_raw_send" />

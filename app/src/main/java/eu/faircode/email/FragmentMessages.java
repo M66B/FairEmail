@@ -193,6 +193,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.KeyStore;
 import java.security.PrivateKey;
@@ -419,6 +420,7 @@ public class FragmentMessages extends FragmentBase
     private static final int MAX_MORE = 100; // messages
     private static final int MAX_SEND_RAW = 50; // messages
     private static final int ITEM_CACHE_SIZE = 10; // Default: 2 items
+    private static final long MAX_FORWARD_ADDRESS_AGE = 7 * 24 * 3600 * 1000L; // milliseconds
 
     private static final int REQUEST_RAW = 1;
     private static final int REQUEST_OPENPGP = 4;
@@ -3270,7 +3272,7 @@ public class FragmentMessages extends FragmentBase
 
                 if (expanded && swipe_reply) {
                     redraw(viewHolder);
-                    onMenuReply(message, "reply", null);
+                    onMenuReply(message, "reply", null, null);
                     return;
                 }
 
@@ -4085,6 +4087,15 @@ public class FragmentMessages extends FragmentBase
                 result.identities = db.identity().getComposableIdentities(null);
                 result.answers = db.answer().getAnswersByFavorite(true);
 
+                result.forwarded = new ArrayList<>();
+                long last = new Date().getTime() - MAX_FORWARD_ADDRESS_AGE;
+                List<String> fwds = db.message().getForwardAddresses(message.account, last);
+                if (fwds != null)
+                    for (String fwd : fwds)
+                        for (Address address : DB.Converters.decodeAddresses(fwd))
+                            if (address instanceof InternetAddress)
+                                result.forwarded.add((InternetAddress) address);
+
                 return result;
             }
 
@@ -4176,6 +4187,21 @@ public class FragmentMessages extends FragmentBase
                     }
                 }
 
+                if (data.forwarded.isEmpty())
+                    popupMenu.getMenu().findItem(R.id.menu_forward_to).setVisible(false);
+                else {
+                    int order = 200;
+                    for (InternetAddress fwd : data.forwarded) {
+                        order++;
+                        popupMenu.getMenu().findItem(R.id.menu_forward_to).getSubMenu()
+                                .add(2, order, order,
+                                        MessageHelper.formatAddressesShort(new InternetAddress[]{fwd}))
+                                .setIntent(new Intent()
+                                        .putExtra("email", fwd.getAddress())
+                                        .putExtra("name", fwd.getPersonal()));
+                    }
+                }
+
                 popupMenu.insertIcons(context);
 
                 MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
@@ -4193,15 +4219,28 @@ public class FragmentMessages extends FragmentBase
                             return true;
                         }
 
+                        if (target.getGroupId() == 2) {
+                            try {
+                                InternetAddress fwd = new InternetAddress(
+                                        target.getIntent().getStringExtra("email"),
+                                        target.getIntent().getStringExtra("name"));
+                                onMenuReply(message, "forward", fwd, null);
+                            } catch (UnsupportedEncodingException ex) {
+                                Log.e(ex);
+                                onMenuReply(message, "forward");
+                            }
+                            return true;
+                        }
+
                         int itemId = target.getItemId();
                         if (itemId == R.id.menu_reply_to_sender) {
-                            onMenuReply(message, "reply", selected);
+                            onMenuReply(message, "reply", null, selected);
                             return true;
                         } else if (itemId == R.id.menu_reply_to_all) {
-                            onMenuReply(message, "reply_all", selected);
+                            onMenuReply(message, "reply_all", null, selected);
                             return true;
                         } else if (itemId == R.id.menu_reply_list) {
-                            onMenuReply(message, "list", selected);
+                            onMenuReply(message, "list", null, selected);
                             return true;
                         } else if (itemId == R.id.menu_reply_receipt) {
                             onMenuDsn(message, EntityMessage.DSN_RECEIPT);
@@ -4248,10 +4287,10 @@ public class FragmentMessages extends FragmentBase
     }
 
     private void onMenuReply(TupleMessageEx message, String action) {
-        onMenuReply(message, action, null);
+        onMenuReply(message, action, null, null);
     }
 
-    private void onMenuReply(TupleMessageEx message, String action, CharSequence selected) {
+    private void onMenuReply(TupleMessageEx message, String action, InternetAddress to, CharSequence selected) {
         final Context context = getContext();
         if (context == null)
             return;
@@ -4266,6 +4305,9 @@ public class FragmentMessages extends FragmentBase
                 .putExtra("action", action)
                 .putExtra("reference", message.id)
                 .putExtra("selected", selected);
+
+        if (to != null)
+            reply.putExtra("to", MessageHelper.formatAddressesCompose(new InternetAddress[]{to}));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean attachments_asked = prefs.getBoolean("attachments_asked", false);
@@ -11475,6 +11517,7 @@ public class FragmentMessages extends FragmentBase
     private class ReplyData {
         List<TupleIdentityEx> identities;
         List<EntityAnswer> answers;
+        List<InternetAddress> forwarded;
     }
 
     private static class MoreResult {

@@ -5909,6 +5909,8 @@ public class FragmentCompose extends FragmentBase {
                                 data.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
                             }
                             data.draft.wasforwardedfrom = ref.msgid;
+                            if (!TextUtils.isEmpty(to))
+                                data.draft.to = MessageHelper.parseAddresses(context, to);
                         } else if ("resend".equals(action)) {
                             data.draft.resend = true;
                             data.draft.thread = data.draft.msgid;

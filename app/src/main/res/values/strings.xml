@@ -1532,6 +1532,7 @@
     <string name="title_unimportant">Unimportant</string>
     <string name="title_search_in_text">Search in text &#8230;</string>
     <string name="title_forward">Forward</string>
+    <string name="title_forward_to">Forward to</string>
     <string name="title_resend">Resend</string>
     <string name="title_fetching_headers">Downloading message headers &#8230;</string>
     <string name="title_new_message">New message</string>
