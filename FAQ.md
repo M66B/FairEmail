@@ -4267,6 +4267,12 @@ See [this FAQ](#faq71)
 
 <br />
 
+*Fast forward (1.2226+)*
+
+Show (fast) *Forward to* in the answer menu, with adresses recently used for forwarding messages.
+
+<br />
+
 <a name="faq126"></a>
 **(126) Can message previews be sent to my smartwatch?**
 

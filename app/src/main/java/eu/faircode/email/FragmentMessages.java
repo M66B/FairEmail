@@ -4074,6 +4074,9 @@ public class FragmentMessages extends FragmentBase
             protected ReplyData onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean experiments = prefs.getBoolean("experiments", false);
+
                 ReplyData result = new ReplyData();
 
                 DB db = DB.getInstance(context);
@@ -4088,13 +4091,15 @@ public class FragmentMessages extends FragmentBase
                 result.answers = db.answer().getAnswersByFavorite(true);
 
                 result.forwarded = new ArrayList<>();
-                long last = new Date().getTime() - MAX_FORWARD_ADDRESS_AGE;
-                List<String> fwds = db.message().getForwardAddresses(message.account, last);
-                if (fwds != null)
-                    for (String fwd : fwds)
-                        for (Address address : DB.Converters.decodeAddresses(fwd))
-                            if (address instanceof InternetAddress)
-                                result.forwarded.add((InternetAddress) address);
+                if (experiments) {
+                    long last = new Date().getTime() - MAX_FORWARD_ADDRESS_AGE;
+                    List<String> fwds = db.message().getForwardAddresses(message.account, last);
+                    if (fwds != null)
+                        for (String fwd : fwds)
+                            for (Address address : DB.Converters.decodeAddresses(fwd))
+                                if (address instanceof InternetAddress)
+                                    result.forwarded.add((InternetAddress) address);
+                }
 
                 return result;
             }

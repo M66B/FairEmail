@@ -8,10 +8,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="shortcut icon" href="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/ic_launcher-web.png">
   <meta name="theme-color" content="#006db3">
@@ -2219,6 +2228,9 @@ $NotDisplayed</code></pre>
 <p><br /></p>
 <p><em>Rule expression condition (1.2174+)</em></p>
 <p>See <a href="#faq71">this FAQ</a></p>
+<p><br /></p>
+<p><em>Fast forward (1.2226+)</em></p>
+<p>Show (fast) <em>Forward to</em> in the answer menu, with adresses recently used for forwarding messages.</p>
 <p><br /></p>
 <p><a name="faq126"></a> <strong>(126) Can message previews be sent to my smartwatch?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq126">Google Translate</a></p>
