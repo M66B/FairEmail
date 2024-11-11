@@ -4267,7 +4267,7 @@ See [this FAQ](#faq71)
 
 <br />
 
-*Fast forward (1.2226+)*
+*Fast forward to (1.2226+)*
 
 Show (fast) *Forward to* in the answer menu, with adresses recently used for forwarding messages.
 
