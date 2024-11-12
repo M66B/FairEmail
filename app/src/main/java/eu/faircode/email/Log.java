@@ -1709,6 +1709,24 @@ public class Log {
              */
             return false;
 
+        if (ex.getMessage() != null && ex.getMessage().contains("adjustNativeLibraryPaths"))
+            /*
+                java.lang.NullPointerException: Attempt to read from field 'java.lang.String android.content.pm.ApplicationInfo.primaryCpuAbi' on a null object reference in method 'android.content.pm.ApplicationInfo android.app.LoadedApk.adjustNativeLibraryPaths(android.content.pm.ApplicationInfo)'
+                    at android.app.LoadedApk.adjustNativeLibraryPaths(LoadedApk.java:191)
+                    at android.app.LoadedApk.setApplicationInfo(LoadedApk.java:382)
+                    at android.app.LoadedApk.updateApplicationInfo(LoadedApk.java:335)
+                    at android.app.ActivityThread.handleDispatchPackageBroadcast(ActivityThread.java:6314)
+                    at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2182)
+                    at android.os.Handler.dispatchMessage(Handler.java:106)
+                    at android.os.Looper.loopOnce(Looper.java:201)
+                    at android.os.Looper.loop(Looper.java:288)
+                    at android.app.ActivityThread.main(ActivityThread.java:7870)
+                    at java.lang.reflect.Method.invoke(Native Method)
+                    at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:548)
+                    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1003)
+            */
+            return false;
+
         if (isDead(ex))
             return false;
 
