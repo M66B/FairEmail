@@ -8,19 +8,10 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="shortcut icon" href="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/ic_launcher-web.png">
   <meta name="theme-color" content="#006db3">
@@ -431,6 +422,7 @@
 <li><a href="#faq203">(203) Where is my sent message?</a></li>
 <li><a href="#faq204">(204) How do I use Gemini?</a></li>
 <li><a href="#faq205">(205) How do I check the integrity of an APK file?</a></li>
+<li><a href="#faq206">(206) How can I move or copy messages from one account to another?</a></li>
 </ul>
 <p><a href="#get-support">I have another question.</a></p>
 <p><a name="faq1"></a> <strong>(1) Which permissions are needed and why?</strong></p>
@@ -3079,6 +3071,13 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 </ol>
 <pre><code>gh attestation verify xyz.apk -R M66B/FairEmail</code></pre>
 <p>Attestation of APK files is available from version 1.2209.</p>
+<p><br></p>
+<p><a name="faq206"></a> <strong>(206) How can I move or copy messages from one account to another?</strong></p>
+<p>There are two options for this:</p>
+<ol type="1">
+<li>Long press a message in the message list to select it, tap the three-dot button that appears, scroll to the bottom of the pop-up menu and select the target account.</li>
+<li>Long press the move-to button just above the message text to select the target account first.</li>
+</ol>
 <p><br></p>
 <h2>
 <a name="get-support"></a>Get support

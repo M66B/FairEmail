@@ -430,6 +430,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(203) Where is my sent message?](#faq203)
 * [(204) How do I use Gemini?](#faq204)
 * [(205) How do I check the integrity of an APK file?](#faq205)
+* [(206) How can I move or copy messages from one account to another?](#faq206)
 
 [I have another question.](#get-support)
 
@@ -6158,6 +6159,16 @@ gh attestation verify xyz.apk -R M66B/FairEmail
 ```
 
 Attestation of APK files is available from version 1.2209.
+
+<br>
+
+<a name="faq206"></a>
+**(206) How can I move or copy messages from one account to another?**
+
+There are two options for this:
+
+1. Long press a message in the message list to select it, tap the three-dot button that appears, scroll to the bottom of the pop-up menu and select the target account.
+2. Long press the move-to button just above the message text to select the target account first.
 
 <br>
 
