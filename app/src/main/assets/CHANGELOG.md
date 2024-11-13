@@ -27,9 +27,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2246 2024-11-13
 
-* Added fast forward to, see [the FAQ](https://m66b.github.io/FairEmail/#faq125)
+* Added fast *forward to*, see [the FAQ](https://m66b.github.io/FairEmail/#faq125)
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
