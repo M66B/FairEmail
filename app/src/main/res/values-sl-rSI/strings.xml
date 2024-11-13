@@ -1083,6 +1083,7 @@
     <string name="title_important">Pomembno</string>
     <string name="title_search_in_text">Išči v besedilu &#8230;</string>
     <string name="title_forward">posredoval</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Posreduj za</string>
     <string name="title_resend">znova poslal</string>
     <string name="title_fetching_headers">Prejemanje glav sporočil &#8230;</string>
     <string name="title_new_message">Novo sporočilo</string>

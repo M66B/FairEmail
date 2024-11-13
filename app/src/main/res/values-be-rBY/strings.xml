@@ -242,7 +242,7 @@
     <string name="title_setup_no_settings">Налады для дамена \'%1$s\' не знойдзены</string>
     <string name="title_setup_no_settings_hint">Паспрабуйце наладзіць уліковы запіс уручную, выкарыстоўваючы налады, прадстаўленыя вашым правайдарам электроннай пошты</string>
     <string name="title_setup_no_auth_hint">Калі ласка, яшчэ раз праверце свой адрас электроннай пошты і пароль, а таксама пераканайцеся, што для вашага ўліковага запісу ўключаны знешні доступ (IMAP/SMTP)</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Для гэтага ўліковага запісу неабходна скарыстацца майстрам хуткіх наладаў Outlook / Office 365 (патрабаванне Microsoft)</string>
+    <string name="title_setup_no_auth_outlook">Для гэтага ўліковага запісу неабходна скарыстацца майстрам хуткіх наладаў Outlook / Office 365 (патрабаванне Microsoft)</string>
     <string name="title_setup_app_password_hint">Гэты правайдар патрабуе пароль праграмы замест пароля ўліковага запісу, калі ласка, праверце інструкцыі вашага правайдара</string>
     <string name="title_setup_no_inbox">Папка для ўваходных паведамленняў не знойдзена</string>
     <string name="title_setup_advanced_protection">Выкарыстанне старонніх паштовых праграм недазволена, калі вы зарэгістраваны ў праграме пашыранай абароны. Гэта абмежаванне накладзена Google.</string>
@@ -1271,6 +1271,7 @@
     <string name="title_unimportant">Няважныя</string>
     <string name="title_search_in_text">Пошук у тэксце &#8230;</string>
     <string name="title_forward">Пераслаць</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Пераслаць</string>
     <string name="title_resend">Адправіць паўторна</string>
     <string name="title_fetching_headers">Загрузка загалоўкаў паведамленняў &#8230;</string>
     <string name="title_new_message">Новае паведамленне</string>

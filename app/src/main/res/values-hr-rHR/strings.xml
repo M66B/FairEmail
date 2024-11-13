@@ -974,6 +974,7 @@
     <string name="title_important">Važno</string>
     <string name="title_search_in_text">Traži u tekstu &#8230;</string>
     <string name="title_forward">Naprijed</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Proslijedi</string>
     <string name="title_resend">Ponovno pošalji</string>
     <string name="title_fetching_headers">Preuzimanje zaglavlja poruke &#8230;</string>
     <string name="title_new_message">Nova poruka</string>

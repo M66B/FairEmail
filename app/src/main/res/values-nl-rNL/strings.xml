@@ -213,7 +213,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_no_settings">Geen instellingen gevonden voor domein \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Probeer een account handmatig in te stellen met de instellingen van uw e-mailprovider</string>
     <string name="title_setup_no_auth_hint">Controleer a.u.b. uw e-mailadres en wachtwoord en zorg ervoor dat externe toegang (IMAP/SMTP) is ingeschakeld voor uw account</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">U moet de Outlook / Office 365 snelle setup-wizard voor dit account gebruiken (vereist door Microsoft)</string>
+    <string name="title_setup_no_auth_outlook">U moet de Outlook / Office 365 snelle setup-wizard voor dit account gebruiken (vereist door Microsoft)</string>
     <string name="title_setup_app_password_hint">Deze provider vereist een app-wachtwoord in plaats van het wachtwoord van uw account, controleer a.u.b. de instructies van uw provider</string>
     <string name="title_setup_no_inbox">Postvak in niet gevonden</string>
     <string name="title_setup_advanced_protection">Wanneer u bent ingeschreven voor het geavanceerde beveiligingsprogramma, is het niet mogelijk om een e-mailapp van derden te gebruiken. Dit is een door Google opgelegde beperking.</string>
@@ -1234,6 +1234,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_unimportant">Onbelangrijk</string>
     <string name="title_search_in_text">Zoek in tekst &#8230;</string>
     <string name="title_forward">Doorsturen</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Doorsturen naar</string>
     <string name="title_resend">Verstuur opnieuw</string>
     <string name="title_fetching_headers">Berichtkoppen downloaden &#8230;</string>
     <string name="title_new_message">Nieuw bericht</string>

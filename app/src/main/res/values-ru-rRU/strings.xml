@@ -242,7 +242,7 @@
     <string name="title_setup_no_settings">Не найдено настроек для домена %1$s</string>
     <string name="title_setup_no_settings_hint">Попробуйте настроить учётную запись вручную, используя настройки, предоставленные почтовым провайдером</string>
     <string name="title_setup_no_auth_hint">Пожалуйста, проверьте свой адрес электронной почты и пароль и убедитесь, что внешний доступ (IMAP/SMTP) включён для вашей учётной записи</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Необходимо использовать мастер быстрой настройки Outlook / Office 365 (требование Microsoft)</string>
+    <string name="title_setup_no_auth_outlook">Необходимо использовать мастер быстрой настройки Outlook / Office 365 (требование Microsoft)</string>
     <string name="title_setup_app_password_hint">Данный провайдер требует пароль для приложения вместо пароля от учётной записи, пожалуйста, ознакомьтесь с его инструкциями</string>
     <string name="title_setup_no_inbox">Папка \"Входящие\" не найдена</string>
     <string name="title_setup_advanced_protection">При регистрации в программе расширенной защиты невозможно использовать стороннее приложение электронной почты. Это ограничение, налагаемое Google.</string>
@@ -1268,6 +1268,7 @@
     <string name="title_unimportant">Неважное</string>
     <string name="title_search_in_text">Поиск в тексте&#8230;</string>
     <string name="title_forward">Переслать</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Переслать</string>
     <string name="title_resend">Перенаправить</string>
     <string name="title_fetching_headers">Загрузка заголовков сообщений&#8230;</string>
     <string name="title_new_message">Новое сообщение</string>

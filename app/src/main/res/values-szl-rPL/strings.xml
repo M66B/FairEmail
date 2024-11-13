@@ -1265,6 +1265,7 @@
     <string name="title_unimportant">Nieważne</string>
     <string name="title_search_in_text">Szukaj w tekście &#8230;</string>
     <string name="title_forward">Prześlij dalej</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Przekaż do</string>
     <string name="title_resend">Wyślij ponownie</string>
     <string name="title_fetching_headers">Pobieranie nagłówków wiadomości &#8230;</string>
     <string name="title_new_message">Nowa wiadomość</string>

@@ -189,7 +189,7 @@
     <string name="title_setup_instructions">دستورالعمل های راه‌اندازی</string>
     <string name="title_setup_no_settings">برای دامنه \'%1$s\' هیچ تنظیماتی یافت نشد</string>
     <string name="title_setup_no_auth_hint">لطفا نشانی ایمیل و گذرواژه خود را دوباره بررسی کنید و اطمینان یابید که دسترسی بیرونی (IMAP/SMTP) برای حسابتان فعال می‌باشد</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">شما باید از برنامه راه‌اندازی سریع آوت‌لوک / آفیس ۳۶۵ برای این حساب استفاده کنید (الزامی توسط مایکروسافت)</string>
+    <string name="title_setup_no_auth_outlook">شما باید از برنامه راه‌اندازی سریع آوت‌لوک / آفیس ۳۶۵ برای این حساب استفاده کنید (الزامی توسط مایکروسافت)</string>
     <string name="title_setup_app_password_hint">فراهم‌کننده به‌جای گذرواژه حساب نیاز به گذرواژه برنامه دارد، لطفا دستورات فراهم‌کننده خود را دنبال کنید</string>
     <string name="title_setup_no_inbox">صندوق دریافتی پیدا نشد</string>
     <string name="title_setup_quick_success">یک حساب با موفقیت افزوده شده است</string>
@@ -873,6 +873,7 @@
     <string name="title_unimportant">بی‌اهمیت</string>
     <string name="title_search_in_text">جستجو در متن &#8230;</string>
     <string name="title_forward">هدایت</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">فوروارد به</string>
     <string name="title_resend">ارسال مجدد</string>
     <string name="title_new_message">پیام جدید</string>
     <string name="title_editasnew">ویرایش به‌عنوان جدید</string>

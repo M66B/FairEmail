@@ -916,6 +916,7 @@
     <string name="title_unimportant">중요하지 않음</string>
     <string name="title_search_in_text">&#8230; 문서에서 검색</string>
     <string name="title_forward">앞으로</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">전달</string>
     <string name="title_resend">재전송</string>
     <string name="title_new_message">새 메시지</string>
     <string name="title_editasnew">다른 이름으로 수정</string>

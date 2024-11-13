@@ -1223,6 +1223,7 @@
     <string name="title_unimportant">Ei tärkeä</string>
     <string name="title_search_in_text">Etsi tekstistä &#8230;</string>
     <string name="title_forward">Lähetä edelleen</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Lähetä edelleen vastaanottajalle</string>
     <string name="title_resend">Uudelleenlähetä</string>
     <string name="title_fetching_headers">Ladataan viestien otsikkotietoja &#8230;</string>
     <string name="title_new_message">Uusi viesti</string>

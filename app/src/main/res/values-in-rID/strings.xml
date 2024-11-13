@@ -1216,6 +1216,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_unimportant">Tidak penting</string>
     <string name="title_search_in_text">Telusuri dalam teks &#8230;</string>
     <string name="title_forward">Teruskan</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Diteruskan kepada</string>
     <string name="title_resend">Kirim ulang</string>
     <string name="title_fetching_headers">Mengunduh kepala pesan &#8230;</string>
     <string name="title_new_message">Pesan baru</string>

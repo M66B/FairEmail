@@ -214,7 +214,7 @@
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para o domínio \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Tente configurar manualmente a conta, utilizando as configurações fornecidas pelo seu provedor de e-mail</string>
     <string name="title_setup_no_auth_hint">Por favor, verifique novamente o seu endereço de correio electrónico e a palavra-passe, e confirme se o acesso externo (IMAP/SMTP) está activado para a sua conta</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Deve usar o assistente de configuração rápida do Outlook / Office 365 para esta conta (exigido pela Microsoft)</string>
+    <string name="title_setup_no_auth_outlook">Deve usar o assistente de configuração rápida do Outlook / Office 365 para esta conta (exigido pela Microsoft)</string>
     <string name="title_setup_app_password_hint">Este fornecedor requer uma palavra-passe de aplicação em vez da palavra-passe da conta, por favor verifique as instruções do seu fornecedor</string>
     <string name="title_setup_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_setup_advanced_protection">Quando inscrito no programa avançado de protecção não é possível usar uma aplicação de correio electrónico de terceiros. Esta é uma restrição imposta pela Google.</string>
@@ -1241,6 +1241,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_unimportant">Não importante</string>
     <string name="title_search_in_text">Pesquisar no texto &#8230;</string>
     <string name="title_forward">Encaminhar</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Encaminhar para</string>
     <string name="title_resend">Reenviar</string>
     <string name="title_fetching_headers">A transferir cabeçalhos de mensagem &#8230;</string>
     <string name="title_new_message">Nova mensagem</string>

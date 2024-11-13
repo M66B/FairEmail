@@ -215,7 +215,7 @@
     <string name="title_setup_no_settings">Keine Einstellungen für Domain \'%1$s\' gefunden</string>
     <string name="title_setup_no_settings_hint">Versuchen Sie, ein Konto manuell einzurichten, indem Sie die Einstellungen Ihres E-Mail-Anbieters verwenden</string>
     <string name="title_setup_no_auth_hint">Bitte überprüfen Sie Ihre E-Mail-Adresse und Ihr Passwort und stellen Sie sicher, dass der externe Zugriff (IMAP/SMTP) für Ihr Konto aktiviert ist</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Sie müssen den Assistenten »Outlook/Office 365« für dieses Konto verwenden (wird von Microsoft vorausgesetzt)</string>
+    <string name="title_setup_no_auth_outlook">Sie müssen den Assistenten »Outlook/Office 365« für dieses Konto verwenden (wird von Microsoft vorausgesetzt)</string>
     <string name="title_setup_app_password_hint">Dieser Anbieter verlangt ein App-Passwort anstelle des Kontenpassworts. Bitte folgen Sie den Anweisungen Ihres Anbieters.</string>
     <string name="title_setup_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_setup_advanced_protection">Wenn Sie sich in das erweiterte Sicherheitsprogramm eingeschrieben haben, ist es nicht möglich, eine andere E-Mail-App von Dritten zu verwenden. Dies ist eine von Google auferlegte Einschränkung.</string>
@@ -1242,6 +1242,7 @@
     <string name="title_unimportant">Unwichtig</string>
     <string name="title_search_in_text">Im Text suchen &#8230;</string>
     <string name="title_forward">Weiterleiten</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Weiterleiten an</string>
     <string name="title_resend">Umleiten</string>
     <string name="title_fetching_headers">Nachrichtenkopfzeilen werden heruntergeladen &#8230;</string>
     <string name="title_new_message">Neue Nachricht</string>

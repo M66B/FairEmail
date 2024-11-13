@@ -214,7 +214,7 @@
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour le domaine \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Essayez de configurer un compte manuellement en utilisant les paramètres fournis par votre fournisseur de messagerie</string>
     <string name="title_setup_no_auth_hint">Veuillez revérifier votre adresse courriel et votre mot de passe et vous assurer que l’accès externe (IMAP/SMTP) est activé pour votre compte</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Vous devez utiliser l\'assistant d\'installation rapide d\'Outlook / Office 365 pour ce compte (requis par Microsoft)</string>
+    <string name="title_setup_no_auth_outlook">Vous devez utiliser l\'assistant d\'installation rapide d\'Outlook / Office 365 pour ce compte (requis par Microsoft)</string>
     <string name="title_setup_app_password_hint">Ce fournisseur requiert un mot de passe d’application au lieu du mot de passe du compte, veuillez vérifier les instructions de votre fournisseur</string>
     <string name="title_setup_no_inbox">Boîte de réception introuvable</string>
     <string name="title_setup_advanced_protection">Une fois inscrit au programme de protection avancée, il n’est plus possible d’utiliser une application de messagerie tierce. Il s’agit d’une restriction imposée par Google.</string>
@@ -1241,6 +1241,7 @@
     <string name="title_unimportant">Non important</string>
     <string name="title_search_in_text">Rechercher dans le texte&#8230;</string>
     <string name="title_forward">Transférer</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Transférer à</string>
     <string name="title_resend">Envoyer à nouveau</string>
     <string name="title_fetching_headers">Téléchargement de l\'en-tête des messages&#8230;</string>
     <string name="title_new_message">Nouveau message</string>

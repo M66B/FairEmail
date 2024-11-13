@@ -200,7 +200,7 @@
     <string name="title_setup_no_settings">ドメイン \'%1$s\' の設定が見つかりませんでした</string>
     <string name="title_setup_no_settings_hint">メールプロバイダーが提供する設定を使用して、手動でアカウントをセットアップしてみてください</string>
     <string name="title_setup_no_auth_hint">メールアドレスとパスワードをもう一度確認しアカウントで外部アクセス (IMAP/SMTP) が有効になっていることを確認してください</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">このアカウントでは Outlook / Office 365 クイックセットアップウィザードを使用してください。(Microsoft の要件による)</string>
+    <string name="title_setup_no_auth_outlook">このアカウントでは Outlook / Office 365 クイックセットアップウィザードを使用してください。(Microsoft の要件による)</string>
     <string name="title_setup_app_password_hint">このプロバイダーではアカウントのパスワードの代わりにアプリパスワードが必要です。プロバイダーの指示を確認してください</string>
     <string name="title_setup_no_inbox">受信トレイが見つかりません</string>
     <string name="title_setup_advanced_protection">高度な保護プログラムに登録すると、サードパーティのメールアプリを使用できなくなります。これは Google によって課されている制限です。</string>
@@ -1226,6 +1226,7 @@
     <string name="title_unimportant">重要でない</string>
     <string name="title_search_in_text">本文を検索&#8230;</string>
     <string name="title_forward">転送</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">転送先</string>
     <string name="title_resend">再送</string>
     <string name="title_fetching_headers">メッセージヘッダーをダウンロードしています&#8230;</string>
     <string name="title_new_message">新着メッセージ</string>

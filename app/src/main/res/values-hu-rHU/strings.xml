@@ -213,7 +213,7 @@
     <string name="title_setup_no_settings">Nem találhatók beállítások a következő domainhez: %1$s</string>
     <string name="title_setup_no_settings_hint">Próbálj meg beállítani egy fiókot kézileg az e-mail szolgáltatód által megadott adatokkal</string>
     <string name="title_setup_no_auth_hint">Ellenőrizze az email címét és jelszavát, illetve bizonyosodjon meg róla hogy a fiókja elérhető SMTP/IMAP protokollokon keresztül</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Ehhez a fiókhoz az Outlook / Office 365 gyorsbeállítás varázslót kell használnia (a Microsoft megköveteli)</string>
+    <string name="title_setup_no_auth_outlook">Ehhez a fiókhoz az Outlook / Office 365 gyorsbeállítás varázslót kell használnia (a Microsoft megköveteli)</string>
     <string name="title_setup_app_password_hint">Ez a szolgáltó alkalmazásjelszót igényel a fiók jelszava helyett, kérlek ellenőrizd a szolgáltatód instrukcióit</string>
     <string name="title_setup_no_inbox">Bejövő mappa nem található</string>
     <string name="title_setup_advanced_protection">Az \"Advanced Protection\" programban részt vevők fiókjaihoz való hozzáférést a Google letiltotta minden harmadik féltől származó app számára.</string>
@@ -1235,6 +1235,7 @@
     <string name="title_unimportant">Nem fontos</string>
     <string name="title_search_in_text">Keresés a szövegben &#8230;</string>
     <string name="title_forward">Továbbítás</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Továbbítás neki...</string>
     <string name="title_resend">Újraküldés</string>
     <string name="title_fetching_headers">Üzenetfejlécek letöltése &#8230;</string>
     <string name="title_new_message">Új üzenet</string>

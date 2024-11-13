@@ -214,7 +214,7 @@
     <string name="title_setup_no_settings">Δεν βρέθηκαν ρυθμίσεις για τον τομέα %1$s</string>
     <string name="title_setup_no_settings_hint">Προσπαθήστε να ρυθμίσετε ένα λογαριασμό χειροκίνητα, χρησιμοποιώντας τις ρυθμίσεις που παρέχονται από τον πάροχο ηλ. ταχυδρομείου σας</string>
     <string name="title_setup_no_auth_hint">Παρακαλούμε, ελέγξτε πάλι τη διεύθυνση ηλ. ταχυδρομείου και τον κωδικό σας, και βεβαιωθείτε ότι η εξωτερική πρόσβαση (IMAP/SMTP) είναι ενεργοποιημένη για τον λογαριασμό σας</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Πρέπει να χρησιμοποιήσετε τον οδηγό γρήγορης ρύθμισης του Outlook / Office 365 για αυτόν τον λογαριασμό (απαιτείται από τη Microsoft)</string>
+    <string name="title_setup_no_auth_outlook">Πρέπει να χρησιμοποιήσετε τον οδηγό γρήγορης ρύθμισης του Outlook / Office 365 για αυτόν τον λογαριασμό (απαιτείται από τη Microsoft)</string>
     <string name="title_setup_app_password_hint">Ο πάροχος απαιτεί έναν κωδικό εφαρμογής αντί για τον κωδικό του λογαριασμού σας. Παρακαλούμε, ελέγξτε τις οδηγίες του παρόχου σας</string>
     <string name="title_setup_no_inbox">Δεν βρέθηκαν εισερχόμενα</string>
     <string name="title_setup_advanced_protection">Δεν επιτρέπεται η χρήση ανεξάρτητων εφαρμογών ηλεκτρονικού ταχυδρομείου σε χρήστες εγγεγραμμένους/-ες σε πρόγραμμα αυξημένης ασφάλειας. Ο περιορισμός αυτός έχει επιβληθεί από την Google.</string>
@@ -1236,6 +1236,7 @@
     <string name="title_unimportant">Μη σημαντικό</string>
     <string name="title_search_in_text">Αναζήτηση στο κείμενο &#8230;</string>
     <string name="title_forward">Προώθηση</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Προώθηση σε</string>
     <string name="title_resend">Επαναποστολή</string>
     <string name="title_fetching_headers">Λήψη κεφαλίδων μηνυμάτων &#8230;</string>
     <string name="title_new_message">Νέο μήνυμα</string>

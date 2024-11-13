@@ -214,7 +214,7 @@
     <string name="title_setup_no_settings">\'%1$s\' domeni üçün heç bir ayar tapılmadı</string>
     <string name="title_setup_no_settings_hint">E-poçt provayderiniz tərəfindən təmin edilən ayarları istifadə edərək əllə bir hesab quraşdırmağa çalışın</string>
     <string name="title_setup_no_auth_hint">Zəhmət olamsa e-poçt ünvanınızı və parolunuzu iki dəfə yoxlayın və hesabınız üçün xarici müraciətin (IMAP/SMTP) fəal olduğuna əmin olun</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Bu hesab üçün Outlook/Office 365 cəld quraşdırma sehrbazını istifadə etməlisiniz (Microsoft tərəfindən tələb olunur)</string>
+    <string name="title_setup_no_auth_outlook">Bu hesab üçün Outlook/Office 365 cəld quraşdırma sehrbazını istifadə etməlisiniz (Microsoft tərəfindən tələb olunur)</string>
     <string name="title_setup_app_password_hint">Bu provayder, hesabınızın parolu əvəzinə tətbiq parolunuz tələb edir, zəhmət olmasa provayderinizin təlimatlarına baxın</string>
     <string name="title_setup_no_inbox">Gələn qutusu tapılmadı</string>
     <string name="title_setup_advanced_protection">Qabaqcıl qoruma proqramına qoşulanda, üçüncü tərəf e-poçt tətbiqi istifadə etməyiniz mümkünsüz olur. Bu, Google tərəfindən tətbiq edilən bir məhdudiyyətdir.</string>
@@ -1240,6 +1240,7 @@
     <string name="title_unimportant">Vacib olmayan</string>
     <string name="title_search_in_text">Mətndə axtar &#8230;</string>
     <string name="title_forward">Yönləndir</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Yönləndir</string>
     <string name="title_resend">Təkrar göndər</string>
     <string name="title_fetching_headers">Mesaj başlıqları endirilir &#8230;</string>
     <string name="title_new_message">Yeni mesaj</string>

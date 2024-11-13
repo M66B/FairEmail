@@ -243,7 +243,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_no_settings">Pro doménu „%1$s“ nebylo nalezeno žádné nastavení</string>
     <string name="title_setup_no_settings_hint">Pokuste se nastavit účet ručně pomocí nastavení poskytnutých vaším poskytovatelem e-mailu</string>
     <string name="title_setup_no_auth_hint">Překontrolujte prosím zadanou e-mailovou adresu a heslo a ujistěte se, že u daného účtu máte povolen externí přístup (IMAP/SMTP)</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Pro tento účet musíte použít průvodce rychlým nastavením aplikace Outlook / Office 365 (vyžadováno společností Microsoft)</string>
+    <string name="title_setup_no_auth_outlook">Pro tento účet musíte použít průvodce rychlým nastavením aplikace Outlook / Office 365 (vyžadováno společností Microsoft)</string>
     <string name="title_setup_app_password_hint">Tento poskytovatel vyžaduje heslo pro aplikaci, namísto hesla k účtu, podívejte se prosím na pokyny svého poskytovatele</string>
     <string name="title_setup_no_inbox">Složka \"Doručené\" nenalezena</string>
     <string name="title_setup_advanced_protection">Jste-li zaregistrováni do programu pokročilé ochrany, není možné použít e-mailovou aplikaci třetí strany. Toto je omezení vynucené Googlem.</string>
@@ -1267,6 +1267,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_unimportant">Nedůležité</string>
     <string name="title_search_in_text">Hledat v textu &#8230;</string>
     <string name="title_forward">Přeposlat</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Přeposlat na</string>
     <string name="title_resend">Odeslat znovu</string>
     <string name="title_fetching_headers">Stahování záhlaví zprávy &#8230;</string>
     <string name="title_new_message">Nová zpráva</string>

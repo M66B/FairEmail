@@ -1220,6 +1220,7 @@
     <string name="title_unimportant">不重要</string>
     <string name="title_search_in_text">在本文中搜尋 &#8230;</string>
     <string name="title_forward">轉寄</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">轉寄至</string>
     <string name="title_resend">重新寄出</string>
     <string name="title_fetching_headers">正在下載訊息標頭&#8230;</string>
     <string name="title_new_message">新訊息</string>

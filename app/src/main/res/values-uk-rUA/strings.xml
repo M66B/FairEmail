@@ -243,7 +243,7 @@
     <string name="title_setup_no_settings">Не знайдено налаштувань для домену \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Спробуйте вручну налаштувати обліковий запис за допомогою налаштувань, що надаються провайдером електронної пошти</string>
     <string name="title_setup_no_auth_hint">Будь ласка, двічі перевірте свою електронну адресу і пароль та переконайтеся, що для вашого облікового запису увімкнений зовнішній доступ (IMAP/SMTP)</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Для цього облікового запису потрібно скористатися майстром швидкого налаштування Outlook / Office 365 (вимога Microsoft)</string>
+    <string name="title_setup_no_auth_outlook">Для цього облікового запису потрібно скористатися майстром швидкого налаштування Outlook / Office 365 (вимога Microsoft)</string>
     <string name="title_setup_app_password_hint">Цей постачальник вимагає пароль для додатків замість пароля для облікового запису. Будь ласка, перевірте інструкції вашого постачальника.</string>
     <string name="title_setup_no_inbox">Вхідних повідомлень не знайдено</string>
     <string name="title_setup_advanced_protection">Коли прийнято до програми розширеного захисту – неможливо використати сторонні додатки для роботи з електронною поштою. Це обмеження, накладене Google.</string>
@@ -1267,6 +1267,7 @@
     <string name="title_unimportant">Неважливі</string>
     <string name="title_search_in_text">Шукати в тексті &#8230;</string>
     <string name="title_forward">Переслати</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Переслати</string>
     <string name="title_resend">Надіслати повторно</string>
     <string name="title_fetching_headers">Завантаження заголовків повідомлень &#8230;</string>
     <string name="title_new_message">Нове повідомлення</string>

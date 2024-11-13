@@ -200,7 +200,7 @@
     <string name="title_setup_no_settings">找不到域名\"%1$s\"的设置</string>
     <string name="title_setup_no_settings_hint">尝试使用电子邮件供应商提供的设置手动设置一个帐户</string>
     <string name="title_setup_no_auth_hint">请仔细检查您的电子邮件地址和密码，并确保您的账户启用外部访问 (IMAP/SMTP)</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">此账户您必须使用 Outlook / Office 365 快速设置向导 (微软要求)</string>
+    <string name="title_setup_no_auth_outlook">此账户您必须使用 Outlook / Office 365 快速设置向导 (微软要求)</string>
     <string name="title_setup_app_password_hint">此供应商需要应用密码而不是帐户密码，请查看供应商的说明</string>
     <string name="title_setup_no_inbox">未找到收件箱</string>
     <string name="title_setup_advanced_protection">当加入了高级保护程序后，将无法使用第三方电子邮件APP, 这是 Google 强加的限制</string>
@@ -1222,6 +1222,7 @@
     <string name="title_unimportant">不重要</string>
     <string name="title_search_in_text">在文本中搜索 &#8230;</string>
     <string name="title_forward">转发</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">转发给</string>
     <string name="title_resend">重新发送</string>
     <string name="title_fetching_headers">正在下载邮件标头 &#8230;</string>
     <string name="title_new_message">新邮件</string>

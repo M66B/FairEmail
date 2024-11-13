@@ -214,7 +214,7 @@
     <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio «%1$s»</string>
     <string name="title_setup_no_settings_hint">Provare a configurare manualmente un account usando le impostazioni fornite dal proprio provider di email</string>
     <string name="title_setup_no_auth_hint">Ricontrollare l\'indirizzo email e la password e assicurarsi che l\'accesso esterno (IMAP/SMTP) sia abilitato per il proprio account</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">È necessario utilizzare la procedura guidata di configurazione rapida di Outlook / Office 365 per questo account (richiesto da Microsoft)</string>
+    <string name="title_setup_no_auth_outlook">È necessario utilizzare la procedura guidata di configurazione rapida di Outlook / Office 365 per questo account (richiesto da Microsoft)</string>
     <string name="title_setup_app_password_hint">Questo provider richiede una password dell\'app invece di quella dell\'account. Verificare le istruzioni del proprio provider</string>
     <string name="title_setup_no_inbox">Posta in arrivo non trovata</string>
     <string name="title_setup_advanced_protection">Quando iscritto al programma di protezione avanzata è impossibile usare un\'app email di terze parti. Questa è una restrizione imposta da Google.</string>
@@ -1241,6 +1241,7 @@
     <string name="title_unimportant">Non importante</string>
     <string name="title_search_in_text">Cerca nel testo&#8230;</string>
     <string name="title_forward">Inoltra</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Inoltra a</string>
     <string name="title_resend">Reinvia</string>
     <string name="title_fetching_headers">Scaricamento delle intestazioni del messaggio in corso&#8230;</string>
     <string name="title_new_message">Nuovo messaggio</string>
@@ -1423,7 +1424,7 @@
     <string name="title_subject">Oggetto:</string>
     <string name="title_attachment">Allegato:</string>
     <string name="title_body_hint">Il tuo messaggio</string>
-    <string name="title_body_hint_style">Puoi selezionare il testo per formattarlo</string>
+    <string name="title_body_hint_style">È possibile selezionare il testo per formattarlo</string>
     <string name="title_discard">Scarta</string>
     <string name="title_save">Salva</string>
     <string name="title_send">Invia</string>
@@ -1823,10 +1824,10 @@
     <string name="title_code_line_numbers">Mostra i numeri di riga</string>
     <string name="title_code_enable_links">Abilita i link</string>
     <string name="title_code_pretty">Abbellisci stampa</string>
-    <string name="title_legend_section_synchronize">Sincronizza</string>
+    <string name="title_legend_section_synchronize">Sincronizzazione</string>
     <string name="title_legend_section_folders">Cartelle</string>
     <string name="title_legend_section_messages">Messaggi</string>
-    <string name="title_legend_section_compose">Scrivi</string>
+    <string name="title_legend_section_compose">Composizione</string>
     <string name="title_legend_section_keyboard">Tastiera</string>
     <string name="title_legend_oauth">Autorizzazione OAuth</string>
     <string name="title_legend_folder_connected">Cartella connessa</string>
@@ -1843,7 +1844,7 @@
     <string name="title_legend_quota">Casella email quasi piena</string>
     <string name="title_legend_executing">Esecuzione operazioni</string>
     <string name="title_legend_synchronizing">Sincronizzazione</string>
-    <string name="title_legend_downloading">Scaricando</string>
+    <string name="title_legend_downloading">Scaricamento</string>
     <string name="title_legend_closing">Chiusura</string>
     <string name="title_legend_unified">Posta in arrivo unificata / account principale</string>
     <string name="title_legend_inbox">Posta in arrivo</string>
@@ -1857,7 +1858,7 @@
     <string name="title_legend_subscribed">Iscritto a</string>
     <string name="title_legend_rule">Ha regole</string>
     <string name="title_legend_similar">Cerca messaggi simili</string>
-    <string name="title_legend_notify">Notificare i nuovi messaggi</string>
+    <string name="title_legend_notify">Notifica i nuovi messaggi</string>
     <string name="title_legend_sync_keep">Numero di giorni per sincronizzare e mantenere i messaggi</string>
     <string name="title_legend_download_fetch">Numero di messaggi scaricati e intestazioni recuperate</string>
     <string name="title_legend_stop">Interrompi l\'elaborazione delle regole</string>
@@ -1942,7 +1943,7 @@
     <string name="title_legend_m">Menu (selezione multipla)</string>
     <string name="title_legend_n">Successivo</string>
     <string name="title_legend_p">Precedente</string>
-    <string name="title_legend_r">Rispondere</string>
+    <string name="title_legend_r">Rispondi</string>
     <string name="title_legend_s">Seleziona/deseleziona</string>
     <string name="title_legend_t">Focalizza testo</string>
     <string name="title_hint_folder_actions">Premere a lungo su una cartella per vedere le opzioni, come aggiungere una cartella al menu di navigazione per un accesso rapido</string>

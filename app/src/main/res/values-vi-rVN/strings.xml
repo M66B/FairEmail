@@ -987,6 +987,7 @@
     <string name="title_important">Quan trọng</string>
     <string name="title_search_in_text">Tìm kiếm trong văn bản &#8230;</string>
     <string name="title_forward">Chuyển tiếp</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Chuyển tiếp đến</string>
     <string name="title_resend">Gửi lại</string>
     <string name="title_fetching_headers">Đang tải xuống tiêu đề thư &#8230;</string>
     <string name="title_new_message">Thư mới</string>

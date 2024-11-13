@@ -214,7 +214,7 @@
     <string name="title_setup_no_settings">Ingen indstillinger fundet for domænet \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Prøv at opsætte en konto manuelt vha. indstillingerne fra e-mail-udbyderen</string>
     <string name="title_setup_no_auth_hint">Dobbelttjek din e-mailadresse og adgangskode, og sørg for, at ekstern adgang (IMAP/SMTP) er aktiveret for din konto</string>
-    <string name="title_setup_no_auth_outlook" comment="title_setup_no_auth_outlook&#10;Remark for when using the &quot;other provider&quot; wizard to configure an Outlook / Office 365 account.">Man skal bruge Outlook/Office 365 hurtig-opsætningsguiden til denne konto (kræves af Microsoft)</string>
+    <string name="title_setup_no_auth_outlook">Man skal bruge Outlook/Office 365 hurtig-opsætningsguiden til denne konto (kræves af Microsoft)</string>
     <string name="title_setup_app_password_hint">Denne udbyder kræver en app-adgangskode i stedet for kontoadgangskoden. Tjek din leverandørs instrukser</string>
     <string name="title_setup_no_inbox">Indbakke ikke fundet</string>
     <string name="title_setup_advanced_protection">Når du er tilmeldt det avancerede beskyttelsesprogram, er det ikke muligt at benytte en tredjeparts e-mail app. Dette er en begrænsning pålagt af Google.</string>
@@ -1241,6 +1241,7 @@
     <string name="title_unimportant">Uvigtige</string>
     <string name="title_search_in_text">Søg i tekst&#8230;</string>
     <string name="title_forward">Videresend</string>
+    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Videresend til</string>
     <string name="title_resend">Send igen</string>
     <string name="title_fetching_headers">Downloader beskedoverskrifter &#8230;</string>
     <string name="title_new_message">Ny besked</string>
