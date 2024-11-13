@@ -4270,7 +4270,8 @@ See [this FAQ](#faq71)
 
 *Fast forward to (1.2226+)*
 
-Show (fast) *Forward to* in the answer menu, with adresses recently used for forwarding messages.
+Show (fast) *Forward to* in the answer menu, with addresses recently used for forwarding messages (if any).
+You can show the answer menu by tapping on the answer button at the bottom right of an opened/expanded message.
 
 <br />
 
