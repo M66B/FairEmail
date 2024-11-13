@@ -779,7 +779,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         if (criteria.with_hidden) {
-            if (message.ui_snoozed == null)
+            if (message.ui_snoozed == null && !message.ui_unsnoozed)
                 return false;
         }
 

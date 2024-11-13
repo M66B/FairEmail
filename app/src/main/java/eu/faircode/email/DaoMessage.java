@@ -385,7 +385,7 @@ public interface DaoMessage {
             " AND (:folder IS NULL OR folder = :folder)" +
             " AND (NOT :unseen OR NOT ui_seen)" +
             " AND (NOT :flagged OR ui_flagged)" +
-            " AND (NOT :hidden OR NOT ui_snoozed IS NULL)" +
+            " AND (NOT :hidden OR NOT ui_snoozed IS NULL OR ui_unsnoozed)" +
             " AND (NOT :encrypted OR ui_encrypt > 0)" +
             " AND (NOT :with_attachments OR attachments > 0)" +
             " AND (NOT :with_notes OR NOT `notes` IS NULL)" +
