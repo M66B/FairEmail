@@ -6179,6 +6179,8 @@ There are two options for this:
 1. Long press a message in the message list to select it, tap the three-dot button that appears, scroll to the bottom of the pop-up menu and select the target account.
 2. Long press the move-to button just above the message text to select the target account first.
 
+To copy a message to another account, long press the target folder.
+
 <br>
 
 <h2><a name="get-support"></a>Get support</h2>
