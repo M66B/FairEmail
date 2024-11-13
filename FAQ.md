@@ -5299,7 +5299,8 @@ There are no commands to access any other folder.
 
 Creating a local folder only and storing messages on your device only is a bad idea
 because losing or breaking your device would mean losing your messages.
-Therefore this isn't supportable.
+Imagine you've put a lot of time organizing your messages, and you need to reinstall the app on another device, only to discover all the work you did was a waste of time.
+Therefore, this isn't supportable.
 
 Please note that FairEmail doesn't store a copy of your messages in the cloud for privacy reasons.
 
@@ -5309,6 +5310,14 @@ so that there is always a copy of the messages on the email server.
 You could register, for example, a Gmail account, and configure Gmail to import messages from a POP3 account,
 automatically label them (=put them in a folder), and configure the Gmail account in FairEmail.
 Please [see here](https://support.google.com/mail/answer/21289?hl=en&co=GENIE.Platform%3DDesktop) for instructions.
+
+If you are concerned about deleting messages, with IMAP messages are moved to the trash messages folder first, which means that deleted messages can be restored.
+You can also hide instead of delete messages, please [see this FAQ](#faq134).
+
+Some people believe POP3 is safer than IMAP, but security wise, there is no difference between POP3 and IMAP.
+The connection to the email server is always encrypted, and the account is protected by a password in both cases.
+
+If your email provider only offers POP3 access, tell them the POP3 protocol is 40+ years old ([defined in 1984](https://datatracker.ietf.org/doc/html/rfc918)).
 
 <br />
 
