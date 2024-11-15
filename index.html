@@ -839,6 +839,8 @@ keyword:&lt;keyword&gt;</code></pre>
 <p><a name="faq14"></a> <strong>(14) How can I set up an Outlook / Live / Hotmail account?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq14">Google Translate</a></p>
 <p><br /></p>
+<p>In the case of the error ‘<em>User is authenticated but not connected</em>’, please see <a href="#faq139">this FAQ</a>.</p>
+<p><br></p>
 <blockquote>
 <p><strong>IMPORTANT: If you came here via a warning in the app, you MUST take action!</strong></p>
 <p><strong>IMPORTANT: Microsoft seems to disable (app) passwords ahead of schedule for more and more accounts, resulting in “<em>Authentication failed</em>” error messages.</strong></p>
@@ -2327,6 +2329,20 @@ $NotDisplayed</code></pre>
 <p><a name="faq83"></a> <a name="faq139"></a> <strong>(139) How do I fix ‘User is authenticated but not connected’?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq139">Google Translate</a></p>
 <p>The confusing Microsoft specific server error <em>User is authenticated but not connected</em> might occur if:</p>
+<p><strong>Consumer Outlook/Hotmail/Live account</strong></p>
+<ul>
+<li>IMAP is disabled, which is the default for new Outlook accounts now</li>
+</ul>
+<p>To fix this:</p>
+<ul>
+<li>Go to the <a href="https://outlook.live.com/">Outlook website</a></li>
+<li>Tap on the settings wheel at the top right</li>
+<li>Select ‘<em>Mail</em>’</li>
+<li>Select ‘<em>Forwarding and IMAP</em>’</li>
+<li>In the section ‘<em>POP and IMAP</em>’ enable ‘<em>Let devices and apps use IMAP</em>’</li>
+</ul>
+<p><br></p>
+<p><strong>Corporate, education, etc. account</strong></p>
 <ul>
 <li>External access is administratively disabled, please see <a href="https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules">this article</a> about how an administrator can enable it again</li>
 <li>Access by third-party apps is administratively disabled or allowed for specific apps only</li>

@@ -1280,6 +1280,10 @@ Using the search index is a pro feature.
 
 <br />
 
+In the case of the error '*User is authenticated but not connected*', please see [this FAQ](#faq139).
+
+<br>
+
 >
 > **IMPORTANT: If you came here via a warning in the app, you MUST take action!**
 >
@@ -4538,6 +4542,22 @@ Note that FairEmail does support replying to calendar invites (a pro feature) an
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq139)
 
 The confusing Microsoft specific server error *User is authenticated but not connected* might occur if:
+
+**Consumer Outlook/Hotmail/Live account**
+
+* IMAP is disabled, which is the default for new Outlook accounts now
+
+To fix this:
+
+* Go to the [Outlook website](https://outlook.live.com/)
+* Tap on the settings wheel at the top right
+* Select '*Mail*'
+* Select '*Forwarding and IMAP*'
+* In the section '*POP and IMAP*' enable '*Let devices and apps use IMAP*'
+
+<br>
+
+**Corporate, education, etc. account**
 
 * External access is administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) about how an administrator can enable it again
 * Access by third-party apps is administratively disabled or allowed for specific apps only
