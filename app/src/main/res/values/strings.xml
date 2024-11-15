@@ -257,7 +257,7 @@
     <string name="title_setup_office_not_connected">
         The error \'User is authenticated but not connected\' mostly means that IMAP is disabled.
         In the case of a consumer Outlook account, please go to the Outlook website, tap on the settings wheel at the top right, select \'Mail\', select \'Forwarding and IMAP\', and in the section \'POP and IMAP\' enable \'Let devices and apps use IMAP\'.
-        In the case of a corporate, education, etc. account, please contact the system administrator of the e-mail server.
+        In the case of a corporate, education, etc. account, please contact the system administrator of the email server.
     </string>
     <string name="title_setup_oauth_rationale">Authorize access to your %1$s account</string>
     <string name="title_setup_oauth_update">Authorize an existing account again (otherwise create a new account)</string>
