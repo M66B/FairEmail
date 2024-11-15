@@ -2425,7 +2425,7 @@
     <string name="title_fetching_again">Fetching message again from the server</string>
     <string name="title_go_back">Go back</string>
     <string name="title_global_default">Use global default</string>
-    <string name="title_not_existing">This message no longer exists on the mail server</string>
+    <string name="title_not_existing">This message no longer exists on the email server</string>
 
     <string name="title_conversation_actions">Actions</string>
     <string name="title_conversation_action_reply">Reply with: \'%1$s\'</string>
