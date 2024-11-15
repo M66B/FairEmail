@@ -95,6 +95,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.mail.AuthenticationFailedException;
+import javax.mail.MessagingException;
 import javax.net.ssl.HttpsURLConnection;
 
 public class FragmentOAuth extends FragmentBase {
@@ -1134,6 +1135,21 @@ public class FragmentOAuth extends FragmentBase {
                 else
                     tvOfficeAuthHint.setText(R.string.title_setup_office_auth);
                 tvOfficeAuthHint.setVisibility(View.VISIBLE);
+            } else if (ex instanceof MessagingException) {
+                boolean notconnected = false;
+                Throwable e = ex;
+                while (e != null) {
+                    String msg = e.getMessage();
+                    if (msg != null && msg.contains("User is authenticated but not connected")) {
+                        notconnected = true;
+                        break;
+                    }
+                    e = e.getCause();
+                }
+                if (notconnected) {
+                    tvOfficeAuthHint.setText(R.string.title_setup_office_not_connected);
+                    tvOfficeAuthHint.setVisibility(View.VISIBLE);
+                }
             }
         }
 
