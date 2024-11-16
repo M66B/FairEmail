@@ -179,6 +179,10 @@
     <string name="title_setup_gmail_password">می‌خواهم به جای حسابی روی دستگاه، به یک حساب با رمز عبور اجازه بدهم</string>
     <string name="title_setup_office_auth">خطای \'AUTHENTICATE failed\' می‌تواند به‌دلیل غیرفعال بودن IMAP/SMTP به‌ دست مدیر سیستم باشد</string>
     <string name="title_setup_office_auth_5_7_139">لطفا از راهنمای سریع نصب \'آوت‌لوک/هات‌میل/لایو\' استفاده کنید.</string>
+    <string name="title_setup_office_not_connected">        خطای \'User is authenticated but not connected\' غالبا به معنای غیرفعال بودن IMAP می‌باشد.
+        در صورت استفاده از حساب آوت‌لوک شخصی، لطفا به وبسایت آوت‌لوک رفته، روی چرخ‌دنده تنظیمات در بالا سمت راست ضربه بزنید، \'Mail\' و سپس \'Forwarding and IMAP\' را انتخاب کنید و در بخش \'POP and IMAP\' گزینه \'Let devices and apps use IMAP\' را فعال کنید.
+        در صورت استفاده از حساب شرکتی، آموزشی، و غیره لطفا با مدیر سیستم سرور ایمیل تماس بگیرید.
+    </string>
     <string name="title_setup_oauth_rationale">برای دسترسی به %1$s حسابتان اجازه دهید</string>
     <string name="title_setup_oauth_update">به یک حساب موجود اجازه بدهید (در غیر این صورت یک حساب جدید بسازید)</string>
     <string name="title_setup_oauth_updated">تایید هویت حساب به روز شد</string>
@@ -873,7 +877,7 @@
     <string name="title_unimportant">بی‌اهمیت</string>
     <string name="title_search_in_text">جستجو در متن &#8230;</string>
     <string name="title_forward">هدایت</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">فوروارد به</string>
+    <string name="title_forward_to">فوروارد به</string>
     <string name="title_resend">ارسال مجدد</string>
     <string name="title_new_message">پیام جدید</string>
     <string name="title_editasnew">ویرایش به‌عنوان جدید</string>

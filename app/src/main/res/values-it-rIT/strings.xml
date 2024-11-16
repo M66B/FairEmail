@@ -202,6 +202,10 @@
     <string name="title_setup_office_auth">L\'errore «AUTHENTICATE failed» può esser causato dalla disabilitazione di IMAP/SMTP da parte dell\'amministratore di sistema</string>
     <string name="title_setup_office_auth_5_7_3">Si provi la procedura guidata «Altro provider».</string>
     <string name="title_setup_office_auth_5_7_139">Si provi la procedura guidata «Outlook/Hotmail/Live».</string>
+    <string name="title_setup_office_not_connected">        L\'errore «User is authenticated but not connected» significa quasi sempre che IMAP è disabilitato.
+        Se si tratta di un account personale, andare sul sito di Outlook, fare clic sull\'icona dell\'ingranaggio relativa alle impostazioni in alto a destra, selezionare «Posta», selezionare «Inoltro e IMAP» e nella sezione «POP e IMAP» abilitare «Consenti a dispositivi e app di usare IMAP».
+        Se si tratta di un account aziendale, educativo, ecc., contattare l\'amministratore di sistema del server di posta.
+    </string>
     <string name="title_setup_oauth_rationale">Autorizzare l\'accesso al proprio account %1$s</string>
     <string name="title_setup_oauth_update">Autorizzare nuovamente un account esistente (altrimenti crearne uno nuovo)</string>
     <string name="title_setup_oauth_updated">Autorizzazione dell\'account aggiornata</string>
@@ -1241,7 +1245,7 @@
     <string name="title_unimportant">Non importante</string>
     <string name="title_search_in_text">Cerca nel testo&#8230;</string>
     <string name="title_forward">Inoltra</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Inoltra a</string>
+    <string name="title_forward_to">Inoltra a</string>
     <string name="title_resend">Reinvia</string>
     <string name="title_fetching_headers">Scaricamento delle intestazioni del messaggio in corso&#8230;</string>
     <string name="title_new_message">Nuovo messaggio</string>
@@ -1832,20 +1836,20 @@
     <string name="title_legend_oauth">Autorizzazione OAuth</string>
     <string name="title_legend_folder_connected">Cartella connessa</string>
     <string name="title_legend_folder_disconnected">Cartella disconnessa</string>
-    <string name="title_legend_download_on">Scarica automaticamente il contenuto del messaggio</string>
-    <string name="title_legend_download_off">Scarica il contenuto del messaggio su richiesta</string>
+    <string name="title_legend_download_on">Il contenuto del messaggio viene scaricato automaticamente</string>
+    <string name="title_legend_download_off">Il contenuto del messaggio viene scaricato su richiesta</string>
     <string name="title_legend_synchronize_on">Sincronizzazione attivata</string>
     <string name="title_legend_synchronize_off">Sincronizzazione disattivata</string>
-    <string name="title_legend_synchronize_poll">Sincronizza periodicamente</string>
+    <string name="title_legend_synchronize_poll">Sincronizzazione periodica</string>
     <string name="title_legend_disconnected">Disconnesso</string>
-    <string name="title_legend_connecting">Connessione</string>
+    <string name="title_legend_connecting">Connessione in corso</string>
     <string name="title_legend_connected">Connesso</string>
     <string name="title_legend_backoff">In attesa dopo il fallimento della connessione</string>
     <string name="title_legend_quota">Casella email quasi piena</string>
-    <string name="title_legend_executing">Esecuzione operazioni</string>
-    <string name="title_legend_synchronizing">Sincronizzazione</string>
-    <string name="title_legend_downloading">Scaricamento</string>
-    <string name="title_legend_closing">Chiusura</string>
+    <string name="title_legend_executing">Esecuzione delle operazioni</string>
+    <string name="title_legend_synchronizing">Sincronizzazione in corso</string>
+    <string name="title_legend_downloading">Scaricamento in corso</string>
+    <string name="title_legend_closing">Chiusura connessione in corso</string>
     <string name="title_legend_unified">Posta in arrivo unificata / account principale</string>
     <string name="title_legend_inbox">Posta in arrivo</string>
     <string name="title_legend_outbox">Posta In Uscita</string>
@@ -1858,7 +1862,7 @@
     <string name="title_legend_subscribed">Iscritto a</string>
     <string name="title_legend_rule">Ha regole</string>
     <string name="title_legend_similar">Cerca messaggi simili</string>
-    <string name="title_legend_notify">Notifica i nuovi messaggi</string>
+    <string name="title_legend_notify">Notifica attiva per i nuovi messaggi</string>
     <string name="title_legend_sync_keep">Numero di giorni per sincronizzare e mantenere i messaggi</string>
     <string name="title_legend_download_fetch">Numero di messaggi scaricati e intestazioni recuperate</string>
     <string name="title_legend_stop">Interrompi l\'elaborazione delle regole</string>

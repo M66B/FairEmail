@@ -1230,7 +1230,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_unimportant">Önemsiz</string>
     <string name="title_search_in_text">Metin içinde ara &#8230;</string>
     <string name="title_forward">İlet</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">İlet</string>
+    <string name="title_forward_to">İlet</string>
     <string name="title_resend">Tekrar gönder</string>
     <string name="title_fetching_headers">Mesaj üstbilgileri indiriliyor &#8230;</string>
     <string name="title_new_message">Yeni ileti</string>

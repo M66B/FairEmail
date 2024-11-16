@@ -202,6 +202,10 @@
     <string name="title_setup_office_auth">El error \'AUTHENTICATE failed\' puede ser causado por IMAP/SMTP desactivado por el administrador de sistemas</string>
     <string name="title_setup_office_auth_5_7_3">Por favor, pruebe el asistente de configuración rápida \'Otro proveedor\'.</string>
     <string name="title_setup_office_auth_5_7_139">Por favor, pruebe el asistente de configuración rápida \'Outlook/Hotmail/Live\'.</string>
+    <string name="title_setup_office_not_connected">        El error \'El usuario está autenticado pero no conectado\' generalmente significa que IMAP está deshabilitado.
+        En caso de una cuenta de usuario de Outlook, por favor vaya al sitio web de Outlook, toque en en engranaje de ajustes de arriba a la derecha, seleccione \'Correo\', \'Reenvío e IMAP\', y en la sección \'POP e IMAP\' habilite \'Permitir dispositivos y apps usar IMAP\'.
+        En caso de una cuenta corporativa, educativa, u otras, por favor contacte al administrador de sistemas del servidor de correo.
+    </string>
     <string name="title_setup_oauth_rationale">Autorizar acceso a su cuenta %1$s</string>
     <string name="title_setup_oauth_update">Volver a autorizar una cuenta existente (de lo contrario crear una nueva cuenta)</string>
     <string name="title_setup_oauth_updated">Se ha actualizado la autorización de la cuenta</string>
@@ -1238,7 +1242,7 @@
     <string name="title_unimportant">No importante</string>
     <string name="title_search_in_text">Buscar en texto &#8230;</string>
     <string name="title_forward">Reenviar</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Reenviar a</string>
+    <string name="title_forward_to">Reenviar a</string>
     <string name="title_resend">Reenviar</string>
     <string name="title_fetching_headers">Descargando encabezados de mensaje &#8230;</string>
     <string name="title_new_message">Nuevo mensaje</string>

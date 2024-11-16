@@ -230,6 +230,10 @@
     <string name="title_setup_office_auth">Błąd \"AUTHENTICATE failed\" może być spowodowany wyłączeniem protokołu IMAP/SMTP przez administratora systemu</string>
     <string name="title_setup_office_auth_5_7_3">Wypróbuj kreatora szybkiej konfiguracji od „innego dostawcy”.</string>
     <string name="title_setup_office_auth_5_7_139">Wypróbuj kreator szybkiej konfiguracji „Outlook/Hotmail/Live”.</string>
+    <string name="title_setup_office_not_connected">        Błąd „Użytkownik jest uwierzytelniony, ale nie jest połączony” oznacza najczęściej, że protokół IMAP jest wyłączony.
+        W przypadku konsumenckiego konta Outlook należy przejść do witryny Outlook, dotknąć kółka ustawień w prawym górnym rogu, wybrać „Poczta”, wybrać „Przekazywanie i IMAP”, a w sekcji „POP i IMAP” włączyć „Zezwalaj urządzeniom i aplikacjom na korzystanie z IMAP”.
+        W przypadku konta firmowego, edukacyjnego itp. należy skontaktować się z administratorem systemu serwera poczty e-mail.
+    </string>
     <string name="title_setup_oauth_rationale">Autoryzuj dostęp do Twojego konta %1$s</string>
     <string name="title_setup_oauth_update">Autoryzuj istniejące konto ponownie (w przeciwnym razie utwórz nowe konto)</string>
     <string name="title_setup_oauth_updated">Autoryzacja konta została zaktualizowana</string>
@@ -242,6 +246,7 @@
     <string name="title_setup_no_settings">Nie znaleziono ustawień dla domeny \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Spróbuj skonfigurować konto ręcznie, korzystając z ustawień dostarczonych przez Twojego dostawcę poczty elektronicznej</string>
     <string name="title_setup_no_auth_hint">Sprawdź dokładnie swój adres e-mail i hasło oraz upewnij się, że dostęp zewnętrzny (IMAP/SMTP) jest włączony dla Twojego konta</string>
+    <string name="title_setup_no_auth_outlook">Musisz użyć kreatora szybkiego konfiguracji Outlook / Office 365 dla tego konta (wymagane przez Microsoft)</string>
     <string name="title_setup_app_password_hint">Ten dostawca wymaga hasła aplikacji zamiast hasła do konta, sprawdź instrukcje swojego dostawcy</string>
     <string name="title_setup_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_setup_advanced_protection">Po zarejestrowaniu się w programie ochrony zaawansowanej nie można korzystać z aplikacji poczty e-mail innej firmy. Jest to ograniczenie nałożone przez Google.</string>
@@ -1265,7 +1270,7 @@
     <string name="title_unimportant">Nieważne</string>
     <string name="title_search_in_text">Szukaj w tekście &#8230;</string>
     <string name="title_forward">Prześlij dalej</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Przekaż do</string>
+    <string name="title_forward_to">Przekaż do</string>
     <string name="title_resend">Wyślij ponownie</string>
     <string name="title_fetching_headers">Pobieranie nagłówków wiadomości &#8230;</string>
     <string name="title_new_message">Nowa wiadomość</string>

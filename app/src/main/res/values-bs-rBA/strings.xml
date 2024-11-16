@@ -216,6 +216,10 @@
     <string name="title_setup_office_auth">Greška \'PROVJERA nije uspjela\' može biti uzrokovana postavkama IMAP/SMTP-a koje je isključio sistemski administrator</string>
     <string name="title_setup_office_auth_5_7_3">Molimo da probate brzi čarobnjak postavki za \'druge provajdere\'.</string>
     <string name="title_setup_office_auth_5_7_139">Molimo da probate brzi čarobnjak za \'Outlook/Hotmail/Live\' račune.</string>
+    <string name="title_setup_office_not_connected">        Greška \'User is authenticated but not connected\' najčešće znači da je IMAP isključen.
+        Ako koristite personalni Outlook račun, posjetite Outlook-ov web sajt, pronađite ikonice za postavke u desnom gornjem dijelu prozora, označite \'Mail\', potom \'Forwarding and IMAP\', i u odjeljku \'POP and IMAP\' uključite opciju \'Let devices and apps use IMAP\'.
+        Ako koristite korporativni, edukacijski i druge vrste računa, molimo da kontaktirate administratora sistema e-mail servera.
+    </string>
     <string name="title_setup_oauth_rationale">Autorizuj pristup vašem%1$s računu</string>
     <string name="title_setup_oauth_update">Autorizuj postojeći račun opet (u suprotnom, kreiraj novi račun)</string>
     <string name="title_setup_oauth_updated">Autorizacija računa je ažurirana</string>
@@ -1253,7 +1257,7 @@
     <string name="title_unimportant">Nevažno</string>
     <string name="title_search_in_text">Pretraži u tekstu &#8230;</string>
     <string name="title_forward">Proslijedi</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Proslijedi za</string>
+    <string name="title_forward_to">Proslijedi za</string>
     <string name="title_resend">Ponovljeno slanje</string>
     <string name="title_fetching_headers">Preuzimanje zaglavlja poruke &#8230;</string>
     <string name="title_new_message">Nova poruka</string>

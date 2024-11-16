@@ -200,6 +200,9 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_office_auth">De flater ‘AUTENTIKAASJE is mislearre’ kin feroarsake wurde troch dat IMAP/SMTP troch de systeembehearder útskeakele is</string>
     <string name="title_setup_office_auth_5_7_3">Probearje de ‘Oare provider’-assistint.</string>
     <string name="title_setup_office_auth_5_7_139">Probearje de ‘Outlook/Hotmail/Live’-ynstelassistint.</string>
+    <string name="title_setup_office_not_connected">De flatermelding ‘User is authenticated but not connected’ betsjut meastentiids dat IMAP útskeakele is.
+        Gean yn it gefal fan in Outlook-account foar konsuminten nei de Outlook-website, tik op it ynstellingentsjil rjochts boppe, selektearje \'Mail\', selektearje \'Forwarding en IMAP\' en yn de seksje \'POP en IMAP\' skeakelje \'Laat apparaten en apps IMAP brûke\' yn.
+        Nim yn it gefal fan in bedriuws-, ûnderwiis-, ensfh. account kontakt op mei de systeembehearder fan de mailserver.    </string>
     <string name="title_setup_oauth_rationale">Autorisearje tagong ta jo %1$s-account</string>
     <string name="title_setup_oauth_update">Autorisearje in besteand account opnij (oars in nij account oanmeitsje)</string>
     <string name="title_setup_oauth_updated">Accountautorisaasje is bywurke</string>
@@ -1235,7 +1238,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_unimportant">Net wichtich</string>
     <string name="title_search_in_text">Sykje yn tekst&#8230;</string>
     <string name="title_forward">Trochstjoere</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Trochstjoere nei</string>
+    <string name="title_forward_to">Trochstjoere nei</string>
     <string name="title_resend">Opnij ferstjoere</string>
     <string name="title_fetching_headers">Berjochtkoppen downloade&#8230;</string>
     <string name="title_new_message">Nij berjocht</string>

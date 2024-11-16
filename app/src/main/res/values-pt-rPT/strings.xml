@@ -202,6 +202,9 @@
     <string name="title_setup_office_auth">O erro \'AUTHENTICATE failed\' pode ser causado pelo protocolo IMAP/SMTP ter sido desactivado pelo administrador do sistema</string>
     <string name="title_setup_office_auth_5_7_3">Tente o assistente de configuração rápida de \'Outro fornecedor\'.</string>
     <string name="title_setup_office_auth_5_7_139">Por favor, tente o assistente de configuração rápida \'Outlook/Hotmail/Live\'.</string>
+    <string name="title_setup_office_not_connected">O erro \'User is authenticated but not connected\' significa principalmente que o IMAP está desativado.
+        No caso de uma conta particular Outlook, por favor vá ao site do Outlook, clique no ícone das configurações no canto superior direito, selecionar \'Email\', depois selecionar \'Encaminhamento e IMAP\', na secção \'POP e IMAP\' ativar \'Permitir que dispositivos e apps utilizem IMAP\'.
+        No caso de uma conta empresarial, estudante, etc, por favor, contactar o administrador de sistema do servidor de email.    </string>
     <string name="title_setup_oauth_rationale">Autorizar o acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar novamente uma conta existente (caso contrário, criar uma conta)</string>
     <string name="title_setup_oauth_updated">Autorização de conta actualizada</string>
@@ -1241,7 +1244,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_unimportant">Não importante</string>
     <string name="title_search_in_text">Pesquisar no texto &#8230;</string>
     <string name="title_forward">Encaminhar</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Encaminhar para</string>
+    <string name="title_forward_to">Encaminhar para</string>
     <string name="title_resend">Reenviar</string>
     <string name="title_fetching_headers">A transferir cabeçalhos de mensagem &#8230;</string>
     <string name="title_new_message">Nova mensagem</string>

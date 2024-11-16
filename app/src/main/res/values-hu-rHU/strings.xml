@@ -1235,7 +1235,7 @@
     <string name="title_unimportant">Nem fontos</string>
     <string name="title_search_in_text">Keresés a szövegben &#8230;</string>
     <string name="title_forward">Továbbítás</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Továbbítás neki...</string>
+    <string name="title_forward_to">Továbbítás neki...</string>
     <string name="title_resend">Újraküldés</string>
     <string name="title_fetching_headers">Üzenetfejlécek letöltése &#8230;</string>
     <string name="title_new_message">Új üzenet</string>

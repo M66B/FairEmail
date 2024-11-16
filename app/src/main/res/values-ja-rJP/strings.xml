@@ -1226,7 +1226,7 @@
     <string name="title_unimportant">重要でない</string>
     <string name="title_search_in_text">本文を検索&#8230;</string>
     <string name="title_forward">転送</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">転送先</string>
+    <string name="title_forward_to">転送先</string>
     <string name="title_resend">再送</string>
     <string name="title_fetching_headers">メッセージヘッダーをダウンロードしています&#8230;</string>
     <string name="title_new_message">新着メッセージ</string>

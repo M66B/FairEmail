@@ -231,6 +231,10 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
     <string name="title_setup_office_auth_5_7_3">Prosím, zkuste průvodce rychlým nastavením \"jiného poskytovatele\".</string>
     <string name="title_setup_office_auth_5_7_139">Prosím, zkuste průvodce rychlým nastavením \'Outlook/Hotmail/Live\'.</string>
+    <string name="title_setup_office_not_connected">        Chyba \"User is authenticated but not connected\" většinou znamená, že je IMAP zakázán.
+        V případě spotřebitelského Outlook účtu přejděte na webovou stránku Outlooku, klepněte na kolečko nastavení v pravém horním rohu, vyberte možnost „Pošta“, vyberte možnost „Přeposílání a IMAP“ a v části „POP a IMAP“ povolte možnost „Povolit zařízením a aplikacím používat IMAP“.
+        V případě firemního, vzdělávacího apod. účtu se obraťte na správce systému e-mailového serveru.
+    </string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
     <string name="title_setup_oauth_update">Znovu autorizovat existující účet (jinak vytvořit nový účet)</string>
     <string name="title_setup_oauth_updated">Autorizace účtu byla aktualizována</string>
@@ -1267,7 +1271,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_unimportant">Nedůležité</string>
     <string name="title_search_in_text">Hledat v textu &#8230;</string>
     <string name="title_forward">Přeposlat</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Přeposlat na</string>
+    <string name="title_forward_to">Přeposlat na</string>
     <string name="title_resend">Odeslat znovu</string>
     <string name="title_fetching_headers">Stahování záhlaví zprávy &#8230;</string>
     <string name="title_new_message">Nová zpráva</string>

@@ -201,6 +201,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_office_auth">De fout \'AUTHENTICATE failed\' kan worden veroorzaakt doordat IMAP/SMTP door de systeemadministrator is uitgeschakeld</string>
     <string name="title_setup_office_auth_5_7_3">Probeer a. u. b. de \'Andere provider\' wizard.</string>
     <string name="title_setup_office_auth_5_7_139">Probeer a. u. b. de \'Outlook/Hotmail/Live\' wizard.</string>
+    <string name="title_setup_office_not_connected">De foutmelding \'User is authenticated but not connected\' betekent meestal dat IMAP is uitgeschakeld.
+        Ga in het geval van een Outlook-account voor consumenten naar de Outlook-website, tik op het instellingenwiel rechtsboven, selecteer \'Mail\', selecteer \'Forwarding en IMAP\' en in de sectie \'POP en IMAP\' schakel \'Laat apparaten en apps IMAP gebruiken\' in.
+        Neem in het geval van een bedrijfs-, onderwijs-, enz. account contact op met de systeembeheerder van de mailserver.    </string>
     <string name="title_setup_oauth_rationale">Autoriseer toegang tot uw %1$s account</string>
     <string name="title_setup_oauth_update">Autoriseer een bestaand account opnieuw (anders een nieuwe account aanmaken)</string>
     <string name="title_setup_oauth_updated">Accountautorisatie is bijgewerkt</string>
@@ -1234,7 +1237,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_unimportant">Onbelangrijk</string>
     <string name="title_search_in_text">Zoek in tekst &#8230;</string>
     <string name="title_forward">Doorsturen</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Doorsturen naar</string>
+    <string name="title_forward_to">Doorsturen naar</string>
     <string name="title_resend">Verstuur opnieuw</string>
     <string name="title_fetching_headers">Berichtkoppen downloaden &#8230;</string>
     <string name="title_new_message">Nieuw bericht</string>

@@ -1263,7 +1263,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_unimportant">Nedôležité</string>
     <string name="title_search_in_text">Hľadať v texte &#8230;</string>
     <string name="title_forward">Preposlať</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Preposlať na</string>
+    <string name="title_forward_to">Preposlať na</string>
     <string name="title_resend">Znovu odoslať</string>
     <string name="title_fetching_headers">Preberanie hlavičiek správ &#8230;</string>
     <string name="title_new_message">Nová správa</string>

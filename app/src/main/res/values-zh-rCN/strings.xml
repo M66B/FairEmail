@@ -188,6 +188,10 @@
     <string name="title_setup_office_auth">“认证失败”的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
     <string name="title_setup_office_auth_5_7_3">请尝试\'其他提供商\'快速设置向导。</string>
     <string name="title_setup_office_auth_5_7_139">请尝试“Outlook/Hotmail/Live”快速设置向导。</string>
+    <string name="title_setup_office_not_connected">        错误信息 \'User is authenticated but not connected\' 主要表示禁用了 IMAP。
+        如果是消费者 Outlook 账户，请前往 Outlook 网站， 点按右上角的设置齿轮，选择 \'邮件\' ，选择 ‘转发和IMAP\'，在 \'POP 和 IMAP\' 部分启用\'让设备和应用启用IMAP\'。
+        如果是企业、教育账户，请联系电子邮件服务器的系统管理员。
+    </string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
     <string name="title_setup_oauth_update">重新授权现有账户（否则请新建账户）</string>
     <string name="title_setup_oauth_updated">账户授权已更新</string>
@@ -1222,7 +1226,7 @@
     <string name="title_unimportant">不重要</string>
     <string name="title_search_in_text">在文本中搜索 &#8230;</string>
     <string name="title_forward">转发</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">转发给</string>
+    <string name="title_forward_to">转发给</string>
     <string name="title_resend">重新发送</string>
     <string name="title_fetching_headers">正在下载邮件标头 &#8230;</string>
     <string name="title_new_message">新邮件</string>

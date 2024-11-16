@@ -202,6 +202,10 @@
     <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP inaktiveras av systemadministratören</string>
     <string name="title_setup_office_auth_5_7_3">Försök med snabbinstallationsguiden \'Annan leverantör\'.</string>
     <string name="title_setup_office_auth_5_7_139">Försök med snabbinstallationsguiden \'Outlook/Hotmail/Live\'.</string>
+    <string name="title_setup_office_not_connected">        Felet \'Användare är autentiserad men inte ansluten\' betyder oftast att IMAP är inaktiverat.
+        När det gäller ett konsument Outlook-konto, gå till Outlook, tryck på inställningshjulet längst upp till höger, Välj \'Mail\', välj \'Vidarebefordran och IMAP\' och i avsnittet \'POP och IMAP\' aktivera \'Låt enheter och appar använda IMAP\'.
+        När det gäller ett företag, utbildning etc. kontakta systemadministratören på e-postservern.
+    </string>
     <string name="title_setup_oauth_rationale">Auktorisera åtkomst till ditt %1$s konto</string>
     <string name="title_setup_oauth_update">Auktorisera ett befintligt konto igen (annars skapa ett nytt konto)</string>
     <string name="title_setup_oauth_updated">Kontoauktorisering har uppdaterats</string>
@@ -1226,7 +1230,7 @@
     <string name="title_unimportant">Oviktigt</string>
     <string name="title_search_in_text">Sök i text &#8230;</string>
     <string name="title_forward">Vidarebefordra</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Vidarebefordra till</string>
+    <string name="title_forward_to">Vidarebefordra till</string>
     <string name="title_resend">Skicka igen</string>
     <string name="title_fetching_headers">Laddar ner meddelanderubriker &#8230;</string>
     <string name="title_new_message">Nytt meddelande</string>

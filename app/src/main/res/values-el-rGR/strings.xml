@@ -1236,7 +1236,7 @@
     <string name="title_unimportant">Μη σημαντικό</string>
     <string name="title_search_in_text">Αναζήτηση στο κείμενο &#8230;</string>
     <string name="title_forward">Προώθηση</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Προώθηση σε</string>
+    <string name="title_forward_to">Προώθηση σε</string>
     <string name="title_resend">Επαναποστολή</string>
     <string name="title_fetching_headers">Λήψη κεφαλίδων μηνυμάτων &#8230;</string>
     <string name="title_new_message">Νέο μήνυμα</string>

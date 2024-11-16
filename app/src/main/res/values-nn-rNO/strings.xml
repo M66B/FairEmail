@@ -741,7 +741,7 @@
     <string name="title_important">Viktig</string>
     <string name="title_search_in_text">Søk i tekst &#8230;</string>
     <string name="title_forward">Videresend</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Videresend til</string>
+    <string name="title_forward_to">Videresend til</string>
     <string name="title_new_message">Ny melding</string>
     <string name="title_editasnew">Rediger som ny</string>
     <string name="title_create_rule">Opprett regel &#8230;</string>

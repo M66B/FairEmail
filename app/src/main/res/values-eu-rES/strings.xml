@@ -823,7 +823,7 @@
     <string name="title_important">Garrantzitsua</string>
     <string name="title_search_in_text">Bilatu testuan &#8230;</string>
     <string name="title_forward">Birbidali</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Birbidali hona:</string>
+    <string name="title_forward_to">Birbidali hona:</string>
     <string name="title_resend">Birbidali</string>
     <string name="title_fetching_headers">Mezu-goiburuak deskargatzen &#8230;</string>
     <string name="title_new_message">Mezu berria</string>

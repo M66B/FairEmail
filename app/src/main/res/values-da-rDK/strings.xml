@@ -202,6 +202,10 @@
     <string name="title_setup_office_auth">Fejlen \'GODKENDELSE mislykkedes\' kan skyldes, at IMAP/SMTP er deaktiveret af systemadministratoren</string>
     <string name="title_setup_office_auth_5_7_3">Prøv guiden \'Anden udbyder\' for hurtig opsætning.</string>
     <string name="title_setup_office_auth_5_7_139">Prøv guiden \'Outlook/Hotmail/Live\' for hurtig opsætning.</string>
+    <string name="title_setup_office_not_connected">        Fejlen \'Bruger er godkendt men ikke tilsluttet\' betyder for det meste, at IMAP er deaktiveret.
+        I tilfælde af en forbruger Outlook-konto, gå til Outlook-webstedet, tryk på indstillingshjulet øverst til højre, vælg \'Mail\', vælg \'Videresendelse og IMAP\', og aktivér i \'POP og IMAP\'-afsnittet \'Lad enheder og apps bruge IMAP\'.
+        I tilfælde af et virksomheds-, uddannelses-konti mv., kontakt e-mailserverens systemadministrator.
+    </string>
     <string name="title_setup_oauth_rationale">Godkend adgang til din %1$s-konto</string>
     <string name="title_setup_oauth_update">Godkend en eksisterende konto igen (ellers opret en ny konto)</string>
     <string name="title_setup_oauth_updated">Kontogodkendelsen blev opdateret</string>
@@ -1241,7 +1245,7 @@
     <string name="title_unimportant">Uvigtige</string>
     <string name="title_search_in_text">Søg i tekst&#8230;</string>
     <string name="title_forward">Videresend</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Videresend til</string>
+    <string name="title_forward_to">Videresend til</string>
     <string name="title_resend">Send igen</string>
     <string name="title_fetching_headers">Downloader beskedoverskrifter &#8230;</string>
     <string name="title_new_message">Ny besked</string>

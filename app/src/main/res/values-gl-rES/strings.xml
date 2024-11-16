@@ -985,7 +985,7 @@
     <string name="title_important">Importante</string>
     <string name="title_search_in_text">Procurar no texto &#8230;</string>
     <string name="title_forward">Reenviar</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Reenviar a</string>
+    <string name="title_forward_to">Reenviar a</string>
     <string name="title_resend">Reenviar</string>
     <string name="title_fetching_headers">Baixando cabeceiras das mensaxes &#8230;</string>
     <string name="title_new_message">Nova mensaxe</string>

@@ -202,6 +202,10 @@
     <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur système</string>
     <string name="title_setup_office_auth_5_7_3">Veuillez essayer l\'assistant de configuration rapide « Autre fournisseur ».</string>
     <string name="title_setup_office_auth_5_7_139">Veuillez essayer l\'assistant d\'installation rapide \"Outlook/Hotmail/Live\".</string>
+    <string name="title_setup_office_not_connected">        L\'erreur \"User is authenticated but not connected\" signifie la plupart du temps que IMAP est désactivé.
+        Dans le cas d\'un compte individuel Outlook, veuillez aller sur le site web Outlook, cliquez sur l\'icône des paramètres en haut à droite, sélectionnez \"Courrier\", puis \"Transfert et IMAP\" et dans la section \"POP et IMAP\", activez \"Autoriser les appareils et les applications à utiliser IMAP\".
+        Dans le cas d\'un compte entreprise, éducation, etc., veuillez contacter l\'administrateur système du serveur de messagerie.
+    </string>
     <string name="title_setup_oauth_rationale">Autoriser l’accès à votre compte %1$s</string>
     <string name="title_setup_oauth_update">Autoriser à nouveau un compte existant (sinon créer un nouveau compte)</string>
     <string name="title_setup_oauth_updated">L\'autorisation du compte a été mise à jour</string>
@@ -1241,7 +1245,7 @@
     <string name="title_unimportant">Non important</string>
     <string name="title_search_in_text">Rechercher dans le texte&#8230;</string>
     <string name="title_forward">Transférer</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Transférer à</string>
+    <string name="title_forward_to">Transférer à</string>
     <string name="title_resend">Envoyer à nouveau</string>
     <string name="title_fetching_headers">Téléchargement de l\'en-tête des messages&#8230;</string>
     <string name="title_new_message">Nouveau message</string>

@@ -203,6 +203,9 @@
     <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
     <string name="title_setup_office_auth_5_7_3">Bitte probieren Sie den Assistenten »Anderer Anbieter« für die Schnelleinrichtung.</string>
     <string name="title_setup_office_auth_5_7_139">Bitte probieren Sie den Assistenten »Outlook/Hotmail/Live« für die Schnelleinrichtung.</string>
+    <string name="title_setup_office_not_connected">        Der Fehler „User is authenticated but not connected“ deutet meist darauf hin, dass IMAP deaktiviert ist.
+        Bei einem privaten Outlook-Konto gehen Sie bitte auf die Outlook-Website, tippen Sie auf das Einstellungsrad oben rechts, wählen Sie „Mail“, wählen Sie „Weiterleitung und IMAP“, und aktivieren Sie im Abschnitt „POP und IMAP“ die Option „Geräte und Anwendungen IMAP verwenden lassen“.
+        Im Falle eines Firmen- oder Schulkontos usw. wenden Sie sich bitte an den Systemadministrator des E-Mail-Servers.</string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
     <string name="title_setup_oauth_update">Ein bestehendes Konto erneut autorisieren (oder ein neues Konto erstellen)</string>
     <string name="title_setup_oauth_updated">Kontoautorisierung wurde aktualisiert</string>
@@ -1242,7 +1245,7 @@
     <string name="title_unimportant">Unwichtig</string>
     <string name="title_search_in_text">Im Text suchen &#8230;</string>
     <string name="title_forward">Weiterleiten</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Weiterleiten an</string>
+    <string name="title_forward_to">Weiterleiten an</string>
     <string name="title_resend">Umleiten</string>
     <string name="title_fetching_headers">Nachrichtenkopfzeilen werden heruntergeladen &#8230;</string>
     <string name="title_new_message">Neue Nachricht</string>

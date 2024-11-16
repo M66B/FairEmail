@@ -1240,7 +1240,7 @@
     <string name="title_unimportant">Vacib olmayan</string>
     <string name="title_search_in_text">Mətndə axtar &#8230;</string>
     <string name="title_forward">Yönləndir</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Yönləndir</string>
+    <string name="title_forward_to">Yönləndir</string>
     <string name="title_resend">Təkrar göndər</string>
     <string name="title_fetching_headers">Mesaj başlıqları endirilir &#8230;</string>
     <string name="title_new_message">Yeni mesaj</string>

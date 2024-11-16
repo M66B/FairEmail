@@ -214,6 +214,7 @@
     <string name="title_setup_no_settings">Няма намерени настройки за домейна %1$s</string>
     <string name="title_setup_no_settings_hint">Опитайте ръчна настройка на акаунта, употребявайки настройките, предоставени от доставчика на имейла ви</string>
     <string name="title_setup_no_auth_hint">Проверете дваж своите имейл адрес и парола и се уверете, че външен достъп (IMAP/SMTP) е включен за акаунта ви</string>
+    <string name="title_setup_no_auth_outlook">Трябва да употребявате вълшебника за бърза настройка на Outlook / Office 365 за този акаунт (изисква се от Microsoft)</string>
     <string name="title_setup_app_password_hint">Доставчикът изисква парола за приложение вместо паролата за акаунта, проверете указанията на доставчика си</string>
     <string name="title_setup_no_inbox">Не е намерена входяща кутия</string>
     <string name="title_setup_advanced_protection">Участвайки в програмата за разширена защита, не е възможно да използвате имейл приложение на трета страна. Това ограничение е наложено от Google.</string>
@@ -495,6 +496,7 @@
     <string name="title_advanced_close_pane">Свиване на реда или колоната при затваряне на разговора</string>
     <string name="title_advanced_column_width">Ширина на колоната на съобщението / височина на реда: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Скриване на връхната лента с инструменти, превъртайки съобщения</string>
+    <string name="title_advanced_edge_to_edge">Употреба на фоновия цвят на приложението за навигационния панел на Android</string>
     <string name="title_advanced_nav_options">Показване на възможности на менюто за навигиране</string>
     <string name="title_advanced_nav_categories">Показване на категориите на акаунта в менюто за навигация</string>
     <string name="title_advanced_nav_pin">Закачане на менюто за навигиране</string>
@@ -1236,7 +1238,7 @@
     <string name="title_unimportant">Неважно</string>
     <string name="title_search_in_text">Търсене в текст &#8230;</string>
     <string name="title_forward">Препрати</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Препращане до</string>
+    <string name="title_forward_to">Препращане до</string>
     <string name="title_resend">Изпращане пак</string>
     <string name="title_fetching_headers">Изтегляне на заглавките на съобщението&#8230;</string>
     <string name="title_new_message">Ново съобщение</string>

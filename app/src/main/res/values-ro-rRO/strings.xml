@@ -1252,7 +1252,7 @@
     <string name="title_unimportant">Neimportant</string>
     <string name="title_search_in_text">Caută în text &#8230;</string>
     <string name="title_forward">Redirecționează</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Redirecţionează către</string>
+    <string name="title_forward_to">Redirecţionează către</string>
     <string name="title_resend">Retrimite</string>
     <string name="title_fetching_headers">Descărcarea antetelor de mesaj &#8230;</string>
     <string name="title_new_message">Mesaj nou</string>

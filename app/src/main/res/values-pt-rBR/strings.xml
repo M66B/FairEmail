@@ -202,6 +202,10 @@
     <string name="title_setup_office_auth">O erro \'Falha de Autenticação\' pode ser causadado por desativação do IMAP/SMTP pelo administrador do sistema</string>
     <string name="title_setup_office_auth_5_7_3">Por favor, tente o assistente de configuração rápida \"Outro provedor\".</string>
     <string name="title_setup_office_auth_5_7_139">Por favor, tente o assistente de configuração rápida do \'Outlook/Hotmail/Live\'.</string>
+    <string name="title_setup_office_not_connected">        O erro ‘O usuário está autenticado, mas não conectado’ significa principalmente que o IMAP está desabilitado.
+        No caso de uma conta de cliente do Outlook, acesse o site do Outlook, toque na roda de configurações no canto superior direito, selecione \'Mail\', selecione \'Encaminhamento e IMAP\' e na seção \'POP e IMAP\' ative \'Permitir dispositivos e aplicativos usam IMAP\'.
+        No caso de uma conta corporativa, educacional, etc., entre em contato com o administrador do sistema do servidor de e-mail.
+    </string>
     <string name="title_setup_oauth_rationale">Autorizar acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar uma conta existente novamente (caso contrário, crie uma nova conta)</string>
     <string name="title_setup_oauth_updated">Autorização da conta foi atualizada</string>
@@ -1238,7 +1242,7 @@
     <string name="title_unimportant">Não importante</string>
     <string name="title_search_in_text">Pesquisar no texto &#8230;</string>
     <string name="title_forward">Encaminhar</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Encaminhar para</string>
+    <string name="title_forward_to">Encaminhar para</string>
     <string name="title_resend">Reenviar</string>
     <string name="title_fetching_headers">Baixando cabeçalhos de mensagens &#8230;</string>
     <string name="title_new_message">Nova mensagem</string>

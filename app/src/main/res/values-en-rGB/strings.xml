@@ -2,6 +2,7 @@
 <resources>
     <string name="channel_service_description">Synchronising and monitoring of accounts</string>
     <string name="tile_synchronize">Synchronise</string>
+    <string name="menu_test">Test programme</string>
     <string name="menu_faq">Support</string>
     <string name="menu_privacy">Privacy</string>
     <string name="title_list_accounts">Accounts</string>
@@ -17,7 +18,8 @@
     <string name="title_setup_oauth_updated">Account authorisation was updated</string>
     <string name="title_setup_oauth_browser">Authorisation requires a working browser which allows opening app links (often a security setting), so that at the end the authorisation token can be transferred to the app</string>
     <string name="title_setup_oauth_authorize">Authorise</string>
-    <string name="title_setup_quick_configure">To edit the name, colour, swipe actions, etc</string>
+    <string name="title_setup_advanced_protection">When enrolled in the advanced protection programme it is not possible to use a third party email app. This is a restriction imposed by Google.</string>
+    <string name="title_setup_quick_configure">To edit the name, colour, swipe actions, etc.</string>
     <string name="title_setup_doze">Disable battery optimisations</string>
     <string name="title_setup_doze_explanation">Battery optimisations should be disabled for the app to ensure reliable sending and receiving of messages in the background</string>
     <string name="title_setup_doze_hint">Although this may sound contradictory, turning off battery optimisations for this app will result in less battery usage</string>
@@ -92,7 +94,7 @@
     <string name="title_synchronize_batch_disable">Disable synchronisation</string>
     <string name="title_empty_trash">Empty bin</string>
     <string name="title_edit_color">Edit colour</string>
-    <string name="title_contact_email">E-mail</string>
+    <string name="title_contact_email"></string>
     <string name="title_empty_trash_ask">Remove all deleted messages permanently?</string>
     <string name="title_empty_trash_all_ask">Remove all deleted messages of all accounts permanently?</string>
     <string name="title_hint_operations">Deleting operations can result in disappearing messages and synchronisation problems</string>

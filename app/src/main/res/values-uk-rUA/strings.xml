@@ -231,6 +231,10 @@
     <string name="title_setup_office_auth">Помилка \'Автентифікація не вдалася\' викликана помилкою IMAP/SMTP можливо вимкненою системним адміністратором</string>
     <string name="title_setup_office_auth_5_7_3">Будь ласка, спробуйте загальний майстер швидкого налаштування, обравши пункт «Інші постачальники».</string>
     <string name="title_setup_office_auth_5_7_139">Будь ласка, спробуйте майстер швидкого налаштування «Outlook/Hotmail/Live».</string>
+    <string name="title_setup_office_not_connected">Помилка «User is authenticated but not connected» здебільшого означає, що IMAP вимкнено.
+        Якщо ви користуєтеся особистим обліковим записом Outlook, перейдіть на веб-сайт Outlook, натисніть на колесо налаштувань у верхньому правому куті, виберіть «Пошта», потім виберіть «Пересилання та IMAP» і в розділі «POP та IMAP» увімкніть опцію «Дозволити пристроям і програмам використовувати IMAP».
+        У разі корпоративного, освітнього тощо облікового запису зверніться до системного адміністратора поштового сервера.
+    </string>
     <string name="title_setup_oauth_rationale">Авторизувати доступ до вашого облікового запису %1$s</string>
     <string name="title_setup_oauth_update">Авторизувати наявний обліковий запис знову (або ж створити новий обліковий запис)</string>
     <string name="title_setup_oauth_updated">Авторизація облікового запису була оновлена</string>
@@ -1267,7 +1271,7 @@
     <string name="title_unimportant">Неважливі</string>
     <string name="title_search_in_text">Шукати в тексті &#8230;</string>
     <string name="title_forward">Переслати</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Переслати</string>
+    <string name="title_forward_to">Переслати</string>
     <string name="title_resend">Надіслати повторно</string>
     <string name="title_fetching_headers">Завантаження заголовків повідомлень &#8230;</string>
     <string name="title_new_message">Нове повідомлення</string>

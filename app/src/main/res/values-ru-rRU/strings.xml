@@ -230,6 +230,10 @@
     <string name="title_setup_office_auth">Ошибка \"AUTHENTICATE failed\" может быть вызвана отключением IMAP/SMTP системным администратором</string>
     <string name="title_setup_office_auth_5_7_3">Попробуйте воспользоваться мастером быстрой настройки \"Другой провайдер\".</string>
     <string name="title_setup_office_auth_5_7_139">Попробуйте воспользоваться мастером быстрой настройки \"Outlook/Hotmail/Live\".</string>
+    <string name="title_setup_office_not_connected">        Ошибка \"User is authenticated but not connected\" обычно означает, что IMAP отключён.
+        Если у вас пользовательская учётная запись Outlook, перейдите на сайт Outlook, нажмите на значок настроек в правом верхнем углу, выберите \"Почта\", затем \"Переадресация и IMAP\" и в разделе \"POP и IMAP\" включите \"Разрешить устройствам и приложениям использовать IMAP\".
+        Если у вас корпоративная или учебная учётная запись и т.п., свяжитесь с системным администратором сервера электронной почты.
+    </string>
     <string name="title_setup_oauth_rationale">Авторизовать доступ к вашей учётной записи %1$s</string>
     <string name="title_setup_oauth_update">Авторизация существующей учётной записи (или создание новой)</string>
     <string name="title_setup_oauth_updated">Авторизация учётной записи обновлена</string>
@@ -1268,7 +1272,7 @@
     <string name="title_unimportant">Неважное</string>
     <string name="title_search_in_text">Поиск в тексте&#8230;</string>
     <string name="title_forward">Переслать</string>
-    <string name="title_forward_to" comment="title_forward_to&#10;Title for menu item to forward to &lt;selectable email address&gt;&#10;Please use the same wording as title_forward (&quot;Forward&quot;)">Переслать</string>
+    <string name="title_forward_to">Переслать</string>
     <string name="title_resend">Перенаправить</string>
     <string name="title_fetching_headers">Загрузка заголовков сообщений&#8230;</string>
     <string name="title_new_message">Новое сообщение</string>
