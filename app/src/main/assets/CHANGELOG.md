@@ -27,7 +27,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2248 2024-11-17
 
 * Fixed crash on removing privacy sensitive info from images (reverted to previous EXIF library)
 * Small improvements and minor bug fixes
