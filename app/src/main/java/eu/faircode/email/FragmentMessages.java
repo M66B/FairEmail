@@ -8233,10 +8233,11 @@ public class FragmentMessages extends FragmentBase
                                 db.message().setMessageUiIgnored(message.id, true);
                         }
 
-                        if (account.protocol != EntityAccount.TYPE_IMAP || message.uid != null) {
-                            if (account.auto_seen)
+                        if (account.auto_seen)
+                            if (account.protocol != EntityAccount.TYPE_IMAP || message.uid != null)
                                 EntityOperation.queue(context, message, EntityOperation.SEEN, true);
-                        }
+                            else
+                                db.message().setMessageUiSeen(message.id, true);
                     }
 
                     if (account.protocol != EntityAccount.TYPE_IMAP || message.uid != null) {
