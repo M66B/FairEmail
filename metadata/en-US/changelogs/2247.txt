@@ -27,6 +27,12 @@ For support you can use the contact form.
 
 Barsboldia
 
+Next version
+
+* Fixed crash on removing privacy sensitive info from images (reverted to previous EXIF library)
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2247 2024-11-16
 
 * Small improvements and minor bug fixes
