@@ -2190,8 +2190,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             cowner.value.start();
 
                             db.operation().liveOperations(account.id).observe(cowner.value, new Observer<List<TupleOperationEx>>() {
-                                private DutyCycle dc = new DutyCycle(account.name + " operations");
-                                private List<Long> handling = new ArrayList<>();
+                                private final DutyCycle dc = new DutyCycle(account.name + " operations");
+                                private final List<Long> handling = new ArrayList<>();
                                 private final Map<TupleOperationEx.PartitionKey, List<TupleOperationEx>> partitions = new HashMap<>();
 
                                 private final PowerManager.WakeLock wlOperations = pm.newWakeLock(
@@ -2210,7 +2210,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             added.get(op.folder).add(op);
                                         }
                                     }
-                                    handling = all;
+                                    handling.clear();
+                                    handling.addAll(all);
 
                                     if (empty_pool && istore instanceof IMAPStore) {
                                         getMainHandler().removeCallbacks(purge);
