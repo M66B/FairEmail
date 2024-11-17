@@ -8237,7 +8237,8 @@ public class FragmentMessages extends FragmentBase
                             if (account.protocol != EntityAccount.TYPE_IMAP || message.uid != null)
                                 EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                             else
-                                db.message().setMessageUiSeen(message.id, true);
+                                for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid, message.hash))
+                                    db.message().setMessageUiSeen(similar.id, true);
                     }
 
                     if (account.protocol != EntityAccount.TYPE_IMAP || message.uid != null) {
