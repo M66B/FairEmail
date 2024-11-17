@@ -230,6 +230,10 @@
     <string name="title_setup_office_auth">השגיאה ‚AUTHENTICATE נכשל’ עלולה להיגרם עקב IMAP/SMTP שהושבתו על ידי הנהלת המערכת</string>
     <string name="title_setup_office_auth_5_7_3">נא לנסות את אשף ההקמה המהירה עבור ‚ספק אחר’.</string>
     <string name="title_setup_office_auth_5_7_139">נא לנסות את אשף ההקמה המהירה עבור ‚Outlook/Hotmail/Live’.</string>
+    <string name="title_setup_office_not_connected">        משמעות השגיאה ‚User is authenticated but not connected’ היא בדרך כלל שה־IMAP מושבת.
+        אם זה חשבון לקוח ב־Outlook נא לגשת לאתר של Outlook לגעת בגלגל ההגדרות משמאל למעלה, לבחור ב‚דוא״ל’, ואז ב־‚העברה ו־IMAP’, בסעיף ‚POP ו־IMAP’ להפעיל את ‚לאפשר למכשירים וליישומים להשתמש ב־IMAP’.
+        אם זה חלק מחשבון תאגידי, חינוכי ועוד, נא ליצור קשר עם הנהלת מערכת שרת הדוא״ל.
+    </string>
     <string name="title_setup_oauth_rationale">להרשות גישה לחשבון %1$s שלך</string>
     <string name="title_setup_oauth_update">אימות חשבון קיים שוב (אחרת ליצור חשבון חדש)</string>
     <string name="title_setup_oauth_updated">אישור החשבון עודכן</string>
