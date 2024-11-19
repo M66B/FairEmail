@@ -126,6 +126,7 @@ public class EmailProvider implements Parcelable {
     private static final List<String> PROPRIETARY = Collections.unmodifiableList(Arrays.asList(
             "protonmail.ch",
             "protonmail.com",
+            "proton.me",
             "tutanota.com",
             "tutanota.de",
             "tutamail.com", // tutanota
