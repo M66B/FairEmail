@@ -201,6 +201,9 @@
     <string name="title_setup_office_auth">Az \'AUTHENTICATE failed\' hibának oka lehet hogy a rendszeradminisztrátor kikapcsolta az IMAP/SMTP-t</string>
     <string name="title_setup_office_auth_5_7_3">Kérem próbálja meg az \"Egyéb szolgáltató\" gyorsbeállítás varázslót.</string>
     <string name="title_setup_office_auth_5_7_139">Kérem, próbálja meg az \"Outlook/Hotmail/Live\" gyorsbeállítás varázslót.</string>
+    <string name="title_setup_office_not_connected">        A  \'User is authenticated but not connected\' többnyire azt jelenti, hogy az IMAP ki van kapcsolva.
+        Magánszemélyként használt Outlook fiók esetén, nyissa meg az Outlook weboldalt, kattintson a Beállításokra a jobb felső sarokban, válassza a \"Levelezés\", majd a \"Továbbítás és IMAP\" menüpontot, és a \"POP és IMAP\" résznél kattintson az \"Engedélyezze az eszközök és alkalmazások számára az IMAP használatát\" pontra.
+       Vállalati, oktatási, stb. fiók esetén, kérem a levelezőszerver rendszergazdájával vegye fel a kapcsolatot.    </string>
     <string name="title_setup_oauth_rationale">Engedélyezze a hozzáférést a %1$s fiókjához</string>
     <string name="title_setup_oauth_update">Ismételt bejelentkezés egy már meglevő fiókba (vagy új fiók létrehozása)</string>
     <string name="title_setup_oauth_updated">A fiókhitelesítés frissült</string>
