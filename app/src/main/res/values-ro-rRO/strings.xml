@@ -216,6 +216,10 @@
     <string name="title_setup_office_auth">Eroarea \'Autentificare eșuată\' poate fi cauzată de dezactivarea administrativă a IMAP/SMTP</string>
     <string name="title_setup_office_auth_5_7_3">Vă rugăm să încercați expertul de configurare rapidă \'Alt furnizor\'.</string>
     <string name="title_setup_office_auth_5_7_139">Vă rugăm să încercați asistentul \"Outlook/Hotmail/Live\" pentru configurare rapidă.</string>
+    <string name="title_setup_office_not_connected">        Eroarea \'Utilizatorul este autentificat dar nu este conectat\' în general înseamnă că IMAP este dezactivat.
+        În cazul unui cont Outlook deutilizator, vă rugăm să mergeți la pagina web Outlook, apăsați pe setările din partea dreaptă sus, selectați \'Mail\', selectați \'Redirecționare și IMAP\', iar în secțiunea \'POP și IMAP\' activați \'Permiteți dispozitivelor și aplicațiilor să utilizeze IMAP\'.
+        În cazul unui cont de corporație, educație etc, vă rugăm să contactați administratorul de sistem al serverului de e-mail.
+    </string>
     <string name="title_setup_oauth_rationale">Autorizare acces la contul %1$s</string>
     <string name="title_setup_oauth_update">Autorizați din nou un cont existent (în caz contrar, creați un cont nou)</string>
     <string name="title_setup_oauth_updated">Autorizarea contului a fost actualizată</string>
