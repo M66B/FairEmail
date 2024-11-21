@@ -891,7 +891,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         }
                     }
                 }
-            } catch (IOException ex) {
+            } catch (OutOfMemoryError | IOException ex) {
                 Log.e(ex);
             }
 
