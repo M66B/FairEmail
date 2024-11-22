@@ -1230,7 +1230,13 @@ public class FragmentMessages extends FragmentBase
                                 cal.set(Calendar.SECOND, 0);
                                 cal.set(Calendar.MILLISECOND, 0);
 
-                                cal.add(Calendar.DATE, 1);
+                                if (date_week) {
+                                    cal.setMinimalDaysInFirstWeek(4); // ISO 8601
+                                    cal.setFirstDayOfWeek(Calendar.MONDAY);
+                                    cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+                                    cal.add(Calendar.DATE, 7);
+                                } else
+                                    cal.add(Calendar.DATE, 1);
                                 long to = cal.getTimeInMillis();
 
                                 cal.add(Calendar.DATE, date_week ? -7 : -1);
