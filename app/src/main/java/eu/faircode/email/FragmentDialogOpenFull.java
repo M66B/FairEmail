@@ -31,6 +31,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import androidx.annotation.Nullable;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
@@ -63,6 +66,38 @@ public class FragmentDialogOpenFull extends FragmentDialogBase {
         final Context context = getContext();
 
         View view = inflater.inflate(R.layout.fragment_open_full, container, false);
+
+        ViewCompat.setOnApplyWindowInsetsListener(view, (v, windowInsets) -> {
+            try {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+
+                boolean changed = false;
+                ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+                if (mlp.leftMargin != insets.left) {
+                    changed = true;
+                    mlp.leftMargin = insets.left;
+                }
+                if (mlp.topMargin != insets.top) {
+                    changed = true;
+                    mlp.topMargin = insets.top;
+                }
+                if (mlp.rightMargin != insets.right) {
+                    changed = true;
+                    mlp.rightMargin = insets.right;
+                }
+                if (mlp.bottomMargin != insets.bottom) {
+                    changed = true;
+                    mlp.bottomMargin = insets.bottom;
+                }
+                if (changed)
+                    v.setLayoutParams(mlp);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
+            return WindowInsetsCompat.CONSUMED;
+        });
+
         WebView wv = view.findViewById(R.id.wv);
 
         WebSettings settings = wv.getSettings();
