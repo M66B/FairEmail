@@ -7,7 +7,8 @@
 Google requires FairEmail to undergo an annual [CASA](https://appdefensealliance.dev/casa) security audit,
 which must be conducted by an authorized assessor (this year [TAC Security](https://casa.tacsecurity.com/site/home)).
 Besides being time-consuming, this is no longer free as of this year.
-This is one of the reasons why the app cannot be completely free.
+This is one of the reasons why the app cannot be completely free, meaning some features must be paid for in order to pay for an annual security audit.
+To be clear, nothing will be changed for now.
 
 <br>
 
