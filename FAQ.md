@@ -6008,7 +6008,6 @@ Note that the reference time is the time the message was first stored on the dev
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq197)
 
-
 You can print a message, both to a PDF or a printer, by tapping on the horizontal three-dots button just above the message text near the left side.
 You might need to tap on the '>' button to show the message actions again.
 
@@ -6016,6 +6015,7 @@ Note that you can configure a button for printing via the same pop-up menu.
 
 Printing is managed by Android for all apps. You should be able to select the paper size, etc.
 You might need to update or install a driver app for your printer via the Play Store.
+For example, for [HP printers](https://play.google.com/store/apps/details?id=com.hp.android.printservice).
 
 A message is printed as-is, which means that the sender of the message determines the margins, etc.
 
