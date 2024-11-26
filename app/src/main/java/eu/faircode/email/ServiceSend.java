@@ -1009,7 +1009,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             }
 
             // Mark replied
-            if (message.inreplyto != null) {
+            if (message.inreplyto != null && message.wasforwardedfrom == null) {
                 List<EntityMessage> replieds = db.message().getMessagesByMsgId(message.account, message.inreplyto);
                 for (EntityMessage replied : replieds)
                     EntityOperation.queue(this, replied, EntityOperation.ANSWERED, true);
