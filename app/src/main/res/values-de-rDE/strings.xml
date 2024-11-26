@@ -203,9 +203,10 @@
     <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
     <string name="title_setup_office_auth_5_7_3">Bitte probieren Sie den Assistenten »Anderer Anbieter« für die Schnelleinrichtung.</string>
     <string name="title_setup_office_auth_5_7_139">Bitte probieren Sie den Assistenten »Outlook/Hotmail/Live« für die Schnelleinrichtung.</string>
-    <string name="title_setup_office_not_connected">        Der Fehler „User is authenticated but not connected“ deutet meist darauf hin, dass IMAP deaktiviert ist.
-        Bei einem privaten Outlook-Konto gehen Sie bitte auf die Outlook-Website, tippen Sie auf das Einstellungsrad oben rechts, wählen Sie „Mail“, wählen Sie „Weiterleitung und IMAP“, und aktivieren Sie im Abschnitt „POP und IMAP“ die Option „Geräte und Anwendungen IMAP verwenden lassen“.
-        Im Falle eines Firmen- oder Schulkontos usw. wenden Sie sich bitte an den Systemadministrator des E-Mail-Servers.</string>
+    <string name="title_setup_office_not_connected">        Die Fehlermeldung »User is authenticated but not connected« bedeutet meistens, dass IMAP deaktiviert ist.
+        Falls Sie ein privates Outlook-Konto verwenden, rufen Sie bitte die Outlook-Website auf. Klicken Sie oben rechts auf das Zahnrad und wählen Sie »Mail«, dann »Weiterleitung und IMAP« aus. Im Abschnitt »POP und IMAP« bitte die Einstellung »Geräte und Apps die Verwendung von IMAP erlauben« aktivieren.
+        Falls es sich hierbei nicht um ein privates Konto handelt, z. B. Geschäfts- oder Schulkonto, kontaktieren Sie bitte den Systemadministrator Ihres E-Mail-Servers.
+    </string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
     <string name="title_setup_oauth_update">Ein bestehendes Konto erneut autorisieren (oder ein neues Konto erstellen)</string>
     <string name="title_setup_oauth_updated">Kontoautorisierung wurde aktualisiert</string>
