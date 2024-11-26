@@ -4348,6 +4348,7 @@ You can reset asked questions via the three dots overflow menu in the miscellane
 **ProtonMail** uses a proprietary email protocol
 and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/),
 so you cannot use FairEmail or any other Android email client to access ProtonMail.
+Unfortunately, Proton has no plans to add [a mail bridge for Android](https://github.com/ProtonMail/proton-bridge/issues/427).
 
 **Tutanota** uses a proprietary email protocol
 and [does not support IMAP](https://tutanota.com/faq/#imap),
