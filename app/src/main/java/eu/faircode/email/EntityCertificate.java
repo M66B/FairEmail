@@ -28,7 +28,11 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import org.bouncycastle.asn1.ASN1Encodable;
+import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.DEROctetString;
+import org.bouncycastle.asn1.DERUTF8String;
+import org.bouncycastle.asn1.DLSequence;
+import org.bouncycastle.asn1.DLTaggedObject;
 import org.bouncycastle.asn1.x500.AttributeTypeAndValue;
 import org.bouncycastle.asn1.x500.RDN;
 import org.bouncycastle.asn1.x500.X500Name;
@@ -190,6 +194,18 @@ public class EntityCertificate {
                 for (List altName : altNames)
                     if (altName.get(0).equals(GeneralName.rfc822Name))
                         result.add((String) altName.get(1));
+                    else if (altName.get(0).equals(GeneralName.otherName) && altName.get(1) instanceof byte[])
+                        try {
+                            ASN1InputStream decoder = new ASN1InputStream((byte[]) altName.get(1));
+                            DLTaggedObject encoded = (DLTaggedObject) decoder.readObject();
+                            String othername = DERUTF8String.getInstance(
+                                    ((DLTaggedObject) ((DLSequence) encoded.getBaseObject())
+                                            .getObjectAt(1)).getBaseObject()).getString();
+                            if (Helper.EMAIL_ADDRESS.matcher(othername).matches())
+                                result.add(othername);
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
                     else
                         Log.i("Alt type=" + altName.get(0) + " data=" + altName.get(1));
         } catch (CertificateParsingException ex) {
