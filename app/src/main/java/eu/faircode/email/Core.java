@@ -688,6 +688,7 @@ class Core {
                             // Add: NO APPEND failed
                             // Add: BAD [TOOBIG] Message too large.
                             // Add: NO Permission denied
+                            // Add: NO Message size exceeds fixed maximum message size. Size: xxx KB, Max size: yyy KB
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
