@@ -627,6 +627,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         popupMenu.getMenu().add(Menu.NONE, R.string.title_expunge, order++, R.string.title_expunge);
                 }
 
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_mark_all_read, order++, R.string.title_mark_all_read);
+
                 if (EntityFolder.TRASH.equals(folder.type))
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, order++, R.string.title_empty_trash);
                 else if (EntityFolder.JUNK.equals(folder.type))
@@ -803,6 +805,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         return true;
                     } else if (itemId == R.string.title_subscribe) {
                         onActionSubscribe();
+                        return true;
+                    } else if (itemId == R.string.title_mark_all_read) {
+                        onActionMarkAllRead();
                         return true;
                     } else if (itemId == R.string.title_empty_trash) {
                         onActionEmpty(EntityFolder.TRASH);
@@ -1242,6 +1247,27 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "folder:expunge");
+                }
+
+                private void onActionMarkAllRead() {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean all_read_asked = prefs.getBoolean("all_read_asked", false);
+                    if (all_read_asked) {
+                        FragmentMessages.markAllRead(parentFragment, folder.type, folder.id, AdapterMessage.ViewType.FOLDER);
+                        return;
+                    }
+
+                    Bundle args = new Bundle();
+                    args.putString("type", folder.type);
+                    args.putLong("folder", folder.id);
+
+                    args.putString("question", context.getString(R.string.title_mark_all_read));
+                    args.putString("notagain", "all_read_asked");
+
+                    FragmentDialogAsk ask = new FragmentDialogAsk();
+                    ask.setArguments(args);
+                    ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_ALL_READ);
+                    ask.show(parentFragment.getParentFragmentManager(), "folder:allread");
                 }
 
                 private void onActionEmpty(String type) {
