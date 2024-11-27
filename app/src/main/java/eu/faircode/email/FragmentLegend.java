@@ -48,6 +48,7 @@ public class FragmentLegend extends FragmentBase {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.menu_legend);
+        setHasOptionsMenu(true); // To intercept back
 
         if (savedInstanceState != null)
             layout = savedInstanceState.getInt("fair:layout");
