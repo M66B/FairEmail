@@ -1197,6 +1197,8 @@ public class FragmentMessages extends FragmentBase
                         public void onLongPress(@NonNull MotionEvent e) {
                             if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                                 return;
+                            if (swiping)
+                                return;
 
                             int x = Math.round(e.getX());
                             int y = Math.round(e.getY());
