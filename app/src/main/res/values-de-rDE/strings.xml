@@ -90,7 +90,7 @@
     </string>
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
-    <string name="title_block_sender_domain">Domain »%1$s« sperren</string>
+    <string name="title_block_sender_domain">Domain »%1$s« blockieren</string>
     <string name="title_block_sender_remark">Sperren bedeutet automatisch in den Spam-Ordner verschieben</string>
     <string name="title_block_sender_hint">        Das Sperren eines Absenders ist eine kostenlose Funktion.
         Das Sperren der Domain eines Absenders verwendet Filterregeln, 
