@@ -3255,10 +3255,21 @@ public class FragmentMessages extends FragmentBase
             }
         }
 
+        private Runnable disableSwiping = new Runnable() {
+            @Override
+            public void run() {
+                swiping = false;
+            }
+        };
+
         @Override
         public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
             super.onSelectedChanged(viewHolder, actionState);
-            swiping = (actionState == ItemTouchHelper.ACTION_STATE_SWIPE);
+            getMainHandler().removeCallbacks(disableSwiping);
+            if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE)
+                swiping = true;
+            else
+                getMainHandler().postDelayed(disableSwiping, ViewConfiguration.getLongPressTimeout() + 100);
         }
 
         @Override
