@@ -1671,7 +1671,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 if (account.keep_alive_noop) {
                     int timeout = prefs.getInt("timeout", EmailService.DEFAULT_CONNECT_TIMEOUT);
-                    iservice.setRestartIdleInterval(timeout * 2 * 6); // 20 x 2 x 6 = 4 min
+                    if (account.isYahoo() && timeout < 60) {
+                        int factor = 60 / timeout;
+                        iservice.setRestartIdleInterval(timeout * factor);
+                    } else
+                        iservice.setRestartIdleInterval(timeout * 2 * 6); // 20 x 2 x 6 = 4 min
                 }
 
                 final Date lastStillHere = new Date(0);
