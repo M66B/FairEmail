@@ -4116,10 +4116,13 @@ public class FragmentMessages extends FragmentBase
                     long last = new Date().getTime() - MAX_FORWARD_ADDRESS_AGE;
                     List<String> fwds = db.message().getForwardAddresses(message.account, last);
                     if (fwds != null)
-                        for (String fwd : fwds)
-                            for (Address address : DB.Converters.decodeAddresses(fwd))
-                                if (address instanceof InternetAddress)
-                                    result.forwarded.add((InternetAddress) address);
+                        for (String fwd : fwds) {
+                            Address[] afwds = DB.Converters.decodeAddresses(fwd);
+                            if (afwds != null)
+                                for (Address address : afwds)
+                                    if (address instanceof InternetAddress)
+                                        result.forwarded.add((InternetAddress) address);
+                        }
                 }
 
                 return result;
