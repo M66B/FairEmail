@@ -28,6 +28,14 @@ For support you can use the contact form.
 
 Barsboldia
 
+Next version
+
+* Fixed all reported bugs
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
 1.2249 2024-11-20 *
 
 * Small improvements and minor bug fixes
