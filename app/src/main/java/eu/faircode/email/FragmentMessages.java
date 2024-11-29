@@ -3259,6 +3259,7 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void run() {
                 swiping = false;
+                Log.i("Swiping ended");
             }
         };
 
@@ -3266,9 +3267,10 @@ public class FragmentMessages extends FragmentBase
         public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
             super.onSelectedChanged(viewHolder, actionState);
             getMainHandler().removeCallbacks(disableSwiping);
-            if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE)
+            if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
                 swiping = true;
-            else
+                Log.i("Swiping started");
+            } else
                 getMainHandler().postDelayed(disableSwiping, ViewConfiguration.getLongPressTimeout() + 100);
         }
 
