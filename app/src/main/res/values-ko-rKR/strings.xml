@@ -1542,8 +1542,10 @@
     <string name="title_accessibility_to">받는사람</string>
     <string-array name="pollIntervalNames">
         <item>항상</item>
-        <item>매 5분</item>
-        <item>매 10분</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
+        <item>Every 5 minutes</item>
+        <item>Every 10 minutes</item>
         <item>매 15분</item>
         <item>매 30분</item>
         <item>매시간</item>

@@ -1389,8 +1389,10 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_accessibility_to">Destinatari</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
-        <item>Cada 5 minuts</item>
-        <item>Cada 10 minuts</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
+        <item>Every 5 minutes</item>
+        <item>Every 10 minutes</item>
         <item>Cada 15 minuts</item>
         <item>Cada 30 minuts</item>
         <item>Cada hora</item>

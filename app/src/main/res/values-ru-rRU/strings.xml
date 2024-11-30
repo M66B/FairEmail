@@ -2212,8 +2212,10 @@
     <string name="title_accessibility_to">Получатель</string>
     <string-array name="pollIntervalNames">
         <item>Непрерывно</item>
-        <item>Каждые 5 минут</item>
-        <item>Каждые 10 минут</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
+        <item>Every 5 minutes</item>
+        <item>Every 10 minutes</item>
         <item>Каждые 15 минут</item>
         <item>Каждые 30 минут</item>
         <item>Каждый час</item>

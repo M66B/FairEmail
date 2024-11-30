@@ -1910,8 +1910,10 @@
     <string name="title_accessibility_to">Prejemnik</string>
     <string-array name="pollIntervalNames">
         <item>Vedno</item>
-        <item>Vsakih 5 minut</item>
-        <item>Vsakih 10 minut</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
+        <item>Every 5 minutes</item>
+        <item>Every 10 minutes</item>
         <item>Vsakih 15 minut</item>
         <item>Vsakih 30 minut</item>
         <item>Vsako uro</item>

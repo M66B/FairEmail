@@ -801,6 +801,8 @@
     <string name="title_accessibility_to">ପ୍ରାପ୍ତେସୁ</string>
     <string-array name="pollIntervalNames">
         <item>ସର୍ବଦା</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
         <item>ପ୍ରତି ୫ ମିନିଟରେ</item>
         <item>Every 10 minutes</item>
         <item>ପ୍ରତି ୧୫ ମିନିଟରେ</item>

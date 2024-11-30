@@ -84,8 +84,10 @@
     <string name="title_accessibility_folders">Dopsies</string>
     <string-array name="pollIntervalNames">
         <item>Always</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
         <item>Elke 5 minute</item>
-        <item>Elke 10 minute</item>
+        <item>Every 10 minutes</item>
         <item>Elke 15 minute</item>
         <item>Elke 30 minute</item>
         <item>Elke uur</item>

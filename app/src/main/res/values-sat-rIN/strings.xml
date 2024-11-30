@@ -151,7 +151,9 @@
     <string name="title_accessibility_folders">ᱯᱷᱚᱞᱰᱟᱨ ᱠᱚ</string>
     <string-array name="pollIntervalNames">
         <item>Always</item>
-        <item>ᱥᱟᱱᱟᱢ 5 ᱢᱤᱱᱤᱴᱥ</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
+        <item>Every 5 minutes</item>
         <item>ᱥᱟᱱᱟᱢ 10 ᱢᱤᱱᱤᱴᱥ</item>
         <item>ᱥᱟᱱᱟᱢ 15 ᱢᱤᱱᱤᱴᱥ</item>
         <item>ᱥᱟᱱᱟᱢ 30 ᱢᱤᱱᱤᱴᱥ</item>

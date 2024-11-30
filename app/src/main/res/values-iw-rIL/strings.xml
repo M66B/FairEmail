@@ -2212,6 +2212,8 @@
     <string name="title_accessibility_to">נמען</string>
     <string-array name="pollIntervalNames">
         <item>תמיד</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
         <item>כל 5 דקות</item>
         <item>כל 10 דקות</item>
         <item>כל רבע שעה</item>

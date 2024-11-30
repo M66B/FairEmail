@@ -90,7 +90,7 @@
     </string>
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
-    <string name="title_block_sender_domain">Domain »%1$s« blockieren</string>
+    <string name="title_block_sender_domain">Domain »%1$s« sperren</string>
     <string name="title_block_sender_remark">Sperren bedeutet automatisch in den Spam-Ordner verschieben</string>
     <string name="title_block_sender_hint">        Das Sperren eines Absenders ist eine kostenlose Funktion.
         Das Sperren der Domain eines Absenders verwendet Filterregeln, 
@@ -2184,7 +2184,9 @@
     <string name="title_accessibility_to">Empfänger</string>
     <string-array name="pollIntervalNames">
         <item>Immer</item>
-        <item>Alle 5 Minuten</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
+        <item>Every 5 minutes</item>
         <item>Alle 10 Minuten</item>
         <item>Alle 15 Minuten</item>
         <item>Alle 30 Minuten</item>

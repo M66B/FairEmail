@@ -2178,6 +2178,8 @@
     <string name="title_accessibility_to">Alan</string>
     <string-array name="pollIntervalNames">
         <item>Həmişə</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
         <item>Hər 5 dəqiqədə</item>
         <item>Hər 10 dəqiqədə</item>
         <item>Hər 15 dəqiqədə</item>

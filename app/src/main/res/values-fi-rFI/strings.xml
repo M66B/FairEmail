@@ -2151,8 +2151,10 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
     <string name="title_accessibility_to">Vastaanottaja</string>
     <string-array name="pollIntervalNames">
         <item>Jatkuvasti</item>
-        <item>5 minuutin välein</item>
-        <item>10 minuutin välein</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
+        <item>Every 5 minutes</item>
+        <item>Every 10 minutes</item>
         <item>15 minuutin välein</item>
         <item>30 minuutin välein</item>
         <item>Joka tunti</item>

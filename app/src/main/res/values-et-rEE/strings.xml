@@ -2169,6 +2169,8 @@
     <string name="title_accessibility_to">Saaja</string>
     <string-array name="pollIntervalNames">
         <item>Pidevalt</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
         <item>5 minuti tagant</item>
         <item>10 minuti tagant</item>
         <item>15 minuti tagant</item>

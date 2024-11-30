@@ -2182,8 +2182,10 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_accessibility_to">Destinatário</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
         <item>A cada 5 minutos</item>
-        <item>A cada 10 minutos</item>
+        <item>Every 10 minutes</item>
         <item>A cada 15 minutos</item>
         <item>A cada 30 minutos</item>
         <item>A cada hora</item>

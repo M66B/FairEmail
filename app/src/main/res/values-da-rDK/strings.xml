@@ -2183,6 +2183,8 @@
     <string name="title_accessibility_to">Modtager</string>
     <string-array name="pollIntervalNames">
         <item>Altid</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
         <item>Hvert 5. minut</item>
         <item>Hvert 10. minut</item>
         <item>Hvert 15. minut</item>

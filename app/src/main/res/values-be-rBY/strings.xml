@@ -2211,6 +2211,8 @@
     <string name="title_accessibility_to">Атрымальнік</string>
     <string-array name="pollIntervalNames">
         <item>Заўсёды</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
         <item>Кожныя 5 хвілін</item>
         <item>Кожныя 10 хвілін</item>
         <item>Кожныя 15 хвілін</item>

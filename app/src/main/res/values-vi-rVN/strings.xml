@@ -1764,8 +1764,10 @@
     <string name="title_accessibility_to">Người nhận</string>
     <string-array name="pollIntervalNames">
         <item>Luôn luôn</item>
-        <item>Mỗi 5 phút</item>
-        <item>Mỗi 10 phút</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
+        <item>Every 5 minutes</item>
+        <item>Every 10 minutes</item>
         <item>Mỗi 15 phút</item>
         <item>Mỗi 30 phút</item>
         <item>Mỗi tiếng</item>

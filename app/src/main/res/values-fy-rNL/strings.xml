@@ -2173,6 +2173,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_accessibility_to">Untfanger</string>
     <string-array name="pollIntervalNames">
         <item>Altyd</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
         <item>Elke 5 minuten</item>
         <item>Elke 10 minuten</item>
         <item>Elke 15 minuten</item>

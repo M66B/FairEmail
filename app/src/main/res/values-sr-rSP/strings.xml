@@ -971,8 +971,10 @@
     <string name="title_accessibility_to">Прималац</string>
     <string-array name="pollIntervalNames">
         <item>Увек</item>
-        <item>Сваких 5 минута</item>
-        <item>Сваких 10 минута</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
+        <item>Every 5 minutes</item>
+        <item>Every 10 minutes</item>
         <item>Сваких 15 минута</item>
         <item>Сваких 30 минута</item>
         <item>На сваких сат времена</item>

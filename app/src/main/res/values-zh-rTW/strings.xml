@@ -2152,8 +2152,10 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
     <string name="title_accessibility_to">接收者</string>
     <string-array name="pollIntervalNames">
         <item>時時</item>
-        <item>每 5 分鐘</item>
-        <item>每 10 分鐘</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
+        <item>Every 5 minutes</item>
+        <item>Every 10 minutes</item>
         <item>每 15 分鐘</item>
         <item>每 30 分鐘</item>
         <item>每 1 小時</item>

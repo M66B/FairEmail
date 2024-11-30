@@ -2143,8 +2143,10 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_accessibility_to">Penerima</string>
     <string-array name="pollIntervalNames">
         <item>Selalu</item>
-        <item>Setiap 5 menit</item>
-        <item>Setiap 10 menit</item>
+        <item>Every minute</item>
+        <item>Every 2 minutes</item>
+        <item>Every 5 minutes</item>
+        <item>Every 10 minutes</item>
         <item>Setiap 15 menit</item>
         <item>Setiap 30 menit</item>
         <item>Setiap jam</item>
