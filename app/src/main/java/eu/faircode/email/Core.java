@@ -299,7 +299,8 @@ class Core {
                                             account.protocol == EntityAccount.TYPE_IMAP) {
                                         JSONArray jnext = new JSONArray(next.args);
                                         // Same target
-                                        if (jargs.getLong(0) == jnext.getLong(0) &&
+                                        if (Objects.equals(op.account, next.account) &&
+                                                jargs.getLong(0) == jnext.getLong(0) &&
                                                 jargs.optBoolean(4) == jnext.optBoolean(4)) {
                                             EntityMessage m = db.message().getMessage(next.message);
                                             if (m != null && m.uid != null)
