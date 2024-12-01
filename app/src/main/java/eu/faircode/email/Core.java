@@ -818,7 +818,7 @@ class Core {
 
         DB db = DB.getInstance(context);
 
-        Long uid = findUid(context, account, ifolder, message.msgid);
+        Long uid = findUid(context, account, ifolder, message.msgid, null);
         if (uid == null) {
             if (EntityOperation.MOVE.equals(op.name) &&
                     EntityFolder.DRAFTS.equals(folder.type))
@@ -840,13 +840,13 @@ class Core {
         message.uid = uid;
     }
 
-    private static Long findUid(Context context, EntityAccount account, IMAPFolder ifolder, String msgid) throws MessagingException, IOException {
+    private static Long findUid(Context context, EntityAccount account, IMAPFolder ifolder, String msgid, Long from) throws MessagingException, IOException {
         String name = ifolder.getFullName();
         Log.i(name + " searching for msgid=" + msgid);
 
         Long uid = null;
 
-        Message[] imessages = findMsgId(context, account, ifolder, msgid);
+        Message[] imessages = findMsgId(context, account, ifolder, msgid, from);
         if (imessages != null)
             for (Message iexisting : imessages)
                 try {
@@ -865,10 +865,12 @@ class Core {
         return uid;
     }
 
-    private static Message[] findMsgId(Context context, EntityAccount account, IMAPFolder ifolder, String msgid) throws MessagingException, IOException {
+    private static Message[] findMsgId(Context context, EntityAccount account, IMAPFolder ifolder, String msgid, Long from) throws MessagingException, IOException {
         // https://stackoverflow.com/questions/18891509/how-to-get-message-from-messageidterm-for-yahoo-imap-profile
-        if (account.isYahooJp()) {
-            Message[] itemps = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date()));
+        if (account.isYahooJp() || from != null) {
+            Message[] itemps = ifolder.search(
+                    new ReceivedDateTerm(ComparisonTerm.GE,
+                            from == null ? new Date() : new Date(from)));
             List<Message> tmp = new ArrayList<>();
             for (Message itemp : itemps) {
                 MessageHelper helper = new MessageHelper((MimeMessage) itemp, context);
@@ -1298,7 +1300,7 @@ class Core {
                     }
 
                 Log.i(folder.name + " searching for added msgid=" + message.msgid);
-                Message[] imessages = findMsgId(context, account, ifolder, message.msgid);
+                Message[] imessages = findMsgId(context, account, ifolder, message.msgid, null);
                 if (imessages != null) {
                     Long found = newuid;
 
@@ -1357,7 +1359,7 @@ class Core {
             int count = 0;
             Long found = newuid;
             while (found == null && count++ < FIND_RETRY_COUNT) {
-                found = findUid(context, account, ifolder, message.msgid);
+                found = findUid(context, account, ifolder, message.msgid, count > 1 ? message.received : null);
                 if (found == null)
                     try {
                         Thread.sleep(FIND_RETRY_DELAY);
@@ -1371,7 +1373,7 @@ class Core {
 
                 if (found == null) {
                     db.message().setMessageError(message.id,
-                            "Message not found in target folder " + account.name + "/" + folder.name);
+                            "Message not found in target folder " + account.name + "/" + folder.name + " msgid=" + message.msgid);
                     db.message().setMessageUiHide(message.id, false);
                 } else {
                     // Mark source read
@@ -1613,7 +1615,7 @@ class Core {
                         if (TextUtils.isEmpty(msgid))
                             throw new IllegalArgumentException("move: msgid missing");
 
-                        Long uid = findUid(context, account, itarget, msgid);
+                        Long uid = findUid(context, account, itarget, msgid, null);
                         if (uid == null)
                             if (duplicate || !EntityFolder.TRASH.equals(folder.type))
                                 throw new IllegalArgumentException("move: uid not found");
@@ -1929,7 +1931,7 @@ class Core {
                 if (!TextUtils.isEmpty(message.msgid) &&
                         (!found || EntityFolder.DRAFTS.equals(folder.type)))
                     try {
-                        Message[] imessages = findMsgId(context, account, ifolder, message.msgid);
+                        Message[] imessages = findMsgId(context, account, ifolder, message.msgid, null);
                         if (imessages != null)
                             for (Message iexisting : imessages)
                                 try {
@@ -2244,7 +2246,7 @@ class Core {
 
         ifolder.appendMessages(new Message[]{icopy});
 
-        Long uid = findUid(context, account, ifolder, msgid);
+        Long uid = findUid(context, account, ifolder, msgid, null);
         if (uid != null) {
             JSONArray fargs = new JSONArray();
             fargs.put(uid);
@@ -3267,7 +3269,7 @@ class Core {
 
         ifolder.appendMessages(new Message[]{icopy});
 
-        Long uid = findUid(context, account, ifolder, msgid);
+        Long uid = findUid(context, account, ifolder, msgid, null);
         if (uid != null) {
             JSONArray fargs = new JSONArray();
             fargs.put(uid);
