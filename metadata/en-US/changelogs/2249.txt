@@ -31,7 +31,9 @@ Barsboldia
 Next version
 
 * Fixed all reported bugs
+* Added long press folder - mark all read
 * Small improvements and minor bug fixes
+* Updated build tools
 * Updated AndroidX
 * Updated Public Suffix List
 * Updated translations
