@@ -907,7 +907,7 @@ public class MessageHelper {
         // https://en.wikipedia.org/wiki/International_email
         for (Address address : addresses) {
             String email = ((InternetAddress) address).getAddress();
-            email = punyCode(email);
+            email = punyCode(email, false);
             ((InternetAddress) address).setAddress(email);
         }
         return addresses;
@@ -2817,7 +2817,7 @@ public class MessageHelper {
 
             if (email != null) {
                 email = decodeMime(email);
-                email = punyCode(email);
+                email = punyCode(email, true);
 
                 iaddress.setAddress(email);
             }
@@ -3569,11 +3569,16 @@ public class MessageHelper {
         return TextUtils.join(compose ? ", " : "; ", formatted);
     }
 
-    static String punyCode(String email) {
+    static String punyCode(String email, boolean single) {
         int at = email.indexOf('@');
         if (at > 0) {
             String user = email.substring(0, at);
             String domain = email.substring(at + 1);
+
+            if (single &&
+                    TextHelper.isSingleScript(user) &&
+                    TextHelper.isSingleScript(domain))
+                return email;
 
             try {
                 user = IDN.toASCII(user, IDN.ALLOW_UNASSIGNED);
