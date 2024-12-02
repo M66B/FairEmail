@@ -114,6 +114,7 @@ import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.search.AndTerm;
 import javax.mail.search.ComparisonTerm;
 import javax.mail.search.FlagTerm;
 import javax.mail.search.HeaderTerm;
@@ -868,15 +869,26 @@ class Core {
     private static Message[] findMsgId(Context context, EntityAccount account, IMAPFolder ifolder, String msgid, Long from) throws MessagingException, IOException {
         // https://stackoverflow.com/questions/18891509/how-to-get-message-from-messageidterm-for-yahoo-imap-profile
         if (account.isYahooJp() || from != null) {
+            if (from == null)
+                from = new Date().getTime();
+            from -= 24 * 3600 * 1000L;
+            long to = from + 3 * 24 * 3600 * 1000L;
+
             Message[] itemps = ifolder.search(
-                    new ReceivedDateTerm(ComparisonTerm.GE,
-                            from == null ? new Date() : new Date(from)));
+                    new AndTerm(
+                            new ReceivedDateTerm(ComparisonTerm.GE, new Date(from)),
+                            new ReceivedDateTerm(ComparisonTerm.LE, new Date(to))));
             List<Message> tmp = new ArrayList<>();
             for (Message itemp : itemps) {
                 MessageHelper helper = new MessageHelper((MimeMessage) itemp, context);
                 if (msgid.equals(helper.getMessageID()))
                     tmp.add(itemp);
             }
+            Log.w("Fallback search by" +
+                    " msgid=" + msgid +
+                    " host=" + account.host +
+                    " from=" + new Date(from) + " to=" + new Date(to) +
+                    " found=" + tmp.size());
             return tmp.toArray(new Message[0]);
         } else
             return ifolder.search(new MessageIDTerm(msgid));
