@@ -679,6 +679,7 @@ class Core {
                             // Move: NO [CANNOT] Operation is not supported on mailbox
                             // Move: NO [CANNOT] Can't save messages to this virtual mailbox (0.001 + 0.000 secs).
                             // Move: NO [ALREADYEXISTS] Mailbox already exists
+                            // Move: NO Permission denied
                             // Copy: NO Client tried to access nonexistent namespace. (Mailbox name should probably be prefixed with: INBOX.) (n.nnn + n.nnn secs).
                             // Copy: NO Message not found
                             // Add: BAD Data length exceeds limit
