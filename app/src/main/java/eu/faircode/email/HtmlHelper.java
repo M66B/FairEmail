@@ -1739,61 +1739,67 @@ public class HtmlHelper {
 
         String ns = null;
         for (Element h : parsed.select("html"))
-            for (Attribute a : h.attributes()) {
-                String key = a.getKey();
-                String value = a.getValue().toLowerCase(Locale.ROOT);
-                if ("xmlns".equals(key) && value.contains(W3NS)) {
-                    ns = key;
-                    break;
-                } else if (key.startsWith("xmlns:") && value.contains(W3NS)) {
-                    ns = key.split(":")[1];
-                    break;
-                }
-            }
-
-        for (Element e : parsed.select("*")) {
-            String tag = e.tagName();
-            if (tag.contains(":")) {
-                boolean show = (ns == null || tag.startsWith(ns) ||
-                        tag.startsWith("html:") || tag.startsWith("body:") || tag.startsWith("w:"));
-                if (display_hidden || show) {
-                    String[] nstag = tag.split(":");
-                    String t = nstag[nstag.length > 1 ? 1 : 0];
-                    if (!TextUtils.isEmpty(t)) {
-                        e.tagName(t);
-                        Log.i("Updated tag=" + tag + " to=" + t);
+            for (Attribute a : h.attributes())
+                try {
+                    String key = a.getKey();
+                    String value = a.getValue().toLowerCase(Locale.ROOT);
+                    if ("xmlns".equals(key) && value.contains(W3NS)) {
+                        ns = key;
+                        break;
+                    } else if (key.startsWith("xmlns:") && value.contains(W3NS)) {
+                        ns = key.split(":")[1];
+                        break;
                     }
-
-                    if (!show) {
-                        String style = e.attr("style");
-                        e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
-                    }
-                } else if (TextUtils.isEmpty(e.text()) && !"\u00a0".equals(e.wholeText())) {
-                    // <meta name=Generator content="Microsoft Word 15 (filtered medium)">
-                    // <p class=MsoNormal>
-                    //    <span style='font-family:"Calibri",sans-serif'>
-                    //       <o:p>&nbsp;</o:p>
-                    //    </span>
-                    // </p>
-                    e.remove();
-                    Log.i("Removed tag=" + tag + " ns=" + ns +
-                            " content=" + Helper.getPrintableString(e.wholeText(), true));
-                } else {
-                    // Leave tag with unknown namespace to ensure all text is being displayed
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
-            } else if (!"html".equals(tag) && !"body".equals(tag) && !"w".equals(tag)) {
-                String xmlns = e.attr("xmlns").toLowerCase(Locale.ROOT);
-                if (!TextUtils.isEmpty(xmlns) && !xmlns.contains(W3NS)) {
-                    if (display_hidden) {
-                        String style = e.attr("style");
-                        e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
-                    } else {
+
+        for (Element e : parsed.select("*"))
+            try {
+                String tag = e.tagName();
+                if (tag.contains(":")) {
+                    boolean show = (ns == null || tag.startsWith(ns) ||
+                            tag.startsWith("html:") || tag.startsWith("body:") || tag.startsWith("w:"));
+                    if (display_hidden || show) {
+                        String[] nstag = tag.split(":");
+                        String t = nstag[nstag.length > 1 ? 1 : 0];
+                        if (!TextUtils.isEmpty(t)) {
+                            e.tagName(t);
+                            Log.i("Updated tag=" + tag + " to=" + t);
+                        }
+
+                        if (!show) {
+                            String style = e.attr("style");
+                            e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
+                        }
+                    } else if (TextUtils.isEmpty(e.text()) && !"\u00a0".equals(e.wholeText())) {
+                        // <meta name=Generator content="Microsoft Word 15 (filtered medium)">
+                        // <p class=MsoNormal>
+                        //    <span style='font-family:"Calibri",sans-serif'>
+                        //       <o:p>&nbsp;</o:p>
+                        //    </span>
+                        // </p>
                         e.remove();
-                        Log.i("Removed tag=" + tag + " ns=" + ns + " xmlns=" + xmlns + " content=" + e.text());
+                        Log.i("Removed tag=" + tag + " ns=" + ns +
+                                " content=" + Helper.getPrintableString(e.wholeText(), true));
+                    } else {
+                        // Leave tag with unknown namespace to ensure all text is being displayed
+                    }
+                } else if (!"html".equals(tag) && !"body".equals(tag) && !"w".equals(tag)) {
+                    String xmlns = e.attr("xmlns").toLowerCase(Locale.ROOT);
+                    if (!TextUtils.isEmpty(xmlns) && !xmlns.contains(W3NS)) {
+                        if (display_hidden) {
+                            String style = e.attr("style");
+                            e.attr("style", mergeStyles(style, "text-decoration:line-through;"));
+                        } else {
+                            e.remove();
+                            Log.i("Removed tag=" + tag + " ns=" + ns + " xmlns=" + xmlns + " content=" + e.text());
+                        }
                     }
                 }
+            } catch (Throwable ex) {
+                Log.e(ex);
             }
-        }
     }
 
     static List<CSSStyleSheet> parseStyles(Elements styles) {
