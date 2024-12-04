@@ -526,8 +526,14 @@ public class EmailService implements AutoCloseable {
                     Throwable cause = ex1.getCause();
                     if (cause == null)
                         Log.e(ex1);
-                    else
-                        Log.e(new Throwable(ex1.getMessage() + " error=" + cause.getMessage(), ex1));
+                    else {
+                        String msg = cause.getMessage();
+                        // AADSTS70000: The provided value for the input parameter 'refresh_token' or 'assertion' is not valid. Trace ID: <guid> Correlation ID: <guid> Timestamp: <date time>
+                        if (msg != null && msg.contains("AADSTS70000"))
+                            Log.i(new Throwable(ex1.getMessage() + " error=" + msg, ex1));
+                        else
+                            Log.e(new Throwable(ex1.getMessage() + " error=" + msg, ex1));
+                    }
 
                     String msg = ex.getMessage();
                     if (auth == AUTH_TYPE_GMAIL &&
