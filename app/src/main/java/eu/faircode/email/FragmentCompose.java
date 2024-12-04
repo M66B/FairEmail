@@ -5154,7 +5154,7 @@ public class FragmentCompose extends FragmentBase {
 
         boolean ime = true;
         try {
-            WindowInsetsCompat insets = ViewCompat.getRootWindowInsets(focus);
+            WindowInsetsCompat insets = (focus == null ? null : ViewCompat.getRootWindowInsets(focus));
             if (insets != null)
                 ime = insets.isVisible(WindowInsetsCompat.Type.ime());
         } catch (Throwable ex) {
