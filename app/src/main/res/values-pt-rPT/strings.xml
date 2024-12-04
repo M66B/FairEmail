@@ -1511,7 +1511,6 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_summarize">Resumir</string>
     <string name="title_translate_configure">Configurar &#8230;</string>
     <string name="title_translate_key">Introduzir chave de acesso</string>
-    <string name="title_translating">A traduzir &#8230;</string>
     <string name="title_translate_formal">Utilizar o formulário formal</string>
     <string name="title_translate_small">Utilizar um tipo de letra pequeno para o texto original</string>
     <string name="title_translate_replace">Substituir texto original por texto traduzido</string>

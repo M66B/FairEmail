@@ -1538,7 +1538,6 @@
     <string name="title_summarize">Зводка</string>
     <string name="title_translate_configure">Наладзіць &#8230;</string>
     <string name="title_translate_key">Увядзіце ключ</string>
-    <string name="title_translating">Пераклад &#8230;</string>
     <string name="title_translate_formal">Выкарыстоўваць афіцыйны стыль</string>
     <string name="title_translate_small">Выкарыстоўваць дробны шрыфт для зыходнага тэксту</string>
     <string name="title_translate_replace">Замяняць зыходны тэкст на перакладзены</string>

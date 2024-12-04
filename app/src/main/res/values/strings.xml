@@ -1836,7 +1836,7 @@
     <string name="title_openai" translatable="false">OpenAI (ChatGPT)</string>
     <string name="title_translate_configure">Configure &#8230;</string>
     <string name="title_translate_key">Enter key</string>
-    <string name="title_translating">Translating &#8230;</string>
+    <string name="title_translating">Translating to %1$s &#8230;</string>
     <string name="title_translate_formal">Use formal form</string>
     <string name="title_translate_small">Use a small font for the source text</string>
     <string name="title_translate_replace">Replace source text by translated text</string>

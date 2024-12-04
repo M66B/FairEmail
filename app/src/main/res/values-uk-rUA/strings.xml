@@ -1537,7 +1537,6 @@
     <string name="title_summarize">Підсумувати</string>
     <string name="title_translate_configure">Налаштувати &#8230;</string>
     <string name="title_translate_key">Введіть ключ</string>
-    <string name="title_translating">Переклад &#8230;</string>
     <string name="title_translate_formal">Використовувати формальний стиль</string>
     <string name="title_translate_small">Використовувати малий шрифт для початкового тексту</string>
     <string name="title_translate_replace">Замінити вихідний текст на перекладений текст</string>

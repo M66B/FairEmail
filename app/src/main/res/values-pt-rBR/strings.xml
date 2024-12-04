@@ -1508,7 +1508,6 @@
     <string name="title_summarize">Resumir</string>
     <string name="title_translate_configure">Configurar &#8230;</string>
     <string name="title_translate_key">Digite a chave</string>
-    <string name="title_translating">Traduzindo &#8230;</string>
     <string name="title_translate_formal">Usar formulário formal</string>
     <string name="title_translate_small">Usar uma fonte pequena para o texto original</string>
     <string name="title_translate_replace">Substituir texto de origem por texto traduzido</string>

@@ -1500,7 +1500,6 @@
     <string name="title_summarize">Kokkuvõte</string>
     <string name="title_translate_configure">Häälestamine &#8230;</string>
     <string name="title_translate_key">Sisesta võti</string>
-    <string name="title_translating">Tõlkimine &#8230;</string>
     <string name="title_translate_formal">Kasuta ametlikku vormi</string>
     <string name="title_translate_small">Kasuta lähteteksti puhul väikest fonti</string>
     <string name="title_translate_replace">Asenda lähtetekst tõlgitud tekstiga</string>

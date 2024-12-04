@@ -1480,7 +1480,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_summarize">Rangkum</string>
     <string name="title_translate_configure">Konfigurasi &#8230;</string>
     <string name="title_translate_key">Masukkan kata kunci</string>
-    <string name="title_translating">Menerjemahkan &#8230;</string>
     <string name="title_translate_formal">Gunakan format formal</string>
     <string name="title_translate_small">Gunakan font kecil untuk tulisan sumber</string>
     <string name="title_translate_replace">Ganti teks sumber dengan teks terjemahan</string>

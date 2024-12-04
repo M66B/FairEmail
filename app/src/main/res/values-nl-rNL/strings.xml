@@ -1501,7 +1501,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_summarize">Samenvatten</string>
     <string name="title_translate_configure">Configureer &#8230;</string>
     <string name="title_translate_key">Sleutel invoeren</string>
-    <string name="title_translating">Vertalen &#8230;</string>
     <string name="title_translate_formal">Gebruik formele vorm</string>
     <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
     <string name="title_translate_replace">Vervang brontekst door vertaalde tekst</string>

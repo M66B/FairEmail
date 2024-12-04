@@ -2877,7 +2877,9 @@ public class FragmentCompose extends FragmentBase {
 
             MenuItem item = popupMenu.getMenu()
                     .add(lang.favorite ? Menu.FIRST : Menu.NONE, i + 2, i + 2, ssb)
-                    .setIntent(new Intent().putExtra("target", lang.target));
+                    .setIntent(new Intent()
+                            .putExtra("target", lang.target)
+                            .putExtra("name", lang.name));
             if (lang.icon != null)
                 item.setIcon(lang.icon);
             item.setEnabled(canTranslate);
@@ -2893,13 +2895,17 @@ public class FragmentCompose extends FragmentBase {
                     DeepL.FragmentDialogDeepL fragment = new DeepL.FragmentDialogDeepL();
                     fragment.show(getParentFragmentManager(), "deepl:configure");
                 } else {
-                    String target = item.getIntent().getStringExtra("target");
-                    onMenuTranslate(target);
+                    Intent intent = item.getIntent();
+                    if (intent == null)
+                        return false;
+                    String target = intent.getStringExtra("target");
+                    String name = intent.getStringExtra("name");
+                    onMenuTranslate(target, name);
                 }
                 return true;
             }
 
-            private void onMenuTranslate(String target) {
+            private void onMenuTranslate(String target, String name) {
                 if (subjectHasFocus) {
                     CharSequence text = etSubject.getText();
                     if (text == null && TextUtils.isEmpty(text.toString().trim()))
@@ -2910,6 +2916,20 @@ public class FragmentCompose extends FragmentBase {
                     args.putCharSequence("text", text);
 
                     new SimpleTask<DeepL.Translation>() {
+                        private Toast toast = null;
+
+                        @Override
+                        protected void onPreExecute(Bundle args) {
+                            toast = ToastEx.makeText(context, getString(R.string.title_translating, name), Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+
+                        @Override
+                        protected void onPostExecute(Bundle args) {
+                            if (toast != null && !BuildConfig.DEBUG)
+                                toast.cancel();
+                        }
+
                         @Override
                         protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
                             String target = args.getString("target");
@@ -2957,7 +2977,7 @@ public class FragmentCompose extends FragmentBase {
                                 etBody.getText().setSpan(highlightSpan, paragraph.first, paragraph.second,
                                         Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
                             }
-                            toast = ToastEx.makeText(context, R.string.title_translating, Toast.LENGTH_SHORT);
+                            toast = ToastEx.makeText(context, getString(R.string.title_translating, name), Toast.LENGTH_SHORT);
                             toast.show();
                         }
 
@@ -2965,7 +2985,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onPostExecute(Bundle args) {
                             if (highlightSpan != null)
                                 etBody.getText().removeSpan(highlightSpan);
-                            if (toast != null)
+                            if (toast != null && !BuildConfig.DEBUG)
                                 toast.cancel();
                         }
 

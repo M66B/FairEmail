@@ -1486,7 +1486,6 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
     <string name="title_summarize">Tee yhteenveto</string>
     <string name="title_translate_configure">Määritä &#8230;</string>
     <string name="title_translate_key">Syötä avain</string>
-    <string name="title_translating">Käännetään &#8230;</string>
     <string name="title_translate_formal">Käytä muodollista kieltä</string>
     <string name="title_translate_small">Käytä pientä kirjasinta lähdetekstille</string>
     <string name="title_translate_replace">Korvaa lähdeteksti käännöksellä</string>

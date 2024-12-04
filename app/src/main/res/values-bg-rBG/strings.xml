@@ -1504,7 +1504,6 @@
     <string name="title_summarize">Обобщаване</string>
     <string name="title_translate_configure">Конфигуриране &#8230;</string>
     <string name="title_translate_key">Въведете ключ</string>
-    <string name="title_translating">Превод &#8230;</string>
     <string name="title_translate_formal">Употреба на формален стил</string>
     <string name="title_translate_small">Употреба на малък шрифт за изходния текст</string>
     <string name="title_translate_replace">Замяна на изходния текст с преведен текст</string>

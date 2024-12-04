@@ -1491,7 +1491,6 @@
     <string name="title_summarize">Sammanfatta</string>
     <string name="title_translate_configure">Konfigurera &#8230;</string>
     <string name="title_translate_key">Ange nyckel</string>
-    <string name="title_translating">Översätter &#8230;</string>
     <string name="title_translate_formal">Använd formell form</string>
     <string name="title_translate_small">Använd ett litet typsnitt för källtexten</string>
     <string name="title_translate_replace">Ersätt ursprunglig text med översatt text</string>

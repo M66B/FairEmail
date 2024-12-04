@@ -1536,7 +1536,6 @@
     <string name="title_summarize">Podsumowanie</string>
     <string name="title_translate_configure">Konfiguruj &#8230;</string>
     <string name="title_translate_key">Wprowadź klucz</string>
-    <string name="title_translating">Tłumaczenie &#8230;</string>
     <string name="title_translate_formal">Użyj stylu formalnego</string>
     <string name="title_translate_small">Użyj małej czcionki dla tekstu źródłowego</string>
     <string name="title_translate_replace">Zastąp tekst źródłowy przetłumaczonym tekstem</string>

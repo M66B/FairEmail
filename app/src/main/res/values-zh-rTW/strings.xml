@@ -1485,7 +1485,6 @@
     <string name="title_summarize">總結</string>
     <string name="title_translate_configure">配置 &#8230;</string>
     <string name="title_translate_key">輸入密鑰</string>
-    <string name="title_translating">正在翻譯 &#8230;</string>
     <string name="title_translate_formal">使用正式形式</string>
     <string name="title_translate_small">源文字採用小號字型</string>
     <string name="title_translate_replace">用翻譯後的文字取代原文</string>

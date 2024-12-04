@@ -565,7 +565,6 @@
     <string name="title_show_addresses">عرض CC/BCC</string>
     <string name="title_media_toolbar">شريط أدوات الوسائط</string>
     <string name="title_translate_configure">إعداد &#8230;</string>
-    <string name="title_translating">ترجمة &#8230;</string>
     <string name="title_translate_small">استخدام خط صغير لنص المصدر</string>
     <string name="title_from_missing">المُرسِل مفقود</string>
     <string name="title_to_missing">المستلِم أو المُرسَل إليه مفقود</string>

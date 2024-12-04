@@ -1492,7 +1492,6 @@
     <string name="title_summarize">总结</string>
     <string name="title_translate_configure">配置 &#8230;</string>
     <string name="title_translate_key">输入密钥</string>
-    <string name="title_translating">正在翻译 &#8230;</string>
     <string name="title_translate_formal">使用正式语言形式</string>
     <string name="title_translate_small">对源文本使用一个小字体</string>
     <string name="title_translate_replace">用翻译文本替换源文本</string>

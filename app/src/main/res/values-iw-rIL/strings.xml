@@ -1539,7 +1539,6 @@
     <string name="title_summarize">סיכום</string>
     <string name="title_translate_configure">הגדרה&#8230;</string>
     <string name="title_translate_key">נא להקליד מפתח</string>
-    <string name="title_translating">מתורגם&#8230;</string>
     <string name="title_translate_formal">להשתמש בשפה רשמית</string>
     <string name="title_translate_small">להשתמש בגופן קטן לטקסט המקור</string>
     <string name="title_translate_replace">החלפת טקסט המקור בטקסט מתורגם</string>

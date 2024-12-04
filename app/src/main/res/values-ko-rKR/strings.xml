@@ -1084,7 +1084,6 @@
     <string name="title_translate">번역</string>
     <string name="title_translate_configure">&#8230; 설정</string>
     <string name="title_translate_key">키 입력</string>
-    <string name="title_translating">번역중&#8230;</string>
     <string name="title_translate_small">원문을 작은 글씨로 표시</string>
     <string name="title_translate_html">형식 유지</string>
     <string name="title_translate_html_hint">더 많은 글자 수를 사용합니다</string>

@@ -1513,7 +1513,6 @@
     <string name="title_summarize">Zusammenfassen</string>
     <string name="title_translate_configure">Konfigurieren &#8230;</string>
     <string name="title_translate_key">Schlüssel einfügen</string>
-    <string name="title_translating">Wird übersetzt &#8230;</string>
     <string name="title_translate_formal">Förmliche Anrede verwenden</string>
     <string name="title_translate_small">Kleine Schrift für den Originaltext verwenden</string>
     <string name="title_translate_replace">Originaltext durch übersetzten Text ersetzen</string>

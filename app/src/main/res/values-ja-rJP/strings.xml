@@ -1493,7 +1493,6 @@
     <string name="title_summarize">要約</string>
     <string name="title_translate_configure">設定&#8230;</string>
     <string name="title_translate_key">キーを入力</string>
-    <string name="title_translating">翻訳しています&#8230;</string>
     <string name="title_translate_formal">書き言葉を使用する</string>
     <string name="title_translate_small">ソーステキストに小さなフォントを使用する</string>
     <string name="title_translate_replace">元テキストのを翻訳されたテキストに置き換える</string>

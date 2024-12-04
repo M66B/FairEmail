@@ -1528,7 +1528,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_summarize">Zhrnúť</string>
     <string name="title_translate_configure">Nastaviť &#8230;</string>
     <string name="title_translate_key">Zadajte kľúč</string>
-    <string name="title_translating">Preklad &#8230;</string>
     <string name="title_translate_formal">Používať formálny jazyk</string>
     <string name="title_translate_small">Zdrojový text malým písmom</string>
     <string name="title_translate_replace">Nahradiť zdrojový text preloženým textom</string>

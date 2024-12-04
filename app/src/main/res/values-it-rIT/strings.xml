@@ -1512,7 +1512,6 @@
     <string name="title_summarize">Riassumi</string>
     <string name="title_translate_configure">Configura&#8230;</string>
     <string name="title_translate_key">Inserisci tasto</string>
-    <string name="title_translating">Traduzione in corso&#8230;</string>
     <string name="title_translate_formal">Usa il modulo formale</string>
     <string name="title_translate_small">Usa caratteri piccoli per il testo sorgente</string>
     <string name="title_translate_replace">Sostituire il testo sorgente con il testo tradotto</string>

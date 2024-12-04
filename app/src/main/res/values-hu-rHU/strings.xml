@@ -1503,7 +1503,6 @@
     <string name="title_summarize">Összefoglalás</string>
     <string name="title_translate_configure">&#8230; konfigurálása</string>
     <string name="title_translate_key">Kulcs megadása</string>
-    <string name="title_translating">Fordítás &#8230;</string>
     <string name="title_translate_formal">Használjon hivatalos formát</string>
     <string name="title_translate_small">Kis betű használata a forrás szöveghez</string>
     <string name="title_translate_replace">A forrásszöveg felülírása a fordítással</string>
