@@ -2172,8 +2172,8 @@
     <string name="title_accessibility_to">Παραλήπτης</string>
     <string-array name="pollIntervalNames">
         <item>Πάντα</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
+        <item>Κάθε λεπτό</item>
+        <item>Κάθε 2 λεπτά</item>
         <item>Κάθε 5 λεπτά</item>
         <item>Κάθε 10 λεπτά</item>
         <item>Κάθε 15 λεπτά</item>

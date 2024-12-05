@@ -2158,8 +2158,8 @@
     <string name="title_accessibility_to">Mottagare</string>
     <string-array name="pollIntervalNames">
         <item>Kontinuerligt</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
+        <item>Varje minut</item>
+        <item>Varannan minut</item>
         <item>Var 5:e minut</item>
         <item>Var 10:e minut</item>
         <item>Var 15:e minut</item>

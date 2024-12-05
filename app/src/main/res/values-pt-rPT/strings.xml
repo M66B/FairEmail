@@ -1511,6 +1511,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_summarize">Resumir</string>
     <string name="title_translate_configure">Configurar &#8230;</string>
     <string name="title_translate_key">Introduzir chave de acesso</string>
+    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Traduzido para %1$s &#8230;</string>
     <string name="title_translate_formal">Utilizar o formulário formal</string>
     <string name="title_translate_small">Utilizar um tipo de letra pequeno para o texto original</string>
     <string name="title_translate_replace">Substituir texto original por texto traduzido</string>
@@ -2181,10 +2182,10 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_accessibility_to">Destinatário</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
+        <item>A cada minuto</item>
+        <item>A cada 2 minutos</item>
         <item>A cada 5 minutos</item>
-        <item>Every 10 minutes</item>
+        <item>A cada 10 minutos</item>
         <item>A cada 15 minutos</item>
         <item>A cada 30 minutos</item>
         <item>A cada hora</item>

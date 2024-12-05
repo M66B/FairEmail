@@ -1513,6 +1513,7 @@
     <string name="title_summarize">Zusammenfassen</string>
     <string name="title_translate_configure">Konfigurieren &#8230;</string>
     <string name="title_translate_key">Schlüssel einfügen</string>
+    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Übersetzen nach %1$s &#8230;</string>
     <string name="title_translate_formal">Förmliche Anrede verwenden</string>
     <string name="title_translate_small">Kleine Schrift für den Originaltext verwenden</string>
     <string name="title_translate_replace">Originaltext durch übersetzten Text ersetzen</string>
@@ -2183,17 +2184,17 @@
     <string name="title_accessibility_to">Empfänger</string>
     <string-array name="pollIntervalNames">
         <item>Immer</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
-        <item>Every 5 minutes</item>
+        <item>Jede Minute</item>
+        <item>Alle 2 Minuten</item>
+        <item>Alle 5 Minuten</item>
         <item>Alle 10 Minuten</item>
         <item>Alle 15 Minuten</item>
         <item>Alle 30 Minuten</item>
-        <item>Stündlich</item>
+        <item>Jede Stunde</item>
         <item>Alle 2 Stunden</item>
         <item>Alle 4 Stunden</item>
         <item>Alle 8 Stunden</item>
-        <item>Täglich</item>
+        <item>Jeden Tag</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nein</item>

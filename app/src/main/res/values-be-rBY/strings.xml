@@ -230,6 +230,10 @@
     <string name="title_setup_office_auth">Памылка \'Збой АЎТЭНТЫФІКАЦЫІ\' можа быць выклікана тым, што пратаколы IMAP/SMTP адключаны сістэмным адміністратарам</string>
     <string name="title_setup_office_auth_5_7_3">Паспрабуйце опцыю ў майстры хуткага наладжвання \'Іншы правайдар\'.</string>
     <string name="title_setup_office_auth_5_7_139">Паспрабуйце опцыю ў майстры хуткага наладжвання \'Outlook/Hotmail/Live\'.</string>
+    <string name="title_setup_office_not_connected">        Памылка «User is authenticated but not connected» у асноўным азначае, што IMAP адключаны.
+        У выпадку карыстальніцкага ўліковага запісу Outlook, калі ласка, перайдзіце на вэб-сайт Outlook, націсніце на кола налад уверсе справа, выберыце «Пошта», выберыце «Перасылка і IMAP» і ў раздзеле «POP і IMAP» уключыце «Дазволіць  прылады і праграмы, якія выкарыстоўваюць IMAP».
+        У выпадку выкарыстання карпаратыўнага, адукацыйнага і падобных уліковых запісаў, калі ласка, звярніцеся да сістэмнага адміністратара паштовага сервера.
+    </string>
     <string name="title_setup_oauth_rationale">Аўтарызуйце доступ да вашага ўліковага запісу %1$s</string>
     <string name="title_setup_oauth_update">Паўторна аўтарызаваць існуючы ўліковы запіс (у адваротным выпадку стварыць новы ўліковы запіс)</string>
     <string name="title_setup_oauth_updated">Аўтарызацыя ўліковага запісу была абноўлена</string>
@@ -2210,8 +2214,8 @@
     <string name="title_accessibility_to">Атрымальнік</string>
     <string-array name="pollIntervalNames">
         <item>Заўсёды</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
+        <item>Кожную хвіліну</item>
+        <item>Кожныя 2 хвіліны</item>
         <item>Кожныя 5 хвілін</item>
         <item>Кожныя 10 хвілін</item>
         <item>Кожныя 15 хвілін</item>

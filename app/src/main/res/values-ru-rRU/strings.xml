@@ -1539,6 +1539,7 @@
     <string name="title_summarize">Сводка</string>
     <string name="title_translate_configure">Настроить&#8230;</string>
     <string name="title_translate_key">Введите ключ</string>
+    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Перевод на %1$s&#8230;</string>
     <string name="title_translate_formal">Использовать формальный стиль</string>
     <string name="title_translate_small">Использовать мелкий шрифт для исходного текста</string>
     <string name="title_translate_replace">Заменять исходный текст переводом</string>
@@ -2211,10 +2212,10 @@
     <string name="title_accessibility_to">Получатель</string>
     <string-array name="pollIntervalNames">
         <item>Непрерывно</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
-        <item>Every 5 minutes</item>
-        <item>Every 10 minutes</item>
+        <item>Каждую минуту</item>
+        <item>Каждые 2 минуты</item>
+        <item>Каждые 5 минут</item>
+        <item>Каждые 10 минут</item>
         <item>Каждые 15 минут</item>
         <item>Каждые 30 минут</item>
         <item>Каждый час</item>

@@ -1501,6 +1501,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_summarize">Samenvatten</string>
     <string name="title_translate_configure">Configureer &#8230;</string>
     <string name="title_translate_key">Sleutel invoeren</string>
+    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Vertalen naar %1$s &#8230;</string>
     <string name="title_translate_formal">Gebruik formele vorm</string>
     <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
     <string name="title_translate_replace">Vervang brontekst door vertaalde tekst</string>
@@ -2166,9 +2167,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_accessibility_to">Ontvanger</string>
     <string-array name="pollIntervalNames">
         <item>Altijd</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
-        <item>Every 5 minutes</item>
+        <item>Elke minuut</item>
+        <item>Elke 2 minuten</item>
+        <item>Elke 5 minuten</item>
         <item>Elke 10 minuten</item>
         <item>Elke 15 minuten</item>
         <item>Elke 30 minuten</item>

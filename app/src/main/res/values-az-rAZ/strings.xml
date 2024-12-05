@@ -199,9 +199,13 @@
     <string name="title_setup_outlook_modern">Microsoft-un təhlükəsizlik siyasətlərindəki dəyişikliklərə görə 16 sentyabr 2024-cü ildən etibarən yalnız Outlook/Hotmail/Live sehrbazları işləyəcək.</string>
     <string name="title_setup_gmail_on_device">Niyə bir cihaz hesabı seçməliyəm?</string>
     <string name="title_setup_gmail_password">Cihazdakı bir hesabın əvəzinə parollu bir hesaba səlahiyyət vermək istəyirəm</string>
-    <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem administratorunun IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
+    <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem inzibatçısının IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
     <string name="title_setup_office_auth_5_7_3">Zəhmət olmasa \"Digər provayder\" cəld quraşdırma sehrbazını sınayın.</string>
     <string name="title_setup_office_auth_5_7_139">Lütfən \'Outlook/Hotmail/Live\' cəld quraşdırma sehrbazını sınayın.</string>
+    <string name="title_setup_office_not_connected">        \'İstifadəçi kimliyi doğrulandı, ancaq bağlantılı deyil\' xətası, adətən IMAP sıradan çıxarıldığına görə baş verir.
+        İstehlakçı Outlook hesabı olduqda, lütfən Outlook veb saytına gedin, sağ üstdəki ayarlar çarxına toxunun, \'Poçt\' seçin, \'Yönləndirmə və IMAP\' seçin və \'POP və IMAP\' bölməsində \'Cihazların və tətbiqlərin IMAP istifadə etməsinə icazə ver\'i fəallaşdırın.
+        Korporativ, təhsil və sairə hesabı olduqda, lütfən e-poçt serverinin sistem inzibatçısı ilə əlaqə saxlayın.
+    </string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza müraciət üçün səlahiyyət verin</string>
     <string name="title_setup_oauth_update">Mövcud bir hesaba yenidən səlahiyyət verin (əks halda yeni bir hesab yaradın)</string>
     <string name="title_setup_oauth_updated">Hesab səlahiyyətləndirmə güncəlləndi</string>
@@ -1507,6 +1511,7 @@
     <string name="title_summarize">İcmal</string>
     <string name="title_translate_configure">Konfiqurasiya &#8230;</string>
     <string name="title_translate_key">Açarı daxil et</string>
+    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">%1$s dilinə tərcümə edilir &#8230;</string>
     <string name="title_translate_formal">Rəsmi formu istifadə et</string>
     <string name="title_translate_small">Mənbə mətni üçün kiçik şrift istifadə et</string>
     <string name="title_translate_replace">Mənbə mətni tərcümə edilmiş mətnlə əvəz et</string>
@@ -2177,16 +2182,16 @@
     <string name="title_accessibility_to">Alan</string>
     <string-array name="pollIntervalNames">
         <item>Həmişə</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
-        <item>Hər 5 dəqiqədə</item>
-        <item>Hər 10 dəqiqədə</item>
-        <item>Hər 15 dəqiqədə</item>
-        <item>Hər 30 dəqiqədə</item>
+        <item>Hər dəqiqə</item>
+        <item>Hər 2 dəqiqədən bir</item>
+        <item>Hər 5 dəqiqədən bir</item>
+        <item>Hər 10 dəqiqədən bir</item>
+        <item>Hər 15 dəqiqədən bir</item>
+        <item>Hər 30 dəqiqədən bir</item>
         <item>Hər saat</item>
-        <item>Hər 2 saatda</item>
-        <item>Hər 4 saatda</item>
-        <item>Hər 8 saatda</item>
+        <item>Hər 2 saatdan bir</item>
+        <item>Hər 4 saatdan bir</item>
+        <item>Hər 8 saatdan bir</item>
         <item>Hər gün</item>
     </string-array>
     <string-array name="sendDelayedNames">

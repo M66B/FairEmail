@@ -1539,6 +1539,7 @@
     <string name="title_summarize">סיכום</string>
     <string name="title_translate_configure">הגדרה&#8230;</string>
     <string name="title_translate_key">נא להקליד מפתח</string>
+    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">תרגום ל%1$s&#8230;</string>
     <string name="title_translate_formal">להשתמש בשפה רשמית</string>
     <string name="title_translate_small">להשתמש בגופן קטן לטקסט המקור</string>
     <string name="title_translate_replace">החלפת טקסט המקור בטקסט מתורגם</string>
@@ -2211,8 +2212,8 @@
     <string name="title_accessibility_to">נמען</string>
     <string-array name="pollIntervalNames">
         <item>תמיד</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
+        <item>כל דקה</item>
+        <item>כל שתי דקות</item>
         <item>כל 5 דקות</item>
         <item>כל 10 דקות</item>
         <item>כל רבע שעה</item>

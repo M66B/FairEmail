@@ -1504,6 +1504,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_summarize">Gearfetsje</string>
     <string name="title_translate_configure">Konfigurearje&#8230;</string>
     <string name="title_translate_key">Kaai ynfiere</string>
+    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Oersette nei %1$s &#8230;</string>
     <string name="title_translate_formal">Formele foarm brûke</string>
     <string name="title_translate_small">Brûk in lyts lettertype foar de boarnetekst</string>
     <string name="title_translate_replace">Boarnetekst ferfange troch oersette tekst</string>
@@ -2172,8 +2173,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_accessibility_to">Untfanger</string>
     <string-array name="pollIntervalNames">
         <item>Altyd</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
+        <item>Elke minút</item>
+        <item>Elke 2 minuten</item>
         <item>Elke 5 minuten</item>
         <item>Elke 10 minuten</item>
         <item>Elke 15 minuten</item>

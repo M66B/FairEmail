@@ -1512,6 +1512,7 @@
     <string name="title_summarize">Sammenfatning</string>
     <string name="title_translate_configure">Opsæt&#8230;</string>
     <string name="title_translate_key">Angiv nøgle</string>
+    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Oversætter til %1$s &#8230;</string>
     <string name="title_translate_formal">Brug formel form</string>
     <string name="title_translate_small">Benyt lille kildetekstskrifttype</string>
     <string name="title_translate_replace">Erstat kildetekst ved oversat tekst</string>
@@ -2182,8 +2183,8 @@
     <string name="title_accessibility_to">Modtager</string>
     <string-array name="pollIntervalNames">
         <item>Altid</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
+        <item>Hvert minut</item>
+        <item>Hvert 2. minut</item>
         <item>Hvert 5. minut</item>
         <item>Hvert 10. minut</item>
         <item>Hvert 15. minut</item>

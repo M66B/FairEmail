@@ -1148,15 +1148,15 @@
     <string name="title_delete_operation_error">Con un messaggio d\'errore</string>
     <string name="title_delete_operation_fetch">Recupera le operazioni</string>
     <string name="title_delete_operation_move">Sposta le operazioni</string>
-    <string name="title_delete_operation_flag">Contrassegna operazioni</string>
-    <string name="title_delete_operation_delete">Elimina operazioni</string>
-    <string name="title_delete_operation_send">Operazioni d\'invio</string>
+    <string name="title_delete_operation_flag">Contrassegna le operazioni</string>
+    <string name="title_delete_operation_delete">Elimina le operazioni</string>
+    <string name="title_delete_operation_send">Operazioni di invio</string>
     <string name="title_delete_operation_deleted">%1$d operazioni eliminate</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_delete_contacts_remark">Tutti i contatti mostrati e non mostrati verranno eliminati, anche se sono stati cercati!</string>
-    <string name="title_no_operations">Nessun\'operazione in sospeso</string>
+    <string name="title_no_operations">Nessuna operazione in coda</string>
     <string name="title_check_operations">Controllo delle operazioni</string>
-    <string name="title_hint_operations">Le operazioni di eliminazione possono risultare nella scomparsa di messaggi e problemi di sincronizzazione</string>
+    <string name="title_hint_operations">L\'eliminazione delle operazioni può causare la scomparsa dei messaggi e problemi di sincronizzazione</string>
     <string name="title_op_title_headers">Scaricamento delle intestazioni</string>
     <string name="title_op_title_raw">Scaricamento del messaggio grezzo</string>
     <string name="title_folder_name">Nome della cartella</string>
@@ -1512,6 +1512,7 @@
     <string name="title_summarize">Riassumi</string>
     <string name="title_translate_configure">Configura&#8230;</string>
     <string name="title_translate_key">Inserisci tasto</string>
+    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Traduzione in %1$s &#8230;</string>
     <string name="title_translate_formal">Usa il modulo formale</string>
     <string name="title_translate_small">Usa caratteri piccoli per il testo sorgente</string>
     <string name="title_translate_replace">Sostituire il testo sorgente con il testo tradotto</string>
@@ -2076,7 +2077,7 @@
     <string name="title_pro_price">Perché le funzionalità pro sono così costose?</string>
     <string name="title_pro_family">Posso usare la Libreria di Famiglia di Google Play?</string>
     <string name="title_pro_restore">Come posso ripristinare un acquisto (su un altro dispositivo)?</string>
-    <string name="title_pro_pending">Acquisto in sospeso</string>
+    <string name="title_pro_pending">Acquisto in corso</string>
     <string name="title_pro_activated">Tutte le funzionalità pro sono attive</string>
     <string name="title_pro_valid">Tutte le funzionalità pro attivate</string>
     <string name="title_pro_invalid">Risposta non valida</string>
@@ -2182,8 +2183,8 @@
     <string name="title_accessibility_to">Destinatario</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
+        <item>Ogni minuto</item>
+        <item>Ogni 2 minuti</item>
         <item>Ogni 5 minuti</item>
         <item>Ogni 10 minuti</item>
         <item>Ogni 15 minuti</item>

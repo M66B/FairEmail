@@ -1508,6 +1508,7 @@
     <string name="title_summarize">Resumir</string>
     <string name="title_translate_configure">Configurar &#8230;</string>
     <string name="title_translate_key">Introducir clave</string>
+    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Traduciendo a %1$s &#8230;</string>
     <string name="title_translate_formal">Usar modo formal</string>
     <string name="title_translate_small">Usar una fuente pequeña para el texto fuente</string>
     <string name="title_translate_replace">Reemplazar texto original por texto traducido</string>
@@ -2176,9 +2177,9 @@
     <string name="title_accessibility_to">Destinatario</string>
     <string-array name="pollIntervalNames">
         <item>Siempre</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
-        <item>Every 5 minutes</item>
+        <item>Cada minuto</item>
+        <item>Cada 2 minutos</item>
+        <item>Cada 5 minutos</item>
         <item>Cada 10 minutos</item>
         <item>Cada 15 minutos</item>
         <item>Cada 30 minutos</item>

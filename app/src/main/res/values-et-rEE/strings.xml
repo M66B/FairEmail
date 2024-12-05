@@ -202,6 +202,10 @@
     <string name="title_setup_office_auth">Vea \"AUTHENTICATE failed\" põhjuseks võib olla, et IMAP/SMTP on süsteemi administraatori poolt keelatud</string>
     <string name="title_setup_office_auth_5_7_3">Palun proovi kiirseadistamise võlurit \"Muu teenusepakkuja\".</string>
     <string name="title_setup_office_auth_5_7_139">Palun proovi \"Outlooki/Hotmaili/Live\" kiirseadistamise abilist.</string>
+    <string name="title_setup_office_not_connected">        Viga \'User is authenticated but not connected\' tähendab enamasti, et IMAP on välja lülitatud.
+        Kui tegu on tavakasutaja Outlooki kontoga, mine palun Outlooki veebilehele, toksa paremal üleval oleval seadete rattal, vali \'Mail\', vali \'Forwarding and IMAP\', ja sektsioonis \'POP and IMAP\' luba \'Let devices and apps use IMAP\' (luba seadmetel ja rakendustel kasutavad IMAPi).
+        Kui tegu on ettevõtte, kooli vms kontoga, võta palun ühendust meiliserveri süsteemiadministraatoriga.
+    </string>
     <string name="title_setup_oauth_rationale">Autoriseeri ligipääs %1$s kontole</string>
     <string name="title_setup_oauth_update">Autoriseeri uuesti olemasolev konto (muul juhul loo uus konto)</string>
     <string name="title_setup_oauth_updated">Konto autoriseering on uuendatud</string>
