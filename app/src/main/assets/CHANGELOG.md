@@ -10,6 +10,8 @@ Besides being time-consuming, this is no longer free as of this year.
 This is one of the reasons why the app cannot be completely free, meaning some features must be paid for in order to pay for an annual security audit.
 To be clear, nothing will be changed for now.
 
+The security audit revealed no problems, so Google accounts [can continue to be used](https://support.google.com/cloud/answer/13464325) as usual next year.
+
 <br>
 
 People keep asking me to add new, often exotic, features to the app, to whom I often say "no", and other people complain about too many features.
