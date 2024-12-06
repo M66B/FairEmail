@@ -5143,8 +5143,29 @@ public class FragmentMessages extends FragmentBase
     }
 
     private void onActionJunkSelection() {
+        long[] selection = getSelection();
+        if (selection.length == 1) {
+            TupleMessageEx message = adapter.getItemForKey(selection[0]);
+            if (message != null) {
+                Bundle aargs = new Bundle();
+                aargs.putLong("id", message.id);
+                aargs.putLong("account", message.account);
+                aargs.putInt("protocol", message.accountProtocol);
+                aargs.putLong("folder", message.folder);
+                aargs.putString("type", message.folderType);
+                aargs.putString("from", DB.Converters.encodeAddresses(message.from));
+
+                FragmentDialogJunk ask = new FragmentDialogJunk();
+                ask.setArguments(aargs);
+                ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_JUNK);
+                ask.show(getParentFragmentManager(), "message:junk");
+
+                return;
+            }
+        }
+
         Bundle aargs = new Bundle();
-        aargs.putInt("count", getSelection().length);
+        aargs.putInt("count", selection.length);
 
         FragmentDialogAskSpam ask = new FragmentDialogAskSpam();
         ask.setArguments(aargs);
