@@ -1525,6 +1525,7 @@
     <string name="title_summarize">Sažetak</string>
     <string name="title_translate_configure">Podesi &#8230;</string>
     <string name="title_translate_key">Unesite ključ</string>
+    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Prevođenje na %1$s &#8230;</string>
     <string name="title_translate_formal">Koristi formalni oblik</string>
     <string name="title_translate_small">Koristi mali font za izvorni tekst</string>
     <string name="title_translate_replace">Zamijeni izvorni tekst prevedenim tekstom</string>
