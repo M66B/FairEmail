@@ -198,11 +198,15 @@ public class EntityCertificate {
                         try {
                             ASN1InputStream decoder = new ASN1InputStream((byte[]) altName.get(1));
                             DLTaggedObject encoded = (DLTaggedObject) decoder.readObject();
-                            String othername = DERUTF8String.getInstance(
+                            String otherName = DERUTF8String.getInstance(
                                     ((DLTaggedObject) ((DLSequence) encoded.getBaseObject())
                                             .getObjectAt(1)).getBaseObject()).getString();
-                            if (Helper.EMAIL_ADDRESS.matcher(othername).matches())
-                                result.add(othername);
+                            int at = otherName.indexOf('@');
+                            int dot = otherName.lastIndexOf('.');
+                            if (at >= 0 && dot > at) // UTF-8 accepted, so basic test only
+                                result.add(otherName);
+                            else
+                                Log.w("Ignoring otherName=" + otherName);
                         } catch (Throwable ex) {
                             Log.w(ex);
                         }
