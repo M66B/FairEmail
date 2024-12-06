@@ -907,7 +907,7 @@ public class MessageHelper {
         // https://en.wikipedia.org/wiki/International_email
         for (Address address : addresses) {
             String email = ((InternetAddress) address).getAddress();
-            email = punyCode(email, false);
+            email = toPunyCode(email, false);
             ((InternetAddress) address).setAddress(email);
         }
         return addresses;
@@ -2817,7 +2817,8 @@ public class MessageHelper {
 
             if (email != null) {
                 email = decodeMime(email);
-                email = punyCode(email, true);
+                email = fromPunyCode(email);
+                email = toPunyCode(email, true);
 
                 iaddress.setAddress(email);
             }
@@ -3569,7 +3570,37 @@ public class MessageHelper {
         return TextUtils.join(compose ? ", " : "; ", formatted);
     }
 
-    static String punyCode(String email, boolean single) {
+    static String fromPunyCode(String email) {
+        try {
+            int at = email.indexOf('@');
+            if (at > 0) {
+                String user = email.substring(0, at);
+                String domain = email.substring(at + 1);
+
+                try {
+                    user = IDN.toUnicode(user, IDN.ALLOW_UNASSIGNED);
+                } catch (Throwable ex) {
+                    Log.i(ex);
+                }
+
+                String[] parts = domain.split("\\.");
+                for (int p = 0; p < parts.length; p++)
+                    try {
+                        parts[p] = IDN.toUnicode(parts[p], IDN.ALLOW_UNASSIGNED);
+                    } catch (Throwable ex) {
+                        Log.i(ex);
+                    }
+
+                email = user + '@' + TextUtils.join(".", parts);
+            }
+        } catch (Throwable ex) {
+            Log.i(ex);
+        }
+
+        return email;
+    }
+
+    static String toPunyCode(String email, boolean single) {
         int at = email.indexOf('@');
         if (at > 0) {
             String user = email.substring(0, at);
@@ -3596,6 +3627,7 @@ public class MessageHelper {
 
             email = user + '@' + TextUtils.join(".", parts);
         }
+
         return email;
     }
 
