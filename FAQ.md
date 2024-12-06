@@ -5863,6 +5863,15 @@ Note that you are required to switch to a [paid plan](https://openai.com/api/pri
 
 <br>
 
+An alternative to OpenAI is using [Groq](https://groq.com/).
+
+* Endpoint: **https://api.groq.com/openai/v1/**
+* Suggested model: **gemma-7b-it**
+
+It's faster and free to use for now.
+
+<br>
+
 You can select the [model](https://platform.openai.com/docs/models/overview),
 and configure the [temperature](https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature).
 
