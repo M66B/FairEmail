@@ -423,7 +423,17 @@ public class FragmentPop extends FragmentBase {
 
         // Workaround odd focus issue
         if (scroll != null)
-            scroll.requestChildFocus(null, null);
+            try {
+                scroll.requestChildFocus(null, null);
+            } catch (Throwable ex) {
+                /*
+                    java.lang.NullPointerException: Attempt to invoke virtual method 'boolean android.view.View.getRevealOnFocusHint()' on a null object reference
+                        at android.widget.ScrollView.requestChildFocus(ScrollView.java:1471)
+                        at eu.faircode.email.FragmentPop.onViewCreated(SourceFile:9)
+                        at androidx.fragment.app.Fragment.performViewCreated(SourceFile:15)
+                 */
+                Log.w(ex);
+            }
     }
 
     private void onSave(boolean should) {
