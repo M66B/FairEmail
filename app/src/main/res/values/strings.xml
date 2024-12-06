@@ -966,6 +966,7 @@
     <string name="title_advanced_range_size" translatable="false">Range size: %1$d</string>
     <string name="title_advanced_chunk_size" translatable="false">Chunk size: %1$d</string>
     <string name="title_advanced_thread_range" translatable="false">Thread range: %1$d days</string>
+    <string name="title_advanced_restart_interval" translatable="false">Restart interval: %1$d s</string>
     <string name="title_advanced_auto_scroll" translatable="false">Auto scroll editor</string>
     <string name="title_advanced_undo_manager" translatable="false">Use Android\'s undo manager</string>
     <string name="title_advanced_browser_zoom" translatable="false">Use browser zoom</string>
