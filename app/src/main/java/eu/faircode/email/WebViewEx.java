@@ -489,6 +489,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     @NonNull
     static String getUserAgent(Context context, WebView webView) {
         // https://developer.chrome.com/docs/multidevice/user-agent/#chrome-for-android
+        // https://android-developers.googleblog.com/2024/12/user-agent-reduction-on-android-webview.html
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean generic_ua = prefs.getBoolean("generic_ua", false);
         if (generic_ua)
