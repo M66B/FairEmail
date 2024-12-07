@@ -2096,7 +2096,7 @@ class Core {
         DB db = DB.getInstance(context);
 
         if (!EntityFolder.INBOX.equals(folder.type))
-            throw new IllegalArgumentException("Unexpected folder=" + folder.type);
+            throw new IllegalArgumentException("Not INBOX type=" + folder.type);
 
         if (message.raw == null || !message.raw) {
             Map<EntityMessage, Message> map = findMessages(context, folder, Arrays.asList(message), istore, ifolder);
@@ -2332,7 +2332,7 @@ class Core {
         String charset = (jargs.isNull(1) ? null : jargs.optString(1, null));
 
         if (!EntityFolder.INBOX.equals(folder.type))
-            throw new IllegalArgumentException("Not INBOX");
+            throw new IllegalArgumentException("Not INBOX type=" + folder.type);
 
         if (message.content && message.isPlainOnly() == plain_text && charset == null)
             return;
@@ -2367,7 +2367,7 @@ class Core {
         long id = jargs.getLong(0);
 
         if (!EntityFolder.INBOX.equals(folder.type))
-            throw new IllegalArgumentException("Not INBOX");
+            throw new IllegalArgumentException("Not INBOX type=" + folder.type);
 
         DB db = DB.getInstance(context);
         EntityAttachment attachment = db.attachment().getAttachment(id);
