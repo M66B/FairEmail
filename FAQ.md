@@ -5866,7 +5866,7 @@ Note that you are required to switch to a [paid plan](https://openai.com/api/pri
 An alternative to OpenAI is using [Groq](https://groq.com/).
 
 * Endpoint: **https://api.groq.com/openai/v1/**
-* Suggested model: **gemma-7b-it**
+* Suggested [model](https://console.groq.com/docs/models): **gemma2-9b-it** or **llama-3.3-70b-versatile**
 
 It's faster and free to use for now.
 
