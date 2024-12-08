@@ -1011,11 +1011,22 @@ public class EntityRule {
         boolean attached = jargs.optBoolean("attached");
         boolean attachments = jargs.optBoolean("attachments");
 
-        if (TextUtils.isEmpty(to) &&
-                message.auto_submitted != null && message.auto_submitted) {
-            EntityLog.log(context, EntityLog.Type.Rules, message,
-                    "Auto submitted rule=" + name);
-            return false;
+        if (TextUtils.isEmpty(to)) {
+            if (Boolean.TRUE.equals(message.auto_submitted)) {
+                EntityLog.log(context, EntityLog.Type.Rules, message, "Auto submitted rule=" + name);
+                return false;
+            }
+
+            Address[] recipients = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
+            if (recipients.length == 0) {
+                EntityLog.log(context, EntityLog.Type.Rules, message, "No recipients rule=" + name);
+                return false;
+            }
+
+            if (MessageHelper.isNoReply(recipients)) {
+                EntityLog.log(context, EntityLog.Type.Rules, message, "No-reply rule=" + name);
+                return false;
+            }
         }
 
         boolean complete = true;

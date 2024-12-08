@@ -5885,6 +5885,10 @@ public class MessageHelper {
         return false;
     }
 
+    static boolean isNoReply(Address[] addresses) {
+        return (addresses != null && isNoReply(Arrays.asList(addresses)));
+    }
+
     static boolean isNoReply(@NonNull List<Address> addresses) {
         for (Address address : addresses)
             if (isNoReply(address))
