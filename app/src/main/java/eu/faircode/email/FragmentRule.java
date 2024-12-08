@@ -167,6 +167,7 @@ public class FragmentRule extends FragmentBase {
     private CheckBox cbResend;
     private CheckBox cbAttached;
     private CheckBox cbCc;
+    private CheckBox cbChecks;
 
     private Button btnTtsSetup;
     private Button btnTtsData;
@@ -372,6 +373,7 @@ public class FragmentRule extends FragmentBase {
         cbResend = view.findViewById(R.id.cbResend);
         cbAttached = view.findViewById(R.id.cbAttached);
         cbCc = view.findViewById(R.id.cbCc);
+        cbChecks = view.findViewById(R.id.cbChecks);
 
         btnTtsSetup = view.findViewById(R.id.btnTtsSetup);
         btnTtsData = view.findViewById(R.id.btnTtsData);
@@ -1446,6 +1448,7 @@ public class FragmentRule extends FragmentBase {
                                     cbResend.setChecked(jaction.optBoolean("resend"));
                                     cbAttached.setChecked(jaction.optBoolean("attached"));
                                     cbCc.setChecked(jaction.optBoolean("cc"));
+                                    cbChecks.setChecked(jaction.optBoolean("checks", true));
                                     break;
 
                                 case EntityRule.TYPE_SOUND:
@@ -1876,6 +1879,7 @@ public class FragmentRule extends FragmentBase {
                     jaction.put("resend", cbResend.isChecked());
                     jaction.put("attached", cbAttached.isChecked());
                     jaction.put("cc", cbCc.isChecked());
+                    jaction.put("checks", cbChecks.isChecked());
                     break;
 
                 case EntityRule.TYPE_SOUND:

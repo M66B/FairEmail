@@ -1010,9 +1010,10 @@ public class EntityRule {
         boolean resend = jargs.optBoolean("resend");
         boolean attached = jargs.optBoolean("attached");
         boolean attachments = jargs.optBoolean("attachments");
+        boolean checks = jargs.optBoolean("checks", true);
 
         if (TextUtils.isEmpty(to)) {
-            if (Boolean.TRUE.equals(message.auto_submitted)) {
+            if (checks && Boolean.TRUE.equals(message.auto_submitted)) {
                 EntityLog.log(context, EntityLog.Type.Rules, message, "Auto submitted rule=" + name);
                 return false;
             }
@@ -1023,7 +1024,7 @@ public class EntityRule {
                 return false;
             }
 
-            if (MessageHelper.isNoReply(recipients)) {
+            if (checks && MessageHelper.isNoReply(recipients)) {
                 EntityLog.log(context, EntityLog.Type.Rules, message, "No-reply rule=" + name);
                 return false;
             }

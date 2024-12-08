@@ -1236,6 +1236,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbAttached" />
 
+                <CheckBox
+                    android:id="@+id/cbChecks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_rule_checks"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbCc" />
+
                 <TextView
                     android:id="@+id/tvAnswerRemark"
                     android:layout_width="0dp"
@@ -1245,7 +1255,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbCc" />
+                    app:layout_constraintTop_toBottomOf="@id/cbChecks" />
 
                 <Button
                     android:id="@+id/btnTtsSetup"
@@ -1526,7 +1536,7 @@
                     android:id="@+id/grpAnswer"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvAnswerIdentity,spIdent,tvAnswerTemplate,spAnswer,cbAnswerSubject,cbOriginalText,cbWithAttachments,tvTo,etTo,ibTo,cbResend,cbAttached,cbCc,tvAnswerRemark" />
+                    app:constraint_referenced_ids="tvAnswerIdentity,spIdent,tvAnswerTemplate,spAnswer,cbAnswerSubject,cbOriginalText,cbWithAttachments,tvTo,etTo,ibTo,cbResend,cbAttached,cbCc,cbChecks,tvAnswerRemark" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpTts"
