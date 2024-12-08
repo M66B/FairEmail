@@ -800,6 +800,8 @@ public class FragmentCompose extends FragmentBase {
                                     return;
 
                                 Layout layout = etBody.getLayout();
+                                if (layout == null)
+                                    return;
                                 int line = layout.getLineForOffset(pos);
                                 int y = layout.getLineTop(line + 1);
 
