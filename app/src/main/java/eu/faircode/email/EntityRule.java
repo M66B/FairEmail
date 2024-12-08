@@ -770,7 +770,7 @@ public class EntityRule {
                 } else {
                     EntityAnswer answer = db.answer().getAnswer(aid);
                     if (answer == null)
-                        throw new IllegalArgumentException("Template not found");
+                        throw new IllegalArgumentException(context.getString(R.string.title_rule_answer_missing));
                 }
                 return;
             case TYPE_TTS:
