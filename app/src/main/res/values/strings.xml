@@ -1565,7 +1565,7 @@
     <string name="title_print_margins">Add a margin</string>
     <string name="title_show_headers">Show headers</string>
     <string name="title_show_html">Show source</string>
-    <string name="title_raw_save">Save raw message</string>
+    <string name="title_raw_save">Save raw message (.eml)</string>
     <string name="title_raw_send">Send as attachment</string>
     <string name="title_raw_send_message">Message</string>
     <string name="title_raw_send_thread">Conversation</string>
