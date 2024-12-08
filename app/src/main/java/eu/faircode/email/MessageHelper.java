@@ -2206,6 +2206,10 @@ public class MessageHelper {
 
         String signer = null;
         for (String header : headers) {
+            String v = getKeyValues(header).get(type);
+            if (v == null)
+                continue;
+
             if (signer == null)
                 signer = getSigner(header);
             else {
@@ -2215,10 +2219,6 @@ public class MessageHelper {
                     break;
                 }
             }
-
-            String v = getKeyValues(header).get(type);
-            if (v == null)
-                continue;
 
             String[] val = v.split("[^A-za-z]+");
             if (val.length == 0)
