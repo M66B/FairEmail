@@ -1419,6 +1419,7 @@ public class Helper {
                 (Helper.hasValidFingerprint(context) ? "1" : "3") +
                 (BuildConfig.PLAY_STORE_RELEASE ? "p" : "") +
                 (BuildConfig.DEBUG ? "d" : "") +
+                (ConnectionHelper.vpnActive(context) ? "v" : "") +
                 (ActivityBilling.isPro(context) ? "+" : "");
     }
 
