@@ -10187,6 +10187,7 @@ public class FragmentMessages extends FragmentBase
                                             // https://datatracker.ietf.org/doc/html/rfc3850#section-4.4.2
 
                                             for (X509Certificate c : certs) {
+                                                // https://datatracker.ietf.org/doc/html/rfc3280#section-4.2.1.3
                                                 boolean[] usage = c.getKeyUsage();
                                                 boolean keyCertSign = (usage != null && usage.length > 5 && usage[5]);
                                                 boolean selfSigned = c.getIssuerX500Principal().equals(c.getSubjectX500Principal());
