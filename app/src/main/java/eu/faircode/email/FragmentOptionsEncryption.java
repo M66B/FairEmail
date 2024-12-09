@@ -105,6 +105,7 @@ public class FragmentOptionsEncryption extends FragmentBase
     private Spinner spSignAlgoSmime;
     private Spinner spEncryptAlgoSmime;
     private SwitchCompat swCheckCertificate;
+    private SwitchCompat swCheckKeyUsage;
     private Button btnManageCertificates;
     private Button btnImportKey;
     private Button btnManageKeys;
@@ -123,7 +124,7 @@ public class FragmentOptionsEncryption extends FragmentBase
             "sign_default", "encrypt_default", "encrypt_auto", "encrypt_reply",
             "auto_verify", "auto_decrypt", "auto_undecrypt",
             "openpgp_provider", "autocrypt", "autocrypt_mutual", "encrypt_subject",
-            "sign_algo_smime", "encrypt_algo_smime", "check_certificate"
+            "sign_algo_smime", "encrypt_algo_smime", "check_certificate", "check_key_usage"
     ));
 
     @Override
@@ -159,6 +160,7 @@ public class FragmentOptionsEncryption extends FragmentBase
         spSignAlgoSmime = view.findViewById(R.id.spSignAlgoSmime);
         spEncryptAlgoSmime = view.findViewById(R.id.spEncryptAlgoSmime);
         swCheckCertificate = view.findViewById(R.id.swCheckCertificate);
+        swCheckKeyUsage = view.findViewById(R.id.swCheckKeyUsage);
         btnManageCertificates = view.findViewById(R.id.btnManageCertificates);
         btnImportKey = view.findViewById(R.id.btnImportKey);
         btnManageKeys = view.findViewById(R.id.btnManageKeys);
@@ -395,6 +397,14 @@ public class FragmentOptionsEncryption extends FragmentBase
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("check_certificate", checked).apply();
+                swCheckKeyUsage.setEnabled(checked);
+            }
+        });
+
+        swCheckKeyUsage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("check_key_usage", checked).apply();
             }
         });
 
@@ -709,6 +719,8 @@ public class FragmentOptionsEncryption extends FragmentBase
                 }
 
             swCheckCertificate.setChecked(prefs.getBoolean("check_certificate", true));
+            swCheckKeyUsage.setChecked(prefs.getBoolean("check_key_usage", false));
+            swCheckKeyUsage.setEnabled(swCheckCertificate.isChecked());
         } catch (Throwable ex) {
             Log.e(ex);
         }
