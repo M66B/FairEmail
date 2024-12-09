@@ -4462,22 +4462,16 @@ public class FragmentCompose extends FragmentBase {
                             // Encrypting Key: Key Usage: Key Encipherment, Data Encipherment
 
                             boolean[] usage = chain[0].getKeyUsage();
-                            if (usage != null && usage.length > 3) {
+                            if (usage != null && usage.length > 0) {
                                 // https://datatracker.ietf.org/doc/html/rfc3280#section-4.2.1.3
                                 // https://datatracker.ietf.org/doc/html/rfc3850#section-4.4.2
                                 boolean digitalSignature = usage[0];
-                                boolean keyEncipherment = usage[2];
 
-                                if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
-                                    if (!digitalSignature)
-                                        throw new IllegalAccessException("Invalid key usage:" +
-                                                " digitalSignature=" + digitalSignature);
-                                } else if (EntityMessage.SMIME_SIGNENCRYPT.equals(type)) {
-                                    if (!digitalSignature || !keyEncipherment)
-                                        throw new IllegalAccessException("Invalid key usage:" +
-                                                " digitalSignature=" + digitalSignature +
-                                                " keyEncipherment=" + keyEncipherment);
-                                }
+                                if (!digitalSignature &&
+                                        (EntityMessage.SMIME_SIGNONLY.equals(type) ||
+                                                EntityMessage.SMIME_SIGNENCRYPT.equals(type)))
+                                    throw new IllegalAccessException("Invalid key usage:" +
+                                            " digitalSignature=" + digitalSignature);
                             }
                         }
                     } catch (CertificateException ex) {
