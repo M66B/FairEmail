@@ -653,6 +653,7 @@ class Core {
                             // Fetch: BAD Error in IMAP command FETCH: Invalid messageset (n.nnn + n .nnn secs).
                             // Fetch: NO FETCH sequence parse error in: nnn
                             // Fetch: NO [NONEXISTENT] No matching messages
+                            // Fetch: NO Some of the requested messages no longer exist.
                             // Fetch UID: NO Some messages could not be FETCHed (Failure)
                             // Fetch UID: NO [LIMIT] UID FETCH Rate limit hit.
                             // Fetch UID: NO Server Unavailable. 15
@@ -692,6 +693,7 @@ class Core {
                             // Add: BAD [TOOBIG] Message too large.
                             // Add: NO Permission denied
                             // Add: NO Message size exceeds fixed maximum message size. Size: xxx KB, Max size: yyy KB
+                            // Add: NO Message size exceeds maximum message size limit
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
