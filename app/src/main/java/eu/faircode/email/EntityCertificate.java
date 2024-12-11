@@ -194,7 +194,7 @@ public class EntityCertificate {
                 for (List altName : altNames)
                     if (altName.get(0).equals(GeneralName.rfc822Name)) {
                         if (altName.get(1) instanceof String)
-                            result.add((String) altName.get(1));
+                            result.add(MessageHelper.fromPunyCode((String) altName.get(1)));
                     } else if (altName.get(0).equals(GeneralName.otherName)) {
                         if (altName.get(1) instanceof byte[])
                             try {
@@ -206,7 +206,7 @@ public class EntityCertificate {
                                 int at = otherName.indexOf('@');
                                 int dot = otherName.lastIndexOf('.');
                                 if (at >= 0 && dot > at) // UTF-8 accepted, so basic test only
-                                    result.add(otherName);
+                                    result.add(MessageHelper.fromPunyCode(otherName));
                                 else
                                     Log.w("Ignoring otherName=" + otherName);
                             } catch (Throwable ex) {
@@ -234,7 +234,7 @@ public class EntityCertificate {
                             continue;
                         if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
                             continue;
-                        result.add(email);
+                        result.add(MessageHelper.fromPunyCode(email));
                     }
             }
         } catch (Throwable ex) {
