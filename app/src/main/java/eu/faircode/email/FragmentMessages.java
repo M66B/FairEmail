@@ -1702,7 +1702,8 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 boolean more_clear = prefs.getBoolean("more_clear", true);
-                onActionFlagColorSelection(more_clear);
+                MoreResult result = (MoreResult) cardMore.getTag();
+                onActionFlagColorSelection(more_clear, result == null ? Color.TRANSPARENT : result.color);
             }
         });
 
@@ -4728,7 +4729,7 @@ public class FragmentMessages extends FragmentBase
                             onActionFlagSelection(false, Color.TRANSPARENT, null, false);
                             return true;
                         } else if (itemId == R.string.title_flag_color) {
-                            onActionFlagColorSelection(false);
+                            onActionFlagColorSelection(false, result == null ? Color.TRANSPARENT : result.color);
                             return true;
                         } else if (itemId == R.string.title_importance_low) {
                             onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW, null, false);
@@ -4981,9 +4982,9 @@ public class FragmentMessages extends FragmentBase
         }.execute(this, args, "messages:flag");
     }
 
-    private void onActionFlagColorSelection(boolean clear) {
+    private void onActionFlagColorSelection(boolean clear, Integer color) {
         Bundle args = new Bundle();
-        args.putInt("color", Color.TRANSPARENT);
+        args.putInt("color", color);
         args.putString("title", getString(R.string.title_flag_color));
         args.putBoolean("reset", true);
         args.putBoolean("clear", clear);
@@ -11585,6 +11586,7 @@ public class FragmentMessages extends FragmentBase
         boolean visible;
         boolean hidden;
         boolean flagged;
+        Integer color;
         boolean unflagged;
         Integer importance;
         Boolean hasInbox;
@@ -11726,8 +11728,14 @@ public class FragmentMessages extends FragmentBase
                         if (!threaded.ui_seen)
                             result.unseen = true;
 
-                    if (threaded.ui_flagged)
+                    if (threaded.ui_flagged) {
                         result.flagged = true;
+                        if (threaded.color != null)
+                            if (result.color == null)
+                                result.color = threaded.color;
+                            else if (!result.color.equals(threaded.color))
+                                result.color = Color.TRANSPARENT;
+                    }
 
                     int i = (message.importance == null ? EntityMessage.PRIORITIY_NORMAL : message.importance);
                     if (result.importance == null)
