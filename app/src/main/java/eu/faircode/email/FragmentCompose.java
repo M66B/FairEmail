@@ -4734,8 +4734,11 @@ public class FragmentCompose extends FragmentBase {
                 if (ex instanceof IllegalArgumentException) {
                     Log.i(ex);
                     String msg = new ThrowableWrapper(ex).getSafeMessage();
-                    if (ex.getCause() != null)
-                        msg += " " + new ThrowableWrapper(ex.getCause()).getSafeMessage();
+                    if (ex.getCause() != null) {
+                        String cause = new ThrowableWrapper(ex.getCause()).getSafeMessage();
+                        if (cause != null)
+                            msg += " " + cause;
+                    }
                     Snackbar snackbar = Helper.setSnackbarOptions(
                             Snackbar.make(view, msg, Snackbar.LENGTH_INDEFINITE));
                     Helper.setSnackbarLines(snackbar, 7);
