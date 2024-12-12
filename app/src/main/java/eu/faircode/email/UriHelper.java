@@ -472,6 +472,7 @@ public class UriHelper {
         try (InputStream is = context.getAssets().open("debounce.json")) {
             String json = Helper.readStream(is);
             JSONArray jbounce = new JSONArray(json);
+            Log.i("Brave debounces=" + jbounce.length());
             for (int i = 0; i < jbounce.length(); i++) {
                 JSONObject jitem = jbounce.getJSONObject(i);
                 JSONArray jinclude = jitem.getJSONArray("include");
