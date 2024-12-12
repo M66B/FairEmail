@@ -2356,7 +2356,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
 
                     boolean move = !(message.folderReadOnly || message.uid == null);
-                    boolean archive = (move && (hasArchive && !inArchive && !inSent && !inTrash && !inJunk));
+                    boolean archive = (move && (hasArchive && !inArchive && !inTrash && !inJunk));
                     boolean trash = (move || outbox || debug || pop);
                     boolean inbox = (move && hasInbox && (inArchive || inTrash || inJunk) && imap) ||
                             (pop && message.accountLeaveDeleted && inTrash);
