@@ -1279,7 +1279,6 @@
     <string name="title_print_margins">Adaugă o margine</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_show_html">Arată sursa</string>
-    <string name="title_raw_save">Salvează mesaj original</string>
     <string name="title_raw_send">Trimite ca atașament</string>
     <string name="title_raw_send_message">Mesaj</string>
     <string name="title_raw_send_thread">Conversație</string>
@@ -1522,7 +1521,7 @@
     <string name="title_summarize">Rezumat</string>
     <string name="title_translate_configure">Configurați &#8230;</string>
     <string name="title_translate_key">Introduceți cheia</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Traducerea în %1$s &#8230;</string>
+    <string name="title_translating">Traducerea în %1$s &#8230;</string>
     <string name="title_translate_formal">Folosiți forma oficială</string>
     <string name="title_translate_small">Utilizați un font mic pentru textul sursă</string>
     <string name="title_translate_replace">Înlocuiește textul sursă cu textul tradus</string>

@@ -1262,7 +1262,6 @@
     <string name="title_print_margins">Lisa veeris</string>
     <string name="title_show_headers">Näita päiseid</string>
     <string name="title_show_html">Näita lähtekoodi</string>
-    <string name="title_raw_save">Salvesta toorsõnum</string>
     <string name="title_raw_send">Saada manusena</string>
     <string name="title_raw_send_message">Sõnum</string>
     <string name="title_raw_send_thread">Vestlus</string>

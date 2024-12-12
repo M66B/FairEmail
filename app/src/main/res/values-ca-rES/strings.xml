@@ -835,7 +835,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_pin">Afegeix una drecera</string>
     <string name="title_print">Imprimeix</string>
     <string name="title_show_headers">Mostra les capçaleres</string>
-    <string name="title_raw_save">Descarregueu el missatge en brut</string>
     <string name="title_raw_send">Envia com a fitxer adjunt</string>
     <string name="title_raw_send_message">Missatge</string>
     <string name="title_raw_send_thread">Conversació</string>

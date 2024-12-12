@@ -788,6 +788,7 @@ v prohlížeči ze všech Google účtů.</string>
         Běžně jsou podporovány výchozí algoritmy SHA256 a AES128.
     </string>
     <string name="title_advanced_check_certificate">Zkontrolovat veřejný klíč při odesílání</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Zkontrolovat údaje o použití klíče při odesílání</string>
     <string name="title_advanced_manage_certificates">Spravovat veřejné klíče</string>
     <string name="title_advanced_import_key">Importovat privátní klíč</string>
     <string name="title_advanced_manage_keys">Spravovat privátní klíče</string>
@@ -1294,7 +1295,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_print_margins">Přidat okraje</string>
     <string name="title_show_headers">Zobrazit hlavičky</string>
     <string name="title_show_html">Zobraz zdroj</string>
-    <string name="title_raw_save">Uložit zdrojovou zprávu</string>
+    <string name="title_raw_save">Uložit zprávu (.eml)</string>
     <string name="title_raw_send">Odeslat jako přílohu</string>
     <string name="title_raw_send_message">Zpráva</string>
     <string name="title_raw_send_thread">Konverzace</string>
@@ -1537,7 +1538,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_summarize">Shrnout</string>
     <string name="title_translate_configure">Nastavit &#8230;</string>
     <string name="title_translate_key">Zadejte klíč</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Překlad do %1$s &#8230;</string>
+    <string name="title_translating">Překlad do %1$s &#8230;</string>
     <string name="title_translate_formal">Použít formální jazyk</string>
     <string name="title_translate_small">Použít malé písmo pro zdrojový text</string>
     <string name="title_translate_replace">Nahradit zdrojový text přeloženým textem</string>
@@ -1814,6 +1815,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_resend">Odeslat znovu</string>
     <string name="title_rule_attached">Připojit soubor zdrojové zprávy</string>
     <string name="title_rule_cc">Odpovědět na adresy kopie</string>
+    <string name="title_rule_checks">Kontrolovat automatické odesílání zpráv, adresy bez odpovědi atd.</string>
     <string name="title_rule_with_attachments">S přílohami</string>
     <string name="title_rule_answer_remark">Aby se zabránilo smyčkám odpovědí, bude na každou konverzaci odeslána pouze jedna odpověď</string>
     <string name="title_rule_name_missing">Chybí název pravidla</string>

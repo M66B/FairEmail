@@ -990,7 +990,6 @@
     <string name="title_print_images">Ispis slika</string>
     <string name="title_print_images_remark">Preuzimanje slika može malo potrajati</string>
     <string name="title_show_headers">Pokaži zaglavlje</string>
-    <string name="title_raw_save">Spremi sirovu poruku</string>
     <string name="title_raw_send">Pošalji kao prilog</string>
     <string name="title_raw_send_message">Poruka</string>
     <string name="title_raw_send_thread">Konverzacija</string>

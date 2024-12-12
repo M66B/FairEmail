@@ -1239,7 +1239,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_print_margins">Tambahkan margin</string>
     <string name="title_show_headers">Tampilkan Judul</string>
     <string name="title_show_html">Tampilkan sumber</string>
-    <string name="title_raw_save">Simpan pesan sebagai bahan</string>
     <string name="title_raw_send">Kirim sebagai lampiran</string>
     <string name="title_raw_send_message">Pesan</string>
     <string name="title_raw_send_thread">Percakapan</string>

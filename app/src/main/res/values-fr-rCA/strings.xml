@@ -760,6 +760,7 @@
         Les algorithmes par défaut SHA256 et AES128 sont couramment pris en charge.
     </string>
     <string name="title_advanced_check_certificate">Vérifier la clé publique lors de l\'envoi</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Vérifier les indications d\'utilisation des clés lors de l\'envoi</string>
     <string name="title_advanced_manage_certificates">Gérer les clés publiques</string>
     <string name="title_advanced_import_key">Importer une clé privée</string>
     <string name="title_advanced_manage_keys">Gérer les clés privées</string>
@@ -1268,7 +1269,7 @@
     <string name="title_print_margins">Ajouter une marge</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
     <string name="title_show_html">Afficher le message source (HTML)</string>
-    <string name="title_raw_save">Enregistrer le message original</string>
+    <string name="title_raw_save">Enregistrer le message brut (.eml)</string>
     <string name="title_raw_send">Envoyer comme pièce-jointe</string>
     <string name="title_raw_send_message">Message</string>
     <string name="title_raw_send_thread">Conversation</string>
@@ -1512,7 +1513,7 @@
     <string name="title_summarize">Résumer</string>
     <string name="title_translate_configure">Configurer&#8230;</string>
     <string name="title_translate_key">Saisir la clé</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Traduction en %1$s&#8230;</string>
+    <string name="title_translating">Traduction en %1$s&#8230;</string>
     <string name="title_translate_formal">Utiliser un langage formel</string>
     <string name="title_translate_small">Utiliser une petite police de caractères pour le texte source</string>
     <string name="title_translate_replace">Remplacer le texte source par le texte traduit</string>
@@ -1789,6 +1790,7 @@
     <string name="title_rule_resend">Envoyer à nouveau</string>
     <string name="title_rule_attached">Joindre un fichier de message brut</string>
     <string name="title_rule_cc">Répondre aux adresses Cc</string>
+    <string name="title_rule_checks">Vérifier les messages envoyés automatiquement, les adresses de non-réponse, etc.</string>
     <string name="title_rule_with_attachments">Avec pièces jointes</string>
     <string name="title_rule_answer_remark">Une seule réponse par conversation sera envoyée afin d\'éviter les réponses en boucle</string>
     <string name="title_rule_name_missing">Nom de règle manquant</string>

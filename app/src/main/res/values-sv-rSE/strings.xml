@@ -752,6 +752,7 @@
         Standardalgoritmerna SHA256 och AES128 stöds ofta.
     </string>
     <string name="title_advanced_check_certificate">Kontrollera offentlig nyckel när du skickar</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Kontrollera nyckelanvändnings-indikationer när du skickar</string>
     <string name="title_advanced_manage_certificates">Hantera publika nycklar</string>
     <string name="title_advanced_import_key">Importera privat nyckel</string>
     <string name="title_advanced_manage_keys">Hantera privata nycklar</string>
@@ -1253,7 +1254,7 @@
     <string name="title_print_margins">Lägg till marginal</string>
     <string name="title_show_headers">Visa sidhuvuden</string>
     <string name="title_show_html">Visa källa</string>
-    <string name="title_raw_save">Spara rent meddelande</string>
+    <string name="title_raw_save">Spara oformaterat meddelande (.eml)</string>
     <string name="title_raw_send">Skicka som bilaga</string>
     <string name="title_raw_send_message">Meddelande</string>
     <string name="title_raw_send_thread">Konversation</string>
@@ -1491,6 +1492,7 @@
     <string name="title_summarize">Sammanfatta</string>
     <string name="title_translate_configure">Konfigurera &#8230;</string>
     <string name="title_translate_key">Ange nyckel</string>
+    <string name="title_translating">Översätter till %1$s &#8230;</string>
     <string name="title_translate_formal">Använd formell form</string>
     <string name="title_translate_small">Använd ett litet typsnitt för källtexten</string>
     <string name="title_translate_replace">Ersätt ursprunglig text med översatt text</string>
@@ -1765,6 +1767,7 @@
     <string name="title_rule_resend">Skicka igen</string>
     <string name="title_rule_attached">Bifoga meddelandefil i källformat</string>
     <string name="title_rule_cc">Svar till CC-adresser</string>
+    <string name="title_rule_checks">Sök efter automatiskt skickade meddelanden, svara-ej-adresser, etc.</string>
     <string name="title_rule_with_attachments">Med bilagor</string>
     <string name="title_rule_answer_remark">Endast ett svar kommer att skickas för någon konversation, för att undvika svarsloopar</string>
     <string name="title_rule_name_missing">Regelnamn saknas</string>

@@ -1243,7 +1243,6 @@
     <string name="title_print_margins">新增邊界</string>
     <string name="title_show_headers">顯示標頭</string>
     <string name="title_show_html">顯示來源</string>
-    <string name="title_raw_save">保存元訊息</string>
     <string name="title_raw_send">以附件形式傳送</string>
     <string name="title_raw_send_message">訊息</string>
     <string name="title_raw_send_thread">會話</string>

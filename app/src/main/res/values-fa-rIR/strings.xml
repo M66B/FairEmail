@@ -890,7 +890,7 @@
     <string name="title_print_margins">افزودن حاشیه</string>
     <string name="title_show_headers">نمایش سرصفحه</string>
     <string name="title_show_html">نمایش مبدا</string>
-    <string name="title_raw_save">ذخیره پیام خام</string>
+    <string name="title_raw_save">ذخیره پیام خام (.eml)</string>
     <string name="title_raw_send">ارسال به‌عنوان پیوست</string>
     <string name="title_raw_send_message">پیام</string>
     <string name="title_raw_send_thread">گفتگو</string>

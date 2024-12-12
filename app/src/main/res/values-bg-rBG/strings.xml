@@ -1261,7 +1261,6 @@
     <string name="title_print_margins">Добавяне на краищни полета</string>
     <string name="title_show_headers">Показване на заглавките</string>
     <string name="title_show_html">Показване на извора</string>
-    <string name="title_raw_save">Запазване на необработено съобщение</string>
     <string name="title_raw_send">Изпращане като прикачен файл</string>
     <string name="title_raw_send_message">Съобщение</string>
     <string name="title_raw_send_thread">Разговор</string>

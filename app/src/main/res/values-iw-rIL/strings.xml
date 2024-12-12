@@ -1295,7 +1295,7 @@
     <string name="title_print_margins">הוספת גבול</string>
     <string name="title_show_headers">הצגת כותרות</string>
     <string name="title_show_html">הצגת מקור</string>
-    <string name="title_raw_save">שמירת הודעה גולמית</string>
+    <string name="title_raw_save">שמירת הודעה גולמית (‎.eml)</string>
     <string name="title_raw_send">שליחה כקובץ מצורף</string>
     <string name="title_raw_send_message">הודעה</string>
     <string name="title_raw_send_thread">דיון</string>
@@ -1539,7 +1539,7 @@
     <string name="title_summarize">סיכום</string>
     <string name="title_translate_configure">הגדרה&#8230;</string>
     <string name="title_translate_key">נא להקליד מפתח</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">תרגום ל%1$s&#8230;</string>
+    <string name="title_translating">תרגום ל%1$s&#8230;</string>
     <string name="title_translate_formal">להשתמש בשפה רשמית</string>
     <string name="title_translate_small">להשתמש בגופן קטן לטקסט המקור</string>
     <string name="title_translate_replace">החלפת טקסט המקור בטקסט מתורגם</string>
@@ -1816,6 +1816,7 @@
     <string name="title_rule_resend">שליחה מחדש</string>
     <string name="title_rule_attached">צירוף קובץ הודעה גולמית</string>
     <string name="title_rule_cc">להגיב לכתובות של עותק</string>
+    <string name="title_rule_checks">לבדוק הודעות שנשלחו אוטומטית, כתובות no-reply (לא להגיב) וכו׳.</string>
     <string name="title_rule_with_attachments">עם קבצים מצורפים</string>
     <string name="title_rule_answer_remark">יישלח מענה אחד לכל דיון, כדי להימנע מלולאות מענה</string>
     <string name="title_rule_name_missing">שם הכלל חסר</string>

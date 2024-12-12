@@ -751,7 +751,6 @@
     <string name="title_print">Skriv ut</string>
     <string name="title_print_header">Inkluder header-informasjon ved utskrift</string>
     <string name="title_show_headers">Vis topptekster</string>
-    <string name="title_raw_save">Lagre rå melding</string>
     <string name="title_raw_send">Send som vedlegg</string>
     <string name="title_raw_send_message">Melding</string>
     <string name="title_raw_send_thread">Samtale</string>

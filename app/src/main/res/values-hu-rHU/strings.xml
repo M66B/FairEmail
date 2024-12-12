@@ -757,6 +757,7 @@
         Az legtöbbet használt alap algoritmus az SHA256 és AES128.
     </string>
     <string name="title_advanced_check_certificate">Nyilvános kulcs ellenőrzése küldéskor</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Küldéskor ellenőrizze a kulcshasználat indikátort</string>
     <string name="title_advanced_manage_certificates">Nyilvános kulcsok kezelése</string>
     <string name="title_advanced_import_key">Privát kulcs importálása</string>
     <string name="title_advanced_manage_keys">Privát kulcsok kezelése</string>
@@ -1261,7 +1262,7 @@
     <string name="title_print_margins">Margó hozzáadása</string>
     <string name="title_show_headers">Fejlécek megjelenítése</string>
     <string name="title_show_html">Forrás mutatása</string>
-    <string name="title_raw_save">Nyers üzenet mentése</string>
+    <string name="title_raw_save">Nyers üzenetfájl mentése (.eml)</string>
     <string name="title_raw_send">Küldés mellékletként</string>
     <string name="title_raw_send_message">Üzenet</string>
     <string name="title_raw_send_thread">Beszélgetés</string>
@@ -1503,7 +1504,7 @@
     <string name="title_summarize">Összefoglalás</string>
     <string name="title_translate_configure">&#8230; konfigurálása</string>
     <string name="title_translate_key">Kulcs megadása</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Fordítás %1$s nyelvre &#8230;</string>
+    <string name="title_translating">Fordítás %1$s nyelvre &#8230;</string>
     <string name="title_translate_formal">Használjon hivatalos formát</string>
     <string name="title_translate_small">Kis betű használata a forrás szöveghez</string>
     <string name="title_translate_replace">A forrásszöveg felülírása a fordítással</string>
@@ -1780,6 +1781,7 @@
     <string name="title_rule_resend">Újraküldés</string>
     <string name="title_rule_attached">Nyers üzenetfájl csatolása</string>
     <string name="title_rule_cc">Válasz a másolatok címzetteinek</string>
+    <string name="title_rule_checks">Automatikusan küldött üzenetek, ne válaszoljon (no-reply) címek, stb. ellenőrzése.</string>
     <string name="title_rule_with_attachments">Mellékletekkel</string>
     <string name="title_rule_answer_remark">A válaszhurkok elkerülése érdekében minden beszélgetéshez csak egy válasz lesz elküldve</string>
     <string name="title_rule_name_missing">Hiányzó szabálynév</string>

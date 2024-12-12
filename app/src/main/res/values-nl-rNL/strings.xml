@@ -756,6 +756,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         De standaard algoritmen SHA256 en AES128 worden meestal ondersteund.
     </string>
     <string name="title_advanced_check_certificate">Controleer de publieke sleutel bij verzenden</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Indicaties voor sleutelgebruik (key usage flags) bij verzenden controleren</string>
     <string name="title_advanced_manage_certificates">Publieke sleutels beheren</string>
     <string name="title_advanced_import_key">Importeer privé sleutel</string>
     <string name="title_advanced_manage_keys">Privé sleutels beheren</string>
@@ -1260,7 +1261,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_print_margins">Voeg een marge toe</string>
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_show_html">Toon bron</string>
-    <string name="title_raw_save">Ruw bericht opslaan</string>
+    <string name="title_raw_save">Ruw bericht opslaan (.eml)</string>
     <string name="title_raw_send">Stuur als bijlage</string>
     <string name="title_raw_send_message">Bericht</string>
     <string name="title_raw_send_thread">Gesprek</string>
@@ -1501,7 +1502,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_summarize">Samenvatten</string>
     <string name="title_translate_configure">Configureer &#8230;</string>
     <string name="title_translate_key">Sleutel invoeren</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Vertalen naar %1$s &#8230;</string>
+    <string name="title_translating">Vertalen naar %1$s &#8230;</string>
     <string name="title_translate_formal">Gebruik formele vorm</string>
     <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
     <string name="title_translate_replace">Vervang brontekst door vertaalde tekst</string>
@@ -1775,6 +1776,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_resend">Verstuur opnieuw</string>
     <string name="title_rule_attached">Voeg ruw bericht als bestand toe</string>
     <string name="title_rule_cc">Antwoord op CC adressen</string>
+    <string name="title_rule_checks">Controleer op automatisch verzonden berichten, geen antwoordadressen, enz.</string>
     <string name="title_rule_with_attachments">Met bijlagen</string>
     <string name="title_rule_answer_remark">Slechts één antwoord zal worden verzonden voor elk gesprek, om lussen te voorkomen</string>
     <string name="title_rule_name_missing">Regelnaam ontbreekt</string>

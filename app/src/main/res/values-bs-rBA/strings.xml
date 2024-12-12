@@ -774,6 +774,7 @@
         Zadani algoritmi SHA256 i AES128 su uobičajeno podržani.
     </string>
     <string name="title_advanced_check_certificate">Provjeri javni ključ pri slanju</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Provjeri naznake upotrebe ključeva tokom slanja</string>
     <string name="title_advanced_manage_certificates">Upravljaj javnim ključevima</string>
     <string name="title_advanced_import_key">Uvezi privatni ključ</string>
     <string name="title_advanced_manage_keys">Upravljaj privatnim ključevima</string>
@@ -1281,7 +1282,7 @@
     <string name="title_print_margins">Dodaj marginu</string>
     <string name="title_show_headers">Prikaži zaglavlja</string>
     <string name="title_show_html">Prikaži izvor</string>
-    <string name="title_raw_save">Sačuvaj raw poruku</string>
+    <string name="title_raw_save">Sačuvaj raw poruku (.eml)</string>
     <string name="title_raw_send">Pošalji kao prilog</string>
     <string name="title_raw_send_message">Poruka</string>
     <string name="title_raw_send_thread">Konverzacija</string>
@@ -1525,7 +1526,7 @@
     <string name="title_summarize">Sažetak</string>
     <string name="title_translate_configure">Podesi &#8230;</string>
     <string name="title_translate_key">Unesite ključ</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Prevođenje na %1$s &#8230;</string>
+    <string name="title_translating">Prevođenje na %1$s &#8230;</string>
     <string name="title_translate_formal">Koristi formalni oblik</string>
     <string name="title_translate_small">Koristi mali font za izvorni tekst</string>
     <string name="title_translate_replace">Zamijeni izvorni tekst prevedenim tekstom</string>
@@ -1802,6 +1803,7 @@
     <string name="title_rule_resend">Ponovljeno slanje</string>
     <string name="title_rule_attached">Priloži datoteku RAW poruke</string>
     <string name="title_rule_cc">Odgovori na CC adrese</string>
+    <string name="title_rule_checks">Provjeri ima li automatski poslanih poruka, no-reply adresa, itd.</string>
     <string name="title_rule_with_attachments">S prilozima</string>
     <string name="title_rule_answer_remark">Samo jedan odgovor će se poslati za bilo koju konverzaciju, radi sprječavanja zapetljavanja odgovora</string>
     <string name="title_rule_name_missing">Nedostaje naziv pravila</string>

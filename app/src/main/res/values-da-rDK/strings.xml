@@ -760,6 +760,7 @@
         Standardalgoritmerne SHA256 og AES128 understøttes almindeligvis.
     </string>
     <string name="title_advanced_check_certificate">Tjek offentlig nøgle ved afsendelse</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Tjek nøgleforbrugsangivelser ved afsendelse</string>
     <string name="title_advanced_manage_certificates">Håndtér offentlige nøgler</string>
     <string name="title_advanced_import_key">Importér privat nøgle</string>
     <string name="title_advanced_manage_keys">Håndtér private nøgler</string>
@@ -1268,7 +1269,7 @@
     <string name="title_print_margins">Tilføj en margin</string>
     <string name="title_show_headers">Vis overskrifter</string>
     <string name="title_show_html">Vis kilde</string>
-    <string name="title_raw_save">Gem besked i råformat</string>
+    <string name="title_raw_save">Gem rå besked (.eml)</string>
     <string name="title_raw_send">Send som vedhæftning</string>
     <string name="title_raw_send_message">Besked</string>
     <string name="title_raw_send_thread">Samtale</string>
@@ -1512,7 +1513,7 @@
     <string name="title_summarize">Sammenfatning</string>
     <string name="title_translate_configure">Opsæt&#8230;</string>
     <string name="title_translate_key">Angiv nøgle</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Oversætter til %1$s &#8230;</string>
+    <string name="title_translating">Oversætter til %1$s &#8230;</string>
     <string name="title_translate_formal">Brug formel form</string>
     <string name="title_translate_small">Benyt lille kildetekstskrifttype</string>
     <string name="title_translate_replace">Erstat kildetekst ved oversat tekst</string>
@@ -1789,6 +1790,7 @@
     <string name="title_rule_resend">Send igen</string>
     <string name="title_rule_attached">Vedhæft råbeskedfil</string>
     <string name="title_rule_cc">Svar til Cc-adresser</string>
+    <string name="title_rule_checks">Tjek for automatisk sendte beskeder, ingen svar-adresser mv.</string>
     <string name="title_rule_with_attachments">Med vedhæftninger</string>
     <string name="title_rule_answer_remark">For at undgå svarsløjfer, sendes kun ét svar til en given samtale</string>
     <string name="title_rule_name_missing">Regelnavn mangler</string>

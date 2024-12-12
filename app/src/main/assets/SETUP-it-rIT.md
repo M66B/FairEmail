@@ -1,4 +1,4 @@
-# Guida di configurazione
+# Guida alla configurazione
 
 Configurare FairEmail è semplice. Aggiungi almeno un profilo (account di posta) per ricevere le email e almeno un'identità se vuoi inviarle. La configurazione rapida aggiungerà un profilo e un'identità in modalità guidata (valida per i principali provider di posta).
 

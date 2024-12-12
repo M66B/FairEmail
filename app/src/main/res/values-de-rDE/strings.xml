@@ -1269,7 +1269,7 @@
     <string name="title_print_margins">Einen Rand hinzufügen</string>
     <string name="title_show_headers">Kopfzeilen anzeigen</string>
     <string name="title_show_html">Quelltext anzeigen</string>
-    <string name="title_raw_save">Rohdaten speichern</string>
+    <string name="title_raw_save">Rohnachricht speichern (.eml)</string>
     <string name="title_raw_send">Als Anhang senden</string>
     <string name="title_raw_send_message">Nachricht</string>
     <string name="title_raw_send_thread">Unterhaltung</string>
@@ -1513,7 +1513,7 @@
     <string name="title_summarize">Zusammenfassen</string>
     <string name="title_translate_configure">Konfigurieren &#8230;</string>
     <string name="title_translate_key">Schlüssel einfügen</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Übersetzen nach %1$s &#8230;</string>
+    <string name="title_translating">Wird nach %1$s &#8230; übersetzt</string>
     <string name="title_translate_formal">Förmliche Anrede verwenden</string>
     <string name="title_translate_small">Kleine Schrift für den Originaltext verwenden</string>
     <string name="title_translate_replace">Originaltext durch übersetzten Text ersetzen</string>
@@ -1790,6 +1790,7 @@
     <string name="title_rule_resend">Umleiten</string>
     <string name="title_rule_attached">Nachricht-Quelltext anhängen</string>
     <string name="title_rule_cc">Den CC-Adressen antworten</string>
+    <string name="title_rule_checks">Auf automatisch gesendete Nachrichten, keine-Antwort-Adressen usw. prüfen.</string>
     <string name="title_rule_with_attachments">Mit Anhängen</string>
     <string name="title_rule_answer_remark">Für jede Unterhaltung wird per Antwortregel nur eine Antwort gesendet, um Antwortschleifen zu vermeiden</string>
     <string name="title_rule_name_missing">Regelname fehlt</string>

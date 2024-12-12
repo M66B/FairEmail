@@ -760,6 +760,7 @@
         Os algoritmos padrão SHA256 e AES128 são comummente suportados.
     </string>
     <string name="title_advanced_check_certificate">Verificar a chave pública ao enviar</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Verificar indicações key-usage no envio</string>
     <string name="title_advanced_manage_certificates">Gerir chaves públicas</string>
     <string name="title_advanced_import_key">Importar chave privada</string>
     <string name="title_advanced_manage_keys">Gerir chaves privadas</string>
@@ -1267,7 +1268,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_print_margins">Adicionar margem</string>
     <string name="title_show_headers">Mostrar cabeçalhos</string>
     <string name="title_show_html">Mostrar código fonte</string>
-    <string name="title_raw_save">Guardar mensagem original (raw)</string>
+    <string name="title_raw_save">Guardar mensagem em bruto (.eml)</string>
     <string name="title_raw_send">Enviar como anexo</string>
     <string name="title_raw_send_message">Mensagem</string>
     <string name="title_raw_send_thread">Conversa</string>
@@ -1511,7 +1512,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_summarize">Resumir</string>
     <string name="title_translate_configure">Configurar &#8230;</string>
     <string name="title_translate_key">Introduzir chave de acesso</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Traduzido para %1$s &#8230;</string>
+    <string name="title_translating">Traduzido para %1$s &#8230;</string>
     <string name="title_translate_formal">Utilizar o formulário formal</string>
     <string name="title_translate_small">Utilizar um tipo de letra pequeno para o texto original</string>
     <string name="title_translate_replace">Substituir texto original por texto traduzido</string>
@@ -1788,6 +1789,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_rule_resend">Reenviar</string>
     <string name="title_rule_attached">Anexar o ficheiro de mensagem em bruto (raw)</string>
     <string name="title_rule_cc">Resposta para endereços CC</string>
+    <string name="title_rule_checks">Verificar mensagens enviadas automaticamente, endereços sem resposta, etc.</string>
     <string name="title_rule_with_attachments">Com anexos</string>
     <string name="title_rule_answer_remark">Apenas uma resposta será enviada em cada conversação, para evitar respostas repetidas</string>
     <string name="title_rule_name_missing">Nome da regra em falta</string>

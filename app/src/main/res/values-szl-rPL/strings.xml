@@ -787,6 +787,7 @@
         Powszechnie obsługiwane są domyślne algorytmy SHA256 i AES128.
     </string>
     <string name="title_advanced_check_certificate">Sprawdź klucz publiczny podczas wysyłania</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Sprawdź wskazania użycia klucza przy wysyłaniu</string>
     <string name="title_advanced_manage_certificates">Zarządzaj kluczami publicznymi</string>
     <string name="title_advanced_import_key">Importuj klucz prywatny</string>
     <string name="title_advanced_manage_keys">Zarządzaj kluczami prywatnymi</string>
@@ -1293,7 +1294,7 @@
     <string name="title_print_margins">Dodaj margines</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
     <string name="title_show_html">Pokaż źródło</string>
-    <string name="title_raw_save">Zapisz nieprzetworzoną wiadomość</string>
+    <string name="title_raw_save">Zapisz nieprzetworzony plik wiadomości (.eml)</string>
     <string name="title_raw_send">Wyślij jako załącznik</string>
     <string name="title_raw_send_message">Wiadomość</string>
     <string name="title_raw_send_thread">Konwersacja</string>
@@ -1536,7 +1537,7 @@
     <string name="title_summarize">Podsumowanie</string>
     <string name="title_translate_configure">Konfiguruj &#8230;</string>
     <string name="title_translate_key">Wprowadź klucz</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Tłumaczenie na %1$s &#8230;</string>
+    <string name="title_translating">Tłumaczenie na %1$s &#8230;</string>
     <string name="title_translate_formal">Użyj stylu formalnego</string>
     <string name="title_translate_small">Użyj małej czcionki dla tekstu źródłowego</string>
     <string name="title_translate_replace">Zastąp tekst źródłowy przetłumaczonym tekstem</string>
@@ -1814,6 +1815,7 @@
     <string name="title_rule_resend">Wyślij ponownie</string>
     <string name="title_rule_attached">Dołącz nieprzetworzony plik wiadomości</string>
     <string name="title_rule_cc">Odpowiedz na adresy CC</string>
+    <string name="title_rule_checks">Sprawdzaj automatycznie wysyłane wiadomości, adresy bez odpowiedzi itp.</string>
     <string name="title_rule_with_attachments">Z załącznikami</string>
     <string name="title_rule_answer_remark">Dla każdej konwersacji zostanie wysłana tylko jedna odpowiedź, aby uniknąć zapętlenia odpowiedzi</string>
     <string name="title_rule_name_missing">Brak nazwy reguły</string>

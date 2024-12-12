@@ -1253,7 +1253,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_print_margins">Kenar boşluğu ekle</string>
     <string name="title_show_headers">Başlıkları Göster</string>
     <string name="title_show_html">Kaynak göster</string>
-    <string name="title_raw_save">Ham iletiyi kaydet</string>
+    <string name="title_raw_save">İletiyi ham olarak kaydet (.eml)</string>
     <string name="title_raw_send">Ek olarak gönder</string>
     <string name="title_raw_send_message">Mesaj</string>
     <string name="title_raw_send_thread">Sohbet</string>
@@ -1494,7 +1494,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_summarize">Özetle</string>
     <string name="title_translate_configure">Yapılandır&#8230;</string>
     <string name="title_translate_key">Anahtarı gir</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">%1$s &amp;#8230\'a çevriliyor</string>
+    <string name="title_translating">%1$s &amp;#8230\'a çevriliyor</string>
     <string name="title_translate_formal">Resmi formu kullan</string>
     <string name="title_translate_small">Kaynak metin için küçük bir yazı tipi kullan</string>
     <string name="title_translate_replace">Kaynak metni çevrilmiş metinle değiştir</string>

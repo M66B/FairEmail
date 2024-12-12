@@ -1249,7 +1249,6 @@
     <string name="title_print_margins">余白を追加</string>
     <string name="title_show_headers">ヘッダーを表示</string>
     <string name="title_show_html">ソースを表示</string>
-    <string name="title_raw_save">元のメッセージを保存</string>
     <string name="title_raw_send">添付ファイルとして送信</string>
     <string name="title_raw_send_message">メッセージ</string>
     <string name="title_raw_send_thread">会話スレッド</string>

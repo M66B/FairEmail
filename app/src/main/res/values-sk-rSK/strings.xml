@@ -1286,7 +1286,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_print_margins">Pridať okraje</string>
     <string name="title_show_headers">Zobraziť hlavičky</string>
     <string name="title_show_html">Zobraziť zdrojový kód správy</string>
-    <string name="title_raw_save">Uložiť surovú správu</string>
     <string name="title_raw_send">Preposlať ako prílohu</string>
     <string name="title_raw_send_message">Správa</string>
     <string name="title_raw_send_thread">Konverzácia</string>

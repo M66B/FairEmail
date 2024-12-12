@@ -1246,7 +1246,6 @@
     <string name="title_print_margins">Lisää marginaali</string>
     <string name="title_show_headers">Näytä tunnistetiedot</string>
     <string name="title_show_html">Näytä lähde</string>
-    <string name="title_raw_save">Tallenna raakaviesti</string>
     <string name="title_raw_send">Lähetä liitteenä</string>
     <string name="title_raw_send_message">Viesti</string>
     <string name="title_raw_send_thread">Keskustelu</string>

@@ -1294,7 +1294,7 @@
     <string name="title_print_margins">Додати відступ</string>
     <string name="title_show_headers">Показати заголовки</string>
     <string name="title_show_html">Показати джерело</string>
-    <string name="title_raw_save">Зберегти raw-повідомлення</string>
+    <string name="title_raw_save">Зберегти необроблене повідомлення (.eml)</string>
     <string name="title_raw_send">Надіслати як вкладення</string>
     <string name="title_raw_send_message">Повідомлення</string>
     <string name="title_raw_send_thread">Розмова</string>
@@ -1537,7 +1537,7 @@
     <string name="title_summarize">Підсумувати</string>
     <string name="title_translate_configure">Налаштувати &#8230;</string>
     <string name="title_translate_key">Введіть ключ</string>
-    <string name="title_translating" comment="title_translating&#10;Translating to &lt;language&gt; ...&#10;Please leave the language marker (%1$s) in place as it is.">Переклад на: %1$s &#8230;</string>
+    <string name="title_translating">Переклад на: %1$s &#8230;</string>
     <string name="title_translate_formal">Використовувати формальний стиль</string>
     <string name="title_translate_small">Використовувати малий шрифт для початкового тексту</string>
     <string name="title_translate_replace">Замінити вихідний текст на перекладений текст</string>
@@ -1814,6 +1814,7 @@
     <string name="title_rule_resend">Надіслати повторно</string>
     <string name="title_rule_attached">Прикріпити файл raw-повідомлення</string>
     <string name="title_rule_cc">Відповісти на адреси CC</string>
+    <string name="title_rule_checks">Перевіряти наявність автоматично надісланих повідомлень, адрес, на які неможливо відповісти тощо.</string>
     <string name="title_rule_with_attachments">З вкладеннями</string>
     <string name="title_rule_answer_remark">Для будь-якої розмови буде надіслано тільки одна відповідь, щоб уникнути циклів відповіді</string>
     <string name="title_rule_name_missing">Не вказано назву правила</string>
