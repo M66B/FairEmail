@@ -8058,7 +8058,7 @@ public class FragmentMessages extends FragmentBase
                             if (!folder.read_only &&
                                     !EntityFolder.DRAFTS.equals(folder.type) &&
                                     !EntityFolder.OUTBOX.equals(folder.type) &&
-                                    (!EntityFolder.SENT.equals(folder.type) || !threading) &&
+                                    (!EntityFolder.SENT.equals(folder.type) || move_thread_sent || !threading) &&
                                     !EntityFolder.TRASH.equals(folder.type) &&
                                     !EntityFolder.JUNK.equals(folder.type) &&
                                     !EntityFolder.ARCHIVE.equals(folder.type))
