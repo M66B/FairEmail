@@ -5446,6 +5446,8 @@ _submission._tcp SRV 0 1 587 smtp.example.com.
 
 [Mozilla's autoconfiguration](https://wiki.mozilla.org/Thunderbird:Autoconfiguration) is supported too,
 but only if the configuration file is accessible via a secure (https) connection.
+The Play Store version of the app will query Mozilla's database only to comply with Play Store policies.
+If you want to query your own server on your own domain name, you should install or update to the GitHub version of the app.
 
 FairEmail will also check the [MX record](https://en.wikipedia.org/wiki/MX_record) and if common email ports (143/993, 465/587) are open.
 

@@ -2753,7 +2753,7 @@ DNS lookup 108.27.250.142.zen.spamhaus.org -&gt;
 <p>Example DNS records (SRV=record type, 0=priority, 1=weight, 993/587=port number):</p>
 <pre><code>_imaps._tcp SRV 0 1 993 imap.example.com.
 _submission._tcp SRV 0 1 587 smtp.example.com.</code></pre>
-<p><a href="https://wiki.mozilla.org/Thunderbird:Autoconfiguration">Mozilla’s autoconfiguration</a> is supported too, but only if the configuration file is accessible via a secure (https) connection.</p>
+<p><a href="https://wiki.mozilla.org/Thunderbird:Autoconfiguration">Mozilla’s autoconfiguration</a> is supported too, but only if the configuration file is accessible via a secure (https) connection. The Play Store version of the app will query Mozilla’s database only to comply with Play Store policies. If you want to query your own server on your own domain name, you should install or update to the GitHub version of the app.</p>
 <p>FairEmail will also check the <a href="https://en.wikipedia.org/wiki/MX_record">MX record</a> and if common email ports (143/993, 465/587) are open.</p>
 <p>There is no auto discovery for POP3.</p>
 <p><br /></p>
