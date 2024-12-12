@@ -1703,7 +1703,8 @@ public class FragmentMessages extends FragmentBase
             public void onClick(View v) {
                 boolean more_clear = prefs.getBoolean("more_clear", true);
                 MoreResult result = (MoreResult) cardMore.getTag();
-                onActionFlagColorSelection(more_clear, result == null ? Color.TRANSPARENT : result.color);
+                onActionFlagColorSelection(more_clear,
+                        result == null || result.color == null ? Color.TRANSPARENT : result.color);
             }
         });
 
@@ -4729,7 +4730,8 @@ public class FragmentMessages extends FragmentBase
                             onActionFlagSelection(false, Color.TRANSPARENT, null, false);
                             return true;
                         } else if (itemId == R.string.title_flag_color) {
-                            onActionFlagColorSelection(false, result == null ? Color.TRANSPARENT : result.color);
+                            onActionFlagColorSelection(false,
+                                    result == null || result.color == null ? Color.TRANSPARENT : result.color);
                             return true;
                         } else if (itemId == R.string.title_importance_low) {
                             onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW, null, false);
