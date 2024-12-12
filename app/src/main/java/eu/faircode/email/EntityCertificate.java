@@ -224,7 +224,9 @@ public class EntityCertificate {
                 List<RDN> rdns = new ArrayList<>();
                 rdns.addAll(Arrays.asList(name.getRDNs(BCStyle.CN)));
                 rdns.addAll(Arrays.asList(name.getRDNs(BCStyle.EmailAddress)));
-                for (RDN rdn : rdns)
+                for (RDN rdn : rdns) {
+                    if (rdn == null)
+                        continue;
                     for (AttributeTypeAndValue tv : rdn.getTypesAndValues()) {
                         ASN1Encodable enc = tv.getValue();
                         if (enc == null)
@@ -236,6 +238,7 @@ public class EntityCertificate {
                             continue;
                         result.add(MessageHelper.fromPunyCode(email));
                     }
+                }
             }
         } catch (Throwable ex) {
             Log.e(ex);
