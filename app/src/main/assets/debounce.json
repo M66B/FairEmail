@@ -1,6 +1,7 @@
 [
   {
     "include": [
+      "*://cc.mashable.com/v1/*",
       "*://howl.me/link/?*",
       "*://www.pntrac.com/t/*",
       "*://track.flexlinks.com/a.ashx?*",
@@ -83,6 +84,15 @@
   },
   {
     "include": [
+      "*://clicks.trx-hub.com/xid/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "q"
+  },
+  {
+    "include": [
       "*://www.zenaps.com/rclick.php*"
     ],
     "exclude": [
@@ -160,6 +170,7 @@
   },
   {
     "include": [
+      "*://search.app/?*",
       "*://*.getprice.com.au/prodhits.aspx?*"
     ],
     "exclude": [
@@ -200,6 +211,7 @@
   },
   {
     "include": [
+      "*://c212.net/c/link/?*",
       "*://*.c9ftyd.net/c/*",
       "*://*.iyhh.net/c/*",
       "*://*.glg9ob.net/c/*",
@@ -415,7 +427,7 @@
   },
   {
     "include": [
-      "*://streak-link.com/*",
+      "*://*.streak-link.com/*",
       "*://streaklinks.com/*"
     ],
     "exclude": [
@@ -433,6 +445,32 @@
     "prepend_scheme": "https",
     "action": "regex-path",
     "param": "^/([^/]+)/s(/.*)$"
+  },
+  {
+    "include": [
+      "*://click.pstmrk.it/2s/*",
+      "*://click.pstmrk.it/2sm/*",
+      "*://click.pstmrk.it/2ts/*",
+      "*://click.pstmrk.it/3s/*",
+      "*://click.pstmrk.it/3ts/*"
+    ],
+    "exclude": [
+    ],
+    "prepend_scheme": "https",
+    "action": "regex-path",
+    "param": "^/[23]t?sm?/([^/]+)/.*$"
+  },
+  {
+    "include": [
+      "*://click.pstmrk.it/2/*",
+      "*://click.pstmrk.it/2m/*",
+      "*://click.pstmrk.it/3/*"
+    ],
+    "exclude": [
+    ],
+    "prepend_scheme": "http",
+    "action": "regex-path",
+    "param": "^/[23]m?/([^/]+)/.*$"
   },
   {
     "include": [
