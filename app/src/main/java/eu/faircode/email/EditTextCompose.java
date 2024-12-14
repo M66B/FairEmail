@@ -619,7 +619,7 @@ public class EditTextCompose extends FixedEditText {
 
                 final String html;
                 String h = null;
-                if (raw || !BuildConfig.PLAY_STORE_RELEASE) {
+                if (raw || (!BuildConfig.PLAY_STORE_RELEASE && length() == 0)) {
                     CharSequence text = item.getText();
                     if (text != null && DetectHtml.isHtml(text.toString())) {
                         Log.i("Paste: raw HTML");
