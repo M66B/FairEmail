@@ -32,6 +32,9 @@ Barsboldia
 
 Next version
 
+* Added S/MIME UTF-8 support
+* Updated Brave's debounce list
+* Improved internationalized email address support
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
 * Updated translations

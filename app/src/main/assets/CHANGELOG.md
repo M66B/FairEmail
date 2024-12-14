@@ -30,8 +30,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2251 2024-12-14
 
+* Added S/MIME UTF-8 support
+* Updated Brave's debounce list
+* Improved internationalized email address support
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
