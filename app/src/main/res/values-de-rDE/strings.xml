@@ -761,6 +761,7 @@
         Die Standardalgorithmen SHA256 und AES128 werden üblicherweise unterstützt.
     </string>
     <string name="title_advanced_check_certificate">Öffentlichen Schlüssel beim Senden überprüfen</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Überprüfung der Schlüsselverwendungsangaben beim Senden</string>
     <string name="title_advanced_manage_certificates">Öffentliche Schlüssel verwalten</string>
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
     <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
