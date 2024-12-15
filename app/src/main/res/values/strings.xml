@@ -1008,6 +1008,7 @@
     <string name="title_advanced_paste_quote" translatable="false">Add paste as quote</string>
     <string name="title_advanced_favicon_uri" translatable="false">Favicon alternative URI</string>
     <string name="title_advanced_favicon_uri_hint" translatable="false">{domain} will be replaced</string>
+    <string name="title_advanced_email_junk" translatable="false">Show full \'from\' address for spam messages</string>
     <string name="title_advanced_infra" translatable="false">Show infrastructure</string>
     <string name="title_advanced_tld_flags" translatable="false">Show TLD flags</string>
     <string name="title_advanced_json_ld" translatable="false">Show Linked Data (JSON-LD)</string>

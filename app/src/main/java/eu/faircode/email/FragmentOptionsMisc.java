@@ -235,6 +235,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swPastePlain;
     private SwitchCompat swPasteQuote;
     private EditText etFaviconUri;
+    private SwitchCompat swEmailJunk;
     private SwitchCompat swInfra;
     private SwitchCompat swTldFlags;
     private SwitchCompat swJsonLd;
@@ -313,7 +314,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "native_dkim", "native_arc", "native_arc_whitelist", "strict_alignment",
             "webp", "animate_images",
             "preview_hidden", "preview_quotes",
-            "easy_correct", "paste_plain", "paste_quote", "favicon_uri", "infra", "tld_flags", "json_ld", "dup_msgids", "thread_byref", "save_user_flags", "mdn",
+            "easy_correct", "paste_plain", "paste_quote", "favicon_uri", "email_junk", "infra", "tld_flags", "json_ld", "dup_msgids", "thread_byref", "save_user_flags", "mdn",
             "app_chooser", "app_chooser_share", "share_task",
             "adjacent_links", "adjacent_documents", "adjacent_portrait", "adjacent_landscape",
             "delete_confirmation", "delete_notification", "global_keywords", "test_iab"
@@ -504,6 +505,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swPastePlain = view.findViewById(R.id.swPastePlain);
         swPasteQuote = view.findViewById(R.id.swPasteQuote);
         etFaviconUri = view.findViewById(R.id.etFaviconUri);
+        swEmailJunk = view.findViewById(R.id.swEmailJunk);
         swInfra = view.findViewById(R.id.swInfra);
         swTldFlags = view.findViewById(R.id.swTldFlags);
         swJsonLd = view.findViewById(R.id.swJsonLd);
@@ -1745,6 +1747,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swEmailJunk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("email_junk", checked).apply();
+            }
+        });
+
         swInfra.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2617,6 +2626,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swPasteQuote.setChecked(prefs.getBoolean("paste_quote", false));
             etFaviconUri.setText(prefs.getString("favicon_uri", null));
             swInfra.setChecked(prefs.getBoolean("infra", false));
+            swEmailJunk.setChecked(prefs.getBoolean("email_junk", false));
             swTldFlags.setChecked(prefs.getBoolean("tld_flags", false));
             swJsonLd.setChecked(prefs.getBoolean("json_ld", false));
             swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));

@@ -283,6 +283,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean hide_attachments_default;
 
     private MessageHelper.AddressFormat email_format;
+    private boolean email_junk;
     private boolean prefer_contact;
     private boolean only_contact;
     private boolean distinguish_contacts;
@@ -1511,7 +1512,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }
 
-                tvFrom.setText(MessageHelper.formatAddresses(senders, format, false));
+                tvFrom.setText(MessageHelper.formatAddresses(senders,
+                        EntityFolder.JUNK.equals(message.folderType) && email_junk
+                                ? MessageHelper.AddressFormat.EMAIL_NAME : email_format,
+                        false));
             }
 
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
@@ -8396,6 +8400,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.hide_attachments_default = prefs.getBoolean("hide_attachments", false);
 
         this.email_format = MessageHelper.getAddressFormat(context);
+        this.email_junk = prefs.getBoolean("email_junk", false);
         this.prefer_contact = prefs.getBoolean("prefer_contact", false);
         this.only_contact = prefs.getBoolean("only_contact", false);
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
