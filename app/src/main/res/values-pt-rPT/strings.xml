@@ -359,7 +359,7 @@
     <string name="title_advanced_section_notifications">Notificações</string>
     <string name="title_advanced_section_misc">Diversos</string>
     <string name="title_advanced_section_backup">Cópia de segurança</string>
-    <string name="title_advanced_default">Os valores padrão de todas as opções são os mais usuais, que não precisam ser alterados para utilizar a aplicação</string>
+    <string name="title_advanced_default">Todas as opções têm valores padrão que são os mais utilizados, não precisam ser alterados para utilizar a aplicação</string>
     <string name="title_advanced_receive">Receber mensagens de todas as contas</string>
     <string name="title_advanced_when">Quando</string>
     <string name="title_advanced_optimize">Optimizar automaticamente</string>

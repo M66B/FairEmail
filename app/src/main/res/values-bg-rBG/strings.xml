@@ -202,6 +202,10 @@
     <string name="title_setup_office_auth">Грешката „УДОСТОВЕРЯВАНЕТО неуспешно“ може да се причини от изключването на IMAP/SMTP от системния администратор</string>
     <string name="title_setup_office_auth_5_7_3">Опитайте вълшебника за бърза настройка „Друг доставчик“.</string>
     <string name="title_setup_office_auth_5_7_139">Опитайте вълшебника за бърза настройка на „Outlook/Hotmail/Live“.</string>
+    <string name="title_setup_office_not_connected">        Грешката \'User is authenticated but not connected\' основно значи, че IMAP е изключен.
+        В случай на клиентски акаунт в Outlook, отидете на уебсайта на Outlook, чукнете горе вдясно на настройки, изберете \'Mail\', изберете \'Препращане и IMAP\', и в частта \'POP и IMAP\' включете \'Нека устройствата и приложенията използват IMAP\'.
+        В случай на корпоративен, образователен и др. акаунт, свържете се със системния администратор на сървъра на е-поща.
+    </string>
     <string name="title_setup_oauth_rationale">Упълномощете достъпа до своя акаунт %1$s</string>
     <string name="title_setup_oauth_update">Упълномощаване пак на съществуващ акаунт (в противен случай създаване на нов акаунт)</string>
     <string name="title_setup_oauth_updated">Обновено упълномощаване на акаунта</string>
@@ -755,6 +759,7 @@
         Алгоритмите по подразбиране (SHA-256 и AES-128) обикновено се поддържат.
     </string>
     <string name="title_advanced_check_certificate">Проверете публичния ключ при изпращане</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Проверка на показателите за употреба на ключ при изпращане</string>
     <string name="title_advanced_manage_certificates">Управление на публични ключове</string>
     <string name="title_advanced_import_key">Импортиране на частен ключ</string>
     <string name="title_advanced_manage_keys">Управление на частни ключове</string>
@@ -1261,6 +1266,7 @@
     <string name="title_print_margins">Добавяне на краищни полета</string>
     <string name="title_show_headers">Показване на заглавките</string>
     <string name="title_show_html">Показване на извора</string>
+    <string name="title_raw_save">Запазване на необработеното съобщение (.eml)</string>
     <string name="title_raw_send">Изпращане като прикачен файл</string>
     <string name="title_raw_send_message">Съобщение</string>
     <string name="title_raw_send_thread">Разговор</string>
@@ -1503,6 +1509,7 @@
     <string name="title_summarize">Обобщаване</string>
     <string name="title_translate_configure">Конфигуриране &#8230;</string>
     <string name="title_translate_key">Въведете ключ</string>
+    <string name="title_translating">Превод на %1$s &#8230;</string>
     <string name="title_translate_formal">Употреба на формален стил</string>
     <string name="title_translate_small">Употреба на малък шрифт за изходния текст</string>
     <string name="title_translate_replace">Замяна на изходния текст с преведен текст</string>
@@ -1779,6 +1786,7 @@
     <string name="title_rule_resend">Изпращане пак</string>
     <string name="title_rule_attached">Прикачване на файл на необработено съобщение</string>
     <string name="title_rule_cc">Отговори на CC адрес</string>
+    <string name="title_rule_checks">Проверка за автоматично изпратени съобщения, адреси, на които не може да се отговори и т.н.</string>
     <string name="title_rule_with_attachments">С прикачвания</string>
     <string name="title_rule_answer_remark">Само един отговор ще бъде изпратен за всеки разговор, за да се избегне цикъл на отговоряне</string>
     <string name="title_rule_name_missing">Няма име на правило</string>
@@ -2173,10 +2181,10 @@
     <string name="title_accessibility_to">Получател</string>
     <string-array name="pollIntervalNames">
         <item>Винаги</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
-        <item>Every 5 minutes</item>
-        <item>Every 10 minutes</item>
+        <item>Всяка минута</item>
+        <item>На всеки 2 минути</item>
+        <item>На всеки 5 минути</item>
+        <item>На всеки 10 минути</item>
         <item>На всеки 15 минути</item>
         <item>На всеки 30 минути</item>
         <item>На всеки час</item>

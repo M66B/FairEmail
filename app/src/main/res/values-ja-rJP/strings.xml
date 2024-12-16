@@ -2161,10 +2161,10 @@
     <string name="title_accessibility_to">宛先</string>
     <string-array name="pollIntervalNames">
         <item>常に</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
+        <item>1 分ごと</item>
+        <item>2 分ごと</item>
         <item>5 分毎</item>
-        <item>Every 10 minutes</item>
+        <item>10 分ごと</item>
         <item>15 分毎</item>
         <item>30 分毎</item>
         <item>1 時間毎</item>
