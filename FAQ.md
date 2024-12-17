@@ -1888,6 +1888,8 @@ Note that downloading external images from a remote server can be used to record
 
 In the notification settings you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
 
+Samsung / One UI: you need to enable: Notification > Advanced settings > Manage notification categories for each app
+
 On Android 8.0 Oreo and later you can manage the properties of the individual notification channels,
 for example to set a specific notification sound or to show notifications on the lock screen.
 
