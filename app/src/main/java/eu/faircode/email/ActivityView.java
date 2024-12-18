@@ -1613,16 +1613,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 return;
 
             String last = prefs.getString("changelog", null);
-            if (last != null && !last.equals(version)) {
+            if (!version.equals(last)) {
                 Bundle args = new Bundle();
                 args.putString("name", "CHANGELOG.md");
                 args.putString("option", "show_changelog");
                 FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
                 fragment.setArguments(args);
                 fragment.show(getSupportFragmentManager(), "changelog");
-            }
-            if (!version.equals(last))
+
                 prefs.edit().putString("changelog", version).apply();
+            }
         }
     }
 
