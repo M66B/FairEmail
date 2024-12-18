@@ -2010,7 +2010,9 @@ to match **the username** of an email address (the part before the @ sign).
 
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 This also implies that the username will be copied from a received message only if it matches the domain name of the matched identity.
-Since version 1.1640 it is possible to match the full email address with a regex, which can be useful for matching alias domain names.
+Since version 1.1640, it is possible to match the full email address with a regex by including the @ character in the regex, which can be useful for matching alias domain names.
+The username will not be copied in this case because the domain name of the *from* address and the the domain name of the identity must be the same.
+If you want the username to be copied, you should define an identity for each domain, which will allow you to send new messages from a specific domain name too.
 
 If you want to match a catch-all email address, this regex is usually fine, provided all usernames for the domain are yours:
 
