@@ -209,13 +209,16 @@
     <string name="title_setup_oauth_rationale">Autoriseeri ligipääs %1$s kontole</string>
     <string name="title_setup_oauth_update">Autoriseeri uuesti olemasolev konto (muul juhul loo uus konto)</string>
     <string name="title_setup_oauth_updated">Konto autoriseering on uuendatud</string>
+    <string name="title_setup_oauth_edge">Kui kasutad lehitsejat Edge, veendu, et seadete „Privaatsus, turvalisus ja teenused“ jaotises „Välisrakenduste avamise blokeerimine“ on „Väljas“</string>
     <string name="title_setup_oauth_brave">Brave\'i brauseri kasutamisel tuleb Brave\'i seadetes lubada rakenduse linkide avamine väljaspool Brave\'i asuvates rakendustes</string>
+    <string name="title_setup_oauth_browser">Autoriseerimine eeldab toimivat lehitsejat, mis võimaldab rakenduse linkide avamist (sageli turvasätted), nii et lõpus saab autoriseerimismärki rakendusele üle kanda</string>
     <string name="title_setup_oauth_authorize">Autoriseeri</string>
     <string name="title_setup_select_account">Konto valimine</string>
     <string name="title_setup_instructions">Seadistamise juhised</string>
     <string name="title_setup_no_settings">Ei leitud seadeid domeeni \"%1$s\" jaoks</string>
     <string name="title_setup_no_settings_hint">Proovi seadistada konto käsitsi, kasutades e-posti teenusepakkujalt saadud seadeid</string>
     <string name="title_setup_no_auth_hint">Palun kontrolli üle oma e-postiaadress ja salasõna ning veendu, et Konto jaoks on lubatud väline juurdepääs (IMAP/SMTP)</string>
+    <string name="title_setup_no_auth_outlook">Selle konto jaoks tuleb kasutada Outlooki / Office 365 kiirseadistamise viisardit (Microsofti nõue)</string>
     <string name="title_setup_app_password_hint">See teenusepakkuja nõuab konto salasõna asemel rakenduse salasõna. Palun loe teenusepakkuja juhiseid</string>
     <string name="title_setup_no_inbox">Ei leitud sisendkasti</string>
     <string name="title_setup_advanced_protection">Kui on ühinetud laiendatud kaitse programmiga, pole võimalik kasutada kolmandate osapoolte e-postirakendusi. See on Google seatud piirang.</string>
@@ -404,6 +407,7 @@
     <string name="title_advanced_send_nav_color">Kasuta identiteedi värvi alumisel tegevuste ribal</string>
     <string name="title_advanced_send_reminders">Näita meeldetuletusi</string>
     <string name="title_advanced_send_delayed">Viivitus sõnumite saatmisel</string>
+    <string name="title_advanced_send_undo">Näita tagasikutsumise valikut</string>
     <string name="title_advanced_send_top">Näita Saada nuppu üleval</string>
     <string name="title_advanced_attach_new">Uue mustandsõnumi loomine jagatud aadresside ja failide jaoks</string>
     <string name="title_advanced_answer_caption">Nupu Vasta seaded</string>
@@ -497,6 +501,7 @@
     <string name="title_advanced_close_pane">Ahenda read või veerud vestluse sulgemisel</string>
     <string name="title_advanced_column_width">Sõnumi veeru laius / rea kõrgus: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Peida sõnumite kerimisel ülemine vahendiriba</string>
+    <string name="title_advanced_edge_to_edge">Kasuta Androidi liikumisribal äpi taustavärvi</string>
     <string name="title_advanced_nav_options">Näita navigeerimismenüü valikuid</string>
     <string name="title_advanced_nav_categories">Näita navigeerimismenüüs kontode kategooriaid</string>
     <string name="title_advanced_nav_pin">Kinnita navigeerimismenüü</string>
@@ -755,6 +760,7 @@
         Vaikealgoritmid SHA256 ja AES128 on üldiselt toetatud.
     </string>
     <string name="title_advanced_check_certificate">Kontrolli saatmisel avalikku võtit</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Kontrolli saatmisel võtme kasutamise tähistamist</string>
     <string name="title_advanced_manage_certificates">Halda avalikke võtmeid</string>
     <string name="title_advanced_import_key">Privaatvõtme importimine</string>
     <string name="title_advanced_manage_keys">Halda privaatvõtmeid</string>
@@ -1262,6 +1268,7 @@
     <string name="title_print_margins">Lisa veeris</string>
     <string name="title_show_headers">Näita päiseid</string>
     <string name="title_show_html">Näita lähtekoodi</string>
+    <string name="title_raw_save">Salvesta toorsõnum (.eml)</string>
     <string name="title_raw_send">Saada manusena</string>
     <string name="title_raw_send_message">Sõnum</string>
     <string name="title_raw_send_thread">Vestlus</string>
@@ -1352,6 +1359,7 @@
     <string name="title_too_large">Sõnum on täielikuks ümbervormindamiseks liiga suur</string>
     <string name="title_truncated">Sõnum on täielikult näitamiseks liiga suur</string>
     <string name="title_insufficient_memory">Sõnum on liiga suur saadaoleva mälu jaoks (%1$d)</string>
+    <string name="title_screen_recording">Salvestatakse ekraani!</string>
     <string name="title_show_full">Näita kogu sõnumit</string>
     <string name="title_fullscreen">Näita täisekraanil</string>
     <string name="title_fit_width">Sobita laius</string>
@@ -1425,6 +1433,7 @@
     <string name="title_save">Salvesta</string>
     <string name="title_send">Saada</string>
     <string name="title_sending">Saatmine &#8230;</string>
+    <string name="title_sending_to">Saatmine kohta %1$s</string>
     <string name="title_send_now">Saada nüüd</string>
     <string name="title_send_via">Saada kontolt</string>
     <string name="title_send_at">Saada saajale &#8230;</string>
@@ -1503,6 +1512,7 @@
     <string name="title_summarize">Kokkuvõte</string>
     <string name="title_translate_configure">Häälestamine &#8230;</string>
     <string name="title_translate_key">Sisesta võti</string>
+    <string name="title_translating">Tõlkimine keelde%1$s &#8230;</string>
     <string name="title_translate_formal">Kasuta ametlikku vormi</string>
     <string name="title_translate_small">Kasuta lähteteksti puhul väikest fonti</string>
     <string name="title_translate_replace">Asenda lähtetekst tõlgitud tekstiga</string>
@@ -1693,6 +1703,7 @@
     <string name="title_edit_signature_image_hint">        Sõnumi saatmisel kopeeritakse valitud kohast pilt sõnumisse.
         So, don\'t delete the image file!
     </string>
+    <string name="title_edit_signature_delete">Kustutada allkiri?</string>
     <string name="title_answer_define_name">Nimi</string>
     <string name="title_answer_define_value">Väärtus</string>
     <string name="title_answer_caption">Muuda malli</string>
@@ -1778,6 +1789,7 @@
     <string name="title_rule_resend">Taassaada</string>
     <string name="title_rule_attached">Manusta toorsõnumi fail</string>
     <string name="title_rule_cc">Vastus koopiarea aadressitele</string>
+    <string name="title_rule_checks">Kontrolli automaatselt saadetud kirju, mittevastavavaid aadresse jms.</string>
     <string name="title_rule_with_attachments">Manustega</string>
     <string name="title_rule_answer_remark">Vestluse kohta saadetakse vaid üks vastus, vältimaks vastamissilmust</string>
     <string name="title_rule_name_missing">Reegli nimi puudub</string>
@@ -1989,6 +2001,7 @@
     <string name="title_no">Ei</string>
     <string name="title_later">Hiljem</string>
     <string name="title_paste_plain">Kleebi lihttekstina</string>
+    <string name="title_paste_as_quote">Kleebi osundusena</string>
     <string name="title_undo">Endine</string>
     <string name="title_redo">Uuesti</string>
     <string name="title_insert_line">Lisa rida</string>
@@ -2171,8 +2184,8 @@
     <string name="title_accessibility_to">Saaja</string>
     <string-array name="pollIntervalNames">
         <item>Pidevalt</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
+        <item>Iga minut</item>
+        <item>Iga 2 minuti tagant</item>
         <item>5 minuti tagant</item>
         <item>10 minuti tagant</item>
         <item>15 minuti tagant</item>
@@ -2185,8 +2198,8 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ei</item>
-        <item>5 seconds</item>
-        <item>10 seconds</item>
+        <item>5 sekundit</item>
+        <item>10 sekundit</item>
         <item>15 sekundit</item>
         <item>30 sekundit</item>
         <item>1 minut</item>

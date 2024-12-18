@@ -773,6 +773,7 @@
         Algoritmii impliciți SHA256 și AES128 sunt suportați în mod obișnuit.
     </string>
     <string name="title_advanced_check_certificate">Verifică cheia publică la trimitere</string>
+    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Verificați indicațiile de utilizare a cheii la trimitere</string>
     <string name="title_advanced_manage_certificates">Gestionare chei publice</string>
     <string name="title_advanced_import_key">Importare cheie privată</string>
     <string name="title_advanced_manage_keys">Gestionare chei private</string>
@@ -1279,6 +1280,7 @@
     <string name="title_print_margins">Adaugă o margine</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_show_html">Arată sursa</string>
+    <string name="title_raw_save">Salvează mesajul brut (.eml)</string>
     <string name="title_raw_send">Trimite ca atașament</string>
     <string name="title_raw_send_message">Mesaj</string>
     <string name="title_raw_send_thread">Conversație</string>
@@ -1798,6 +1800,7 @@
     <string name="title_rule_resend">Retrimite</string>
     <string name="title_rule_attached">Atașați fișierul mesajului brut</string>
     <string name="title_rule_cc">Răspuns la adresa CC</string>
+    <string name="title_rule_checks">Verificați mesajele trimise automat, adresele fără răspuns etc.</string>
     <string name="title_rule_with_attachments">Cu atașamente</string>
     <string name="title_rule_answer_remark">Doar un singur răspuns va fi trimis pentru orice conversație, pentru a evita bucle de răspuns</string>
     <string name="title_rule_name_missing">Lipsește numele regulii</string>
