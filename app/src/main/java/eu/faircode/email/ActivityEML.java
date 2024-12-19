@@ -54,6 +54,7 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.imap.IMAPFolder;
 
@@ -94,6 +95,7 @@ public class ActivityEML extends ActivityBase {
     private TextView tvHeaders;
     private TextView tvAuthentication;
     private ContentLoadingProgressBar pbWait;
+    private FloatingActionButton fabSave;
     private Group grpReady;
 
     private boolean draft;
@@ -136,6 +138,7 @@ public class ActivityEML extends ActivityBase {
         tvHeaders = findViewById(R.id.tvHeaders);
         tvAuthentication = findViewById(R.id.tvAuthentication);
         pbWait = findViewById(R.id.pbWait);
+        fabSave = findViewById(R.id.fabSave);
         grpReady = findViewById(R.id.grpReady);
 
         rvAttachment.setHasFixedSize(false);
@@ -208,6 +211,13 @@ public class ActivityEML extends ActivityBase {
                         Log.unexpectedError(getSupportFragmentManager(), ex);
                     }
                 }.execute(ActivityEML.this, args, "eml:share");
+            }
+        });
+
+        fabSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMenuSave();
             }
         });
 
@@ -568,14 +578,11 @@ public class ActivityEML extends ActivityBase {
                 .setChecked(junk);
 
         if (draft && BuildConfig.DEBUG)
-            menu.findItem(R.id.menu_save)
-                    .setIcon(R.drawable.twotone_drafts_24);
+            fabSave.setImageResource(R.drawable.twotone_drafts_24);
         else if (junk && BuildConfig.DEBUG)
-            menu.findItem(R.id.menu_save)
-                    .setIcon(R.drawable.twotone_report_24);
+            fabSave.setImageResource(R.drawable.twotone_report_24);
         else
-            menu.findItem(R.id.menu_save)
-                    .setIcon(R.drawable.twotone_move_to_inbox_24);
+            fabSave.setImageResource(R.drawable.twotone_move_to_inbox_24);
 
         return super.onPrepareOptionsMenu(menu);
     }
@@ -585,9 +592,6 @@ public class ActivityEML extends ActivityBase {
         int itemId = item.getItemId();
         if (itemId == android.R.id.home) {
             finish();
-            return true;
-        } else if (itemId == R.id.menu_save) {
-            onMenuSave();
             return true;
         } else if (itemId == R.id.menu_draft) {
             draft = !draft;

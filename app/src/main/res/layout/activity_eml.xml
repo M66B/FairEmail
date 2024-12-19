@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="eu.faircode.email.ActivityEML">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -17,7 +17,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="90dp">
 
             <TextView
                 android:id="@+id/tvHint"
@@ -356,7 +357,7 @@
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="cardMessage,cardStructure" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"
@@ -368,4 +369,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fab_padding"
+        android:contentDescription="@string/title_save"
+        app:backgroundTint="?attr/colorFabBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/twotone_move_to_inbox_24"
+        app:tint="?attr/colorFabForeground" />
 </androidx.constraintlayout.widget.ConstraintLayout>

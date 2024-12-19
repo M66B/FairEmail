@@ -2,12 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_save"
-        android:icon="@drawable/twotone_move_to_inbox_24"
-        android:title="@string/title_save"
-        app:showAsAction="always" />
-
-    <item
         android:id="@+id/menu_draft"
         android:checkable="true"
         android:title="@string/title_save_drafts"
