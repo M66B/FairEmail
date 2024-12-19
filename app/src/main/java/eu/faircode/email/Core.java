@@ -664,6 +664,7 @@ class Core {
                             // Fetch UID: NO SELECT: libmapper: Internal error: No servers available or value handling error!
                             // Fetch UID: BAD Serious error while processing UID FETCH (CassdbDatabaseError (nnn/n))
                             // Move: NO Over quota
+                            // Move: NO [OVERQUOTA] quota exceeded
                             // Move: NO No matching messages
                             // Move: NO [EXPUNGEISSUED] Some of the requested messages no longer exist (n.nnn + n.nnn + n.nnn secs)
                             // Move: BAD parse error: invalid message sequence number:
