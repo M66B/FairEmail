@@ -37,7 +37,6 @@ import android.text.method.ArrowKeyMovementMethod;
 import android.text.style.URLSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -47,6 +46,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
@@ -98,9 +98,6 @@ public class ActivityEML extends ActivityBase {
     private FloatingActionButton fabSave;
     private Group grpReady;
 
-    private boolean draft;
-    private boolean junk;
-    private Uri uri;
     private MessageHelper.AttachmentPart apart;
     private static final int REQUEST_ATTACHMENT = 1;
     private static final int REQUEST_ACCOUNT = 2;
@@ -108,11 +105,6 @@ public class ActivityEML extends ActivityBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (savedInstanceState != null) {
-            draft = savedInstanceState.getBoolean("fair:draft");
-            junk = savedInstanceState.getBoolean("fair:junk");
-        }
 
         View view = LayoutInflater.from(this).inflate(R.layout.activity_eml, null);
         setContentView(view);
@@ -217,7 +209,43 @@ public class ActivityEML extends ActivityBase {
         fabSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onMenuSave();
+                onActionSave(EntityFolder.INBOX);
+            }
+        });
+
+        fabSave.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(ActivityEML.this, ActivityEML.this, fabSave);
+
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_folder_inbox, 1, R.string.title_folder_inbox)
+                        .setIcon(R.drawable.twotone_inbox_24)
+                        .setIntent(new Intent().putExtra("type", EntityFolder.INBOX));
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_folder_junk, 2, R.string.title_folder_junk)
+                        .setIcon(R.drawable.twotone_report_24)
+                        .setIntent(new Intent().putExtra("type", EntityFolder.JUNK));
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_folder_drafts, 3, R.string.title_folder_drafts)
+                        .setIcon(R.drawable.twotone_drafts_24)
+                        .setIntent(new Intent().putExtra("type", EntityFolder.DRAFTS));
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Intent intent = item.getIntent();
+                        String type = (intent == null ? null : intent.getStringExtra("type"));
+                        if (TextUtils.isEmpty(type))
+                            return false;
+
+                        onActionSave(type);
+
+                        return true;
+                    }
+                });
+
+                popupMenu.insertIcons(ActivityEML.this);
+                popupMenu.show();
+
+                return true;
             }
         });
 
@@ -237,15 +265,8 @@ public class ActivityEML extends ActivityBase {
         load();
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putBoolean("fair:draft", draft);
-        outState.putBoolean("fair:junk", junk);
-        super.onSaveInstanceState(outState);
-    }
-
     private void load() {
-        uri = getIntent().getData();
+        Uri uri = getIntent().getData();
         Log.i("EML uri=" + uri);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -562,56 +583,19 @@ public class ActivityEML extends ActivityBase {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_eml, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_draft)
-                .setVisible(BuildConfig.DEBUG)
-                .setChecked(draft);
-        menu.findItem(R.id.menu_junk)
-                .setVisible(BuildConfig.DEBUG)
-                .setChecked(junk);
-
-        if (draft && BuildConfig.DEBUG)
-            fabSave.setImageResource(R.drawable.twotone_drafts_24);
-        else if (junk && BuildConfig.DEBUG)
-            fabSave.setImageResource(R.drawable.twotone_report_24);
-        else
-            fabSave.setImageResource(R.drawable.twotone_move_to_inbox_24);
-
-        return super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == android.R.id.home) {
             finish();
             return true;
-        } else if (itemId == R.id.menu_draft) {
-            draft = !draft;
-            if (draft)
-                junk = false;
-            item.setChecked(draft);
-            invalidateOptionsMenu();
-        } else if (itemId == R.id.menu_junk) {
-            junk = !junk;
-            if (junk)
-                draft = false;
-            item.setChecked(junk);
-            invalidateOptionsMenu();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void onMenuSave() {
+    private void onActionSave(String folderType) {
         Bundle args = new Bundle();
         args.putInt("type", EntityAccount.TYPE_IMAP);
+        args.putString("folderType", folderType);
 
         FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
         fragment.setArguments(args);
@@ -620,13 +604,7 @@ public class ActivityEML extends ActivityBase {
     }
 
     private void onSave(Bundle args) {
-        args.putParcelable("uri", uri);
-        if (draft && BuildConfig.DEBUG)
-            args.putString("type", EntityFolder.DRAFTS);
-        else if (junk && BuildConfig.DEBUG)
-            args.putString("type", EntityFolder.JUNK);
-        else
-            args.putString("type", EntityFolder.INBOX);
+        args.putParcelable("uri", getIntent().getData());
 
         new SimpleTask<String>() {
             private Toast toast = null;
@@ -646,7 +624,7 @@ public class ActivityEML extends ActivityBase {
             @Override
             protected String onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
-                String type = args.getString("type");
+                String type = args.getString("folderType");
                 long aid = args.getLong("account");
 
                 DB db = DB.getInstance(context);
