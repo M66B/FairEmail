@@ -197,6 +197,7 @@
             android:text="1.2.840.113549.1.1.11"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:textColorPrimary"
+            android:textIsSelectable="true"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAlgorithm" />
@@ -229,6 +230,7 @@
             android:text="1.2.840.113549.1.1.11"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:textColorPrimary"
+            android:textIsSelectable="true"
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvKeyAlgorithm" />
