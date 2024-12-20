@@ -10137,15 +10137,26 @@ public class FragmentMessages extends FragmentBase
                                 if (s.verify(verifier)) {
                                     String fingerprint = EntityCertificate.getFingerprintSha256(cert);
                                     List<String> emails = EntityCertificate.getEmailAddresses(cert);
-                                    boolean known = !emails.isEmpty();
+                                    boolean known = false;
                                     for (String email : emails) {
                                         EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
                                         if (record == null)
-                                            known = false;
-                                        else {
-                                            args.putString("keyalgo", record.getSigAlgName());
-                                            break;
+                                            continue;
+
+                                        known = true;
+
+                                        String keyalgo = null;
+                                        String keyalgooid = null;
+                                        try {
+                                            keyalgooid = s.getEncryptionAlgOID();
+                                            DefaultAlgorithmNameFinder af = new DefaultAlgorithmNameFinder();
+                                            keyalgo = af.getAlgorithmName(new ASN1ObjectIdentifier(keyalgooid));
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
                                         }
+                                        args.putString("keyalgo", keyalgo);
+                                        args.putString("keyalgooid", keyalgooid);
+                                        break;
                                     }
 
                                     String sender = null;
@@ -10155,15 +10166,17 @@ public class FragmentMessages extends FragmentBase
                                     args.putString("sender", sender);
                                     args.putBoolean("known", known);
 
-                                    String algo;
+                                    String algo = null;
+                                    String algooid = null;
                                     try {
+                                        algooid = s.getEncryptionAlgOID();
                                         DefaultAlgorithmNameFinder af = new DefaultAlgorithmNameFinder();
-                                        algo = af.getAlgorithmName(new ASN1ObjectIdentifier(s.getEncryptionAlgOID()));
+                                        algo = af.getAlgorithmName(new ASN1ObjectIdentifier(algooid));
                                     } catch (Throwable ex) {
                                         Log.e(ex);
-                                        algo = s.getEncryptionAlgOID();
                                     }
                                     args.putString("algo", algo);
+                                    args.putString("algooid", algooid);
 
                                     List<X509Certificate> certs = new ArrayList<>();
                                     try {
@@ -10411,7 +10424,9 @@ public class FragmentMessages extends FragmentBase
                             boolean valid = args.getBoolean("valid");
                             String reason = args.getString("reason");
                             String algo = args.getString("algo");
+                            String algooid = args.getString("algooid");
                             String keyalgo = args.getString("keyalgo");
+                            String keyalgooid = args.getString("keyalgooid");
                             final ArrayList<String> trace = args.getStringArrayList("trace");
                             EntityCertificate record = EntityCertificate.from(cert, null);
 
@@ -10443,8 +10458,10 @@ public class FragmentMessages extends FragmentBase
                                 TextView tvBefore = dview.findViewById(R.id.tvBefore);
                                 TextView tvExpired = dview.findViewById(R.id.tvExpired);
                                 TextView tvAlgorithm = dview.findViewById(R.id.tvAlgorithm);
+                                TextView tvAlgorithmOid = dview.findViewById(R.id.tvAlgorithmOid);
                                 TextView tvKeyAlgorithmTitle = dview.findViewById(R.id.tvKeyAlgorithmTitle);
                                 TextView tvKeyAlgorithm = dview.findViewById(R.id.tvKeyAlgorithm);
+                                TextView tvKeyAlgorithmOid = dview.findViewById(R.id.tvKeyAlgorithmOid);
 
                                 tvCertificateInvalid.setVisibility(valid ? View.GONE : View.VISIBLE);
                                 tvCertificateReason.setText(reason);
@@ -10461,13 +10478,19 @@ public class FragmentMessages extends FragmentBase
 
                                 if (!TextUtils.isEmpty(algo))
                                     algo = algo.replaceAll("(?i)With", "/");
-                                tvAlgorithm.setText(algo);
 
-                                tvKeyAlgorithmTitle.setVisibility(info ? View.VISIBLE : View.GONE);
+                                tvAlgorithm.setText(algo);
+                                tvAlgorithmOid.setVisibility(info ? View.VISIBLE : View.GONE);
+                                tvAlgorithmOid.setText(algooid);
+
                                 if (!TextUtils.isEmpty(keyalgo))
                                     keyalgo = keyalgo.replaceAll("(?i)With", "/");
-                                tvKeyAlgorithm.setVisibility(info ? View.VISIBLE : View.GONE);
+
+                                tvKeyAlgorithmTitle.setVisibility(info && known ? View.VISIBLE : View.GONE);
+                                tvKeyAlgorithm.setVisibility(info && known ? View.VISIBLE : View.GONE);
                                 tvKeyAlgorithm.setText(keyalgo);
+                                tvKeyAlgorithmOid.setVisibility(info && known ? View.VISIBLE : View.GONE);
+                                tvKeyAlgorithmOid.setText(keyalgooid);
 
                                 ibInfo.setOnClickListener(new View.OnClickListener() {
                                     @Override
