@@ -39,6 +39,7 @@ import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecorato
 
 import android.Manifest;
 import android.animation.ObjectAnimator;
+import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -10492,23 +10493,6 @@ public class FragmentMessages extends FragmentBase
                                 tvKeyAlgorithmOid.setVisibility(info && known ? View.VISIBLE : View.GONE);
                                 tvKeyAlgorithmOid.setText(keyalgooid);
 
-                                ibInfo.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        StringBuilder sb = new StringBuilder();
-                                        for (int i = 0; i < trace.size(); i++) {
-                                            if (i > 0)
-                                                sb.append("\n\n");
-                                            sb.append(i + 1).append(") ").append(trace.get(i));
-                                        }
-
-                                        new AlertDialog.Builder(v.getContext())
-                                                .setMessage(sb.toString())
-                                                .show();
-                                    }
-                                });
-                                ibInfo.setVisibility(trace != null && trace.size() > 0 ? View.VISIBLE : View.GONE);
-
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                                         .setView(dview)
                                         .setNegativeButton(android.R.string.cancel, null)
@@ -10566,7 +10550,36 @@ public class FragmentMessages extends FragmentBase
                                         }
                                     });
 
-                                builder.show();
+                                Dialog dialog = builder.create();
+
+                                ibInfo.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        StringBuilder sb = new StringBuilder();
+                                        for (int i = 0; i < trace.size(); i++) {
+                                            if (i > 0)
+                                                sb.append("\n\n");
+                                            sb.append(i + 1).append(") ").append(trace.get(i));
+                                        }
+
+                                        dialog.dismiss();
+
+                                        new AlertDialog.Builder(v.getContext())
+                                                .setMessage(sb.toString())
+                                                .setPositiveButton(R.string.title_advanced_manage_certificates, new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                                                        fragmentTransaction.replace(R.id.content_frame, new FragmentCertificates()).addToBackStack("certificates");
+                                                        fragmentTransaction.commit();
+                                                    }
+                                                })
+                                                .show();
+                                    }
+                                });
+                                ibInfo.setVisibility(trace != null && trace.size() > 0 ? View.VISIBLE : View.GONE);
+
+                                dialog.show();
                             }
                         } catch (Throwable ex) {
                             Helper.setSnackbarOptions(
