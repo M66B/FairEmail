@@ -760,7 +760,7 @@
         Gli algoritmi predefiniti SHA256 e AES128 sono comunemente supportati.
     </string>
     <string name="title_advanced_check_certificate">Controllare la chiave pubblica all\'invio</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Verifica delle indicazioni d\'uso della chiave al momento dell\'invio</string>
+    <string name="title_advanced_check_key_usage">Verifica delle indicazioni d\'uso della chiave al momento dell\'invio</string>
     <string name="title_advanced_manage_certificates">Gestione delle chiavi pubbliche</string>
     <string name="title_advanced_import_key">Importare la chiave privata</string>
     <string name="title_advanced_manage_keys">Gestione delle chiavi private</string>
@@ -1979,7 +1979,9 @@
     <string name="title_hint_junk">Il filtraggio antispam dovrebbe esser fatto dal server email e non può esser fatto affidabilmente su un dispositivo alimentato da batteria con capacità limitate.</string>
     <string name="title_hint_junk_learn">Quando si spostano i messaggi verso la cartella di spam e viceversa, il server email \"apprende\" come riconoscerlo meglio</string>
     <string name="title_hint_contact_actions">Tenere premuto per vedere le opzioni</string>
-    <string name="title_hint_eml">Questo è un riepilogo del contenuto del file di un messaggio non elaborato. Salva il messaggio non elaborato con l\'icona di salvataggio nella barra d\'azione per vedere tutto il contenuto.</string>
+    <string name="title_hint_eml">        Questo è un riassunto del contenuto di un file di messaggio grezzo.
+        È possibile utilizzare il pulsante in basso a destra per salvare il messaggio nella casella di posta e visualizzarne tutti i contenuti.
+    </string>
     <string name="title_open_link">Apri link</string>
     <string name="title_image_link">Link dell\'immagine</string>
     <string name="title_different_link">Il titolo e l\'indirizzo del link sono diversi</string>

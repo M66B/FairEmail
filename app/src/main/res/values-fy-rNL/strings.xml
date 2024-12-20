@@ -758,7 +758,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
         De standert algoritmen SHA256 en AES128 wurde meastentiids stipe.
     </string>
     <string name="title_advanced_check_certificate">Kontrolearje iepenbiere kaai by ferstjoeren</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Yndikaasjes foar kaaigebrûk (key usage flags) by ferstjoeren kontrolearje</string>
+    <string name="title_advanced_check_key_usage">Yndikaasjes foar kaaigebrûk (key usage flags) by ferstjoeren kontrolearje</string>
     <string name="title_advanced_manage_certificates">Publike kaaien beheare</string>
     <string name="title_advanced_import_key">Priveekaai ymportearje</string>
     <string name="title_advanced_manage_keys">Priveekaaien beheare</string>
@@ -1970,7 +1970,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_hint_junk">Net-winske-berjochtenfiltering moat dien wurde troch de e-mailserver en kin net betrouber dien wurde op in batterij oandreaun apparaat mei beheinde mooglikheden.</string>
     <string name="title_hint_junk_learn">Troch berjochten te ferpleatsen fan en nei de net-winskemap ‘leart’ de e-mailserver wat net-winske is</string>
     <string name="title_hint_contact_actions">Lang drukke foar opsjes</string>
-    <string name="title_hint_eml">Dit is in gearfetting fan de ynhâld fan in rûch berjochtbestân. Bewarje it rûge berjocht mei it piktogram ‘Bewarje’ yn de aksjebalke om alle ynhâld te besjen.</string>
+    <string name="title_hint_eml">Dit is in gearfetting fan de ynhâld fan in rûch berjochtebestân.
+ Jo kinne de knop rjochtsûnder brûke om it berjocht te bewarjen yn it Postfek YN om alle ynhâld te besjen.    </string>
     <string name="title_open_link">Keppeling iepenje</string>
     <string name="title_image_link">Ofbyldingskeppeling</string>
     <string name="title_different_link">De titel en it keppelingsadres binne oars</string>

@@ -1386,6 +1386,9 @@
     <string name="title_hint_important">مهم</string>
     <string name="title_hint_sync">دریافت پیامها می تواند زمانی بسته به سرعت سرویس دهنده، اتصال به اینترنت، دستگاه و تعداد پیام‌ها طول بکشد. هنگام دریافت پیامها ممکن است عملکرد برنامه کند شود.</string>
     <string name="title_hint_contact_actions">لمس طولانی برای گزینه‌ها</string>
+    <string name="title_hint_eml">        این خلاصه‌ای از محتویات یک فایل پیام خام است.
+        می‌توانید از دکمه پایین سمت راست برای ذخیره پیام در صندوق ورودی استفاده کنید تا همه محتوا را مشاهده کنید.
+    </string>
     <string name="title_open_link">بازکردن لینک</string>
     <string name="title_tracking_link">این وبسایت شاید شما را ردیابی کند</string>
     <string name="title_link_http">ترافیک رمزگذاری نخواهد شد</string>

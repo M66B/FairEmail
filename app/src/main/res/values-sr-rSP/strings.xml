@@ -857,7 +857,6 @@
     <string name="title_hint_important">Важно</string>
     <string name="title_hint_sync">Преузимање порука може да потраје, у зависности од брзине провајдера, интернет конекцје, и уређаја и броја порука. За време преузимања порука, апликација може бити спорија.</string>
     <string name="title_hint_contact_actions">Држите дуго за опције</string>
-    <string name="title_hint_eml">Ово је сажетак садржаја фајла сирове поруке. Сачувајте сирову поруку преко иконице за чување у траци са радњама да бисте јој видели садржај.</string>
     <string name="title_open_link">Отвори везу</string>
     <string name="title_different_link">Текст везе и адреса везе су различити</string>
     <string name="title_link_http">Саобраћај неће бити шифрован</string>

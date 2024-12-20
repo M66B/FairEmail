@@ -788,6 +788,7 @@
         Типові алгоритми SHA256 і AES128 зазвичай підтримуються.
     </string>
     <string name="title_advanced_check_certificate">Перевіряти відкритий ключ при відправленні</string>
+    <string name="title_advanced_check_key_usage">Перевіряти тип призначення ключа при надсиланні</string>
     <string name="title_advanced_manage_certificates">Керування публічними ключами</string>
     <string name="title_advanced_import_key">Імпортувати особистий ключ</string>
     <string name="title_advanced_manage_keys">Керування особистими ключами</string>
@@ -1294,7 +1295,7 @@
     <string name="title_print_margins">Додати відступ</string>
     <string name="title_show_headers">Показати заголовки</string>
     <string name="title_show_html">Показати джерело</string>
-    <string name="title_raw_save">Зберегти необроблене повідомлення (.eml)</string>
+    <string name="title_raw_save">Зберегти raw-повідомлення (.eml)</string>
     <string name="title_raw_send">Надіслати як вкладення</string>
     <string name="title_raw_send_message">Повідомлення</string>
     <string name="title_raw_send_thread">Розмова</string>
@@ -2003,7 +2004,9 @@
     <string name="title_hint_junk">Фільтрування на спам потрібно робити за допомогою сервера електронної пошти і не можна надійно робити це на пристрої з обмеженими можливостями.</string>
     <string name="title_hint_junk_learn">Переміщення повідомлення до та з теки спаму дозволяє навчити сервер електронної пошти що є спам, а що ні</string>
     <string name="title_hint_contact_actions">Довге натискання для параметрів</string>
-    <string name="title_hint_eml">Це короткий виклад вмісту raw-повідомлення. Для перегляду всього вмісту збережіть raw-повідомлення за допомогою значка збереження, що знаходиться на панелі дій.</string>
+    <string name="title_hint_eml">        Це короткий опис вмісту raw-файлу повідомлення.
+        Ви можете скористатися правою нижньою кнопкою, щоб зберегти повідомлення у вхідну теку і переглянути весь вміст.
+    </string>
     <string name="title_open_link">Відкрити посилання</string>
     <string name="title_image_link">Посилання на зображення</string>
     <string name="title_different_link">Назва та адреса посилання відрізняються</string>

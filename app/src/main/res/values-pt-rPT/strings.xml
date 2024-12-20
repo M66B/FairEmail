@@ -760,7 +760,7 @@
         Os algoritmos padrão SHA256 e AES128 são comummente suportados.
     </string>
     <string name="title_advanced_check_certificate">Verificar a chave pública ao enviar</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Verificar indicações key-usage no envio</string>
+    <string name="title_advanced_check_key_usage">Verificar indicações key-usage no envio</string>
     <string name="title_advanced_manage_certificates">Gerir chaves públicas</string>
     <string name="title_advanced_import_key">Importar chave privada</string>
     <string name="title_advanced_manage_keys">Gerir chaves privadas</string>
@@ -1978,7 +1978,9 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_hint_junk">A filtragem de spam deve ser feita pelo servidor de correio electrónico e não pode ser feita de forma confiável num dispositivo ligado a uma bateria e com recursos limitados.</string>
     <string name="title_hint_junk_learn">Ao mover as mensagens para e a partir da pasta de spam, o servidor de correio electrónico \"aprende\" o que é spam</string>
     <string name="title_hint_contact_actions">Pressione longo para opções</string>
-    <string name="title_hint_eml">Este é um resumo do conteúdo de um ficheiro de mensagem em bruto. Guarde a mensagem em bruto com o ícone \'guardar\' na barra de acção para visualizar todo o conteúdo.</string>
+    <string name="title_hint_eml">Este é um resumo do conteúdo de um ficheiro de mensagem em bruto.
+        Pode utilizar o botão inferior direito para guardar a mensagem na caixa de entrada e visualizar todo o conteúdo.
+    </string>
     <string name="title_open_link">Abrir ligação</string>
     <string name="title_image_link">Hiperligação da imagem</string>
     <string name="title_different_link">O título e o endereço da hiperligação são diferentes</string>

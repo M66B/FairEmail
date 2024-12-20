@@ -757,7 +757,7 @@
         Az legtöbbet használt alap algoritmus az SHA256 és AES128.
     </string>
     <string name="title_advanced_check_certificate">Nyilvános kulcs ellenőrzése küldéskor</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Küldéskor ellenőrizze a kulcshasználat indikátort</string>
+    <string name="title_advanced_check_key_usage">Küldéskor ellenőrizze a kulcshasználat indikátort</string>
     <string name="title_advanced_manage_certificates">Nyilvános kulcsok kezelése</string>
     <string name="title_advanced_import_key">Privát kulcs importálása</string>
     <string name="title_advanced_manage_keys">Privát kulcsok kezelése</string>
@@ -1970,7 +1970,6 @@
     <string name="title_hint_junk">A spam szűrés a levelező szervereken futó erőforrás igényes feladat. Képtelenség hatékonyan kivitelezni egy akkumlátorról üzemelő eszközön.</string>
     <string name="title_hint_junk_learn">Az üzenetek a levélszemét mappából való ki és be helyezésével az email szerver \"megtanulja\" mi számít szemétnek</string>
     <string name="title_hint_contact_actions">Nyomja hosszan a további opciókért</string>
-    <string name="title_hint_eml">Ez a nyers üzenetfájl tartalmának összefoglalása. Mentsd a nyers üzenetfájlt a műveletmenü mentés ikonjával a teljes tartalom megtekintéséhez.</string>
     <string name="title_open_link">Link megnyitása</string>
     <string name="title_image_link">Kép link</string>
     <string name="title_different_link">A link neve és a címe különbözik</string>

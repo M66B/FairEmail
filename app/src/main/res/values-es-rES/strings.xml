@@ -759,7 +759,7 @@
         Los algoritmos por defecto SHA256 y AES128 son generalmente soportados.
     </string>
     <string name="title_advanced_check_certificate">Comprobar clave pública al enviar</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Comprobar las indicaciones de uso de la llave al enviar</string>
+    <string name="title_advanced_check_key_usage">Comprobar las indicaciones de uso de la llave al enviar</string>
     <string name="title_advanced_manage_certificates">Administrar claves públicas</string>
     <string name="title_advanced_import_key">Importar clave privada</string>
     <string name="title_advanced_manage_keys">Administrar claves privadas</string>
@@ -1974,7 +1974,9 @@
     <string name="title_hint_junk">El filtrado de spam debería ser hecho por el servidor de correo electrónico y no se puede hacer de forma confiable en un dispositivo alimentado con batería y de capacidades limitadas.</string>
     <string name="title_hint_junk_learn">Al mover los mensajes hacia y desde la carpeta de spam, el servidor de correo electrónico \"aprende\" qué es spam</string>
     <string name="title_hint_contact_actions">Mantenga pulsado para opciones</string>
-    <string name="title_hint_eml">Este es un resumen del contenido de un archivo de mensajes sin procesar. Guarde el mensaje sin procesar con el icono de guardar en la barra de acciones para ver todo el contenido.</string>
+    <string name="title_hint_eml">        Este es un resumen de los contenidos de un archivo de mensaje sin procesar.
+        Puede usar el botón de abajo a la derecha para guardar el mensaje en la bandeja de entrada y ver todo el contenido.
+    </string>
     <string name="title_open_link">Abrir enlace</string>
     <string name="title_image_link">Enlace de imagen</string>
     <string name="title_different_link">El título y la dirección del enlace son diferentes</string>

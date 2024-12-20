@@ -1946,7 +1946,6 @@
     <string name="title_hint_junk">垃圾郵件篩選應由電子郵件伺服器執行完成，而在能力有限的由電池所驅動的裝置上執行，產生的結果並不可靠。</string>
     <string name="title_hint_junk_learn">透過將訊息移入或移出垃圾郵件資料夾，電子郵件伺服器會「學習」什麼是垃圾郵件</string>
     <string name="title_hint_contact_actions">長按以獲取選項</string>
-    <string name="title_hint_eml">這是原始訊息檔案內容的摘要。請使用操作欄中的儲存圖示來保存原始訊息，以檢視全部內容。</string>
     <string name="title_open_link">開啟連結</string>
     <string name="title_image_link">圖片連結</string>
     <string name="title_different_link">標題與連結地址不同</string>

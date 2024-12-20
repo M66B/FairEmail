@@ -1938,7 +1938,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_hint_junk">Penyaringan spam harus dilakukan oleh server surel dan tidak dapat dilakukan secara handal pada perangkat berdaya baterai dengan kemampuan yang terbatas.</string>
     <string name="title_hint_junk_learn">Dengan memindahkan pesan ke dan dari folder spam, server surel \"mempelajari\" bagaimana spam itu</string>
     <string name="title_hint_contact_actions">Ketuk dan tahan untuk pilihan</string>
-    <string name="title_hint_eml">Ini adalah rangkuman kandungan fail pesan mentah. Simpan pesan mentah dengan ikon simpan di baris aksi untuk melihat semua pesan.</string>
     <string name="title_open_link">Buka tautan</string>
     <string name="title_image_link">Tautan Gambar</string>
     <string name="title_different_link">Judul dan alamat tautan berbeda</string>

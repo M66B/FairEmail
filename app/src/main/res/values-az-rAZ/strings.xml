@@ -760,7 +760,7 @@
         İlkin alqoritmlər, çox vaxt SHA256 və AES128-i dəstəkləyir.
     </string>
     <string name="title_advanced_check_certificate">Göndərəndə ictimai açarları yoxla</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Göndərərkən açar istifadə göstəricilərini yoxla</string>
+    <string name="title_advanced_check_key_usage">Göndərərkən açar istifadə göstəricilərini yoxla</string>
     <string name="title_advanced_manage_certificates">İctimai açarları idarə et</string>
     <string name="title_advanced_import_key">Şəxsi açarı daxilə köçür</string>
     <string name="title_advanced_manage_keys">Şəxsi açarları idarə et</string>
@@ -1978,7 +1978,9 @@
     <string name="title_hint_junk">Spam filtrləmə, e-poçt serveri tərəfindən edilməlidir və məhdud imkanlara sahib batareyalı bir cihazda açıq şəkildə edilə bilməz.</string>
     <string name="title_hint_junk_learn">Mesajları spam qovluğuna və qovluğundan köçürərək, e-poçt serveri, spamın nə olduğunu \"öyrənir\"</string>
     <string name="title_hint_contact_actions">Seçimlər üçün uzun basın</string>
-    <string name="title_hint_eml">Bu, xam mesaj faylının məzmununun bir icmalıdır. Bütün məzmuna baxmaq üçün xam mesajı əməliyyat sətrindəki saxla nişanı ilə saxlayın.</string>
+    <string name="title_hint_eml">        Bu, xam mesaj faylının məzmunlarının icmalıdır.
+        Bütün məzmununa baxmaq üçün alt sağdakı düyməni istifadə edərək mesajı gələn qutusunda saxlaya bilərsiniz.
+    </string>
     <string name="title_open_link">Bağlantını aç</string>
     <string name="title_image_link">Təsvir bağlantısı</string>
     <string name="title_different_link">Başlıq və bağlantı ünvanı fərqlidir</string>

@@ -760,7 +760,7 @@
         Les algorithmes par défaut SHA256 et AES128 sont couramment pris en charge.
     </string>
     <string name="title_advanced_check_certificate">Vérifier la clé publique lors de l\'envoi</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Vérifier les indications d\'utilisation des clés lors de l\'envoi</string>
+    <string name="title_advanced_check_key_usage">Vérifier les indications d\'utilisation des clés lors de l\'envoi</string>
     <string name="title_advanced_manage_certificates">Gérer les clés publiques</string>
     <string name="title_advanced_import_key">Importer une clé privée</string>
     <string name="title_advanced_manage_keys">Gérer les clés privées</string>
@@ -1979,7 +1979,9 @@
     <string name="title_hint_junk">Le filtrage du courrier indésirable devrait être effectué par le serveur de messagerie et ne peut pas être réalisé de manière fiable sur un appareil alimenté par une batterie et ayant des capacités limitées.</string>
     <string name="title_hint_junk_learn">En déplaçant les messages vers et depuis le dossier des indésirables, le serveur de messagerie \"apprend\" ce qu\'est le courrier indésirable</string>
     <string name="title_hint_contact_actions">Appui long pour les options</string>
-    <string name="title_hint_eml">Ceci est l’aperçu du contenu d’un fichier de message original. Enregistrez le message original au moyen de l’icône de sauvegarde dans la barre d’action pour afficher tout son contenu.</string>
+    <string name="title_hint_eml">        Ceci est un extrait du contenu d\'un fichier de message original.
+        Vous pouvez utiliser le bouton situé en bas à droite pour enregistrer le message dans la boîte de réception afin de visualiser tout le contenu.
+    </string>
     <string name="title_open_link">Ouvrir le lien</string>
     <string name="title_image_link">Lien de l\'image</string>
     <string name="title_different_link">Le titre et l\'adresse du lien sont différents</string>

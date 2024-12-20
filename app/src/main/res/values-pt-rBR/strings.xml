@@ -759,7 +759,7 @@
         Os algoritmos padrão SHA256 e AES128 são comumente suportados.
     </string>
     <string name="title_advanced_check_certificate">Verifique a chave pública ao enviar</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Verifique as indicações de uso da chave no envio</string>
+    <string name="title_advanced_check_key_usage">Verifique as indicações de uso da chave no envio</string>
     <string name="title_advanced_manage_certificates">Gerenciar chaves públicas</string>
     <string name="title_advanced_import_key">Importar chave privada</string>
     <string name="title_advanced_manage_keys">Gerenciar chaves privadas</string>
@@ -1975,7 +1975,6 @@
     <string name="title_hint_junk">A filtragem de spam deve ser feita pelo servidor de e-mail e não pode ser feita de maneira confiável em um dispositivo alimentado por bateria com recursos limitados.</string>
     <string name="title_hint_junk_learn">Ao mover mensagens de e para a pasta de spam, o servidor de e-mail \"aprende\" o que é spam</string>
     <string name="title_hint_contact_actions">Mantenha pressionado para mais opções</string>
-    <string name="title_hint_eml">Este é um resumo do conteúdo de um arquivo de mensagem crua. Salve a mensagem bruta com o ícone de salvar na barra de ação para ver todo o conteúdo.</string>
     <string name="title_open_link">Abrir link</string>
     <string name="title_image_link">Link da imagem</string>
     <string name="title_different_link">O título e o endereço do link são diferentes</string>

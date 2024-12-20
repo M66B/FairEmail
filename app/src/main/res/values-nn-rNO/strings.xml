@@ -1221,7 +1221,6 @@
     <string name="title_hint_design">Utformingen er laget for å ikke distrahere, men fortsatt være svært nyttig. Det finnes mange tilpasningsmuligheter, men vennligst forstå at det er umulig å gjøre alle fornøyde til enhver tid.</string>
     <string name="title_hint_junk">Spam-filtrering må gjøres av e-posttjeneren og kan ikke gjøres på en batteridrevet enhet med begrenset kapasitet.</string>
     <string name="title_hint_contact_actions">Langt trykk for flere instillinger</string>
-    <string name="title_hint_eml">Dette er et sammendrag av innholdet i en rå meldingsfil. Lagre råmeldingen med lagringsikonet i handlingslinjen for å se alt innhold.</string>
     <string name="title_open_link">Åpne link</string>
     <string name="title_image_link">Bildelink</string>
     <string name="title_different_link">Tittelen og linkadressen er forskjellige</string>

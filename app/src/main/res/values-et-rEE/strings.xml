@@ -760,7 +760,7 @@
         Vaikealgoritmid SHA256 ja AES128 on üldiselt toetatud.
     </string>
     <string name="title_advanced_check_certificate">Kontrolli saatmisel avalikku võtit</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Kontrolli saatmisel võtme kasutamise tähistamist</string>
+    <string name="title_advanced_check_key_usage">Kontrolli saatmisel võtme kasutamise tähistamist</string>
     <string name="title_advanced_manage_certificates">Halda avalikke võtmeid</string>
     <string name="title_advanced_import_key">Privaatvõtme importimine</string>
     <string name="title_advanced_manage_keys">Halda privaatvõtmeid</string>
@@ -1978,7 +1978,6 @@
     <string name="title_hint_junk">Spämmi filtreerimine peaks toimuma meiliserveris ja seda ei saa usaldusväärselt teha piiratud võimalustega akutoitel töötava seadme abil.</string>
     <string name="title_hint_junk_learn">Liigutades sõnumeid spämmi kausta ja sealt välja, õpib meiliserver, mis spämm on</string>
     <string name="title_hint_contact_actions">Valikute jaoks vajuta pikalt</string>
-    <string name="title_hint_eml">See on kokkuvõte toorsõnumi faili sisust. Kogu sisu vaatamiseks salvesta toorsõnum tegevusriba salvestamise ikooni abil.</string>
     <string name="title_open_link">Ava link</string>
     <string name="title_image_link">Pildilink</string>
     <string name="title_different_link">Tiitel ja lingi aadress on erinevad</string>

@@ -1597,7 +1597,6 @@
     <string name="title_hint_junk">O filtrado de correo lixo debería facelo o servidor de correo e non é fiable facelo nun aparello a baterías con capacidades limitadas.</string>
     <string name="title_hint_junk_learn">Cando mova mensaxes cara ou dende o cartafol de spam, o servidor de correo aprenderá que é o spam</string>
     <string name="title_hint_contact_actions">Manteña pulsado para ver as opcións</string>
-    <string name="title_hint_eml">Este é un resumo do contido dunha mensaxe en cru. Garde o mensaxe en cru ca icona na barra de accións para ver todo o contido.</string>
     <string name="title_open_link">Abrir ligazón</string>
     <string name="title_image_link">Ligazón da imaxe</string>
     <string name="title_different_link">O título e o enderezo da ligazón son diferentes</string>

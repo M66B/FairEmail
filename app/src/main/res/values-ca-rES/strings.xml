@@ -1260,7 +1260,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_hint_important">Important</string>
     <string name="title_hint_sync">La descàrrega dels missatges pot trigar un temps, depenent de la velocitat del proveïdor, de la connexió a Internet i del dispositiu i del nombre de missatges. Mentre descarregueu missatges, l\'aplicació pot respondre més lent.</string>
     <string name="title_hint_contact_actions">Pulsació llarga per opcions</string>
-    <string name="title_hint_eml">Aquest és un resum del contingut d\'un fitxer de missatges sense processar. Desa el missatge sense processar amb la icona de desar a la barra d\'accions per a veure tot el contingut.</string>
     <string name="title_open_link">Obrir l\'enllaç</string>
     <string name="title_image_link">Enllaç a la imatge</string>
     <string name="title_different_link">El títol i la direcció de l\'enllaç són diferents</string>

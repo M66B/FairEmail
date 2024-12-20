@@ -1958,7 +1958,8 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_hint_junk">Spam filtreleme e-posta sunucusu tarafından yapılmalıdır ve sınırlı özelliklere sahip pille çalışan bir cihazda güvenilir bir şekilde yapılamaz.</string>
     <string name="title_hint_junk_learn">İletileri spam klasörüne ve klasöründen taşıyarak, e-posta sunucusu spam\'in ne olduğunu \"öğrenir\"</string>
     <string name="title_hint_contact_actions">Seçenekler için uzun basın</string>
-    <string name="title_hint_eml">Bu, ham mesaj dosyasının içeriğinin bir özetidir. Tüm içeriği görüntülemek için ham iletiyi işlem çubuğundaki kaydet simgesiyle kaydedin.</string>
+    <string name="title_hint_eml">Bu, ham mesaj dosyasının içeriğinin bir özetidir.
+        Tüm içeriği görüntülemek üzere mesajı gelen kutusuna kaydetmek için sağ alttaki düğmeyi kullanabilirsiniz.    </string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_image_link">Görsel bağlantısı</string>
     <string name="title_different_link">Başlık ve link adresi farklı</string>

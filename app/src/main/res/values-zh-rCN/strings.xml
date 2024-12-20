@@ -745,7 +745,7 @@
         通常支持默认算法 SHA256 和 AES128。
     </string>
     <string name="title_advanced_check_certificate">发送时检查公钥</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">发送时检查密钥使用指示</string>
+    <string name="title_advanced_check_key_usage">发送时检查密钥使用指示</string>
     <string name="title_advanced_manage_certificates">管理公钥</string>
     <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_manage_keys">管理私钥</string>
@@ -1959,7 +1959,9 @@
     <string name="title_hint_junk">过滤垃圾邮件属于邮件服务器的工作，单凭客户端设备根本无力胜任</string>
     <string name="title_hint_junk_learn">将邮件移入或移出垃圾邮件文件夹会让电子邮件服务器“得知”什么是垃圾邮件</string>
     <string name="title_hint_contact_actions">长按以显示更多选项</string>
-    <string name="title_hint_eml">这是原始邮件文件内容的摘要。使用操作栏中的保存图标保存原始邮件以查看所有内容。</string>
+    <string name="title_hint_eml">        这是一个原始消息文件内容的摘要。
+        您可以使用右下角按钮保存消息到收件箱查看所有内容。
+    </string>
     <string name="title_open_link">打开链接</string>
     <string name="title_image_link">图片链接</string>
     <string name="title_different_link">标题和链接地址不同</string>

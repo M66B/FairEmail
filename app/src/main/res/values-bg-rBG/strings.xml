@@ -759,7 +759,7 @@
         Алгоритмите по подразбиране (SHA-256 и AES-128) обикновено се поддържат.
     </string>
     <string name="title_advanced_check_certificate">Проверете публичния ключ при изпращане</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Проверка на показателите за употреба на ключ при изпращане</string>
+    <string name="title_advanced_check_key_usage">Проверка на показателите за употреба на ключ при изпращане</string>
     <string name="title_advanced_manage_certificates">Управление на публични ключове</string>
     <string name="title_advanced_import_key">Импортиране на частен ключ</string>
     <string name="title_advanced_manage_keys">Управление на частни ключове</string>
@@ -1975,7 +1975,6 @@
     <string name="title_hint_junk">Прецеждането на спама би трябвало да се върши от сървъра на имейла и не може да се извърши надеждно на захранвано от батерии устройство с ограничени възможности.</string>
     <string name="title_hint_junk_learn">Премествайки съобщения от и до папка спам, сървърът се \"учи\" какво е спам</string>
     <string name="title_hint_contact_actions">Натиснете продължително за повече опции</string>
-    <string name="title_hint_eml">Това е обобщение на съдържанието на необработен файл със съобщение. Запишете необработеното съобщение с иконата за запис в панела за действие, за да видите цялото съдържание.</string>
     <string name="title_open_link">Отваряне не връзката</string>
     <string name="title_image_link">Връзка на образа</string>
     <string name="title_different_link">Адресът на домейна и адресът на връзката са различни</string>

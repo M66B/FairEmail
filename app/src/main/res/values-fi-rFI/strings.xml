@@ -1946,7 +1946,6 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
     <string name="title_hint_junk">Roskapostin suodatus pitäisi tehdä sähköpostipalvelimella, eikä sitä voi tehdä luotettavasti akkukäyttöisellä laitteella, jolla on rajalliset ominaisuudet.</string>
     <string name="title_hint_junk_learn">Siirtämällä viestejä roskapostikansioon ja sieltä pois, sähköpostipalvelin \"oppii\" mitä roskaposti on</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
-    <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Näet koko sisällön tallentamalla raakaviestin toimintopalkin tallennuskuvakkeesta.</string>
     <string name="title_open_link">Avaa linkki</string>
     <string name="title_image_link">Kuvalinkki</string>
     <string name="title_different_link">Verkko-osoite linkin nimessä ei vastaa linkin kohdeosoitetta</string>

@@ -788,6 +788,7 @@
         האלגוריתמים כברירת המחדל SHA256 ו־AES128 בדרך כלל נתמכים.
     </string>
     <string name="title_advanced_check_certificate">לבדוק את המפתח הציבורי עם השליחה</string>
+    <string name="title_advanced_check_key_usage">לבדוק חיווי שימוש במפתחות במהלך השליחה</string>
     <string name="title_advanced_manage_certificates">ניהול מפתחות ציבוריים</string>
     <string name="title_advanced_import_key">ייבוא מפתח פרטי</string>
     <string name="title_advanced_manage_keys">ניהול מפתחות פרטיים</string>
@@ -2005,7 +2006,9 @@
     <string name="title_hint_junk">סינון הספאם צריך להתבצע מצד שרת הדוא״ל ולא ניתן לבצע אותו על מכשיר שמופעל על סוללה עם יכולות מוגבלות.</string>
     <string name="title_hint_junk_learn">העברת הודעות אל תיקיית הספאם וממנה, „מלמדת” את שרת הדוא״ל מה זה ספאם</string>
     <string name="title_hint_contact_actions">לחיצה ארוכה לאפשרויות</string>
-    <string name="title_hint_eml">זה תקציר תוכן קובץ ההודעה הגולמית. שמירת ההודעה הגולמית באמצעות כפתור השמירה בסרגל הפעולות תאפשר צפייה בכל תוכנו.</string>
+    <string name="title_hint_eml">        זה תקציר התוכן של קובץ הודעה גולמי.
+        אפשר להשתמש בכפתור שמשמאל למטה כדי לשמור הודעות לדואר הנכנס כדי לצפות בכל התוכן.
+    </string>
     <string name="title_open_link">פתיחת קישור</string>
     <string name="title_image_link">קישור לתמונה</string>
     <string name="title_different_link">הכותרת וכתובת הקישור שונים</string>

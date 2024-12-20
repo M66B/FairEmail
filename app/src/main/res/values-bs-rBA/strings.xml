@@ -774,7 +774,7 @@
         Zadani algoritmi SHA256 i AES128 su uobičajeno podržani.
     </string>
     <string name="title_advanced_check_certificate">Provjeri javni ključ pri slanju</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Provjeri naznake upotrebe ključeva tokom slanja</string>
+    <string name="title_advanced_check_key_usage">Provjeri naznake upotrebe ključeva tokom slanja</string>
     <string name="title_advanced_manage_certificates">Upravljaj javnim ključevima</string>
     <string name="title_advanced_import_key">Uvezi privatni ključ</string>
     <string name="title_advanced_manage_keys">Upravljaj privatnim ključevima</string>
@@ -1992,7 +1992,6 @@
     <string name="title_hint_junk">Filtriranje spama trebao bi rješavati e-mail server i ne može se pouzdano odvijati na uređajima koje pogone baterije s ograničenim mogućnostima.</string>
     <string name="title_hint_junk_learn">Premještanjem poruka u i iz spam foldera, e-mail server \'pamti\' šta je spam</string>
     <string name="title_hint_contact_actions">Dugi dodir za opcije</string>
-    <string name="title_hint_eml">Ovo je sažetak sadržaja datoteke raw poruke. Da bi mogli vidjeti cijeli sadržaj, sačuvajte raw poruku pritiskom na ikonicu sačuvaj na alatnoj traci.</string>
     <string name="title_open_link">Otvori link</string>
     <string name="title_image_link">Link slike</string>
     <string name="title_different_link">Naslovna i adresa linkova su različite</string>

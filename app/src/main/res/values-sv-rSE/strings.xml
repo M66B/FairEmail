@@ -752,7 +752,7 @@
         Standardalgoritmerna SHA256 och AES128 stöds ofta.
     </string>
     <string name="title_advanced_check_certificate">Kontrollera offentlig nyckel när du skickar</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Kontrollera nyckelanvändnings-indikationer när du skickar</string>
+    <string name="title_advanced_check_key_usage">Kontrollera nyckelanvändnings-indikationer när du skickar</string>
     <string name="title_advanced_manage_certificates">Hantera publika nycklar</string>
     <string name="title_advanced_import_key">Importera privat nyckel</string>
     <string name="title_advanced_manage_keys">Hantera privata nycklar</string>
@@ -1956,7 +1956,6 @@
     <string name="title_hint_junk">Spamfiltrering bör göras via e-postservern och kan inte göras tillförlitligt på en batteridriven enhet med begränsad kapacitet.</string>
     <string name="title_hint_junk_learn">Genom att flytta meddelanden till och från skräppostmappen \"lär\" sig e-postservern vad skräppost är</string>
     <string name="title_hint_contact_actions">Långt tryck för alternativ</string>
-    <string name="title_hint_eml">Detta är en sammanfattning av innehållet i en raw-meddelandefil. Spara raw-meddelandet med ikonen spara i åtgärdsfältet för att visa allt innehåll.</string>
     <string name="title_open_link">Öppna länken</string>
     <string name="title_image_link">Bildlänk</string>
     <string name="title_different_link">Titeln och länkadressen är olika</string>

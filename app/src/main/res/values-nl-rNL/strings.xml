@@ -756,7 +756,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         De standaard algoritmen SHA256 en AES128 worden meestal ondersteund.
     </string>
     <string name="title_advanced_check_certificate">Controleer de publieke sleutel bij verzenden</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Indicaties voor sleutelgebruik (key usage flags) bij verzenden controleren</string>
+    <string name="title_advanced_check_key_usage">Indicaties voor sleutelgebruik (key usage flags) bij verzenden controleren</string>
     <string name="title_advanced_manage_certificates">Publieke sleutels beheren</string>
     <string name="title_advanced_import_key">Importeer privé sleutel</string>
     <string name="title_advanced_manage_keys">Privé sleutels beheren</string>
@@ -1591,6 +1591,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_signature_email">Adres van de handtekening</string>
     <string name="title_signature_mismatch">Het e-mailadres van de afzender en de handtekening komen niet overeen</string>
     <string name="title_signature_algorithm">Algoritme</string>
+    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Publieke sleutel</string>
     <string name="title_signature_subject">Onderwerp</string>
     <string name="title_signature_validity">Geldigheid</string>
     <string name="title_signature_outdated">Deze publieke sleutel is momenteel niet geldig</string>
@@ -1965,7 +1966,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_hint_junk">Spamfiltering zou door de e-mailserver gedaan moeten worden en kan niet op een apparaat met beperkte mogelijkheden betrouwbaar gedaan worden.</string>
     <string name="title_hint_junk_learn">Door berichten te verplaatsen van en naar de spam-map \"leert\" de e-mailserver wat spam is</string>
     <string name="title_hint_contact_actions">Druk lang voor opties</string>
-    <string name="title_hint_eml">Dit is een samenvatting van de inhoud van een ruw berichtbestand. Sla het ruwe bericht op met het \'bewaar\' icoon in de actiebalk om alle inhoud te bekijken.</string>
+    <string name="title_hint_eml">Dit is een samenvatting van de inhoud van een ruw berichtenbestand.
+ U kunt de knop rechtsonder gebruiken om het bericht op te slaan in het postvak IN om alle inhoud te bekijken.    </string>
     <string name="title_open_link">Koppeling openen</string>
     <string name="title_image_link">Afbeeldingskoppeling</string>
     <string name="title_different_link">De titel en het link-adres zijn verschillend</string>

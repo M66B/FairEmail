@@ -1987,7 +1987,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hint_junk">Filtrovanie nevyžiadanej pošty by malo byť zabezpečené na strane servera, pretože filtrovanie na zariadení napájanom z batérie s obmedzenými možnosťami nemusí fungovať dostatočne spoľahlivo.</string>
     <string name="title_hint_junk_learn">Presúvaním správ do a z priečinka spam učíte server, ktoré správy sú nevyžiadané</string>
     <string name="title_hint_contact_actions">Možnosti zobrazíte dlhým stlačením</string>
-    <string name="title_hint_eml">Toto je náhľad obsahu surového súboru so správou. Ak chcete zobraziť celý obsah, klepnite na tlačidlo \'Uložiť\' v lište akcií.</string>
     <string name="title_open_link">Otvoriť odkaz</string>
     <string name="title_image_link">URL Adresa obrázka</string>
     <string name="title_different_link">Názov a adresa odkazu sú rôzne</string>

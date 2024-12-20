@@ -788,7 +788,7 @@ v prohlížeči ze všech Google účtů.</string>
         Běžně jsou podporovány výchozí algoritmy SHA256 a AES128.
     </string>
     <string name="title_advanced_check_certificate">Zkontrolovat veřejný klíč při odesílání</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">Zkontrolovat údaje o použití klíče při odesílání</string>
+    <string name="title_advanced_check_key_usage">Zkontrolovat údaje o použití klíče při odesílání</string>
     <string name="title_advanced_manage_certificates">Spravovat veřejné klíče</string>
     <string name="title_advanced_import_key">Importovat privátní klíč</string>
     <string name="title_advanced_manage_keys">Spravovat privátní klíče</string>
@@ -2004,7 +2004,9 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_hint_junk">Filtrování nevyžádané pošty by měl zprostředkovávat e-mailový server, neb na baterií napájeném zařízení s omezenými prostředky jej nelze provádět spolehlivě.</string>
     <string name="title_hint_junk_learn">Přesunutím zpráv do a ze složky nevyžádané pošty se e-mailový server \"naučí\", co je spam</string>
     <string name="title_hint_contact_actions">Dlouze podržet pro možnosti</string>
-    <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Pro zobrazení celého obsahu uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí.</string>
+    <string name="title_hint_eml">        Toto je shrnutí obsahu souboru pro nezpracovanou zprávu.
+        Můžete použít tlačítko vpravo nahoře pro uložení zprávy do složky Doručená pošta pro zobrazení celého obsahu.
+    </string>
     <string name="title_open_link">Otevřít odkaz</string>
     <string name="title_image_link">Odkaz obrázku</string>
     <string name="title_different_link">Název a adresa odkazu jsou odlišné</string>

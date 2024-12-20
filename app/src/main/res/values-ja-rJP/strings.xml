@@ -746,7 +746,7 @@
         デフォルトのアルゴリズム SHA256 と AES128 は一般的に対応されています。
     </string>
     <string name="title_advanced_check_certificate">送信するときに公開鍵を確認する</string>
-    <string name="title_advanced_check_key_usage" comment="title_advanced_check_key_usage&#10;Title for an option to check the key-usage flags of an S/MIME certification when sending a message. Background: some certificates are supposed to be used for signing only and not encryption, or the other way around.">送信するときに鍵用途の状態を確認する</string>
+    <string name="title_advanced_check_key_usage">送信するときに鍵用途の状態を確認する</string>
     <string name="title_advanced_manage_certificates">公開鍵を管理</string>
     <string name="title_advanced_import_key">秘密鍵をインポート</string>
     <string name="title_advanced_manage_keys">秘密鍵を管理</string>
@@ -1964,7 +1964,6 @@
     <string name="title_hint_junk">迷惑メールフィルタリングはメールサーバーで実行すべきもので、機能に制限があるバッテリー駆動のモバイル端末では十分に実行できません。</string>
     <string name="title_hint_junk_learn">迷惑メールフォルダーにメッセージを移動することで、メールサーバーは何が迷惑メールかを学習します</string>
     <string name="title_hint_contact_actions">長押ししてオプションへ</string>
-    <string name="title_hint_eml">これは元のメッセージファイルの内容の要約です。すべてのコンテンツを表示するにはアクションバーから元のメッセージを保存します</string>
     <string name="title_open_link">リンクを開く</string>
     <string name="title_image_link">画像リンク</string>
     <string name="title_different_link">タイトルとリンクアドレスが異なります</string>
