@@ -197,7 +197,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
             String subject = certificate.subject;
             String algo = certificate.getSigAlgName();
             if (algo != null)
-                subject = algo + " " + subject;
+                subject = algo.replaceAll("(?i)With", "/") + " " + subject;
             tvSubject.setText(subject);
             tvAfter.setText(certificate.after == null ? null : TF.format(certificate.after));
             tvBefore.setText(certificate.before == null ? null : TF.format(certificate.before));

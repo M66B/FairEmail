@@ -10453,7 +10453,7 @@ public class FragmentMessages extends FragmentBase
                                 tvExpired.setVisibility(record.isExpired(time) ? View.VISIBLE : View.GONE);
 
                                 if (!TextUtils.isEmpty(algo))
-                                    algo = algo.replace("WITH", "/");
+                                    algo = algo.replace("(?i)With", "/");
                                 tvAlgorithm.setText(algo);
 
                                 ibInfo.setOnClickListener(new View.OnClickListener() {
