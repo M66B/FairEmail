@@ -10135,9 +10135,9 @@ public class FragmentMessages extends FragmentBase
                                 };
 
                                 if (s.verify(verifier)) {
-                                    boolean known = true;
                                     String fingerprint = EntityCertificate.getFingerprintSha256(cert);
                                     List<String> emails = EntityCertificate.getEmailAddresses(cert);
+                                    boolean known = !emails.isEmpty();
                                     for (String email : emails) {
                                         EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
                                         if (record == null)
