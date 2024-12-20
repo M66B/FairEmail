@@ -10142,6 +10142,10 @@ public class FragmentMessages extends FragmentBase
                                         EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
                                         if (record == null)
                                             known = false;
+                                        else {
+                                            args.putString("keyalgo", record.getSigAlgName());
+                                            break;
+                                        }
                                     }
 
                                     String sender = null;
@@ -10407,6 +10411,7 @@ public class FragmentMessages extends FragmentBase
                             boolean valid = args.getBoolean("valid");
                             String reason = args.getString("reason");
                             String algo = args.getString("algo");
+                            String keyalgo = args.getString("keyalgo");
                             final ArrayList<String> trace = args.getStringArrayList("trace");
                             EntityCertificate record = EntityCertificate.from(cert, null);
 
@@ -10438,6 +10443,8 @@ public class FragmentMessages extends FragmentBase
                                 TextView tvBefore = dview.findViewById(R.id.tvBefore);
                                 TextView tvExpired = dview.findViewById(R.id.tvExpired);
                                 TextView tvAlgorithm = dview.findViewById(R.id.tvAlgorithm);
+                                TextView tvKeyAlgorithmTitle = dview.findViewById(R.id.tvKeyAlgorithmTitle);
+                                TextView tvKeyAlgorithm = dview.findViewById(R.id.tvKeyAlgorithm);
 
                                 tvCertificateInvalid.setVisibility(valid ? View.GONE : View.VISIBLE);
                                 tvCertificateReason.setText(reason);
@@ -10455,6 +10462,12 @@ public class FragmentMessages extends FragmentBase
                                 if (!TextUtils.isEmpty(algo))
                                     algo = algo.replace("(?i)With", "/");
                                 tvAlgorithm.setText(algo);
+
+                                tvKeyAlgorithmTitle.setVisibility(info ? View.VISIBLE : View.GONE);
+                                if (!TextUtils.isEmpty(keyalgo))
+                                    keyalgo = keyalgo.replaceAll("(?i)With", "/");
+                                tvKeyAlgorithm.setVisibility(info ? View.VISIBLE : View.GONE);
+                                tvKeyAlgorithm.setText(keyalgo);
 
                                 ibInfo.setOnClickListener(new View.OnClickListener() {
                                     @Override

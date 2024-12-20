@@ -183,5 +183,24 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAlgorithmTitle" />
+
+        <TextView
+            android:id="@+id/tvKeyAlgorithmTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_signature_public_key"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvExpired" />
+
+        <TextView
+            android:id="@+id/tvKeyAlgorithm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SHA256withRSA"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAlgorithmTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

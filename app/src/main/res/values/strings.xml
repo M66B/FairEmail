@@ -1933,6 +1933,7 @@
     <string name="title_signature_email">Signature\'s address</string>
     <string name="title_signature_mismatch">The email address of the sender and signature do not match</string>
     <string name="title_signature_algorithm">Algorithm</string>
+    <string name="title_signature_public_key">Public key</string>
     <string name="title_signature_subject">Subject</string>
     <string name="title_signature_validity">Validity</string>
     <string name="title_signature_outdated">This public key is currently not valid</string>
