@@ -1105,6 +1105,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAmp.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
                 ibVerify.setOnClickListener(this);
+                ibVerify.setOnLongClickListener(this);
                 ibUndo.setOnClickListener(this);
                 ibAnswer.setOnClickListener(this);
                 ibRule.setOnClickListener(this);
@@ -1230,6 +1231,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAmp.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
                 ibVerify.setOnClickListener(null);
+                ibVerify.setOnLongClickListener(null);
                 ibUndo.setOnClickListener(null);
                 ibAnswer.setOnClickListener(null);
                 ibRule.setOnClickListener(null);
@@ -3574,12 +3576,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             (EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
                                     EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))) {
                         properties.setValue("auto_decrypted", message.id, true);
-                        onActionVerifyDecrypt(message, true);
+                        onActionVerifyDecrypt(message, true, false);
                     } else if (auto_verify && !auto_verified && !message.verified &&
                             (EntityMessage.PGP_SIGNONLY.equals(message.encrypt) ||
                                     EntityMessage.SMIME_SIGNONLY.equals(message.encrypt))) {
                         properties.setValue("auto_verified", message.id, true);
-                        onActionVerifyDecrypt(message, true);
+                        onActionVerifyDecrypt(message, true, false);
                     }
                 }
 
@@ -4598,9 +4600,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         properties.setExpanded(message, false, false);
                         properties.setHeight(message.id, null);
                     } else
-                        onActionVerifyDecrypt(message, false);
+                        onActionVerifyDecrypt(message, false, false);
                 } else if (id == R.id.ibVerify) {
-                    onActionVerifyDecrypt(message, false);
+                    onActionVerifyDecrypt(message, false, false);
                 } else if (id == R.id.ibUndo) {
                     ActivityCompose.undoSend(message.id, context, owner, parentFragment.getParentFragmentManager());
                 } else if (id == R.id.ibAnswer) {
@@ -4895,6 +4897,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 });
 
                 popupMenu.show();
+                return true;
+            } else if (id == R.id.ibVerify) {
+                onActionVerifyDecrypt(message, false, true);
                 return true;
             } else if (id == R.id.ibMove) {
                 if (message.folderReadOnly)
@@ -6112,7 +6117,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onActionVerifyDecrypt(TupleMessageEx message, boolean auto) {
+        private void onActionVerifyDecrypt(TupleMessageEx message, boolean auto, boolean info) {
             boolean inline = properties.getValue("inline_encrypted", message.id);
             int encrypt = (message.encrypt == null || inline ? EntityMessage.PGP_SIGNENCRYPT /* Inline */ : message.encrypt);
 
@@ -6121,6 +6126,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     new Intent(FragmentMessages.ACTION_VERIFYDECRYPT)
                             .putExtra("id", message.id)
                             .putExtra("auto", auto)
+                            .putExtra("info", info)
                             .putExtra("type", encrypt));
         }
 

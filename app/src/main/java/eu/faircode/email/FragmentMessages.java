@@ -9323,12 +9323,14 @@ public class FragmentMessages extends FragmentBase
     private void onVerifyDecrypt(Intent intent) {
         long id = intent.getLongExtra("id", -1);
         boolean auto = intent.getBooleanExtra("auto", false);
+        boolean info = intent.getBooleanExtra("info", false);
         int type = intent.getIntExtra("type", EntityMessage.ENCRYPT_NONE);
 
         final Bundle args = new Bundle();
         args.putLong("id", id);
         args.putInt("type", type);
         args.putBoolean("auto", auto);
+        args.putBoolean("info", info);
 
         if (EntityMessage.SMIME_SIGNONLY.equals(type))
             onSmime(args);
@@ -10398,6 +10400,7 @@ public class FragmentMessages extends FragmentBase
                     } else
                         try {
                             boolean auto = args.getBoolean("auto");
+                            boolean info = args.getBoolean("info");
                             String sender = args.getString("sender");
                             Date time = (Date) args.getSerializable("time");
                             boolean known = args.getBoolean("known");
@@ -10418,7 +10421,7 @@ public class FragmentMessages extends FragmentBase
                                     break;
                                 }
 
-                            if (known && !record.isExpired(time) && match && valid)
+                            if (!info && known && !record.isExpired(time) && match && valid)
                                 Helper.setSnackbarOptions(Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG))
                                         .show();
                             else if (!auto) {
