@@ -3666,6 +3666,8 @@ see [here](https://developer.android.com/preview/privacy/scoped-storage) and [he
 If you use MIUI, please make sure [MIUI optimization](https://android.stackexchange.com/questions/191228/what-is-miui-optimization) is enabled in the developer settings.
 You can enable the developer options by tapping a few times on the MIUI version number in the settings, About phone.
 
+See also [this FAQ](#faq25).
+
 <br />
 
 <a name="faq96"></a>
