@@ -30,6 +30,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
+### Next version
+
+* Fixed showing S/MIME digest algorithm
+* Added option to select default font size for sending
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2252 2024-12-18
 
 * Fixed in-app changelog
