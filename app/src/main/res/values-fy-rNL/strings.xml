@@ -1594,6 +1594,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_signature_email">Undertekeningsadres</string>
     <string name="title_signature_mismatch">It e-mailadres fan de ôfstjoerder en hantekening komme net oerien</string>
     <string name="title_signature_algorithm">Algoritme</string>
+    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Publike kaai</string>
     <string name="title_signature_subject">Underwerp</string>
     <string name="title_signature_validity">Jildichheid</string>
     <string name="title_signature_outdated">Dizze iepenbiere kaai is op dit stuit net jildich</string>

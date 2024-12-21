@@ -1598,6 +1598,7 @@
     <string name="title_signature_email">Endereço da assinatura</string>
     <string name="title_signature_mismatch">O endereço de e-mail do remetente e assinatura não corresponde</string>
     <string name="title_signature_algorithm">Algoritmo</string>
+    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Chave pública</string>
     <string name="title_signature_subject">Assunto</string>
     <string name="title_signature_validity">Validade</string>
     <string name="title_signature_outdated">Esta chave pública não é válida no momento</string>
@@ -1975,6 +1976,9 @@
     <string name="title_hint_junk">A filtragem de spam deve ser feita pelo servidor de e-mail e não pode ser feita de maneira confiável em um dispositivo alimentado por bateria com recursos limitados.</string>
     <string name="title_hint_junk_learn">Ao mover mensagens de e para a pasta de spam, o servidor de e-mail \"aprende\" o que é spam</string>
     <string name="title_hint_contact_actions">Mantenha pressionado para mais opções</string>
+    <string name="title_hint_eml">        Este é um resumo do conteúdo de um arquivo de mensagem bruto.
+        Você pode usar o botão inferior direito para salvar a mensagem na caixa de entrada e visualizar todo o conteúdo.
+    </string>
     <string name="title_open_link">Abrir link</string>
     <string name="title_image_link">Link da imagem</string>
     <string name="title_different_link">O título e o endereço do link são diferentes</string>

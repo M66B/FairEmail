@@ -1627,6 +1627,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_signature_email">Adresa podpisu</string>
     <string name="title_signature_mismatch">E-mailová adresa odesílatele a podpis se neshodují</string>
     <string name="title_signature_algorithm">Algoritmus</string>
+    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Veřejný klíč</string>
     <string name="title_signature_subject">Subjekt</string>
     <string name="title_signature_validity">Platnost</string>
     <string name="title_signature_outdated">Tento veřejný klíč není v současné době platný</string>

@@ -1603,6 +1603,7 @@
     <string name="title_signature_email">E-Mail-Adresse der Signatur</string>
     <string name="title_signature_mismatch">Die E-Mail-Adresse des Absenders und der Signatur stimmen nicht überein</string>
     <string name="title_signature_algorithm">Algorithmus</string>
+    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Öffentlicher Schlüssel</string>
     <string name="title_signature_subject">Betreff</string>
     <string name="title_signature_validity">Gültigkeit</string>
     <string name="title_signature_outdated">Dieser öffentliche Schlüssel ist derzeit nicht gültig</string>
@@ -1980,7 +1981,7 @@
     <string name="title_hint_junk">Das Filtern von Spam sollte durch den E-Mail-Server erfolgen und kann auf einem akkubetriebenen Gerät mit begrenzten Kapazitäten nicht zuverlässig durchgeführt werden.</string>
     <string name="title_hint_junk_learn">Durch das Verschieben von Nachrichten in und aus dem Spam-Ordner „erlernt” der E-Mail-Server, welche Nachrichten Spam sind</string>
     <string name="title_hint_contact_actions">Gedrückt halten für weitere Optionen</string>
-    <string name="title_hint_eml">        Das ist eine Zusammenfassung des Inhaltes einer Rohnachrichtendatei.
+    <string name="title_hint_eml">        Dies ist eine Zusammenfassung des Inhalts einer Rohnachrichtendatei.
         Über die Schaltfläche unten rechts können Sie die Nachricht im Posteingang speichern, um den gesamten Inhalt anzuzeigen.
     </string>
     <string name="title_open_link">Link öffnen</string>

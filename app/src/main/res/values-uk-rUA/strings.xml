@@ -1627,6 +1627,7 @@
     <string name="title_signature_email">Адреса підпису</string>
     <string name="title_signature_mismatch">Електронні адреси відправника і підпису не збігаються</string>
     <string name="title_signature_algorithm">Алгоритм</string>
+    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Відкритий ключ</string>
     <string name="title_signature_subject">Тема</string>
     <string name="title_signature_validity">Чинність</string>
     <string name="title_signature_outdated">Цей відкритий ключ наразі є нечинним</string>

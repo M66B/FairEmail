@@ -1601,6 +1601,7 @@
     <string name="title_signature_email">İmzanın ünvanı</string>
     <string name="title_signature_mismatch">Göndərənin e-poçt ünvanı və imzası uyuşmur</string>
     <string name="title_signature_algorithm">Alqoritm</string>
+    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Public açar</string>
     <string name="title_signature_subject">Mövzu</string>
     <string name="title_signature_validity">Yararlılıq</string>
     <string name="title_signature_outdated">Bu ictimai açar hazırda yararlı deyil</string>

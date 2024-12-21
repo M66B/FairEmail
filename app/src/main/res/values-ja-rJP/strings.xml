@@ -1587,6 +1587,7 @@
     <string name="title_signature_email">デジタル署名のメールアドレス</string>
     <string name="title_signature_mismatch">差出人のメールアドレスがデジタル署名と一致しません</string>
     <string name="title_signature_algorithm">アルゴリズム</string>
+    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">公開鍵</string>
     <string name="title_signature_subject">サブジェクト</string>
     <string name="title_signature_validity">有効期間</string>
     <string name="title_signature_outdated">現在、この公開鍵は無効です</string>
@@ -1964,6 +1965,9 @@
     <string name="title_hint_junk">迷惑メールフィルタリングはメールサーバーで実行すべきもので、機能に制限があるバッテリー駆動のモバイル端末では十分に実行できません。</string>
     <string name="title_hint_junk_learn">迷惑メールフォルダーにメッセージを移動することで、メールサーバーは何が迷惑メールかを学習します</string>
     <string name="title_hint_contact_actions">長押ししてオプションへ</string>
+    <string name="title_hint_eml">        これは元のメッセージファイルの内容の要約です。
+        右下のボタンからメッセージを受信トレイに保存すると、すべてのコンテンツを表示できます。
+    </string>
     <string name="title_open_link">リンクを開く</string>
     <string name="title_image_link">画像リンク</string>
     <string name="title_different_link">タイトルとリンクアドレスが異なります</string>

@@ -1116,6 +1116,7 @@
     <string name="title_signature_sender">نشانی فرستنده</string>
     <string name="title_signature_email">نشانی امضا</string>
     <string name="title_signature_mismatch">نشانی ایمیل فرستنده و امضا همخوانی ندارد</string>
+    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">کلید عمومی</string>
     <string name="title_signature_subject">موضوع</string>
     <string name="title_signature_validity">اعتبار</string>
     <string name="title_signature_outdated">این کلید عمومی در حال حاضر معتبر نیست</string>
