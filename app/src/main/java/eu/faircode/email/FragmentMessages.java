@@ -10719,30 +10719,15 @@ public class FragmentMessages extends FragmentBase
                 for (Certificate c : certs)
                     try {
                         X509Certificate cert = (X509Certificate) c;
-                        boolean[] usage = cert.getKeyUsage();
-                        boolean digitalSignature = (usage != null && usage.length > 0 && usage[0]);
-                        boolean nonRepudiation = (usage != null && usage.length > 1 && usage[1]);
-                        boolean keyEncipherment = (usage != null && usage.length > 2 && usage[2]);
-                        boolean dataEncipherment = (usage != null && usage.length > 3 && usage[4]);
-                        boolean keyAgreement = (usage != null && usage.length > 4 && usage[4]);
-                        boolean keyCertSign = (usage != null && usage.length > 5 && usage[5]);
-                        boolean cRLSign = (usage != null && usage.length > 6 && usage[6]);
-                        boolean encipherOnly = (usage != null && usage.length > 7 && usage[7]);
-                        boolean decipherOnly = (usage != null && usage.length > 8 && usage[8]);
-                        boolean selfSigned = cert.getIssuerX500Principal().equals(cert.getSubjectX500Principal());
                         EntityCertificate record = EntityCertificate.from(cert, null);
-                        trace.add(record.subject +
-                                " (" + (selfSigned ? "selfSigned" : cert.getIssuerX500Principal()) + ")" +
-                                (digitalSignature ? " (digitalSignature)" : "") +
-                                (nonRepudiation ? " (nonRepudiation)" : "") +
-                                (keyEncipherment ? " (keyEncipherment)" : "") +
-                                (dataEncipherment ? " (dataEncipherment)" : "") +
-                                (keyAgreement ? " (keyAgreement)" : "") +
-                                (keyCertSign ? " (keyCertSign)" : "") +
-                                (cRLSign ? " (cRLSign)" : "") +
-                                (encipherOnly ? " (encipherOnly)" : "") +
-                                (decipherOnly ? " (decipherOnly)" : "") +
-                                (ks != null && ks.getCertificateAlias(cert) != null ? " (Android)" : ""));
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(record.subject);
+                        sb.append(" (").append(record.isSelfSigned() ? "selfSigned" : cert.getIssuerX500Principal()).append(")");
+                        for (String usage : record.getKeyUsage())
+                            sb.append(" (").append(usage).append(")");
+                        if (ks != null && ks.getCertificateAlias(cert) != null)
+                            sb.append(" (Android)");
+                        trace.add(sb.toString());
                     } catch (Throwable ex) {
                         Log.e(ex);
                         trace.add(new ThrowableWrapper(ex).toSafeString());

@@ -49,6 +49,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.security.NoSuchAlgorithmException;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
@@ -122,6 +123,47 @@ public class EntityCertificate {
         try {
             return getCertificate().getSigAlgName();
         } catch (Throwable ex) {
+            return null;
+        }
+    }
+
+    List<String> getKeyUsage() {
+        List<String> result = new ArrayList<>();
+        try {
+            X509Certificate cert = getCertificate();
+            boolean[] usage = cert.getKeyUsage();
+            if (usage == null)
+                return result;
+            if (usage.length > 0 && usage[0])
+                result.add("digitalSignature");
+            if (usage.length > 1 && usage[1])
+                result.add("nonRepudiation");
+            if (usage.length > 2 && usage[2])
+                result.add("keyEncipherment");
+            if (usage.length > 3 && usage[3])
+                result.add("dataEncipherment");
+            if (usage.length > 4 && usage[4])
+                result.add("keyAgreement");
+            if (usage.length > 5 && usage[5])
+                result.add("keyCertSign");
+            if (usage.length > 6 && usage[6])
+                result.add("cRLSign");
+            if (usage.length > 7 && usage[7])
+                result.add("encipherOnly");
+            if (usage.length > 8 && usage[8])
+                result.add("decipherOnly");
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+        return result;
+    }
+
+    Boolean isSelfSigned() {
+        try {
+            X509Certificate cert = getCertificate();
+            return (cert.getIssuerX500Principal().equals(cert.getSubjectX500Principal()));
+        } catch (Throwable ex) {
+            Log.e(ex);
             return null;
         }
     }

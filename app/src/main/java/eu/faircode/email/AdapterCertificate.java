@@ -23,6 +23,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
@@ -68,6 +69,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         private TextView tvEmail;
         private ImageView ivIntermediate;
         private TextView tvSubject;
+        private TextView tvKeyUsage;
         private TextView tvAfter;
         private TextView tvBefore;
         private TextView tvExpired;
@@ -81,6 +83,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
             tvEmail = itemView.findViewById(R.id.tvEmail);
             ivIntermediate = itemView.findViewById(R.id.ivIntermediate);
             tvSubject = itemView.findViewById(R.id.tvSubject);
+            tvKeyUsage = itemView.findViewById(R.id.tvKeyUsage);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             tvBefore = itemView.findViewById(R.id.tvBefore);
             tvExpired = itemView.findViewById(R.id.tvExpired);
@@ -195,11 +198,19 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
             tvEmail.setText(certificate.email);
             tvEmail.setTypeface(certificate.intermediate ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
             ivIntermediate.setVisibility(certificate.intermediate ? View.VISIBLE : View.INVISIBLE);
+
             String subject = certificate.subject;
             String algo = certificate.getSigAlgName();
             if (algo != null)
                 subject = algo.replaceAll("(?i)With", "/") + " " + subject;
             tvSubject.setText(subject);
+
+            List<String> usage = certificate.getKeyUsage();
+            if (certificate.isSelfSigned())
+                usage.add(0, "selfSigned");
+            tvKeyUsage.setText(TextUtils.join(", ", usage));
+            tvKeyUsage.setVisibility(usage.isEmpty() ? View.GONE : View.VISIBLE);
+
             tvAfter.setText(certificate.after == null ? null : TF.format(certificate.after));
             tvBefore.setText(certificate.before == null ? null : TF.format(certificate.before));
             tvExpired.setVisibility(certificate.isExpired() ? View.VISIBLE : View.GONE);
