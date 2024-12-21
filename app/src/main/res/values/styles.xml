@@ -608,7 +608,6 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowAnimationStyle">@null</item>
-        <item name="android:windowDisablePreview">true</item>
     </style>
 
     <style name="Theme.AppCompat.TranslucentSplash" parent="Theme.AppCompat.NoActionBar">

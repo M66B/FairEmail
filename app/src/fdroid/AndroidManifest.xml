@@ -137,7 +137,7 @@
         android:restoreAnyVersion="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Translucent">
+        android:theme="@style/Theme.AppCompat.TranslucentSplash">
         <!-- https://developer.samsung.com/samsung-dex/modify-optimizing.html -->
 
         <!-- https://firebase.google.com/docs/analytics/configure-data-collection?platform=android -->
