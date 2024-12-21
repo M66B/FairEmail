@@ -10149,7 +10149,7 @@ public class FragmentMessages extends FragmentBase
                                         String keyalgo = null;
                                         String keyalgooid = null;
                                         try {
-                                            keyalgooid = s.getEncryptionAlgOID();
+                                            keyalgooid = s.getDigestAlgOID();
                                             DefaultAlgorithmNameFinder af = new DefaultAlgorithmNameFinder();
                                             keyalgo = af.getAlgorithmName(new ASN1ObjectIdentifier(keyalgooid));
                                         } catch (Throwable ex) {
@@ -10170,7 +10170,7 @@ public class FragmentMessages extends FragmentBase
                                     String algo = null;
                                     String algooid = null;
                                     try {
-                                        algooid = s.getEncryptionAlgOID();
+                                        algooid = s.getDigestAlgOID();
                                         DefaultAlgorithmNameFinder af = new DefaultAlgorithmNameFinder();
                                         algo = af.getAlgorithmName(new ASN1ObjectIdentifier(algooid));
                                     } catch (Throwable ex) {
