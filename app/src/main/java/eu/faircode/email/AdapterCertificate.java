@@ -205,11 +205,17 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
                 subject = algo.replaceAll("(?i)With", "/") + " " + subject;
             tvSubject.setText(subject);
 
-            List<String> usage = certificate.getKeyUsage();
+            List<String> keyUsage = certificate.getKeyUsage();
+            StringBuilder sb = new StringBuilder();
             if (certificate.isSelfSigned())
-                usage.add(0, "selfSigned");
-            tvKeyUsage.setText(TextUtils.join(", ", usage));
-            tvKeyUsage.setVisibility(usage.isEmpty() ? View.GONE : View.VISIBLE);
+                sb.append("(selfSigned)");
+            for (String usage : keyUsage) {
+                if (sb.length() > 0)
+                    sb.append(' ');
+                sb.append('(').append(usage).append(')');
+            }
+            tvKeyUsage.setText(sb.toString());
+            tvKeyUsage.setVisibility(sb.length() > 0 ? View.VISIBLE : View.GONE);
 
             tvAfter.setText(certificate.after == null ? null : TF.format(certificate.after));
             tvBefore.setText(certificate.before == null ? null : TF.format(certificate.before));
