@@ -1009,6 +1009,7 @@ public class MessageHelper {
         boolean format_flowed = prefs.getBoolean("format_flowed", false);
         int compose_color = prefs.getInt("compose_color", Color.TRANSPARENT);
         String compose_font = prefs.getString("compose_font", "");
+        String compose_text_size = prefs.getString("compose_text_size", "");
         boolean auto_link = prefs.getBoolean("auto_link", false);
 
         // Build html body
@@ -1039,7 +1040,9 @@ public class MessageHelper {
                     HtmlHelper.autoLink(document, true);
                 }
 
-                if (!TextUtils.isEmpty(compose_font) || compose_color != Color.TRANSPARENT) {
+                if (compose_color != Color.TRANSPARENT ||
+                        !TextUtils.isEmpty(compose_font) ||
+                        !TextUtils.isEmpty(compose_text_size)) {
                     List<Node> childs = new ArrayList<>();
                     for (Node child : document.body().childNodes())
                         if (TextUtils.isEmpty(child.attr("fairemail"))) {
@@ -1049,10 +1052,12 @@ public class MessageHelper {
                             break;
 
                     StringBuilder style = new StringBuilder();
-                    if (!TextUtils.isEmpty(compose_font))
-                        style.append("font-family: ").append(StyleHelper.getFamily(compose_font)).append(';');
                     if (compose_color != Color.TRANSPARENT)
                         style.append("color: ").append(HtmlHelper.encodeWebColor(compose_color)).append(';');
+                    if (!TextUtils.isEmpty(compose_font))
+                        style.append("font-family: ").append(StyleHelper.getFamily(compose_font)).append(';');
+                    if (!TextUtils.isEmpty(compose_text_size))
+                        style.append("font-size: ").append(compose_text_size).append(';');
 
                     Element div = document.createElement("div").attr("style", style.toString());
 

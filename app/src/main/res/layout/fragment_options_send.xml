@@ -574,10 +574,20 @@
                     android:id="@+id/spComposeFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
                     android:entries="@array/fontNameNames"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvComposeFont" />
+
+                <eu.faircode.email.SpinnerEx
+                    android:id="@+id/spComposeTextSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spComposeFont" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swComposeMonospaced"
@@ -588,7 +598,7 @@
                     android:text="@string/title_advanced_compose_monospaced"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spComposeFont"
+                    app:layout_constraintTop_toBottomOf="@id/spComposeTextSize"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

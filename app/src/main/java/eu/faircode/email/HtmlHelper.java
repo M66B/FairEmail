@@ -138,6 +138,10 @@ public class HtmlHelper {
     static final float FONT_LARGE = 1.25f; // 20px=1.2
     static final float FONT_XLARGE = 1.50f; // 24px=1.5
 
+    static final String[] fontSizeNames = new String[]{
+            "x-small", "small", "medium", "large", "x-large"
+    };
+
     static final int MAX_FULL_TEXT_SIZE = 1024 * 1024; // characters
     static final int MAX_SHARE_TEXT_SIZE = 50 * 1024; // characters
     static final int MAX_TRANSLATABLE_TEXT_SIZE = 50 * 1024; // characters
@@ -2045,7 +2049,7 @@ public class HtmlHelper {
         return null;
     }
 
-    private static Float getFontSize(String value, float current) {
+    static Float getFontSize(String value, float current) {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
         if (TextUtils.isEmpty(value))
             return null;

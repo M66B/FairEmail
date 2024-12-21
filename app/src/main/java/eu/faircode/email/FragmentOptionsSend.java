@@ -34,6 +34,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -98,6 +99,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
     private ViewButtonColor btnComposeColor;
     private Spinner spComposeFont;
+    private Spinner spComposeTextSize;
     private SwitchCompat swComposeMonospaced;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swPrefixCount;
@@ -146,7 +148,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "send_delayed", "send_undo",
             "answer_single", "answer_action",
             "sound_sent",
-            "compose_color", "compose_font", "compose_monospaced",
+            "compose_color", "compose_font", "compose_text_size", "compose_monospaced",
             "prefix_once", "prefix_count", "alt_re", "alt_fwd",
             "separate_reply", "extended_reply", "template_reply", "write_below", "quote_reply", "quote_limit",
             "resize_reply", "resize_paste",
@@ -197,6 +199,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         btnComposeColor = view.findViewById(R.id.btnComposeColor);
         spComposeFont = view.findViewById(R.id.spComposeFont);
+        spComposeTextSize = view.findViewById(R.id.spComposeTextSize);
         swComposeMonospaced = view.findViewById(R.id.swComposeMonospaced);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swPrefixCount = view.findViewById(R.id.swPrefixCount);
@@ -239,7 +242,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext(), false);
 
         List<CharSequence> fn = new ArrayList<>();
-        fn.add("-");
+        fn.add(getString(R.string.title_style_font_default));
         for (int i = 0; i < fonts.size(); i++) {
             StyleHelper.FontDescriptor font = fonts.get(i);
             SpannableStringBuilder ssb = new SpannableStringBuilderEx(font.toString());
@@ -248,9 +251,31 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             fn.add(ssb);
         }
 
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, fn);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spComposeFont.setAdapter(adapter);
+        ArrayAdapter<CharSequence> fontAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, fn);
+        fontAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spComposeFont.setAdapter(fontAdapter);
+
+        int[] textSizeTitles = new int[]{
+                R.string.title_style_size_xsmall,
+                R.string.title_style_size_small,
+                R.string.title_style_size_medium,
+                R.string.title_style_size_large,
+                R.string.title_style_size_xlarge};
+
+        List<CharSequence> ts = new ArrayList<>();
+        ts.add(getString(R.string.title_style_font_default));
+        for (int i = 0; i < textSizeTitles.length; i++) {
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(getString(textSizeTitles[i]));
+            Float size = HtmlHelper.getFontSize(HtmlHelper.fontSizeNames[i], 1.0f);
+            if (size == null)
+                size = 1.0f;
+            ssb.setSpan(new RelativeSizeSpan(size), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ts.add(ssb);
+        }
+
+        ArrayAdapter<CharSequence> sizeAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, ts);
+        sizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spComposeTextSize.setAdapter(sizeAdapter);
 
         setOptions();
 
@@ -569,6 +594,21 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("compose_font").apply();
+            }
+        });
+
+        spComposeTextSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                if (position == 0)
+                    prefs.edit().remove("compose_text_size").apply();
+                else
+                    prefs.edit().putString("compose_text_size", HtmlHelper.fontSizeNames[position - 1]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("compose_text_size").apply();
             }
         });
 
@@ -1008,6 +1048,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                     break;
                 }
             }
+
+            String compose_text_size = prefs.getString("compose_text_size", "");
+            for (int pos = 0; pos < HtmlHelper.fontSizeNames.length; pos++)
+                if (HtmlHelper.fontSizeNames[pos].equals(compose_text_size)) {
+                    spComposeTextSize.setSelection(pos + 1);
+                    break;
+                }
 
             swComposeMonospaced.setChecked(prefs.getBoolean("compose_monospaced", false));
 
