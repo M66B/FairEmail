@@ -49,11 +49,13 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAPublicKey;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -119,11 +121,17 @@ public class EntityCertificate {
     }
 
     String getSigAlgName() {
+        StringBuilder sb = new StringBuilder();
         try {
-            return getCertificate().getSigAlgName();
+            X509Certificate cert = getCertificate();
+            sb.append(cert.getSigAlgName());
+            PublicKey pubkey = cert.getPublicKey();
+            if (pubkey instanceof RSAPublicKey)
+                sb.append(((RSAPublicKey) pubkey).getModulus().bitLength());
         } catch (Throwable ex) {
-            return null;
+            Log.w(ex);
         }
+        return (sb.length() == 0 ? null : sb.toString());
     }
 
     List<String> getKeyUsage() {
