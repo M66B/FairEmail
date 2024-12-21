@@ -198,6 +198,7 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.KeyStore;
 import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.security.cert.CertPathBuilder;
 import java.security.cert.CertPathBuilderResult;
 import java.security.cert.CertPathValidator;
@@ -211,6 +212,7 @@ import java.security.cert.PKIXBuilderParameters;
 import java.security.cert.PKIXCertPathValidatorResult;
 import java.security.cert.X509CertSelector;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAPublicKey;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.NumberFormat;
@@ -10145,18 +10147,6 @@ public class FragmentMessages extends FragmentBase
                                             continue;
 
                                         known = true;
-
-                                        String keyalgo = null;
-                                        String keyalgooid = null;
-                                        try {
-                                            keyalgooid = s.getEncryptionAlgOID();
-                                            DefaultAlgorithmNameFinder af = new DefaultAlgorithmNameFinder();
-                                            keyalgo = af.getAlgorithmName(new ASN1ObjectIdentifier(keyalgooid));
-                                        } catch (Throwable ex) {
-                                            Log.e(ex);
-                                        }
-                                        args.putString("keyalgo", keyalgo);
-                                        args.putString("keyalgooid", keyalgooid);
                                         break;
                                     }
 
@@ -10167,6 +10157,7 @@ public class FragmentMessages extends FragmentBase
                                     args.putString("sender", sender);
                                     args.putBoolean("known", known);
 
+                                    // Sign algorithm
                                     String algo = null;
                                     String algooid = null;
                                     try {
@@ -10178,6 +10169,22 @@ public class FragmentMessages extends FragmentBase
                                     }
                                     args.putString("algo", algo);
                                     args.putString("algooid", algooid);
+
+                                    // Encryption algorithm
+                                    String keyalgo = null;
+                                    String keyalgooid = null;
+                                    try {
+                                        keyalgooid = s.getEncryptionAlgOID();
+                                        DefaultAlgorithmNameFinder af = new DefaultAlgorithmNameFinder();
+                                        keyalgo = af.getAlgorithmName(new ASN1ObjectIdentifier(keyalgooid));
+                                        PublicKey pubkey = cert.getPublicKey();
+                                        if (pubkey instanceof RSAPublicKey)
+                                            keyalgo += ((RSAPublicKey) pubkey).getModulus().bitLength();
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                    args.putString("keyalgo", keyalgo);
+                                    args.putString("keyalgooid", keyalgooid);
 
                                     List<X509Certificate> certs = new ArrayList<>();
                                     try {
@@ -10487,10 +10494,10 @@ public class FragmentMessages extends FragmentBase
                                 if (!TextUtils.isEmpty(keyalgo))
                                     keyalgo = keyalgo.replaceAll("(?i)With", "/");
 
-                                tvKeyAlgorithmTitle.setVisibility(info && known ? View.VISIBLE : View.GONE);
-                                tvKeyAlgorithm.setVisibility(info && known ? View.VISIBLE : View.GONE);
+                                tvKeyAlgorithmTitle.setVisibility(info ? View.VISIBLE : View.GONE);
+                                tvKeyAlgorithm.setVisibility(info ? View.VISIBLE : View.GONE);
                                 tvKeyAlgorithm.setText(keyalgo);
-                                tvKeyAlgorithmOid.setVisibility(info && known ? View.VISIBLE : View.GONE);
+                                tvKeyAlgorithmOid.setVisibility(info ? View.VISIBLE : View.GONE);
                                 tvKeyAlgorithmOid.setText(keyalgooid);
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
