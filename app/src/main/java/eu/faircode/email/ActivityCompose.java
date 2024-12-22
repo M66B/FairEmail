@@ -77,7 +77,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             Intent intent = getIntent();
 
             String action = intent.getAction();
-            boolean shared = (isShared(action) && !intent.hasExtra("fair:account"));
+            boolean shared = (intent.hasExtra("fair:shared") && !intent.hasExtra("fair:account"));
             boolean widget = (action != null && action.startsWith("widget:"));
 
             String[] tos = intent.getStringArrayExtra(Intent.EXTRA_EMAIL);
@@ -309,6 +309,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         }
 
         if (isShared(action)) {
+            intent.putExtra("fair:shared", true);
             args.putString("action", "new");
             args.putLong("account",
                     intent.getLongExtra("fair:account", -1L));
