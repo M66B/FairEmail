@@ -692,6 +692,7 @@ class Core {
                             // Add: NO [OVERQUOTA] Quota exceeded (mailbox for user is full) (n.nnn + n.nnn secs).
                             // Add: NO APPEND failed
                             // Add: BAD [TOOBIG] Message too large.
+                            // Add: BAD Cannot upload message, TOOBIG (took x ms)
                             // Add: NO Permission denied
                             // Add: NO Message size exceeds fixed maximum message size. Size: xxx KB, Max size: yyy KB
                             // Add: NO Message size exceeds maximum message size limit
