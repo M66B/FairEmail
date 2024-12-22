@@ -1033,6 +1033,11 @@ public class MessageHelper {
             if (message.language != null)
                 document.body().attr("lang", message.language);
 
+            String defaultStyles = document.body().attr("style");
+            //defaultStyles = HtmlHelper.mergeStyles(defaultStyles, "font-size: medium;");
+            if (!TextUtils.isEmpty(defaultStyles))
+                document.body().attr("style", defaultStyles);
+
             // When sending message
             if (identity != null && send) {
                 if (auto_link) {
