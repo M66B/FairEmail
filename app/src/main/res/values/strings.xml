@@ -1080,6 +1080,7 @@
     <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>
     <string name="title_advanced_reply_move_hint">The email server could still add the messages to the sent message folder</string>
     <string name="title_advanced_compose_color_hint">Very light or very dark colors will result in illegible messages on the recipients\' side</string>
+    <string name="title_advanced_compose_font_hint">Default means respecting the font as selected on the receiver side</string>
     <string name="title_advanced_template_reply_hint">HTML is allowed. Available placeholders: %1$s</string>
     <string name="title_advanced_write_below_hint">A recipient might miss your reply, for example when a longer message is being truncated</string>
     <string name="title_advanced_attach_new_hint">Otherwise, add shared addresses or files to the current draft message</string>
