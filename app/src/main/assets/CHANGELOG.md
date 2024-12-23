@@ -4,6 +4,8 @@
 
 ### Notices
 
+Merry Christmas and Happy new Year.
+
 Google requires FairEmail to undergo an annual [CASA](https://appdefensealliance.dev/casa) security audit,
 which must be conducted by an authorized assessor (this year [TAC Security](https://casa.tacsecurity.com/site/home)).
 Besides being time-consuming, this is no longer free as of this year.
@@ -30,7 +32,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2253 2024-12-23
 
 * Fixed showing S/MIME digest algorithm
 * Added option to select default font size for sending
