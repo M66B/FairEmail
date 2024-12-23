@@ -1593,6 +1593,7 @@
     <string name="title_signature_email">Aláírás címe</string>
     <string name="title_signature_mismatch">Az email címe az üzenetnek és az aláírásnak nem ugyanaz</string>
     <string name="title_signature_algorithm">Algoritmus</string>
+    <string name="title_signature_public_key">Nyilvános kulcs</string>
     <string name="title_signature_subject">Tárgy</string>
     <string name="title_signature_validity">Érvényesség</string>
     <string name="title_signature_outdated">Ez a nyilvános kulcs jelenleg nem érvényes</string>
@@ -1970,6 +1971,9 @@
     <string name="title_hint_junk">A spam szűrés a levelező szervereken futó erőforrás igényes feladat. Képtelenség hatékonyan kivitelezni egy akkumlátorról üzemelő eszközön.</string>
     <string name="title_hint_junk_learn">Az üzenetek a levélszemét mappából való ki és be helyezésével az email szerver \"megtanulja\" mi számít szemétnek</string>
     <string name="title_hint_contact_actions">Nyomja hosszan a további opciókért</string>
+    <string name="title_hint_eml">        Ez egy nyers üzenetfájl tartalmi összefoglalója.
+        A jobb alsó gombbal lementheti az üzenetet a beérkező üzenetek közé a teljes tartalom megtekintéséhez.
+    </string>
     <string name="title_open_link">Link megnyitása</string>
     <string name="title_image_link">Kép link</string>
     <string name="title_different_link">A link neve és a címe különbözik</string>

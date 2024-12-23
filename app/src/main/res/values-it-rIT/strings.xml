@@ -420,7 +420,7 @@
     <string name="title_advanced_auto_save_paragraph">Salvare automaticamente una bozza dopo ogni paragrafo</string>
     <string name="title_advanced_auto_save_dot">Salvare automaticamente una bozza dopo ogni frase</string>
     <string name="title_advanced_compose_color">Colore predefinito del testo</string>
-    <string name="title_advanced_compose_font">Font predefinito</string>
+    <string name="title_advanced_compose_font">Carattere predefinito</string>
     <string name="title_advanced_compose_monospaced">Usare i caratteri monospaziati per i messaggi di testo semplice</string>
     <string name="title_advanced_auto_identity">Selezionare automaticamente le identità per i nuovi messaggi</string>
     <string name="title_advanced_prefix_once">Prefissare l\'oggetto solo una volta quando si risponde o si inoltra</string>
@@ -448,7 +448,7 @@
     <string name="title_advanced_send_partial_hint">Se alcuni indirizzi non sono validi, il messaggio sarà comunque inviato agli altri indirizzi</string>
     <string name="title_advanced_sent_partially">Il messaggio non è stato inviato a tutti i destinatari</string>
     <string name="title_advanced_auto_link">Creare automaticamente i link</string>
-    <string name="title_advanced_plain_only">Inviare testo semplice di default</string>
+    <string name="title_advanced_plain_only">Inviare sempre in formato solo testo semplice</string>
     <string name="title_advanced_plain_only_reply">Testo semplice automatico soltanto alla risposta a un messaggio di solo testo semplice</string>
     <string name="title_advanced_flow">Usare «format flowed» per il testo semplice</string>
     <string name="title_advanced_usenet_signature">Seguire la convenzione di firma di Usenet</string>
@@ -463,7 +463,7 @@
     <string name="title_advanced_rlah">Ignorare il roaming in Europa</string>
     <string name="title_advanced_download_headers">Scaricare tutte le intestazioni del messaggio</string>
     <string name="title_advanced_download_eml">Scaricare i file dei messaggi non elaborati</string>
-    <string name="title_advanced_download_plain">Scaricare le parti in solo testo semplice di default (se disponibile)</string>
+    <string name="title_advanced_download_plain">Scaricare sempre le parti in solo testo semplice (se disponibile)</string>
     <string name="title_advanced_validated">Richiedere una connessione convalidata (verificata)</string>
     <string name="title_advanced_validated_captive">Richiedere una connessione convalidata su un captive portal</string>
     <string name="title_advanced_vpn_only">Collegarsi solo tramite una VPN</string>
@@ -574,8 +574,8 @@
     <string name="title_advanced_preview_italic">Mostrare l\'anteprima del messaggio in corsivo</string>
     <string name="title_advanced_preview_lines">Numero di righe d\'anteprima</string>
     <string name="title_advanced_align_header">Allineare verticalmente le parole chiave, il testo di anteprima e le note</string>
-    <string name="title_advanced_addresses">Espandere i dettagli dell\'indirizzo di default</string>
-    <string name="title_advanced_hide_attachments">Contrai gli allegati di default</string>
+    <string name="title_advanced_addresses">Espandere sempre i dettagli dell\'indirizzo</string>
+    <string name="title_advanced_hide_attachments">Contrai sempre gli allegati</string>
     <string name="title_advanced_unzip">Mostrare i contenuti degli allegati compressi</string>
     <string name="title_advanced_attachments_alt">Mostrare gli allegati dopo il testo del messaggio</string>
     <string name="title_advanced_thumbnails">Mostrare le miniature delle immagini dopo il testo del messaggio</string>
@@ -588,7 +588,7 @@
     <string name="title_advanced_overview_mode">Ingrandire i messaggi originali per adattarsi allo schermo</string>
     <string name="title_advanced_hyphenation">Usare la sillabazione automatica</string>
     <string name="title_advanced_contrast">Usare il contrasto elevato per il testo del messaggio</string>
-    <string name="title_advanced_monospaced">Usare di default caratteri monospaziati per il testo del messaggio</string>
+    <string name="title_advanced_monospaced">Usare sempre caratteri monospaziati per il testo del messaggio</string>
     <string name="title_advanced_monospaced_pre">Usare caratteri monospaziati per il testo preformattato</string>
     <string name="title_advanced_background_color">Usare i colori dello sfondo</string>
     <string name="title_advanced_text_color">Usare i colori del testo</string>
@@ -607,7 +607,7 @@
     <string name="title_advanced_actionbar_color">Usare il colore dell\'account come colore di sfondo per la barra d\'azione della conversazione</string>
     <string name="title_advanced_category_header">Raggruppare per categoria di account</string>
     <string name="title_advanced_list_count">Mostrare il numero di messaggi o conversazioni nella barra d\'azione superiore</string>
-    <string name="title_advanced_bundled_fonts">Usare i font inclusi</string>
+    <string name="title_advanced_bundled_fonts">Usare i caratteri inclusi</string>
     <string name="title_advanced_narrow_fonts">Usare caratteri stretti</string>
     <string name="title_advanced_parse_classes">Elaborare i fogli di stile</string>
     <string name="title_advanced_authentication">Mostrare gli avvisi di autenticazione</string>
@@ -710,14 +710,14 @@
     <string name="title_advanced_notifications_background_hint">Un servizio in background è interrompibile in qualsiasi momento da Android, ma non richiede una notifica della barra di stato</string>
     <string name="title_advanced_confirm_links">Confermare l\'apertura dei link</string>
     <string name="title_advanced_confirm_files">Confermare la visualizzazione dei file</string>
-    <string name="title_advanced_sanitize_links">Rimuovere di default i parametri di monitoraggio</string>
+    <string name="title_advanced_sanitize_links">Rimuovere sempre i parametri di monitoraggio</string>
     <string name="title_advanced_sanitize_links_hint">Solo confermando i link</string>
     <string name="title_advanced_adguard">Usare l\'elenco di filtri di AdGuard</string>
     <string name="title_advanced_adguard_weekly">Scaricare automaticamente ogni settimana</string>
     <string name="title_advanced_check_links_dbl">Controllare le liste di blocco di dominio per i link sospetti</string>
-    <string name="title_advanced_confirm_images">Non mostrare nessuna immagine per impostazione predefinita</string>
+    <string name="title_advanced_confirm_images">Non mostrare mai nessuna immagine</string>
     <string name="title_advanced_ask_images">Confermare la visualizzazione delle immagini</string>
-    <string name="title_advanced_confirm_html">Mostrare di default i messaggi riformattati</string>
+    <string name="title_advanced_confirm_html">Mostrare sempre i messaggi riformattati</string>
     <string name="title_advanced_ask_html">Confermare la visualizzazione dei messaggi originali</string>
     <string name="title_advanced_tracking">Tentare di riconoscere e disabilitare le immagini di monitoraggio</string>
     <string name="title_advanced_hide_timezone">Inviare i messaggi senza fuso orario</string>
@@ -742,8 +742,8 @@
     <string name="title_advanced_default_encryption">        Il metodo crittografico predefinito (PGP o S/MIME) sarà memorizzato per identità, dopo l\'invio di un messaggio firmato o crittografato.
         Il metodo crittografico è selezionabile prima dell\'invio nella casella delle opzioni di invio (pressione prolungata del pulsante di invio).
     </string>
-    <string name="title_advanced_sign_default">Firmare per impostazione predefinita</string>
-    <string name="title_advanced_encrypt_default">Cifrare per impostazione predefinita</string>
+    <string name="title_advanced_sign_default">Firmare sempre</string>
+    <string name="title_advanced_encrypt_default">Cifrare sempre</string>
     <string name="title_advanced_encrypt_auto">Cifrare automaticamente quando le chiavi di tutti i destinatari sono disponibili</string>
     <string name="title_advanced_encrypt_reply">Cifrare automaticamente quando si risponde a un messaggio cifrato</string>
     <string name="title_advanced_auto_verify">Verificare automaticamente i messaggi firmati</string>
@@ -760,7 +760,7 @@
         Gli algoritmi predefiniti SHA256 e AES128 sono comunemente supportati.
     </string>
     <string name="title_advanced_check_certificate">Controllare la chiave pubblica all\'invio</string>
-    <string name="title_advanced_check_key_usage">Verifica delle indicazioni d\'uso della chiave al momento dell\'invio</string>
+    <string name="title_advanced_check_key_usage">Controlla le indicazioni di utilizzo della chiave all\'invio</string>
     <string name="title_advanced_manage_certificates">Gestione delle chiavi pubbliche</string>
     <string name="title_advanced_import_key">Importare la chiave privata</string>
     <string name="title_advanced_manage_keys">Gestione delle chiavi private</string>
@@ -856,6 +856,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrare un avviso quando il testo o l\'oggetto del messaggio sono vuoti o quando un allegato potrebbe mancare</string>
     <string name="title_advanced_reply_move_hint">Il server email potrebbe ancora aggiungere i messaggi alla cartella dei messaggi inviati</string>
     <string name="title_advanced_compose_color_hint">Colori molto chiari o molto scuri renderanno i messaggi illeggibili dai destinatari</string>
+    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">Per \'predefinito\' s\'intende il carattere impostato nell\'app da chi riceve il messaggio</string>
     <string name="title_advanced_template_reply_hint">HTML consentito. Segnaposti disponibili: %1$s</string>
     <string name="title_advanced_write_below_hint">Un destinatario potrebbe perdere la risposta, ad esempio quando un messaggio più lungo viene troncato</string>
     <string name="title_advanced_attach_new_hint">Altrimenti aggiungere gli indirizzi o file condivisi al messaggio di bozza corrente</string>
@@ -892,7 +893,7 @@
     <string name="title_advanced_preview_hint">Disponibile solo quando il testo del messaggio è stato scaricato</string>
     <string name="title_advanced_preview_lines_hint">%s caratteri massimi in totale</string>
     <string name="title_advanced_preview_issue">Lo scorrimento può esser lento per un bug in alcune versioni di Android quando il numero di righe è maggiore di uno</string>
-    <string name="title_advanced_overview_mode_hint">Può comportare l\'uso di font molto piccoli</string>
+    <string name="title_advanced_overview_mode_hint">Può comportare caratteri molto piccoli</string>
     <string name="title_advanced_monospaced_pre_hint">I messaggi di solo testo semplice saranno considerati come preformattati</string>
     <string name="title_advanced_placeholders_hint">Questo si applica solo ai messaggi riformattati</string>
     <string name="title_advanced_inline_hint">Le immagini in linea sono immagini incluse nel messaggio</string>
@@ -968,7 +969,7 @@
     <string name="title_identity_unicode_remark">Gran parte dei server non lo supportano</string>
     <string name="title_identity_octetmime">Consenti 8BITMIME</string>
     <string name="title_identity_max_size">Dimensione massima del messaggio (MB)</string>
-    <string name="title_identity_receipt">Richiedere la ricevuta di consegna o lettura di default</string>
+    <string name="title_identity_receipt">Richiedere sempre la ricevuta di consegna e di lettura</string>
     <string name="title_identity_receipt_legacy">Usare le intestazioni di richiesta di ricevuta legacy</string>
     <string name="title_identity_use_ip_hint">In caso di «saluto non valido», «richiede indirizzo valido» o un errore simile, provare a modificare quest\'impostazione</string>
     <string name="title_identity_self_hint">Inoltre impedisce di rispondersi da soli</string>
@@ -991,7 +992,7 @@
     <string name="title_account_notify">Notifiche separate</string>
     <string name="title_account_left">Scorri a sinistra</string>
     <string name="title_account_right">Scorri a destra</string>
-    <string name="title_account_move">Sposta di default a</string>
+    <string name="title_account_move">Sposta sempre in</string>
     <string name="title_account_gmail">Per un\'affidabile sincronizzazione di un account di Gmail, la procedura guidata di configurazione rapida di Gmail dovrebbe esser usata quando possibile</string>
     <string name="title_domain">Nome del dominio</string>
     <string name="title_autoconfig">Scarica impostazioni</string>
@@ -1602,7 +1603,7 @@
     <string name="title_signature_email">Indirizzo della firma</string>
     <string name="title_signature_mismatch">L\'indirizzo email del mittente e la firma non corrispondono</string>
     <string name="title_signature_algorithm">Algoritmo</string>
-    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Chiave pubblica</string>
+    <string name="title_signature_public_key">Chiave pubblica</string>
     <string name="title_signature_subject">Oggetto</string>
     <string name="title_signature_validity">Validità</string>
     <string name="title_signature_outdated">Questa chiave pubblica non è correntemente valida</string>
@@ -1712,7 +1713,7 @@
     <string name="title_answer_reply">Modello di risposta</string>
     <string name="title_answer_name">Nome del modello</string>
     <string name="title_answer_group">Gruppo di modelli (opzionale)</string>
-    <string name="title_answer_standard">Default</string>
+    <string name="title_answer_standard">Predefinito</string>
     <string name="title_answer_favorite">Preferito</string>
     <string name="title_answer_snippet">Frammento</string>
     <string name="title_answer_receipt">Usa come conferma di lettura</string>
@@ -1954,7 +1955,7 @@
     <string name="title_legend_s">Seleziona/deseleziona</string>
     <string name="title_legend_t">Focalizza testo</string>
     <string name="title_hint_folder_actions">Premere a lungo su una cartella per vedere le opzioni, come aggiungere una cartella al menu di navigazione per un accesso rapido</string>
-    <string name="title_hint_folder_sync">Per limitare l\'uso della batteria e di rete, non tutte le cartelle e messaggi saranno sincronizzati di default</string>
+    <string name="title_hint_folder_sync">Per limitare l\'uso della batteria e della rete, non tutte le cartelle e i messaggi saranno sempre sincronizzati</string>
     <string name="title_hint_airplane">La modalità offline è attivata</string>
     <string name="title_hint_vpn_active">VPN attiva</string>
     <string name="title_hint_notifications">Nessun\'autorizzazione di notifica</string>
@@ -1973,15 +1974,15 @@
     </string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere un po\' di tempo, in base alla velocità del provider, la connessione internet, il dispositivo e il numero di messaggi. Durante il download dei messaggi l\'app potrebbe rispondere più lentamente.</string>
-    <string name="title_hint_sync_note">Di default, non tutti i messaggi saranno scaricati per limitare il consumo di spazio d\'archiviazione, batteria e dati. Puoi modificarlo tenendo premuto una cartella nell\'elenco delle cartelle e selezionando \'Recupera altri messaggi\'.</string>
-    <string name="title_hint_battery">Poiché FairEmail di default riceve sempre i messaggi, Android la segnalerà sempre come attiva. Dunque potrebbe sembrare che FairEmail stia sempre consumando energia della batteria sebbene difatti non sia il caso.</string>
+    <string name="title_hint_sync_note">Per impostazione predefinita, non tutti i messaggi saranno scaricati per risparmiare spazio d\'archiviazione, batteria e dati. È possibile modificare questa opzione tenendo premuta una cartella nell\'elenco delle cartelle e selezionando «Recupera altri messaggi».</string>
+    <string name="title_hint_battery">Poiché FairEmail per impostazione predefinita riceve sempre i messaggi, Android la segnalerà sempre come attiva. Dunque potrebbe sembrare che FairEmail stia sempre consumando energia della batteria sebbene nei fatti non sia così.</string>
     <string name="title_hint_reformat">Per impostazione predefinita, FairEmail riformatta i messaggi per motivi di privacy e sicurezza. Per vedere il messaggio originale, toccare l\'icona «schermo intero» sul testo del messaggio.</string>
     <string name="title_hint_design">Il design è intenzionalmente non distraente, ma mantenuto altamente funzionale. Ci sono molte opzioni per personalizzare l\'aspetto, ma sei pregato di comprendere che sia impossibile per rendere tutti completamente felici allo stesso tempo.</string>
     <string name="title_hint_junk">Il filtraggio antispam dovrebbe esser fatto dal server email e non può esser fatto affidabilmente su un dispositivo alimentato da batteria con capacità limitate.</string>
     <string name="title_hint_junk_learn">Quando si spostano i messaggi verso la cartella di spam e viceversa, il server email \"apprende\" come riconoscerlo meglio</string>
     <string name="title_hint_contact_actions">Tenere premuto per vedere le opzioni</string>
     <string name="title_hint_eml">        Questo è un riassunto del contenuto di un file di messaggio grezzo.
-        È possibile utilizzare il pulsante in basso a destra per salvare il messaggio nella casella di posta e visualizzarne tutti i contenuti.
+        Puoi utilizzare il pulsante in basso a destra per salvare il messaggio nella casella di posta e visualizzare i contenuti completi.
     </string>
     <string name="title_open_link">Apri link</string>
     <string name="title_image_link">Link dell\'immagine</string>
@@ -2284,7 +2285,7 @@
         <item>5</item>
     </string-array>
     <string-array name="fontSizeNames">
-        <item>Default</item>
+        <item>Predefinito</item>
         <item>Piccolo</item>
         <item>Medio</item>
         <item>Grande</item>

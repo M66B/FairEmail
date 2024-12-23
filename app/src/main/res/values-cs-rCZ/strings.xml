@@ -883,6 +883,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_send_reminders_hint">Zobrazí upozornění, je-li text zprávy či předmět prázdný nebo chybí-li pravděpodobně příloha</string>
     <string name="title_advanced_reply_move_hint">E-mailový server stále může zprávy ukládat i do složky odeslané</string>
     <string name="title_advanced_compose_color_hint">Velmi světlá nebo tmavá barva povede k nečitelným zprávám na straně příjemců</string>
+    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">Výchozí znamená dodržování písma vybraného na straně příjemce</string>
     <string name="title_advanced_template_reply_hint">HTML je povoleno. Dostupné zástupné symboly: %1$s</string>
     <string name="title_advanced_write_below_hint">Příjemce může ztratit vaši odpověď, například když je delší zpráva zkrácena</string>
     <string name="title_advanced_attach_new_hint">V opačném případě přidat sdílené adresy nebo soubory do aktuálního konceptu zprávy</string>
@@ -1627,7 +1628,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_signature_email">Adresa podpisu</string>
     <string name="title_signature_mismatch">E-mailová adresa odesílatele a podpis se neshodují</string>
     <string name="title_signature_algorithm">Algoritmus</string>
-    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Veřejný klíč</string>
+    <string name="title_signature_public_key">Veřejný klíč</string>
     <string name="title_signature_subject">Subjekt</string>
     <string name="title_signature_validity">Platnost</string>
     <string name="title_signature_outdated">Tento veřejný klíč není v současné době platný</string>

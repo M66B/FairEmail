@@ -840,6 +840,7 @@
     <string name="title_advanced_send_reminders_hint">当邮件文本或主题为空或缺少附件时显示警告</string>
     <string name="title_advanced_reply_move_hint">邮件服务器仍可能将邮件添加到“已发送”文件夹</string>
     <string name="title_advanced_compose_color_hint">颜色太浅或太深会导致收件人难以辨认邮件</string>
+    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">默认意味着尊重接收方选择的字体</string>
     <string name="title_advanced_template_reply_hint">允许 HTML。可用的占位符： %1$s</string>
     <string name="title_advanced_write_below_hint">收件人可能会错过您的回复，例如当邮件较长被截断时</string>
     <string name="title_advanced_attach_new_hint">否则，将共享地址或文件添加到当前草稿邮件中</string>
@@ -1582,7 +1583,7 @@
     <string name="title_signature_email">签名地址</string>
     <string name="title_signature_mismatch">发件人和签名的电子邮件地址不匹配</string>
     <string name="title_signature_algorithm">算法</string>
-    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">公钥</string>
+    <string name="title_signature_public_key">公钥</string>
     <string name="title_signature_subject">主题</string>
     <string name="title_signature_validity">有效性</string>
     <string name="title_signature_outdated">此公钥当前无效</string>

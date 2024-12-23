@@ -1615,7 +1615,7 @@
     <string name="title_signature_email">Potpisna adresa</string>
     <string name="title_signature_mismatch">E-mail adresa pošiljaoca i potpisa se ne podudaraju</string>
     <string name="title_signature_algorithm">Algoritam</string>
-    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Javni ključ</string>
+    <string name="title_signature_public_key">Javni ključ</string>
     <string name="title_signature_subject">Predmet</string>
     <string name="title_signature_validity">Valjanost</string>
     <string name="title_signature_outdated">Ovaj javni ključ trenutno nije važeći</string>

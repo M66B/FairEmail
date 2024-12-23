@@ -1629,7 +1629,7 @@
     <string name="title_signature_email">כתובת החתימה</string>
     <string name="title_signature_mismatch">כתובת דוא״ל המוען והחתימה אינם תואמים</string>
     <string name="title_signature_algorithm">אלגוריתם</string>
-    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">מפתח ציבורי</string>
+    <string name="title_signature_public_key">מפתח ציבורי</string>
     <string name="title_signature_subject">נושא</string>
     <string name="title_signature_validity">תוקף</string>
     <string name="title_signature_outdated">המפתח הציבורי אינו תקף כרגע</string>

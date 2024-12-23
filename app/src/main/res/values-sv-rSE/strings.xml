@@ -1581,7 +1581,7 @@
     <string name="title_signature_email">Signaturens adress</string>
     <string name="title_signature_mismatch">Avsändarens och signaturens e-postadress matchar inte</string>
     <string name="title_signature_algorithm">Algoritm</string>
-    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Offentlig nyckel</string>
+    <string name="title_signature_public_key">Offentlig nyckel</string>
     <string name="title_signature_subject">Ämne</string>
     <string name="title_signature_validity">Giltighet</string>
     <string name="title_signature_outdated">Denna publika nyckel är för närvarande inte giltig</string>

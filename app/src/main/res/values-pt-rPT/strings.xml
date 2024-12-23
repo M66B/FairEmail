@@ -855,6 +855,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de correio electrónico ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_compose_color_hint">Cores muito claras ou muito escuras resultarão em mensagens ilegíveis do lado dos destinatários</string>
+    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">Padrão significa respeitar a fonte como selecionada no lado do destinatário</string>
     <string name="title_advanced_template_reply_hint">HTML permitido. Espaços reservados disponíveis: %1$s</string>
     <string name="title_advanced_write_below_hint">Um destinatário pode perder a sua resposta, por exemplo, quando uma mensagem mais longa estiver sendo encurtada</string>
     <string name="title_advanced_attach_new_hint">Caso contrário, adicionar endereços ou arquivos partilhados à mensagem rascunho atual</string>
@@ -1601,7 +1602,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_signature_email">Endereço da assinatura</string>
     <string name="title_signature_mismatch">O endereço de correio eletrónico do remetente e assinatura não corresponde</string>
     <string name="title_signature_algorithm">Algoritmo</string>
-    <string name="title_signature_public_key" comment="title_signature_public_key&#10;General title for PGP or S/MIME public key">Chave pública</string>
+    <string name="title_signature_public_key">Chave pública</string>
     <string name="title_signature_subject">Assunto</string>
     <string name="title_signature_validity">Validade</string>
     <string name="title_signature_outdated">Esta chave pública actualmente não é válida</string>
