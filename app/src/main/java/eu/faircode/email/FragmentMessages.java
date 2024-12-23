@@ -10451,7 +10451,8 @@ public class FragmentMessages extends FragmentBase
                                 Helper.setSnackbarOptions(Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG))
                                         .show();
                             else if (!auto) {
-                                LayoutInflater inflator = LayoutInflater.from(getContext());
+                                Context context = getContext();
+                                LayoutInflater inflator = LayoutInflater.from(context);
                                 View dview = inflator.inflate(R.layout.dialog_certificate, null);
                                 TextView tvCertificateInvalid = dview.findViewById(R.id.tvCertificateInvalid);
                                 TextView tvCertificateReason = dview.findViewById(R.id.tvCertificateReason);
@@ -10474,7 +10475,7 @@ public class FragmentMessages extends FragmentBase
                                 tvEmailInvalid.setVisibility(match ? View.GONE : View.VISIBLE);
                                 tvSubject.setText(record.subject);
 
-                                DateFormat TF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+                                DateFormat TF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
                                 tvAfter.setText(record.after == null ? null : TF.format(record.after));
                                 tvBefore.setText(record.before == null ? null : TF.format(record.before));
                                 tvExpired.setVisibility(record.isExpired(time) ? View.VISIBLE : View.GONE);
@@ -10487,13 +10488,13 @@ public class FragmentMessages extends FragmentBase
                                 tvAlgorithm.setText(algo);
                                 tvKeyAlgorithm.setText(keyalgo);
 
-                                AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+                                AlertDialog.Builder builder = new AlertDialog.Builder(context)
                                         .setView(dview)
                                         .setNegativeButton(android.R.string.cancel, null)
                                         .setNeutralButton(R.string.title_info, new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
-                                                Helper.viewFAQ(getContext(), 12);
+                                                Helper.viewFAQ(context, 12);
                                             }
                                         });
 
