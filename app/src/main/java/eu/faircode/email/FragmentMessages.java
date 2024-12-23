@@ -10432,7 +10432,9 @@ public class FragmentMessages extends FragmentBase
                             boolean valid = args.getBoolean("valid");
                             String reason = args.getString("reason");
                             String algo = args.getString("algo");
+                            String algooid = args.getString("algooid");
                             String keyalgo = args.getString("keyalgo");
+                            String keyalgooid = args.getString("keyalgooid");
                             final ArrayList<String> trace = args.getStringArrayList("trace");
                             EntityCertificate record = EntityCertificate.from(cert, null);
 
@@ -10480,13 +10482,30 @@ public class FragmentMessages extends FragmentBase
                                 tvBefore.setText(record.before == null ? null : TF.format(record.before));
                                 tvExpired.setVisibility(record.isExpired(time) ? View.VISIBLE : View.GONE);
 
+                                SpannableStringBuilderEx a = new SpannableStringBuilderEx();
+                                SpannableStringBuilderEx ka = new SpannableStringBuilderEx();
                                 if (!TextUtils.isEmpty(algo))
-                                    algo = algo.replaceAll("(?i)With", "/");
+                                    a.append(algo.replaceAll("(?i)With", "/"));
                                 if (!TextUtils.isEmpty(keyalgo))
-                                    keyalgo = keyalgo.replaceAll("(?i)With", "/");
+                                    ka.append(keyalgo.replaceAll("(?i)With", "/"));
 
-                                tvAlgorithm.setText(algo);
-                                tvKeyAlgorithm.setText(keyalgo);
+                                if (info) {
+                                    if (a.length() > 0)
+                                        a.append(' ');
+                                    if (ka.length() > 0)
+                                        ka.append(' ');
+
+                                    int start = a.length();
+                                    a.append(algooid);
+                                    a.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_XSMALL), start, a.length(), 0);
+
+                                    start = ka.length();
+                                    ka.append(keyalgooid);
+                                    ka.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_XSMALL), start, ka.length(), 0);
+                                }
+
+                                tvAlgorithm.setText(a);
+                                tvKeyAlgorithm.setText(ka);
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(context)
                                         .setView(dview)
