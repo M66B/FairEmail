@@ -184,33 +184,11 @@
             android:id="@+id/tvAlgorithm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SHA256/RSA"
+            android:text="SHA256"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAlgorithmTitle" />
-
-        <TextView
-            android:id="@+id/tvAlgorithmOid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1.2.840.113549.1.1.11"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:textColorPrimary"
-            android:textIsSelectable="true"
-            android:textSize="10sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAlgorithm" />
-
-        <TextView
-            android:id="@+id/tvKeyAlgorithmTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/title_advanced_section_encryption"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvExpired" />
 
         <TextView
             android:id="@+id/tvKeyAlgorithm"
@@ -219,20 +197,8 @@
             android:text="SHA256/RSA"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:textColorPrimary"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAlgorithmTitle" />
-
-        <TextView
-            android:id="@+id/tvKeyAlgorithmOid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1.2.840.113549.1.1.11"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:textColorPrimary"
             android:textIsSelectable="true"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvKeyAlgorithm" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAlgorithm" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
