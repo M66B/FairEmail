@@ -329,7 +329,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private List<String> languages;
     private static boolean debug;
     private boolean canDarken;
-    private boolean fake_dark;
     private boolean show_recent;
 
     private boolean gotoTop = false;
@@ -2454,7 +2453,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibSummarize.setVisibility(tools && !outbox && button_summarize && AI.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
                     ibFullScreen.setVisibility(tools && full && button_full_screen && message.content ? View.VISIBLE : View.GONE);
                     ibForceLight.setVisibility(tools && full && dark && button_force_light && message.content ? View.VISIBLE : View.GONE);
-                    ibForceLight.setImageLevel(!(canDarken || fake_dark) || force_light ? 1 : 0);
+                    ibForceLight.setImageLevel(!canDarken || force_light ? 1 : 0);
                     ibImportance.setVisibility(tools && button_importance && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibHide.setVisibility(tools && button_hide && !outbox ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
@@ -2997,7 +2996,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_images = properties.getValue("images", message.id);
             boolean show_quotes = properties.getValue("quotes", message.id);
 
-            boolean dark = Helper.isDarkTheme(context);
             boolean force_light = properties.getValue("force_light", message.id);
             boolean always_images = prefs.getBoolean("html_always_images", false);
             if (always_images && show_full) {
@@ -3141,8 +3139,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             float scale = (size == 0 || textSize == 0 ? 1.0f : size / (textSize * message_zoom / 100f));
             args.putFloat("scale", scale);
-
-            args.putBoolean("fake_dark", !canDarken && fake_dark && dark && !force_light);
 
             Log.breadcrumb("message:body", args);
 
@@ -3327,10 +3323,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (monospaced_pre)
                                 HtmlHelper.restorePre(document);
                         }
-
-                        boolean fake_dark = args.getBoolean("fake_dark");
-                        if (fake_dark)
-                            HtmlHelper.fakeDark(document);
 
                         boolean browser_zoom = prefs.getBoolean("browser_zoom", false);
                         int message_zoom = prefs.getInt("message_zoom", 100);
@@ -5816,7 +5808,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 });
 
                 boolean isDark = Helper.isDarkTheme(context);
-                tvDark.setVisibility(isDark && !(canDarken || fake_dark) ? View.VISIBLE : View.GONE);
+                tvDark.setVisibility(isDark && !canDarken ? View.VISIBLE : View.GONE);
             }
 
             boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
@@ -7474,7 +7466,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionForceLight(TupleMessageEx message) {
-            if (canDarken || fake_dark) {
+            if (canDarken) {
                 boolean force_light = !properties.getValue("force_light", message.id);
                 properties.setValue("force_light", message.id, force_light);
                 ibForceLight.setImageLevel(force_light ? 1 : 0);
@@ -8465,7 +8457,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         debug = prefs.getBoolean("debug", false);
 
         this.canDarken = WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING);
-        this.fake_dark = prefs.getBoolean("fake_dark", false);
         this.show_recent = prefs.getBoolean("show_recent", false);
 
         DiffUtil.ItemCallback<TupleMessageEx> callback = new DiffUtil.ItemCallback<TupleMessageEx>() {

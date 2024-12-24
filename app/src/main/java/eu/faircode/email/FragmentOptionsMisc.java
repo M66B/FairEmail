@@ -199,7 +199,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAutoScroll;
     private SwitchCompat swUndoManager;
     private SwitchCompat swBrowserZoom;
-    private SwitchCompat swFakeDark;
     private EditText etViewportHeight;
     private SwitchCompat swIgnoreFormattedSize;
     private SwitchCompat swShowRecent;
@@ -303,7 +302,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "cache_lists", "oauth_tabs",
             "start_delay", "range_size", "chunk_size", "thread_range", "restart_interval",
             "autoscroll_editor", "undo_manager",
-            "browser_zoom", "fake_dark",
+            "browser_zoom",
             "ignore_formatted_size",
             "show_recent",
             "use_modseq", "preamble", "uid_command", "perform_expunge", "uid_expunge",
@@ -469,7 +468,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
         swUndoManager = view.findViewById(R.id.swUndoManager);
         swBrowserZoom = view.findViewById(R.id.swBrowserZoom);
-        swFakeDark = view.findViewById(R.id.swFakeDark);
         etViewportHeight = view.findViewById(R.id.etViewportHeight);
         swIgnoreFormattedSize = view.findViewById(R.id.swIgnoreFormattedSize);
         swShowRecent = view.findViewById(R.id.swShowRecent);
@@ -1436,13 +1434,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("browser_zoom", checked).apply();
-            }
-        });
-
-        swFakeDark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("fake_dark", checked).apply();
             }
         });
 
@@ -2577,7 +2568,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swAutoScroll.setChecked(prefs.getBoolean("autoscroll_editor", false));
             swUndoManager.setChecked(prefs.getBoolean("undo_manager", false));
             swBrowserZoom.setChecked(prefs.getBoolean("browser_zoom", false));
-            swFakeDark.setChecked(prefs.getBoolean("fake_dark", false));
 
             int dvh = WebViewEx.getDefaultViewportHeight(getContext());
             int vh = prefs.getInt("viewport_height", dvh);

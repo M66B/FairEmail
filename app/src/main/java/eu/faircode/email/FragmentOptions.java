@@ -170,7 +170,7 @@ public class FragmentOptions extends FragmentBase {
             "language_detection",
             "quick_filter", "quick_scroll", "quick_actions",
             "experiments", "debug", "log_level", "test1", "test2", "test3", "test4", "test5",
-            "webview_legacy", "browser_zoom", "fake_dark",
+            "webview_legacy", "browser_zoom",
             "show_recent",
             "biometrics",
             "default_light",

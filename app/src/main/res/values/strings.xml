@@ -971,7 +971,6 @@
     <string name="title_advanced_auto_scroll" translatable="false">Auto scroll editor</string>
     <string name="title_advanced_undo_manager" translatable="false">Use Android\'s undo manager</string>
     <string name="title_advanced_browser_zoom" translatable="false">Use browser zoom</string>
-    <string name="title_advanced_fake_dark" translatable="false">Fake dark</string>
     <string name="title_advanced_viewport_height" translatable="false">Viewport height</string>
     <string name="title_advanced_ignore_formatted_size" translatable="false">Ignore formatted size</string>
     <string name="title_advanced_show_recent" translatable="false">Show recent flag</string>
