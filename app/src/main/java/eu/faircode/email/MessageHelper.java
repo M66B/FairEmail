@@ -4244,7 +4244,7 @@ public class MessageHelper {
                             HtmlHelper.formatPlainText(result) +
                             "</pre>";
                 } else if (h.isReport()) {
-                    Report report = new Report(h.contentType.getBaseType(), result);
+                    Report report = new Report(h.contentType.getBaseType(), result, context);
                     result = report.html;
 
                     StringBuilder w = new StringBuilder();
@@ -4286,7 +4286,7 @@ public class MessageHelper {
             return sb.toString();
         }
 
-        Report getReport() throws MessagingException, IOException {
+        Report getReport(Context context) throws MessagingException, IOException {
             for (PartHolder h : extra)
                 if (h.isReport()) {
                     String result;
@@ -4297,7 +4297,7 @@ public class MessageHelper {
                         result = Helper.readStream((InputStream) content);
                     else
                         result = content.toString();
-                    return new Report(h.contentType.getBaseType(), result);
+                    return new Report(h.contentType.getBaseType(), result, context);
                 }
             return null;
         }
@@ -6062,7 +6062,7 @@ public class MessageHelper {
         String feedback;
         String html;
 
-        Report(String type, String content) {
+        Report(String type, String content, Context context) {
             this.type = type;
             StringBuilder report = new StringBuilder();
             report.append("<hr><div style=\"font-family: monospace; font-size: small;\">");
@@ -6138,7 +6138,14 @@ public class MessageHelper {
                 Log.e(ex);
                 report.append(TextUtils.htmlEncode(new ThrowableWrapper(ex).toSafeString()));
             }
+
             report.append("</div>");
+
+            if (isDeliveryStatus() && !isDelivered())
+                report.append("<br><div style=\"font-size: small; font-style: italic;\">")
+                        .append(TextUtils.htmlEncode(context.getString(R.string.title_report_remark)))
+                        .append("</div>");
+
             this.html = report.toString();
         }
 

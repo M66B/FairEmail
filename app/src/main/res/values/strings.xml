@@ -1681,6 +1681,7 @@
     <string name="title_attachment_saved">Attachment saved</string>
     <string name="title_attachments_saved">Attachments saved</string>
     <string name="title_attachments_incomplete">Some attachments or images were not downloaded and could not be added</string>
+    <string name="title_report_remark">This report, a specially formatted email, was sent by an email server because a sent message could not be delivered to the recipient, for example because the mailbox is full, or because the email address does not exist (anymore).</string>
     <string name="title_ask_save">Save changes?</string>
     <string name="title_ask_delete">Delete message permanently?</string>
     <string name="title_ask_delete_accept">I understand that permanently deleting messages is irreversible</string>
