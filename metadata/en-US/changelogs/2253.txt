@@ -32,6 +32,12 @@ For support you can use the contact form.
 
 Barsboldia
 
+Next version
+
+* Added experimental force light menu item / button for reformatted message view
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2253 2024-12-23
 
 * Fixed showing S/MIME digest algorithm

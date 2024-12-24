@@ -4290,6 +4290,12 @@ You can show the answer menu by tapping on the answer button at the bottom right
 
 <br />
 
+*Force light for reformatted message view (1.2254+)*
+
+Show force light menu item / button (when configured) to force a light theme for reformatted messages.
+
+<br />
+
 <a name="faq126"></a>
 **(126) Can message previews be sent to my smartwatch?**
 

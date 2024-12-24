@@ -238,6 +238,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorStripeWidth;
     private int colorAccent;
     private int textColorPrimary;
+    private int textColorPrimaryInverse;
     private int textColorSecondary;
     private int textColorTertiary;
     private int textColorLink;
@@ -2424,6 +2425,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
                     boolean button_rule = prefs.getBoolean("button_rule", false);
                     boolean button_answer = prefs.getBoolean("button_answer", false);
+                    boolean experiments = prefs.getBoolean("experiments", false);
 
                     int importance = (((message.ui_importance == null ? 1 : message.ui_importance) + 1) % 3);
 
@@ -2452,8 +2454,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibTranslate.setVisibility(tools && !outbox && button_translate && DeepL.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
                     ibSummarize.setVisibility(tools && !outbox && button_summarize && AI.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
                     ibFullScreen.setVisibility(tools && full && button_full_screen && message.content ? View.VISIBLE : View.GONE);
-                    ibForceLight.setVisibility(tools && full && dark && button_force_light && message.content ? View.VISIBLE : View.GONE);
-                    ibForceLight.setImageLevel(!canDarken || force_light ? 1 : 0);
+                    ibForceLight.setVisibility(tools && (full || experiments) && dark && button_force_light && message.content ? View.VISIBLE : View.GONE);
+                    ibForceLight.setImageLevel((full && !canDarken) || force_light ? 1 : 0);
                     ibImportance.setVisibility(tools && button_importance && !outbox && seen ? View.VISIBLE : View.GONE);
                     ibHide.setVisibility(tools && button_hide && !outbox ? View.VISIBLE : View.GONE);
                     ibSeen.setVisibility(tools && button_seen && !outbox && seen ? View.VISIBLE : View.GONE);
@@ -3121,7 +3123,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (size != 0)
                         tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
 
-                    tvBody.setTextColor(contrast ? textColorPrimary : colorRead);
+                    tvBody.setBackgroundColor(force_light ? Color.WHITE : Color.TRANSPARENT);
+
+                    if (force_light)
+                        tvBody.setTextColor(textColorPrimaryInverse);
+                    else
+                        tvBody.setTextColor(contrast ? textColorPrimary : colorRead);
                     tvBody.setTypeface(StyleHelper.getTypeface(display_font, context));
 
                     tvBody.setVisibility(View.VISIBLE);
@@ -3135,6 +3142,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putBoolean("show_images", show_images);
             args.putBoolean("show_quotes", show_quotes);
             args.putBoolean("collapse_quotes", collapse_quotes);
+            args.putBoolean("force_light", force_light);
             args.putInt("zoom", zoom);
 
             float scale = (size == 0 || textSize == 0 ? 1.0f : size / (textSize * message_zoom / 100f));
@@ -3160,6 +3168,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     final boolean show_images = args.getBoolean("show_images");
                     final boolean show_quotes = args.getBoolean("show_quotes");
                     final boolean collapse_quotes = args.getBoolean("collapse_quotes");
+                    final boolean force_light = args.getBoolean("force_light");
                     final int zoom = args.getInt("zoom");
                     final float scale = args.getFloat("scale");
                     final boolean download_plain = prefs.getBoolean("download_plain", false);
@@ -3370,22 +3379,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         return document.html();
                     } else {
+                        Context tcontext = (force_light ? ApplicationEx.getThemedContext(context, R.style.AppThemeBaseLight) : context);
+                        int colorAccent = Helper.resolveColor(tcontext, androidx.appcompat.R.attr.colorAccent);
+
                         HtmlHelper.autoLink(document);
 
                         if (message.ui_found && found && !TextUtils.isEmpty(searched))
-                            HtmlHelper.highlightSearched(context, document, searched, searchedPartial);
+                            HtmlHelper.highlightSearched(tcontext, document, searched, searchedPartial);
 
                         // Cleanup message
-                        document = HtmlHelper.sanitizeView(context, document, show_images);
+                        document = HtmlHelper.sanitizeView(tcontext, document, show_images);
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
-                            args.putParcelable("actions", getConversationActions(message, document, context));
+                            args.putParcelable("actions", getConversationActions(message, document, tcontext));
 
                         // Draw images
-                        SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, document, new HtmlHelper.ImageGetterEx() {
+                        SpannableStringBuilder ssb = HtmlHelper.fromDocument(tcontext, document, new HtmlHelper.ImageGetterEx() {
                             @Override
                             public Drawable getDrawable(Element element) {
-                                return ImageHelper.decodeImage(context,
+                                return ImageHelper.decodeImage(tcontext,
                                         message.id, element, show_images, zoom, scale, tvBody);
                             }
                         }, null);
@@ -3420,8 +3432,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 lqs.add(quoteSpan);
                         }
 
-                        final int px = Helper.dp2pixels(context, 24 + (zoom) * 8);
-                        final Drawable d = ContextCompat.getDrawable(context, show_quotes
+                        final int px = Helper.dp2pixels(tcontext, 24 + (zoom) * 8);
+                        final Drawable d = ContextCompat.getDrawable(tcontext, show_quotes
                                 ? R.drawable.outline_unfold_less_24
                                 : R.drawable.twotone_format_quote_24);
                         d.setTint(colorAccent);
@@ -6438,7 +6450,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_summarize).setVisible(
                     AI.isAvailable(context) && message.content);
 
-            popupMenu.getMenu().findItem(R.id.menu_force_light).setVisible(full && dark);
+            popupMenu.getMenu().findItem(R.id.menu_force_light).setVisible(dark);
             popupMenu.getMenu().findItem(R.id.menu_force_light).setChecked(force_light);
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(message.content);
@@ -7466,7 +7478,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionForceLight(TupleMessageEx message) {
-            if (canDarken) {
+            boolean full = properties.getValue("full", message.id);
+            if (canDarken || !full) {
                 boolean force_light = !properties.getValue("force_light", message.id);
                 properties.setValue("force_light", message.id, force_light);
                 ibForceLight.setImageLevel(force_light ? 1 : 0);
@@ -8340,6 +8353,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
         this.colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
+        this.textColorPrimaryInverse = Helper.resolveColor(context, android.R.attr.textColorPrimaryInverse);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
         this.textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
