@@ -1598,6 +1598,7 @@
     <string name="title_signature_email">Подписът е адрес</string>
     <string name="title_signature_mismatch">Не съвпадат адресът на имейла на подателя и подписа</string>
     <string name="title_signature_algorithm">Алгоритъм</string>
+    <string name="title_signature_public_key">Публичен ключ</string>
     <string name="title_signature_subject">Тема</string>
     <string name="title_signature_validity">Валидност</string>
     <string name="title_signature_outdated">Към момента този публичен ключ не е валиден</string>
@@ -1975,6 +1976,9 @@
     <string name="title_hint_junk">Прецеждането на спама би трябвало да се върши от сървъра на имейла и не може да се извърши надеждно на захранвано от батерии устройство с ограничени възможности.</string>
     <string name="title_hint_junk_learn">Премествайки съобщения от и до папка спам, сървърът се \"учи\" какво е спам</string>
     <string name="title_hint_contact_actions">Натиснете продължително за повече опции</string>
+    <string name="title_hint_eml">        Това е обобщение на файла с необработено съобщение.
+        Може да употребявате бутона долу вдясно, за да запазите съобщението във входящи за преглед на цялото съдържание.
+    </string>
     <string name="title_open_link">Отваряне не връзката</string>
     <string name="title_image_link">Връзка на образа</string>
     <string name="title_different_link">Адресът на домейна и адресът на връзката са различни</string>
