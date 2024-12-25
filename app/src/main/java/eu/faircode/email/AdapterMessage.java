@@ -6450,7 +6450,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_summarize).setVisible(
                     AI.isAvailable(context) && message.content);
 
-            popupMenu.getMenu().findItem(R.id.menu_force_light).setVisible(dark);
+            popupMenu.getMenu().findItem(R.id.menu_force_light).setVisible(dark && (full || experiments));
             popupMenu.getMenu().findItem(R.id.menu_force_light).setChecked(force_light);
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(message.content);
