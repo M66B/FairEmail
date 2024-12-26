@@ -869,7 +869,7 @@
     <string name="title_advanced_send_reminders_hint">Prikazuje upozorenje kada su tekst poruke ili predmet prazni ili kada nedostaje prilog</string>
     <string name="title_advanced_reply_move_hint">E-mail server još može dodavati poruke u folder za poslane poruke</string>
     <string name="title_advanced_compose_color_hint">Presvijetle ili pretamne boje mogu prouzrokovati nečitke poruke s primaočeve strane</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">Zadano znači da primaoc prihvata font kao izabrani font</string>
+    <string name="title_advanced_compose_font_hint">Zadano znači da primaoc prihvata font kao izabrani font</string>
     <string name="title_advanced_template_reply_hint">HTML je dozvoljen. Dostupna mjesta za prikaz su: %1$s</string>
     <string name="title_advanced_write_below_hint">Primalac može propustiti vaš odgovor, npr. kada se duža poruka skrati</string>
     <string name="title_advanced_attach_new_hint">U suprotnom, dodaj dijeljene adrese ili datoteke u trenutni nacrt poruke</string>

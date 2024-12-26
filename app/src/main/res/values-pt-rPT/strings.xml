@@ -855,7 +855,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de correio electrónico ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_compose_color_hint">Cores muito claras ou muito escuras resultarão em mensagens ilegíveis do lado dos destinatários</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">Padrão significa respeitar a fonte como selecionada no lado do destinatário</string>
+    <string name="title_advanced_compose_font_hint">Padrão significa respeitar a fonte como selecionada no lado do destinatário</string>
     <string name="title_advanced_template_reply_hint">HTML permitido. Espaços reservados disponíveis: %1$s</string>
     <string name="title_advanced_write_below_hint">Um destinatário pode perder a sua resposta, por exemplo, quando uma mensagem mais longa estiver sendo encurtada</string>
     <string name="title_advanced_attach_new_hint">Caso contrário, adicionar endereços ou arquivos partilhados à mensagem rascunho atual</string>
@@ -1373,6 +1373,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_attachment_saved">Anexo guardado</string>
     <string name="title_attachments_saved">Anexos guardados</string>
     <string name="title_attachments_incomplete">Alguns anexos ou imagens não foram transferidos e não puderam ser adicionados</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Este relatório, um e-mail especialmente formatado, foi enviado por um servidor de e-mail porque uma mensagem não pôde ser enviada para o destinatário, porque a caixa de correio está cheia, ou porque o endereço de e-mail não existe.</string>
     <string name="title_ask_save">Guardar as alterações?</string>
     <string name="title_ask_delete">Eliminar mensagem permanentemente?</string>
     <string name="title_ask_delete_accept">Entendo que a eliminação permanente de mensagens é irreversível</string>

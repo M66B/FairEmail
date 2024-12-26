@@ -856,7 +856,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrare un avviso quando il testo o l\'oggetto del messaggio sono vuoti o quando un allegato potrebbe mancare</string>
     <string name="title_advanced_reply_move_hint">Il server email potrebbe ancora aggiungere i messaggi alla cartella dei messaggi inviati</string>
     <string name="title_advanced_compose_color_hint">Colori molto chiari o molto scuri renderanno i messaggi illeggibili dai destinatari</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">Per \'predefinito\' s\'intende il carattere impostato nell\'app da chi riceve il messaggio</string>
+    <string name="title_advanced_compose_font_hint">Per \'predefinito\' s\'intende il carattere impostato nell\'app da chi riceve il messaggio</string>
     <string name="title_advanced_template_reply_hint">HTML consentito. Segnaposti disponibili: %1$s</string>
     <string name="title_advanced_write_below_hint">Un destinatario potrebbe perdere la risposta, ad esempio quando un messaggio più lungo viene troncato</string>
     <string name="title_advanced_attach_new_hint">Altrimenti aggiungere gli indirizzi o file condivisi al messaggio di bozza corrente</string>
@@ -1374,6 +1374,7 @@
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachments_saved">Allegati salvati</string>
     <string name="title_attachments_incomplete">Alcuni allegati o immagini non sono stati scaricati e non possono essere aggiunti</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Questo report, un\'email appositamente formattata, è stato inviato da un server di posta perché non è stato possibile consegnare un messaggio a un destinatario dato che, per esempio, la sua casella di posta è piena oppure perché l\'indirizzo non esiste più.</string>
     <string name="title_ask_save">Salvare le modifiche?</string>
     <string name="title_ask_delete">Eliminare definitivamente il messaggio?</string>
     <string name="title_ask_delete_accept">Comprendo che l\'eliminazione definitiva dei messaggi è irreversibile</string>

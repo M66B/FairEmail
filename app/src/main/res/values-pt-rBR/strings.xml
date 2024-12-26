@@ -854,7 +854,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo puder estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de e-mail ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_compose_color_hint">Cores muito claras ou muito escuras resultarão em mensagens ilegíveis do lado dos destinatários</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">Padrão significa respeitar a fonte como selecionada no lado do destinatário</string>
+    <string name="title_advanced_compose_font_hint">Padrão significa respeitar a fonte como selecionada no lado do destinatário</string>
     <string name="title_advanced_template_reply_hint">HTML é permitido. Espaços reservados disponíveis: %1$s</string>
     <string name="title_advanced_write_below_hint">Um destinatário pode perder a sua resposta, por exemplo, quando uma mensagem mais longa estiver sendo truncada</string>
     <string name="title_advanced_attach_new_hint">Caso contrário, adicione endereços ou arquivos compartilhados à mensagem de rascunho atual</string>
@@ -1371,6 +1371,7 @@
     <string name="title_attachment_saved">Anexo salvo</string>
     <string name="title_attachments_saved">Anexos salvos</string>
     <string name="title_attachments_incomplete">Alguns anexos ou imagens não foram baixados e não puderam ser adicionados</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Este relatório, um e-mail especialmente formatado, foi enviado por um servidor de e-mail porque uma mensagem enviada não pôde ser entregue ao destinatário, por exemplo, porque a caixa de correio está cheia ou porque o endereço de e-mail não existe mais.</string>
     <string name="title_ask_save">Salvar alterações?</string>
     <string name="title_ask_delete">Deletar mensagem permanentemente?</string>
     <string name="title_ask_delete_accept">Entendo que deletar mensagens permanentemente é irreversível</string>

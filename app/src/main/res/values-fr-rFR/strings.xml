@@ -856,7 +856,7 @@
     <string name="title_advanced_send_reminders_hint">Afficher un avertissement quand le texte du message ou l’objet sont vides ou quand une pièce jointe semble avoir été oubliée</string>
     <string name="title_advanced_reply_move_hint">Le serveur de messagerie pourrait tout de même ajouter les messages au dossier des messages envoyés</string>
     <string name="title_advanced_compose_color_hint">Les couleurs très claires ou très sombres rendront les messages illisibles par les destinataires</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">Par défaut signifie respecter la police de caractères choisie par le destinataire</string>
+    <string name="title_advanced_compose_font_hint">Par défaut signifie respecter la police de caractères choisie par le destinataire</string>
     <string name="title_advanced_template_reply_hint">HTML est autorisé. Espaces réservés disponibles : %1$s</string>
     <string name="title_advanced_write_below_hint">Un destinataire peut manquer votre réponse, par exemple lorsqu\'un message trop long est tronqué</string>
     <string name="title_advanced_attach_new_hint">Sinon, ajouter les adresses ou fichiers partagés au message brouillon actuel</string>
@@ -1374,6 +1374,7 @@
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
     <string name="title_attachments_saved">Pièces jointes enregistrées</string>
     <string name="title_attachments_incomplete">Certaines pièces jointes ou images n\'ont pas été téléchargées et n\'ont pas pu être ajoutées</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Ce rapport, un e-mail spécialement formaté, a été envoyé par un serveur de messagerie car un message envoyé n\'a pas pu être remis au destinataire, par exemple parce que la boîte aux lettres est pleine ou parce que l\'adresse e-mail n\'existe pas / plus.</string>
     <string name="title_ask_save">Enregistrer les modifications ?</string>
     <string name="title_ask_delete">Supprimer définitivement ce message ?</string>
     <string name="title_ask_delete_accept">Je comprends que la suppression définitive des messages est irréversible</string>

@@ -852,6 +852,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_send_reminders_hint">Toan in warskôging as de tekst fan it berjocht of it ûnderwerp leech is of as in bylage miskien mist</string>
     <string name="title_advanced_reply_move_hint">De e-mailserver koe de berjochten noch hieltyd tafoegje oan de map ferstjoerde berjochten</string>
     <string name="title_advanced_compose_color_hint">Bot ljochte of bot donkere kleuren liede ta net-lêsbere berjochten oan de kant fan de ûntfanger</string>
+    <string name="title_advanced_compose_font_hint">Standert betsjut dat it lettertype, lykas selektearre oan de kant fan de ûntfanger, respektearre wurdt</string>
     <string name="title_advanced_template_reply_hint">HTML is tastien. Beskikbere plakferfangers: %1$s</string>
     <string name="title_advanced_write_below_hint">In ûntfanger mist mooglik jo antwurd, bygelyks wannear’t in langer berjocht ynkoarte wurdt</string>
     <string name="title_advanced_attach_new_hint">Foegje oars dielde adressen of bestannen ta oan it aktuele konseptberjocht</string>
@@ -1366,6 +1367,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_attachment_saved">Bylage bewarre</string>
     <string name="title_attachments_saved">Bylagen bewarre</string>
     <string name="title_attachments_incomplete">Guon bylagen of ôfbyldingen waarden net download en koene net tafoege wurde</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Dit rapport, in spesjaal opmakke e-mailberjocht, waard ferstjoerd troch in mailserver, omdat in ferstjoerd berjocht net oan de ûntfanger ôflevere wurde koe, bygelyks omdat de mailbox fol is, of omdat it e-mailadres net (mear) bestiet.</string>
     <string name="title_ask_save">Wizigingen bewarje?</string>
     <string name="title_ask_delete">Berjocht permanint fuotsmite?</string>
     <string name="title_ask_delete_accept">Ik begryp dat permanint fuortsmiten fan berjochten net omkearber is</string>

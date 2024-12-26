@@ -882,6 +882,7 @@
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_reply_move_hint">Serwer e-mail może nadal dodawać wiadomości do folderu wysłanych wiadomości</string>
     <string name="title_advanced_compose_color_hint">Bardzo jasne lub bardzo ciemne kolory spowodują, że wiadomości po stronie odbiorcy będą nieczytelne</string>
+    <string name="title_advanced_compose_font_hint">Domyślny oznacza przestrzeganie czcionki wybranej po stronie odbiorcy</string>
     <string name="title_advanced_template_reply_hint">HTML jest dozwolony. Dostępne symbole zastępcze: %1$s</string>
     <string name="title_advanced_write_below_hint">Odbiorca może przegapić Twoją odpowiedź, np. gdy dłuższa wiadomość zostanie skrócona</string>
     <string name="title_advanced_attach_new_hint">W innym przypadku dodaj udostępniane adresy lub pliki do aktualnej wersji roboczej wiadomości</string>
@@ -1398,6 +1399,7 @@
     <string name="title_attachment_saved">Załącznik zapisany</string>
     <string name="title_attachments_saved">Załączniki zapisane</string>
     <string name="title_attachments_incomplete">Niektóre załączniki lub obrazy nie zostały pobrane i nie można ich dodać</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Ten raport, specjalnie sformatowana wiadomość e-mail, został wysłany przez serwer poczty e-mail, ponieważ wysłana wiadomość nie mogła zostać dostarczona do odbiorcy, na przykład z powodu zapełnienia skrzynki pocztowej lub dlatego, że adres e-mail już nie istnieje.</string>
     <string name="title_ask_save">Zapisać zmiany?</string>
     <string name="title_ask_delete">Usunąć wiadomość bezpowrotnie?</string>
     <string name="title_ask_delete_accept">Rozumiem, że trwałe usuwanie wiadomości jest nieodwracalne</string>

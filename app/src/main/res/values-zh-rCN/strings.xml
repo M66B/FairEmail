@@ -840,7 +840,7 @@
     <string name="title_advanced_send_reminders_hint">当邮件文本或主题为空或缺少附件时显示警告</string>
     <string name="title_advanced_reply_move_hint">邮件服务器仍可能将邮件添加到“已发送”文件夹</string>
     <string name="title_advanced_compose_color_hint">颜色太浅或太深会导致收件人难以辨认邮件</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">默认意味着尊重接收方选择的字体</string>
+    <string name="title_advanced_compose_font_hint">默认意味着尊重接收方选择的字体</string>
     <string name="title_advanced_template_reply_hint">允许 HTML。可用的占位符： %1$s</string>
     <string name="title_advanced_write_below_hint">收件人可能会错过您的回复，例如当邮件较长被截断时</string>
     <string name="title_advanced_attach_new_hint">否则，将共享地址或文件添加到当前草稿邮件中</string>
@@ -1355,6 +1355,7 @@
     <string name="title_attachment_saved">附件已保存</string>
     <string name="title_attachments_saved">附件已保存</string>
     <string name="title_attachments_incomplete">一些附件或图像没有下载，且无法添加</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">这份报告是一封特别格式的电子邮件，由电子邮件服务器发送，因为发送的邮件无法发送给收件人， 例如，因为邮箱已满，或因为电子邮件地址不存在 (不再存在)。</string>
     <string name="title_ask_save">保存更改？</string>
     <string name="title_ask_delete">确定要永久删除邮件吗？</string>
     <string name="title_ask_delete_accept">我明白永久删除邮件是不可逆的</string>

@@ -882,7 +882,7 @@
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення, або тема пуста, або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти все ще може додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_compose_color_hint">Використання дуже світлих або дуже темних кольорів може призвести до того, що отримувач не зможе прочитати ваше повідомлення</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">За замовчуванням означає дотримання шрифту, вибраного на стороні одержувача</string>
+    <string name="title_advanced_compose_font_hint">За замовчуванням означає дотримання шрифту, вибраного на стороні одержувача</string>
     <string name="title_advanced_template_reply_hint">Використання HTML дозволене. Доступні заповнювачі: %1$s</string>
     <string name="title_advanced_write_below_hint">Одержувач може пропустити вашу відповідь, наприклад, у разі скорочення довгого повідомлення</string>
     <string name="title_advanced_attach_new_hint">В іншому випадку додавати поширювані адреси чи файли до чернетки поточного повідомлення</string>
@@ -1400,6 +1400,7 @@
     <string name="title_attachment_saved">Вкладення збережено</string>
     <string name="title_attachments_saved">Вкладення збережені</string>
     <string name="title_attachments_incomplete">Деякі вкладення або зображення не були завантажені і не можуть бути додані</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Цей звіт, спеціально відформатований електронний лист, був надісланий поштовим сервером, оскільки надіслане повідомлення не може бути доставлене одержувачу, наприклад, через переповнення поштової скриньки або через те, що адреса електронної пошти не існує (більше не існує).</string>
     <string name="title_ask_save">Зберегти зміни?</string>
     <string name="title_ask_delete">Видалити повідомлення остаточно?</string>
     <string name="title_ask_delete_accept">Я розумію, що назавжди видалені повідомлення не можуть бути відновленні</string>

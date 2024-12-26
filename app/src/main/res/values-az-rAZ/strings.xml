@@ -855,7 +855,7 @@
     <string name="title_advanced_send_reminders_hint">Mesaj mətni və ya mövzu boş olanda və ya bir qoşma əskik olanda bir xəbərdarlıq göstər</string>
     <string name="title_advanced_reply_move_hint">E-poçt serveri, mesajları yenə də göndərilən mesaj qovluğuna əlavə edə bilər</string>
     <string name="title_advanced_compose_color_hint">Çox açıq və ya çox tünd rənglər, alıcının mesajları oxuya bilməməsi ilə nəticələnir</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">İlkin, o deməkdir ki, alıcı tərəfində seçilmiş şriftə uymalıdır</string>
+    <string name="title_advanced_compose_font_hint">İlkin, o deməkdir ki, alıcı tərəfində seçilmiş şriftə uymalıdır</string>
     <string name="title_advanced_template_reply_hint">HTML-ə icazə verilir. Mövcud placeholder: %1$s</string>
     <string name="title_advanced_write_below_hint">Alıcı, məsələn uzun mesaj kəsiləndə cavabınızı buraxa bilər</string>
     <string name="title_advanced_attach_new_hint">Əks halda, paylaşılan ünvanları və ya faylları hazırkı qaralama mesajına əlavə edin</string>

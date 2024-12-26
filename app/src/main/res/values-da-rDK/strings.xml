@@ -856,7 +856,7 @@
     <string name="title_advanced_send_reminders_hint">Vis en advarsel, når beskedtekst eller emne er tomt, eller en vedhæftet fil muligvis mangler</string>
     <string name="title_advanced_reply_move_hint">E-mailserveren kan dog stadig føje beskederne til beskedafsendelsesmappen</string>
     <string name="title_advanced_compose_color_hint">Meget lyse eller mørke farver vil gøre meddelelser ulæselige for modtageren</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">Standard betyder, at den på modtagersiden valgte skrifttype respekteres</string>
+    <string name="title_advanced_compose_font_hint">Standard betyder, at den på modtagersiden valgte skrifttype respekteres</string>
     <string name="title_advanced_template_reply_hint">HTML er tilladt. Tilgængelige pladsholdere: %1$s</string>
     <string name="title_advanced_write_below_hint">En modtager kan gå glip af dit svar, når eksempelvis en længere besked afkortes</string>
     <string name="title_advanced_attach_new_hint">Ellers føj delte adresser eller filer til det aktuelle beskedudkast</string>
@@ -1374,6 +1374,7 @@
     <string name="title_attachment_saved">Vedhæftning gemt</string>
     <string name="title_attachments_saved">Vedhæftninger gemt</string>
     <string name="title_attachments_incomplete">Visse vedhæftninger eller billeder blev ikke downloadet og kunne ikke tilføjes</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Denne rapport, en specialformateret e-mail, blev sendt af en e-mailserver, da en afsendt besked ikke kunne leveres til modtageren, f.eks. grundet en fyldt postkassen, eller fordi e-mailadressen ikke (længere) findes.</string>
     <string name="title_ask_save">Gem ændringer?</string>
     <string name="title_ask_delete">Slet besked permanent?</string>
     <string name="title_ask_delete_accept">Det er forstået, at permanent beskedsletning er irreversibel</string>

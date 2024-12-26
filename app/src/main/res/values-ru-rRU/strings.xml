@@ -883,7 +883,7 @@
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
     <string name="title_advanced_reply_move_hint">Сервер электронной почты всё ещё может добавлять сообщения в папку отправленных</string>
     <string name="title_advanced_compose_color_hint">Очень светлые или очень тёмные цвета сделают сообщение неразборчивым для получателя</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">Значение по умолчанию означает соответствие шрифту, выбранному получателем</string>
+    <string name="title_advanced_compose_font_hint">Значение по умолчанию означает соответствие шрифту, выбранному получателем</string>
     <string name="title_advanced_template_reply_hint">Использование HTML разрешено. Доступные заполнители: %1$s</string>
     <string name="title_advanced_write_below_hint">Получатель может пропустить ваш ответ, например, при сокращении длинного сообщения</string>
     <string name="title_advanced_attach_new_hint">В противном случае общие адреса или файлы добавляются к текущему черновику</string>
@@ -1401,6 +1401,7 @@
     <string name="title_attachment_saved">Вложение сохранено</string>
     <string name="title_attachments_saved">Вложения сохранены</string>
     <string name="title_attachments_incomplete">Некоторые вложения или изображения не были загружены и не могут быть добавлены</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Этот отчёт, являющийся электронным письмом специального формата, был отправлен почтовым сервером, поскольку отправленное сообщение невозможно доставить получателю, например, из-за переполнения почтового ящика или из-за того, что адрес электронной почты (больше) не существует.</string>
     <string name="title_ask_save">Сохранить изменения?</string>
     <string name="title_ask_delete">Удалить сообщение навсегда?</string>
     <string name="title_ask_delete_accept">Я понимаю, что окончательное удаление сообщений необратимо</string>

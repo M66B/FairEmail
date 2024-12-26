@@ -883,6 +883,7 @@
     <string name="title_advanced_send_reminders_hint">להציג אזהרה כאשר טקסט ההודעה או הנושא ריקים או כאשר קובץ לא צורף לכאורה</string>
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
     <string name="title_advanced_compose_color_hint">צבעים בהירים או כהים מדי יובילו להודעות בלתי קריאות בצד המקבל</string>
+    <string name="title_advanced_compose_font_hint">המשמעות של ברירת מחדל היא לכבד את הגופן שנברר כברירת מחדל בצד המקבל</string>
     <string name="title_advanced_template_reply_hint">מותר HTML. ממלאי מקום זמינים: %1$s</string>
     <string name="title_advanced_write_below_hint">נמענים עלולים להחמיץ את התגובה שלך, למשל כאשר הודעה ארוכה יותר מקוצרת</string>
     <string name="title_advanced_attach_new_hint">אם לא, להוסיף כתובות או קבצים משותפים להודעת הטיוטה הנוכחית</string>
@@ -1400,6 +1401,7 @@
     <string name="title_attachment_saved">הקובץ המצורף נשמר</string>
     <string name="title_attachments_saved">הקבצים המצורפים נשמרו</string>
     <string name="title_attachments_incomplete">חלק מהקבצים המצורפים או התמונות לא התקבלו ולא ניתן להוסיף אותם</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">הדוח הזה, הודעה שעוצבה במיוחד, נשלח על ידי שרת דוא״ל כי אי אפשר להעביר את ההודעה שנשלחה לנמען, למשל כיוון שתיבת הדוא״ל מלאה או כיוון שכתובת הדוא״ל לא קיימת (עוד).</string>
     <string name="title_ask_save">לשמור את השינויים?</string>
     <string name="title_ask_delete">למחוק הודעה לצמיתות?</string>
     <string name="title_ask_delete_accept">ברור לי שמחיקת הודעות לצמיתות היא בלתי הפיכה</string>

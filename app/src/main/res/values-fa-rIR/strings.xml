@@ -650,7 +650,7 @@
     <string name="title_advanced_pull_all_hint">همزمان با پایین کشیدن لیست حساب‌ها یا پرونده‌ها</string>
     <string name="title_advanced_auto_identity_hint">این گزینه، آخرین هویت استفاده شده را به عنوان گیرنده پیام‌های جدید انتخاب خواهد کرد</string>
     <string name="title_advanced_send_reminders_hint">هنگامی که موضوع یا متن پیام خالی است یا یک پیوست ممکن است وجود نداشته باشد، یک هشدار نشان بده</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">پیش‌فرض به معنای احترام به فونت انتخاب شده در سمت گیرنده است</string>
+    <string name="title_advanced_compose_font_hint">پیش‌فرض به معنای احترام به فونت انتخاب شده در سمت گیرنده است</string>
     <string name="title_advanced_template_reply_hint">HTML مجاز است. جایبان‌های موجود: %1$s</string>
     <string name="title_advanced_usenet_hint">بین متن و امضا \'-- \' درج کنید</string>
     <string name="title_advanced_metered_hint">اتصال‌های حجمی عموما شبکه‌های موبایل یا یک هات اسپات غیر رایگان می‌باشند</string>
@@ -964,6 +964,7 @@
     <string name="title_raw_saved">پیام خام ذخیره شد</string>
     <string name="title_attachment_saved">پیوست ذخیره شد</string>
     <string name="title_attachments_saved">پیوست ها ذخیره شدند</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">این گزارش، یک ایمیل با فرمت خاص، به این دلیل توسط یک سرور ایمیل ارسال شده است که یک پیام فرستاده شده نمی‌تواند به گیرنده تحویل داده شود، به عنوان مثال برای اینکه صندوق پستی پر است، یا زیرا نشانی ایمیل (دیگر) وجود ندارد.</string>
     <string name="title_ask_save">تغییرات ذخیره شود؟</string>
     <string name="title_ask_delete">پیام به صورت همیشگی حذف شود؟</string>
     <string name="title_ask_delete_answer">الگوی پاسخ به صورت همیشگی حذف شود؟</string>

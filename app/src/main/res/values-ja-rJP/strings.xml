@@ -841,7 +841,7 @@
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
     <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加できます</string>
     <string name="title_advanced_compose_color_hint">極端に明るいまたは暗い色を設定すると、受信者がメッセージを判読できなくなることがあります</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">デフォルトでは受信側で選択されているフォントを尊重します</string>
+    <string name="title_advanced_compose_font_hint">デフォルトでは受信側で選択されているフォントを尊重します</string>
     <string name="title_advanced_template_reply_hint">HTML を使用できます。使用できるプレースホルダー: %1$s</string>
     <string name="title_advanced_write_below_hint">受信者が長いメッセージをよく読まないなどの理由で、あなたの返信が見落とされる場合があります</string>
     <string name="title_advanced_attach_new_hint">OFF にすると、作成中の下書きメッセージに共有されたアドレスやファイルを追加します</string>
@@ -1359,6 +1359,7 @@
     <string name="title_attachment_saved">添付ファイルを保存しました</string>
     <string name="title_attachments_saved">添付ファイルを保存しました</string>
     <string name="title_attachments_incomplete">一部の添付ファイルまたは画像がダウンロードされず、追加されませんでした</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">このレポートは、宛先のメールボックスが満杯やアドレスが存在しない (しなくなった) ような、宛先にメッセージが配信できない場合にメールサーバーから送信される特別なフォーマットのメールです。</string>
     <string name="title_ask_save">変更内容を保存しますか？</string>
     <string name="title_ask_delete">メッセージを完全に削除しますか？</string>
     <string name="title_ask_delete_accept">メッセージを完全に削除すると元に戻せませんが、本当によろしいですか？</string>

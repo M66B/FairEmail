@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Kërkimi në FairEmail</string>
+    <string name="app_send_self">Dërgojë të vëtvetja</string>
     <string name="app_changelog">Rekordi i ndryshimeve</string>
     <string name="app_welcome">FairEmail është një aplikacion me kod burimor të hapur i fokusuar në privatësi dhe siguri. Për këtë arsye disa karakteristika mund të punojnë ndryshe nga çfarë ju mund të jeni mësuar.</string>
+    <string name="app_limitations">Për shembull, mesazhet riformatohen nga default për të hequr elementët e pasigurt dhe për të përmirësuar leximin, dhe hapja e lidhjeve duhet të konfirmohet për sigurinë. Të dyja mund të çaktivizohen nëse dëshirojnë.</string>
+    <string name="app_unsupported">Gabime në versionin Android të kësaj pajisje të veçantë shkaktojnë përplasje</string>
+    <string name="app_data_loss">Të gjitha të dhënat mund të humbasin</string>
+    <string name="app_continue">Vazhdo gjithsesi</string>
     <string name="app_exit"> Shko \'pas\' sërish për të dalë</string>
+    <string name="app_cake">Hapësira e pamjaftueshme e magazinimit ka mbetur</string>
+    <string name="app_cake_remaining">Hapësira e mbetur e magazinimit në pajisje: %1$s</string>
+    <string name="app_cake_required">Minimumi i hapësirës së nevojshme të magazinimit: %1$s</string>
     <string name="app_updated">Përditësimi i fundit: %1$s</string>
+    <string name="app_download">Shkarkuar nga: %1$s</string>
+    <string name="app_motd">        Me Android 14/15 beta, njoftimet \'Aplikacioni nuk përgjigjen\' ndodhin herë pas here.
+        Google po punon për një rregullim.
+        Ju lutem mos fajësoni aplikacionin për këtë problem Android!
+    </string>
+    <string name="channel_service">Ekrani</string>
     <string name="channel_send">Dërgo</string>
+    <string name="channel_notification">Email</string>
+    <string name="channel_progress">Përparimi</string>
     <string name="channel_update">Përditësimet</string>
+    <string name="channel_announcements">Njoftimet</string>
+    <string name="channel_warning">Paralajmërimet</string>
     <string name="channel_error">Gabimet</string>
+    <string name="channel_alert">Alarmet e serverit</string>
     <string name="channel_group_contacts">Kontaktet</string>
+    <string name="channel_service_description">Sinkronizimi dhe monitorimi i llogarive</string>
     <string name="channel_send_description">Duke dërguar mesazhet</string>
     <string name="channel_notification_description">Njoftimet për mesazhet e reja</string>
+    <string name="channel_progress_description">Njoftimet e progresit të aktiviteteve më të gjata</string>
     <plurals name="page_conversation">
         <item quantity="one">Biseda</item>
         <item quantity="other">Bisedat</item>
@@ -19,11 +40,20 @@
         <item quantity="one">Mesazh</item>
         <item quantity="other">Mesazhet</item>
     </plurals>
+    <string name="page_folders">Kartelat</string>
+    <string name="page_compose">Kompozo</string>
+    <string name="tile_synchronize">Sinkronizoni</string>
+    <string name="tile_unseen">Mesazhe të reja</string>
+    <string name="shortcut_refresh">Rifresko</string>
+    <string name="shortcut_compose">Kompozo</string>
+    <string name="shortcut_setup">Rregullimet</string>
     <string name="title_block_sender">Blloko dërguesin</string>
     <string name="title_notification_sending">Duke dërguar mesazhet</string>
     <string name="title_factor_minutes">%1$d minuta</string>
     <string name="menu_about">Rreth</string>
+    <string name="menu_rate">Vlerësoni këtë aplikacion</string>
     <string name="title_welcome">Mirësevini</string>
+    <string name="title_eula">Marrëveshja e licencës për përdoruesit fundor</string>
     <string name="title_version">Versioni %1$s</string>
     <string name="title_list_accounts">Llogaritë</string>
     <string name="title_list_identities">Identitet</string>
@@ -33,8 +63,20 @@
     <string name="title_setup_accounts">Llogaritë</string>
     <string name="title_setup_identities">Identitet</string>
     <string name="title_setup_pop3">Llogaria POP3</string>
+    <string name="title_setup_office_not_connected">        Gabimi \'Përdoruesi është i vërtetuar, por jo i lidhur\' do të thotë kryesisht se IMAP është i çaktivizuar.
+        
+Në rastin e një llogarie të konsumatorit në Outlook, ju lutemi shkoni në faqen e internetit të Outlook, trokitni lehtë mbi timonin e cilësimeve lart djathtas, zgjidhni \'Mail\', zgjidhni \'Përcjellja dhe IMAP\' dhe në seksionin \'POP dhe IMAP\' aktivizoni \' let pajisjet dhe aplikacionet përdorin IMAP\'.
+        
+Në rastin e një llogarie korporate, arsimore etj., ju lutemi kontaktoni administratorin e sistemit të serverit të postës elektronike.</string>
+    <string name="title_setup_oauth_update">Autorizoni përsëri një llogari ekzistuese (përndryshe krijoni një llogari të re)</string>
+    <string name="title_setup_oauth_updated">Autorizimi i llogarisë u përditësua</string>
+    <string name="title_setup_oauth_edge">Kur përdorni shfletuesin Edge, sigurohuni që \"Blloko hapjen e aplikacioneve të jashtme\" në cilësimet \"Privatësia, siguria dhe shërbimet\" është \"Off\" dmth. mbyllur.</string>
+    <string name="title_setup_oauth_brave">Kur përdorni shfletuesin Brave, duhet të aktivizoni opsionin në cilësimet e Brave për të lejuar që lidhjet e aplikacioneve të hapen në aplikacione jashtë Brave</string>
+    <string name="title_setup_oauth_browser">Autorizimi kërkon një shfletues funksional i cili lejon hapjen e lidhjeve të aplikacionit (shpesh një cilësim sigurie), në mënyrë që në fund tokeni i autorizimit të mund të transferohet në aplikacion</string>
     <string name="title_setup_oauth_authorize">Autorizo</string>
     <string name="title_setup_select_account">Zgjidh llogarinë</string>
+    <string name="title_setup_instructions">Udhëzimet e konfigurimit</string>
+    <string name="title_setup_no_settings">Nuk u gjetën cilësime për domenin \'%1$s\'</string>
     <string name="title_setup_grant_again">Jep lejet e kërkuara</string>
     <string name="title_setup_free">Është ky app falas për përdorim?</string>
     <string name="title_setup_password">Fjalëkalimi</string>

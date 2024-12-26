@@ -851,6 +851,7 @@
     <string name="title_advanced_send_reminders_hint">Figyelmeztetés megjelenítése, ha az üzenet szövege vagy a tárgy üres, illetve ha a melléklet feltehetőleg hiányzik</string>
     <string name="title_advanced_reply_move_hint">Az e-mail szerver továbbra is felveheti az üzeneteket az elküldött üzenetek mappájába</string>
     <string name="title_advanced_compose_color_hint">Nagyon világos vagy sötét szín választása a címzett számára olvashatatlan üzenetet eredményezhet</string>
+    <string name="title_advanced_compose_font_hint">Az alapértelmezett követi a fogadó által beállított betűtípust</string>
     <string name="title_advanced_template_reply_hint">HTML használható. Elérhető helyőrzők: %1$s</string>
     <string name="title_advanced_write_below_hint">A címzett így lemaradhat az ön válaszáról, például ha hosszú üzenetváltást rövidebbre metszenek</string>
     <string name="title_advanced_attach_new_hint">Vagy, a megosztás során kapott címet vagy fájlokat adja hozzá a jelenlegi vázlathoz</string>
@@ -1365,6 +1366,7 @@
     <string name="title_attachment_saved">A melléklet mentve</string>
     <string name="title_attachments_saved">A mellékletek mentve</string>
     <string name="title_attachments_incomplete">Néhány kép vagy melléklet letöltése nem sikerült, így hozzáadásuk meghiúsult</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Ez a jelentés egy különlegesen formázott email, melyet az email kiszolgáló küldött, mivel a küldött üzenet nem volt kézbesíthető, például mert a postaláda betelt, vagy mert az email cím (már) nem létezik.</string>
     <string name="title_ask_save">Menti a módosításokat?</string>
     <string name="title_ask_delete">Véglegesen törli az üzenetet?</string>
     <string name="title_ask_delete_accept">Megértettem, hogy a végleges törlés nem visszafordítható</string>

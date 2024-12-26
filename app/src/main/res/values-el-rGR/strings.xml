@@ -755,6 +755,7 @@
         Οι προεπιλεγμένοι αλγόριθμοι SHA256  και AES128 συνήθως υποστηρίζονται.
     </string>
     <string name="title_advanced_check_certificate">Επαλήθευση δημόσιου κλειδιού κατά την αποστολή</string>
+    <string name="title_advanced_check_key_usage">Έλεγχος των ενδείξεων χρήσης ενός κλειδιού κατά την αποστολή</string>
     <string name="title_advanced_manage_certificates">Διαχείριση δημόσιων κλειδιών</string>
     <string name="title_advanced_import_key">Εισαγωγή ιδιωτικού κλειδιού</string>
     <string name="title_advanced_manage_keys">Διαχείριση ιδιωτικών κλειδιών</string>
@@ -847,6 +848,7 @@
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
     <string name="title_advanced_reply_move_hint">Ο διακομιστής ηλ. ταχυδρομείου ενδέχεται να προσθέτει ακόμα τα μηνύματα στον φάκελο απεσταλμένων</string>
     <string name="title_advanced_compose_color_hint">Πολύ ανοικτά ή πολύ σκούρα χρώματα θα έχουν ως αποτέλεσμα δυσανάγνωστα μηνύματα για τους παραλήπτες</string>
+    <string name="title_advanced_compose_font_hint">Προεπιλογή σημαίνει διατήρηση της γραμματοσειράς που έχει επιλεγεί από την πλευρά του παραλήπτη</string>
     <string name="title_advanced_template_reply_hint">Επιτρέπεται HTML. Διαθέσιμα σύμβολα υποκατάστασης: %1$s</string>
     <string name="title_advanced_write_below_hint">Ένας παραλήπτης μπορεί να χάσει την απάντησή σας, για παράδειγμα, όταν ένα μακρύτερο μήνυμα περικόπτεται</string>
     <string name="title_advanced_attach_new_hint">Διαφορετικά, προσθήκη κοινόχρηστων διευθύνσεων ή αρχείων στο τρέχον προσχέδιο μηνύματος</string>
@@ -1363,6 +1365,7 @@
     <string name="title_attachment_saved">Το συνημμένο αποθηκεύτηκε</string>
     <string name="title_attachments_saved">Τα συνημμένα αποθηκεύτηκαν</string>
     <string name="title_attachments_incomplete">Ορισμένα συνημμένα ή εικόνες δεν κατέβηκαν και δεν μπόρεσαν να προστεθούν</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Η αναφορά αυτή, ένα ειδικά διαμορφωμένο μέιλ, στάλθηκε από έναν διακομιστή ηλεκτρονικού ταχυδρομείου, διότι δεν κατέστη δυνατό να παραδοθεί στον παραλήπτη ένα απεσταλμένο μήνυμα, επειδή, για παράδειγμα, το γραμματοκιβώτιο είναι γεμάτο, ή επειδή η διεύθυνση ηλεκτρονικού ταχυδρομείου δεν υπάρχει (πλέον).</string>
     <string name="title_ask_save">Αποθήκευση των αλλαγών;</string>
     <string name="title_ask_delete">Οριστική διαγραφή του μηνύματος;</string>
     <string name="title_ask_delete_accept">Κατανοώ πως η μόνιμη διαγραφή μηνυμάτων είναι μη αναστρέψιμη</string>
@@ -1592,6 +1595,7 @@
     <string name="title_signature_email">Διεύθυνση της υπογραφής</string>
     <string name="title_signature_mismatch">Η διεύθυνση ηλ. ταχυδρομείου του αποστολέα δεν ταιριάζει με την υπογραφή</string>
     <string name="title_signature_algorithm">Αλγόριθμος</string>
+    <string name="title_signature_public_key">Δημόσιο κλειδί</string>
     <string name="title_signature_subject">Θέμα</string>
     <string name="title_signature_validity">Εγκυρότητα</string>
     <string name="title_signature_outdated">Το δημόσιο κλειδί δεν είναι έγκυρο αυτή τη στιγμή</string>
@@ -1780,6 +1784,7 @@
     <string name="title_rule_resend">Επαναποστολή</string>
     <string name="title_rule_attached">Επισύναψη αρχείου αρχικού μηνύματος</string>
     <string name="title_rule_cc">Απάντηση στις διευθύνσεις Κοιν.</string>
+    <string name="title_rule_checks">Έλεγχος για αυτομάτως απεσταλμένα μηνύματα, διευθύνσεις χωρίς δυνατότητα απάντησης κλπ.</string>
     <string name="title_rule_with_attachments">Με συνημμένα</string>
     <string name="title_rule_answer_remark">Θα αποστέλλεται μόνο μία απάντηση ανά συζήτηση, για να αποφευχθεί ένας ατέρμονος κύκλος απαντήσεων</string>
     <string name="title_rule_name_missing">Λείπει το όνομα του κανόνα</string>
@@ -1968,6 +1973,9 @@
     <string name="title_hint_junk">Η διαλογή ανεπιθύμητης αλληλογραφίας θα πρέπει να γίνεται από έναν εξυπηρετητή ηλ. ταχυδρομείου, καθώς δεν μπορεί να πραγματοποιηθεί αξιόπιστα σε μια συσκευή με μπαταρία, η οποία έχει περιορισμένες δυνατότητες.</string>
     <string name="title_hint_junk_learn">Μετακινώντας μηνύματα προς και από τον φάκελο Ανεπιθύμητων, ο διακομιστής ηλ. αλληγραφίας \"μαθαίνει\" ποια είναι τα ανεπιθύμητα μηνύματα</string>
     <string name="title_hint_contact_actions">Πατήστε παρατεταμένα για επιλογές</string>
+    <string name="title_hint_eml">        Αυτή είναι η σύνοψη του περιεχομένου ενός αρχείου αρχικού μηνύματος.
+        Μπορείτε να χρησιμοποιήσετε το κουμπί κάτω δεξιά για να σώσετε το μήνυμα στα εισερχόμενα και να δείτε όλο το περιεχόμενο.
+    </string>
     <string name="title_open_link">Άνοιγμα συνδέσμου</string>
     <string name="title_image_link">Σύνδεσμος εικόνας</string>
     <string name="title_different_link">Ο τίτλος και η διεύθυνση του συνδέσμου διαφέρουν μεταξύ τους</string>

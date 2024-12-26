@@ -844,7 +844,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_send_reminders_hint">Mesaj metni veya konu boş olduğunda veya bir ek eksik olduğunda bir uyarı göster</string>
     <string name="title_advanced_reply_move_hint">E-posta sunucusu, iletileri gönderilen ileti klasörüne eklemeye devam edebilir</string>
     <string name="title_advanced_compose_color_hint">Çok açık veya çok koyu renkler, alıcı tarafında okunaksız mesajlara neden olur</string>
-    <string name="title_advanced_compose_font_hint" comment="title_advanced_compose_font_hint&#10;Remark for font type/size options in the send-settings tab page">Varsayılan, alıcı tarafında seçilen yazı tipine uyulması anlamına gelir</string>
+    <string name="title_advanced_compose_font_hint">Varsayılan, alıcı tarafında seçilen yazı tipine uyulması anlamına gelir</string>
     <string name="title_advanced_template_reply_hint">HTML\'ye izin verildi. Kullanılabilir yer tutucular: %1$s</string>
     <string name="title_advanced_write_below_hint">Bir alıcı, örneğin daha uzun bir mesaj kesilirken yanıtınızı kaçırabilir</string>
     <string name="title_advanced_attach_new_hint">Aksi takdirde, paylaşılan adresleri veya dosyaları mevcut taslak mesaja ekle</string>
