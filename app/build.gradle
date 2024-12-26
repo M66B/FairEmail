@@ -54,7 +54,7 @@ android {
 
         // https://developer.android.com/ndk/downloads
         // https://developer.android.com/guide/practices/page-sizes
-        ndkVersion "26.3.11579264" // r26d
+        ndkVersion "27.2.12479018" // r27c
         ndk {
             // Bugsnag, sqlite
             // https://developer.android.com/ndk/guides/abis
