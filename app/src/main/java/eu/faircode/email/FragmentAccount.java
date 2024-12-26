@@ -1453,22 +1453,23 @@ public class FragmentAccount extends FragmentBase {
                     db.folder().setFoldersUser(account.id);
 
                     for (EntityFolder folder : folders) {
-                        Log.i("Checking folder=" + folder.name + " type=" + folder.type);
+                        Log.i("Checking folder=" + folder.name + ":" + folder.type);
                         EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
                         if (existing == null) {
                             folder.id = null;
                             folder.account = account.id;
                             folder.setSpecials(account);
                             folder.id = db.folder().insertFolder(folder);
-                            EntityLog.log(context, "Added folder=" + folder.name + " type=" + folder.type);
+                            EntityLog.log(context, "Added folder=" + folder.name + ":" + folder.type);
                             if (folder.synchronize)
                                 EntityOperation.sync(context, folder.id, true);
                         } else {
-                            EntityLog.log(context, "Updated folder=" + folder.name + " type=" + existing.type + "/" + folder.type);
+                            EntityLog.log(context, "Updated folder=" + folder.name + ":" + folder.type +
+                                    " existing=" + existing.name + ":" + existing.type);
                             db.folder().setFolderType(existing.id, folder.type);
                             if (folder.synchronize &&
                                     !Objects.equals(existing.type, folder.type)) {
-                                EntityLog.log(context, "Updated folder=" + folder.name + " sync=" + folder.type);
+                                EntityLog.log(context, "Updated folder=" + folder.name + ":" + folder.type);
                                 db.folder().setFolderSynchronize(existing.id, true);
                                 EntityOperation.sync(context, existing.id, true);
                             }
