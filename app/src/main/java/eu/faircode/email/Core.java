@@ -3000,6 +3000,8 @@ class Core {
                             EntityOperation.sync(context, folder.id, false);
                     } else {
                         Log.i(folder.name + " exists type=" + folder.type);
+                        if (!Objects.equals(type, folder.type))
+                            EntityLog.log(context, "Folder name=" + folder.name + " type old=" + folder.type + " new=" + type);
 
                         folder.namespace = ifolder.first.getFullName();
                         folder.separator = ifolder.first.getSeparator();
