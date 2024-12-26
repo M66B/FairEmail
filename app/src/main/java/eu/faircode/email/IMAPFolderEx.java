@@ -141,9 +141,11 @@ public class IMAPFolderEx extends IMAPFolder {
                         p.copy(ms, folder.getFullName());
                 } catch (CommandFailedException cfx) {
                     if (cfx.getMessage() != null &&
-                            cfx.getMessage().contains("TRYCREATE"))
+                            cfx.getMessage().contains("TRYCREATE")) {
+                        Log.w(cfx);
                         throw new FolderNotFoundException(folder,
                                 folder.getFullName() + " does not exist");
+                    }
                     else
                         throw new MessagingException(cfx.getMessage(), cfx);
                 } catch (ConnectionException cex) {
