@@ -3114,7 +3114,7 @@ This website might be useful for testing webhooks:
 
 <br />
 
-<a name="autoanswer">
+<a name="autoanswer"></a>
 **Auto reply/answer**
 
 First, create a template with the text to reply/answer with via the navigation menu (left side menu).
