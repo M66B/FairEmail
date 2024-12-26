@@ -79,7 +79,9 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class FragmentAccount extends FragmentBase {
@@ -1450,11 +1452,15 @@ public class FragmentAccount extends FragmentBase {
                         }
                     }
 
+                    Map<String, EntityFolder> current = new HashMap<>();
+                    for (EntityFolder folder : db.folder().getFolders(account.id, false, false))
+                        current.put(folder.name, folder);
+
                     db.folder().setFoldersUser(account.id);
 
                     for (EntityFolder folder : folders) {
                         Log.i("Checking folder=" + folder.name + ":" + folder.type);
-                        EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
+                        EntityFolder existing = current.get(folder.name);
                         if (existing == null) {
                             folder.id = null;
                             folder.account = account.id;
@@ -1464,12 +1470,11 @@ public class FragmentAccount extends FragmentBase {
                             if (folder.synchronize && account.synchronize)
                                 EntityOperation.sync(context, folder.id, true);
                         } else {
-                            EntityLog.log(context, "Updated folder=" + folder.name + ":" + folder.type +
-                                    " existing=" + existing.name + ":" + existing.type);
                             db.folder().setFolderType(existing.id, folder.type);
                             if (folder.synchronize && account.synchronize &&
                                     !Objects.equals(existing.type, folder.type)) {
-                                EntityLog.log(context, "Updated folder=" + folder.name + ":" + folder.type);
+                                EntityLog.log(context, "Updated folder=" + folder.name + ":" + folder.type +
+                                        " existing=" + existing.name + ":" + existing.type);
                                 db.folder().setFolderSynchronize(existing.id, true);
                                 EntityOperation.sync(context, existing.id, true);
                             }
