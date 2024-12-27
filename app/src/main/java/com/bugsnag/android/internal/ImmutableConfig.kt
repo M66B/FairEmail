@@ -22,10 +22,11 @@ import com.bugsnag.android.Session
 import com.bugsnag.android.Telemetry
 import com.bugsnag.android.ThreadSendPolicy
 import com.bugsnag.android.errorApiHeaders
+import com.bugsnag.android.internal.dag.Provider
+import com.bugsnag.android.internal.dag.ValueProvider
 import com.bugsnag.android.safeUnrollCauses
 import com.bugsnag.android.sessionApiHeaders
 import java.io.File
-import java.util.concurrent.Callable
 import java.util.regex.Pattern
 
 data class ImmutableConfig(
@@ -40,7 +41,7 @@ data class ImmutableConfig(
     val enabledBreadcrumbTypes: Set<BreadcrumbType>?,
     val telemetry: Set<Telemetry>,
     val releaseStage: String?,
-    val buildUuid: String?,
+    val buildUuid: Provider<String?>?,
     val appVersion: String?,
     val versionCode: Int?,
     val appType: String?,
@@ -53,6 +54,7 @@ data class ImmutableConfig(
     val maxPersistedEvents: Int,
     val maxPersistedSessions: Int,
     val maxReportedThreads: Int,
+    val maxStringValueLength: Int,
     val threadCollectionTimeLimitMillis: Long,
     val persistenceDirectory: Lazy<File>,
     val sendLaunchCrashesSynchronously: Boolean,
@@ -140,7 +142,7 @@ data class ImmutableConfig(
 @JvmOverloads
 internal fun convertToImmutableConfig(
     config: Configuration,
-    buildUuid: String? = null,
+    buildUuid: Provider<String?>? = null,
     packageInfo: PackageInfo? = null,
     appInfo: ApplicationInfo? = null,
     persistenceDir: Lazy<File> = lazy { requireNotNull(config.persistenceDirectory) }
@@ -174,6 +176,7 @@ internal fun convertToImmutableConfig(
         maxPersistedEvents = config.maxPersistedEvents,
         maxPersistedSessions = config.maxPersistedSessions,
         maxReportedThreads = config.maxReportedThreads,
+        maxStringValueLength = config.maxStringValueLength,
         threadCollectionTimeLimitMillis = config.threadCollectionTimeLimitMillis,
         enabledBreadcrumbTypes = config.enabledBreadcrumbTypes?.toSet(),
         telemetry = config.telemetry.toSet(),
@@ -256,12 +259,7 @@ internal fun sanitiseConfiguration(
 
     @Suppress("SENSELESS_COMPARISON")
     if (configuration.delivery == null) {
-        configuration.delivery = DefaultDelivery(
-            connectivity,
-            configuration.apiKey,
-            configuration.maxStringValueLength,
-            configuration.logger!!
-        )
+        configuration.delivery = DefaultDelivery(connectivity, configuration.logger!!)
     }
     return convertToImmutableConfig(
         configuration,
@@ -275,25 +273,16 @@ internal fun sanitiseConfiguration(
 private fun collectBuildUuid(
     appInfo: ApplicationInfo?,
     backgroundTaskService: BackgroundTaskService
-): String? {
+): Provider<String?>? {
     val bundle = appInfo?.metaData
     return when {
-        bundle?.containsKey(BUILD_UUID) == true -> {
+        bundle?.containsKey(BUILD_UUID) == true -> ValueProvider(
             (bundle.getString(BUILD_UUID) ?: bundle.getInt(BUILD_UUID).toString())
                 .takeIf { it.isNotEmpty() }
-        }
+        )
 
-        appInfo != null -> {
-            try {
-                backgroundTaskService
-                    .submitTask(
-                        TaskType.IO,
-                        Callable { DexBuildIdGenerator.generateBuildId(appInfo) }
-                    )
-                    .get()
-            } catch (e: Exception) {
-                null
-            }
+        appInfo != null -> backgroundTaskService.provider(TaskType.IO) {
+            DexBuildIdGenerator.generateBuildId(appInfo)
         }
 
         else -> null

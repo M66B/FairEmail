@@ -2,7 +2,6 @@ package com.bugsnag.android
 
 import com.bugsnag.android.SessionFilenameInfo.Companion.defaultFilename
 import com.bugsnag.android.SessionFilenameInfo.Companion.findTimestampInFilename
-import com.bugsnag.android.internal.ImmutableConfig
 import java.io.File
 import java.util.Calendar
 import java.util.Comparator
@@ -13,15 +12,14 @@ import java.util.Date
  * lack of network connectivity.
  */
 internal class SessionStore(
-    private val config: ImmutableConfig,
+    bugsnagDir: File,
+    maxPersistedSessions: Int,
+    private val apiKey: String,
     logger: Logger,
     delegate: Delegate?
 ) : FileStore(
-    File(
-        config.persistenceDirectory.value, "bugsnag/sessions"
-    ),
-    config.maxPersistedSessions,
-    SESSION_COMPARATOR,
+    File(bugsnagDir, "sessions"),
+    maxPersistedSessions,
     logger,
     delegate
 ) {
@@ -53,7 +51,7 @@ internal class SessionStore(
     }
 
     override fun getFilename(obj: Any?): String {
-        val sessionInfo = defaultFilename(obj, config)
+        val sessionInfo = defaultFilename(obj, apiKey)
         return sessionInfo.encode()
     }
 }

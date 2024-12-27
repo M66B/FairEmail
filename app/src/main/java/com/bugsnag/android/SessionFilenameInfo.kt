@@ -1,6 +1,5 @@
 package com.bugsnag.android
 
-import com.bugsnag.android.internal.ImmutableConfig
 import java.io.File
 import java.util.UUID
 
@@ -34,13 +33,10 @@ internal data class SessionFilenameInfo(
         }
 
         @JvmStatic
-        fun defaultFilename(
-            obj: Any?,
-            config: ImmutableConfig
-        ): SessionFilenameInfo {
+        fun defaultFilename(obj: Any?, apiKey: String): SessionFilenameInfo {
             val sanitizedApiKey = when (obj) {
                 is Session -> obj.apiKey
-                else -> config.apiKey
+                else -> apiKey
             }
 
             return SessionFilenameInfo(

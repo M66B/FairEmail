@@ -5,8 +5,9 @@ import java.io.File
 internal object BugsnagStoreMigrator {
 
     @JvmStatic
-    fun moveToNewDirectory(persistenceDir: File) {
-        val bugsnagDir = File(persistenceDir, "bugsnag")
+    fun migrateLegacyFiles(persistenceDir: Lazy<File>): File {
+        val originalDir = persistenceDir.value
+        val bugsnagDir = File(originalDir, "bugsnag")
         if (!bugsnagDir.isDirectory) {
             bugsnagDir.mkdirs()
         }
@@ -19,12 +20,12 @@ internal object BugsnagStoreMigrator {
         )
 
         filesToMove.forEach { (from, to) ->
-            val fromFile = File(persistenceDir, from)
+            val fromFile = File(originalDir, from)
             if (fromFile.exists()) {
-                fromFile.renameTo(
-                    File(bugsnagDir, to)
-                )
+                fromFile.renameTo(File(bugsnagDir, to))
             }
         }
+
+        return bugsnagDir
     }
 }

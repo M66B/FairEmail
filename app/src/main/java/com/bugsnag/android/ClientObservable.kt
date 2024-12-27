@@ -18,7 +18,7 @@ internal class ClientObservable : BaseObservable() {
                 conf.apiKey,
                 conf.enabledErrorTypes.ndkCrashes,
                 conf.appVersion,
-                conf.buildUuid,
+                conf.buildUuid?.getOrNull(),
                 conf.releaseStage,
                 lastRunInfoPath,
                 consecutiveLaunchCrashes,

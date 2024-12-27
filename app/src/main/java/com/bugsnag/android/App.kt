@@ -1,6 +1,7 @@
 package com.bugsnag.android
 
 import com.bugsnag.android.internal.ImmutableConfig
+import com.bugsnag.android.internal.dag.Provider
 import java.io.IOException
 
 /**
@@ -36,7 +37,7 @@ open class App internal constructor(
     /**
      * The unique identifier for the build of the application set in [Configuration.buildUuid]
      */
-    var buildUuid: String?,
+    buildUuid: Provider<String?>?,
 
     /**
      * The application type set in [Configuration#version]
@@ -48,6 +49,15 @@ open class App internal constructor(
      */
     var versionCode: Number?
 ) : JsonStream.Streamable {
+
+    private var buildUuidProvider: Provider<String?>? = buildUuid
+
+    var buildUuid: String? = null
+        get() = field ?: buildUuidProvider?.getOrNull()
+        set(value) {
+            field = value
+            buildUuidProvider = null
+        }
 
     internal constructor(
         config: ImmutableConfig,

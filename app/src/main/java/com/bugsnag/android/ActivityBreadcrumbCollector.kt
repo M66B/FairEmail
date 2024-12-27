@@ -79,6 +79,11 @@ internal class ActivityBreadcrumbCollector(
         }
 
         set("hasData", intent.data != null)
-        set("hasExtras", intent.extras?.keySet()?.joinToString(", ") ?: false)
+
+        try {
+            set("hasExtras", intent.extras?.keySet()?.joinToString(", ") ?: false)
+        } catch (re: Exception) {
+            // deliberately ignore
+        }
     }
 }

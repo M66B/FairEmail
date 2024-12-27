@@ -13,6 +13,7 @@ import android.os.Build
 import android.provider.Settings
 import com.bugsnag.android.internal.BackgroundTaskService
 import com.bugsnag.android.internal.TaskType
+import com.bugsnag.android.internal.dag.Provider
 import java.io.File
 import java.util.Date
 import java.util.Locale
@@ -28,11 +29,10 @@ internal class DeviceDataCollector(
     private val connectivity: Connectivity,
     private val appContext: Context,
     resources: Resources,
-    private val deviceId: String?,
-    private val internalDeviceId: String?,
+    private val deviceIdStore: Provider<DeviceIdStore.DeviceIds?>,
     private val buildInfo: DeviceBuildInfo,
     private val dataDirectory: File,
-    rootDetector: RootDetector,
+    private val rootedFuture: Provider<Boolean>?,
     private val bgTaskService: BackgroundTaskService,
     private val logger: Logger
 ) {
@@ -45,7 +45,6 @@ internal class DeviceDataCollector(
     private val locale = Locale.getDefault().toString()
     private val cpuAbi = getCpuAbi()
     private var runtimeVersions: MutableMap<String, Any>
-    private val rootedFuture: Future<Boolean>?
     private val totalMemoryFuture: Future<Long?>? = retrieveTotalDeviceMemory()
     private var orientation = AtomicInteger(resources.configuration.orientation)
 
@@ -54,25 +53,13 @@ internal class DeviceDataCollector(
         buildInfo.apiLevel?.let { map["androidApiLevel"] = it }
         buildInfo.osBuild?.let { map["osBuild"] = it }
         runtimeVersions = map
-
-        rootedFuture = try {
-            bgTaskService.submitTask(
-                TaskType.IO,
-                Callable {
-                    rootDetector.isRooted()
-                }
-            )
-        } catch (exc: RejectedExecutionException) {
-            logger.w("Failed to perform root detection checks", exc)
-            null
-        }
     }
 
     fun generateDevice() = Device(
         buildInfo,
         cpuAbi,
         checkIsRooted(),
-        deviceId,
+        deviceIdStore.get()?.deviceId,
         locale,
         totalMemoryFuture.runCatching { this?.get() }.getOrNull(),
         runtimeVersions.toMutableMap()
@@ -81,7 +68,7 @@ internal class DeviceDataCollector(
     fun generateDeviceWithState(now: Long) = DeviceWithState(
         buildInfo,
         checkIsRooted(),
-        deviceId,
+        deviceIdStore.get()?.deviceId,
         locale,
         totalMemoryFuture.runCatching { this?.get() }.getOrNull(),
         runtimeVersions.toMutableMap(),
@@ -94,7 +81,7 @@ internal class DeviceDataCollector(
     fun generateInternalDeviceWithState(now: Long) = DeviceWithState(
         buildInfo,
         checkIsRooted(),
-        internalDeviceId,
+        deviceIdStore.get()?.internalDeviceId,
         locale,
         totalMemoryFuture.runCatching { this?.get() }.getOrNull(),
         runtimeVersions.toMutableMap(),

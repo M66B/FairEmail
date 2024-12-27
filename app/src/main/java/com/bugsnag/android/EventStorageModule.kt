@@ -1,9 +1,9 @@
 package com.bugsnag.android
 
 import com.bugsnag.android.internal.BackgroundTaskService
+import com.bugsnag.android.internal.dag.BackgroundDependencyModule
 import com.bugsnag.android.internal.dag.ConfigModule
 import com.bugsnag.android.internal.dag.ContextModule
-import com.bugsnag.android.internal.dag.DependencyModule
 import com.bugsnag.android.internal.dag.SystemServiceModule
 
 /**
@@ -18,32 +18,32 @@ internal class EventStorageModule(
     systemServiceModule: SystemServiceModule,
     notifier: Notifier,
     callbackState: CallbackState
-) : DependencyModule() {
+) : BackgroundDependencyModule(bgTaskService) {
 
     private val cfg = configModule.config
 
-    private val delegate by future {
-        if (cfg.telemetry.contains(Telemetry.INTERNAL_ERRORS) == true)
+    private val delegate = provider {
+        if (cfg.telemetry.contains(Telemetry.INTERNAL_ERRORS))
             InternalReportDelegate(
                 contextModule.ctx,
                 cfg.logger,
                 cfg,
                 systemServiceModule.storageManager,
-                dataCollectionModule.appDataCollector,
+                dataCollectionModule.appDataCollector.get(),
                 dataCollectionModule.deviceDataCollector,
-                trackerModule.sessionTracker,
+                trackerModule.sessionTracker.get(),
                 notifier,
                 bgTaskService
             ) else null
     }
 
-    val eventStore by future {
+    val eventStore = provider {
         EventStore(
             cfg,
             cfg.logger,
             notifier,
             bgTaskService,
-            delegate,
+            delegate.getOrNull(),
             callbackState
         )
     }

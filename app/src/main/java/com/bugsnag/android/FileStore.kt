@@ -7,8 +7,6 @@ import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.OutputStreamWriter
 import java.io.Writer
-import java.util.Collections
-import java.util.Comparator
 import java.util.concurrent.ConcurrentSkipListSet
 import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock
@@ -16,7 +14,6 @@ import java.util.concurrent.locks.ReentrantLock
 internal abstract class FileStore(
     val storageDir: File,
     private val maxStoreCount: Int,
-    private val comparator: Comparator<in File?>,
     protected open val logger: Logger,
     protected val delegate: Delegate?
 ) {
@@ -33,10 +30,6 @@ internal abstract class FileStore(
 
     private val lock: Lock = ReentrantLock()
     private val queuedFiles: MutableCollection<File> = ConcurrentSkipListSet()
-
-    init {
-        isStorageDirValid(storageDir)
-    }
 
     /**
      * Checks whether the storage directory is a writable directory. If it is not,
@@ -115,23 +108,21 @@ internal abstract class FileStore(
         // Limit number of saved payloads to prevent disk space issues
         if (isStorageDirValid(storageDir)) {
             val listFiles = storageDir.listFiles() ?: return
-            val files: ArrayList<File> = arrayListOf(*listFiles)
-            if (files.size >= maxStoreCount) {
-                // Sort files then delete the first one (oldest timestamp)
-                Collections.sort(files, comparator)
-                var k = 0
-                while (k < files.size && files.size >= maxStoreCount) {
-                    val oldestFile = files[k]
-                    if (!queuedFiles.contains(oldestFile)) {
-                        logger.w(
-                            "Discarding oldest error as stored " +
-                                "error limit reached: '" + oldestFile.path + '\''
-                        )
-                        deleteStoredFiles(setOf(oldestFile))
-                        files.removeAt(k)
-                        k--
-                    }
-                    k++
+            if (listFiles.size < maxStoreCount) return
+            val sortedListFiles = listFiles.sortedBy { it.lastModified() }
+            // Number of files to discard takes into account that a new file may need to be written
+            val numberToDiscard = listFiles.size - maxStoreCount + 1
+            var discardedCount = 0
+            for (file in sortedListFiles) {
+                if (discardedCount == numberToDiscard) {
+                    return
+                } else if (!queuedFiles.contains(file)) {
+                    logger.w(
+                        "Discarding oldest error as stored error limit reached: '" +
+                            file.path + '\''
+                    )
+                    deleteStoredFiles(setOf(file))
+                    discardedCount++
                 }
             }
         }

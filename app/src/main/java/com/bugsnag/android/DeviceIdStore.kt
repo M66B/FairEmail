@@ -2,6 +2,7 @@ package com.bugsnag.android
 
 import android.content.Context
 import com.bugsnag.android.internal.ImmutableConfig
+import com.bugsnag.android.internal.dag.Provider
 import java.io.File
 import java.util.UUID
 
@@ -11,23 +12,19 @@ import java.util.UUID
  */
 internal class DeviceIdStore @JvmOverloads @Suppress("LongParameterList") constructor(
     context: Context,
-    deviceIdfile: File = File(context.filesDir, "device-id"),
-    deviceIdGenerator: () -> UUID = { UUID.randomUUID() },
-    internalDeviceIdfile: File = File(context.filesDir, "internal-device-id"),
-    internalDeviceIdGenerator: () -> UUID = { UUID.randomUUID() },
-    private val sharedPrefMigrator: SharedPrefMigrator,
+    private val deviceIdFile: File = File(context.filesDir, "device-id"),
+    private val deviceIdGenerator: () -> UUID = { UUID.randomUUID() },
+    private val internalDeviceIdFile: File = File(context.filesDir, "internal-device-id"),
+    private val internalDeviceIdGenerator: () -> UUID = { UUID.randomUUID() },
+    private val sharedPrefMigrator: Provider<SharedPrefMigrator>,
     config: ImmutableConfig,
-    logger: Logger
+    private val logger: Logger
 ) {
 
-    private val persistence: DeviceIdPersistence
-    private val internalPersistence: DeviceIdPersistence
+    private lateinit var persistence: DeviceIdPersistence
+    private lateinit var internalPersistence: DeviceIdPersistence
     private val generateId = config.generateAnonymousId
-
-    init {
-        persistence = DeviceIdFilePersistence(deviceIdfile, deviceIdGenerator, logger)
-        internalPersistence = DeviceIdFilePersistence(internalDeviceIdfile, internalDeviceIdGenerator, logger)
-    }
+    private var deviceIds: DeviceIds? = null
 
     /**
      * Loads the device ID from
@@ -37,7 +34,7 @@ internal class DeviceIdStore @JvmOverloads @Suppress("LongParameterList") constr
      * If no device ID exists then the legacy value stored in [SharedPreferences] will
      * be used. If no value is present then a random UUID will be generated and persisted.
      */
-    fun loadDeviceId(): String? {
+    private fun loadDeviceId(): String? {
         // If generateAnonymousId = false, return null
         // so that a previously persisted device ID is not returned,
         // or a new one is not generated and persisted
@@ -48,14 +45,14 @@ internal class DeviceIdStore @JvmOverloads @Suppress("LongParameterList") constr
         if (result != null) {
             return result
         }
-        result = sharedPrefMigrator.loadDeviceId(false)
+        result = sharedPrefMigrator.get().loadDeviceId(false)
         if (result != null) {
             return result
         }
         return persistence.loadDeviceId(true)
     }
 
-    fun loadInternalDeviceId(): String? {
+    private fun loadInternalDeviceId(): String? {
         // If generateAnonymousId = false, return null
         // so that a previously persisted device ID is not returned,
         // or a new one is not generated and persisted
@@ -64,4 +61,28 @@ internal class DeviceIdStore @JvmOverloads @Suppress("LongParameterList") constr
         }
         return internalPersistence.loadDeviceId(true)
     }
+
+    fun load(): DeviceIds? {
+        if (deviceIds != null) {
+            return deviceIds
+        }
+
+        persistence = DeviceIdFilePersistence(deviceIdFile, deviceIdGenerator, logger)
+        internalPersistence =
+            DeviceIdFilePersistence(internalDeviceIdFile, internalDeviceIdGenerator, logger)
+
+        val deviceId = loadDeviceId()
+        val internalDeviceId = loadInternalDeviceId()
+
+        if (deviceId != null || internalDeviceId != null) {
+            deviceIds = DeviceIds(deviceId, internalDeviceId)
+        }
+
+        return deviceIds
+    }
+
+    data class DeviceIds(
+        val deviceId: String?,
+        val internalDeviceId: String?
+    )
 }

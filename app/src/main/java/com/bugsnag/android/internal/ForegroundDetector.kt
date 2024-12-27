@@ -55,6 +55,12 @@ internal object ForegroundDetector : ActivityLifecycleCallbacks, Handler.Callbac
 
     private var waitingForActivityRestart: Boolean = false
 
+    /**
+     * Marks the timestamp (relative to [SystemClock.elapsedRealtime]) that we initialised for the
+     * first time.
+     */
+    internal val startupTime = SystemClock.elapsedRealtime()
+
     @VisibleForTesting
     internal var backgroundSent = true
 

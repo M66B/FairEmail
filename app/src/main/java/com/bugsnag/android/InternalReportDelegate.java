@@ -5,8 +5,8 @@ import static com.bugsnag.android.SeverityReason.REASON_UNHANDLED_EXCEPTION;
 
 import com.bugsnag.android.internal.BackgroundTaskService;
 import com.bugsnag.android.internal.ImmutableConfig;
-import com.bugsnag.android.internal.JsonHelper;
 import com.bugsnag.android.internal.TaskType;
+import com.bugsnag.android.internal.dag.Provider;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -33,7 +33,7 @@ class InternalReportDelegate implements EventStore.Delegate {
     final StorageManager storageManager;
 
     final AppDataCollector appDataCollector;
-    final DeviceDataCollector deviceDataCollector;
+    final Provider<DeviceDataCollector> deviceDataCollector;
     final Context appContext;
     final SessionTracker sessionTracker;
     final Notifier notifier;
@@ -44,7 +44,7 @@ class InternalReportDelegate implements EventStore.Delegate {
                            ImmutableConfig immutableConfig,
                            @Nullable StorageManager storageManager,
                            AppDataCollector appDataCollector,
-                           DeviceDataCollector deviceDataCollector,
+                           Provider<DeviceDataCollector> deviceDataCollector,
                            SessionTracker sessionTracker,
                            Notifier notifier,
                            BackgroundTaskService backgroundTaskService) {
@@ -102,7 +102,7 @@ class InternalReportDelegate implements EventStore.Delegate {
      */
     void reportInternalBugsnagError(@NonNull Event event) {
         event.setApp(appDataCollector.generateAppWithState());
-        event.setDevice(deviceDataCollector.generateDeviceWithState(new Date().getTime()));
+        event.setDevice(deviceDataCollector.get().generateDeviceWithState(new Date().getTime()));
 
         event.addMetadata(INTERNAL_DIAGNOSTICS_TAB, "notifierName", notifier.getName());
         event.addMetadata(INTERNAL_DIAGNOSTICS_TAB, "notifierVersion", notifier.getVersion());
@@ -126,7 +126,8 @@ class InternalReportDelegate implements EventStore.Delegate {
                             DefaultDelivery defaultDelivery = (DefaultDelivery) delivery;
                             defaultDelivery.deliver(
                                     params.getEndpoint(),
-                                    JsonHelper.INSTANCE.serialize(payload),
+                                    payload.toByteArray(),
+                                    payload.getIntegrityToken(),
                                     headers
                             );
                         }

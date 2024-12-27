@@ -64,7 +64,11 @@ public class JsonStream extends JsonWriter {
      * Collections, Maps, and arrays.
      */
     public void value(@Nullable Object object) throws IOException {
-        value(object, false);
+        if (object instanceof File) {
+            value((File) object);
+        } else {
+            value(object, false);
+        }
     }
 
     /**

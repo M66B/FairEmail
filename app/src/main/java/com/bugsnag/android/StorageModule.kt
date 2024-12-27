@@ -1,56 +1,73 @@
 package com.bugsnag.android
 
 import android.content.Context
+import com.bugsnag.android.internal.BackgroundTaskService
+import com.bugsnag.android.internal.BugsnagStoreMigrator.migrateLegacyFiles
 import com.bugsnag.android.internal.ImmutableConfig
-import com.bugsnag.android.internal.dag.DependencyModule
+import com.bugsnag.android.internal.TaskType
+import com.bugsnag.android.internal.dag.BackgroundDependencyModule
+import com.bugsnag.android.internal.dag.Provider
 
 /**
  * A dependency module which constructs the objects that store information to disk in Bugsnag.
  */
 internal class StorageModule(
     appContext: Context,
-    immutableConfig: ImmutableConfig,
-    logger: Logger
-) : DependencyModule() {
+    private val immutableConfig: ImmutableConfig,
+    bgTaskService: BackgroundTaskService
+) : BackgroundDependencyModule(bgTaskService, TaskType.IO) {
 
-    val sharedPrefMigrator by future { SharedPrefMigrator(appContext) }
+    val bugsnagDir = provider {
+        migrateLegacyFiles(immutableConfig.persistenceDirectory)
+    }
 
-    private val deviceIdStore by future {
+    val sharedPrefMigrator = provider {
+        SharedPrefMigrator(appContext)
+    }
+
+    val deviceIdStore = provider {
         DeviceIdStore(
             appContext,
             sharedPrefMigrator = sharedPrefMigrator,
-            logger = logger,
+            logger = immutableConfig.logger,
             config = immutableConfig
         )
     }
 
-    val deviceId by future { deviceIdStore.loadDeviceId() }
-
-    val internalDeviceId by future { deviceIdStore.loadInternalDeviceId() }
-
-    val userStore by future {
+    val userStore = provider {
         UserStore(
-            immutableConfig,
-            deviceId,
+            immutableConfig.persistUser,
+            bugsnagDir,
+            deviceIdStore.map { it.load() },
             sharedPrefMigrator = sharedPrefMigrator,
-            logger = logger
+            logger = immutableConfig.logger
         )
     }
 
-    val lastRunInfoStore by future { LastRunInfoStore(immutableConfig) }
+    val lastRunInfoStore = provider {
+        LastRunInfoStore(immutableConfig)
+    }
 
-    val sessionStore by future {
+    val sessionStore = provider {
         SessionStore(
-            immutableConfig,
-            logger,
+            bugsnagDir.get(),
+            immutableConfig.maxPersistedSessions,
+            immutableConfig.apiKey,
+            immutableConfig.logger,
             null
         )
     }
 
-    val lastRunInfo by future {
+    val lastRunInfo = lastRunInfoStore.map { lastRunInfoStore ->
         val info = lastRunInfoStore.load()
         val currentRunInfo = LastRunInfo(0, crashed = false, crashedDuringLaunch = false)
         lastRunInfoStore.persist(currentRunInfo)
-        info
+        return@map info
+    }
+
+    fun loadUser(initialUser: User): Provider<UserState> = provider {
+        val userState = userStore.get().load(initialUser)
+        sharedPrefMigrator.getOrNull()?.deleteLegacyPrefs()
+        return@provider userState
     }
 }

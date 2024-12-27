@@ -10,7 +10,7 @@ import com.bugsnag.android.internal.dag.DependencyModule
 internal class BugsnagStateModule(
     cfg: ImmutableConfig,
     configuration: Configuration
-) : DependencyModule() {
+) : DependencyModule {
 
     val clientObservable = ClientObservable()
 

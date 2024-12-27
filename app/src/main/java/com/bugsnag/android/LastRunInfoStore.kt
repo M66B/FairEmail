@@ -36,6 +36,7 @@ internal class LastRunInfoStore(config: ImmutableConfig) {
             add(KEY_CRASHED, lastRunInfo.crashed)
             add(KEY_CRASHED_DURING_LAUNCH, lastRunInfo.crashedDuringLaunch)
         }.toString()
+        file.parentFile?.mkdirs()
         file.writeText(text)
         logger.d("Persisted: $text")
     }

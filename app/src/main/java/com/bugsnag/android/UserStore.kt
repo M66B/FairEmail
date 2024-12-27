@@ -1,23 +1,23 @@
 package com.bugsnag.android
 
-import com.bugsnag.android.internal.ImmutableConfig
 import com.bugsnag.android.internal.StateObserver
+import com.bugsnag.android.internal.dag.Provider
 import java.io.File
 import java.util.concurrent.atomic.AtomicReference
 
 /**
  * This class is responsible for persisting and retrieving user information.
  */
-internal class UserStore @JvmOverloads constructor(
-    private val config: ImmutableConfig,
-    private val deviceId: String?,
-    file: File = File(config.persistenceDirectory.value, "bugsnag/user-info"),
-    private val sharedPrefMigrator: SharedPrefMigrator,
+internal class UserStore(
+    private val persist: Boolean,
+    private val persistentDir: Provider<File>,
+    private val deviceIdStore: Provider<DeviceIdStore.DeviceIds?>,
+    file: File = File(persistentDir.get(), "user-info"),
+    private val sharedPrefMigrator: Provider<SharedPrefMigrator>,
     private val logger: Logger
 ) {
 
     private val synchronizedStreamableStore: SynchronizedStreamableStore<User>
-    private val persist = config.persistUser
     private val previousUser = AtomicReference<User?>(null)
 
     init {
@@ -50,7 +50,7 @@ internal class UserStore @JvmOverloads constructor(
             loadedUser != null && validUser(loadedUser) -> UserState(loadedUser)
             // if generateAnonymousId config option is false, the deviceId should already be null
             // here
-            else -> UserState(User(deviceId, null, null))
+            else -> UserState(User(deviceIdStore.get()?.deviceId, null, null))
         }
 
         userState.addObserver(
@@ -81,8 +81,8 @@ internal class UserStore @JvmOverloads constructor(
         user.id != null || user.name != null || user.email != null
 
     private fun loadPersistedUser(): User? {
-        return if (sharedPrefMigrator.hasPrefs()) {
-            val legacyUser = sharedPrefMigrator.loadUser(deviceId)
+        return if (sharedPrefMigrator.get().hasPrefs()) {
+            val legacyUser = sharedPrefMigrator.get().loadUser(deviceIdStore.get()?.deviceId)
             save(legacyUser)
             legacyUser
         } else if (

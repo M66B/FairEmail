@@ -3,35 +3,37 @@ package com.bugsnag.android.internal.dag
 import com.bugsnag.android.internal.BackgroundTaskService
 import com.bugsnag.android.internal.TaskType
 
-internal abstract class DependencyModule {
+internal interface DependencyModule
 
-    private val properties = mutableListOf<Lazy<*>>()
-
+internal abstract class BackgroundDependencyModule(
+    @JvmField
+    val bgTaskService: BackgroundTaskService,
+    @JvmField
+    val taskType: TaskType = TaskType.DEFAULT
+) : DependencyModule {
     /**
-     * Creates a new [Lazy] property that is marked as an object that should be resolved off the
-     * main thread when [resolveDependencies] is called.
+     * Convenience function to create and schedule a `RunnableProvider` of [taskType] with
+     * [bgTaskService]. The returned `RunnableProvider` will be implemented using the `provider`
+     * lambda as its `invoke` implementation.
      */
-    fun <T> future(initializer: () -> T): Lazy<T> {
-        val lazy = lazy {
-            initializer()
-        }
-        properties.add(lazy)
-        return lazy
+    inline fun <R> provider(crossinline provider: () -> R): RunnableProvider<R> {
+        return bgTaskService.provider(taskType, provider)
     }
 
     /**
-     * Blocks until all dependencies in the module have been constructed. This provides the option
-     * for modules to construct objects in a background thread, then have a user block on another
-     * thread until all the objects have been constructed.
+     * Return a `RunnableProvider` containing the result of applying the given [mapping] to
+     * this `Provider`. The `RunnableProvider` will be scheduled with [bgTaskService] as a
+     * [taskType] when this function returns.
+     *
+     * This function behaves similar to `List.map` or `Any.let` but with `Provider` encapsulation
+     * to handle value reuse and threading.
      */
-    fun resolveDependencies(bgTaskService: BackgroundTaskService, taskType: TaskType) {
-        kotlin.runCatching {
-            bgTaskService.submitTask(
-                taskType,
-                Runnable {
-                    properties.forEach { it.value }
-                }
-            ).get()
+    internal inline fun <E, R> Provider<E>.map(crossinline mapping: (E) -> R): RunnableProvider<R> {
+        val task = object : RunnableProvider<R>() {
+            override fun invoke(): R = mapping(this@map.get())
         }
+
+        bgTaskService.execute(taskType, task)
+        return task
     }
 }

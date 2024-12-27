@@ -2,6 +2,7 @@ package com.bugsnag.android
 
 import com.bugsnag.android.internal.DateUtils
 import com.bugsnag.android.internal.InternalMetricsImpl
+import com.bugsnag.android.internal.dag.ValueProvider
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -151,7 +152,7 @@ internal class BugsnagEventMapper(
             app["releaseStage"] as? String,
             app["version"] as? String,
             app["codeBundleId"] as? String,
-            app["buildUUID"] as? String,
+            (app["buildUUID"] as? String)?.let(::ValueProvider),
             app["type"] as? String,
             (app["versionCode"] as? Number)?.toInt(),
             (app["duration"] as? Number)?.toLong(),

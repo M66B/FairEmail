@@ -1,6 +1,7 @@
 package com.bugsnag.android.internal
 
 import androidx.annotation.VisibleForTesting
+import com.bugsnag.android.internal.dag.RunnableProvider
 import java.util.concurrent.BlockingQueue
 import java.util.concurrent.Callable
 import java.util.concurrent.ExecutorService
@@ -152,7 +153,11 @@ class BackgroundTaskService(
     @Throws(RejectedExecutionException::class)
     fun <T> submitTask(taskType: TaskType, callable: Callable<T>): Future<T> {
         val task = FutureTask(callable)
+        execute(taskType, task)
+        return SafeFuture(task, taskType)
+    }
 
+    fun execute(taskType: TaskType, task: Runnable) {
         when (taskType) {
             TaskType.ERROR_REQUEST -> errorExecutor.execute(task)
             TaskType.SESSION_REQUEST -> sessionExecutor.execute(task)
@@ -160,8 +165,6 @@ class BackgroundTaskService(
             TaskType.INTERNAL_REPORT -> internalReportExecutor.execute(task)
             TaskType.DEFAULT -> defaultExecutor.execute(task)
         }
-
-        return SafeFuture(task, taskType)
     }
 
     /**
@@ -183,6 +186,18 @@ class BackgroundTaskService(
         errorExecutor.awaitTerminationSafe()
         sessionExecutor.awaitTerminationSafe()
         ioExecutor.awaitTerminationSafe()
+    }
+
+    inline fun <R> provider(
+        taskType: TaskType,
+        crossinline provider: () -> R
+    ): RunnableProvider<R> {
+        val task = object : RunnableProvider<R>() {
+            override fun invoke(): R = provider()
+        }
+
+        execute(taskType, task)
+        return task
     }
 
     private fun ExecutorService.awaitTerminationSafe() {
