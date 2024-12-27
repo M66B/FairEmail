@@ -4775,6 +4775,7 @@ the F-Droid build, but **only if** the version number of the F-Droid build is th
 
 F-Droid builds irregularly, which can be problematic if there is an important update.
 Therefore you are advised to switch to the GitHub release.
+F-Droid isn't as secure as you might think anyway, [see here](https://privsec.dev/posts/android/f-droid-security-issues/).
 
 Note that developers have no control over F-Droid builds and the F-Droid infrastructure (apps, forums, etc.).
 
