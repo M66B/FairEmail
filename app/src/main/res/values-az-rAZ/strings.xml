@@ -1373,6 +1373,7 @@
     <string name="title_attachment_saved">Qoşma saxlanıldı</string>
     <string name="title_attachments_saved">Qoşmalar saxlanıldı</string>
     <string name="title_attachments_incomplete">Bəzi qoşmalar və ya təsvirlər endirilmədi və əlavə edilə bilmədi</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Bu hesabat, e-poçt serveri tərəfindən göndərilən və xüsusi olaraq formatlanmış e-poçtdur, çünki göndərilən bir mesaj alıcıya çatdırıla bilməyib. Bunun səbəbi poçt qutusunun dolu olması və ya e-poçt ünvanınn (artıq) mövcud olmaması ola bilər.</string>
     <string name="title_ask_save">Dəyişikliklər saxlanılsın?</string>
     <string name="title_ask_delete">Mesaj birdəfəlik silinsin?</string>
     <string name="title_ask_delete_accept">Mesajların birdəfəlik silənərək geri qaytarıla bilməyəcəyini anlayıram</string>
