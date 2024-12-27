@@ -658,6 +658,7 @@ class Core {
                             // Fetch UID: NO [LIMIT] UID FETCH Rate limit hit.
                             // Fetch UID: NO Server Unavailable. 15
                             // Fetch UID: NO [UNAVAILABLE] Failed to open mailbox
+                            // Fetch UID: NO [UNAVAILABLE] UID FETCH completed
                             // Fetch UID: NO [TEMPFAIL] SELECT completed
                             // Fetch UID: NO Internal error. Try again later... (MARKER:xxx)
                             // Fetch UID: BAD Serious error while processing UID FETCH (NioRecvFail (nn/nn))
