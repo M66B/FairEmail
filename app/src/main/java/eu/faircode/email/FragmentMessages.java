@@ -197,6 +197,7 @@ import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.KeyStore;
+import java.security.Principal;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.cert.CertPathBuilder;
@@ -10170,22 +10171,6 @@ public class FragmentMessages extends FragmentBase
                                     args.putString("algo", algo);
                                     args.putString("algooid", algooid);
 
-                                    // Encryption algorithm
-                                    String keyalgo = null;
-                                    String keyalgooid = null;
-                                    try {
-                                        keyalgooid = s.getEncryptionAlgOID();
-                                        DefaultAlgorithmNameFinder af = new DefaultAlgorithmNameFinder();
-                                        keyalgo = af.getAlgorithmName(new ASN1ObjectIdentifier(keyalgooid));
-                                        PublicKey pubkey = cert.getPublicKey();
-                                        if (pubkey instanceof RSAPublicKey)
-                                            keyalgo += ((RSAPublicKey) pubkey).getModulus().bitLength();
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
-                                    }
-                                    args.putString("keyalgo", keyalgo);
-                                    args.putString("keyalgooid", keyalgooid);
-
                                     List<X509Certificate> certs = new ArrayList<>();
                                     try {
                                         for (Object m : store.getMatches(null)) {
@@ -10433,10 +10418,10 @@ public class FragmentMessages extends FragmentBase
                             String reason = args.getString("reason");
                             String algo = args.getString("algo");
                             String algooid = args.getString("algooid");
-                            String keyalgo = args.getString("keyalgo");
-                            String keyalgooid = args.getString("keyalgooid");
                             final ArrayList<String> trace = args.getStringArrayList("trace");
                             EntityCertificate record = EntityCertificate.from(cert, null);
+                            String keyalgo = record.getSigAlgName();
+                            String keyalgoid = cert.getSigAlgOID();
 
                             if (time == null)
                                 time = new Date();
@@ -10468,6 +10453,7 @@ public class FragmentMessages extends FragmentBase
                                 TextView tvExpired = dview.findViewById(R.id.tvExpired);
                                 TextView tvAlgorithm = dview.findViewById(R.id.tvAlgorithm);
                                 TextView tvKeyAlgorithm = dview.findViewById(R.id.tvKeyAlgorithm);
+                                TextView tvKeyIssuer = dview.findViewById(R.id.tvKeyIssuer);
 
                                 tvCertificateInvalid.setVisibility(valid ? View.GONE : View.VISIBLE);
                                 tvCertificateReason.setText(reason);
@@ -10500,12 +10486,15 @@ public class FragmentMessages extends FragmentBase
                                     a.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_XSMALL), start, a.length(), 0);
 
                                     start = ka.length();
-                                    ka.append(keyalgooid);
+                                    ka.append(keyalgoid);
                                     ka.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_XSMALL), start, ka.length(), 0);
                                 }
 
                                 tvAlgorithm.setText(a);
                                 tvKeyAlgorithm.setText(ka);
+
+                                Principal issuer = cert.getIssuerDN();
+                                tvKeyIssuer.setText(issuer == null ? null : issuer.getName());
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(context)
                                         .setView(dview)

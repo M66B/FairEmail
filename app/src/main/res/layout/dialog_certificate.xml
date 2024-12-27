@@ -121,7 +121,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CN=test@example.com"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSubjectTitle" />
@@ -185,27 +185,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:drawableStart="@drawable/twotone_gesture_24"
-            android:drawablePadding="6dp"
             android:text="SHA256"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:textColorPrimary"
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvAlgorithmTitle" />
 
         <TextView
+            android:id="@+id/tvKeyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_signature_public_key"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAlgorithm" />
+
+        <TextView
             android:id="@+id/tvKeyAlgorithm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:drawableStart="@drawable/twotone_lock_24"
-            android:drawablePadding="6dp"
             android:text="SHA256/RSA"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:textColorPrimary"
+            android:textIsSelectable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvKeyTitle" />
+
+        <TextView
+            android:id="@+id/tvKeyIssuer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="IssuerDN"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:textColorPrimary"
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAlgorithm" />
+            app:layout_constraintTop_toBottomOf="@id/tvKeyAlgorithm" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
