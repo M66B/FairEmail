@@ -21,11 +21,13 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -105,7 +107,9 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
             popupMenu.getMenu().add(Menu.NONE, 0, 0, ss).setEnabled(false);
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_share, 1, R.string.title_share);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 2, R.string.title_delete);
+            if (!Helper.isPlayStoreInstall())
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_analyze, 2, R.string.title_analyze);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 3, R.string.title_delete);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -113,6 +117,9 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
                     int id = item.getItemId();
                     if (id == R.string.title_share) {
                         onActionShare();
+                        return true;
+                    } else if (id == R.string.title_analyze) {
+                        onActionAnalyze();
                         return true;
                     } else if (id == R.string.title_delete) {
                         onActionDelete();
@@ -149,6 +156,35 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
                                 return;
                             // application/x-pem-file is generally unsupported
                             Helper.share(context, file, "application/*", file.getName());
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "certificate:share");
+                }
+
+                private void onActionAnalyze() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", certificate.id);
+
+                    new SimpleTask<String>() {
+                        @Override
+                        protected String onExecute(Context context, Bundle args) throws CertificateException, IOException {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            EntityCertificate certificate = db.certificate().getCertificate(id);
+                            if (certificate == null)
+                                return null;
+
+                            return Base64.encodeToString(certificate.getCertificate().getEncoded(), Base64.URL_SAFE);
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, String cert) {
+                            Helper.view(context, Uri.parse("https://lapo.it/asn1js/#" + cert), true);
                         }
 
                         @Override

@@ -1552,6 +1552,7 @@
     <string name="title_force_light">Force light theme</string>
     <string name="title_rename">Rename</string>
     <string name="title_share">Share</string>
+    <string name="title_analyze">Analyze</string>
     <string name="title_share_link" translatable="false">Share link</string>
     <string name="title_share_link_open" translatable="false">Open message</string>
     <string name="title_zip" translatable="false">ZIP</string>
