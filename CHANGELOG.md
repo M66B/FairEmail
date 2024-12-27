@@ -34,7 +34,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Added experimental force light menu item / button for reformatted message view
+* Added experimental force light for reformatted message view
+* Updated libraries
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 

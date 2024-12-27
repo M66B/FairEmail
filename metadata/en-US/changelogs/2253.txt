@@ -34,7 +34,8 @@ Barsboldia
 
 Next version
 
-* Added experimental force light menu item / button for reformatted message view
+* Added experimental force light for reformatted message view
+* Updated libraries
 * Small improvements and minor bug fixes
 * Updated translations
 
