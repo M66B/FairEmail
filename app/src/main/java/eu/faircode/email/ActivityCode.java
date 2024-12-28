@@ -40,6 +40,7 @@ import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
@@ -381,7 +382,9 @@ public class ActivityCode extends ActivityBase {
 
             @Override
             protected void onExecuted(Bundle args, String code) {
-                getSupportActionBar().setSubtitle(args.getString("subject"));
+                ActionBar actionBar = getSupportActionBar();
+                if (actionBar != null)
+                    actionBar.setSubtitle(args.getString("subject"));
 
                 String clazz = "language-html";
                 if (lines)
