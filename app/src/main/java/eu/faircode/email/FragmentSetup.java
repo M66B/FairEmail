@@ -148,6 +148,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
     private CardView cardExtra;
     private TextView tvExtra;
     private Button btnNotification;
+    private Button btnDefaultIdentity;
     private Button btnSignature;
     private Button btnReorderAccounts;
     private Button btnReorderFolders;
@@ -244,6 +245,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         cardExtra = view.findViewById(R.id.cardExtra);
         tvExtra = view.findViewById(R.id.tvExtra);
         btnNotification = view.findViewById(R.id.btnNotification);
+        btnDefaultIdentity = view.findViewById(R.id.btnDefaultIdentity);
         btnSignature = view.findViewById(R.id.btnSignature);
         btnReorderAccounts = view.findViewById(R.id.btnReorderAccounts);
         btnReorderFolders = view.findViewById(R.id.btnReorderFolders);
@@ -765,13 +767,23 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             }
         });
 
+        btnDefaultIdentity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentDialogSelectIdentity fragment = new FragmentDialogSelectIdentity();
+                fragment.setArguments(new Bundle());
+                fragment.setTargetFragment(FragmentSetup.this, ActivitySetup.REQUEST_DEFAULT_IDENTITY);
+                fragment.show(getParentFragmentManager(), "select:identity:default");
+            }
+        });
+
         btnSignature.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentDialogSelectIdentity fragment = new FragmentDialogSelectIdentity();
                 fragment.setArguments(new Bundle());
                 fragment.setTargetFragment(FragmentSetup.this, ActivitySetup.REQUEST_SELECT_IDENTITY);
-                fragment.show(getParentFragmentManager(), "select:identity");
+                fragment.show(getParentFragmentManager(), "select:identity:signature");
             }
         });
 
@@ -1141,6 +1153,10 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
         try {
             switch (requestCode) {
+                case ActivitySetup.REQUEST_DEFAULT_IDENTITY:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSelectDefaultIdentity(data.getBundleExtra("args"));
+                    break;
                 case ActivitySetup.REQUEST_SELECT_IDENTITY:
                     if (resultCode == RESULT_OK && data != null)
                         onSelectIdentity(data.getBundleExtra("args"));
@@ -1224,6 +1240,10 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         btnPermissions.setCompoundDrawablesRelativeWithIntrinsicBounds(
                 0, 0, all ? R.drawable.twotone_settings_24 : R.drawable.twotone_check_24, 0);
         btnPermissions.setText(all ? R.string.title_setup_manage : R.string.title_setup_grant);
+    }
+
+    private void onSelectDefaultIdentity(Bundle args) {
+        FragmentCompose.onSelectIdentity(getContext(), getViewLifecycleOwner(), getParentFragmentManager(), args);
     }
 
     private void onSelectIdentity(Bundle args) {

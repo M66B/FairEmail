@@ -128,6 +128,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -3426,7 +3427,7 @@ public class FragmentCompose extends FragmentBase {
                     break;
                 case REQUEST_SELECT_IDENTITY:
                     if (resultCode == RESULT_OK && data != null)
-                        onSelectIdentity(data.getBundleExtra("args"));
+                        onSelectIdentity(getContext(), getViewLifecycleOwner(), getParentFragmentManager(), data.getBundleExtra("args"));
                     break;
                 case REQUEST_PRINT:
                     if (resultCode == RESULT_OK && data != null)
@@ -5003,10 +5004,11 @@ public class FragmentCompose extends FragmentBase {
         }.serial().execute(this, args, "compose:picked");
     }
 
-    private void onSelectIdentity(Bundle args) {
+    static void onSelectIdentity(Context context, LifecycleOwner owner, FragmentManager fm, Bundle args) {
         long id = args.getLong("id");
+        Log.i("MMM id="+id);
         if (id < 0) {
-            getContext().startActivity(new Intent(getContext(), ActivitySetup.class)
+            context.startActivity(new Intent(context, ActivitySetup.class)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     .putExtra("manual", true)
                     .putExtra("scroll", true));
@@ -5041,14 +5043,14 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityIdentity identity) {
-                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(fm, ex);
             }
-        }.serial().execute(this, args, "select:identity");
+        }.serial().execute(context, owner, args, "select:identity");
     }
 
     private void onPrint(Bundle args) {

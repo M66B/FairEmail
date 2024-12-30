@@ -88,15 +88,16 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final int REQUEST_IMPORT_CERTIFICATE = 6;
     static final int REQUEST_OAUTH = 7;
     static final int REQUEST_STILL = 8;
-    static final int REQUEST_SELECT_IDENTITY = 9;
-    static final int REQUEST_EDIT_SIGNATURE = 10;
-    static final int REQUEST_CHANGE_PASSWORD = 11;
-    static final int REQUEST_EDIT_ACCOUNT_COLOR = 12;
-    static final int REQUEST_DELETE_ACCOUNT = 13;
-    static final int REQUEST_EDIT_IDENITY_COLOR = 14;
-    static final int REQUEST_IMPORT_PROVIDERS = 15;
-    static final int REQUEST_GRAPH_CONTACTS = 16;
-    static final int REQUEST_GRAPH_CONTACTS_OAUTH = 17;
+    static final int REQUEST_DEFAULT_IDENTITY = 9;
+    static final int REQUEST_SELECT_IDENTITY = 10;
+    static final int REQUEST_EDIT_SIGNATURE = 11;
+    static final int REQUEST_CHANGE_PASSWORD = 12;
+    static final int REQUEST_EDIT_ACCOUNT_COLOR = 13;
+    static final int REQUEST_DELETE_ACCOUNT = 14;
+    static final int REQUEST_EDIT_IDENITY_COLOR = 15;
+    static final int REQUEST_IMPORT_PROVIDERS = 16;
+    static final int REQUEST_GRAPH_CONTACTS = 17;
+    static final int REQUEST_GRAPH_CONTACTS_OAUTH = 18;
     static final int REQUEST_DEBUG_INFO = 7000;
 
     static final int PI_CONNECTION = 1;

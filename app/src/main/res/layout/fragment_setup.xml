@@ -1112,6 +1112,19 @@
                     app:layout_constraintTop_toBottomOf="@id/btnNotification" />
 
                 <Button
+                    android:id="@+id/btnDefaultIdentity"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_person_24"
+                    android:drawablePadding="6dp"
+                    android:tag="disable"
+                    android:text="@string/title_select_default_identity"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvNotificationHint" />
+
+                <Button
                     android:id="@+id/btnSignature"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
@@ -1122,7 +1135,7 @@
                     android:tag="disable"
                     android:text="@string/title_edit_signature"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvNotificationHint" />
+                    app:layout_constraintTop_toBottomOf="@id/btnDefaultIdentity" />
 
                 <Button
                     android:id="@+id/btnReorderAccounts"
