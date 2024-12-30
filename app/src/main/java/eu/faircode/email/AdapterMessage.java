@@ -255,7 +255,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorError;
     private int colorControlNormal;
 
-    private boolean hasWebView;
     private boolean pin;
     private boolean contacts;
     private float textSize;
@@ -2443,9 +2442,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibRule.setVisibility(tools && button_rule && !outbox && !message.folderReadOnly ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
                     ibRaw.setVisibility(tools && button_raw && raw ? View.VISIBLE : View.GONE);
-                    ibHtml.setVisibility(tools && hasWebView && button_html && message.content ? View.VISIBLE : View.GONE);
+                    ibHtml.setVisibility(tools && Helper.hasWebView(context) && button_html && message.content ? View.VISIBLE : View.GONE);
                     ibHeaders.setVisibility(tools && button_headers && headers ? View.VISIBLE : View.GONE);
-                    ibPrint.setVisibility(tools && !outbox && button_print && hasWebView && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
+                    ibPrint.setVisibility(tools && !outbox && button_print && Helper.hasWebView(context) && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
                     ibPin.setVisibility(tools && !outbox && button_pin && pin ? View.VISIBLE : View.GONE);
                     ibShare.setVisibility(tools && !outbox && button_share && message.content ? View.VISIBLE : View.GONE);
                     ibEvent.setVisibility(tools && !outbox && button_event && message.content ? View.VISIBLE : View.GONE);
@@ -2922,8 +2921,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void evalProperties(TupleMessageEx message) {
             if (message.show_full) {
-                properties.setValue("full", message.id, hasWebView);
-                properties.setValue("full_asked", message.id, hasWebView);
+                properties.setValue("full", message.id, Helper.hasWebView(context));
+                properties.setValue("full_asked", message.id, Helper.hasWebView(context));
             }
             if (message.show_images) {
                 properties.setValue("images", message.id, true);
@@ -2941,8 +2940,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String domain = (at < 0 ? from : from.substring(at));
                     if (prefs.getBoolean(from + ".show_full", false) ||
                             prefs.getBoolean(domain + ".show_full", false)) {
-                        properties.setValue("full", message.id, hasWebView);
-                        properties.setValue("full_asked", message.id, hasWebView);
+                        properties.setValue("full", message.id, Helper.hasWebView(context));
+                        properties.setValue("full_asked", message.id, Helper.hasWebView(context));
                     }
                     if (prefs.getBoolean(from + ".show_images", false) ||
                             prefs.getBoolean(domain + ".show_images", false)) {
@@ -2963,8 +2962,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (!confirm_html &&
                     !EntityFolder.JUNK.equals(message.folderType) &&
                     !properties.getValue("full_asked", message.id)) {
-                properties.setValue("full", message.id, hasWebView);
-                properties.setValue("full_asked", message.id, hasWebView);
+                properties.setValue("full", message.id, Helper.hasWebView(context));
+                properties.setValue("full_asked", message.id, Helper.hasWebView(context));
             }
 
             if (!properties.getValue("force_light_default", message.id)) {
@@ -3010,8 +3009,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Pair<Integer, Integer> position = properties.getPosition(message.id);
             Log.i("Bind size=" + size + " height=" + height);
 
-            ibFull.setEnabled(hasWebView);
-            ibFull.setImageTintList(ColorStateList.valueOf(hasWebView ? colorAccent : colorSeparator));
+            ibFull.setEnabled(Helper.hasWebView(context));
+            ibFull.setImageTintList(ColorStateList.valueOf(Helper.hasWebView(context) ? colorAccent : colorSeparator));
             ibFull.setImageResource(show_full ? R.drawable.twotone_fullscreen_exit_24 : R.drawable.twotone_fullscreen_24);
             ibFull.setContentDescription(context.getString(show_full
                     ? R.string.title_legend_show_reformatted
@@ -3520,7 +3519,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ? View.VISIBLE : View.GONE);
 
                     boolean reformatted_hint = prefs.getBoolean("reformatted_hint", true);
-                    tvReformatted.setVisibility(reformatted_hint && hasWebView ? View.VISIBLE : View.GONE);
+                    tvReformatted.setVisibility(reformatted_hint && Helper.hasWebView(context) ? View.VISIBLE : View.GONE);
 
                     boolean signed_data = args.getBoolean("signed_data");
                     tvDecrypt.setVisibility(encrypted && !unlocked ? View.VISIBLE : View.GONE);
@@ -6457,14 +6456,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_share_link).setVisible(BuildConfig.DEBUG);
             popupMenu.getMenu().findItem(R.id.menu_pin).setVisible(pin);
             popupMenu.getMenu().findItem(R.id.menu_event).setEnabled(message.content);
-            popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(hasWebView && message.content);
+            popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(Helper.hasWebView(context) && message.content);
             popupMenu.getMenu().findItem(R.id.menu_print).setVisible(Helper.canPrint(context));
 
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(message.uid != null ||
                     (message.accountProtocol == EntityAccount.TYPE_POP && message.headers != null));
 
-            popupMenu.getMenu().findItem(R.id.menu_show_html).setVisible(hasWebView && message.content);
+            popupMenu.getMenu().findItem(R.id.menu_show_html).setVisible(Helper.hasWebView(context) && message.content);
 
             boolean popReload = (message.accountProtocol == EntityAccount.TYPE_POP &&
                     message.accountLeaveOnServer &&
@@ -8374,7 +8373,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
         this.colorControlNormal = Helper.resolveColor(context, androidx.appcompat.R.attr.colorControlNormal);
 
-        this.hasWebView = Helper.hasWebView(context);
         this.pin = Shortcuts.can(context);
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         this.textSize = Helper.getTextSize(context, zoom);
