@@ -35,6 +35,7 @@ import android.view.InputDevice;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
 import android.webkit.RenderProcessGoneDetail;
 import android.webkit.WebSettings;
@@ -99,6 +100,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             WebSettingsCompat.setSafeBrowsingEnabled(settings, safe_browsing);
         if (WebViewEx.isFeatureSupported(context, WebViewFeature.ATTRIBUTION_REGISTRATION_BEHAVIOR))
             WebSettingsCompat.setAttributionRegistrationBehavior(settings, WebSettingsCompat.ATTRIBUTION_BEHAVIOR_DISABLED);
+
+        CookieManager.getInstance().setAcceptCookie(false);
     }
 
     void init(int height, int maxHeight, float size, Pair<Integer, Integer> position, boolean force_light, IWebView intf) {
