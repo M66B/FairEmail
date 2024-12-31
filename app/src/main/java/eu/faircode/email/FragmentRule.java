@@ -247,6 +247,7 @@ public class FragmentRule extends FragmentBase {
             "$$dkim$",
             "$$spf$",
             "$$dmarc$",
+            "$$auth$",
             "$$mx$",
             "$$blocklist$",
             "$$replydomain$",
