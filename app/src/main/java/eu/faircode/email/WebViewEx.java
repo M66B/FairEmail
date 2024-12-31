@@ -475,7 +475,10 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     static int getDefaultViewportHeight(Context context) {
-        return DEFAULT_VIEWPORT_HEIGHT;
+        if (Helper.isGoogle() && Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE /* Android 14 */)
+            return DEFAULT_VIEWPORT_HEIGHT * 2;
+        else
+            return DEFAULT_VIEWPORT_HEIGHT;
     }
 
     @NonNull
