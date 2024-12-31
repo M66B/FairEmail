@@ -2966,7 +2966,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 properties.setValue("full_asked", message.id, Helper.hasWebView(context));
             }
 
-            if (!properties.getValue("force_light_default", message.id)) {
+            if (properties.getValue("full", message.id) &&
+                    !properties.getValue("force_light_default", message.id)) {
                 boolean default_light = prefs.getBoolean("default_light", false);
                 properties.setValue("force_light", message.id, default_light);
                 properties.setValue("force_light_default", message.id, true);
