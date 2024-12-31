@@ -855,6 +855,7 @@
     <string name="title_advanced_send_reminders_hint">Näita hoiatust, kui sõnum on tühi või puudub teema või sõnumilt võib puududa manus</string>
     <string name="title_advanced_reply_move_hint">Meiliserver võib sellegipoolest sõnumid saadetud sõnumite kausta lisada</string>
     <string name="title_advanced_compose_color_hint">Väga heledad või väga tumedad värvid põhjustavad vastuvõtjate poolel loetamatuid sõnumeid</string>
+    <string name="title_advanced_compose_font_hint">Vaikimisi tähendab arvestamine saaja poolt valitud fondiga</string>
     <string name="title_advanced_template_reply_hint">HTML on lubatud. Saadaval kohatäited: %1$s</string>
     <string name="title_advanced_write_below_hint">Vastuvõtja võib vastusest ilma jääda, näiteks kui pikem sõnum kärbitakse</string>
     <string name="title_advanced_attach_new_hint">Muul juhul lisa jagatud aadressid või failid praegusele mustandsõnumile</string>
@@ -1372,6 +1373,7 @@
     <string name="title_attachment_saved">Manus salvestatud</string>
     <string name="title_attachments_saved">Manused salvestatud</string>
     <string name="title_attachments_incomplete">Mõnesid pilte või manuseid ei laaditud alla ja neid ei saa lisada</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">See aruanne, spetsiaalselt vormindatud e-kiri, saadeti e-posti serveri poolt, sest saadetud sõnumit ei õnnestunud adressaadile kätte toimetada, näiteks kuna postkast on täis või kuna e-posti aadressi ei ole (enam) olemas.</string>
     <string name="title_ask_save">Salvestada muudatused?</string>
     <string name="title_ask_delete">Kas kustutada sõnum jäädavalt?</string>
     <string name="title_ask_delete_accept">Ma mõistan, et sõnumite jäädav kustutamine on tagasivõtmatu</string>
@@ -1601,6 +1603,7 @@
     <string name="title_signature_email">Allkirja aadress</string>
     <string name="title_signature_mismatch">Saatja ja allkirja e-postiaadress ei sobi kokku</string>
     <string name="title_signature_algorithm">Algoritm</string>
+    <string name="title_signature_public_key">Avalik võtiy</string>
     <string name="title_signature_subject">Teema</string>
     <string name="title_signature_validity">Kehtivus</string>
     <string name="title_signature_outdated">See avalik võti ei kehti hetkel</string>
@@ -1978,6 +1981,9 @@
     <string name="title_hint_junk">Spämmi filtreerimine peaks toimuma meiliserveris ja seda ei saa usaldusväärselt teha piiratud võimalustega akutoitel töötava seadme abil.</string>
     <string name="title_hint_junk_learn">Liigutades sõnumeid spämmi kausta ja sealt välja, õpib meiliserver, mis spämm on</string>
     <string name="title_hint_contact_actions">Valikute jaoks vajuta pikalt</string>
+    <string name="title_hint_eml">        See on kokkuvõte toorsõnumi faili sisust
+        Kogu sisu vaatamiseks saad kasutada parempoolset alumist nuppu, et sõnum ostkasti salvestada.
+    </string>
     <string name="title_open_link">Ava link</string>
     <string name="title_image_link">Pildilink</string>
     <string name="title_different_link">Tiitel ja lingi aadress on erinevad</string>
