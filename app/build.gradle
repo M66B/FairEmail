@@ -3,8 +3,8 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
-def getVersionCode = { -> return 2253 }
-def getRevision = { -> return "b" }
+def getVersionCode = { -> return 2254 }
+def getRevision = { -> return "a" }
 def getReleaseName = { -> return "Barsboldia" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
@@ -838,7 +838,7 @@ dependencies {
     // https://search.maven.org/artifact/io.github.everythingme/overscroll-decor-android
     implementation "io.github.everythingme:overscroll-decor-android:$overscroll_version"
 
-    // https://www.bouncycastle.org/latest_releases.html
+    // https://www.bouncycastle.org/news/
     // https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15to18
     // https://mvnrepository.com/artifact/org.bouncycastle/bctls-jdk15to18
     implementation "org.bouncycastle:bcpkix-jdk15to18:$bouncycastle_version"

@@ -4,7 +4,7 @@
 
 ### Notices
 
-Merry Christmas and Happy new Year.
+Happy new Year &#x1F386;
 
 Google requires FairEmail to undergo an annual [CASA](https://appdefensealliance.dev/casa) security audit,
 which must be conducted by an authorized assessor (this year [TAC Security](https://casa.tacsecurity.com/site/home)).
@@ -32,10 +32,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2254 2024-12-31
 
 * Added experimental force light for reformatted message view
-* Updated libraries
+* Updated libraries, including [Jsoup](https://jsoup.org/news/) and [BouncyCastle](https://www.bouncycastle.org/news/)
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
