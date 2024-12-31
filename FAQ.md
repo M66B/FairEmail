@@ -140,7 +140,8 @@ Related questions:
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
 * Search suggestions causes the keyboard losing focus on Android 12L.
-* [A bug](https://techcommunity.microsoft.com/t5/outlook/outlook-office-365-imap-idle-is-broken/m-p/3616242) in the Outlook IMAP server causes delayed new message notifications.
+* ~~[A bug](https://techcommunity.microsoft.com/t5/outlook/outlook-office-365-imap-idle-is-broken/m-p/3616242) in the Outlook IMAP server causes delayed new message notifications.~~
+* Updating the Material You colors sometimes require restarting the app / the device, which is caused by [a bug](https://issuetracker.google.com/issues/386671298) in the Android WebView.
 
 <a name="redmi"></a>
 <a name="realme"></a>
