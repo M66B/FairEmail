@@ -32,7 +32,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### 1.2254 2024-12-31 *
+### 1.2255 2025-01-01 *
+
+* Happy New Year
+* Fixed force light of reformatted message view
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2254 2024-12-31
 
 * Added experimental force light for reformatted message view
 * Updated libraries, including [Jsoup](https://jsoup.org/news/) and [BouncyCastle](https://www.bouncycastle.org/news/)
