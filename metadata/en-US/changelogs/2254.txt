@@ -32,14 +32,14 @@ For support you can use the contact form.
 
 Barsboldia
 
-1.2254 2024-12-31
+1.2254 2024-12-31 *
 
 * Added experimental force light for reformatted message view
 * Updated libraries, including Jsoup
 * Small improvements and minor bug fixes
 * Updated translations
 
-1.2253 2024-12-23
+1.2253 2024-12-23 *
 
 * Fixed showing S/MIME digest algorithm
 * Added option to select default font size for sending
