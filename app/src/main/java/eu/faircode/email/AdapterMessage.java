@@ -3005,6 +3005,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 properties.setValue("images", message.id, true);
             }
 
+            boolean dark = Helper.isDarkTheme(context);
+
             float size = properties.getSize(message.id, show_full ? 0 : textSize * message_zoom / 100f);
             int height = properties.getHeight(message.id, dp60);
             Pair<Integer, Integer> position = properties.getPosition(message.id);
@@ -3123,9 +3125,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (size != 0)
                         tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
 
-                    tvBody.setBackgroundColor(force_light ? Color.WHITE : Color.TRANSPARENT);
+                    tvBody.setBackgroundColor(force_light && dark ? Color.WHITE : Color.TRANSPARENT);
 
-                    if (force_light)
+                    if (force_light && dark)
                         tvBody.setTextColor(textColorPrimaryInverse);
                     else
                         tvBody.setTextColor(contrast ? textColorPrimary : colorRead);
