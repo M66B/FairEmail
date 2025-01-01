@@ -196,7 +196,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             @Override
             public void onScaleChanged(WebView view, float oldScale, float newScale) {
                 Log.i("Changed scale=" + newScale);
-                intf.onScaleChanged(newScale);
+                if (getVisibility() == View.VISIBLE)
+                    intf.onScaleChanged(newScale);
             }
 
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
@@ -290,7 +291,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     protected void onSizeChanged(int w, int h, int ow, int oh) {
         super.onSizeChanged(w, h, ow, oh);
         Log.i("Size changed height=" + h);
-        this.intf.onSizeChanged(w, h, ow, oh);
+        if (getVisibility() == View.VISIBLE)
+            this.intf.onSizeChanged(w, h, ow, oh);
     }
 
     @Override
