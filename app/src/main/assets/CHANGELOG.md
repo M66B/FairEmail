@@ -32,7 +32,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### 1.2255 2025-01-01 *
+### 1.2256 2025-01-01 *
 
 * Happy New Year
 * Fixed force light of reformatted message view
