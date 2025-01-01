@@ -854,6 +854,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar una advertencia cuando el texto del mensaje o el asunto estén vacíos o cuando un archivo adjunto pueda estar ausente</string>
     <string name="title_advanced_reply_move_hint">El servidor de correo electrónico todavía puede añadir los mensajes a la carpeta de mensajes enviados</string>
     <string name="title_advanced_compose_color_hint">Los colores muy claros o muy oscuros resultarán en mensajes ilegibles en el lado de los destinatarios</string>
+    <string name="title_advanced_compose_font_hint">Por defecto significa respetar la fuente seleccionada en el lado receptor</string>
     <string name="title_advanced_template_reply_hint">HTML está permitido. Marcadores de posición disponibles: %1$s</string>
     <string name="title_advanced_write_below_hint">Un destinatario puede perderse su respuesta, por ejemplo cuando un mensaje más largo está siendo truncado</string>
     <string name="title_advanced_attach_new_hint">De lo contrario, añadir direcciones compartidas o archivos al mensaje de borrador actual</string>
@@ -1370,6 +1371,7 @@
     <string name="title_attachment_saved">Adjunto guardado</string>
     <string name="title_attachments_saved">Adjuntos guardados</string>
     <string name="title_attachments_incomplete">Algunos adjuntos o imágenes no fueron descargados y no pudieron añadirse</string>
+    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Este informe, un correo electrónico con formato especial, fue enviado por un servidor de correo electrónico porque un mensaje enviado no pudo ser enviado al destinatario, por ejemplo porque el buzón está lleno, o porque la dirección de correo electrónico (ya) no existe.</string>
     <string name="title_ask_save">¿Guardar cambios?</string>
     <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
     <string name="title_ask_delete_accept">Entiendo que la eliminación permanente de mensajes es irreverible</string>
