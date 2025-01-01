@@ -120,7 +120,7 @@ public class EntityContact implements Serializable {
             return;
 
         boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
-        boolean suggest_received = prefs.getBoolean("suggest_received", false);
+        boolean suggest_received = prefs.getBoolean("suggest_received", true);
 
         // Shortcut
         if (!suggest_sent && !suggest_received)

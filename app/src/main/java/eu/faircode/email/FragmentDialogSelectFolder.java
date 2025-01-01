@@ -373,7 +373,7 @@ public class FragmentDialogSelectFolder extends FragmentDialogBase {
                 List<EntityFolder> favorites = new ArrayList<>();
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean suggest_received = prefs.getBoolean("suggest_received", false);
+                boolean suggest_received = prefs.getBoolean("suggest_received", true);
 
                 DB db = DB.getInstance(context);
 

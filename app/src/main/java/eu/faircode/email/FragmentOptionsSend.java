@@ -141,7 +141,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
     final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "keyboard", "keyboard_no_fullscreen",
-            "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently", "suggest_account", "auto_identity",
+            "suggest_names", "suggest_sent", "suggest_received", "suggest_frequently", "suggest_account", "auto_identity",
             "purge_contact_age", "purge_contact_freq",
             "send_reminders", "send_chips", "send_nav_color", "send_pending",
             "save_revisions", "auto_save_paragraph", "auto_save_dot", "discard_delete",
@@ -991,7 +991,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             swKeyboardNoFullscreen.setChecked(prefs.getBoolean("keyboard_no_fullscreen", false));
             swSuggestNames.setChecked(prefs.getBoolean("suggest_names", true));
             swSuggestSent.setChecked(prefs.getBoolean("suggest_sent", true));
-            swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
+            swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", true));
             swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
             swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
             swSuggestAccount.setChecked(prefs.getBoolean("suggest_account", false));

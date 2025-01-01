@@ -452,7 +452,7 @@ public class FragmentCompose extends FragmentBase {
         final boolean keyboard_no_fullscreen = prefs.getBoolean("keyboard_no_fullscreen", false);
         final boolean suggest_names = prefs.getBoolean("suggest_names", true);
         final boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
-        final boolean suggest_received = prefs.getBoolean("suggest_received", false);
+        final boolean suggest_received = prefs.getBoolean("suggest_received", true);
         final boolean suggest_frequently = prefs.getBoolean("suggest_frequently", false);
         final boolean suggest_account = prefs.getBoolean("suggest_account", false);
         final boolean cc_bcc = prefs.getBoolean("cc_bcc", false);
@@ -1447,7 +1447,7 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean auto_identity = prefs.getBoolean("auto_identity", false);
                 boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
-                boolean suggest_received = prefs.getBoolean("suggest_received", false);
+                boolean suggest_received = prefs.getBoolean("suggest_received", true);
 
                 if (!auto_identity)
                     return null;
@@ -5561,7 +5561,7 @@ public class FragmentCompose extends FragmentBase {
             boolean save_drafts = prefs.getBoolean("save_drafts", perform_expunge);
             boolean auto_identity = prefs.getBoolean("auto_identity", false);
             boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
-            boolean suggest_received = prefs.getBoolean("suggest_received", false);
+            boolean suggest_received = prefs.getBoolean("suggest_received", true);
             boolean forward_new = prefs.getBoolean("forward_new", false);
             boolean markdown = prefs.getBoolean("markdown", false);
 
