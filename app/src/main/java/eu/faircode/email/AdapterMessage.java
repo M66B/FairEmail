@@ -2998,7 +2998,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_images = properties.getValue("images", message.id);
             boolean show_quotes = properties.getValue("quotes", message.id);
 
-            boolean force_light = properties.getValue("force_light", message.id);
             boolean always_images = prefs.getBoolean("html_always_images", false);
             if (always_images && show_full) {
                 show_images = true;
@@ -3006,6 +3005,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             boolean dark = Helper.isDarkTheme(context);
+            boolean force_light = properties.getValue("force_light", message.id);
 
             float size = properties.getSize(message.id, show_full ? 0 : textSize * message_zoom / 100f);
             int height = properties.getHeight(message.id, dp60);
@@ -5920,6 +5920,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             properties.setSize(message.id, null);
             properties.setHeight(message.id, null);
             properties.setPosition(message.id, null, null);
+
+            properties.setValue("force_light", message.id, false);
+            properties.setValue("force_light_default", message.id, false);
+            evalProperties(message);
 
             if (full)
                 setupTools(message, false, false);
