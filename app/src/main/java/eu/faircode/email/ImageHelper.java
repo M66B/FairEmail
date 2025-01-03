@@ -86,6 +86,7 @@ class ImageHelper {
     private static final int MAX_PROBE = 128 * 1024; // bytes
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
     private static final int MAX_BITMAP_SIZE = 100 * 1024 * 1024; // RecordingCanvas.MAX_BITMAP_SIZE
+    private static final int MAX_SVG_SIZE = 1024 * 1024; // bytes
 
     // https://developer.android.com/guide/topics/media/media-formats#image-formats
     static final List<String> IMAGE_TYPES = Collections.unmodifiableList(Arrays.asList(
@@ -277,8 +278,8 @@ class ImageHelper {
     }
 
     @NonNull
-    static Bitmap renderSvg(InputStream is, int fillColor, int scaleToPixels) throws IOException {
-        try {
+    static Bitmap renderSvg(InputStream _is, int fillColor, int scaleToPixels) throws IOException {
+        try (InputStream is = new Helper.MaximumLengthStream(_is, 1024 * 1024)) {
             // https://bugzilla.mozilla.org/show_bug.cgi?id=455100
             // https://bug1105796.bmoattachments.org/attachment.cgi?id=8529795
             // https://github.com/BigBadaboom/androidsvg/issues/122#issuecomment-361902061

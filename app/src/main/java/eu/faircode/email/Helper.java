@@ -153,6 +153,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -3848,5 +3849,38 @@ public class Helper {
     static void clearAll(Context context) {
         ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
         am.clearApplicationUserData();
+    }
+
+    static class MaximumLengthStream extends FilterInputStream {
+        private int max;
+        private int count = 0;
+
+        protected MaximumLengthStream(InputStream in, int max) {
+            super(in);
+            this.max = max;
+        }
+
+        @Override
+        public int read() throws IOException {
+            int b = super.read();
+            if (b >= 0 && ++count > max)
+                throw new IOException("Stream larger than " + max + " bytes");
+            return b;
+        }
+
+        @Override
+        public int read(byte[] b) throws IOException {
+            for (int i = 0; i < b.length; i++) {
+                b[i] = (byte) read();
+                if (b[i] < 0)
+                    return i;
+            }
+            return b.length;
+        }
+
+        @Override
+        public int read(byte[] b, int off, int len) throws IOException {
+            throw new UnsupportedOperationException();
+        }
     }
 }
