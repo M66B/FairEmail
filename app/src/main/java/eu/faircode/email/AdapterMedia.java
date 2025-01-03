@@ -83,7 +83,6 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
     private List<EntityAttachment> items = new ArrayList<>();
 
     private static final int PDF_WIDTH = 120;
-    private static final int MAX_SVG_FILE_SIZE = 1024 * 1024;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private final View view;
@@ -202,8 +201,6 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                             boolean barcode_preview = prefs.getBoolean("barcode_preview", true);
 
                             if ("image/webp".equalsIgnoreCase(type) && !webp)
-                                return context.getDrawable(R.drawable.twotone_image_not_supported_24);
-                            if ("image/svg+xml".equalsIgnoreCase(type) && file.length() > MAX_SVG_FILE_SIZE)
                                 return context.getDrawable(R.drawable.twotone_image_not_supported_24);
 
                             try {
