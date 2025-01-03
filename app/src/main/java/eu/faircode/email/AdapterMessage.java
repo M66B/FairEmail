@@ -3827,7 +3827,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if ((pdf_preview && attachment.isPDF()) ||
                             (video_preview && attachment.isVideo()) ||
                             (audio_preview && attachment.isAudio()) ||
-                            (attachment.isAttachment() && attachment.isImage())) {
+                            (attachment.isAttachment() && attachment.isImage() &&
+                                    (!Helper.isPlayStoreInstall() ||
+                                            !"image/svg+xml".equalsIgnoreCase(attachment.getMimeType())))) {
                         media.add(attachment);
                         if (attachment.available &&
                                 attachment.isAttachment() && attachment.isImage())
