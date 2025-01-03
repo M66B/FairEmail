@@ -608,8 +608,11 @@ public class ActivityBilling extends ActivityBase implements
         else {
             message = getBillingResponseText(result);
 
-            if (result.getResponseCode() == BillingClient.BillingResponseCode.BILLING_UNAVAILABLE)
+            if (result.getResponseCode() == BillingClient.BillingResponseCode.ERROR ||
+                    result.getResponseCode() == BillingClient.BillingResponseCode.BILLING_UNAVAILABLE)
                 message += " Is the Play Store app logged into the account used to install the app?";
+            else if (result.getResponseCode() == BillingClient.BillingResponseCode.NETWORK_ERROR)
+                message += " Is there a working internet connection?";
 
             String debug = result.getDebugMessage();
             if (!TextUtils.isEmpty(debug))
