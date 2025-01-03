@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">FairEmail</string>
-    <string name="app_copyright" translatable="false">Copyright &#x24B8; 2018–2024 by M. Bokhorst</string>
+    <string name="app_copyright" translatable="false">Copyright &#x24B8; 2018–2025 by M. Bokhorst</string>
     <string name="app_search">FairEmail search</string>
     <string name="app_send_self">Send to self</string>
     <string name="app_answer" translatable="false">FairEmail template</string>

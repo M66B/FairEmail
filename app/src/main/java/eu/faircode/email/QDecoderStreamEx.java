@@ -2,7 +2,7 @@ package eu.faircode.email;
 
 /*
  * Copyright (c) 1997, 2018 Oracle and/or its affiliates. All rights reserved.
- * Copyright 2018-2024 by Marcel Bokhorst (M66B)
+ * Copyright 2018-2025 by Marcel Bokhorst (M66B)
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0, which is available at
