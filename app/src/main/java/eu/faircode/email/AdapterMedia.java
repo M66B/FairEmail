@@ -246,8 +246,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                                 }
 
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
-                                    !"image/svg+xml".equals(type) &&
-                                    !"svg".equals(Helper.getExtension(file.getName())))
+                                    !"image/svg+xml".equalsIgnoreCase(type))
                                 try {
                                     return ImageHelper.getScaledDrawable(context, file, type, max);
                                 } catch (Throwable ex) {
