@@ -311,7 +311,7 @@ class ImageHelper {
             svg.renderToCanvas(canvas);
             return bm;
         } catch (Throwable ex) {
-            throw new IOException("SVG, ex");
+            throw new IOException("SVG, ex", ex);
         }
     }
 

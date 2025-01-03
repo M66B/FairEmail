@@ -3863,24 +3863,36 @@ public class Helper {
         @Override
         public int read() throws IOException {
             int b = super.read();
-            if (b >= 0 && ++count > max)
-                throw new IOException("Stream larger than " + max + " bytes");
+            if (b >= 0) {
+                count++;
+                checkLength();
+            }
             return b;
         }
 
         @Override
         public int read(byte[] b) throws IOException {
-            for (int i = 0; i < b.length; i++) {
-                b[i] = (byte) read();
-                if (b[i] < 0)
-                    return i;
+            int read = super.read(b);
+            if (read > 0) {
+                count += read;
+                checkLength();
             }
-            return b.length;
+            return read;
         }
 
         @Override
         public int read(byte[] b, int off, int len) throws IOException {
-            throw new UnsupportedOperationException();
+            int read = super.read(b, off, len);
+            if (read > 0) {
+                count += read;
+                checkLength();
+            }
+            return read;
+        }
+
+        private void checkLength() throws IOException {
+            if (count > max)
+                throw new IOException("Stream larger than " + max + " bytes");
         }
     }
 }
