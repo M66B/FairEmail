@@ -211,6 +211,7 @@
     <string name="title_setup_oauth_updated">Kontoauktorisering har uppdaterats</string>
     <string name="title_setup_oauth_edge">När du använder Edge webbläsare, se till att \"Blockera öppna externa appar\" i inställningarna \"Sekretess, säkerhet och tjänster\" är \"Av\"</string>
     <string name="title_setup_oauth_brave">När du använder webbläsaren Brave så måste du aktivera alternativet i Braves inställningar för att tillåta att applänkar öppnas i appar utanför Brave</string>
+    <string name="title_setup_oauth_browser">Auktorisering kräver en fungerande webbläsare som gör det möjligt att öppna applänkar (ofta en säkerhetsinställning), så att auktoriseringstoken i slutet kan överföras till appen</string>
     <string name="title_setup_oauth_authorize">Auktorisera</string>
     <string name="title_setup_select_account">Välj konto</string>
     <string name="title_setup_instructions">Inställningsinstruktioner</string>
@@ -1684,6 +1685,7 @@
     <string name="title_edit_signature_image_hint">        När du skickar ett meddelande kopieras bilden till meddelandet från den valda platsen.
         Ta alltså inte bort bildfilen!
     </string>
+    <string name="title_edit_signature_delete">Ta bort signatur?</string>
     <string name="title_answer_define_name">Namn</string>
     <string name="title_answer_define_value">Värde</string>
     <string name="title_answer_caption">Redigera mall</string>
