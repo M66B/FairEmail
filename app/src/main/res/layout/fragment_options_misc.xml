@@ -1179,17 +1179,6 @@
                     app:layout_constraintTop_toBottomOf="@id/ibSqliteCache" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swLegacyQueries"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_legacy_queries"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSqliteCacheHint"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swCacheLists"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1197,7 +1186,7 @@
                     android:text="@string/title_advanced_cache_lists"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swLegacyQueries"
+                    app:layout_constraintTop_toBottomOf="@id/tvSqliteCacheHint"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

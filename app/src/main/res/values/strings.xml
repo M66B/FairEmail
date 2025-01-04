@@ -2008,6 +2008,7 @@
     <string name="title_sort_on_starred_unread">Starred, unread</string>
     <string name="title_sort_on_priority">Priority</string>
     <string name="title_sort_on_sender">Sender</string>
+    <string name="title_sort_on_sender_name">Sender name</string>
     <string name="title_sort_on_subject">Subject</string>
     <string name="title_sort_on_size">Size</string>
     <string name="title_sort_on_attachments">Attachments</string>

@@ -168,6 +168,8 @@ public abstract class DB extends RoomDatabase {
         try {
             // https://www.sqlite.org/json1.html
             // The JSON functions and operators are built into SQLite by default, as of SQLite version 3.38.0 (2022-02-22)
+            // SDK 14 / Android 14 has 3.39.2
+            // https://stackoverflow.com/questions/2421189/version-of-sqlite-used-in-android
             String version = getSqliteVersion();
             if (version == null)
                 return false;

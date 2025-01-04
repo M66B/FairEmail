@@ -71,6 +71,9 @@
                         android:id="@+id/menu_sort_on_sender"
                         android:title="@string/title_sort_on_sender" />
                     <item
+                        android:id="@+id/menu_sort_on_sender_name"
+                        android:title="@string/title_sort_on_sender_name" />
+                    <item
                         android:id="@+id/menu_sort_on_subject"
                         android:title="@string/title_sort_on_subject" />
                     <item

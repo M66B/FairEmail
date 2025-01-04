@@ -89,7 +89,6 @@ public class ViewModelMessages extends ViewModel {
             BoundaryCallbackMessages.SearchCriteria criteria, boolean server) {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean legacy = prefs.getBoolean("legacy_queries", false);
         boolean cache_lists = prefs.getBoolean("cache_lists", true);
 
         Args args = new Args(context,
@@ -125,8 +124,8 @@ public class ViewModelMessages extends ViewModel {
                             .setPageSize(LOCAL_PAGE_SIZE)
                             .setMaxSize(MAX_CACHED_ITEMS)
                             .build();
-                    if (legacy)
-                        pager = db.message().pagedUnifiedLegacy(
+                    if ("sender_name".equals(args.sort1))
+                        pager = db.message().pagedUnifiedJson(
                                 args.type,
                                 args.category,
                                 args.threading,
@@ -165,8 +164,8 @@ public class ViewModelMessages extends ViewModel {
                             .setPrefetchDistance(REMOTE_PAGE_SIZE)
                             .setMaxSize(MAX_CACHED_ITEMS)
                             .build();
-                    if (legacy)
-                        pager = db.message().pagedFolderLegacy(
+                    if ("sender_name".equals(args.sort1))
+                        pager = db.message().pagedFolderJson(
                                 args.folder, args.threading,
                                 args.sort1, args.sort2, args.ascending,
                                 args.filter_seen,
@@ -214,8 +213,8 @@ public class ViewModelMessages extends ViewModel {
                             .setMaxSize(MAX_CACHED_ITEMS)
                             .build();
                     if (args.folder < 0) {
-                        if (legacy)
-                            pager = db.message().pagedUnifiedLegacy(
+                        if ("sender_name".equals(args.sort1))
+                            pager = db.message().pagedUnifiedJson(
                                     null, null,
                                     args.threading, false,
                                     criteria == null || criteria.touched == null ? "time" : "touched", "", false,
@@ -234,8 +233,8 @@ public class ViewModelMessages extends ViewModel {
                                     args.debug);
                         builder = new LivePagedListBuilder<>(pager, configSearch);
                     } else {
-                        if (legacy)
-                            pager = db.message().pagedFolderLegacy(
+                        if ("sender_name".equals(args.sort1))
+                            pager = db.message().pagedFolderJson(
                                     args.folder, args.threading,
                                     criteria == null || criteria.touched == null ? "time" : "touched", "", false,
                                     false, false, false, false, false,
@@ -607,11 +606,16 @@ public class ViewModelMessages extends ViewModel {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             this.group_category = prefs.getBoolean("group_category", false);
+
             String sort = prefs.getString(FragmentMessages.getSort(context, viewType, type), "time");
             String[] sorts = sort.split("\\+");
             this.sort1 = sorts[0];
             this.sort2 = (sorts.length > 1 ? sorts[1] : "");
             this.ascending = prefs.getBoolean(FragmentMessages.getSortOrder(context, viewType, type), outbox);
+
+            if ("sender_name".equals(this.sort1) && !DB.hasJson())
+                this.sort1 = "sender";
+
             this.filter_seen = prefs.getBoolean(FragmentMessages.getFilter(context, "seen", viewType, type), false);
             this.filter_unflagged = prefs.getBoolean(FragmentMessages.getFilter(context, "unflagged", viewType, type), false);
             this.filter_unknown = prefs.getBoolean(FragmentMessages.getFilter(context, "unknown", viewType, type), false);

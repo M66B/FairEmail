@@ -6429,10 +6429,14 @@ public class FragmentMessages extends FragmentBase
                 menu.findItem(R.id.menu_sort_on_unread_starred).setVisible(false);
                 menu.findItem(R.id.menu_sort_on_starred_unread).setVisible(false);
                 menu.findItem(R.id.menu_sort_on_sender).setVisible(false);
+                menu.findItem(R.id.menu_sort_on_sender_name).setVisible(false);
                 menu.findItem(R.id.menu_sort_on_subject).setVisible(false);
                 menu.findItem(R.id.menu_sort_on_size).setVisible(false);
                 menu.findItem(R.id.menu_sort_on_attachments).setVisible(false);
                 menu.findItem(R.id.menu_sort_on_snoozed).setVisible(false);
+            } else {
+                if (!DB.hasJson())
+                    menu.findItem(R.id.menu_sort_on_sender_name).setVisible(false);
             }
 
             boolean unselected = (selectionTracker == null || !selectionTracker.hasSelection());
@@ -6453,6 +6457,8 @@ public class FragmentMessages extends FragmentBase
                 menu.findItem(R.id.menu_sort_on_priority).setChecked(true);
             else if ("sender".equals(sort))
                 menu.findItem(R.id.menu_sort_on_sender).setChecked(true);
+            else if ("sender_name".equals(sort))
+                menu.findItem(R.id.menu_sort_on_sender_name).setChecked(true);
             else if ("subject".equals(sort))
                 menu.findItem(R.id.menu_sort_on_subject).setChecked(true);
             else if ("size".equals(sort))
@@ -6608,6 +6614,10 @@ public class FragmentMessages extends FragmentBase
         } else if (itemId == R.id.menu_sort_on_sender) {
             item.setChecked(true);
             onMenuSort("sender");
+            return true;
+        } else if (itemId == R.id.menu_sort_on_sender_name) {
+            item.setChecked(true);
+            onMenuSort("sender_name");
             return true;
         } else if (itemId == R.id.menu_sort_on_subject) {
             item.setChecked(true);

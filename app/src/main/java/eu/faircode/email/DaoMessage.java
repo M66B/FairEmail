@@ -1119,15 +1119,7 @@ public interface DaoMessage {
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
             "   OR (NOT :found AND folder.type = :type)" +
             "   THEN message.received ELSE 0 END) AS dummy" +
-            " FROM (SELECT * FROM message" +
-            "  WHERE message.thread IN" +
-            "  (SELECT DISTINCT mm.thread FROM folder ff" +
-            "   JOIN message mm ON mm.folder = ff.id" +
-            "   WHERE ((:found AND mm.ui_found)" +
-            "   OR (NOT :found AND :type IS NULL AND ff.unified)" +
-            "   OR (NOT :found AND :type IS NOT NULL AND ff.type = :type))" +
-            "   AND (NOT mm.ui_hide OR :debug))" +
-            "   ORDER BY received DESC) AS message" + // group_concat
+            " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
@@ -1141,8 +1133,9 @@ public interface DaoMessage {
             " OR (NOT :found AND :type IS NULL AND folder.unified)" +
             " OR (NOT :found AND :type IS NOT NULL AND folder.type = :type)) > 0)" + // thread can be the same in different accounts
             " AND SUM(NOT message.ui_hide OR :debug) > 0" +
-            " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
-            " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
+            " AND (NOT (:filter_seen AND NOT :filter_unflagged) OR SUM(1 - message.ui_seen) > 0)" +
+            " AND (NOT (:filter_unflagged AND NOT :filter_seen) OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
+            " AND (NOT (:filter_seen AND :filter_unflagged) OR SUM(1 - message.ui_seen) > 0 OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
             " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
@@ -1154,6 +1147,7 @@ public interface DaoMessage {
             "   WHEN 'starred' = :sort1 THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
             "   WHEN 'priority' = :sort1 THEN -IFNULL(message.priority, 1)" +
             "   WHEN 'sender' = :sort1 THEN LOWER(message.sender)" +
+            "   WHEN 'sender_name' = :sort1 THEN LOWER(COALESCE(json_extract(message.`from`, '$[0].personal'), json_extract(message.`from`, '$[0].address')))" +
             "   WHEN 'subject' = :sort1 THEN LOWER(message.subject)" +
             "   WHEN 'size' = :sort1 THEN -SUM(message.total)" +
             "   WHEN 'attachments' = :sort1 THEN -SUM(message.attachments)" +
@@ -1167,7 +1161,7 @@ public interface DaoMessage {
             "   ELSE 0" +
             "  END" +
             ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
-    DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedLegacy(
+    DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedJson(
             String type, String category,
             boolean threading, boolean group_category,
             String sort1, String sort2, boolean ascending,
@@ -1205,13 +1199,7 @@ public interface DaoMessage {
             "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "')" +
             "   OR (NOT :found AND folder.id = :folder)" +
             "   THEN message.received ELSE 0 END) AS dummy" +
-            " FROM (SELECT * FROM message" +
-            " WHERE message.thread IN" +
-            "  (SELECT DISTINCT mm.thread FROM message mm" +
-            "   WHERE mm.folder = :folder" +
-            "   AND (NOT mm.ui_hide OR :debug)" +
-            "   AND (NOT :found OR mm.ui_found))" +
-            "   ORDER BY received DESC) AS message" + // group_concat
+            " FROM message" +
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
@@ -1224,8 +1212,9 @@ public interface DaoMessage {
             " HAVING (SUM((:found AND message.ui_found)" +
             " OR (NOT :found AND message.folder = :folder)) > 0)" +
             " AND SUM(NOT message.ui_hide OR :debug) > 0" +
-            " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
-            " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
+            " AND (NOT (:filter_seen AND NOT :filter_unflagged) OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
+            " AND (NOT (:filter_unflagged AND NOT :filter_seen) OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
+            " AND (NOT (:filter_seen AND :filter_unflagged) OR SUM(1 - message.ui_seen) > 0 OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unknown OR SUM(message.avatar IS NOT NULL AND message.sender <> identity.email) > 0" +
             "   OR " + is_outbox + " OR " + is_drafts + " OR " + is_sent + ")" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
@@ -1237,6 +1226,7 @@ public interface DaoMessage {
             "   WHEN 'starred' = :sort1 THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
             "   WHEN 'priority' = :sort1 THEN -IFNULL(message.priority, 1)" +
             "   WHEN 'sender' = :sort1 THEN LOWER(message.sender)" +
+            "   WHEN 'sender_name' = :sort1 THEN LOWER(COALESCE(json_extract(message.`from`, '$[0].personal'), json_extract(message.`from`, '$[0].address')))" +
             "   WHEN 'subject' = :sort1 THEN LOWER(message.subject)" +
             "   WHEN 'size' = :sort1 THEN -SUM(message.total)" +
             "   WHEN 'attachments' = :sort1 THEN -SUM(message.attachments)" +
@@ -1250,7 +1240,7 @@ public interface DaoMessage {
             "   ELSE 0" +
             "  END" +
             ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
-    DataSource.Factory<Integer, TupleMessageEx> pagedFolderLegacy(
+    DataSource.Factory<Integer, TupleMessageEx> pagedFolderJson(
             long folder, boolean threading,
             String sort1, String sort2, boolean ascending,
             boolean filter_seen, boolean filter_unflagged, boolean filter_unknown, boolean filter_snoozed, boolean filter_deleted, String filter_language,
