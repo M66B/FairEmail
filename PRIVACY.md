@@ -296,4 +296,4 @@ The data processor utilizes the services of the following sub-processors in orde
 Any support requests are sent voluntarily by the data subject, including any personal data that might be attached.
 As such, the explicit consent as outlined in Art. 6 (1) a GDPR forms the legal basis for processing.
 
-Copyright &copy; 2018-2024 Marcel Bokhorst.
+Copyright &copy; 2018-2025 Marcel Bokhorst.
