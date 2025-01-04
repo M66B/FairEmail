@@ -1713,6 +1713,17 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swSvg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_svg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swStrictAlignment"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swWebp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1720,7 +1731,7 @@
                     android:text="@string/title_advanced_webp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swStrictAlignment"
+                    app:layout_constraintTop_toBottomOf="@id/swSvg"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

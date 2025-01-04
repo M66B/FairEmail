@@ -998,6 +998,7 @@
     <string name="title_advanced_native_dkim" translatable="false">Native DKIM verification</string>
     <string name="title_advanced_native_arc" translatable="false">Native ARC verification</string>
     <string name="title_advanced_strict_alignment" translatable="false">Strict alignment</string>
+    <string name="title_advanced_svg" translatable="false">SVG</string>
     <string name="title_advanced_webp" translatable="false">WebP</string>
     <string name="title_advanced_animate" translatable="false">Animate images (GIF, etc.)</string>
     <string name="title_advanced_preview_hidden" translatable="false">Preview hidden</string>

@@ -197,11 +197,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                             }
                         } else {
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            boolean webp = prefs.getBoolean("webp", true);
                             boolean barcode_preview = prefs.getBoolean("barcode_preview", true);
-
-                            if ("image/webp".equalsIgnoreCase(type) && !webp)
-                                return context.getDrawable(R.drawable.twotone_image_not_supported_24);
 
                             try {
                                 BitmapFactory.Options options = new BitmapFactory.Options();

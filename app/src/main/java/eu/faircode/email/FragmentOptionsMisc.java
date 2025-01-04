@@ -226,6 +226,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swNativeArc;
     private EditText etNativeArcWhitelist;
     private SwitchCompat swStrictAlignment;
+    private SwitchCompat swSvg;
     private SwitchCompat swWebp;
     private SwitchCompat swAnimate;
     private SwitchCompat swPreviewHidden;
@@ -311,7 +312,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "max_backoff_power", "logarithmic_backoff",
             "exact_alarms",
             "native_dkim", "native_arc", "native_arc_whitelist", "strict_alignment",
-            "webp", "animate_images",
+            "svg", "webp", "animate_images",
             "preview_hidden", "preview_quotes",
             "easy_correct", "paste_plain", "paste_quote", "favicon_uri", "email_junk", "infra", "tld_flags", "json_ld", "dup_msgids", "thread_byref", "save_user_flags", "mdn",
             "app_chooser", "app_chooser_share", "share_task",
@@ -495,6 +496,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swNativeArc = view.findViewById(R.id.swNativeArc);
         etNativeArcWhitelist = view.findViewById(R.id.etNativeArcWhitelist);
         swStrictAlignment = view.findViewById(R.id.swStrictAlignment);
+        swSvg = view.findViewById(R.id.swSvg);
         swWebp = view.findViewById(R.id.swWebp);
         swAnimate = view.findViewById(R.id.swAnimate);
         swPreviewHidden = view.findViewById(R.id.swPreviewHidden);
@@ -1668,6 +1670,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swSvg.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("svg", checked).apply();
+            }
+        });
+
         swWebp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2607,6 +2616,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             etNativeArcWhitelist.setText(prefs.getString("native_arc_whitelist", null));
             swStrictAlignment.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
             swStrictAlignment.setChecked(prefs.getBoolean("strict_alignment", false));
+            swSvg.setChecked(prefs.getBoolean("svg", !Helper.isPlayStoreInstall()));
             swWebp.setChecked(prefs.getBoolean("webp", true));
             swAnimate.setChecked(prefs.getBoolean("animate_images", true));
             swPreviewHidden.setChecked(prefs.getBoolean("preview_hidden", true));

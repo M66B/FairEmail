@@ -3750,6 +3750,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             boolean hide_attachments = properties.getValue("hide_attachments", message.id, hide_attachments_default);
             boolean show_inline = properties.getValue("inline", message.id);
+            boolean svg = prefs.getBoolean("svg", !Helper.isPlayStoreInstall());
+            boolean webp = prefs.getBoolean("webp", true);
+
             Log.i("Hide attachments=" + hide_attachments + " Show inline=" + show_inline);
 
             int available = 0;
@@ -3823,18 +3826,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int iavailable = 0;
             List<EntityAttachment> media = new ArrayList<>();
             if (thumbnails && !EntityFolder.JUNK.equals(message.folderType) && bind_extras) {
-                for (EntityAttachment attachment : attachments)
+                for (EntityAttachment attachment : attachments) {
+                    String type = attachment.getMimeType();
                     if ((pdf_preview && attachment.isPDF()) ||
                             (video_preview && attachment.isVideo()) ||
                             (audio_preview && attachment.isAudio()) ||
                             (attachment.isAttachment() && attachment.isImage() &&
-                                    (!Helper.isPlayStoreInstall() ||
-                                            !"image/svg+xml".equalsIgnoreCase(attachment.getMimeType())))) {
+                                    (!"image/svg+xml".equalsIgnoreCase(type) || svg) &&
+                                    (!"image/webp".equalsIgnoreCase(type) || webp))) {
                         media.add(attachment);
                         if (attachment.available &&
                                 attachment.isAttachment() && attachment.isImage())
                             iavailable++;
                     }
+                }
             }
             adapterMedia.set(media);
             grpMedia.setVisibility(media.size() > 0 ? View.VISIBLE : View.GONE);
