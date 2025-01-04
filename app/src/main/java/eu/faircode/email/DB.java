@@ -121,6 +121,7 @@ public abstract class DB extends RoomDatabase {
     private static int sPid;
     private static Context sContext;
     private static DB sInstance;
+    private static Boolean hasJson = null;
 
     static final String DB_NAME = "fairemail";
     static final int DEFAULT_QUERY_THREADS = 4; // AndroidX default thread count: 4
@@ -145,6 +146,57 @@ public abstract class DB extends RoomDatabase {
             "recursive_triggers",
             "compile_options"
     ));
+
+    public static String getSqliteVersion() {
+        try (SQLiteDatabase db = SQLiteDatabase.create(null)) {
+            try (Cursor cursor = db.rawQuery(
+                    "SELECT sqlite_version() AS sqlite_version", null)) {
+                if (cursor.moveToNext())
+                    return cursor.getString(0);
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+        return null;
+    }
+
+    public static boolean hasJson() {
+        return hasJson;
+    }
+
+    private static boolean _hasJson() {
+        try {
+            // https://www.sqlite.org/json1.html
+            // The JSON functions and operators are built into SQLite by default, as of SQLite version 3.38.0 (2022-02-22)
+            String version = getSqliteVersion();
+            if (version == null)
+                return false;
+
+            String[] parts = version.split("\\.");
+            if (parts.length == 0)
+                return false;
+
+            int[] numbers = new int[parts.length];
+            for (int i = 0; i < parts.length; i++)
+                numbers[i] = Integer.parseInt(parts[i]);
+
+            if (numbers[0] < 3)
+                return false;
+            if (numbers[0] > 3)
+                return true;
+
+            if (parts.length == 1)
+                return false;
+
+            if (numbers[1] < 38)
+                return false;
+
+            return true;
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
+    }
 
     @Override
     public void init(@NonNull DatabaseConfiguration configuration) {
@@ -465,6 +517,8 @@ public abstract class DB extends RoomDatabase {
             }
             Log.i("DB critical section end");
         }
+
+        hasJson = _hasJson();
 
         return sInstance;
     }
