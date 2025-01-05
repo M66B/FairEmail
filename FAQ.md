@@ -3011,6 +3011,8 @@ You can enable downloading message headers in the connection settings and check 
 Some common header conditions (regex):
 
 * *.&ast;To:.&ast;undisclosed-recipients.&ast;*
+* *.&ast;Cc:.&ast;test@example.com.&ast;*
+* *.&ast;Envelope-to:.&ast;test@example.com.&ast;*
 * *.&ast;Auto-Submitted:.&ast;* [RFC3834](https://tools.ietf.org/html/rfc3834)
 * *.&ast;List-Unsubscribe:.&ast;* [RFC3834](https://datatracker.ietf.org/doc/html/rfc2369)
 * *.&ast;Content-Type:.&ast;multipart/report.&ast;* [RFC3462](https://tools.ietf.org/html/rfc3462)
