@@ -154,7 +154,8 @@ Related questions:
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23redmi)
 
-On some Xiaomi Redmi (Note) devices, some Realme devices, some OnePlus devices running Android 12 and some Oppo devices running Android 12 the database occasionally gets corrupted, especially after an update,
+On some Xiaomi Redmi (Note) devices, some Realme devices, some OnePlus devices, some Oppo devices, and some Samsung devices running Android 12,
+the database occasionally gets corrupted, especially after installing an update,
 resulting in total data loss (on the device only, unless you are using a POP3 account with the option *Leave messages on server* disabled).
 
 The cause of this problem are disk I/O errors due to an Android bug (more likely) or maybe a hardware issue (less likely),
@@ -162,7 +163,7 @@ please [see here](https://www.sqlite.org/rescode.html#ioerr_write).
 
 "*This error might result from a hardware malfunction or because a filesystem came unmounted while the file was open.*"
 
-This can't be fixed by the app and should be fixed by the device manufacturer.
+This can't be fixed by the app and must be fixed by the device manufacturer with an Android update.
 
 **Please do not blame the app for this!**
 
@@ -179,7 +180,8 @@ android.database.sqlite.SQLiteDiskIOException: disk I/O error (code 778)
 	at androidx.room.RoomDatabase.endTransaction(RoomDatabase:584)
 ```
 
-The cause might be [changes in Android 7 Nougat](https://ericsink.com/entries/sqlite_android_n.html), which is why sqlite isn't bundled anymore since version 1.1970.
+This will affect other apps which use a local database intensively too.
+Most apps store their data in the cloud instead of on the device, which is why this isn't occurring frequently.
 
 <br />
 

@@ -8,19 +8,10 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="shortcut icon" href="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/ic_launcher-web.png">
   <meta name="theme-color" content="#006db3">
@@ -168,10 +159,10 @@
 <p><br /></p>
 <p><strong>Xiaomi Redmi / Realme / OnePlus / Oppo</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23redmi">Google Translate</a></p>
-<p>On some Xiaomi Redmi (Note) devices, some Realme devices, some OnePlus devices running Android 12 and some Oppo devices running Android 12 the database occasionally gets corrupted, especially after an update, resulting in total data loss (on the device only, unless you are using a POP3 account with the option <em>Leave messages on server</em> disabled).</p>
+<p>On some Xiaomi Redmi (Note) devices, some Realme devices, some OnePlus devices, some Oppo devices, and some Samsung devices running Android 12, the database occasionally gets corrupted, especially after installing an update, resulting in total data loss (on the device only, unless you are using a POP3 account with the option <em>Leave messages on server</em> disabled).</p>
 <p>The cause of this problem are disk I/O errors due to an Android bug (more likely) or maybe a hardware issue (less likely), please <a href="https://www.sqlite.org/rescode.html#ioerr_write">see here</a>.</p>
 <p>“<em>This error might result from a hardware malfunction or because a filesystem came unmounted while the file was open.</em>”</p>
-<p>This can’t be fixed by the app and should be fixed by the device manufacturer.</p>
+<p>This can’t be fixed by the app and must be fixed by the device manufacturer with an Android update.</p>
 <p><strong>Please do not blame the app for this!</strong></p>
 <p>For the record, the stack trace:</p>
 <pre><code>android.database.sqlite.SQLiteDiskIOException: disk I/O error (code 778)
@@ -182,7 +173,7 @@
     at io.requery.android.database.sqlite.SQLiteDatabase.endTransaction(SQLiteDatabase:551)
     at androidx.room.RoomDatabase.internalEndTransaction(RoomDatabase:594)
     at androidx.room.RoomDatabase.endTransaction(RoomDatabase:584)</code></pre>
-<p>The cause might be <a href="https://ericsink.com/entries/sqlite_android_n.html">changes in Android 7 Nougat</a>, which is why sqlite isn’t bundled anymore since version 1.1970.</p>
+<p>This will affect other apps which use a local database intensively too. Most apps store their data in the cloud instead of on the device, which is why this isn’t occurring frequently.</p>
 <p><br /></p>
 <h2>
 <a name="planned-features"></a>Planned features
