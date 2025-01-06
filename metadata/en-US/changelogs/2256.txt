@@ -35,6 +35,7 @@ Barsboldia
 Next version
 
 * Added sort on sender name (Android 14+ only)
+* Added basic image editor (slowly tap twice on an inserted image in the message editor)
 * Small improvements and minor bug fixes
 * Updated translations
 
