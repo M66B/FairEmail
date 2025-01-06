@@ -129,6 +129,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         final Runnable quit = new RunnableEx("send:quit") {
             @Override
             protected void delegate() {
+                EntityLog.log(ServiceSend.this, "Send quit");
                 stopSelf();
             }
         };
@@ -1105,8 +1106,16 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
                     EntityFolder outbox = db.folder().getOutbox();
                     if (outbox != null) {
-                        int operations = db.operation().getOperations(EntityOperation.SEND).size();
-                        if (operations > 0)
+                        List<EntityOperation> operations = db.operation().getOperations(EntityOperation.SEND);
+                        EntityLog.log(context, "Start send service ops=" + operations.size());
+                        for (EntityOperation operation : operations)
+                            Log.i("Send operation id=" + operation.id +
+                                    " tries=" + operation.tries +
+                                    " state=" + operation.state +
+                                    " error=" + operation.error +
+                                    " created=" + new Date(operation.created));
+
+                        if (!operations.isEmpty())
                             start(context);
                         else {
                             db.folder().setFolderState(outbox.id, null);
