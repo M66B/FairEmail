@@ -25,6 +25,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
@@ -122,6 +123,18 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
 
                         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                             bm.compress(Bitmap.CompressFormat.PNG, ImageHelper.DEFAULT_PNG_COMPRESSION, os);
+                        }
+
+                        if (attachment.name != null) {
+                            int index = attachment.name.lastIndexOf(".");
+                            if (index > 0) {
+                                String ext = attachment.name.substring(index + 1);
+                                if (!TextUtils.isEmpty(ext) && !ext.equalsIgnoreCase("png")) {
+                                    File old = attachment.getFile(context);
+                                    attachment.name = attachment.name.substring(0, index) + ".png";
+                                    old.renameTo(attachment.getFile(context));
+                                }
+                            }
                         }
 
                         db.attachment().setName(id, attachment.name, "image/png", file.length());
