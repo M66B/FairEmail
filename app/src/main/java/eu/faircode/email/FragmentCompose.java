@@ -5006,7 +5006,6 @@ public class FragmentCompose extends FragmentBase {
 
     static void onSelectIdentity(Context context, LifecycleOwner owner, FragmentManager fm, Bundle args) {
         long id = args.getLong("id");
-        Log.i("MMM id="+id);
         if (id < 0) {
             context.startActivity(new Intent(context, ActivitySetup.class)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
