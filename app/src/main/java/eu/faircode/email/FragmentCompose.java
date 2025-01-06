@@ -89,6 +89,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.MimeTypeMap;
@@ -459,7 +460,6 @@ public class FragmentCompose extends FragmentBase {
         final boolean suggest_account = prefs.getBoolean("suggest_account", false);
         final boolean cc_bcc = prefs.getBoolean("cc_bcc", false);
         final boolean circular = prefs.getBoolean("circular", true);
-        final boolean experiments = prefs.getBoolean("experiments", false);
 
         final float dp3 = Helper.dp2pixels(getContext(), 3);
 
@@ -822,55 +822,66 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        if (experiments)
-            etBody.setOnTouchListener(new View.OnTouchListener() {
-                private final GestureDetector gestureDetector = new GestureDetector(getContext(),
-                        new GestureDetector.SimpleOnGestureListener() {
-                            @Override
-                            public boolean onSingleTapConfirmed(@NonNull MotionEvent event) {
-                                try {
-                                    Editable buffer = etBody.getText();
-                                    if (buffer == null)
-                                        return false;
+        etBody.setOnTouchListener(new View.OnTouchListener() {
+            private final GestureDetector gestureDetector = new GestureDetector(getContext(),
+                    new GestureDetector.SimpleOnGestureListener() {
+                        private String lastSource = null;
+                        private Long lastTime = null;
 
-                                    int off = Helper.getOffset(etBody, buffer, event);
-                                    ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
-                                    if (image == null || image.length == 0)
-                                        return false;
+                        @Override
+                        public boolean onSingleTapConfirmed(@NonNull MotionEvent event) {
+                            try {
+                                Editable buffer = etBody.getText();
+                                if (buffer == null)
+                                    return false;
 
-                                    String source = image[0].getSource();
-                                    if (source == null || !source.startsWith("cid:"))
-                                        return false;
+                                int off = Helper.getOffset(etBody, buffer, event);
+                                ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
+                                if (image == null || image.length == 0)
+                                    return false;
 
-                                    long id = Long.parseLong(source.substring(source.lastIndexOf('.') + 1));
+                                String source = image[0].getSource();
+                                if (source == null || !source.startsWith("cid:"))
+                                    return false;
 
-                                    int start = buffer.getSpanStart(image[0]);
-                                    int end = buffer.getSpanEnd(image[0]);
-
-                                    Bundle args = new Bundle();
-                                    args.putLong("id", id);
-                                    args.putString("source", source);
-                                    args.putInt("start", start);
-                                    args.putInt("end", end);
-
-                                    FragmentDialogEditImage fragment = new FragmentDialogEditImage();
-                                    fragment.setArguments(args);
-                                    fragment.setTargetFragment(FragmentCompose.this, REQUEST_EDIT_IMAGE);
-                                    fragment.show(getParentFragmentManager(), "edit:image");
-
-                                    return true;
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
+                                long now = new Date().getTime();
+                                long delta = now - (lastTime == null ? now : lastTime);
+                                long timeout = ViewConfiguration.getLongPressTimeout(); /* Typically: 400 ms */
+                                if (!source.equals(lastSource) || delta < timeout || delta > timeout * 5) {
+                                    lastSource = source;
+                                    lastTime = now;
                                     return false;
                                 }
-                            }
-                        });
 
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    return gestureDetector.onTouchEvent(event);
-                }
-            });
+                                long id = Long.parseLong(source.substring(source.lastIndexOf('.') + 1));
+
+                                int start = buffer.getSpanStart(image[0]);
+                                int end = buffer.getSpanEnd(image[0]);
+
+                                Bundle args = new Bundle();
+                                args.putLong("id", id);
+                                args.putString("source", source);
+                                args.putInt("start", start);
+                                args.putInt("end", end);
+
+                                FragmentDialogEditImage fragment = new FragmentDialogEditImage();
+                                fragment.setArguments(args);
+                                fragment.setTargetFragment(FragmentCompose.this, REQUEST_EDIT_IMAGE);
+                                fragment.show(getParentFragmentManager(), "edit:image");
+
+                                return true;
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                                return false;
+                            }
+                        }
+                    });
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
+            }
+        });
 
         if (compose_color != Color.TRANSPARENT)
             tvSignature.setTextColor(compose_color);
