@@ -50,7 +50,8 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
         Context context = getContext();
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_edit_image, null);
         ImageButton ibRotate = dview.findViewById(R.id.ibRotate);
-        ImageButton ibFlip = dview.findViewById(R.id.ibFlip);
+        ImageButton ibFlipHorizontally = dview.findViewById(R.id.ibFlipHorizontally);
+        ImageButton ibFlipVertically = dview.findViewById(R.id.ibFlipVertically);
         ImageButton ibCancel = dview.findViewById(R.id.ibCancel);
         ImageButton ibSave = dview.findViewById(R.id.ibSave);
         CropImageView civ = dview.findViewById(R.id.civ);
@@ -67,10 +68,17 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
             }
         });
 
-        ibFlip.setOnClickListener(new View.OnClickListener() {
+        ibFlipHorizontally.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 civ.flipImageHorizontally();
+            }
+        });
+
+        ibFlipVertically.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                civ.flipImageVertically();
             }
         });
 

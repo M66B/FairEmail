@@ -29,31 +29,45 @@
         app:tint="?attr/colorAccent" />
 
     <ImageButton
-        android:id="@+id/ibFlip"
+        android:id="@+id/ibFlipHorizontally"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/ibRotate"
         app:layout_constraintTop_toBottomOf="@id/civ"
-        app:srcCompat="@drawable/twotone_flip_24"
+        app:srcCompat="@drawable/twotone_swap_horiz_24"
+        app:tint="?attr/colorAccent" />
+
+    <ImageButton
+        android:id="@+id/ibFlipVertically"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ibFlipHorizontally"
+        app:layout_constraintTop_toBottomOf="@id/civ"
+        app:srcCompat="@drawable/twotone_swap_vert_24"
         app:tint="?attr/colorAccent" />
 
     <ImageButton
         android:id="@+id/ibCancel"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@android:string/cancel"
         android:scaleType="fitCenter"
         android:tooltipText="@android:string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ibFlip"
+        app:layout_constraintStart_toEndOf="@id/ibFlipVertically"
         app:layout_constraintTop_toBottomOf="@id/civ"
         app:srcCompat="@drawable/twotone_close_24" />
 
