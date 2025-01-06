@@ -853,6 +853,8 @@ public class FragmentCompose extends FragmentBase {
                                     return false;
                                 }
 
+                                Helper.hideKeyboard(etBody);
+
                                 long id = Long.parseLong(source.substring(source.lastIndexOf('.') + 1));
 
                                 int start = buffer.getSpanStart(image[0]);
