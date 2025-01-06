@@ -4301,6 +4301,12 @@ Show force light menu item / button (when configured) to force a light theme for
 
 <br />
 
+*Basic image editor (1.2257+)*
+
+Display a basic image editor when tapping an inserted image.
+
+<br />
+
 <a name="faq126"></a>
 **(126) Can message previews be sent to my smartwatch?**
 

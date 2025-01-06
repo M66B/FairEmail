@@ -9,6 +9,7 @@
         android:id="@+id/civ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="60dp"
         app:layout_constraintBottom_toTopOf="@+id/ibRotate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,9 +21,7 @@
         android:layout_height="36dp"
         android:layout_marginTop="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_info"
         android:scaleType="fitCenter"
-        android:tooltipText="@string/title_info"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/civ"
@@ -36,9 +35,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_info"
         android:scaleType="fitCenter"
-        android:tooltipText="@string/title_info"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/ibRotate"
         app:layout_constraintTop_toBottomOf="@id/civ"
@@ -52,13 +49,13 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_save"
+        android:contentDescription="@android:string/cancel"
         android:scaleType="fitCenter"
-        android:tooltipText="@string/title_save"
+        android:tooltipText="@android:string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/ibFlip"
         app:layout_constraintTop_toBottomOf="@id/civ"
-        app:srcCompat="@drawable/twotone_cancel_24" />
+        app:srcCompat="@drawable/twotone_close_24" />
 
     <ImageButton
         android:id="@+id/ibSave"
@@ -74,4 +71,17 @@
         app:layout_constraintTop_toBottomOf="@id/civ"
         app:srcCompat="@drawable/twotone_save_alt_24"
         app:tint="?attr/colorAccent" />
+
+    <eu.faircode.email.ContentLoadingProgressBar
+        android:id="@+id/pbWait"
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:show_delay="0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

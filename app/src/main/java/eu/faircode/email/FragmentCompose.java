@@ -26,7 +26,6 @@ import static android.view.inputmethod.EditorInfo.IME_FLAG_NO_FULLSCREEN;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -137,7 +136,6 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.canhub.cropper.CropImageView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
@@ -354,6 +352,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_SEND = 16;
     static final int REQUEST_EDIT_ATTACHMENT = 17;
     private static final int REQUEST_REMOVE_ATTACHMENTS = 18;
+    private static final int REQUEST_EDIT_IMAGE = 19;
 
     ActivityResultLauncher<PickVisualMediaRequest> pickImages;
 
@@ -460,6 +459,7 @@ public class FragmentCompose extends FragmentBase {
         final boolean suggest_account = prefs.getBoolean("suggest_account", false);
         final boolean cc_bcc = prefs.getBoolean("cc_bcc", false);
         final boolean circular = prefs.getBoolean("circular", true);
+        final boolean experiments = prefs.getBoolean("experiments", false);
 
         final float dp3 = Helper.dp2pixels(getContext(), 3);
 
@@ -822,7 +822,7 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        if (BuildConfig.DEBUG)
+        if (experiments)
             etBody.setOnTouchListener(new View.OnTouchListener() {
                 private final GestureDetector gestureDetector = new GestureDetector(getContext(),
                         new GestureDetector.SimpleOnGestureListener() {
@@ -852,136 +852,17 @@ public class FragmentCompose extends FragmentBase {
                                     args.putString("source", source);
                                     args.putInt("start", start);
                                     args.putInt("end", end);
-                                    args.putInt("zoom", zoom);
-                                    args.putLong("working", working);
 
-                                    new SimpleTask<EntityAttachment>() {
-                                        @Override
-                                        protected EntityAttachment onExecute(Context context, Bundle args) {
-                                            long id = args.getLong("id");
-
-                                            DB db = DB.getInstance(context);
-                                            return db.attachment().getAttachment(id);
-                                        }
-
-                                        @Override
-                                        protected void onExecuted(Bundle args, EntityAttachment attachment) {
-                                            if (attachment == null)
-                                                return;
-
-                                            Context context = etBody.getContext();
-
-                                            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_edit_image, null);
-                                            ImageButton ibRotate = dview.findViewById(R.id.ibRotate);
-                                            ImageButton ibFlip = dview.findViewById(R.id.ibFlip);
-                                            ImageButton ibCancel = dview.findViewById(R.id.ibCancel);
-                                            ImageButton ibSave = dview.findViewById(R.id.ibSave);
-                                            CropImageView civ = dview.findViewById(R.id.civ);
-
-                                            Dialog dialog = new AlertDialog.Builder(context)
-                                                    .setView(dview)
-                                                    .create();
-
-                                            ibRotate.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    civ.rotateImage(90);
-                                                }
-                                            });
-
-                                            ibFlip.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    civ.flipImageHorizontally();
-                                                }
-                                            });
-
-                                            ibCancel.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    dialog.dismiss();
-                                                }
-                                            });
-
-                                            ibSave.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    dialog.dismiss();
-
-                                                    new SimpleTask<Drawable>() {
-                                                        @Override
-                                                        protected Drawable onExecute(Context context, Bundle args) throws Throwable {
-                                                            long id = args.getLong("id");
-                                                            String source = args.getString("source");
-                                                            int zoom = args.getInt("zoom");
-                                                            long working = args.getLong("working");
-
-                                                            DB db = DB.getInstance(context);
-                                                            EntityAttachment attachment = db.attachment().getAttachment(id);
-                                                            if (attachment == null)
-                                                                return null;
-
-                                                            Bitmap bm = civ.getCroppedImage();
-                                                            if (bm == null)
-                                                                return null;
-
-                                                            File file = attachment.getFile(context);
-
-                                                            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                                                                bm.compress(Bitmap.CompressFormat.PNG, 90, os);
-                                                            }
-
-                                                            db.attachment().setName(id, attachment.name, "image/png", file.length());
-
-                                                            return ImageHelper.decodeImage(context, working, source, true, zoom, 1.0f, etBody);
-                                                        }
-
-                                                        @Override
-                                                        protected void onExecuted(Bundle args, Drawable d) {
-                                                            if (d == null)
-                                                                return;
-
-                                                            String source = args.getString("source");
-                                                            int start = args.getInt("start");
-                                                            int end = args.getInt("end");
-
-                                                            Editable buffer = etBody.getText();
-                                                            if (buffer == null)
-                                                                return;
-
-                                                            ImageSpan[] image = buffer.getSpans(start, end, ImageSpan.class);
-                                                            if (image == null || image.length == 0)
-                                                                return;
-
-                                                            int flags = buffer.getSpanFlags(image[0]);
-                                                            buffer.removeSpan(image[0]);
-                                                            buffer.setSpan(new ImageSpan(d, source), start, end, flags);
-                                                        }
-
-                                                        @Override
-                                                        protected void onException(Bundle args, Throwable ex) {
-                                                            Log.unexpectedError(getParentFragment(), ex);
-                                                        }
-                                                    }.execute(FragmentCompose.this, args, "save:image");
-                                                }
-                                            });
-
-                                            civ.setImageUriAsync(attachment.getUri(context));
-
-                                            dialog.show();
-                                        }
-
-                                        @Override
-                                        protected void onException(Bundle args, Throwable ex) {
-                                            Log.unexpectedError(getParentFragmentManager(), ex);
-                                        }
-                                    }.execute(FragmentCompose.this, args, "edit:image");
+                                    FragmentDialogEditImage fragment = new FragmentDialogEditImage();
+                                    fragment.setArguments(args);
+                                    fragment.setTargetFragment(FragmentCompose.this, REQUEST_EDIT_IMAGE);
+                                    fragment.show(getParentFragmentManager(), "edit:image");
 
                                     return true;
                                 } catch (Throwable ex) {
                                     Log.e(ex);
+                                    return false;
                                 }
-                                return false;
                             }
                         });
 
@@ -3632,6 +3513,10 @@ public class FragmentCompose extends FragmentBase {
                     if (resultCode == RESULT_OK)
                         onRemoveAttachments();
                     break;
+                case REQUEST_EDIT_IMAGE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onEditImage(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -5301,6 +5186,49 @@ public class FragmentCompose extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.serial().execute(FragmentCompose.this, args, "attachments:remove");
+    }
+
+    private void onEditImage(Bundle args) {
+        args.putInt("zoom", zoom);
+        args.putLong("working", working);
+
+        new SimpleTask<Drawable>() {
+            @Override
+            protected Drawable onExecute(Context context, Bundle args) throws Throwable {
+                String source = args.getString("source");
+                int zoom = args.getInt("zoom");
+                long working = args.getLong("working");
+
+                return ImageHelper.decodeImage(context, working, source, true, zoom, 1.0f, etBody);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Drawable d) {
+                if (d == null)
+                    return;
+
+                String source = args.getString("source");
+                int start = args.getInt("start");
+                int end = args.getInt("end");
+
+                Editable buffer = etBody.getText();
+                if (buffer == null)
+                    return;
+
+                ImageSpan[] image = buffer.getSpans(start, end, ImageSpan.class);
+                if (image == null || image.length == 0)
+                    return;
+
+                int flags = buffer.getSpanFlags(image[0]);
+                buffer.removeSpan(image[0]);
+                buffer.setSpan(new ImageSpan(d, source), start, end, flags);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragment(), ex);
+            }
+        }.execute(this, args, "update:image");
     }
 
     private void onExit() {
