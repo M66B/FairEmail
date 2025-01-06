@@ -151,10 +151,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
-
-                    getMainHandler().removeCallbacks(quit);
-                    if (unsent == null || unsent.count == 0)
-                        getMainHandler().postDelayed(quit, STOP_DELAY);
                 }
             }
         });
@@ -175,6 +171,15 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     ops.add(op.id);
                 }
                 handling = ops;
+
+                if (handling.isEmpty()) {
+                    if (!getMainHandler().hasCallbacks(quit)) {
+                        long at = new Date().getTime() + STOP_DELAY;
+                        EntityLog.log(ServiceSend.this, "Send quit at " + new Date(at));
+                        getMainHandler().postDelayed(quit, STOP_DELAY);
+                    }
+                } else
+                    getMainHandler().removeCallbacks(quit);
 
                 if (process.size() > 0) {
                     EntityLog.log(ServiceSend.this,
