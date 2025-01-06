@@ -370,7 +370,7 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                                         d.draw(canvas);
 
                                         Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
-                                        bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
+                                        bm.compress(Bitmap.CompressFormat.PNG, ImageHelper.DEFAULT_PNG_COMPRESSION, bos);
                                         uri = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
                                     }
                                 } catch (Throwable ex) {

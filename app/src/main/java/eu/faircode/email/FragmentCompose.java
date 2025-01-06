@@ -328,7 +328,6 @@ public class FragmentCompose extends FragmentBase {
     private int searchIndex = 0;
 
     static final int REDUCED_IMAGE_SIZE = 1440; // pixels
-    private static final int REDUCED_IMAGE_QUALITY = 90; // percent
     // http://regex.info/blog/lightroom-goodies/jpeg-quality
     private static final int COPY_ATTACHMENT_TIMEOUT = 60; // seconds
 
@@ -5590,7 +5589,7 @@ public class FragmentCompose extends FragmentBase {
 
                 File tmp = new File(file.getAbsolutePath() + ".tmp");
                 try (OutputStream out = new BufferedOutputStream(new FileOutputStream(tmp))) {
-                    if (!resized.compress(format, REDUCED_IMAGE_QUALITY, out))
+                    if (!resized.compress(format, ImageHelper.DEFAULT_PNG_COMPRESSION, out))
                         throw new IOException("compress");
                 } catch (Throwable ex) {
                     Log.w(ex);

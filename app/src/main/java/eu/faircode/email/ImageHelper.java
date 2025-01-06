@@ -83,6 +83,7 @@ import java.util.concurrent.Semaphore;
 
 class ImageHelper {
     static final int DOWNLOAD_TIMEOUT = 15; // seconds
+    static final int DEFAULT_PNG_COMPRESSION = 90;
     private static final int MAX_PROBE = 128 * 1024; // bytes
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
     private static final int MAX_BITMAP_SIZE = 100 * 1024 * 1024; // RecordingCanvas.MAX_BITMAP_SIZE
@@ -765,7 +766,7 @@ class ImageHelper {
         if (id >= 0) {
             File file = getCacheFile(context, id, source, ".png");
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                bm.compress(Bitmap.CompressFormat.PNG, 90, os);
+                bm.compress(Bitmap.CompressFormat.PNG, ImageHelper.DEFAULT_PNG_COMPRESSION, os);
             }
         }
 

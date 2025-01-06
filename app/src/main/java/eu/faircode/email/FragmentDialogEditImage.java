@@ -121,7 +121,7 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
                         File file = attachment.getFile(context);
 
                         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                            bm.compress(Bitmap.CompressFormat.PNG, 90, os);
+                            bm.compress(Bitmap.CompressFormat.PNG, ImageHelper.DEFAULT_PNG_COMPRESSION, os);
                         }
 
                         db.attachment().setName(id, attachment.name, "image/png", file.length());

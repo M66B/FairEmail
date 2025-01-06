@@ -311,7 +311,7 @@ public class OpenAI {
                                 try (InputStream is = new FileInputStream(file)) {
                                     Bitmap bm = ImageHelper.getScaledBitmap(is, null, null, SCALE2PIXELS);
                                     Helper.ByteArrayInOutStream bos = new Helper.ByteArrayInOutStream();
-                                    bm.compress(Bitmap.CompressFormat.PNG, 90, bos);
+                                    bm.compress(Bitmap.CompressFormat.PNG, ImageHelper.DEFAULT_PNG_COMPRESSION, bos);
                                     url = ImageHelper.getDataUri(bos.getInputStream(), "image/png");
                                 } catch (Throwable ex) {
                                     Log.w(ex);
