@@ -40,6 +40,7 @@ import com.canhub.cropper.CropImageView;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 
 public class FragmentDialogEditImage extends FragmentDialogBase {
@@ -132,7 +133,8 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
                                 if (!TextUtils.isEmpty(ext) && !ext.equalsIgnoreCase("png")) {
                                     File old = attachment.getFile(context);
                                     attachment.name = attachment.name.substring(0, index) + ".png";
-                                    old.renameTo(attachment.getFile(context));
+                                    if (!old.renameTo(attachment.getFile(context)))
+                                        throw new IOException("Error renaming " + file.getAbsolutePath());
                                 }
                             }
                         }
