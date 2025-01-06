@@ -26,6 +26,7 @@ import static android.view.inputmethod.EditorInfo.IME_FLAG_NO_FULLSCREEN;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -79,6 +80,7 @@ import android.text.style.RelativeSizeSpan;
 import android.text.style.URLSpan;
 import android.util.Pair;
 import android.util.TypedValue;
+import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.HapticFeedbackConstants;
 import android.view.KeyEvent;
@@ -135,6 +137,7 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.canhub.cropper.CropImageView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
@@ -818,6 +821,175 @@ public class FragmentCompose extends FragmentBase {
                     }
             }
         });
+
+        if (BuildConfig.DEBUG)
+            etBody.setOnTouchListener(new View.OnTouchListener() {
+                private final GestureDetector gestureDetector = new GestureDetector(getContext(),
+                        new GestureDetector.SimpleOnGestureListener() {
+                            @Override
+                            public boolean onSingleTapConfirmed(@NonNull MotionEvent event) {
+                                try {
+                                    Editable buffer = etBody.getText();
+                                    if (buffer == null)
+                                        return false;
+
+                                    int off = Helper.getOffset(etBody, buffer, event);
+                                    ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
+                                    if (image == null || image.length == 0)
+                                        return false;
+
+                                    String source = image[0].getSource();
+                                    if (source == null || !source.startsWith("cid:"))
+                                        return false;
+
+                                    long id = Long.parseLong(source.substring(source.lastIndexOf('.') + 1));
+
+                                    int start = buffer.getSpanStart(image[0]);
+                                    int end = buffer.getSpanEnd(image[0]);
+
+                                    Bundle args = new Bundle();
+                                    args.putLong("id", id);
+                                    args.putString("source", source);
+                                    args.putInt("start", start);
+                                    args.putInt("end", end);
+                                    args.putInt("zoom", zoom);
+                                    args.putLong("working", working);
+
+                                    new SimpleTask<EntityAttachment>() {
+                                        @Override
+                                        protected EntityAttachment onExecute(Context context, Bundle args) {
+                                            long id = args.getLong("id");
+
+                                            DB db = DB.getInstance(context);
+                                            return db.attachment().getAttachment(id);
+                                        }
+
+                                        @Override
+                                        protected void onExecuted(Bundle args, EntityAttachment attachment) {
+                                            if (attachment == null)
+                                                return;
+
+                                            Context context = etBody.getContext();
+
+                                            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_edit_image, null);
+                                            ImageButton ibRotate = dview.findViewById(R.id.ibRotate);
+                                            ImageButton ibFlip = dview.findViewById(R.id.ibFlip);
+                                            ImageButton ibCancel = dview.findViewById(R.id.ibCancel);
+                                            ImageButton ibSave = dview.findViewById(R.id.ibSave);
+                                            CropImageView civ = dview.findViewById(R.id.civ);
+
+                                            Dialog dialog = new AlertDialog.Builder(context)
+                                                    .setView(dview)
+                                                    .create();
+
+                                            ibRotate.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    civ.rotateImage(90);
+                                                }
+                                            });
+
+                                            ibFlip.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    civ.flipImageHorizontally();
+                                                }
+                                            });
+
+                                            ibCancel.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
+
+                                            ibSave.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    dialog.dismiss();
+
+                                                    new SimpleTask<Drawable>() {
+                                                        @Override
+                                                        protected Drawable onExecute(Context context, Bundle args) throws Throwable {
+                                                            long id = args.getLong("id");
+                                                            String source = args.getString("source");
+                                                            int zoom = args.getInt("zoom");
+                                                            long working = args.getLong("working");
+
+                                                            DB db = DB.getInstance(context);
+                                                            EntityAttachment attachment = db.attachment().getAttachment(id);
+                                                            if (attachment == null)
+                                                                return null;
+
+                                                            Bitmap bm = civ.getCroppedImage();
+                                                            if (bm == null)
+                                                                return null;
+
+                                                            File file = attachment.getFile(context);
+
+                                                            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                                                                bm.compress(Bitmap.CompressFormat.PNG, 90, os);
+                                                            }
+
+                                                            db.attachment().setName(id, attachment.name, "image/png", file.length());
+
+                                                            return ImageHelper.decodeImage(context, working, source, true, zoom, 1.0f, etBody);
+                                                        }
+
+                                                        @Override
+                                                        protected void onExecuted(Bundle args, Drawable d) {
+                                                            if (d == null)
+                                                                return;
+
+                                                            String source = args.getString("source");
+                                                            int start = args.getInt("start");
+                                                            int end = args.getInt("end");
+
+                                                            Editable buffer = etBody.getText();
+                                                            if (buffer == null)
+                                                                return;
+
+                                                            ImageSpan[] image = buffer.getSpans(start, end, ImageSpan.class);
+                                                            if (image == null || image.length == 0)
+                                                                return;
+
+                                                            int flags = buffer.getSpanFlags(image[0]);
+                                                            buffer.removeSpan(image[0]);
+                                                            buffer.setSpan(new ImageSpan(d, source), start, end, flags);
+                                                        }
+
+                                                        @Override
+                                                        protected void onException(Bundle args, Throwable ex) {
+                                                            Log.unexpectedError(getParentFragment(), ex);
+                                                        }
+                                                    }.execute(FragmentCompose.this, args, "save:image");
+                                                }
+                                            });
+
+                                            civ.setImageUriAsync(attachment.getUri(context));
+
+                                            dialog.show();
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            Log.unexpectedError(getParentFragmentManager(), ex);
+                                        }
+                                    }.execute(FragmentCompose.this, args, "edit:image");
+
+                                    return true;
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
+                                return false;
+                            }
+                        });
+
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return gestureDetector.onTouchEvent(event);
+                }
+            });
 
         if (compose_color != Color.TRANSPARENT)
             tvSignature.setTextColor(compose_color);

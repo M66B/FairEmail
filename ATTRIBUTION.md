@@ -58,3 +58,4 @@ FairEmail uses parts or all of:
 * [commonmark-java](https://github.com/commonmark/commonmark-java). Copyright (c) 2015, Atlassian Pty Ltd. All rights reserved. [BSD-2-Clause license](https://github.com/commonmark/commonmark-java/blob/main/LICENSE.txt).
 * [flexmark-java](https://github.com/vsch/flexmark-java). Copyright (c) 2016-2018, Vladimir Schneider. All rights reserved. [BSD-2-Clause license](https://github.com/vsch/flexmark-java/blob/master/LICENSE.txt).
 * [EvalEx](https://github.com/ezylang/EvalEx). Copyright 2012-2022 Udo Klimaschewski. [Apache License 2.0](https://github.com/ezylang/EvalEx/blob/main/LICENSE).
+* [Android Image Cropper](https://github.com/CanHub/Android-Image-Cropper). Copyright 2016, Arthur Teplitzki, 2013, Edmodo, Inc. [Apache License 2.0](https://github.com/CanHub/Android-Image-Cropper/blob/main/LICENSE.txt).

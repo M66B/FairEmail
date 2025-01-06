@@ -617,6 +617,7 @@ dependencies {
     def tinylog_version = "2.7.0"
     def zxing_version = "3.5.3"
     def evalex_version = "3.3.0"
+    def image_cropper_version = "4.6.0"
 
     // https://mvnrepository.com/artifact/com.android.tools/desugar_jdk_libs?repo=google
     coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$desugar_version"
@@ -900,4 +901,7 @@ dependencies {
 
     // https://github.com/ezylang/EvalEx
     implementation "com.ezylang:EvalEx:$evalex_version"
+
+    // https://github.com/CanHub/Android-Image-Cropper
+    implementation "com.vanniktech:android-image-cropper:$image_cropper_version"
 }
