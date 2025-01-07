@@ -167,7 +167,7 @@ import org.bouncycastle.cms.CMSProcessable;
 import org.bouncycastle.cms.CMSProcessableFile;
 import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.CMSTypedData;
-import org.bouncycastle.cms.KeyTransRecipientId;
+import org.bouncycastle.cms.PKIXRecipientId;
 import org.bouncycastle.cms.RecipientInformation;
 import org.bouncycastle.cms.SignerId;
 import org.bouncycastle.cms.SignerInformation;
@@ -10347,7 +10347,8 @@ public class FragmentMessages extends FragmentBase
                             if (count < 0) {
                                 BigInteger serialno = chain[0].getSerialNumber();
                                 for (RecipientInformation recipientInfo : recipients) {
-                                    KeyTransRecipientId recipientId = (KeyTransRecipientId) recipientInfo.getRID();
+                                    // KeyTransRecipientId or KeyAgreeRecipientId
+                                    PKIXRecipientId recipientId = (PKIXRecipientId) recipientInfo.getRID();
                                     if (serialno != null && serialno.equals(recipientId.getSerialNumber())) {
                                         try {
                                             InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
