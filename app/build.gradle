@@ -903,5 +903,6 @@ dependencies {
     implementation "com.ezylang:EvalEx:$evalex_version"
 
     // https://github.com/CanHub/Android-Image-Cropper
+    // https://mvnrepository.com/artifact/com.vanniktech/android-image-cropper
     implementation "com.vanniktech:android-image-cropper:$image_cropper_version"
 }
