@@ -35,6 +35,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
+import com.canhub.cropper.CropImageOptions;
 import com.canhub.cropper.CropImageView;
 
 import java.io.BufferedOutputStream;
@@ -159,6 +160,10 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
                 }.execute(FragmentDialogEditImage.this, args, "save:image");
             }
         });
+
+        CropImageOptions options = new CropImageOptions();
+        options.borderCornerThickness = Helper.dp2pixels(context, 5);
+        civ.setImageCropOptions(options);
 
         new SimpleTask<EntityAttachment>() {
             @Override
