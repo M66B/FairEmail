@@ -32,7 +32,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2256 2025-01-07 *
 
 * Added sort on sender name (Android 14+ only)
 * Added basic image editor (slowly tap twice on an inserted image in the message editor)
