@@ -273,11 +273,14 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             else {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-                if (parentFragment instanceof FragmentCompose)
+                if (parentFragment instanceof FragmentCompose) {
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_rename, 1, R.string.title_rename);
+                    if (attachment.isImage() && !attachment.isInline())
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_legend_edit, 2, R.string.title_legend_edit);
+                }
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_share, 2, R.string.title_share);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_zip, 3, R.string.title_zip)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_share, 3, R.string.title_share);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_zip, 4, R.string.title_zip)
                         .setEnabled(!attachment.isInline() && !attachment.isCompressed());
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -286,6 +289,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         int itemId = item.getItemId();
                         if (itemId == R.string.title_rename)
                             return onRename(attachment);
+                        else if (itemId == R.string.title_legend_edit)
+                            return onEdit(attachment);
                         else if (itemId == R.string.title_share)
                             return onShare(attachment);
                         else if (itemId == R.string.title_zip)
@@ -310,6 +315,17 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             fragment.setArguments(args);
             fragment.setTargetFragment(parentFragment, FragmentCompose.REQUEST_EDIT_ATTACHMENT);
             fragment.show(parentFragment.getParentFragmentManager(), "attachment:name");
+
+            return true;
+        }
+
+        private boolean onEdit(EntityAttachment attachment) {
+            Bundle args = new Bundle();
+            args.putLong("id", attachment.id);
+
+            FragmentDialogEditImage fragment = new FragmentDialogEditImage();
+            fragment.setArguments(args);
+            fragment.show(parentFragment.getParentFragmentManager(), "edit:image");
 
             return true;
         }
