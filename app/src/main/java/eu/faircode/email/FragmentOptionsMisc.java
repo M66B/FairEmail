@@ -2603,7 +2603,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             etNativeArcWhitelist.setText(prefs.getString("native_arc_whitelist", null));
             swStrictAlignment.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
             swStrictAlignment.setChecked(prefs.getBoolean("strict_alignment", false));
-            swSvg.setChecked(prefs.getBoolean("svg", !Helper.isPlayStoreInstall()));
+            swSvg.setChecked(prefs.getBoolean("svg", true));
             swWebp.setChecked(prefs.getBoolean("webp", true));
             swAnimate.setChecked(prefs.getBoolean("animate_images", true));
             swPreviewHidden.setChecked(prefs.getBoolean("preview_hidden", true));

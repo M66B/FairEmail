@@ -3750,7 +3750,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             boolean hide_attachments = properties.getValue("hide_attachments", message.id, hide_attachments_default);
             boolean show_inline = properties.getValue("inline", message.id);
-            boolean svg = prefs.getBoolean("svg", !Helper.isPlayStoreInstall());
+            boolean svg = prefs.getBoolean("svg", true);
             boolean webp = prefs.getBoolean("webp", true);
 
             Log.i("Hide attachments=" + hide_attachments + " Show inline=" + show_inline);

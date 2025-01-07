@@ -87,7 +87,7 @@ class ImageHelper {
     private static final int MAX_PROBE = 128 * 1024; // bytes
     private static final int SLOW_CONNECTION = 2 * 1024; // Kbps
     private static final int MAX_BITMAP_SIZE = 100 * 1024 * 1024; // RecordingCanvas.MAX_BITMAP_SIZE
-    private static final int MAX_SVG_SIZE = 1024 * 1024; // bytes
+    private static final int MAX_SVG_SIZE = 512 * 1024; // bytes
 
     // https://developer.android.com/guide/topics/media/media-formats#image-formats
     static final List<String> IMAGE_TYPES = Collections.unmodifiableList(Arrays.asList(
@@ -280,7 +280,8 @@ class ImageHelper {
 
     @NonNull
     static Bitmap renderSvg(InputStream _is, int fillColor, int scaleToPixels) throws IOException {
-        try (InputStream is = new Helper.MaximumLengthStream(_is, 1024 * 1024)) {
+        // https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/
+        try (InputStream is = new Helper.MaximumLengthStream(_is, MAX_SVG_SIZE)) {
             // https://bugzilla.mozilla.org/show_bug.cgi?id=455100
             // https://bug1105796.bmoattachments.org/attachment.cgi?id=8529795
             // https://github.com/BigBadaboom/androidsvg/issues/122#issuecomment-361902061
@@ -335,6 +336,7 @@ class ImageHelper {
                                         boolean show, int zoom, final float scale, final TextView view) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean inline = prefs.getBoolean("inline_images", false);
+        boolean svg = prefs.getBoolean("svg", true);
         boolean webp = prefs.getBoolean("webp", true);
 
         final int px = Helper.dp2pixels(context, (zoom + 1) * 24);
@@ -361,6 +363,10 @@ class ImageHelper {
                 if (attachment == null) {
                     Log.i("Image not found CID=" + cid);
                     Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
+                    d.setBounds(0, 0, px, px);
+                    return d;
+                } else if ("image/svg+xml".equalsIgnoreCase(attachment.type) && !svg) {
+                    Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_warning_24);
                     d.setBounds(0, 0, px, px);
                     return d;
                 } else if ("image/webp".equalsIgnoreCase(attachment.type) && !webp) {
