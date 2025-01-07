@@ -854,6 +854,7 @@
     <string name="title_advanced_send_reminders_hint">Показва предупреждение когато текстът на съобщението или темата е празна или когато прикаченият файл липсва</string>
     <string name="title_advanced_reply_move_hint">Сървърът на имейла все още би могъл да добавя съобщения в папката изпратено съобщение</string>
     <string name="title_advanced_compose_color_hint">Много светлите или много тъмните цветове ще доведе до нечетливи съобщения от страна на получателите</string>
+    <string name="title_advanced_compose_font_hint">По подразбиране означава уважаване на шрифта като избран от страна на получателя</string>
     <string name="title_advanced_template_reply_hint">HTML е позволен. Налични заместващи знаци: %1$s</string>
     <string name="title_advanced_write_below_hint">Получателят може да пропусне отговора ви, например, съкращавайки предълго съобщение</string>
     <string name="title_advanced_attach_new_hint">В противен случай добавете споделени адреси или файлове към текущата чернова на съобщението</string>

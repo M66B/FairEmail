@@ -86,7 +86,7 @@
     </string>
     <string name="title_blocked_senders">ブロックした差出人</string>
     <string name="title_unblock_all">すべてブロック解除</string>
-    <string name="title_unblock_all_remark">送信者をブロックするリストとオプションをすべてリセットします</string>
+    <string name="title_unblock_all_remark">差出人をブロックするリストとオプションをすべてリセットします</string>
     <string name="title_unblock_all_hint">アプリは、メールサーバーによる迷惑メールフォルダーへのメッセージ移動を停止できません！</string>
     <plurals name="title_ask_block_sender">
         <item quantity="other">メッセージ %1$s 通の差出人をブロックしますか？</item>
@@ -920,7 +920,7 @@
     <string name="title_advanced_notify_no_grouping">この Android バージョンは通知のグループ化に対応していません</string>
     <string name="title_advanced_notify_no_channels">この Android バージョンは通知チャンネルに対応していません</string>
     <string name="title_advanced_fts_hint">有効にすると、検索パフォーマンスが向上しますが、バッテリー使用量とストレージ使用量も増加します</string>
-    <string name="title_advanced_english_hint">アプリが再起動されます</string>
+    <string name="title_advanced_english_hint">アプリが再起動します</string>
     <string name="title_advanced_experiments_hint">現在の実験機能リスト</string>
     <string name="title_advanced_protocol_hint">これにより、バッテリー使用量とストレージの使用量が大幅に増加します！</string>
     <string name="title_advanced_debug_hint">さまざまな場所でデバッグ情報が表示され、デザインが崩れます</string>
