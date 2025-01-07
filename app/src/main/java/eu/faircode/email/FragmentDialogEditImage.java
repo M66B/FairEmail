@@ -126,6 +126,8 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
                             bm.compress(Bitmap.CompressFormat.PNG, ImageHelper.DEFAULT_PNG_COMPRESSION, os);
                         }
 
+                        long len = file.length();
+
                         if (attachment.name != null) {
                             int index = attachment.name.lastIndexOf(".");
                             if (index > 0) {
@@ -139,7 +141,7 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
                             }
                         }
 
-                        db.attachment().setName(id, attachment.name, "image/png", file.length());
+                        db.attachment().setName(id, attachment.name, "image/png", len);
 
                         return null;
                     }
