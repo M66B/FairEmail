@@ -8203,12 +8203,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 if (ibPriority.getVisibility() == View.VISIBLE) {
-                    result.add(context.getString(getPriority(message)));
+                    int resid = getPriority(message);
+                    if (resid > 0)
+                        result.add(context.getString(resid));
                     ibPriority.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
                 }
 
                 if (ibSensitivity.getVisibility() == View.VISIBLE) {
-                    result.add(context.getString(getSensitivity(message)));
+                    int resid = getSensitivity(message);
+                    if (resid > 0)
+                        result.add(context.getString(resid));
                     ibSensitivity.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
                 }
 
@@ -8243,12 +8247,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvTime.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
 
                 if (ibSigned.getVisibility() == View.VISIBLE) {
-                    result.add(context.getString(R.string.title_legend_signed) + " " + context.getString(getSigned(message)));
+                    int resid = getSigned(message);
+                    if (resid > 0)
+                        result.add(context.getString(R.string.title_legend_signed) + " " + context.getString(resid));
                     ibSigned.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
                 }
 
                 if (ibEncrypted.getVisibility() == View.VISIBLE) {
-                    result.add(context.getString(R.string.title_legend_encrypted) + " " + context.getString(getEncrypted(message)));
+                    int resid = getEncrypted(message);
+                    if (resid > 0)
+                        result.add(context.getString(R.string.title_legend_encrypted) + " " + context.getString(resid));
                     ibEncrypted.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
                 }
 
