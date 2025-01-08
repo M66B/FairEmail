@@ -401,10 +401,9 @@ public class EmailService implements AutoCloseable {
                     public void onPasswordChanged(Context context, String newPassword) {
                         DB db = DB.getInstance(context);
                         identity.password = newPassword;
-                        int count = db.identity().setIdentityPassword(identity.id, identity.password);
+                        int identities = db.identity().setIdentityPassword(identity.account, identity.user, identity.password, identity.auth_type, identity.auth_type, identity.provider);
                         EntityLog.log(context, EntityLog.Type.Account, identity.account, null, null,
-                                identity.email + " token refreshed=" + count);
-
+                                identity.email + "/" + identity.user + " token refreshed=" + identities);
                     }
                 },
                 identity.certificate_alias, identity.fingerprint);
