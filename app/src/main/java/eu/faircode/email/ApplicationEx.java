@@ -1067,6 +1067,9 @@ public class ApplicationEx extends Application
                 editor.putBoolean("beige", false);
         }
 
+        if (version < 2259)
+            editor.putBoolean("thread_byref", true);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
 

@@ -1940,7 +1940,7 @@ public class MessageHelper {
         }
 
         // Common reference
-        boolean thread_byref = prefs.getBoolean("thread_byref", true);
+        boolean thread_byref = prefs.getBoolean("thread_byref", !Helper.isPlayStoreInstall());
         if (thread == null && refs.size() > 0 && thread_byref) {
             // For example
             //   Message-ID: <organization/project/pull/nnn/issue_event/xxx@github.com>

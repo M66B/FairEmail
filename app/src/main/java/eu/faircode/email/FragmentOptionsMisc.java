@@ -2617,7 +2617,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swTldFlags.setChecked(prefs.getBoolean("tld_flags", false));
             swJsonLd.setChecked(prefs.getBoolean("json_ld", false));
             swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
-            swThreadByRef.setChecked(prefs.getBoolean("thread_byref", true));
+            swThreadByRef.setChecked(prefs.getBoolean("thread_byref", !Helper.isPlayStoreInstall()));
             swSaveUserFlags.setChecked(prefs.getBoolean("save_user_flags", false));
             swMdn.setChecked(prefs.getBoolean("mdn", swExperiments.isChecked()));
             swAppChooser.setChecked(prefs.getBoolean("app_chooser", false));
