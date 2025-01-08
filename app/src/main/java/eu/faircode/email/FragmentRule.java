@@ -173,6 +173,7 @@ public class FragmentRule extends FragmentBase {
     private Button btnTtsData;
 
     private Button btnSound;
+    private CheckBox cbLoop;
     private CheckBox cbAlarm;
     private EditText etAlarmDuration;
 
@@ -380,6 +381,7 @@ public class FragmentRule extends FragmentBase {
         btnTtsData = view.findViewById(R.id.btnTtsData);
 
         btnSound = view.findViewById(R.id.btnSound);
+        cbLoop = view.findViewById(R.id.cbLoop);
         cbAlarm = view.findViewById(R.id.cbAlarm);
         etAlarmDuration = view.findViewById(R.id.etAlarmDuration);
 
@@ -1455,8 +1457,10 @@ public class FragmentRule extends FragmentBase {
                                 case EntityRule.TYPE_SOUND:
                                     if (jaction.has("uri"))
                                         FragmentRule.this.sound = Uri.parse(jaction.getString("uri"));
+                                    boolean loop = jaction.optBoolean("loop");
                                     boolean alarm = jaction.optBoolean("alarm");
                                     int duration = jaction.optInt("duration", 0);
+                                    cbLoop.setChecked(loop);
                                     cbAlarm.setChecked(alarm);
                                     etAlarmDuration.setEnabled(alarm);
                                     etAlarmDuration.setText(duration == 0 ? null : Integer.toString(duration));
@@ -1884,9 +1888,11 @@ public class FragmentRule extends FragmentBase {
                     break;
 
                 case EntityRule.TYPE_SOUND:
+                    boolean loop = cbLoop.isChecked();
                     boolean alarm = cbAlarm.isChecked();
                     String duration = etAlarmDuration.getText().toString();
                     jaction.put("uri", sound);
+                    jaction.put("loop", loop);
                     jaction.put("alarm", alarm);
                     if (alarm && !TextUtils.isEmpty(duration))
                         try {

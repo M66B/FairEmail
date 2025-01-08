@@ -63,13 +63,13 @@ public class MediaPlayerHelper {
 
     static void queue(Context context, String uri) {
         try {
-            queue(context, Uri.parse(uri), false, DEFAULT_SOUND_DURATION);
+            queue(context, Uri.parse(uri), false, false, DEFAULT_SOUND_DURATION);
         } catch (Throwable ex) {
             Log.e(ex);
         }
     }
 
-    static void queue(Context context, Uri uri, boolean alarm, int duration) {
+    static void queue(Context context, Uri uri, boolean loop, boolean alarm, int duration) {
         Log.i("Queuing sound=" + uri);
 
         Helper.getMediaTaskExecutor().submit(new Runnable() {
@@ -78,7 +78,7 @@ public class MediaPlayerHelper {
                 try {
                     if (!alarm && (isInCall(context) || isDnd(context)))
                         return;
-                    play(context, uri, alarm, duration);
+                    play(context, uri, loop, alarm, duration);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
@@ -86,12 +86,12 @@ public class MediaPlayerHelper {
         });
     }
 
-    private static void play(Context context, Uri uri, boolean alarm, int duration) throws IOException {
+    private static void play(Context context, Uri uri, boolean loop, boolean alarm, int duration) throws IOException {
         synchronized (lock) {
             sem = new Semaphore(0);
         }
 
-        Log.i("Playing sound=" + uri);
+        Log.i("Playing alarm=" + alarm + " loop=" + loop + " sound=" + uri);
 
         AudioAttributes attrs = new AudioAttributes.Builder()
                 .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -102,7 +102,7 @@ public class MediaPlayerHelper {
         try {
             mediaPlayer.setAudioAttributes(attrs);
             mediaPlayer.setDataSource(context.getApplicationContext(), uri);
-            mediaPlayer.setLooping(false);
+            mediaPlayer.setLooping(loop);
             mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {

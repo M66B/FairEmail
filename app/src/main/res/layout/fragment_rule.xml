@@ -1294,13 +1294,22 @@
                     app:layout_constraintTop_toBottomOf="@id/btnTtsData" />
 
                 <CheckBox
+                    android:id="@+id/cbLoop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_loop_sound"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnSound" />
+
+                <CheckBox
                     android:id="@+id/cbAlarm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="@string/title_rule_use_as_alarm"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnSound" />
+                    app:layout_constraintTop_toBottomOf="@id/cbLoop" />
 
                 <TextView
                     android:id="@+id/tvAlarm"
