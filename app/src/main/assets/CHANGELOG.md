@@ -32,7 +32,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### 1.2256 2025-01-07 *
+### 1.2258 2025-01-08
+
+* Fixed S/MIME decrypt in some cases
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2257 2025-01-07
 
 * Added sort on sender name (Android 14+ only)
 * Added basic image editor (slowly tap twice on an inserted image in the message editor)
