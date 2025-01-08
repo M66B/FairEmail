@@ -37,8 +37,8 @@
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_marginStart="6dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:visibility="visible"
         android:contentDescription="@null"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
         app:layout_constraintStart_toEndOf="@id/vwColor"
         app:layout_constraintTop_toTopOf="@id/paddingTop"
@@ -232,8 +232,8 @@
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:padding="6dp"
         android:contentDescription="@null"
+        android:padding="6dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintEnd_toStartOf="@id/paddingEnd"
@@ -260,7 +260,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintStart_toEndOf="@id/ivType"
         app:layout_constraintTop_toTopOf="@+id/tvFolder"
-        app:srcCompat="@drawable/twotone_search_24" />
+        app:srcCompat="@drawable/twotone_search_24"
+        app:tint="?attr/colorAccent" />
 
     <ImageButton
         android:id="@+id/ibSnoozed"

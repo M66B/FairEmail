@@ -219,7 +219,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
         app:layout_constraintStart_toEndOf="@id/ivType"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
-        app:srcCompat="@drawable/twotone_search_24" />
+        app:srcCompat="@drawable/twotone_search_24"
+        app:tint="?attr/colorAccent" />
 
     <ImageButton
         android:id="@+id/ibSnoozed"
