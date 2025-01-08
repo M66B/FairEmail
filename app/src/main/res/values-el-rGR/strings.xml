@@ -915,6 +915,7 @@
     <string name="title_advanced_notify_car_hint">Συνδεδεμένο σημαίνει ότι κάτι προβάλλεται, όπως, λ.χ., ένας χάρτης πλοήγησης</string>
     <string name="title_advanced_notify_remove_hint">Οι ειδοποιήσεις νέων μηνυμάτων θα απομακρύνονται πάντα, όταν σαρώνονται με το δάχτυλο και όταν τα μηνύματα επισημαίνονται ως αναγνωσμένα</string>
     <string name="title_advanced_notify_manage_hint">Πατήστε στο όνομα ενός καναλιού για να ορίσετε τις ιδιότητές του</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Για να διαχειριστείτε τα κανάλια ειδοποιήσεων, ίσως χρειαστεί να ενεργοποιήσετε αυτήν τη ρύθμιση Android: Ειδοποίηση, Ρυθμίσεις για προχωρημένους, Διαχείριση κατηγοριών ειδοποιήσεων για κάθε εφαρμογή</string>
     <string name="title_advanced_notify_manage_default_hint">Για τον ορισμό του προκαθορισμένου ήχου, κτλ</string>
     <string name="title_advanced_notify_manage_service_hint">Για να απενεργοποιηθεί η ειδοποίηση: \"Χ λογαριασμοί παρακολουθούνται\"</string>
     <string name="title_advanced_notify_separate_hint">Πώς ρυθμίζω τις ειδοποιήσεις για λογαριασμούς, φακέλους και αποστολείς;</string>
@@ -1250,6 +1251,7 @@
     <string name="title_force_light">Υποχρεωτικό φωτεινό θέμα</string>
     <string name="title_rename">Μετονομασία</string>
     <string name="title_share">Κοινοποίηση</string>
+    <string name="title_analyze">Ανάλυση</string>
     <string name="title_event">Προσθήκη στο ημερολόγιο</string>
     <string name="title_pin">Προσθήκη συντόμευσης</string>
     <string name="title_pin_label">Όνομα συντόμευσης</string>
@@ -1365,7 +1367,7 @@
     <string name="title_attachment_saved">Το συνημμένο αποθηκεύτηκε</string>
     <string name="title_attachments_saved">Τα συνημμένα αποθηκεύτηκαν</string>
     <string name="title_attachments_incomplete">Ορισμένα συνημμένα ή εικόνες δεν κατέβηκαν και δεν μπόρεσαν να προστεθούν</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Η αναφορά αυτή, ένα ειδικά διαμορφωμένο μέιλ, στάλθηκε από έναν διακομιστή ηλεκτρονικού ταχυδρομείου, διότι δεν κατέστη δυνατό να παραδοθεί στον παραλήπτη ένα απεσταλμένο μήνυμα, επειδή, για παράδειγμα, το γραμματοκιβώτιο είναι γεμάτο, ή επειδή η διεύθυνση ηλεκτρονικού ταχυδρομείου δεν υπάρχει (πλέον).</string>
+    <string name="title_report_remark">Η αναφορά αυτή, ένα ειδικά διαμορφωμένο μέιλ, στάλθηκε από έναν διακομιστή ηλεκτρονικού ταχυδρομείου, διότι δεν κατέστη δυνατό να παραδοθεί στον παραλήπτη ένα απεσταλμένο μήνυμα, επειδή, για παράδειγμα, το γραμματοκιβώτιο είναι γεμάτο, ή επειδή η διεύθυνση ηλεκτρονικού ταχυδρομείου δεν υπάρχει (πλέον).</string>
     <string name="title_ask_save">Αποθήκευση των αλλαγών;</string>
     <string name="title_ask_delete">Οριστική διαγραφή του μηνύματος;</string>
     <string name="title_ask_delete_accept">Κατανοώ πως η μόνιμη διαγραφή μηνυμάτων είναι μη αναστρέψιμη</string>
@@ -1659,6 +1661,7 @@
     <string name="title_sort_on_starred_unread">Με αστέρι, μη αναγνωσμένα</string>
     <string name="title_sort_on_priority">Προτεραιότητα</string>
     <string name="title_sort_on_sender">Αποστολέα</string>
+    <string name="title_sort_on_sender_name">Όνομα αποστολέα</string>
     <string name="title_sort_on_subject">Θέμα</string>
     <string name="title_sort_on_size">Μέγεθος</string>
     <string name="title_sort_on_attachments">Συνημμένα</string>

@@ -1387,7 +1387,7 @@
     <string name="title_attachment_saved">Prilog je sačuvan</string>
     <string name="title_attachments_saved">Prilozi su sačuvani</string>
     <string name="title_attachments_incomplete">Neki prilozi ili slike nisu preuzete i ne mogu se dodati</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Ovaj izvještaj, kao posebno formatiranu e-mail poruku, poslao je e-mail server zato što se poslana poruka nije mogla dostaviti do primaoca, npr. jer je inbox pun ili e-mail adresa ne postoji (više).</string>
+    <string name="title_report_remark">Ovaj izvještaj, kao posebno formatiranu e-mail poruku, poslao je e-mail server zato što se poslana poruka nije mogla dostaviti do primaoca, npr. jer je inbox pun ili e-mail adresa ne postoji (više).</string>
     <string name="title_ask_save">Sačuvati promjene?</string>
     <string name="title_ask_delete">Trajno izbrisati poruku?</string>
     <string name="title_ask_delete_accept">Razumijem da je trajno brisanje poruka nepovratno</string>

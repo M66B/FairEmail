@@ -923,6 +923,7 @@
     <string name="title_advanced_notify_car_hint">Tilsluttet indikerer, at noget vises, f.eks. et navigationskort</string>
     <string name="title_advanced_notify_remove_hint">Nye beskednotifikationer fjernes altid, når de stryges væk samt ved markering af beskeder som læste</string>
     <string name="title_advanced_notify_manage_hint">Tryk på kanalnavnet for at opsætte kanalegenskaberne</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">For at håndtere meddelelseskanaler kan man være nødt til at aktivere denne Android-indstilling: Notifikation, Avancerede indstillinger, Håndtér meddelelseskategorier for hver app</string>
     <string name="title_advanced_notify_manage_default_hint">For at opsætte standardlyd etc.</string>
     <string name="title_advanced_notify_manage_service_hint">For at deaktivere \'overvågningsnotifikationen\'</string>
     <string name="title_advanced_notify_separate_hint">Hvordan opsættes notifikationer for konti, mapper og afsendere?</string>
@@ -1259,6 +1260,7 @@
     <string name="title_force_light">Gennemtving lyst tema</string>
     <string name="title_rename">Omdøb</string>
     <string name="title_share">Del</string>
+    <string name="title_analyze">Analyse</string>
     <string name="title_event">Føj til kalender</string>
     <string name="title_pin">Tilføj genvej</string>
     <string name="title_pin_label">Genvejsnavn</string>
@@ -1374,7 +1376,7 @@
     <string name="title_attachment_saved">Vedhæftning gemt</string>
     <string name="title_attachments_saved">Vedhæftninger gemt</string>
     <string name="title_attachments_incomplete">Visse vedhæftninger eller billeder blev ikke downloadet og kunne ikke tilføjes</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Denne rapport, en specialformateret e-mail, blev sendt af en e-mailserver, da en afsendt besked ikke kunne leveres til modtageren, f.eks. grundet en fyldt postkassen, eller fordi e-mailadressen ikke (længere) findes.</string>
+    <string name="title_report_remark">Denne rapport, en specialformateret e-mail, blev sendt af en e-mailserver, da en afsendt besked ikke kunne leveres til modtageren, f.eks. grundet en fyldt postkassen, eller fordi e-mailadressen ikke (længere) findes.</string>
     <string name="title_ask_save">Gem ændringer?</string>
     <string name="title_ask_delete">Slet besked permanent?</string>
     <string name="title_ask_delete_accept">Det er forstået, at permanent beskedsletning er irreversibel</string>
@@ -1668,6 +1670,7 @@
     <string name="title_sort_on_starred_unread">Stjernemarkerede, ulæste</string>
     <string name="title_sort_on_priority">Prioritet</string>
     <string name="title_sort_on_sender">Afsender</string>
+    <string name="title_sort_on_sender_name">Afsendernavn</string>
     <string name="title_sort_on_subject">Emne</string>
     <string name="title_sort_on_size">Størrelse</string>
     <string name="title_sort_on_attachments">Vedhæftninger</string>

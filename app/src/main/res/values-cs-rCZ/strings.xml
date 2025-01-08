@@ -1400,7 +1400,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_attachment_saved">Příloha uložena</string>
     <string name="title_attachments_saved">Přílohy uloženy</string>
     <string name="title_attachments_incomplete">Některé přílohy nebo obrázky nebyly staženy a nemohly být proto přidány</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Toto hlášení, zvlášť formátovaný e-mail, byla odeslán e-mailovým serverem, protože odeslaná zpráva nemohla být doručena příjemci, například proto, že e-mailová schránka je plná nebo protože e-mailová adresa (již) neexistuje.</string>
+    <string name="title_report_remark">Toto hlášení, zvlášť formátovaný e-mail, byla odeslán e-mailovým serverem, protože odeslaná zpráva nemohla být doručena příjemci, například proto, že e-mailová schránka je plná nebo protože e-mailová adresa (již) neexistuje.</string>
     <string name="title_ask_save">Uložit změny?</string>
     <string name="title_ask_delete">Trvale smazat zprávu?</string>
     <string name="title_ask_delete_accept">Beru na vědomí, že trvalé smazání zpráv je nevratné</string>

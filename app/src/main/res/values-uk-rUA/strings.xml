@@ -949,6 +949,7 @@
     <string name="title_advanced_notify_car_hint">Наявність підключення означає, що відбувається показ чого-небудь, наприклад карти для навігації</string>
     <string name="title_advanced_notify_remove_hint">Сповіщення про нові повідомлення завжди будуть вилучатися при змахуванні вбік та при відмічанні повідомлення прочитаним</string>
     <string name="title_advanced_notify_manage_hint">Натисніть на назву каналу, щоб встановити його властивості</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Щоб керувати каналами сповіщень, вам може знадобитися увімкнути цей параметр в налаштуваннях Android: Сповіщення, Додаткові налаштування, Керування категоріями сповіщень для кожного застосунку</string>
     <string name="title_advanced_notify_manage_default_hint">Щоб встановити звук за замовчуванням тощо</string>
     <string name="title_advanced_notify_manage_service_hint">Щоб вимкнути сповіщення «монітор»</string>
     <string name="title_advanced_notify_separate_hint">Як налаштувати сповіщення для облікових записів, тек і відправників?</string>
@@ -1285,6 +1286,7 @@
     <string name="title_force_light">Примусова світла тема</string>
     <string name="title_rename">Перейменувати</string>
     <string name="title_share">Поділитись</string>
+    <string name="title_analyze">Проаналізувати</string>
     <string name="title_event">Додати у календар</string>
     <string name="title_pin">Додати ярлик</string>
     <string name="title_pin_label">Назва посилання</string>
@@ -1400,7 +1402,7 @@
     <string name="title_attachment_saved">Вкладення збережено</string>
     <string name="title_attachments_saved">Вкладення збережені</string>
     <string name="title_attachments_incomplete">Деякі вкладення або зображення не були завантажені і не можуть бути додані</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Цей звіт, спеціально відформатований електронний лист, був надісланий поштовим сервером, оскільки надіслане повідомлення не може бути доставлене одержувачу, наприклад, через переповнення поштової скриньки або через те, що адреса електронної пошти не існує (більше не існує).</string>
+    <string name="title_report_remark">Цей звіт, спеціально відформатований електронний лист, був надісланий поштовим сервером, оскільки надіслане повідомлення не може бути доставлене одержувачу, наприклад, через переповнення поштової скриньки або через те, що адреса електронної пошти не існує (більше не існує).</string>
     <string name="title_ask_save">Зберегти зміни?</string>
     <string name="title_ask_delete">Видалити повідомлення остаточно?</string>
     <string name="title_ask_delete_accept">Я розумію, що назавжди видалені повідомлення не можуть бути відновленні</string>
@@ -1693,6 +1695,7 @@
     <string name="title_sort_on_starred_unread">Обрані, непрочитані</string>
     <string name="title_sort_on_priority">Пріоритет</string>
     <string name="title_sort_on_sender">Відправник</string>
+    <string name="title_sort_on_sender_name">Ім\'я відправника</string>
     <string name="title_sort_on_subject">Тема</string>
     <string name="title_sort_on_size">Розмір</string>
     <string name="title_sort_on_attachments">Є вкладення</string>

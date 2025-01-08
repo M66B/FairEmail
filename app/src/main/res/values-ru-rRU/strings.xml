@@ -1286,6 +1286,7 @@
     <string name="title_force_light">Принудительно использовать светлую тему</string>
     <string name="title_rename">Переименовать</string>
     <string name="title_share">Поделиться</string>
+    <string name="title_analyze">Анализ</string>
     <string name="title_event">Добавить в календарь</string>
     <string name="title_pin">Добавить ярлык</string>
     <string name="title_pin_label">Имя ярлыка</string>
@@ -1401,7 +1402,7 @@
     <string name="title_attachment_saved">Вложение сохранено</string>
     <string name="title_attachments_saved">Вложения сохранены</string>
     <string name="title_attachments_incomplete">Некоторые вложения или изображения не были загружены и не могут быть добавлены</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Этот отчёт, являющийся электронным письмом специального формата, был отправлен почтовым сервером, поскольку отправленное сообщение невозможно доставить получателю, например, из-за переполнения почтового ящика или из-за того, что адрес электронной почты (больше) не существует.</string>
+    <string name="title_report_remark">Этот отчёт, являющийся электронным письмом специального формата, был отправлен почтовым сервером, поскольку отправленное сообщение невозможно доставить получателю, например, из-за переполнения почтового ящика или из-за того, что адрес электронной почты (больше) не существует.</string>
     <string name="title_ask_save">Сохранить изменения?</string>
     <string name="title_ask_delete">Удалить сообщение навсегда?</string>
     <string name="title_ask_delete_accept">Я понимаю, что окончательное удаление сообщений необратимо</string>
@@ -1695,6 +1696,7 @@
     <string name="title_sort_on_starred_unread">Избранное, не прочитано</string>
     <string name="title_sort_on_priority">Приоритет</string>
     <string name="title_sort_on_sender">Отправитель</string>
+    <string name="title_sort_on_sender_name">Имя отправителя</string>
     <string name="title_sort_on_subject">Тема</string>
     <string name="title_sort_on_size">Размер</string>
     <string name="title_sort_on_attachments">Вложения</string>

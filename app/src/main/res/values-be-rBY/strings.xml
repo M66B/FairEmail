@@ -1404,7 +1404,7 @@
     <string name="title_attachment_saved">Укладанне захавана</string>
     <string name="title_attachments_saved">Укладанні захаваны</string>
     <string name="title_attachments_incomplete">Некаторыя ўкладанні або выявы не былі загружаны і не могуць быць дададзены</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Гэтая справаздача (адмыслова адфарматаваны электронны ліст) была адпраўлена серверам электроннай пошты, таму што адпраўленае паведамленне не можа быць дастаўлена атрымальніку: напрыклад, з прычыны перапаўнення паштовай скрыні, або адрас электроннай пошты (больш) не існуе.</string>
+    <string name="title_report_remark">Гэтая справаздача (адмыслова адфарматаваны электронны ліст) была адпраўлена серверам электроннай пошты, таму што адпраўленае паведамленне не можа быць дастаўлена атрымальніку: напрыклад, з прычыны перапаўнення паштовай скрыні, або адрас электроннай пошты (больш) не існуе.</string>
     <string name="title_ask_save">Захаваць змяненні?</string>
     <string name="title_ask_delete">Выдаліць паведамленне назаўсёды?</string>
     <string name="title_ask_delete_accept">Я разумею, што выдаленне паведамленняў з\'яўляецца незваротным</string>

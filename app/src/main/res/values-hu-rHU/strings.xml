@@ -1202,7 +1202,7 @@
     <string name="title_folder_unified">Összesített bejövő mappa</string>
     <string name="title_folder_inbox">Bejövő mappa</string>
     <string name="title_folder_outbox">Kimenő mappa</string>
-    <string name="title_folder_all">Archívált</string>
+    <string name="title_folder_all">Archivált</string>
     <string name="title_folder_drafts">Piszkozatok</string>
     <string name="title_folder_trash">Kuka</string>
     <string name="title_folder_junk">Spam</string>
@@ -1366,7 +1366,7 @@
     <string name="title_attachment_saved">A melléklet mentve</string>
     <string name="title_attachments_saved">A mellékletek mentve</string>
     <string name="title_attachments_incomplete">Néhány kép vagy melléklet letöltése nem sikerült, így hozzáadásuk meghiúsult</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Ez a jelentés egy különlegesen formázott email, melyet az email kiszolgáló küldött, mivel a küldött üzenet nem volt kézbesíthető, például mert a postaláda betelt, vagy mert az email cím (már) nem létezik.</string>
+    <string name="title_report_remark">Ez a jelentés egy különlegesen formázott email, melyet az email kiszolgáló küldött, mivel a küldött üzenet nem volt kézbesíthető, például mert a postaláda betelt, vagy mert az email cím (már) nem létezik.</string>
     <string name="title_ask_save">Menti a módosításokat?</string>
     <string name="title_ask_delete">Véglegesen törli az üzenetet?</string>
     <string name="title_ask_delete_accept">Megértettem, hogy a végleges törlés nem visszafordítható</string>

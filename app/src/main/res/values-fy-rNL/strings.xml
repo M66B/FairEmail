@@ -1367,7 +1367,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_attachment_saved">Bylage bewarre</string>
     <string name="title_attachments_saved">Bylagen bewarre</string>
     <string name="title_attachments_incomplete">Guon bylagen of ôfbyldingen waarden net download en koene net tafoege wurde</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Dit rapport, in spesjaal opmakke e-mailberjocht, waard ferstjoerd troch in mailserver, omdat in ferstjoerd berjocht net oan de ûntfanger ôflevere wurde koe, bygelyks omdat de mailbox fol is, of omdat it e-mailadres net (mear) bestiet.</string>
+    <string name="title_report_remark">Dit rapport, in spesjaal opmakke e-mailberjocht, waard ferstjoerd troch in mailserver, omdat in ferstjoerd berjocht net oan de ûntfanger ôflevere wurde koe, bygelyks omdat de mailbox fol is, of omdat it e-mailadres net (mear) bestiet.</string>
     <string name="title_ask_save">Wizigingen bewarje?</string>
     <string name="title_ask_delete">Berjocht permanint fuotsmite?</string>
     <string name="title_ask_delete_accept">Ik begryp dat permanint fuortsmiten fan berjochten net omkearber is</string>

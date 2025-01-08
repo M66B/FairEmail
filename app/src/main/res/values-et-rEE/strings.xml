@@ -1373,7 +1373,7 @@
     <string name="title_attachment_saved">Manus salvestatud</string>
     <string name="title_attachments_saved">Manused salvestatud</string>
     <string name="title_attachments_incomplete">Mõnesid pilte või manuseid ei laaditud alla ja neid ei saa lisada</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">See aruanne, spetsiaalselt vormindatud e-kiri, saadeti e-posti serveri poolt, sest saadetud sõnumit ei õnnestunud adressaadile kätte toimetada, näiteks kuna postkast on täis või kuna e-posti aadressi ei ole (enam) olemas.</string>
+    <string name="title_report_remark">See aruanne, spetsiaalselt vormindatud e-kiri, saadeti e-posti serveri poolt, sest saadetud sõnumit ei õnnestunud adressaadile kätte toimetada, näiteks kuna postkast on täis või kuna e-posti aadressi ei ole (enam) olemas.</string>
     <string name="title_ask_save">Salvestada muudatused?</string>
     <string name="title_ask_delete">Kas kustutada sõnum jäädavalt?</string>
     <string name="title_ask_delete_accept">Ma mõistan, et sõnumite jäädav kustutamine on tagasivõtmatu</string>

@@ -923,6 +923,7 @@
     <string name="title_advanced_notify_car_hint">Connesso indica che qualcosa è in proiezione, come una mappa per la navigazione</string>
     <string name="title_advanced_notify_remove_hint">Le notifiche dei nuovi messaggi saranno sempre rimosse scorrendo via e contrassegnando i messaggi come letti</string>
     <string name="title_advanced_notify_manage_hint">Toccare sul nome del canale per impostare le proprietà del canale</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Per gestire i canali di notifica, potrebbe essere necessario abilitare questa impostazione Android: Notifiche, Impostazioni avanzate, Gestione delle categorie di notifiche per ogni app</string>
     <string name="title_advanced_notify_manage_default_hint">Per impostare il suono predefinito, etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Per disabilitare la notifica di monitoraggio</string>
     <string name="title_advanced_notify_separate_hint">Come configurare le notifiche per gli account, le cartelle e i mittenti?</string>
@@ -1259,6 +1260,7 @@
     <string name="title_force_light">Forza tema chiaro</string>
     <string name="title_rename">Rinomina</string>
     <string name="title_share">Condividi</string>
+    <string name="title_analyze">Analizza</string>
     <string name="title_event">Aggiungi al calendario</string>
     <string name="title_pin">Aggiungi scorciatoia</string>
     <string name="title_pin_label">Titolo della scorciatoia</string>
@@ -1374,7 +1376,7 @@
     <string name="title_attachment_saved">Allegato salvato</string>
     <string name="title_attachments_saved">Allegati salvati</string>
     <string name="title_attachments_incomplete">Alcuni allegati o immagini non sono stati scaricati e non possono essere aggiunti</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Questo report, un\'email appositamente formattata, è stato inviato da un server di posta perché non è stato possibile consegnare un messaggio a un destinatario dato che, per esempio, la sua casella di posta è piena oppure perché l\'indirizzo non esiste più.</string>
+    <string name="title_report_remark">Questo report, un\'email appositamente formattata, è stato inviato da un server di posta perché non è stato possibile consegnare un messaggio a un destinatario dato che, per esempio, la sua casella di posta è piena oppure perché l\'indirizzo non esiste più.</string>
     <string name="title_ask_save">Salvare le modifiche?</string>
     <string name="title_ask_delete">Eliminare definitivamente il messaggio?</string>
     <string name="title_ask_delete_accept">Ho capito che l\'eliminazione definitiva dei messaggi è irreversibile</string>
@@ -1668,6 +1670,7 @@
     <string name="title_sort_on_starred_unread">Con stella, da leggere</string>
     <string name="title_sort_on_priority">Priorità</string>
     <string name="title_sort_on_sender">Mittente</string>
+    <string name="title_sort_on_sender_name">Nome del mittente</string>
     <string name="title_sort_on_subject">Oggetto</string>
     <string name="title_sort_on_size">Dimensioni</string>
     <string name="title_sort_on_attachments">Allegati</string>

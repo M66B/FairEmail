@@ -922,6 +922,7 @@
     <string name="title_advanced_notify_car_hint">Bağlantı quruldu, naviqasiya üçün xəritə kimi bir şeyin əks olunduğu mənasını verir</string>
     <string name="title_advanced_notify_remove_hint">Yeni mesaj bildirişləri, sürüşdürüləndə və oxundu kimi işarələnəndə həmişə silənəcək</string>
     <string name="title_advanced_notify_manage_hint">Kanal xüsusiyyətlərini ayarlamaq üçün kanal adına toxunun</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Bildiriş kanallarını idarə etmək üçün bu Android ayarını fəallaşdırmağınız lazım gələ bilər: Bildiriş, Qabaqcıl ayarlar, Hər tətbiq üçün bildiriş kateqoriyalarını idarə et</string>
     <string name="title_advanced_notify_manage_default_hint">İlkin səsi ayarlamaq üçün və s.</string>
     <string name="title_advanced_notify_manage_service_hint">\"Müşahidə\" bildirişini sıradan çıxartmaq üçün</string>
     <string name="title_advanced_notify_separate_hint">Hesablar, qovluqlar və göndərənlər üçün bildirişləri necə konfiqurasiya edə bilərəm?</string>
@@ -1258,6 +1259,7 @@
     <string name="title_force_light">Məcburi açıq tema</string>
     <string name="title_rename">Yenidən adlandır</string>
     <string name="title_share">Paylaş</string>
+    <string name="title_analyze">Təhlil et</string>
     <string name="title_event">Təqvimə əlavə et</string>
     <string name="title_pin">Qısayol əlavə et</string>
     <string name="title_pin_label">Qısayol başlığı</string>
@@ -1373,7 +1375,7 @@
     <string name="title_attachment_saved">Qoşma saxlanıldı</string>
     <string name="title_attachments_saved">Qoşmalar saxlanıldı</string>
     <string name="title_attachments_incomplete">Bəzi qoşmalar və ya təsvirlər endirilmədi və əlavə edilə bilmədi</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Bu hesabat, e-poçt serveri tərəfindən göndərilən və xüsusi olaraq formatlanmış e-poçtdur, çünki göndərilən bir mesaj alıcıya çatdırıla bilməyib. Bunun səbəbi poçt qutusunun dolu olması və ya e-poçt ünvanınn (artıq) mövcud olmaması ola bilər.</string>
+    <string name="title_report_remark">Bu hesabat, e-poçt serveri tərəfindən göndərilən və xüsusi olaraq formatlanmış e-poçtdur, çünki göndərilən bir mesaj alıcıya çatdırıla bilməyib. Bunun səbəbi poçt qutusunun dolu olması və ya e-poçt ünvanınn (artıq) mövcud olmaması ola bilər.</string>
     <string name="title_ask_save">Dəyişikliklər saxlanılsın?</string>
     <string name="title_ask_delete">Mesaj birdəfəlik silinsin?</string>
     <string name="title_ask_delete_accept">Mesajların birdəfəlik silənərək geri qaytarıla bilməyəcəyini anlayıram</string>
@@ -1667,6 +1669,7 @@
     <string name="title_sort_on_starred_unread">Ulduzlu, oxunmamış</string>
     <string name="title_sort_on_priority">Əhəmiyyət</string>
     <string name="title_sort_on_sender">Göndərən</string>
+    <string name="title_sort_on_sender_name">Göndərən adı</string>
     <string name="title_sort_on_subject">Mövzu</string>
     <string name="title_sort_on_size">Həcmi</string>
     <string name="title_sort_on_attachments">Qoşmalar</string>

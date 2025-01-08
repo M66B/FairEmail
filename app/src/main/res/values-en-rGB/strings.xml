@@ -113,6 +113,7 @@
     <string name="title_trashed_from">Deleted message from %1$s</string>
     <string name="title_hide">Hide</string>
     <string name="title_flag_color">Coloured star &#8230;</string>
+    <string name="title_analyze">Analyse</string>
     <string name="title_raw_send_message">Message</string>
     <string name="title_raw_send_thread">Conversation</string>
     <string name="title_quick_actions_snooze">Snooze</string>

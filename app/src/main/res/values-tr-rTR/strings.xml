@@ -911,6 +911,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_notify_car_hint">Bağlandı, bir şeyin yansıtıldığı anlamına gelir, navigasyon için bir harita gibi</string>
     <string name="title_advanced_notify_remove_hint">Kaydırıldığında ya da mesajlar okundu olarak işaretlendiğinde yeni mesaj bildirimleri her zaman kaldırılacaktır</string>
     <string name="title_advanced_notify_manage_hint">Kanal özelliklerini ayarlamak için kanal adına dokunun</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Bildirim kanallarını yönetmek için bu Android ayarını etkinleştirmeniz gerekebilir: Bildirim, Gelişmiş ayarlar, Her uygulama için bildirim kategorilerini yönet</string>
     <string name="title_advanced_notify_manage_default_hint">Varsayılan sesi ayarlamak için, vs</string>
     <string name="title_advanced_notify_manage_service_hint">\'İzleme\' bildirimini devre dışı bırakmak için</string>
     <string name="title_advanced_notify_separate_hint">Hesaplar, klasörler ve gönderenler için bildirimleri nasıl yapılandırırım?</string>
@@ -1243,6 +1244,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_force_light">Aydınlık temasını zorla</string>
     <string name="title_rename">Yeniden Adlandır</string>
     <string name="title_share">Paylaş</string>
+    <string name="title_analyze">Analiz</string>
     <string name="title_event">Takvime ekle</string>
     <string name="title_pin">Kısayol ekle</string>
     <string name="title_pin_label">Kısayol başlığı</string>
@@ -1646,6 +1648,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_sort_on_starred_unread">Yıldızlı, okunmamış</string>
     <string name="title_sort_on_priority">Öncelik</string>
     <string name="title_sort_on_sender">Gönderen</string>
+    <string name="title_sort_on_sender_name">Gönderici adı</string>
     <string name="title_sort_on_subject">Konu</string>
     <string name="title_sort_on_size">Boyut</string>
     <string name="title_sort_on_attachments">Ekler</string>

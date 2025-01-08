@@ -921,6 +921,7 @@
     <string name="title_advanced_notify_car_hint">Conectado significa que algo está siendo proyectado, como un mapa para la navegación</string>
     <string name="title_advanced_notify_remove_hint">Las notificaciones de nuevos mensajes siempre serán eliminadas al deslizarlas y al marcar mensajes como leídos</string>
     <string name="title_advanced_notify_manage_hint">Toca en el nombre del canal para establecer las propiedades del canal</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Para administrar los canales de notificación, puede que necesite habilitar esta configuración de Android: Notificaciones, Configuración Avanzada, Gestionar categorías de notificaciones para cada aplicación</string>
     <string name="title_advanced_notify_manage_default_hint">Para configurar el sonido por defecto, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Para desactivar la notificación de \'monitoreo\'</string>
     <string name="title_advanced_notify_separate_hint">¿Cómo puedo configurar las notificaciones de cuentas, carpetas y remitentes?</string>
@@ -1256,6 +1257,7 @@
     <string name="title_force_light">Forzar tema claro</string>
     <string name="title_rename">Renombrar</string>
     <string name="title_share">Compartir</string>
+    <string name="title_analyze">Analizar</string>
     <string name="title_event">Añadir al calendario</string>
     <string name="title_pin">Añadir acceso directo</string>
     <string name="title_pin_label">Título del acceso directo</string>
@@ -1371,7 +1373,7 @@
     <string name="title_attachment_saved">Adjunto guardado</string>
     <string name="title_attachments_saved">Adjuntos guardados</string>
     <string name="title_attachments_incomplete">Algunos adjuntos o imágenes no fueron descargados y no pudieron añadirse</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Este informe, un correo electrónico con formato especial, fue enviado por un servidor de correo electrónico porque un mensaje enviado no pudo ser enviado al destinatario, por ejemplo porque el buzón está lleno, o porque la dirección de correo electrónico (ya) no existe.</string>
+    <string name="title_report_remark">Este informe, un correo electrónico con formato especial, fue enviado por un servidor de correo electrónico porque un mensaje enviado no pudo ser enviado al destinatario, por ejemplo porque el buzón está lleno, o porque la dirección de correo electrónico (ya) no existe.</string>
     <string name="title_ask_save">¿Guardar cambios?</string>
     <string name="title_ask_delete">¿Eliminar mensaje permanentemente?</string>
     <string name="title_ask_delete_accept">Entiendo que la eliminación permanente de mensajes es irreverible</string>
@@ -1663,6 +1665,7 @@
     <string name="title_sort_on_starred_unread">Destacado, no leído</string>
     <string name="title_sort_on_priority">Prioridad</string>
     <string name="title_sort_on_sender">Remitente</string>
+    <string name="title_sort_on_sender_name">Nombre del remitente</string>
     <string name="title_sort_on_subject">Asunto</string>
     <string name="title_sort_on_size">Tamaño</string>
     <string name="title_sort_on_attachments">Adjuntos</string>

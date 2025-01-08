@@ -950,6 +950,7 @@
     <string name="title_advanced_notify_car_hint">מחובר כלומר שמשהו מוקרן כגון מפה לניווט</string>
     <string name="title_advanced_notify_remove_hint">התראות על הודעות חשבות תמיד תוסרנה עם החלקה כלפי חוץ ועם סימון הודעות כנקראו</string>
     <string name="title_advanced_notify_manage_hint">יש לגעת בשם הערוץ כדי להגדיר את מאפייניו</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">כדי לנהל ערוצי התראות, כנראה שיהיה עליך להפעיל את הגדרת ה־Android הזאת: התראה, הגדרות מתקדמות, ניהול קטגוריות התראה לכל יישום</string>
     <string name="title_advanced_notify_manage_default_hint">כדי להגדיר את צלילי ברירת המחדל וכו׳.</string>
     <string name="title_advanced_notify_manage_service_hint">כדי להשבית את התראת ה‚מעקב’</string>
     <string name="title_advanced_notify_separate_hint">איך אפשר להגדיר התראות לחשבונות, תיקיות ומוענים?</string>
@@ -1286,6 +1287,7 @@
     <string name="title_force_light">אילוץ ערכת נושא בהירה</string>
     <string name="title_rename">שינוי שם</string>
     <string name="title_share">שיתוף</string>
+    <string name="title_analyze">ניתוח</string>
     <string name="title_event">הוספה ללוח השנה</string>
     <string name="title_pin">הוספת קיצור דרך</string>
     <string name="title_pin_label">כותרת קיצור הדרך</string>
@@ -1401,7 +1403,7 @@
     <string name="title_attachment_saved">הקובץ המצורף נשמר</string>
     <string name="title_attachments_saved">הקבצים המצורפים נשמרו</string>
     <string name="title_attachments_incomplete">חלק מהקבצים המצורפים או התמונות לא התקבלו ולא ניתן להוסיף אותם</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">הדוח הזה, הודעה שעוצבה במיוחד, נשלח על ידי שרת דוא״ל כי אי אפשר להעביר את ההודעה שנשלחה לנמען, למשל כיוון שתיבת הדוא״ל מלאה או כיוון שכתובת הדוא״ל לא קיימת (עוד).</string>
+    <string name="title_report_remark">הדוח הזה, הודעה שעוצבה במיוחד, נשלח על ידי שרת דוא״ל כי אי אפשר להעביר את ההודעה שנשלחה לנמען, למשל כיוון שתיבת הדוא״ל מלאה או כיוון שכתובת הדוא״ל לא קיימת (עוד).</string>
     <string name="title_ask_save">לשמור את השינויים?</string>
     <string name="title_ask_delete">למחוק הודעה לצמיתות?</string>
     <string name="title_ask_delete_accept">ברור לי שמחיקת הודעות לצמיתות היא בלתי הפיכה</string>
@@ -1695,6 +1697,7 @@
     <string name="title_sort_on_starred_unread">מסומן בכוכב, לא נקרא</string>
     <string name="title_sort_on_priority">עדיפות</string>
     <string name="title_sort_on_sender">מוען</string>
+    <string name="title_sort_on_sender_name">שם השולח</string>
     <string name="title_sort_on_subject">נושא</string>
     <string name="title_sort_on_size">גודל</string>
     <string name="title_sort_on_attachments">קבצים מצורפים</string>

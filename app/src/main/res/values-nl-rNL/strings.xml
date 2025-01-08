@@ -918,6 +918,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_notify_car_hint">Verbonden betekent dat er iets wordt geprojecteerd, zoals een kaart voor navigatie</string>
     <string name="title_advanced_notify_remove_hint">Meldingen van nieuwe berichten worden altijd verwijderd als ze worden weggeveegd en als berichten worden gemarkeerd als gelezen</string>
     <string name="title_advanced_notify_manage_hint">Tik op de kanaalnaam om de kanaaleigenschappen in te stellen</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Om meldingskanalen te beheren, moet u mogelijk deze Android-instelling inschakelen: Melding, Geavanceerde instellingen, Beheer meldingscategorieën voor elke app</string>
     <string name="title_advanced_notify_manage_default_hint">Om het standaardgeluid, etc in te stellen</string>
     <string name="title_advanced_notify_manage_service_hint">Om de bewakingsmelding uit te schakelen</string>
     <string name="title_advanced_notify_separate_hint">Hoe stel ik meldingen in voor accounts, mappen en afzenders?</string>
@@ -1251,6 +1252,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_force_light">Forceer licht thema</string>
     <string name="title_rename">Hernoemen</string>
     <string name="title_share">Delen</string>
+    <string name="title_analyze">Analyseer</string>
     <string name="title_event">Toevoegen aan agenda</string>
     <string name="title_pin">Snelkoppeling toevoegen</string>
     <string name="title_pin_label">Snelkoppeling titel</string>
@@ -1364,7 +1366,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
     <string name="title_attachments_saved">Bijlagen opgeslagen</string>
     <string name="title_attachments_incomplete">Sommige bijlagen of afbeeldingen zijn niet gedownload en konden niet worden toegevoegd</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Dit rapport, een speciaal opgemaakte e-mailbericht, werd verzonden door een mailserver, omdat een verzonden bericht niet aan de ontvanger kon worden afgeleverd, bijvoorbeeld omdat de mailbox vol is, of omdat het e-mailadres niet (meer) bestaat.</string>
+    <string name="title_report_remark">Dit rapport, een speciaal opgemaakte e-mailbericht, werd verzonden door een mailserver, omdat een verzonden bericht niet aan de ontvanger kon worden afgeleverd, bijvoorbeeld omdat de mailbox vol is, of omdat het e-mailadres niet (meer) bestaat.</string>
     <string name="title_ask_save">Wijzigingen opslaan?</string>
     <string name="title_ask_delete">Verwijder bericht definitief?</string>
     <string name="title_ask_delete_accept">Ik begrijp dat permanent verwijderen van berichten onomkeerbaar is</string>
@@ -1655,6 +1657,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_sort_on_starred_unread">Met ster, ongelezen</string>
     <string name="title_sort_on_priority">Prioriteit</string>
     <string name="title_sort_on_sender">Afzender</string>
+    <string name="title_sort_on_sender_name">Afzender naam</string>
     <string name="title_sort_on_subject">Onderwerp</string>
     <string name="title_sort_on_size">Grootte</string>
     <string name="title_sort_on_attachments">Bijlagen</string>

@@ -923,6 +923,7 @@
     <string name="title_advanced_notify_car_hint">Connecté signifie que quelque chose est projeté, comme une carte pour la navigation</string>
     <string name="title_advanced_notify_remove_hint">Les notifications de nouveau message seront toujours supprimées lors de leur balayage et du marquage des messages comme lus</string>
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom d’un canal pour définir ses propriétés</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Pour gérer les canaux de notification, vous devrez peut-être activer ce paramètre Android : Notifications, Paramètres avancés, Gérer les catégories de notifications pour chaque application</string>
     <string name="title_advanced_notify_manage_default_hint">Pour définir le son par défaut, etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Pour désactiver la notification « Surveillance »</string>
     <string name="title_advanced_notify_separate_hint">Comment configurer les notifications pour les comptes, dossiers et expéditeurs?</string>
@@ -1259,6 +1260,7 @@
     <string name="title_force_light">Forcer le thème clair</string>
     <string name="title_rename">Renommer</string>
     <string name="title_share">Partager</string>
+    <string name="title_analyze">Analyser</string>
     <string name="title_event">Ajouter au calendrier</string>
     <string name="title_pin">Ajouter un raccourci</string>
     <string name="title_pin_label">Nom du raccourci</string>
@@ -1374,7 +1376,7 @@
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
     <string name="title_attachments_saved">Pièces jointes enregistrées</string>
     <string name="title_attachments_incomplete">Certaines pièces jointes ou images n’ont pas été téléchargées et n’ont pas pu être ajoutées</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">Ce rapport, un e-mail spécialement formaté, a été envoyé par un serveur de messagerie car un message envoyé n\'a pas pu être remis au destinataire, par exemple parce que la boîte aux lettres est pleine ou parce que l\'adresse e-mail n\'existe pas / plus.</string>
+    <string name="title_report_remark">Ce rapport, un e-mail spécialement formaté, a été envoyé par un serveur de messagerie car un message envoyé n\'a pas pu être remis au destinataire, par exemple parce que la boîte aux lettres est pleine ou parce que l\'adresse e-mail n\'existe pas / plus.</string>
     <string name="title_ask_save">Enregistrer les modifications?</string>
     <string name="title_ask_delete">Supprimer ce message définitivement?</string>
     <string name="title_ask_delete_accept">Je comprends que la suppression définitive des messages est irréversible</string>
@@ -1668,6 +1670,7 @@
     <string name="title_sort_on_starred_unread">Suivis, non lus</string>
     <string name="title_sort_on_priority">Priorité</string>
     <string name="title_sort_on_sender">Expéditeur</string>
+    <string name="title_sort_on_sender_name">Nom de l\'expéditeur</string>
     <string name="title_sort_on_subject">Objet</string>
     <string name="title_sort_on_size">Taille</string>
     <string name="title_sort_on_attachments">Pièces jointes</string>

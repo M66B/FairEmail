@@ -908,6 +908,7 @@
     <string name="title_advanced_notify_car_hint">接続とは地図など何かが投影されている状態を意味します</string>
     <string name="title_advanced_notify_remove_hint">新着メッセージ通知はこの設定に関係なく、スワイプしたり、メッセージを既読にすると削除されます</string>
     <string name="title_advanced_notify_manage_hint">チャンネル名をタップして、チャンネルのプロパティを設定します</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">通知チャンネルを管理するには、Android の設定で: 通知 > 詳細設定 > 各アプリの[通知カテゴリ]を管理 を有効にする必要がある場合があります</string>
     <string name="title_advanced_notify_manage_default_hint">デフォルトの音などを設定します</string>
     <string name="title_advanced_notify_manage_service_hint">「モニター」通知を無効にします</string>
     <string name="title_advanced_notify_separate_hint">アカウント、フォルダ、差出人の通知を設定するにはどうすればよいですか？</string>
@@ -1244,6 +1245,7 @@
     <string name="title_force_light">ライトテーマを強制</string>
     <string name="title_rename">名前を変更</string>
     <string name="title_share">共有</string>
+    <string name="title_analyze">分析</string>
     <string name="title_event">カレンダーに追加</string>
     <string name="title_pin">ショートカットを追加</string>
     <string name="title_pin_label">ショートカットのタイトル</string>
@@ -1359,7 +1361,7 @@
     <string name="title_attachment_saved">添付ファイルを保存しました</string>
     <string name="title_attachments_saved">添付ファイルを保存しました</string>
     <string name="title_attachments_incomplete">一部の添付ファイルまたは画像がダウンロードされず、追加されませんでした</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">このレポートは、宛先のメールボックスが満杯やアドレスが存在しない (しなくなった) ような、宛先にメッセージが配信できない場合にメールサーバーから送信される特別なフォーマットのメールです。</string>
+    <string name="title_report_remark">このレポートは、宛先のメールボックスが満杯やアドレスが存在しない (しなくなった) ような、宛先にメッセージが配信できない場合にメールサーバーから送信される特別なフォーマットのメールです。</string>
     <string name="title_ask_save">変更内容を保存しますか？</string>
     <string name="title_ask_delete">メッセージを完全に削除しますか？</string>
     <string name="title_ask_delete_accept">メッセージを完全に削除すると元に戻せませんが、本当によろしいですか？</string>
@@ -1653,6 +1655,7 @@
     <string name="title_sort_on_starred_unread">スター付き、未読</string>
     <string name="title_sort_on_priority">重要度</string>
     <string name="title_sort_on_sender">差出人</string>
+    <string name="title_sort_on_sender_name">差出人名</string>
     <string name="title_sort_on_subject">件名</string>
     <string name="title_sort_on_size">サイズ</string>
     <string name="title_sort_on_attachments">添付ファイル</string>

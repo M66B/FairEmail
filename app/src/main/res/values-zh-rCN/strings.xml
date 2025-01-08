@@ -907,6 +907,7 @@
     <string name="title_advanced_notify_car_hint">已连接意味着正在投影某些东西，例如用于导航的地图</string>
     <string name="title_advanced_notify_remove_hint">滑走或标为已读时将总会移除新邮件通知</string>
     <string name="title_advanced_notify_manage_hint">点击频道名称来设置频道属性</string>
+    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">要管理通知渠道，您可能需要启用此 Android 设置：通知、高级设置、管理每个应用的通知类别</string>
     <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>
     <string name="title_advanced_notify_manage_service_hint">禁用“监视”通知</string>
     <string name="title_advanced_notify_separate_hint">如何配置账户、文件夹和发送者的通知？</string>
@@ -1240,6 +1241,7 @@
     <string name="title_force_light">强制使用浅色主题</string>
     <string name="title_rename">重命名</string>
     <string name="title_share">分享</string>
+    <string name="title_analyze">分析</string>
     <string name="title_event">添加到日历</string>
     <string name="title_pin">添加快捷方式</string>
     <string name="title_pin_label">快捷方式标题</string>
@@ -1355,7 +1357,7 @@
     <string name="title_attachment_saved">附件已保存</string>
     <string name="title_attachments_saved">附件已保存</string>
     <string name="title_attachments_incomplete">一些附件或图像没有下载，且无法添加</string>
-    <string name="title_report_remark" comment="title_report_remark&#10;Remark to explain what a non-delivery notification message is">这份报告是一封特别格式的电子邮件，由电子邮件服务器发送，因为发送的邮件无法发送给收件人， 例如，因为邮箱已满，或因为电子邮件地址不存在 (不再存在)。</string>
+    <string name="title_report_remark">这份报告是一封特别格式的电子邮件，由电子邮件服务器发送，因为发送的邮件无法发送给收件人， 例如，因为邮箱已满，或因为电子邮件地址不存在 (不再存在)。</string>
     <string name="title_ask_save">保存更改？</string>
     <string name="title_ask_delete">确定要永久删除邮件吗？</string>
     <string name="title_ask_delete_accept">我明白永久删除邮件是不可逆的</string>
@@ -1648,6 +1650,7 @@
     <string name="title_sort_on_starred_unread">星标，未读</string>
     <string name="title_sort_on_priority">优先级</string>
     <string name="title_sort_on_sender">发件人</string>
+    <string name="title_sort_on_sender_name">发件人名称</string>
     <string name="title_sort_on_subject">主题</string>
     <string name="title_sort_on_size">大小</string>
     <string name="title_sort_on_attachments">附件</string>
