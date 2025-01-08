@@ -32,6 +32,7 @@ import android.os.Build;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.system.ErrnoException;
+import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
@@ -3792,10 +3793,17 @@ public class MessageHelper {
     class PartHolder {
         Part part;
         ContentType contentType;
+        String filename;
 
         PartHolder(Part part, ContentType contentType) {
             this.part = part;
             this.contentType = contentType;
+        }
+
+        PartHolder(Part part, ContentType contentType, String filename) {
+            this.part = part;
+            this.contentType = contentType;
+            this.filename = filename;
         }
 
         boolean isPlainText() {
@@ -3811,7 +3819,10 @@ public class MessageHelper {
         }
 
         boolean isPatch() {
-            return "text/x-diff".equalsIgnoreCase(contentType.getBaseType()) ||
+            String ext = Helper.getExtension(filename);
+            return "diff".equalsIgnoreCase(ext) ||
+                    "patch".equalsIgnoreCase(ext) ||
+                    "text/x-diff".equalsIgnoreCase(contentType.getBaseType()) ||
                     "text/x-patch".equalsIgnoreCase(contentType.getBaseType());
         }
 
@@ -4239,7 +4250,10 @@ public class MessageHelper {
                         result = HtmlHelper.formatPlainText(result);
                     }
                 } else if (h.isPatch()) {
+                    String filename = h.part.getFileName();
                     result = (first ? "" : "<br><hr>") +
+                            (TextUtils.isEmpty(filename) ? "" :
+                                    "<div style =\"text-align: center;\">" + Html.escapeHtml(filename) + "</div><br>") +
                             "<pre style=\"font-family: monospace; font-size:small;\">" +
                             HtmlHelper.formatPlainText(result) +
                             "</pre>";
@@ -5382,10 +5396,13 @@ public class MessageHelper {
                         filename += ".html";
                 }
 
+                String ext = Helper.getExtension(filename);
                 if ("text/markdown".equalsIgnoreCase(ct) ||
                         "text/x-diff".equalsIgnoreCase(ct) ||
-                        "text/x-patch".equalsIgnoreCase(ct))
-                    parts.extra.add(new PartHolder(part, contentType));
+                        "text/x-patch".equalsIgnoreCase(ct) ||
+                        "diff".equalsIgnoreCase(ext) ||
+                        "patch".equalsIgnoreCase(ext))
+                    parts.extra.add(new PartHolder(part, contentType, filename));
 
                 if (Report.isDeliveryStatus(ct) ||
                         Report.isDispositionNotification(ct) ||
