@@ -534,10 +534,15 @@ public class FragmentDialogSend extends FragmentDialogBase {
                 args.putString("title", getString(R.string.title_send_at));
                 args.putLong("id", id);
 
-                Calendar cal = Calendar.getInstance();
-                cal.setTimeInMillis(new Date().getTime());
-                cal.set(Calendar.MINUTE, cal.get(Calendar.MINUTE) + 30);
-                args.putLong("time", cal.getTimeInMillis());
+                Bundle a = getArguments();
+                if (a != null && a.containsKey("sendAt"))
+                    args.putLong("time", a.getLong("sendAt"));
+                else {
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTimeInMillis(new Date().getTime());
+                    cal.set(Calendar.MINUTE, cal.get(Calendar.MINUTE) + 30);
+                    args.putLong("time", cal.getTimeInMillis());
+                }
 
                 FragmentDialogDuration fragment = new FragmentDialogDuration();
                 fragment.setArguments(args);
@@ -657,6 +662,9 @@ public class FragmentDialogSend extends FragmentDialogBase {
                     return false;
                 }
 
+                if (draft.ui_snoozed != null)
+                    args.putLong("sendAt", draft.ui_snoozed);
+
                 if (TextUtils.isEmpty(draft.inreplyto)) {
                     args.putString("reason", "No in-reply-to");
                     return false;
@@ -688,6 +696,9 @@ public class FragmentDialogSend extends FragmentDialogBase {
 
             @Override
             protected void onExecuted(Bundle args, Boolean data) {
+                if (args.containsKey("sendAt"))
+                    getArguments().putLong("sendAt", args.getLong("sendAt"));
+
                 if (!data) {
                     String reason = args.getString("reason");
                     if (BuildConfig.DEBUG)
@@ -739,6 +750,8 @@ public class FragmentDialogSend extends FragmentDialogBase {
             Bundle data = intent.getBundleExtra("args");
             long id = data.getLong("id");
             long time = data.getLong("time");
+
+            getArguments().putLong("sendAt", time);
 
             Bundle args = new Bundle();
             args.putLong("id", id);
