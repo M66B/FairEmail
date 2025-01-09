@@ -1557,7 +1557,7 @@
                     android:id="@+id/grpSound"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="btnSound,cbAlarm,tvAlarm,tvAlarmDuration,etAlarmDuration" />
+                    app:constraint_referenced_ids="btnSound,cbLoop,cbAlarm,tvAlarm,tvAlarmDuration,etAlarmDuration" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpAutomation"
