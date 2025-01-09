@@ -10956,8 +10956,17 @@ public class FragmentMessages extends FragmentBase
                     if (junk == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_no_junk_folder));
 
-                    if (!message.folder.equals(junk.id))
+                    if (!message.folder.equals(junk.id)) {
                         EntityOperation.queue(context, message, EntityOperation.MOVE, junk.id, null, null, true);
+
+                        if (!Helper.isPlayStoreInstall()) {
+                            List<EntityMessage> similar = db.message().getMessagesBySender(message.folder, message.sender);
+                            if (similar != null)
+                                for (EntityMessage m : similar)
+                                    if (!message.id.equals(m.id))
+                                        EntityOperation.queue(context, m, EntityOperation.MOVE, junk.id, null, null, true);
+                        }
+                    }
 
                     if (block_domain) {
                         List<EntityRule> rules = EntityRule.blockSender(context, message, junk, block_domain);
