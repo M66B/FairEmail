@@ -190,8 +190,6 @@ public class AI {
         if (remove_signatures)
             HtmlHelper.removeSignatures(d);
 
-        HtmlHelper.removeQuotes(d, true);
-
         d = HtmlHelper.sanitizeView(context, d, false);
 
         HtmlHelper.truncate(d, MAX_SUMMARIZE_TEXT_SIZE);
