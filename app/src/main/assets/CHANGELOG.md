@@ -32,7 +32,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### 1.2258 2025-01-08
+### Next version
+
+* Added loop sound option to play sound rule actions
+* Updated build tools
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2258 2025-01-08 *
 
 * Fixed S/MIME decrypt in some cases
 * Small improvements and minor bug fixes
