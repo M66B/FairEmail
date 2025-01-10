@@ -789,7 +789,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             etDnsExtra.setEnabled(swDnsCustom.isChecked() || Build.VERSION.SDK_INT < Build.VERSION_CODES.Q);
             swDnsClear.setChecked(prefs.getBoolean("dns_clear", false));
             swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
-            swSslUpdate.setChecked(prefs.getBoolean("ssl_update", true));
+            swSslUpdate.setChecked(prefs.getBoolean("ssl_update", Helper.isPlayStoreInstall()));
             swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
             swSslHardenStrict.setChecked(prefs.getBoolean("ssl_harden_strict", false));
             swSslHardenStrict.setEnabled(swSslHarden.isChecked());
