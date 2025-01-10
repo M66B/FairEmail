@@ -949,7 +949,7 @@
     <string name="title_advanced_notify_car_hint">Połączony oznacza, że coś jest wyświetlane, na przykład mapa do nawigacji</string>
     <string name="title_advanced_notify_remove_hint">Powiadomienia o nowych wiadomościach będą zawsze usuwane po przesunięciu i oznaczeniu wiadomości jako przeczytane</string>
     <string name="title_advanced_notify_manage_hint">Dotknij nazwę kanału, aby ustawić właściwości kanału</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Aby zarządzać kanałami powiadomień, może być konieczne włączenie tego ustawienia w systemie Android: Powiadomienia, Zaawansowane ustawienia, Zarządzaj kategoriami powiadomień dla każdej aplikacji</string>
+    <string name="title_advanced_notify_samsung_hint">Aby zarządzać kanałami powiadomień, może być konieczne włączenie tego ustawienia w systemie Android: Powiadomienia, Zaawansowane ustawienia, Zarządzaj kategoriami powiadomień dla każdej aplikacji</string>
     <string name="title_advanced_notify_manage_default_hint">Aby ustawić domyślny dźwięk, itp.</string>
     <string name="title_advanced_notify_manage_service_hint">Aby wyłączyć powiadomienie \"monitorowanie\"</string>
     <string name="title_advanced_notify_separate_hint">Jak skonfigurować powiadomienia dla kont, folderów i nadawców?</string>
@@ -1853,6 +1853,7 @@
     <string name="title_rule_select_sound">Wybierz dźwięk</string>
     <string name="title_rule_select_sound_ringtone">Dzwonek</string>
     <string name="title_rule_select_sound_audio">Plik audio</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Zapętl dźwięk</string>
     <string name="title_rule_use_as_alarm">Użyj jako alarmu</string>
     <string name="title_rule_alarm_hint">To zignoruje zasady \"nie przeszkadzać\"</string>
     <string name="title_rule_alarm_duration">Maksymalny czas trwania alarmu (sekundy)</string>

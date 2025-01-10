@@ -761,7 +761,7 @@
         Die Standardalgorithmen SHA256 und AES128 werden üblicherweise unterstützt.
     </string>
     <string name="title_advanced_check_certificate">Öffentlichen Schlüssel beim Senden überprüfen</string>
-    <string name="title_advanced_check_key_usage">Überprüfung der Schlüsselverwendungsangaben beim Senden</string>
+    <string name="title_advanced_check_key_usage">Beim Senden die Anweisungen zum Gebrauch der Schlüssel prüfen</string>
     <string name="title_advanced_manage_certificates">Öffentliche Schlüssel verwalten</string>
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
     <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
@@ -924,7 +924,7 @@
     <string name="title_advanced_notify_car_hint">Verbunden bedeutet, dass etwas projiziert wird, zum Beispiel eine Karte für die Navigation</string>
     <string name="title_advanced_notify_remove_hint">Eingangsbenachrichtigungen werden immer entfernt, wenn sie weggewischt oder als gelesen gekennzeichnet werden</string>
     <string name="title_advanced_notify_manage_hint">Auf den Kanalnamen tippen, um die Kanaleigenschaften festzulegen</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Um Benachrichtigungskanäle verwalten zu können, müssen Sie möglicherweise diese Android-Einstellung aktivieren: Benachrichtigung ➔ Erweiterte Einstellungen ➔ Benachrichtigungskategorien für jede App verwalten</string>
+    <string name="title_advanced_notify_samsung_hint">Um Benachrichtigungskanäle verwalten zu können, müssen Sie möglicherweise diese Android-Einstellung aktivieren: Benachrichtigung ➔ Erweiterte Einstellungen ➔ Benachrichtigungskategorien für jede App verwalten</string>
     <string name="title_advanced_notify_manage_default_hint">Zum Einstellen des Standardtons usw.</string>
     <string name="title_advanced_notify_manage_service_hint">Zum Deaktivieren der Benachrichtigung für die App-Überwachung</string>
     <string name="title_advanced_notify_separate_hint">Wie konfiguriere ich Benachrichtigungen für Konten, Ordner und Absender?</string>
@@ -1377,7 +1377,7 @@
     <string name="title_attachment_saved">Anhang gespeichert</string>
     <string name="title_attachments_saved">Anhänge gespeichert</string>
     <string name="title_attachments_incomplete">Einige Anhänge oder Bilder wurden nicht heruntergeladen und konnten nicht hinzugefügt werden</string>
-    <string name="title_report_remark">Dieser Bericht, eine speziell formatierte E-Mail, wurde von einem E-Mail-Server gesendet, weil eine gesendete Nachricht nicht an den Empfänger zugestellt werden konnte, z. B. weil das Postfach voll ist oder weil die E-Mail-Adresse nicht (mehr) existiert.</string>
+    <string name="title_report_remark">Dieser Bericht, eine speziell formatierte E-Mail, wurde von einem E-Mail-Server gesendet, weil eine gesendete Nachricht nicht an den Empfänger zugestellt werden konnte. Möglicherweise ist das Postfach voll oder die E-Mail-Adresse existiert nicht (mehr).</string>
     <string name="title_ask_save">Änderungen speichern?</string>
     <string name="title_ask_delete">Nachricht dauerhaft löschen?</string>
     <string name="title_ask_delete_accept">Ich verstehe, dass das Löschen von Nachrichten unwiderruflich ist</string>
@@ -1797,7 +1797,7 @@
     <string name="title_rule_resend">Umleiten</string>
     <string name="title_rule_attached">Nachricht-Quelltext anhängen</string>
     <string name="title_rule_cc">Den CC-Adressen antworten</string>
-    <string name="title_rule_checks">Auf automatisch gesendete Nachrichten, keine-Antwort-Adressen usw. prüfen.</string>
+    <string name="title_rule_checks">Auf automatisch gesendete Nachrichten, Nicht-Antworten-Adressen usw. prüfen</string>
     <string name="title_rule_with_attachments">Mit Anhängen</string>
     <string name="title_rule_answer_remark">Für jede Unterhaltung wird per Antwortregel nur eine Antwort gesendet, um Antwortschleifen zu vermeiden</string>
     <string name="title_rule_name_missing">Regelname fehlt</string>
@@ -1829,6 +1829,7 @@
     <string name="title_rule_select_sound">Ton auswählen</string>
     <string name="title_rule_select_sound_ringtone">Klingelton</string>
     <string name="title_rule_select_sound_audio">Audiodatei</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Ton wiederholen</string>
     <string name="title_rule_use_as_alarm">Als Wecker verwenden</string>
     <string name="title_rule_alarm_hint">Dies ignoriert die Nicht-stören-Regeln</string>
     <string name="title_rule_alarm_duration">Maximale Alarmdauer (Sekunden)</string>
@@ -1980,7 +1981,7 @@
     <string name="title_hint_important">Wichtig</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen – abhängig von der Geschwindigkeit des Anbieters, der Internetverbindung, des Geräts und der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
     <string name="title_hint_sync_note">Standardmäßig werden nicht alle Nachrichten heruntergeladen, um Speicherplatz, Akku- und Datenverbrauch zu begrenzen. Sie können dies ändern, indem Sie lange auf einen Ordner in der Ordnerliste drücken und »Weitere Nachrichten abrufen« auswählen.</string>
-    <string name="title_hint_battery">Da FairEmail standardmäßig immer bereit ist, Nachrichten zu erhalten, meldet Android FairEmail als immer aktiv. Daher mag es so aussehen, als ob FairEmail immer Akkuladung verbraucht, aber das ist nicht der Fall.</string>
+    <string name="title_hint_battery">Da FairEmail standardmäßig immer bereit ist, Nachrichten zu erhalten, meldet Android FairEmail als durchgehend aktiv. Deshalb kann es so aussehen, als ob FairEmail immer Akkuladung verbraucht, aber das ist nicht der Fall.</string>
     <string name="title_hint_reformat">Standardmäßig formatiert FairEmail Nachrichten aus Datenschutz- und Sicherheitsgründen neu. Um die Originalnachricht anzuzeigen, tippen Sie über dem Nachrichtentext auf das Vollbildsymbol »Original anzeigen«.</string>
     <string name="title_hint_design">Das Design ist bewusst nicht ablenkend, sondern sehr funktional gestaltet. Es gibt viele Optionen, um das Erscheinungsbild anzupassen, aber bitte haben Sie Verständnis dafür, dass es unmöglich ist, alle zufriedenzustellen.</string>
     <string name="title_hint_junk">Das Filtern von Spam sollte durch den E-Mail-Server erfolgen und kann auf einem akkubetriebenen Gerät mit begrenzten Kapazitäten nicht zuverlässig durchgeführt werden.</string>

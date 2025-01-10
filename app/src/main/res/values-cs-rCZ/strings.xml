@@ -950,6 +950,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_notify_car_hint">Připojení znamená, že se promítá něco, jako je mapa navigace</string>
     <string name="title_advanced_notify_remove_hint">Oznámení nových zpráv budou při odtažení prstem a při označení zpráv jako přečtených odebrána vždy</string>
     <string name="title_advanced_notify_manage_hint">Pro nastavení vlastností kanálu se dotkněte jeho názvu</string>
+    <string name="title_advanced_notify_samsung_hint">Pro správu oznamovacích kanálů budete muset povolit toto nastavení Androidu: Oznámení, Pokročilé nastavení, Správa oznamovacích kategorií pro každou aplikaci</string>
     <string name="title_advanced_notify_manage_default_hint">Pro nastavení výchozího zvuku, apod</string>
     <string name="title_advanced_notify_manage_service_hint">Pro vypnutí oznámení o „monitorování“</string>
     <string name="title_advanced_notify_separate_hint">Jak konfigurovat oznámení pro účty, složky a odesílatele?</string>
@@ -1285,6 +1286,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_force_light">Vynutit světlý motiv</string>
     <string name="title_rename">Přejmenovat</string>
     <string name="title_share">Sdílet</string>
+    <string name="title_analyze">Analyzovat</string>
     <string name="title_event">Přidat do kalendáře</string>
     <string name="title_pin">Přidat zkratku</string>
     <string name="title_pin_label">Název zkratky</string>
@@ -1693,6 +1695,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_sort_on_starred_unread">S hvězdičkou, nepřečtené</string>
     <string name="title_sort_on_priority">Priorita</string>
     <string name="title_sort_on_sender">Odesílatel</string>
+    <string name="title_sort_on_sender_name">Jméno odesílatele</string>
     <string name="title_sort_on_subject">Předmět</string>
     <string name="title_sort_on_size">Velikost</string>
     <string name="title_sort_on_attachments">Přílohy</string>
@@ -1850,6 +1853,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_select_sound">Vybrat zvuk</string>
     <string name="title_rule_select_sound_ringtone">Vyzváněcí tón</string>
     <string name="title_rule_select_sound_audio">Audio soubor</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Opakovat zvuk</string>
     <string name="title_rule_use_as_alarm">Použít jako budík</string>
     <string name="title_rule_alarm_hint">Toto ignoruje pravidla režimu \"Nerušit\"</string>
     <string name="title_rule_alarm_duration">Maximální doba trvání budíku (sekundy)</string>

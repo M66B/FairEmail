@@ -950,7 +950,7 @@
     <string name="title_advanced_notify_car_hint">Подключение означает отображение чего-либо, например, навигационной карты</string>
     <string name="title_advanced_notify_remove_hint">Уведомления о новых о сообщениях всегда будут удаляться при смахивании сообщения и пометке о прочтении</string>
     <string name="title_advanced_notify_manage_hint">Нажмите на название канала, чтобы установить его свойства</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Для управления каналами уведомлений может потребоваться включить данную настройку Android: Уведомления → Дополнительные настройки → Управление категориями уведомлений для каждого приложения</string>
+    <string name="title_advanced_notify_samsung_hint">Для управления каналами уведомлений может потребоваться включить данную настройку Android: Уведомления → Дополнительные настройки → Управление категориями уведомлений для каждого приложения</string>
     <string name="title_advanced_notify_manage_default_hint">Для установки звука по умолчанию и т.д.</string>
     <string name="title_advanced_notify_manage_service_hint">Для отключения контролирующего уведомления</string>
     <string name="title_advanced_notify_separate_hint">Как настроить уведомления для учётных записей, папок и отправителей?</string>
@@ -1855,6 +1855,7 @@
     <string name="title_rule_select_sound">Выбрать звук</string>
     <string name="title_rule_select_sound_ringtone">Мелодия</string>
     <string name="title_rule_select_sound_audio">Аудиофайл</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Повтор звука</string>
     <string name="title_rule_use_as_alarm">Использовать как будильник</string>
     <string name="title_rule_alarm_hint">Это игнорирует правила \"не беспокоить\"</string>
     <string name="title_rule_alarm_duration">Максимальная длительность будильника (в секундах)</string>

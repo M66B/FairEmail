@@ -921,7 +921,7 @@
     <string name="title_advanced_notify_car_hint">Conectado significa que algo está siendo proyectado, como un mapa para la navegación</string>
     <string name="title_advanced_notify_remove_hint">Las notificaciones de nuevos mensajes siempre serán eliminadas al deslizarlas y al marcar mensajes como leídos</string>
     <string name="title_advanced_notify_manage_hint">Toca en el nombre del canal para establecer las propiedades del canal</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Para administrar los canales de notificación, puede que necesite habilitar esta configuración de Android: Notificaciones, Configuración Avanzada, Gestionar categorías de notificaciones para cada aplicación</string>
+    <string name="title_advanced_notify_samsung_hint">Para administrar los canales de notificación, puede que necesite habilitar esta configuración de Android: Notificaciones, Configuración Avanzada, Gestionar categorías de notificaciones para cada aplicación</string>
     <string name="title_advanced_notify_manage_default_hint">Para configurar el sonido por defecto, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Para desactivar la notificación de \'monitoreo\'</string>
     <string name="title_advanced_notify_separate_hint">¿Cómo puedo configurar las notificaciones de cuentas, carpetas y remitentes?</string>

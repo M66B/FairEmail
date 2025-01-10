@@ -907,7 +907,7 @@
     <string name="title_advanced_notify_car_hint">已连接意味着正在投影某些东西，例如用于导航的地图</string>
     <string name="title_advanced_notify_remove_hint">滑走或标为已读时将总会移除新邮件通知</string>
     <string name="title_advanced_notify_manage_hint">点击频道名称来设置频道属性</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">要管理通知渠道，您可能需要启用此 Android 设置：通知、高级设置、管理每个应用的通知类别</string>
+    <string name="title_advanced_notify_samsung_hint">要管理通知渠道，您可能需要启用此 Android 设置：通知、高级设置、管理每个应用的通知类别</string>
     <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>
     <string name="title_advanced_notify_manage_service_hint">禁用“监视”通知</string>
     <string name="title_advanced_notify_separate_hint">如何配置账户、文件夹和发送者的通知？</string>

@@ -922,7 +922,7 @@
     <string name="title_advanced_notify_car_hint">Ligado significa que algo está a ser projectado, tal como um mapa para navegação</string>
     <string name="title_advanced_notify_remove_hint">Novas notificações de mensagens serão sempre removidas ao serem arrastadas e ao serem marcadas como lidas</string>
     <string name="title_advanced_notify_manage_hint">Toque no nome do canal para definir as propriedades do canal</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Para gerir os canais de notificação, você pode precisar ativar esta configuração do Android: Notificações, Configurações Avançadas, Gerir categorias de notificação para cada app</string>
+    <string name="title_advanced_notify_samsung_hint">Para gerir os canais de notificação, você pode precisar ativar esta configuração do Android: Notificações, Configurações Avançadas, Gerir categorias de notificação para cada app</string>
     <string name="title_advanced_notify_manage_default_hint">Para definir o som padrão, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Para desactivar a notificação \'a monitorizar\'</string>
     <string name="title_advanced_notify_separate_hint">Como faço para configurar notificações para contas, pastas e remetentes?</string>
@@ -1827,6 +1827,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_rule_select_sound">Selecionar som</string>
     <string name="title_rule_select_sound_ringtone">Toque</string>
     <string name="title_rule_select_sound_audio">Ficheiros de áudio</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Som de repetição</string>
     <string name="title_rule_use_as_alarm">Utilizar como alarme</string>
     <string name="title_rule_alarm_hint">Isto irá ignorar as regras do \"não perturbe\"</string>
     <string name="title_rule_alarm_duration">Duração máxima do alarme (em segundos)</string>

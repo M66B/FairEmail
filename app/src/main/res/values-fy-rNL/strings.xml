@@ -919,6 +919,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_notify_car_hint">Ferbûn betsjut dat der wat projektearre wurdt, lykas in kaart foar navigaasje</string>
     <string name="title_advanced_notify_remove_hint">Notifikaasjes oer nije berjochten sille altyd fuortsmiten as se fuortfeie wurde en as berjochten as lêzen markearre wurde</string>
     <string name="title_advanced_notify_manage_hint">Tikje op de kanaalnamme om de kanaaleigenskippen yn te stellen</string>
+    <string name="title_advanced_notify_samsung_hint">Om meldingskanalen te behearen, moatte jo mooglik dizze Android-ynstelling ynskeakelje: Melding, Geavanceerde instellingen, Beheer meldingscategorieën voor elke app</string>
     <string name="title_advanced_notify_manage_default_hint">Om it standertlûd, ensfh. yn te stellen</string>
     <string name="title_advanced_notify_manage_service_hint">Om de bewakingsnotifikaasje út te skeakeljen</string>
     <string name="title_advanced_notify_separate_hint">Hoe stel ik meldingen yn foar accounts, mappen en ôfstjoerders?</string>
@@ -1252,6 +1253,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_force_light">Ljocht tema forsearje</string>
     <string name="title_rename">Omneame</string>
     <string name="title_share">Diele</string>
+    <string name="title_analyze">Analysearje</string>
     <string name="title_event">Oan aginda tafoegje</string>
     <string name="title_pin">Fluchkeppeling tafoegje</string>
     <string name="title_pin_label">Titel fluchkeppeling</string>
@@ -1660,6 +1662,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_sort_on_starred_unread">Mei stjer, net-lêzen</string>
     <string name="title_sort_on_priority">Prioriteit</string>
     <string name="title_sort_on_sender">Ofstjoerder</string>
+    <string name="title_sort_on_sender_name">Ofstjoerdernamme</string>
     <string name="title_sort_on_subject">Underwerp</string>
     <string name="title_sort_on_size">Grutte</string>
     <string name="title_sort_on_attachments">Bylagen</string>
@@ -1816,6 +1819,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_rule_select_sound">Lûd selektearje</string>
     <string name="title_rule_select_sound_ringtone">Beltoan</string>
     <string name="title_rule_select_sound_audio">Audiobestân</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Lûd werhelje</string>
     <string name="title_rule_use_as_alarm">As alarm brûke</string>
     <string name="title_rule_alarm_hint">Dit sil ‘net steure’-regels negearje</string>
     <string name="title_rule_alarm_duration">Maksimale alarmdoer (sekonden)</string>

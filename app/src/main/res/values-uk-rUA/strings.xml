@@ -949,7 +949,7 @@
     <string name="title_advanced_notify_car_hint">Наявність підключення означає, що відбувається показ чого-небудь, наприклад карти для навігації</string>
     <string name="title_advanced_notify_remove_hint">Сповіщення про нові повідомлення завжди будуть вилучатися при змахуванні вбік та при відмічанні повідомлення прочитаним</string>
     <string name="title_advanced_notify_manage_hint">Натисніть на назву каналу, щоб встановити його властивості</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Щоб керувати каналами сповіщень, вам може знадобитися увімкнути цей параметр в налаштуваннях Android: Сповіщення, Додаткові налаштування, Керування категоріями сповіщень для кожного застосунку</string>
+    <string name="title_advanced_notify_samsung_hint">Щоб керувати каналами сповіщень, вам може знадобитися увімкнути цей параметр в налаштуваннях Android: Сповіщення, Додаткові налаштування, Керування категоріями сповіщень для кожного застосунку</string>
     <string name="title_advanced_notify_manage_default_hint">Щоб встановити звук за замовчуванням тощо</string>
     <string name="title_advanced_notify_manage_service_hint">Щоб вимкнути сповіщення «монітор»</string>
     <string name="title_advanced_notify_separate_hint">Як налаштувати сповіщення для облікових записів, тек і відправників?</string>
@@ -1853,6 +1853,7 @@
     <string name="title_rule_select_sound">Оберіть звук</string>
     <string name="title_rule_select_sound_ringtone">Рінгтон</string>
     <string name="title_rule_select_sound_audio">Аудіофайл</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Зациклення звуку</string>
     <string name="title_rule_use_as_alarm">Використовувати як будильник</string>
     <string name="title_rule_alarm_hint">Правила режиму \"не турбувати\" ігноруватимуться</string>
     <string name="title_rule_alarm_duration">Тривалість сигнала будильника (у секундах)</string>

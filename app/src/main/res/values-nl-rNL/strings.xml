@@ -918,7 +918,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_notify_car_hint">Verbonden betekent dat er iets wordt geprojecteerd, zoals een kaart voor navigatie</string>
     <string name="title_advanced_notify_remove_hint">Meldingen van nieuwe berichten worden altijd verwijderd als ze worden weggeveegd en als berichten worden gemarkeerd als gelezen</string>
     <string name="title_advanced_notify_manage_hint">Tik op de kanaalnaam om de kanaaleigenschappen in te stellen</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Om meldingskanalen te beheren, moet u mogelijk deze Android-instelling inschakelen: Melding, Geavanceerde instellingen, Beheer meldingscategorieën voor elke app</string>
+    <string name="title_advanced_notify_samsung_hint">Om meldingskanalen te beheren, moet u mogelijk deze Android-instelling inschakelen: Melding, Geavanceerde instellingen, Beheer meldingscategorieën voor elke app</string>
     <string name="title_advanced_notify_manage_default_hint">Om het standaardgeluid, etc in te stellen</string>
     <string name="title_advanced_notify_manage_service_hint">Om de bewakingsmelding uit te schakelen</string>
     <string name="title_advanced_notify_separate_hint">Hoe stel ik meldingen in voor accounts, mappen en afzenders?</string>
@@ -1657,7 +1657,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_sort_on_starred_unread">Met ster, ongelezen</string>
     <string name="title_sort_on_priority">Prioriteit</string>
     <string name="title_sort_on_sender">Afzender</string>
-    <string name="title_sort_on_sender_name">Afzender naam</string>
+    <string name="title_sort_on_sender_name">Afzendernaam</string>
     <string name="title_sort_on_subject">Onderwerp</string>
     <string name="title_sort_on_size">Grootte</string>
     <string name="title_sort_on_attachments">Bijlagen</string>
@@ -1814,6 +1814,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_select_sound">Selecteer geluid</string>
     <string name="title_rule_select_sound_ringtone">Beltoon</string>
     <string name="title_rule_select_sound_audio">Audiobestand</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Herhaal geluid</string>
     <string name="title_rule_use_as_alarm">Als alarm gebruiken</string>
     <string name="title_rule_alarm_hint">Dit zal \"niet storen\" regels negeren</string>
     <string name="title_rule_alarm_duration">Maximale alarmduur (seconden)</string>

@@ -923,7 +923,7 @@
     <string name="title_advanced_notify_car_hint">Connecté signifie que quelque chose est projeté, comme une carte pour la navigation</string>
     <string name="title_advanced_notify_remove_hint">Les notifications de nouveau message seront toujours supprimées lors de leur balayage et du marquage des messages comme lus</string>
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom d’un canal pour définir ses propriétés</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Pour gérer les canaux de notification, vous devrez peut-être activer ce paramètre Android : Notifications, Paramètres avancés, Gérer les catégories de notifications pour chaque application</string>
+    <string name="title_advanced_notify_samsung_hint">Pour gérer les canaux de notification, vous devrez peut-être activer ce paramètre Android : Notifications, Paramètres avancés, Gérer les catégories de notifications pour chaque application</string>
     <string name="title_advanced_notify_manage_default_hint">Pour définir le son par défaut, etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Pour désactiver la notification « Surveillance »</string>
     <string name="title_advanced_notify_separate_hint">Comment configurer les notifications pour les comptes, dossiers et expéditeurs?</string>
@@ -1828,6 +1828,7 @@
     <string name="title_rule_select_sound">Choisir un son</string>
     <string name="title_rule_select_sound_ringtone">Sonnerie</string>
     <string name="title_rule_select_sound_audio">Fichier audio</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Son en boucle</string>
     <string name="title_rule_use_as_alarm">Utiliser en tant qu\'alarme</string>
     <string name="title_rule_alarm_hint">Ceci ignorera les règles « Ne pas déranger »</string>
     <string name="title_rule_alarm_duration">Durée maximale de l\'alarme (secondes)</string>

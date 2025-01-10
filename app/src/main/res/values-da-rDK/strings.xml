@@ -923,7 +923,7 @@
     <string name="title_advanced_notify_car_hint">Tilsluttet indikerer, at noget vises, f.eks. et navigationskort</string>
     <string name="title_advanced_notify_remove_hint">Nye beskednotifikationer fjernes altid, når de stryges væk samt ved markering af beskeder som læste</string>
     <string name="title_advanced_notify_manage_hint">Tryk på kanalnavnet for at opsætte kanalegenskaberne</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">For at håndtere meddelelseskanaler kan man være nødt til at aktivere denne Android-indstilling: Notifikation, Avancerede indstillinger, Håndtér meddelelseskategorier for hver app</string>
+    <string name="title_advanced_notify_samsung_hint">For at håndtere meddelelseskanaler kan man være nødt til at aktivere denne Android-indstilling: Notifikation, Avancerede indstillinger, Håndtér meddelelseskategorier for hver app</string>
     <string name="title_advanced_notify_manage_default_hint">For at opsætte standardlyd etc.</string>
     <string name="title_advanced_notify_manage_service_hint">For at deaktivere \'overvågningsnotifikationen\'</string>
     <string name="title_advanced_notify_separate_hint">Hvordan opsættes notifikationer for konti, mapper og afsendere?</string>
@@ -1828,6 +1828,7 @@
     <string name="title_rule_select_sound">Vælg lyd</string>
     <string name="title_rule_select_sound_ringtone">Ringetone</string>
     <string name="title_rule_select_sound_audio">Lydfil</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Sløjfeafspil lyd</string>
     <string name="title_rule_use_as_alarm">Benyt som alarm</string>
     <string name="title_rule_alarm_hint">Dette vil tilsidesætte \"Forstyr ikke\"-regler</string>
     <string name="title_rule_alarm_duration">Maks. alarmvarighed (sekunder)</string>

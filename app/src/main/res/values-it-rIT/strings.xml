@@ -923,7 +923,7 @@
     <string name="title_advanced_notify_car_hint">Connesso indica che qualcosa è in proiezione, come una mappa per la navigazione</string>
     <string name="title_advanced_notify_remove_hint">Le notifiche dei nuovi messaggi saranno sempre rimosse scorrendo via e contrassegnando i messaggi come letti</string>
     <string name="title_advanced_notify_manage_hint">Toccare sul nome del canale per impostare le proprietà del canale</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Per gestire i canali di notifica, potrebbe essere necessario abilitare questa impostazione Android: Notifiche, Impostazioni avanzate, Gestione delle categorie di notifiche per ogni app</string>
+    <string name="title_advanced_notify_samsung_hint">Per gestire i canali di notifica, potrebbe essere necessario impostarli da sistema. Puoi farlo da Impostazioni → Notifiche → Avanzate (o simile), oppure da Impostazioni → App / Gestione app → FairEmail → Notifiche</string>
     <string name="title_advanced_notify_manage_default_hint">Per impostare il suono predefinito, etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Per disabilitare la notifica di monitoraggio</string>
     <string name="title_advanced_notify_separate_hint">Come configurare le notifiche per gli account, le cartelle e i mittenti?</string>
@@ -1828,6 +1828,7 @@
     <string name="title_rule_select_sound">Seleziona suono</string>
     <string name="title_rule_select_sound_ringtone">Suoneria</string>
     <string name="title_rule_select_sound_audio">File audio</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Suono ripetuto</string>
     <string name="title_rule_use_as_alarm">Usa come sveglia</string>
     <string name="title_rule_alarm_hint">Questo ignorerà le regole \"non disturbare\"</string>
     <string name="title_rule_alarm_duration">Durata massima della sveglia (secondi)</string>

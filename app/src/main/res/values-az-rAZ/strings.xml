@@ -922,7 +922,7 @@
     <string name="title_advanced_notify_car_hint">Bağlantı quruldu, naviqasiya üçün xəritə kimi bir şeyin əks olunduğu mənasını verir</string>
     <string name="title_advanced_notify_remove_hint">Yeni mesaj bildirişləri, sürüşdürüləndə və oxundu kimi işarələnəndə həmişə silənəcək</string>
     <string name="title_advanced_notify_manage_hint">Kanal xüsusiyyətlərini ayarlamaq üçün kanal adına toxunun</string>
-    <string name="title_advanced_notify_samsung_hint" comment="title_advanced_notify_samsung_hint&#10;Remark in the notification-settings tab page">Bildiriş kanallarını idarə etmək üçün bu Android ayarını fəallaşdırmağınız lazım gələ bilər: Bildiriş, Qabaqcıl ayarlar, Hər tətbiq üçün bildiriş kateqoriyalarını idarə et</string>
+    <string name="title_advanced_notify_samsung_hint">Bildiriş kanallarını idarə etmək üçün bu Android ayarını fəallaşdırmağınız lazım gələ bilər: Bildiriş, Qabaqcıl ayarlar, Hər tətbiq üçün bildiriş kateqoriyalarını idarə et</string>
     <string name="title_advanced_notify_manage_default_hint">İlkin səsi ayarlamaq üçün və s.</string>
     <string name="title_advanced_notify_manage_service_hint">\"Müşahidə\" bildirişini sıradan çıxartmaq üçün</string>
     <string name="title_advanced_notify_separate_hint">Hesablar, qovluqlar və göndərənlər üçün bildirişləri necə konfiqurasiya edə bilərəm?</string>
@@ -1827,6 +1827,7 @@
     <string name="title_rule_select_sound">Səsi seç</string>
     <string name="title_rule_select_sound_ringtone">Zəng səsi</string>
     <string name="title_rule_select_sound_audio">Səs faylı</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Dövr səsi</string>
     <string name="title_rule_use_as_alarm">Alarm kimi istifadə et</string>
     <string name="title_rule_alarm_hint">Bu, \"narahat etməyin\" qaydalarına əhəmiyyət verməyəcək</string>
     <string name="title_rule_alarm_duration">Maksimum alarm müddəti (saniyə)</string>

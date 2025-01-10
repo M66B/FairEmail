@@ -918,6 +918,7 @@
     <string name="title_advanced_notify_car_hint">A kapcsolódás ebben az esetben az app felé való kivetítést jelenti, mint például a navigációs térképnél</string>
     <string name="title_advanced_notify_remove_hint">Az új üzenet értesitések mindig törlődnek azok oldalra csúsztatásával, vagy az üzenet olvasottként való megjelölésével</string>
     <string name="title_advanced_notify_manage_hint">Koppintson a csatorna nevére a tulajdonságai beállításához</string>
+    <string name="title_advanced_notify_samsung_hint">Az értesítési csatornák kezeléséhez lehetséges, hogy engedélyeznie kell ezt az Android beállítást: Értesítések, Haladó beállítások, Alkalmazásonkénti értesítési kategóriák kezelése</string>
     <string name="title_advanced_notify_manage_default_hint">Alapértelmezett hang beállítása, stb</string>
     <string name="title_advanced_notify_manage_service_hint">A \'figyelés\' értesítés kikapcsolásához</string>
     <string name="title_advanced_notify_separate_hint">Hogyan állítom be a fiók, könyvtár és küldő specifikus értesítéseket?</string>
@@ -1252,6 +1253,7 @@
     <string name="title_force_light">Világos téma erőltetése</string>
     <string name="title_rename">Átnevez</string>
     <string name="title_share">Megosztás</string>
+    <string name="title_analyze">Elemzés</string>
     <string name="title_event">Hozzáadás naptárhoz</string>
     <string name="title_pin">Parancsikon hozzáadása</string>
     <string name="title_pin_label">Hivatkozás címe</string>
@@ -1659,6 +1661,7 @@
     <string name="title_sort_on_starred_unread">Csillagozott, olvasatlan</string>
     <string name="title_sort_on_priority">Prioritás</string>
     <string name="title_sort_on_sender">Feladó</string>
+    <string name="title_sort_on_sender_name">Küldő neve</string>
     <string name="title_sort_on_subject">Tárgy</string>
     <string name="title_sort_on_size">Méret</string>
     <string name="title_sort_on_attachments">Mellékletek</string>
@@ -1816,6 +1819,7 @@
     <string name="title_rule_select_sound">Hang kiválasztása</string>
     <string name="title_rule_select_sound_ringtone">Csengőhang</string>
     <string name="title_rule_select_sound_audio">Hangfájl</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Hang lejátszása</string>
     <string name="title_rule_use_as_alarm">Ébresztőként használni</string>
     <string name="title_rule_alarm_hint">Figyelmen kívűl hagyja a \"ne zavarjon\" szabályokat</string>
     <string name="title_rule_alarm_duration">Maximális ébresztő időtartam (másodperc)</string>
