@@ -1808,6 +1808,7 @@
     <string name="title_rule_select_sound">选择声音</string>
     <string name="title_rule_select_sound_ringtone">铃声</string>
     <string name="title_rule_select_sound_audio">音频文件</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">循环声音</string>
     <string name="title_rule_use_as_alarm">用作警报</string>
     <string name="title_rule_alarm_hint">这将忽略“勿扰”规则</string>
     <string name="title_rule_alarm_duration">警报最长持续时间 (秒)</string>

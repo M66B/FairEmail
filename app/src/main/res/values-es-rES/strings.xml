@@ -1823,6 +1823,7 @@
     <string name="title_rule_select_sound">Seleccionar sonido</string>
     <string name="title_rule_select_sound_ringtone">Tono de notificación</string>
     <string name="title_rule_select_sound_audio">Archivo de audio</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Repetir en bucle</string>
     <string name="title_rule_use_as_alarm">Usar como alarma</string>
     <string name="title_rule_alarm_hint">Esto ignorará las reglas \"no molestar\"</string>
     <string name="title_rule_alarm_duration">Duración máxima de la alarma (segundos)</string>
