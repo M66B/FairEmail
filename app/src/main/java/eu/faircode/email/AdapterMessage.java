@@ -2067,7 +2067,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else if (split)
                 color = ColorUtils.setAlphaComponent(textColorHighlightInverse, 127);
             else if (flags_background && flagged && !expanded)
-                color = ColorUtils.setAlphaComponent(mcolor, 127);
+                color = ColorUtils.blendARGB(colorCardBackground, mcolor, 0.25f);
 
             card.setCardBackgroundColor(color);
 
