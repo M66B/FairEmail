@@ -1514,6 +1514,7 @@ public class EntityRule {
     private boolean onActionUrl(Context context, EntityMessage message, JSONObject jargs, String html) throws JSONException, IOException {
         String url = jargs.getString("url");
         String method = jargs.optString("method");
+        String body = (jargs.isNull("body") ? null : jargs.optString("body"));
 
         if (TextUtils.isEmpty(method))
             method = "GET";
@@ -1534,11 +1535,12 @@ public class EntityRule {
         url = url.replace("$" + EXTRA_SUBJECT + "$", Uri.encode(message.subject == null ? "" : message.subject));
         url = url.replace("$" + EXTRA_RECEIVED + "$", Uri.encode(DTF.format(message.received)));
 
-        String body = null;
-        if ("POST".equals(method) || "PUT".equals(method)) {
-            Uri u = Uri.parse(url);
-            body = u.getQuery();
-            url = u.buildUpon().clearQuery().build().toString();
+        if (!TextUtils.isEmpty(body)) {
+            body = body.replace("$" + EXTRA_RULE + "$", name == null ? "" : name);
+            body = body.replace("$" + EXTRA_SENDER + "$", address == null ? "" : address);
+            body = body.replace("$" + EXTRA_NAME + "$", personal == null ? "" : personal);
+            body = body.replace("$" + EXTRA_SUBJECT + "$", message.subject == null ? "" : message.subject);
+            body = body.replace("$" + EXTRA_RECEIVED + "$", DTF.format(message.received));
         }
 
         Log.i("GET " + url);

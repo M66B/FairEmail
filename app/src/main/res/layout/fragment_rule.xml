@@ -1449,11 +1449,24 @@
                     android:id="@+id/etUrl"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:hint="https://..."
                     android:inputType="textUri"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/spUrlMethod" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etContent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="{'example': true}"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etUrl" />
 
                 <TextView
                     android:id="@+id/tvUrlHint"
@@ -1464,7 +1477,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etUrl" />
+                    app:layout_constraintTop_toBottomOf="@+id/etContent" />
 
                 <TextView
                     android:id="@+id/tvSummarizeRemark"
@@ -1587,7 +1600,7 @@
                     android:id="@+id/grpUrl"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvUrl,spUrlMethod,etUrl,tvUrlHint" />
+                    app:constraint_referenced_ids="tvUrl,spUrlMethod,etUrl,etContent,tvUrlHint" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpSummarize"
