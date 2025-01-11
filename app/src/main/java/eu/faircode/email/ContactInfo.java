@@ -1167,7 +1167,7 @@ public class ContactInfo {
                     lookup.displayName = displayName;
                     all.put(email.toLowerCase(Locale.ROOT), lookup);
 
-                    if (!TextUtils.isEmpty(email)) {
+                    if (!TextUtils.isEmpty(email) && email.contains("@")) {
                         String ekey = getKey(email);
                         File file = new File(dir, ekey);
                         if (file.exists()) {
