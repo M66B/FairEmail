@@ -1111,6 +1111,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibUnsubscribe.setOnClickListener(this);
                 ibRaw.setOnClickListener(this);
                 ibHtml.setOnClickListener(this);
+                ibHtml.setOnLongClickListener(this);
                 ibHeaders.setOnClickListener(this);
                 ibHeaders.setOnLongClickListener(this);
                 ibPrint.setOnClickListener(this);
@@ -1237,6 +1238,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibUnsubscribe.setOnClickListener(null);
                 ibRaw.setOnClickListener(null);
                 ibHtml.setOnClickListener(null);
+                ibHtml.setOnLongClickListener(null);
                 ibHeaders.setOnClickListener(null);
                 ibHeaders.setOnLongClickListener(null);
                 ibPrint.setOnClickListener(null);
@@ -4913,6 +4915,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return true;
             } else if (id == R.id.ibVerify) {
                 onActionVerifyDecrypt(message, false, true);
+                return true;
+            } else if (id == R.id.ibHtml) {
+                onMenuAlt(message);
                 return true;
             } else if (id == R.id.ibMove) {
                 if (message.folderReadOnly)
