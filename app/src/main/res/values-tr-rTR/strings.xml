@@ -198,9 +198,14 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
     <string name="title_setup_office_auth_5_7_3">Lütfen \'Diğer sağlayıcı\' hızlı kurulum sihirbazını deneyin.</string>
     <string name="title_setup_office_auth_5_7_139">Lütfen \'Outlook/Hotmail/Live\' hızlı kurulum sihirbazını deneyin.</string>
+    <string name="title_setup_office_not_connected">        \'Kullanıcının kimliği doğrulandı ancak bağlı değil\' hatası çoğunlukla IMAP\'in devre dışı olduğu anlamına gelir.
+        Bir kişisel Outlook hesabı söz konusu olduğunda, lütfen Outlook web sitesine gidin, sağ üstteki ayarlar tekerleğine dokunun, \'Posta\'yı seçin, \'Yönlendirme ve IMAP\'i seçin ve \'POP ve IMAP\' bölümünde \'Cihazların ve uygulamaların IMAP kullanmasına izin ver\'i etkinleştirin.
+        Kurumsal, eğitim vb. bir hesap söz konusu olduğunda, lütfen e-posta sunucusunun sistem yöneticisine başvurun.
+    </string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
     <string name="title_setup_oauth_update">Mevcut bir hesabı yeniden yetkilendir (aksi takdirde yeni bir hesap oluştur)</string>
     <string name="title_setup_oauth_updated">Hesap yetkilendirme güncellendi</string>
+    <string name="title_setup_oauth_edge">Edge tarayıcısını kullanırken, \'Gizlilik, güvenlik ve hizmetler\' ayarlarında \'Harici uygulamaların açılmasını engelle\' seçeneğinin \'Kapalı\' olduğundan emin olun</string>
     <string name="title_setup_oauth_brave">Brave tarayıcısını kullanırken uygulama bağlantılarının Brave dışındaki uygulamalarda açılmasına izin vermek için Brave\'in ayarlarındaki seçeneği etkinleştirmeniz gerekir</string>
     <string name="title_setup_oauth_browser">Yetkilendirme, uygulama bağlantılarının açılmasına izin veren çalışan bir tarayıcı gerektirir (genellikle bir güvenlik ayarı), böylece sonunda yetkilendirme belirteci uygulamaya aktarılabilir</string>
     <string name="title_setup_oauth_authorize">Yetkilendir</string>
@@ -750,6 +755,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         Varsayılan algoritmalar SHA256 ve AES128 yaygın olarak desteklenir.
     </string>
     <string name="title_advanced_check_certificate">Göndermeden önce genel anahtarı kontrol et</string>
+    <string name="title_advanced_check_key_usage">Gönderimde anahtar kullanım göstergelerini kontrol edin</string>
     <string name="title_advanced_manage_certificates">Genel anahtarları yönet</string>
     <string name="title_advanced_import_key">Özel anahtarı içe aktar</string>
     <string name="title_advanced_manage_keys">Özel anahtarları yönet</string>
@@ -1359,6 +1365,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_attachment_saved">Ek kaydedildi</string>
     <string name="title_attachments_saved">Ekler kaydedildi</string>
     <string name="title_attachments_incomplete">Bazı ekler veya resimler indirilemedi ve eklenemedi</string>
+    <string name="title_report_remark">Özel olarak biçimlendirilmiş bir e-posta olan bu rapor, gönderilen bir mesaj alıcıya teslim edilemediği için, örneğin posta kutusu dolu olduğu için veya e-posta adresi mevcut olmadığı için (artık) bir e-posta sunucusu tarafından gönderilmiştir.</string>
     <string name="title_ask_save">Değişiklikler kaydedilsin mi?</string>
     <string name="title_ask_delete">İleti kalıcı olarak silinsin mi?</string>
     <string name="title_ask_delete_accept">İletileri kalıcı olarak silmenin geri alınamayacağını anlıyorum</string>
@@ -1586,6 +1593,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_signature_email">İmzanın adresi</string>
     <string name="title_signature_mismatch">Gönderenin ve imzanın e-posta adresi eşleşmiyor</string>
     <string name="title_signature_algorithm">Algoritma</string>
+    <string name="title_signature_public_key">Genel Anahtar</string>
     <string name="title_signature_subject">Konu</string>
     <string name="title_signature_validity">Geçerlilik</string>
     <string name="title_signature_outdated">Bu genel anahtar şu anda geçerli değil</string>
@@ -1774,6 +1782,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_resend">Tekrar gönder</string>
     <string name="title_rule_attached">Ham mesaj dosyasını ekle</string>
     <string name="title_rule_cc">CC adreslerini yanıtlayın</string>
+    <string name="title_rule_checks">Otomatik olarak gönderilen mesajları, yanıt verilmeyen adresleri vb. kontrol edin.</string>
     <string name="title_rule_with_attachments">Eklerle Birlikte</string>
     <string name="title_rule_answer_remark">Cevap döngülerinden kaçınmak için herhangi bir konuşma için yalnızca bir cevap gönderilecektir</string>
     <string name="title_rule_name_missing">Kural adı eksik</string>
@@ -1805,6 +1814,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_select_sound">Ses seç</string>
     <string name="title_rule_select_sound_ringtone">Zil sesi</string>
     <string name="title_rule_select_sound_audio">Ses dosyası</string>
+    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Döngü sesi</string>
     <string name="title_rule_use_as_alarm">Alarm olarak kullan</string>
     <string name="title_rule_alarm_hint">Bu, \"rahatsız etmeyin\" kurallarını yok sayar</string>
     <string name="title_rule_alarm_duration">Maksimum alarm süresi (saniye)</string>
@@ -2183,7 +2193,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string-array name="sendDelayedNames">
         <item>Hayır</item>
         <item>5 saniye</item>
-        <item>10 seconds</item>
+        <item>10 saniye</item>
         <item>15 saniye</item>
         <item>30 saniye</item>
         <item>1 dakika</item>
