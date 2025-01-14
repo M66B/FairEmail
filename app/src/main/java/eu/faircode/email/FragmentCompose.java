@@ -2883,12 +2883,6 @@ public class FragmentCompose extends FragmentBase {
                 etBody.setSelection(index + completion.length() + 1);
 
                 StyleHelper.markAsInserted(edit, index, index + completion.length() + 1);
-
-                if (args.containsKey("used") && args.containsKey("granted")) {
-                    double used = args.getDouble("used");
-                    double granted = args.getDouble("granted");
-                    ToastEx.makeText(getContext(), String.format("$%.2f/%.2f", used, granted), Toast.LENGTH_LONG).show();
-                }
             }
 
             @Override
