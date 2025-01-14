@@ -4644,7 +4644,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     else
                         context.startActivity(new Intent(context, ActivityBilling.class));
                 } else if (id == R.id.ibSearchText) {
-                    onSearchText(message);
+                    onSearchText(message, searched);
                 } else if (id == R.id.ibSearch) {
                     onSearchContact(message, false);
                 } else if (id == R.id.ibTranslate) {
@@ -6572,7 +6572,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onMenuManageKeywords(message);
                         return true;
                     } else if (itemId == R.id.menu_search_in_text) {
-                        onSearchText(message);
+                        onSearchText(message, searched);
                         return true;
                     } else if (itemId == R.id.menu_translate) {
                         onActionTranslate(message);
@@ -7527,8 +7527,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onSearchText(TupleMessageEx message) {
-            properties.startSearch(tvBody);
+        private void onSearchText(TupleMessageEx message, String term) {
+            properties.startSearch(tvBody, term);
         }
 
         private void onMenuCreateRule(TupleMessageEx message) {
@@ -9484,7 +9484,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         void reply(TupleMessageEx message, CharSequence selected, View anchor);
 
-        void startSearch(TextView view);
+        void startSearch(TextView view, String term);
 
         void endSearch();
 

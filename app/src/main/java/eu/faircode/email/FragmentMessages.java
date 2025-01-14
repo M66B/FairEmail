@@ -2903,8 +2903,8 @@ public class FragmentMessages extends FragmentBase
             onReply(message, selected, anchor);
         }
 
-        public void startSearch(TextView view) {
-            FragmentMessages.this.startSearch(view);
+        public void startSearch(TextView view, String term) {
+            FragmentMessages.this.startSearch(view, term);
         }
 
         public void endSearch() {
@@ -8882,7 +8882,7 @@ public class FragmentMessages extends FragmentBase
         }
     }
 
-    private void startSearch(TextView view) {
+    private void startSearch(TextView view, String term) {
         searchView = view;
 
         searchView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
@@ -8898,10 +8898,13 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
-        etSearch.setText(null);
+        etSearch.setText(term);
         etSearch.setVisibility(View.VISIBLE);
-        etSearch.requestFocus();
-        Helper.showKeyboard(etSearch);
+        if (term == null) {
+            etSearch.requestFocus();
+            Helper.showKeyboard(etSearch);
+        } else
+            performSearch(false);
     }
 
     private void endSearch() {
