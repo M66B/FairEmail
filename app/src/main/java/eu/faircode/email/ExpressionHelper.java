@@ -478,7 +478,7 @@ public class ExpressionHelper {
                 if (doc != null && parameterValues.length == 1) {
                     String prompt = parameterValues[0].getStringValue();
                     if (!TextUtils.isEmpty(prompt)) {
-                        result = AI.completeChat(context, -1L, doc.text(), null, prompt).toString();
+                        result = AI.completeChat(context, -1L, true, doc.text(), null, prompt).toString();
                         EntityLog.log(context, EntityLog.Type.Rules, message, "AI result=" + result);
                     }
                 }

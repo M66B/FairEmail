@@ -919,6 +919,10 @@
     <string name="title_advanced_answer_prompt">Answer prompt</string>
     <string name="title_advanced_system_instructions">System instructions</string>
     <string name="title_advanced_default_prompt">Default prompt</string>
+    <string name="title_advanced_ai">AI</string>
+    <string name="title_advanced_ai_input_system">Input system prompt</string>
+    <string name="title_advanced_ai_input_body">Input the text of your message</string>
+    <string name="title_advanced_ai_input_reply">Input the text of the replied message</string>
     <string name="title_advanced_entered_text">Entered text</string>
     <string name="title_advanced_sdcard">I want to use an SD card</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>

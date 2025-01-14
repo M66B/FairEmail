@@ -353,6 +353,7 @@ public class FragmentCompose extends FragmentBase {
     static final int REQUEST_EDIT_ATTACHMENT = 17;
     private static final int REQUEST_REMOVE_ATTACHMENTS = 18;
     private static final int REQUEST_EDIT_IMAGE = 19;
+    private static final int REQUEST_AI = 20;
 
     ActivityResultLauncher<PickVisualMediaRequest> pickImages;
 
@@ -1975,8 +1976,15 @@ public class FragmentCompose extends FragmentBase {
         ibAI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (AI.isAvailable(context))
-                    onAI(view);
+                if (AI.isAvailable(context)) {
+                    Bundle args = new Bundle();
+                    args.putBoolean("has_body", !TextUtils.isEmpty(etBody.getText().toString().trim()));
+                    args.putBoolean("has_reply", tvReference.getVisibility() == View.VISIBLE);
+                    FragmentDialogAI fragment = new FragmentDialogAI();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(FragmentCompose.this, REQUEST_AI);
+                    fragment.show(getParentFragmentManager(), "do:ai");
+                }
             }
         });
         ibAI.setOnLongClickListener(new View.OnLongClickListener() {
@@ -2772,126 +2780,6 @@ public class FragmentCompose extends FragmentBase {
         }.serial().execute(this, args, "compose:print");
     }
 
-    private void onAI(View anchor) {
-        new SimpleTask<List<EntityAnswer>>() {
-            @Override
-            protected List<EntityAnswer> onExecute(Context context, Bundle args) throws Throwable {
-                DB db = DB.getInstance(context);
-                return db.answer().getAiPrompts();
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, List<EntityAnswer> prompts) {
-                if (prompts == null || prompts.isEmpty())
-                    _onAi(null);
-                else {
-                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), anchor);
-
-                    String title = getString(etBody.length() == 0
-                            ? R.string.title_advanced_default_prompt
-                            : R.string.title_advanced_entered_text);
-                    SpannableStringBuilder ssb = new SpannableStringBuilderEx(title);
-                    ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
-                    popupMenu.getMenu()
-                            .add(Menu.NONE, 1, 1, ssb)
-                            .setIntent(new Intent().putExtra("id", -1L));
-
-                    for (int i = 0; i < prompts.size(); i++) {
-                        EntityAnswer prompt = prompts.get(i);
-                        popupMenu.getMenu()
-                                .add(Menu.NONE, i + 2, i + 2, prompt.name)
-                                .setIntent(new Intent().putExtra("id", prompt.id));
-                    }
-
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem item) {
-                            long id = item.getIntent().getLongExtra("id", -1L);
-                            _onAi(id);
-                            return true;
-                        }
-                    });
-
-                    popupMenu.show();
-                }
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(this, new Bundle(), "AI:template");
-    }
-
-    private void _onAi(Long template) {
-        int start = etBody.getSelectionStart();
-        int end = etBody.getSelectionEnd();
-        boolean selection = (start >= 0 && end > start);
-        Editable edit = etBody.getText();
-        CharSequence body = (selection ? edit.subSequence(start, end) : edit);
-
-        Bundle args = new Bundle();
-        args.putLong("id", working);
-        args.putCharSequence("body", body);
-        args.putLong("template", template == null ? 0L : template);
-
-        new SimpleTask<Spanned>() {
-            @Override
-            protected void onPreExecute(Bundle args) {
-                chatting = true;
-                invalidateOptionsMenu();
-            }
-
-            @Override
-            protected void onPostExecute(Bundle args) {
-                chatting = false;
-                invalidateOptionsMenu();
-            }
-
-            @Override
-            protected Spanned onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                CharSequence body = args.getCharSequence("body");
-                long template = args.getLong("template");
-
-                return AI.completeChat(context, id, body, template);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Spanned completion) {
-                if (completion == null)
-                    return;
-
-                Editable edit = etBody.getText();
-                int start = etBody.getSelectionStart();
-                int end = etBody.getSelectionEnd();
-
-                int index;
-                if (etBody.hasSelection()) {
-                    edit.delete(start, end);
-                    index = start;
-                } else
-                    index = etBody.length();
-
-                if (index < 0)
-                    index = 0;
-                if (index > 0 && edit.charAt(index - 1) != '\n')
-                    edit.insert(index++, "\n");
-
-                edit.insert(index, "\n");
-                edit.insert(index, completion);
-                etBody.setSelection(index + completion.length() + 1);
-
-                StyleHelper.markAsInserted(edit, index, index + completion.length() + 1);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
-            }
-        }.serial().execute(this, args, "AI:run");
-    }
-
     private void onTranslate(View anchor) {
         final Context context = anchor.getContext();
 
@@ -3522,6 +3410,11 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_EDIT_IMAGE:
                     if (resultCode == RESULT_OK && data != null)
                         onEditImage(data.getBundleExtra("args"));
+                    break;
+
+                case REQUEST_AI:
+                    if (resultCode == RESULT_OK && data != null)
+                        onAI(data.getBundleExtra("args"));
                     break;
             }
         } catch (Throwable ex) {
@@ -5235,6 +5128,87 @@ public class FragmentCompose extends FragmentBase {
                 Log.unexpectedError(getParentFragment(), ex);
             }
         }.execute(this, args, "update:image");
+    }
+
+    private void onAI(Bundle args) {
+        args.putLong("id", working);
+        args.putCharSequence("body", etBody.getText());
+
+        new SimpleTask<Spanned>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                chatting = true;
+                invalidateOptionsMenu();
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                chatting = false;
+                invalidateOptionsMenu();
+            }
+
+            @Override
+            protected Spanned onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                boolean input_system = args.getBoolean("input_system");
+                boolean input_body = args.getBoolean("input_body");
+                boolean input_reply = args.getBoolean("input_reply");
+                String prompt = args.getString("prompt");
+
+                CharSequence body = null;
+                if (input_body)
+                    body = args.getCharSequence("body");
+
+                String reply = null;
+                if (input_reply) {
+                    File file = EntityMessage.getFile(context, id);
+                    if (file.exists()) {
+                        Document d = JsoupEx.parse(file);
+                        Elements ref = d.select("div[fairemail=reference]");
+                        if (!ref.isEmpty()) {
+                            d = Document.createShell("");
+                            d.appendChildren(ref);
+
+                            HtmlHelper.removeSignatures(d);
+                            HtmlHelper.truncate(d, AI.MAX_SUMMARIZE_TEXT_SIZE);
+
+                            reply = d.text();
+                            if (TextUtils.isEmpty(reply.trim()))
+                                reply = null;
+                        }
+                    }
+                }
+
+                return AI.completeChat(context, id, input_system, body, reply, prompt);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Spanned completion) {
+                if (completion == null)
+                    return;
+
+                Editable edit = etBody.getText();
+                if (edit == null)
+                    return;
+
+                int index = etBody.getSelectionEnd();
+                if (index < 0)
+                    index = 0;
+                if (index > 0 && edit.charAt(index - 1) != '\n')
+                    edit.insert(index++, "\n");
+
+                edit.insert(index, "\n");
+                edit.insert(index, completion);
+                etBody.setSelection(index + completion.length() + 1);
+
+                StyleHelper.markAsInserted(edit, index, index + completion.length() + 1);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
+            }
+        }.serial().execute(this, args, "AI:run");
     }
 
     private void onExit() {
