@@ -63,6 +63,22 @@
         app:tint="?attr/colorAccent" />
 
     <ImageButton
+        android:id="@+id/ibResize"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_add_image_resize"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_add_image_resize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ibFlipVertically"
+        app:layout_constraintTop_toBottomOf="@id/civ"
+        app:srcCompat="@drawable/twotone_aspect_ratio_24"
+        app:tint="?attr/colorAccent" />
+
+    <ImageButton
         android:id="@+id/ibCancel"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -73,7 +89,7 @@
         android:scaleType="fitCenter"
         android:tooltipText="@android:string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ibFlipVertically"
+        app:layout_constraintStart_toEndOf="@id/ibResize"
         app:layout_constraintTop_toBottomOf="@id/civ"
         app:srcCompat="@drawable/twotone_close_24" />
 

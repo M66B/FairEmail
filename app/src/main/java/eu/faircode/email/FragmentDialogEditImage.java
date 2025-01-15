@@ -23,10 +23,17 @@ import static android.app.Activity.RESULT_OK;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.StyleSpan;
+import android.util.Size;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -34,6 +41,7 @@ import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 
 import com.canhub.cropper.CropImageOptions;
 import com.canhub.cropper.CropImageView;
@@ -45,16 +53,24 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public class FragmentDialogEditImage extends FragmentDialogBase {
+    private int resize = 0;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         Bundle args = getArguments();
+
+        if (savedInstanceState != null)
+            resize = savedInstanceState.getInt("fair:resize", 0);
+
+        final int[] resizeValues = getResources().getIntArray(R.array.resizeValues);
 
         Context context = getContext();
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_edit_image, null);
         ImageButton ibRotate = dview.findViewById(R.id.ibRotate);
         ImageButton ibFlipHorizontally = dview.findViewById(R.id.ibFlipHorizontally);
         ImageButton ibFlipVertically = dview.findViewById(R.id.ibFlipVertically);
+        ImageButton ibResize = dview.findViewById(R.id.ibResize);
         ImageButton ibCancel = dview.findViewById(R.id.ibCancel);
         ImageButton ibSave = dview.findViewById(R.id.ibSave);
         CropImageView civ = dview.findViewById(R.id.civ);
@@ -82,6 +98,51 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 civ.flipImageVertically();
+            }
+        });
+
+        ibResize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, FragmentDialogEditImage.this, v);
+
+                Size expected = civ.expectedImageSize();
+                int s = (expected == null
+                        ? Integer.MAX_VALUE
+                        : Math.max(expected.getWidth(), expected.getHeight()));
+
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx("---");
+                if (resize == 0)
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
+                popupMenu.getMenu().add(Menu.NONE, 1, 1, ssb)
+                        .setIntent(new Intent().putExtra("size", 0));
+
+                int order = 1;
+                for (int size : resizeValues) {
+                    if (size > s)
+                        break;
+                    order++;
+                    ssb = new SpannableStringBuilderEx(getString(R.string.title_add_resize_pixels, size));
+                    if (size == resize)
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
+                    popupMenu.getMenu().add(Menu.NONE, order, order, ssb)
+                            .setIntent(new Intent().putExtra("size", size));
+                }
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Intent intent = item.getIntent();
+                        if (intent == null)
+                            return false;
+
+                        resize = intent.getIntExtra("size", 0);
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
+
             }
         });
 
@@ -117,7 +178,7 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
                         if (attachment == null)
                             return null;
 
-                        Bitmap bm = civ.getCroppedImage();
+                        Bitmap bm = civ.getCroppedImage(resize, resize, CropImageView.RequestSizeOptions.RESIZE_INSIDE);
                         if (bm == null)
                             return null;
 
@@ -201,5 +262,11 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
         }.execute(this, args, "edit:image");
 
         return dialog;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putInt("fair:resize", resize);
+        super.onSaveInstanceState(outState);
     }
 }
