@@ -365,6 +365,9 @@ public class FragmentOAuth extends FragmentBase {
 
     private void onAuthorize(boolean graph) {
         try {
+            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                return;
+
             if (askAccount) {
                 String name = etName.getText().toString().trim();
                 String email = etEmail.getText().toString().trim();
