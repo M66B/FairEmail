@@ -35,6 +35,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -48,7 +49,6 @@ import java.util.List;
 
 public class FragmentDialogAI extends FragmentDialogBase {
     private Spinner spPrompt;
-    private EditText etPrompt;
 
     @NonNull
     @Override
@@ -64,12 +64,20 @@ public class FragmentDialogAI extends FragmentDialogBase {
         boolean has_system = (OpenAI.isAvailable(context) && !TextUtils.isEmpty(systemPrompt));
 
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_ai, null);
+        final ImageButton ibInfo = view.findViewById(R.id.ibInfo);
         spPrompt = view.findViewById(R.id.spPrompt);
-        etPrompt = view.findViewById(R.id.etPrompt);
+        final EditText etPrompt = view.findViewById(R.id.etPrompt);
         final CheckBox cbInputSystem = view.findViewById(R.id.cbInputSystem);
         final CheckBox cbInputBody = view.findViewById(R.id.cbInputBody);
         final CheckBox cbInputReply = view.findViewById(R.id.cbInputReply);
         final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
+
+        ibInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 190);
+            }
+        });
 
         ArrayAdapter<Pair<String, String>> adapter = new ArrayAdapter<Pair<String, String>>(context, android.R.layout.simple_spinner_item, android.R.id.text1) {
             @NonNull
@@ -193,7 +201,7 @@ public class FragmentDialogAI extends FragmentDialogBase {
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putInt("fair:prompt", spPrompt.getSelectedItemPosition());
+        outState.putInt("fair:prompt", spPrompt == null ? 0 : spPrompt.getSelectedItemPosition());
         super.onSaveInstanceState(outState);
     }
 }
