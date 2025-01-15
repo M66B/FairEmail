@@ -5856,10 +5856,9 @@ OpenAI can only be used if configured and enabled.
 
 *Editor*
 
-Tap on the robot button in the top action bar of the message editor.
-If the text in the message editor is empty, the message being replied to will be answered (using the configured answer prompt),
-else the entered text will be sent, which could be a question or command.
-If you select entered text, it will be replaced by the answer.
+Tap the robot button in the top action bar of the message editor.
+A dialog box will appear (since version 1.2259).
+You can select the prompt and select whether to input the message you typed and/or the message you are replying to.
 
 For example: create a new draft and enter the text "*How far is the sun?*", and tap on the robot button in the top action bar.
 
@@ -5918,6 +5917,10 @@ It is possible to use **DeepInfra** too (since version 1.2132).
 * In the integration settings enter the URI https://api.deepinfra.com/v1/openai, an API key and the model name
 
 <br>
+
+<br>
+
+If you are looking for Google Gemini support, please see [this FAQ](#faq204).
 
 This feature is experimental and requires version 1.2053 or later for the GitHub version and version 1.2182 or later for the Play Store version.
 
