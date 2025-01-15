@@ -4532,6 +4532,11 @@ public class MessageHelper {
                             subsequence = decodeTNEF(context, epart.attachment, subsequence);
 
                     } catch (Throwable ex) {
+                        Log.w(ex);
+
+                        if (epart.attachment.id == null)
+                            continue;
+
                         db.attachment().setError(epart.attachment.id, Log.formatThrowable(ex));
                         db.attachment().setAvailable(epart.attachment.id, true); // unrecoverable
                     }
