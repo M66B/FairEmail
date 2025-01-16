@@ -119,13 +119,12 @@ public class FragmentDialogEditImage extends FragmentDialogBase {
 
                 int order = 1;
                 for (int size : resizeValues) {
-                    if (size > s)
-                        break;
                     order++;
                     ssb = new SpannableStringBuilderEx(getString(R.string.title_add_resize_pixels, size));
                     if (size == resize)
                         ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
                     popupMenu.getMenu().add(Menu.NONE, order, order, ssb)
+                            .setEnabled(size < s)
                             .setIntent(new Intent().putExtra("size", size));
                 }
 

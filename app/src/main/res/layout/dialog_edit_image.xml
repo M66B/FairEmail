@@ -75,7 +75,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/ibFlipVertically"
         app:layout_constraintTop_toBottomOf="@id/civ"
-        app:srcCompat="@drawable/twotone_aspect_ratio_24"
+        app:srcCompat="@drawable/twotone_open_in_full_24"
         app:tint="?attr/colorAccent" />
 
     <ImageButton
