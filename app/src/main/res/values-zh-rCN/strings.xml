@@ -789,10 +789,10 @@
     <string name="title_advanced_answer_prompt">回答提示</string>
     <string name="title_advanced_system_instructions">系统指南</string>
     <string name="title_advanced_default_prompt">默认提示</string>
-    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">AI</string>
-    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">输入系统提示</string>
-    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">输入您信息的文本</string>
-    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">输入回复消息的文本</string>
+    <string name="title_advanced_ai">AI</string>
+    <string name="title_advanced_ai_input_system">输入系统提示</string>
+    <string name="title_advanced_ai_input_body">输入您信息的文本</string>
+    <string name="title_advanced_ai_input_reply">输入回复消息的文本</string>
     <string name="title_advanced_entered_text">输入的文本</string>
     <string name="title_advanced_sdcard">我想使用 SD 卡</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>

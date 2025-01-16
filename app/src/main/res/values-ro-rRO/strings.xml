@@ -817,10 +817,10 @@
     <string name="title_advanced_answer_prompt">Introducere răspuns</string>
     <string name="title_advanced_system_instructions">Instrucțiuni sistem</string>
     <string name="title_advanced_default_prompt">Solicitare implicită</string>
-    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">IA</string>
-    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">Câmp de introducere de sistem</string>
-    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">Introduceți textul mesajului dvs</string>
-    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">Introduceți textul mesajului la care se răspunde</string>
+    <string name="title_advanced_ai">IA</string>
+    <string name="title_advanced_ai_input_system">Câmp de introducere de sistem</string>
+    <string name="title_advanced_ai_input_body">Introduceți textul mesajului dvs</string>
+    <string name="title_advanced_ai_input_reply">Introduceți textul mesajului la care se răspunde</string>
     <string name="title_advanced_entered_text">Text introdus</string>
     <string name="title_advanced_sdcard">Vreau să folosesc un sdcard</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
