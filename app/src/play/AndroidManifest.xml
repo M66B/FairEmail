@@ -613,6 +613,11 @@
             android:theme="@style/Theme.AppCompat.Translucent.NoTitleBar"
             tools:node="replace" />
 
+        <activity
+            android:name="com.canhub.cropper.CropImageActivity"
+            android:exported="false"
+            tools:node="replace" />
+
         <service
             android:name=".ServiceSynchronize"
             android:exported="false"
