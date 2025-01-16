@@ -32,7 +32,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2259 2025-01-16
 
 * Added resize to basic image editor
 * Added dialog box for message editor AI actions
