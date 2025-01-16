@@ -5465,7 +5465,7 @@ public class FragmentCompose extends FragmentBase {
                     exif.setAttribute(ExifInterface.TAG_DATETIME_ORIGINAL, null);
                     exif.setAttribute(ExifInterface.TAG_DATETIME_DIGITIZED, null);
 
-                    exif.setAttribute(ExifInterface.TAG_XMP, null);
+                    exif.setAttribute(ExifInterface.TAG_XMP, "");
                     exif.setAttribute(ExifInterface.TAG_IMAGE_DESCRIPTION, null);
                     //exif.setAttribute(ExifInterface.TAG_MAKE, null);
                     //exif.setAttribute(ExifInterface.TAG_MODEL, null);
