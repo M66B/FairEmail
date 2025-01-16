@@ -1822,7 +1822,7 @@
     <string name="title_rule_select_sound">Изберете звук</string>
     <string name="title_rule_select_sound_ringtone">Тон на звънене</string>
     <string name="title_rule_select_sound_audio">Звуков файл</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Зацикляне на звука</string>
+    <string name="title_rule_loop_sound">Зацикляне на звука</string>
     <string name="title_rule_use_as_alarm">Употреба като будило</string>
     <string name="title_rule_alarm_hint">Това ще пренебрегне правилата \"не ме притеснявайте\"</string>
     <string name="title_rule_alarm_duration">Най-дълго времетраене на будилника (секунди)</string>

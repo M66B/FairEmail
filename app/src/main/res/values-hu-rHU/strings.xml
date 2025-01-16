@@ -801,6 +801,10 @@
     <string name="title_advanced_answer_prompt">Válasz prompt</string>
     <string name="title_advanced_system_instructions">Rendszer utasításai</string>
     <string name="title_advanced_default_prompt">Alap prompt</string>
+    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">MI</string>
+    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">Rendszer prompt használata</string>
+    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">Az üzenet szövegének bevitele</string>
+    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">A kapott üzenet szövegének bevitele</string>
     <string name="title_advanced_entered_text">Bevitt szöveg</string>
     <string name="title_advanced_sdcard">SD kártyát akarok használni</string>
     <string name="title_advanced_watchdog">A FairEmail futásának időszakos ellenőrzése</string>
@@ -1819,7 +1823,7 @@
     <string name="title_rule_select_sound">Hang kiválasztása</string>
     <string name="title_rule_select_sound_ringtone">Csengőhang</string>
     <string name="title_rule_select_sound_audio">Hangfájl</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Hang lejátszása</string>
+    <string name="title_rule_loop_sound">Hang lejátszása</string>
     <string name="title_rule_use_as_alarm">Ébresztőként használni</string>
     <string name="title_rule_alarm_hint">Figyelmen kívűl hagyja a \"ne zavarjon\" szabályokat</string>
     <string name="title_rule_alarm_duration">Maximális ébresztő időtartam (másodperc)</string>

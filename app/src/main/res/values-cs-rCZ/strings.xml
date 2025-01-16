@@ -832,6 +832,10 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_answer_prompt">Výzva k odpovědi</string>
     <string name="title_advanced_system_instructions">Systémové pokyny</string>
     <string name="title_advanced_default_prompt">Výchozí výzva</string>
+    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">AI</string>
+    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">Vstupní systémová výzva</string>
+    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">Vložte text zprávy</string>
+    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">Vložte text odpovědi</string>
     <string name="title_advanced_entered_text">Zadaný text</string>
     <string name="title_advanced_sdcard">Chci použít Sd kartu</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
@@ -1853,7 +1857,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_select_sound">Vybrat zvuk</string>
     <string name="title_rule_select_sound_ringtone">Vyzváněcí tón</string>
     <string name="title_rule_select_sound_audio">Audio soubor</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Opakovat zvuk</string>
+    <string name="title_rule_loop_sound">Opakovat zvuk</string>
     <string name="title_rule_use_as_alarm">Použít jako budík</string>
     <string name="title_rule_alarm_hint">Toto ignoruje pravidla režimu \"Nerušit\"</string>
     <string name="title_rule_alarm_duration">Maximální doba trvání budíku (sekundy)</string>

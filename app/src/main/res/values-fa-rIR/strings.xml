@@ -632,6 +632,10 @@
     <string name="title_advanced_multi_modal">چند وجهی</string>
     <string name="title_advanced_summarize_prompt">خلاصه کردن</string>
     <string name="title_advanced_system_instructions">دستورالعمل‌های سیستم</string>
+    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">هوش مصنوعی</string>
+    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">نحوه پاسخ‌دهی</string>
+    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">وارد کردن متن پیام شما</string>
+    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">وارد کردن متن پیام وارده</string>
     <string name="title_advanced_entered_text">متن وارد شده</string>
     <string name="title_advanced_watchdog">بطور دوره ای بررسی کن که آیا FairEmail هنوز فعال است یا خیر</string>
     <string name="title_advanced_experiments">امتحان ویژگی‌های آزمایشی</string>

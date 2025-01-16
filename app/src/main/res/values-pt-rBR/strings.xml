@@ -803,6 +803,10 @@
     <string name="title_advanced_answer_prompt">Solicitação de resposta</string>
     <string name="title_advanced_system_instructions">Instruções do sistema</string>
     <string name="title_advanced_default_prompt">Solicitação padrão</string>
+    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">AI</string>
+    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">Solicitação do sistema de entrada</string>
+    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">Insira o texto da sua mensagem</string>
+    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">Insira o texto da mensagem respondida</string>
     <string name="title_advanced_entered_text">Texto inserido</string>
     <string name="title_advanced_sdcard">Eu quero usar um sdcard</string>
     <string name="title_advanced_watchdog">Verifique periodicamente se o FairEmail ainda está ativo</string>
@@ -1824,7 +1828,7 @@
     <string name="title_rule_select_sound">Selecionar som</string>
     <string name="title_rule_select_sound_ringtone">Toque de telefone</string>
     <string name="title_rule_select_sound_audio">Arquivo de áudio</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Som do loop</string>
+    <string name="title_rule_loop_sound">Som do loop</string>
     <string name="title_rule_use_as_alarm">Usar como alarme</string>
     <string name="title_rule_alarm_hint">Isso ignorará as regras de \"não perturbe\"</string>
     <string name="title_rule_alarm_duration">Duração máxima do alarme (segundos)</string>

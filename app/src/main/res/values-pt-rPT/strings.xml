@@ -805,6 +805,10 @@
     <string name="title_advanced_answer_prompt">Solicitação de resposta</string>
     <string name="title_advanced_system_instructions">Instruções do sistema</string>
     <string name="title_advanced_default_prompt">Solicitação padrão</string>
+    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">IA</string>
+    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">Introduzir pedido ao sistema</string>
+    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">Introduzir o texto da mensagem</string>
+    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">Introduzir o texto da mensagem a que respondeu</string>
     <string name="title_advanced_entered_text">Texto introduzido</string>
     <string name="title_advanced_sdcard">Quero utilizar um cartão SD</string>
     <string name="title_advanced_watchdog">Verificar periodicamente se o FairEmail ainda está ativo</string>
@@ -1827,7 +1831,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_rule_select_sound">Selecionar som</string>
     <string name="title_rule_select_sound_ringtone">Toque</string>
     <string name="title_rule_select_sound_audio">Ficheiros de áudio</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Som de repetição</string>
+    <string name="title_rule_loop_sound">Som de repetição</string>
     <string name="title_rule_use_as_alarm">Utilizar como alarme</string>
     <string name="title_rule_alarm_hint">Isto irá ignorar as regras do \"não perturbe\"</string>
     <string name="title_rule_alarm_duration">Duração máxima do alarme (em segundos)</string>

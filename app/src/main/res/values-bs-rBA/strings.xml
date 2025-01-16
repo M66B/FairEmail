@@ -819,6 +819,10 @@
     <string name="title_advanced_answer_prompt">Prompt za odgovor</string>
     <string name="title_advanced_system_instructions">Sistemske instrukcije</string>
     <string name="title_advanced_default_prompt">Zadani prompt</string>
+    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">AI</string>
+    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">Prompt za sistemski unos</string>
+    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">Unesi tekst poruke</string>
+    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">Unesi tekst poruke odgovora</string>
     <string name="title_advanced_entered_text">Uneseni tekst</string>
     <string name="title_advanced_sdcard">Želim koristiti SD karticu</string>
     <string name="title_advanced_watchdog">Povremeno provjeri da li je FairEmail još aktivan</string>
@@ -936,6 +940,7 @@
     <string name="title_advanced_notify_car_hint">Spojen znači da se nešto projicira, poput karte za navigaciju</string>
     <string name="title_advanced_notify_remove_hint">Obavještenja o novim porukama će se uvijek skloniti kada se prevuku preko ekrana ili označavanjem poruka kao \'pročitane\'</string>
     <string name="title_advanced_notify_manage_hint">Dodirnite naziv kanala za postavljanje svojstava kanala</string>
+    <string name="title_advanced_notify_samsung_hint">Za upravljanje kanalima obavještenja, možda trebate uključiti ovu postavku Androida: Obavještenja, Napredne postavke, Upravljaj kategorijama obavještenja za svaku aplikaciju</string>
     <string name="title_advanced_notify_manage_default_hint">Za postavljanje zadanog zvuka, itd.</string>
     <string name="title_advanced_notify_manage_service_hint">Za isključivanje obavještenja o \'nadzoru\'</string>
     <string name="title_advanced_notify_separate_hint">Kako da podesim obavještenja za račune, foldere i pošiljaoce?</string>
@@ -1272,6 +1277,7 @@
     <string name="title_force_light">Forsiraj svijetlu temu</string>
     <string name="title_rename">Preimenuj</string>
     <string name="title_share">Podijeli</string>
+    <string name="title_analyze">Analiziraj</string>
     <string name="title_event">Dodaj u kalendar</string>
     <string name="title_pin">Dodaj prečac</string>
     <string name="title_pin_label">Naslov prečaca</string>
@@ -1681,6 +1687,7 @@
     <string name="title_sort_on_starred_unread">Favoriti, nepročitano</string>
     <string name="title_sort_on_priority">Prioritet</string>
     <string name="title_sort_on_sender">Pošiljalac</string>
+    <string name="title_sort_on_sender_name">Ime pošiljaoca</string>
     <string name="title_sort_on_subject">Predmet</string>
     <string name="title_sort_on_size">Veličina</string>
     <string name="title_sort_on_attachments">Prilozima</string>
@@ -1838,6 +1845,7 @@
     <string name="title_rule_select_sound">Izaberi zvuk</string>
     <string name="title_rule_select_sound_ringtone">Melodija zvona</string>
     <string name="title_rule_select_sound_audio">Zvučna datoteka</string>
+    <string name="title_rule_loop_sound">Ponavljajući zvuk</string>
     <string name="title_rule_use_as_alarm">Koristi kao alarm</string>
     <string name="title_rule_alarm_hint">Ovo će ignorisati pravila \"neometanja\"</string>
     <string name="title_rule_alarm_duration">Maksimalno trajanje alarma (sekunde)</string>

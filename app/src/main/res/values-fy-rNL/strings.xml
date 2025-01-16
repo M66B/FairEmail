@@ -802,6 +802,10 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_answer_prompt">Opdracht antwurdzje</string>
     <string name="title_advanced_system_instructions">Systeemynstruksjes</string>
     <string name="title_advanced_default_prompt">Standert ynfier</string>
+    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">AI</string>
+    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">Systeemprompt ynfiere</string>
+    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">De tekst fan jo berjocht ynfiere</string>
+    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">De tekst fan it antwurd ynfiere</string>
     <string name="title_advanced_entered_text">Ynfierde tekst</string>
     <string name="title_advanced_sdcard">Ik wol in SD-kaart brûke</string>
     <string name="title_advanced_watchdog">Periodyk kontrolearje oft FairEmail noch aktyf is</string>
@@ -1819,7 +1823,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_rule_select_sound">Lûd selektearje</string>
     <string name="title_rule_select_sound_ringtone">Beltoan</string>
     <string name="title_rule_select_sound_audio">Audiobestân</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Lûd werhelje</string>
+    <string name="title_rule_loop_sound">Lûd werhelje</string>
     <string name="title_rule_use_as_alarm">As alarm brûke</string>
     <string name="title_rule_alarm_hint">Dit sil ‘net steure’-regels negearje</string>
     <string name="title_rule_alarm_duration">Maksimale alarmdoer (sekonden)</string>

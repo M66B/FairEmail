@@ -800,6 +800,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_answer_prompt">Opdracht antwoorden</string>
     <string name="title_advanced_system_instructions">Systeem instructies</string>
     <string name="title_advanced_default_prompt">Standaard prompt</string>
+    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">AI</string>
+    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">Systeemprompt invoeren</string>
+    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">De tekst van uw bericht invoeren</string>
+    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">De tekst van het beantwoorde bericht invoeren</string>
     <string name="title_advanced_entered_text">Ingevoerde tekst</string>
     <string name="title_advanced_sdcard">Ik wil een SD-kaart gebruiken</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
@@ -1814,7 +1818,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_select_sound">Selecteer geluid</string>
     <string name="title_rule_select_sound_ringtone">Beltoon</string>
     <string name="title_rule_select_sound_audio">Audiobestand</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Herhaal geluid</string>
+    <string name="title_rule_loop_sound">Herhaal geluid</string>
     <string name="title_rule_use_as_alarm">Als alarm gebruiken</string>
     <string name="title_rule_alarm_hint">Dit zal \"niet storen\" regels negeren</string>
     <string name="title_rule_alarm_duration">Maximale alarmduur (seconden)</string>

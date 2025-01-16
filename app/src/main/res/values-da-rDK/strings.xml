@@ -805,6 +805,10 @@
     <string name="title_advanced_answer_prompt">Svarprompt</string>
     <string name="title_advanced_system_instructions">Systemvejledning</string>
     <string name="title_advanced_default_prompt">Standardprompt</string>
+    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">AI</string>
+    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">Input-systemprompt</string>
+    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">Angiv beskedteksten</string>
+    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">Angiv svarbeskedteksten</string>
     <string name="title_advanced_entered_text">Angivet tekst</string>
     <string name="title_advanced_sdcard">Et SD-kort ønskes benyttet</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
@@ -1828,7 +1832,7 @@
     <string name="title_rule_select_sound">Vælg lyd</string>
     <string name="title_rule_select_sound_ringtone">Ringetone</string>
     <string name="title_rule_select_sound_audio">Lydfil</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Sløjfeafspil lyd</string>
+    <string name="title_rule_loop_sound">Sløjfeafspil lyd</string>
     <string name="title_rule_use_as_alarm">Benyt som alarm</string>
     <string name="title_rule_alarm_hint">Dette vil tilsidesætte \"Forstyr ikke\"-regler</string>
     <string name="title_rule_alarm_duration">Maks. alarmvarighed (sekunder)</string>

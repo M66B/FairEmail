@@ -1827,7 +1827,7 @@
     <string name="title_rule_select_sound">Səsi seç</string>
     <string name="title_rule_select_sound_ringtone">Zəng səsi</string>
     <string name="title_rule_select_sound_audio">Səs faylı</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Dövr səsi</string>
+    <string name="title_rule_loop_sound">Dövr səsi</string>
     <string name="title_rule_use_as_alarm">Alarm kimi istifadə et</string>
     <string name="title_rule_alarm_hint">Bu, \"narahat etməyin\" qaydalarına əhəmiyyət verməyəcək</string>
     <string name="title_rule_alarm_duration">Maksimum alarm müddəti (saniyə)</string>

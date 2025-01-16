@@ -832,6 +832,10 @@
     <string name="title_advanced_answer_prompt">Запрос для ответа</string>
     <string name="title_advanced_system_instructions">Системные инструкции</string>
     <string name="title_advanced_default_prompt">Запрос по умолчанию</string>
+    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">ИИ</string>
+    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">Введите системный запрос</string>
+    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">Введите текст сообщения</string>
+    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">Введите текст ответного сообщения</string>
     <string name="title_advanced_entered_text">Введённый текст</string>
     <string name="title_advanced_sdcard">Я хочу использовать SD-карту</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
@@ -1855,7 +1859,7 @@
     <string name="title_rule_select_sound">Выбрать звук</string>
     <string name="title_rule_select_sound_ringtone">Мелодия</string>
     <string name="title_rule_select_sound_audio">Аудиофайл</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Повтор звука</string>
+    <string name="title_rule_loop_sound">Повтор звука</string>
     <string name="title_rule_use_as_alarm">Использовать как будильник</string>
     <string name="title_rule_alarm_hint">Это игнорирует правила \"не беспокоить\"</string>
     <string name="title_rule_alarm_duration">Максимальная длительность будильника (в секундах)</string>

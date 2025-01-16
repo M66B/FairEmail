@@ -1814,7 +1814,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_select_sound">Ses seç</string>
     <string name="title_rule_select_sound_ringtone">Zil sesi</string>
     <string name="title_rule_select_sound_audio">Ses dosyası</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Döngü sesi</string>
+    <string name="title_rule_loop_sound">Döngü sesi</string>
     <string name="title_rule_use_as_alarm">Alarm olarak kullan</string>
     <string name="title_rule_alarm_hint">Bu, \"rahatsız etmeyin\" kurallarını yok sayar</string>
     <string name="title_rule_alarm_duration">Maksimum alarm süresi (saniye)</string>

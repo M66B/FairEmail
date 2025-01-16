@@ -805,6 +805,10 @@
     <string name="title_advanced_answer_prompt">Comando per rispondere</string>
     <string name="title_advanced_system_instructions">Istruzioni di sistema</string>
     <string name="title_advanced_default_prompt">Comando predefinito</string>
+    <string name="title_advanced_ai" comment="title_advanced_ai&#10;Title for AI options dialog box">IA</string>
+    <string name="title_advanced_ai_input_system" comment="title_advanced_ai_input_system&#10;Title for an option to select whether the AI system prompt should be used.">Prompt per il sistema di input</string>
+    <string name="title_advanced_ai_input_body" comment="title_advanced_ai_input_body&#10;Title for an option to select whether the entered message should be used.">Inserire il testo del messaggio</string>
+    <string name="title_advanced_ai_input_reply" comment="title_advanced_ai_input_reply&#10;Title for an option to select whether the message being replied to should be used.">Inserire il testo del messaggio a cui si sta rispondendo</string>
     <string name="title_advanced_entered_text">Testo inserito</string>
     <string name="title_advanced_sdcard">Desidero usare una scheda SD</string>
     <string name="title_advanced_watchdog">Verifica periodicamente se FairEmail è ancora attivo</string>
@@ -1828,7 +1832,7 @@
     <string name="title_rule_select_sound">Seleziona suono</string>
     <string name="title_rule_select_sound_ringtone">Suoneria</string>
     <string name="title_rule_select_sound_audio">File audio</string>
-    <string name="title_rule_loop_sound" comment="title_rule_loop_sound&#10;Title for checkbox for rule action to play a sound">Suono ripetuto</string>
+    <string name="title_rule_loop_sound">Suono ripetuto</string>
     <string name="title_rule_use_as_alarm">Usa come sveglia</string>
     <string name="title_rule_alarm_hint">Questo ignorerà le regole \"non disturbare\"</string>
     <string name="title_rule_alarm_duration">Durata massima della sveglia (secondi)</string>
