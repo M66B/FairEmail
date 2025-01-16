@@ -407,6 +407,15 @@
   },
   {
     "include": [
+      "*://*.page.link/?*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "ofl"
+  },
+  {
+    "include": [
       "*://*.cdn.ampproject.org/c/s/*"
     ],
     "pref": "brave.de_amp.enabled",
