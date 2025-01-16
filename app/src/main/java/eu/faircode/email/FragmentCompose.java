@@ -5481,6 +5481,8 @@ public class FragmentCompose extends FragmentBase {
                     exif.saveAttributes();
                 } catch (IOException ex) {
                     Log.i(ex);
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
 
             // https://www.rfc-editor.org/rfc/rfc2231
