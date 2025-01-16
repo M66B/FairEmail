@@ -280,8 +280,12 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // Unable to create layer for WebViewEx, size 1088x16384 max size 16383 color type 4 has context 1)
-        int limitHeight = MeasureSpec.makeMeasureSpec(viewportHeight, MeasureSpec.AT_MOST);
-        super.onMeasure(widthMeasureSpec, limitHeight);
+        if (viewportHeight == 0)
+            heightMeasureSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
+        else
+            heightMeasureSpec = MeasureSpec.makeMeasureSpec(viewportHeight, MeasureSpec.AT_MOST);
+
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         int mh = getMeasuredHeight();
         Log.i("Measured height=" + mh + " last=" + height + "/" + maxHeight + " ch=" + getContentHeight());
@@ -477,6 +481,9 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     static int getDefaultViewportHeight(Context context) {
+        if (!Helper.isPlayStoreInstall())
+            return 0;
+
         if (Helper.isGoogle() && Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE /* Android 14 */)
             return DEFAULT_VIEWPORT_HEIGHT * 2;
         else
