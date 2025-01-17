@@ -610,7 +610,7 @@ dependencies {
     def reactivestreams_version = "1.0.3"
     def rxjava2_version = "2.2.21"
     def svg_version = "1.4"
-    def compress_version = "1.26.2"
+    def compress_version = "1.27.1"
     def ipaddress_version = "5.5.1"
     def canary_version = "2.14"
     def ws_version = "2.14"
