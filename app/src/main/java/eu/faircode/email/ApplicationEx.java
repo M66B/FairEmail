@@ -168,14 +168,8 @@ public class ApplicationEx extends Application
                         ex.getMessage() != null &&
                         ex.getMessage().contains("Unable to create layer for WebView")) {
                     int viewport_height = prefs.getInt("viewport_height", WebViewEx.DEFAULT_VIEWPORT_HEIGHT);
-                    if (viewport_height > WebViewEx.DEFAULT_VIEWPORT_HEIGHT) {
+                    if (viewport_height > WebViewEx.DEFAULT_VIEWPORT_HEIGHT)
                         prefs.edit().putInt("viewport_height", WebViewEx.DEFAULT_VIEWPORT_HEIGHT).apply();
-
-                        Log.setCrashReporting(true);
-                        Log.e(ex);
-                        System.exit(1);
-                        return;
-                    }
                 }
 
                 if (!crash_reports && Log.isOwnFault(ex)) {
