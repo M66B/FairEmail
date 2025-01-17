@@ -1298,11 +1298,11 @@ In the case of the error '*User is authenticated but not connected*', please see
 <br />
 
 >
-> &#x1F1EC;&#x1F1E7; In short: go to settings via the navigation menu (left side menu), tap the wizard button, select Outlook/Hotmail/Live and follow the steps.
+> &#x1F1EC;&#x1F1E7; In short: go to settings via the navigation menu (left side menu), tap the wizard button, select "*Outlook/Office 365 (OAuth)*" and follow the steps.
 >
-> &#x1F1E9;&#x1F1EA; Kurz gesagt: Gehen Sie über das Navigationsmenü (Menü auf der linken Seite) zu den Einstellungen, tippen Sie auf die Schaltfläche Assistent, wählen Sie Outlook/Hotmail/Live und folgen Sie den Schritten.
+> &#x1F1E9;&#x1F1EA; Kurz gesagt: Gehen Sie über das Navigationsmenü (Menü auf der linken Seite) zu den Einstellungen, tippen Sie auf die Schaltfläche Assistent, wählen Sie "*Outlook/Office 365 (OAuth)*" und folgen Sie den Schritten.
 >
-> &#x1F1EB;&#x1F1F7; En bref : allez dans les paramètres via le menu de navigation (menu de gauche), appuyez sur le bouton de l'assistant, sélectionnez Outlook/Hotmail/Live et suivez les étapes.
+> &#x1F1EB;&#x1F1F7; En bref : allez dans les paramètres via le menu de navigation (menu de gauche), appuyez sur le bouton de l'assistant, sélectionnez "*Outlook/Office 365 (OAuth)*" et suivez les étapes.
 >
 
 <br />
@@ -1315,7 +1315,7 @@ In the case of the error '*User is authenticated but not connected*', please see
 <br />
 
 >
-> tl;dr; go to settings via the navigation menu (left side menu), tap the wizard button, select Outlook/Hotmail/Live and follow the steps.
+> tl;dr; go to settings via the navigation menu (left side menu), tap the wizard button, select "*Outlook/Office 365 (OAuth)*" and follow the steps.
 >
 > <sub>If you don't use the account anymore, you can delete it via a button in the "extra" section at the bottom of the main settings screen.</sub>
 >
@@ -1361,7 +1361,7 @@ In the case of the error '*User is authenticated but not connected*', please see
 > How to fix:
 >
 > * Go to the *Settings* via the navigation menu (left side menu)
-> * Tap on the *Wizard* button and select *Outlook/Hotmail/Live (OAuth)* or *Office 365 (OAuth)*.
+> * Tap on the *Wizard* button and select "*Outlook/Office 365 (OAuth)*".
 > * Tick the checkbox to authenticate an existing account (else you'll create a new account!)
 > * Fill in the fields and follow the steps
 > * Repeat for each account
@@ -1369,7 +1369,7 @@ In the case of the error '*User is authenticated but not connected*', please see
 
 <br />
 
-An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting *Outlook/Hotmail/Live (OAuth)* or *Office 365 (OAuth)*.
+An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting "*Outlook/Office 365 (OAuth)*".
 
 **Important**: a personal and a business account can have the same email address, but have different mailboxes (folders). So, please make sure you select the right option.
 
