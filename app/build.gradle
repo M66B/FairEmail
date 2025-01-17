@@ -616,7 +616,7 @@ dependencies {
     def ws_version = "2.14"
     def tinylog_version = "2.7.0"
     def zxing_version = "3.5.3"
-    def evalex_version = "3.3.0"
+    def evalex_version = "3.4.0"
     def image_cropper_version = "4.6.0"
 
     // https://mvnrepository.com/artifact/com.android.tools/desugar_jdk_libs?repo=google
