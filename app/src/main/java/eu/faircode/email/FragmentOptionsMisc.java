@@ -2374,11 +2374,15 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                     key.startsWith("oauth.") ||
                                     (key.startsWith("announcement.") && cbGeneral.isChecked()) ||
                                     (key.endsWith(".confirm_link") && cbLinks.isChecked()) ||
+                                    ("confirm_links".equals(key) && cbLinks.isChecked()) ||
                                     (key.endsWith(".link_view") && cbLinks.isChecked()) ||
                                     (key.endsWith(".link_sanitize") && cbLinks.isChecked()) ||
                                     (key.endsWith(".confirm_files") && cbFiles.isChecked()) ||
+                                    ("confirm_files".equals(key) && cbFiles.isChecked()) ||
                                     (key.endsWith(".show_images") && cbImages.isChecked()) ||
-                                    (key.endsWith(".show_full") && cbFull.isChecked())) {
+                                    ("confirm_images".equals(key) && cbImages.isChecked()) ||
+                                    (key.endsWith(".show_full") && cbFull.isChecked()) ||
+                                    ("confirm_html".equals(key) && cbFull.isChecked())) {
                                 Log.i("Removing option=" + key);
                                 editor.remove(key);
                             }
