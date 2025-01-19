@@ -184,6 +184,8 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
     static boolean isPro(Context context) {
         if (BuildConfig.DEBUG && false)
             return true;
+        if (context == null)
+            return false;
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean("pro", false);
     }
