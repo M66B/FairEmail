@@ -1428,8 +1428,8 @@ public class EntityRule {
 
     private boolean onActionSound(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         Uri uri = (jargs.has("uri") ? Uri.parse(jargs.getString("uri")) : null);
-        boolean loop = jargs.getBoolean("loop");
-        boolean alarm = jargs.getBoolean("alarm");
+        boolean loop = jargs.optBoolean("loop");
+        boolean alarm = jargs.optBoolean("alarm");
         int duration = jargs.optInt("duration", MediaPlayerHelper.DEFAULT_ALARM_DURATION);
         Log.i("Sound uri=" + uri + " loop=" + loop + " alarm=" + alarm + " duration=" + duration);
 
