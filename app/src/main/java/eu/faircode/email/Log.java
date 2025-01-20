@@ -1693,7 +1693,8 @@ public class Log {
 
         if (stack.length > 0 &&
                 stack[0].getClassName() != null &&
-                stack[0].getClassName().startsWith("com.android.internal.widget.FloatingToolbar"))
+                (stack[0].getClassName().startsWith("com.android.internal.widget.FloatingToolbar") ||
+                        stack[0].getClassName().startsWith("com.android.internal.widget.floatingtoolbar")))
             /*
                 java.lang.NullPointerException: Attempt to invoke virtual method 'int android.util.Size.getWidth()' on a null object reference
                     at com.android.internal.widget.FloatingToolbar$FloatingToolbarPopup$11.onMeasure(FloatingToolbar.java:1430)
