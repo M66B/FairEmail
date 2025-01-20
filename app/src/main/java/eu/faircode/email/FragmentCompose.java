@@ -3731,7 +3731,7 @@ public class FragmentCompose extends FragmentBase {
 
         new SimpleTask<Spanned>() {
             @Override
-            protected Spanned onExecute(Context context, Bundle args) throws IOException {
+            protected Spanned onExecute(Context context, Bundle args) throws IOException, SecurityException {
                 final long id = args.getLong("id");
                 List<Uri> uris = args.getParcelableArrayList("uris");
                 String[] types = args.getStringArray("types");
@@ -5300,7 +5300,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private static EntityAttachment addAttachment(
-            Context context, long id, Uri uri, String type, boolean image, int resize, boolean privacy) throws IOException {
+            Context context, long id, Uri uri, String type, boolean image, int resize, boolean privacy) throws IOException, SecurityException {
         Log.w("Add attachment uri=" + uri + " image=" + image + " resize=" + resize + " privacy=" + privacy);
 
         NoStreamException.check(uri, context);
@@ -5493,6 +5493,12 @@ public class FragmentCompose extends FragmentBase {
             // Reset progress on failure
             Log.e(ex);
             db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
+
+            // com.android.externalstorage has no access to content://...
+            if (ex instanceof SecurityException &&
+                    ex.getMessage() != null &&
+                    ex.getMessage().contains("com.android.externalstorage has no access"))
+                throw new SecurityException(ex.getMessage(), ex);
             return null;
         }
 
@@ -6376,7 +6382,7 @@ public class FragmentCompose extends FragmentBase {
                                     images.add(uri);
                                 else
                                     addAttachment(context, data.draft.id, uri, null, false, 0, false);
-                            } catch (IOException ex) {
+                            } catch (IOException | SecurityException ex) {
                                 Log.e(ex);
                             }
 
@@ -6983,7 +6989,19 @@ public class FragmentCompose extends FragmentBase {
             Helper.setSnackbarOptions(
                             Snackbar.make(view, new ThrowableWrapper(ex).toSafeString(), Snackbar.LENGTH_LONG))
                     .show();
-        } else {
+        } else if (ex instanceof SecurityException &&
+                ex.getMessage() != null &&
+                ex.getMessage().contains("com.android.externalstorage has no access"))
+            Helper.setSnackbarOptions(
+                            Snackbar.make(view, new ThrowableWrapper(ex).toSafeString(), Snackbar.LENGTH_LONG))
+                    .setAction(R.string.title_fix, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Helper.viewFAQ(v.getContext(), 25);
+                        }
+                    })
+                    .show();
+        else {
             if (ex instanceof IOException &&
                     ex.getCause() instanceof ErrnoException &&
                     ((ErrnoException) ex.getCause()).errno == ENOSPC)
