@@ -1177,6 +1177,7 @@ public class HtmlHelper {
             if (!TextUtils.isEmpty(cite) && !cite.trim().startsWith("#"))
                 q.attr("href", cite);
             q.removeAttr("cite");
+            q.wrap("<span>\"<em></em>\"</span>");
         }
 
         // Citation
