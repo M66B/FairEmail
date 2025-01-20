@@ -91,6 +91,8 @@ public class MessageClassifier {
             // Classify texts
             String classified = classify(message, folder.name, texts, added, context);
 
+            boolean notJunk = message.isNotJunk(context);
+
             long elapsed = new Date().getTime() - start;
             EntityLog.log(context, EntityLog.Type.Classification, message,
                     "Classifier" +
@@ -99,6 +101,7 @@ public class MessageClassifier {
                             " message=" + message.id + "/" + !TextUtils.isEmpty(message.msgid) +
                             " keyword=" + message.hasKeyword(MessageHelper.FLAG_CLASSIFIED) +
                             " filtered=" + message.hasKeyword(MessageHelper.FLAG_FILTERED) +
+                            " notJunk=" + notJunk +
                             "@" + new Date(message.received) +
                             ":" + message.subject +
                             " class=" + classified +
@@ -122,7 +125,7 @@ public class MessageClassifier {
                     EntityFolder dest = db.folder().getFolderByName(folder.account, classified);
                     if (dest != null && dest.auto_classify_target &&
                             (pro || EntityFolder.JUNK.equals(dest.type)) &&
-                            (!EntityFolder.JUNK.equals(dest.type) || !message.isNotJunk(context))) {
+                            (!EntityFolder.JUNK.equals(dest.type) || !notJunk)) {
                         EntityOperation.queue(context, message, EntityOperation.KEYWORD, MessageHelper.FLAG_CLASSIFIED, true);
                         EntityOperation.queue(context, message, EntityOperation.MOVE, dest.id, false, true);
                         message.ui_hide = true;
