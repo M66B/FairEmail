@@ -387,6 +387,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         matched = matchMessage(context, message, criteria, true);
                 }
 
+                if (criteria.with_flag_color != null) {
+                    EntityMessage message = db.message().getMessage(match.id);
+                    if (message == null || !criteria.with_flag_color.equals(message.color))
+                        matched = false;
+                }
+
                 if (matched) {
                     found += db.message().setMessageFound(match.id, true);
                     Log.i("Boundary matched=" + match.id + " found=" + found);
@@ -1041,6 +1047,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean in_html = false;
         boolean with_unseen;
         boolean with_flagged;
+        Integer with_flag_color;
         boolean with_hidden;
         boolean with_encrypted;
         boolean with_attachments;
@@ -1333,6 +1340,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         this.in_html == other.in_html &&
                         this.with_unseen == other.with_unseen &&
                         this.with_flagged == other.with_flagged &&
+                        Objects.equals(this.with_flag_color, other.with_flag_color) &&
                         this.with_hidden == other.with_hidden &&
                         this.with_encrypted == other.with_encrypted &&
                         this.with_attachments == other.with_attachments &&
@@ -1363,6 +1371,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             json.put("in_html", in_html);
             json.put("with_unseen", with_unseen);
             json.put("with_flagged", with_flagged);
+            if (with_flag_color != null)
+                json.put("with_flag_color", with_flag_color);
             json.put("with_hidden", with_hidden);
             json.put("with_encrypted", with_encrypted);
             json.put("with_attachments", with_attachments);
@@ -1415,6 +1425,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             criteria.in_html = json.optBoolean("in_html");
             criteria.with_unseen = json.optBoolean("with_unseen");
             criteria.with_flagged = json.optBoolean("with_flagged");
+            if (json.has("with_flag_color"))
+                criteria.with_flag_color = json.getInt("with_flag_color");
             criteria.with_hidden = json.optBoolean("with_hidden");
             criteria.with_encrypted = json.optBoolean("with_encrypted");
             criteria.with_attachments = json.optBoolean("with_attachments");
@@ -1466,7 +1478,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     " headers=" + in_headers +
                     " html=" + in_html +
                     " unseen=" + with_unseen +
-                    " flagged=" + with_flagged +
+                    " flagged=" + with_flagged + ":" + with_flag_color +
                     " hidden=" + with_hidden +
                     " encrypted=" + with_encrypted +
                     " w/attachments=" + with_attachments +

@@ -195,6 +195,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private static final int ANNOUNCEMENT_TIMEOUT = 15 * 1000; // milliseconds
     private static final long ANNOUNCEMENT_INTERVAL = 4 * 3600 * 1000L; // milliseconds
 
+    static final int REQUEST_FLAG_COLOR = 1;
+
     private static final int REQUEST_RULES_ACCOUNT = 2001;
     private static final int REQUEST_RULES_FOLDER = 2002;
     private static final int REQUEST_DEBUG_INFO = 7000;
@@ -1272,6 +1274,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         try {
             switch (requestCode) {
+                case REQUEST_FLAG_COLOR:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSearchFlagColor(data.getBundleExtra("args"));
+                    break;
                 case REQUEST_RULES_ACCOUNT:
                     if (resultCode == RESULT_OK && data != null)
                         onMenuRulesFolder(data.getBundleExtra("args"));
@@ -2336,6 +2342,21 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "rules:account");
+    }
+
+    private void onSearchFlagColor(Bundle args) {
+        BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
+        criteria.with_flagged = true;
+        criteria.with_flag_color = args.getInt("color");
+
+        final long account = args.getLong("account", -1);
+        final long folder = args.getLong("folder", -1);
+
+        FragmentMessages.search(
+                this, this, getSupportFragmentManager(),
+                account, folder,
+                false,
+                criteria);
     }
 
     private void onMenuRulesFolder(Bundle args) {

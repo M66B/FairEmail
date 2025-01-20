@@ -614,6 +614,20 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         ibUnseen.setOnClickListener(onClick);
         ibFlagged.setOnClickListener(onClick);
 
+        ibFlagged.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                dialog.dismiss();
+
+                FragmentDialogColor fragment = new FragmentDialogColor();
+                fragment.setArguments(args);
+                fragment.setTargetActivity((ActivityBase) getActivity(), ActivityView.REQUEST_FLAG_COLOR);
+                fragment.show(getParentFragmentManager(), "search:color");
+
+                return true;
+            }
+        });
+
         ibHidden.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
