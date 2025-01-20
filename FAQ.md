@@ -1849,9 +1849,12 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 
 <br />
 
-If you get *com.android.externalstorage has no access to content://...*,
-please make sure you are not selecting files on an sdcard by tapping on the three-dashes at the top left of the Android file selector.
-Google doesn't want sdcards to be used anymore for privacy and security reasons.
+In the case of the error *com.android.externalstorage has no access to content://...*,
+please enable this Android option for *com.android.externalstorage* and *com.android.sharedstorage*:
+
+*Settings* > *Privacy* > *Permission management* > *Files and media* > *See more apps that can access all files*
+
+<br />
 
 OneDrive doesn't support *view*, only *share*, which means that if you want to open an attachment in OneDrive you need to long press on an attachment.
 
