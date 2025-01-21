@@ -791,6 +791,10 @@
     <string name="title_advanced_answer_prompt">返信プロンプト</string>
     <string name="title_advanced_system_instructions">システムへの指定</string>
     <string name="title_advanced_default_prompt">デフォルトのプロンプト</string>
+    <string name="title_advanced_ai">AI</string>
+    <string name="title_advanced_ai_input_system">システムプロンプトを入力</string>
+    <string name="title_advanced_ai_input_body">メッセージを入力</string>
+    <string name="title_advanced_ai_input_reply">返信されたメッセージを入力</string>
     <string name="title_advanced_entered_text">入力テキスト</string>
     <string name="title_advanced_sdcard">SD カードを使用できますか？</string>
     <string name="title_advanced_watchdog">FairEmail がアクティブか定期的に確認する</string>
@@ -1813,6 +1817,7 @@
     <string name="title_rule_select_sound">音声を選択</string>
     <string name="title_rule_select_sound_ringtone">通知音</string>
     <string name="title_rule_select_sound_audio">音声ファイル</string>
+    <string name="title_rule_loop_sound">音声をループ</string>
     <string name="title_rule_use_as_alarm">アラームに設定</string>
     <string name="title_rule_alarm_hint">サイレントモードを無視します</string>
     <string name="title_rule_alarm_duration">自動消音時間 (秒)</string>

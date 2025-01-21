@@ -1859,6 +1859,7 @@
     <string name="title_rule_select_sound">בחירת צליל</string>
     <string name="title_rule_select_sound_ringtone">צלצול</string>
     <string name="title_rule_select_sound_audio">קובץ שמע</string>
+    <string name="title_rule_loop_sound">השמעה בלולאה</string>
     <string name="title_rule_use_as_alarm">להשתמש כהתראה</string>
     <string name="title_rule_alarm_hint">יתעלם מכללי „לא להפריע”</string>
     <string name="title_rule_alarm_duration">משך ההתראה המרבי (שניות)</string>

@@ -783,6 +783,8 @@
     <string name="title_advanced_answer_prompt">回答提示</string>
     <string name="title_advanced_system_instructions">系統指示</string>
     <string name="title_advanced_default_prompt">預設提示</string>
+    <string name="title_advanced_ai">人工智能</string>
+    <string name="title_advanced_ai_input_system">輸入系統提示</string>
     <string name="title_advanced_entered_text">輸入的文字</string>
     <string name="title_advanced_sdcard">我想要用外接記憶卡</string>
     <string name="title_advanced_watchdog">定期確認 FairEmail 是否依舊運作</string>
@@ -1232,6 +1234,7 @@
     <string name="title_force_light">強制套用亮色主題</string>
     <string name="title_rename">重新命名</string>
     <string name="title_share">分享</string>
+    <string name="title_analyze">分析</string>
     <string name="title_event">新增至日曆</string>
     <string name="title_pin">新增捷徑</string>
     <string name="title_pin_label">捷徑標題</string>
@@ -1243,6 +1246,7 @@
     <string name="title_print_margins">新增邊界</string>
     <string name="title_show_headers">顯示標頭</string>
     <string name="title_show_html">顯示來源</string>
+    <string name="title_raw_save">保畱初始材料(.eml)</string>
     <string name="title_raw_send">以附件形式傳送</string>
     <string name="title_raw_send_message">訊息</string>
     <string name="title_raw_send_thread">會話</string>
@@ -1572,6 +1576,7 @@
     <string name="title_signature_email">簽名地址</string>
     <string name="title_signature_mismatch">寄件者的電郵地址不匹配簽名的電郵地址</string>
     <string name="title_signature_algorithm">演算法</string>
+    <string name="title_signature_public_key">公鈅</string>
     <string name="title_signature_subject">主旨</string>
     <string name="title_signature_validity">有效</string>
     <string name="title_signature_outdated">該公鑰當前無效</string>
@@ -1635,6 +1640,7 @@
     <string name="title_sort_on_starred_unread">已加星號，未讀</string>
     <string name="title_sort_on_priority">優先順序</string>
     <string name="title_sort_on_sender">寄件者</string>
+    <string name="title_sort_on_sender_name">發送者的名字</string>
     <string name="title_sort_on_subject">主旨</string>
     <string name="title_sort_on_size">大小</string>
     <string name="title_sort_on_attachments">附件</string>
@@ -2149,10 +2155,10 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
     <string name="title_accessibility_to">接收者</string>
     <string-array name="pollIntervalNames">
         <item>時時</item>
-        <item>Every minute</item>
+        <item>每分鍾</item>
         <item>Every 2 minutes</item>
-        <item>Every 5 minutes</item>
-        <item>Every 10 minutes</item>
+        <item>每5分鍾</item>
+        <item>每10分鍾</item>
         <item>每 15 分鐘</item>
         <item>每 30 分鐘</item>
         <item>每 1 小時</item>
