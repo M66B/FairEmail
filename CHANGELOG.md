@@ -4,8 +4,6 @@
 
 ### Notices
 
-Happy new Year &#x1F386;
-
 Google requires FairEmail to undergo an annual [CASA](https://appdefensealliance.dev/casa) security audit,
 which must be conducted by an authorized assessor (this year [TAC Security](https://casa.tacsecurity.com/site/home)).
 Besides being time-consuming, this is no longer free as of this year.
@@ -31,6 +29,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 <br>
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
+
+### Next version
+
+* Disabled viewport height limitation
+* Small improvements and minor bug fixes
+* Updated libraries, including [EvalEx](https://github.com/ezylang/EvalEx)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2259 2025-01-16
 
