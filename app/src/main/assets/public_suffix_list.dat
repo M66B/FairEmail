@@ -4031,13 +4031,20 @@ net.mk
 org.mk
 
 // ml : https://www.iana.org/domains/root/db/ml.html
+// Confirmed by Boubacar NDIAYE <bndiaye@agetic.gouv.ml> 2024-12-31
 ml
+ac.ml
+art.ml
+asso.ml
 com.ml
 edu.ml
 gouv.ml
 gov.ml
+info.ml
+inst.ml
 net.ml
 org.ml
+pr.ml
 presse.ml
 
 // mm : https://www.iana.org/domains/root/db/mm.html
@@ -14866,6 +14873,11 @@ itcouldbewor.se
 // Submitted by Gavin Brown <gavin.brown@centralnic.com>
 aus.basketball
 nz.basketball
+
+// ROBOT PAYMENT INC. : https://www.robotpayment.co.jp/
+// Submitted by Kentaro Takamori <takamori.kentaro@robotpayment.co.jp>
+subsc-pay.com
+subsc-pay.net
 
 // Rochester Institute of Technology : http://www.rit.edu/
 // Submitted by Jennifer Herting <jchits@rit.edu>
