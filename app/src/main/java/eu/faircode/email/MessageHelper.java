@@ -2639,7 +2639,7 @@ public class MessageHelper {
 
             String length = kv.get("l");
             if (!TextUtils.isEmpty(length))
-                throw new IllegalArgumentException("Length l=" + length);
+                throw new IllegalArgumentException("Length l=" + length + " body=" + body.length());
 
             Log.i("DKIM body=" + body.replace("\r\n", "|"));
 
