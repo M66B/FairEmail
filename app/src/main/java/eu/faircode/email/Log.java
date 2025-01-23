@@ -1053,7 +1053,7 @@ public class Log {
         if (ex.getMessage() != null &&
                 (ex.getMessage().startsWith("Bad notification posted") ||
                         ex.getMessage().contains("ActivityRecord not found") ||
-                        //ex.getMessage().startsWith("Unable to create layer") ||
+                        ex.getMessage().startsWith("Unable to create layer") ||
                         ex.getMessage().startsWith("Illegal meta data value") ||
                         ex.getMessage().startsWith("Context.startForegroundService") ||
                         ex.getMessage().startsWith("PARAGRAPH span must start at paragraph boundary")))

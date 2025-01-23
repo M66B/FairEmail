@@ -159,19 +159,6 @@ public class ApplicationEx extends Application
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(@NonNull Thread thread, @NonNull Throwable ex) {
-                // java.lang.IllegalStateException: Unable to create layer for WebViewEx, size 768x4864 max size 8192 color type 4 has context 1
-                //        at android.os.MessageQueue.nativePollOnce(MessageQueue.java:-2)
-                //        at android.os.MessageQueue.next(MessageQueue.java:326)
-                //        at android.os.Looper.loop(Looper.java:183)
-                //        at android.app.ActivityThread.main(ActivityThread.java:7266)
-                if (ex instanceof IllegalStateException &&
-                        ex.getMessage() != null &&
-                        ex.getMessage().contains("Unable to create layer for WebView")) {
-                    int viewport_height = prefs.getInt("viewport_height", WebViewEx.DEFAULT_VIEWPORT_HEIGHT);
-                    if (viewport_height > WebViewEx.DEFAULT_VIEWPORT_HEIGHT)
-                        prefs.edit().putInt("viewport_height", WebViewEx.DEFAULT_VIEWPORT_HEIGHT).apply();
-                }
-
                 if (!crash_reports && Log.isOwnFault(ex)) {
                     Log.e(ex);
 
