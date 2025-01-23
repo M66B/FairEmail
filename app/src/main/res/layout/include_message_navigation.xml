@@ -99,7 +99,7 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_spam"
             app:srcCompat="@drawable/twotone_report_24"
-            app:tint="?attr/colorError"
+            app:tint="?attr/colorAccent"
             tools:ignore="MissingConstraints" />
 
         <ImageButton
