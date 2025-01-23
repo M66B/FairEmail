@@ -805,6 +805,9 @@
     <string name="title_advanced_system_instructions">Указания на системата</string>
     <string name="title_advanced_default_prompt">Подкана по подразбиране</string>
     <string name="title_advanced_ai">ИИ</string>
+    <string name="title_advanced_ai_input_system">Входна системна подкана</string>
+    <string name="title_advanced_ai_input_body">Въведете текста на съобщението си</string>
+    <string name="title_advanced_ai_input_reply">Въведете текста на отговореното съобщение</string>
     <string name="title_advanced_entered_text">Въведен текст</string>
     <string name="title_advanced_sdcard">Желая да употребявам sd карта</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
@@ -1373,6 +1376,7 @@
     <string name="title_attachment_saved">Прикачения файл е запазен</string>
     <string name="title_attachments_saved">Прикачените файлове са запазени</string>
     <string name="title_attachments_incomplete">Някои прикачени файлове или изображения не са изтеглени и не могат да бъдат добавени</string>
+    <string name="title_report_remark">Този доклад, както и особено форматирания имейл, бяха изпратени от сървъра за е-поща, защото изпратеното съобещние не можа да се достави до получател, например, защото пощенската кутия е препълнена, или адресът на е-поща не съществува (вече).</string>
     <string name="title_ask_save">Запазвате ли промените?</string>
     <string name="title_ask_delete">Изтрий съобщението завинаги?</string>
     <string name="title_ask_delete_accept">Разбирам, че постоянното изтриване на съобщения е необратимо</string>

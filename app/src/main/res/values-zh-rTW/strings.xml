@@ -188,6 +188,9 @@
     <string name="title_setup_office_auth">「AUTHENTICATE failed」錯誤可能是由於系統管理員停用了 IMAP/SMTP 所導致</string>
     <string name="title_setup_office_auth_5_7_3">請嘗試使用「其他供應商」的快速設定精靈。</string>
     <string name="title_setup_office_auth_5_7_139">請嘗試使用「Outlook/Hotmail/Live」的快速設定精靈。</string>
+    <string name="title_setup_office_not_connected">錯誤「User is authenticated but not connected」通常意味著 IMAP 已被停用。
+        如果是個人 Outlook 帳戶，請前往 Outlook 網站，點擊右上角的設定齒輪，選擇「郵件」，然後選擇「轉寄與 IMAP」，在「POP 和 IMAP」部分啟用「允許設備和應用程式使用 IMAP」。
+        如果是公司、教育等帳戶，請聯繫電子郵件伺服器的系統管理員。    </string>
     <string name="title_setup_oauth_rationale">授權存取您的 %1$s 帳戶</string>
     <string name="title_setup_oauth_update">重新授權現有帳戶 (否則請新建帳戶)</string>
     <string name="title_setup_oauth_updated">帳戶授權已更新</string>
@@ -200,6 +203,7 @@
     <string name="title_setup_no_settings">未找到網域 \'%1$s\' 的設定</string>
     <string name="title_setup_no_settings_hint">嘗試使用電子郵件供應商提供的設定手動設置帳戶</string>
     <string name="title_setup_no_auth_hint">請仔細檢查您的電子郵件地址和密碼，並確保為您的帳戶啟用外部存取 (IMAP/SMTP)</string>
+    <string name="title_setup_no_auth_outlook">您必須為此帳戶使用 Outlook / Office 365 快速設定精靈（由 Microsoft 要求）。</string>
     <string name="title_setup_app_password_hint">此郵件供應商需要應用密碼而非帳戶密碼，請檢查供應商的說明</string>
     <string name="title_setup_no_inbox">未發現收件匣</string>
     <string name="title_setup_advanced_protection">在註冊高級保護計畫後，無法使用第三方電子郵件應用程式。這是由 Google 所施加的限制。</string>
@@ -740,6 +744,7 @@
     <string name="title_advanced_remark_algo">請注意，並非所有電子郵件用戶端都支援所有演算法。
 預設的 SHA256 和 AES128 演算法通常被廣泛支援。    </string>
     <string name="title_advanced_check_certificate">傳送時檢查公鑰</string>
+    <string name="title_advanced_check_key_usage">檢查傳送時的金鑰使用指示</string>
     <string name="title_advanced_manage_certificates">管理公鑰</string>
     <string name="title_advanced_import_key">匯入私鑰</string>
     <string name="title_advanced_manage_keys">管理私鑰</string>
@@ -785,6 +790,8 @@
     <string name="title_advanced_default_prompt">預設提示</string>
     <string name="title_advanced_ai">人工智能</string>
     <string name="title_advanced_ai_input_system">輸入系統提示</string>
+    <string name="title_advanced_ai_input_body">輸入您的訊息內容</string>
+    <string name="title_advanced_ai_input_reply">輸入回覆訊息的內容</string>
     <string name="title_advanced_entered_text">輸入的文字</string>
     <string name="title_advanced_sdcard">我想要用外接記憶卡</string>
     <string name="title_advanced_watchdog">定期確認 FairEmail 是否依舊運作</string>
@@ -835,6 +842,7 @@
     <string name="title_advanced_send_reminders_hint">當訊息本文或主旨為空或在附件可能有缺失時顯示警告</string>
     <string name="title_advanced_reply_move_hint">電子郵件伺服器仍可將訊息新增至已傳送訊息資料夾</string>
     <string name="title_advanced_compose_color_hint">非常淺或非常深的顏色會導致收件者無法閱讀訊息</string>
+    <string name="title_advanced_compose_font_hint">預設表示遵從接收方所選擇的字型</string>
     <string name="title_advanced_template_reply_hint">HTML 是允許的。可用的佔位符：%1$s</string>
     <string name="title_advanced_write_below_hint">收件者可能會錯過您的回覆，例如當較長的訊息被截斷時</string>
     <string name="title_advanced_attach_new_hint">否則，將共享的地址或檔案新增到當前的草稿訊息中</string>
@@ -900,6 +908,7 @@
     <string name="title_advanced_notify_car_hint">「已連接」表示有東西正在投影，例如導航地圖</string>
     <string name="title_advanced_notify_remove_hint">在被劃掉和在標示訊息為已讀取後，新訊息通知總是會被移除</string>
     <string name="title_advanced_notify_manage_hint">輕觸頻道名稱以設定頻道屬性</string>
+    <string name="title_advanced_notify_samsung_hint">若要管理通知頻道，您可能需要啟用此 Android 設定：通知 > 進階設定 > 管理每個應用程式的通知類別</string>
     <string name="title_advanced_notify_manage_default_hint">設定預設音效等等</string>
     <string name="title_advanced_notify_manage_service_hint">選擇關閉以停用‘正在監視’通知</string>
     <string name="title_advanced_notify_separate_hint">如何針對帳戶、資料夾和寄件者配置通知？</string>
@@ -1349,6 +1358,7 @@
     <string name="title_attachment_saved">附件已保存</string>
     <string name="title_attachments_saved">附件已保存</string>
     <string name="title_attachments_incomplete">一些附件或圖片未被下載亦無法新增</string>
+    <string name="title_report_remark">此報告是一封經過特殊格式化的電子郵件，由電子郵件伺服器發送，原因是寄出的訊息無法傳遞給收件者，例如因為信箱已滿，或是電子郵件地址不存在（或已經不存在）。</string>
     <string name="title_ask_save">您要保存變更嗎？</string>
     <string name="title_ask_delete">您要永久刪除訊息嗎？</string>
     <string name="title_ask_delete_accept">我明白永久刪除訊息操作不可逆轉</string>
@@ -1488,6 +1498,7 @@
     <string name="title_summarize">總結</string>
     <string name="title_translate_configure">配置 &#8230;</string>
     <string name="title_translate_key">輸入密鑰</string>
+    <string name="title_translating">正在翻譯為 %1$s &#8230;</string>
     <string name="title_translate_formal">使用正式形式</string>
     <string name="title_translate_small">源文字採用小號字型</string>
     <string name="title_translate_replace">用翻譯後的文字取代原文</string>
@@ -1765,6 +1776,7 @@
     <string name="title_rule_resend">重新寄出</string>
     <string name="title_rule_attached">附加原始訊息檔案</string>
     <string name="title_rule_cc">回覆至副本地址</string>
+    <string name="title_rule_checks">檢查自動發送的訊息、無回覆地址等。</string>
     <string name="title_rule_with_attachments">包含附件</string>
     <string name="title_rule_answer_remark">為避免回覆循環，每次對話僅會發送一次回覆</string>
     <string name="title_rule_name_missing">規則名稱缺失</string>
@@ -1796,6 +1808,7 @@
     <string name="title_rule_select_sound">選擇音效</string>
     <string name="title_rule_select_sound_ringtone">鈴聲</string>
     <string name="title_rule_select_sound_audio">音訊檔案</string>
+    <string name="title_rule_loop_sound">重複播放音效</string>
     <string name="title_rule_use_as_alarm">用作警報</string>
     <string name="title_rule_alarm_hint">這將會忽略「請勿打擾」規則</string>
     <string name="title_rule_alarm_duration">警報最長持續時間 (秒)</string>
@@ -1952,6 +1965,8 @@
     <string name="title_hint_junk">垃圾郵件篩選應由電子郵件伺服器執行完成，而在能力有限的由電池所驅動的裝置上執行，產生的結果並不可靠。</string>
     <string name="title_hint_junk_learn">透過將訊息移入或移出垃圾郵件資料夾，電子郵件伺服器會「學習」什麼是垃圾郵件</string>
     <string name="title_hint_contact_actions">長按以獲取選項</string>
+    <string name="title_hint_eml">這是原始訊息檔案內容的摘要。
+        您可以使用右下角的按鈕將訊息保存到收件匣以檢視所有內容。    </string>
     <string name="title_open_link">開啟連結</string>
     <string name="title_image_link">圖片連結</string>
     <string name="title_different_link">標題與連結地址不同</string>
@@ -2156,7 +2171,7 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
     <string-array name="pollIntervalNames">
         <item>時時</item>
         <item>每分鍾</item>
-        <item>Every 2 minutes</item>
+        <item>每 2 分鐘</item>
         <item>每5分鍾</item>
         <item>每10分鍾</item>
         <item>每 15 分鐘</item>
