@@ -30,7 +30,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2260 2025-01-23
 
 * Disabled viewport height limitation
 * Small improvements and minor bug fixes
