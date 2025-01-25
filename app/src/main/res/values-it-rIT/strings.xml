@@ -231,7 +231,7 @@
     <string name="title_setup_exchange_support">Microsoft Exchange è supportato?</string>
     <string name="title_setup_identity_what">Cos\'è un\'identità?</string>
     <string name="title_setup_free">Quest\'app è gratuita?</string>
-    <string name="title_setup_permissions">Concedi le autorizzazioni</string>
+    <string name="title_setup_permissions">Concedere le autorizzazioni</string>
     <string name="title_setup_permissions_remark">Per accedere alle informazioni di contatto (opzionale)</string>
     <string name="title_setup_permissions_calendar">Per memorizzare gli inviti (facoltativo)</string>
     <string name="title_setup_permissions_explanation">Le autorizzazioni di accesso ai contatti sono necessarie per cercare le loro informazioni e per i suggerimenti</string>

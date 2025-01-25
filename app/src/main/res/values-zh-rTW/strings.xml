@@ -74,8 +74,8 @@
     </plurals>
     <string name="title_ask_spam_who">您要將來自 %1$s 的訊息作垃圾郵件處理嗎？</string>
     <string name="title_junk_hint">您的電子郵件供應商負責篩選垃圾郵件。電子郵件程式並不擁有所有用於可靠地處理此操作的數據。</string>
-    <string name="title_junk_pop_hint">程式不會下載來自被封鎖發送者的訊息。
-如果未啟用“將訊息留在服務器上”選項，這些訊息將永久丟失！
+    <string name="title_junk_pop_hint">來自被封鎖寄件者的訊息不會被下載。
+如果未啟用“將訊息留存在伺服器上”選項，那麼這些訊息將永久丟失！
     </string>
     <string name="title_block">封鎖 %1$s</string>
     <string name="title_block_sender">封鎖寄件者</string>
@@ -788,7 +788,7 @@
     <string name="title_advanced_answer_prompt">回答提示</string>
     <string name="title_advanced_system_instructions">系統指示</string>
     <string name="title_advanced_default_prompt">預設提示</string>
-    <string name="title_advanced_ai">人工智能</string>
+    <string name="title_advanced_ai">AI</string>
     <string name="title_advanced_ai_input_system">輸入系統提示</string>
     <string name="title_advanced_ai_input_body">輸入您的訊息內容</string>
     <string name="title_advanced_ai_input_reply">輸入回覆訊息的內容</string>
@@ -1255,7 +1255,7 @@
     <string name="title_print_margins">新增邊界</string>
     <string name="title_show_headers">顯示標頭</string>
     <string name="title_show_html">顯示來源</string>
-    <string name="title_raw_save">保畱初始材料(.eml)</string>
+    <string name="title_raw_save">保存元訊息 (.eml)</string>
     <string name="title_raw_send">以附件形式傳送</string>
     <string name="title_raw_send_message">訊息</string>
     <string name="title_raw_send_thread">會話</string>
@@ -1587,7 +1587,7 @@
     <string name="title_signature_email">簽名地址</string>
     <string name="title_signature_mismatch">寄件者的電郵地址不匹配簽名的電郵地址</string>
     <string name="title_signature_algorithm">演算法</string>
-    <string name="title_signature_public_key">公鈅</string>
+    <string name="title_signature_public_key">公鑰</string>
     <string name="title_signature_subject">主旨</string>
     <string name="title_signature_validity">有效</string>
     <string name="title_signature_outdated">該公鑰當前無效</string>
@@ -1957,7 +1957,7 @@
 電子郵件伺服器負責過濾垃圾郵件，而不是電子郵件用戶端。
 如果你收到大量垃圾郵件，請聯絡你的電子郵件提供商，不要責怪應用程式！    </string>
     <string name="title_hint_important">重要</string>
-    <string name="title_hint_sync">下載訊息可能會花費一些時間，具體取決於供應商的速度、互聯網連線、使用的裝置和訊息的數量。在下載訊息期間，應用程式的響應可能會變慢。</string>
+    <string name="title_hint_sync">下載訊息可能會花費一些時間，具體取決於供應商的速度、網路連線、使用的裝置和訊息的數量。在下載訊息期間，應用程式的響應可能會變慢。</string>
     <string name="title_hint_sync_note">預設情況下，為了限制存儲空間及電池和數據使用量，並非所有訊息都會被下載。您可以在資料夾列表中長按某個資料夾，然後選擇「獲取更多訊息」來更改此設定。</string>
     <string name="title_hint_battery">由於預設情況下 FairEmail 會時刻接收訊息，因此 Android 會將 FairEmail 回報為始終處於活動中。看似 FairEmail 一直在消耗電量，但事實並非如此 。</string>
     <string name="title_hint_reformat">預設情況下，FairEmail 會為了隱私和安全原因重新格式化訊息。要查看原始訊息，請點擊訊息文字上方的「全螢幕」圖示。</string>

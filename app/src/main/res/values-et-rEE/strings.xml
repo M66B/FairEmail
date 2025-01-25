@@ -805,6 +805,10 @@
     <string name="title_advanced_answer_prompt">Vastuse viip</string>
     <string name="title_advanced_system_instructions">Juhised süsteemile</string>
     <string name="title_advanced_default_prompt">Vaikeviip</string>
+    <string name="title_advanced_ai">TI</string>
+    <string name="title_advanced_ai_input_system">Sisesta süsteemi viip</string>
+    <string name="title_advanced_ai_input_body">Sisesta oma sõnumi tekst</string>
+    <string name="title_advanced_ai_input_reply">Sisesta vastussõnumi tekst</string>
     <string name="title_advanced_entered_text">Sisestatud tekst</string>
     <string name="title_advanced_sdcard">Ma soovin kasutada SD-kaarti</string>
     <string name="title_advanced_watchdog">Kontrolli perioodiliselt, kas FairEmail on jätkuvalt aktiivne</string>
@@ -922,6 +926,7 @@
     <string name="title_advanced_notify_car_hint">Ühendatud tähendab, et midagi projitseeritakse, näiteks liikumiseks kaarti</string>
     <string name="title_advanced_notify_remove_hint">Uute sõnumite teated eemaldatakse alati, kui neid libistatakse eemale või kui sõnumeid märgitakse loetuks</string>
     <string name="title_advanced_notify_manage_hint">Toksa kanali nimel, et määrata kanali omadusi</string>
+    <string name="title_advanced_notify_samsung_hint">Teavituskanalite haldamiseks võib olla vajalik lubada see Androidi seadistus: Teavitused, Täpsemad seaded, Halda rakenduste kategooriaid</string>
     <string name="title_advanced_notify_manage_default_hint">Et määrata vaikeheli jm.</string>
     <string name="title_advanced_notify_manage_service_hint">Monitoorimise teavituse keelamiseks</string>
     <string name="title_advanced_notify_separate_hint">Kuidas ma häälestan teavitusi kontode, kaustade ja saatjate jaoks?</string>
@@ -1258,6 +1263,7 @@
     <string name="title_force_light">Jõusta hele kujundus</string>
     <string name="title_rename">Muuda nime</string>
     <string name="title_share">Jaga</string>
+    <string name="title_analyze">Analüüsi</string>
     <string name="title_event">Lisa kalendrisse</string>
     <string name="title_pin">Lisa otsetee</string>
     <string name="title_pin_label">Otsetee tiitel</string>
@@ -1667,6 +1673,7 @@
     <string name="title_sort_on_starred_unread">Tärniga, lugemata</string>
     <string name="title_sort_on_priority">Tähtsus</string>
     <string name="title_sort_on_sender">Saatja</string>
+    <string name="title_sort_on_sender_name">Saatja nimi</string>
     <string name="title_sort_on_subject">Teema</string>
     <string name="title_sort_on_size">Suurus</string>
     <string name="title_sort_on_attachments">Manused</string>
@@ -1824,6 +1831,7 @@
     <string name="title_rule_select_sound">Vali heli</string>
     <string name="title_rule_select_sound_ringtone">Helin</string>
     <string name="title_rule_select_sound_audio">Helifail</string>
+    <string name="title_rule_loop_sound">Kordusheli</string>
     <string name="title_rule_use_as_alarm">Kasuta alarmina</string>
     <string name="title_rule_alarm_hint">See ignoreerib \"Ära häiri\" reegleid</string>
     <string name="title_rule_alarm_duration">Alarmi maksimumpikkus (sekundit)</string>
