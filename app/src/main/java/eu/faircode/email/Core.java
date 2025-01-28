@@ -4278,6 +4278,12 @@ class Core {
                                                             message.flagged = flagged;
                                                             message.ui_flagged = flagged;
                                                             Log.i("UID fetch flagged=" + flagged);
+                                                            boolean auto_important = prefs.getBoolean("auto_important", false);
+                                                            if (auto_important) {
+                                                                message.importance = (flagged ? EntityMessage.PRIORITIY_HIGH : null);
+                                                                EntityOperation.queue(context, message, EntityOperation.KEYWORD, MessageHelper.FLAG_LOW_IMPORTANCE, false);
+                                                                EntityOperation.queue(context, message, EntityOperation.KEYWORD, MessageHelper.FLAG_HIGH_IMPORTANCE, flagged);
+                                                            }
                                                         }
                                                         if (message.deleted != deleted) {
                                                             update = true;
@@ -5123,6 +5129,12 @@ class Core {
                 if (!flagged)
                     message.color = null;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
+                boolean auto_important = prefs.getBoolean("auto_important", false);
+                if (auto_important) {
+                    message.importance = (flagged ? EntityMessage.PRIORITIY_HIGH : null);
+                    EntityOperation.queue(context, message, EntityOperation.KEYWORD, MessageHelper.FLAG_LOW_IMPORTANCE, false);
+                    EntityOperation.queue(context, message, EntityOperation.KEYWORD, MessageHelper.FLAG_HIGH_IMPORTANCE, flagged);
+                }
                 syncSimilar = true;
             }
 
