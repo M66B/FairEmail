@@ -157,7 +157,7 @@ public class EntityOperation {
                 if (auto_important && jargs.optBoolean(2, true)) {
                     db.message().setMessageImportance(message.id, flagged ? EntityMessage.PRIORITIY_HIGH : null);
                     queue(context, message, KEYWORD, MessageHelper.FLAG_LOW_IMPORTANCE, false);
-                    queue(context, message, KEYWORD, MessageHelper.FLAG_HIGH_IMPORTANCE, true);
+                    queue(context, message, KEYWORD, MessageHelper.FLAG_HIGH_IMPORTANCE, flagged);
                 }
 
                 return;
