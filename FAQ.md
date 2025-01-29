@@ -583,12 +583,12 @@ See also [this FAQ](#faq16).
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq4)
 
-**Since version 1.2137:
+<!-- **Since version 1.2137:
 Due to [Google's Play Store policies](https://support.google.com/faqs/answer/6346016),
 it is no longer possible to support insecure connections to email servers with certificate issues
 for the version of FairEmail distributed in the Play Store.
 Therefore, this issue can only be resolved by your email provider,
-or by installing the GitHub version of the app (as an update) and enabling insecure connections in the account/identity settings.**
+or by installing the GitHub version of the app (as an update) and enabling insecure connections in the account/identity settings.** -->
 
 *... Untrusted ... not in certificate ...*<br />
 *... Invalid security certificate (Can't verify identity of server) ...*<br />

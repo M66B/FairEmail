@@ -528,7 +528,12 @@
 <p><br /></p>
 <p><a name="faq4"></a> <strong>(4) How can I use an invalid security certificate / empty password / plain text connection?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq4">Google Translate</a></p>
-<p><strong>Since version 1.2137: Due to <a href="https://support.google.com/faqs/answer/6346016">Google’s Play Store policies</a>, it is no longer possible to support insecure connections to email servers with certificate issues for the version of FairEmail distributed in the Play Store. Therefore, this issue can only be resolved by your email provider, or by installing the GitHub version of the app (as an update) and enabling insecure connections in the account/identity settings.</strong></p>
+<!-- **Since version 1.2137:
+Due to [Google's Play Store policies](https://support.google.com/faqs/answer/6346016),
+it is no longer possible to support insecure connections to email servers with certificate issues
+for the version of FairEmail distributed in the Play Store.
+Therefore, this issue can only be resolved by your email provider,
+or by installing the GitHub version of the app (as an update) and enabling insecure connections in the account/identity settings.** -->
 <p><em>… Untrusted … not in certificate …</em><br /> <em>… Invalid security certificate (Can’t verify identity of server) …</em><br /> <em>… Chain validation failed … timestamp check failed … Certificate expired at …</em><br /></p>
 <p>This can be caused by using an incorrect host name, so first double-check the host name in the advanced identity/account settings (tap <em>Manual setup and account options</em>). Please see the documentation of the email provider about the right host name. Sometimes the right host name is in the error message.</p>
 <p>You should try to fix this by contacting your provider or by getting a valid security certificate because invalid security certificates are insecure and allow <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle attacks</a>. If money is an obstacle, you can get free security certificates from <a href="https://letsencrypt.org">Let’s Encrypt</a>.</p>
