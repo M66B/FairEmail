@@ -1,41 +1,41 @@
 # Hjelp til oppsett
 
-Det er ganske enkelt å sette opp FairEmail. Du må legge til minst en konto for å motta e-post og minst en identitet hvis du vil sende e-post. Hurtigoppsettet vil legge til konto og identitet på en gang for de fleste store leverandører.
+Å sette opp FairEmail er ganske enkelt. Du må legge til minst en konto for å motta epost og minst en identitet om du vil sende epost. Veilederen vil samtidig legge til en konto og en identitet for de fleste epost-leverandører.
 
-## Krav
+## Kra
 
-Det kreves en internettforbindelse for å konfigurere kontoer og identiteter.
+En internett-tilkobling kreves for å sette opp kontoer og identiteter.
 
 ## Hurtigoppsett
 
-Bare velg riktig leverandør eller *Annen leverandør* og skriv inn navn, e-postadresse og passord og trykk *Sjekk*.
+Bare velg leverandøren din eller <0>Annen leverandør</0> og skriv inn navnet ditt, epost-adressen din og passordet ditt og trykk <0>Sjekk</0>.
 
-Dette vil fungere for de fleste e-postleverandører.
+Dette vil virke for de fleste epost-leverandører.
 
-Hvis hurtigoppsettet ikke fungerer, må du angi en konto og en identitet manuelt, se nedenfor for instruksjoner.
+Om hurtigoppsett ikke virker, må du sette opp konto og identitet manuelt, se under for instruksjoner.
 
-## Oppsett av konto - for å motta e-post
+## Sett opp konto - for å motta epost
 
-Trykk på *Manuell oppsett og flere alternativer*for å legge til en konto. Trykk på *Kontoer* og trykk på 'pluss' knappen nederst og velg IMAP (eller POP3). Velg en leverandør fra listen, skriv inn brukernavn (vanligvis e-postadressen din), og skriv deretter inn passordet ditt. Trykk på *Kontroller* for å la FairEmail koble til e-posttjeneren og hente en liste over systemmapper. Etter å ha gjennomgått valg av systemmappe, kan du legge til kontoen ved å trykke *Lagre*.
+For å legge til en konto, trykk *Manuelt oppsett og flere valg*, trykk *Kontoer* og trykk på «pluss»-knappen nederst og velg IMAP (eller POP3). Velg en leverandør fra listen, skriv inn brukernavnet (vanligvis epost-adressen din) og passordet ditt. Trykk *Sjekk* for å la FairEmail koble til eposttjeneren og hente en liste over systemmapper. Etter å ha sett over valg av systemmapper kan du legge til kontoen ved å trykke *Lagre*.
 
-Hvis leverandøren din ikke er på listen over leverandører, det er tusenvis av leverandører, velg *Tilpasset*. Skriv inn domenenavnet, for eksempel *gmail.com* og trykk *Hent innstillinger*. Hvis leverandøren din støtter [auto-oppdagelse](https://tools.ietf.org/html/rfc6186), vil FairEmail fylle ut vertsnavnet og portnummeret, den vil også sjekke installasjonsinstruksjonene til leverandøren din for riktig SMTP vertsnavn, portnummer og protokoll (SSL/TLS eller STARTTLS). For mer om dette, vennligst se [her](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Om leverandøren din ikke er på listen, det er tusenvis av leverandører, velg *Egendefinert*. Skriv inn domenenavnet, f.eks. [gmail.com](https://tools.ietf.org/html/rfc6186) og trykk <0>Hent innstillinger</0>. Om leverandøren støtter [auto-gjenkjennelse](https://tools.ietf.org/html/rfc6186) vil FairEmail fylle inn vertsnavn og portnummer. Om ikke, sjekk leverandørens oppsettsinstruksjoner etter riktig IMAP-vertsnavn, portnummer og krypteringsprotokoll (SSL/TLS eller STARTTLS). For mer om dette, vennligst se <0>her</0>.
 
-## Oppsett av identitet - for å sende e-post
+## Sett opp identitet - for å sende epost
 
-For å legge til en identitet, trykk *Manuelt oppsett og flere alternativer*, trykk *Identiteter* og trykk på 'pluss' knappen nederst. Skriv inn navnet du vil skal vises i 'Fra-adressen' på e-postene du sender, og velg en tilkoblet konto. Trykk på *Lagre* for å legge til identiteten.
+For å legge til en identitet, trykk <0>Manuelt oppsett og flere valg</0>, trykk <0>Identiteter</0> og trykk på «pluss»-knappen nederst. Skriv inn navnet du vil at skal vises i fra-adressen i epostene du sender og velg en sammenkoblet konto. Trykk <0>Lagre</0> for å legge til identiteten.
 
-Hvis kontoen ble konfigurert manuelt, må du sannsynligvis konfigurere identiteten manuelt også. Skriv inn domenenavnet, for eksempel *gmail.com* og trykk *Hent innstillinger*. Hvis leverandøren din støtter [auto-oppdagelse](https://tools.ietf.org/html/rfc6186), vil FairEmail fylle ut vertsnavnet og portnummeret, den vil også sjekke installasjonsinstruksjonene til leverandøren din for riktig SMTP vertsnavn, portnummer og protokoll (SSL/TLS eller STARTTLS).
+Om kontoen ble konfigurert manuelt, må du sannsynligvis også konfigurere identiteten manuelt. Skriv inn domenenavnet, f.eks. [gmail.com](https://tools.ietf.org/html/rfc6186) og trykk <0>Hent innstillinger</0>. Om leverandøren støttes [auto-gjenkjennelse](https://tools.ietf.org/html/rfc6186) vil FairEmail fylle inn vertsnavn og portnummer. Om ikke, sjekk leverandørens oppsettsinstruksjoner for riktig SMTP-vertsnavn, portnummer og krypteringsprotokoll (SSL/TLS eller STARTTLS).
 
-Se [OSS](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) angående bruk av aliaser.
+Se disse [ofte stilte spørsmålene](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) om bruk av aliaser.
 
-## Gi tillatelser - for tilgang til kontaktinformasjon
+## Gi tillatelser - for å bruke kontaktinformasjon
 
-Hvis du vil slå opp e-postadresser, vise kontaktbilder, osv., må du gi FairEmail tillatelse til å lese kontakter. Bare trykk på *Gi tillatelser* og velg *Tillat*.
+Om du vil kunne slå opp epostadresser, vise kontaktbilder o. l. må du gi FairEmail tillatelse til å lese kontaktinformasjon. Bare trykk *Gi tillatelse* og velg *Tillat*.
 
-## Konfigurer batterioptimaliseringer - for kontinuerlig å motta e-post
+## Sett opp batterioptimaliseringer - for å kontinuerlig motta eposter
 
-I nyere versjoner av Android, legges apper automatisk i dvale når skjermen er slått av en stund for å redusere batteribruken. Hvis du vil motta nye e-postmeldinger uten forsinkelser, bør du deaktivere batterioptimaliseringer for FairEmail. Trykk på *Administrer* og følg instruksjonene.
+I nyere versjoner av Android, vil apper settes i dvale når skjermen er av for å redusere batteribruk. Om du vil motta eposter uten forsinkelser burde du slå av batterioptimalisering for FairEmail. Trykk <0>Behandle</0> og følg instruksjonene.
 
 ## Spørsmål eller problemer
 
-Hvis du har spørsmål eller problemer, kan du [se her](https://github.com/M66B/FairEmail/blob/master/FAQ.md) etter hjelp.
+Om du har spørsmål eller problemer, vennligst [se her](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for hjelp.
