@@ -2901,7 +2901,7 @@ to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#secti
 
 **Expressions**
 
-Since version 1.2174 it is possible to use expression conditions, which is [experimental](#faq125) for now.
+Since version 1.2174 it is possible to use expression conditions.
 
 Please [see here](https://ezylang.github.io/EvalEx/references/references.html) about which constants, operators and functions are available.
 
@@ -4288,12 +4288,6 @@ The subject of a received message can be edited, also on the email server, via t
 *Markdown (1.2061+)*
 
 Composing messages using [Markdown](https://en.wikipedia.org/wiki/Markdown) can be enabled via the three-dots overflow menu of the message editor.
-
-<br />
-
-*Rule expression condition (1.2174+)*
-
-See [this FAQ](#faq71)
 
 <br />
 

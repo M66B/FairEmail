@@ -191,7 +191,6 @@ public class FragmentRule extends FragmentBase {
     private ContentLoadingProgressBar pbWait;
 
     private Group grpReady;
-    private Group grpExpression;
     private Group grpAge;
     private Group grpSnooze;
     private Group grpFlag;
@@ -401,7 +400,6 @@ public class FragmentRule extends FragmentBase {
         pbWait = view.findViewById(R.id.pbWait);
 
         grpReady = view.findViewById(R.id.grpReady);
-        grpExpression = view.findViewById(R.id.grpExpression);
         grpAge = view.findViewById(R.id.grpAge);
         grpSnooze = view.findViewById(R.id.grpSnooze);
         grpFlag = view.findViewById(R.id.grpFlag);
@@ -946,7 +944,6 @@ public class FragmentRule extends FragmentBase {
         tvFolder.setText(null);
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
-        grpExpression.setVisibility(View.GONE);
         grpAge.setVisibility(View.GONE);
         grpSnooze.setVisibility(View.GONE);
         grpFlag.setVisibility(View.GONE);
@@ -1532,10 +1529,6 @@ public class FragmentRule extends FragmentBase {
                         if (action != null)
                             showActionParameters(action.type);
                     }
-
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    boolean experiments = prefs.getBoolean("experiments", false);
-                    grpExpression.setVisibility(experiments ? View.VISIBLE : View.GONE);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 } finally {

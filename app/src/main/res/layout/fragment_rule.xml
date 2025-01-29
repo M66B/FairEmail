@@ -876,12 +876,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvExpression" />
 
-                <androidx.constraintlayout.widget.Group
-                    android:id="@+id/grpExpression"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvAndExpression,vSeparatorExpression,tvExpression,etExpression" />
-
                 <TextView
                     android:id="@+id/tvAction"
                     android:layout_width="wrap_content"
