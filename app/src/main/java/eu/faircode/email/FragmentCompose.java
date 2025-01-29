@@ -1909,6 +1909,7 @@ public class FragmentCompose extends FragmentBase {
         if (state == State.LOADED) {
             Bundle extras = new Bundle();
             extras.putBoolean("autosave", true);
+            extras.putBoolean("paused", true);
             onAction(R.id.action_save, extras, "pause");
         }
 
@@ -7836,12 +7837,13 @@ public class FragmentCompose extends FragmentBase {
 
             } else if (action == R.id.action_save) {
                 boolean autosave = extras.getBoolean("autosave");
+                boolean paused = extras.getBoolean("paused");
                 boolean silent = extras.getBoolean("silent");
                 boolean finish = extras.getBoolean("finish");
 
                 if (finish)
                     finish();
-                else if (!autosave && !silent)
+                else if (paused || (!autosave && !silent))
                     setFocus(
                             args.getInt("focus"),
                             args.getInt("start", -1),
