@@ -30,7 +30,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2261 2025-01-30
 
 * Released [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions) as non-experimental
 * Small improvements and minor bug fixes
