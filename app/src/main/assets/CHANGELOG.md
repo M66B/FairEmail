@@ -30,6 +30,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
+### 1.2262 2025-01-30
+
+* Fixed deleting sent messages in some cases
+
 ### 1.2261 2025-01-30
 
 * Released [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions) as non-experimental
