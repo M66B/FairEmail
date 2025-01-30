@@ -1031,6 +1031,7 @@ public interface DaoMessage {
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
             " AND uid IS NULL" +
+            " AND NOT ui_hide" +
             " AND (ui_busy IS NULL OR ui_busy < :now)" +
             " AND NOT EXISTS" +
             "  (SELECT * FROM operation" +
@@ -1048,6 +1049,7 @@ public interface DaoMessage {
     @Query("SELECT * FROM message" +
             " WHERE folder = :folder" +
             " AND uid IS NULL" +
+            " AND NOT ui_hide" +
             " AND NOT EXISTS" +
             "  (SELECT * FROM operation" +
             "  WHERE operation.message = message.id)")
@@ -1056,6 +1058,7 @@ public interface DaoMessage {
     @Query("SELECT * FROM message" +
             " WHERE folder = :folder" +
             " AND uid IS NULL" +
+            " AND NOT ui_hide" +
             " AND NOT EXISTS" +
             "  (SELECT * FROM operation" +
             "  WHERE operation.message = message.id" +
