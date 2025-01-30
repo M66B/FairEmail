@@ -1386,7 +1386,15 @@ public class Helper {
         viewFAQ(context, question, true /* Google translate */);
     }
 
+    static void viewFAQ(Context context, String fragment) {
+        viewFAQ(context, fragment, true);
+    }
+
     private static void viewFAQ(Context context, int question, boolean english) {
+        viewFAQ(context, question == 0 ? "top" : "faq" + question, english);
+    }
+
+    private static void viewFAQ(Context context, String fragment, boolean english) {
         // Redirection is done to prevent text editors from opening the link
         // https://email.faircode.eu/faq -> https://github.com/M66B/FairEmail/blob/master/FAQ.md
         // https://email.faircode.eu/docs -> https://github.com/M66B/FairEmail/tree/master/docs
@@ -1400,10 +1408,7 @@ public class Helper {
         else
             base = "https://email.faircode.eu/docs/FAQ-" + locale + ".md";
 
-        if (question == 0)
-            view(context, Uri.parse(base + "#top"), "text/html", false, false);
-        else
-            view(context, Uri.parse(base + "#faq" + question), "text/html", false, false);
+        view(context, Uri.parse(base + "#" + fragment), "text/html", false, false);
     }
 
     static Uri getPrivacyUri(Context context) {

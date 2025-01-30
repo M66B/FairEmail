@@ -135,6 +135,7 @@ public class FragmentRule extends FragmentBase {
     private CheckBox cbEveryDay;
     private EditText etYounger;
 
+    private ImageButton ibExpression;
     private EditText etExpression;
 
     private Spinner spAction;
@@ -343,6 +344,7 @@ public class FragmentRule extends FragmentBase {
         cbEveryDay = view.findViewById(R.id.cbEveryDay);
         etYounger = view.findViewById(R.id.etYounger);
 
+        ibExpression = view.findViewById(R.id.ibExpression);
         etExpression = view.findViewById(R.id.etExpression);
 
         spAction = view.findViewById(R.id.spAction);
@@ -680,6 +682,13 @@ public class FragmentRule extends FragmentBase {
                 timePicker.setArguments(args);
                 timePicker.setTargetFragment(FragmentRule.this, REQUEST_SCHEDULE_END);
                 timePicker.show(getParentFragmentManager(), "timePicker");
+            }
+        });
+
+        ibExpression.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), "expression_conditions");
             }
         });
 

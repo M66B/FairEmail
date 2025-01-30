@@ -857,12 +857,25 @@
                     android:id="@+id/tvExpression"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
                     android:text="@string/title_rule_expression"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintBottom_toBottomOf="@+id/ibExpression"
+                    app:layout_constraintEnd_toStartOf="@id/ibExpression"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/ibExpression"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/title_info"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/vSeparatorExpression" />
+                    app:layout_constraintStart_toEndOf="@id/tvExpression"
+                    app:layout_constraintTop_toBottomOf="@+id/vSeparatorExpression"
+                    app:srcCompat="@drawable/twotone_info_24" />
 
                 <eu.faircode.email.EditTextPlain
                     android:id="@+id/etExpression"
