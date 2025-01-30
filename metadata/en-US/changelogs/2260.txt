@@ -30,6 +30,14 @@ For support you can use the contact form.
 
 Barsboldia
 
+Next version
+
+* Released expression conditions as non-experimental
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
 1.2260 2025-01-23
 
 * Disabled viewport height limitation
