@@ -2899,9 +2899,12 @@ to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#secti
 
 <br />
 
+<a name="expression_conditions"></a>
 **Expressions**
 
-Since version 1.2174 it is possible to use expression conditions.
+Since version 1.2174 it is possible to use expression conditions like:
+
+```from contains "@example.com" && subject contains "Example"```
 
 Please [see here](https://ezylang.github.io/EvalEx/references/references.html) about which constants, operators and functions are available.
 
