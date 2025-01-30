@@ -109,6 +109,8 @@ public class FragmentDialogOperationsDelete extends FragmentDialogBase {
                                     }
 
                                     if (move) {
+                                        if (BuildConfig.DEBUG)
+                                            addAll(ops, db.operation().getOperations(EntityOperation.ADD));
                                         addAll(ops, db.operation().getOperations(EntityOperation.MOVE));
                                         addAll(ops, db.operation().getOperations(EntityOperation.COPY));
                                     }
