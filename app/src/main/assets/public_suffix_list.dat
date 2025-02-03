@@ -12306,6 +12306,9 @@ square7.net
 
 // Brave : https://brave.com
 // Submitted by Andrea Brancaleoni <abrancaleoni@brave.com>
+brave.app
+*.s.brave.app
+brave.io
 *.s.brave.io
 
 // Brendly : https://brendly.rs
@@ -14059,6 +14062,11 @@ ggff.net
 localcert.net
 localhostcert.net
 
+// Localtonet : https://localtonet.com/
+// Submitted by Burak Isleyici <support@localtonet.com>
+localtonet.com
+*.localto.net
+
 // Lodz University of Technology LODMAN regional domains : https://www.man.lodz.pl/dns
 // Submitted by Piotr Wilk <dns@man.lodz.pl>
 lodz.pl
@@ -15475,6 +15483,10 @@ unison-services.cloud
 // Submitted by Stefan Schwarz <sysadm@united-gameserver.de>
 virtual-user.de
 virtualuser.de
+
+// United States Writing Corporation : https://uswriting.co
+// Submitted by Andrew Sampson <security@obj.ag>
+obj.ag
 
 // UNIVERSAL DOMAIN REGISTRY : https://www.udr.org.yt/
 // see also: whois -h whois.udr.org.yt help
