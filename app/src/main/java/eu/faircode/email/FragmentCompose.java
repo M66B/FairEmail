@@ -5923,9 +5923,12 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.inreplyto = ref.msgid;
                             data.draft.thread = ref.thread;
 
-                            if ("list".equals(action) && ref.list_post != null)
+                            if ("list".equals(action) && ref.list_post != null) {
+                                data.draft.from = ref.to;
                                 data.draft.to = ref.list_post;
+                            }
                             else if ("dsn".equals(action)) {
+                                data.draft.from = ref.to;
                                 if (EntityMessage.DSN_RECEIPT.equals(dsn)) {
                                     if (ref.receipt_to != null)
                                         data.draft.to = ref.receipt_to;
@@ -5945,70 +5948,70 @@ public class FragmentCompose extends FragmentBase {
                                     data.draft.from = ref.to;
                                     data.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
                                 }
+                            }
 
-                                if (ref.identity != null) {
-                                    EntityIdentity recognized = db.identity().getIdentity(ref.identity);
-                                    EntityLog.log(context, "Recognized=" + (recognized == null ? null : recognized.email));
+                            if (ref.identity != null) {
+                                EntityIdentity recognized = db.identity().getIdentity(ref.identity);
+                                EntityLog.log(context, "Recognized=" + (recognized == null ? null : recognized.email));
 
-                                    Address preferred = null;
-                                    if (recognized != null) {
-                                        Address same = null;
-                                        Address similar = null;
+                                Address preferred = null;
+                                if (recognized != null) {
+                                    Address same = null;
+                                    Address similar = null;
 
-                                        List<Address> addresses = new ArrayList<>();
-                                        if (data.draft.from != null)
-                                            addresses.addAll(Arrays.asList(data.draft.from));
-                                        if (data.draft.to != null)
-                                            addresses.addAll(Arrays.asList(data.draft.to));
-                                        if (ref.cc != null)
-                                            addresses.addAll(Arrays.asList(ref.cc));
-                                        if (ref.bcc != null)
-                                            addresses.addAll(Arrays.asList(ref.bcc));
+                                    List<Address> addresses = new ArrayList<>();
+                                    if (data.draft.from != null)
+                                        addresses.addAll(Arrays.asList(data.draft.from));
+                                    if (data.draft.to != null)
+                                        addresses.addAll(Arrays.asList(data.draft.to));
+                                    if (ref.cc != null)
+                                        addresses.addAll(Arrays.asList(ref.cc));
+                                    if (ref.bcc != null)
+                                        addresses.addAll(Arrays.asList(ref.bcc));
 
-                                        for (Address from : addresses) {
-                                            if (same == null && recognized.sameAddress(from))
-                                                same = from;
-                                            if (similar == null && recognized.similarAddress(from))
-                                                similar = from;
-                                        }
-
-                                        //if (ref.deliveredto != null)
-                                        //    try {
-                                        //        Address deliveredto = new InternetAddress(ref.deliveredto);
-                                        //        if (same == null && recognized.sameAddress(deliveredto))
-                                        //            same = deliveredto;
-                                        //        if (similar == null && recognized.similarAddress(deliveredto))
-                                        //            similar = deliveredto;
-                                        //    } catch (AddressException ex) {
-                                        //        Log.w(ex);
-                                        //    }
-
-                                        EntityLog.log(context, "From=" + MessageHelper.formatAddresses(data.draft.from) +
-                                                " delivered-to=" + ref.deliveredto +
-                                                " same=" + (same == null ? null : ((InternetAddress) same).getAddress()) +
-                                                " similar=" + (similar == null ? null : ((InternetAddress) similar).getAddress()));
-
-                                        preferred = (same == null ? similar : same);
+                                    for (Address from : addresses) {
+                                        if (same == null && recognized.sameAddress(from))
+                                            same = from;
+                                        if (similar == null && recognized.similarAddress(from))
+                                            similar = from;
                                     }
 
-                                    if (preferred != null) {
-                                        String from = ((InternetAddress) preferred).getAddress();
-                                        String name = ((InternetAddress) preferred).getPersonal();
-                                        EntityLog.log(context, "Preferred=" + name + " <" + from + ">");
-                                        if (TextUtils.isEmpty(from) || from.equalsIgnoreCase(recognized.email))
-                                            from = null;
-                                        if (!recognized.reply_extra_name ||
-                                                TextUtils.isEmpty(name) || name.equals(recognized.name))
-                                            name = null;
-                                        String username = UriHelper.getEmailUser(from);
-                                        String extra = (name == null ? "" : name + ", ") +
-                                                (username == null ? "" : username);
-                                        data.draft.extra = (TextUtils.isEmpty(extra) ? null : extra);
-                                    } else
-                                        EntityLog.log(context, "Preferred=null");
+                                    //if (ref.deliveredto != null)
+                                    //    try {
+                                    //        Address deliveredto = new InternetAddress(ref.deliveredto);
+                                    //        if (same == null && recognized.sameAddress(deliveredto))
+                                    //            same = deliveredto;
+                                    //        if (similar == null && recognized.similarAddress(deliveredto))
+                                    //            similar = deliveredto;
+                                    //    } catch (AddressException ex) {
+                                    //        Log.w(ex);
+                                    //    }
+
+                                    EntityLog.log(context, "From=" + MessageHelper.formatAddresses(data.draft.from) +
+                                            " delivered-to=" + ref.deliveredto +
+                                            " same=" + (same == null ? null : ((InternetAddress) same).getAddress()) +
+                                            " similar=" + (similar == null ? null : ((InternetAddress) similar).getAddress()));
+
+                                    preferred = (same == null ? similar : same);
+                                }
+
+                                if (preferred != null) {
+                                    String from = ((InternetAddress) preferred).getAddress();
+                                    String name = ((InternetAddress) preferred).getPersonal();
+                                    EntityLog.log(context, "Preferred=" + name + " <" + from + ">");
+                                    if (TextUtils.isEmpty(from) || from.equalsIgnoreCase(recognized.email))
+                                        from = null;
+                                    if (!recognized.reply_extra_name ||
+                                            TextUtils.isEmpty(name) || name.equals(recognized.name))
+                                        name = null;
+                                    String username = UriHelper.getEmailUser(from);
+                                    String extra = (name == null ? "" : name + ", ") +
+                                            (username == null ? "" : username);
+                                    data.draft.extra = (TextUtils.isEmpty(extra) ? null : extra);
                                 } else
-                                    EntityLog.log(context, "Recognized=null");
-                            }
+                                    EntityLog.log(context, "Preferred=null");
+                            } else
+                                EntityLog.log(context, "Recognized=null");
 
                             if ("reply_all".equals(action)) {
                                 List<Address> all = new ArrayList<>();
