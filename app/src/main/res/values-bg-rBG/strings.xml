@@ -12,7 +12,7 @@
     <string name="app_cake">Остава недостатъчно място</string>
     <string name="app_cake_remaining">Оставащо място в устройството: %1$s</string>
     <string name="app_cake_required">Изисквано минимум място за хранилището: %1$s</string>
-    <string name="app_updated">Последно обновяване: %1$s</string>
+    <string name="app_updated">Последно обновено: %1$s</string>
     <string name="app_download">Изтеглено от: %1$s</string>
     <string name="app_motd">        С бета версия на Android №14/15 понякога се появяват известия „Приложението не отговаря“.
         Google работи по оправянето на проблема.
@@ -88,7 +88,7 @@
     <string name="title_junk_pop_hint">        Съобщения от блокирани податели няма да се изтеглят.
         Ако е включена функцията \"Оставяне съобщения на сървъра\", то тези съобщения ще се загубят безвъзвратно!
     </string>
-    <string name="title_block">Блокиране %1$s</string>
+    <string name="title_block">Блокиране на %1$s</string>
     <string name="title_block_sender">Блокиране на подателя</string>
     <string name="title_block_sender_domain">Блокиране на домейна \'%1$s\'</string>
     <string name="title_block_sender_remark">Блокирането значи автоматично преместване в папка спам</string>
@@ -118,7 +118,7 @@
     <string name="title_junk_clear_hint">Ще се изтрият всички правила за блокиране на подател</string>
     <string name="title_notification_sending">Изпращане на съобщения</string>
     <string name="title_notification_waiting">Чака се подходяща връзка</string>
-    <string name="title_notification_idle">Празен</string>
+    <string name="title_notification_idle">Бездейно</string>
     <string name="title_notification_failed">Грешка в акаунта „%1$s“</string>
     <string name="title_notification_alert">Предупреждение на сървъра: \'%1$s\'</string>
     <string name="title_notification_sending_left">Оставащи опити: %1$d</string>
@@ -145,8 +145,8 @@
     <string name="title_eula">Лицензно споразумение за краен потребител</string>
     <string name="title_license">Лиценз за отворен код</string>
     <string name="title_contributors">Сътрудници</string>
-    <string name="title_agree">Съгласен съм</string>
-    <string name="title_disagree">Не съм съгласен</string>
+    <string name="title_agree">Има съгласието ми</string>
+    <string name="title_disagree">Няма съгласието ми</string>
     <string name="title_version">Версия %1$s</string>
     <string name="title_privacy_policy">Политика за поверителност</string>
     <string name="title_list_accounts">Акаунти</string>
