@@ -1411,7 +1411,7 @@ The message text of larger messages is not being pre-fetched on metered connecti
 The message text will keep loading if there is no connection to the account, see also the next question,
 or if there other operations, like synchronizing messages, are being executed.
 
-You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons)
+You can check the account and folder list for the account and folder state (see the legend in the navigation menu for the meaning of the icons)
 and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#faq3) for the meaning of the operations).
 
 If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#faq123), you can force synchronization via the three dots menu.
@@ -2376,7 +2376,7 @@ when trying to decrypt a message with a public key. To fix this you'll need to i
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq46)
 
 If you see a 'spinner' at the top of the message list, the folder is still being synchronized with the remote server.
-You can see the progress of the synchronization in the folder list. See the legend about what the icons and numbers mean.
+You can see the progress of the synchronization in the folder list. See the legend in the navigation menu about what the icons and numbers mean.
 
 The speed of your device and internet connection and the number of days to synchronize messages determine how long synchronization will take.
 Note that you shouldn't set the number of days to synchronize messages to more than one day in most cases, see also [this FAQ](#faq39).
