@@ -357,7 +357,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                         tvCaption.setVisibility(View.VISIBLE);
                         ivImage.setImageResource(R.drawable.twotone_warning_24);
                     }
-                }.execute(context, owner, args, "media:load");
+                }.setKill(true).execute(context, owner, args, "media:load");
             } else
                 ivImage.setImageResource(attachment.progress == null
                         ? R.drawable.twotone_image_24 : R.drawable.twotone_hourglass_top_24);
