@@ -355,6 +355,9 @@ public class EntityOperation {
                         if (!message.ui_deleted)
                             db.message().setMessageUiHide(message.id, true);
                     }
+                } else {
+                    if (!message.ui_deleted)
+                        db.message().setMessageUiHide(message.id, true);
                 }
 
                 if (message.ui_snoozed != null &&
