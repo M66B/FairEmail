@@ -473,7 +473,7 @@
     <!-- no IMAP IDLE -->
     <provider
         name="SFR.fr"
-        domain="sfr\\.fr,neuf\\.fr,cegetel\\.net,9online\\.fr"
+        domain="sfr\\.fr,neuf\\.fr,cegetel\\.net,9online\\.fr,club-internet\\.fr"
         link="https://assistance.sfr.fr/service-et-accessoire/sfr-mail/serveurs-messagerie-sfr.html">
         <imap
             host="imap.sfr.fr"
