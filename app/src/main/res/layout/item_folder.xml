@@ -152,12 +152,12 @@
                 android:id="@+id/ibMessages"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginEnd="6dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_accessibility_unseen"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintEnd_toStartOf="@+id/tvFlaggedEnd"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:layout_goneMarginEnd="6dp"
                 app:srcCompat="@drawable/twotone_mail_outline_24" />
 
             <ImageButton
@@ -230,12 +230,12 @@
                 android:id="@+id/ibSync"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginEnd="6dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/tile_synchronize"
                 app:layout_constraintBottom_toBottomOf="@id/tvType"
                 app:layout_constraintEnd_toStartOf="@+id/tvFlaggedEnd"
                 app:layout_constraintTop_toTopOf="@+id/tvType"
+                app:layout_goneMarginEnd="6dp"
                 app:srcCompat="@drawable/twotone_sync_24" />
 
             <TextView
