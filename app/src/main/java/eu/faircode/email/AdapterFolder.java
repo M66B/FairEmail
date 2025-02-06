@@ -52,6 +52,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.fragment.app.Fragment;
@@ -123,7 +125,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private static final int DENSE_ITEMS_THRESHOLD_MANY = 50;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        private View view;
+        private ConstraintLayout view;
 
         private View vwColor;
         private ImageView ivState;
@@ -458,6 +460,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvError.setVisibility(folder.error != null ? View.VISIBLE : View.GONE);
                 if (btnHelp != null)
                     btnHelp.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
+
+                ConstraintSet constraintSet = new ConstraintSet();
+                constraintSet.clone(view);
+                if (show_flagged && !show_compact) {
+                    constraintSet.connect(R.id.ibSync, ConstraintSet.END, R.id.tvFlaggedEnd, ConstraintSet.START);
+                    constraintSet.connect(R.id.ibMessages, ConstraintSet.END, R.id.tvFlaggedEnd, ConstraintSet.START);
+                } else {
+                    constraintSet.connect(R.id.ibSync, ConstraintSet.END, view.getId(), ConstraintSet.END);
+                    constraintSet.connect(R.id.ibMessages, ConstraintSet.END, view.getId(), ConstraintSet.END);
+                }
+                constraintSet.applyTo(view);
 
                 grpFlagged.setVisibility(show_flagged && show_compact ? View.VISIBLE : View.GONE);
                 grpFlaggedEnd.setVisibility(show_flagged && !show_compact ? View.VISIBLE : View.GONE);
