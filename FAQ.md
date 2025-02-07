@@ -1123,6 +1123,12 @@ Your certificate > zero or more intermediate certificates > CA (root) certificat
 
 Note that a certificate chain will always be invalid when no anchor certificate can be found in the Android key store,
 which is fundamental to S/MIME certificate validation.
+This means that your private key should include all intermediate certificates (but not the root certificate).
+This command might be useful for that:
+
+```
+openssl pkcs12 -export -in certificatechain.crt -inkey private.key -out certificate.pfx
+```
 
 Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) how you can import certificates into the Android key store.
 
