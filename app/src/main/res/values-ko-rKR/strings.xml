@@ -101,6 +101,7 @@
     <string name="title_notification_sending">메일 전송 중</string>
     <string name="title_notification_waiting">안정된 인터넷 연결을 기다리는 중</string>
     <string name="title_notification_idle">유휴</string>
+    <string name="title_notification_failed">\'%1$s\' 계정 연결 실패</string>
     <string name="title_notification_alert">서버 알림: \'%1$s\'</string>
     <string name="title_notification_sending_left">남은 시도 횟수: %1$d</string>
     <string name="title_notification_sending_retry">인터넷 연결 변경 또는 아웃박스 해제 발생 시 보내기를 다시 시도합니다.</string>
@@ -158,6 +159,7 @@
     <string name="title_setup_wizard_new">새 이메일 주소 받기</string>
     <string name="title_setup_manual">수동 설정 및 계정 설정</string>
     <string name="title_setup_classic">보편적인 설정</string>
+    <string name="title_setup_wizard_hint">위에 표시된 \"기타 제공업체\"에 대한 빠른 설정 마법사도 일반적으로 작동하며, 모든 서버 데이터를 입력하는 것보다 간단합니다.</string>
     <string name="title_setup_documentation">올바른 이메일 서버 설정을 위해 당신의 이메일 제공업체의 문서를 참고해 주세요.</string>
     <string name="title_setup_account_remark">이메일 수신</string>
     <string name="title_setup_identity_remark">이메일 발신</string>
@@ -175,20 +177,26 @@
     <string name="title_setup_gmail_permissions">Google은 이메일 읽기, 쓰기, 보내기 및 영구 삭제 권한을 요구합니다. FairEmail은 당신의 허락 없이는 절대로 이메일을 삭제하지 않습니다.</string>
     <string name="title_setup_gmail_login">크롬이 계정에 로그인 되어 있는 경우 새 계정은 Android를 통해서만 추가할 수 있습니다. 이는 크롬 동기화 설정을 통해 크롬에서 로그아웃하여 피할 수 있습니다.</string>
     <string name="title_setup_gmail_max">\"최대 계정 수에 로그인되어 있습니다\"라는 오류 메시지의 경우, 브라우저에서 모든 Google 계정을 로그 아웃해야 합니다.</string>
+    <string name="title_setup_outlook_hint">별칭 주소의 경우 Office 365 마법사를 사용해야 합니다．</string>
+    <string name="title_setup_outlook_modern">Mircosoft의 보안 정책으로 인하여, 2024년 9월 16일부터는 Outlook/Hotmail/Live 마법사만 작동합니다．</string>
     <string name="title_setup_gmail_on_device">기기 내 계정을 선택해야 하는 이유는 무엇입니까?</string>
     <string name="title_setup_gmail_password">기기 내 계정 대신 비밀번호를 사용하여 계정을 인증하고 싶습니다</string>
     <string name="title_setup_office_auth">\'인증 실패\' 오류는 시스템 관리자에 의해 IMAP/SMTP가 비활성화된 경우 발생할 수 있습니다.</string>
     <string name="title_setup_office_auth_5_7_3">\'다른 제공업체\'로 빠른 설정 마법사를 시도해보세요.</string>
+    <string name="title_setup_office_auth_5_7_139">Outlook/Hotmail/Live 빠른 설치 마법사를 사용해 주십시오．</string>
     <string name="title_setup_oauth_rationale">귀하의 %1$s 계정에 대한 액세스 권한 부여</string>
     <string name="title_setup_oauth_update">기존 계정을 다시 인증하십시오 (그렇지 않으면 새 계정을 만드십시오)</string>
     <string name="title_setup_oauth_updated">계정 인증이 갱신되었습니다</string>
+    <string name="title_setup_oauth_edge">Edge 브라우저를 사용하는 경우, \'개인정보, 보안 및 서비스\' 설정에서 \'외부 앱 열기 차단\'이 \'비활성화\'로 설정되어 있는지 확인해 보십시오.</string>
     <string name="title_setup_oauth_brave">Brave 브라우저를 사용할 때, 브라우저 설정에서 Brave 이외의 앱에서 앱 링크가 열리도록 하는 옵션을 활성화해야 합니다</string>
+    <string name="title_setup_oauth_browser">인증에는 앱 링크를 열 수 있는 브라우저(때로는 보안 설정)가 필요하며, 마지막 단계에서 인증 토큰이 앱으로 전송될 수 있도록 합니다.</string>
     <string name="title_setup_oauth_authorize">인증</string>
     <string name="title_setup_select_account">계정 선택</string>
     <string name="title_setup_instructions">설정 방법</string>
     <string name="title_setup_no_settings">\'%1$s\' 도메인에 대한 설정을 찾을 수 없음</string>
     <string name="title_setup_no_settings_hint">이메일 제공업체에서 제공하는 설정을 사용하여 계정을 수동으로 설정해보십시오.</string>
     <string name="title_setup_no_auth_hint">이메일 주소와 비밀번호를 다시 확인하고 귀하의 계정에 대한 외부 액세스 (IMAP/SMTP) 가 활성화되어 있도록 하세요</string>
+    <string name="title_setup_no_auth_outlook">입력된 계정에는 Outlook / Office 365 빠른 설정 마법사가 필요합니다 (Microsoft에 의해 요구됨)</string>
     <string name="title_setup_app_password_hint">이 제공 업체는 계정 비밀번호 대신 앱 비밀번호가 필요하므로, 제공 업체의 사용 방법을 확인해주세요</string>
     <string name="title_setup_no_inbox">받은메일함을 찾을 수 없음</string>
     <string name="title_setup_advanced_protection">고급 보호 프로그램에 등록된 경우 타사 이메일 앱을 사용할 수 없습니다. 이는 Google 정책 상의 제한 사항입니다.</string>
@@ -222,6 +230,7 @@
     <string name="title_setup_doze_stopped">동기화가 중단되었습니까?</string>
     <string name="title_setup_doze_device">이 기기에 필요한 작업으로 예상됩니다</string>
     <string name="title_setup_alarm_12">이 앱이 제대로 작동하지 않을 것입니다.</string>
+    <string name="title_setup_fg_15">이 앱은 자동으로 시작되지 않습니다</string>
     <string name="title_setup_inexact">알람 &amp; 반복이 비활성화됨</string>
     <string name="title_setup_background">백그라운드 제한이 설정되었습니다</string>
     <string name="title_setup_data">데이터 절약 모드를 사용합니다</string>
@@ -308,6 +317,8 @@
     <string name="title_setup_reset_full">원본 메시지 보기</string>
     <string name="title_check_gmail_oauth">Gmail 계정이 2022년 5월 30일 이후에도 계속 작동할 예정입니다</string>
     <string name="title_check_gmail_password">일부 Gmail 계정이 2022년 5월 30일 이후 정지될 수 있습니다</string>
+    <string name="title_check_outlook_oauth">Outlook 계정이 2024년 9월 16일 이후에도 계속 작동할 예정입니다</string>
+    <string name="title_check_outlook_password">일부 Outlook/Hotmail/Live 계정이 2024년 9월 16일 이후 정지될 수 있습니다</string>
     <string name="title_advanced_hint_title">고급 설정 더보기</string>
     <string name="title_advanced_hint_message">        고급 옵션으로 이동 중입니다.
         모든 옵션에는 일반적으로 사용되는 표준 설이 있으므로 선호하는 설정이 없는 한 변경할 필요가 없습니다.

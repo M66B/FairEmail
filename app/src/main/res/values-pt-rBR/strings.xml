@@ -1716,7 +1716,7 @@
     <string name="title_answer_caption">Editar template</string>
     <string name="title_answer_reply">Modelo de resposta</string>
     <string name="title_answer_name">Nome do modelo</string>
-    <string name="title_answer_group">Grupo de modelo (opcional)</string>
+    <string name="title_answer_group">Grupo do modelo (opcional)</string>
     <string name="title_answer_standard">Padrão</string>
     <string name="title_answer_favorite">Favorito</string>
     <string name="title_answer_snippet">Fragmento</string>
