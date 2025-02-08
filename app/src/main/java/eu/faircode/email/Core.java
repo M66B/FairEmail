@@ -1406,6 +1406,7 @@ class Core {
                     db.message().setMessageError(message.id,
                             "Message not found in target folder " + account.name + "/" + folder.name + " msgid=" + message.msgid);
                     db.message().setMessageUiHide(message.id, false);
+                    db.message().setMessageUiBusy(message.id, null);
                 } else {
                     // Mark source read
                     if (autoread)

@@ -111,6 +111,7 @@ public class EntityOperation {
 
     private static final int MAX_FETCH = 100; // operations
     private static final long FORCE_WITHIN = 30 * 1000; // milliseconds
+    private static final long ACROSS_BUSY = 2 * 3600 * 1000L; // milliseconds
 
     static void queue(Context context, EntityMessage message, String name, Object... values) {
         DB db = DB.getInstance(context);
@@ -356,8 +357,10 @@ public class EntityOperation {
                             db.message().setMessageUiHide(message.id, true);
                     }
                 } else {
-                    if (!message.ui_deleted)
+                    if (!message.ui_deleted) {
                         db.message().setMessageUiHide(message.id, true);
+                        db.message().setMessageUiBusy(target.id, new Date().getTime() + ACROSS_BUSY);
+                    }
                 }
 
                 if (message.ui_snoozed != null &&
