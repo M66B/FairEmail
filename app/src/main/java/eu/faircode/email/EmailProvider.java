@@ -442,8 +442,20 @@ public class EmailProvider implements Parcelable {
                 for (EmailProvider provider : providers)
                     if (provider.mx != null)
                         for (String mx : provider.mx)
-                            if (record.response.matches(mx))
+                            if (record.response.matches(mx)) {
+                                DnsHelper.DnsRecord[] imap = DnsHelper.lookup(context, "_imap._tcp." + domain, "srv");
+                                DnsHelper.DnsRecord[] imaps = DnsHelper.lookup(context, "_imaps._tcp." + domain, "srv");
+                                DnsHelper.DnsRecord[] smtp = DnsHelper.lookup(context, "_submission._tcp." + domain, "srv");
+                                DnsHelper.DnsRecord[] smtps = DnsHelper.lookup(context, "_submissions._tcp." + domain, "srv");
+                                EntityLog.log(context, "NS provider=" + provider.name +
+                                        " imap=" + imap.length + "/" + imaps.length +
+                                        " smtp=" + smtp.length + "/" + smtps.length +
+                                        " domain=" + domain);
+                                // There could be a name server for hosting only, so prefer rfc6186 discovery
+                                if (imap.length + imaps.length > 0 && smtp.length + smtps.length > 0)
+                                    continue;
                                 return Arrays.asList(provider);
+                            }
         } catch (Throwable ex) {
             Log.w(ex);
         }
