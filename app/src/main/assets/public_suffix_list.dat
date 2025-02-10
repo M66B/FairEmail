@@ -11326,6 +11326,10 @@ barsy.ca
 *.compute.estate
 *.alces.network
 
+// Alibaba Cloud API Gateway
+// Submitted by Alibaba Cloud Security <cloud_product_security_team@alibaba-inc.com>
+alibabacloudcs.com
+
 // all-inkl.com : https://all-inkl.com
 // Submitted by Werner Kaltofen <wk@all-inkl.com>
 kasserver.com
@@ -13996,6 +14000,10 @@ krellian.net
 // KUROKU LTD : https://kuroku.ltd/
 // Submitted by DisposaBoy <security@oya.to>
 oya.to
+
+// Laravel Holdings, Inc. : https://laravel.com
+// Submitted by André Valentin <security@laravel.com>
+laravel.cloud
 
 // LCube - Professional hosting e.K. : https://www.lcube-webhosting.de
 // Submitted by Lars Laehn <info@lcube.de>
