@@ -359,7 +359,7 @@ public class EntityOperation {
                 } else {
                     if (!message.ui_deleted) {
                         db.message().setMessageUiHide(message.id, true);
-                        db.message().setMessageUiBusy(target.id, new Date().getTime() + ACROSS_BUSY);
+                        db.message().setMessageUiBusy(message.id, new Date().getTime() + ACROSS_BUSY);
                     }
                 }
 
