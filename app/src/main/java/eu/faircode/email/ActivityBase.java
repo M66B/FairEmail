@@ -221,7 +221,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     v.setLayoutParams(mlp);
 
                 int b = v.getPaddingBottom();
-                if (hasWindowFocus) {
+                if (Helper.isKeyboardVisible(v)) {
                     int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
                     int pad = Math.max(0, bottom - insets.bottom);
                     if (b != pad)
