@@ -539,16 +539,33 @@ public class Helper {
         PackageManager pm = context.getPackageManager();
         Intent view = new Intent(Intent.ACTION_VIEW, uri);
 
-        int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
-        List<ResolveInfo> ris = pm.queryIntentActivities(view, flags); // action whitelisted
-        for (ResolveInfo info : ris) {
-            Intent intent = new Intent();
-            intent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
-            intent.setPackage(info.activityInfo.packageName);
-            if (pkg != null && !pkg.equals(info.activityInfo.packageName))
-                continue;
-            if (pm.resolveService(intent, 0) != null)
-                return true;
+        try {
+            int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
+            List<ResolveInfo> ris = pm.queryIntentActivities(view, flags); // action whitelisted
+            for (ResolveInfo info : ris) {
+                Intent intent = new Intent();
+                intent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
+                intent.setPackage(info.activityInfo.packageName);
+                if (pkg != null && !pkg.equals(info.activityInfo.packageName))
+                    continue;
+                if (pm.resolveService(intent, 0) != null)
+                    return true;
+            }
+        } catch (Throwable ex) {
+            /*
+                java.lang.SecurityException: You need INTERACT_ACROSS_USERS, MANAGE_USERS, or QUERY_USERS permission to: check isProfile
+                    at android.os.Parcel.createExceptionOrNull(Unknown Source:7)
+                    at android.os.Parcel.createException(Unknown Source:0)
+                    at android.os.Parcel.readException(Unknown Source:11)
+                    at android.os.Parcel.readException(Unknown Source:10)
+                    at android.content.pm.IPackageManager$Stub$Proxy.queryIntentActivities(Unknown Source:38)
+                    at android.app.ApplicationPackageManager.queryIntentActivitiesAsUser(Unknown Source:22)
+                    at android.app.ApplicationPackageManager.queryIntentActivities(Unknown Source:4)
+                    at android.app.ApplicationPackageManager.queryIntentActivities(Unknown Source:5)
+                    at eu.faircode.email.Helper.hasCustomTabs(SourceFile:23)
+            */
+            Log.e(ex);
+            return false;
         }
 
         return false;
@@ -1087,11 +1104,14 @@ public class Helper {
         if (share ? !app_chooser_share : !app_chooser)
             return intent;
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
-            PackageManager pm = context.getPackageManager();
-            if (pm.queryIntentActivities(intent, 0).size() == 1)
-                return intent;
-        }
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R)
+            try {
+                PackageManager pm = context.getPackageManager();
+                if (pm.queryIntentActivities(intent, 0).size() == 1)
+                    return intent;
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
         return Intent.createChooser(intent, context.getString(R.string.title_select_app));
     }
