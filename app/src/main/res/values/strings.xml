@@ -597,6 +597,7 @@
     <string name="title_advanced_nav_hide_message">You can enable the options again in the display settings</string>
     <string name="title_advanced_nav_last_sync">Show the last sync time in the navigation menu</string>
     <string name="title_advanced_nav_message_count">Show number of locally stored messages in the navigation menu</string>
+    <string name="title_advanced_nav_unseen">Show number of unread messages in the navigation menu</string>
     <string name="title_advanced_nav_unseen_drafts">Show number of unread drafts in the navigation menu</string>
     <string name="title_advanced_nav_pinned_count">Show the number of unread messages in the pinned navigation menu</string>
     <string name="title_advanced_show_unexposed">Show a star for accounts/folders with newly received unread messages</string>
