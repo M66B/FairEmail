@@ -124,7 +124,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         cv.put("account", message.account);
         cv.put("folder", message.folder);
         cv.put("time", message.received);
-        cv.put("address", MessageHelper.formatAddresses(address.toArray(new Address[0]), true, false));
+        cv.put("address", processBreakText(MessageHelper.formatAddresses(address.toArray(new Address[0]), true, false)));
         cv.put("subject", processBreakText(message.subject));
         cv.put("keyword", TextUtils.join(" ", message.keywords));
         cv.put("text", processBreakText(text));
