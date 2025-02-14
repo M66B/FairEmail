@@ -523,6 +523,7 @@
     <string name="title_advanced_nav_hide_message">Možete ponovo omogućiti opcije na postavkama ekrana</string>
     <string name="title_advanced_nav_last_sync">Prikazati vrijeme posljednje sinhronizacije u navigacijskom meniju</string>
     <string name="title_advanced_nav_message_count">Prikaži broj lokalno spašenih poruka u navigacijskom meniju</string>
+    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Prikaži broj nepročitanih poruka u navigacijskom meniju</string>
     <string name="title_advanced_nav_unseen_drafts">Prikaži broj nepročitanih nacrta u navigacijskom meniju</string>
     <string name="title_advanced_nav_pinned_count">Prikaži broj nepročitanih poruka u fiksiranom navigacijskom meniju</string>
     <string name="title_advanced_show_unexposed">Prikaži zvjezdicu za račune/foldere s novim nepročitanim porukama</string>

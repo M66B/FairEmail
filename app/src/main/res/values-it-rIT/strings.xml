@@ -509,6 +509,7 @@
     <string name="title_advanced_nav_hide_message">È possibile abilitare nuovamente le opzioni nelle impostazioni di visualizzazione</string>
     <string name="title_advanced_nav_last_sync">Mostra l\'ora dell\'ultima sincronizzazione nel menu di navigazione</string>
     <string name="title_advanced_nav_message_count">Mostra il numero di messaggi memorizzati localmente nel menu di navigazione</string>
+    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Mostra il numero di messaggi da leggere nel menu di navigazione</string>
     <string name="title_advanced_nav_unseen_drafts">Mostra il numero di bozze da leggere nel menu di navigazione</string>
     <string name="title_advanced_nav_pinned_count">Mostra il numero di messaggi da leggere nel menu di navigazione fissato</string>
     <string name="title_advanced_show_unexposed">Mostra una stella per gli account e le cartelle con nuovi messaggi da leggere</string>

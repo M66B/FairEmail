@@ -509,6 +509,7 @@
     <string name="title_advanced_nav_hide_message">Indstillingerne kan genaktiveres via skærmindstillingerne</string>
     <string name="title_advanced_nav_last_sync">Vis den sidste synktid i navigeringsmenuen</string>
     <string name="title_advanced_nav_message_count">Vis antal lokalt gemte beskeder i navigationsmenuen</string>
+    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Vis antallet af ulæste udkast i navigeringsmenuen</string>
     <string name="title_advanced_nav_unseen_drafts">Vis antallet af ulæste udkast i navigeringsmenuen</string>
     <string name="title_advanced_nav_pinned_count">Vis antallet af ulæste udkast i den fastgjorte navigeringsmenu</string>
     <string name="title_advanced_show_unexposed">Vis en stjerne for konti/mapper med nyligt modtagne, ulæste beskeder</string>

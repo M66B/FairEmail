@@ -506,6 +506,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_nav_hide_message">Jo kinne de opsjes opnij ynskeakelje yn de werjefteynstellingen</string>
     <string name="title_advanced_nav_last_sync">Toan de lêste syngronisaasjetiid yn it navigaasjemenu</string>
     <string name="title_advanced_nav_message_count">Toan it tal lokaal bewarre berjochten yn it navigaasjemenu</string>
+    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Toan it tal net lêzen berjochten yn it navigaasjemenu</string>
     <string name="title_advanced_nav_unseen_drafts">Toan it tal net lêzen berjochten yn it navigaasjemenu</string>
     <string name="title_advanced_nav_pinned_count">Toan it tal net lêzen berjochten yn it fêstsette navigaasjemenu</string>
     <string name="title_advanced_show_unexposed">Toan in stjer foar accounts/mappen mei nij ûntfongen net-lêzen berjochten</string>

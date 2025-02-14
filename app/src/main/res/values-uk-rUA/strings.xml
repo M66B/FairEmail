@@ -537,6 +537,7 @@
     <string name="title_advanced_nav_hide_message">Ви можете знову увімкнути ці опції в налаштуваннях перегляду</string>
     <string name="title_advanced_nav_last_sync">Показувати час останньої синхронізації в меню навігації</string>
     <string name="title_advanced_nav_message_count">Показувати кількість локально збережених повідомлень в меню навігації</string>
+    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Показувати кількість непрочитаних повідомлень у меню навігації</string>
     <string name="title_advanced_nav_unseen_drafts">Показувати кількість непрочитаних чернеток у меню навігації</string>
     <string name="title_advanced_nav_pinned_count">Показувати кількість непрочитаних повідомлень у закріпленому навігаційному меню</string>
     <string name="title_advanced_show_unexposed">Показувати зірочку для аккаунтів/папок, що мають нещодавно отримані непрочитані повідомлення</string>

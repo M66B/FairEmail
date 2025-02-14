@@ -509,6 +509,7 @@
     <string name="title_advanced_nav_hide_message">Pode reactivar estas opções nas definições de ecrã</string>
     <string name="title_advanced_nav_last_sync">Mostrar a última sincronização no menu de navegação</string>
     <string name="title_advanced_nav_message_count">Mostrar número de mensagens armazenadas localmente no menu de navegação</string>
+    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Mostrar número de mensagens não lidas no menu de navegação</string>
     <string name="title_advanced_nav_unseen_drafts">Mostrar o número de rascunhos não lidos no menu de navegação</string>
     <string name="title_advanced_nav_pinned_count">Mostrar o número de mensagens não lidas no menu de navegação fixado</string>
     <string name="title_advanced_show_unexposed">Mostrar uma estrela para contas/pastas com mensagens recentes, não lidas</string>

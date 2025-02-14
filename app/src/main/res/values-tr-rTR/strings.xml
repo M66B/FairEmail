@@ -504,6 +504,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_nav_hide_message">Seçenekleri ekran ayarlarında tekrar etkinleştirebilirsiniz</string>
     <string name="title_advanced_nav_last_sync">Navigasyon menüsünde son senkronizasyon zamanını gösterin</string>
     <string name="title_advanced_nav_message_count">Navigasyon menüsünde yerel olarak saklanan mesajların sayısını göster</string>
+    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Gezinme menüsünde okunmamış mesajların sayısını gösterme</string>
     <string name="title_advanced_nav_unseen_drafts">Gezinme menüsünde okunmamış taslak sayısını göster</string>
     <string name="title_advanced_nav_pinned_count">Sabitlenmiş gezinme menüsünde okunmamış mesajların sayısını göster</string>
     <string name="title_advanced_show_unexposed">Yeni alınan okunmamış mesajların bulunduğu hesaplar/klasörler için bir yıldız gösterin</string>

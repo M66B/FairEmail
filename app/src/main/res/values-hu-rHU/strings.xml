@@ -506,6 +506,7 @@
     <string name="title_advanced_nav_hide_message">Újra be tudja kapcsolni a kijelző opciókban</string>
     <string name="title_advanced_nav_last_sync">Utolsó szinkronizálás idejének mutatása a navigációs menüben</string>
     <string name="title_advanced_nav_message_count">Mutassa a helyileg elmentett üzeneteket a navigációs menüben</string>
+    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Olvasatlan üzenetek számának mutatása a navigációs menüben</string>
     <string name="title_advanced_nav_unseen_drafts">Elküldetlen piszkozatok számának megjelenítése a navigációs menüben</string>
     <string name="title_advanced_nav_pinned_count">Olvasatlan üzenetek számának mutatása a kitűzött navigációs menüben</string>
     <string name="title_advanced_show_unexposed">Csillaggal jelölje az újonnan érkezett, olvasatlan üzeneketet tartalmazó fiókokat/mappákat</string>
