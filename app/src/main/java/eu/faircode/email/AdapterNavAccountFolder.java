@@ -58,7 +58,6 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
     private boolean nav_last_sync;
     private boolean nav_count;
     private boolean nav_count_pinned;
-    private boolean nav_unseen;
     private boolean nav_unseen_drafts;
     private boolean nav_categories;
     private boolean show_unexposed;
@@ -140,9 +139,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
             }
 
             int count;
-            if (!nav_unseen)
-                count = 0;
-            else if ((!nav_unseen_drafts && EntityFolder.DRAFTS.equals(account.folderType)))
+            if ((!nav_unseen_drafts && EntityFolder.DRAFTS.equals(account.folderType)))
                 count = account.messages;
             else
                 count = account.unseen;
@@ -296,7 +293,6 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
         this.nav_last_sync = prefs.getBoolean("nav_last_sync", true);
         this.nav_count = prefs.getBoolean("nav_count", false);
         this.nav_count_pinned = prefs.getBoolean("nav_count_pinned", false);
-        this.nav_unseen = prefs.getBoolean("nav_unseen", true);
         this.nav_unseen_drafts = prefs.getBoolean("nav_unseen_drafts", false);
         this.nav_categories = prefs.getBoolean("nav_categories", false);
         this.show_unexposed = prefs.getBoolean("show_unexposed", false);
