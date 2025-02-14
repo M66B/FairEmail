@@ -4387,6 +4387,14 @@ class Core {
                             stats.headers += full.size();
                             stats.headers_ms += (SystemClock.elapsedRealtime() - headers);
                             Log.i(folder.name + " fetched headers=" + full.size() + " " + stats.headers_ms + " ms");
+                        } else if (false) {
+                            fp = new FetchProfile();
+                            fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+                            long headers = SystemClock.elapsedRealtime();
+                            ifolder.fetch(isub, fp);
+                            stats.headers += isub.length;
+                            stats.headers_ms += (SystemClock.elapsedRealtime() - headers);
+                            Log.i(folder.name + " fetched headers=" + isub.length + " " + stats.headers_ms + " ms");
                         }
 
                         int free = Log.getFreeMemMb();
