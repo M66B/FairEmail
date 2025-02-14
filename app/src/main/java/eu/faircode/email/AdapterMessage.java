@@ -7315,7 +7315,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.message().deleteMessage(id);
 
                         if (account.protocol == EntityAccount.TYPE_IMAP)
-                            EntityOperation.queue(context, folder, EntityOperation.FETCH, message.uid);
+                            EntityOperation.queue(context, folder, EntityOperation.FETCH, message.uid, true);
 
                         db.setTransactionSuccessful();
                     } finally {
