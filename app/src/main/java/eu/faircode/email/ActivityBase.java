@@ -108,6 +108,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean hide_toolbar = prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
         boolean edge_to_edge = prefs.getBoolean("edge_to_edge", false);
+        boolean keyboard_margin = prefs.getBoolean("keyboard_margin", false);
+
+        int bnv_height = Helper.dp2pixels(this, 24 + 2 * 8); // icon size + 2 x margin
 
         int colorPrimary = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimary);
         double lum = ColorUtils.calculateLuminance(colorPrimary);
@@ -223,7 +226,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 int b = v.getPaddingBottom();
                 if (Helper.isKeyboardVisible(v)) {
                     int bottom = windowInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
-                    int pad = Math.max(0, bottom - insets.bottom);
+                    int pad = Math.max(0, bottom - insets.bottom + (keyboard_margin ? bnv_height : 0));
                     if (b != pad)
                         v.setPaddingRelative(0, 0, 0, pad);
                 } else {

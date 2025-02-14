@@ -88,6 +88,18 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swKeyboardMargin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_keyboard_margin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swKeyboard"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swKeyboardNoFullscreen"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -95,7 +107,7 @@
                     android:text="@string/title_advanced_keyboard_no_fullscreen"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swKeyboard"
+                    app:layout_constraintTop_toBottomOf="@id/swKeyboardMargin"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

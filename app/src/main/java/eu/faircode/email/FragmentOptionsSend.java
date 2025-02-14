@@ -73,6 +73,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private View view;
     private ImageButton ibHelp;
     private SwitchCompat swKeyboard;
+    private SwitchCompat swKeyboardMargin;
     private SwitchCompat swKeyboardNoFullscreen;
     private SwitchCompat swSuggestNames;
     private SwitchCompat swSuggestSent;
@@ -140,7 +141,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSendPartial;
 
     final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
-            "keyboard", "keyboard_no_fullscreen",
+            "keyboard", "keyboard_margin", "keyboard_no_fullscreen",
             "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently", "suggest_account", "auto_identity",
             "purge_contact_age", "purge_contact_freq",
             "send_reminders", "send_chips", "send_nav_color", "send_pending",
@@ -173,6 +174,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         ibHelp = view.findViewById(R.id.ibHelp);
         swKeyboard = view.findViewById(R.id.swKeyboard);
+        swKeyboardMargin = view.findViewById(R.id.swKeyboardMargin);
         swKeyboardNoFullscreen = view.findViewById(R.id.swKeyboardNoFullscreen);
         swSuggestNames = view.findViewById(R.id.swSuggestNames);
         swSuggestSent = view.findViewById(R.id.swSuggestSent);
@@ -294,6 +296,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("keyboard", checked).apply();
+            }
+        });
+
+        swKeyboardMargin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("keyboard_margin", checked).apply();
             }
         });
 
@@ -988,6 +997,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             int purge_contact_freq = prefs.getInt("purge_contact_freq", 0);
 
             swKeyboard.setChecked(prefs.getBoolean("keyboard", true));
+            swKeyboardMargin.setChecked(prefs.getBoolean("keyboard_margin", false));
             swKeyboardNoFullscreen.setChecked(prefs.getBoolean("keyboard_no_fullscreen", false));
             swSuggestNames.setChecked(prefs.getBoolean("suggest_names", true));
             swSuggestSent.setChecked(prefs.getBoolean("suggest_sent", true));

@@ -471,6 +471,7 @@
     <string name="title_advanced_blocklist_warning">Block lists aren\'t perfect and may block more than just spam!</string>
 
     <string name="title_advanced_keyboard">Show keyboard by default</string>
+    <string name="title_advanced_keyboard_margin">Add a margin above the keyboard</string>
     <string name="title_advanced_keyboard_no_fullscreen">Prevent fullscreen keyboard</string>
     <string name="title_advanced_suggest_names">Use names and email addresses</string>
     <string name="title_advanced_suggest_local">Suggest locally stored contacts</string>
