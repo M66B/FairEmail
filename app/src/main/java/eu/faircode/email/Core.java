@@ -4619,7 +4619,7 @@ class Core {
         boolean flagged = helper.getFlagged();
         boolean deleted = helper.getDeleted();
         String flags = helper.getFlags();
-        String[] keywords = helper.getKeywords();
+        String[] keywords = helper.getKeywords(account.isOutlook());
         String[] labels = helper.getLabels();
         boolean update = false;
         boolean process = false;

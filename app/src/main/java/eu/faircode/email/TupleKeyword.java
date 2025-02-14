@@ -168,6 +168,9 @@ public class TupleKeyword {
     }
 
     static String getDefaultKeywordAlias(Context context, String keyword) {
+        if (keyword.startsWith(MessageHelper.CATEGORY_PREFIX))
+            return keyword.substring(MessageHelper.CATEGORY_PREFIX.length());
+
         switch (keyword) {
             case "$label1": // Important
                 return context.getString(R.string.title_keyword_label1);

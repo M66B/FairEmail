@@ -96,6 +96,7 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
         }
 
         private void bindTo(TupleKeyword keyword) {
+            cbKeyword.setEnabled(!keyword.name.startsWith(MessageHelper.CATEGORY_PREFIX));
             cbKeyword.setText(getTitle(keyword.name));
             cbKeyword.setChecked(keyword.selected);
             if (keyword.partial)
@@ -168,7 +169,7 @@ public class AdapterKeyword extends RecyclerView.Adapter<AdapterKeyword.ViewHold
             if (itemId == R.id.ibEdit) {
                 String key = "kwtitle." + keyword.name;
                 etKeyword.setText(prefs.getString(key, null));
-                etKeyword.setHint(keyword.name);
+                etKeyword.setHint(keyword.name.replace(MessageHelper.CATEGORY_PREFIX, ""));
                 grpNotEdit.setVisibility(View.GONE);
                 grpEdit.setVisibility(View.VISIBLE);
                 etKeyword.post(new Runnable() {
