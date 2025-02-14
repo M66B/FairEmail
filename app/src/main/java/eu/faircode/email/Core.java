@@ -4594,11 +4594,11 @@ class Core {
             List<EntityRule> rules, State state, SyncStats stats) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean outlook_categories = prefs.getBoolean("outlook_categories", false);
         boolean download_headers = prefs.getBoolean("download_headers", false);
         boolean download_plain = prefs.getBoolean("download_plain", false);
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean native_dkim = prefs.getBoolean("native_dkim", false);
-        boolean strict_alignment = prefs.getBoolean("strict_alignment", false);
         boolean experiments = prefs.getBoolean("experiments", false);
         boolean mdn = prefs.getBoolean("mdn", experiments);
         boolean pro = ActivityBilling.isPro(context);
@@ -4627,7 +4627,7 @@ class Core {
         boolean flagged = helper.getFlagged();
         boolean deleted = helper.getDeleted();
         String flags = helper.getFlags();
-        String[] keywords = helper.getKeywords(account.isOutlook());
+        String[] keywords = helper.getKeywords(outlook_categories && account.isOutlook());
         String[] labels = helper.getLabels();
         boolean update = false;
         boolean process = false;

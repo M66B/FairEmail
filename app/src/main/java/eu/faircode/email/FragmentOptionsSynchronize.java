@@ -100,6 +100,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swOutlookThread;
     private SwitchCompat swSubjectThreading;
     private TextView tvSubjectThreading;
+    private SwitchCompat swOutlookCategories;
     private SwitchCompat swSyncFolders;
     private SwitchCompat swSyncFoldersPoll;
     private SwitchCompat swSyncSharedFolders;
@@ -132,7 +133,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             "schedule", "schedule_start", "schedule_end", "schedule_start_weekend", "schedule_end_weekend", "weekend",
             "sync_quick_imap", "sync_quick_pop",
             "sync_nodate", "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept",
-            "gmail_thread_id", "outlook_thread_id", "subject_threading",
+            "gmail_thread_id", "outlook_thread_id", "subject_threading", "outlook_categories",
             "sync_folders", "sync_folders_poll", "sync_shared_folders", "sync_added_folders", "subscriptions",
             "check_authentication", "check_tls", "check_reply_domain", "check_mx",
             "check_blocklist", "use_blocklist", "use_blocklist_pop",
@@ -202,6 +203,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swOutlookThread = view.findViewById(R.id.swOutlookThread);
         swSubjectThreading = view.findViewById(R.id.swSubjectThreading);
         tvSubjectThreading = view.findViewById(R.id.tvSubjectThreading);
+        swOutlookCategories = view.findViewById(R.id.swOutlookCategories);
         swSyncFolders = view.findViewById(R.id.swSyncFolders);
         swSyncFoldersPoll = view.findViewById(R.id.swSyncFoldersPoll);
         swSyncSharedFolders = view.findViewById(R.id.swSyncSharedFolders);
@@ -456,6 +458,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
+        swOutlookCategories.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("outlook_categories", checked).apply();
+            }
+        });
+
         swSyncFolders.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -690,6 +699,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             swOutlookThread.setChecked(prefs.getBoolean("outlook_thread_id", false));
             swSubjectThreading.setChecked(prefs.getBoolean("subject_threading", false));
             swSubjectThreading.setEnabled(!swGmailThread.isChecked() && !swOutlookThread.isChecked());
+            swOutlookCategories.setChecked(prefs.getBoolean("outlook_categories", false));
             swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
             swSyncFoldersPoll.setChecked(prefs.getBoolean("sync_folders_poll", false));
             swSyncFoldersPoll.setEnabled(swSyncFolders.isChecked());
