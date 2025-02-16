@@ -8508,8 +8508,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             @Override
             public boolean areContentsTheSame(
                     @NonNull TupleMessageEx prev, @NonNull TupleMessageEx next) {
-                boolean same = true;
+                if (next.uid != null &&
+                        properties.getValue("expanded", next.id)) {
+                    // Mark seen when needed
+                    if (next.accountAutoSeen && !Boolean.TRUE.equals(next.ui_seen) &&
+                            !properties.getValue("auto_seen", next.id)) {
+                        properties.setValue("auto_seen", next.id, true);
+                        EntityOperation.queue(context, next, EntityOperation.SEEN, true);
+                        EntityLog.log(context, EntityLog.Type.Debug3, "Auto seen id=" + next.id);
+                    }
 
+                    // Download body when needed
+                    if (!next.content &&
+                            !properties.getValue("auto_body", next.id)) {
+                        properties.setValue("auto_body", next.id, true);
+                        EntityOperation.queue(context, next, EntityOperation.BODY);
+                        EntityLog.log(context, EntityLog.Type.Debug3, "Auto body id=" + next.id);
+                    }
+                }
+
+                boolean same = true;
                 // id
                 // account
                 // folder
@@ -8522,17 +8540,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!Objects.equals(prev.uid, next.uid)) {
                     same = false;
                     log("uid changed", next.id);
-
-                    if (prev.uid == null && next.uid != null && // once only
-                            properties.getValue("expanded", next.id)) {
-                        // Mark seen when needed
-                        if (!Boolean.TRUE.equals(next.ui_seen) && next.accountAutoSeen)
-                            EntityOperation.queue(context, next, EntityOperation.SEEN, true);
-
-                        // Download body when needed
-                        if (!next.content)
-                            EntityOperation.queue(context, next, EntityOperation.BODY);
-                    }
                 }
                 if (!Objects.equals(prev.msgid, next.msgid)) {
                     // debug info
