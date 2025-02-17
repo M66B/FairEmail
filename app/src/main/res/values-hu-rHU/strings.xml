@@ -376,6 +376,7 @@
     <string name="title_advanced_kept_removed">Régi üzenetek szerverről való törlésének ellenőrzése</string>
     <string name="title_advanced_gmail_thread">Gmail stílusú üzenetcsoportosítás a Gmail fiókokhoz</string>
     <string name="title_advanced_subject_threading">Csoport üzenetek küldő és tárgy szerint</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Outlook kategóriák szinkronizálása</string>
     <string name="title_advanced_sync_folders">Mappák listájának szinkronizálása</string>
     <string name="title_advanced_sync_folders_poll">Mappa lista aktív szinkronizálása</string>
     <string name="title_advanced_sync_shared_folders">Szinkronizált mappák listája</string>
@@ -391,6 +392,7 @@
     <string name="title_advanced_tune_keep_alive">Az ébrentartás időtartamának automatikus hangolása</string>
     <string name="title_advanced_blocklist_warning">A blokkolási listák nem tökéletesek, és nem csak a spameket blokkolhatják!</string>
     <string name="title_advanced_keyboard">Billentyűzet alapértelmezett megjelenítése</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Legyen margó a billentyűzet fölött</string>
     <string name="title_advanced_keyboard_no_fullscreen">Teljes képernyős billentyűzet letiltása</string>
     <string name="title_advanced_suggest_names">Nevek és e-mail címek használata</string>
     <string name="title_advanced_suggest_local">Helyileg tárolt névjegyek felajánlása</string>
@@ -506,7 +508,7 @@
     <string name="title_advanced_nav_hide_message">Újra be tudja kapcsolni a kijelző opciókban</string>
     <string name="title_advanced_nav_last_sync">Utolsó szinkronizálás idejének mutatása a navigációs menüben</string>
     <string name="title_advanced_nav_message_count">Mutassa a helyileg elmentett üzeneteket a navigációs menüben</string>
-    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Olvasatlan üzenetek számának mutatása a navigációs menüben</string>
+    <string name="title_advanced_nav_unseen">Olvasatlan üzenetek számának mutatása a navigációs menüben</string>
     <string name="title_advanced_nav_unseen_drafts">Elküldetlen piszkozatok számának megjelenítése a navigációs menüben</string>
     <string name="title_advanced_nav_pinned_count">Olvasatlan üzenetek számának mutatása a kitűzött navigációs menüben</string>
     <string name="title_advanced_show_unexposed">Csillaggal jelölje az újonnan érkezett, olvasatlan üzeneketet tartalmazó fiókokat/mappákat</string>
@@ -840,6 +842,7 @@
     <string name="title_advanced_sync_kept_hint">Ez megnövekedett adatforgalom- és akkumulátorhasználatot eredményez, különösen ha sok üzenet található a készüléken</string>
     <string name="title_advanced_gmail_thread_hint">Ez csak új üzenetekre lesz alkalmazva és elronthat meglévő csoportokat</string>
     <string name="title_advanced_subject_threading_hint">Csak az elmúlt %1$d órában érkezett üzenetek</string>
+    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Az Outlook kategóriákat csak lekérni lehet, nem frissülnek automatikusan, az Outlook IMAP kiszolgáló korlátai miatt</string>
     <string name="title_advanced_sync_folders_hint">Kikapcsolása valamelyest csökkentheti az adatforgalom- és akkumulátorhasználatot, de egyúttal a mappák listájának frissítését is megakadályozza</string>
     <string name="title_advanced_poll_folders_hint">A fiókhoz csatlakozást követően időszakosan szinkronizálja a mappa listát</string>
     <string name="title_advanced_check_authentication_hint">Ellenőrzi az email szerver által végzett DKIM, SPF és DMARC hitelesítések eredményét</string>

@@ -407,6 +407,7 @@
     <string name="title_advanced_kept_removed">לבדוק אם הודעות ישנות הוסרו מהשרת</string>
     <string name="title_advanced_gmail_thread">סגנון קיבוץ הודעות ב־Gmail לחשבונות Gmail</string>
     <string name="title_advanced_subject_threading">קיבוץ הודעות לפי מוען ונושא</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">סנכרון קטגוריות Outlook</string>
     <string name="title_advanced_sync_folders">סנכרון רשימת התיקיות</string>
     <string name="title_advanced_sync_folders_poll">סנכרון רשימת התיקיות באופן פעיל</string>
     <string name="title_advanced_sync_shared_folders">סנכרון רשימות תיקיות משותפות</string>
@@ -422,6 +423,7 @@
     <string name="title_advanced_tune_keep_alive">כוונון משך ה־keep-alive אוטומטית</string>
     <string name="title_advanced_blocklist_warning">רשימות החסימה אינן מושלמות והן עלולות לחסום הודעות תמימות!</string>
     <string name="title_advanced_keyboard">הצגת מקלדת כברירת מחדל</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">הוספת מרווח מעל המקלדת</string>
     <string name="title_advanced_keyboard_no_fullscreen">מניעת מקלדת במסך מלא</string>
     <string name="title_advanced_suggest_names">שמות משתמשים וכתובות דוא״ל</string>
     <string name="title_advanced_suggest_local">להציע אנשי קשר שאוחסנו מקומית</string>
@@ -537,6 +539,7 @@
     <string name="title_advanced_nav_hide_message">אפשר להפעיל את האפשרויות שוב בהגדרות התצוגה</string>
     <string name="title_advanced_nav_last_sync">להציג את מועד הסנכרון האחרון בתפריט הניווט</string>
     <string name="title_advanced_nav_message_count">להציג את מספר ההודעות שמאוחסנות מקומית בתפריט הניווט</string>
+    <string name="title_advanced_nav_unseen">להציג את מספר ההודעות שלא נקראו בתפריט הניווט</string>
     <string name="title_advanced_nav_unseen_drafts">להציג את מספר הטיוטות שלא נקראו בתפריט הניווט</string>
     <string name="title_advanced_nav_pinned_count">להציג את מספר ההודעות שלא נקראו בתפריט הניווט הנעוץ</string>
     <string name="title_advanced_show_unexposed">הצגת כוכב לחשבונות/תיקיות עם הודעות חדשות שהתקבלו וטרם נקראו</string>
@@ -871,6 +874,7 @@
     <string name="title_advanced_sync_kept_hint">יגרום להעברה של יותר נתונים וצריכה גבוהה יותר של סוללה, במיוחד אם הודעות רבות מאוחסנות במכשיר</string>
     <string name="title_advanced_gmail_thread_hint">חל רק על הודעות חדשות שמתקבלות ועלול לפגום בקבוצות קיימות</string>
     <string name="title_advanced_subject_threading_hint">רק הודעות שהתקבלו ב־%1$d השעות האחרונות</string>
+    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">אפשר למשוך קטגוריות Outlook אך לא לעדכן אותן אוטומטית עקב מגבלות שרת ה־IMAP של Outlook</string>
     <string name="title_advanced_sync_folders_hint">השבתת האפשרות הזאת תצמצם את צריכת הנתונים והסוללהבמידה מסוימת אך תשבית גם את עדכון רשימת התיקיות</string>
     <string name="title_advanced_poll_folders_hint">לסנכרן את רשימת התיקיות מדי פעם בנוסף לסנכרון שאחרי ההתחברות לחשבון</string>
     <string name="title_advanced_check_authentication_hint">אפשרות זו תבדוק את תוצאות אימות DKIM,‏ SPF ו־DMARC כפי שמבוצעות על ידי שרת הדוא״ל</string>

@@ -379,6 +379,7 @@
     <string name="title_advanced_kept_removed">Vérifier si les anciens messages ont été supprimés du serveur</string>
     <string name="title_advanced_gmail_thread">Regrouper les messages en utilisant le style de Gmail pour les comptes Gmail</string>
     <string name="title_advanced_subject_threading">Regrouper les messages par expéditeur et par sujet</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Synchroniser les catégories Outlook</string>
     <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
     <string name="title_advanced_sync_folders_poll">Synchroniser activement la liste des dossiers</string>
     <string name="title_advanced_sync_shared_folders">Synchroniser les listes de dossiers partagés</string>
@@ -394,6 +395,7 @@
     <string name="title_advanced_tune_keep_alive">Ajuster automatiquement l\'intervalle de connexion</string>
     <string name="title_advanced_blocklist_warning">Les listes de blocage ne sont pas parfaites et peuvent bloquer davantage de messages que les indésirables !</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Ajouter une marge au-dessus du clavier</string>
     <string name="title_advanced_keyboard_no_fullscreen">Ne pas afficher le clavier en plein écran</string>
     <string name="title_advanced_suggest_names">Utiliser les noms et les adresses e-mail</string>
     <string name="title_advanced_suggest_local">Suggérer les contacts stockés localement</string>
@@ -509,7 +511,7 @@
     <string name="title_advanced_nav_hide_message">Vous pouvez réactiver les options dans les paramètres d\'affichage</string>
     <string name="title_advanced_nav_last_sync">Afficher l\'heure de la dernière synchronisation dans le menu de navigation</string>
     <string name="title_advanced_nav_message_count">Afficher le nombre de messages stockés localement dans le menu de navigation</string>
-    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Afficher le nombre de messages non lus dans le menu de navigation</string>
+    <string name="title_advanced_nav_unseen">Afficher le nombre de messages non lus dans le menu de navigation</string>
     <string name="title_advanced_nav_unseen_drafts">Afficher le nombre de brouillons non lus dans le menu de navigation</string>
     <string name="title_advanced_nav_pinned_count">Afficher le nombre de messages non lus dans le menu de navigation épinglé</string>
     <string name="title_advanced_show_unexposed">Afficher une étoile de suivi pour les comptes/dossiers avec des messages non lus reçus récemment</string>
@@ -845,6 +847,7 @@
     <string name="title_advanced_sync_kept_hint">Ceci utilisera des données et de la batterie supplémentaires, surtout s\'il y a beaucoup de messages conservés sur l\'appareil</string>
     <string name="title_advanced_gmail_thread_hint">Ceci s\'applique uniquement aux messages nouvellement reçus et peut corrompre les groupes existants</string>
     <string name="title_advanced_subject_threading_hint">Seuls les messages reçus au cours des %1$d dernières heures</string>
+    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Les catégories Outlook peuvent seulement être récupérées et ne peuvent pas être actualisées automatiquement en raison des limitations du serveur IMAP Outlook</string>
     <string name="title_advanced_sync_folders_hint">Désactiver ceci réduira quelque peu l\'utilisation des données et de la batterie mais désactivera également la mise à jour de la liste des dossiers</string>
     <string name="title_advanced_poll_folders_hint">Synchroniser périodiquement la liste des dossiers suite à la connexion à un compte</string>
     <string name="title_advanced_check_authentication_hint">Ceci contrôlera les résultats de l\'authentification DKIM, SPF et DMARC effectuée par le serveur de messagerie</string>

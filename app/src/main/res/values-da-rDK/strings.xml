@@ -379,6 +379,7 @@
     <string name="title_advanced_kept_removed">Tjek, om gamle beskeder er fjernet fra serveren</string>
     <string name="title_advanced_gmail_thread">Gmail- beskedgrupperingsstil for Gmail-konti</string>
     <string name="title_advanced_subject_threading">Gruppér beskeder efter afsender og emne</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Synkronisér Outlook-kategorier</string>
     <string name="title_advanced_sync_folders">Synkronisér mappeliste</string>
     <string name="title_advanced_sync_folders_poll">Synk aktivt mappeliste</string>
     <string name="title_advanced_sync_shared_folders">Synkronisér delte mappelister</string>
@@ -394,6 +395,7 @@
     <string name="title_advanced_tune_keep_alive">Justér automatisk hold i live intervallet</string>
     <string name="title_advanced_blocklist_warning">Bloklister er ikke perfekt og kan blokere mere end blot spam!</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Tilføj en margin over tastaturet</string>
     <string name="title_advanced_keyboard_no_fullscreen">Forhindr fuldskærmstastatur</string>
     <string name="title_advanced_suggest_names">Brug navne og e-mailadresser</string>
     <string name="title_advanced_suggest_local">Foreslå lokalt lagrede kontakter</string>
@@ -509,7 +511,7 @@
     <string name="title_advanced_nav_hide_message">Indstillingerne kan genaktiveres via skærmindstillingerne</string>
     <string name="title_advanced_nav_last_sync">Vis den sidste synktid i navigeringsmenuen</string>
     <string name="title_advanced_nav_message_count">Vis antal lokalt gemte beskeder i navigationsmenuen</string>
-    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Vis antallet af ulæste udkast i navigeringsmenuen</string>
+    <string name="title_advanced_nav_unseen">Vis antallet af ulæste udkast i navigeringsmenuen</string>
     <string name="title_advanced_nav_unseen_drafts">Vis antallet af ulæste udkast i navigeringsmenuen</string>
     <string name="title_advanced_nav_pinned_count">Vis antallet af ulæste udkast i den fastgjorte navigeringsmenu</string>
     <string name="title_advanced_show_unexposed">Vis en stjerne for konti/mapper med nyligt modtagne, ulæste beskeder</string>
@@ -845,6 +847,7 @@
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og forbruge ekstra strøm, især hvis der er mange beskeder lagret på enheden</string>
     <string name="title_advanced_gmail_thread_hint">Dette gælder kun for nyligt modtagne beskeder og kan ødelægge eksisterende grupper</string>
     <string name="title_advanced_subject_threading_hint">Kun beskeder modtaget i de seneste %1$d timer</string>
+    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Outlook-kategorier kan kun hentes, men ikke opdateres automatisk, grundet Outlook IMAP-serverbegrænsninger</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering af dette reducerer data- og strømforbruget noget, men deaktiverer også mappelisteopdatering</string>
     <string name="title_advanced_poll_folders_hint">Synk periodisk mappelisten ud over efter kontotilslutning</string>
     <string name="title_advanced_check_authentication_hint">Dette vil tjekke resultaterne af DKIM-, SPF- og DMARC-godkendelser udført af e-mailserveren</string>

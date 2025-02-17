@@ -365,6 +365,7 @@
     <string name="title_advanced_kept_removed">古いメッセージがサーバーから削除されたか確認する</string>
     <string name="title_advanced_gmail_thread">Gmail のメッセージグループ表示 (Gmail アカウントのみ)</string>
     <string name="title_advanced_subject_threading">差出人と件名でメッセージをグループ化する</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Outlook のカテゴリーを同期する</string>
     <string name="title_advanced_sync_folders">フォルダーリストを同期する</string>
     <string name="title_advanced_sync_folders_poll">フォルダーリストをアクティブに同期する</string>
     <string name="title_advanced_sync_shared_folders">共有フォルダーリストを同期する</string>
@@ -380,6 +381,7 @@
     <string name="title_advanced_tune_keep_alive">キープアライブ間隔を自動で調整する</string>
     <string name="title_advanced_blocklist_warning">ブロックリストは常に完璧に迷惑メールをブロックできるわけではなく、迷惑メール以外をブロックする可能性もあります！</string>
     <string name="title_advanced_keyboard">デフォルトでキーボードを表示する</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">キーボードの上部に余白を追加する</string>
     <string name="title_advanced_keyboard_no_fullscreen">全画面キーボードを無効にする</string>
     <string name="title_advanced_suggest_names">名前とメールアドレスを候補に表示する</string>
     <string name="title_advanced_suggest_local">ローカルに保存された連絡先を候補に表示する</string>
@@ -495,6 +497,7 @@
     <string name="title_advanced_nav_hide_message">表示設定からもう一度オプションを表示できます</string>
     <string name="title_advanced_nav_last_sync">ナビゲーションメニューに最終同期日時を表示する</string>
     <string name="title_advanced_nav_message_count">ナビゲーションメニューにローカルに保存されたメッセージの数を表示する</string>
+    <string name="title_advanced_nav_unseen">ナビゲーションメニューに未読メッセージ数を表示する</string>
     <string name="title_advanced_nav_unseen_drafts">ナビゲーションメニューに未読の下書きの数を表示する</string>
     <string name="title_advanced_nav_pinned_count">ピン留めしたナビゲーションメニューに未読の数を表示する</string>
     <string name="title_advanced_show_unexposed">新着の未読メッセージがあるアカウント/フォルダーに星印を表示する</string>
@@ -829,6 +832,7 @@
     <string name="title_advanced_sync_kept_hint">特に大量のメッセージが端末に保存されている場合、バッテリー使用量とデータ使用量が大幅に増加することがあります</string>
     <string name="title_advanced_gmail_thread_hint">新しく受信したメッセージにのみ適用されます。また、既存のグループを壊す可能性があります</string>
     <string name="title_advanced_subject_threading_hint">過去 %1$d 時間以内に受信したメッセージのみに適用されます</string>
+    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Outlook のカテゴリーは読み取り用に取得のみ可能で、Outlook の IMAP サーバーの制約により自動的に再取得することはできません</string>
     <string name="title_advanced_sync_folders_hint">無効にするとデータ使用量とバッテリー使用量がわずかに減少しますが、フォルダーリストの更新も無効になります</string>
     <string name="title_advanced_poll_folders_hint">アカウントに接続したあと、さらにフォルダーリストを定期的に同期します</string>
     <string name="title_advanced_check_authentication_hint">メールサーバーで実行された DKIM、SPF、DMARC 認証の結果を確認します</string>

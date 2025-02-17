@@ -374,6 +374,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_kept_removed">Eski iletilerin sunucudan kaldırılıp kaldırılmadığını denetleyin</string>
     <string name="title_advanced_gmail_thread">Gmail hesapları için Gmail stili gruplama</string>
     <string name="title_advanced_subject_threading">İletileri gönderene ve konuya göre gruplandır</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Outlook kategorilerini senkronize et</string>
     <string name="title_advanced_sync_folders">Klasör listesini senkronize et</string>
     <string name="title_advanced_sync_folders_poll">Klasör listesini aktif olarak senkronize et</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan klasörlerin listesini senkronize et</string>
@@ -389,6 +390,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_tune_keep_alive">Canlı tutma aralığını otomatik olarak ayarlayın</string>
     <string name="title_advanced_blocklist_warning">Engelleme listeleri mükemmel değildir ve istenmeyen e-postalardan fazlasını engelleyebilir!</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Klavyenin üzerine bir kenar boşluğu ekleyin</string>
     <string name="title_advanced_keyboard_no_fullscreen">Tam ekran klavyeyi önleyin, gizleyin</string>
     <string name="title_advanced_suggest_names">İsimleri ve e-posta adreslerini kullanın</string>
     <string name="title_advanced_suggest_local">Yerel olarak depolanmış kişileri öner</string>
@@ -504,7 +506,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_nav_hide_message">Seçenekleri ekran ayarlarında tekrar etkinleştirebilirsiniz</string>
     <string name="title_advanced_nav_last_sync">Navigasyon menüsünde son senkronizasyon zamanını gösterin</string>
     <string name="title_advanced_nav_message_count">Navigasyon menüsünde yerel olarak saklanan mesajların sayısını göster</string>
-    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Gezinme menüsünde okunmamış mesajların sayısını gösterme</string>
+    <string name="title_advanced_nav_unseen">Gezinme menüsünde okunmamış mesajların sayısını gösterme</string>
     <string name="title_advanced_nav_unseen_drafts">Gezinme menüsünde okunmamış taslak sayısını göster</string>
     <string name="title_advanced_nav_pinned_count">Sabitlenmiş gezinme menüsünde okunmamış mesajların sayısını göster</string>
     <string name="title_advanced_show_unexposed">Yeni alınan okunmamış mesajların bulunduğu hesaplar/klasörler için bir yıldız gösterin</string>
@@ -835,6 +837,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
     <string name="title_advanced_gmail_thread_hint">Bu yalnızca yeni alınan mesajlar için geçerlidir ve mevcut grupları bozabilir</string>
     <string name="title_advanced_subject_threading_hint">Yalnızca son %1$d saat içinde alınan iletiler</string>
+    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Outlook kategorileri yalnızca alınabilir ve Outlook IMAP sunucusu sınırlamaları nedeniyle otomatik olarak yenilenemez</string>
     <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
     <string name="title_advanced_poll_folders_hint">Bir hesaba bağlandıktan sonra ek olarak klasör listesini periyodik olarak senkronize edin</string>
     <string name="title_advanced_check_authentication_hint">Bu, e-posta sunucusu tarafından gerçekleştirilen DKIM, SPF ve DMARC kimlik doğrulamasının sonuçlarını kontrol edecektir</string>

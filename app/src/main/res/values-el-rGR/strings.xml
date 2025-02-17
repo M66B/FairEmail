@@ -374,6 +374,7 @@
     <string name="title_advanced_kept_removed">Έλεγχος αν τα παλιά μηνύματα έχουν διαγραφεί από τον διακομιστή</string>
     <string name="title_advanced_gmail_thread">Ομαδοποίηση μηνυμάτων με το στιλ του Gmail για λογαριασμούς Google</string>
     <string name="title_advanced_subject_threading">Ομαδοποίηση μηνυμάτων κατά αποστολέα και θέμα</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Συγχρονισμός κατηγοριών Outlook</string>
     <string name="title_advanced_sync_folders">Συγχρονισμός της λίστας φακέλων</string>
     <string name="title_advanced_sync_folders_poll">Ενεργός συγχρονισμός της λίστας φακέλων</string>
     <string name="title_advanced_sync_shared_folders">Συγχρονισμός της λίστας κοινών φακέλων</string>
@@ -389,6 +390,7 @@
     <string name="title_advanced_tune_keep_alive">Αυτόματη ρύθμιση του χρονικού διαστήματος για διατήρηση ενεργής σύνδεσης</string>
     <string name="title_advanced_blocklist_warning">Οι λίστες αποκλεισμού δεν είναι τέλειες και ενδέχεται να μπλοκάρουν και άλλα μηνύματα πέρα από τα ανεπιθύμητα!</string>
     <string name="title_advanced_keyboard">Εμφάνιση του πληκτρολογίου από προεπιλογή</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Προσθήκη περιθωρίου πάνω από το πληκτρολόγιο</string>
     <string name="title_advanced_keyboard_no_fullscreen">Να μην προβάλλεται το πληκτρολόγιο σε πλήρη οθόνη</string>
     <string name="title_advanced_suggest_names">Χρήση ονομάτων και διευθύνσεων ηλεκτρονικού ταχυδρομείου</string>
     <string name="title_advanced_suggest_local">Προτείνονται τοπικά αποθηκευμένες επαφές</string>
@@ -504,6 +506,7 @@
     <string name="title_advanced_nav_hide_message">Μπορείτε να ενεργοποιήσετε ξανά τις επιλογές στις ρυθμίσεις εμφάνισης</string>
     <string name="title_advanced_nav_last_sync">Προβολής της ώρας του τελευταίου συγχρονισμού στο μενού πλοήγησης</string>
     <string name="title_advanced_nav_message_count">Να προβάλλεται ο αριθμός των τοπικά αποθηκευμένων μηνυμάτων στο μενού πλοήγησης</string>
+    <string name="title_advanced_nav_unseen">Να προβάλλεται ο αριθμός των μη αναγνωσμένων μηνυμάτων στο μενού πλοήγησης</string>
     <string name="title_advanced_nav_unseen_drafts">Να προβάλλεται ο αριθμός των μη αναγνωσμένων προχείρων στο μενού πλοήγησης</string>
     <string name="title_advanced_nav_pinned_count">Να προβάλλεται ο αριθμός των μη αναγνωσμένων μηνυμάτων στο καρφιτσωμένο μενού πλοήγησης</string>
     <string name="title_advanced_show_unexposed">Προβολή ενός αστεριού για λογαριασμούς/φακέλους με μηνύματα που λήφθηκαν πρόσφατα και δεν έχουν αναγνωσθεί</string>
@@ -836,6 +839,7 @@
     <string name="title_advanced_sync_kept_hint">Μεταφέρει πρόσθετα δεδομένα και καταναλώνει επιπλέον μπαταρία, ιδίως αν είναι αποθηκευμένα στη συσκευή πολλά μηνύματα</string>
     <string name="title_advanced_gmail_thread_hint">Αυτό εφαρμόζεται μόνον σε μηνύματα που λήφθηκαν πρόσφατα και μπορεί να διαλύσει υπάρχουσες ομάδες</string>
     <string name="title_advanced_subject_threading_hint">Μόνο μηνύματα που ελήφθησαν τις τελευταίες %1$d ώρες</string>
+    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Οι κατηγορίες Outlook μπορούν μόνο να ανακτηθούν και όχι να ανανεωθούν αυτόματα εξαιτίας περιορισμών του διακομιστή IMAP του Outlook</string>
     <string name="title_advanced_sync_folders_hint">Αν απενεργοποιηθεί, θα μειωθεί κάπως η χρήση δεδομένων και μπαταρίας, αλλά θα απενεργοποιηθεί και ο συγχρονισμός της λίστας των φακέλων επίσης</string>
     <string name="title_advanced_poll_folders_hint">Περιοδικός συγχρονισμός της λίστας φακέλων, επιπρόσθετα στον αρχικό συγχρονισμό μετά από τη σύνδεση σε έναν λογαριασμό</string>
     <string name="title_advanced_check_authentication_hint">Αυτό θα ελέγξει τα αποτελέσματα της ταυτοποίησης DKIM, SPF και DMARC, όπως εκτελείται από τον διακομιστή ηλ. ταχυδρομείου</string>

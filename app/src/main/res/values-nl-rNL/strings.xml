@@ -376,6 +376,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_kept_removed">Controleer of oude berichten van de server werden verwijderd</string>
     <string name="title_advanced_gmail_thread">Gmail bericht groeperingsstijl voor Gmail accounts</string>
     <string name="title_advanced_subject_threading">Berichten groeperen op afzender en onderwerp</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Outlook-categorieën synchroniseren</string>
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
     <string name="title_advanced_sync_folders_poll">Actief mappenlijst synchroniseren</string>
     <string name="title_advanced_sync_shared_folders">Lijst met gedeelde mappen synchroniseren</string>
@@ -391,6 +392,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_tune_keep_alive">De keep-alive interval automatisch aanpassen</string>
     <string name="title_advanced_blocklist_warning">Blokkeer lijsten zijn niet perfect en kunnen meer blokkeren dan alleen spam!</string>
     <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Voeg een marge boven het toetsenbord toe</string>
     <string name="title_advanced_keyboard_no_fullscreen">Toetsenbord in volledige scherm voorkomen</string>
     <string name="title_advanced_suggest_names">Gebruik namen en e-mailadressen</string>
     <string name="title_advanced_suggest_local">Suggereer lokaal opgeslagen contacten</string>
@@ -506,7 +508,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_nav_hide_message">U kunt de opties opnieuw inschakelen in de weergave-instellingen</string>
     <string name="title_advanced_nav_last_sync">Toon de laatste synchronisatietijd in het navigatiemenu</string>
     <string name="title_advanced_nav_message_count">Toon aantal lokaal opgeslagen berichten in het navigatiemenu</string>
-    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Toon het aantal ongelezen berichten in het navigatiemenu</string>
+    <string name="title_advanced_nav_unseen">Toon het aantal ongelezen berichten in het navigatiemenu</string>
     <string name="title_advanced_nav_unseen_drafts">Toon het aantal ongelezen concepten in het navigatiemenu</string>
     <string name="title_advanced_nav_pinned_count">Toon het aantal ongelezen berichten in het vastgezette navigatiemenu</string>
     <string name="title_advanced_show_unexposed">Toon een ster voor accounts/mappen met nieuw ontvangen ongelezen berichten</string>
@@ -840,6 +842,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat zijn opgeslagen</string>
     <string name="title_advanced_gmail_thread_hint">Dit geldt alleen voor nieuw ontvangen berichten en kan bestaande groepen verbreken</string>
     <string name="title_advanced_subject_threading_hint">Alleen berichten ontvangen in de afgelopen %1$d uur</string>
+    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Outlook-categorieën kunnen alleen worden opgehaald en kunnen niet automatisch worden vernieuwd vanwege de beperkingen van de Outlook IMAP-server</string>
     <string name="title_advanced_sync_folders_hint">Dit uitschakelen zal het gebruik van gegevens en batterij enigszins verminderen, maar zal ook het bijwerken van de lijst met mappen uitschakelen</string>
     <string name="title_advanced_poll_folders_hint">Periodiek synchroniseren van de mappenlijst naast na verbinding maken met een account</string>
     <string name="title_advanced_check_authentication_hint">Dit controleert de resultaten van DKIM, SPF en DMARC authenticatie zoals uitgevoerd door de e-mailserver</string>

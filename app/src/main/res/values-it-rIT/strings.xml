@@ -379,6 +379,7 @@
     <string name="title_advanced_kept_removed">Verifica se i vecchi messaggi sono stati rimossi dal server</string>
     <string name="title_advanced_gmail_thread">Stile di raggruppamento dei messaggi di Gmail per gli account Gmail</string>
     <string name="title_advanced_subject_threading">Raggruppa i messaggi per mittente e oggetto</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Sincronizza le categorie di Outlook</string>
     <string name="title_advanced_sync_folders">Sincronizza l\'elenco delle cartelle</string>
     <string name="title_advanced_sync_folders_poll">Sincronizza attivamente l\'elenco delle cartelle</string>
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi delle cartelle condivise</string>
@@ -394,6 +395,7 @@
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo di keep-alive</string>
     <string name="title_advanced_blocklist_warning">Le blacklist non sono perfette e potrebbero bloccare altro oltre allo spam!</string>
     <string name="title_advanced_keyboard">Mostra la tastiera in modo predefinito</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Aggiungi un margine sopra la tastiera</string>
     <string name="title_advanced_keyboard_no_fullscreen">Impedisci la tastiera a schermo intero</string>
     <string name="title_advanced_suggest_names">Usa nomi e indirizzi email</string>
     <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
@@ -509,7 +511,7 @@
     <string name="title_advanced_nav_hide_message">È possibile abilitare nuovamente le opzioni nelle impostazioni di visualizzazione</string>
     <string name="title_advanced_nav_last_sync">Mostra l\'ora dell\'ultima sincronizzazione nel menu di navigazione</string>
     <string name="title_advanced_nav_message_count">Mostra il numero di messaggi memorizzati localmente nel menu di navigazione</string>
-    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Mostra il numero di messaggi da leggere nel menu di navigazione</string>
+    <string name="title_advanced_nav_unseen">Mostra il numero di messaggi da leggere nel menu di navigazione</string>
     <string name="title_advanced_nav_unseen_drafts">Mostra il numero di bozze da leggere nel menu di navigazione</string>
     <string name="title_advanced_nav_pinned_count">Mostra il numero di messaggi da leggere nel menu di navigazione fissato</string>
     <string name="title_advanced_show_unexposed">Mostra una stella per gli account e le cartelle con nuovi messaggi da leggere</string>
@@ -845,6 +847,7 @@
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia extra della batteria, specialmente se sono memorizzati molti messaggi sul dispositivo</string>
     <string name="title_advanced_gmail_thread_hint">Ciò si applica solo ai messaggi appena ricevuti e può corrompere i gruppi esistenti</string>
     <string name="title_advanced_subject_threading_hint">Solo i messaggi ricevuti nelle ultime %1$d ore</string>
+    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">È possibile recuperare le categorie di Outlook ma non possono essere aggiornate in modo automatico a causa delle limitazioni del server IMAP di Outlook</string>
     <string name="title_advanced_sync_folders_hint">La disattivazione di questa opzione ridurrà in qualche modo l\'uso dei dati e della batteria, ma disattiverà anche l\'aggiornamento dell\'elenco delle cartelle</string>
     <string name="title_advanced_poll_folders_hint">Dopo la connessione a un account, sincronizza periodicamente anche l\'elenco delle cartelle</string>
     <string name="title_advanced_check_authentication_hint">Verranno controllati i risultati dell\'autenticazione DKIM, SPF e DMARC come eseguiti dal server email</string>

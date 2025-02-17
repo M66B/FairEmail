@@ -339,6 +339,7 @@
     <string name="title_advanced_kept_removed">بررسی کن که آیا پیام‌های قدیمی از سرور حذف شده‌اند</string>
     <string name="title_advanced_gmail_thread">سبک گروه‌بندی پیام جیمیل برای حساب‌های جیمیل</string>
     <string name="title_advanced_subject_threading">دسته‌بندی پیام‌ها بر اساس فرستنده و موضوع</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">همگام‌سازی دسته‌های آوت‌لوک</string>
     <string name="title_advanced_sync_folders">همگام سازی لیست پوشه</string>
     <string name="title_advanced_sync_folders_poll">هم‌رسانی فعالانه فهرست پوشه‌ها</string>
     <string name="title_advanced_sync_shared_folders">فهرست‌های پوشه‌های همرسانی شده را همگام‌سازی کن</string>
@@ -351,6 +352,7 @@
     <string name="title_advanced_use_blocklist_pop3">پیام‌هایی را که از طرف دامنه‌های درون لیست سیاه هستند در نظر نگیر (تنها برای POP3)</string>
     <string name="title_advanced_tune_keep_alive">وقفه زنده-نگه‌داشتن را خودکار کوک کن</string>
     <string name="title_advanced_keyboard">نمایش صفحه کلید به‌صورت پیش‌فرض</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">افزودن حاشیه بالای صفحه کلید</string>
     <string name="title_advanced_keyboard_no_fullscreen">از اجرای تمام صفحه صفحه‌کلید جلوگیری کن</string>
     <string name="title_advanced_suggest_names">از اسامی و نشانی‌های ایمیل استفاده کن</string>
     <string name="title_advanced_suggest_local">پیشنهاد مخاطبین ذخیره‌شده محلی</string>
@@ -447,7 +449,7 @@
     <string name="title_advanced_nav_pin">سنجاق کردن منوی ناوبری</string>
     <string name="title_advanced_nav_hide_title">پنهان کردن گزینه‌های منوی ناوبری؟</string>
     <string name="title_advanced_nav_hide_message">شما می‌توانید مجددا گزینه‌ها را در تنظیمات نمایش فعال کنید</string>
-    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">نمایش تعداد پیام‌های خوانده نشده در منوی ناوبری</string>
+    <string name="title_advanced_nav_unseen">نمایش تعداد پیام‌های خوانده نشده در منوی ناوبری</string>
     <string name="title_advanced_nav_pinned_count">تعداد پیام‌های خوانده نشده را در منوی ناوبری سنجاق‌شده نشان بده</string>
     <string name="title_advanced_show_unexposed">نمایش ستاره برای حساب‌ها/پوشه‌هایی که پیام خوانده نشده جدید دارند</string>
     <string name="title_advanced_startup">نمایش در صفحه آغازین</string>

@@ -536,7 +536,7 @@
     <string name="title_advanced_nav_hide_message">Możesz włączyć opcje ponownie w ustawieniach wyświetlania</string>
     <string name="title_advanced_nav_last_sync">Pokaż czas ostatniej synchronizacji w menu nawigacji</string>
     <string name="title_advanced_nav_message_count">Pokaż liczbę lokalnie przechowywanych wiadomości w menu nawigacji</string>
-    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Pokaż liczbę nieprzeczytanych wiadomości w menu nawigacyjnym</string>
+    <string name="title_advanced_nav_unseen">Pokaż liczbę nieprzeczytanych wiadomości w menu nawigacyjnym</string>
     <string name="title_advanced_nav_unseen_drafts">Pokaż liczbę nieprzeczytanych szkiców w menu nawigacji</string>
     <string name="title_advanced_nav_pinned_count">Pokaż liczbę nieprzeczytanych wiadomości w przypiętym menu nawigacji</string>
     <string name="title_advanced_show_unexposed">Pokaż gwiazdkę dla kont/folderów z nowo otrzymanymi, nieprzeczytanymi wiadomościami</string>

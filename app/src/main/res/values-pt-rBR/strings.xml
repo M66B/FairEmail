@@ -378,6 +378,7 @@
     <string name="title_advanced_kept_removed">Verificar se as mensagens antigas foram removidas do servidor</string>
     <string name="title_advanced_gmail_thread">Estilo de agrupamento de mensagens do Gmail para contas do Gmail</string>
     <string name="title_advanced_subject_threading">Agrupar mensagens por remetente e assunto</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Sincronizar categorias do Outlook</string>
     <string name="title_advanced_sync_folders">Sincronizar lista de pastas</string>
     <string name="title_advanced_sync_folders_poll">Sincronizar lista de pastas ativamente</string>
     <string name="title_advanced_sync_shared_folders">Sincronizar listas de pastas compartilhadas</string>
@@ -393,6 +394,7 @@
     <string name="title_advanced_tune_keep_alive">Sintonizar automaticamente o intervalo de manutenção de vida</string>
     <string name="title_advanced_blocklist_warning">Listas de bloqueio não são perfeitas e podem bloquear mais do que apenas spam!</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Adicionar uma margem acima do teclado</string>
     <string name="title_advanced_keyboard_no_fullscreen">Desativar o teclado em tela cheia</string>
     <string name="title_advanced_suggest_names">Use os nomes e endereços de e-mail</string>
     <string name="title_advanced_suggest_local">Sugerir contatos armazenados localmente</string>
@@ -508,7 +510,7 @@
     <string name="title_advanced_nav_hide_message">Você pode reativar as opções nas configurações de exibição</string>
     <string name="title_advanced_nav_last_sync">Mostrar a hora da última sincronização no menu de navegação</string>
     <string name="title_advanced_nav_message_count">Mostrar número de mensagens armazenadas localmente no menu de navegação</string>
-    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Mostrar o número de mensagens não lidas no menu de navegação</string>
+    <string name="title_advanced_nav_unseen">Mostrar o número de mensagens não lidas no menu de navegação</string>
     <string name="title_advanced_nav_unseen_drafts">Mostrar o número de rascunhos não lidos no menu de navegação</string>
     <string name="title_advanced_nav_pinned_count">Mostrar o número de mensagens não lidas no menu de navegação fixado</string>
     <string name="title_advanced_show_unexposed">Mostrar uma estrela para contas/pastas com mensagens não lidas recém-recebidas</string>
@@ -843,6 +845,7 @@
     <string name="title_advanced_sync_kept_hint">Isto irá transferir dados extras e consumir energia extra da bateria, especialmente se uma série de mensagens forem armazenadas no dispositivo</string>
     <string name="title_advanced_gmail_thread_hint">Isso só se aplica a mensagens recém-recebidas e pode quebrar grupos existentes</string>
     <string name="title_advanced_subject_threading_hint">Apenas mensagens recebidas nas últimas %1$d horas</string>
+    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Categorias do Outlook só podem ser obtidas e não podem ser atualizadas automaticamente devido a limitações do servidor IMAP</string>
     <string name="title_advanced_sync_folders_hint">Desativar isto irá reduzir um pouco o uso de dados e bateria, mas irá também desativar a atualização da lista de pastas</string>
     <string name="title_advanced_poll_folders_hint">Sincronizar periodicamente a lista de pastas, além de após se conectar a uma conta</string>
     <string name="title_advanced_check_authentication_hint">Isto verificará os resultados de autenticação do DKIM, SPF e DMARC realizados pelo servidor do E-mail</string>

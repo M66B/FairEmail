@@ -508,7 +508,7 @@
     <string name="title_advanced_nav_hide_message">Puede activar las opciones de nuevo en la configuración de visualización</string>
     <string name="title_advanced_nav_last_sync">Mostrar la hora de última sincronización en el menú de navegación</string>
     <string name="title_advanced_nav_message_count">Mostrar el número de mensajes almacenados localmente en el menú de navegación</string>
-    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Mostrar el número de mensajes no leídos en el menú de navegación</string>
+    <string name="title_advanced_nav_unseen">Mostrar el número de mensajes no leídos en el menú de navegación</string>
     <string name="title_advanced_nav_unseen_drafts">Mostrar número de borradores sin leer en el menú de navegación</string>
     <string name="title_advanced_nav_pinned_count">Mostrar el número de mensajes no leídos en el menú de navegación fijado</string>
     <string name="title_advanced_show_unexposed">Mostrar una estrella para cuentas o carpetas con mensajes no leídos recibidos recientemente</string>

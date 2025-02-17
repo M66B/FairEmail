@@ -494,6 +494,7 @@
     <string name="title_advanced_nav_hide_message">您可以在顯示設定中再次啟用此選項</string>
     <string name="title_advanced_nav_last_sync">在導航選單中顯示最後同步時間</string>
     <string name="title_advanced_nav_message_count">在導航功能表中顯示本地儲存的訊息數</string>
+    <string name="title_advanced_nav_unseen">在導航中顯示未讀的訊息數</string>
     <string name="title_advanced_nav_unseen_drafts">在導航功能表中顯示未讀取草稿的數量</string>
     <string name="title_advanced_nav_pinned_count">在固定選單上顯示未讀的訊息數</string>
     <string name="title_advanced_show_unexposed">有新收到的未讀郵件的帳戶/資料夾顯示星號</string>

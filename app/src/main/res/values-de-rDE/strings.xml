@@ -380,6 +380,7 @@
     <string name="title_advanced_kept_removed">Überprüfen, ob alte Nachrichten vom Server entfernt wurden</string>
     <string name="title_advanced_gmail_thread">Nachrichten in Gmail-Konten im Stil von Gmail gruppieren</string>
     <string name="title_advanced_subject_threading">Nachrichten nach Absender und Betreff gruppieren</string>
+    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Outlook-Kategorien synchronisieren</string>
     <string name="title_advanced_sync_folders">Ordnerliste synchronisieren</string>
     <string name="title_advanced_sync_folders_poll">Ordnerliste aktiv synchronisieren</string>
     <string name="title_advanced_sync_shared_folders">Listen der freigegebenen Ordner synchronisieren</string>
@@ -395,6 +396,7 @@
     <string name="title_advanced_tune_keep_alive">Aktivitätsintervall automatisch anpassen</string>
     <string name="title_advanced_blocklist_warning">Sperrlisten sind nicht perfekt und können mehr als nur Spam sperren!</string>
     <string name="title_advanced_keyboard">Standardmäßig Tastatur anzeigen</string>
+    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Einen Rand über der Tastatur hinzufügen</string>
     <string name="title_advanced_keyboard_no_fullscreen">Vollbild-Tastatur verhindern</string>
     <string name="title_advanced_suggest_names">Namen und E-Mail-Adressen verwenden</string>
     <string name="title_advanced_suggest_local">Lokal gespeicherte Kontakte vorschlagen</string>
@@ -510,7 +512,7 @@
     <string name="title_advanced_nav_hide_message">Sie können die Optionen in den Darstellungseinstellungen wieder aktivieren</string>
     <string name="title_advanced_nav_last_sync">Letzte Synchronisationszeit im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_message_count">Anzahl der lokal gespeicherten Nachrichten im Navigationsmenü anzeigen</string>
-    <string name="title_advanced_nav_unseen" comment="title_advanced_nav_unseen&#10;Title for option switch in the display-settings tab page">Anzahl der ungelesenen Nachrichten im Navigationsmenü anzeigen</string>
+    <string name="title_advanced_nav_unseen">Anzahl der ungelesenen Nachrichten im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_unseen_drafts">Anzahl ungelesener Entwürfe im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_pinned_count">Anzahl ungelesener Nachrichten im angehefteten Navigationsmenü anzeigen</string>
     <string name="title_advanced_show_unexposed">Stern für Konten/Ordner mit neu empfangenen ungelesenen Nachrichten anzeigen</string>
@@ -846,6 +848,7 @@
     <string name="title_advanced_sync_kept_hint">Dadurch werden zusätzliche Daten übertragen und zusätzliche Akkuladung verbraucht, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
     <string name="title_advanced_gmail_thread_hint">Das betrifft nur neu empfangene Nachrichten und kann bestehende Gruppen beschädigen</string>
     <string name="title_advanced_subject_threading_hint">Nur Nachrichten, die in den letzten %1$d Stunden empfangen wurden</string>
+    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Outlook-Kategorien können wegen Einschränkungen der Outlook-IMAP-Server nur abgerufen und nicht automatisch aktualisiert werden</string>
     <string name="title_advanced_sync_folders_hint">Das Deaktivieren dieser Option verringert den Daten- und Akkuverbrauch etwas, deaktiviert aber auch das Aktualisieren der Ordnerliste</string>
     <string name="title_advanced_poll_folders_hint">Synchronisiert die Ordnerliste regelmäßig und zusätzlich nach der Verbindung mit einem Konto</string>
     <string name="title_advanced_check_authentication_hint">Damit werden die Ergebnisse der DKIM-, SPF- und DMARC-Authentifizierung geprüft, wie sie vom E-Mail-Server durchgeführt werden</string>
