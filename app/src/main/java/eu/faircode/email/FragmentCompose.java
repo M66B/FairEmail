@@ -5926,8 +5926,7 @@ public class FragmentCompose extends FragmentBase {
                             if ("list".equals(action) && ref.list_post != null) {
                                 data.draft.from = ref.to;
                                 data.draft.to = ref.list_post;
-                            }
-                            else if ("dsn".equals(action)) {
+                            } else if ("dsn".equals(action)) {
                                 data.draft.from = ref.to;
                                 if (EntityMessage.DSN_RECEIPT.equals(dsn)) {
                                     if (ref.receipt_to != null)
@@ -6408,11 +6407,24 @@ public class FragmentCompose extends FragmentBase {
 
                         int sequence = 0;
                         List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
+
+                        List<EntityAttachment> tnef = new ArrayList<>();
                         for (EntityAttachment attachment : attachments)
-                            if (attachment.subsequence == null &&
-                                    !attachment.isEncryption() &&
+                            if (Helper.isTnef(attachment.type, attachment.name))
+                                tnef.add(attachment);
+
+                        for (EntityAttachment attachment : attachments)
+                            if (attachment.subsequence == null
+                                    ? !attachment.isEncryption() &&
                                     (cid.contains(attachment.cid) ||
-                                            !("reply".equals(action) || "reply_all".equals(action)))) {
+                                            !("reply".equals(action) || "reply_all".equals(action)))
+                                    : "forward".equals(action) &&
+                                    tnef.size() == 1 &&
+                                    attachment.sequence.equals(tnef.get(0).sequence) &&
+                                    !"subject.txt".equals(attachment.name) &&
+                                    !"body.html".equals(attachment.name) &&
+                                    !"body.rtf".equals(attachment.name) &&
+                                    !"attributes.txt".equals(attachment.name)) {
                                 if (attachment.available) {
                                     File source = attachment.getFile(context);
 
