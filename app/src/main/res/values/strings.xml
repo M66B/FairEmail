@@ -807,7 +807,7 @@
     <string name="title_advanced_notify_screen_on">Briefly turn on the screen for new message notifications</string>
     <string name="title_advanced_notifications_background">Use background service to synchronize messages</string>
     <string name="title_advanced_notifications_background_hint">A background service can be stopped by Android at any time, but doesn\'t require a status bar notification</string>
-    <string name="title_advanced_rate_limit">Limit notification sounds to once per:</string>
+    <string name="title_advanced_rate_limit">Limit notification sounds of new messages to once per:</string>
     <string name="title_advanced_alert_once" translatable="false">MIUI notification sound workaround</string>
     <string name="title_advanced_tiles" translatable="false">Add quick settings tiles</string>
 
