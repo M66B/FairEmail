@@ -247,7 +247,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     void setImages(boolean show_images, boolean inline) {
         WebSettings settings = getSettings();
 
-        if (settings.getLoadsImagesAutomatically() != show_images)
+        if (settings.getLoadsImagesAutomatically() != (show_images || inline))
             this.hash = null;
 
         settings.setLoadsImagesAutomatically(show_images || inline);
