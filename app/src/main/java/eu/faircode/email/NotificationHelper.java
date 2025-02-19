@@ -390,7 +390,7 @@ class NotificationHelper {
         boolean biometrics = prefs.getBoolean("biometrics", false);
         String pin = prefs.getString("pin", null);
         boolean biometric_notify = prefs.getBoolean("biometrics_notify", true);
-        long notify_rate_limit = prefs.getInt("notify_rate_limit", 0) * 1000L;
+        long notify_rate_limit = prefs.getInt("notify_rate_limit", 0);
 
         long now = new Date().getTime();
         boolean pro = ActivityBilling.isPro(context);

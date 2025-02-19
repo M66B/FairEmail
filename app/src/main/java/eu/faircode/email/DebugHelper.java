@@ -1460,6 +1460,8 @@ public class DebugHelper {
                             mark = true;
                         if ("notify_suppress_in_car".equals(key) && Boolean.TRUE.equals(value))
                             mark = true;
+                        if ("notify_rate_limit".equals(key) && (value == null || (Integer) value != 0))
+                            mark = true;
                         options.append(' ').append(key).append('=')
                                 .append(value)
                                 .append(mark ? " !!!" : "")

@@ -47,11 +47,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -125,6 +127,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swBiometricsNotify;
     private SwitchCompat swNotifyOpenFolder;
     private SwitchCompat swBackground;
+    private Spinner spRateLimit;
     private SwitchCompat swAlertOnce;
     private ImageButton ibTileSync;
     private ImageButton ibTileUnseen;
@@ -149,7 +152,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "notify_subtext", "notify_preview", "notify_preview_all", "notify_preview_only", "notify_transliterate", "notify_ascii",
             "wearable_preview",
             "notify_messaging",
-            "biometrics_notify", "notify_open_folder", "background_service", "alert_once"
+            "biometrics_notify", "notify_open_folder", "background_service", "notify_rate_limit", "alert_once"
     ));
 
     @Override
@@ -216,6 +219,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swBiometricsNotify = view.findViewById(R.id.swBiometricsNotify);
         swNotifyOpenFolder = view.findViewById(R.id.swNotifyOpenFolder);
         swBackground = view.findViewById(R.id.swBackground);
+        spRateLimit = view.findViewById(R.id.spRateLimit);
         swAlertOnce = view.findViewById(R.id.swAlertOnce);
         ibTileSync = view.findViewById(R.id.ibTileSync);
         ibTileUnseen = view.findViewById(R.id.ibTileUnseen);
@@ -738,6 +742,21 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
+        int[] undoValues = getResources().getIntArray(R.array.undoValues);
+
+        spRateLimit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                int value = undoValues[position];
+                prefs.edit().putInt("notify_rate_limit", value).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("notify_rate_limit").apply();
+            }
+        });
+
         swAlertOnce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -765,6 +784,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swNotifyTransliterate.setVisibility(TextHelper.canTransliterate() ? View.VISIBLE : View.GONE);
         swUnseenIgnored.setVisibility(Helper.isXiaomi() ? View.GONE : View.VISIBLE);
         swAlertOnce.setVisibility(Helper.isXiaomi() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+
+        int notity_rate_limit = prefs.getInt("notity_rate_limit", 0);
+        for (int pos = 0; pos < undoValues.length; pos++)
+            if (undoValues[pos] == notity_rate_limit) {
+                spRateLimit.setSelection(pos);
+                break;
+            }
 
         // https://developer.android.com/training/notify-user/group
         tvNoGrouping.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.N ? View.VISIBLE : View.GONE);
