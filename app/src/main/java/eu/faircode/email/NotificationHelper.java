@@ -61,6 +61,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -389,6 +390,9 @@ class NotificationHelper {
         boolean biometrics = prefs.getBoolean("biometrics", false);
         String pin = prefs.getString("pin", null);
         boolean biometric_notify = prefs.getBoolean("biometrics_notify", true);
+        long notify_rate_limit = prefs.getInt("notify_rate_limit", 0) * 1000L;
+
+        long now = new Date().getTime();
         boolean pro = ActivityBilling.isPro(context);
 
         boolean redacted = ((biometrics || !TextUtils.isEmpty(pin)) && !biometric_notify);
@@ -517,11 +521,15 @@ class NotificationHelper {
             List<Long> add = new ArrayList<>();
             List<Long> update = new ArrayList<>();
             List<Long> remove = new ArrayList<>(data.groupNotifying.get(group));
+            Long lastSound = data.groupLast.get(group);
+            boolean noise = false;
+            boolean silent = (lastSound != null && now - lastSound < notify_rate_limit);
             for (int m = 0; m < groupMessages.get(group).size(); m++) {
                 TupleMessageEx message = groupMessages.get(group).get(m);
                 if (m >= MAX_NOTIFICATION_DISPLAY) {
                     // This is to prevent notification sounds when shifting messages up
                     if (!message.ui_silent) {
+                        message.ui_silent = true;
                         Log.i("Notify silence=" + message.id);
                         db.message().setMessageUiSilent(message.id, true);
                     }
@@ -544,10 +552,21 @@ class NotificationHelper {
                     } else {
                         flash = true;
                         add.add(id);
+                        if (notify_rate_limit > 0) {
+                            if (silent && !message.ui_silent) {
+                                message.ui_silent = true;
+                                db.message().setMessageUiSilent(message.id, true);
+                                Log.i("Notify limit=" + message.id);
+                            } else
+                                noise = true;
+                        }
                     }
-                    Log.i("Notify adding=" + id + " existing=" + existing);
+                    Log.i("Notify adding=" + id + " existing=" + existing + " silent=" + message.ui_silent);
                 }
             }
+
+            if (noise)
+                data.groupLast.put(group, now);
 
             Integer prev = prefs.getInt("new_messages." + group, 0);
             Integer current = newMessages.get(group);
@@ -1361,6 +1380,7 @@ class NotificationHelper {
     }
 
     static class NotificationData {
+        private Map<Long, Long> groupLast = new HashMap<>();
         private Map<Long, List<Long>> groupNotifying = new HashMap<>();
 
         NotificationData(Context context) {
