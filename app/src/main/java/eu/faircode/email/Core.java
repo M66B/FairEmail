@@ -697,6 +697,7 @@ class Core {
                             // Add: NO Permission denied
                             // Add: NO Message size exceeds fixed maximum message size. Size: xxx KB, Max size: yyy KB
                             // Add: NO Message size exceeds maximum message size limit
+                            // Add: BAD maximum message size exceeded
                             // Delete: NO [CANNOT] STORE It's not possible to perform specified operation
                             // Delete: NO [UNAVAILABLE] EXPUNGE Backend error
                             // Delete: NO mailbox selected READ-ONLY
