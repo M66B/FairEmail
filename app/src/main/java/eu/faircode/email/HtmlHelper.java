@@ -1912,17 +1912,23 @@ public class HtmlHelper {
             for (int i = 0; i < _media.getLength(); i++) {
                 String type = _media.mediaQuery(i).getMedia();
 
+                boolean hasMinWidth = false;
                 boolean hasMaxWidth = false;
                 List<Property> props = _media.mediaQuery(i).getProperties();
                 if (props != null)
                     for (Property prop : props) {
+                        if ("min-width".equals(prop.getName()) ||
+                                "min-device-width".equals(prop.getName())) {
+                            hasMinWidth = true;
+                            break;
+                        }
                         if ("max-width".equals(prop.getName()) ||
                                 "max-device-width".equals(prop.getName())) {
                             hasMaxWidth = true;
                             break;
                         }
                     }
-                if (!hasMaxWidth)
+                if (!hasMinWidth && !hasMaxWidth)
                     if ("all".equals(type) || "screen".equals(type) || _media.mediaQuery(i).isNot()) {
                         Log.i("Using media=" + media.getMediaText());
                         return true;
