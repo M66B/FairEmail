@@ -5365,6 +5365,9 @@ because losing or breaking your device would mean losing your messages.
 Imagine you've put a lot of time organizing your messages, and you need to reinstall the app on another device, only to discover all the work you did was a waste of time.
 Therefore, this isn't supportable.
 
+An alternative is to use keywords, which is possible since version 1.2263, but please be aware that keywords can't be stored on the email server with POP3, only on the device.
+You can search on keywords via "*More options*", and save the search via a button in the top action bar, which means you can have virtual folders in the navigation menu.
+
 Please note that FairEmail doesn't store a copy of your messages in the cloud for privacy reasons.
 
 If you want to store messages in folders, please use IMAP,
