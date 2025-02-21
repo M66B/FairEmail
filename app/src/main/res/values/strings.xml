@@ -1584,6 +1584,7 @@
     <string name="title_raw_send_message">Message</string>
     <string name="title_raw_send_thread">Conversation</string>
     <string name="title_manage_keywords">Manage keywords</string>
+    <string name="title_manage_keywords_pop">With POP3, keywords cannot be stored on the email server!</string>
     <string name="title_manage_labels">Manage Gmail labels</string>
     <string name="title_add_keyword">Add keyword</string>
     <string name="title_show_inline">Show inline attachments</string>

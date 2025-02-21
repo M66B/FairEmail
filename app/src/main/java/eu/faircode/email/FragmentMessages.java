@@ -1851,8 +1851,9 @@ public class FragmentMessages extends FragmentBase
         ibKeywords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MoreResult result = (MoreResult) cardMore.getTag();
                 boolean more_clear = prefs.getBoolean("more_clear", true);
-                onActionManageKeywords(more_clear);
+                onActionManageKeywords(more_clear, (result != null && result.hasPop));
             }
         });
 
@@ -4696,9 +4697,8 @@ public class FragmentMessages extends FragmentBase
                     popupMenu.getMenu().add(Menu.FIRST, R.string.title_copy_to, order++, R.string.title_copy_to)
                             .setIcon(R.drawable.twotone_file_copy_24);
 
-                if (!result.hasPop && result.hasImap)
-                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_manage_keywords, order++, R.string.title_manage_keywords)
-                            .setIcon(R.drawable.twotone_label_important_24);
+                popupMenu.getMenu().add(Menu.FIRST, R.string.title_manage_keywords, order++, R.string.title_manage_keywords)
+                        .setIcon(R.drawable.twotone_label_important_24);
 
                 if (ids.length == 1)
                     popupMenu.getMenu().add(Menu.FIRST, R.string.title_search_sender, order++, R.string.title_search_sender)
@@ -4773,7 +4773,7 @@ public class FragmentMessages extends FragmentBase
                             onActionMoveSelectionAccount(result.copyto.id, true, result.folders);
                             return true;
                         } else if (itemId == R.string.title_manage_keywords) {
-                            onActionManageKeywords(false);
+                            onActionManageKeywords(false, result.hasPop);
                             return true;
                         } else if (itemId == R.string.title_search_sender) {
                             long[] ids = getSelection();
@@ -5296,9 +5296,10 @@ public class FragmentMessages extends FragmentBase
         fragment.show(getParentFragmentManager(), "messages:move");
     }
 
-    private void onActionManageKeywords(boolean clear) {
+    private void onActionManageKeywords(boolean clear, boolean pop) {
         Bundle args = new Bundle();
         args.putLongArray("ids", getSelection());
+        args.putBoolean("pop", pop);
 
         FragmentDialogKeywordManage fragment = new FragmentDialogKeywordManage();
         fragment.setArguments(args);
@@ -7454,7 +7455,7 @@ public class FragmentMessages extends FragmentBase
                         if (inbox)
                             count++;
 
-                        boolean keywords = (more_keywords && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && !result.hasPop && result.hasImap);
+                        boolean keywords = (more_keywords && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS);
                         if (keywords)
                             count++;
 

@@ -26,6 +26,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,6 +44,7 @@ import java.util.List;
 
 public class FragmentDialogKeywordManage extends FragmentDialogBase {
     private View dview;
+    private TextView tvPop;
     private RecyclerView rvKeyword;
     private FloatingActionButton fabAdd;
     private ContentLoadingProgressBar pbWait;
@@ -52,12 +54,17 @@ public class FragmentDialogKeywordManage extends FragmentDialogBase {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final Bundle args = getArguments();
+        long[] ids = args.getLongArray("ids");
+        boolean pop = args.getBoolean("pop");
 
         final Context context = getContext();
         dview = LayoutInflater.from(context).inflate(R.layout.dialog_keyword_manage, null);
+        tvPop = dview.findViewById(R.id.tvPop);
         rvKeyword = dview.findViewById(R.id.rvKeyword);
         fabAdd = dview.findViewById(R.id.fabAdd);
         pbWait = dview.findViewById(R.id.pbWait);
+
+        tvPop.setVisibility(pop ? View.VISIBLE : View.GONE);
 
         rvKeyword.setHasFixedSize(false);
         final LinearLayoutManager llm = new LinearLayoutManager(context);
@@ -78,7 +85,6 @@ public class FragmentDialogKeywordManage extends FragmentDialogBase {
 
         pbWait.setVisibility(View.VISIBLE);
 
-        long[] ids = args.getLongArray("ids");
         if (ids.length == 1) {
             DB db = DB.getInstance(context);
             db.message().liveMessageKeywords(ids[0]).observe(getViewLifecycleOwner(), new Observer<TupleKeyword.Persisted>() {

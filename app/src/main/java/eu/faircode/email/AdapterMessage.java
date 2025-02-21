@@ -2367,7 +2367,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean trash = (move || outbox || debug || pop);
                     boolean inbox = (move && hasInbox && (inArchive || inTrash || inJunk) && imap) ||
                             (pop && message.accountLeaveDeleted && inTrash);
-                    boolean keywords = (message.uid != null && imap);
+                    boolean keywords = (message.uid != null || pop);
                     boolean labels = (data.isGmail && move && !inTrash && !inJunk && !outbox);
                     boolean seen = (message.uid != null || pop);
 
@@ -6459,8 +6459,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_create_rule).setVisible(!message.folderReadOnly);
 
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords)
-                    .setEnabled(message.uid != null)
-                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+                    .setEnabled(message.uid != null || message.accountProtocol == EntityAccount.TYPE_POP);
 
             popupMenu.getMenu().findItem(R.id.menu_search_in_text).setEnabled(message.content && !full);
             popupMenu.getMenu().findItem(R.id.menu_translate).setVisible(
@@ -7550,6 +7549,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onMenuManageKeywords(TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLongArray("ids", new long[]{message.id});
+            args.putBoolean("pop", message.accountProtocol == EntityAccount.TYPE_POP);
 
             FragmentDialogKeywordManage fragment = new FragmentDialogKeywordManage();
             fragment.setArguments(args);
