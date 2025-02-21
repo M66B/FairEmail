@@ -702,8 +702,7 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_SNOOZE, getString(R.string.title_rule_snooze), R.drawable.twotone_timelapse_24));
         actions.add(new Action(EntityRule.TYPE_FLAG, getString(R.string.title_rule_flag), R.drawable.twotone_star_24));
         actions.add(new Action(EntityRule.TYPE_IMPORTANCE, getString(R.string.title_rule_importance), R.drawable.twotone_north_24));
-        if (protocol == EntityAccount.TYPE_IMAP)
-            actions.add(new Action(EntityRule.TYPE_KEYWORD, getString(R.string.title_rule_keyword), R.drawable.twotone_label_important_24));
+        actions.add(new Action(EntityRule.TYPE_KEYWORD, getString(R.string.title_rule_keyword), R.drawable.twotone_label_important_24));
         actions.add(new Action(EntityRule.TYPE_NOTES, getString(R.string.title_rule_notes), R.drawable.twotone_sticky_note_2_24));
         actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move), R.drawable.twotone_drive_file_move_24));
         if (protocol == EntityAccount.TYPE_IMAP)
