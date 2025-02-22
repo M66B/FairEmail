@@ -2308,6 +2308,7 @@
         <item>Vaid PGP krüpteering</item>
         <item>PGP allkiri+krüpteering</item>
         <item>Vaid S/MIME allkiri</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>S/MIME allkiri+krüpt.</item>
     </string-array>
     <string-array name="sizeNames">

@@ -2312,6 +2312,7 @@
         <item>Само криптиране PGP</item>
         <item>PGP подписване+криптиране</item>
         <item>S/MIME само подписване</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>S/MIME подписване+криптиране</item>
     </string-array>
     <string-array name="sizeNames">

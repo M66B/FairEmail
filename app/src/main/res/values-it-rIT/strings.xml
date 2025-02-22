@@ -379,7 +379,7 @@
     <string name="title_advanced_kept_removed">Verifica se i vecchi messaggi sono stati rimossi dal server</string>
     <string name="title_advanced_gmail_thread">Stile di raggruppamento dei messaggi di Gmail per gli account Gmail</string>
     <string name="title_advanced_subject_threading">Raggruppa i messaggi per mittente e oggetto</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Sincronizza le categorie di Outlook</string>
+    <string name="title_advanced_outlook_categories">Sincronizza le categorie di Outlook</string>
     <string name="title_advanced_sync_folders">Sincronizza l\'elenco delle cartelle</string>
     <string name="title_advanced_sync_folders_poll">Sincronizza attivamente l\'elenco delle cartelle</string>
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi delle cartelle condivise</string>
@@ -395,7 +395,7 @@
     <string name="title_advanced_tune_keep_alive">Regola automaticamente l\'intervallo di keep-alive</string>
     <string name="title_advanced_blocklist_warning">Le blacklist non sono perfette e potrebbero bloccare altro oltre allo spam!</string>
     <string name="title_advanced_keyboard">Mostra la tastiera in modo predefinito</string>
-    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Aggiungi un margine sopra la tastiera</string>
+    <string name="title_advanced_keyboard_margin">Aggiungi un margine sopra la tastiera</string>
     <string name="title_advanced_keyboard_no_fullscreen">Impedisci la tastiera a schermo intero</string>
     <string name="title_advanced_suggest_names">Usa nomi e indirizzi email</string>
     <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
@@ -711,6 +711,7 @@
     <string name="title_advanced_notify_screen_on">Accendi brevemente lo schermo per le notifiche dei nuovi messaggi</string>
     <string name="title_advanced_notifications_background">Usa il servizio in background per sincronizzare i messaggi</string>
     <string name="title_advanced_notifications_background_hint">Un servizio in background è interrompibile in qualsiasi momento da Android, ma non richiede una notifica della barra di stato</string>
+    <string name="title_advanced_rate_limit">Limita i suoni di notifica dei nuovi messaggi a una volta per:</string>
     <string name="title_advanced_confirm_links">Conferma l\'apertura dei link</string>
     <string name="title_advanced_confirm_files">Conferma la visualizzazione dei file</string>
     <string name="title_advanced_sanitize_links">Rimuovi sempre i parametri di monitoraggio</string>
@@ -847,7 +848,7 @@
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia extra della batteria, specialmente se sono memorizzati molti messaggi sul dispositivo</string>
     <string name="title_advanced_gmail_thread_hint">Ciò si applica solo ai messaggi appena ricevuti e può corrompere i gruppi esistenti</string>
     <string name="title_advanced_subject_threading_hint">Solo i messaggi ricevuti nelle ultime %1$d ore</string>
-    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">È possibile recuperare le categorie di Outlook ma non possono essere aggiornate in modo automatico a causa delle limitazioni del server IMAP di Outlook</string>
+    <string name="title_advanced_outlook_categories_hint">È possibile recuperare le categorie di Outlook ma non possono essere aggiornate in modo automatico a causa delle limitazioni del server IMAP di Outlook</string>
     <string name="title_advanced_sync_folders_hint">La disattivazione di questa opzione ridurrà in qualche modo l\'uso dei dati e della batteria, ma disattiverà anche l\'aggiornamento dell\'elenco delle cartelle</string>
     <string name="title_advanced_poll_folders_hint">Dopo la connessione a un account, sincronizza periodicamente anche l\'elenco delle cartelle</string>
     <string name="title_advanced_check_authentication_hint">Verranno controllati i risultati dell\'autenticazione DKIM, SPF e DMARC come eseguiti dal server email</string>
@@ -931,7 +932,7 @@
     <string name="title_advanced_notify_car_hint">Connesso indica che qualcosa è in proiezione, come una mappa per la navigazione</string>
     <string name="title_advanced_notify_remove_hint">Le notifiche dei nuovi messaggi saranno sempre rimosse scorrendo via e contrassegnando i messaggi come letti</string>
     <string name="title_advanced_notify_manage_hint">Toccare sul nome del canale per impostare le proprietà del canale</string>
-    <string name="title_advanced_notify_samsung_hint">Per gestire i canali di notifica, potrebbe essere necessario impostarli da sistema. Puoi farlo da Impostazioni → Notifiche → Avanzate (o simile), oppure da Impostazioni → App / Gestione app → FairEmail → Notifiche</string>
+    <string name="title_advanced_notify_samsung_hint">Per gestire i canali di notifica, potrebbe essere necessario abilitare questa impostazione Android: Notifiche, Impostazioni avanzate, Gestione delle categorie di notifiche per ogni app</string>
     <string name="title_advanced_notify_manage_default_hint">Per impostare il suono predefinito, etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Per disabilitare la notifica di monitoraggio</string>
     <string name="title_advanced_notify_separate_hint">Come configurare le notifiche per gli account, le cartelle e i mittenti?</string>
@@ -1285,6 +1286,7 @@
     <string name="title_raw_send_message">Messaggio</string>
     <string name="title_raw_send_thread">Conversazione</string>
     <string name="title_manage_keywords">Gestione delle parole chiave</string>
+    <string name="title_manage_keywords_pop">Con POP3 le parole chiave non possono essere memorizzate sul server di posta elettronica!</string>
     <string name="title_manage_labels">Gestione delle etichette di Gmail</string>
     <string name="title_add_keyword">Aggiungi parola chiave</string>
     <string name="title_show_inline">Mostra allegati in linea</string>
@@ -2320,6 +2322,7 @@
         <item>Solo cifratura PGP</item>
         <item>Firma e cifratura PGP</item>
         <item>Solo firma S/MIME</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>Firma e cifratura S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

@@ -376,7 +376,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_kept_removed">Kontrolearje oft âlde berjochten fan de server fuortsmiten binne</string>
     <string name="title_advanced_gmail_thread">Gmail-berjochten groepearstyl foar Gmail-accounts</string>
     <string name="title_advanced_subject_threading">Groepearje berjochten op ôfstjoerder en ûnderwerp</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Outlook-kategoryien syngronisearje</string>
+    <string name="title_advanced_outlook_categories">Outlook-kategoryien syngronisearje</string>
     <string name="title_advanced_sync_folders">Maplist syngronisearje</string>
     <string name="title_advanced_sync_folders_poll">Maplist aktyf syngronisearje</string>
     <string name="title_advanced_sync_shared_folders">Dielde maplisten syngronisearje</string>
@@ -392,7 +392,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_tune_keep_alive">De keep-alive ynterfal automatysk oanpasse</string>
     <string name="title_advanced_blocklist_warning">Blokkearlisten binne net perfekt en kinne mear blokkearje as allinnich spam!</string>
     <string name="title_advanced_keyboard">Standert it toetseboerd toane</string>
-    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Foegje in marzje boppe it toetseboerd ta</string>
+    <string name="title_advanced_keyboard_margin">Foegje in marzje boppe it toetseboerd ta</string>
     <string name="title_advanced_keyboard_no_fullscreen">Toetseboerd op folslein skerm opkeare</string>
     <string name="title_advanced_suggest_names">Nammen en e-mailadressen brûke</string>
     <string name="title_advanced_suggest_local">Lokaal bewarre kontakten foarstelle</string>
@@ -843,7 +843,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_sync_kept_hint">Dit sil ekstra gegevens oerdrage en ekstra batterijkrêft konsumearje, foaral as in soad berjochten op it apparaat bewarre wurde.</string>
     <string name="title_advanced_gmail_thread_hint">Dit jildt allinnich foar nij ûntfangen berjochten en kin besteande groepen ferbrekke.</string>
     <string name="title_advanced_subject_threading_hint">Allinnich berjochten ûntfongen yn de ôfrûne %1$d oeren.</string>
-    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Outlook-kategorieën kinne allinnich ophelle wurde en kinne net automatysk fernijd wurde fanwegen de beheiningen fan de Outlook IMAP-server</string>
+    <string name="title_advanced_outlook_categories_hint">Outlook-kategorieën kinne allinnich ophelle wurde en kinne net automatysk fernijd wurde fanwegen de beheiningen fan de Outlook IMAP-server</string>
     <string name="title_advanced_sync_folders_hint">As jo dit útskeakelje, sille gegevens en batterijgebrûk wat ferminderje, mar sil it bywurkjen fan de list mei mappen ek útskeakelje.</string>
     <string name="title_advanced_poll_folders_hint">Periodyk syngronisearjen fan de mappelist njonken nei ferbining meitsje mei in account</string>
     <string name="title_advanced_check_authentication_hint">Dit kontrolearret de resultaten fan DKIM, SPF en DMARC autentikaasje, lykas útfierd troch de e-mailserver</string>
@@ -2309,6 +2309,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
         <item>PGP allinnich fersifering</item>
         <item>PGP-ûndertekening+-fersifering</item>
         <item>S/MIME allinnich ûndertekening</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>S/MIME-ûndertekening+-fersifering</item>
     </string-array>
     <string-array name="sizeNames">

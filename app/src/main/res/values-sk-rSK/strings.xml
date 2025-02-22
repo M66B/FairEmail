@@ -2291,6 +2291,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Len PGP šifrovanie</item>
         <item>PGP podpísať aj zašifrovať</item>
         <item>S/MIME len podpísať</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>S/MIME podpísať aj zašifrovať</item>
     </string-array>
     <string-array name="sizeNames">

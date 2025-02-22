@@ -379,7 +379,7 @@
     <string name="title_advanced_kept_removed">Vérifier si les anciens messages ont été supprimés du serveur</string>
     <string name="title_advanced_gmail_thread">Regrouper les messages en utilisant le style de Gmail pour les comptes Gmail</string>
     <string name="title_advanced_subject_threading">Regrouper les messages par expéditeur et par sujet</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Synchroniser les catégories Outlook</string>
+    <string name="title_advanced_outlook_categories">Synchroniser les catégories Outlook</string>
     <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
     <string name="title_advanced_sync_folders_poll">Synchroniser activement la liste des dossiers</string>
     <string name="title_advanced_sync_shared_folders">Synchroniser les listes de dossiers partagés</string>
@@ -395,7 +395,7 @@
     <string name="title_advanced_tune_keep_alive">Ajuster automatiquement l\'intervalle de connexion</string>
     <string name="title_advanced_blocklist_warning">Les listes de blocage ne sont pas parfaites et peuvent bloquer davantage de messages que les indésirables !</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
-    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Ajouter une marge au-dessus du clavier</string>
+    <string name="title_advanced_keyboard_margin">Ajouter une marge au-dessus du clavier</string>
     <string name="title_advanced_keyboard_no_fullscreen">Ne pas afficher le clavier en plein écran</string>
     <string name="title_advanced_suggest_names">Utiliser les noms et les adresses courriel</string>
     <string name="title_advanced_suggest_local">Suggérer les contacts stockés localement</string>
@@ -711,6 +711,7 @@
     <string name="title_advanced_notify_screen_on">Allumer brièvement l\'écran lors des nouvelles notifications de message</string>
     <string name="title_advanced_notifications_background">Utiliser le service d\'arrière-plan pour synchroniser les messages</string>
     <string name="title_advanced_notifications_background_hint">Un service en arrière-plan peut être arrêté par Android à tout moment, mais ne nécessite pas de notification dans la barre d\'état</string>
+    <string name="title_advanced_rate_limit">Limiter les sons de notification des nouveaux messages à une fois par :</string>
     <string name="title_advanced_confirm_links">Confirmer l’ouverture des liens</string>
     <string name="title_advanced_confirm_files">Confirmer la visualisation des fichiers</string>
     <string name="title_advanced_sanitize_links">Supprimer les paramètres de suivi par défaut</string>
@@ -847,7 +848,7 @@
     <string name="title_advanced_sync_kept_hint">Ceci utilisera des données et de la pile supplémentaires, surtout s’il y a beaucoup de messages conservés sur l’appareil</string>
     <string name="title_advanced_gmail_thread_hint">Ceci s\'applique uniquement aux messages nouvellement reçus et peut corrompre les groupes existants</string>
     <string name="title_advanced_subject_threading_hint">Seuls les messages reçus au cours des %1$d dernières heures</string>
-    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Les catégories Outlook peuvent seulement être récupérées et ne peuvent pas être actualisées automatiquement en raison des limitations du serveur IMAP Outlook</string>
+    <string name="title_advanced_outlook_categories_hint">Les catégories Outlook peuvent seulement être récupérées et ne peuvent pas être actualisées automatiquement en raison des limitations du serveur IMAP Outlook</string>
     <string name="title_advanced_sync_folders_hint">Désactiver ceci réduira quelque peu l’utilisation des données et de la pile mais désactivera également la mise à jour de la liste des dossiers</string>
     <string name="title_advanced_poll_folders_hint">Synchroniser périodiquement la liste des dossiers suite à la connexion à un compte</string>
     <string name="title_advanced_check_authentication_hint">Ceci contrôlera les résultats de l\'authentification DKIM, SPF et DMARC effectuée par le serveur de messagerie</string>
@@ -1285,6 +1286,7 @@
     <string name="title_raw_send_message">Message</string>
     <string name="title_raw_send_thread">Conversation</string>
     <string name="title_manage_keywords">Gérer les mots-clés</string>
+    <string name="title_manage_keywords_pop">Avec POP3, les mots-clés ne peuvent pas être stockés sur le serveur de messagerie !</string>
     <string name="title_manage_labels">Gérer les libellés Gmail</string>
     <string name="title_add_keyword">Ajouter un mot-clé</string>
     <string name="title_show_inline">Lister les éléments inclus</string>
@@ -2320,6 +2322,7 @@
         <item>Chiffrement PGP seulement</item>
         <item>Signature et chiffrement PGP</item>
         <item>Signature S/MIME seulement</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>Signature et chiffrement S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

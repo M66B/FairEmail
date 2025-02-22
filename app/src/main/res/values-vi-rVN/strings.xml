@@ -1872,6 +1872,7 @@
         <item>PGP encrypt-only</item>
         <item>PGP ký+mã hoá</item>
         <item>S/MIME chỉ ký</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>S/MIME ký+mã hoá</item>
     </string-array>
     <string-array name="sizeNames">

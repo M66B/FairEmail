@@ -379,7 +379,7 @@
     <string name="title_advanced_kept_removed">Köhnə mesajların serverlərdən silinib silinmədiyini yoxlayın</string>
     <string name="title_advanced_gmail_thread">Gmail hesabları üçün Gmail mesaj qruplaşdırma stili</string>
     <string name="title_advanced_subject_threading">Göndərənə və mövzuya görə mesajları qruplaşdır</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Outlook kateqoriyalarını sinxronlaşdırma</string>
+    <string name="title_advanced_outlook_categories">Outlook kateqoriyalarını sinxronlaşdırma</string>
     <string name="title_advanced_sync_folders">Qovluq siyahısını sinxronlaşdır</string>
     <string name="title_advanced_sync_folders_poll">Qovluq siyahısını aktiv olaraq sinxronlaşdır</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan qovluq siyahılarını sinxronlaşdır</string>
@@ -395,7 +395,7 @@
     <string name="title_advanced_tune_keep_alive">Canlı saxlama aralığını avtomatik köklə</string>
     <string name="title_advanced_blocklist_warning">Əngəlləmə siyahıları mükəmməl deyil və spam-dan daha çoxunu əngəlləyə bilər!</string>
     <string name="title_advanced_keyboard">Klaviaturanı ilkin olaraq göstər</string>
-    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Klaviaturanın üzərinə bir haşiyə əlavə edin</string>
+    <string name="title_advanced_keyboard_margin">Klaviaturanın üzərinə bir haşiyə əlavə edin</string>
     <string name="title_advanced_keyboard_no_fullscreen">Tam ekran klaviaturanı əngəllə</string>
     <string name="title_advanced_suggest_names">Ad və e-poçt ünvanlarını istifadə et</string>
     <string name="title_advanced_suggest_local">Yerli anbarda saxlanılan əlaqələri təklif et</string>
@@ -711,6 +711,7 @@
     <string name="title_advanced_notify_screen_on">Yeni mesaj bildirişləri üçün ekranı qısa aç</string>
     <string name="title_advanced_notifications_background">Mesajları sinxronlaşdırmaq üçün arxaplan xidməti istifadə et</string>
     <string name="title_advanced_notifications_background_hint">Bir arxaplan xidməti istənilən vaxt Android tərəfindən dayandırıla bilər, ancaq vəziyyət sətri bildirişini tələb etmir</string>
+    <string name="title_advanced_rate_limit">Yeni mesajların bildiriş səslərini məhdudlaşdır:</string>
     <string name="title_advanced_confirm_links">Keçidlərin açılmasını təsdiqlə</string>
     <string name="title_advanced_confirm_files">Fayllara baxışı təsdiqlə</string>
     <string name="title_advanced_sanitize_links">İzləmə parametrlərini ilkin olaraq çıxart</string>
@@ -846,7 +847,7 @@
     <string name="title_advanced_sync_kept_hint">Bu, xüsusilə cihazda həddindən çox mesaj saxlanılanda ekstra data transfer edir və daha çox batareya enerjisi istifadə edir</string>
     <string name="title_advanced_gmail_thread_hint">Bu, yalnız yeni gələn mesajlara tətbiq olunur və mövcud qrupları zədələyə bilər</string>
     <string name="title_advanced_subject_threading_hint">Yalnız son %1$d saat ərzində alınan mesajlar</string>
-    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Outlook kateqoriyaları yalnız gətirilə bilər və Outlook IMAP server məhdudiyyətlərinə görə avtomatik yenilənə bilməz</string>
+    <string name="title_advanced_outlook_categories_hint">Outlook kateqoriyaları yalnız gətirilə bilər və Outlook IMAP server məhdudiyyətlərinə görə avtomatik yenilənə bilməz</string>
     <string name="title_advanced_sync_folders_hint">Bunu sıradan çıxartmaq, internet və batareya istifadəsini bir az azaldacaq, ancaq qovluq siyahısının güncəllənməsini də sıradan çıxardacaq</string>
     <string name="title_advanced_poll_folders_hint">Bir hesaba bağlandıqdan sonra əlavə olaraq qovluq siyahısını mütəmadi olaraq sinxronlaşdır</string>
     <string name="title_advanced_check_authentication_hint">Bu, e-poçt serveri tərəfindən icra edilən DKIM, SPF və DMARC kimlik doğrulamanın nəticələrini yoxlayacaq</string>
@@ -1284,6 +1285,7 @@
     <string name="title_raw_send_message">Mesaj</string>
     <string name="title_raw_send_thread">Danışıq</string>
     <string name="title_manage_keywords">Açar sözləri idarə et</string>
+    <string name="title_manage_keywords_pop">POP3 ilə açar sözlər, e-poçt serverində saxlanıla bilməz!</string>
     <string name="title_manage_labels">Gmail etiketlərini idarə et</string>
     <string name="title_add_keyword">Açarsöz əlavə et</string>
     <string name="title_show_inline">Sətiriçi qoşmaları göstər</string>
@@ -2312,6 +2314,7 @@
         <item>PGP yalnız şifrələmə</item>
         <item>PGP imza+şifrələmə</item>
         <item>S/MIME yalnız imza</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>S/MIME imza+şifrələmə</item>
     </string-array>
     <string-array name="sizeNames">

@@ -2289,6 +2289,7 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
         <item>僅 PGP 加密</item>
         <item>PGP 簽名+加密</item>
         <item>僅 S/MIME 簽名</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>S/MIME 簽名+加密</item>
     </string-array>
     <string-array name="sizeNames">

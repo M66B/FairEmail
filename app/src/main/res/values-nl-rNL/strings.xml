@@ -376,7 +376,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_kept_removed">Controleer of oude berichten van de server werden verwijderd</string>
     <string name="title_advanced_gmail_thread">Gmail bericht groeperingsstijl voor Gmail accounts</string>
     <string name="title_advanced_subject_threading">Berichten groeperen op afzender en onderwerp</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Outlook-categorieën synchroniseren</string>
+    <string name="title_advanced_outlook_categories">Outlook-categorieën synchroniseren</string>
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
     <string name="title_advanced_sync_folders_poll">Actief mappenlijst synchroniseren</string>
     <string name="title_advanced_sync_shared_folders">Lijst met gedeelde mappen synchroniseren</string>
@@ -392,7 +392,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_tune_keep_alive">De keep-alive interval automatisch aanpassen</string>
     <string name="title_advanced_blocklist_warning">Blokkeer lijsten zijn niet perfect en kunnen meer blokkeren dan alleen spam!</string>
     <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>
-    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Voeg een marge boven het toetsenbord toe</string>
+    <string name="title_advanced_keyboard_margin">Voeg een marge boven het toetsenbord toe</string>
     <string name="title_advanced_keyboard_no_fullscreen">Toetsenbord in volledige scherm voorkomen</string>
     <string name="title_advanced_suggest_names">Gebruik namen en e-mailadressen</string>
     <string name="title_advanced_suggest_local">Suggereer lokaal opgeslagen contacten</string>
@@ -708,6 +708,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_notify_screen_on">Schakel het scherm kort in voor nieuwe berichtmeldingen</string>
     <string name="title_advanced_notifications_background">Gebruik achtergrondservice om berichten te synchroniseren</string>
     <string name="title_advanced_notifications_background_hint">Een achtergrondservice kan op elk gewenst moment worden gestopt door Android, maar vereist geen melding in de statusbalk</string>
+    <string name="title_advanced_rate_limit">Beperk meldingsgeluiden van nieuwe berichten tot ééns per:</string>
     <string name="title_advanced_confirm_links">Bevestig het openen van koppelingen</string>
     <string name="title_advanced_confirm_files">Bevestig het bekijken van bestanden</string>
     <string name="title_advanced_sanitize_links">Verwijder standaard tracking parameters</string>
@@ -842,7 +843,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat zijn opgeslagen</string>
     <string name="title_advanced_gmail_thread_hint">Dit geldt alleen voor nieuw ontvangen berichten en kan bestaande groepen verbreken</string>
     <string name="title_advanced_subject_threading_hint">Alleen berichten ontvangen in de afgelopen %1$d uur</string>
-    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Outlook-categorieën kunnen alleen worden opgehaald en kunnen niet automatisch worden vernieuwd vanwege de beperkingen van de Outlook IMAP-server</string>
+    <string name="title_advanced_outlook_categories_hint">Outlook-categorieën kunnen alleen worden opgehaald en kunnen niet automatisch worden vernieuwd vanwege de beperkingen van de Outlook IMAP-server</string>
     <string name="title_advanced_sync_folders_hint">Dit uitschakelen zal het gebruik van gegevens en batterij enigszins verminderen, maar zal ook het bijwerken van de lijst met mappen uitschakelen</string>
     <string name="title_advanced_poll_folders_hint">Periodiek synchroniseren van de mappenlijst naast na verbinding maken met een account</string>
     <string name="title_advanced_check_authentication_hint">Dit controleert de resultaten van DKIM, SPF en DMARC authenticatie zoals uitgevoerd door de e-mailserver</string>
@@ -1277,6 +1278,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_raw_send_message">Bericht</string>
     <string name="title_raw_send_thread">Gesprek</string>
     <string name="title_manage_keywords">Sleutelwoorden beheren</string>
+    <string name="title_manage_keywords_pop">Met POP3 kunnen sleutelwoorden niet worden opgeslagen op de mailserver!</string>
     <string name="title_manage_labels">Gmail labels beheren</string>
     <string name="title_add_keyword">Sleutelwoord toevoegen</string>
     <string name="title_show_inline">Toon inline bijlagen</string>
@@ -2303,6 +2305,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>PGP alleen versleuteling</item>
         <item>PGP ondertekening+versleuteling</item>
         <item>S/MIME alleen ondertekening</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME alleen versleuteling</item>
         <item>S/MIME ondertekening+versleuteling</item>
     </string-array>
     <string-array name="sizeNames">

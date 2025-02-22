@@ -37,7 +37,7 @@
     <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_optimize">Automatically optimise</string>
     <string name="title_advanced_advanced">Advanced</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Synchronise Outlook categories</string>
+    <string name="title_advanced_outlook_categories">Synchronise Outlook categories</string>
     <string name="title_advanced_sync_folders">Synchronise folder list</string>
     <string name="title_advanced_sync_folders_poll">Actively synchronise folder list</string>
     <string name="title_advanced_sync_shared_folders">Synchronise shared folder lists</string>

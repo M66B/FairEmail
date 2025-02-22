@@ -378,6 +378,7 @@
     <string name="title_advanced_kept_removed">Comprobar si los mensajes antiguos fueron eliminados del servidor</string>
     <string name="title_advanced_gmail_thread">Estilo de agrupación de mensajes de Gmail para cuentas de Gmail</string>
     <string name="title_advanced_subject_threading">Agrupar mensajes por remitente y asunto</string>
+    <string name="title_advanced_outlook_categories">Sincronizar categorías de Outlook</string>
     <string name="title_advanced_sync_folders">Sincronizar lista de carpetas</string>
     <string name="title_advanced_sync_folders_poll">Sincronizar la lista de carpetas activamente</string>
     <string name="title_advanced_sync_shared_folders">Sincronizar listas de carpetas compartidas</string>
@@ -393,6 +394,7 @@
     <string name="title_advanced_tune_keep_alive">Ajustar automáticamente el intervalo de keep-alive</string>
     <string name="title_advanced_blocklist_warning">¡Las listas de bloqueo no son perfectas y pueden bloquear algo más que spam!</string>
     <string name="title_advanced_keyboard">Mostrar teclado por defecto</string>
+    <string name="title_advanced_keyboard_margin">Añadir un margen sobre el teclado</string>
     <string name="title_advanced_keyboard_no_fullscreen">Evitar teclado de pantalla completa</string>
     <string name="title_advanced_suggest_names">Usar nombres y direcciones de correo electrónico</string>
     <string name="title_advanced_suggest_local">Sugerir contactos almacenados localmente</string>
@@ -708,6 +710,7 @@
     <string name="title_advanced_notify_screen_on">Activar brevemente la pantalla para notificaciones de mensajes nuevos</string>
     <string name="title_advanced_notifications_background">Usar servicio en segundo plano para sincronizar mensajes</string>
     <string name="title_advanced_notifications_background_hint">Un servicio en segundo plano puede ser detenido por Android en cualquier momento, pero no requiere una notificación de la barra de estado</string>
+    <string name="title_advanced_rate_limit">Limitar los sonidos de notificación de nuevos mensajes a una vez cada:</string>
     <string name="title_advanced_confirm_links">Confirmar abrir enlaces</string>
     <string name="title_advanced_confirm_files">Confirmar visualización de archivos</string>
     <string name="title_advanced_sanitize_links">Eliminar parámetros de rastreo por defecto</string>
@@ -843,6 +846,7 @@
     <string name="title_advanced_sync_kept_hint">Esto transferirá datos adicionales y consumirá energía adicional de batería, especialmente si hay muchos mensajes almacenados en el dispositivo</string>
     <string name="title_advanced_gmail_thread_hint">Esto sólo se aplica a los mensajes recibidos recientemente y puede romper los grupos existentes</string>
     <string name="title_advanced_subject_threading_hint">Sólo mensajes recibidos en las últimas %1$d horas</string>
+    <string name="title_advanced_outlook_categories_hint">Las categorías Outlook sólo pueden ser obtenidas y no pueden actualizarse automáticamente debido a las limitaciones del servidor IMAP de Outlook</string>
     <string name="title_advanced_sync_folders_hint">Desactivar esto reducirá el uso de datos y batería, pero también desactivará la actualización de la lista de carpetas</string>
     <string name="title_advanced_poll_folders_hint">Sincronizar la lista de carpetas periódicamente además de después de conectarse a una cuenta</string>
     <string name="title_advanced_check_authentication_hint">Esto comprobará los resultados de autenticación DKIM, SPF y DMARC tal como se realiza por el servidor de correo</string>
@@ -1279,6 +1283,7 @@
     <string name="title_raw_send_message">Mensaje</string>
     <string name="title_raw_send_thread">Conversación</string>
     <string name="title_manage_keywords">Administrar palabras clave</string>
+    <string name="title_manage_keywords_pop">Con POP3, ¡las palabras clave no se pueden almacenar en el servidor de correo electrónico!</string>
     <string name="title_manage_labels">Administrar etiquetas de Gmail</string>
     <string name="title_add_keyword">Añadir palabra clave</string>
     <string name="title_show_inline">Mostrar adjuntos embebidos</string>
@@ -2311,6 +2316,7 @@
         <item>Sólo cifrado PGP</item>
         <item>Firmar y cifrar con PGP</item>
         <item>Sólo firmar S/MIME</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>Firmar y cifrar S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

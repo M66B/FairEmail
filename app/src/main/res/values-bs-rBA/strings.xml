@@ -393,7 +393,7 @@
     <string name="title_advanced_kept_removed">Provjeri da li su stare poruke izbrisane sa servera</string>
     <string name="title_advanced_gmail_thread">Gmail stil grupisanja poruka za Gmail račune</string>
     <string name="title_advanced_subject_threading">Grupisanje poruka prema pošiljaocu i predmetu</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Sinhronizacija Outlook-ovih kategorija</string>
+    <string name="title_advanced_outlook_categories">Sinhronizacija Outlook-ovih kategorija</string>
     <string name="title_advanced_sync_folders">Sinhronizuj spisak foldera</string>
     <string name="title_advanced_sync_folders_poll">Aktivno sinhronizuj spisak foldera</string>
     <string name="title_advanced_sync_shared_folders">Sinhronizuj spisak dijeljenih foldera</string>
@@ -409,7 +409,7 @@
     <string name="title_advanced_tune_keep_alive">Automatski podesi interval provjere konekcije</string>
     <string name="title_advanced_blocklist_warning">Liste blokiranja nisu savršene i mogu blokirati osim spama i druge poruke!</string>
     <string name="title_advanced_keyboard">Prikaži tastaturu po zadanom</string>
-    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Dodaj marginu iznad tastature</string>
+    <string name="title_advanced_keyboard_margin">Dodaj marginu iznad tastature</string>
     <string name="title_advanced_keyboard_no_fullscreen">Spriječi tastaturu preko cijelog ekrana</string>
     <string name="title_advanced_suggest_names">Prikaži imena i e-mail adrese</string>
     <string name="title_advanced_suggest_local">Predloži lokalne kontakte</string>
@@ -725,6 +725,7 @@
     <string name="title_advanced_notify_screen_on">Kratko uključi ekran za obavještenja o novim porukama</string>
     <string name="title_advanced_notifications_background">Koristi pozadinski servis za sinhronizaciju poruka</string>
     <string name="title_advanced_notifications_background_hint">Android može zaustaviti pozadinski servis bilo kada, ali on ne zahtijeva obavještenje na statusnoj traci</string>
+    <string name="title_advanced_rate_limit">Ograniči zvukove obavještenja o novim porukama jednom u:</string>
     <string name="title_advanced_confirm_links">Potvrdi linkove na otvaranju</string>
     <string name="title_advanced_confirm_files">Potvrda pregleda datoteka</string>
     <string name="title_advanced_sanitize_links">Ukloni parametre \'praćenja\' po default-u</string>
@@ -860,7 +861,7 @@
     <string name="title_advanced_sync_kept_hint">Ovo će transferirati dodatne podatke i trošiti više baterije, posebno ako se na uređaju čuva dosta poruka</string>
     <string name="title_advanced_gmail_thread_hint">Ovo se primjenjuje samo na novoprimljene poruke i može razlomiti postojeće grupe</string>
     <string name="title_advanced_subject_threading_hint">Samo poruke primljene zadnja(ih) %1$d sata(i)</string>
-    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Outlook-ove kategorije mogu se samo dohvatiti, ali ne i automatski osvježavati zbog ograničenja Outlook IMAP servera</string>
+    <string name="title_advanced_outlook_categories_hint">Outlook-ove kategorije mogu se samo dohvatiti, ali ne i automatski osvježavati zbog ograničenja Outlook IMAP servera</string>
     <string name="title_advanced_sync_folders_hint">Isključivanjem ove opcije smanjit će se donekle potrošnja podataka i baterije, ali će se također isključiti i ažuriranje spiska foldera</string>
     <string name="title_advanced_poll_folders_hint">Periodično sinhronizuj spisak foldera, nakon povezivanja na račun</string>
     <string name="title_advanced_check_authentication_hint">Ovo će provjeriti rezultate DKIM, SPF i DMARC provjere koje se izvode na e-mail serveru</string>
@@ -2327,6 +2328,7 @@
         <item>Samo PGP šifriranje</item>
         <item>PGP potpisani i šifrirani</item>
         <item>Samo S/MIME potpisani</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>S/MIME potpisani i šifrirani</item>
     </string-array>
     <string-array name="sizeNames">

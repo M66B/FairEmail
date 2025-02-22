@@ -1494,6 +1494,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
         <item>PGP encrypt-only</item>
         <item>Signar i xifrar PGP</item>
         <item>Només signar S/MIME</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>Signar i xifrar S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

@@ -364,7 +364,7 @@
     <string name="title_advanced_kept_removed">检查是否已从服务器中移除旧邮件</string>
     <string name="title_advanced_gmail_thread">为 Gmail 账号采用 Gmail 邮件分组样式</string>
     <string name="title_advanced_subject_threading">按发件人和主题来分组邮件</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">同步 Outlook 类别</string>
+    <string name="title_advanced_outlook_categories">同步 Outlook 类别</string>
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
     <string name="title_advanced_sync_folders_poll">主动同步文件夹列表</string>
     <string name="title_advanced_sync_shared_folders">同步共享文件夹列表</string>
@@ -380,7 +380,7 @@
     <string name="title_advanced_tune_keep_alive">自动调谐保活的时间间隔</string>
     <string name="title_advanced_blocklist_warning">拦截列表并不完美，可能会阻止垃圾邮件以外的东西！</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
-    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">在键盘上方添加边距</string>
+    <string name="title_advanced_keyboard_margin">在键盘上方添加边距</string>
     <string name="title_advanced_keyboard_no_fullscreen">防止全屏键盘</string>
     <string name="title_advanced_suggest_names">使用名称和电子邮件地址</string>
     <string name="title_advanced_suggest_local">建议本地存储的联系人</string>
@@ -696,6 +696,7 @@
     <string name="title_advanced_notify_screen_on">短暂打开屏幕以获取新邮件通知</string>
     <string name="title_advanced_notifications_background">使用后台服务同步邮件</string>
     <string name="title_advanced_notifications_background_hint">后台服务不会显示状态栏通知，但随时可能会被 Android 终止</string>
+    <string name="title_advanced_rate_limit">每多少条新消息发出一次通知声音：</string>
     <string name="title_advanced_confirm_links">确认打开链接</string>
     <string name="title_advanced_confirm_files">确认查看文件</string>
     <string name="title_advanced_sanitize_links">默认删除跟踪参数</string>
@@ -831,7 +832,7 @@
     <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量邮件存储在设备上</string>
     <string name="title_advanced_gmail_thread_hint">这只适用于新收到的邮件，且可能会破坏现有的组</string>
     <string name="title_advanced_subject_threading_hint">仅在过去 %1$d 小时内收到的邮件</string>
-    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">由于 Outlook IMAP 服务器的限制，只能提取 Outlook 类别，无法自动刷新</string>
+    <string name="title_advanced_outlook_categories_hint">由于 Outlook IMAP 服务器的限制，只能提取 Outlook 类别，无法自动刷新</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
     <string name="title_advanced_poll_folders_hint">定期同步文件夹列表（除了在连接账户后）</string>
     <string name="title_advanced_check_authentication_hint">这将检查电子邮件服务器执行的DKIM、SPF和DMARC认证的结果</string>
@@ -1266,6 +1267,7 @@
     <string name="title_raw_send_message">邮件</string>
     <string name="title_raw_send_thread">对话</string>
     <string name="title_manage_keywords">关键字管理</string>
+    <string name="title_manage_keywords_pop">使用 POP3，关键字不能存储在电子邮件服务器上！</string>
     <string name="title_manage_labels">管理 Gmail 标签</string>
     <string name="title_add_keyword">添加关键字</string>
     <string name="title_show_inline">显示内嵌附件</string>
@@ -2297,6 +2299,7 @@
         <item>仅 PGP 加密</item>
         <item>PGP 签名+加密</item>
         <item>仅 S/MIME 签名</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>S/MIME 签名+加密</item>
     </string-array>
     <string-array name="sizeNames">

@@ -375,7 +375,7 @@
     <string name="title_advanced_kept_removed">Kontrollera om gamla meddelanden har tagits bort från servern</string>
     <string name="title_advanced_gmail_thread">Använd Gmails stil för gruppering av meddelande på Gmail-konton</string>
     <string name="title_advanced_subject_threading">Gruppera meddelanden efter avsändare och ämne</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Synkronisera Outlookkategorier</string>
+    <string name="title_advanced_outlook_categories">Synkronisera Outlookkategorier</string>
     <string name="title_advanced_sync_folders">Synkronisera mapplistan</string>
     <string name="title_advanced_sync_folders_poll">Synkronisera mapplistan aktivt</string>
     <string name="title_advanced_sync_shared_folders">Synkronisera delade mapplistor</string>
@@ -391,7 +391,7 @@
     <string name="title_advanced_tune_keep_alive">Justera automatiskt keep-alive intervallet</string>
     <string name="title_advanced_blocklist_warning">Blocklistor är inte perfekta och kan blockera mer än bara skräppost!</string>
     <string name="title_advanced_keyboard">Visa tangentbord som standard</string>
-    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Lägg till marginal ovanför tangentbordet</string>
+    <string name="title_advanced_keyboard_margin">Lägg till marginal ovanför tangentbordet</string>
     <string name="title_advanced_keyboard_no_fullscreen">Förhindra helskärmstangentbord</string>
     <string name="title_advanced_suggest_names">Visa namn och e-postadresser</string>
     <string name="title_advanced_suggest_local">Föreslå lokalt lagrade kontakter</string>
@@ -707,6 +707,7 @@
     <string name="title_advanced_notify_screen_on">Slå på skärmen en kort stund när det kommer nya meddelanden</string>
     <string name="title_advanced_notifications_background">Använd en bakgrundstjänst för att synkronisera meddelanden</string>
     <string name="title_advanced_notifications_background_hint">En bakgrundstjänst kan stoppas av Android när som helst, men kräver inte ett meddelande i statusfältet</string>
+    <string name="title_advanced_rate_limit">Begränsa aviseringsljud för nya meddelanden till en gång per:</string>
     <string name="title_advanced_confirm_links">Bekräfta att länkar öppnas</string>
     <string name="title_advanced_confirm_files">Bekräfta visning av filer</string>
     <string name="title_advanced_sanitize_links">Ta bort spårningsparametrar som standard</string>
@@ -837,7 +838,7 @@
     <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och förbruka extra batterikraft, speciellt om många meddelanden lagras på enheten</string>
     <string name="title_advanced_gmail_thread_hint">Detta gäller endast för nyligen mottagna meddelanden och kan bryta befintliga grupper</string>
     <string name="title_advanced_subject_threading_hint">Endast meddelanden mottagna under de senaste %1$d timmarna</string>
-    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Outlookkategorier kan endast hämtas och kan inte uppdateras automatiskt på grund av begränsningar för Outlook IMAP server</string>
+    <string name="title_advanced_outlook_categories_hint">Outlookkategorier kan endast hämtas och kan inte uppdateras automatiskt på grund av begränsningar för Outlook IMAP server</string>
     <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
     <string name="title_advanced_poll_folders_hint">Synkronisera mapplistan periodiskt utöver när du har anslutit till ett konto</string>
     <string name="title_advanced_check_authentication_hint">Detta kommer att kontrollera resultaten av DKIM, SPF och DMARC-autentisering som utförs av e-postservern</string>
@@ -2295,6 +2296,7 @@
         <item>Endast PGP-kryptering</item>
         <item>PGP-signering + kryptering</item>
         <item>S/MIME signering</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>S/MIME signera+kryptera</item>
     </string-array>
     <string-array name="sizeNames">

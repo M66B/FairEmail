@@ -339,7 +339,7 @@
     <string name="title_advanced_kept_removed">بررسی کن که آیا پیام‌های قدیمی از سرور حذف شده‌اند</string>
     <string name="title_advanced_gmail_thread">سبک گروه‌بندی پیام جیمیل برای حساب‌های جیمیل</string>
     <string name="title_advanced_subject_threading">دسته‌بندی پیام‌ها بر اساس فرستنده و موضوع</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">همگام‌سازی دسته‌های آوت‌لوک</string>
+    <string name="title_advanced_outlook_categories">همگام‌سازی دسته‌های آوت‌لوک</string>
     <string name="title_advanced_sync_folders">همگام سازی لیست پوشه</string>
     <string name="title_advanced_sync_folders_poll">هم‌رسانی فعالانه فهرست پوشه‌ها</string>
     <string name="title_advanced_sync_shared_folders">فهرست‌های پوشه‌های همرسانی شده را همگام‌سازی کن</string>
@@ -352,7 +352,7 @@
     <string name="title_advanced_use_blocklist_pop3">پیام‌هایی را که از طرف دامنه‌های درون لیست سیاه هستند در نظر نگیر (تنها برای POP3)</string>
     <string name="title_advanced_tune_keep_alive">وقفه زنده-نگه‌داشتن را خودکار کوک کن</string>
     <string name="title_advanced_keyboard">نمایش صفحه کلید به‌صورت پیش‌فرض</string>
-    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">افزودن حاشیه بالای صفحه کلید</string>
+    <string name="title_advanced_keyboard_margin">افزودن حاشیه بالای صفحه کلید</string>
     <string name="title_advanced_keyboard_no_fullscreen">از اجرای تمام صفحه صفحه‌کلید جلوگیری کن</string>
     <string name="title_advanced_suggest_names">از اسامی و نشانی‌های ایمیل استفاده کن</string>
     <string name="title_advanced_suggest_local">پیشنهاد مخاطبین ذخیره‌شده محلی</string>
@@ -1664,6 +1664,7 @@
         <item>PGP encrypt-only</item>
         <item>امضا+رمزگذاری PGP</item>
         <item>تنها امضا شده S/MIME</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>امضا+رمزگذاری S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

@@ -407,7 +407,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_kept_removed">Kontrolovat, zda byly staré zprávy odstraněny ze serveru</string>
     <string name="title_advanced_gmail_thread">Gmail styl seskupování zpráv pro Gmail účty</string>
     <string name="title_advanced_subject_threading">Seskupit zprávy podle odesílatele a předmětu</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Synchronizovat kategorie aplikace Outlook</string>
+    <string name="title_advanced_outlook_categories">Synchronizovat kategorie aplikace Outlook</string>
     <string name="title_advanced_sync_folders">Synchronizovat seznam složek</string>
     <string name="title_advanced_sync_folders_poll">Aktivně synchronizovat seznam složek</string>
     <string name="title_advanced_sync_shared_folders">Synchronizovat seznamy sdílených složek</string>
@@ -423,7 +423,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_tune_keep_alive">Automaticky vyladit interval udržení naživu</string>
     <string name="title_advanced_blocklist_warning">Seznamy blokovaných nejsou dokonalé a mohou blokovat více než jen spam!</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
-    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Přidat okraj nad klávesnici</string>
+    <string name="title_advanced_keyboard_margin">Přidat okraj nad klávesnici</string>
     <string name="title_advanced_keyboard_no_fullscreen">Zabránit zobrazení klávesnice na celou obrazovku</string>
     <string name="title_advanced_suggest_names">Použít jména a e-mailové adresy</string>
     <string name="title_advanced_suggest_local">Navrhovat lokálně uložené kontakty</string>
@@ -739,6 +739,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_notify_screen_on">Krátce zapnout obrazovku při upozornění na nové zprávy</string>
     <string name="title_advanced_notifications_background">Pro synchronizaci zpráv použít službu na pozadí</string>
     <string name="title_advanced_notifications_background_hint">Služba na pozadí může být systémem Android kdykoli zastavena, ale nevyžaduje oznámení ve stavové liště</string>
+    <string name="title_advanced_rate_limit">Omezit zvuky upozornění na nové zprávy na jednou za:</string>
     <string name="title_advanced_confirm_links">Potvrzovat otevírání odkazů</string>
     <string name="title_advanced_confirm_files">Potvrdit zobrazení souboru</string>
     <string name="title_advanced_sanitize_links">Ve výchozím nastavení odstranit sledovací parametry</string>
@@ -874,7 +875,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_sync_kept_hint">Zvýší spotřebu dat a baterie, zvláště pokud v zařízení uchováváte velké množství zpráv</string>
     <string name="title_advanced_gmail_thread_hint">Platí pouze pro nově přijaté zprávy a může ovlivnit existující skupiny</string>
     <string name="title_advanced_subject_threading_hint">Pouze zprávy přijaté za posledních %1$d hodin</string>
-    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Kategorie Outlook mohou být pouze načteny a nemohou být automaticky obnoveny z důvodu omezení serveru IMAP aplikace Outlook</string>
+    <string name="title_advanced_outlook_categories_hint">Kategorie Outlook mohou být pouze načteny a nemohou být automaticky obnoveny z důvodu omezení serveru IMAP aplikace Outlook</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí částečně sníží množství přenesených dat a spotřebu baterie, zároveň však znemožní aktualizovat seznam složek</string>
     <string name="title_advanced_poll_folders_hint">Periodicky synchronizovat seznam složek navíc po připojení k účtu</string>
     <string name="title_advanced_check_authentication_hint">Zkontroluje výsledky DKIM, SPF a DMARC ověření prováděného e-mailovým serverem</string>
@@ -1311,6 +1312,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_raw_send_message">Zpráva</string>
     <string name="title_raw_send_thread">Konverzace</string>
     <string name="title_manage_keywords">Spravovat klíčová slova</string>
+    <string name="title_manage_keywords_pop">S POP3 nelze klíčová slova uložit na e-mailový server!</string>
     <string name="title_manage_labels">Spravovat Gmail štítky</string>
     <string name="title_add_keyword">Přidat klíčové slovo</string>
     <string name="title_show_inline">Zobrazit vložené přílohy</string>
@@ -2346,6 +2348,7 @@ v prohlížeči ze všech Google účtů.</string>
         <item>Pouze šifrování PGP</item>
         <item>PGP podpis+šifrovat</item>
         <item>S/MIME pouze podpis</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>S/MIME podpis+šifrovat</item>
     </string-array>
     <string-array name="sizeNames">

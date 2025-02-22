@@ -406,7 +406,7 @@
     <string name="title_advanced_kept_removed">Проверять, были ли удалены старые сообщения с сервера</string>
     <string name="title_advanced_gmail_thread">Стиль группировки сообщений Gmail для соответствующих учётных записей</string>
     <string name="title_advanced_subject_threading">Группировать сообщения по отправителю и теме</string>
-    <string name="title_advanced_outlook_categories" comment="title_advanced_outlook_categories&#10;Title of an option in the receive settings tab page">Синхронизировать категории Outlook</string>
+    <string name="title_advanced_outlook_categories">Синхронизировать категории Outlook</string>
     <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
     <string name="title_advanced_sync_folders_poll">Активная синхронизация списка папок</string>
     <string name="title_advanced_sync_shared_folders">Синхронизировать списки общих папок</string>
@@ -422,7 +422,7 @@
     <string name="title_advanced_tune_keep_alive">Автоматически настраивать интервал keep-alive</string>
     <string name="title_advanced_blocklist_warning">Списки блокировки спама не идеальны и могут блокировать не только спам!</string>
     <string name="title_advanced_keyboard">Показывать клавиатуру по умолчанию</string>
-    <string name="title_advanced_keyboard_margin" comment="title_advanced_keyboard_margin&#10;Title for an option in the send-settings tab page">Добавить отступ над клавиатурой</string>
+    <string name="title_advanced_keyboard_margin">Добавить отступ над клавиатурой</string>
     <string name="title_advanced_keyboard_no_fullscreen">Не показывать клавиатуру в полноэкранном режиме</string>
     <string name="title_advanced_suggest_names">Использовать имена и адреса электронной почты</string>
     <string name="title_advanced_suggest_local">Предлагать локальные контакты</string>
@@ -738,6 +738,7 @@
     <string name="title_advanced_notify_screen_on">Включать экран для новых уведомлений</string>
     <string name="title_advanced_notifications_background">Использовать фоновую службу для синхронизации сообщений</string>
     <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
+    <string name="title_advanced_rate_limit">Ограничить звуки уведомления о новых сообщениях до одного раза в:</string>
     <string name="title_advanced_confirm_links">Подтверждать открытие ссылок</string>
     <string name="title_advanced_confirm_files">Подтверждать просмотр файлов</string>
     <string name="title_advanced_sanitize_links">Удалять отслеживающие элементы по умолчанию</string>
@@ -874,7 +875,7 @@
     <string name="title_advanced_sync_kept_hint">Приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_gmail_thread_hint">Относится только к вновь полученным сообщениям и может нарушить существующие группы</string>
     <string name="title_advanced_subject_threading_hint">Только сообщения, полученные за последние %1$d часов</string>
-    <string name="title_advanced_outlook_categories_hint" comment="title_advanced_outlook_categories_hint&#10;Remark for an option in the receive-settings tab page">Категории Outlook могут быть только загружены и не могут обновляться автоматически из-за ограничений сервера Outlook IMAP</string>
+    <string name="title_advanced_outlook_categories_hint">Категории Outlook могут быть только загружены и не могут обновляться автоматически из-за ограничений сервера Outlook IMAP</string>
     <string name="title_advanced_sync_folders_hint">Отключение уменьшит потребление трафика и заряда батареи, но также отключит обновление списка папок</string>
     <string name="title_advanced_poll_folders_hint">Периодическая синхронизация списка папок в дополнение к синхронизации после подключения к учётной записи</string>
     <string name="title_advanced_check_authentication_hint">Проверка результатов аутентификации DKIM, SPF и DMARC в зависимости от почтового сервера</string>
@@ -1312,6 +1313,7 @@
     <string name="title_raw_send_message">Сообщение</string>
     <string name="title_raw_send_thread">Диалог</string>
     <string name="title_manage_keywords">Управление ключами (словами)</string>
+    <string name="title_manage_keywords_pop">При использовании POP3 ключевые слова невозможно сохранить на почтовом сервере!</string>
     <string name="title_manage_labels">Управление метками Gmail</string>
     <string name="title_add_keyword">Добавить ключ (слово)</string>
     <string name="title_show_inline">Показывать встроенные вложения</string>
@@ -2349,6 +2351,7 @@
         <item>Только шифрование PGP</item>
         <item>Подпись+шифрование PGP</item>
         <item>Только подпись S/MIME</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
         <item>Подпись+шифрование S/MIME</item>
     </string-array>
     <string-array name="sizeNames">
