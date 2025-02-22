@@ -2841,6 +2841,7 @@
         <item>PGP encrypt-only</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME sign+encrypt</item>
     </string-array>
 
@@ -2850,6 +2851,7 @@
         <item>5</item>
         <item>1</item>
         <item>4</item>
+        <item>6</item>
         <item>3</item>
     </integer-array>
 

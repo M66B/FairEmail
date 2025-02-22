@@ -1638,6 +1638,7 @@ public class FragmentCompose extends FragmentBase {
 
                 if (!ActivityBilling.isPro(context) &&
                         (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt) ||
+                                EntityMessage.SMIME_ENCRYPTONLY.equals(draft.ui_encrypt) ||
                                 EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt)))
                     draft.ui_encrypt = null;
 
@@ -2134,10 +2135,12 @@ public class FragmentCompose extends FragmentBase {
             tv.setText(EntityMessage.PGP_SIGNONLY.equals(encrypt) ? "P" : "S");
         } else if (EntityMessage.PGP_ENCRYPTONLY.equals(encrypt) ||
                 EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) ||
+                EntityMessage.SMIME_ENCRYPTONLY.equals(encrypt) ||
                 EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt)) {
             ibEncrypt.setImageResource(R.drawable.twotone_lock_24);
             ibEncrypt.setImageTintList(ColorStateList.valueOf(colorEncrypt));
-            tv.setText(EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt) ? "S" : "P");
+            tv.setText(EntityMessage.SMIME_ENCRYPTONLY.equals(encrypt) ||
+                    EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt) ? "S" : "P");
         } else {
             ibEncrypt.setImageResource(R.drawable.twotone_lock_open_24);
             ibEncrypt.setImageTintList(ColorStateList.valueOf(colorActionForeground));
@@ -2177,6 +2180,7 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_sign);
         else if (EntityMessage.PGP_ENCRYPTONLY.equals(encrypt) ||
                 EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) ||
+                EntityMessage.SMIME_ENCRYPTONLY.equals(encrypt) ||
                 EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt))
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_encrypt);
         else
@@ -2313,7 +2317,8 @@ public class FragmentCompose extends FragmentBase {
         } else {
             if (EntityMessage.ENCRYPT_NONE.equals(encrypt) || encrypt == null)
                 encrypt = EntityMessage.SMIME_SIGNENCRYPT;
-            else if (EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt))
+            else if (EntityMessage.SMIME_ENCRYPTONLY.equals(encrypt) ||
+                    EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt))
                 encrypt = EntityMessage.SMIME_SIGNONLY;
             else
                 encrypt = EntityMessage.ENCRYPT_NONE;
@@ -3198,6 +3203,7 @@ public class FragmentCompose extends FragmentBase {
 
     private void onEncrypt(final EntityMessage draft, final int action, final Bundle extras, final boolean interactive) {
         if (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt) ||
+                EntityMessage.SMIME_ENCRYPTONLY.equals(draft.ui_encrypt) ||
                 EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt)) {
             Bundle args = new Bundle();
             args.putLong("id", draft.id);
@@ -4470,75 +4476,79 @@ public class FragmentCompose extends FragmentBase {
                         bpContent.writeTo(fos);
                     }
 
-                if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
-                    EntityAttachment cattachment = new EntityAttachment();
-                    cattachment.message = draft.id;
-                    cattachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
-                    cattachment.name = "content.asc";
-                    cattachment.type = "text/plain";
-                    cattachment.disposition = Part.INLINE;
-                    cattachment.encryption = EntityAttachment.SMIME_CONTENT;
-                    cattachment.id = db.attachment().insertAttachment(cattachment);
+                String signAlgorithm = null;
+                byte[] signedMessage = null;
+                if (!EntityMessage.SMIME_ENCRYPTONLY.equals(type)) {
+                    if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
+                        EntityAttachment cattachment = new EntityAttachment();
+                        cattachment.message = draft.id;
+                        cattachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
+                        cattachment.name = "content.asc";
+                        cattachment.type = "text/plain";
+                        cattachment.disposition = Part.INLINE;
+                        cattachment.encryption = EntityAttachment.SMIME_CONTENT;
+                        cattachment.id = db.attachment().insertAttachment(cattachment);
 
-                    File content = cattachment.getFile(context);
-                    Helper.copy(sinput, content);
+                        File content = cattachment.getFile(context);
+                        Helper.copy(sinput, content);
 
-                    db.attachment().setDownloaded(cattachment.id, content.length());
-                }
-
-                // Sign
-                Store store = new JcaCertStore(Arrays.asList(chain));
-                CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
-                cmsGenerator.addCertificates(store);
-
-                String signAlgorithm = prefs.getString("sign_algo_smime", "SHA-256");
-
-                String algorithm = privkey.getAlgorithm();
-
-                if (TextUtils.isEmpty(algorithm))
-                    algorithm = "RSA";
-                else if ("EC".equals(algorithm))
-                    algorithm = "ECDSA";
-
-                algorithm = signAlgorithm.replace("-", "") + "with" + algorithm;
-                Log.i("S/MIME using sign algo=" + algorithm);
-
-                ContentSigner contentSigner = new JcaContentSignerBuilder(algorithm)
-                        .build(privkey);
-                DigestCalculatorProvider digestCalculator = new JcaDigestCalculatorProviderBuilder()
-                        .build();
-                SignerInfoGenerator signerInfoGenerator = new JcaSignerInfoGeneratorBuilder(digestCalculator)
-                        .build(contentSigner, chain[0]);
-                cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
-
-                CMSTypedData cmsData = new CMSProcessableFile(sinput);
-                CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData);
-                byte[] signedMessage = cmsSignedData.getEncoded();
-
-                Helper.secureDelete(sinput);
-
-                // Build signature
-                if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
-                    ContentType ct = new ContentType("application/pkcs7-signature");
-                    ct.setParameter("micalg", signAlgorithm.toLowerCase(Locale.ROOT));
-
-                    EntityAttachment sattachment = new EntityAttachment();
-                    sattachment.message = draft.id;
-                    sattachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
-                    sattachment.name = "smime.p7s";
-                    sattachment.type = ct.toString();
-                    sattachment.disposition = Part.INLINE;
-                    sattachment.encryption = EntityAttachment.SMIME_SIGNATURE;
-                    sattachment.id = db.attachment().insertAttachment(sattachment);
-
-                    File file = sattachment.getFile(context);
-                    try (OutputStream os = new FileOutputStream(file)) {
-                        os.write(signedMessage);
+                        db.attachment().setDownloaded(cattachment.id, content.length());
                     }
 
-                    db.attachment().setDownloaded(sattachment.id, file.length());
+                    // Sign
+                    Store store = new JcaCertStore(Arrays.asList(chain));
+                    CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
+                    cmsGenerator.addCertificates(store);
 
-                    return null;
+                    signAlgorithm = prefs.getString("sign_algo_smime", "SHA-256");
+
+                    String algorithm = privkey.getAlgorithm();
+
+                    if (TextUtils.isEmpty(algorithm))
+                        algorithm = "RSA";
+                    else if ("EC".equals(algorithm))
+                        algorithm = "ECDSA";
+
+                    algorithm = signAlgorithm.replace("-", "") + "with" + algorithm;
+                    Log.i("S/MIME using sign algo=" + algorithm);
+
+                    ContentSigner contentSigner = new JcaContentSignerBuilder(algorithm)
+                            .build(privkey);
+                    DigestCalculatorProvider digestCalculator = new JcaDigestCalculatorProviderBuilder()
+                            .build();
+                    SignerInfoGenerator signerInfoGenerator = new JcaSignerInfoGeneratorBuilder(digestCalculator)
+                            .build(contentSigner, chain[0]);
+                    cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
+
+                    CMSTypedData cmsData = new CMSProcessableFile(sinput);
+                    CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData);
+                    signedMessage = cmsSignedData.getEncoded();
+
+                    Helper.secureDelete(sinput);
+
+                    // Build signature
+                    if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
+                        ContentType ct = new ContentType("application/pkcs7-signature");
+                        ct.setParameter("micalg", signAlgorithm.toLowerCase(Locale.ROOT));
+
+                        EntityAttachment sattachment = new EntityAttachment();
+                        sattachment.message = draft.id;
+                        sattachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
+                        sattachment.name = "smime.p7s";
+                        sattachment.type = ct.toString();
+                        sattachment.disposition = Part.INLINE;
+                        sattachment.encryption = EntityAttachment.SMIME_SIGNATURE;
+                        sattachment.id = db.attachment().insertAttachment(sattachment);
+
+                        File file = sattachment.getFile(context);
+                        try (OutputStream os = new FileOutputStream(file)) {
+                            os.write(signedMessage);
+                        }
+
+                        db.attachment().setDownloaded(sattachment.id, file.length());
+
+                        return null;
+                    }
                 }
 
                 List<Address> addresses = new ArrayList<>();
@@ -4588,24 +4598,26 @@ public class FragmentCompose extends FragmentBase {
                 if (own && SmimeHelper.match(privkey, chain[0]))
                     certs.add(chain[0]);
 
-                // Build signature
-                BodyPart bpSignature = new MimeBodyPart();
-                bpSignature.setFileName("smime.p7s");
-                bpSignature.setDataHandler(new DataHandler(new ByteArrayDataSource(signedMessage, "application/pkcs7-signature")));
-                bpSignature.setDisposition(Part.INLINE);
+                if (!EntityMessage.SMIME_ENCRYPTONLY.equals(type)) {
+                    // Build signature
+                    BodyPart bpSignature = new MimeBodyPart();
+                    bpSignature.setFileName("smime.p7s");
+                    bpSignature.setDataHandler(new DataHandler(new ByteArrayDataSource(signedMessage, "application/pkcs7-signature")));
+                    bpSignature.setDisposition(Part.INLINE);
 
-                // Build message
-                ContentType ct = new ContentType("multipart/signed");
-                ct.setParameter("micalg", signAlgorithm.toLowerCase(Locale.ROOT));
-                ct.setParameter("protocol", "application/pkcs7-signature");
-                ct.setParameter("smime-type", "signed-data");
-                String ctx = ct.toString();
-                int slash = ctx.indexOf("/");
-                Multipart multipart = new MimeMultipart(ctx.substring(slash + 1));
-                multipart.addBodyPart(bpContent);
-                multipart.addBodyPart(bpSignature);
-                imessage.setContent(multipart);
-                imessage.saveChanges();
+                    // Build message
+                    ContentType ct = new ContentType("multipart/signed");
+                    ct.setParameter("micalg", signAlgorithm.toLowerCase(Locale.ROOT));
+                    ct.setParameter("protocol", "application/pkcs7-signature");
+                    ct.setParameter("smime-type", "signed-data");
+                    String ctx = ct.toString();
+                    int slash = ctx.indexOf("/");
+                    Multipart multipart = new MimeMultipart(ctx.substring(slash + 1));
+                    multipart.addBodyPart(bpContent);
+                    multipart.addBodyPart(bpSignature);
+                    imessage.setContent(multipart);
+                    imessage.saveChanges();
+                }
 
                 // Encrypt
                 CMSEnvelopedDataGenerator cmsEnvelopedDataGenerator = new CMSEnvelopedDataGenerator();
@@ -5218,7 +5230,8 @@ public class FragmentCompose extends FragmentBase {
             if (!saved && isEmpty())
                 onAction(R.id.action_delete, "empty");
             else {
-                boolean finish = EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt) ||
+                boolean finish = EntityMessage.SMIME_ENCRYPTONLY.equals(encrypt) ||
+                        EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt) ||
                         EntityMessage.PGP_ENCRYPTONLY.equals(encrypt) ||
                         EntityMessage.PGP_SIGNENCRYPT.equals(encrypt);
 
@@ -7236,7 +7249,8 @@ public class FragmentCompose extends FragmentBase {
                         if (!eparts.contains(EntityAttachment.SMIME_SIGNATURE) ||
                                 !eparts.contains(EntityAttachment.SMIME_CONTENT))
                             dirty = true;
-                    } else if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt)) {
+                    } else if (EntityMessage.SMIME_ENCRYPTONLY.equals(draft.ui_encrypt) ||
+                            EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt)) {
                         if (!eparts.contains(EntityAttachment.SMIME_MESSAGE))
                             dirty = true;
                     }
@@ -7451,6 +7465,7 @@ public class FragmentCompose extends FragmentBase {
                     boolean shouldEncrypt = EntityMessage.PGP_ENCRYPTONLY.equals(draft.ui_encrypt) ||
                             EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt) ||
                             (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt) && action == R.id.action_send) ||
+                            EntityMessage.SMIME_ENCRYPTONLY.equals(draft.ui_encrypt) ||
                             EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt) ||
                             (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt) && action == R.id.action_send);
                     boolean needsEncryption = (dirty && !encrypted && shouldEncrypt);
@@ -7475,6 +7490,7 @@ public class FragmentCompose extends FragmentBase {
                         boolean unencrypted =
                                 (!EntityMessage.PGP_ENCRYPTONLY.equals(draft.ui_encrypt) &&
                                         !EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt) &&
+                                        !EntityMessage.SMIME_ENCRYPTONLY.equals(draft.ui_encrypt) &&
                                         !EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt));
                         if ((dirty && unencrypted) || encrypted) {
                             if (save_drafts) {

@@ -401,6 +401,7 @@ public class FragmentDialogSend extends FragmentDialogBase {
                                     message.identity != null) {
                                 int iencrypt =
                                         (encrypt == EntityMessage.SMIME_SIGNONLY ||
+                                                encrypt == EntityMessage.SMIME_ENCRYPTONLY ||
                                                 encrypt == EntityMessage.SMIME_SIGNENCRYPT
                                                 ? 1 : 0);
                                 db.identity().setIdentityEncrypt(message.identity, iencrypt);
