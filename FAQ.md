@@ -3569,6 +3569,9 @@ Also, you'll want spam filtered for all your email clients, possibly including w
 Moreover, email servers have access to information, like the IP address, etc. of the connecting server, which an email client has no access to.
 Furthermore, an email server can inspect all messages of all email accounts, while an email client can inspect messages in your email account only.
 
+Spammers today use large spam networks with many servers and e-mail addresses and AI to create messages that slip through spam filters.
+This means that only powerful servers running a neural network fed with many messages can filter spam properly. A smartphone simply cannot do that anymore.
+
 If you are receiving a significant amount of spam, the first thing you should do is consider switching to another email provider.
 Some email servers excell at filtering spam, and others are really bad at it.
 Switching to another e-mail provider is no fun, but neither is wading through piles of spam on a daily basis.
