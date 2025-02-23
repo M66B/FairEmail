@@ -307,6 +307,14 @@ public class FragmentPop extends FragmentBase {
             }
         });
 
+        btnAvatar.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                avatar = null;
+                return true;
+            }
+        });
+
         Helper.linkPro(tvAvatarPro);
 
         grpCalendar.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);

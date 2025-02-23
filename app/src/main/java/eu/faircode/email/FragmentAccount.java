@@ -485,6 +485,14 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
+        btnAvatar.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                avatar = null;
+                return true;
+            }
+        });
+
         Helper.linkPro(tvAvatarPro);
 
         btnCalendar.setEnabled(Helper.hasPermission(getContext(), Manifest.permission.WRITE_CALENDAR));
