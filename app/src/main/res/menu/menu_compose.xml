@@ -101,49 +101,37 @@
             android:id="@+id/menu_contact_group"
             android:icon="@drawable/twotone_group_add_24"
             android:title="@string/title_insert_contact_group"
-            app:showAsAction="never">
-            <menu />
-        </item>
+            app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_manage_android_contacts"
             android:icon="@drawable/twotone_contacts_24"
             android:title="@string/title_manage_android_contacts"
-            app:showAsAction="never">
-            <menu />
-        </item>
+            app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_manage_local_contacts"
             android:icon="@drawable/twotone_import_contacts_24"
             android:title="@string/title_manage_local_contacts"
-            app:showAsAction="never">
-            <menu />
-        </item>
+            app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_answer_insert"
             android:icon="@drawable/twotone_text_snippet_24"
             android:title="@string/title_insert_template"
-            app:showAsAction="never">
-            <menu />
-        </item>
+            app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_answer_create"
             android:icon="@drawable/outline_post_add_24"
             android:title="@string/title_create_template"
-            app:showAsAction="never">
-            <menu />
-        </item>
+            app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_select_identity"
             android:icon="@drawable/twotone_person_24"
             android:title="@string/title_select_default_identity"
-            app:showAsAction="never">
-            <menu />
-        </item>
+            app:showAsAction="never" />
 
         <item
             android:id="@+id/title_search_in_text"

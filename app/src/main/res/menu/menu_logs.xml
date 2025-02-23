@@ -10,9 +10,7 @@
     <item
         android:id="@+id/menu_show"
         android:title="@string/title_unhide"
-        app:showAsAction="never">
-        <menu />
-    </item>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_clear"

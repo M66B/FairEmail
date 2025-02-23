@@ -60,21 +60,15 @@
     <item
         android:id="@+id/menu_reply_answer"
         android:icon="@drawable/twotone_text_snippet_24"
-        android:title="@string/title_reply_template">
-        <menu />
-    </item>
+        android:title="@string/title_reply_template" />
 
     <item
         android:id="@+id/menu_move_to"
         android:icon="@drawable/twotone_drive_file_move_24"
-        android:title="@string/title_move_to">
-        <menu />
-    </item>
+        android:title="@string/title_move_to" />
 
     <item
         android:id="@+id/menu_settings"
         android:icon="@drawable/twotone_settings_24"
-        android:title="@string/menu_setup">
-        <menu />
-    </item>
+        android:title="@string/menu_setup" />
 </menu>

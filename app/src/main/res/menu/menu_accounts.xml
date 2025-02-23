@@ -42,9 +42,7 @@
         <item
             android:id="@+id/menu_theme"
             android:title="@string/title_setup_theme"
-            app:showAsAction="never">
-            <menu />
-        </item>
+            app:showAsAction="never" />
     </group>
 
     <group android:id="@+id/group_operations">

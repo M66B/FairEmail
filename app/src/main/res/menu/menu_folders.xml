@@ -30,9 +30,7 @@
         <item
             android:id="@+id/menu_theme"
             android:title="@string/title_setup_theme"
-            app:showAsAction="never">
-            <menu />
-        </item>
+            app:showAsAction="never" />
     </group>
 
     <group android:id="@+id/group_options">
@@ -71,21 +69,15 @@
         <item
             android:id="@+id/menu_apply_all"
             android:title="@string/title_apply_to_all"
-            app:showAsAction="never">
-            <menu />
-        </item>
+            app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_edit_account_name"
-            android:title="@string/title_edit_account_name">
-            <menu />
-        </item>
+            android:title="@string/title_edit_account_name" />
 
         <item
             android:id="@+id/menu_edit_account_color"
-            android:title="@string/title_edit_account_color">
-            <menu />
-        </item>
+            android:title="@string/title_edit_account_color" />
 
         <item
             android:id="@+id/menu_force_sync"
