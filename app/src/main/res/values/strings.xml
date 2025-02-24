@@ -1526,6 +1526,7 @@
     <string name="title_filters_active">One or more filters active</string>
     <string name="title_duplicate_in">Duplicate message in %1$s</string>
     <string name="title_trashed_from">Trashed message from %1$s</string>
+    <string name="title_sent_to">Sent message to %1$s</string>
 
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>

@@ -9330,9 +9330,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (filter_duplicates && message.duplicate)
                 holder.tvFolder.setText(context.getString(R.string.title_duplicate_in,
                         message.getFolderName(context)));
-            else
+            else if (filter_trash && EntityFolder.TRASH.equals(message.folderType) && !all(EntityFolder.TRASH))
                 holder.tvFolder.setText(context.getString(R.string.title_trashed_from,
                         MessageHelper.formatAddresses(message.from, false, false)));
+            else
+                holder.tvFolder.setText(context.getString(R.string.title_sent_to,
+                        MessageHelper.formatAddresses(message.to, false, false)));
             holder.tvFolder.setTypeface(message.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
             holder.tvFolder.setTextColor(message.unseen > 0 ? colorUnread : colorRead);
             holder.tvFolder.setAlpha(Helper.LOW_LIGHT);
