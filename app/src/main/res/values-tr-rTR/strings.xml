@@ -1683,6 +1683,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_filter_hidden">Gizli</string>
     <string name="title_filter_deleted">Silindi</string>
     <string name="title_filter_duplicates">Çift kopyalar</string>
+    <string name="title_filter_sent">Gönderilen</string>
     <string name="title_filter_trash">Çöp</string>
     <string name="title_compact">Derlitoplu görünüm</string>
     <string name="title_zoom">Metin boyutu</string>
@@ -2306,7 +2307,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
         <item>PGP şifreleme sadece</item>
         <item>PGP imzala ve şifrele</item>
         <item>S/MIME yalnızca imza</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">Yalnızca S/MIME şifreleme</item>
+        <item>Yalnızca S/MIME şifreleme</item>
         <item>S/MIME imza+şifre</item>
     </string-array>
     <string-array name="sizeNames">

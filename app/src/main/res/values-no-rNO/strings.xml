@@ -1013,6 +1013,7 @@
     <string name="title_filter_unknown">Ukjente avsendere</string>
     <string name="title_filter_hidden">Skjult</string>
     <string name="title_filter_duplicates">Duplikater</string>
+    <string name="title_filter_sent">Sendt</string>
     <string name="title_compact">Kompakt visning</string>
     <string name="title_zoom">Tekststørrelse</string>
     <string name="title_padding">Polstring</string>
@@ -1476,7 +1477,7 @@
         <item>PGP encrypt-only</item>
         <item>PGP signer+krypter</item>
         <item>Kun S/MIME signering</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME signer+krypter</item>
     </string-array>
     <string-array name="sizeNames">

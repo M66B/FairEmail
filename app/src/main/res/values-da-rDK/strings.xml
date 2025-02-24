@@ -1697,6 +1697,7 @@
     <string name="title_filter_hidden">Skjult</string>
     <string name="title_filter_deleted">Slettet</string>
     <string name="title_filter_duplicates">Dubletter</string>
+    <string name="title_filter_sent">Sendt</string>
     <string name="title_filter_trash">Slettet</string>
     <string name="title_compact">Kompaktvisning</string>
     <string name="title_zoom">Tekststørrelse</string>
@@ -2322,7 +2323,7 @@
         <item>Kun PGP-kryptering</item>
         <item>PGP-signering + kryptering</item>
         <item>Kun S/MIME-signering</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">Kun S/MIME-kryptering</item>
+        <item>Kun S/MIME-kryptering</item>
         <item>S/MIME-signering + kryptering</item>
     </string-array>
     <string-array name="sizeNames">

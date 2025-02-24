@@ -1686,6 +1686,7 @@
     <string name="title_filter_hidden">Κρυφά</string>
     <string name="title_filter_deleted">Διαγραμμένο</string>
     <string name="title_filter_duplicates">Διπλότυπα</string>
+    <string name="title_filter_sent">Απεσταλμένα</string>
     <string name="title_filter_trash">Διαγράφηκε</string>
     <string name="title_compact">Συνεπτυγμένη προβολή</string>
     <string name="title_zoom">Μέγεθος κειμένου</string>
@@ -2310,7 +2311,7 @@
         <item>Κρυπτογράφηση PGP μόνο</item>
         <item>Υπογραφή και κρυπτογράφηση PGP</item>
         <item>Υπογραφή S/MIME μόνο</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>Υπογραφή + κρυπτογράφηση S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

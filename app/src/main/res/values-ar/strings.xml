@@ -542,6 +542,7 @@
     <string name="title_sort_on_size">الحجم</string>
     <string name="title_sort_on_name">الإسم</string>
     <string name="title_sort_on_order">الترتيب</string>
+    <string name="title_filter_sent">البريد المرسَل</string>
     <string name="title_zoom">حجم النص</string>
     <string name="title_select_all">اختيار الكل</string>
     <string name="title_language_all">الكل</string>

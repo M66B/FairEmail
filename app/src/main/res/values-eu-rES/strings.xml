@@ -1140,6 +1140,7 @@
     <string name="title_filter_hidden">Ezkutuan</string>
     <string name="title_filter_deleted">Ezabatua</string>
     <string name="title_filter_duplicates">Bikoiztutakoak</string>
+    <string name="title_filter_sent">Bidalita</string>
     <string name="title_filter_trash">Zakarrontzian</string>
     <string name="title_compact">Ikuspegi trinkoa</string>
     <string name="title_zoom">Letra tamaina</string>
@@ -1639,7 +1640,7 @@
         <item>PGP encrypt-only</item>
         <item>PGP sinadura eta zifratzea</item>
         <item>S/MIME sinadura soilik</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME sinadura eta zifratzea</item>
     </string-array>
     <string-array name="sizeNames">

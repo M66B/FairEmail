@@ -1687,6 +1687,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_filter_hidden">Ferstoppe</string>
     <string name="title_filter_deleted">Fuortsmiten</string>
     <string name="title_filter_duplicates">Duplikaten</string>
+    <string name="title_filter_sent">Ferstjoerd</string>
     <string name="title_filter_trash">Yn jiskefet</string>
     <string name="title_compact">Kompakt werjefte</string>
     <string name="title_zoom">Tekstgrutte</string>
@@ -2309,7 +2310,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
         <item>PGP allinnich fersifering</item>
         <item>PGP-ûndertekening+-fersifering</item>
         <item>S/MIME allinnich ûndertekening</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME-ûndertekening+-fersifering</item>
     </string-array>
     <string-array name="sizeNames">

@@ -1724,6 +1724,7 @@
     <string name="title_filter_hidden">Скрытые</string>
     <string name="title_filter_deleted">Удалено</string>
     <string name="title_filter_duplicates">Дубликаты</string>
+    <string name="title_filter_sent">Отправленные</string>
     <string name="title_filter_trash">Мусор</string>
     <string name="title_compact">Компактный вид</string>
     <string name="title_zoom">Размер текста</string>
@@ -2351,7 +2352,7 @@
         <item>Только шифрование PGP</item>
         <item>Подпись+шифрование PGP</item>
         <item>Только подпись S/MIME</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">Только шифрование S/MIME</item>
+        <item>Только шифрование S/MIME</item>
         <item>Подпись+шифрование S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

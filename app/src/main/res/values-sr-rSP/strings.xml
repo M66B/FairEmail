@@ -680,6 +680,7 @@
     <string name="title_filter_unknown">Непознати пошиљаоци</string>
     <string name="title_filter_hidden">Сакривеним</string>
     <string name="title_filter_duplicates">Дупликатима</string>
+    <string name="title_filter_sent">Послате</string>
     <string name="title_filter_trash">У отпаду</string>
     <string name="title_compact">Компактан изглед</string>
     <string name="title_zoom">Величина текста</string>
@@ -1082,7 +1083,7 @@
         <item>PGP encrypt-only</item>
         <item>PGP потпис+шифровање</item>
         <item>S/MIME само потпис</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME потпис+шифровање</item>
     </string-array>
     <string-array name="sizeNames">

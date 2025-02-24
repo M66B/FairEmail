@@ -1645,6 +1645,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_filter_hidden">Tersembunyi</string>
     <string name="title_filter_deleted">Dihapus</string>
     <string name="title_filter_duplicates">Duplikat</string>
+    <string name="title_filter_sent">Terkirim</string>
     <string name="title_filter_trash">Sudah dibuang</string>
     <string name="title_compact">Tampilan ringkas</string>
     <string name="title_zoom">Ukuran teks</string>
@@ -2258,7 +2259,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
         <item>Hanya enkirpsi PGP</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME sign+encrypt</item>
     </string-array>
     <string-array name="sizeNames">

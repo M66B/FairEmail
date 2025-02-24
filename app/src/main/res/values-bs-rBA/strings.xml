@@ -2329,7 +2329,7 @@
         <item>Samo PGP šifriranje</item>
         <item>PGP potpisani i šifrirani</item>
         <item>Samo S/MIME potpisani</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME šif.-jedino</item>
+        <item>S/MIME šif.-jedino</item>
         <item>S/MIME potpisani i šifrirani</item>
     </string-array>
     <string-array name="sizeNames">

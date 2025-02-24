@@ -1696,6 +1696,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_filter_hidden">Oculta</string>
     <string name="title_filter_deleted">Eliminadas</string>
     <string name="title_filter_duplicates">Duplicados</string>
+    <string name="title_filter_sent">Enviados</string>
     <string name="title_filter_trash">No lixo</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamanho do texto</string>
@@ -2314,7 +2315,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
         <item>Apenas encriptação PGP</item>
         <item>Assinaturas+encriptação PGP</item>
         <item>Apenas assinaturas S/MIME</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">Só-encriptação S/MIME</item>
+        <item>Só-encriptação S/MIME</item>
         <item>Assinaturas+encriptação S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

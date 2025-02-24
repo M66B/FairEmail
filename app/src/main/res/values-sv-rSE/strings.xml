@@ -1272,6 +1272,7 @@
     <string name="title_raw_send_message">Meddelande</string>
     <string name="title_raw_send_thread">Konversation</string>
     <string name="title_manage_keywords">Hantera nyckelord</string>
+    <string name="title_manage_keywords_pop">Med POP3 kan sökord inte lagras på e-postservern!</string>
     <string name="title_manage_labels">Hantera Gmail-etiketter</string>
     <string name="title_add_keyword">Lägg till nyckelord</string>
     <string name="title_show_inline">Visa infogade bilagor</string>
@@ -1676,6 +1677,7 @@
     <string name="title_filter_hidden">Dold</string>
     <string name="title_filter_deleted">Raderad</string>
     <string name="title_filter_duplicates">Dubbletter</string>
+    <string name="title_filter_sent">Skickat</string>
     <string name="title_filter_trash">Kastade</string>
     <string name="title_compact">Kompakt vy</string>
     <string name="title_zoom">Textstorlek</string>
@@ -2296,8 +2298,8 @@
         <item>Endast PGP-kryptering</item>
         <item>PGP-signering + kryptering</item>
         <item>S/MIME signering</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
-        <item>S/MIME signera+kryptera</item>
+        <item>Kryptera enbart (S/MIME)</item>
+        <item>Signera och kryptera (S/MIME)</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>

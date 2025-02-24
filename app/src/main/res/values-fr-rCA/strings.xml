@@ -1697,6 +1697,7 @@
     <string name="title_filter_hidden">Masqués</string>
     <string name="title_filter_deleted">Supprimés</string>
     <string name="title_filter_duplicates">Doublons</string>
+    <string name="title_filter_sent">Envoyés</string>
     <string name="title_filter_trash">Supprimés</string>
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
@@ -2322,7 +2323,7 @@
         <item>Chiffrement PGP seulement</item>
         <item>Signature et chiffrement PGP</item>
         <item>Signature S/MIME seulement</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">Chiffrement S/MIME uniquement</item>
+        <item>Chiffrement S/MIME uniquement</item>
         <item>Signature et chiffrement S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

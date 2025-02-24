@@ -1652,6 +1652,7 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
     <string name="title_filter_hidden">Piilotettu</string>
     <string name="title_filter_deleted">Poistetut</string>
     <string name="title_filter_duplicates">Kaksoiskappaleet</string>
+    <string name="title_filter_sent">Lähetetty</string>
     <string name="title_filter_trash">Roskakoriin siirretyt</string>
     <string name="title_compact">Tiivistetty näkymä</string>
     <string name="title_zoom">Tekstin koko</string>
@@ -2266,7 +2267,7 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
         <item>PGP salaa ainoastaan</item>
         <item>PGP allekirjoita+salaa</item>
         <item>S/MIME allekirjoita ainoastaan</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME allekirjoita+salaa</item>
     </string-array>
     <string-array name="sizeNames">

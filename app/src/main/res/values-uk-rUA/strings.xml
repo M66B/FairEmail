@@ -1722,6 +1722,7 @@
     <string name="title_filter_hidden">Приховані</string>
     <string name="title_filter_deleted">Видалені</string>
     <string name="title_filter_duplicates">Дублікати</string>
+    <string name="title_filter_sent">Надіслані</string>
     <string name="title_filter_trash">Видалені</string>
     <string name="title_compact">Компактний вигляд</string>
     <string name="title_zoom">Розмір тексту</string>
@@ -2349,7 +2350,7 @@
         <item>Тільки шифрування PGP</item>
         <item>Підпис+шифрування PGP</item>
         <item>Тільки підпис S/MIME</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">Тільки шифрування S/MIME</item>
+        <item>Тільки шифрування S/MIME</item>
         <item>Підпис+шифрування S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

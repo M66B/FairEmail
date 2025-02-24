@@ -1723,6 +1723,7 @@
     <string name="title_filter_hidden">מוסתר</string>
     <string name="title_filter_deleted">נמחקו</string>
     <string name="title_filter_duplicates">כפילויות</string>
+    <string name="title_filter_sent">נשלח</string>
     <string name="title_filter_trash">באשפה</string>
     <string name="title_compact">תצוגה מצומצמת</string>
     <string name="title_zoom">גודל טקסט</string>
@@ -2343,7 +2344,7 @@
         <item>הצפנת PGP בלבד</item>
         <item>חתימה והצפנה עם PGP</item>
         <item>חתימה בלבד עם S/MIME</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>חתימה והצפנה עם S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

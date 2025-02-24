@@ -1190,6 +1190,7 @@
     <string name="title_filter_unknown">فرستندگان ناشناس</string>
     <string name="title_filter_hidden">پنهان</string>
     <string name="title_filter_duplicates">پیام‌های تکراری</string>
+    <string name="title_filter_sent">ارسال شده</string>
     <string name="title_compact">نمایش فشرده</string>
     <string name="title_zoom">اندازه متن</string>
     <string name="title_padding">اندازه لایه‌گذاری</string>
@@ -1664,7 +1665,7 @@
         <item>PGP encrypt-only</item>
         <item>امضا+رمزگذاری PGP</item>
         <item>تنها امضا شده S/MIME</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME فقط-رمزگذاری</item>
+        <item>S/MIME فقط-رمزگذاری</item>
         <item>امضا+رمزگذاری S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

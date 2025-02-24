@@ -1722,6 +1722,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_filter_hidden">Skryto</string>
     <string name="title_filter_deleted">Smazané</string>
     <string name="title_filter_duplicates">Duplikáty</string>
+    <string name="title_filter_sent">Odeslané</string>
     <string name="title_filter_trash">V koši</string>
     <string name="title_compact">Kompaktní zobrazení</string>
     <string name="title_zoom">Velikost textu</string>
@@ -2348,7 +2349,7 @@ v prohlížeči ze všech Google účtů.</string>
         <item>Pouze šifrování PGP</item>
         <item>PGP podpis+šifrovat</item>
         <item>S/MIME pouze podpis</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">Pouze S/MIME šifrování</item>
+        <item>Pouze S/MIME šifrování</item>
         <item>S/MIME podpis+šifrovat</item>
     </string-array>
     <string-array name="sizeNames">

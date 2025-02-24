@@ -1688,6 +1688,7 @@
     <string name="title_filter_hidden">Rejtett</string>
     <string name="title_filter_deleted">Törölt</string>
     <string name="title_filter_duplicates">Másolatok</string>
+    <string name="title_filter_sent">Elküldött</string>
     <string name="title_filter_trash">Kukázott</string>
     <string name="title_compact">Kompakt nézet</string>
     <string name="title_zoom">Szövegméret</string>
@@ -2312,7 +2313,7 @@
         <item>PGP csak titkosítás</item>
         <item>PGP aláírás+titkosítás</item>
         <item>S/MIME csak aláírás</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME - csak titkosítás</item>
+        <item>S/MIME - csak titkosítás</item>
         <item>S/MIME aláírás+titkosítás</item>
     </string-array>
     <string-array name="sizeNames">

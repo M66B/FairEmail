@@ -1677,6 +1677,7 @@
     <string name="title_filter_hidden">隐藏</string>
     <string name="title_filter_deleted">已删除</string>
     <string name="title_filter_duplicates">重复项</string>
+    <string name="title_filter_sent">已发送</string>
     <string name="title_filter_trash">已回收</string>
     <string name="title_compact">紧凑视图</string>
     <string name="title_zoom">文本大小</string>
@@ -2299,7 +2300,7 @@
         <item>仅 PGP 加密</item>
         <item>PGP 签名+加密</item>
         <item>仅 S/MIME 签名</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">仅 S/MIME 加密</item>
+        <item>仅 S/MIME 加密</item>
         <item>S/MIME 签名+加密</item>
     </string-array>
     <string-array name="sizeNames">

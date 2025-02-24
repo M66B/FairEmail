@@ -1680,6 +1680,7 @@
     <string name="title_filter_hidden">非表示のメッセージ</string>
     <string name="title_filter_deleted">削除済み</string>
     <string name="title_filter_duplicates">重複</string>
+    <string name="title_filter_sent">送信済み</string>
     <string name="title_filter_trash">ごみ箱</string>
     <string name="title_compact">簡易表示</string>
     <string name="title_zoom">テキストサイズ</string>
@@ -2304,7 +2305,7 @@
         <item>PGP 暗号化のみ</item>
         <item>PGP 暗号化 + デジタル署名</item>
         <item>S/MIME デジタル署名のみ</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME 暗号化 + デジタル署名</item>
     </string-array>
     <string-array name="sizeNames">

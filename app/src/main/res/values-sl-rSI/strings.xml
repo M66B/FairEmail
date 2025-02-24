@@ -1471,6 +1471,7 @@
     <string name="title_filter_hidden">Skrita</string>
     <string name="title_filter_deleted">Izbrisano</string>
     <string name="title_filter_duplicates">Dvojnike</string>
+    <string name="title_filter_sent">Poslano</string>
     <string name="title_filter_trash">Smeti</string>
     <string name="title_compact">Strnjen pogled</string>
     <string name="title_zoom">Velikost besedila</string>
@@ -2025,7 +2026,7 @@
         <item>PGP encrypt-only</item>
         <item>Podpiši in šifriraj (PGP)</item>
         <item>Samo podpiši (S/MIME)</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>Podpiši in šifriraj (S/MIME)</item>
     </string-array>
     <string-array name="sizeNames">

@@ -392,6 +392,7 @@
     <string name="title_advanced_kept_removed">Verifică dacă mesajele vechi au fost înlăturate de pe server</string>
     <string name="title_advanced_gmail_thread">Stil grupare mesaje tip Gmail pentru conturile Gmail</string>
     <string name="title_advanced_subject_threading">Gruparea mesajelor în funcție de expeditor și subiect</string>
+    <string name="title_advanced_outlook_categories">Sincronizare categorii Outlook</string>
     <string name="title_advanced_sync_folders">Sincronizare lista dosare</string>
     <string name="title_advanced_sync_folders_poll">Sincronizarea activă a listei de dosare</string>
     <string name="title_advanced_sync_shared_folders">Sincronizare liste de dosare partajate</string>
@@ -407,6 +408,7 @@
     <string name="title_advanced_tune_keep_alive">Reglaţi automat intervalul de păstrare al conexiunii</string>
     <string name="title_advanced_blocklist_warning">Listele de blocare nu sunt perfecte și pot bloca mai mult decât spam!</string>
     <string name="title_advanced_keyboard">Afișare implicită a tastaturii</string>
+    <string name="title_advanced_keyboard_margin">Adaugă o margine deasupra tastaturii</string>
     <string name="title_advanced_keyboard_no_fullscreen">Dezactivare tastatură pe tot ecranul</string>
     <string name="title_advanced_suggest_names">Utilizează nume și adrese de e-mail</string>
     <string name="title_advanced_suggest_local">Sugerează contacte stocate local</string>
@@ -522,6 +524,7 @@
     <string name="title_advanced_nav_hide_message">Puteți activa din nou opțiunile în setările de afișare</string>
     <string name="title_advanced_nav_last_sync">Arată ultima dată de sincronizare în meniul de navigare</string>
     <string name="title_advanced_nav_message_count">Afișarea numărului de mesaje stocate local în meniul de navigare</string>
+    <string name="title_advanced_nav_unseen">Afișarea numărului de mesaje necitite în meniul de navigare</string>
     <string name="title_advanced_nav_unseen_drafts">Afișarea numărului de ciorne necitite în meniul de navigare</string>
     <string name="title_advanced_nav_pinned_count">Afișarea numărului de mesaje necitite în meniul de navigare fixat</string>
     <string name="title_advanced_show_unexposed">Arată o stea pentru conturi/dosare cu mesaje necitite primite recent</string>
@@ -721,6 +724,7 @@
     <string name="title_advanced_notify_screen_on">Activați pentru scurt timp ecranul pentru notificări de mesaje noi</string>
     <string name="title_advanced_notifications_background">Folosește serviciul de fundal pentru a sincroniza mesajele</string>
     <string name="title_advanced_notifications_background_hint">Un serviciu de fundal poate fi oprit de Android în orice moment, dar nu necesită o notificare în bara de stare</string>
+    <string name="title_advanced_rate_limit">Limitează sunetele de notificare ale mesajelor noi la o dată:</string>
     <string name="title_advanced_confirm_links">Confirma deschiderea legăturilor</string>
     <string name="title_advanced_confirm_files">Confirmă vizualizarea fișierelor</string>
     <string name="title_advanced_sanitize_links">Elimină implicit parametrii de urmărire</string>
@@ -856,6 +860,7 @@
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_gmail_thread_hint">Acest lucru se aplică doar la mesajele noi primite și poate strica grupurile existente</string>
     <string name="title_advanced_subject_threading_hint">Numai mesajele primite în ultimele %1$d ore</string>
+    <string name="title_advanced_outlook_categories_hint">Categoriile de Outlook pot fi doar preluate și nu pot fi reîmprospătate automat din cauza limitărilor Outlook IMAP</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
     <string name="title_advanced_poll_folders_hint">Sincronizarea periodică a listei de dosare în plus față de după conectarea la un cont</string>
     <string name="title_advanced_check_authentication_hint">Aceasta va verifica rezultatele autentificării DKIM, SPF și DMARC efectuate de serverul de e-mail</string>
@@ -1292,6 +1297,7 @@
     <string name="title_raw_send_message">Mesaj</string>
     <string name="title_raw_send_thread">Conversație</string>
     <string name="title_manage_keywords">Gestionare cuvinte cheie</string>
+    <string name="title_manage_keywords_pop">Cu POP3, cuvintele cheie nu pot fi stocate pe serverul de e-mail!</string>
     <string name="title_manage_labels">Gestionare etichete Gmail</string>
     <string name="title_add_keyword">Adăugă cuvânt cheie</string>
     <string name="title_show_inline">Arată atașamentele integrate</string>
@@ -1701,6 +1707,7 @@
     <string name="title_filter_hidden">Ascuns</string>
     <string name="title_filter_deleted">Șters</string>
     <string name="title_filter_duplicates">Duplicate</string>
+    <string name="title_filter_sent">Trimise</string>
     <string name="title_filter_trash">A fost aruncat la gunoi</string>
     <string name="title_compact">Vizualizare compactă</string>
     <string name="title_zoom">Mărime text</string>
@@ -2326,7 +2333,7 @@
         <item>Doar PGP</item>
         <item>Semnare+criptare PGP</item>
         <item>Doar semnare S/MIME</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME doar criptare</item>
         <item>Semnare+criptare S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

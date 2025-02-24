@@ -1200,6 +1200,7 @@
     <string name="title_filter_hidden">숨김</string>
     <string name="title_filter_deleted">삭제됨</string>
     <string name="title_filter_duplicates">중복</string>
+    <string name="title_filter_sent">보냄</string>
     <string name="title_compact">간략히 보기</string>
     <string name="title_zoom">글씨 크기</string>
     <string name="title_padding">여백 크기</string>
@@ -1663,7 +1664,7 @@
         <item>PGP encrypt-only</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME 사인+암호화</item>
     </string-array>
     <string-array name="sizeNames">

@@ -1694,6 +1694,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_filter_hidden">Skryté</string>
     <string name="title_filter_deleted">Odstránené</string>
     <string name="title_filter_duplicates">Duplicity</string>
+    <string name="title_filter_sent">Odoslané</string>
     <string name="title_filter_trash">Premiestnené do koša</string>
     <string name="title_compact">Kompaktné zobrazenie</string>
     <string name="title_zoom">Veľkosť textu</string>
@@ -2291,7 +2292,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Len PGP šifrovanie</item>
         <item>PGP podpísať aj zašifrovať</item>
         <item>S/MIME len podpísať</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME podpísať aj zašifrovať</item>
     </string-array>
     <string-array name="sizeNames">

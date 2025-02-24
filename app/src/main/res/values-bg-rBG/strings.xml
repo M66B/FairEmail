@@ -1687,6 +1687,7 @@
     <string name="title_filter_hidden">Скрий</string>
     <string name="title_filter_deleted">Изтрито</string>
     <string name="title_filter_duplicates">Дублирани</string>
+    <string name="title_filter_sent">Изпратено</string>
     <string name="title_filter_trash">Изхвърлено</string>
     <string name="title_compact">Сбит изглед</string>
     <string name="title_zoom">Размер на текста</string>
@@ -2312,7 +2313,7 @@
         <item>Само криптиране PGP</item>
         <item>PGP подписване+криптиране</item>
         <item>S/MIME само подписване</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME подписване+криптиране</item>
     </string-array>
     <string-array name="sizeNames">

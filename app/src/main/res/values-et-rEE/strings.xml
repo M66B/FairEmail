@@ -1690,6 +1690,7 @@
     <string name="title_filter_hidden">Peidetud</string>
     <string name="title_filter_deleted">Kustutatud</string>
     <string name="title_filter_duplicates">Duplikaadid</string>
+    <string name="title_filter_sent">Saadetud</string>
     <string name="title_filter_trash">Prügis</string>
     <string name="title_compact">Kompaktne vaade</string>
     <string name="title_zoom">Teksti suurus</string>
@@ -2308,7 +2309,7 @@
         <item>Vaid PGP krüpteering</item>
         <item>PGP allkiri+krüpteering</item>
         <item>Vaid S/MIME allkiri</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME allkiri+krüpt.</item>
     </string-array>
     <string-array name="sizeNames">

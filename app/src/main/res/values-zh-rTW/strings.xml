@@ -1669,6 +1669,7 @@
     <string name="title_filter_hidden">隱藏</string>
     <string name="title_filter_deleted">已刪除</string>
     <string name="title_filter_duplicates">重複</string>
+    <string name="title_filter_sent">已傳送</string>
     <string name="title_filter_trash">於垃圾桶中</string>
     <string name="title_compact">緊湊型視圖</string>
     <string name="title_zoom">文字大小</string>
@@ -2289,7 +2290,7 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
         <item>僅 PGP 加密</item>
         <item>PGP 簽名+加密</item>
         <item>僅 S/MIME 簽名</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME 簽名+加密</item>
     </string-array>
     <string-array name="sizeNames">

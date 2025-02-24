@@ -1696,6 +1696,7 @@
     <string name="title_filter_hidden">Gizli</string>
     <string name="title_filter_deleted">Silindi</string>
     <string name="title_filter_duplicates">Dublikatlar</string>
+    <string name="title_filter_sent">Göndərilən</string>
     <string name="title_filter_trash">Tullantı</string>
     <string name="title_compact">Yığcam baxış</string>
     <string name="title_zoom">Mətn həcmi</string>
@@ -2314,7 +2315,7 @@
         <item>PGP yalnız şifrələmə</item>
         <item>PGP imza+şifrələmə</item>
         <item>S/MIME yalnız imza</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item>S/MIME encrypt-only</item>
         <item>S/MIME imza+şifrələmə</item>
     </string-array>
     <string-array name="sizeNames">

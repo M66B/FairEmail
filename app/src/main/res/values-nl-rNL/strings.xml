@@ -1684,6 +1684,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_filter_hidden">Verborgen</string>
     <string name="title_filter_deleted">Verwijderde</string>
     <string name="title_filter_duplicates">Duplicaten</string>
+    <string name="title_filter_sent">Verzonden</string>
     <string name="title_filter_trash">Verwijderde</string>
     <string name="title_compact">Compacte weergave</string>
     <string name="title_zoom">Tekstgrootte</string>
@@ -2305,7 +2306,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>PGP alleen versleuteling</item>
         <item>PGP ondertekening+versleuteling</item>
         <item>S/MIME alleen ondertekening</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME alleen versleuteling</item>
+        <item>S/MIME alleen versleuteling</item>
         <item>S/MIME ondertekening+versleuteling</item>
     </string-array>
     <string-array name="sizeNames">
