@@ -2323,7 +2323,7 @@
         <item>PGP nur verschlüsseln</item>
         <item>PGP signieren und verschlüsseln</item>
         <item>S/MIME nur signieren</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME nur verschlüsseln</item>
         <item>S/MIME signieren und verschlüsseln</item>
     </string-array>
     <string-array name="sizeNames">

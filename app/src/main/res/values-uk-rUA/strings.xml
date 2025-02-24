@@ -2349,7 +2349,7 @@
         <item>Тільки шифрування PGP</item>
         <item>Підпис+шифрування PGP</item>
         <item>Тільки підпис S/MIME</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">Тільки шифрування S/MIME</item>
         <item>Підпис+шифрування S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

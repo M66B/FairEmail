@@ -1279,6 +1279,7 @@
     <string name="title_raw_send_message">Üzenet</string>
     <string name="title_raw_send_thread">Beszélgetés</string>
     <string name="title_manage_keywords">Kulcsszavak kezelése</string>
+    <string name="title_manage_keywords_pop">POP3 esetén a kulcsszavak nem tárolhatók az email kiszolgálón!</string>
     <string name="title_manage_labels">Gmail címkék kezelése</string>
     <string name="title_add_keyword">Kulcsszó hozzáadása</string>
     <string name="title_show_inline">Beágyazott mellékletek megjelenítése</string>
@@ -2311,7 +2312,7 @@
         <item>PGP csak titkosítás</item>
         <item>PGP aláírás+titkosítás</item>
         <item>S/MIME csak aláírás</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME - csak titkosítás</item>
         <item>S/MIME aláírás+titkosítás</item>
     </string-array>
     <string-array name="sizeNames">

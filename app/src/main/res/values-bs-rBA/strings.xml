@@ -1299,6 +1299,7 @@
     <string name="title_raw_send_message">Poruka</string>
     <string name="title_raw_send_thread">Konverzacija</string>
     <string name="title_manage_keywords">Upravljaj ključnim riječima</string>
+    <string name="title_manage_keywords_pop">Kod POP3 protokola, ključne riječi se nemogu čuvati na serveru!</string>
     <string name="title_manage_labels">Upravljaj Gmail-ovim oznakama</string>
     <string name="title_add_keyword">Dodaj ključnu riječ</string>
     <string name="title_show_inline">Prikaži poravnate priloge</string>
@@ -2328,7 +2329,7 @@
         <item>Samo PGP šifriranje</item>
         <item>PGP potpisani i šifrirani</item>
         <item>Samo S/MIME potpisani</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME šif.-jedino</item>
         <item>S/MIME potpisani i šifrirani</item>
     </string-array>
     <string-array name="sizeNames">

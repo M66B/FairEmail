@@ -2299,7 +2299,7 @@
         <item>仅 PGP 加密</item>
         <item>PGP 签名+加密</item>
         <item>仅 S/MIME 签名</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">仅 S/MIME 加密</item>
         <item>S/MIME 签名+加密</item>
     </string-array>
     <string-array name="sizeNames">

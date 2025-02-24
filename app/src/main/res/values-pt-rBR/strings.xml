@@ -2317,7 +2317,7 @@
         <item>Criptografias PGP</item>
         <item>Assinaturas PGP + criptografias</item>
         <item>Assinante S/MIME</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">Somente criptografia S/MIME</item>
         <item>Assinaturas S/MIME + criptografia</item>
     </string-array>
     <string-array name="sizeNames">

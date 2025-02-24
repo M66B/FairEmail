@@ -2322,7 +2322,7 @@
         <item>Kun PGP-kryptering</item>
         <item>PGP-signering + kryptering</item>
         <item>Kun S/MIME-signering</item>
-        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">S/MIME encrypt-only</item>
+        <item comment="encryptNames&#10;Title for item in spinner to select S/MIME encryption only&#10;Please keep the translation in line with the title S/MIME sign+encrypt">Kun S/MIME-kryptering</item>
         <item>S/MIME-signering + kryptering</item>
     </string-array>
     <string-array name="sizeNames">
