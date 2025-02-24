@@ -2038,6 +2038,7 @@
     <string name="title_filter_hidden">Hidden</string>
     <string name="title_filter_deleted">Deleted</string>
     <string name="title_filter_duplicates">Duplicates</string>
+    <string name="title_filter_sent">Sent</string>
     <string name="title_filter_trash">Trashed</string>
 
     <string name="title_compact">Compact view</string>

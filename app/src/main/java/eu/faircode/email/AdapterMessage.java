@@ -218,6 +218,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private String sort;
     private boolean ascending;
     private boolean filter_duplicates;
+    private boolean filter_sent;
     private boolean filter_trash;
     private IProperties properties;
 
@@ -8338,7 +8339,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     AdapterMessage(Fragment parentFragment,
                    String type, boolean found, String searched, boolean searchedPartial, ViewType viewType,
                    boolean compact, int zoom, boolean large_buttons, String sort, boolean ascending,
-                   boolean filter_duplicates, boolean filter_trash,
+                   boolean filter_duplicates, boolean filter_sent, boolean filter_trash,
                    final IProperties properties) {
         this.parentFragment = parentFragment;
         this.type = type;
@@ -8352,6 +8353,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.sort = sort;
         this.ascending = ascending;
         this.filter_duplicates = filter_duplicates;
+        this.filter_sent = filter_sent;
         this.filter_trash = filter_trash;
         this.properties = properties;
 
@@ -9208,6 +9210,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
+    void setFilterSent(boolean filter_sent) {
+        if (this.filter_sent != filter_sent) {
+            this.filter_sent = filter_sent;
+            properties.refresh();
+        }
+    }
+
     void setFilterTrash(boolean filter_trash) {
         if (this.filter_trash != filter_trash) {
             this.filter_trash = filter_trash;
@@ -9247,7 +9256,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (filter_duplicates && message.duplicate)
             return R.layout.item_message_duplicate;
 
-        if (filter_trash && EntityFolder.TRASH.equals(message.folderType) && !allTrashed())
+        if (filter_sent && EntityFolder.SENT.equals(message.folderType) && !all(EntityFolder.SENT))
+            return R.layout.item_message_duplicate;
+
+        if (filter_trash && EntityFolder.TRASH.equals(message.folderType) && !all(EntityFolder.TRASH))
             return R.layout.item_message_duplicate;
 
         return (compact ? R.layout.item_message_compact : R.layout.item_message_normal);
@@ -9310,7 +9322,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         if ((filter_duplicates && message.duplicate) ||
-                (filter_trash && EntityFolder.TRASH.equals(message.folderType) && !allTrashed())) {
+                (filter_sent && EntityFolder.SENT.equals(message.folderType) && !all(EntityFolder.SENT)) ||
+                (filter_trash && EntityFolder.TRASH.equals(message.folderType) && !all(EntityFolder.TRASH))) {
             holder.card.setCardBackgroundColor(message.folderColor == null
                     ? Color.TRANSPARENT
                     : ColorUtils.setAlphaComponent(message.folderColor, 128));
@@ -9337,13 +9350,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         holder.wire();
     }
 
-    private boolean allTrashed() {
+    private boolean all(@NonNull String type) {
         if (differ.getItemCount() == 1)
             return true;
 
         for (int i = 0; i < differ.getItemCount(); i++) {
             TupleMessageEx m = differ.getItem(i);
-            if (m == null || !EntityFolder.TRASH.equals(m.folderType))
+            if (m == null || !type.equals(m.folderType))
                 return false;
         }
 
