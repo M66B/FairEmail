@@ -510,7 +510,40 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     protected void onPause() {
         Log.d("Pause " + this.getClass().getName());
-        super.onPause();
+        try {
+            super.onPause();
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                Exception java.lang.RuntimeException:
+                  at android.app.ActivityThread.performPauseActivityIfNeeded (ActivityThread.java:5639)
+                  at android.app.ActivityThread.performPauseActivity (ActivityThread.java:5590)
+                  at android.app.ActivityThread.handlePauseActivity (ActivityThread.java:5542)
+                  at android.app.servertransaction.PauseActivityItem.execute (PauseActivityItem.java:47)
+                  at android.app.servertransaction.ActivityTransactionItem.execute (ActivityTransactionItem.java:45)
+                  at android.app.servertransaction.TransactionExecutor.executeLifecycleState (TransactionExecutor.java:176)
+                  at android.app.servertransaction.TransactionExecutor.execute (TransactionExecutor.java:97)
+                  at android.app.ActivityThread$H.handleMessage (ActivityThread.java:2443)
+                  at android.os.Handler.dispatchMessage (Handler.java:106)
+                  at android.os.Looper.loopOnce (Looper.java:226)
+                  at android.os.Looper.loop (Looper.java:313)
+                  at android.app.ActivityThread.main (ActivityThread.java:8751)
+                  at java.lang.reflect.Method.invoke
+                  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run (RuntimeInit.java:571)
+                  at com.android.internal.os.ZygoteInit.main (ZygoteInit.java:1135)
+                Caused by java.lang.IllegalArgumentException:
+                  at androidx.fragment.app.BackStackRecord.executePopOps (BackStackRecord.java:480)
+                  at androidx.fragment.app.FragmentManager.executeOps (FragmentManager.java:2277)
+                  at androidx.fragment.app.FragmentManager.executeOpsTogether (FragmentManager.java:2165)
+                  at androidx.fragment.app.FragmentManager.removeRedundantOperationsAndExecute (FragmentManager.java:2109)
+                  at androidx.fragment.app.FragmentManager.execPendingActions (FragmentManager.java:2052)
+                  at androidx.fragment.app.FragmentManager.dispatchStateChange (FragmentManager.java:3327)
+                  at androidx.fragment.app.FragmentManager.dispatchPause (FragmentManager.java:3255)
+                  at androidx.fragment.app.FragmentController.dispatchPause (FragmentController.java:296)
+                  at androidx.fragment.app.FragmentActivity.onPause (FragmentActivity.java:284)
+                  at eu.faircode.email.ActivityBase.onPause (ActivityBase.java:510)
+            */
+        }
 
         visible = false;
 
