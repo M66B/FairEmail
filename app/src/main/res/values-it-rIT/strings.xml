@@ -1235,6 +1235,7 @@
     <string name="title_filters_active">Uno o più filtri attivi</string>
     <string name="title_duplicate_in">Duplica messaggio in %1$s</string>
     <string name="title_trashed_from">Messaggio cestinato da %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Messaggio inviato a %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1697,7 +1698,7 @@
     <string name="title_filter_hidden">Nascosti</string>
     <string name="title_filter_deleted">Eliminati</string>
     <string name="title_filter_duplicates">Duplicati</string>
-    <string name="title_filter_sent">Inviati</string>
+    <string name="title_filter_sent">Inviata</string>
     <string name="title_filter_trash">Cestinato</string>
     <string name="title_compact">Vista compatta</string>
     <string name="title_zoom">Dimensione testo</string>

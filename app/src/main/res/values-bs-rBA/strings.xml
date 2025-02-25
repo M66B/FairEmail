@@ -1710,6 +1710,7 @@
     <string name="title_filter_hidden">Skrivenom</string>
     <string name="title_filter_deleted">Izbrisano</string>
     <string name="title_filter_duplicates">Duplikati</string>
+    <string name="title_filter_sent">Poslano</string>
     <string name="title_filter_trash">Otpad</string>
     <string name="title_compact">Kompaktni izgled</string>
     <string name="title_zoom">Veličina teksta</string>

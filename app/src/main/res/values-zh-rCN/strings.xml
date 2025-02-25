@@ -1216,6 +1216,7 @@
     <string name="title_filters_active">已激活至少一个过滤器</string>
     <string name="title_duplicate_in">%1$s 中的重复邮件</string>
     <string name="title_trashed_from">来自 %1$s 的已回收邮件</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">消息已发送至 %1$s</string>
     <string name="title_subject_reply">回复: %1$s</string>
     <string name="title_subject_forward">转发: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

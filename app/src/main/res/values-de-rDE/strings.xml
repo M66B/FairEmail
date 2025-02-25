@@ -1236,6 +1236,7 @@
     <string name="title_filters_active">Ein oder mehrere Filter aktiv</string>
     <string name="title_duplicate_in">Doppelte Nachricht in %1$s</string>
     <string name="title_trashed_from">Gelöschte Nachricht von %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Nachricht an %1$s gesendet</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">AW: %1$s</string>

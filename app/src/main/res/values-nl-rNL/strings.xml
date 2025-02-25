@@ -1227,6 +1227,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_filters_active">Eén of meer filters actief</string>
     <string name="title_duplicate_in">Dubbel bericht in %1$s</string>
     <string name="title_trashed_from">Verwijderd bericht van %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Bericht verzonden naar %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

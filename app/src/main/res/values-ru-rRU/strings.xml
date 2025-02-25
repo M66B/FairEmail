@@ -1262,6 +1262,7 @@
     <string name="title_filters_active">Один или несколько фильтров активны</string>
     <string name="title_duplicate_in">Дубликат сообщения в %1$s</string>
     <string name="title_trashed_from">Мусорное сообщение от %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Сообщение для %1$s отправлено</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

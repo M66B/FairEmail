@@ -697,6 +697,7 @@
     <string name="title_advanced_notify_screen_on">画面を一時オンにして新着メッセージ通知を表示する</string>
     <string name="title_advanced_notifications_background">メッセージの同期にバックグラウンドサービスを使用</string>
     <string name="title_advanced_notifications_background_hint">バックグラウンドサービスは Android によって停止される可能性がありますが、ステータスバーに通知が表示されなくなります</string>
+    <string name="title_advanced_rate_limit">一度に鳴らす新着メッセージの通知音の回数を制限する:</string>
     <string name="title_advanced_confirm_links">リンクを開く前に確認を表示する</string>
     <string name="title_advanced_confirm_files">ファイルを開く前に確認を表示する</string>
     <string name="title_advanced_sanitize_links">デフォルトでトラッキングパラメーターを削除する</string>
@@ -1219,6 +1220,7 @@
     <string name="title_filters_active">1 つ以上のフィルターがアクティブです</string>
     <string name="title_duplicate_in">%1$s でメッセージが重複しています</string>
     <string name="title_trashed_from">メッセージを %1$s からごみ箱に移動しました</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">メッセージを %1$s に送信しました</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">RE: %1$s</string>
@@ -1270,6 +1272,7 @@
     <string name="title_raw_send_message">メッセージ</string>
     <string name="title_raw_send_thread">会話スレッド</string>
     <string name="title_manage_keywords">キーワードを管理</string>
+    <string name="title_manage_keywords_pop">POP3 ではキーワードはサーバーに保存できません！</string>
     <string name="title_manage_labels">Gmail ラベルを管理</string>
     <string name="title_add_keyword">キーワードを追加</string>
     <string name="title_show_inline">インライン添付ファイルを表示する</string>
@@ -2305,7 +2308,7 @@
         <item>PGP 暗号化のみ</item>
         <item>PGP 暗号化 + デジタル署名</item>
         <item>S/MIME デジタル署名のみ</item>
-        <item>S/MIME encrypt-only</item>
+        <item>S/MIME 暗号化のみ</item>
         <item>S/MIME 暗号化 + デジタル署名</item>
     </string-array>
     <string-array name="sizeNames">

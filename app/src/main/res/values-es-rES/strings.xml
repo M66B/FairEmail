@@ -2317,7 +2317,7 @@
         <item>Sólo cifrado PGP</item>
         <item>Firmar y cifrar con PGP</item>
         <item>Sólo firmar S/MIME</item>
-        <item>S/MIME encrypt-only</item>
+        <item>Sólo cifrado S/MIME</item>
         <item>Firmar y cifrar S/MIME</item>
     </string-array>
     <string-array name="sizeNames">
