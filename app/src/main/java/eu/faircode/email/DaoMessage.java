@@ -488,6 +488,9 @@ public interface DaoMessage {
             " OR (NOT :hash IS NULL AND message.hash IS :hash))")
     List<EntityMessage> getMessagesBySimilarity(long account, long id, String msgid, String hash);
 
+    @Query("SELECT DISTINCT keywords FROM message WHERE folder = :folder")
+    List<String[]> getKeywords(long folder);
+
     @Query("SELECT COUNT(*) FROM message" +
             " WHERE folder = :folder" +
             " AND msgid = :msgid" +

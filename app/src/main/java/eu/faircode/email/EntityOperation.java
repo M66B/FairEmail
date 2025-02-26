@@ -205,6 +205,24 @@ public class EntityOperation {
                         db.folder().setFolderKeywords(folder.id,
                                 DB.Converters.fromStringArray(fkeywords.toArray(new String[0])));
                     }
+                } else {
+                    EntityAccount account = db.account().getAccount(message.account);
+                    if (account != null && account.protocol == EntityAccount.TYPE_POP) {
+                        EntityFolder folder = db.folder().getFolder(message.folder);
+                        if (folder != null) {
+                            List<String> fkeywords = new ArrayList<>();
+                            List<String[]> mkeywords = db.message().getKeywords(folder.id);
+                            if (mkeywords != null)
+                                for (String[] kws : mkeywords) {
+                                    for (String kw : kws)
+                                        if (!fkeywords.contains(kw))
+                                            fkeywords.add(kw);
+                                }
+                            Collections.sort(fkeywords);
+                            db.folder().setFolderKeywords(folder.id,
+                                    DB.Converters.fromStringArray(fkeywords.toArray(new String[0])));
+                        }
+                    }
                 }
 
             } else if (LABEL.equals(name)) {
