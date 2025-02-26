@@ -2912,9 +2912,13 @@ Since version 1.2174 it is possible to use expression conditions like:
 
 ```from contains "@example.com" && subject contains "Example"```
 
+```subject contains "This" || subject contains "That"```
+
 Note that there is a separate input field for expression conditions. You can use newlines for more clarity.
 
 Please [see here](https://ezylang.github.io/EvalEx/references/references.html) about which constants, operators and functions are available.
+Commonly used are && (=and) and || (=or).
+
 
 The following extra variables are available:
 

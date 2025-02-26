@@ -1586,8 +1586,9 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p><a name="expression_conditions"></a> <strong>Expressions</strong></p>
 <p>Since version 1.2174 it is possible to use expression conditions like:</p>
 <p><code>from contains "@example.com" &amp;&amp; subject contains "Example"</code></p>
+<p><code>subject contains "This" || subject contains "That"</code></p>
 <p>Note that there is a separate input field for expression conditions. You can use newlines for more clarity.</p>
-<p>Please <a href="https://ezylang.github.io/EvalEx/references/references.html">see here</a> about which constants, operators and functions are available.</p>
+<p>Please <a href="https://ezylang.github.io/EvalEx/references/references.html">see here</a> about which constants, operators and functions are available. Commonly used are &amp;&amp; (=and) and || (=or).</p>
 <p>The following extra variables are available:</p>
 <ul>
 <li><em>received</em> (long, unix epoch in milliseconds; since version 1.2179)</li>
