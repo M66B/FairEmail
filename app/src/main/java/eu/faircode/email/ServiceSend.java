@@ -802,7 +802,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         long start = 0;
         long end = 0;
         Long max_size = null;
-        SMTPSendFailedException partial = null;
+        SendFailedException partial = null;
         if (ident.auth_type == AUTH_TYPE_GRAPH) {
             start = new Date().getTime();
             MicrosoftGraph.send(ServiceSend.this, ident, imessage);
@@ -919,6 +919,36 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 start = new Date().getTime();
                 try {
                     iservice.getTransport().sendMessage(imessage, rcptto);
+                } catch (SendFailedException ex) {
+                    StringBuilder info = new StringBuilder();
+
+                    List<String> failed = new ArrayList<>();
+                    Address[] addresses = ex.getInvalidAddresses();
+                    if (addresses != null)
+                        for (Address address : addresses)
+                            if (address instanceof InternetAddress) {
+                                String email = ((InternetAddress) address).getAddress();
+                                if (!TextUtils.isEmpty(email))
+                                    failed.add(email);
+                            }
+                    if (!failed.isEmpty())
+                        info.append('\n').append("Invalid: ").append(TextUtils.join(", ", failed));
+
+                    if (ex instanceof SMTPSendFailedException) {
+                        SMTPSendFailedException e = (SMTPSendFailedException) ex;
+                        if (info.length() > 0)
+                            info.append('\n');
+                        info.append("SMTP cmd=").append(e.getCommand())
+                                .append(" rc=").append(e.getReturnCode());
+                    }
+
+                    throw new SendFailedException(
+                            getString(R.string.title_service_auth, ex.getMessage()) + info,
+                            ex.getNextException(),
+                            ex.getValidSentAddresses(),
+                            ex.getValidUnsentAddresses(),
+                            ex.getInvalidAddresses());
+
                 } finally {
                     end = new Date().getTime();
                 }
@@ -928,24 +958,17 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 iservice.dump(ident.email);
                 Log.e(ex);
 
-                if (ex instanceof SMTPSendFailedException) {
-                    SMTPSendFailedException sem = (SMTPSendFailedException) ex;
-                    if (send_partial &&
-                            sem.getInvalidAddresses() != null &&
-                            sem.getValidSentAddresses() != null &&
-                            sem.getValidUnsentAddresses() != null &&
-                            sem.getValidSentAddresses().length > 0 &&
-                            sem.getInvalidAddresses().length + sem.getValidUnsentAddresses().length > 0) {
-                        partial = sem;
-                    }
-                    ex = new SMTPSendFailedException(
-                            sem.getCommand(),
-                            sem.getReturnCode(),
-                            getString(R.string.title_service_auth, sem.getMessage()),
-                            sem.getNextException(),
-                            sem.getValidSentAddresses(),
-                            sem.getValidUnsentAddresses(),
-                            sem.getInvalidAddresses());
+                if (send_partial && ex instanceof SendFailedException) {
+                    SendFailedException sem = (SendFailedException) ex;
+                    int unsent = (sem.getValidUnsentAddresses() == null ? 0 : sem.getValidUnsentAddresses().length);
+                    int invalid = (sem.getInvalidAddresses() == null ? 0 : sem.getInvalidAddresses().length);
+                    if (unsent + invalid > 0)
+                        partial = new SendFailedException(
+                                getString(R.string.title_advanced_sent_partially) + "\n" + sem.getMessage(),
+                                sem.getNextException(),
+                                sem.getValidSentAddresses(),
+                                sem.getValidUnsentAddresses(),
+                                sem.getInvalidAddresses());
                 }
 
                 if (sid != null && partial == null)
@@ -976,12 +999,11 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             if (partial == null)
                 db.message().deleteMessage(message.id);
             else {
-                Throwable ex = new Throwable(getString(R.string.title_advanced_sent_partially), partial);
-                db.message().setMessageWarning(message.id, Log.formatThrowable(ex));
+                db.message().setMessageWarning(message.id, Log.formatThrowable(partial));
                 if (NotificationHelper.areNotificationsEnabled(nm)) {
                     NotificationCompat.Builder builder = getNotificationError(
                             MessageHelper.formatAddressesShort(message.to),
-                            ex, 0);
+                            partial, 0);
                     nm.notify("partial:" + message.id,
                             NotificationHelper.NOTIFICATION_TAGGED,
                             builder.build());
@@ -1007,6 +1029,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                             DB.Converters.encodeAddresses(MessageHelper.removeAddresses(message.cc, unsent)));
                     db.message().setMessageBcc(sid,
                             DB.Converters.encodeAddresses(MessageHelper.removeAddresses(message.bcc, unsent)));
+                    db.message().setMessageWarning(sid, Log.formatThrowable(partial));
                 }
 
                 db.message().setMessageReceived(sid, start);
