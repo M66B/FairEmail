@@ -379,6 +379,7 @@
     <string name="title_advanced_kept_removed">Kontrolli, kas vanad sõnumid eemaldati serverist</string>
     <string name="title_advanced_gmail_thread">Gmaili kontode jaoks Gmaili sõnumite rühmitamise laad</string>
     <string name="title_advanced_subject_threading">Rühmita sõnumeid saatja ja teema järgi</string>
+    <string name="title_advanced_outlook_categories">Sünkrooni Outlooki kategooriaid</string>
     <string name="title_advanced_sync_folders">Süngi kaustade loetelu</string>
     <string name="title_advanced_sync_folders_poll">Süngi kaustade loetelu aktiivselt</string>
     <string name="title_advanced_sync_shared_folders">Süngi jagatud kaustade loetelusid</string>
@@ -394,6 +395,7 @@
     <string name="title_advanced_tune_keep_alive">Automaatselt muuda ärkvel olemise ajavahemikku</string>
     <string name="title_advanced_blocklist_warning">Blokklistid pole perfektsed ja võivad blokeerida rohkem kui spämm!</string>
     <string name="title_advanced_keyboard">Näita klaviatuuri vaikimisi</string>
+    <string name="title_advanced_keyboard_margin">Lisa tähis klaviatuuri kohale</string>
     <string name="title_advanced_keyboard_no_fullscreen">Väldi täisekraani klaviatuuri</string>
     <string name="title_advanced_suggest_names">Kasuta nimesid ja e-postiaadresse</string>
     <string name="title_advanced_suggest_local">Soovita seadmes talletatud kontakte</string>
@@ -509,6 +511,7 @@
     <string name="title_advanced_nav_hide_message">Saad häälestuse näitamise seadetes uuesti sisse lülitada</string>
     <string name="title_advanced_nav_last_sync">Näita navigeerimismenüül viimast sünkroonimise aega</string>
     <string name="title_advanced_nav_message_count">Näita navigeerimismenüüs seadmes talletatud sõnumite arvu</string>
+    <string name="title_advanced_nav_unseen">Näita navigeerimisribal lugemata sõnumite arvu</string>
     <string name="title_advanced_nav_unseen_drafts">Näita navigatsioonimenüüs lugemata mustandite arvu</string>
     <string name="title_advanced_nav_pinned_count">Näita lugemata sõnumite arvu kinnitatud navigatsioonimenüüs</string>
     <string name="title_advanced_show_unexposed">Näita tärni uute lugemata kirjadega kontode/kaustade puhul</string>
@@ -708,6 +711,7 @@
     <string name="title_advanced_notify_screen_on">Lülita uue sõnumi teavituse jaoks ekraan lühidalt sisse</string>
     <string name="title_advanced_notifications_background">Kasuta sõnumite sünkroonimiseks taustateenust</string>
     <string name="title_advanced_notifications_background_hint">Taustateenuse võib Android igal ajal peatada, kuid see ei vaja olekuriba teavitust</string>
+    <string name="title_advanced_rate_limit">Uute sõnumite teadete arvu piirang, üks / </string>
     <string name="title_advanced_confirm_links">Kinnita linkide avamine</string>
     <string name="title_advanced_confirm_files">Kinnita failide vaatamine</string>
     <string name="title_advanced_sanitize_links">Eemalda jälitamisparameetrid vaikimisi</string>
@@ -843,6 +847,7 @@
     <string name="title_advanced_sync_kept_hint">See edastab täiendavaid andmeid ja tarbib täiendavalt akut, eriti kui seadmesse on salvestatud palju sõnumeid</string>
     <string name="title_advanced_gmail_thread_hint">See rakendub vaid uutele saabunud sõnumitele ning võib olemasolevad rühmad rikkuda</string>
     <string name="title_advanced_subject_threading_hint">Vaid viimase %1$d tunni jooksul saabunud sõnumid</string>
+    <string name="title_advanced_outlook_categories_hint">Outlooki kategooriaid saab vaid tõmmata ja ei saa automaatselt värskendada Outlooki IMAP serveri piirangute tõttu</string>
     <string name="title_advanced_sync_folders_hint">Selle väljalülitamine vähendab mõnevõrra andmete ja aku kasutamist, kuid keelab ka kaustade nimekirja uuendamise</string>
     <string name="title_advanced_poll_folders_hint">Pärast kontoga ühendamist Sünkrooni lisaks perioodiliselt kaustade loendit</string>
     <string name="title_advanced_check_authentication_hint">See kontrollib DKIM-, SPF- ja DMARC-meiliserveri autentimise tulemusi</string>
@@ -1229,6 +1234,7 @@
     <string name="title_filters_active">Üks või rohkem filtrit aktiivne</string>
     <string name="title_duplicate_in">Dubleeriv sõnum kohas %1$s</string>
     <string name="title_trashed_from">Prügisse sõnum saatjalt %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Saada sõnum saajale %1$s</string>
     <string name="title_subject_reply">Vs: %1$s</string>
     <string name="title_subject_forward">Ed: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1280,6 +1286,7 @@
     <string name="title_raw_send_message">Sõnum</string>
     <string name="title_raw_send_thread">Vestlus</string>
     <string name="title_manage_keywords">Halda märksõnu</string>
+    <string name="title_manage_keywords_pop">POP protokolliga ei saa märksõnu e-postiserverisse talletada!</string>
     <string name="title_manage_labels">Halda Gmaili silte</string>
     <string name="title_add_keyword">Lisa märksõna</string>
     <string name="title_show_inline">Näita sõnumisiseseid manuseid</string>
@@ -2309,7 +2316,7 @@
         <item>Vaid PGP krüpteering</item>
         <item>PGP allkiri+krüpteering</item>
         <item>Vaid S/MIME allkiri</item>
-        <item>S/MIME encrypt-only</item>
+        <item>Vaid * S/MIME krüpteerimine</item>
         <item>S/MIME allkiri+krüpt.</item>
     </string-array>
     <string-array name="sizeNames">

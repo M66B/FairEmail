@@ -1228,6 +1228,7 @@
     <string name="title_filters_active">Egy vagy több szűrő aktív</string>
     <string name="title_duplicate_in">Duplikált üzenet a(z) %1$s mappában</string>
     <string name="title_trashed_from">%1$s-től törölve</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Üzenetet elküldve a következőnek: %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

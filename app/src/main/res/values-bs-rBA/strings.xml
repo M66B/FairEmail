@@ -1248,6 +1248,7 @@
     <string name="title_filters_active">Jedan ili više filtera je aktivno</string>
     <string name="title_duplicate_in">Dupliciraj poruku u %1$s</string>
     <string name="title_trashed_from">Izbrisana poruka od %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Pošalji poruku %1$s</string>
     <string name="title_subject_reply">Odg: %1$s</string>
     <string name="title_subject_forward">Pro: %1$s</string>
     <string name="title_subject_reply_alt">Odg: %1$s</string>

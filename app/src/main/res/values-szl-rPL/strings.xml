@@ -1260,6 +1260,7 @@
     <string name="title_filters_active">Jeden lub więcej filtrów jest aktywnych</string>
     <string name="title_duplicate_in">Duplikat wiadomości w %1$s</string>
     <string name="title_trashed_from">Wiadomość usunięta od %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Wyślij wiadomość do %1$s</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

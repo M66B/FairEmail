@@ -1232,6 +1232,7 @@
     <string name="title_filters_active">Um ou mais filtros ativos</string>
     <string name="title_duplicate_in">Duplicar mensagem em %1$s</string>
     <string name="title_trashed_from">Mensagem destruída de %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Mensagem enviada para %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Enc: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

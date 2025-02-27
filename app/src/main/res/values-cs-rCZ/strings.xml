@@ -1261,6 +1261,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_filters_active">Jeden nebo více filtrů aktivních</string>
     <string name="title_duplicate_in">Duplikát zprávy v %1$s</string>
     <string name="title_trashed_from">Zpráva v koši od %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Zpráva pro %1$s byla odeslána</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
