@@ -4356,8 +4356,8 @@ If you use a Samsung smartwatch with the Galaxy smartwatch (Samsung Gear) app, y
 when the setting *Notifications*, *Apps installed in the future* is turned off in this app.
 
 Some companion apps ignore [local only](https://developer.android.com/training/wearables/notifications/bridger#non-bridged) notifications,
-causing the summary notification (*nnn new messages*) to be bridged.
-Unfortunately, it is not possible to workaround this problem.
+causing (only) the summary notification (*nnn new messages*) to be bridged.
+You can try to disable the option *Group notifications* in the notification settings tab page to workaround this.
 
 Some smartwatches do not display notifications with non-[ASCII](https://en.wikipedia.org/wiki/ASCII) characters,
 in which can you can enable the option *ASCII text only* in the display settings tab page.
