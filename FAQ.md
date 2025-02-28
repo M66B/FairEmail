@@ -884,6 +884,8 @@ tap on *Manual setup and account options*, tap on *Identities*, long press the m
 For more options, you can copy the main identity by long pressing on it, and change the email address and perhaps the (display) name.
 You should not change the username!
 
+Note that you can select the default sending address via the three-dots overflow menu at the top right of the message editor (not the start screen!).
+
 **Important**: In the case of an Outlook account, you should first authenticate the account again with the "Office 365" wizard. You don't need to remove the account for this.
 
 **In many cases, an alias address must first be verified via the website of the mail provider**
