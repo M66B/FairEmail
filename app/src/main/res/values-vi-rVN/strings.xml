@@ -1619,7 +1619,7 @@
     <string name="title_issue">Bạn có câu hỏi hoặc vấn đề không?</string>
     <string name="title_yes">Có</string>
     <string name="title_no">Không</string>
-    <string name="title_later">Để sau</string>
+    <string name="title_later">Để sau</string>
     <string name="title_paste_plain">Dán kiểu văn bản thuần</string>
     <string name="title_undo">Hoàn tác</string>
     <string name="title_redo">Làm lại</string>
@@ -1729,7 +1729,7 @@
     <string name="title_keyword_label2">Công việc</string>
     <string name="title_keyword_label3">Cá nhân</string>
     <string name="title_keyword_label4">Cần làm</string>
-    <string name="title_keyword_label5">Để sau</string>
+    <string name="title_keyword_label5">Để sau</string>
     <plurals name="title_accessibility_messages">
         <item quantity="other">%1$d thư</item>
     </plurals>

@@ -437,11 +437,11 @@ tasks.register('updatePrivacy', Exec) {
     commandLine 'sh', '-c', 'pandoc --standalone --metadata title="FairEmail - privacy" --variable=title="FairEmail" --metadata-file privacy/privacy.yaml PRIVACY.md -o privacy/index.html'
 }
 
-tasks.register('updateCrowdin', Exec) {
+tasks.register('downloadCrowdin', Exec) {
     // https://crowdin.github.io/crowdin-cli/
     // https://developer.crowdin.com/configuration-file/
     workingDir "${rootDir}"
-    commandLine 'sh', '-c', 'crowdin download --branch=master'
+    commandLine 'sh', '-c', 'crowdin download --branch=master && grep -RPl "\\xa0" app/src/main/res/values* | xargs xargs sed -i -e "s/\\xc2\\xa0/ /g"'
 }
 
 tasks.register('downloadPSL', Download) {

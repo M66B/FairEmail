@@ -212,7 +212,7 @@
     <string name="title_setup_account_identity_hint">Вы можете настроить имя, цвет и жесты в настройках учётной записи, а также настроить подпись в настройках идентификатора</string>
     <string name="title_setup_accounts">Учётные записи</string>
     <string name="title_setup_identities">Идентификаторы</string>
-    <string name="title_setup_google_sign_in">Войти с помощью Google</string>
+    <string name="title_setup_google_sign_in">Войти с помощью Google</string>
     <string name="title_setup_other">Другой провайдер</string>
     <string name="title_setup_inbound">Только входящая почта (отправка письма невозможна!)</string>
     <string name="title_setup_imap">Учётная запись IMAP</string>

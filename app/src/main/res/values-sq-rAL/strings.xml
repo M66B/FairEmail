@@ -8,7 +8,7 @@
     <string name="app_unsupported">Gabime në versionin Android të kësaj pajisje të veçantë shkaktojnë përplasje</string>
     <string name="app_data_loss">Të gjitha të dhënat mund të humbasin</string>
     <string name="app_continue">Vazhdo gjithsesi</string>
-    <string name="app_exit"> Shko \'pas\' sërish për të dalë</string>
+    <string name="app_exit"> Shko \'pas\' sërish për të dalë</string>
     <string name="app_cake">Hapësira e pamjaftueshme e magazinimit ka mbetur</string>
     <string name="app_cake_remaining">Hapësira e mbetur e magazinimit në pajisje: %1$s</string>
     <string name="app_cake_required">Minimumi i hapësirës së nevojshme të magazinimit: %1$s</string>

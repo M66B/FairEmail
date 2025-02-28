@@ -167,7 +167,7 @@
     <string name="title_setup_quick_accounts">Konten hinzufügen oder ändern</string>
     <string name="title_setup_quick_support">Einige Anbieter erschweren das Hinzufügen eines Kontos. Bitte geben Sie nicht FairEmail dafür die Schuld, sondern bitten Sie stattdessen um Unterstützung.</string>
     <string name="title_setup_quick_hint">Die eingegebene E-Mail-Adresse wird verwendet, um den E-Mail-Server und autoconfig.thunderbird.net für Konfigurationsinformationen abzufragen</string>
-    <string name="title_setup_quick_patience">Bitte warten &#8230;</string>
+    <string name="title_setup_quick_patience">Bitte warten &#8230;</string>
     <string name="title_setup_quick_imap">IMAP-Server für das Empfangen von Nachrichten</string>
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
     <string name="title_setup_quick_certificates">Server-Zertifikate</string>
@@ -205,7 +205,7 @@
     <string name="title_setup_office_auth_5_7_139">Bitte probieren Sie den Assistenten »Outlook/Hotmail/Live« für die Schnelleinrichtung.</string>
     <string name="title_setup_office_not_connected">        Die Fehlermeldung »User is authenticated but not connected« bedeutet meistens, dass IMAP deaktiviert ist.
         Falls Sie ein privates Outlook-Konto verwenden, rufen Sie bitte die Outlook-Website auf. Klicken Sie oben rechts auf das Zahnrad und wählen Sie »Mail«, dann »Weiterleitung und IMAP« aus. Im Abschnitt »POP und IMAP« bitte die Einstellung »Geräte und Apps die Verwendung von IMAP erlauben« aktivieren.
-        Falls es sich hierbei nicht um ein privates Konto handelt, z. B. Geschäfts- oder Schulkonto, kontaktieren Sie bitte den Systemadministrator Ihres E-Mail-Servers.
+        Falls es sich hierbei nicht um ein privates Konto handelt, z. B. Geschäfts- oder Schulkonto, kontaktieren Sie bitte den Systemadministrator Ihres E-Mail-Servers.
     </string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
     <string name="title_setup_oauth_update">Ein bestehendes Konto erneut autorisieren (oder ein neues Konto erstellen)</string>
@@ -269,7 +269,7 @@
     <string name="title_setup_manual_setup">Manuelle Einrichtung</string>
     <string name="title_setup_pop">POP3 verwenden (nicht empfohlen)</string>
     <string name="title_setup_recent">»Recent« für mehrere E-Mail-Programme verwenden</string>
-    <string name="title_setup_configuring">Konto wird konfiguriert &#8230;</string>
+    <string name="title_setup_configuring">Konto wird konfiguriert &#8230;</string>
     <string name="title_setup_app_password">Möglicherweise müssen Sie ein App-Passwort verwenden</string>
     <string name="title_setup_extra">Extra</string>
     <string name="title_setup_delete_account_hint">Dadurch werden nur Konten aus der App entfernt</string>
@@ -1249,7 +1249,7 @@
     <string name="title_unhide">Anzeigen</string>
     <string name="title_toggle_hide">Aus-/Einblenden</string>
     <string name="title_flag">Stern hinzufügen</string>
-    <string name="title_flag_color">Farbiger Stern &#8230;</string>
+    <string name="title_flag_color">Farbiger Stern &#8230;</string>
     <string name="title_unflag">Stern entfernen</string>
     <string name="title_set_importance">Wichtigkeit festlegen</string>
     <string name="title_importance_low">Niedrig</string>
@@ -1257,16 +1257,16 @@
     <string name="title_importance_high">Hoch</string>
     <string name="title_important">Wichtig</string>
     <string name="title_unimportant">Unwichtig</string>
-    <string name="title_search_in_text">Im Text suchen &#8230;</string>
+    <string name="title_search_in_text">Im Text suchen &#8230;</string>
     <string name="title_forward">Weiterleiten</string>
     <string name="title_forward_to">Weiterleiten an</string>
     <string name="title_resend">Umleiten</string>
-    <string name="title_fetching_headers">Nachrichtenkopfzeilen werden heruntergeladen &#8230;</string>
+    <string name="title_fetching_headers">Nachrichtenkopfzeilen werden heruntergeladen &#8230;</string>
     <string name="title_new_message">Neue Nachricht</string>
     <string name="title_editasnew">Als neu bearbeiten</string>
     <string name="title_edit_notes">Lokale Notizen bearbeiten</string>
     <string name="title_edit_notes_remark">Lokale Notizen werden nicht auf dem E-Mail-Server gespeichert und sind daher nur in dieser App auf diesem Gerät verfügbar</string>
-    <string name="title_create_rule">Regel erstellen &#8230;</string>
+    <string name="title_create_rule">Regel erstellen &#8230;</string>
     <string name="title_full_screen">Vollbild</string>
     <string name="title_force_light">Helles Farbschema erzwingen</string>
     <string name="title_rename">Umbenennen</string>
@@ -1304,7 +1304,7 @@
     <string name="title_buttons_hint">Die aktuell möglichen Aktionen hängen vom Kontotyp und der Konfiguration ab</string>
     <string name="title_button_search_similar">Ähnliche Nachrichten suchen</string>
     <string name="title_button_search_text">Im Nachrichtentext suchen</string>
-    <string name="title_configure_buttons">Schaltflächen konfigurieren &#8230;</string>
+    <string name="title_configure_buttons">Schaltflächen konfigurieren &#8230;</string>
     <string name="title_quick_actions">Aktionen auswählen</string>
     <string name="title_quick_actions_hint">Es werden bis zu %1$d Aktionen angezeigt</string>
     <string name="title_quick_actions_low">Geringe Wichtigkeit</string>
@@ -1314,8 +1314,8 @@
     <string name="title_quick_actions_clear">Auswahl nach Aktion aufheben</string>
     <string name="title_trash">Löschen</string>
     <string name="title_trash_selection">Auswahl löschen</string>
-    <string name="title_copy">Kopieren &#8230;</string>
-    <string name="title_copy_to">Kopieren nach &#8230;</string>
+    <string name="title_copy">Kopieren &#8230;</string>
+    <string name="title_copy_to">Kopieren nach &#8230;</string>
     <string name="title_subscribe">Abonnieren</string>
     <string name="title_delete">Löschen</string>
     <string name="title_delete_all">Alle löschen</string>
@@ -1330,16 +1330,16 @@
     <string name="title_message_rule">Regel erstellen</string>
     <string name="title_no_junk">Kein Spam</string>
     <string name="title_edit_subject">Betreff bearbeiten &#8230;</string>
-    <string name="title_move_to">Verschieben nach &#8230;</string>
-    <string name="title_move_to_folder">Verschieben nach &#8230;</string>
-    <string name="title_move_to_account">Verschieben nach %1$s &#8230;</string>
+    <string name="title_move_to">Verschieben nach &#8230;</string>
+    <string name="title_move_to_folder">Verschieben nach &#8230;</string>
+    <string name="title_move_to_account">Verschieben nach %1$s &#8230;</string>
     <string name="title_report_spam">Als Spam behandeln</string>
     <string name="title_delete_permanently">Dauerhaft löschen</string>
     <string name="title_delete_attachments">Anhänge löschen</string>
     <string name="title_delete_attachments_remark">        Damit Anhänge entfernt werden können, muss eine neue Nachricht hinzugefügt und die alte Nachricht gelöscht werden.
         Da dies eventuell fehlschlägt, wird die alte Nachricht in den Papierkorb verschoben.
     </string>
-    <string name="title_snooze">Zurückstellen bis &#8230;</string>
+    <string name="title_snooze">Zurückstellen bis &#8230;</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
     <string name="title_reply_to_sender">Dem Absender antworten</string>
@@ -1367,7 +1367,7 @@
     <string name="title_no_stream_help">Das kann gelöst werden, indem man die Datei mit einer moderneren Dateiverwaltungs-App auswählt oder FairEmail die Berechtigung zum Lesen von Dateien erteilt.</string>
     <string name="title_no_permissions">Die App, die zur Auswahl der Datei verwendet wurde, hat keine Leseberechtigung erteilt</string>
     <string name="title_no_internet">Keine oder keine passende Internetverbindung</string>
-    <string name="title_no_connection">Zu einem oder mehreren Konten wird verbunden &#8230;</string>
+    <string name="title_no_connection">Zu einem oder mehreren Konten wird verbunden &#8230;</string>
     <string name="title_no_folder">Ordner nicht vorhanden</string>
     <string name="title_no_format">Die ursprünglich empfangene Nachricht wird miteinbezogen</string>
     <string name="title_no_search">Die Suche auf dem Server ist für dieses Konto nicht verfügbar</string>
@@ -1418,7 +1418,7 @@
     <string name="title_ask_once">Diese Meldung wird nur einmal angezeigt, es sei denn, Sie wählen »Später«</string>
     <string name="title_third_party">Sie verwenden eine Version eines Dritten</string>
     <string name="title_expand_warning">Durch Ausklappen dieser Nachricht werden %1$s heruntergeladen</string>
-    <string name="title_download_message">Wird heruntergeladen &#8230;</string>
+    <string name="title_download_message">Wird heruntergeladen &#8230;</string>
     <string name="title_reformatted">        Dies ist die sichere Ansicht für umformatierte Nachrichten.
         Sie können auf das &#x26F6;-Symbol tippen, um die weniger sichere Originalnachricht anzusehen und um diesen Hinweis auszublenden.
         Das Neuformatieren von Nachrichten nimmt einige Zeit in Anspruch und hängt von der Nachrichtengröße sowie der Geschwindigkeit Ihres Geräts ab.
@@ -1449,11 +1449,11 @@
     <string name="title_discard">Verwerfen</string>
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
-    <string name="title_sending">Wird gesendet &#8230;</string>
+    <string name="title_sending">Wird gesendet &#8230;</string>
     <string name="title_sending_to">Senden an %1$s</string>
     <string name="title_send_now">Sofort</string>
     <string name="title_send_via">Senden über</string>
-    <string name="title_send_at">Später senden &#8230;</string>
+    <string name="title_send_at">Später senden &#8230;</string>
     <string name="title_send_auto_archive">Beantwortete Nachricht archivieren</string>
     <string name="title_send_encryption">Verschlüsselung</string>
     <string name="title_send_priority">Priorität</string>
@@ -1527,7 +1527,7 @@
     <string name="title_select_default_identity">Standardadresse auswählen</string>
     <string name="title_translate">Übersetzen</string>
     <string name="title_summarize">Zusammenfassen</string>
-    <string name="title_translate_configure">Konfigurieren &#8230;</string>
+    <string name="title_translate_configure">Konfigurieren &#8230;</string>
     <string name="title_translate_key">Schlüssel einfügen</string>
     <string name="title_translating">Wird nach %1$s &#8230; übersetzt</string>
     <string name="title_translate_formal">Förmliche Anrede verwenden</string>
@@ -1538,7 +1538,7 @@
     <string name="title_translate_html_hint">Dadurch sind mehr Zeichen erforderlich</string>
     <string name="title_translate_usage">Verwendung: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Tippen Sie auf den zu übersetzenden Text</string>
-    <string name="title_suggestions_check">Wird überprüft &#8230;</string>
+    <string name="title_suggestions_check">Wird überprüft &#8230;</string>
     <string name="title_suggestions_none">Keine Vorschläge</string>
     <string name="title_edit_plain_text">Als einfachen Text bearbeiten</string>
     <string name="title_edit_formatted_text">Als umformatierten Text bearbeiten</string>
@@ -1558,7 +1558,7 @@
     <string name="title_vt_summary">%1$s Virenscanner melden diese Datei als schädlich</string>
     <string name="title_vt_report">Vollständiger Bericht</string>
     <string name="title_vt_upload">Hochladen</string>
-    <string name="title_vt_analyzing">VirusTotal analysiert die Datei – das kann eine Weile dauern &#8230;</string>
+    <string name="title_vt_analyzing">VirusTotal analysiert die Datei – das kann eine Weile dauern &#8230;</string>
     <string name="title_from_missing">Absender fehlt</string>
     <string name="title_pgp_reminder">PGP-Schlüssel verfügbar</string>
     <string name="title_smime_reminder">S/MIME-Schlüssel verfügbar</string>
@@ -1823,7 +1823,7 @@
     <string name="title_rule_url_missing">Adresse fehlt oder ist ungültig</string>
     <string name="title_rule_delete_hint">Das dauerhafte Löschen kann nicht widerrufen werden. Vergewissern Sie sich, dass die Bedingungen der Regel richtig sind!</string>
     <string name="title_rule_url_hint">Sie können die folgenden Platzhalter verwenden: %1$s</string>
-    <string name="title_rule_edit_group">Gruppe bearbeiten &#8230;</string>
+    <string name="title_rule_edit_group">Gruppe bearbeiten &#8230;</string>
     <string name="title_rule_execute">Jetzt ausführen</string>
     <string name="title_rule_applied">Betroffene Nachrichten: %1$d</string>
     <string name="title_rule_check">Prüfen</string>
@@ -1972,7 +1972,7 @@
     <string name="title_legend_r">Antworten</string>
     <string name="title_legend_s">Aus-/Abwählen</string>
     <string name="title_legend_t">Text fokussieren</string>
-    <string name="title_hint_folder_actions">Halten Sie zum Anzeigen der Optionen einen Ordner gedrückt, um ihn z. B. zum Navigationsmenü für den Schnellzugriff hinzuzufügen</string>
+    <string name="title_hint_folder_actions">Halten Sie zum Anzeigen der Optionen einen Ordner gedrückt, um ihn z. B. zum Navigationsmenü für den Schnellzugriff hinzuzufügen</string>
     <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden standardmäßig nicht alle Ordner und E-Mails synchronisiert</string>
     <string name="title_hint_airplane">Flugzeugmodus aktiviert</string>
     <string name="title_hint_vpn_active">VPN aktiv</string>
@@ -2060,7 +2060,7 @@
     <string name="title_via">über %1$s</string>
     <string name="title_1hour">1 Stunde</string>
     <string name="title_1day">1 Tag</string>
-    <string name="title_more_overflow">Mehr &#8230;</string>
+    <string name="title_more_overflow">Mehr &#8230;</string>
     <string name="title_today_at">Heute um %1$s</string>
     <string name="title_tomorrow_at">Morgen um %1$s</string>
     <string name="title_day_at_time">%1$s um %2$s</string>
@@ -2072,7 +2072,7 @@
     <string name="title_minutes">Minuten</string>
     <string name="title_dismiss">Verwerfen</string>
     <string name="title_snooze_now">Zurückstellen</string>
-    <string name="title_loading">Wird geladen &#8230;</string>
+    <string name="title_loading">Wird geladen &#8230;</string>
     <string name="title_fetching_again">Nachricht wird erneut vom Server abgerufen</string>
     <string name="title_go_back">Zurück</string>
     <string name="title_global_default">Voreinstellungen verwenden</string>
@@ -2223,9 +2223,9 @@
         <item>Nein</item>
         <item>5 Sekunden</item>
         <item>10 Sekunden</item>
-        <item>15 Sekunden</item>
-        <item>30 Sekunden</item>
-        <item>1 Minute</item>
+        <item>15 Sekunden</item>
+        <item>30 Sekunden</item>
+        <item>1 Minute</item>
         <item>2 Minuten</item>
         <item>5 Minuten</item>
         <item>10 Minuten</item>
@@ -2346,8 +2346,8 @@
         <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
-        <item>30 s</item>
-        <item>60 s</item>
+        <item>30 s</item>
+        <item>60 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>
