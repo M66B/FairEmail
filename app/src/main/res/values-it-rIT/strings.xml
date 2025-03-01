@@ -518,13 +518,13 @@
     <string name="title_advanced_startup">Mostra sulla schermata iniziale</string>
     <string name="title_advanced_cards">Usa lo stile a tessera invece dello stile tabulare</string>
     <string name="title_advanced_category">La categoria dell\'account è configurabile nelle opzioni avanzate dell\'account tramite la schermata delle impostazioni principali</string>
-    <string name="title_advanced_cards_beige">Usa lo sfondo beige usando lo stile a tessera (solo per temi chiari)</string>
-    <string name="title_advanced_tabular_background">Usa il colore della tessera come colore di sfondo quando si usa lo stile tabulare</string>
-    <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi da leggere usando lo stile a tessera</string>
+    <string name="title_advanced_cards_beige">Usa lo sfondo beige quando è attivo lo stile a tessera (solo per temi chiari)</string>
+    <string name="title_advanced_tabular_background">Usa il colore della tessera come colore di sfondo quando è attivo lo stile tabulare</string>
+    <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi da leggere quando è attivo lo stile a tessera</string>
     <string name="title_advanced_cards_shadow_border">Mostra un bordo</string>
     <string name="title_advanced_cards_shadow_highlight">Usa il colore di evidenziazione invece del colore di accento</string>
-    <string name="title_advanced_tabular_dividers">Usa le linee divisorie usando lo stile tabulare</string>
-    <string name="title_advanced_tabular_unread_bg">Usa un colore di sfondo grigio per i messaggi da leggere, quando lo stile a tabella è attivo</string>
+    <string name="title_advanced_tabular_dividers">Usa le linee divisorie quando è attivo lo stile tabulare</string>
+    <string name="title_advanced_tabular_unread_bg">Usa un colore di sfondo grigio per i messaggi da leggere, quando è attivo lo stile a tabella</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_date_week">Raggruppa per settimana invece che per giorno</string>
     <string name="title_advanced_date_fixed">Mostra l\'intestazione a data fissa in cima</string>
@@ -704,7 +704,7 @@
     <string name="title_advanced_notify_subtext">Mostra il nome dell\'account o della cartella come testo secondario</string>
     <string name="title_advanced_wearable_preview">Invia agli indossabili solo le notifiche con un\'anteprima del messaggio</string>
     <string name="title_advanced_notify_messaging">Usa il formato di notifica di Android «stile messaggistica»</string>
-    <string name="title_advanced_biometrics_notify">Mostra il contenuto della notifica quando si usa l\'autenticazione biometrica</string>
+    <string name="title_advanced_biometrics_notify">Mostra il contenuto della notifica quando è attiva l\'autenticazione biometrica</string>
     <string name="title_advanced_notify_open_folder">Apri la cartella all\'apertura di un nuovo messaggio</string>
     <string name="title_advanced_light">Usa il LED di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
