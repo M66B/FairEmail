@@ -30,7 +30,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
-### Next version
+### 1.2263 2025-03-01
 
 * Fixed all reported bugs
 * Added S/MIME encrypt-only
