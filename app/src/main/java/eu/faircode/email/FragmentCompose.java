@@ -7268,8 +7268,11 @@ public class FragmentCompose extends FragmentBase {
                             !EntityAttachment.equals(last_attachments, attachments))
                         dirty = true;
 
-                    last_plain_only = draft.plain_only;
-                    last_attachments = attachments;
+                    if (!silent) {
+                        // Not saved on server
+                        last_plain_only = draft.plain_only;
+                        last_attachments = attachments;
+                    }
 
                     if (dirty) {
                         // Update draft
@@ -7812,10 +7815,8 @@ public class FragmentCompose extends FragmentBase {
             if (args.getBoolean("large"))
                 ToastEx.makeText(getContext(), R.string.title_large_body, Toast.LENGTH_LONG).show();
 
-            if (args.getBundle("extras").getBoolean("silent")) {
-                etBody.setTag(null);
+            if (args.getBundle("extras").getBoolean("silent"))
                 return;
-            }
 
             boolean needsEncryption = args.getBoolean("needsEncryption");
             int action = args.getInt("action");
