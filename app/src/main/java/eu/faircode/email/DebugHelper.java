@@ -839,11 +839,13 @@ public class DebugHelper {
                         int blocked = db.contact().countBlocked(account.id);
 
                         boolean unmetered = false;
+                        boolean vpn_only = false;
                         boolean ignore_schedule = false;
                         try {
                             if (account.conditions != null) {
                                 JSONObject jconditions = new JSONObject(account.conditions);
                                 unmetered = jconditions.optBoolean("unmetered");
+                                vpn_only = jconditions.optBoolean("vpn_only");
                                 ignore_schedule = jconditions.optBoolean("ignore_schedule");
                             }
                         } catch (Throwable ignored) {
@@ -865,6 +867,7 @@ public class DebugHelper {
                                 " rules=" + db.rule().countTotal(account.id, null) +
                                 " ops=" + db.operation().getOperationCount(account.id) +
                                 " schedule=" + (!ignore_schedule) + (ignore_schedule ? " !!!" : "") +
+                                " vpn_only=" + vpn_only + (vpn_only ? " !!!" : "") +
                                 " unmetered=" + unmetered + (unmetered ? " !!!" : "") +
                                 " quota=" + (account.quota_usage == null ? "-" : Helper.humanReadableByteCount(account.quota_usage)) +
                                 "/" + (account.quota_limit == null ? "-" : Helper.humanReadableByteCount(account.quota_limit)) +
