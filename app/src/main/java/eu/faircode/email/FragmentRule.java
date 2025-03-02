@@ -139,6 +139,8 @@ public class FragmentRule extends FragmentBase {
     private Spinner spAction;
     private TextView tvActionRemark;
 
+    private CheckBox cbHideSeen;
+
     private NumberPicker npDuration;
     private CheckBox cbScheduleEnd;
     private CheckBox cbSnoozeSeen;
@@ -191,6 +193,7 @@ public class FragmentRule extends FragmentBase {
 
     private Group grpReady;
     private Group grpAge;
+    private Group grpHide;
     private Group grpSnooze;
     private Group grpFlag;
     private Group grpImportance;
@@ -348,6 +351,8 @@ public class FragmentRule extends FragmentBase {
         spAction = view.findViewById(R.id.spAction);
         tvActionRemark = view.findViewById(R.id.tvActionRemark);
 
+        cbHideSeen = view.findViewById(R.id.cbHideSeen);
+
         npDuration = view.findViewById(R.id.npDuration);
         cbScheduleEnd = view.findViewById(R.id.cbScheduleEnd);
         cbSnoozeSeen = view.findViewById(R.id.cbSnoozeSeen);
@@ -401,6 +406,7 @@ public class FragmentRule extends FragmentBase {
 
         grpReady = view.findViewById(R.id.grpReady);
         grpAge = view.findViewById(R.id.grpAge);
+        grpHide = view.findViewById(R.id.grpHide);
         grpSnooze = view.findViewById(R.id.grpSnooze);
         grpFlag = view.findViewById(R.id.grpFlag);
         grpImportance = view.findViewById(R.id.grpImportance);
@@ -951,6 +957,7 @@ public class FragmentRule extends FragmentBase {
         bottom_navigation.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
         grpAge.setVisibility(View.GONE);
+        grpHide.setVisibility(View.GONE);
         grpSnooze.setVisibility(View.GONE);
         grpFlag.setVisibility(View.GONE);
         grpImportance.setVisibility(View.GONE);
@@ -1417,6 +1424,10 @@ public class FragmentRule extends FragmentBase {
                         } else {
                             int type = jaction.getInt("type");
                             switch (type) {
+                                case EntityRule.TYPE_HIDE:
+                                    cbHideSeen.setChecked(jaction.optBoolean("seen", false));
+                                    break;
+
                                 case EntityRule.TYPE_SNOOZE:
                                     npDuration.setValue(jaction.optInt("duration", 0));
                                     cbScheduleEnd.setChecked(jaction.optBoolean("schedule_end", false));
@@ -1554,6 +1565,7 @@ public class FragmentRule extends FragmentBase {
     }
 
     private void showActionParameters(int type) {
+        grpHide.setVisibility(type == EntityRule.TYPE_HIDE ? View.VISIBLE : View.GONE);
         grpSnooze.setVisibility(type == EntityRule.TYPE_SNOOZE ? View.VISIBLE : View.GONE);
         grpFlag.setVisibility(type == EntityRule.TYPE_FLAG ? View.VISIBLE : View.GONE);
         grpImportance.setVisibility(type == EntityRule.TYPE_IMPORTANCE ? View.VISIBLE : View.GONE);
@@ -1863,6 +1875,10 @@ public class FragmentRule extends FragmentBase {
         if (action != null) {
             jaction.put("type", action.type);
             switch (action.type) {
+                case EntityRule.TYPE_HIDE:
+                    jaction.put("seen", cbHideSeen.isChecked());
+                    break;
+
                 case EntityRule.TYPE_SNOOZE:
                     jaction.put("duration", npDuration.getValue());
                     jaction.put("schedule_end", cbScheduleEnd.isChecked());

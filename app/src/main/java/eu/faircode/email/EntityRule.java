@@ -658,7 +658,7 @@ public class EntityRule {
             case TYPE_UNSEEN:
                 return onActionSeen(context, message, false);
             case TYPE_HIDE:
-                return onActionHide(context, message);
+                return onActionHide(context, message, jaction);
             case TYPE_IGNORE:
                 return onActionIgnore(context, message, jaction);
             case TYPE_SNOOZE:
@@ -811,7 +811,9 @@ public class EntityRule {
         return true;
     }
 
-    private boolean onActionHide(Context context, EntityMessage message) {
+    private boolean onActionHide(Context context, EntityMessage message, JSONObject jargs) {
+        boolean seen = jargs.optBoolean("seen");
+
         DB db = DB.getInstance(context);
 
         EntityFolder folder = db.folder().getFolder(message.folder);
@@ -824,7 +826,8 @@ public class EntityRule {
 
         message.ui_snoozed = Long.MAX_VALUE;
         message.ui_ignored = true;
-        return true;
+
+        return (!seen || onActionSeen(context, message, true));
     }
 
     private boolean onActionIgnore(Context context, EntityMessage message, JSONObject jargs) {

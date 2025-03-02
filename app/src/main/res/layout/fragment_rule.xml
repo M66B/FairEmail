@@ -964,13 +964,22 @@
                     app:layout_constraintTop_toBottomOf="@id/npDuration" />
 
                 <CheckBox
-                    android:id="@+id/cbSnoozeSeen"
+                    android:id="@+id/cbHideSeen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="@string/title_rule_seen"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbScheduleEnd" />
+
+                <CheckBox
+                    android:id="@+id/cbSnoozeSeen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_seen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbHideSeen" />
 
                 <TextView
                     android:id="@+id/tvColor"
@@ -1524,6 +1533,12 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="tvAge,etAge" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpHide"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="cbHideSeen" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpSnooze"
