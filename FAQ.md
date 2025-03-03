@@ -6194,6 +6194,8 @@ Note that DNSSEC and DANE are available in the GitHub version only.
 <a name="faq203"></a>
 **(203) Where is my sent message?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq203)
+
 When you write a message, it will be stored in the draft messages folder.
 
 When you send a message, it will be in the outbox first and later in the sent messages folder.
@@ -6215,6 +6217,8 @@ Basically, an outgoing message is either in the draft messages folder, the outbo
 
 <a name="faq204"></a>
 **(204) How do I use Gemini?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq204)
 
 Gemini can only be used if configured and enabled.
 
@@ -6245,6 +6249,8 @@ This feature is experimental and requires version 1.2171 or later for the GitHub
 <a name="faq205"></a>
 **(205) How do I check the integrity of an APK file?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq205)
+
 "*Artifact attestations enable you to create unfalsifiable provenance and integrity guarantees for the software you build.*
 *In turn, people who consume your software can verify where and how your software was built.*"
 
@@ -6268,6 +6274,8 @@ Attestation of APK files is available from version 1.2209.
 <a name="faq206"></a>
 **(206) How can I move or copy messages from one account to another?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq206)
+
 There are two options for this:
 
 1. Long press a message in the message list to select it, tap the three-dot button that appears, scroll to the bottom of the pop-up menu and select the target account.
@@ -6279,6 +6287,8 @@ To copy a message to another account, long press the target folder.
 
 <a name="faq207"></a>
 **(207) What does 'Authentication failed' mean?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq207)
 
 Basically, '*Authentication failed*', or similar, means that the email server of your email provider doesn't accept the login (anymore).
 
