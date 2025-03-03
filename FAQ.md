@@ -34,7 +34,7 @@ Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for t
 
 ## Index
 
-* [Authorizing accounts](#authorizing-accounts)
+* [Configuring accounts](#authorizing-accounts)
 * [How to ...?](#howto)
 * [Known problems](#known-problems)
 * [Planned features](#planned-features)
@@ -43,7 +43,7 @@ Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for t
 
 <br />
 
-<h2><a name="authorizing-accounts"></a>Authorizing accounts</h2>
+<h2><a name="authorizing-accounts"></a>Configuring accounts</h2>
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23authorizing-accounts)
 
@@ -79,7 +79,8 @@ For authorizing:
 * Yandex: please check if [IMAP is enabled](https://yandex.com/support/mail/mail-clients/others.html)
 * Comcast/Xfinity: please check if [third party email access](https://www.xfinity.com/support/articles/third-party-email-access) is enabled
 
-Please see [here](#faq22) for common error messages and solutions.
+Please see [this FAQ](#faq22) for common error messages and solutions,
+and please see [this FAQ](#faq207) in case of '*Authentication failed*' or similar.
 
 Related questions:
 
@@ -88,7 +89,7 @@ Related questions:
 
 <br />
 
-<a name="howto">
+<a name="howto"></a>
 
 ## How to ...?
 
