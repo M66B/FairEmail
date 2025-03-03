@@ -378,6 +378,7 @@
     <string name="title_advanced_kept_removed">Проверете дали старите съобщения са премахнати от сървъра</string>
     <string name="title_advanced_gmail_thread">Стил на Gmail за групиране на съобщенията за акаунти в Gmail</string>
     <string name="title_advanced_subject_threading">Групови съобщения от подателя и тема</string>
+    <string name="title_advanced_outlook_categories">Синхронизиране на категориите на Outlook</string>
     <string name="title_advanced_sync_folders">Синхронизиране на списъка с папки</string>
     <string name="title_advanced_sync_folders_poll">Активно синхро. на списъка с папки</string>
     <string name="title_advanced_sync_shared_folders">Синхронизиране на споделени списъци с папки</string>
@@ -508,6 +509,7 @@
     <string name="title_advanced_nav_hide_message">Може да включите опцията пак в настройките за показване</string>
     <string name="title_advanced_nav_last_sync">Показване на последното синхро в менюто навигация</string>
     <string name="title_advanced_nav_message_count">Показване на броя локално съхранени съобщения в менюто навигация</string>
+    <string name="title_advanced_nav_unseen">Показване на броя непрочетени съобщения в менюто за навигиране</string>
     <string name="title_advanced_nav_unseen_drafts">Показване на броя на непрочетените чернови в менюто за навигиране</string>
     <string name="title_advanced_nav_pinned_count">Показване на броя непрочетени съобщения в менюто закачени на навигиране</string>
     <string name="title_advanced_show_unexposed">Показване на звезда за акаунти/папки с новополучени непрочетени съобщения</string>
@@ -707,6 +709,7 @@
     <string name="title_advanced_notify_screen_on">Включете за кратко екрана за известия на ново съобщение</string>
     <string name="title_advanced_notifications_background">Използвайте фонова услуга за синхронизиране на съобщения</string>
     <string name="title_advanced_notifications_background_hint">Услугата за фон може да бъде спряна от Android по всяко време, но не изисква известие за лентата на състоянието</string>
+    <string name="title_advanced_rate_limit">Ограничаване звуците за известие на нови съобщения до веднъж на:</string>
     <string name="title_advanced_confirm_links">Потвърдете отварянето на връзката</string>
     <string name="title_advanced_confirm_files">Потвърждаване преглеждане на файловете</string>
     <string name="title_advanced_sanitize_links">Премахване на параметрите за проследяване по подразбиране</string>
@@ -842,6 +845,7 @@
     <string name="title_advanced_sync_kept_hint">Това ще прехвърли допълнителни данни и ще консумира допълнително батерията, особено ако на устройството се съхраняват много съобщения</string>
     <string name="title_advanced_gmail_thread_hint">Това се прилага само за новополучените съобщения и може да разбие съществуващите групи</string>
     <string name="title_advanced_subject_threading_hint">Само съобщенията получени през последните %1$d часа</string>
+    <string name="title_advanced_outlook_categories_hint">Категориите на Outlook може само да се извличат и не може автоматично да се опресняват заради ограниченията на IMAP сървъра на Outlook</string>
     <string name="title_advanced_sync_folders_hint">Деактивирането на това ще намали донякъде използването на данни и батерията, но ще деактивира и актуализирането на списъка с папки</string>
     <string name="title_advanced_poll_folders_hint">Периодичен синхрон на списъка с папки в допълнение към синхрото след свързване към акаунта</string>
     <string name="title_advanced_check_authentication_hint">Това ще провери резултатите от удостоверяване на DKIM, SPF и DMARC като изпълнени от сървъра на имейла</string>
@@ -1227,6 +1231,7 @@
     <string name="title_filters_active">Един или повече филтри са активирани</string>
     <string name="title_duplicate_in">Дублиращо съобщение в %1$s</string>
     <string name="title_trashed_from">Изхвърлено съобщение от %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Изпратено съобщение до %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1278,6 +1283,7 @@
     <string name="title_raw_send_message">Съобщение</string>
     <string name="title_raw_send_thread">Разговор</string>
     <string name="title_manage_keywords">Управление по ключови думи</string>
+    <string name="title_manage_keywords_pop">Употребявайки POP3 ключовите думи не може да се съхраняват на сървъра на е-поща!</string>
     <string name="title_manage_labels">Управлявайте етикетите на Gmail</string>
     <string name="title_add_keyword">Добавяне на ключова дума</string>
     <string name="title_show_inline">Показване на вградените прикачени файлове</string>
@@ -2313,7 +2319,7 @@
         <item>Само криптиране PGP</item>
         <item>PGP подписване+криптиране</item>
         <item>S/MIME само подписване</item>
-        <item>S/MIME encrypt-only</item>
+        <item>Само шифриране S/MIME</item>
         <item>S/MIME подписване+криптиране</item>
     </string-array>
     <string-array name="sizeNames">
