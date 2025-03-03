@@ -435,6 +435,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(204) How do I use Gemini?](#faq204)
 * [(205) How do I check the integrity of an APK file?](#faq205)
 * [(206) How can I move or copy messages from one account to another?](#faq206)
+* [(207) What does 'Authentication failed' mean?](#faq207)
 
 [I have another question.](#get-support)
 
@@ -6273,6 +6274,32 @@ There are two options for this:
 2. Long press the move-to button just above the message text to select the target account first.
 
 To copy a message to another account, long press the target folder.
+
+<br>
+
+<a name="faq207"></a>
+**(207) What does 'Authentication failed' mean?**
+
+Basically, '*Authentication failed*', or similar, means that the email server of your email provider doesn't accept the login (anymore).
+
+The obvious reason is that the username (generally the email address, but not always) or the password is incorrect.
+There are other possible causes too, like connecting from a suspicious network (according to the email provider), connecting from abroad, or using a VPN.
+Some email providers are more critical than other email provider regarding accepting connections.
+
+If you are using a VPN, please turn it off, or make an exception for FairEmail.
+With a VPN you share a network address with many other people, possibly not all behaving nicely.
+If an email server detects 'unwanted' behavior, like somebody trying to send spam messages,
+an email server often automatically blocks network addresses as a protection measure.
+
+You can try to switch to Wi-Fi or mobile data because this will result in using another (local) network address.
+Turning flight mode on for a while and turning it back off will mostly result in another network address being assigned.
+So, this is worth trying as well.
+
+Email providers like Google, Microsoft, and Yahoo/AOL require [OAuth](https://en.wikipedia.org/wiki/OAuth) for logging in,
+which means it is not possible to configure an account manually, and that you *must* use the quick setup wizard to configure an account.
+
+Some email providers use account-specific host (server) names.
+So, please take care you use the correct host name when manually configuring an account.
 
 <br>
 

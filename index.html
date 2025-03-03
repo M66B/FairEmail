@@ -425,6 +425,7 @@
 <li><a href="#faq204">(204) How do I use Gemini?</a></li>
 <li><a href="#faq205">(205) How do I check the integrity of an APK file?</a></li>
 <li><a href="#faq206">(206) How can I move or copy messages from one account to another?</a></li>
+<li><a href="#faq207">(207) What does ‘Authentication failed’ mean?</a></li>
 </ul>
 <p><a href="#get-support">I have another question.</a></p>
 <p><a name="faq1"></a> <strong>(1) Which permissions are needed and why?</strong></p>
@@ -3134,6 +3135,14 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <li>Long press the move-to button just above the message text to select the target account first.</li>
 </ol>
 <p>To copy a message to another account, long press the target folder.</p>
+<p><br></p>
+<p><a name="faq207"></a> <strong>(207) What does ‘Authentication failed’ mean?</strong></p>
+<p>Basically, ‘<em>Authentication failed</em>’, or similar, means that the email server of your email provider doesn’t accept the login (anymore).</p>
+<p>The obvious reason is that the username (generally the email address, but not always) or the password is incorrect. There are other possible causes too, like connecting from a suspicious network (according to the email provider), connecting from abroad, or using a VPN. Some email providers are more critical than other email provider regarding accepting connections.</p>
+<p>If you are using a VPN, please turn it off, or make an exception for FairEmail. With a VPN you share a network address with many other people, possibly not all behaving nicely. If an email server detects ‘unwanted’ behavior, like somebody trying to send spam messages, an email server often automatically blocks network addresses as a protection measure.</p>
+<p>You can try to switch to Wi-Fi or mobile data because this will result in using another (local) network address. Turning flight mode on for a while and turning it back off will mostly result in another network address being assigned. So, this is worth trying as well.</p>
+<p>Email providers like Google, Microsoft, and Yahoo/AOL require <a href="https://en.wikipedia.org/wiki/OAuth">OAuth</a> for logging in, which means it is not possible to configure an account manually, and that you <em>must</em> use the quick setup wizard to configure an account.</p>
+<p>Some email providers use account-specific host (server) names. So, please take care you use the correct host name when manually configuring an account.</p>
 <p><br></p>
 <h2>
 <a name="get-support"></a>Get support
