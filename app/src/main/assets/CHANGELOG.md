@@ -30,6 +30,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
+### 1.2264 2025-03-03
+
+* Fixed saving drafts on the server in some circumstances
+* Fixed VPN-only account option not being applied always
+* Added mark-read option to hide rule action
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2263 2025-03-01
 
 * Fixed all reported bugs
