@@ -3035,7 +3035,8 @@ public class FragmentMessages extends FragmentBase
 
             if (message.uid == null &&
                     message.accountProtocol == EntityAccount.TYPE_IMAP &&
-                    EntityFolder.DRAFTS.equals(message.folderType))
+                    (EntityFolder.DRAFTS.equals(message.folderType) ||
+                            EntityFolder.SENT.equals(message.folderType)))
                 return makeMovementFlags(0,
                         (EntityFolder.TRASH.equals(swipes.left_type) ? ItemTouchHelper.LEFT : 0) |
                                 (EntityFolder.TRASH.equals(swipes.right_type) ? ItemTouchHelper.RIGHT : 0));
@@ -3141,7 +3142,8 @@ public class FragmentMessages extends FragmentBase
 
             if (message.uid == null &&
                     message.accountProtocol == EntityAccount.TYPE_IMAP &&
-                    EntityFolder.DRAFTS.equals(message.folderType)) {
+                    (EntityFolder.DRAFTS.equals(message.folderType) ||
+                            EntityFolder.SENT.equals(message.folderType))) {
                 boolean right = EntityFolder.TRASH.equals(swipes.right_type);
                 boolean left = EntityFolder.TRASH.equals(swipes.left_type);
                 swipes = new TupleAccountSwipes();
@@ -3335,7 +3337,8 @@ public class FragmentMessages extends FragmentBase
 
                 if (message.uid == null &&
                         message.accountProtocol == EntityAccount.TYPE_IMAP &&
-                        EntityFolder.DRAFTS.equals(message.folderType) &&
+                        (EntityFolder.DRAFTS.equals(message.folderType) ||
+                                EntityFolder.SENT.equals(message.folderType)) &&
                         EntityFolder.TRASH.equals(actionType)) {
                     action = EntityMessage.SWIPE_ACTION_DELETE;
                     actionType = null;
