@@ -25,8 +25,10 @@ import me.leolin.shortcutbadger.impl.NovaHomeBadger;
 import me.leolin.shortcutbadger.impl.OPPOHomeBader;
 import me.leolin.shortcutbadger.impl.SamsungHomeBadger;
 import me.leolin.shortcutbadger.impl.SonyHomeBadger;
+import me.leolin.shortcutbadger.impl.TranssionHomeBadger;
 import me.leolin.shortcutbadger.impl.VivoHomeBadger;
 import me.leolin.shortcutbadger.impl.XiaomiHomeBadger;
+import me.leolin.shortcutbadger.impl.YandexLauncherBadger;
 import me.leolin.shortcutbadger.impl.ZTEHomeBadger;
 import me.leolin.shortcutbadger.impl.ZukHomeBadger;
 
@@ -59,6 +61,8 @@ public final class ShortcutBadgerAlt {
         BADGERS.add(VivoHomeBadger.class);
         BADGERS.add(ZTEHomeBadger.class);
         BADGERS.add(EverythingMeHomeBadger.class);
+        BADGERS.add(YandexLauncherBadger.class);
+        BADGERS.add(TranssionHomeBadger.class);
     }
 
     private static Badger sShortcutBadger;
@@ -242,8 +246,14 @@ public final class ShortcutBadgerAlt {
                 sShortcutBadger = new VivoHomeBadger();
             else if (Build.MANUFACTURER.equalsIgnoreCase("ZTE"))
                 sShortcutBadger = new ZTEHomeBadger();
+            else if (Build.MANUFACTURER.equalsIgnoreCase("SAMSUNG"))
+                sShortcutBadger = new SamsungHomeBadger();
+            else if (Build.MANUFACTURER.equalsIgnoreCase("HUAWEI")
+                    || Build.MANUFACTURER.equalsIgnoreCase("HONOR"))
+                sShortcutBadger = new HuaweiHomeBadger();
             else
                 sShortcutBadger = new DefaultBadger();
+
         }
 
         eu.faircode.email.EntityLog.log(context, "Badger using=" + sShortcutBadger.getClass());
