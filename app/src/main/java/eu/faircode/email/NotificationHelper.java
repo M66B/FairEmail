@@ -646,6 +646,10 @@ class NotificationHelper {
                                     " sort=" + notification.getSortKey());
                     try {
                         if (NotificationHelper.areNotificationsEnabled(nm)) {
+                            // https://github.com/leolin310148/ShortcutBadger/wiki/Xiaomi-Device-Support
+                            if (id == 0 && badge && Helper.isXiaomi())
+                                ShortcutBadgerAlt.applyNotification(context, notification, current);
+
                             nm.notify(tag, NotificationHelper.NOTIFICATION_TAGGED, notification);
                             if (update.contains(id))
                                 try {
@@ -656,9 +660,6 @@ class NotificationHelper {
                                 }
                         }
 
-                        // https://github.com/leolin310148/ShortcutBadger/wiki/Xiaomi-Device-Support
-                        if (id == 0 && badge && Helper.isXiaomi())
-                            ShortcutBadgerAlt.applyNotification(context, notification, current);
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
