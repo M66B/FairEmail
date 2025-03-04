@@ -6293,6 +6293,10 @@ To copy a message to another account, long press the target folder.
 
 Basically, '*Authentication failed*', or similar, means that the email server of your email provider doesn't accept the login (anymore).
 
+The first thing you should check whether you can still login via the website of the email provider.
+If you can't login via the website of the email provider, you'll need to contact the email provider for support.
+In any case, in that situation, no email app can login either.
+
 The obvious reason is that the username (generally the email address, but not always) or the password is incorrect.
 There are other possible causes too, like connecting from a suspicious network (according to the email provider), connecting from abroad, or using a VPN.
 Some email providers are more critical than other email provider regarding accepting connections.
