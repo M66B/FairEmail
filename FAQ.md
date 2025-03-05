@@ -4931,6 +4931,9 @@ You can also long press the person-add icon at the end of the to/cc/bcc/field.
 
 You can define contact groups with the Android contacts app, please see [here](https://support.google.com/contacts/answer/30970) for instructions.
 
+Please be aware that your email provider might block a message to many recipients.
+If you want to send newsletters to many people, you should use a transaction email service.
+
 <br />
 
 <a name="faq153"></a>
