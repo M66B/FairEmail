@@ -706,6 +706,7 @@
     <string name="title_advanced_notify_screen_on">Να ανάβει σύντομα η οθόνη κατά τις ειδοποιήσεις νέων μηνυμάτων</string>
     <string name="title_advanced_notifications_background">Χρήση υπηρεσίας στο παρασκήνιο για το συγχρονισμό των μηνυμάτων</string>
     <string name="title_advanced_notifications_background_hint">Μια υπηρεσία που εκτελείται στο παρασκήνιο αλλά δεν απαιτεί κάποια ειδοποίηση στη γραμμή κατάστασης, μπορεί να τερματιστεί από το Android οποιαδήποτε στιγμή</string>
+    <string name="title_advanced_rate_limit">Περιορισμός ήχων ειδοποίησης για νέα μηνύματα σε μία φορά ανά:</string>
     <string name="title_advanced_confirm_links">Επιβεβαίωση ανοίγματος συνδέσμων</string>
     <string name="title_advanced_confirm_files">Επιβεβαίωση προβολής αρχείων</string>
     <string name="title_advanced_sanitize_links">Αφαίρεση παραμέτρων ιχνηλάτησης από προεπιλογή</string>
@@ -1225,6 +1226,7 @@
     <string name="title_filters_active">Ένα ή περισσότερα φίλτρα ενεργά</string>
     <string name="title_duplicate_in">Διπλότυπο μήνυμα σε %1$s</string>
     <string name="title_trashed_from">Διαγραμμένο μήνυμα από %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Το μήνυμα στάλθηκε σε %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Απ: %1$s</string>
@@ -1276,6 +1278,7 @@
     <string name="title_raw_send_message">Μήνυμα</string>
     <string name="title_raw_send_thread">Συζήτηση</string>
     <string name="title_manage_keywords">Διαχείριση λέξεων-κλειδιών</string>
+    <string name="title_manage_keywords_pop">Με το POP3, οι λέξεις κλειδιά δεν μπορούν να αποθηκευτούν στον διακομιστή ηλεκτρονικού ταχυδρομείου!</string>
     <string name="title_manage_labels">Διαχείριση ετικετών Gmail</string>
     <string name="title_add_keyword">Προσθήκη λέξης-κλειδιού</string>
     <string name="title_show_inline">Προσθήκη ενσωματωμένων συνημμένων</string>
@@ -2311,7 +2314,7 @@
         <item>Κρυπτογράφηση PGP μόνο</item>
         <item>Υπογραφή και κρυπτογράφηση PGP</item>
         <item>Υπογραφή S/MIME μόνο</item>
-        <item>S/MIME encrypt-only</item>
+        <item>Μόνο κρυπτογράφηση S/MIME</item>
         <item>Υπογραφή + κρυπτογράφηση S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

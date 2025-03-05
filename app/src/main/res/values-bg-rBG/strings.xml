@@ -394,6 +394,7 @@
     <string name="title_advanced_tune_keep_alive">Автоматично настройване на онлайн интервала</string>
     <string name="title_advanced_blocklist_warning">Списъците с блокирани не са съвършени и може да блокират повече отколкото просто спам!</string>
     <string name="title_advanced_keyboard">Показване на клавиатурата по подразбиране</string>
+    <string name="title_advanced_keyboard_margin">Добавяне на отстъп над клавиатурата</string>
     <string name="title_advanced_keyboard_no_fullscreen">Избягване на клавиатура при цял екран</string>
     <string name="title_advanced_suggest_names">Употреба на имена и адреси на е-поща</string>
     <string name="title_advanced_suggest_local">Предложи локални контакти</string>

@@ -710,6 +710,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_notify_screen_on">Skeakelje it skerm koart yn foar nije berjochtmeldingen</string>
     <string name="title_advanced_notifications_background">Eftergrûntsjinst brûke om berjochten te syngronisearjen</string>
     <string name="title_advanced_notifications_background_hint">In eftergrûntsjinst kin op elk momint stoppe wurde troch Android, mar hat gjin steatbalkenotifikaasje nedich</string>
+    <string name="title_advanced_rate_limit">Behein meldingslûden fan nije berjochten ta ien per:</string>
     <string name="title_advanced_confirm_links">It iepenjen fan keppelingen befêstigje</string>
     <string name="title_advanced_confirm_files">Besjen fan bestannen befêstigje</string>
     <string name="title_advanced_sanitize_links">Standert trackingparameters fuortsmite</string>
@@ -1227,6 +1228,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_filters_active">Ien of mear filters aktyf</string>
     <string name="title_duplicate_in">Dûbeld berjocht yn %1$s</string>
     <string name="title_trashed_from">Fuortsmiten berjocht fan %1$s</string>
+    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Berjocht nei %1$s ferstjoerd</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1278,6 +1280,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_raw_send_message">Berjocht</string>
     <string name="title_raw_send_thread">Konversaasje</string>
     <string name="title_manage_keywords">Kaaiwurden beheare</string>
+    <string name="title_manage_keywords_pop">Mei POP3 kinne kaaiwurden net op de mailserver bewarre wurde!</string>
     <string name="title_manage_labels">Gmail-labels beheare</string>
     <string name="title_add_keyword">Kaaiwurd tafoegje</string>
     <string name="title_show_inline">Inline bylagen toane</string>
@@ -2310,7 +2313,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
         <item>PGP allinnich fersifering</item>
         <item>PGP-ûndertekening+-fersifering</item>
         <item>S/MIME allinnich ûndertekening</item>
-        <item>S/MIME encrypt-only</item>
+        <item>S/MIME allinnich fersifering</item>
         <item>S/MIME-ûndertekening+-fersifering</item>
     </string-array>
     <string-array name="sizeNames">
