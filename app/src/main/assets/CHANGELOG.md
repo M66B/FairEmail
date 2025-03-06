@@ -4,6 +4,13 @@
 
 ### Notices
 
+You may have noticed that fewer new features have been added recently and therefore fewer new (test) versions have been released.
+This is a result of saying “no” more often to new features that do not enhance the overall usability of the app (see below).
+What is not very motivating is that a number of people who consider themselves more important than other people have left bad reviews for this.
+I am not giving up, but this is just not nice, also considering that it is not a commercial project.
+
+<br>
+
 Google requires FairEmail to undergo an annual [CASA](https://appdefensealliance.dev/casa) security audit,
 which must be conducted by an authorized assessor (this year [TAC Security](https://casa.tacsecurity.com/site/home)).
 Besides being time-consuming, this is no longer free as of this year.
@@ -29,6 +36,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 <br>
 
 ### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
+
+### Next version
+
+* Switched to [ShortcutBadgerX](https://github.com/kibotu/ShortcutBadgerX)
+* Small improvements and minor bug fixes
+* Updated build tools (Android Studio, gradle)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2264 2025-03-03
 
