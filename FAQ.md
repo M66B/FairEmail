@@ -3012,9 +3012,16 @@ $day$ (since version 1.2030)
 $week$
 $month$
 $year$
+$user$ (since version 1.2265)
+$extra$ (since version 1.2265)
 $domain$
 $group$ (since version 1.2030)
 ```
+
+$user$ is the domain name of the 'from' email address,
+and $domain$ is the domain name of the 'from' email address: *user@domain*.
+
+$extra$ is the part after the plus sign if the username: *user+extra$example.org*.
 
 $group$ will be replaced with the contact group name of the sender, provided that the related contact is assigned to one contact group only.
 Note that the Android contact provider isn't very fast, so using this placeholder can slow down fetching messages.

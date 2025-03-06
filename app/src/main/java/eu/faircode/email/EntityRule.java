@@ -863,13 +863,23 @@ public class EntityRule {
             create = create.replace("$week$", week);
             create = create.replace("$day$", day);
 
+            String user = null;
+            String extra = null;
             String domain = null;
             if (message.from != null &&
                     message.from.length > 0 &&
                     message.from[0] instanceof InternetAddress) {
                 InternetAddress from = (InternetAddress) message.from[0];
+                user = UriHelper.getEmailUser(from.getAddress());
                 domain = UriHelper.getEmailDomain(from.getAddress());
+                if (user != null) {
+                    int plus = user.indexOf('+');
+                    if (plus > 0)
+                        extra = user.substring(plus + 1);
+                }
             }
+            create = create.replace("$user$", user == null ? "" : user);
+            create = create.replace("$extra$", extra == null ? "" : extra);
             create = create.replace("$domain$", domain == null ? "" : domain);
 
             if (create.contains("$group$")) {
