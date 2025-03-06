@@ -181,11 +181,6 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                     sb.append(", ");
                 sb.append(identity.sign_key_alias);
             }
-            if (identity.encrypt == 1) {
-                if (sb.length() != 0)
-                    sb.append(", ");
-                sb.append("S/MIME");
-            }
 
             tvSignKeyId.setText(context.getString(R.string.title_sign_key, sb.toString()));
             tvSignKeyId.setVisibility(sb.length() > 0 ? View.VISIBLE : View.GONE);
