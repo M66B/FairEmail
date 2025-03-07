@@ -4353,6 +4353,7 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean check_certificate = prefs.getBoolean("check_certificate", true);
                 boolean check_key_usage = prefs.getBoolean("check_key_usage", false);
+                boolean experiments = prefs.getBoolean("experiments", false);
 
                 File tmp = Helper.ensureExists(context, "encryption");
 
@@ -4421,7 +4422,7 @@ public class FragmentCompose extends FragmentBase {
                     try {
                         chain[0].checkValidity();
 
-                        if (check_key_usage) {
+                        if (check_key_usage && experiments) {
                             // Signing Key: Key Usage: Digital Signature, Non-Repudiation
                             // Encrypting Key: Key Usage: Key Encipherment, Data Encipherment
 

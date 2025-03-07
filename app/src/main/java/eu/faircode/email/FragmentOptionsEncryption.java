@@ -195,6 +195,7 @@ public class FragmentOptionsEncryption extends FragmentBase
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean experiments = prefs.getBoolean("experiments", false);
 
         ibHelp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -401,6 +402,7 @@ public class FragmentOptionsEncryption extends FragmentBase
             }
         });
 
+        swCheckKeyUsage.setVisibility(experiments ? View.VISIBLE : View.GONE);
         swCheckKeyUsage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
