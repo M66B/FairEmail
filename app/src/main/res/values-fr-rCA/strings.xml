@@ -657,6 +657,7 @@
     <string name="title_advanced_reset_importance">Réinitialiser l’importance lors du déplacement des messages</string>
     <string name="title_advanced_star_snoozed">Marquer automatiquement les messages comme suivis lors de leur report</string>
     <string name="title_advanced_star_unsnoozed">Retirer automatiquement l\'étoile de suivi des messages à la fin du report</string>
+    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Marquer automatiquement les messages comme importants lors de leur répétition</string>
     <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_cancel_snooze">Annuler le report des messages lors de leur déplacement</string>
     <string name="title_advanced_auto_block_sender">Bloquer automatiquement l\'expéditeur lors du signalement de courrier indésirable</string>
@@ -1235,7 +1236,7 @@
     <string name="title_filters_active">Un ou plusieurs filtres actifs</string>
     <string name="title_duplicate_in">Message en double dans %1$s</string>
     <string name="title_trashed_from">Message de %1$s supprimé</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Message envoyé à %1$s</string>
+    <string name="title_sent_to">Message envoyé à %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Tr: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

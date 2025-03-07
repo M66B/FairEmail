@@ -1234,7 +1234,7 @@
     <string name="title_filters_active">Üks või rohkem filtrit aktiivne</string>
     <string name="title_duplicate_in">Dubleeriv sõnum kohas %1$s</string>
     <string name="title_trashed_from">Prügisse sõnum saatjalt %1$s</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Saada sõnum saajale %1$s</string>
+    <string name="title_sent_to">Saada sõnum saajale %1$s</string>
     <string name="title_subject_reply">Vs: %1$s</string>
     <string name="title_subject_forward">Ed: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

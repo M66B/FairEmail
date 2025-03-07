@@ -684,6 +684,7 @@
     <string name="title_advanced_reset_importance">Сбрасывать важность при перемещении сообщений</string>
     <string name="title_advanced_star_snoozed">Автоматически добавлять в избранное при откладывании сообщений</string>
     <string name="title_advanced_star_unsnoozed">Автоматически удалять из избранного при отмене откладывания сообщений</string>
+    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Автоматически помечать сообщения важными при отмене откладывания</string>
     <string name="title_advanced_auto_important">Автоматически помечать избранные сообщения важными</string>
     <string name="title_advanced_cancel_snooze">Отменять откладывание при перемещении сообщений</string>
     <string name="title_advanced_auto_block_sender">Автоматически блокировать отправителя при сообщении о спаме</string>
@@ -1262,7 +1263,7 @@
     <string name="title_filters_active">Один или несколько фильтров активны</string>
     <string name="title_duplicate_in">Дубликат сообщения в %1$s</string>
     <string name="title_trashed_from">Мусорное сообщение от %1$s</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Сообщение для %1$s отправлено</string>
+    <string name="title_sent_to">Сообщение для %1$s отправлено</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

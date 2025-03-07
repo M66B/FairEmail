@@ -1220,7 +1220,7 @@
     <string name="title_filters_active">1 つ以上のフィルターがアクティブです</string>
     <string name="title_duplicate_in">%1$s でメッセージが重複しています</string>
     <string name="title_trashed_from">メッセージを %1$s からごみ箱に移動しました</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">メッセージを %1$s に送信しました</string>
+    <string name="title_sent_to">メッセージを %1$s に送信しました</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">RE: %1$s</string>

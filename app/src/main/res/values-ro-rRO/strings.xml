@@ -1246,7 +1246,7 @@
     <string name="title_filters_active">Unul sau mai multe filtre active</string>
     <string name="title_duplicate_in">Mesaj duplicat în %1$s</string>
     <string name="title_trashed_from">Mesaj aruncat de la %1$s</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Mesaj trimis către %1$s</string>
+    <string name="title_sent_to">Mesaj trimis către %1$s</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
     <string name="title_subject_forward">Redir: %1$s</string>
     <string name="title_subject_reply_alt">Răsp: %1$s</string>

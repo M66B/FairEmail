@@ -1234,7 +1234,7 @@
     <string name="title_filters_active">Bir və ya daha çox filtr aktivdir</string>
     <string name="title_duplicate_in">%1$s qovluğunda mesajı kopyala</string>
     <string name="title_trashed_from">%1$s tərəfindən tullantı qovluğuna atılan mesaj</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">%1$s - mesaj göndərildi</string>
+    <string name="title_sent_to">%1$s - mesaj göndərildi</string>
     <string name="title_subject_reply">Cvb: %1$s</string>
     <string name="title_subject_forward">Ynlndr: %1$s</string>
     <string name="title_subject_reply_alt">Cvb: %1$s</string>

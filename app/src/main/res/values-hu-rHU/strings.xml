@@ -654,6 +654,7 @@
     <string name="title_advanced_reset_importance">Fontosság törlése áthelyezéskor</string>
     <string name="title_advanced_star_snoozed">Automatikusan csillagozza meg az üzenetet halasztáskor</string>
     <string name="title_advanced_star_unsnoozed">Csillag automatikus eltávolítása az üzenet szundi kikapcsolásakor</string>
+    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Halasztás megszűnésekor az üzenetet automatikusan jelölje meg fontosnak</string>
     <string name="title_advanced_auto_important">Automatikusan csináljon csillagozott üzeneteket fontossá</string>
     <string name="title_advanced_cancel_snooze">Szundi kikapcsolása üzenetek áthelyezésekor</string>
     <string name="title_advanced_auto_block_sender">Küldő automatikus letiltása levélszemét jelentésekor</string>
@@ -1228,7 +1229,7 @@
     <string name="title_filters_active">Egy vagy több szűrő aktív</string>
     <string name="title_duplicate_in">Duplikált üzenet a(z) %1$s mappában</string>
     <string name="title_trashed_from">%1$s-től törölve</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Üzenetet elküldve a következőnek: %1$s</string>
+    <string name="title_sent_to">Üzenetet elküldve a következőnek: %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

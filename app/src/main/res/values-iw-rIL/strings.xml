@@ -1262,7 +1262,7 @@
     <string name="title_filters_active">מסנן אחד או יותר פעילים</string>
     <string name="title_duplicate_in">הודעות כפולות בתוך %1$s</string>
     <string name="title_trashed_from">הודעה באשפה מאת %1$s</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">הודעה נשלחה אל %1$s</string>
+    <string name="title_sent_to">הודעה נשלחה אל %1$s</string>
     <string name="title_subject_reply">מענה: %1$s</string>
     <string name="title_subject_forward">העברה: %1$s</string>
     <string name="title_subject_reply_alt">מענה: %1$s</string>

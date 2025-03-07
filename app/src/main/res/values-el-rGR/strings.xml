@@ -1226,7 +1226,7 @@
     <string name="title_filters_active">Ένα ή περισσότερα φίλτρα ενεργά</string>
     <string name="title_duplicate_in">Διπλότυπο μήνυμα σε %1$s</string>
     <string name="title_trashed_from">Διαγραμμένο μήνυμα από %1$s</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Το μήνυμα στάλθηκε σε %1$s</string>
+    <string name="title_sent_to">Το μήνυμα στάλθηκε σε %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Απ: %1$s</string>

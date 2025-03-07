@@ -1228,7 +1228,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_filters_active">Ien of mear filters aktyf</string>
     <string name="title_duplicate_in">Dûbeld berjocht yn %1$s</string>
     <string name="title_trashed_from">Fuortsmiten berjocht fan %1$s</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Berjocht nei %1$s ferstjoerd</string>
+    <string name="title_sent_to">Berjocht nei %1$s ferstjoerd</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

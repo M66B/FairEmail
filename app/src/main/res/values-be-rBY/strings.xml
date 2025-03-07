@@ -1265,7 +1265,7 @@
     <string name="title_filters_active">Актыўны адзін або некалькі фільтраў</string>
     <string name="title_duplicate_in">Дублікат паведамлення ў %1$s</string>
     <string name="title_trashed_from">Выдаленыя паведамленні ад %1$s</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">Паведамленне %1$s адпраўлена</string>
+    <string name="title_sent_to">Паведамленне %1$s адпраўлена</string>
     <string name="title_subject_reply">Адк.: %1$s</string>
     <string name="title_subject_forward">Прсл.: %1$s</string>
     <string name="title_subject_reply_alt">Адк.: %1$s</string>

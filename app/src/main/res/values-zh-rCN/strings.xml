@@ -642,6 +642,7 @@
     <string name="title_advanced_reset_importance">移动邮件时重置其重要性</string>
     <string name="title_advanced_star_snoozed">自动给延后邮件添加星标</string>
     <string name="title_advanced_star_unsnoozed">取消邮件延后通知时自动删除星标</string>
+    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">自动将取消延后的消息变得重要</string>
     <string name="title_advanced_auto_important">自动标注星标邮件为重要</string>
     <string name="title_advanced_cancel_snooze">移动邮件时取消延后</string>
     <string name="title_advanced_auto_block_sender">报告垃圾邮件时自动屏蔽发件人</string>
@@ -1216,7 +1217,7 @@
     <string name="title_filters_active">已激活至少一个过滤器</string>
     <string name="title_duplicate_in">%1$s 中的重复邮件</string>
     <string name="title_trashed_from">来自 %1$s 的已回收邮件</string>
-    <string name="title_sent_to" comment="title_sent_to&#10;Text to tell that a message was sent to someone">消息已发送至 %1$s</string>
+    <string name="title_sent_to">消息已发送至 %1$s</string>
     <string name="title_subject_reply">回复: %1$s</string>
     <string name="title_subject_forward">转发: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>

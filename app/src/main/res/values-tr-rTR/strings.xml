@@ -652,6 +652,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_reset_importance">Mesajları taşırken önem derecesini sıfırla</string>
     <string name="title_advanced_star_snoozed">Ertelenen mesajlara otomatik olarak yıldız ekle</string>
     <string name="title_advanced_star_unsnoozed">Ertelenmeyen mesajlardaki yıldızı otomatik olarak kaldırın</string>
+    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Çözülmemiş mesajları otomatik olarak önemli hale getirin</string>
     <string name="title_advanced_auto_important">Yıldızlanan mesajları otomatik olarak önemli hale getir</string>
     <string name="title_advanced_cancel_snooze">Hareketli mesajlarda ertelemeyi iptal et</string>
     <string name="title_advanced_auto_block_sender">Spam bildirirken göndereni otomatik olarak engelle</string>
