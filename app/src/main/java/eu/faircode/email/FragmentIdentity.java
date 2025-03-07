@@ -531,6 +531,14 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
+        btnUri.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                onPickUri(null);
+                return true;
+            }
+        });
+
         Helper.linkPro(tvUriPro);
 
         cbEncryptDefault.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
