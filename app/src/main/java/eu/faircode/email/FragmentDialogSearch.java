@@ -456,116 +456,120 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
+                        try {
+                            BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
 
-                        criteria.query = etQuery.getText().toString().trim();
-                        if (TextUtils.isEmpty(criteria.query))
-                            criteria.query = null;
+                            criteria.query = etQuery.getText().toString().trim();
+                            if (TextUtils.isEmpty(criteria.query))
+                                criteria.query = null;
 
-                        criteria.fts = (cbSearchIndex.isChecked() && cbSearchIndex.isEnabled());
-                        criteria.in_senders = cbSenders.isChecked();
-                        criteria.in_recipients = cbRecipients.isChecked();
-                        criteria.in_subject = cbSubject.isChecked();
-                        criteria.in_keywords = cbKeywords.isChecked();
-                        criteria.in_message = cbMessage.isChecked();
-                        criteria.in_notes = cbNotes.isChecked();
-                        criteria.in_filenames = cbFileNames.isChecked();
-                        criteria.in_headers = cbHeaders.isChecked();
-                        criteria.in_html = cbHtml.isChecked();
-                        criteria.with_unseen = cbUnseen.isChecked();
-                        criteria.with_flagged = cbFlagged.isChecked();
-                        criteria.with_hidden = cbHidden.isChecked();
-                        criteria.with_encrypted = cbEncrypted.isChecked();
-                        criteria.with_attachments = cbAttachments.isChecked();
+                            criteria.fts = (cbSearchIndex.isChecked() && cbSearchIndex.isEnabled());
+                            criteria.in_senders = cbSenders.isChecked();
+                            criteria.in_recipients = cbRecipients.isChecked();
+                            criteria.in_subject = cbSubject.isChecked();
+                            criteria.in_keywords = cbKeywords.isChecked();
+                            criteria.in_message = cbMessage.isChecked();
+                            criteria.in_notes = cbNotes.isChecked();
+                            criteria.in_filenames = cbFileNames.isChecked();
+                            criteria.in_headers = cbHeaders.isChecked();
+                            criteria.in_html = cbHtml.isChecked();
+                            criteria.with_unseen = cbUnseen.isChecked();
+                            criteria.with_flagged = cbFlagged.isChecked();
+                            criteria.with_hidden = cbHidden.isChecked();
+                            criteria.with_encrypted = cbEncrypted.isChecked();
+                            criteria.with_attachments = cbAttachments.isChecked();
 
-                        if (!criteria.fts) {
-                            int pos = spMessageSize.getSelectedItemPosition();
-                            if (pos > 0) {
-                                int[] sizes = getResources().getIntArray(R.array.sizeValues);
-                                criteria.with_size = sizes[pos];
+                            if (!criteria.fts) {
+                                int pos = spMessageSize.getSelectedItemPosition();
+                                if (pos > 0) {
+                                    int[] sizes = getResources().getIntArray(R.array.sizeValues);
+                                    criteria.with_size = sizes[pos];
+                                }
                             }
-                        }
 
-                        criteria.in_trash = cbSearchTrash.isChecked();
-                        criteria.in_junk = cbSearchJunk.isChecked();
+                            criteria.in_trash = cbSearchTrash.isChecked();
+                            criteria.in_junk = cbSearchJunk.isChecked();
 
-                        Object after = tvAfter.getTag();
-                        Object before = tvBefore.getTag();
+                            Object after = tvAfter.getTag();
+                            Object before = tvBefore.getTag();
 
-                        if (after != null)
-                            criteria.after = ((Calendar) after).getTimeInMillis();
-                        if (before != null)
-                            criteria.before = ((Calendar) before).getTimeInMillis();
+                            if (after != null)
+                                criteria.after = ((Calendar) after).getTimeInMillis();
+                            if (before != null)
+                                criteria.before = ((Calendar) before).getTimeInMillis();
 
-                        boolean device = (cbSearchDevice.isChecked() || !cbSearchDevice.isEnabled());
+                            boolean device = (cbSearchDevice.isChecked() || !cbSearchDevice.isEnabled());
 
-                        if (criteria.query != null) {
-                            List<String> searches = new ArrayList<>();
-                            for (int i = 1; i <= 3; i++)
-                                if (prefs.contains("last_search" + i)) {
-                                    String search = prefs.getString("last_search" + i, null);
-                                    searches.add(search);
-                                }
+                            if (criteria.query != null) {
+                                List<String> searches = new ArrayList<>();
+                                for (int i = 1; i <= 3; i++)
+                                    if (prefs.contains("last_search" + i)) {
+                                        String search = prefs.getString("last_search" + i, null);
+                                        searches.add(search);
+                                    }
 
-                            searches.remove(criteria.query);
-                            searches.add(0, criteria.query);
+                                searches.remove(criteria.query);
+                                searches.add(0, criteria.query);
 
-                            SharedPreferences.Editor editor = prefs.edit();
-                            for (int i = 1; i <= Math.min(3, searches.size()); i++)
-                                editor.putString("last_search" + i, searches.get(i - 1));
-                            editor.apply();
-                        }
+                                SharedPreferences.Editor editor = prefs.edit();
+                                for (int i = 1; i <= Math.min(3, searches.size()); i++)
+                                    editor.putString("last_search" + i, searches.get(i - 1));
+                                editor.apply();
+                            }
 
-                        Helper.hideKeyboard(etQuery);
+                            Helper.hideKeyboard(etQuery);
 
-                        if (criteria.query != null && criteria.query.startsWith("raw:"))
-                            new SimpleTask<EntityFolder>() {
-                                @Override
-                                protected EntityFolder onExecute(Context context, Bundle args) {
-                                    long aid = args.getLong("account", -1);
+                            if (criteria.query != null && criteria.query.startsWith("raw:"))
+                                new SimpleTask<EntityFolder>() {
+                                    @Override
+                                    protected EntityFolder onExecute(Context context, Bundle args) {
+                                        long aid = args.getLong("account", -1);
 
-                                    DB db = DB.getInstance(context);
-                                    EntityAccount account = null;
-                                    if (aid < 0) {
-                                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP);
-                                        if (accounts == null)
+                                        DB db = DB.getInstance(context);
+                                        EntityAccount account = null;
+                                        if (aid < 0) {
+                                            List<EntityAccount> accounts = db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP);
+                                            if (accounts == null)
+                                                return null;
+                                            for (EntityAccount a : accounts)
+                                                if (a.isGmail())
+                                                    if (account == null)
+                                                        account = a;
+                                                    else
+                                                        return null;
+                                        } else
+                                            account = db.account().getAccount(aid);
+
+                                        if (account == null || !account.isGmail())
                                             return null;
-                                        for (EntityAccount a : accounts)
-                                            if (a.isGmail())
-                                                if (account == null)
-                                                    account = a;
-                                                else
-                                                    return null;
-                                    } else
-                                        account = db.account().getAccount(aid);
 
-                                    if (account == null || !account.isGmail())
-                                        return null;
+                                        return db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE);
+                                    }
 
-                                    return db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE);
-                                }
+                                    @Override
+                                    protected void onExecuted(Bundle args, EntityFolder archive) {
+                                        FragmentMessages.search(
+                                                context, getViewLifecycleOwner(), getParentFragmentManager(),
+                                                account,
+                                                archive == null ? folder : archive.id,
+                                                archive != null || !device,
+                                                criteria);
+                                    }
 
-                                @Override
-                                protected void onExecuted(Bundle args, EntityFolder archive) {
-                                    FragmentMessages.search(
-                                            context, getViewLifecycleOwner(), getParentFragmentManager(),
-                                            account,
-                                            archive == null ? folder : archive.id,
-                                            archive != null || !device,
-                                            criteria);
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Log.e(ex);
-                                }
-                            }.execute(context, getViewLifecycleOwner(), getArguments(), "search:raw");
-                        else
-                            FragmentMessages.search(
-                                    context, getViewLifecycleOwner(), getParentFragmentManager(),
-                                    account, folder,
-                                    !device,
-                                    criteria);
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }.execute(context, getViewLifecycleOwner(), getArguments(), "search:raw");
+                            else
+                                FragmentMessages.search(
+                                        context, getViewLifecycleOwner(), getParentFragmentManager(),
+                                        account, folder,
+                                        !device,
+                                        criteria);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                     }
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
