@@ -35,15 +35,18 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 <br>
 
-### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
+### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
-### Next version
+### 1.2265 2025-03-07
 
+* Fixed all reported issues
 * Switched to [ShortcutBadgerX](https://github.com/kibotu/ShortcutBadgerX)
 * Small improvements and minor bug fixes
 * Updated build tools (Android Studio, gradle)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
+
+### [Barsboldia](https://en.wikipedia.org/wiki/Barsboldia)
 
 ### 1.2264 2025-03-03
 
