@@ -3005,10 +3005,13 @@ class Core {
                         folder.setProperties();
                         folder.setSpecials(account);
 
-                        if (selectable)
+                        if (selectable) {
                             folder.inheritFrom(parent);
-                        if (user && sync_added_folders && EntityFolder.USER.equals(type))
-                            folder.synchronize = true;
+                            if (user && sync_added_folders && EntityFolder.USER.equals(type)) {
+                                folder.synchronize = true;
+                                folder.notify = true;
+                            }
+                        }
 
                         folder.id = db.folder().insertFolder(folder);
                         Log.i(folder.name + " added type=" + folder.type + " sync=" + folder.synchronize);
