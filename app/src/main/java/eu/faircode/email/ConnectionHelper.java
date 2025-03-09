@@ -728,10 +728,10 @@ public class ConnectionHelper {
                                 LinkProperties props = cm.getLinkProperties(network);
                                 if (props != null && Objects.equals(ni.getName(), props.getInterfaceName())) {
                                     NetworkCapabilities caps = cm.getNetworkCapabilities(network);
-                                    if (caps != null && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET))
+                                    boolean has = (caps != null && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET));
+                                    if (has)
                                         someInternet = true;
-                                    else
-                                        EntityLog.log(context, EntityLog.Type.Network, "Interface=" + ni + " provides no internet");
+                                    EntityLog.log(context, EntityLog.Type.Network, "Interface=" + ni + " provides internet=" + has);
                                 }
                             }
                         } catch (Throwable ex) {
