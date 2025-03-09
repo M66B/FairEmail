@@ -36,13 +36,16 @@
         contribution="Japanese translation" />
     <contributor
         alias="Havokdan"
-        contribution="Portuguese, Brazilian" />
+        contribution="Portuguese, Brazilian translation" />
     <contributor
         name="Ville Rantanen"
         alias="vrntnn"
-        contribution="Finnish" />
+        contribution="Finnish translation" />
     <contributor
         name="Önder Nuray"
         alias="ondernuray"
         contribution="Turkish translation" />
+    <contributor
+        name="Aldo Latino"
+        contribution="Italian translation" />
 </contributors>
