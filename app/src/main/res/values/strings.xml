@@ -419,6 +419,12 @@
     <string name="title_advanced_hint_remark">
         The options are categorized by tab, divided into sections, organized by appearance or use, and searchable.
     </string>
+    <string name="title_advanced_hint_options">
+        You will not need most of the options and since some options are quite specific,
+        it is understandable if the functioning of not all options is not immediately clear.
+        Please do not leave a bad review for just the number of options or for not understanding all the options right away.
+        All options are useful for more than a few people, but maybe not for you (yet).
+    </string>
     <string name="title_advanced_hint_setup">You can configure an account by tapping the wizard button on the main configuration screen.</string>
 
     <string name="title_advanced_section_main">Main</string>
