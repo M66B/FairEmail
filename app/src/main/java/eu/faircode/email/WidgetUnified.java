@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.appwidget.AppWidgetProviderInfo;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +30,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -271,6 +273,7 @@ public class WidgetUnified extends AppWidgetProvider {
             try {
                 int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
                 appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
+                EntityLog.log(context, "Updated widget data count=" + appWidgetIds.length);
             } catch (Throwable ex) {
                 Log.e(ex);
             /*

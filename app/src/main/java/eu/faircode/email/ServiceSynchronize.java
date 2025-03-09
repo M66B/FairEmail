@@ -983,7 +983,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 last = stats;
 
-                EntityLog.log(ServiceSynchronize.this, "Widget update");
                 Widget.update(ServiceSynchronize.this);
 
                 boolean badge = prefs.getBoolean("badge", true);

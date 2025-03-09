@@ -254,6 +254,7 @@ public class Widget extends AppWidgetProvider {
             intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
             context.sendBroadcast(intent);
+            EntityLog.log(context, "Updated widgets count=" + appWidgetIds.length);
         } catch (Throwable ex) {
             Log.e(ex);
             /*
