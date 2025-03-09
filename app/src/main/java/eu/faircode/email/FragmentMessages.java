@@ -6260,8 +6260,6 @@ public class FragmentMessages extends FragmentBase
             @Override
             protected List<EntityAccount> onExecute(Context context, Bundle args) throws Throwable {
                 DB db = DB.getInstance(context);
-                if (BuildConfig.DEBUG)
-                    return db.account().getAccounts();
                 return db.account().getSynchronizingAccounts(null);
             }
 
