@@ -714,10 +714,34 @@ public class ConnectionHelper {
         }
 */
         try {
+            ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
+            Network[] networks = (cm == null ? null : cm.getAllNetworks());
+
             Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
             while (interfaces != null && interfaces.hasMoreElements()) {
                 NetworkInterface ni = interfaces.nextElement();
-                if (ni != null && ni.isUp())
+                if (ni != null && ni.isUp()) {
+                    if (networks != null) {
+                        boolean someInternet = false;
+                        try {
+                            for (Network network : networks) {
+                                LinkProperties props = cm.getLinkProperties(network);
+                                if (props != null && Objects.equals(ni.getName(), props.getInterfaceName())) {
+                                    NetworkCapabilities caps = cm.getNetworkCapabilities(network);
+                                    if (caps != null && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET))
+                                        someInternet = true;
+                                    else
+                                        EntityLog.log(context, EntityLog.Type.Network, "Interface=" + ni + " provides no internet");
+                                }
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                            someInternet = true;
+                        }
+                        if (!someInternet)
+                            continue;
+                    }
+
                     for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
                         InetAddress addr = iaddr.getAddress();
                         boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
@@ -729,6 +753,7 @@ public class ConnectionHelper {
                             else if (addr instanceof Inet6Address)
                                 has6 = true;
                     }
+                }
             }
         } catch (Throwable ex) {
             Log.e(ex);
