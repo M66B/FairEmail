@@ -38,6 +38,11 @@ For support you can use the contact form.
 
 Ceratonykus
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2265 2025-03-07
 
 * Fixed all reported issues
