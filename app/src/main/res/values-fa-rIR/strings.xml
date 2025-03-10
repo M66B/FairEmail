@@ -309,6 +309,11 @@
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
+    <string name="title_advanced_hint_options">        شما به بیشتر گزینه‌ها نیاز نخواهید داشت و از آنجایی که برخی از گزینه‌ها کاملا خاص هستند،
+        اگر عملکرد همه گزینه‌ها بلافاصله مشخص نباشد قابل درک است.
+        لطفاً فقط به دلیل تعداد گزینه‌ها یا برای اینکه همه گزینه‌ها را فورا متوجه نشده‌اید، نظر بدی نگذارید.
+        همه گزینه‌ها برای بیش از چند نفر مفید هستند، اما شاید برای شما (هنوز) مفید نباشند.
+    </string>
     <string name="title_advanced_section_main">اصلی</string>
     <string name="title_advanced_section_synchronize">دریافت</string>
     <string name="title_advanced_section_send">ارسال</string>
@@ -557,7 +562,7 @@
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
     <string name="title_advanced_autounstar">هنگام انتقال پیام‌ها ستاره‌ها را خودکار از پیام‌ها حذف کن</string>
     <string name="title_advanced_star_unsnoozed">حذف خودکار ستاره پیام‌های از تعلیق درآمده</string>
-    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">پیام‌های به تعویق نیوفتاده را به‌ طور خودکار مهم در نظر بگیر</string>
+    <string name="title_advanced_important_unsnoozed">پیام‌های به تعویق نیوفتاده را به‌ طور خودکار مهم در نظر بگیر</string>
     <string name="title_advanced_move_thread_all">هنگام جابجا کردن مکالمات انتخابی، کل پیام‌ها منتقل شود</string>
     <string name="title_advanced_move_thread_sent">به هنگام انتقال یک مکالمه، پیام‌های ارسالی را هم منتقل کن</string>
     <string name="title_advanced_swipe_trash_all">حذف همه پیام‌ها هنگام کشیدن مکالمه به سطل زباله</string>

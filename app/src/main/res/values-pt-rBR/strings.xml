@@ -346,6 +346,10 @@
     </string>
     <string name="title_advanced_hint_remark">        As opções são categorizadas por aba, divididas em seções, organizadas por aparência ou uso, e pesquisáveis.
     </string>
+    <string name="title_advanced_hint_options">        Você não precisará da maioria das opções e, como algumas opções são bastante específicas,
+        é compreensível se o funcionamento de nem todas as opções não estiverem claro imediatamente.
+        Por favor, não deixe uma revisão ruim apenas para o número de opções ou para não entender todas as opções imediatamente.
+        Todas as opções são úteis para mais do que algumas pessoas, mas talvez ainda não para você (ainda).    </string>
     <string name="title_advanced_hint_setup">Você pode configurar uma conta tocando no botão do assistente na tela de configuração principal.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">﻿Receber</string>
@@ -656,7 +660,7 @@
     <string name="title_advanced_reset_importance">Redefinir importância de mensagens em movimento</string>
     <string name="title_advanced_star_snoozed">Adicionar estrela automaticamente ao adiar mensagens</string>
     <string name="title_advanced_star_unsnoozed">Remover automaticamente a estrela em mensagens suspensas</string>
-    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Tornar automaticamente importantes as mensagens de cancelamento de soneca</string>
+    <string name="title_advanced_important_unsnoozed">Tornar automaticamente importantes as mensagens de cancelamento de soneca</string>
     <string name="title_advanced_auto_important">Torne as mensagens com estrela automaticamente importantes</string>
     <string name="title_advanced_cancel_snooze">Cancelar soneca em mensagens em movimento</string>
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente ao denunciar spam</string>

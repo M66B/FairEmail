@@ -348,6 +348,11 @@
     </string>
     <string name="title_advanced_hint_remark">        Die Optionen sind nach Registerkarten kategorisiert, in Abschnitte unterteilt, nach Erscheinungsbild oder Verwendung geordnet und durchsuchbar.
     </string>
+    <string name="title_advanced_hint_options">        Sie werden die meisten Optionen nicht verändern müssen und da einige Optionen ganz spezifisch sind,
+        ist es verständlich, wenn die Auswirkung nicht bei allen Optionen sofort klar ist.
+        Bitte hinterlassen Sie keine schlechte Bewertung nur wegen der großen Anzahl der Optionen oder dafür, dass Sie nicht alle Optionen sofort verstehen.
+        Alle Optionen sind nützlich für mehr als ein paar Personen, aber vielleicht noch nicht für Sie.
+    </string>
     <string name="title_advanced_hint_setup">Sie können ein Konto konfigurieren, indem Sie auf dem Hauptkonfigurationsbildschirm auf die Schaltfläche des Assistenten tippen.</string>
     <string name="title_advanced_section_main">Grundeinstellungen</string>
     <string name="title_advanced_section_synchronize">Empfangen</string>
@@ -658,7 +663,7 @@
     <string name="title_advanced_reset_importance">Wichtigkeit beim Verschieben von Nachrichten zurücksetzen</string>
     <string name="title_advanced_star_snoozed">Zurückgestellte Nachrichten automatisch markieren</string>
     <string name="title_advanced_star_unsnoozed">Markierung automatisch entfernen, wenn die Nachricht nicht länger zurückgestellt wird</string>
-    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Zurückgestellte Nachrichten automatisch als wichtig kennzeichnen</string>
+    <string name="title_advanced_important_unsnoozed">Beim Aufheben der Zurückstellung von Nachrichten diese als wichtig kennzeichnen</string>
     <string name="title_advanced_auto_important">Markierte Nachrichten automatisch wichtig machen</string>
     <string name="title_advanced_cancel_snooze">»Zurückstellen« für verschobene Nachrichten deaktivieren</string>
     <string name="title_advanced_auto_block_sender">Absender automatisch sperren, wenn Spam gemeldet wird</string>

@@ -656,6 +656,7 @@
     <string name="title_advanced_reset_importance">Нулирай важността при преместване на съобщения</string>
     <string name="title_advanced_star_snoozed">Автоматично добавяне на звезда при отхвърлени съобщения</string>
     <string name="title_advanced_star_unsnoozed">Автоматично премахване на звезда при неотложени съобщения</string>
+    <string name="title_advanced_important_unsnoozed">Автоматично прави неотложените съобщенията важни</string>
     <string name="title_advanced_auto_important">Автоматично прави съобщенията със звезда важни</string>
     <string name="title_advanced_cancel_snooze">Отмяна на отлагането при премествани съобщения</string>
     <string name="title_advanced_auto_block_sender">Автоматично блокиране на подателя, докладвайки спам</string>

@@ -671,6 +671,7 @@
     <string name="title_advanced_reset_importance">Resetuj važnost pri premještanju poruka</string>
     <string name="title_advanced_star_snoozed">Automatski dodaj zvjezdicu za odložene poruke</string>
     <string name="title_advanced_star_unsnoozed">Automatski ukloni zvjezdicu za neodgođene poruke</string>
+    <string name="title_advanced_important_unsnoozed">Automatski označi neodložene poruke kao važne</string>
     <string name="title_advanced_auto_important">Automatski označi poruke sa zvjezdicom kao važne</string>
     <string name="title_advanced_cancel_snooze">Otkaži odgađanje pri premještanju poruka</string>
     <string name="title_advanced_auto_block_sender">Automatski blokiraj pošiljaoca kada se prijavljuje spam</string>

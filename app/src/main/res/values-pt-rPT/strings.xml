@@ -347,6 +347,10 @@
     </string>
     <string name="title_advanced_hint_remark">        As opções são categorizadas por separador, divididas em secções, organizadas por aspeto ou uso, e pesquisáveis.
     </string>
+    <string name="title_advanced_hint_options">Não precisará da maioria das opções e, como algumas opções são bastante específicas, 
+     é compreensível se o funcionamento de todas as opções não seja imediatamente claro.
+         Por favor, não deixe uma crítica negativa apenas pelo número de opções ou por não compreender todas as opções de imediato.
+         Todas as opções são úteis para mais do que algumas pessoas, mas talvez não para si (ainda).    </string>
     <string name="title_advanced_hint_setup">Pode configurar uma conta selecionando o botão Assistente no ecrã de configuração principal.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Receber</string>
@@ -657,7 +661,7 @@
     <string name="title_advanced_reset_importance">Reverter importância ao mover mensagens</string>
     <string name="title_advanced_star_snoozed">Adicionar estrela automaticamente ao adiar mensagens</string>
     <string name="title_advanced_star_unsnoozed">Remover automaticamente a estrela de mensagens suspensas</string>
-    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Tornar automaticamente importantes as mensagens que não são adiadas</string>
+    <string name="title_advanced_important_unsnoozed">Tornar automaticamente importantes as mensagens que não são adiadas</string>
     <string name="title_advanced_auto_important">Marcar automaticamente mensagens com estrela como importantes</string>
     <string name="title_advanced_cancel_snooze">Cancelar a função \'adiar\' ao mover mensagens</string>
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente quando denunciar spam</string>

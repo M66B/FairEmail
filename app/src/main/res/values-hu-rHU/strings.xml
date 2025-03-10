@@ -344,6 +344,10 @@
     </string>
     <string name="title_advanced_hint_remark">        Az opciók fülekre vannak osztva, és azok tovább szekciókra, kinézet szerint rendezve, és mind kereshető.
     </string>
+    <string name="title_advanced_hint_options">        A legtöbb beállításra nem lesz szüksége, és mivel egyes beállítások elég specifikusak,
+        így teljesen érthető, ha az összes beállítás működése nen világos azonnal.
+        Kérem, ne adjon rossz értékelést csupán a beállítások mennyisége miatt, vagy mert nem világos egyből minden beállítás.
+        A számtalan beállítás hasznos jó pár embernek, ha talán önnek (még) nem is.    </string>
     <string name="title_advanced_hint_setup">Beállíthatja fiókját a fő konfigurációs képernyőn a varázsló gombra nyomva.</string>
     <string name="title_advanced_section_main">Alapbeállítások</string>
     <string name="title_advanced_section_synchronize">Fogadás</string>
@@ -654,7 +658,7 @@
     <string name="title_advanced_reset_importance">Fontosság törlése áthelyezéskor</string>
     <string name="title_advanced_star_snoozed">Automatikusan csillagozza meg az üzenetet halasztáskor</string>
     <string name="title_advanced_star_unsnoozed">Csillag automatikus eltávolítása az üzenet szundi kikapcsolásakor</string>
-    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Halasztás megszűnésekor az üzenetet automatikusan jelölje meg fontosnak</string>
+    <string name="title_advanced_important_unsnoozed">Halasztás megszűnésekor az üzenetet automatikusan jelölje meg fontosnak</string>
     <string name="title_advanced_auto_important">Automatikusan csináljon csillagozott üzeneteket fontossá</string>
     <string name="title_advanced_cancel_snooze">Szundi kikapcsolása üzenetek áthelyezésekor</string>
     <string name="title_advanced_auto_block_sender">Küldő automatikus letiltása levélszemét jelentésekor</string>

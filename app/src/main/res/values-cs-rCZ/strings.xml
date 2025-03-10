@@ -375,6 +375,11 @@ v prohlížeči ze všech Google účtů.</string>
     </string>
     <string name="title_advanced_hint_remark">        Možnosti jsou rozděleny podle karty, rozděleny do sekcí, uspořádány podle vzhledu nebo použití a vyhledávatelné.
     </string>
+    <string name="title_advanced_hint_options">        Nebudete potřebovat většinu voleb, a protože některé jsou docela specifické,
+        je pochopitelné, pokud není fungování všech voleb okamžitě jasné.
+        Nenechávejte prosím špatnou recenzi jen pro jejich množství nebo pokud je hned všechny nepochopíte.
+        Všechny volby jsou užitečné pro více než jen několik lidí, ale možná pro vás (zatím) ne.
+    </string>
     <string name="title_advanced_hint_setup">Účet můžete nakonfigurovat klepnutím na tlačítko průvodce na hlavní obrazovce nastavení.</string>
     <string name="title_advanced_section_main">Hlavní</string>
     <string name="title_advanced_section_synchronize">Příjem</string>
@@ -685,6 +690,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_reset_importance">Obnovit důležitost při přesunu zpráv</string>
     <string name="title_advanced_star_snoozed">Při odložení zpráv přidat hvězdičku automaticky</string>
     <string name="title_advanced_star_unsnoozed">Automaticky odebrat hvězdičku po zrušení odložení zpráv</string>
+    <string name="title_advanced_important_unsnoozed">Automaticky nastavit odložené zprávy důležitými</string>
     <string name="title_advanced_auto_important">Automaticky činit zprávy s hvězdičkou důležitými</string>
     <string name="title_advanced_cancel_snooze">Zrušit odložení při přesunu zpráv</string>
     <string name="title_advanced_auto_block_sender">Automaticky zablokovat odesílatele při hlášení spamu</string>

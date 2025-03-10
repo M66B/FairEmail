@@ -656,7 +656,7 @@
     <string name="title_advanced_reset_importance">Restablecer importancia al mover mensajes</string>
     <string name="title_advanced_star_snoozed">Destacar automáticamente al posponer mensajes</string>
     <string name="title_advanced_star_unsnoozed">Eliminar automáticamente la estrella de los mensajes al quitar posponer</string>
-    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Hacer que los mensajes no pospuestos sean importantes automáticamente</string>
+    <string name="title_advanced_important_unsnoozed">Hacer que los mensajes no pospuestos sean importantes automáticamente</string>
     <string name="title_advanced_auto_important">Hacer que los mensajes destacados sean importantes automáticamente</string>
     <string name="title_advanced_cancel_snooze">Cancelar posponer al mover mensajes</string>
     <string name="title_advanced_auto_block_sender">Bloquear automáticamente al remitente al reportar como spam</string>

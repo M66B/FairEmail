@@ -347,6 +347,11 @@
     </string>
     <string name="title_advanced_hint_remark">        Les options sont rangées par catégories dans des onglets divisés en sections, elles sont organisées selon l\'apparence ou l\'usage et peuvent être recherchées.
     </string>
+    <string name="title_advanced_hint_options">        Vous n\'aurez pas besoin de la plupart des options car certaines sont assez spécifiques,
+        il est compréhensible que le fonctionnement de toutes les options ne soit pas immédiatement clair.
+        Veuillez ne pas donner une mauvaise évaluation simplement à cause du nombre d\'options ou bien à cause d\'une incompréhension rapide de toutes les options.
+        Toutes les options sont utiles pour peu de personnes et peut-être pas (encore) pour vous.
+    </string>
     <string name="title_advanced_hint_setup">Vous pouvez configurer un compte en appuyant sur le bouton « Assistant » sur l\'écran principal de configuration.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Réception</string>
@@ -657,7 +662,7 @@
     <string name="title_advanced_reset_importance">Réinitialiser l\'importance lors du déplacement des messages</string>
     <string name="title_advanced_star_snoozed">Marquer automatiquement les messages comme suivis lors de leur report</string>
     <string name="title_advanced_star_unsnoozed">Retirer automatiquement l\'étoile de suivi des messages à la fin du report</string>
-    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Marquer automatiquement les messages comme importants lors de leur répétition</string>
+    <string name="title_advanced_important_unsnoozed">Marquer automatiquement les messages comme importants lors de leur répétition</string>
     <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_cancel_snooze">Annuler le report des messages lors de leur déplacement</string>
     <string name="title_advanced_auto_block_sender">Bloquer automatiquement l\'expéditeur lors du signalement de courrier indésirable</string>

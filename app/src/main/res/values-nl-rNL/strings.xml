@@ -344,6 +344,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     </string>
     <string name="title_advanced_hint_remark">        De opties zijn gecategoriseerd op tabblad, verdeeld in secties, georganiseerd op uiterlijk of gebruik en doorzoekbaar.
     </string>
+    <string name="title_advanced_hint_options">U zult de meeste opties niet nodig hebben en aangezien sommige opties vrij specifiek zijn, is het begrijpelijk als de werking van niet alle opties niet gelijk duidelijk is. Laat a. u. b. geen slechte beoordeling voor alleen het aantal opties of voor het niet begrijpen van alle opties achter.
+        Alle opties zijn nuttig voor meer dan een paar mensen, maar misschien (nog) niet voor u.
+    </string>
     <string name="title_advanced_hint_setup">Je kunt een account configureren door op de wizard knop op het hoofdconfiguratiescherm te tikken.</string>
     <string name="title_advanced_section_main">Hoofd</string>
     <string name="title_advanced_section_synchronize">Ontvangen</string>
@@ -654,7 +657,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_reset_importance">Reset belang bij verplaatsen van berichten</string>
     <string name="title_advanced_star_snoozed">Voeg automatisch ster toe bij het sluimeren van berichten</string>
     <string name="title_advanced_star_unsnoozed">Verwijder automatisch ster bij het ontwaken van berichten</string>
-    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Automatisch berichten die ontwaken belangrijk maken</string>
+    <string name="title_advanced_important_unsnoozed">Automatisch berichten die ontwaken belangrijk maken</string>
     <string name="title_advanced_auto_important">Automatisch berichten met een ster belangrijk maken</string>
     <string name="title_advanced_cancel_snooze">Annuleer sluimeren bij het verplaatsen van berichten</string>
     <string name="title_advanced_auto_block_sender">Blokkeer de afzender automatisch bij het rapporteren van spam</string>

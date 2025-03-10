@@ -374,6 +374,10 @@
     </string>
     <string name="title_advanced_hint_remark">Opcje są podzielone na kategorie według zakładek, podzielone na sekcje, uporządkowane według wyglądu lub użycia i można je przeszukiwać.
     </string>
+    <string name="title_advanced_hint_options">        Nie będziesz potrzebować większości opcji, ponieważ niektóre z nich są dość specyficzne.
+        Nie zostawiaj złej recenzji tylko z powodu ilości opcji lub niezrozumienia działania ich wszystkich od razu.
+        Są użytkownicy, którzy korzystają ze wszystkich opcji i być może Ty również użyjesz ich w przyszłości.
+    </string>
     <string name="title_advanced_hint_setup">Konto możesz skonfigurować, dotykając przycisku kreatora na głównym ekranie konfiguracji.</string>
     <string name="title_advanced_section_main">Główne</string>
     <string name="title_advanced_section_synchronize">Odbieranie</string>
@@ -684,6 +688,7 @@
     <string name="title_advanced_reset_importance">Resetuj ważność przy przenoszeniu wiadomości</string>
     <string name="title_advanced_star_snoozed">Automatycznie dodawaj gwiazdkę przy usypianiu wiadomości</string>
     <string name="title_advanced_star_unsnoozed">Automatycznie usuń gwiazdkę przy odkładaniu wiadomości</string>
+    <string name="title_advanced_important_unsnoozed">Automatycznie oznaczaj nieuśpione wiadomości jako ważne</string>
     <string name="title_advanced_auto_important">Wiadomości oznaczone gwiazdką automatycznie ustaw jako ważne</string>
     <string name="title_advanced_cancel_snooze">Anuluj drzemkę przy przenoszeniu wiadomości</string>
     <string name="title_advanced_auto_block_sender">Automatycznie blokuj nadawcę podczas zgłaszania spamu</string>

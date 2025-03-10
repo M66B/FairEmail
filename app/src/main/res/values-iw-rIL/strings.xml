@@ -375,6 +375,11 @@
     </string>
     <string name="title_advanced_hint_remark">        האפשרויות מסודרות בקטגוריות לפי לשונית, בחלוקה לסעיפים ובסידור לפי הופעה או שימוש כולל אפשרות לחיפוש.
     </string>
+    <string name="title_advanced_hint_options">        רוב האפשרויות אינן נחוצות ומאחר שחלק מהאפשרויות הן מאוד נקודתיות, 
+        מובן מאליו אם התפקוד של חלק מהאפשרויות אינו ברור מספיק. 
+        נא לא להגיש ביקורת שלילית רק עקב מגוון האפשרויות או עקב אי בהירות סביב כל האפשרויות באופן מיידי.
+        כל האפשרויות נחוצות לכמות נכבדת של משתמשים אבל כנראה שלא לך (עדיין).
+    </string>
     <string name="title_advanced_hint_setup">ניתן להגדיר חשבון בנגיעה בכפתור האשף במסך ההגדרות הראשי.</string>
     <string name="title_advanced_section_main">ראשי</string>
     <string name="title_advanced_section_synchronize">קבלה</string>
@@ -685,6 +690,7 @@
     <string name="title_advanced_reset_importance">איפוס החשיבות בעת העברת הודעות</string>
     <string name="title_advanced_star_snoozed">להוסיף כוכב על הודעות מושהות אוטומטית</string>
     <string name="title_advanced_star_unsnoozed">הסרת כוכב אוטומטית על הודעות ביטול נודניק</string>
+    <string name="title_advanced_important_unsnoozed">להפוך הודעות שבוטל להן הנודניק לחשובות אוטומטית</string>
     <string name="title_advanced_auto_important">להפוך הודעות שסומנו בכוכב לחשובות אוטומטית</string>
     <string name="title_advanced_cancel_snooze">ביטול נודניק בעת העברת הודעות</string>
     <string name="title_advanced_auto_block_sender">לחסום את השולח אוטומטית בעת דיווח על ספאם</string>
@@ -1314,6 +1320,7 @@
     <string name="title_raw_send_message">הודעה</string>
     <string name="title_raw_send_thread">דיון</string>
     <string name="title_manage_keywords">ניהול מילות מפתח</string>
+    <string name="title_manage_keywords_pop">עם POP3, אי אפשר לאחסן מילות מפתח בשרת הדוא״ל!</string>
     <string name="title_manage_labels">ניהול תוויות Gmail</string>
     <string name="title_add_keyword">הוספת מילת מפתח</string>
     <string name="title_show_inline">הצגת קבצים מצורפים בתוך ההודעה</string>

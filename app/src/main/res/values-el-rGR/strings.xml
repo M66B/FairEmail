@@ -652,6 +652,7 @@
     <string name="title_advanced_reset_importance">Επαναφορά του βαθμού σημαντικότητας κατά τη μετακίνηση των μηνυμάτων</string>
     <string name="title_advanced_star_snoozed">Αυτόματη προσθήκη αστεριού στα υπό αναβολή μηνύματα</string>
     <string name="title_advanced_star_unsnoozed">Αυτόματη αφαίρεση αστεριού όταν το μήνυμα αφαιρείται από τα υπό αναβολή</string>
+    <string name="title_advanced_important_unsnoozed">Να επισημαίνονται αυτόματα ως σημαντικά τα μηνύματα που τίθενται εκτός αναβολής</string>
     <string name="title_advanced_auto_important">Να επισημαίνονται αυτόματα ως σημαντικά τα μηνύματα με αστέρια</string>
     <string name="title_advanced_cancel_snooze">Ακύρωση αναβολής κατά τη μετακίνηση μηνυμάτων</string>
     <string name="title_advanced_auto_block_sender">Αυτόματος αποκλεισμός του αποστολέα κατά την αναφορά μηνύματος ως ανεπιθύμητου</string>

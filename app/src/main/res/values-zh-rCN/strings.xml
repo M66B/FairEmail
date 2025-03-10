@@ -332,6 +332,11 @@
     </string>
     <string name="title_advanced_hint_remark">        各个选项按照标签页分类，标签页内又分为多个部分，按外观或用途进行整理，并且可搜索。
     </string>
+    <string name="title_advanced_hint_options">        大多数选项你都用不到，并且因为一些选项相当有针对性，
+        所以如果不是所有选项功能的含义都立即清楚也是可以理解的。
+        请不要只因为选项太多或不能立刻理解所有选项的意思而给差评。
+        每个选项对于一些人都是有用的，只是你(还)用不到。
+    </string>
     <string name="title_advanced_hint_setup">您可以通过点击主配置屏幕上的向导按钮来配置一个帐户。</string>
     <string name="title_advanced_section_main">主要</string>
     <string name="title_advanced_section_synchronize">接收</string>
@@ -642,7 +647,7 @@
     <string name="title_advanced_reset_importance">移动邮件时重置其重要性</string>
     <string name="title_advanced_star_snoozed">自动给延后邮件添加星标</string>
     <string name="title_advanced_star_unsnoozed">取消邮件延后通知时自动删除星标</string>
-    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">自动将取消延后的消息变得重要</string>
+    <string name="title_advanced_important_unsnoozed">自动将取消延后的消息变得重要</string>
     <string name="title_advanced_auto_important">自动标注星标邮件为重要</string>
     <string name="title_advanced_cancel_snooze">移动邮件时取消延后</string>
     <string name="title_advanced_auto_block_sender">报告垃圾邮件时自动屏蔽发件人</string>

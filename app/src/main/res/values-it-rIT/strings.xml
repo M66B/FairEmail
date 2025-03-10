@@ -347,6 +347,11 @@
     </string>
     <string name="title_advanced_hint_remark">        Le opzioni sono categorizzate dalla scheda, divise in sezioni, organizzate per aspetto o uso e ricercabili.
     </string>
+    <string name="title_advanced_hint_options">        La maggior parte delle opzioni non sono necessarie. Poiché alcune sono abbastanza specifiche,
+        è comprensibile se il loro funzionamento non sia immediatamente chiaro.
+        Si prega di non lasciare una brutta recensione per il gran numero di opzioni o per non averle comprese tutte.
+        Tutte le opzioni sono utili solo per poche persone, e forse non per te (o non ancora).
+    </string>
     <string name="title_advanced_hint_setup">È possibile configurare un account toccando il pulsante della procedura guidata nella schermata di configurazione principale.</string>
     <string name="title_advanced_section_main">Principale</string>
     <string name="title_advanced_section_synchronize">Ricezione</string>
@@ -657,7 +662,7 @@
     <string name="title_advanced_reset_importance">Ripristina l\'importanza allo spostamento dei messaggi</string>
     <string name="title_advanced_star_snoozed">Aggiungi automaticamente la stella posticipando i messaggi</string>
     <string name="title_advanced_star_unsnoozed">Rimuovi automaticamente la stella dai messaggi alla fine della posticipazione</string>
-    <string name="title_advanced_important_unsnoozed" comment="title_advanced_important_unsnoozed&#10;Title for option in the behavior settins tab page">Rendi automaticamente importanti i messaggi alla fine della posticipazione</string>
+    <string name="title_advanced_important_unsnoozed">Rendi automaticamente importanti i messaggi alla fine della posticipazione</string>
     <string name="title_advanced_auto_important">Rendi automaticamente importanti i messaggi con stella</string>
     <string name="title_advanced_cancel_snooze">Annulla la posticipazione allo spostamento dei messaggi</string>
     <string name="title_advanced_auto_block_sender">Blocca automaticamente il mittente alla segnalazione di spam</string>
