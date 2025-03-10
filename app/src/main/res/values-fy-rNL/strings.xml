@@ -344,6 +344,9 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     </string>
     <string name="title_advanced_hint_remark">        De opsjes binne kategorisearre op ljepblêd, ferdield yn seksjes, organisearre op uterlik of gebrûk en trochsykber.
     </string>
+    <string name="title_advanced_hint_options">Jo sille de measte opsjes net nedich hawwe en omdat guon opsjes frij spesifyk binne, is it begryplik as de wurking fan net alle opsjes net daliks dúdlik is. Lit gjin minne beoardieling foar allinnich it oantal opsjes of foar it net begripen fan alle opsjes efter.
+        Alle opsjes binne nuttich foar mear as in pear minsken, mar miskien (noch) net foar jo.
+    </string>
     <string name="title_advanced_hint_setup">Jo kinne in account konfigurearje troch op de wizardknop op it haadkonfiguraasjeskerm te tikken.</string>
     <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Untfange</string>
