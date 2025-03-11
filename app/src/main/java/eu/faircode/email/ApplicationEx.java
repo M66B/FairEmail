@@ -87,18 +87,18 @@ public class ApplicationEx extends Application
         if (BuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && false)
             AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList());
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-        if (prefs.contains("english")) {
-            boolean english = prefs.getBoolean("english", false);
-            if (english)
-                prefs.edit()
-                        .remove("english")
-                        .putString("language", Locale.US.toLanguageTag())
-                        .commit(); // apply won't work here
-        }
-
         try {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+            if (prefs.contains("english")) {
+                boolean english = prefs.getBoolean("english", false);
+                if (english)
+                    prefs.edit()
+                            .remove("english")
+                            .putString("language", Locale.US.toLanguageTag())
+                            .commit(); // apply won't work here
+            }
+
             String language = prefs.getString("language", null);
             if (language != null) {
                 if ("de-AT".equals(language) || "de-LI".equals(language))
@@ -116,6 +116,31 @@ public class ApplicationEx extends Application
             }
         } catch (Throwable ex) {
             Log.e(ex);
+            /*
+                Redmi zircon / Android 15
+                Exception java.lang.RuntimeException:
+                  at android.app.LoadedApk.makeApplicationInner (LoadedApk.java:1548)
+                  at android.app.LoadedApk.makeApplicationInner (LoadedApk.java:1469)
+                  at android.app.ActivityThread.handleBindApplication (ActivityThread.java:8185)
+                  at android.app.ActivityThread.-$$Nest$mhandleBindApplication (Unknown Source)
+                  at android.app.ActivityThread$H.handleMessage (ActivityThread.java:2679)
+                  at android.os.Handler.dispatchMessage (Handler.java:107)
+                  at android.os.Looper.loopOnce (Looper.java:249)
+                  at android.os.Looper.loop (Looper.java:337)
+                  at android.app.ActivityThread.main (ActivityThread.java:9503)
+                  at java.lang.reflect.Method.invoke
+                  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run (RuntimeInit.java:636)
+                  at com.android.internal.os.ZygoteInit.main (ZygoteInit.java:1005)
+                Caused by java.lang.IllegalStateException: SharedPreferences in credential encrypted storage are not available until after user (id 0) is unlocked
+                  at android.app.ContextImpl.getSharedPreferences (ContextImpl.java:643)
+                  at android.app.ContextImpl.getSharedPreferences (ContextImpl.java:621)
+                  at androidx.preference.PreferenceManager.getDefaultSharedPreferences (PreferenceManager.java:119)
+                  at eu.faircode.email.ApplicationEx.getLocalizedContext (ApplicationEx.java:90)
+                  at eu.faircode.email.ApplicationEx.attachBaseContext (ApplicationEx.java:83)
+                  at android.app.Application.attach (Application.java:368)
+                  at android.app.Instrumentation.newApplication (Instrumentation.java:1356)
+                  at android.app.LoadedApk.makeApplicationInner (LoadedApk.java:1541)
+             */
         }
 
         return context;
