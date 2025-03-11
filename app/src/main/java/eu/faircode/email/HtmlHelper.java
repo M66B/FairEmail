@@ -159,7 +159,7 @@ public class HtmlHelper {
     private static final int MAX_FORMAT_TEXT_SIZE = 100 * 1024; // characters
     private static final int SMALL_IMAGE_SIZE = 5; // pixels
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
-    private static final int TRACKING_INDICATOR_SIZE = 24; // pixels
+    private static final int TRACKING_INDICATOR_SIZE = 18; // pixels
     private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
     private static final String LINE = "----------------------------------------";
     private static final String W3NS = /* http/https */ "://www.w3.org/";
