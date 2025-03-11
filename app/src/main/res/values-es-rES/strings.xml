@@ -346,6 +346,11 @@
     </string>
     <string name="title_advanced_hint_remark">        Las opciones se clasifican en pestañas, divididas en secciones, organizadas por apariencia o uso y buscables.
     </string>
+    <string name="title_advanced_hint_options">        Usted no necesitará la mayoría de las opciones y dado que la mayoría son bastante específicas,
+        es entendible si la función de las opciones no es evidente.
+        Por favor no deje una opinión negativa sólo por el número de opciones o por no entenderlas al instante.
+        Todas las opciones son útiles para más que unos pocos usuarios, pero quizás no para usted (aún).
+    </string>
     <string name="title_advanced_hint_setup">Puede configurar una cuenta tocando el botón del asistente en la pantalla de configuración principal.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Recibir</string>
