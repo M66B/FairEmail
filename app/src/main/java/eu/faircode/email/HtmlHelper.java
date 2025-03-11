@@ -159,6 +159,7 @@ public class HtmlHelper {
     private static final int MAX_FORMAT_TEXT_SIZE = 100 * 1024; // characters
     private static final int SMALL_IMAGE_SIZE = 5; // pixels
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
+    private static final int TRACKING_INDICATOR_SIZE = 24; // pixels
     private static final float[] HEADING_SIZES = {1.5f, 1.4f, 1.3f, 1.2f, 1.1f, 1f};
     private static final String LINE = "----------------------------------------";
     private static final String W3NS = /* http/https */ "://www.w3.org/";
@@ -2440,11 +2441,14 @@ public class HtmlHelper {
 
             if (isTrackingPixel(img) || isTrackingHost(context, host, disconnect_images)) {
                 uris.add(uri);
+                String px = Integer.toString(TRACKING_INDICATOR_SIZE);
                 img.attr("src", sb.toString());
                 img.attr("alt", context.getString(R.string.title_legend_tracking_pixel));
-                img.attr("height", "24");
-                img.attr("width", "24");
-                img.attr("style", "display:block !important; width:24px !important; height:24px !important;");
+                img.attr("height", px);
+                img.attr("width", px);
+                img.attr("style", "display:block !important;" +
+                        " width:" + px + "px !important;" +
+                        " height:" + px + "px !important;");
                 img.attr("x-tracking", src);
             }
         }
