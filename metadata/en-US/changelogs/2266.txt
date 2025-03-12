@@ -38,6 +38,12 @@ For support you can use the contact form.
 
 Ceratonykus
 
+Next version
+
+* Reverted to ShortcutBadger
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2266 2025-03-11
 
 * Fixed all reported issues
