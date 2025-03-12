@@ -669,6 +669,8 @@ public class ActivityEML extends ActivityBase {
             @Override
             protected void onExecuted(Bundle args, String name) {
                 ToastEx.makeText(ActivityEML.this, name, Toast.LENGTH_LONG).show();
+                if (BuildConfig.DEBUG)
+                    finish();
             }
 
             @Override
