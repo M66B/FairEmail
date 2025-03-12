@@ -38,7 +38,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
-### Next version
+### 1.2267 2025-03-12
 
 * Reverted to [ShortcutBadger](https://github.com/leolin310148/ShortcutBadger)
 * Small improvements and minor bug fixes
