@@ -6238,6 +6238,7 @@ public class MessageHelper {
 
         private String getType() {
             // manual-action/MDN-sent-manually; displayed
+            // automatic-action/MDN-sent-automatically; deleted
             if (disposition == null)
                 return null;
             int semi = disposition.lastIndexOf(';');
