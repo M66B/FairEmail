@@ -653,6 +653,7 @@
     <string name="title_advanced_reset_importance">Återställ betydelsen när du flyttar meddelanden</string>
     <string name="title_advanced_star_snoozed">Stjärnmarkera automatiskt vid slumring av meddelanden</string>
     <string name="title_advanced_star_unsnoozed">Ta automatiskt bort stjärnmarkering när meddelanden inte längre är vilande</string>
+    <string name="title_advanced_important_unsnoozed">Gör automatiskt uppväckta meddelanden viktiga</string>
     <string name="title_advanced_auto_important">Gör automatiskt stjärnmärkta meddelanden viktiga</string>
     <string name="title_advanced_cancel_snooze">Avbryt snooze när meddelanden flyttas</string>
     <string name="title_advanced_auto_block_sender">Blockera avsändaren automatiskt vid rapportering av skräppost</string>
@@ -1221,6 +1222,7 @@
     <string name="title_filters_active">Ett eller flera filter är aktiva</string>
     <string name="title_duplicate_in">Duplicerade meddelande i %1$s</string>
     <string name="title_trashed_from">Kastat meddelande från %1$s</string>
+    <string name="title_sent_to">Skickade meddelandet till %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vb: %1$s</string>
     <string name="title_subject_reply_alt">Sv: %1$s</string>
