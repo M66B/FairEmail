@@ -59,6 +59,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebStorage;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -79,6 +80,8 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
+import androidx.webkit.WebStorageCompat;
+import androidx.webkit.WebViewFeature;
 import androidx.work.WorkManager;
 
 import java.io.File;
@@ -2428,7 +2431,17 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 WorkerCleanup.init(context);
                 WorkerDailyRules.init(context);
                 WorkerSync.init(context);
-                ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
+                Runnable done = new Runnable() {
+                    @Override
+                    public void run() {
+                        ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
+                    }
+                };
+                if (false &&
+                        WebViewEx.isFeatureSupported(context, WebViewFeature.DELETE_BROWSING_DATA))
+                    WebStorageCompat.deleteBrowsingData(WebStorage.getInstance(), Helper.getSerialExecutor(), done);
+                else
+                    done.run();
             }
 
             @Override
