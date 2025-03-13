@@ -126,6 +126,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SeekBar sbClassMinDifference;
     private SwitchCompat swShowFiltered;
     private SwitchCompat swHapticFeedback;
+    private SwitchCompat swHapticFeedbackSwipe;
     private ImageButton ibClassification;
     private Spinner spLanguage;
     private SwitchCompat swUpdates;
@@ -288,7 +289,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "sort_answers", "shortcuts", "ical_tentative", "fts",
             "classification", "class_min_probability", "class_min_difference",
-            "show_filtered", "haptic_feedback",
+            "show_filtered", "haptic_feedback", "haptic_feedback_swipe",
             "language",
             "updates", "weekly", "beta", "show_changelog", "announcements",
             "crash_reports", "cleanup_attachments",
@@ -395,6 +396,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         sbClassMinDifference = view.findViewById(R.id.sbClassMinDifference);
         swShowFiltered = view.findViewById(R.id.swShowFiltered);
         swHapticFeedback = view.findViewById(R.id.swHapticFeedback);
+        swHapticFeedbackSwipe = view.findViewById(R.id.swHapticFeedbackSwipe);
         spLanguage = view.findViewById(R.id.spLanguage);
         swUpdates = view.findViewById(R.id.swUpdates);
         tvGithubPrivacy = view.findViewById(R.id.tvGithubPrivacy);
@@ -734,6 +736,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("haptic_feedback", isChecked).apply();
+            }
+        });
+
+        swHapticFeedbackSwipe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("haptic_feedback_swipe", isChecked).apply();
             }
         });
 
@@ -2473,6 +2482,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
             swShowFiltered.setChecked(prefs.getBoolean("show_filtered", false));
             swHapticFeedback.setChecked(prefs.getBoolean("haptic_feedback", true));
+            swHapticFeedbackSwipe.setChecked(prefs.getBoolean("haptic_feedback_swipe", false));
 
             int selected = -1;
             String language = prefs.getString("language", null);

@@ -3303,11 +3303,13 @@ public class FragmentMessages extends FragmentBase
 
                 if (expanded && swipe_reply) {
                     redraw(viewHolder);
+                    swipeFeedback();
                     onMenuReply(message, "reply", null, null);
                     return;
                 }
 
                 if (EntityFolder.OUTBOX.equals(message.folderType)) {
+                    swipeFeedback();
                     if (message.warning == null)
                         ActivityCompose.undoSend(message.id, getContext(), getViewLifecycleOwner(), getParentFragmentManager());
                     else
@@ -3349,6 +3351,8 @@ public class FragmentMessages extends FragmentBase
                         " type=" + actionType +
                         " message=" + message.id +
                         " folder=" + message.folderType);
+
+                swipeFeedback();
 
                 if (EntityMessage.SWIPE_ACTION_ASK.equals(action)) {
                     rvMessage.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
@@ -3428,6 +3432,13 @@ public class FragmentMessages extends FragmentBase
                 return null;
 
             return message;
+        }
+
+        private void swipeFeedback() {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean haptic_feedback_swipe = prefs.getBoolean("haptic_feedback_swipe", false);
+            if (haptic_feedback_swipe)
+                Helper.performHapticFeedback(view, HapticFeedbackConstants.GESTURE_END);
         }
 
         private void redraw(RecyclerView.ViewHolder vh) {

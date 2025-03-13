@@ -906,6 +906,7 @@
     <string name="title_advanced_class_min_difference">Minimum class difference: %1$s %%</string>
     <string name="title_advanced_show_filtered">Show a filter icon when rules were applied</string>
     <string name="title_advanced_haptic_feedback">Haptic feedback on important actions</string>
+    <string name="title_advanced_haptic_feedback_swipe">Haptic feedback when swiping left/right</string>
     <string name="title_advanced_language">Language</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_integrations_hint">The cloud services below are not part of the app. Any payments will go directly to the cloud service and not to the app developer.</string>
