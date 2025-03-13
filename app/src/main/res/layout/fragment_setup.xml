@@ -1277,7 +1277,7 @@
                     android:id="@+id/grpExtra"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="btnNotification,tvNotificationHint,btnSignature,btnReorderAccounts,btnReorderFolders,btnPassword,btnDelete,tvDeleteHint,btnApp,btnMore" />
+                    app:constraint_referenced_ids="btnNotification,tvNotificationHint,btnDefaultIdentity,btnSignature,btnReorderAccounts,btnReorderFolders,btnPassword,btnDelete,tvDeleteHint,btnApp,btnMore" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
