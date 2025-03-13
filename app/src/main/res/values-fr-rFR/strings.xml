@@ -347,10 +347,10 @@
     </string>
     <string name="title_advanced_hint_remark">        Les options sont rangées par catégories dans des onglets divisés en sections, elles sont organisées selon l\'apparence ou l\'usage et peuvent être recherchées.
     </string>
-    <string name="title_advanced_hint_options">        Vous n\'aurez pas besoin de la plupart des options car certaines sont assez spécifiques,
-        il est compréhensible que le fonctionnement de toutes les options ne soit pas immédiatement clair.
-        Veuillez ne pas donner une mauvaise évaluation simplement à cause du nombre d\'options ou bien à cause d\'une incompréhension rapide de toutes les options.
-        Toutes les options sont utiles pour peu de personnes et peut-être pas (encore) pour vous.
+    <string name="title_advanced_hint_options">        Vous n\'aurez pas besoin de la plupart des options car certaines sont assez spécifiques et
+        il est normal que leur fonctionnement ne soit pas immédiatement clair.
+        Veuillez ne pas donner une mauvaise évaluation simplement en raison du nombre d\'options ou bien si vous n\'avez pas compris immédiatement le fonctionnement de toutes les options.
+        Toutes les options ne sont utiles que pour peu de personnes et peut-être pas (encore) pour vous.
     </string>
     <string name="title_advanced_hint_setup">Vous pouvez configurer un compte en appuyant sur le bouton « Assistant » sur l\'écran principal de configuration.</string>
     <string name="title_advanced_section_main">Principal</string>
