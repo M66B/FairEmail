@@ -786,6 +786,7 @@
     <string name="title_advanced_class_min_difference">Legalacsonyabb mappa különbség: %1$s %%</string>
     <string name="title_advanced_show_filtered">Szűrőikon mutatása ha szabályt alkalmaztunk</string>
     <string name="title_advanced_haptic_feedback">Rezgés fontos műveleteknél</string>
+    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Rezgés jobbra/balra húzáskor</string>
     <string name="title_advanced_language">Nyelv</string>
     <string name="title_advanced_language_system">Rendszer</string>
     <string name="title_advanced_integrations_hint">Az alábbi felhőszolgáltatások nem az alkalmazás részei. Az esetleges kifizetések közvetlenül a felhőszolgáltatónak történnek, nem az alkalmazás fejlesztőjének.</string>

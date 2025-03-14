@@ -790,6 +790,7 @@
     <string name="title_advanced_class_min_difference">Diferença mínima de classe: %1$s %%</string>
     <string name="title_advanced_show_filtered">Mostrar um ícone de filtro quando as regras forem aplicadas</string>
     <string name="title_advanced_haptic_feedback">Vibração tátil em ações importantes</string>
+    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Reação tátil ao deslizar para a esquerda/direita</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_integrations_hint">Os serviços de nuvem abaixo não fazem parte da aplicação. Quaisquer pagamentos irão diretamente para o serviço de nuvem e não para o desenvolvedor da aplicação.</string>

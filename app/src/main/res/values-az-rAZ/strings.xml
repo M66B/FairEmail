@@ -347,6 +347,11 @@
     </string>
     <string name="title_advanced_hint_remark">        Seçimlər, vərəqlərə görə kateqoriyalandırılıb, bölmələrə ayrılıb, görünüş və ya istifadəyə görə sinifləndirilib və axtarıla biləndir.
     </string>
+    <string name="title_advanced_hint_options">        Variantların əksəriyyətinə ehtiyacınız olmayacaq və bəzi variantlar olduqca spesifik olduğundan,
+        bütün variantların işləməsi dərhal aydın deyilsə, başa düşüləndir.
+        Lütfən sadəcə variant sayına görə və ya bütün variantları dərhal anlamadığınıza görə aşağı bir qiymət verməyin.
+        Bütün variantlar bir çox insan üçün faydalıdır, lakin bəlkə də sizin üçün (hələ) faydalı olmaya bilər.
+    </string>
     <string name="title_advanced_hint_setup">Əsas konfiqurasiya ekranındakı sehrbaz düyməsinə toxunaraq bir hesabı konfiqurasiya edə bilərsiniz.</string>
     <string name="title_advanced_section_main">Əsas</string>
     <string name="title_advanced_section_synchronize">Gələn</string>

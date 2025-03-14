@@ -792,6 +792,7 @@
     <string name="title_advanced_class_min_difference">Minimaler Unterschied zur nächsten Klasse: %1$s %%</string>
     <string name="title_advanced_show_filtered">Filtersymbol anzeigen, wenn Regeln angewendet wurden</string>
     <string name="title_advanced_haptic_feedback">Haptisches Feedback bei wichtigen Aktionen</string>
+    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Haptische Rückmeldung beim Wischen nach links/rechts</string>
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_integrations_hint">Die nachfolgenden Cloud-Dienste sind nicht Teil der App. Alle Zahlungen gehen direkt an den Cloud-Dienst und nicht an den App-Entwickler.</string>

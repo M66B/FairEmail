@@ -16,7 +16,7 @@
     <string name="app_download">Gedownload van: %1$s</string>
     <string name="app_motd">        Onder Android 14/15 beta, kan soms de melding ‘App reageert niet’ verschijnen.
         Google werkt aan een oplossing.
-        Geef astublieft niet de schuld aan de app voor dit Android-probleem!
+        Geef FairEmail alstublieft niet de schuld voor dit Android probleem!
     </string>
     <string name="channel_service">Bewaken</string>
     <string name="channel_send">Verzenden</string>
@@ -784,6 +784,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_class_min_difference">Minimale klasse verschil: %1$s %%</string>
     <string name="title_advanced_show_filtered">Toon een filterpictogram wanneer regels werden toegepast</string>
     <string name="title_advanced_haptic_feedback">Haptische feedback bij belangrijke acties</string>
+    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Haptische feedback bij vegen naar links/rechts</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_integrations_hint">De onderstaande cloudservices maken geen deel uit van de app. Alle betalingen gaan direct naar de cloudservice en niet naar de app-ontwikkelaar.</string>

@@ -818,6 +818,7 @@
     <string name="title_advanced_class_min_difference">Минимальная разница между классами: %1$s %%</string>
     <string name="title_advanced_show_filtered">Показывать значок фильтра при применении правил</string>
     <string name="title_advanced_haptic_feedback">Вибрация при выполнении важных действий</string>
+    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Вибрация при жестах влево/вправо</string>
     <string name="title_advanced_language">Язык</string>
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_integrations_hint">Представленные ниже облачные сервисы не являются частью приложения. Все платежи будут поступать непосредственно в облачный сервис, а не разработчику приложения.</string>
