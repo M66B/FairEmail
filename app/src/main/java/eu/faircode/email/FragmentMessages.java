@@ -2652,6 +2652,8 @@ public class FragmentMessages extends FragmentBase
                 message.ui_unsnoozed = false;
             }
 
+            if (seen_delay != 0)
+                setValue("auto_seen", message.id, true);
             setValue("expanded", message.id, value);
             if (scroll)
                 setValue("scroll", message.id, true);
