@@ -287,7 +287,7 @@ public class ServiceExternal extends ServiceBase {
                     continue;
 
                 EntityLog.log(context, "Executing rules message=" + message.id);
-                applied = EntityRule.run(context, rules, message, null, null);
+                applied = EntityRule.run(context, rules, message, false, null, null);
 
                 db.setTransactionSuccessful();
             } finally {
