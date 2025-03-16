@@ -14,6 +14,10 @@
     <string name="app_cake_required">최소 필요 저장 공간: %1$s</string>
     <string name="app_updated">최근 업데이트: %1$s</string>
     <string name="app_download">%1$s에서 다운로드됨</string>
+    <string name="app_motd">        Android 14/15 베타에서, \'앱이 응답하지 않음\' 알림이 때때로 나타납니다.
+        구글이 고치고 있습니다.
+        Android의 문제로 앱을 비난하지 말아주세요!
+    </string>
     <string name="channel_service">모니터</string>
     <string name="channel_send">발신</string>
     <string name="channel_notification">이메일</string>
@@ -439,11 +443,15 @@
     <string name="title_advanced_vpn_only">VPN을 통해서만 연결</string>
     <string name="title_advanced_timeout">연결 시 타임아웃 시간 (초)</string>
     <string name="title_advanced_prefer_ip4">IPv6보다 IPv4 우선</string>
+    <string name="title_advanced_prefer_ip6">IPv4보다 IPv6 선호</string>
+    <string name="title_advanced_dns">선호하는 DNS 서버 주소 (콤마로 구분)</string>
     <string name="title_advanced_dns_custom">사용자 정의 DNS resolver 사용</string>
+    <string name="title_advanced_dns_clear">연결 변경 시 DNS 캐시 삭제</string>
     <string name="title_advanced_ssl_update">업데이트된 SSL 제공업체 사용</string>
     <string name="title_advanced_ssl_harden">강화된 SSL 연결</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 필요</string>
     <string name="title_advanced_cert_strict">엄격한 인증서 확인</string>
+    <string name="title_advanced_cert_transparency">인증서 투명성</string>
     <string name="title_advanced_open_safe">보안 연결만 여시오.</string>
     <string name="title_advanced_http_redirect">연결 리디렉션 허용</string>
     <string name="title_advanced_bouncy_castle">Bouncy Castle의 보안 소켓 제공자 (JSSE) 사용</string>
@@ -555,11 +563,13 @@
     <string name="title_advanced_authentication_none">인증 없음</string>
     <string name="title_advanced_authentication_some">부분적 인증</string>
     <string name="title_advanced_authentication_all">완전한 인증</string>
+    <string name="title_advanced_restore_on_launch">시작 시 앱 상태 복원하기</string>
     <string name="title_advanced_sync_on_launch">실행 시 동기화</string>
     <string name="title_advanced_double_back">2번 눌러 종료</string>
     <string name="title_advanced_conversation_actions">동작 추천 (Android 10 이상)</string>
     <string name="title_advanced_conversation_actions_replies">답장 내용 추천 (Android 10 이상)</string>
     <string name="title_advanced_language_detection">메시지 본문 언어 감지</string>
+    <string name="title_advanced_photo_picker">Android 사진 선택 사용하기</string>
     <string name="title_advanced_pull_refresh">아래로 당겨 새로고침</string>
     <string name="title_advanced_pull_all">모든 폴더 동기화</string>
     <string name="title_advanced_autoscroll">상단으로 스크롤하여 새 메시지 받기</string>
@@ -577,22 +587,48 @@
     <string name="title_advanced_autoclose">자동으로 대화 닫기</string>
     <string name="title_advanced_autoclose_send">메세지 전송 후 자동으로 대화 닫기</string>
     <string name="title_advanced_onclose">대화를 닫을 시</string>
+    <string name="title_advanced_autoclose_unread">읽지 않음으로 표시한 메시지 닫기</string>
+    <string name="title_advanced_collapse_marked">수동으로 읽음 또는 읽지 않음으로 표시된 메시지 접기</string>
     <string name="title_advanced_undo">되돌리기 타임아웃 시간</string>
+    <string name="title_advanced_quick_filter">눈에 잘 띄지 않는 퀵 필터 아이콘 표시</string>
+    <string name="title_advanced_quick_scroll">눈에 잘 띄지 않는 퀵 스크롤 위/아래 아이콘 표시</string>
+    <string name="title_advanced_quick_actions">메시지 선택 시 빠른 동작 메뉴 표시</string>
     <string name="title_advanced_folder_nav">항상 메시지 목록에서 폴더 목록으로 돌아가기</string>
+    <string name="title_advanced_autoread">옮기는 메시지를 자동으로 읽음 표시</string>
+    <string name="title_advanced_autounstar">옮기는 메시지에서 별 표시 자동 제거</string>
+    <string name="title_advanced_reset_importance">옮기는 메시지의 중요도 초기화</string>
+    <string name="title_advanced_star_snoozed">반복 알림 설정한 메시지에 자동으로 별 표시 추가</string>
+    <string name="title_advanced_star_unsnoozed">반복 알림 해제 메시지의 별 표시 자동 제거</string>
+    <string name="title_advanced_important_unsnoozed">반복 알림 해제 메시지에 자동으로 중요 표시</string>
+    <string name="title_advanced_auto_important">별 표시된 메시지에 자동으로 중요 표시</string>
+    <string name="title_advanced_cancel_snooze">옮기는 메시지의 반복 알림 해제</string>
     <string name="title_advanced_auto_block_sender">스팸 신고 시 보낸사람 자동 차단</string>
     <string name="title_advanced_auto_hide_answer">스크롤 시 자동으로 답장 버튼 숨기기</string>
     <string name="title_advanced_swipe_reply">답장하려면 펼쳐진 메시지를 오른쪽으로 스와이프하세요</string>
+    <string name="title_advanced_move_thread_all">선택한 대화를 옮길 때 모든 메시지 옮기기</string>
+    <string name="title_advanced_move_thread_sent">대화를 옮길 때 보낸 메시지도 함께 옮기기</string>
+    <string name="title_advanced_swipe_trash_all">대화를 삭제할 때 모든 메시지를 삭제</string>
+    <string name="title_advanced_gmail_delete_all">메시지를 영구 삭제할 때 Gmail 레이블 제거</string>
     <string name="title_advanced_default_snooze">기본 알림 일시 중지 시간</string>
     <string name="title_advanced_default_folder">기본 폴더 선택</string>
     <string name="title_advanced_notifications">알림 관리</string>
+    <string name="title_advanced_notifications_delete">알림 채널 삭제</string>
     <string name="title_advanced_notifications_default">기본 채널</string>
+    <string name="title_advanced_notifications_service">채널 모니터링</string>
     <string name="title_advanced_notifications_newest_first">새 알림을 먼저 표시</string>
     <string name="title_advanced_badge">런처 아이콘에 새로운 메세지 수 표시</string>
+    <string name="title_advanced_unseen_ignored">새 메시지 숫자와 알림 숫자를 일치하게 표시</string>
     <string name="title_advanced_notify_grouping">그룹 알림</string>
     <string name="title_advanced_notify_private">기기가 잠금 상태일 때 알림 내용 표시 안 함</string>
+    <string name="title_advanced_notify_background">백그라운드에서만 알림 표시</string>
+    <string name="title_advanced_notify_known">연락처에서만 알림 표시</string>
+    <string name="title_advanced_notify_suppress_in_call">통화 중 알림을 표시하지 않음</string>
     <string name="title_advanced_notify_suppress_in_car">Android Auto에 연결되면 알림 미루기</string>
+    <string name="title_advanced_notify_summary">요약돤 알림만 표시</string>
     <string name="title_advanced_notify_preview">알림에 메세지 미리보기 표시</string>
     <string name="title_advanced_notify_preview_all">모든 내용 미리보기</string>
+    <string name="title_advanced_notify_preview_only">알림에 미리보기 텍스트만 표시</string>
+    <string name="title_advanced_notify_transliterate">라틴 알파벳으로 음역</string>
     <string name="title_advanced_notify_ascii">ASCII 텍스트만 보이기</string>
     <string name="title_advanced_notify_actions">알림 동작</string>
     <string name="title_advanced_notify_action_trash">삭제</string>
@@ -607,12 +643,18 @@
     <string name="title_advanced_notify_action_hide">숨김</string>
     <string name="title_advanced_notify_action_snooze">미루기</string>
     <string name="title_advanced_notify_remove">알림 클릭 시 새 메세지 알림 지우기</string>
+    <string name="title_advanced_notify_clear">메시지 목록 보기에서 새 메시지 알림 제거</string>
     <string name="title_advanced_notify_subtext">부가 텍스트로 계정이나 폴더명 보기</string>
+    <string name="title_advanced_wearable_preview">웨어러블 디바이스에서 메시지 미리보기 알림만 표시</string>
     <string name="title_advanced_notify_messaging">Android의 \'messaging style\' 알림 형식 사용</string>
+    <string name="title_advanced_biometrics_notify">생체 인증 사용시 알림의 내용 표시</string>
+    <string name="title_advanced_notify_open_folder">새 메시지를 열 때 폴더 열기</string>
     <string name="title_advanced_light">알림 LED 활성화</string>
     <string name="title_advanced_sound">알림음 선택</string>
+    <string name="title_advanced_notify_screen_on">새 메시지 알림을 표시하기 위해 화면을 잠시 켜기</string>
     <string name="title_advanced_notifications_background">메시지 동기화를 위해 백그라운드 서비스 사용</string>
     <string name="title_advanced_notifications_background_hint">백그라운드 서비스는 Android에 의해 언제든 중단될 수 있지만, 상태 표시줄 알림을 필요로 하지 않습니다</string>
+    <string name="title_advanced_rate_limit">한 번에 울리는 새 메시지 알림음 횟수 제한:</string>
     <string name="title_advanced_confirm_links">링크 열기 승인</string>
     <string name="title_advanced_confirm_files">파일 보기 승인</string>
     <string name="title_advanced_sanitize_links">자동으로 추적 매개변수 제거</string>
@@ -627,6 +669,9 @@
     <string name="title_advanced_tracking">트래킹 이미지 식별 및 비활성화를 시도합니다</string>
     <string name="title_advanced_hide_timezone">시간대 정보 없이 메시지 보내기</string>
     <string name="title_advanced_client_id">앱 이름 및 버전을 이메일 서버로 전송</string>
+    <string name="title_advanced_display_hidden">숨겨진 메시지 텍스트 표시</string>
+    <string name="title_advanced_incognito_keyboard">Incognito 키보드 사용 (안드로이드 8 이상)</string>
+    <string name="title_advanced_secure">최근 앱 화면에서 숨기기 및 스크린샷 방지</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">생체 인증 시 타임아웃 시간</string>
     <string name="title_advanced_autolock">화면이 꺼질 때 잠금</string>
@@ -635,6 +680,7 @@
     <string name="title_advanced_load_emoji">Google Play Services에서 업데이트된 이모지 불러오기</string>
     <string name="title_advanced_disconnect_auto_update">메주 목록을 자동으로 업데이트합니다</string>
     <string name="title_advanced_disconnect_links">목록을 사용하여 링크 추적에 대해 경고합니다</string>
+    <string name="title_advanced_disconnect_images">추적 이미지 목록 사용</string>
     <string name="title_advanced_clear_all_hint">이는 설정된 이메일 계정, 메시지, 설정 및 수집된 데이터를 포함하여 기기에서 모든 앱 데이터를 삭제합니다.</string>
     <string name="title_advanced_mnemonic">원격 데이터 삭제</string>
     <string name="title_advanced_mnemonic_hint">제목에 아래 단어가 포함된 이메일을 받은 경우 자동으로 이 기기의 모든 앱 데이터를 즉시 삭제합니다</string>
@@ -646,9 +692,13 @@
     <string name="title_advanced_sign_default">자동으로 서명</string>
     <string name="title_advanced_encrypt_default">자동으로 암호화</string>
     <string name="title_advanced_encrypt_auto">모든 수신인의 키를 사용할 수 있을 때 자동으로 암호화</string>
+    <string name="title_advanced_encrypt_reply">암호화된 메시지에 답장할 때 자동으로 암호화</string>
+    <string name="title_advanced_auto_verify">서명된 메시지 자동으로 인증 확인</string>
     <string name="title_advanced_auto_decrypt">자동으로 메세지 복호화</string>
+    <string name="title_advanced_auto_undo_decrypt">대화를 닫을 때 복호화 취소</string>
     <string name="title_advanced_openpgp">OpenPGP 제공업체</string>
     <string name="title_advanced_autocrypt">Autocrypt 사용</string>
+    <string name="title_advanced_autocrypt_mutual">상호 자동 암호화 모드</string>
     <string name="title_advanced_encrypt_subject">제목 암호화</string>
     <string name="title_advanced_import_pgp">키 가져오기</string>
     <string name="title_advanced_sign_algo">서명 알고리즘</string>
@@ -657,11 +707,17 @@
         기본 알고리즘인 SHA256과 AES128은 공통적으로 지원됩니다.
     </string>
     <string name="title_advanced_check_certificate">전송 시 공개 키 확인</string>
+    <string name="title_advanced_check_key_usage">전송할 때 키 사용 표시 여부 확인</string>
     <string name="title_advanced_manage_certificates">공개 키 관리</string>
     <string name="title_advanced_import_key">개인 키 불러오기</string>
     <string name="title_advanced_manage_keys">개인 키 관리</string>
     <string name="title_advanced_ca">설치된 CA 인증서</string>
+    <string name="title_advanced_manage_keys_hint">        안드로이드 보안 설정을 엽니다.
+        개인 키와 인증서는 일반적으로 고급 - 암호화 및 자격 증명 메뉴에 있습니다.
+    </string>
     <string name="title_advanced_power_menu">Android 전원 메뉴에 동작 추가</string>
+    <string name="title_advanced_send_self">안드로이드 공유 메뉴에 \'나에게 보내기\' 추가</string>
+    <string name="title_advanced_external_search">안드로이드 텍스트 선택 메뉴에 \'FairEmail 검색\' 추가</string>
     <string name="title_advanced_sort_answers">답장 템플릿을 사용 빈도순으로 정렬</string>
     <string name="title_advanced_shortcuts">안드로이드 공유 메뉴에 자주 사용한 연락처 보이기</string>
     <string name="title_advanced_fts">검색 인덱스를 적용합니다</string>
@@ -674,6 +730,7 @@
     <string name="title_advanced_lt">LanguageTool 연동</string>
     <string name="title_advanced_lt_sentence">모든 문장 검사하기</string>
     <string name="title_advanced_lt_highlight">검사 중인 텍스트 강조 표시</string>
+    <string name="title_advanced_lt_description">상세 오류 내용을 팝업 표시</string>
     <string name="title_advanced_lt_user">사용자 이름 (선택사항)</string>
     <string name="title_advanced_lt_key">API 키 (선택사항)</string>
     <string name="title_advanced_deepl">DeepL 연동</string>
@@ -683,6 +740,11 @@
     <string name="title_advanced_openai_model">모델</string>
     <string name="title_advanced_openai_temperature">온도: %1$s</string>
     <string name="title_advanced_gemini">Gemini 연동</string>
+    <string name="title_advanced_multi_modal">멀티모달</string>
+    <string name="title_advanced_summarize_prompt">요약 프롬프트</string>
+    <string name="title_advanced_answer_prompt">답변 프롬프트</string>
+    <string name="title_advanced_default_prompt">기본 프롬프트</string>
+    <string name="title_advanced_ai">AI</string>
     <string name="title_advanced_watchdog">주기적으로 FairEmail이 활성화 상태인지 확인하기</string>
     <string name="title_advanced_updates">GitHub 업데이트 확인</string>
     <string name="title_advanced_check_weekly">매일이 아닌 매주 확인합니다</string>
@@ -691,6 +753,7 @@
     <string name="title_advanced_crash_reports">오류 보고서 보내기</string>
     <string name="title_advanced_cleanup_attachments">오래된 메세지의 첨부파일 삭제하기</string>
     <string name="title_advanced_cleanup">비우기</string>
+    <string name="title_advanced_google_backup">Android 데이터 백업 사용</string>
     <string name="title_advanced_app">앱 설정</string>
     <string name="title_advanced_more">설정 더보기</string>
     <string name="title_advanced_main_log_mem">로그 메모리 사용량</string>
@@ -699,6 +762,10 @@
     <string name="title_advanced_manual_hint">메시지 수신이 비활성화된 경우에도 메시지 목록을 밑으로 내려 수동으로 메시지를 수신할 수 있습니다</string>
     <string name="title_advanced_poll_battery">배터리 사용량이 증가할 수 있습니다!</string>
     <string name="title_advanced_poll_hint">주기적으로 새 메시지를 확인하면 매번 오프라인 메시지와 온라인 메시지를 비교하게 되므로, 배터리 사용량이 증가할 수 있습니다. 항상 수신 기능은 변경사항을 그때그때 반영하므로 이런 현상을 막을 수 있습니다.</string>
+    <string name="title_advanced_optimize_hint">이메일 서버의 기능 및 동작에 따라 동기화 빈도를 변경하여 배터리 사용량을 줄입니다</string>
+    <string name="title_advanced_schedule_hint">시간을 탭하여 시간 설정</string>
+    <string name="title_advanced_schedule_ignore">고급 계정 설정에서 일정을 비활성화할 수 있습니다</string>
+    <string name="title_advanced_quick_sync_hint">데이터 사용량이 감소하지만 이메일 서버가 표준을 준수하지 않을 경우 메시지를 수신하지 않습니다</string>
     <string name="title_advanced_no_date_hint">일부 제공업체는 날짜를 알 수 없거나, 유효하지 않거나, 미래 날짜가 있는 메시지를 날짜가 없는 메시지로 저장합니다</string>
     <string name="title_advanced_unseen_hint">일부 제공업체가 이를 제대로 지원하지 않아 메시지를 아예 동기화하지 않거나 모두 동기화해버릴 수 있음</string>
     <string name="title_advanced_data_usage">데이터 사용량이 증가할 수 있습니다!</string>
@@ -706,6 +773,10 @@
     <string name="title_advanced_sync_kept_hint">설정 시 추가 데이터를 전송하고 추가 배터리 전력을 소비하며, 기기에 많은 메시지가 저장되어 있을 경우 심해집니다.</string>
     <string name="title_advanced_gmail_thread_hint">이 사항은 새로 받은 메시지에만 적용되며 기존 그룹을 훼손할 수 있습니다</string>
     <string name="title_advanced_subject_threading_hint">최근 %1$d시간 동안 수신된 메시지만</string>
+    <string name="title_advanced_outlook_categories_hint">Outlook 카테고리는 Outlook IMAP 서버 제한 정책으로 가져오기만 가능하며 자동으로 갱신할 수 없습니다</string>
+    <string name="title_advanced_sync_folders_hint">비활성화하면 데이터 및 배터리 사용량이 다소 감소하지만 폴더 목록 업데이트도 비활성화됩니다</string>
+    <string name="title_advanced_poll_folders_hint">계정에 연결한 후 주기적으로 폴더 목록 동기화합니다</string>
+    <string name="title_advanced_check_authentication_hint">이메일 서버에서 수행한 DKIM, SPF, DMARC 인증 결과를 확인합니다</string>
     <string name="title_advanced_check_tls_hint">메시지가 모든 서버에서 안전하게 전송된 경우에만 녹색 방패 아이콘이 표시됩니다.</string>
     <string name="title_advanced_check_reply_hint">보낸사람의 도메인 이름과 답장할 주소가 동일한지 확인합니다</string>
     <string name="title_advanced_sync_delay_hint">메시지 동기화 속도가 느려집니다</string>
@@ -718,7 +789,11 @@
     <string name="title_advanced_compose_color_hint">색상이 매우 밝거나 매우 어두운 경우 받는사람 측에서 읽기 어려운 메시지가 표시됩니다</string>
     <string name="title_advanced_write_below_hint">긴 메시지가 잘리는 등의 경우 받는사람이 답장을 보지 못할 수 있습니다</string>
     <string name="title_advanced_attach_new_hint">그렇지 않으면 공유 주소 또는 파일을 현재 임시저장 메시지에 추가합니다</string>
+    <string name="title_advanced_usenet_hint">텍스트와 서명 사이에 \'-- \' 문자열 삽입</string>
+    <string name="title_advanced_remove_signature_hint">텍스트가 너무 적게 또는 많이 제거될 수 있습니다</string>
+    <string name="title_advanced_metered_warning">비활성화할 경우 모바일 데이터로 메시지를 주고받을 수 없습니다</string>
     <string name="title_advanced_usage_hint">이는 배터리, 데이터 및 저장 공간 사용량을 증가시킵니다</string>
+    <string name="title_advanced_plain_hint">데이터 사용량이 감소하지만 메시지에서 스타일과 이미지가 제거됩니다</string>
     <string name="title_advanced_tcp_keep_alive_hint">활성화하면 일부 기기에서 연결 문제가 발생할 수 있으며 배터리 사용량이 증가할 수 있습니다</string>
     <string name="title_advanced_validate_hint">이로 인해 VPN을 사용하는 등의 상황에서 메시지가 동기화되지 않을 수 있습니다.</string>
     <string name="title_advanced_timeout_hint">읽기/쓰기 타임아웃은 접속 타임아웃의 두 배로 설정됩니다. 값을 크게 하면 배터리 사용이 증가합니다.</string>

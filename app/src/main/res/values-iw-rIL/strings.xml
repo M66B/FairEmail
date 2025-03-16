@@ -819,6 +819,7 @@
     <string name="title_advanced_class_min_difference">הפרש מזערי בין מחלקות: %1$s %%</string>
     <string name="title_advanced_show_filtered">הצגת סמל מסנן כאשר כללים חלים</string>
     <string name="title_advanced_haptic_feedback">משוב תחושתי על פעולות חשובות</string>
+    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">משוב רטט בהחלקה שמאלה/ימינה</string>
     <string name="title_advanced_language">שפה</string>
     <string name="title_advanced_language_system">מערכת</string>
     <string name="title_advanced_integrations_hint">שירותי הענן אינם עוד חלק מהיישום. יש לשלם ישירות לספק הענן ולא למפתחי התוכנה.</string>
@@ -2352,7 +2353,7 @@
         <item>הצפנת PGP בלבד</item>
         <item>חתימה והצפנה עם PGP</item>
         <item>חתימה בלבד עם S/MIME</item>
-        <item>S/MIME encrypt-only</item>
+        <item>הצפנה בלבד ל־S/MIME</item>
         <item>חתימה והצפנה עם S/MIME</item>
     </string-array>
     <string-array name="sizeNames">

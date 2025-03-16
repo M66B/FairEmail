@@ -360,6 +360,11 @@
     </string>
     <string name="title_advanced_hint_remark">        Opțiunile sunt clasificate pe file, împărțite în secțiuni, organizate în funcție de aspect sau utilizare și pot fi căutate.
     </string>
+    <string name="title_advanced_hint_options">        Nu veți avea nevoie de majoritatea opțiunilor și deoarece unele opțiuni sunt destul de specifice,
+        este de înțeles dacă funcționarea lor nu este imediat clară.
+        Vă rugăm să nu lăsați o recenzie cu notă mică doar pentru numărul de opțiuni sau pentru neînțelegerea imediată a tuturor opțiunilor.
+        Toate opțiunile sunt utile pentru mai mult de câțiva oameni, dar poate nu pentru tine (încă).
+    </string>
     <string name="title_advanced_hint_setup">Puteți configura un cont apăsând pe butonul asistent din ecranul principal de configurare.</string>
     <string name="title_advanced_section_main">Principal</string>
     <string name="title_advanced_section_synchronize">Primire</string>
@@ -670,6 +675,7 @@
     <string name="title_advanced_reset_importance">Resetează importanța la mutarea mesajelor</string>
     <string name="title_advanced_star_snoozed">Adaugă automat stea la mesajele amânate</string>
     <string name="title_advanced_star_unsnoozed">Elimină automat steaua mesajelor neamânate</string>
+    <string name="title_advanced_important_unsnoozed">Marchează automat mesajele fără amânare ca importante</string>
     <string name="title_advanced_auto_important">Marcheză automat mesajele cu stea ca importante</string>
     <string name="title_advanced_cancel_snooze">Anulează amânarea la mutarea mesajelor</string>
     <string name="title_advanced_auto_block_sender">Blochează automat expeditorul când raportezi spam-ul</string>
@@ -797,6 +803,7 @@
     <string name="title_advanced_class_min_difference">Diferenţa minimă a clasei: %1$s %%</string>
     <string name="title_advanced_show_filtered">Arată o pictogramă filtru atunci când regulile au fost aplicate</string>
     <string name="title_advanced_haptic_feedback">Feedback tactil cu privire la acțiuni importante</string>
+    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Feedback tactil când glisați spre stânga/dreapta</string>
     <string name="title_advanced_language">Limba</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_integrations_hint">Serviciile cloud de mai jos nu fac parte din aplicație. Orice plăți vor merge direct la serviciul cloud și nu la dezvoltatorul aplicației.</string>

@@ -361,6 +361,11 @@
     </string>
     <string name="title_advanced_hint_remark">        Opcije su kategorisane prema kartici (tabu), podijeljene u odjeljke, organizovane prema izgledu ili upotrebi i mogu se pretraživati.
     </string>
+    <string name="title_advanced_hint_options">        Nećete trebati većinu opcija i zbog toga što su neke opcije vrlo specifične,
+        razumljivo je da Vam funkcioniranje svih opcija neće biti sasvim jasno.
+        Molimo da ne ostavljate lošu recenziju zbog brojnih opcija ili zbog momentalnog nerazumijevanja svih opcija.
+        Sve opcije su korisne nekolicini ljudi, ali možda još (uvijek) nisu za Vas.
+    </string>
     <string name="title_advanced_hint_setup">Možete podesiti račun dodirom na dugme \'čarobnjak\' na početnom ekranu postavki.</string>
     <string name="title_advanced_section_main">Početni ekran</string>
     <string name="title_advanced_section_synchronize">Prijem</string>
@@ -800,6 +805,7 @@
     <string name="title_advanced_class_min_difference">Minimalna razlika klasa: %1$s %%</string>
     <string name="title_advanced_show_filtered">Prikaži ikonicu za filtriranje kada su pravila primijenjena</string>
     <string name="title_advanced_haptic_feedback">Haptičke povratne informacije za važne radnje</string>
+    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Haptička povr. info. pri prevlačenju lijevo/desno</string>
     <string name="title_advanced_language">Jezik</string>
     <string name="title_advanced_language_system">Sistemski</string>
     <string name="title_advanced_integrations_hint">Dolje navedene cloud usluge nisu dio ove aplikacije. Bilo kakva plaćanja idu direktno ka usluzi u oblaku, a ne programeru aplikacije.</string>
