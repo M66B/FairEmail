@@ -792,7 +792,7 @@
     <string name="title_advanced_class_min_difference">Minimaler Unterschied zur nächsten Klasse: %1$s %%</string>
     <string name="title_advanced_show_filtered">Filtersymbol anzeigen, wenn Regeln angewendet wurden</string>
     <string name="title_advanced_haptic_feedback">Haptisches Feedback bei wichtigen Aktionen</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Haptische Rückmeldung beim Wischen nach links/rechts</string>
+    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Haptisches Feedback beim Wischen nach links/rechts</string>
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_integrations_hint">Die nachfolgenden Cloud-Dienste sind nicht Teil der App. Alle Zahlungen gehen direkt an den Cloud-Dienst und nicht an den App-Entwickler.</string>
@@ -1988,7 +1988,7 @@
     <string name="title_hint_battery_optimizations">Akkuoptimierung ist immer noch aktiv</string>
     <string name="title_hint_data_saver">Wenn die Datenspar-Funktion aktiviert ist, kann die App im Hintergrund nicht synchronisiert werden und es können Verbindungsfehler auftreten.</string>
     <string name="title_hint_vpn">Manchmal werden Verbindungen über ein VPN vom E-Mail-Server gesperrt. Nur der E-Mail-Anbieter kann dieses Problem lösen.</string>
-    <string name="title_hint_dismiss">Sie können dieses Dialogfeld schließen, um den Hinweis zu entfernen.</string>
+    <string name="title_hint_dismiss">Sie können dieses Dialogfeld verwerfen, um den Hinweis zu entfernen.</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Für den Papierkorb nach links wischen; zum Archivieren nach rechts wischen (falls verfügbar); die Wischgesten können in den Kontoeinstellungen konfiguriert werden</string>
     <string name="title_hint_outbox">Sie können nach links oder rechts wischen, um das Senden abzubrechen</string>
