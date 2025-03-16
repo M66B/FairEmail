@@ -1337,6 +1337,7 @@ class NotificationHelper {
 
             if (message.content && notify_tts) {
                 Intent tts = new Intent(context, ServiceTTS.class);
+                tts.setAction("tts:" + message.id);
                 tts.putExtra(ServiceTTS.EXTRA_FLUSH, true);
                 tts.putExtra(ServiceTTS.EXTRA_TEXT, "");
                 tts.putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language);

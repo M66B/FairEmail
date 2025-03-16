@@ -1341,6 +1341,7 @@ public class EntityRule {
                     .append(' ').append(preview);
 
         Intent intent = new Intent(context, ServiceTTS.class);
+        intent.setAction("tts:" + message.id);
         intent.putExtra(ServiceTTS.EXTRA_FLUSH, false);
         intent.putExtra(ServiceTTS.EXTRA_TEXT, sb.toString());
         intent.putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language);

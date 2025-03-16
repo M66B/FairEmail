@@ -3735,6 +3735,7 @@ public class FragmentMessages extends FragmentBase
 
             if (tts) {
                 Intent intent = new Intent(getContext(), ServiceTTS.class);
+                intent.setAction("tts:" + message.id);
                 intent.putExtra(ServiceTTS.EXTRA_FLUSH, true);
                 intent.putExtra(ServiceTTS.EXTRA_TEXT, "");
                 intent.putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language);
@@ -3790,6 +3791,7 @@ public class FragmentMessages extends FragmentBase
                         return;
 
                     Intent intent = new Intent(getContext(), ServiceTTS.class);
+                    intent.setAction("tts:" + message.id);
                     intent.putExtra(ServiceTTS.EXTRA_FLUSH, true);
                     intent.putExtra(ServiceTTS.EXTRA_TEXT, text);
                     intent.putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language);
