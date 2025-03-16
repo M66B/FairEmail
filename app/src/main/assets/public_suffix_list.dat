@@ -3805,14 +3805,18 @@ rep.kp
 tra.kp
 
 // kr : https://www.iana.org/domains/root/db/kr.html
-// see also: http://domain.nida.or.kr/eng/registration.jsp
+// see also: https://krnic.kisa.or.kr/jsp/infoboard/law/domBylawsReg.jsp
 kr
 ac.kr
+ai.kr
 co.kr
 es.kr
 go.kr
 hs.kr
+io.kr
+it.kr
 kg.kr
+me.kr
 mil.kr
 ms.kr
 ne.kr
@@ -13842,7 +13846,9 @@ iopsys.se
 
 // IPFS Project : https://ipfs.tech/
 // Submitted by Interplanetary Shipyard <domains@ipshipyard.com>
+*.inbrowser.dev
 *.dweb.link
+*.inbrowser.link
 
 // IPiFony Systems, Inc. : https://www.ipifony.com/
 // Submitted by Matthew Hardeman <mhardeman@ipifony.com>
@@ -14730,6 +14736,11 @@ xen.prgmr.com
 // priv.at : http://www.nic.priv.at/
 // Submitted by registry <lendl@nic.at>
 priv.at
+
+// PROJECT ELIV : https://eliv.kr/
+// Submitted by ELIV Team <team@eliv.kr>
+c01.kr
+eliv-dns.kr
 
 // Protonet GmbH : http://protonet.io
 // Submitted by Martin Meier <admin@protonet.io>
