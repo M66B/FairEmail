@@ -3734,12 +3734,12 @@ public class FragmentMessages extends FragmentBase
             iProperties.setValue("tts", message.id, !tts);
 
             if (tts) {
-                Intent intent = new Intent(getContext(), ServiceTTS.class);
-                intent.setAction("tts:" + message.id);
-                intent.putExtra(ServiceTTS.EXTRA_FLUSH, true);
-                intent.putExtra(ServiceTTS.EXTRA_TEXT, "");
-                intent.putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language);
-                intent.putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + message.id);
+                Intent intent = new Intent(getContext(), ServiceTTS.class)
+                        .setAction("tts:" + message.id)
+                        .putExtra(ServiceTTS.EXTRA_FLUSH, true)
+                        .putExtra(ServiceTTS.EXTRA_TEXT, "")
+                        .putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language)
+                        .putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + message.id);
                 getContext().startService(intent);
                 return;
             }
@@ -3790,12 +3790,12 @@ public class FragmentMessages extends FragmentBase
                     if (text == null)
                         return;
 
-                    Intent intent = new Intent(getContext(), ServiceTTS.class);
-                    intent.setAction("tts:" + message.id);
-                    intent.putExtra(ServiceTTS.EXTRA_FLUSH, true);
-                    intent.putExtra(ServiceTTS.EXTRA_TEXT, text);
-                    intent.putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language);
-                    intent.putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + message.id);
+                    Intent intent = new Intent(getContext(), ServiceTTS.class)
+                            .setAction("tts:" + message.id)
+                            .putExtra(ServiceTTS.EXTRA_FLUSH, true)
+                            .putExtra(ServiceTTS.EXTRA_TEXT, text)
+                            .putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language)
+                            .putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + message.id);
                     getContext().startService(intent);
                 }
 

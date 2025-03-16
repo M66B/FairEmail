@@ -1336,14 +1336,14 @@ class NotificationHelper {
             }
 
             if (message.content && notify_tts) {
-                Intent tts = new Intent(context, ServiceTTS.class);
-                tts.setAction("tts:" + message.id);
-                tts.putExtra(ServiceTTS.EXTRA_FLUSH, true);
-                tts.putExtra(ServiceTTS.EXTRA_TEXT, "");
-                tts.putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language);
-                tts.putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + message.id);
-                tts.putExtra(ServiceTTS.EXTRA_GROUP, group);
-                tts.putExtra(ServiceTTS.EXTRA_MESSAGE, message.id);
+                Intent tts = new Intent(context, ServiceTTS.class)
+                        .setAction("tts:" + message.id)
+                        .putExtra(ServiceTTS.EXTRA_FLUSH, true)
+                        .putExtra(ServiceTTS.EXTRA_TEXT, "")
+                        .putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language)
+                        .putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + message.id)
+                        .putExtra(ServiceTTS.EXTRA_GROUP, group)
+                        .putExtra(ServiceTTS.EXTRA_MESSAGE, message.id);
                 PendingIntent piTts = PendingIntentCompat.getService(
                         context, ServiceTTS.PI_TTS, tts, PendingIntent.FLAG_UPDATE_CURRENT);
                 NotificationCompat.Action.Builder actionTts = new NotificationCompat.Action.Builder(
