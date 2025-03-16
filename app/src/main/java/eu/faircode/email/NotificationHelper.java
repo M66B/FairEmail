@@ -720,6 +720,7 @@ class NotificationHelper {
         boolean notify_seen = (prefs.getBoolean("notify_seen", true) || !pro);
         boolean notify_hide = (prefs.getBoolean("notify_hide", false) && pro);
         boolean notify_snooze = (prefs.getBoolean("notify_snooze", false) && pro);
+        boolean notify_tts = (prefs.getBoolean("notify_tts", false) && pro);
         boolean notify_remove = prefs.getBoolean("notify_remove", true);
         boolean light = prefs.getBoolean("light", false);
         String sound = prefs.getString("sound", null);
@@ -1332,6 +1333,27 @@ class NotificationHelper {
                 mbuilder.addAction(actionSnooze.build());
 
                 wactions.add(actionSnooze.build());
+            }
+
+            if (message.content && notify_tts) {
+                Intent tts = new Intent(context, ServiceTTS.class);
+                tts.putExtra(ServiceTTS.EXTRA_FLUSH, true);
+                tts.putExtra(ServiceTTS.EXTRA_TEXT, "");
+                tts.putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language);
+                tts.putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + message.id);
+                tts.putExtra(ServiceTTS.EXTRA_GROUP, group);
+                tts.putExtra(ServiceTTS.EXTRA_MESSAGE, message.id);
+                PendingIntent piTts = PendingIntentCompat.getService(
+                        context, ServiceTTS.PI_TTS, tts, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionTts = new NotificationCompat.Action.Builder(
+                        R.drawable.twotone_play_arrow_24,
+                        context.getString(R.string.title_rule_tts),
+                        piTts)
+                        .setShowsUserInterface(false)
+                        .setAllowGeneratedReplies(false);
+                mbuilder.addAction(actionTts.build());
+
+                wactions.add(actionTts.build());
             }
 
             // https://developer.android.com/training/wearables/notifications

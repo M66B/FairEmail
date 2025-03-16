@@ -20,13 +20,16 @@ package eu.faircode.email;
 */
 
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.OperationCanceledException;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
+import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
@@ -46,8 +49,12 @@ public class ServiceTTS extends ServiceBase {
     static final String EXTRA_TEXT = "text";
     static final String EXTRA_LANGUAGE = "language";
     static final String EXTRA_UTTERANCE_ID = "utterance";
+    static final String EXTRA_MESSAGE = "message";
+    static final String EXTRA_GROUP = "group";
 
     static final String ACTION_TTS_COMPLETED = BuildConfig.APPLICATION_ID + ".TTS";
+
+    static final int PI_TTS = 1;
 
     @Override
     public void onCreate() {
@@ -145,8 +152,39 @@ public class ServiceTTS extends ServiceBase {
         final String text = intent.getStringExtra(EXTRA_TEXT);
         final String language = intent.getStringExtra(EXTRA_LANGUAGE);
         final String utteranceId = intent.getStringExtra(EXTRA_UTTERANCE_ID);
+        final long group = intent.getLongExtra(EXTRA_GROUP, 0);
+        final long message = intent.getLongExtra(EXTRA_MESSAGE, -1L);
 
         final Locale locale = (language == null ? Locale.getDefault() : new Locale(language));
+
+        if (message > 0) {
+            String tag = "unseen." + group + "." + message;
+            Log.i("MMM cancel tag=" + tag);
+            NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
+            nm.cancel(tag, NotificationHelper.NOTIFICATION_TAGGED);
+
+            Helper.getSerialExecutor().submit(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        String body = Helper.readText(EntityMessage.getFile(ServiceTTS.this, message));
+                        String text = HtmlHelper.getFullText(ServiceTTS.this, body);
+
+                        // Avoid: Not enough namespace quota ... for ...
+                        text = HtmlHelper.truncate(text, getMaxTextSize() / 3);
+
+                        intent.putExtra(EXTRA_TEXT, text);
+                        intent.removeExtra(EXTRA_GROUP);
+                        intent.removeExtra(EXTRA_MESSAGE);
+                        onTts(intent);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+
+            return;
+        }
 
         final Runnable speak = new RunnableEx("tts") {
             @Override

@@ -397,6 +397,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbNotifyActionHide" />
 
+                <CheckBox
+                    android:id="@+id/cbNotifyActionTts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_rule_tts"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSnooze" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swLight"
                     android:layout_width="0dp"
@@ -405,7 +415,7 @@
                     android:text="@string/title_advanced_light"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSnooze"
+                    app:layout_constraintTop_toBottomOf="@id/cbNotifyActionTts"
                     app:switchPadding="12dp" />
 
                 <Button

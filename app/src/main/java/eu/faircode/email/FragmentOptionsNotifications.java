@@ -96,6 +96,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private CheckBox cbNotifyActionSeen;
     private CheckBox cbNotifyActionHide;
     private CheckBox cbNotifyActionSnooze;
+    private CheckBox cbNotifyActionTts;
     private TextView tvNotifyActionsPro;
     private SwitchCompat swLight;
     private Button btnSound;
@@ -144,7 +145,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "notify_newest_first", "notify_summary",
             "notify_trash", "notify_junk", "notify_block_sender", "notify_archive", "notify_move",
             "notify_reply", "notify_reply_direct",
-            "notify_flag", "notify_seen", "notify_hide", "notify_snooze",
+            "notify_flag", "notify_seen", "notify_hide", "notify_snooze", "notify_tts",
             "light", "sound", "notify_screen_on",
             "badge", "unseen_ignored",
             "notify_grouping", "notify_private", "notify_background_only", "notify_known", "notify_suppress_in_call", "notify_suppress_in_car",
@@ -188,6 +189,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionSeen = view.findViewById(R.id.cbNotifyActionSeen);
         cbNotifyActionHide = view.findViewById(R.id.cbNotifyActionHide);
         cbNotifyActionSnooze = view.findViewById(R.id.cbNotifyActionSnooze);
+        cbNotifyActionTts = view.findViewById(R.id.cbNotifyActionTts);
         tvNotifyActionsPro = view.findViewById(R.id.tvNotifyActionsPro);
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
@@ -513,6 +515,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
                 prefs.edit().putBoolean("notify_snooze", checked).apply();
+            }
+        });
+
+        cbNotifyActionTts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                prefs.edit().putBoolean("notify_tts", checked).apply();
             }
         });
 
@@ -894,6 +903,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             cbNotifyActionSeen.setChecked(prefs.getBoolean("notify_seen", true) || !pro);
             cbNotifyActionHide.setChecked(prefs.getBoolean("notify_hide", false) && pro);
             cbNotifyActionSnooze.setChecked(prefs.getBoolean("notify_snooze", false) && pro);
+            cbNotifyActionTts.setChecked(prefs.getBoolean("notify_tts", false) && pro);
             swLight.setChecked(prefs.getBoolean("light", false));
             swNotifyScreenOn.setChecked(prefs.getBoolean("notify_screen_on", false));
 
@@ -941,6 +951,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionSeen.setEnabled(pro && !summary);
         cbNotifyActionHide.setEnabled(pro && !summary);
         cbNotifyActionSnooze.setEnabled(pro && !summary);
+        cbNotifyActionTts.setEnabled(pro && !summary);
         swNotifyPreviewAll.setEnabled(!summary && swNotifyPreview.isChecked());
         swNotifyPreviewOnly.setEnabled(!summary && swNotifyPreview.isChecked());
         swWearablePreview.setEnabled(!summary && swNotifyPreview.isChecked());
