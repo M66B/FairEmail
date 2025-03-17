@@ -60,7 +60,7 @@ public class ServiceTTS extends ServiceBase {
         Log.i("Service TTS create");
         super.onCreate();
         try {
-            startForeground(NotificationHelper.NOTIFICATION_TTS, getNotification());
+            startForeground(NotificationHelper.NOTIFICATION_TTS, getNotification("tts:0"));
         } catch (Throwable ex) {
             if (Helper.isPlayStoreInstall())
                 Log.i(ex);
@@ -94,15 +94,6 @@ public class ServiceTTS extends ServiceBase {
 
         super.onStartCommand(intent, flags, startId);
 
-        try {
-            startForeground(NotificationHelper.NOTIFICATION_TTS, getNotification());
-        } catch (Throwable ex) {
-            if (Helper.isPlayStoreInstall())
-                Log.i(ex);
-            else
-                Log.e(ex);
-        }
-
         if (intent == null)
             return START_NOT_STICKY;
 
@@ -117,13 +108,13 @@ public class ServiceTTS extends ServiceBase {
         return null;
     }
 
-    private Notification getNotification() {
+    private Notification getNotification(String utteranceId) {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "progress")
                         .setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_DEFAULT)
                         .setSmallIcon(R.drawable.twotone_stop_24)
                         .setContentTitle(getString(R.string.title_rule_tts))
-                        .setContentIntent(getPendingIntent(this))
+                        .setContentIntent(getPendingIntent(this, utteranceId))
                         .setAutoCancel(false)
                         .setShowWhen(false)
                         .setDefaults(0) // disable sound on pre Android 8
@@ -138,14 +129,14 @@ public class ServiceTTS extends ServiceBase {
         return notification;
     }
 
-    private static PendingIntent getPendingIntent(Context context) {
+    private static PendingIntent getPendingIntent(Context context, String utteranceId) {
         Intent flush = new Intent(context, ServiceTTS.class)
                 .setAction("tts:" + 0)
                 .putExtra(ServiceTTS.EXTRA_FLUSH, true)
                 .putExtra(ServiceTTS.EXTRA_TEXT, "")
                 .putExtra(ServiceTTS.EXTRA_LANGUAGE, (String) null)
-                .putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + 0);
-        return PendingIntentCompat.getActivity(
+                .putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, utteranceId);
+        return PendingIntentCompat.getService(
                 context, PI_FLUSH, flush, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
@@ -161,7 +152,6 @@ public class ServiceTTS extends ServiceBase {
 
         if (message > 0) {
             String tag = "unseen." + group + "." + message;
-            Log.i("MMM cancel tag=" + tag);
             NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
             nm.cancel(tag, NotificationHelper.NOTIFICATION_TAGGED);
 
@@ -218,6 +208,14 @@ public class ServiceTTS extends ServiceBase {
                                     @Override
                                     public void onStart(String utteranceId) {
                                         Log.i("TTS start=" + utteranceId);
+                                        try {
+                                            startForeground(NotificationHelper.NOTIFICATION_TTS, getNotification(utteranceId));
+                                        } catch (Throwable ex) {
+                                            if (Helper.isPlayStoreInstall())
+                                                Log.i(ex);
+                                            else
+                                                Log.e(ex);
+                                        }
                                     }
 
                                     @Override
