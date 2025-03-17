@@ -485,6 +485,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibSearchText;
         private ImageButton ibSearch;
         private ImageButton ibTranslate;
+        private ImageButton ibTts;
         private ImageButton ibSummarize;
         private ImageButton ibFullScreen;
         private ImageButton ibForceLight;
@@ -947,6 +948,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearchText = vsBody.findViewById(R.id.ibSearchText);
             ibSearch = vsBody.findViewById(R.id.ibSearch);
             ibTranslate = vsBody.findViewById(R.id.ibTranslate);
+            ibTts = vsBody.findViewById(R.id.ibTts);
             ibSummarize = vsBody.findViewById(R.id.ibSummarize);
             ibFullScreen = vsBody.findViewById(R.id.ibFullScreen);
             ibForceLight = vsBody.findViewById(R.id.ibForceLight);
@@ -1123,6 +1125,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSearch.setOnClickListener(this);
                 ibTranslate.setOnClickListener(this);
                 ibTranslate.setOnLongClickListener(this);
+                ibTts.setOnClickListener(this);
                 ibSummarize.setOnClickListener(this);
                 ibSummarize.setOnLongClickListener(this);
                 ibFullScreen.setOnClickListener(this);
@@ -1250,6 +1253,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibSearch.setOnClickListener(null);
                 ibTranslate.setOnClickListener(null);
                 ibTranslate.setOnLongClickListener(null);
+                ibTts.setOnClickListener(null);
                 ibSummarize.setOnClickListener(null);
                 ibSummarize.setOnLongClickListener(null);
                 ibFullScreen.setOnClickListener(null);
@@ -1886,6 +1890,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearchText.setVisibility(View.GONE);
             ibSearch.setVisibility(View.GONE);
             ibTranslate.setVisibility(View.GONE);
+            ibTts.setVisibility(View.GONE);
             ibSummarize.setVisibility(View.GONE);
             ibFullScreen.setVisibility(View.GONE);
             ibForceLight.setVisibility(View.GONE);
@@ -2185,6 +2190,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibSearchText.setVisibility(View.GONE);
             ibSearch.setVisibility(View.GONE);
             ibTranslate.setVisibility(View.GONE);
+            ibTts.setVisibility(View.GONE);
             ibSummarize.setVisibility(View.GONE);
             ibFullScreen.setVisibility(View.GONE);
             ibForceLight.setVisibility(View.GONE);
@@ -2412,6 +2418,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_hide = prefs.getBoolean("button_hide", false);
                     boolean button_importance = prefs.getBoolean("button_importance", false);
                     boolean button_translate = prefs.getBoolean("button_translate", true);
+                    boolean button_tts = prefs.getBoolean("button_tts", false);
                     boolean button_summarize = prefs.getBoolean("button_summarize", false);
                     boolean button_full_screen = prefs.getBoolean("button_full_screen", false);
                     boolean button_force_light = prefs.getBoolean("button_force_light", true);
@@ -2454,6 +2461,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibSearchText.setVisibility(tools && !outbox && button_search_text && message.content ? View.VISIBLE : View.GONE);
                     ibSearch.setVisibility(tools && !outbox && button_search && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
                     ibTranslate.setVisibility(tools && !outbox && button_translate && DeepL.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
+                    ibTts.setVisibility(tools && !outbox && button_tts && message.content ? View.VISIBLE : View.GONE);
                     ibSummarize.setVisibility(tools && !outbox && button_summarize && AI.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
                     ibFullScreen.setVisibility(tools && full && button_full_screen && message.content ? View.VISIBLE : View.GONE);
                     ibForceLight.setVisibility(tools && (full || experiments) && dark && button_force_light && message.content ? View.VISIBLE : View.GONE);
@@ -4650,6 +4658,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onSearchContact(message, false);
                 } else if (id == R.id.ibTranslate) {
                     onActionTranslate(message);
+                } else if (id == R.id.ibTts) {
+                    onActionTts(message);
                 } else if (id == R.id.ibSummarize) {
                     onActionSummarize(message, ibSummarize);
                 } else if (id == R.id.ibFullScreen)
@@ -7489,6 +7499,64 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 DeepL.FragmentDialogDeepL fragment = new DeepL.FragmentDialogDeepL();
                 fragment.show(parentFragment.getParentFragmentManager(), "deepl:configure");
             }
+        }
+
+        private void onActionTts(TupleMessageEx message) {
+            boolean tts = properties.getValue("tts", message.id, false);
+            properties.setValue("tts", message.id, !tts);
+
+            if (tts) {
+                Intent intent = new Intent(context, ServiceTTS.class)
+                        .setAction("tts:" + message.id)
+                        .putExtra(ServiceTTS.EXTRA_FLUSH, true)
+                        .putExtra(ServiceTTS.EXTRA_TEXT, "")
+                        .putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language)
+                        .putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + message.id);
+                context.startService(intent);
+                return;
+            }
+
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return null;
+
+                    String body = Helper.readText(message.getFile(context));
+                    String text = HtmlHelper.getFullText(context, body);
+
+                    // Avoid: Not enough namespace quota ... for ...
+                    text = HtmlHelper.truncate(text, ServiceTTS.getMaxTextSize() / 3);
+
+                    return text;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String text) {
+                    if (text == null)
+                        return;
+
+                    Intent intent = new Intent(context, ServiceTTS.class)
+                            .setAction("tts:" + message.id)
+                            .putExtra(ServiceTTS.EXTRA_FLUSH, true)
+                            .putExtra(ServiceTTS.EXTRA_TEXT, text)
+                            .putExtra(ServiceTTS.EXTRA_LANGUAGE, message.language)
+                            .putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + message.id);
+                    context.startService(intent);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "tts");
         }
 
         private void onActionSummarize(TupleMessageEx message, View anchor) {

@@ -57,6 +57,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
         final CheckBox cbSearch = dview.findViewById(R.id.cbSearch);
         final CheckBox cbSearchText = dview.findViewById(R.id.cbSearchText);
         final CheckBox cbTranslate = dview.findViewById(R.id.cbTranslate);
+        final CheckBox cbTts = dview.findViewById(R.id.cbTts);
         final CheckBox cbSummarize = dview.findViewById(R.id.cbSummarize);
         final CheckBox cbFullScreen = dview.findViewById(R.id.cbFullScreen);
         final CheckBox cbForceLight = dview.findViewById(R.id.cbForceLight);
@@ -89,6 +90,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
         cbSearch.setChecked(prefs.getBoolean("button_search", false));
         cbSearchText.setChecked(prefs.getBoolean("button_search_text", false));
         cbTranslate.setChecked(prefs.getBoolean("button_translate", true));
+        cbTts.setChecked(prefs.getBoolean("button_tts", false));
         cbSummarize.setChecked(prefs.getBoolean("button_summarize", false));
         cbFullScreen.setChecked(prefs.getBoolean("button_full_screen", false));
         cbForceLight.setChecked(prefs.getBoolean("button_force_light", true));
@@ -129,6 +131,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
                         editor.putBoolean("button_search", cbSearch.isChecked());
                         editor.putBoolean("button_search_text", cbSearchText.isChecked());
                         editor.putBoolean("button_translate", cbTranslate.isChecked());
+                        editor.putBoolean("button_tts", cbTts.isChecked());
                         editor.putBoolean("button_summarize", cbSummarize.isChecked());
                         editor.putBoolean("button_full_screen", cbFullScreen.isChecked());
                         editor.putBoolean("button_force_light", cbForceLight.isChecked());

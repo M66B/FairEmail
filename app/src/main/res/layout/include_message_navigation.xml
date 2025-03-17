@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="3dp"
-            app:constraint_referenced_ids="vwEmpty,ibMore,ibInbox,ibJunk,ibTrash,ibArchive,ibMove,ibCopy,ibKeywords,ibLabels,ibNotes,ibSeen,ibHide,ibImportance,ibTranslate,ibSummarize,ibFullScreen,ibForceLight,ibSearch,ibSearchText,ibEvent,ibShare,ibPin,ibPrint,ibHeaders,ibHtml,ibRaw,ibUnsubscribe,ibRule,ibAnswer,ibUndo"
+            app:constraint_referenced_ids="vwEmpty,ibMore,ibInbox,ibJunk,ibTrash,ibArchive,ibMove,ibCopy,ibKeywords,ibLabels,ibNotes,ibSeen,ibHide,ibImportance,ibTranslate,ibTts,ibSummarize,ibFullScreen,ibForceLight,ibSearch,ibSearchText,ibEvent,ibShare,ibPin,ibPrint,ibHeaders,ibHtml,ibRaw,ibUnsubscribe,ibRule,ibAnswer,ibUndo"
             app:flow_horizontalBias="0"
             app:flow_horizontalGap="3dp"
             app:flow_horizontalStyle="packed"
@@ -267,6 +267,18 @@
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_translate"
             app:srcCompat="@drawable/twotone_translate_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/ibTts"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_rule_tts"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_rule_tts"
+            app:srcCompat="@drawable/twotone_play_arrow_24"
             tools:ignore="MissingConstraints" />
 
         <ImageButton
