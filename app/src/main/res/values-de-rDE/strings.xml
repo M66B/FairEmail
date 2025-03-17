@@ -714,7 +714,7 @@
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt beim Verwenden der biometrischen Authentifizierung anzeigen</string>
     <string name="title_advanced_notify_open_folder">Ordner öffnen, wenn eine neue Nachricht geöffnet wird</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
-    <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
+    <string name="title_advanced_sound">Benachrichtigungston festlegen</string>
     <string name="title_advanced_notify_screen_on">Kurzes Einschalten des Bildschirms für Benachrichtigungen über neue Nachrichten</string>
     <string name="title_advanced_notifications_background">Hintergrunddienst verwenden, um Nachrichten zu synchronisieren</string>
     <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android angehalten werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>
@@ -1153,7 +1153,7 @@
     <string name="title_insert_contact">Kontakt hinzufügen</string>
     <string name="title_edit_contact">Kontakt bearbeiten</string>
     <string name="title_delete_contact">Kontakt löschen?</string>
-    <string name="title_contact_email">Neue E-Mail</string>
+    <string name="title_contact_email">E-Mail</string>
     <string name="title_contact_name">Name</string>
     <string name="title_contact_group">Gruppe</string>
     <string name="title_import_contacts">vCards importieren</string>

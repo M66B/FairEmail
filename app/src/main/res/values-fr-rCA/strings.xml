@@ -791,7 +791,7 @@
     <string name="title_advanced_class_min_difference">Différence minimale de classe : %1$s %%</string>
     <string name="title_advanced_show_filtered">Afficher une icône de filtre lorsque les règles ont été appliquées</string>
     <string name="title_advanced_haptic_feedback">Retour haptique lors des actions importantes</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Retour haptique en balayant vers la gauche/droite</string>
+    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Retour haptique lors du balayage vers la gauche/droite</string>
     <string name="title_advanced_language">Langue</string>
     <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_integrations_hint">Les services cloud ci-dessous ne font pas partie de l\'application. Tous les paiements iront directement au service cloud et non au développeur de l\'application.</string>
