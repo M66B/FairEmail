@@ -55,6 +55,7 @@ public class ServiceTTS extends ServiceBase {
     static final String ACTION_TTS_COMPLETED = BuildConfig.APPLICATION_ID + ".TTS";
 
     static final int PI_TTS = 1;
+    static final int PI_FLUSH = 2;
 
     @Override
     public void onCreate() {
@@ -122,7 +123,7 @@ public class ServiceTTS extends ServiceBase {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "progress")
                         .setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_DEFAULT)
-                        .setSmallIcon(R.drawable.twotone_play_arrow_24)
+                        .setSmallIcon(R.drawable.twotone_stop_24)
                         .setContentTitle(getString(R.string.title_rule_tts))
                         .setContentIntent(getPendingIntent(this))
                         .setAutoCancel(false)
@@ -140,11 +141,14 @@ public class ServiceTTS extends ServiceBase {
     }
 
     private static PendingIntent getPendingIntent(Context context) {
-        Intent view = new Intent(context, ActivityView.class);
-        view.setAction("unified");
-        view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent flush = new Intent(context, ServiceTTS.class)
+                .setAction("tts:" + 0)
+                .putExtra(ServiceTTS.EXTRA_FLUSH, true)
+                .putExtra(ServiceTTS.EXTRA_TEXT, "")
+                .putExtra(ServiceTTS.EXTRA_LANGUAGE, (String) null)
+                .putExtra(ServiceTTS.EXTRA_UTTERANCE_ID, "tts:" + 0);
         return PendingIntentCompat.getActivity(
-                context, ActivityView.PI_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
+                context, PI_FLUSH, flush, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     void onTts(Intent intent) {
