@@ -24,12 +24,10 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.IBinder;
 import android.os.OperationCanceledException;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
-import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
