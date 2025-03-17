@@ -1554,7 +1554,8 @@ class Core {
                     }
 
                     for (Flags.Flag flag : imessage.getFlags().getSystemFlags())
-                        icopy.setFlag(flag, true);
+                        if (flag != Flags.Flag.DRAFT || EntityFolder.DRAFTS.equals(target.type))
+                            icopy.setFlag(flag, true);
 
                     icopies.add(icopy);
                 }
