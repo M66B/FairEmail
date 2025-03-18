@@ -244,9 +244,6 @@ public final class ShortcutBadgerAlt {
                 sShortcutBadger = new VivoHomeBadger();
             else if (Build.MANUFACTURER.equalsIgnoreCase("ZTE"))
                 sShortcutBadger = new ZTEHomeBadger();
-            else if (Build.MANUFACTURER.equalsIgnoreCase("HUAWEI") ||
-                    Build.MANUFACTURER.equalsIgnoreCase("HONOR"))
-                sShortcutBadger = new HuaweiHomeBadger();
             else
                 sShortcutBadger = new DefaultBadger();
         }
