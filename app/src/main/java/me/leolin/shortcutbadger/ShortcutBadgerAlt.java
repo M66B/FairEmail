@@ -187,7 +187,6 @@ public final class ShortcutBadgerAlt {
                 Method method = extraNotification.getClass().getDeclaredMethod("setMessageCount", int.class);
                 method.invoke(extraNotification, badgeCount);
             } catch (Exception e) {
-                eu.faircode.email.Log.w(e);
                 if (Log.isLoggable(LOG_TAG, Log.DEBUG)) {
                     Log.d(LOG_TAG, "Unable to execute badge", e);
                 }
