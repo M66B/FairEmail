@@ -8242,6 +8242,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (selectionTracker != null && selectionTracker.isSelected(message.id))
                     result.add(context.getString(R.string.title_accessibility_selected));
 
+                if (message.accountColor != null && !TextUtils.isEmpty(message.accountName)) ;
+                result.add(message.accountName);
+
                 result.add(context.getString(
                         message.unseen > 0 ? R.string.title_accessibility_unseen : R.string.title_accessibility_seen));
 
