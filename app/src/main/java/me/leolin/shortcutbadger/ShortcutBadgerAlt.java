@@ -44,6 +44,7 @@ public final class ShortcutBadgerAlt {
     private final static Object sCounterSupportedLock = new Object();
 
     static {
+        // https://github.com/leolin310148/ShortcutBadger/tree/master/ShortcutBadger/src/main/java/me/leolin/shortcutbadger/impl
         BADGERS.add(AdwHomeBadger.class);
         BADGERS.add(ApexHomeBadger.class);
         BADGERS.add(DefaultBadger.class);
@@ -86,6 +87,9 @@ public final class ShortcutBadgerAlt {
                 Throwable ex = new Throwable("Badger=" + sShortcutBadger.getClass(), e);
                 eu.faircode.email.EntityLog.log(context, ex + "\n" + Log.getStackTraceString(ex));
             }
+            return false;
+        } catch (Throwable ex) {
+            eu.faircode.email.Log.e(ex);
             return false;
         }
     }
