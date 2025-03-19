@@ -38,6 +38,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
+### Next version
+
+* Added optional TTS button
+* Added TTS notification action
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2268 2025-03-14
 
 * Fixed delayed marking read

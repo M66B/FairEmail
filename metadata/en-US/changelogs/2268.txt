@@ -38,6 +38,15 @@ For support you can use the contact form.
 
 Ceratonykus
 
+Next version
+
+* Added optional TTS button
+* Added TTS notification action
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
 1.2268 2025-03-14
 
 * Fixed delayed marking read
