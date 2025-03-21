@@ -398,6 +398,30 @@ public class FixedTextView extends AppCompatTextView {
                   at android.widget.TextView.setText (TextView.java:4424)
                   at android.widget.TextView.setText (TextView.java:4379)
              */
+            /*
+                java.lang.IndexOutOfBoundsException: index=-1864675006 out of bounds (limit=4999536, nb=4)
+                  at java.nio.Buffer.checkIndex(Buffer.java:764)
+                  at java.nio.DirectByteBuffer.getInt(DirectByteBuffer.java:601)
+                  at I0.a.__indirect(SourceFile:3)
+                  at androidx.emoji2.text.flatbuffer.MetadataList.list(SourceFile:15)
+                  at androidx.emoji2.text.TypefaceEmojiRasterizer.getMetadataItem(SourceFile:27)
+                  at androidx.emoji2.text.TypefaceEmojiRasterizer.isDefaultEmoji(SourceFile:1)
+                  at androidx.emoji2.text.EmojiProcessor$ProcessorSm.shouldUseEmojiPresentationStyleForSingleCodepoint(SourceFile:7)
+                  at androidx.emoji2.text.EmojiProcessor$ProcessorSm.check(SourceFile:68)
+                  at androidx.emoji2.text.EmojiProcessor.process(SourceFile:25)
+                  at androidx.emoji2.text.EmojiProcessor.process(SourceFile:19)
+                  at androidx.emoji2.text.EmojiCompat$CompatInternal.process(SourceFile:8)
+                  at androidx.emoji2.text.EmojiCompat.process(SourceFile:14)
+                  at androidx.emoji2.text.EmojiCompat.process(SourceFile:4)
+                  at androidx.emoji2.text.EmojiCompat.process(SourceFile:3)
+                  at androidx.emoji2.viewsintegration.EmojiInputFilter.filter(SourceFile:70)
+                  at android.widget.TextView.setText(TextView.java:7319)
+             */
+            try {
+                super.setText(null);
+            } catch (Throwable exex) {
+                Log.w(ex);
+            }
         }
     }
 
