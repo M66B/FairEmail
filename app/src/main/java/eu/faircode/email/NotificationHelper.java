@@ -707,6 +707,7 @@ class NotificationHelper {
         boolean flags = prefs.getBoolean("flags", true);
         boolean notify_messaging = prefs.getBoolean("notify_messaging", false);
         boolean notify_subtext = prefs.getBoolean("notify_subtext", true);
+        boolean notify_subject = prefs.getBoolean("notify_subject", true);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
         boolean notify_preview_all = prefs.getBoolean("notify_preview_all", false);
         boolean wearable_preview = prefs.getBoolean("wearable_preview", false);
@@ -873,7 +874,7 @@ class NotificationHelper {
                         Address[] afrom = messageFrom.get(message.id);
                         String from = MessageHelper.formatAddresses(afrom, email_format, false);
                         sb.append("<strong>").append(Html.escapeHtml(from)).append("</strong>");
-                        if (!TextUtils.isEmpty(message.subject))
+                        if (!TextUtils.isEmpty(message.subject) && notify_subject)
                             sb.append(": ").append(Html.escapeHtml(message.subject));
                         sb.append(" ").append(Html.escapeHtml(DTF.format(message.received)));
                         sb.append("<br>");
@@ -997,7 +998,7 @@ class NotificationHelper {
 
                 NotificationCompat.MessagingStyle messagingStyle = new NotificationCompat.MessagingStyle(me.build());
 
-                if (!TextUtils.isEmpty(message.subject))
+                if (!TextUtils.isEmpty(message.subject) && notify_subject)
                     messagingStyle.setConversationTitle(message.subject);
 
                 messagingStyle.addMessage(
@@ -1043,7 +1044,7 @@ class NotificationHelper {
 
                 // Wearables
                 StringBuilder sb = new StringBuilder();
-                if (!TextUtils.isEmpty(message.subject))
+                if (!TextUtils.isEmpty(message.subject) && notify_subject)
                     sb.append(TextHelper.normalizeNotification(context, message.subject));
                 if (wearable_preview && !TextUtils.isEmpty(preview)) {
                     if (sb.length() > 0)
@@ -1062,7 +1063,7 @@ class NotificationHelper {
                             if (keyword.startsWith("!"))
                                 sbm.append(Html.escapeHtml(keyword)).append(": ");
 
-                    if (!TextUtils.isEmpty(message.subject))
+                    if (!TextUtils.isEmpty(message.subject) && notify_subject)
                         sbm.append("<em>").append(Html.escapeHtml(message.subject)).append("</em>").append("<br>");
 
                     if (!TextUtils.isEmpty(preview))
@@ -1071,14 +1072,14 @@ class NotificationHelper {
                     if (sbm.length() > 0) {
                         NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle()
                                 .bigText(HtmlHelper.fromHtml(sbm.toString(), context));
-                        if (!TextUtils.isEmpty(message.subject))
+                        if (!TextUtils.isEmpty(message.subject) && notify_subject)
                             bigText.setSummaryText(message.subject);
 
                         mbuilder.setStyle(bigText);
                     }
                 }
             } else {
-                if (!TextUtils.isEmpty(message.subject))
+                if (!TextUtils.isEmpty(message.subject) && notify_subject)
                     mbuilder.setContentText(TextHelper.normalizeNotification(context, message.subject));
             }
 

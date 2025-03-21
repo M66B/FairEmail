@@ -785,6 +785,7 @@
     <string name="title_advanced_notify_suppress_in_call">Delay notifications while on a call</string>
     <string name="title_advanced_notify_suppress_in_car">Delay notifications while Android Auto is connected</string>
     <string name="title_advanced_notify_summary">Show summary notification only</string>
+    <string name="title_advanced_notify_subject">Show subject in notifications</string>
     <string name="title_advanced_notify_preview">Show message preview in notifications</string>
     <string name="title_advanced_notify_preview_all">Preview all text</string>
     <string name="title_advanced_notify_preview_only">Show notifications with a preview text only</string>
