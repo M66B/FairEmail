@@ -891,19 +891,6 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swNotifyMinimal"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_notify_minimal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swBiometricsNotify"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swNotifyOpenFolder"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -912,7 +899,7 @@
                     android:text="@string/title_advanced_notify_open_folder"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swNotifyMinimal"
+                    app:layout_constraintTop_toBottomOf="@id/swBiometricsNotify"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

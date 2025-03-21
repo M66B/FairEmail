@@ -126,7 +126,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swMessagingStyle;
     private ImageButton ibCar;
     private SwitchCompat swBiometricsNotify;
-    private SwitchCompat swNotifyMinimal;
     private SwitchCompat swNotifyOpenFolder;
     private SwitchCompat swBackground;
     private Spinner spRateLimit;
@@ -154,7 +153,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "notify_subtext", "notify_preview", "notify_preview_all", "notify_preview_only", "notify_transliterate", "notify_ascii",
             "wearable_preview",
             "notify_messaging",
-            "biometrics_notify", "notify_minimal", "notify_open_folder", "background_service", "notify_rate_limit", "alert_once"
+            "biometrics_notify", "notify_open_folder", "background_service", "notify_rate_limit", "alert_once"
     ));
 
     @Override
@@ -220,7 +219,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swMessagingStyle = view.findViewById(R.id.swMessagingStyle);
         ibCar = view.findViewById(R.id.ibCar);
         swBiometricsNotify = view.findViewById(R.id.swBiometricsNotify);
-        swNotifyMinimal = view.findViewById(R.id.swNotifyMinimal);
         swNotifyOpenFolder = view.findViewById(R.id.swNotifyOpenFolder);
         swBackground = view.findViewById(R.id.swBackground);
         spRateLimit = view.findViewById(R.id.spRateLimit);
@@ -735,15 +733,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("biometrics_notify", checked).apply();
-                enableOptions();
-            }
-        });
-
-        swNotifyMinimal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("notify_minimal", checked).apply();
-                enableOptions();
             }
         });
 
@@ -937,7 +926,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", false));
             swMessagingStyle.setChecked(prefs.getBoolean("notify_messaging", false));
             swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", true));
-            swNotifyMinimal.setChecked(prefs.getBoolean("notify_minimal", false));
             swNotifyOpenFolder.setChecked(prefs.getBoolean("notify_open_folder", false));
             swBackground.setChecked(prefs.getBoolean("background_service", false));
             swAlertOnce.setChecked(!prefs.getBoolean("alert_once", true));
@@ -968,7 +956,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swNotifyPreviewOnly.setEnabled(!summary && swNotifyPreview.isChecked());
         swWearablePreview.setEnabled(!summary && swNotifyPreview.isChecked());
         swBiometricsNotify.setEnabled(!summary);
-        swNotifyMinimal.setEnabled(summary || !swBiometricsNotify.isChecked());
     }
 
     @Override

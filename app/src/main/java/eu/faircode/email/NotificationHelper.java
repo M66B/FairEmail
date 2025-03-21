@@ -727,7 +727,6 @@ class NotificationHelper {
         boolean alert_once = prefs.getBoolean("alert_once", true);
         boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
         boolean delete_notification = prefs.getBoolean("delete_notification", false);
-        boolean notify_minimal = prefs.getBoolean("notify_minimal", false);
 
         // Get contact info
         Long latest = null;
@@ -865,7 +864,7 @@ class NotificationHelper {
             }
 
             if (notify_preview)
-                if (redacted && !notify_minimal)
+                if (redacted)
                     builder.setContentText(context.getString(R.string.title_notification_redacted));
                 else {
                     DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
@@ -874,7 +873,7 @@ class NotificationHelper {
                         Address[] afrom = messageFrom.get(message.id);
                         String from = MessageHelper.formatAddresses(afrom, email_format, false);
                         sb.append("<strong>").append(Html.escapeHtml(from)).append("</strong>");
-                        if (!TextUtils.isEmpty(message.subject) && !notify_minimal)
+                        if (!TextUtils.isEmpty(message.subject))
                             sb.append(": ").append(Html.escapeHtml(message.subject));
                         sb.append(" ").append(Html.escapeHtml(DTF.format(message.received)));
                         sb.append("<br>");
