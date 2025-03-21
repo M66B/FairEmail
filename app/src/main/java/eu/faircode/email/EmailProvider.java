@@ -736,8 +736,8 @@ public class EmailProvider implements Parcelable {
 
             EntityLog.log(context, "Parsing " + url);
 
-            boolean imap = false;
-            boolean smtp = false;
+            boolean imap = false, hasImap = false;
+            boolean smtp = false, hasSmtp = false;
             String href = null;
             String title = null;
             int eventType = xml.getEventType();
@@ -763,7 +763,7 @@ public class EmailProvider implements Parcelable {
                         //   <authentication>OAuth2</authentication>
                         //   <authentication>password-cleartext</authentication>
                         // </incomingServer>
-                        imap = "imap".equals(xml.getAttributeValue(null, "type"));
+                        imap = !hasImap && "imap".equals(xml.getAttributeValue(null, "type"));
 
                     } else if ("outgoingServer".equals(name)) {
                         // <outgoingServer type="smtp">
@@ -774,7 +774,7 @@ public class EmailProvider implements Parcelable {
                         //   <authentication>OAuth2</authentication>
                         //   <authentication>password-cleartext</authentication>
                         // </outgoingServer>
-                        smtp = "smtp".equals(xml.getAttributeValue(null, "type"));
+                        smtp = !hasSmtp && "smtp".equals(xml.getAttributeValue(null, "type"));
 
                     } else if ("hostname".equals(name)) {
                         eventType = xml.next();
@@ -874,13 +874,13 @@ public class EmailProvider implements Parcelable {
 
                 } else if (eventType == XmlPullParser.END_TAG) {
                     String name = xml.getName();
-                    if ("incomingServer".equals(name))
+                    if ("incomingServer".equals(name)) {
+                        hasImap = true;
                         imap = false;
-
-                    else if ("outgoingServer".equals(name))
+                    } else if ("outgoingServer".equals(name)) {
+                        hasSmtp = true;
                         smtp = false;
-
-                    else if ("enable".equals(name) || "documentation".equals(name)) {
+                    } else if ("enable".equals(name) || "documentation".equals(name)) {
                         if (href != null) {
                             if (title == null)
                                 title = href;
