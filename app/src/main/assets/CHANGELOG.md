@@ -40,6 +40,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Targeting Android 16 Baklava
 * Added optional TTS button
 * Added TTS notification action
 * Small improvements and minor bug fixes
