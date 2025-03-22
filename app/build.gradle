@@ -24,9 +24,9 @@ android {
     // https://apilevels.com/
     defaultConfig {
         applicationId "eu.faircode.email"
-        compileSdk 35
+        compileSdk 36
         minSdkVersion 21
-        targetSdkVersion 35
+        targetSdkVersion 36
         //targetSdkPreview "VanillaIceCream"
         versionCode getVersionCode()
         versionName "1." + getVersionCode()
