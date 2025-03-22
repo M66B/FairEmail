@@ -376,6 +376,11 @@
     </string>
     <string name="title_advanced_hint_remark">        Параметры размеркаваны па ўкладках, падзелены на раздзелы, упарадкаваны паводле знешняга выгляду або выкарыстання і даступны для пошуку.
     </string>
+    <string name="title_advanced_hint_options">         Вам не спатрэбіцца большасць опцый, а паколькі некаторыя опцыі даволі спецыфічныя,
+         то нармальна, што прызначэнне ўсіх опцый не відавочна адразу.
+         Калі ласка, не пакідайце дрэнны водгук толькі за мноства опцый або за тое, што не адразу зразумелі ўсе опцыі.
+         Усе опцыі карысныя больш чым для некалькіх людзей, але, магчыма, не для вас (пакуль).
+    </string>
     <string name="title_advanced_hint_setup">Вы можаце наладзіць уліковы запіс, націснуўшы кнопку майстра хуткага наладжвання на галоўным экране налад.</string>
     <string name="title_advanced_section_main">Асноўнае</string>
     <string name="title_advanced_section_synchronize">Атрыманне</string>
@@ -686,6 +691,7 @@
     <string name="title_advanced_reset_importance">Скідваць важнасць паведамленняў пры іх перамяшчэнні</string>
     <string name="title_advanced_star_snoozed">Аўтаматычна пазначаць адкладзеныя паведамленні</string>
     <string name="title_advanced_star_unsnoozed">Аўтаматычна здымаць пазнакі з адкладзеных паведамленняў</string>
+    <string name="title_advanced_important_unsnoozed">Аўтаматычна рабіць важнымі паведамленні пры адхіленні адкладання</string>
     <string name="title_advanced_auto_important">Аўтаматычна рабіць важнымі пазначаныя паведамленні</string>
     <string name="title_advanced_cancel_snooze">Адмяняць адкладанне пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_auto_block_sender">Аўтаматычна блакіраваць адпраўніка пры паведамленні пра спам</string>
@@ -711,6 +717,7 @@
     <string name="title_advanced_notify_suppress_in_call">Адкладваць апавяшчэнні падчас выкліку</string>
     <string name="title_advanced_notify_suppress_in_car">Адкласці апавяшчэнні пры падключэнні да Android Auto</string>
     <string name="title_advanced_notify_summary">Паказаць толькі зводнае апавяшчэнне</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Паказваць тэму ў апавяшчэннях</string>
     <string name="title_advanced_notify_preview">Адлюстроўваць папярэдні выгляд паведамленняў у апавяшчэннях</string>
     <string name="title_advanced_notify_preview_all">Папярэдні прагляд усяго тэксту</string>
     <string name="title_advanced_notify_preview_only">Паказваць апавяшчэнні толькі з папярэднім праглядам тэксту</string>
@@ -814,6 +821,7 @@
     <string name="title_advanced_class_min_difference">Мінімальная розніца паміж класамі: %1$s %%</string>
     <string name="title_advanced_show_filtered">Паказваць значок фільтра пры ўжыванні правіл</string>
     <string name="title_advanced_haptic_feedback">Тактыльная зваротная сувязь пры важных дзеяннях</string>
+    <string name="title_advanced_haptic_feedback_swipe">Вібрацыя пры правядзенні пальцам улева/ўправа</string>
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Сістэмная</string>
     <string name="title_advanced_integrations_hint">Згаданыя ніжэй воблачныя сэрвісы не з\'яўляюцца часткай праграмы. Любыя плацяжы будуць паступаць непасрэдна на рахунак воблачнага сэрвісу, а не распрацоўшчыку праграмы.</string>

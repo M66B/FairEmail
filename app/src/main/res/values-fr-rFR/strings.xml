@@ -688,6 +688,7 @@
     <string name="title_advanced_notify_suppress_in_call">Différer les notifications pendant un appel</string>
     <string name="title_advanced_notify_suppress_in_car">Retarder les notifications lorsque Android Auto est connecté</string>
     <string name="title_advanced_notify_summary">Afficher seulement une notification récapitulative</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Afficher l\'objet dans les notifications</string>
     <string name="title_advanced_notify_preview">Afficher un aperçu du message dans les notifications</string>
     <string name="title_advanced_notify_preview_all">Aperçu de tout le texte</string>
     <string name="title_advanced_notify_preview_only">Afficher les notifications avec un texte de prévisualisation uniquement</string>
@@ -791,7 +792,7 @@
     <string name="title_advanced_class_min_difference">Différence minimale de classe : %1$s %%</string>
     <string name="title_advanced_show_filtered">Afficher une icône de filtre lorsque les règles ont été appliquées</string>
     <string name="title_advanced_haptic_feedback">Retour haptique lors des actions importantes</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Retour haptique lors du balayage vers la gauche/droite</string>
+    <string name="title_advanced_haptic_feedback_swipe">Retour haptique lors du balayage vers la gauche/droite</string>
     <string name="title_advanced_language">Langue</string>
     <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_integrations_hint">Les services cloud ci-dessous ne font pas partie de l\'application. Tous les paiements iront directement au service cloud et non au développeur de l\'application.</string>

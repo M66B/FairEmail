@@ -702,6 +702,7 @@
     <string name="title_advanced_notify_suppress_in_call">Odgodi obavještenja tokom poziva</string>
     <string name="title_advanced_notify_suppress_in_car">Odgodi obavještenja kada je spojen Android Auto</string>
     <string name="title_advanced_notify_summary">Prikaži samo obavještenja sa sažetkom</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Prikaži predmet u obavještenjima</string>
     <string name="title_advanced_notify_preview">Prikaži pregled poruke u obavještenjima</string>
     <string name="title_advanced_notify_preview_all">Prikaz cijelog teksta</string>
     <string name="title_advanced_notify_preview_only">Prikaži obavještenja samo sa pregledom poruka</string>
@@ -805,7 +806,7 @@
     <string name="title_advanced_class_min_difference">Minimalna razlika klasa: %1$s %%</string>
     <string name="title_advanced_show_filtered">Prikaži ikonicu za filtriranje kada su pravila primijenjena</string>
     <string name="title_advanced_haptic_feedback">Haptičke povratne informacije za važne radnje</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Haptička povr. info. pri prevlačenju lijevo/desno</string>
+    <string name="title_advanced_haptic_feedback_swipe">Haptička povr. info. pri prevlačenju lijevo/desno</string>
     <string name="title_advanced_language">Jezik</string>
     <string name="title_advanced_language_system">Sistemski</string>
     <string name="title_advanced_integrations_hint">Dolje navedene cloud usluge nisu dio ove aplikacije. Bilo kakva plaćanja idu direktno ka usluzi u oblaku, a ne programeru aplikacije.</string>

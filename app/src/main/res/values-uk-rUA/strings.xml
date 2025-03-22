@@ -716,6 +716,7 @@
     <string name="title_advanced_notify_suppress_in_call">Відкладати сповіщення під час розмови</string>
     <string name="title_advanced_notify_suppress_in_car">Затримувати сповіщення, допоки наявне підключення до Android Auto</string>
     <string name="title_advanced_notify_summary">Показувати лише підсумкове сповіщення</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Показувати тему в сповіщеннях</string>
     <string name="title_advanced_notify_preview">Показувати попередній перегляд повідомлення у сповіщеннях</string>
     <string name="title_advanced_notify_preview_all">Попередній перегляд всього тексту</string>
     <string name="title_advanced_notify_preview_only">Показувати сповіщення тільки з попереднім переглядом тексту</string>
@@ -818,7 +819,7 @@
     <string name="title_advanced_class_min_difference">Мінімальна відмінність між класами: %1$s %%</string>
     <string name="title_advanced_show_filtered">Показувати значок фільтру коли правила застосовані</string>
     <string name="title_advanced_haptic_feedback">Вібровідгук на важливі дії</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Вібровідгук при проведенні пальцем вліво/вправо</string>
+    <string name="title_advanced_haptic_feedback_swipe">Вібровідгук при проведенні пальцем вліво/вправо</string>
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Системи</string>
     <string name="title_advanced_integrations_hint">Хмарні сервіси, вказані внизу, не є частиною застосунку. Будь-які платежі потраплять безпосередньо до хмарного сервісу, а не до розробника застосунку.</string>

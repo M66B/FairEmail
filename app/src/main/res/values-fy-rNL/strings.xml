@@ -683,6 +683,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_notify_suppress_in_call">Notifikaasjes wylst in petear útstelle</string>
     <string name="title_advanced_notify_suppress_in_car">Meldingen útstelle as Android Auto ferbûn is</string>
     <string name="title_advanced_notify_summary">Allinnich melding mei gearfetting toane</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Underwerp yn meldingen toane</string>
     <string name="title_advanced_notify_preview">Foarbyld fan berjocht yn notifikaasjes toane</string>
     <string name="title_advanced_notify_preview_all">Foarbyld fan alle tekst</string>
     <string name="title_advanced_notify_preview_only">Notifikaasjes allinnich mei in foarbyldtekst toane</string>
@@ -786,7 +787,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_class_min_difference">Minimum klasse ferskil: %1$s %%</string>
     <string name="title_advanced_show_filtered">In filterpiktogram toane wannear’t rigels tapast waarden</string>
     <string name="title_advanced_haptic_feedback">Haptysk kommentaar by wichtige aksjes</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Haptyske feedback by feien nei links/rjochts</string>
+    <string name="title_advanced_haptic_feedback_swipe">Haptyske feedback by feien nei links/rjochts</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_integrations_hint">De ûndersteande cloudtsjinsten binne gjin ûnderdiel fan de app. Alle betellingen geane daliks nei de cloudtsjinst en net nei de app-ûntwikkeler.</string>

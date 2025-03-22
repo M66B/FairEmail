@@ -715,6 +715,7 @@
     <string name="title_advanced_notify_suppress_in_call">Откладывать уведомления во время вызова</string>
     <string name="title_advanced_notify_suppress_in_car">Откладывать уведомления при подключении Android Auto</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Показывать тему в уведомлениях</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_preview_all">Предпросмотр всего текста</string>
     <string name="title_advanced_notify_preview_only">Показывать уведомления только с предпросмотром текста</string>
@@ -818,7 +819,7 @@
     <string name="title_advanced_class_min_difference">Минимальная разница между классами: %1$s %%</string>
     <string name="title_advanced_show_filtered">Показывать значок фильтра при применении правил</string>
     <string name="title_advanced_haptic_feedback">Вибрация при выполнении важных действий</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Vibroatdeve, pavelkot pa kreisi/labi</string>
+    <string name="title_advanced_haptic_feedback_swipe">Вибрация при жестах влево/вправо</string>
     <string name="title_advanced_language">Язык</string>
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_integrations_hint">Представленные ниже облачные сервисы не являются частью приложения. Все платежи будут поступать непосредственно в облачный сервис, а не разработчику приложения.</string>

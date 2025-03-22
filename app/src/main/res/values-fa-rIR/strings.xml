@@ -575,6 +575,7 @@
     <string name="title_advanced_notify_known">اعلان‌ها را تنها برای مخاطبین نمایش بده</string>
     <string name="title_advanced_notify_suppress_in_call">در صورت مکالمه تلفنی، اعلان‌های اطلاع‌رسانی را به عقب بیانداز</string>
     <string name="title_advanced_notify_summary">تنها چکیده اعلان را نمایش بده</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">نمایش موضوع در اعلان‌ها</string>
     <string name="title_advanced_notify_preview">پیش‌نمایش پیام را در اعلان‌ها نمایش بده</string>
     <string name="title_advanced_notify_preview_all">پیش‌نمایش تمام متن</string>
     <string name="title_advanced_notify_transliterate">ترجمه به الفبای لاتین</string>
@@ -632,7 +633,7 @@
     <string name="title_advanced_fts">ساخت شاخص جستجو</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d پیام ایندکس شد (%3$s)</string>
     <string name="title_advanced_show_filtered">آیکون فیلتر را زمانی که قاعده‌ای اعمال می‌شود نشان بده</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">بازخورد لمسی هنگام کشیدن انگشت به چپ/راست</string>
+    <string name="title_advanced_haptic_feedback_swipe">بازخورد لمسی هنگام کشیدن انگشت به چپ/راست</string>
     <string name="title_advanced_language">زبان</string>
     <string name="title_advanced_language_system">سیستم</string>
     <string name="title_advanced_integrations_hint">سرویس‌های ابری زیر بخشی از اپلیکیشن نیستند. هرگونه پرداختی مستقیما به ارائه‌دهنده سرویس ابری و نه توسعه‌دهنده اپلیکیشن واریز خواهد شد.</string>

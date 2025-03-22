@@ -683,6 +683,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_notify_suppress_in_call">Meldingen uitstellen tijdens een gesprek</string>
     <string name="title_advanced_notify_suppress_in_car">Meldingen uitstellen als Android Auto is verbonden</string>
     <string name="title_advanced_notify_summary">Toon alleen melding met een samenvatting</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Toon onderwerp in meldingen</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_preview_all">Voorbeeld van alle tekst</string>
     <string name="title_advanced_notify_preview_only">Alleen meldingen met een voorbeeldtekst weergeven</string>
@@ -784,7 +785,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_class_min_difference">Minimale klasse verschil: %1$s %%</string>
     <string name="title_advanced_show_filtered">Toon een filterpictogram wanneer regels werden toegepast</string>
     <string name="title_advanced_haptic_feedback">Haptische feedback bij belangrijke acties</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Haptische feedback bij vegen naar links/rechts</string>
+    <string name="title_advanced_haptic_feedback_swipe">Haptische feedback bij vegen naar links/rechts</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_integrations_hint">De onderstaande cloudservices maken geen deel uit van de app. Alle betalingen gaan direct naar de cloudservice en niet naar de app-ontwikkelaar.</string>

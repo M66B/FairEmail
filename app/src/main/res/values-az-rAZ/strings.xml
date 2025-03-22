@@ -688,6 +688,7 @@
     <string name="title_advanced_notify_suppress_in_call">Zəng əsnasında bildirişləri gecikdirmə</string>
     <string name="title_advanced_notify_suppress_in_car">Android Auto ilə bağlantı qurularkən bildirişləri gecikdir</string>
     <string name="title_advanced_notify_summary">Yalnız icmal bildirişini göstər</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Mövzunu bildirişlərdə göstər</string>
     <string name="title_advanced_notify_preview">Bildirişlərdə mesaja önbaxışı göstər</string>
     <string name="title_advanced_notify_preview_all">Mətnin hamısına önbaxış</string>
     <string name="title_advanced_notify_preview_only">Bildirişləri yalnız önbaxış mətni ilə göstər</string>
@@ -791,7 +792,7 @@
     <string name="title_advanced_class_min_difference">Minimum sinif fərqi: %1$s %%</string>
     <string name="title_advanced_show_filtered">Qaydalar tətbiq olunduqda bir filtr nişanı göstər</string>
     <string name="title_advanced_haptic_feedback">Vacib əməliyyatlarda toxunuş əks-əlaqəsi</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Sola/sağa sürüşdürərkən toxunuş əks-əlaqəsi</string>
+    <string name="title_advanced_haptic_feedback_swipe">Sola/sağa sürüşdürərkən toxunuş əks-əlaqəsi</string>
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_integrations_hint">Aşağıdakı bulud xidmətləri tətbiqin bir hissəsi deyil. Bütün ödənişlər birbaşa bulud xidmətinə gedir, tətbiq tərtibatçısına deyil.</string>

@@ -689,6 +689,7 @@
     <string name="title_advanced_notify_suppress_in_call">Benachrichtigungen bis zur Beendigung eines Telefonats zurückstellen</string>
     <string name="title_advanced_notify_suppress_in_car">Benachrichtigungen zurückstellen, solange Android Auto verbunden ist</string>
     <string name="title_advanced_notify_summary">Nur zusammenfassende Benachrichtigung anzeigen</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Betreff in Benachrichtigungen anzeigen</string>
     <string name="title_advanced_notify_preview">Nachrichtenvorschau in den Benachrichtigungen anzeigen</string>
     <string name="title_advanced_notify_preview_all">Vorschau des gesamten Textes</string>
     <string name="title_advanced_notify_preview_only">Nur Benachrichtigungen mit Vorschautext anzeigen</string>
@@ -792,7 +793,7 @@
     <string name="title_advanced_class_min_difference">Minimaler Unterschied zur nächsten Klasse: %1$s %%</string>
     <string name="title_advanced_show_filtered">Filtersymbol anzeigen, wenn Regeln angewendet wurden</string>
     <string name="title_advanced_haptic_feedback">Haptisches Feedback bei wichtigen Aktionen</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Haptisches Feedback beim Wischen nach links/rechts</string>
+    <string name="title_advanced_haptic_feedback_swipe">Haptisches Feedback beim Wischen nach links/rechts</string>
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_integrations_hint">Die nachfolgenden Cloud-Dienste sind nicht Teil der App. Alle Zahlungen gehen direkt an den Cloud-Dienst und nicht an den App-Entwickler.</string>

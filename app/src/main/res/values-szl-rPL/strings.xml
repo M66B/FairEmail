@@ -714,6 +714,7 @@
     <string name="title_advanced_notify_suppress_in_call">Opóźnij powiadomienia podczas połączenia</string>
     <string name="title_advanced_notify_suppress_in_car">Opóźnij powiadomienia, gdy Android Auto jest połączony</string>
     <string name="title_advanced_notify_summary">Pokaż tylko podsumowanie</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Pokazuj temat w powiadomieniach</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_preview_all">Podgląd całego tekstu</string>
     <string name="title_advanced_notify_preview_only">Pokaż powiadomienia tylko z podglądem tekstu</string>
@@ -816,7 +817,7 @@
     <string name="title_advanced_class_min_difference">Minimalna różnica klasy: %1$s %%</string>
     <string name="title_advanced_show_filtered">Pokaż ikonę filtrowania podczas stosowania reguł</string>
     <string name="title_advanced_haptic_feedback">Wibracyjne informacje zwrotne dotyczące ważnych działań</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Wibracja przy przesuwaniu w lewo/prawo</string>
+    <string name="title_advanced_haptic_feedback_swipe">Wibracja przy przesuwaniu w lewo/prawo</string>
     <string name="title_advanced_language">Język</string>
     <string name="title_advanced_language_system">Systemowy</string>
     <string name="title_advanced_integrations_hint">Poniższe usługi w chmurze nie są częścią aplikacji. Wszelkie płatności zostaną przekazane bezpośrednio do usługi w chmurze, a nie do twórcy aplikacji.</string>

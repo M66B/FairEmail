@@ -684,6 +684,7 @@
     <string name="title_advanced_notify_suppress_in_call">Értesítések késleltetése hívás közben</string>
     <string name="title_advanced_notify_suppress_in_car">Értesítések halasztása amíg az Android Auto csatlakoztatva van</string>
     <string name="title_advanced_notify_summary">Csak összegző értesítések megjelnítése</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Mutatása a tárgyat az értesítésben</string>
     <string name="title_advanced_notify_preview">Üzenet előnézetének megjelnítése az értesítésben</string>
     <string name="title_advanced_notify_preview_all">Összes szöveg előnézete</string>
     <string name="title_advanced_notify_preview_only">Az értesítések csak a szöveg előnézete jelenjen meg</string>
@@ -786,7 +787,7 @@
     <string name="title_advanced_class_min_difference">Legalacsonyabb mappa különbség: %1$s %%</string>
     <string name="title_advanced_show_filtered">Szűrőikon mutatása ha szabályt alkalmaztunk</string>
     <string name="title_advanced_haptic_feedback">Rezgés fontos műveleteknél</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Rezgés jobbra/balra húzáskor</string>
+    <string name="title_advanced_haptic_feedback_swipe">Rezgés jobbra/balra húzáskor</string>
     <string name="title_advanced_language">Nyelv</string>
     <string name="title_advanced_language_system">Rendszer</string>
     <string name="title_advanced_integrations_hint">Az alábbi felhőszolgáltatások nem az alkalmazás részei. Az esetleges kifizetések közvetlenül a felhőszolgáltatónak történnek, nem az alkalmazás fejlesztőjének.</string>

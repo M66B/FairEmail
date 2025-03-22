@@ -688,6 +688,7 @@
     <string name="title_advanced_notify_suppress_in_call">Udsæt notifikationer under opkald</string>
     <string name="title_advanced_notify_suppress_in_car">Udsæt notifikationer, mens Android Auto er tilsluttet</string>
     <string name="title_advanced_notify_summary">Vis kun resuménotifikationer</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Vis emne i notifikationer</string>
     <string name="title_advanced_notify_preview">Beskedforhåndsvisning i notifikationer</string>
     <string name="title_advanced_notify_preview_all">Forhåndsvis al tekst</string>
     <string name="title_advanced_notify_preview_only">Vis kun notifikationer med en forhåndsvisningstekst</string>
@@ -791,7 +792,7 @@
     <string name="title_advanced_class_min_difference">Minimumsklassedifferens: %1$s %%</string>
     <string name="title_advanced_show_filtered">Vis et filterikon, når regler er anvendt</string>
     <string name="title_advanced_haptic_feedback">Haptisk feedback for vigtige handlinger</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Haptisk feedback ved strygning til venstre/højre</string>
+    <string name="title_advanced_haptic_feedback_swipe">Haptisk feedback ved strygning til venstre/højre</string>
     <string name="title_advanced_language">Sprog</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_integrations_hint">Cloud-tjenesterne nedenfor er ikke en del af appen, og evt. betalinger vil gå direkte til tjenesten og ikke til app-udvikleren.</string>

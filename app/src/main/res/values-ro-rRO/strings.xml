@@ -701,6 +701,7 @@
     <string name="title_advanced_notify_suppress_in_call">Amânare notificări în timpul unui apel</string>
     <string name="title_advanced_notify_suppress_in_car">Întârziere notificări în timp ce Android Auto este conectat</string>
     <string name="title_advanced_notify_summary">Arată doar sumarul în notificare</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Arată subiectul în notificări</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_preview_all">Previzualizează tot textul</string>
     <string name="title_advanced_notify_preview_only">Arată notificări doar cu un text de previzualizare</string>
@@ -803,7 +804,7 @@
     <string name="title_advanced_class_min_difference">Diferenţa minimă a clasei: %1$s %%</string>
     <string name="title_advanced_show_filtered">Arată o pictogramă filtru atunci când regulile au fost aplicate</string>
     <string name="title_advanced_haptic_feedback">Feedback tactil cu privire la acțiuni importante</string>
-    <string name="title_advanced_haptic_feedback_swipe" comment="title_advanced_haptic_feedback_swipe&#10;Title for on/off option in the miscellaneous settings tab page">Feedback tactil când glisați spre stânga/dreapta</string>
+    <string name="title_advanced_haptic_feedback_swipe">Feedback tactil când glisați spre stânga/dreapta</string>
     <string name="title_advanced_language">Limba</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_integrations_hint">Serviciile cloud de mai jos nu fac parte din aplicație. Orice plăți vor merge direct la serviciul cloud și nu la dezvoltatorul aplicației.</string>
