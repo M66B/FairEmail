@@ -734,7 +734,7 @@ public class EmailService implements AutoCloseable {
                     ex.getCause() instanceof ConnectException &&
                     ex.getCause().getCause() instanceof ErrnoException &&
                     ((ErrnoException) ex.getCause().getCause()).errno == OsConstants.EACCES)
-                throw new SecurityException("Please check 'Restrict data usage' in the Android app settings", ex);
+                throw new SecurityException("EACCES Please check 'Restrict data usage' in the Android app settings", ex);
 
             boolean ioError = false;
             Throwable ce = ex;
