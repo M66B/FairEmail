@@ -673,6 +673,7 @@
     <string name="title_advanced_notify_suppress_in_call">通话时延迟通知</string>
     <string name="title_advanced_notify_suppress_in_car">已连接 Android Auto 时延迟通知</string>
     <string name="title_advanced_notify_summary">仅显示摘要通知</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">在通知中显示主题</string>
     <string name="title_advanced_notify_preview">在通知中显示邮件预览</string>
     <string name="title_advanced_notify_preview_all">预览所有文本</string>
     <string name="title_advanced_notify_preview_only">仅显示有预览文本的通知</string>

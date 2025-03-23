@@ -678,6 +678,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_notify_suppress_in_call">Görüşme sırasında bildirimleri geciktir</string>
     <string name="title_advanced_notify_suppress_in_car">Android Oto bağlıyken bildirimleri ertele</string>
     <string name="title_advanced_notify_summary">Sadece özet bildirimini göster</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Bildirimlerde konuyu göster</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_notify_preview_all">Tüm metni ön izle</string>
     <string name="title_advanced_notify_preview_only">Bildirimleri sadece özet olarak göster</string>
