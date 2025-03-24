@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2025 by Marcel Bokhorst (M66B)
 */
 
+import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO;
+import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_YES;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -92,6 +95,9 @@ public class AdapterNavSearch extends RecyclerView.Adapter<AdapterNavSearch.View
             ivBadge.setVisibility(View.GONE);
             tvCount.setVisibility(View.GONE);
             tvItem.setText(search.name);
+
+            ivItem.setContentDescription(tvItem.getText());
+            ivItem.setImportantForAccessibility(expanded ? IMPORTANT_FOR_ACCESSIBILITY_NO : IMPORTANT_FOR_ACCESSIBILITY_YES);
 
             tvItemExtra.setVisibility(View.GONE);
             ivExtra.setVisibility(View.GONE);

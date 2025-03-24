@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2025 by Marcel Bokhorst (M66B)
 */
 
+import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO;
+import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_YES;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -117,6 +120,9 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
             tvItem.setTextColor(count == null ? (color == null ? textColorSecondary : color) : colorUnread);
             tvItem.setTypeface(count == null ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
             tvItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
+
+            ivItem.setContentDescription(tvItem.getText());
+            ivItem.setImportantForAccessibility(expanded ? IMPORTANT_FOR_ACCESSIBILITY_NO : IMPORTANT_FOR_ACCESSIBILITY_YES);
 
             tvItemExtra.setText(menu.getSubtitle());
             tvItemExtra.setVisibility(menu.getSubtitle() != null && expanded ? View.VISIBLE : View.GONE);
