@@ -96,6 +96,7 @@ public class AdapterNavSearch extends RecyclerView.Adapter<AdapterNavSearch.View
             tvCount.setVisibility(View.GONE);
             tvItem.setText(search.name);
 
+            ivItem.setTooltipText(tvItem.getText());
             ivItem.setContentDescription(tvItem.getText());
             ivItem.setImportantForAccessibility(expanded ? IMPORTANT_FOR_ACCESSIBILITY_NO : IMPORTANT_FOR_ACCESSIBILITY_YES);
 
