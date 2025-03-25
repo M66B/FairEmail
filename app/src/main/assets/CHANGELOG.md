@@ -6,9 +6,9 @@
 
 ### Next version
 
+* Fixed all reported issues
 * Targeting Android 16 Baklava
-* Added optional TTS button
-* Added TTS notification action
+* Added optional TTS button / notification action
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
