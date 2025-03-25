@@ -6908,8 +6908,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onToggleSeen(final TupleMessageEx message) {
-            properties.setValue("auto_seen", message.id, true);
-
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putBoolean("seen", !message.ui_seen);
@@ -8586,16 +8584,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (next.uid != null &&
                         properties.getValue("expanded", next.id)) {
                     // Mark seen when needed
-                    if (next.accountAutoSeen && !Boolean.TRUE.equals(next.ui_seen) &&
-                            !properties.getValue("auto_seen", next.id)) {
-                        properties.setValue("auto_seen", next.id, true);
-                        EntityOperation.queue(context, next, EntityOperation.SEEN, true);
-                        EntityLog.log(context, EntityLog.Type.Debug3, "Auto seen id=" + next.id);
-                    }
+                    if (next.accountAutoSeen)
+                        if (Boolean.TRUE.equals(next.ui_seen))
+                            properties.setValue("auto_seen", next.id, true);
+                        else if (!properties.getValue("auto_seen", next.id)) {
+                            properties.setValue("auto_seen", next.id, true);
+                            EntityOperation.queue(context, next, EntityOperation.SEEN, true);
+                            EntityLog.log(context, EntityLog.Type.Debug3, "Auto seen id=" + next.id);
+                        }
 
                     // Download body when needed
-                    if (!next.content &&
-                            !properties.getValue("auto_body", next.id)) {
+                    if (next.content)
+                        properties.setValue("auto_body", next.id, true);
+                    else if (!properties.getValue("auto_body", next.id)) {
                         properties.setValue("auto_body", next.id, true);
                         EntityOperation.queue(context, next, EntityOperation.BODY);
                         EntityLog.log(context, EntityLog.Type.Debug3, "Auto body id=" + next.id);
