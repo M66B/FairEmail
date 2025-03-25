@@ -6908,6 +6908,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onToggleSeen(final TupleMessageEx message) {
+            properties.setValue("auto_seen", message.id, true);
+
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putBoolean("seen", !message.ui_seen);
