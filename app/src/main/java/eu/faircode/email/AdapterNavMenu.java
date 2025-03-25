@@ -112,7 +112,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
                     ? View.GONE : View.VISIBLE);
 
             if (count == null)
-                tvItem.setText(menu.getTitle());
+                tvItem.setText(context.getString(menu.getTitle()));
             else
                 tvItem.setText(context.getString(R.string.title_name_count,
                         context.getString(menu.getTitle()), NF.format(count)));
