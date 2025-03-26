@@ -33,6 +33,7 @@ Next version
 * Fixed all reported issues
 * Targeting Android 16 Baklava
 * Added optional TTS button / notification action
+* Improved accessibility
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated Public Suffix List

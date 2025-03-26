@@ -33,6 +33,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Fixed all reported issues
 * Targeting Android 16 Baklava
 * Added optional TTS button / notification action
+* Improved accessibility
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
