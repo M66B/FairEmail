@@ -457,7 +457,7 @@ tasks.register('downloadBraveClean', Download) {
     overwrite true
 }
 
-tasks.register('downloadBraveDebouce', Download) {
+tasks.register('downloadBraveDebounce', Download) {
     src "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/debounce.json"
     dest "src/main/assets"
     overwrite true
