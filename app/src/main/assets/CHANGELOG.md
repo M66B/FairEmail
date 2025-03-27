@@ -28,7 +28,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
-### Next version
+### 1.2269 2025-03-27
 
 * Fixed all reported issues
 * Targeting Android 16 Baklava
