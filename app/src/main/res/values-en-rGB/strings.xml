@@ -28,6 +28,7 @@
     <string name="title_setup_theme_reverse">Swap colours</string>
     <string name="title_setup_theme_you_hint">The Material You colours can be configured in the Android Wallpaper &amp; style settings</string>
     <string name="title_setup_theme_more_colors">I want more colours</string>
+    <string name="title_setup_reset_images">Reset show pictures</string>
     <string name="title_check_outlook_oauth">Your Outlook accounts will continue to work after 16 September 2024</string>
     <string name="title_check_outlook_password">Some of your Outlook/Hotmail/Live accounts will stop working after 16 September 2024</string>
     <string name="title_advanced_hint_remark">        The options are categorised by tab, divided into sections, organised by appearance or use, and searchable.
@@ -66,6 +67,7 @@
     <string name="title_advanced_pull_all">Synchronise all folders</string>
     <string name="title_advanced_swipe_trash_all">When swiping a conversation to the bin, delete all messages</string>
     <string name="title_advanced_notify_action_trash">Delete</string>
+    <string name="title_advanced_notify_action_delete">Remove</string>
     <string name="title_advanced_notifications_background">Use background service to synchronise messages</string>
     <string name="title_advanced_tracking">Attempt to recognise and disable tracking images</string>
     <string name="title_advanced_disconnect_images">Use lists to recognise tracking images</string>

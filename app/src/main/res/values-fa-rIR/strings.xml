@@ -1269,6 +1269,7 @@
     <string name="title_rule_folder">پوشه</string>
     <string name="title_rule_identity">هویت</string>
     <string name="title_rule_template">الگوی پاسخ</string>
+    <string name="title_rule_forward_to">فوروارد به</string>
     <string name="title_rule_resend">ارسال مجدد</string>
     <string name="title_rule_attached">الصاق فایل پیام خام</string>
     <string name="title_rule_cc">پاسخ به نشانی گیرنده رونوشت</string>

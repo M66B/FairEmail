@@ -332,6 +332,11 @@
     </string>
     <string name="title_advanced_hint_remark">        選項以頁籤分類，分為幾個部分，以外觀或用途編組，且可被搜尋。 
     </string>
+    <string name="title_advanced_hint_options">你不需要使用大多數選項，且由於部分選項相當專門，
+        若一開始不太清楚每個功能的運作方式，也是可以理解的。
+        請不要僅因為選項很多或一時之間無法理解全部功能而留下負評。
+        所有選項對不少人來說都非常實用，但對你來說也許暫時還用不上。
+    </string>
     <string name="title_advanced_hint_setup">您可透過輕觸主設定螢幕上的精靈按鈕來設置帳戶。</string>
     <string name="title_advanced_section_main">主要</string>
     <string name="title_advanced_section_synchronize">接收</string>
@@ -364,6 +369,7 @@
     <string name="title_advanced_kept_removed">檢查舊訊息是否已自伺服器移除</string>
     <string name="title_advanced_gmail_thread">用於 Gmail 帳戶的 Gmail 訊息分組式樣</string>
     <string name="title_advanced_subject_threading">按寄件者和主旨分組郵件</string>
+    <string name="title_advanced_outlook_categories">同步 Outlook 類別</string>
     <string name="title_advanced_sync_folders">同步資料夾清單</string>
     <string name="title_advanced_sync_folders_poll">主動同步文件夾清單</string>
     <string name="title_advanced_sync_shared_folders">同步分享的資料夾清單</string>
@@ -379,6 +385,7 @@
     <string name="title_advanced_tune_keep_alive">自動調整 Keep-Alive 間隔</string>
     <string name="title_advanced_blocklist_warning">封鎖清單並不完美，可能會封鎖不只是垃圾郵件！</string>
     <string name="title_advanced_keyboard">預設顯示鍵盤</string>
+    <string name="title_advanced_keyboard_margin">在鍵盤上方加入邊距</string>
     <string name="title_advanced_keyboard_no_fullscreen">阻止全螢幕鍵盤</string>
     <string name="title_advanced_suggest_names">使用姓名與電子郵件地址</string>
     <string name="title_advanced_suggest_local">建議本地儲存聯絡人</string>
@@ -640,6 +647,7 @@
     <string name="title_advanced_reset_importance">移動訊息時重設重要性</string>
     <string name="title_advanced_star_snoozed">自動在延後訊息上添加星號</string>
     <string name="title_advanced_star_unsnoozed">取消延後提醒時自動移除星號</string>
+    <string name="title_advanced_important_unsnoozed">自動將解除延後的訊息標為重要</string>
     <string name="title_advanced_auto_important">自動標記已加星號訊息為重要的</string>
     <string name="title_advanced_cancel_snooze">移動訊息時取消延後提醒</string>
     <string name="title_advanced_auto_block_sender">在舉報垃圾郵件時自動封鎖寄件者</string>
@@ -665,6 +673,7 @@
     <string name="title_advanced_notify_suppress_in_call">來電時即時通知延遲</string>
     <string name="title_advanced_notify_suppress_in_car">已連接 Android Auto 時延遲通知</string>
     <string name="title_advanced_notify_summary">僅顯示通知摘要</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">在通知中顯示主旨</string>
     <string name="title_advanced_notify_preview">在通知中顯示訊息預覽</string>
     <string name="title_advanced_notify_preview_all">預覽所有文字</string>
     <string name="title_advanced_notify_preview_only">顯示僅有文字預覽的通知</string>
@@ -694,6 +703,7 @@
     <string name="title_advanced_notify_screen_on">為新訊息通知而暫時開啟螢幕</string>
     <string name="title_advanced_notifications_background">使用背景服務同步訊息</string>
     <string name="title_advanced_notifications_background_hint">無狀態列通知的背景服務可隨時被 Android 停止</string>
+    <string name="title_advanced_rate_limit">限制新訊息通知音效的播放頻率為每：</string>
     <string name="title_advanced_confirm_links">開啟超連結前確認</string>
     <string name="title_advanced_confirm_files">確認檢視檔案</string>
     <string name="title_advanced_sanitize_links">預設移除追蹤參數</string>
@@ -765,6 +775,7 @@
     <string name="title_advanced_class_min_difference">最小類間差: %1$s %%</string>
     <string name="title_advanced_show_filtered">當應用規則時顯示過濾器圖示</string>
     <string name="title_advanced_haptic_feedback">在重要操作時提供觸覺回饋</string>
+    <string name="title_advanced_haptic_feedback_swipe">左右滑動時提供觸覺回饋</string>
     <string name="title_advanced_language">語言</string>
     <string name="title_advanced_language_system">系統</string>
     <string name="title_advanced_integrations_hint">以下的雲端服務都不是應用程式的一部分。任何付款都將直接支付給雲端服務，而不是支付給應用程式開發者。</string>
@@ -827,6 +838,7 @@
     <string name="title_advanced_sync_kept_hint">這將導致額外的數據傳輸和電量耗損，尤其是裝置上儲存了大量訊息時</string>
     <string name="title_advanced_gmail_thread_hint">此項設定僅會套用至新近接收的訊息而且還可能破壞現有群組</string>
     <string name="title_advanced_subject_threading_hint">僅在過去 %1$d 小時內收到的訊息</string>
+    <string name="title_advanced_outlook_categories_hint">由於 Outlook IMAP 伺服器的限制，Outlook 類別僅能擷取，無法自動重新整理</string>
     <string name="title_advanced_sync_folders_hint">停用此功能會在一定程度上節省數據和電池的用量，但同時也會停用資料夾清單的更新</string>
     <string name="title_advanced_poll_folders_hint">定期同步資料夾清單 (除了在連接帳戶后)</string>
     <string name="title_advanced_check_authentication_hint">這將檢查與電子郵件伺服器所執行的相同的 DKIM、SPF 和 DMARC 驗證的結果</string>
@@ -1210,6 +1222,7 @@
     <string name="title_filters_active">一個或多個篩選器處於活動狀態</string>
     <string name="title_duplicate_in">消息重複 %1$s</string>
     <string name="title_trashed_from">來自 %1$s，已放在垃圾桶的信息</string>
+    <string name="title_sent_to">已傳送訊息至 %1$s</string>
     <string name="title_subject_reply">回覆: %1$s</string>
     <string name="title_subject_forward">轉寄: %1$s</string>
     <string name="title_subject_reply_alt">回覆: %1$s</string>
@@ -1261,6 +1274,7 @@
     <string name="title_raw_send_message">訊息</string>
     <string name="title_raw_send_thread">會話</string>
     <string name="title_manage_keywords">管理關鍵字</string>
+    <string name="title_manage_keywords_pop">使用 POP3 時，無法在電子郵件伺服器上儲存關鍵字！</string>
     <string name="title_manage_labels">管理 Gmail 標籤</string>
     <string name="title_add_keyword">新增關鍵字</string>
     <string name="title_show_inline">顯示行內附件</string>
@@ -2290,7 +2304,7 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
         <item>僅 PGP 加密</item>
         <item>PGP 簽名+加密</item>
         <item>僅 S/MIME 簽名</item>
-        <item>S/MIME encrypt-only</item>
+        <item>S/MIME 僅加密</item>
         <item>S/MIME 簽名+加密</item>
     </string-array>
     <string-array name="sizeNames">

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_changelog">Izmaiņu žurnāls</string>
+    <string name="app_download">Lejupielādēts no: %1$s</string>
+    <string name="channel_warning">Brīdinājumi</string>
+    <string name="channel_error">Kļūdas</string>
+    <string name="page_folders">Mapes</string>
+    <string name="shortcut_refresh">Atsvaidzināt</string>
+    <string name="shortcut_setup">Iestatījumi</string>
+    <string name="menu_setup">Iestatījumi</string>
+    <string name="menu_faq">Atbalsts</string>
+    <string name="menu_translate">Palīdziet iztulkot</string>
+    <string name="menu_about">Par lietotni</string>
+    <string name="title_agree">Es piekrītu</string>
+    <string name="title_disagree">Es nepiekrītu</string>
+    <string name="title_version">%1$s versija</string>
+    <string name="title_list_accounts">Konti</string>
+    <string name="title_list_identities">Identitātes</string>
+    <string name="title_new_folder">Jauna mape</string>
+    <string name="title_setup_accounts">Konti</string>
+    <string name="title_setup_identities">Identitātes</string>
+    <string name="title_setup_imap">IMAP konts</string>
+    <string name="title_setup_pop3">POP3 konts</string>
+    <string name="title_setup_grant">Piešķirt</string>
+    <string name="title_setup_error">Kļūda</string>
+    <string name="title_setup_password">Parole</string>
+    <string name="title_setup_biometrics_enable">Iespējot</string>
+    <string name="title_setup_biometrics_disable">Atspējot</string>
+    <string name="title_setup_reset_files">Skatīt failus</string>
+    <string name="title_setup_reset_images">Rādīt attēlus</string>
+    <string name="title_advanced_section_synchronize">Saņemt</string>
+    <string name="title_advanced_section_send">Sūtīt</string>
+    <string name="title_advanced_section_encryption">Šifrēšana</string>
+    <string name="title_advanced_section_notifications">Paziņojumi</string>
+    <string name="title_advanced_pin">PIN kods</string>
+    <string name="title_advanced_language">Valoda</string>
+    <string name="title_advanced_app">Lietotnes iestatījumi</string>
+    <string name="title_account_category">Kategorija</string>
+    <string name="title_color">Krāsa</string>
+    <string name="title_encryption">Šifrēšana</string>
+    <!-- Thunderbird -->
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <!-- https://www.bouncycastle.org/specifications.html -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
+    <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+</resources>

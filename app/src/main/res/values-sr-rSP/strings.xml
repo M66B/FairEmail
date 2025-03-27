@@ -408,6 +408,7 @@
     <string name="title_delete_channel">Избриши канал за обавештавање</string>
     <string name="title_insert_contact">Додај контакт</string>
     <string name="title_edit_contact">Измени контакт</string>
+    <string name="title_contact_email">Електронска пошта</string>
     <string name="title_contact_name">Име</string>
     <string name="title_create_sub_folder">Направи подфасциклу</string>
     <string name="title_empty_trash_ask">Заувек обрисати све поруке из отпада?</string>

@@ -50,6 +50,7 @@
     <string name="title_block_sender">Blloko dërguesin</string>
     <string name="title_notification_sending">Duke dërguar mesazhet</string>
     <string name="title_factor_minutes">%1$d minuta</string>
+    <string name="menu_setup">Rregullimet</string>
     <string name="menu_about">Rreth</string>
     <string name="menu_rate">Vlerësoni këtë aplikacion</string>
     <string name="title_welcome">Mirësevini</string>
@@ -59,6 +60,7 @@
     <string name="title_list_identities">Identitet</string>
     <string name="title_edit_account">Ndrysho llogarinë</string>
     <string name="title_edit_identity">Ndrysho identitet</string>
+    <string name="title_setup">Rregullimet</string>
     <string name="title_setup_help">Ndihmë</string>
     <string name="title_setup_accounts">Llogaritë</string>
     <string name="title_setup_identities">Identitet</string>
@@ -124,26 +126,34 @@ Në rastin e një llogarie korporate, arsimore etj., ju lutemi kontaktoni admini
     <string name="title_identity_name">Emri juaj</string>
     <string name="title_password">Fjalëkalimi</string>
     <string name="title_no_password">Fjalëkalimi mungon</string>
+    <string name="title_synchronize_enabled">Sinkronizoni</string>
+    <string name="title_contact_email">Email</string>
     <string name="title_folder_all">Arkiva</string>
     <string name="title_raw_send_message">Mesazh</string>
     <string name="title_raw_send_thread">Biseda</string>
     <string name="title_move">Zhvendos</string>
     <string name="title_archive">Arkiva</string>
     <string name="title_reply">Përgjigju</string>
+    <string name="title_compose">Kompozo</string>
     <string name="title_language">Gjuha:</string>
     <string name="title_send">Dërgo</string>
     <string name="title_style_list">Lista</string>
     <string name="title_filter_seen">Lexo</string>
     <string name="title_rule_move">Zhvendos</string>
+    <string name="title_legend_section_synchronize">Sinkronizoni</string>
+    <string name="title_legend_section_folders">Kartelat</string>
     <string name="title_legend_section_messages">Mesazhet</string>
+    <string name="title_legend_section_compose">Kompozo</string>
     <string name="title_legend_archive">Arkiva</string>
     <string name="title_legend_thread">Biseda</string>
     <string name="title_legend_a">Arkiva</string>
+    <string name="title_legend_c">Kompozo</string>
     <string name="title_legend_r">Përgjigju</string>
     <string name="title_enable">Aktivizo</string>
     <string name="title_disable">Çaktivizo</string>
     <!-- Thunderbird -->
     <string name="title_accessibility_accounts">Llogaritë</string>
+    <string name="title_accessibility_folders">Kartelat</string>
     <string name="title_accessibility_seen">Lexo</string>
     <string-array name="startupNames">
         <item>Unified inbox</item>

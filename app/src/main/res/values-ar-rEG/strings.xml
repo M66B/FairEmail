@@ -477,6 +477,7 @@
     <string name="title_share">مشاركة</string>
     <string name="title_print">طباعة</string>
     <string name="title_show_headers">عرض العنوان الرأسي</string>
+    <string name="title_raw_send_message">رسالة</string>
     <string name="title_raw_send_thread">المحادثة</string>
     <string name="title_manage_keywords">إدارة الكلمات المفتاحية</string>
     <string name="title_add_keyword">إضافة كلمة مفتاحية</string>

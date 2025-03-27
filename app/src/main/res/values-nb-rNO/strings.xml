@@ -338,7 +338,7 @@
     <string name="title_advanced_caption_general">Generelt</string>
     <string name="title_advanced_caption_list">Liste</string>
     <string name="title_advanced_caption_conversation">Samtale</string>
-    <string name="title_advanced_caption_message">Melding</string>
+    <string name="title_advanced_caption_message">Meldinger</string>
     <string name="title_advanced_caption_message_header">Meldingstittel</string>
     <string name="title_advanced_caption_message_body">Meldingstekst</string>
     <string name="title_advanced_startup">Vis på startskjermen</string>
@@ -666,7 +666,7 @@
     <string name="title_delete_channel">Slett varselkanal</string>
     <string name="title_insert_contact">Legg til kontakt</string>
     <string name="title_edit_contact">Rediger kontakt</string>
-    <string name="title_contact_email">E-post</string>
+    <string name="title_contact_email">Epost</string>
     <string name="title_contact_name">Navn</string>
     <string name="title_create_sub_folder">Lag undermappe</string>
     <string name="title_empty_trash_ask">Slette alle forkastede meldinger permanent?</string>
@@ -761,7 +761,7 @@
     <string name="title_print_header">Inkluder header-informasjon ved utskrift</string>
     <string name="title_show_headers">Vis topptekster</string>
     <string name="title_raw_send">Send som vedlegg</string>
-    <string name="title_raw_send_message">Melding</string>
+    <string name="title_raw_send_message">Meldinger</string>
     <string name="title_raw_send_thread">Samtale</string>
     <string name="title_manage_keywords">Administrer søkeord</string>
     <string name="title_manage_labels">Administrer Gmail-etiketter</string>
