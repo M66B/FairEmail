@@ -4196,8 +4196,14 @@ public class HtmlHelper {
         if (!(edit instanceof Spannable))
             return;
 
+        clearComposingText((Spannable) edit);
+    }
+
+    static void clearComposingText(Spannable text) {
+        if (text == null)
+            return;
+
         // Copied from BaseInputConnection.removeComposingSpans
-        Spannable text = (Spannable) edit;
         Object[] sps = text.getSpans(0, text.length(), Object.class);
         if (sps != null) {
             for (int i = sps.length - 1; i >= 0; i--) {
@@ -4212,12 +4218,6 @@ public class HtmlHelper {
                 }
             }
         }
-    }
-
-    static void clearComposingText(Spannable text) {
-        if (text == null)
-            return;
-        BaseInputConnection.removeComposingSpans(text);
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {
