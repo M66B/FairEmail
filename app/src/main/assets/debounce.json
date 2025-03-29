@@ -7,6 +7,7 @@
       "*://track.flexlinks.com/a.ashx?*",
       "*://www.wordseed.com/go/*",
       "*://visit.ws/visit/*",
+      "*://laylo.co/e/*",
       "*://llo.to/e/*",
       "*://g-o-media.digidip.net/visit?*",
       "*://www.dpbolvw.net/click-*",
@@ -480,6 +481,15 @@
     "prepend_scheme": "http",
     "action": "regex-path",
     "param": "^/[23]m?/([^/]+)/.*$"
+  },
+  {
+    "include": [
+      "*://*.awstrack.me/L0/*"
+    ],
+    "exclude": [
+    ],
+    "action": "regex-path",
+    "param": "^/L0/([^/]+)/.*$"
   },
   {
     "include": [
