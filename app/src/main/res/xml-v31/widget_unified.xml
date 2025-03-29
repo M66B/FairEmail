@@ -4,6 +4,8 @@
     android:initialLayout="@layout/widget_unified"
     android:previewImage="@drawable/widget_preview_unified"
     android:resizeMode="horizontal|vertical"
+    android:minWidth="110dp"
+    android:minHeight="110dp"
     android:targetCellWidth="2"
     android:targetCellHeight="2"
     android:updatePeriodMillis="0"
