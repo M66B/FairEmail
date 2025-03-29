@@ -1,29 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_changelog">Izmaiņu žurnāls</string>
+    <string name="app_welcome">FairEmail — atvērtā pirmkoda e-pasta lietotne, kas koncentrējas uz privātumu un drošību. Šī iemesla dēļ dažas funkcijas var darboties savādāk, nekā esat pieraduši.</string>
+    <string name="app_updated">Pēdējo reizi atjaunināta: %1$s</string>
     <string name="app_download">Lejupielādēts no: %1$s</string>
     <string name="channel_warning">Brīdinājumi</string>
     <string name="channel_error">Kļūdas</string>
+    <plurals name="page_message">
+        <item quantity="zero">Ziņojumi</item>
+        <item quantity="one">Ziņojums</item>
+        <item quantity="other">Ziņojumi</item>
+    </plurals>
     <string name="page_folders">Mapes</string>
     <string name="shortcut_refresh">Atsvaidzināt</string>
     <string name="shortcut_setup">Iestatījumi</string>
+    <plurals name="title_notification_unseen">
+        <item quantity="zero">%1$d jaunì ziņojumi</item>
+        <item quantity="one">%1$d jauns ziņojums</item>
+        <item quantity="other">%1$d jauni ziņojumi</item>
+    </plurals>
+    <plurals name="title_tile_unseen">
+        <item quantity="zero">%1$d jauni</item>
+        <item quantity="one">%1$d jauns</item>
+        <item quantity="other">%1$d jauni</item>
+    </plurals>
+    <plurals name="title_attachments">
+        <item quantity="zero">%1$d pielikumi</item>
+        <item quantity="one">Viens pielikums</item>
+        <item quantity="other">%1$d pielikumi</item>
+    </plurals>
+    <string name="title_block">Bloķēt %1$s</string>
+    <string name="title_block_sender">Bloķēt sūtītāju</string>
+    <string name="title_block_sender_domain">Bloķēt domēnu \'%1$s\'</string>
+    <string name="title_blocked_senders">Bloķētie sūtītāji</string>
     <string name="menu_setup">Iestatījumi</string>
     <string name="menu_faq">Atbalsts</string>
     <string name="menu_translate">Palīdziet iztulkot</string>
     <string name="menu_about">Par lietotni</string>
+    <string name="menu_pro">Pro funkcijas</string>
     <string name="title_agree">Es piekrītu</string>
     <string name="title_disagree">Es nepiekrītu</string>
     <string name="title_version">%1$s versija</string>
     <string name="title_list_accounts">Konti</string>
     <string name="title_list_identities">Identitātes</string>
     <string name="title_new_folder">Jauna mape</string>
+    <string name="title_edit_folder">Rediģēt mapi</string>
+    <string name="title_setup">Iestatījumi</string>
+    <string name="title_setup_help">Palīdzība</string>
+    <string name="title_setup_wizard_new">Man vajag jaunu e-pastu</string>
     <string name="title_setup_accounts">Konti</string>
     <string name="title_setup_identities">Identitātes</string>
     <string name="title_setup_imap">IMAP konts</string>
     <string name="title_setup_pop3">POP3 konts</string>
     <string name="title_setup_grant">Piešķirt</string>
+    <string name="title_setup_identity_what">Kas ir identitāte?</string>
     <string name="title_setup_error">Kļūda</string>
+    <string name="title_setup_pop">Lietot POP3 (nerekomendējam)</string>
+    <string name="title_setup_export">Eksportēt iestatījumus</string>
+    <string name="title_setup_import">Importēt iestatījumus</string>
     <string name="title_setup_password">Parole</string>
+    <string name="title_setup_password_different">Paroles nesakrīt</string>
+    <string name="title_importing_account">Konts %1$s</string>
+    <string name="title_importing_identity">Identitāte %1$s</string>
+    <string name="title_setup_reorder_folders">Kārtot mapes</string>
     <string name="title_setup_biometrics_enable">Iespējot</string>
     <string name="title_setup_biometrics_disable">Atspējot</string>
     <string name="title_setup_reset_files">Skatīt failus</string>
@@ -32,17 +71,121 @@
     <string name="title_advanced_section_send">Sūtīt</string>
     <string name="title_advanced_section_encryption">Šifrēšana</string>
     <string name="title_advanced_section_notifications">Paziņojumi</string>
+    <string name="title_advanced_when">Kad</string>
+    <string name="title_advanced_unseen">Visì nelasītie ziņojumi</string>
+    <string name="title_advanced_flagged">Visi atzīmētie ziņojumi</string>
+    <string name="title_advanced_pdf_preview">Rādīt PDF sīktēlus</string>
+    <string name="title_advanced_video_preview">Rādīt video sīktēlus</string>
+    <string name="title_advanced_notify_action_delete">Dzēst</string>
+    <string name="title_advanced_notify_action_move">Pārvietot</string>
+    <string name="title_advanced_notify_action_reply">Atbildēt</string>
+    <string name="title_advanced_notify_action_hide">Slēpt</string>
     <string name="title_advanced_pin">PIN kods</string>
+    <string name="title_advanced_encrypt_algo">Šifrēšanas algoritms</string>
     <string name="title_advanced_language">Valoda</string>
     <string name="title_advanced_app">Lietotnes iestatījumi</string>
+    <string name="title_create_folder">Izveidot mapi</string>
+    <string name="title_create_folder_name">Mapes nosaukums</string>
+    <string name="title_advanced_swipe_sensitivity">Pa kreisi/pa labi vilkšanas jutīgums</string>
+    <string name="title_identity_name">Jūsu vārds</string>
+    <string name="title_identity_email">Jūsu e-pasta adrese</string>
+    <string name="title_account_name">Konta nosaukums</string>
     <string name="title_account_category">Kategorija</string>
     <string name="title_color">Krāsa</string>
+    <string name="title_avatar">Attēls</string>
+    <string name="title_domain">Domēna vārds</string>
     <string name="title_encryption">Šifrēšana</string>
+    <string name="title_delete_account">Dzēst kontu</string>
+    <string name="title_synchronize_subfolders">Apakšmapes</string>
+    <string name="title_synchronize_enabled">Sinhronizēt</string>
+    <string name="title_empty_trash">Iztukšot miskasti</string>
+    <string name="title_edit_color">Mainīt krāsu</string>
+    <string name="title_contact_group">Grupa</string>
+    <string name="title_create_sub_folder">Izveidot apakšmapi</string>
+    <string name="title_folder_name">Mapes nosaukums</string>
+    <string name="title_edit_account_name">Mainīt konta nosaukumu</string>
+    <string name="title_edit_account_color">Mainīt konta krāsu</string>
+    <string name="title_hide_folder">Slēpt mapi</string>
+    <string name="title_hide_seen_folder">Slēpt mapi, ja visi ziņojumi izlasīti</string>
+    <string name="title_navigation_folder">Rādīt navigācijas izvēlnē</string>
+    <string name="title_navigation_folder_hide">Slēpt navigācijas izvēlnē</string>
+    <string name="title_synchronize_folder">Sinhronizēt (saņemt ziņojumus)</string>
+    <string name="title_months">mēnešus</string>
+    <string name="title_folder_inbox">Ienākušie</string>
+    <string name="title_folder_outbox">Izejošie</string>
+    <string name="title_folder_all">Arhīvs</string>
+    <string name="title_folder_drafts">Melnraksti</string>
+    <string name="title_folder_trash">Miskaste</string>
+    <string name="title_folder_sent">Nosūtītie</string>
+    <string name="title_folder_user_only">Tikai lietotāju mapes</string>
+    <string name="title_no_folders">Nav mapju</string>
+    <string name="title_duplicate_in">Dublēt/Kopēt ziņojumu %1$s mapē</string>
+    <string name="title_seen_unseen">Atzīmēt kā lasīts/nelasīts</string>
+    <string name="title_hide">Slēpt</string>
+    <string name="title_unhide">Rādīt</string>
+    <string name="title_button_search_similar">Meklēt līdzīgus ziņojumus</string>
+    <string name="title_copy_to">Kopēt uz &#8230;</string>
+    <string name="title_delete">Dzēst</string>
+    <string name="title_move">Pārvietot</string>
+    <string name="title_copy_btn">Kopēt</string>
+    <string name="title_keywords_btn">Atslēgvārdi</string>
+    <string name="title_move_to">Pārvietot uz &#8230;</string>
+    <string name="title_move_to_folder">Pārvietot uz &#8230;</string>
+    <string name="title_move_to_account">Pārvietot uz %1$s &#8230;</string>
+    <string name="title_delete_attachments">Dzēst pielikumus</string>
+    <string name="title_delete_attachments_remark">        Lai dzëstu pielikumus, ir jāizveido jauns ziņojums un vecais, oriģinālais, jāizdzēš.
+        Tā kā šī darbība var neizdoties, vecais, oriģinālais, ziņojums tiks ievietots miskastē.
+    </string>
+    <string name="title_reply">Atbildēt</string>
+    <string name="title_reply_to_sender">Atbildēt sūtītājam</string>
+    <string name="title_reply_to_all">Atbildēt visiem</string>
+    <string name="title_move_undo">Pārvieto uz %1$s (%2$d)</string>
+    <string name="title_no_folder">Mape neeksistē</string>
+    <string name="title_download_message">Lejupielādē &#8230;</string>
+    <string name="title_submitter">Nosūtīja:</string>
+    <string name="title_from">No:</string>
+    <string name="title_to">Kam:</string>
+    <string name="title_size">Izmērs:</string>
+    <string name="title_language">Valoda:</string>
+    <string name="title_subject">Temats:</string>
+    <string name="title_body_hint">Jūsu ziņojums</string>
+    <string name="title_send_auto_archive">Arhivēt ziņojumu, kad nosūta atbildi</string>
+    <string name="title_style_protect_size">Teksts ir pārāk garš</string>
+    <string name="title_edit_plain_text">Rediģēt kā vienkāršu tekstu</string>
+    <string name="title_size_reminder">Ziņojums (%1$s) pārsniedz servera ierobežojumu (%2$s)</string>
+    <string name="title_charset">Kodējums</string>
+    <string name="title_filter_trash">Miskastē</string>
+    <string name="title_answer_hide">Slēpt izvēlnēs</string>
+    <string name="title_rule_hide">Slēpt</string>
+    <string name="title_legend_section_folders">Mapes</string>
+    <string name="title_legend_hide">Slēpt saturu</string>
+    <string name="title_legend_folder_type">Mapes tips</string>
+    <string name="title_legend_enter">Atvērt</string>
+    <string name="title_legend_a">Arhivēt</string>
+    <string name="title_show">Rādīt</string>
+    <string name="title_next_week">Nākamnedēļ šajā pašā laikā</string>
+    <string name="title_pro_hide">Slēpt nelielu ziņojumu uz %1$d nedēļām</string>
+    <string name="title_widget_folder">Mape</string>
     <!-- Thunderbird -->
+    <plurals name="title_accessibility_messages">
+        <item quantity="zero">%1$d ziņojumi</item>
+        <item quantity="one">%1$d ziņojums</item>
+        <item quantity="other">%1$d ziņojumi</item>
+    </plurals>
+    <string name="title_accessibility_folders">Mapes</string>
+    <string name="title_accessibility_forwarded">Pārsūtīts</string>
+    <string name="title_accessibility_hide_addresses">Slēpt adreses</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="contactGroupTypes">
+        <item>Any</item>
+        <item>Home</item>
+        <item>Darbs</item>
+        <item>Cits</item>
+        <item>Mobile</item>
+    </string-array>
 </resources>
