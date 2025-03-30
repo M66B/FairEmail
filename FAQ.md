@@ -1100,7 +1100,8 @@ If you use both PGP and S/MIME encryption for the same email address, it might b
 so you can change the encryption method by selecting one of the two identities.
 You can long press an identity in the list of identities (via manual setup in the main setup screen) to copy an identity.
 
-To allow different private keys for the same email address, FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
+To allow different private keys for the same email address, for example, a key for signing and a key for encryption,
+FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 
 Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the encryption settings (PEM or DER format).
 
