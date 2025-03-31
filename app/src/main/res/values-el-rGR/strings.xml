@@ -342,6 +342,11 @@
     </string>
     <string name="title_advanced_hint_remark">        Οι επιλογές κατηγοριοποιούνται ανά καρτέλα, χωρίζονται σε τμήματα, οργανώνονται με κριτήριο την εμφάνιση ή τη χρήση, και υποστηρίζουν λειτουργία αναζήτησης.
     </string>
+    <string name="title_advanced_hint_options">        Δεν θα χρειαστεί να αλλάξετε τις περισσότερες επιλογές, καθότι ορισμένες είναι πολύ συγκεκριμένες.
+        επομένως, δεν είναι παράξενο αν η λειτουργία όλων των επιλογών δεν καθίσταται αμέσως εμφανής.
+        Παρακαλούμε, μην αφήνετε κακές κριτικές απλώς και μόνο επειδή οι επιλογές είναι πολλές ή η λειτουργία ορισμένων δεν έχει γίνει αμέσως κατανοητή.
+        Όλες οι επιλογές έχουν τη χρησιμότητά τους για κάποιους χρήστες, αλλά ίσως (όχι ακόμη) για εσάς.
+    </string>
     <string name="title_advanced_hint_setup">Μπορείτε να ρυθμίσετε έναν λογαριασμό πατώντας το κουμπί του Οδηγού στην κύρια οθόνη των ρυθμίσεων.</string>
     <string name="title_advanced_section_main">Κύριες</string>
     <string name="title_advanced_section_synchronize">Λήψη</string>
@@ -678,6 +683,7 @@
     <string name="title_advanced_notify_suppress_in_call">Αναβολή ειδοποιήσεων κατά τη διάρκεια μιας κλήσης</string>
     <string name="title_advanced_notify_suppress_in_car">Αναβολή ειδοποιήσεων ενόσω το Android Auto είναι συνδεδεμένο</string>
     <string name="title_advanced_notify_summary">Προβολή μόνο μιας συνοπτικής ειδοποίησης</string>
+    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Προβολή θέματος στις ειδοποιήσεις</string>
     <string name="title_advanced_notify_preview">Προβολή μιας προεπισκόπησης του μηνύματος στις ειδοποιήσεις</string>
     <string name="title_advanced_notify_preview_all">Προεπισκόπηση ολόκληρου του κειμένου</string>
     <string name="title_advanced_notify_preview_only">Προβολή ειδοποιήσεων μόνο με ένα κείμενο προεπισκόπησης</string>
@@ -779,6 +785,7 @@
     <string name="title_advanced_class_min_difference">Ελάχιστη διαφορά για την επόμενη τάξη: %1$s%%</string>
     <string name="title_advanced_show_filtered">Προβολή ενός εικονιδίου φίλτρου εφόσον έχουν εφαρμοστεί κανόνες</string>
     <string name="title_advanced_haptic_feedback">Απτική ανάδραση για σημαντικές ενέργειες</string>
+    <string name="title_advanced_haptic_feedback_swipe">Απτική ανατροφοδότηση κατά τη σάρωση αριστερά/δεξιά</string>
     <string name="title_advanced_language">Γλώσσα</string>
     <string name="title_advanced_language_system">Σύστημα</string>
     <string name="title_advanced_integrations_hint">Οι παρακάτω υπηρεσίες νέφους (cloud) δεν αποτελούν μέρος της εφαρμογής. Οποιεσδήποτε πληρωμές θα πιστωθούν απευθείας στην υπηρεσία του νέφους και όχι στον προγραμματιστή της εφαρμογής.</string>
