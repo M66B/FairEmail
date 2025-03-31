@@ -752,6 +752,9 @@ class Core {
                                         "title_op_title_" + op.name,
                                         "string",
                                         context.getPackageName());
+                                if (EntityOperation.ADD.equals(op.name) &&
+                                        (!EntityFolder.SENT.equals(folder.name) || Helper.isPlayStoreInstall()))
+                                    resid = 0;
                                 String title = (resid == 0 ? null : context.getString(resid));
                                 if (title != null) {
                                     NotificationCompat.Builder builder =
