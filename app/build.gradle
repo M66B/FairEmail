@@ -22,6 +22,7 @@ android {
     namespace 'eu.faircode.email'
 
     // https://apilevels.com/
+    // https://developer.android.com/studio/releases#api-level-support
     defaultConfig {
         applicationId "eu.faircode.email"
         compileSdk 36
