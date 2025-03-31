@@ -28,6 +28,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
+### 1.2270 2025-03-31
+
+* Fixed widgets for some Android variants
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2269 2025-03-27
 
 * Fixed all reported issues
@@ -39,7 +46,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
-### 1.2268 2025-03-14
+### 1.2268 2025-03-14 *
 
 * Fixed delayed marking read
 * Small improvements and minor bug fixes
