@@ -5746,7 +5746,7 @@ class Core {
                         .setContentTitle(title)
                         .setContentText(Log.formatThrowable(ex, false))
                         .setContentIntent(pi)
-                        .setAutoCancel(false)
+                        .setAutoCancel(message != null)
                         .setShowWhen(true)
                         .setPriority(NotificationCompat.PRIORITY_MAX)
                         .setOnlyAlertOnce(true)
