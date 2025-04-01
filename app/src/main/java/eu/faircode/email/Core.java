@@ -758,7 +758,7 @@ class Core {
                                 String title = (resid == 0 ? null : context.getString(resid));
                                 if (title != null) {
                                     NotificationCompat.Builder builder =
-                                            getNotificationError(context, "warning", account, message.id, new Throwable(title, ex));
+                                            getNotificationError(context, "warning", account, folder, message, new Throwable(title, ex));
                                     if (NotificationHelper.areNotificationsEnabled(nm))
                                         nm.notify(op.name + ":" + op.message,
                                                 NotificationHelper.NOTIFICATION_TAGGED,
@@ -5705,25 +5705,39 @@ class Core {
     // MailConnectException
     // - on connectivity problems when connecting to store
 
-    static NotificationCompat.Builder getNotificationError(Context context, String channel, EntityAccount account, long id, Throwable ex) {
+    static NotificationCompat.Builder getNotificationError(
+            Context context, String channel, EntityAccount account, EntityFolder folder, EntityMessage message, Throwable ex) {
         String title = context.getString(R.string.title_notification_failed, account.name);
-        String message = Log.formatThrowable(ex, "\n", false);
+        String msg = Log.formatThrowable(ex, "\n", false);
 
         // Build pending intent
-        Intent intent = new Intent(context, ActivityError.class);
-        intent.setAction(channel + ":" + account.id + ":" + id);
-        intent.putExtra("title", title);
-        intent.putExtra("message", message);
-        intent.putExtra("provider", account.provider);
-        intent.putExtra("account", account.id);
-        intent.putExtra("protocol", account.protocol);
-        intent.putExtra("auth_type", account.auth_type);
-        intent.putExtra("host", account.host);
-        intent.putExtra("address", account.user);
-        intent.putExtra("faq", 22);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pi = PendingIntentCompat.getActivity(
-                context, ActivityError.PI_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pi;
+        if (message == null) {
+            Intent intent = new Intent(context, ActivityError.class);
+            intent.setAction(channel + ":" + account.id);
+            intent.putExtra("title", title);
+            intent.putExtra("message", msg);
+            intent.putExtra("provider", account.provider);
+            intent.putExtra("account", account.id);
+            intent.putExtra("protocol", account.protocol);
+            intent.putExtra("auth_type", account.auth_type);
+            intent.putExtra("host", account.host);
+            intent.putExtra("address", account.user);
+            intent.putExtra("faq", 22);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            pi = PendingIntentCompat.getActivity(
+                    context, ActivityError.PI_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        } else {
+            Intent thread = new Intent(context, ActivityView.class);
+            thread.setAction("thread:" + message.id);
+            thread.putExtra("account", message.account);
+            thread.putExtra("folder", message.folder);
+            thread.putExtra("type", folder.type);
+            thread.putExtra("thread", message.thread);
+            thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            pi = PendingIntentCompat.getActivity(
+                    context, ActivityView.PI_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
+        }
 
         // Build notification
         NotificationCompat.Builder builder =
@@ -5738,7 +5752,7 @@ class Core {
                         .setOnlyAlertOnce(true)
                         .setCategory(NotificationCompat.CATEGORY_ERROR)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET)
-                        .setStyle(new NotificationCompat.BigTextStyle().bigText(message));
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText(msg));
 
         return builder;
     }

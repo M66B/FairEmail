@@ -1798,7 +1798,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     if (NotificationHelper.areNotificationsEnabled(nm))
                                         nm.notify("receive:" + account.id,
                                                 NotificationHelper.NOTIFICATION_TAGGED,
-                                                Core.getNotificationError(this, "error", account, 0, ex)
+                                                Core.getNotificationError(this, "error", account, null, null, ex)
                                                         .build());
                                 } catch (Throwable ex1) {
                                     Log.w(ex1);
@@ -2693,7 +2693,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 if (NotificationHelper.areNotificationsEnabled(nm))
                                     nm.notify("receive:" + account.id,
                                             NotificationHelper.NOTIFICATION_TAGGED,
-                                            Core.getNotificationError(this, "warning", account, 0, warning)
+                                            Core.getNotificationError(this, "warning", account, null, null, warning)
                                                     .build());
                             } catch (Throwable ex1) {
                                 Log.w(ex1);
