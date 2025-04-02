@@ -2360,41 +2360,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuRulesFolder(Bundle args) {
-        int protocol = args.getInt("protocol");
-        if (protocol == EntityAccount.TYPE_POP) {
-            new SimpleTask<EntityFolder>() {
-                @Override
-                protected EntityFolder onExecute(Context context, Bundle args) throws Throwable {
-                    long account = args.getLong("account");
-                    DB db = DB.getInstance(context);
-                    return db.folder().getFolderByType(account, EntityFolder.INBOX);
-                }
+        args.putInt("icon", R.drawable.twotone_filter_alt_24);
+        args.putString("title", getString(R.string.title_select));
+        args.putLongArray("disabled", new long[0]);
 
-                @Override
-                protected void onExecuted(Bundle args, EntityFolder folder) {
-                    if (folder == null)
-                        return;
-
-                    args.putLong("folder", folder.id);
-                    args.putString("type", folder.type);
-                    onMenuRules(args);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(getSupportFragmentManager(), ex);
-                }
-            }.execute(this, args, "rules:pop");
-        } else {
-            args.putInt("icon", R.drawable.twotone_filter_alt_24);
-            args.putString("title", getString(R.string.title_select));
-            args.putLongArray("disabled", new long[0]);
-
-            FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
-            fragment.setArguments(args);
-            fragment.setTargetActivity(this, REQUEST_RULES_FOLDER);
-            fragment.show(getSupportFragmentManager(), "rules:folder");
-        }
+        FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
+        fragment.setArguments(args);
+        fragment.setTargetActivity(this, REQUEST_RULES_FOLDER);
+        fragment.show(getSupportFragmentManager(), "rules:folder");
     }
 
     private void onMenuRules(Bundle args) {
