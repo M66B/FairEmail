@@ -78,6 +78,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private int protocol = -1;
+    private String type = null;
     private String sort;
     private String search = null;
     private List<TupleRuleEx> all = new ArrayList<>();
@@ -336,8 +337,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     new Intent(ActivityView.ACTION_EDIT_RULE)
                             .putExtra("id", rule.id)
                             .putExtra("account", rule.account)
+                            .putExtra("protocol", protocol)
                             .putExtra("folder", rule.folder)
-                            .putExtra("protocol", protocol));
+                            .putExtra("type", type));
         }
 
         @Override
@@ -678,8 +680,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         });
     }
 
-    public void set(int protocol, String sort, @NonNull List<TupleRuleEx> rules) {
+    public void set(int protocol, String type, String sort, @NonNull List<TupleRuleEx> rules) {
         this.protocol = protocol;
+        this.type = type;
         this.sort = sort;
         Log.i("Set protocol=" + protocol + " rules=" + rules.size() + " sort=" + sort + " search=" + search);
 
@@ -763,14 +766,14 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
     public void setSort(String sort) {
         this.sort = sort;
-        set(protocol, sort, all);
+        set(protocol, type, sort, all);
         notifyDataSetChanged();
     }
 
     public void search(String query) {
         Log.i("Rules query=" + query);
         search = query;
-        set(protocol, sort, all);
+        set(protocol, type, sort, all);
     }
 
     private static class DiffCallback extends DiffUtil.Callback {

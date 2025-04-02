@@ -222,6 +222,7 @@ public class FragmentRules extends FragmentBase {
                 args.putLong("account", account);
                 args.putInt("protocol", protocol);
                 args.putLong("folder", folder);
+                args.putString("type", type);
 
                 FragmentRule fragment = new FragmentRule();
                 fragment.setArguments(args);
@@ -264,7 +265,7 @@ public class FragmentRules extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 String sort = prefs.getString("rule_sort", "order");
 
-                adapter.set(protocol, sort, rules);
+                adapter.set(protocol, type, sort, rules);
                 rvRule.invalidateItemDecorations();
 
                 pbWait.setVisibility(View.GONE);
@@ -733,8 +734,9 @@ public class FragmentRules extends FragmentBase {
                 new Intent(ActivityView.ACTION_EDIT_RULE)
                         .putExtra("id", args.getLong("rule"))
                         .putExtra("account", args.getLong("account"))
-                        .putExtra("folder", args.getLong("folder"))
                         .putExtra("protocol", args.getInt("protocol"))
+                        .putExtra("folder", args.getLong("folder"))
+                        .putExtra("type", args.getString("type"))
                         .putExtra("copy", true));
     }
 

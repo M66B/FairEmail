@@ -681,7 +681,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
             }
 
-            if (EntityFolder.INBOX.equals(folder.type) && folder.accountProtocol == EntityAccount.TYPE_POP) {
+            if (folder.accountProtocol == EntityAccount.TYPE_POP) {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, order++, R.string.title_edit_rules);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_execute_rules, order++, R.string.title_execute_rules);
             }
