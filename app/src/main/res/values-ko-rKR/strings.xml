@@ -188,6 +188,10 @@
     <string name="title_setup_office_auth">\'인증 실패\' 오류는 시스템 관리자에 의해 IMAP/SMTP가 비활성화된 경우 발생할 수 있습니다.</string>
     <string name="title_setup_office_auth_5_7_3">\'다른 제공업체\'로 빠른 설정 마법사를 시도해보세요.</string>
     <string name="title_setup_office_auth_5_7_139">Outlook/Hotmail/Live 빠른 설치 마법사를 사용해 주십시오．</string>
+    <string name="title_setup_office_not_connected">        \'User is authenticated but not connected\' 오류는 대부분 IMAP을 사용할 수 없음을 의미합니다.
+        개인 Outlook 계정일 경우, Outlook 웹사이트로 이동하여 우측 상단의 설정 버튼을 누르고 \'메일\'을 선택한 후, \'전달 및 IMAP\'을 선택한 다음 \'POP 및 IMAP\' 섹션에서 \'장치 및 앱이 IMAP을 사용하도록 허용\'으로 설정해 주십시오.
+        기업 및 교육기관 등에서 사용하는 계정일 경우, 이메일 서버의 시스템 관리자에게 문의하십시오.
+    </string>
     <string name="title_setup_oauth_rationale">귀하의 %1$s 계정에 대한 액세스 권한 부여</string>
     <string name="title_setup_oauth_update">기존 계정을 다시 인증하십시오 (그렇지 않으면 새 계정을 만드십시오)</string>
     <string name="title_setup_oauth_updated">계정 인증이 갱신되었습니다</string>
@@ -346,6 +350,7 @@
     <string name="title_advanced_when">일시</string>
     <string name="title_advanced_optimize">자동으로 최적화</string>
     <string name="title_advanced_always">이 계정들의 메시지를 항상 수신</string>
+    <string name="title_advanced_with_exceptions">다만, 다음과 같은 예외사항이 있습니다:</string>
     <string name="title_advanced_schedule">일정</string>
     <string name="title_advanced_schedule_workdays">평일</string>
     <string name="title_advanced_schedule_weekend">주말</string>
@@ -358,6 +363,7 @@
     <string name="title_advanced_kept_removed">오래된 메시지가 서버에서 제거되었는지 확인</string>
     <string name="title_advanced_gmail_thread">Gmail 계정을 위한 Gmail 메시지 그룹화 스타일</string>
     <string name="title_advanced_subject_threading">보낸사람 및 제목으로 메시지 그룹화하기</string>
+    <string name="title_advanced_outlook_categories">Outlook 카테고리 동기화</string>
     <string name="title_advanced_sync_folders">동기화 폴더 목록</string>
     <string name="title_advanced_sync_folders_poll">폴더 목록을 동적으로 동기화</string>
     <string name="title_advanced_sync_shared_folders">동기화 공유 폴더 목록</string>
@@ -373,6 +379,7 @@
     <string name="title_advanced_tune_keep_alive">Keep-live 간격 자동 조정</string>
     <string name="title_advanced_blocklist_warning">차단 목록은 완벽하지 않으며 단순 스팸 메일 이상을 차단할 수 있습니다!</string>
     <string name="title_advanced_keyboard">키보드를 자동으로 표시</string>
+    <string name="title_advanced_keyboard_margin">키보드 위에 여백 추가</string>
     <string name="title_advanced_keyboard_no_fullscreen">전체화면 키보드 비활성화</string>
     <string name="title_advanced_suggest_names">이름 및 이메일 주소 사용</string>
     <string name="title_advanced_suggest_local">로컬에 저장된 연락처를 추천</string>
@@ -386,6 +393,8 @@
     <string name="title_advanced_send_nav_color">맨 아래 작업 표시줄에 사용자 ID 색상 사용</string>
     <string name="title_advanced_send_reminders">리마인더 표시</string>
     <string name="title_advanced_send_delayed">메일 전송 지연</string>
+    <string name="title_advanced_send_undo">전송 취소 옵션 표시</string>
+    <string name="title_advanced_send_top">상단에 전송 버튼 표시</string>
     <string name="title_advanced_attach_new">공유 주소 및 파일에 대한 새 임시저장 메시지 작성</string>
     <string name="title_advanced_answer_caption">답장 버튼 설정</string>
     <string name="title_advanced_answer_default">답장 버튼을 짧게 누르면:</string>
@@ -404,6 +413,7 @@
     <string name="title_advanced_prefix_count">답장 시작 문구에 카운트 추가</string>
     <string name="title_advanced_separate_reply">답장/전달 헤더 앞에 구분선 삽입</string>
     <string name="title_advanced_extended_reply">확장된 답장/전달 헤더 사용</string>
+    <string name="title_advanced_template_reply">답장/전달 헤더 템플릿</string>
     <string name="title_advanced_write_above">보낸사람의 텍스트 위에 쓰기</string>
     <string name="title_advanced_write_below">보낸사람의 텍스트 밑에 쓰기</string>
     <string name="title_advanced_quote_reply">답장된 텍스트 인용</string>
@@ -452,6 +462,7 @@
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 필요</string>
     <string name="title_advanced_cert_strict">엄격한 인증서 확인</string>
     <string name="title_advanced_cert_transparency">인증서 투명성</string>
+    <string name="title_advanced_check_names">호스트 이름과 서버 인증서 확인</string>
     <string name="title_advanced_open_safe">보안 연결만 여시오.</string>
     <string name="title_advanced_http_redirect">연결 리디렉션 허용</string>
     <string name="title_advanced_bouncy_castle">Bouncy Castle의 보안 소켓 제공자 (JSSE) 사용</string>
@@ -472,6 +483,9 @@
     <string name="title_advanced_two_col">2열로 표시</string>
     <string name="title_advanced_min_screen_size">화면 분할 시 최소 화면 크기</string>
     <string name="title_advanced_close_pane">대화 상자를 닫을 때 행 또는 열 축소</string>
+    <string name="title_advanced_column_width">메시지 열 너비 및 행 높이: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar">메시지를 스크롤할 때 상단 툴바 숨기기</string>
+    <string name="title_advanced_edge_to_edge">Android 네비게이션 바에 앱 배경색 사용</string>
     <string name="title_advanced_nav_options">탐색 메뉴 설정을 표시합니다</string>
     <string name="title_advanced_nav_categories">탐색 메뉴에 계정 카테고리를 표시합니다</string>
     <string name="title_advanced_nav_pin">탐색 메뉴 고정</string>
@@ -479,12 +493,15 @@
     <string name="title_advanced_nav_hide_message">디스플레이 설정에서 옵션을 다시 활성화할 수 있습니다</string>
     <string name="title_advanced_nav_last_sync">탐색 메뉴에 마지막 동기화 시간 표시</string>
     <string name="title_advanced_nav_message_count">탐색 메뉴에서 로컬에 저장된 메시지 수 표시</string>
+    <string name="title_advanced_nav_unseen">탐색 메뉴에 읽지 않은 메시지 수 표시</string>
     <string name="title_advanced_nav_unseen_drafts">탐색 메뉴에서 읽지 않은 임시저장 메일 수 표시</string>
     <string name="title_advanced_nav_pinned_count">고정된 탐색 메뉴에 읽지 않은 메시지 수 표시</string>
     <string name="title_advanced_show_unexposed">새로 받은 읽지 않은 메시지가 있는 계정/폴더에 별표 표시</string>
     <string name="title_advanced_startup">시작 화면을 표시합니다</string>
+    <string name="title_advanced_cards">표 스타일 대신 카드 스타일 사용</string>
     <string name="title_advanced_category">계정 카테고리는 기본 설정 화면을 통해 고급 계정 옵션에서 설정할 수 있습니다</string>
     <string name="title_advanced_cards_beige">카드 스타일 사용 시 베이지색 배경 사용 (라이트 테마만 해당)</string>
+    <string name="title_advanced_tabular_background">표 스타일을 사용할 때 카드 색상을 배경색으로 사용</string>
     <string name="title_advanced_cards_shadow_border">테두리 표시</string>
     <string name="title_advanced_cards_shadow_highlight">강조 색상 대신 하이라이트 색상 사용하기</string>
     <string name="title_advanced_tabular_dividers">태블릿 스타일 사용 중 구분선 표시</string>
@@ -725,8 +742,12 @@
     <string name="title_advanced_classification">메시지를 분류합니다</string>
     <string name="title_advanced_class_min_chance">최소 분류 확률: %1$s %%</string>
     <string name="title_advanced_show_filtered">규칙이 적용되었을 때 필터 아이콘 표시</string>
+    <string name="title_advanced_haptic_feedback">중요한 행동을 할 때 진동 반응</string>
+    <string name="title_advanced_haptic_feedback_swipe">왼쪽/오른쪽으로 스와이프할 때 진동 반응</string>
     <string name="title_advanced_language">언어</string>
     <string name="title_advanced_language_system">시스템</string>
+    <string name="title_advanced_integrations_hint">아래의 클라우드 서비스는 앱에 포함되어 있지 않습니다. 모든 결제는 앱 개발자가 아닌 클라우드 서비스로 연결됩니다.</string>
+    <string name="title_advanced_integrations_inert">설정되지 않은 연동 서비스는 완전히 비활성화됩니다. 추적 또는 분석을 방지하기 위해 제3자 라이브러리는 사용되지 않습니다.</string>
     <string name="title_advanced_lt">LanguageTool 연동</string>
     <string name="title_advanced_lt_sentence">모든 문장 검사하기</string>
     <string name="title_advanced_lt_highlight">검사 중인 텍스트 강조 표시</string>
@@ -911,38 +932,66 @@
     <string name="title_storage_quota">서버 저장 공간 사용량: %1$s/%2$s</string>
     <string name="title_pop_support">POP3 프로토콜은 받은메일함에서 메시지를 다운로드하고 삭제하는 작업만 수행할 수 있습니다. 메시지를 읽은 상태로 표시, 스팸 신고, 메시지 이동 등의 작업은 불가능합니다. 가능하면 IMAP 프로토콜을 사용하십시오.</string>
     <string name="title_pop_sent">기기를 분실하거나 도난당한 경우 보낸 메시지가 손실될 수 있습니다.</string>
+    <string name="title_pop_folders">POP3 프로토콜은 폴더 생성을 허용하지 않습니다</string>
     <string name="title_oauth_support">OAuth가 지원되지 않습니다</string>
     <string name="title_review">검토</string>
     <string name="title_hint_accounts">길게 눌러 계정 비활성화 및 삭제 등 설정 표시</string>
+    <string name="title_service_auth">이메일 서버 응답: \'%1$s\'</string>
+    <string name="title_service_vpn">VPN이 사용되고 있는 것 때문일 수도 있습니다</string>
     <string name="title_service_token">Android 계정 관리자가 VPN, 방화벽, 광고 차단기 등에 의해 차단되어 액세스 토큰을 받지 못할 수 있습니다</string>
     <string name="title_service_port">포트 번호를 다시 확인해주세요</string>
     <string name="title_service_protocol">프로토콜(SSL/TLS 또는 STARTTLS)을 다시 확인해주세요</string>
+    <string name="title_service_error10">이 계정은 다시 인증해야 하며, 빠른 설정 마법사를 통해 인증할 수 있습니다</string>
     <string name="title_certificate_error">        Google의 Play 스토어 정책으로 인해, Play 스토어에 배포되는 FairEmail 버전으로 더 이상 인증서 문제가 있는 불안정한 이메일 서버 연결을 지원할 수 없습니다.
         따라서 이 문제는 이메일 제공업체만 해결할 수 있습니다 - 위의 오류 정보는 이 문제를 해결하는 데 도움이 될 수 있습니다.
     </string>
+    <string name="title_advanced_browse">서버에서 메시지 찾기</string>
     <string name="title_advanced_expand_read">펼칠 때 읽은 메시지 표시</string>
     <string name="title_synchronize_now">지금 동기화</string>
     <string name="title_synchronize_subfolders">하위 폴더</string>
     <string name="title_synchronize_more">더 많은 메시지 가져오기</string>
+    <string name="title_synchronize_more_hint">오래된 메시지를 한 번만 다운로드하므로, 일상적인 사용시 배터리 사용량이 늘어나지 않습니다</string>
     <string name="title_synchronize_more_hint2">        이메일 서버가 메시지를 전달함과 동시에 이를 불러올 수 있으며 가능한 한 빨리 저장 및 분류됩니다.
         진행이 느리다면 기기 내부 저장 공간의 속도 문제일 가능성이 높습니다.
     </string>
     <string name="title_synchronize_more_hint3">내부 저장 공간이 무한히 빠르지 않기 때문에 기기에 많은 메시지(만 개 이상)를 저장하면 기기가 느려질 수 있습니다.</string>
     <string name="title_synchronize_enabled">동기화</string>
+    <string name="title_synchronize_batch_enable">동기화 활성화</string>
+    <string name="title_synchronize_batch_disable">동기화 비활성화</string>
+    <string name="title_notify_batch_enable">새 메시지 알림 활성화</string>
+    <string name="title_notify_batch_disable">새 메시지 알림 비활성화</string>
+    <string name="title_download_batch_enable">텍스트 및 첨부파일 다운로드</string>
+    <string name="title_download_batch_disable">헤더만 다운로드</string>
+    <string name="title_delete_local">로컬 메시지 삭제</string>
+    <string name="title_delete_browsed">탐색/검색된 메시지 삭제</string>
+    <string name="title_expunge">말소</string>
+    <string name="title_expunge_remark">삭제하도록 표시한 모든 메시지가 영구적으로 삭제됩니다</string>
     <string name="title_empty_trash">휴지통 비우기</string>
     <string name="title_empty_spam">스팸함 비우기</string>
+    <string name="title_edit_color">색상 편집</string>
     <string name="title_edit_properties">속성 수정</string>
     <string name="title_edit_rules">규칙 수정</string>
     <string name="title_execute_rules">규칙 실행</string>
+    <string name="title_export_messages">메시지 내보내기</string>
+    <string name="title_import_messages">메시지 가져오기</string>
+    <string name="title_create_channel">알림 채널 생성</string>
     <string name="title_edit_channel">공지 채널 편집</string>
+    <string name="title_delete_channel">알림 채널 삭제</string>
     <string name="title_insert_contact">주소록에 추가</string>
     <string name="title_edit_contact">연락처 수정</string>
+    <string name="title_delete_contact">연락처를 삭제하시겠습니까?</string>
     <string name="title_contact_email">이메일</string>
     <string name="title_contact_name">이름</string>
     <string name="title_contact_group">그룹</string>
     <string name="title_import_contacts">vCard 들여오기</string>
     <string name="title_export_contacts">vCard 내보내기</string>
+    <string name="title_create_sub_folder">하위 폴더 생성</string>
+    <string name="title_empty_trash_ask">모든 휴지통에 있는 메시지를 영구적으로 삭제하시겠습니까?</string>
+    <string name="title_empty_spam_ask">모든 스팸 메시지를 영구적으로 삭제하시겠습니까?</string>
+    <string name="title_empty_trash_all_ask">모든 계정의 휴지통에 있는 메시지를 영구적으로 삭제하시겠습니까?</string>
+    <string name="title_empty_spam_all_ask">모든 계정의 스팸 메시지를 영구적으로 삭제하시겠습니까?</string>
     <string name="title_empty_all">기기와 서버에서 모든 메시지가 삭제됩니다</string>
+    <string name="title_delete_contacts">모든 로컬 연락처를 삭제하시겠습니까?</string>
     <string name="title_folder_name">폴더명</string>
     <string name="title_display_name">표시되는 이름</string>
     <string name="title_show_folders">숨겨진 폴더 표시</string>
