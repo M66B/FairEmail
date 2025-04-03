@@ -4417,7 +4417,7 @@ public class FragmentCompose extends FragmentBase {
                 for (X509Certificate cert : chain)
                     Log.i("S/MIME cert sign algo=" + cert.getSigAlgName() + " " + cert.getSigAlgOID());
 
-                if (check_certificate) {
+                if (check_certificate && !EntityMessage.SMIME_ENCRYPTONLY.equals(type)) {
                     // Check public key validity
                     try {
                         chain[0].checkValidity();
