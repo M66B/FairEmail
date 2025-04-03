@@ -684,7 +684,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         this.protocol = protocol;
         this.type = type;
         this.sort = sort;
-        Log.i("Set protocol=" + protocol + " rules=" + rules.size() + " sort=" + sort + " search=" + search);
+        Log.i("Set protocol=" + protocol + " type=" + type + " rules=" + rules.size() + " sort=" + sort + " search=" + search);
 
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
