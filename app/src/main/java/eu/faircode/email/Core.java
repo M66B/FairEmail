@@ -1633,7 +1633,7 @@ class Core {
         }
 
         // Fetch appended/copied when needed
-        boolean fetch = (copy || delete ||
+        boolean fetch = (copy || delete || !canMove ||
                 !"connected".equals(target.state) ||
                 !MessageHelper.hasCapability(ifolder, "IDLE"));
         if (draft || fetch)
@@ -1661,7 +1661,8 @@ class Core {
                                 continue;
                             }
 
-                        if (draft || duplicate) {
+                        if (draft || duplicate || !canMove) {
+                            // https://datatracker.ietf.org/doc/html/rfc3501#section-6.4.7
                             Message icopy = itarget.getMessageByUID(uid);
                             if (icopy == null)
                                 throw new IllegalArgumentException("move: gone uid=" + uid);
