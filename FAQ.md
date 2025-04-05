@@ -69,6 +69,7 @@ For authorizing:
 * Free.fr, see [question 157](#faq157)
 * Posteo: please check if [additional email account protection](https://posteo.de/en/help/activating-additional-email-account-protection) ([German](https://posteo.de/hilfe/zusaetzlichen-postfachschutz-deaktivieren)) isn't enabled
 * Posteo: not that there is [no spam folder](https://posteo.de/en/help/how-does-the-posteo-spam-filter-work) ([German](https://posteo.de/hilfe/wie-funktioniert-der-posteo-spamfilter))
+* Posteo: if you want to synchronize contacts, please [see here](https://posteo.de/en/help/how-do-i-set-up-synchronisation-of-contacts-with-an-android-address-book)
 * Web.de: please check if [IMAP is enabled](https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html)
 * Web.de: with two factor authentication you'll need to use [an app password](https://web.de/email/sicherheit/zwei-faktor-authentifizierung/)
 * Web.de: if you are missing the spam messages folder, you should enable spam filtering via the website of web.de again
