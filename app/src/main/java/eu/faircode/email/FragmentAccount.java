@@ -1461,8 +1461,10 @@ public class FragmentAccount extends FragmentBase {
                     }
 
                     Map<String, EntityFolder> current = new HashMap<>();
-                    for (EntityFolder folder : db.folder().getFolders(account.id, false, false))
+                    for (EntityFolder folder : db.folder().getFolders(account.id, false, false)) {
+                        Log.i("Got folder=" + folder.name);
                         current.put(folder.name, folder);
+                    }
 
                     db.folder().setFoldersUser(account.id);
 
