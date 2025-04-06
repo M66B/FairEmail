@@ -112,7 +112,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swHighlightUnread;
     private ViewButtonColor btnHighlightColor;
     private Spinner spAccountColor;
-    private SwitchCompat swColorStripeWide;
+    private Spinner spAccountColorSize;
     private SwitchCompat swAvatars;
     private ImageButton ibBimi;
     private TextView tvBimiHint;
@@ -213,6 +213,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
+    final static int[] account_color_sizes = {3, 6, 12};
+
     final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
             "theme", "startup",
             "date", "date_week", "date_fixed", "date_bold", "date_time", "group_category",
@@ -220,7 +222,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "portrait2", "portrait2c", "landscape", "close_pane", "column_width",
             "hide_toolbar", "edge_to_edge", "nav_options", "nav_categories", "nav_last_sync", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "show_unexposed",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_swap", "actionbar_color",
-            "highlight_unread", "highlight_color", "account_color", "color_stripe_wide",
+            "highlight_unread", "highlight_color", "account_color", "account_color_size",
             "avatars", "bimi", "bimi_vmc", "gravatars", "libravatars", "favicons", "favicons_partial", "favicons_manifest", "ddg_icons", "favicons_dmarc", "generated_icons", "identicons",
             "circular", "saturation", "brightness", "threshold",
             "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients", "reverse_addresses",
@@ -295,7 +297,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swHighlightUnread = view.findViewById(R.id.swHighlightUnread);
         btnHighlightColor = view.findViewById(R.id.btnHighlightColor);
         spAccountColor = view.findViewById(R.id.spAccountColor);
-        swColorStripeWide = view.findViewById(R.id.swColorStripeWide);
+        spAccountColorSize = view.findViewById(R.id.spAccountColorSize);
         swAvatars = view.findViewById(R.id.swAvatars);
         swBimi = view.findViewById(R.id.swBimi);
         swBimiVmc = view.findViewById(R.id.swBimiVmc);
@@ -804,7 +806,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 prefs.edit().putInt("account_color", position).apply();
-                swColorStripeWide.setEnabled(position == 1);
+                spAccountColorSize.setEnabled(position == 1);
                 WidgetUnified.updateData(getContext());
             }
 
@@ -815,10 +817,17 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swColorStripeWide.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        spAccountColorSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("color_stripe_wide", checked).apply();
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                int s = account_color_sizes[position];
+                prefs.edit().putInt("account_color_size", s).apply();
+                WidgetUnified.updateData(getContext());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("account_color_size").apply();
                 WidgetUnified.updateData(getContext());
             }
         });
@@ -1645,9 +1654,20 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             btnHighlightColor.setColor(prefs.getInt("highlight_color",
                     Helper.resolveColor(getContext(), R.attr.colorUnreadHighlight)));
 
+
             spAccountColor.setSelection(prefs.getInt("account_color", 1));
-            swColorStripeWide.setChecked(prefs.getBoolean("color_stripe_wide", false));
-            swColorStripeWide.setEnabled(spAccountColor.getSelectedItemPosition() == 1);
+
+            int s = prefs.getInt("account_color_size", 6);
+            int account_color_size = 1;
+            for (int pos = 0; pos < account_color_sizes.length; pos++)
+                if (s == account_color_sizes[pos]) {
+                    account_color_size = pos;
+                    break;
+                }
+
+            spAccountColorSize.setSelection(account_color_size);
+
+            spAccountColorSize.setEnabled(spAccountColor.getSelectedItemPosition() == 1);
             swAvatars.setChecked(prefs.getBoolean("avatars", true));
             swBimi.setChecked(prefs.getBoolean("bimi", false));
             swBimiVmc.setChecked(prefs.getBoolean("bimi_vmc", false));

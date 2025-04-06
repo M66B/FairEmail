@@ -965,8 +965,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         this.dp24 = Helper.dp2pixels(context, 24);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
-        this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
+        int account_color_size = prefs.getInt("account_color_size", 6);
+        this.colorStripeWidth = Helper.dp2pixels(context, account_color_size);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));

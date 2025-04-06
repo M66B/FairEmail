@@ -629,7 +629,7 @@
     <string name="title_advanced_indentation">Left/right indent received/sent messages in conversations</string>
     <string name="title_advanced_highlight_unread">Highlight unread messages</string>
     <string name="title_advanced_account_color">Show a color stripe or color dot</string>
-    <string name="title_advanced_color_stripe_wide">Use wide color stripe</string>
+    <string name="title_advanced_account_color_size">Color stripe width</string>
     <string name="title_advanced_avatars">Show contact photos</string>
     <string name="title_advanced_bimi">Show Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Require a valid VMC certificate</string>
@@ -2965,6 +2965,12 @@
         <item>None</item>
         <item>Stripe</item>
         <item>Dot</item>
+    </string-array>
+
+    <string-array name="accountColorSizes">
+        <item>Thin</item>
+        <item>Normal</item>
+        <item>Thick</item>
     </string-array>
 
     <string-array name="answerValues" translatable="false">

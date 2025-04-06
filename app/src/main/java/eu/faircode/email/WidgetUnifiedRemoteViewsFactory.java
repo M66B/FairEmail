@@ -131,8 +131,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         only_contact = prefs.getBoolean("only_contact", false);
         distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
 
-        boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
-        this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
+        int account_color_size = prefs.getInt("account_color_size", 6);
+        this.colorStripeWidth = Helper.dp2pixels(context, account_color_size);
 
         colorWidgetForeground = ContextCompat.getColor(context, R.color.colorWidgetForeground);
         colorWidgetRead = ContextCompat.getColor(context, R.color.colorWidgetRead);

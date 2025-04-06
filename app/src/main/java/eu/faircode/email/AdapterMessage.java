@@ -8449,8 +8449,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.unmetered = state.isUnmetered();
 
         this.colorCardBackground = Helper.resolveColor(context, R.attr.colorCardBackground);
-        boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
-        this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
+        int account_color_size = prefs.getInt("account_color_size", 6);
+        this.colorStripeWidth = Helper.dp2pixels(context, account_color_size);
         this.colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorPrimaryInverse = Helper.resolveColor(context, android.R.attr.textColorPrimaryInverse);

@@ -891,17 +891,27 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvAccountColor" />
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swColorStripeWide"
+                <TextView
+                    android:id="@+id/tvAccountColorSize"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
                     android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_color_stripe_wide"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_account_color_size"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spAccountColor"
-                    app:switchPadding="12dp" />
+                    app:layout_constraintTop_toBottomOf="@id/spAccountColor" />
+
+                <eu.faircode.email.SpinnerEx
+                    android:id="@+id/spAccountColorSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:entries="@array/accountColorSizes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAccountColorSize" />
 
                 <View
                     android:id="@+id/vSeparatorAvatar"
@@ -911,7 +921,7 @@
                     android:background="?attr/colorSeparator"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swColorStripeWide" />
+                    app:layout_constraintTop_toBottomOf="@id/spAccountColorSize" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swAvatars"
