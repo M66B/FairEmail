@@ -2968,9 +2968,9 @@
     </string-array>
 
     <string-array name="accountColorSizes">
-        <item>Thin</item>
-        <item>Normal</item>
-        <item>Thick</item>
+        <item>Narrow</item>
+        <item>Medium</item>
+        <item>Wide</item>
     </string-array>
 
     <string-array name="answerValues" translatable="false">
