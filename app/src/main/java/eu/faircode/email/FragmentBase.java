@@ -555,10 +555,9 @@ public class FragmentBase extends Fragment {
             @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
             public void onAny() {
                 Lifecycle.State state = getViewLifecycleOwner().getLifecycle().getCurrentState();
+                backPressedCallback.remove();
                 if (state.isAtLeast(Lifecycle.State.STARTED))
                     activity.getOnBackPressedDispatcher().addCallback(backPressedCallback);
-                else
-                    backPressedCallback.remove();
             }
         });
     }
