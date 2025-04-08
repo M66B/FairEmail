@@ -1036,7 +1036,7 @@ public class Helper {
     }
 
     static Snackbar.SnackbarLayout findSnackbarLayout(View rootView) {
-        if (rootView instanceof Snackbar.SnackbarLayout)
+        if (rootView instanceof Snackbar.SnackbarLayout && rootView.getVisibility() == View.VISIBLE)
             return (Snackbar.SnackbarLayout) rootView;
 
         if (rootView instanceof ViewGroup) {
