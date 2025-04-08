@@ -18,15 +18,15 @@ Ja ātrā iestatīšana nenostrādāja, jums konts un identitāte jāiestata man
 
 Lai pievienotu kontu, noklikšķiniet uz *Manuālā iestatīšana un parējie iestatījumi*, pēc tam uz *Konti* un 'plus' pogu apakšā, tad atlasiet IMAP (vai POP3). Atlasiet pakalpojumu sniedzēju no saraksta, ievadiet lietotājvārdu, kas lielākajā daļā gadījumu ir jūsu e-pasta adrese, un paroli. Noklikšķiniet *Pārbaudīt*, lai ļautu FairEmail pieslēgties e-pasta serverim un iegūt sistēmas mapes sarakstu. Pēc sistēmas mapes izvēles pārskatīšanas, jūs varat pievienot kontu, noklikšķinot *Saglabāt*.
 
-If your provider is not in the list of providers, there are thousands of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and encryption protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Ja jūsu pakalpojumu sniedzējs nav pakalpojumu sniedzēju sarakstā, viņi ir tūkstošiem, atlasiet *Pielāgots*. Ievadiet domēna vārdu, piemēram, *inbox.lv* un noklikšķiniet *Iegūt iestatījumus*. Ja jūsu pakalpojumu sniedzējs atbalsta [automātisko atklāšanu](https://tools.ietf.org/html/rfc6186), FairEmail aizpildīs resursdatoru ar attiecīgo IP vai domēnu un porta numuru ar attiecīgo numuru. Pretējā gadījumā meklējiet sava pakalpojumu sniedzēja pareizos IMAP e-pasta servera parametrus, resursdatora IP vai domēnu, porta numuru un šifrēšanas protokolu (SSL/TLS vai STARTTLS), internetā. Lai uzzinātu vairāk par to, lūdzu skatiet [šeit](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Iestatīt identitāti - lai varētu sūtīt e-pastus
 
-Similarly, to add an identity, tap *Manual setup and more options*, tap *Identities* and tap the 'plus' button at the bottom. Enter the name you want to appear in the from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Tāpat kā iepriekš, lai pievienotu identitāti, noklikšķiniet uz *Manuālā iestatīšana un pārējie iestatījumi*, pēc tam uz *Identitātes* un 'plus' pogu apakšā. Ievadiet vārdu, kuru vēlaties redzēt nosūtīto e-pasta ziņojumu 'No:' laukā, un atlasiet saistīto kontu. Noklikšķiniet *Saglabāt*, lai pievienotu identitāti.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
+Ja konts tika iestatīts manuāli, iespējams, arī identitāti ir nepieciešams iestatīt manuāli. Ievadiet domēna vārdu, piemēram, *inbox.lv* un noklikšķiniet *Iegūt iestatījumus*. Ja jūsu pakalpojumu sniedzējs atbalsta [automātisko atklāšanu](https://tools.ietf.org/html/rfc6186), FairEmail aizpildīs resursdatoru ar attiecīgo IP vai domēnu un porta numuru ar attiecīgo numuru. Pretējā gadījumā meklējiet sava pakalpojumu sniedzēja pareizos SMTP e-pasta servera parametrus, resursdatora IP vai domēnu, porta numuru un šifrēšanas protokolu (SSL/TLS vai STARTTLS), internetā.
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Skatiet [šo BUJ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9), lai uzzinātu vairāk par aizstājvārdu lietošanu.
 
 ## Piešķirt atļaujas - lai varētu piekļūt kontaktinformācijai
 

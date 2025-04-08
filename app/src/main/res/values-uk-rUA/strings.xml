@@ -568,7 +568,7 @@
     <string name="title_advanced_indentation">Відступати ліворуч чи праворуч для отриманих або надісланих повідомлень у розмовах</string>
     <string name="title_advanced_highlight_unread">Підсвічувати непрочитані повідомлення</string>
     <string name="title_advanced_account_color">Показувати кольорову смугу або кольорову крапку</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Ширина смуги кольору</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Ширина кольорової смуги</string>
     <string name="title_advanced_avatars">Показувати фото контактів</string>
     <string name="title_advanced_bimi">Показувати індикатори брендів для ідентифікації повідомлень (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Вимагати чинного сертифіката VMC</string>
