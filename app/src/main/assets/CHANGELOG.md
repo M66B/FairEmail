@@ -28,6 +28,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
+### 1.2272 2025-04-08
+
+* Fixed back gestures for Hyper OS
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2271 2025-04-08
 
 * Added option for narrow color stripes
