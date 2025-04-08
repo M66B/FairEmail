@@ -299,7 +299,7 @@ android {
             minSdkVersion 23
             manifestPlaceholders.largeHeap = false
             manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes(("play" + getVersionCode() + getRevision()).getBytes()).toString();
-            buildConfigField "boolean", "TEST_RELEASE", "false"
+            buildConfigField "boolean", "TEST_RELEASE", "true"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
             buildConfigField "boolean", "FDROID_RELEASE", "false"
