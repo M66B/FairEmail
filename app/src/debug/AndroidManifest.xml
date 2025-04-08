@@ -126,7 +126,6 @@
         android:backupAgent=".FairEmailBackupAgent"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:description="@string/app_name"
-        android:enableOnBackInvokedCallback="true"
         android:extractNativeLibs="true"
         android:forceDarkAllowed="false"
         android:fullBackupContent="false"
