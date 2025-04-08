@@ -28,7 +28,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
-### Next release
+### 1.2271 2025-04-08
 
 * Added option for narrow color stripes
 * Small improvements and minor bug fixes
