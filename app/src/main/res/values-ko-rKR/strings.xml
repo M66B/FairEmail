@@ -351,6 +351,8 @@
     <string name="title_advanced_optimize">자동으로 최적화</string>
     <string name="title_advanced_always">이 계정들의 메시지를 항상 수신</string>
     <string name="title_advanced_with_exceptions">다만, 다음과 같은 예외사항이 있습니다:</string>
+    <string name="title_advanced_poll_metered">데이터 네트워크를 사용할 때 새 메시지를 주기적으로 확인</string>
+    <string name="title_advanced_poll_unmetered">데이터 네트워크를 사용하지 않을 때 새 메시지를 주기적으로 확인</string>
     <string name="title_advanced_schedule">일정</string>
     <string name="title_advanced_schedule_workdays">평일</string>
     <string name="title_advanced_schedule_weekend">주말</string>
@@ -1838,6 +1840,11 @@
         <item>없음</item>
         <item>Stripe</item>
         <item>Dot</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>보통</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>받는사람</item>

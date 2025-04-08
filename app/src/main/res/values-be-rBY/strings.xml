@@ -569,7 +569,6 @@
     <string name="title_advanced_indentation">Водступ злева/справа для атрыманых/адпраўленых паведамленняў у размовах</string>
     <string name="title_advanced_highlight_unread">Вылучаць непрачытаныя паведамленні</string>
     <string name="title_advanced_account_color">Паказваць каляровую палоску або каляровую кропку</string>
-    <string name="title_advanced_color_stripe_wide">Выкарыстоўваць шырокую каляровую палоску</string>
     <string name="title_advanced_avatars">Паказваць фота кантактаў</string>
     <string name="title_advanced_bimi">Паказаць індыкатары брэнда для ідэнтыфікацыі паведамленняў (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Патрабаваць сапраўдны сертыфікат VMC</string>
@@ -717,7 +716,7 @@
     <string name="title_advanced_notify_suppress_in_call">Адкладваць апавяшчэнні падчас выкліку</string>
     <string name="title_advanced_notify_suppress_in_car">Адкласці апавяшчэнні пры падключэнні да Android Auto</string>
     <string name="title_advanced_notify_summary">Паказаць толькі зводнае апавяшчэнне</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Паказваць тэму ў апавяшчэннях</string>
+    <string name="title_advanced_notify_subject">Паказваць тэму ў апавяшчэннях</string>
     <string name="title_advanced_notify_preview">Адлюстроўваць папярэдні выгляд паведамленняў у апавяшчэннях</string>
     <string name="title_advanced_notify_preview_all">Папярэдні прагляд усяго тэксту</string>
     <string name="title_advanced_notify_preview_only">Паказваць апавяшчэнні толькі з папярэднім праглядам тэксту</string>
@@ -2407,6 +2406,11 @@
         <item>Нічога</item>
         <item>Палоска</item>
         <item>Кропка</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Сярэдні</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Атрымальнік</item>

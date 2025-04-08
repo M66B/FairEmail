@@ -521,7 +521,6 @@
     <string name="title_advanced_indentation">会話スレッドの中の受信/送信メッセージの左/右インデント</string>
     <string name="title_advanced_highlight_unread">未読メッセージをハイライト表示する</string>
     <string name="title_advanced_account_color">カラーストライプまたはドットを表示する</string>
-    <string name="title_advanced_color_stripe_wide">幅広のカラーストライプを使用する</string>
     <string name="title_advanced_avatars">連絡先の写真を表示する</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) を表示する</string>
     <string name="title_advanced_bimi_vmc">有効な VMC 証明書を必須にする</string>
@@ -2358,6 +2357,11 @@
         <item>なし</item>
         <item>ストライプ</item>
         <item>ドット</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>標準</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>宛先</item>

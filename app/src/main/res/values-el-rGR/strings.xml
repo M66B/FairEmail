@@ -535,7 +535,6 @@
     <string name="title_advanced_indentation">Αριστερή/δεξιά εσοχή ειλημμένων/απεσταλμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_highlight_unread">Να επισημαίνονται τα μη αναγνωσμένα μηνύματα</string>
     <string name="title_advanced_account_color">Προβολή μιας χρωματιστής λωρίδας ή μιας χρωματιστής κουκκίδας</string>
-    <string name="title_advanced_color_stripe_wide">Χρήση φαρδιάς λωρίδας χρώματος</string>
     <string name="title_advanced_avatars">Προβολή φωτογραφιών επαφών</string>
     <string name="title_advanced_bimi">Προβολή των Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Να απαιτείται έγκυρο πιστοποιητικό VMC</string>
@@ -683,7 +682,7 @@
     <string name="title_advanced_notify_suppress_in_call">Αναβολή ειδοποιήσεων κατά τη διάρκεια μιας κλήσης</string>
     <string name="title_advanced_notify_suppress_in_car">Αναβολή ειδοποιήσεων ενόσω το Android Auto είναι συνδεδεμένο</string>
     <string name="title_advanced_notify_summary">Προβολή μόνο μιας συνοπτικής ειδοποίησης</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Προβολή θέματος στις ειδοποιήσεις</string>
+    <string name="title_advanced_notify_subject">Προβολή θέματος στις ειδοποιήσεις</string>
     <string name="title_advanced_notify_preview">Προβολή μιας προεπισκόπησης του μηνύματος στις ειδοποιήσεις</string>
     <string name="title_advanced_notify_preview_all">Προεπισκόπηση ολόκληρου του κειμένου</string>
     <string name="title_advanced_notify_preview_only">Προβολή ειδοποιήσεων μόνο με ένα κείμενο προεπισκόπησης</string>
@@ -2372,6 +2371,11 @@
         <item>Καμία</item>
         <item>Λωρίδα</item>
         <item>Κουκκίδα</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Μεσαίο</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Παραλήπτης</item>

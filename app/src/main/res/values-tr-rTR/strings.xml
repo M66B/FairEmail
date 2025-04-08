@@ -530,7 +530,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_indentation">Sohbetlerde alınan/gönderilen mesajları sola/sağa girintile</string>
     <string name="title_advanced_highlight_unread">Okunmamış iletileri vurgula</string>
     <string name="title_advanced_account_color">Bir renk şeridi veya renk noktası göster</string>
-    <string name="title_advanced_color_stripe_wide">Geniş renkli şerit kullanın</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Renk şeridi genişliği</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) Göster</string>
     <string name="title_advanced_bimi_vmc">Geçerli bir VMC sertifikası gerektirir</string>
@@ -678,7 +678,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_notify_suppress_in_call">Görüşme sırasında bildirimleri geciktir</string>
     <string name="title_advanced_notify_suppress_in_car">Android Oto bağlıyken bildirimleri ertele</string>
     <string name="title_advanced_notify_summary">Sadece özet bildirimini göster</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Show subject in notifications</string>
+    <string name="title_advanced_notify_subject">Show subject in notifications</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_notify_preview_all">Tüm metni ön izle</string>
     <string name="title_advanced_notify_preview_only">Bildirimleri sadece özet olarak göster</string>
@@ -1165,6 +1165,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_hint_operations">İşlemleri silmek mesajların kaybolmasına ve senkronizasyon sorunlarına neden olabilir</string>
     <string name="title_op_title_headers">Başlıklar İndiriliyor</string>
     <string name="title_op_title_raw">Ham mesaj indiriliyor</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Mesaj yükleme</string>
     <string name="title_folder_name">Klasör adı</string>
     <string name="title_display_name">Görünen ad</string>
     <string name="title_show_folders">Gizli klasörleri göster</string>
@@ -2359,6 +2360,11 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
         <item>Şifreleme kapalı</item>
         <item>Şerit</item>
         <item>Nokta</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Dar</item>
+        <item>Orta</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Geniş</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Alıcı</item>

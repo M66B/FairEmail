@@ -525,7 +525,7 @@
     <string name="title_advanced_indentation">在对话中向左/向右缩进已收到/发送的邮件</string>
     <string name="title_advanced_highlight_unread">高亮未读邮件</string>
     <string name="title_advanced_account_color">显示颜色条纹或颜色点</string>
-    <string name="title_advanced_color_stripe_wide">使用宽色条</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">色条纹宽度</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_bimi">显示消息识别的品牌指示器 (BIMI)</string>
     <string name="title_advanced_bimi_vmc">需要有效的 VMC 证书</string>
@@ -673,7 +673,7 @@
     <string name="title_advanced_notify_suppress_in_call">通话时延迟通知</string>
     <string name="title_advanced_notify_suppress_in_car">已连接 Android Auto 时延迟通知</string>
     <string name="title_advanced_notify_summary">仅显示摘要通知</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">在通知中显示主题</string>
+    <string name="title_advanced_notify_subject">在通知中显示主题</string>
     <string name="title_advanced_notify_preview">在通知中显示邮件预览</string>
     <string name="title_advanced_notify_preview_all">预览所有文本</string>
     <string name="title_advanced_notify_preview_only">仅显示有预览文本的通知</string>
@@ -1162,6 +1162,7 @@
     <string name="title_hint_operations">删除操作可能导致邮件丢失和同步问题</string>
     <string name="title_op_title_headers">正在下载信头</string>
     <string name="title_op_title_raw">正在下载原始邮件</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">正在上传消息</string>
     <string name="title_folder_name">文件夹名</string>
     <string name="title_display_name">显示昵称</string>
     <string name="title_show_folders">显示隐藏文件夹</string>
@@ -2359,6 +2360,11 @@
         <item>无</item>
         <item>条纹</item>
         <item>点</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">窄</item>
+        <item>中</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">宽</item>
     </string-array>
     <string-array name="contactTypes">
         <item>收件人</item>

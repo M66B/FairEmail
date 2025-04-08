@@ -468,7 +468,7 @@
     <string name="title_advanced_indentation">تورفتگی چپ/راست پیام‌های دریافت/فرستاده شده در مکالمات</string>
     <string name="title_advanced_highlight_unread">برجسته‌سازی پیام‌های خوانده نشده</string>
     <string name="title_advanced_account_color">نمایش یک نوار رنگی یا نقطه رنگی</string>
-    <string name="title_advanced_color_stripe_wide">استفاده از نوار رنگی پهن</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">عرض نوار رنگی</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_advanced_bimi">نمایش نشانگرهای برند برای شناسایی پیام (BIMI)</string>
     <string name="title_advanced_bimi_vmc">نیازمند گواهینامه VMC معتبر</string>
@@ -575,7 +575,7 @@
     <string name="title_advanced_notify_known">اعلان‌ها را تنها برای مخاطبین نمایش بده</string>
     <string name="title_advanced_notify_suppress_in_call">در صورت مکالمه تلفنی، اعلان‌های اطلاع‌رسانی را به عقب بیانداز</string>
     <string name="title_advanced_notify_summary">تنها چکیده اعلان را نمایش بده</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">نمایش موضوع در اعلان‌ها</string>
+    <string name="title_advanced_notify_subject">نمایش موضوع در اعلان‌ها</string>
     <string name="title_advanced_notify_preview">پیش‌نمایش پیام را در اعلان‌ها نمایش بده</string>
     <string name="title_advanced_notify_preview_all">پیش‌نمایش تمام متن</string>
     <string name="title_advanced_notify_transliterate">ترجمه به الفبای لاتین</string>
@@ -823,6 +823,7 @@
     <string name="title_delete_contacts_remark">تمام مخاطبین نشان داده شده و نشده حذف خواهند شد، حتی اگر جستجو شوند!</string>
     <string name="title_no_operations">عملیاتی در انتظار وجود ندارد </string>
     <string name="title_hint_operations">عملیات‌های حذف می‌تواند موجب ناپدید شدن پیام‌ها و مشکلات همگام‌سازی شود</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">در حال بارگذاری پیام</string>
     <string name="title_folder_name">نام پوشه</string>
     <string name="title_display_name">نامی که نمایش داده می شود</string>
     <string name="title_show_folders">نمایش پوشه‌های پنهان</string>
@@ -1720,6 +1721,11 @@
         <item>هیچکدام</item>
         <item>نوار</item>
         <item>نقطه</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">باريک</item>
+        <item>متوسط</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">پهن</item>
     </string-array>
     <string-array name="contactTypes">
         <item>گیرنده</item>

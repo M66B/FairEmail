@@ -4,6 +4,7 @@
     <string name="app_welcome">FairEmail — atvērtā pirmkoda e-pasta lietotne, kas koncentrējas uz privātumu un drošību. Šī iemesla dēļ dažas funkcijas var darboties savādāk, nekā esat pieraduši.</string>
     <string name="app_updated">Pēdējo reizi atjaunināta: %1$s</string>
     <string name="app_download">Lejupielādēts no: %1$s</string>
+    <string name="channel_update">Atjauninājumi</string>
     <string name="channel_warning">Brīdinājumi</string>
     <string name="channel_error">Kļūdas</string>
     <plurals name="page_message">
@@ -38,6 +39,7 @@
     <string name="menu_translate">Palīdziet iztulkot</string>
     <string name="menu_about">Par lietotni</string>
     <string name="menu_pro">Pro funkcijas</string>
+    <string name="menu_rate">Novērtēt šo lietotni</string>
     <string name="title_agree">Es piekrītu</string>
     <string name="title_disagree">Es nepiekrītu</string>
     <string name="title_version">%1$s versija</string>
@@ -53,6 +55,7 @@
     <string name="title_setup_imap">IMAP konts</string>
     <string name="title_setup_pop3">POP3 konts</string>
     <string name="title_setup_grant">Piešķirt</string>
+    <string name="title_setup_grant_again">Piešķirt nepieciešamās atļaujas</string>
     <string name="title_setup_identity_what">Kas ir identitāte?</string>
     <string name="title_setup_error">Kļūda</string>
     <string name="title_setup_pop">Lietot POP3 (nerekomendējam)</string>
@@ -74,6 +77,7 @@
     <string name="title_advanced_when">Kad</string>
     <string name="title_advanced_unseen">Visì nelasītie ziņojumi</string>
     <string name="title_advanced_flagged">Visi atzīmētie ziņojumi</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Krāsu joslas platums</string>
     <string name="title_advanced_pdf_preview">Rādīt PDF sīktēlus</string>
     <string name="title_advanced_video_preview">Rādīt video sīktēlus</string>
     <string name="title_advanced_notify_action_delete">Dzēst</string>
@@ -102,6 +106,7 @@
     <string name="title_edit_color">Mainīt krāsu</string>
     <string name="title_contact_group">Grupa</string>
     <string name="title_create_sub_folder">Izveidot apakšmapi</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Augšupielādē ziņojumu</string>
     <string name="title_folder_name">Mapes nosaukums</string>
     <string name="title_edit_account_name">Mainīt konta nosaukumu</string>
     <string name="title_edit_account_color">Mainīt konta krāsu</string>
@@ -181,6 +186,11 @@
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Šaurs</item>
+        <item>Vidējs</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Plats</item>
+    </string-array>
     <string-array name="contactGroupTypes">
         <item>Any</item>
         <item>Home</item>

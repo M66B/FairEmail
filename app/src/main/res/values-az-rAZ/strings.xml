@@ -540,7 +540,6 @@
     <string name="title_advanced_indentation">Danışıqlarda alınan/göndərilən mesajların sol/sağ boşluğu</string>
     <string name="title_advanced_highlight_unread">Oxunmamış mesajları vurğula</string>
     <string name="title_advanced_account_color">Rəngli bir zolaq və ya rəngli nöqtə göstər</string>
-    <string name="title_advanced_color_stripe_wide">Geniş rəng zolağı istifadə et</string>
     <string name="title_advanced_avatars">Əlaqə fotolarını göstər</string>
     <string name="title_advanced_bimi">Mesaj İdentifikasiyası üçün Marka İndikatorlarını (BIMI) göstər</string>
     <string name="title_advanced_bimi_vmc">Yararlı bir VMC sertifikatını tələb et</string>
@@ -688,7 +687,7 @@
     <string name="title_advanced_notify_suppress_in_call">Zəng əsnasında bildirişləri gecikdirmə</string>
     <string name="title_advanced_notify_suppress_in_car">Android Auto ilə bağlantı qurularkən bildirişləri gecikdir</string>
     <string name="title_advanced_notify_summary">Yalnız icmal bildirişini göstər</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Mövzunu bildirişlərdə göstər</string>
+    <string name="title_advanced_notify_subject">Mövzunu bildirişlərdə göstər</string>
     <string name="title_advanced_notify_preview">Bildirişlərdə mesaja önbaxışı göstər</string>
     <string name="title_advanced_notify_preview_all">Mətnin hamısına önbaxış</string>
     <string name="title_advanced_notify_preview_only">Bildirişləri yalnız önbaxış mətni ilə göstər</string>
@@ -2374,6 +2373,11 @@
         <item>Heç biri</item>
         <item>Zolaq</item>
         <item>Nöqtə</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Orta</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Alıcı</item>

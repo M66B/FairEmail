@@ -567,7 +567,7 @@
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
     <string name="title_advanced_account_color">Показывать цветные полоски или точки</string>
-    <string name="title_advanced_color_stripe_wide">Использовать широкий диапазон цветов</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Ширина цветной полосы</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_bimi">Показывать индикаторы бренда для идентификации сообщений (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Требовать действующий сертификат VMC</string>
@@ -715,7 +715,7 @@
     <string name="title_advanced_notify_suppress_in_call">Откладывать уведомления во время вызова</string>
     <string name="title_advanced_notify_suppress_in_car">Откладывать уведомления при подключении Android Auto</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Показывать тему в уведомлениях</string>
+    <string name="title_advanced_notify_subject">Показывать тему в уведомлениях</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_preview_all">Предпросмотр всего текста</string>
     <string name="title_advanced_notify_preview_only">Показывать уведомления только с предпросмотром текста</string>
@@ -1206,6 +1206,7 @@
     <string name="title_hint_operations">Удаление операций может привести к исчезновению сообщений и проблемам синхронизации.</string>
     <string name="title_op_title_headers">Загрузка заголовков</string>
     <string name="title_op_title_raw">Загрузка оригинала сообщения</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Отправка сообщения</string>
     <string name="title_folder_name">Название папки</string>
     <string name="title_display_name">Отображаемое имя</string>
     <string name="title_show_folders">Показывать скрытые папки</string>
@@ -2411,6 +2412,11 @@
         <item>Ничего</item>
         <item>Полоска</item>
         <item>Точка</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Узкая</item>
+        <item>Средняя</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Широкая</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Получатель</item>

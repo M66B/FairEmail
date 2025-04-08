@@ -420,7 +420,6 @@
     <string name="title_advanced_threading_unread">Prikaži broj nepročitanih poruka u razgovorima</string>
     <string name="title_advanced_indentation">Uvlaka primljenih/poslanih poruka u razgovorima prema lijevo/desno</string>
     <string name="title_advanced_highlight_unread">Označiti nepročitane poruke</string>
-    <string name="title_advanced_color_stripe_wide">Koristi široku traku u boji</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_bimi_unverified">Nepotvrđeni pošiljatelj</string>
     <string name="title_advanced_bimi_verified">Potvrđeni pošiljatelj</string>
@@ -1913,6 +1912,11 @@
         <item>Nijedan</item>
         <item>Stripe</item>
         <item>Dot</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Srednje</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Primatelj</item>

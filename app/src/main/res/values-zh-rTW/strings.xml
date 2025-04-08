@@ -525,7 +525,6 @@
     <string name="title_advanced_indentation">使用左/右縮進形式來表示會話中的已接收/傳送訊息</string>
     <string name="title_advanced_highlight_unread">標亮未讀訊息</string>
     <string name="title_advanced_account_color">顯示顏色條或顏色點</string>
-    <string name="title_advanced_color_stripe_wide">使用寬幅彩色條紋</string>
     <string name="title_advanced_avatars">顯示聯絡人照片</string>
     <string name="title_advanced_bimi">顯示訊息識別的品牌指標（BIMI）</string>
     <string name="title_advanced_bimi_vmc">需要有效的 VMC 憑證</string>
@@ -673,7 +672,7 @@
     <string name="title_advanced_notify_suppress_in_call">來電時即時通知延遲</string>
     <string name="title_advanced_notify_suppress_in_car">已連接 Android Auto 時延遲通知</string>
     <string name="title_advanced_notify_summary">僅顯示通知摘要</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">在通知中顯示主旨</string>
+    <string name="title_advanced_notify_subject">在通知中顯示主旨</string>
     <string name="title_advanced_notify_preview">在通知中顯示訊息預覽</string>
     <string name="title_advanced_notify_preview_all">預覽所有文字</string>
     <string name="title_advanced_notify_preview_only">顯示僅有文字預覽的通知</string>
@@ -2354,6 +2353,11 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
         <item>無</item>
         <item>條紋</item>
         <item>點</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>中</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>接收者</item>

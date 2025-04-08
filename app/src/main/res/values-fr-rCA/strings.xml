@@ -540,7 +540,7 @@
     <string name="title_advanced_indentation">Mettre en retrait vers la gauche/droite les messages reçus/envoyés dans les conversations</string>
     <string name="title_advanced_highlight_unread">Afficher les messages non lus en surbrillance</string>
     <string name="title_advanced_account_color">Afficher une bande de couleur ou un point de couleur</string>
-    <string name="title_advanced_color_stripe_wide">Utiliser une bande de couleur large</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Largeur de la bande de couleur</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_bimi">Afficher les indicateurs de marque pour l\'identification des messages (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Exiger un certificat VMC valide</string>
@@ -688,7 +688,7 @@
     <string name="title_advanced_notify_suppress_in_call">Différer les notifications pendant un appel</string>
     <string name="title_advanced_notify_suppress_in_car">Retarder les notifications lorsque Android Auto est connecté</string>
     <string name="title_advanced_notify_summary">Afficher uniquement une notification résumée</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Afficher l\'objet dans les notifications</string>
+    <string name="title_advanced_notify_subject">Afficher l\'objet dans les notifications</string>
     <string name="title_advanced_notify_preview">Afficher l’aperçu du message dans les notifications</string>
     <string name="title_advanced_notify_preview_all">Aperçu de tout le texte</string>
     <string name="title_advanced_notify_preview_only">Afficher les notifications avec un texte de prévisualisation uniquement</string>
@@ -1179,6 +1179,7 @@
     <string name="title_hint_operations">La suppression d’opérations en attente peut entraîner la perte de messages ainsi que des problèmes de synchronisation</string>
     <string name="title_op_title_headers">Téléchargement des en-têtes</string>
     <string name="title_op_title_raw">Téléchargement du message brut</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Envoi du message</string>
     <string name="title_folder_name">Nom du dossier</string>
     <string name="title_display_name">Nom affiché</string>
     <string name="title_show_folders">Afficher les dossiers cachés</string>
@@ -2382,6 +2383,11 @@
         <item>Aucune</item>
         <item>Bande</item>
         <item>Point</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Fine</item>
+        <item>Moyen</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Épaisse</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinataire</item>

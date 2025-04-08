@@ -534,7 +534,6 @@
     <string name="title_advanced_indentation">Ляв/десен отстъп на получени/изпратени съобщения в разговори</string>
     <string name="title_advanced_highlight_unread">Маркирай непрочетените съобщения</string>
     <string name="title_advanced_account_color">Показване на цветна ивица или точка</string>
-    <string name="title_advanced_color_stripe_wide">Употреба на широка гама цветове</string>
     <string name="title_advanced_avatars">Показване на снимки на контакт</string>
     <string name="title_advanced_bimi">Показване на „Brand Indicators for Message Identification“ (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Изисква се действащо удостоверение на VMC</string>
@@ -682,7 +681,7 @@
     <string name="title_advanced_notify_suppress_in_call">Отлагане на известия по време на обаждане</string>
     <string name="title_advanced_notify_suppress_in_car">Отлагане на известия, докато Android Auto има свързване</string>
     <string name="title_advanced_notify_summary">Показване на обобщено известие</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Показване на тема в известията</string>
+    <string name="title_advanced_notify_subject">Показване на тема в известията</string>
     <string name="title_advanced_notify_preview">Визуализация на съобщението в известията</string>
     <string name="title_advanced_notify_preview_all">Визуализирай целия текст</string>
     <string name="title_advanced_notify_preview_only">Показване на известия само с онагледен текст</string>
@@ -2372,6 +2371,11 @@
         <item>Нищо</item>
         <item>Ивица</item>
         <item>Точка</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Среден</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Получател</item>

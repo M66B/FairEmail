@@ -536,7 +536,7 @@
     <string name="title_advanced_indentation">Beérkezett/elküldött üzenetek balra/jobbra tördelése a beszélgetésekben</string>
     <string name="title_advanced_highlight_unread">Olvasatlan üzenetek kiemelése</string>
     <string name="title_advanced_account_color">Színes sáv, vagy pötty mutatása</string>
-    <string name="title_advanced_color_stripe_wide">Széles színcsík használata</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Színes csík szélesség</string>
     <string name="title_advanced_avatars">Névjegyzék fényképeinek megjelenítése</string>
     <string name="title_advanced_bimi">Mutassa a Márkajelzést Üzenetazonosításhoz (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Érvényes VMC tanúsítvány megkövetelése</string>
@@ -684,7 +684,7 @@
     <string name="title_advanced_notify_suppress_in_call">Értesítések késleltetése hívás közben</string>
     <string name="title_advanced_notify_suppress_in_car">Értesítések halasztása amíg az Android Auto csatlakoztatva van</string>
     <string name="title_advanced_notify_summary">Csak összegző értesítések megjelnítése</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Mutatása a tárgyat az értesítésben</string>
+    <string name="title_advanced_notify_subject">Mutatása a tárgyat az értesítésben</string>
     <string name="title_advanced_notify_preview">Üzenet előnézetének megjelnítése az értesítésben</string>
     <string name="title_advanced_notify_preview_all">Összes szöveg előnézete</string>
     <string name="title_advanced_notify_preview_only">Az értesítések csak a szöveg előnézete jelenjen meg</string>
@@ -1172,6 +1172,7 @@
     <string name="title_hint_operations">Műveletek törlése eltűnő üzeneteket és szinkronizálási problémákat okozhat</string>
     <string name="title_op_title_headers">Fejlécek letöltése</string>
     <string name="title_op_title_raw">Nyers üzenet letöltése</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Üzenet feltöltés</string>
     <string name="title_folder_name">Mappanév</string>
     <string name="title_display_name">Megjelenítendő név</string>
     <string name="title_show_folders">Rejtett mappák megjelenításe</string>
@@ -2371,6 +2372,11 @@
         <item>Egyik sem</item>
         <item>Csík</item>
         <item>Pötty</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Keskeny</item>
+        <item>Közepes</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Széles</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Címzett</item>

@@ -554,7 +554,7 @@
     <string name="title_advanced_indentation">Lijevo/desno poravnanje primljenih/poslanih poruka u konverzacijama</string>
     <string name="title_advanced_highlight_unread">Markiraj nepročitane poruke</string>
     <string name="title_advanced_account_color">Prikaži obojenu traku ili tačku</string>
-    <string name="title_advanced_color_stripe_wide">Koristi široku traku s bojama</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Širina obojene trake</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Zahtjevaj važeći VMC certifikat</string>
@@ -702,7 +702,7 @@
     <string name="title_advanced_notify_suppress_in_call">Odgodi obavještenja tokom poziva</string>
     <string name="title_advanced_notify_suppress_in_car">Odgodi obavještenja kada je spojen Android Auto</string>
     <string name="title_advanced_notify_summary">Prikaži samo obavještenja sa sažetkom</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Prikaži predmet u obavještenjima</string>
+    <string name="title_advanced_notify_subject">Prikaži predmet u obavještenjima</string>
     <string name="title_advanced_notify_preview">Prikaži pregled poruke u obavještenjima</string>
     <string name="title_advanced_notify_preview_all">Prikaz cijelog teksta</string>
     <string name="title_advanced_notify_preview_only">Prikaži obavještenja samo sa pregledom poruka</string>
@@ -1192,6 +1192,7 @@
     <string name="title_hint_operations">Brisanje operacija može prouzrokovati nestanak poruka i probleme sa sinhronizacijom</string>
     <string name="title_op_title_headers">Preuzimanje zaglavlja</string>
     <string name="title_op_title_raw">Preuziamanje raw poruke</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Prijenos poruke</string>
     <string name="title_folder_name">Naziv foldera</string>
     <string name="title_display_name">Prikazano ime</string>
     <string name="title_show_folders">Prikaži skrivene foldere</string>
@@ -2389,6 +2390,11 @@
         <item>Nijedno</item>
         <item>Traka</item>
         <item>Tačka</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Uska</item>
+        <item>Srednji</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Široka</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Primalac</item>

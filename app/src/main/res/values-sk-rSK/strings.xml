@@ -552,7 +552,6 @@
     <string name="title_advanced_indentation">Ľavé/pravé odsadenie prijatých/odoslaných správ v konverzáciách</string>
     <string name="title_advanced_highlight_unread">Zvýrazniť neprečítané správy</string>
     <string name="title_advanced_account_color">Zobrazovať farebný prúžok alebo farebnú bodku</string>
-    <string name="title_advanced_color_stripe_wide">Použiť širší farebný pruh</string>
     <string name="title_advanced_avatars">Zobraziť fotografie kontaktov</string>
     <string name="title_advanced_bimi">Zobrazovať indikátori pravosti značky pre lepšiu identifikáciu správ (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Vyžadovať platný certifikát VMC</string>
@@ -2342,6 +2341,11 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         <item>Nič</item>
         <item>Stripe</item>
         <item>Dot</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Stredná</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Adresát</item>

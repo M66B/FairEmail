@@ -1113,6 +1113,11 @@
         <item>Stripe</item>
         <item>Dot</item>
     </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Средња</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
+    </string-array>
     <string-array name="contactTypes">
         <item>Прималац</item>
         <item>Пошиљаоцу</item>

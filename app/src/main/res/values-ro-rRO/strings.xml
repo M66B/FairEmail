@@ -553,7 +553,6 @@
     <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
     <string name="title_advanced_highlight_unread">Evidențiază mesajele necitite</string>
     <string name="title_advanced_account_color">Arată o bandă de culoare sau un punct de culoare</string>
-    <string name="title_advanced_color_stripe_wide">Utilizați bandă largă de culoare</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_bimi">Arată Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Solicitați un certificat VMC valabil</string>
@@ -701,7 +700,7 @@
     <string name="title_advanced_notify_suppress_in_call">Amânare notificări în timpul unui apel</string>
     <string name="title_advanced_notify_suppress_in_car">Întârziere notificări în timp ce Android Auto este conectat</string>
     <string name="title_advanced_notify_summary">Arată doar sumarul în notificare</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Arată subiectul în notificări</string>
+    <string name="title_advanced_notify_subject">Arată subiectul în notificări</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_preview_all">Previzualizează tot textul</string>
     <string name="title_advanced_notify_preview_only">Arată notificări doar cu un text de previzualizare</string>
@@ -2392,6 +2391,11 @@
         <item>Fără</item>
         <item>Benzi</item>
         <item>Punct</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Medie</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatar</item>

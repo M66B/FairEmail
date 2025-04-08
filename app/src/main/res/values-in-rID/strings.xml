@@ -507,7 +507,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_indentation">Indentasi kiri/kanan menerima/mengirim pesan dalam sebuah obrolan</string>
     <string name="title_advanced_highlight_unread">Sorot pesan yang belum dibaca</string>
     <string name="title_advanced_account_color">Menampilkan garis warna atau titik warna</string>
-    <string name="title_advanced_color_stripe_wide">Gunakan garis warna lebar</string>
     <string name="title_advanced_avatars">Tampilkan kontak foto</string>
     <string name="title_advanced_bimi">Tampilkan Indikator Merek untuk Identifikasi Pesan (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Memerlukan sertifikat VMC yang masih berlaku</string>
@@ -2309,6 +2308,11 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
         <item>Tidak ada</item>
         <item>Garis</item>
         <item>Titik</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Sedang</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Penerima</item>

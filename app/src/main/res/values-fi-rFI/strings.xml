@@ -195,6 +195,8 @@
     <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
     <string name="title_setup_gmail_login">Uusi tili voidaan lisätä vain Androidin kautta, jos Chrome on kirjautunut tilille. Tämä voidaan välttää kirjautumalla ulos Chromesta sen synkronointiasetuksissa.</string>
     <string name="title_setup_gmail_max">Sinun täytyy kirjautua ulos kaikilta Google-tileiltäsi selaimessa, jos saat virheen \"Olet kirjautunut sisään suurimpaan mahdolliseen määrään tilejä\".</string>
+    <string name="title_setup_outlook_hint">Jos kyseessä on alias osoite, olisi todennäköisesti käytettävä Office 365 -avustajaa.</string>
+    <string name="title_setup_outlook_modern">Microsoftin turvallisuuspolitiikan muutosten vuoksi, syyskuussa 16, 2024, vain Outlook/Hotmail/Live velho toimii.</string>
     <string name="title_setup_gmail_on_device">Miksi minun täytyy valita laitteessa oleva tili?</string>
     <string name="title_setup_gmail_password">Haluan valtuuttaa tilin salasanalla enkä käyttää valtuutukseen laitteeseen asetettua tiliä</string>
     <string name="title_setup_office_auth">Virhe \'AUTHENTICATE failed\' voi aiheutua siitä, että järjestelmän ylläpitäjän on poistanut IMAP/SMTP-protokollat käytöstä</string>
@@ -203,6 +205,7 @@
     <string name="title_setup_oauth_rationale">Valtuuta pääsy tilillesi %1$s</string>
     <string name="title_setup_oauth_update">Valtuuta olemassa oleva tili uudelleen (muussa tapauksessa luo uusi tili)</string>
     <string name="title_setup_oauth_updated">Tilin valtuutus päivitettiin</string>
+    <string name="title_setup_oauth_edge">Kun käytät Edge-selainta, varmista, että \'Estä ulkoisten sovellusten avaaminen\' -asetuksissa \'Yksityisyys, tietoturva ja palvelut\' ovat \'Poissa\'</string>
     <string name="title_setup_oauth_brave">Brave-selaimessa täytyy ottaa asetuksissa käyttöön valinta, jotta sovelluslinkit voidaan avata muissa sovelluksissa</string>
     <string name="title_setup_oauth_authorize">Valtuuta</string>
     <string name="title_setup_select_account">Valitse tili</string>
@@ -517,7 +520,6 @@
     <string name="title_advanced_threading_unread">Näytä lukemattomien viestien lukumäärä keskusteluissa</string>
     <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
-    <string name="title_advanced_color_stripe_wide">Käytä leveää väriraitaa</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_bimi">Näytä Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Vaadi voimassa oleva VMC-varmenne</string>
@@ -2317,6 +2319,11 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
         <item>Ei mitään</item>
         <item>Stripe</item>
         <item>Dot</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Keskikokoinen</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Vastaanottaja</item>

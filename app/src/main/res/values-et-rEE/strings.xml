@@ -535,7 +535,6 @@
     <string name="title_advanced_indentation">Vastuvõetud/saadud sõnumite vasak/parempoolne taane vestlustes</string>
     <string name="title_advanced_highlight_unread">Tõsta lugemata sõnumid esile</string>
     <string name="title_advanced_account_color">Näita värvilist triipu või punkti</string>
-    <string name="title_advanced_color_stripe_wide">Kasuta laia värvivööti</string>
     <string name="title_advanced_avatars">Näita kontakti fotot</string>
     <string name="title_advanced_bimi">Näita sõnumi tunnusena Brändi tunnuseid (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Nõua kehtivat VMC-sertifikaati</string>
@@ -2367,6 +2366,11 @@
         <item>Pole</item>
         <item>Triip</item>
         <item>Punkt</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Keskmine</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Saaja</item>

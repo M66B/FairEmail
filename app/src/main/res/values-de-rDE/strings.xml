@@ -541,7 +541,7 @@
     <string name="title_advanced_indentation">Empfangene/gesendete Nachrichten im Themenbaum links/rechts einrücken</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten hervorheben</string>
     <string name="title_advanced_account_color">Farbstreifen oder Farbpunkt anzeigen</string>
-    <string name="title_advanced_color_stripe_wide">Breite Farbstreifen verwenden</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Breite der Farbstreifen</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) anzeigen</string>
     <string name="title_advanced_bimi_vmc">Gültiges VMC-Zertifikat voraussetzen</string>
@@ -689,7 +689,7 @@
     <string name="title_advanced_notify_suppress_in_call">Benachrichtigungen bis zur Beendigung eines Telefonats zurückstellen</string>
     <string name="title_advanced_notify_suppress_in_car">Benachrichtigungen zurückstellen, solange Android Auto verbunden ist</string>
     <string name="title_advanced_notify_summary">Nur zusammenfassende Benachrichtigung anzeigen</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Betreff in Benachrichtigungen anzeigen</string>
+    <string name="title_advanced_notify_subject">Betreff in Benachrichtigungen anzeigen</string>
     <string name="title_advanced_notify_preview">Nachrichtenvorschau in den Benachrichtigungen anzeigen</string>
     <string name="title_advanced_notify_preview_all">Vorschau des gesamten Textes</string>
     <string name="title_advanced_notify_preview_only">Nur Benachrichtigungen mit Vorschautext anzeigen</string>
@@ -1180,6 +1180,7 @@
     <string name="title_hint_operations">Das Löschen von Vorgängen kann zum Verschwinden von Meldungen und zu Synchronisationsproblemen führen</string>
     <string name="title_op_title_headers">Kopfzeilen werden heruntergeladen</string>
     <string name="title_op_title_raw">Rohdaten der Nachricht werden heruntergeladen</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Hochladen der Nachricht</string>
     <string name="title_folder_name">Ordnername</string>
     <string name="title_display_name">Anzeigename</string>
     <string name="title_show_folders">Ausgeblendete Ordner anzeigen</string>
@@ -2383,6 +2384,11 @@
         <item>Keine</item>
         <item>Streifen</item>
         <item>Punkt</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Schmal</item>
+        <item>Mittel</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Breit</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Empfänger</item>

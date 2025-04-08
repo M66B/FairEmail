@@ -540,7 +540,7 @@
     <string name="title_advanced_indentation">Messaggi ricevuti e inviati con rientro a sinistra e destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi da leggere</string>
     <string name="title_advanced_account_color">Mostra una striscia colorata o un punto colorato</string>
-    <string name="title_advanced_color_stripe_wide">Usa un\'ampia striscia di colore</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Spessore della striscia colorata</string>
     <string name="title_advanced_avatars">Mostra le foto di contatto</string>
     <string name="title_advanced_bimi">Mostra il logo del mittente (BIMI, Brand Indicators for Message Identification)</string>
     <string name="title_advanced_bimi_vmc">Richiedi un certificato VMC valido</string>
@@ -688,7 +688,7 @@
     <string name="title_advanced_notify_suppress_in_call">Posticipa le notifiche durante una chiamata</string>
     <string name="title_advanced_notify_suppress_in_car">Posticipa le notifiche mentre Android Auto è connesso</string>
     <string name="title_advanced_notify_summary">Mostra solo le notifiche del riepilogo</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Mostra l\'oggetto nelle notifiche</string>
+    <string name="title_advanced_notify_subject">Mostra l\'oggetto nelle notifiche</string>
     <string name="title_advanced_notify_preview">Mostra l\'anteprima del messaggio nelle notifiche</string>
     <string name="title_advanced_notify_preview_all">Visualizza tutto il testo</string>
     <string name="title_advanced_notify_preview_only">Mostra solo le notifiche con un testo d\'anteprima</string>
@@ -1179,6 +1179,7 @@
     <string name="title_hint_operations">L\'eliminazione delle operazioni può causare la scomparsa dei messaggi e problemi di sincronizzazione</string>
     <string name="title_op_title_headers">Scaricamento delle intestazioni</string>
     <string name="title_op_title_raw">Scaricamento del messaggio grezzo</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Caricamento del messaggio</string>
     <string name="title_folder_name">Nome della cartella</string>
     <string name="title_display_name">Nome mostrato</string>
     <string name="title_show_folders">Mostra le cartelle nascoste</string>
@@ -2382,6 +2383,11 @@
         <item>Niente</item>
         <item>Striscia</item>
         <item>Punto</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Sottile</item>
+        <item>Media</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Spessa</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatario</item>

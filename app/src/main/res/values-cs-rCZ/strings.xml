@@ -568,7 +568,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
     <string name="title_advanced_highlight_unread">Zvýraznit nepřečtené zprávy</string>
     <string name="title_advanced_account_color">Zobrazit barevný pruh nebo barevný bod</string>
-    <string name="title_advanced_color_stripe_wide">Použít široký barevný pruh</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Šířka barevného pruhu</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_bimi">Zobrazit Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Vyžaduje platný certifikát VMC</string>
@@ -716,7 +716,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_notify_suppress_in_call">Zpoždění upozornění během hovoru</string>
     <string name="title_advanced_notify_suppress_in_car">Zpoždění oznámení při připojení Android Auto</string>
     <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
-    <string name="title_advanced_notify_subject" comment="title_advanced_notify_subject&#10;Title for option switch in the notification settings tab page">Zobrazit předmět v oznámeních</string>
+    <string name="title_advanced_notify_subject">Zobrazit předmět v oznámeních</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_notify_preview_all">Náhled na celý text</string>
     <string name="title_advanced_notify_preview_only">Zobrazit pouze oznámení s náhledem textu</string>
@@ -1206,6 +1206,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_hint_operations">Odstranění operací může mít za následek mizení zpráv a problémy se synchronizací</string>
     <string name="title_op_title_headers">Stahování záhlaví</string>
     <string name="title_op_title_raw">Stahování zdrojové zprávy</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Nahrávání zprávy</string>
     <string name="title_folder_name">Název složky</string>
     <string name="title_display_name">Zobrazované jméno</string>
     <string name="title_show_folders">Zobrazit skryté složky</string>
@@ -2408,6 +2409,11 @@ v prohlížeči ze všech Google účtů.</string>
         <item>Žádné</item>
         <item>Pruh</item>
         <item>Tečka</item>
+    </string-array>
+    <string-array name="accountColorSizes">
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Úzký</item>
+        <item>Střední</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Široký</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Příjemce</item>
