@@ -481,19 +481,15 @@ tasks.register('extractSignature', Exec) {
             'apksigcopier extract --v1-only=auto app/build/outputs/apk/fdroid/release/FairEmail-v1.' + getVersionCode() + getRevision() + '-fdroid-release.apk metadata/eu.faircode.email/signatures/' + getVersionCode()
 }
 
-tasks.register('upload') {
+tasks.register('upload', Exec) {
     // ./gradlew upload -Ptarget=play-preview
-    doLast {
-        println "\nhttps://bitbucket.org/M66B/fairemail-test/downloads/FairEmail-v1." + getVersionCode() + getRevision() + "-" + target + "-release.apk\n"
-        exec {
-            workingDir "${rootDir}/app/build"
-            commandLine 'curl',
-                    '-o', '/dev/null',
-                    '-X', 'POST', "https://M66B:" + localProperties.getProperty("bb.pwd", "") + "@api.bitbucket.org/2.0/repositories/M66B/fairemail-test/downloads",
-                    '--form', "files=@${rootDir}/app/build/outputs/apk/" + target.split('-')[0] + "/release/FairEmail-v1." + getVersionCode() + getRevision() + "-" + target.split('-')[0] + "-release.apk;" +
-                    "filename=FairEmail-v1." + getVersionCode() + getRevision() + "-" + target + "-release.apk"
-        }
-    }
+    println "\nhttps://bitbucket.org/M66B/fairemail-test/downloads/FairEmail-v1." + getVersionCode() + getRevision() + "-" + target + "-release.apk\n"
+    workingDir "${rootDir}/app/build"
+    commandLine 'curl',
+            '-o', '/dev/null',
+            '-X', 'POST', "https://M66B:" + localProperties.getProperty("bb.pwd", "") + "@api.bitbucket.org/2.0/repositories/M66B/fairemail-test/downloads",
+            '--form', "files=@${rootDir}/app/build/outputs/apk/" + target.split('-')[0] + "/release/FairEmail-v1." + getVersionCode() + getRevision() + "-" + target.split('-')[0] + "-release.apk;" +
+            "filename=FairEmail-v1." + getVersionCode() + getRevision() + "-" + target + "-release.apk"
 }
 
 repositories {
