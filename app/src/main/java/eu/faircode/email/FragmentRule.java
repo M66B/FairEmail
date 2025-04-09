@@ -1686,7 +1686,15 @@ public class FragmentRule extends FragmentBase {
                         }
                     }
 
-                    if (jsender == null &&
+                    int age = 0;
+                    if (daily) {
+                        JSONObject jgeneral = jcondition.optJSONObject("general");
+                        if (jgeneral != null)
+                            age = jgeneral.optInt("age");
+                    }
+
+                    if (age == 0 &&
+                            jsender == null &&
                             jrecipient == null &&
                             jsubject == null &&
                             !jcondition.optBoolean("attachments") &&
