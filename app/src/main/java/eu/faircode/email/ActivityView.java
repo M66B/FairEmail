@@ -326,7 +326,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 owner.stop();
 
                 drawerLayout.setDrawerLockMode(LOCK_MODE_UNLOCKED);
-                childContent.setPaddingRelative(0, 0, 0, 0);
+                childContent.setPaddingRelative(0, 0, 0, childContent.getPaddingBottom());
 
                 super.onDrawerClosed(view);
             }
@@ -343,7 +343,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (nav_pinned) {
                     drawerLayout.setDrawerLockMode(LOCK_MODE_LOCKED_OPEN);
                     int padding = childDrawer.getLayoutParams().width;
-                    childContent.setPaddingRelative(padding, 0, 0, 0);
+                    childContent.setPaddingRelative(padding, 0, 0, childContent.getPaddingBottom());
                 }
             }
 
@@ -363,7 +363,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 if (nav_pinned) {
                     int padding = Math.round(slideOffset * childDrawer.getLayoutParams().width);
-                    childContent.setPaddingRelative(padding, 0, 0, 0);
+                    childContent.setPaddingRelative(padding, 0, 0, childContent.getPaddingBottom());
                 }
             }
         };
@@ -1347,7 +1347,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         ViewGroup childContent = (ViewGroup) drawerLayout.getChildAt(0);
         ViewGroup childDrawer = (ViewGroup) drawerLayout.getChildAt(1);
         int padding = (nav_pinned ? childDrawer.getLayoutParams().width : 0);
-        childContent.setPaddingRelative(padding, 0, 0, 0);
+        childContent.setPaddingRelative(padding, 0, 0, childContent.getPaddingBottom());
 
         grpOptions.setVisibility(nav_expanded ? View.VISIBLE : View.GONE);
         ibExpanderNav.setImageLevel(nav_expanded ? 0 : 1);
@@ -1388,7 +1388,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         ViewGroup childContent = (ViewGroup) drawerLayout.getChildAt(0);
         ViewGroup childDrawer = (ViewGroup) drawerLayout.getChildAt(1);
         int padding = (nav_pinned ? childDrawer.getLayoutParams().width : 0);
-        childContent.setPaddingRelative(padding, 0, 0, 0);
+        childContent.setPaddingRelative(padding, 0, 0, childContent.getPaddingBottom());
 
         ibPin.setImageLevel(nav_pinned ? 1 : 0);
     }
