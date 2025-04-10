@@ -204,7 +204,7 @@
             android:id="@+id/menu_mark_all_read"
             android:icon="@drawable/twotone_drafts_24"
             android:title="@string/title_mark_all_read"
-            app:showAsAction="ifRoom" />
+            app:showAsAction="never" />
 
         <item
             android:id="@+id/menu_view_thread"

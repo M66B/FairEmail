@@ -6402,6 +6402,7 @@ public class FragmentMessages extends FragmentBase
             int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
             int padding = prefs.getInt("view_padding", compact || !cards ? 0 : 1);
             boolean quick_filter = prefs.getBoolean("quick_filter", false);
+            boolean all_read_asked = prefs.getBoolean("all_read_asked", false);
 
             boolean folder =
                     (viewType == AdapterMessage.ViewType.UNIFIED ||
@@ -6537,7 +6538,9 @@ public class FragmentMessages extends FragmentBase
 
             menu.findItem(R.id.menu_select_all).setVisible(folder);
             menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
-            menu.findItem(R.id.menu_mark_all_read).setVisible(folder);
+            menu.findItem(R.id.menu_mark_all_read)
+                    .setVisible(folder)
+                    .setShowAsAction(all_read_asked ? MenuItem.SHOW_AS_ACTION_NEVER : MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
             menu.findItem(R.id.menu_view_thread).setVisible(viewType == AdapterMessage.ViewType.THREAD && !threading);
 
