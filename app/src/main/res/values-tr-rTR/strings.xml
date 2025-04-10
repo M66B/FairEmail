@@ -342,6 +342,11 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     </string>
     <string name="title_advanced_hint_remark">Seçenekler sekmeye göre sınıflandırılmış, bölümlere ayrılmış, görünüm veya kullanıma göre düzenlenmiş ve aranabilir.
     </string>
+    <string name="title_advanced_hint_options">        Çoğu seçeneğe ihtiyacınız olmayacak ve bazı seçenekler oldukça spesifik olduğundan,
+        Tüm seçeneklerin işleyişinin hemen net olmaması anlaşılabilir bir durumdur.
+        Lütfen sadece seçenek sayısı nedeniyle veya tüm seçenekleri hemen anlamadığınız için kötü yorum bırakmayın.
+        Tüm seçenekler birkaç kişiden fazlası için yararlıdır, ancak sizin için (henüz) yararlı olmayabilir.
+    </string>
     <string name="title_advanced_hint_setup">Ana yapılandırma ekranındaki sihirbaz düğmesine dokunarak bir hesabı yapılandırabilirsiniz.</string>
     <string name="title_advanced_section_main">Ana</string>
     <string name="title_advanced_section_synchronize">Gelen</string>
@@ -781,6 +786,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_class_min_difference">En düşük sınıflandırma farkı: %1$s %%</string>
     <string name="title_advanced_show_filtered">Kurallar uygulandığında bir filtre simgesi göster</string>
     <string name="title_advanced_haptic_feedback">Önemli eylemler hakkında dokunsal geri bildirim</string>
+    <string name="title_advanced_haptic_feedback_swipe">Sola/sağa kaydırırken dokunsal geri bildirim</string>
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_integrations_hint">Aşağıdaki bulut hizmetleri uygulamanın bir parçası değildir. Herhangi bir ödeme, uygulama geliştiricisine değil, doğrudan bulut hizmetine gidecektir.</string>
@@ -1228,6 +1234,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_filters_active">Bir ya da daha fazla filtre aktif</string>
     <string name="title_duplicate_in">Mesajı %1$s klasörüne kopyala</string>
     <string name="title_trashed_from">%1$s tarafından çöpe atılan mesaj</string>
+    <string name="title_sent_to">%1$s\'e mesaj gönderildi</string>
     <string name="title_subject_reply">Ynt: %1$s</string>
     <string name="title_subject_forward">İlet: %1$s</string>
     <string name="title_subject_reply_alt">Ynt: %1$s</string>
