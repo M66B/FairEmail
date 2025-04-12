@@ -5267,6 +5267,9 @@ public class MessageHelper {
                 // https://en.wikipedia.org/wiki/MIME#Multipart_subtypes
                 if ("multipart".equals(ct.getPrimaryType()) &&
                         !("mixed".equalsIgnoreCase(ct.getSubType()) ||
+                                "none".equalsIgnoreCase(ct.getSubType()) ||
+                                "signed".equalsIgnoreCase(ct.getSubType()) ||
+                                "alternate".equalsIgnoreCase(ct.getSubType()) ||
                                 "alternative".equalsIgnoreCase(ct.getSubType()) ||
                                 "related".equalsIgnoreCase(ct.getSubType()) ||
                                 "relative".equalsIgnoreCase(ct.getSubType()) || // typo?
