@@ -535,6 +535,7 @@
     <string name="title_advanced_indentation">Αριστερή/δεξιά εσοχή ειλημμένων/απεσταλμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_highlight_unread">Να επισημαίνονται τα μη αναγνωσμένα μηνύματα</string>
     <string name="title_advanced_account_color">Προβολή μιας χρωματιστής λωρίδας ή μιας χρωματιστής κουκκίδας</string>
+    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Πλάτος της λωρίδας χρώματος</string>
     <string name="title_advanced_avatars">Προβολή φωτογραφιών επαφών</string>
     <string name="title_advanced_bimi">Προβολή των Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Να απαιτείται έγκυρο πιστοποιητικό VMC</string>
@@ -1170,6 +1171,7 @@
     <string name="title_hint_operations">Η διαγραφή των δραστηριοτήτων μπορεί να οδηγήσει σε εξαφανισμένα μηνύματα και προβλήματα συγχρονισμού</string>
     <string name="title_op_title_headers">Λήψη κεφαλίδων</string>
     <string name="title_op_title_raw">Λήψη αρχικού μηνύματος</string>
+    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Μεταφόρτωση μηνύματος</string>
     <string name="title_folder_name">Όνομα φακέλου</string>
     <string name="title_display_name">Προβαλλόμενο όνομα</string>
     <string name="title_show_folders">Εμφάνιση κρυμμένων φακέλων</string>
@@ -2373,9 +2375,9 @@
         <item>Κουκκίδα</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Στενή</item>
         <item>Μεσαίο</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
+        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Φαρδιά</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Παραλήπτης</item>
