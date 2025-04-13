@@ -20,7 +20,7 @@ Besides being time-consuming, this is no longer free as of this year.
 This is one of the reasons why the app cannot be completely free, meaning some features must be paid for in order to pay for an annual security audit.
 To be clear, nothing will be changed for now.
 
-The security audit revealed no problems, so Google accounts can continue to be used as usual next year.
+The security audit revealed no problems, so Google accounts can continue to be used as usual for a year.
 
 ---
 
