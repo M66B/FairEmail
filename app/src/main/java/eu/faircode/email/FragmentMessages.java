@@ -229,6 +229,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.function.Consumer;
 
@@ -406,8 +407,8 @@ public class FragmentMessages extends FragmentBase
     private Boolean lastFolderErrors;
     private Boolean lastAccountErrors;
 
-    final private Map<String, String> kv = new HashMap<>();
-    final private Map<String, List<Long>> values = new HashMap<>();
+    final private Map<String, String> kv = new ConcurrentHashMap<>();
+    final private Map<String, List<Long>> values = new ConcurrentHashMap<>();
     final private LongSparseArray<Float> sizes = new LongSparseArray<>();
     final private LongSparseArray<Integer> heights = new LongSparseArray<>();
     final private LongSparseArray<Pair<Integer, Integer>> positions = new LongSparseArray<>();
