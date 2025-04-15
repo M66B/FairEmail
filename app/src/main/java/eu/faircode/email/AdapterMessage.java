@@ -120,6 +120,7 @@ import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.text.method.LinkMovementMethodCompat;
 import androidx.core.view.MenuCompat;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -985,6 +986,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
                     tvBody.setBreakStrategy(LineBreaker.BREAK_STRATEGY_HIGH_QUALITY);
             }
+            ViewCompat.enableAccessibleClickableSpanSupport(tvBody);
             wvBody = vsBody.findViewById(R.id.wvBody);
             pbBody = vsBody.findViewById(R.id.pbBody);
             vwRipple = vsBody.findViewById(R.id.vwRipple);
