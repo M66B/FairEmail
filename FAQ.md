@@ -438,6 +438,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(205) How do I check the integrity of an APK file?](#faq205)
 * [(206) How can I move or copy messages from one account to another?](#faq206)
 * [(207) What does 'Authentication failed' mean?](#faq207)
+* [(208) What does 'about:blank#blocked' mean when I click on a link?](#faq208)
 
 [I have another question.](#get-support)
 
@@ -6331,6 +6332,19 @@ which means it is not possible to configure an account manually, and that you *m
 
 Some email providers use account-specific host (server) names.
 So, please take care you use the correct host name when manually configuring an account.
+
+<br>
+
+<a name="faq208"></a>
+**(208) What does 'about:blank#blocked' mean when I click on a link?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq208)
+
+If you get '*about:blank#blocked*' when you click on a link, for some reason the installed browser has blocked the link.
+
+Note that the original message view is displayed by the installed browser. It may look like it's part of the app, but it's not.
+
+You can probably workaround this by switching back to the reformatted message view via the '\] \[' button just above the message text on the right.
 
 <br>
 
