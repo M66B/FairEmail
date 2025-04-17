@@ -6484,7 +6484,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_force_light).setChecked(force_light);
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(message.content);
-            popupMenu.getMenu().findItem(R.id.menu_share_link).setVisible(BuildConfig.DEBUG);
+            popupMenu.getMenu().findItem(R.id.menu_share_link).setVisible(!BuildConfig.PLAY_STORE_RELEASE);
             popupMenu.getMenu().findItem(R.id.menu_pin).setVisible(pin);
             popupMenu.getMenu().findItem(R.id.menu_event).setEnabled(message.content);
             popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(Helper.hasWebView(context) && message.content);

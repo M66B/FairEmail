@@ -1575,7 +1575,7 @@
     <string name="title_rename">Rename</string>
     <string name="title_share">Share</string>
     <string name="title_analyze">Analyze</string>
-    <string name="title_share_link" translatable="false">Share link</string>
+    <string name="title_share_link">Share link</string>
     <string name="title_share_link_open" translatable="false">Open message</string>
     <string name="title_zip" translatable="false">ZIP</string>
     <string name="title_event">Add to calendar</string>
