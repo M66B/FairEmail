@@ -535,7 +535,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_indentation">Links/rjochts ynspringe fan ûntfongen/ferstjoerde berjochten yn petearen</string>
     <string name="title_advanced_highlight_unread">Net-lêzen berjochten markearje</string>
     <string name="title_advanced_account_color">In kleurestreek of kleurestip toane</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Breedte kleurstreek</string>
+    <string name="title_advanced_account_color_size">Breedte kleurstreek</string>
     <string name="title_advanced_avatars">Kontaktfoto’s toane</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) toane</string>
     <string name="title_advanced_bimi_vmc">Jildich VMC-sertifikaat fereaskje</string>
@@ -1171,7 +1171,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_hint_operations">Fuortsmiten fan bewurkingen kin resultearje yn ferdwine berjochten en syngronisaasjeproblemen</string>
     <string name="title_op_title_headers">Kopteksten downloade</string>
     <string name="title_op_title_raw">Rûch berjocht downloade</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Berjocht oplade</string>
+    <string name="title_op_title_add">Berjocht oplade</string>
     <string name="title_folder_name">Mapnamme</string>
     <string name="title_display_name">Werjeftenamme</string>
     <string name="title_show_folders">Ferstoppe mappen toane</string>
@@ -2372,9 +2372,9 @@ https://en.wikipedia.org/wiki/ASCII</string>
         <item>Stip</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Smel</item>
+        <item>Smel</item>
         <item>Gemiddeld</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Breed</item>
+        <item>Breed</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Untfanger</item>

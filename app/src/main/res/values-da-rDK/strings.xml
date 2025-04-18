@@ -540,7 +540,7 @@
     <string name="title_advanced_indentation">Venstre-/-højreindryk modtagne/sendte beskeder i samtaler</string>
     <string name="title_advanced_highlight_unread">Fremhæv ulæste beskeder</string>
     <string name="title_advanced_account_color">Vis en farvestribe eller farveprik</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Farvestribebredde</string>
+    <string name="title_advanced_account_color_size">Farvestribebredde</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
     <string name="title_advanced_bimi">Vis Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Kræv gyldigt VMC-certifikat</string>
@@ -1179,7 +1179,7 @@
     <string name="title_hint_operations">Sletning af handlinger kan resultere i forsvundne beskeder og synkroniseringsproblemer</string>
     <string name="title_op_title_headers">Downloader overskrifter</string>
     <string name="title_op_title_raw">Downloader besked i råformat</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Uploader besked</string>
+    <string name="title_op_title_add">Uploader besked</string>
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
     <string name="title_show_folders">Vis skjulte mapper</string>
@@ -2383,9 +2383,9 @@
         <item>Prik</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Smal</item>
+        <item>Smal</item>
         <item>Mellem</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Bred</item>
+        <item>Bred</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Modtager</item>

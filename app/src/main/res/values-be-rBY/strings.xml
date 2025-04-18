@@ -2408,9 +2408,9 @@
         <item>Кропка</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Narrow</item>
         <item>Сярэдні</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
+        <item>Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Атрымальнік</item>

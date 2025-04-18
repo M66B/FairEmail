@@ -553,7 +553,7 @@
     <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
     <string name="title_advanced_highlight_unread">Evidențiază mesajele necitite</string>
     <string name="title_advanced_account_color">Arată o bandă de culoare sau un punct de culoare</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Lățimea benzii de culoare</string>
+    <string name="title_advanced_account_color_size">Lățimea benzii de culoare</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_bimi">Arată Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Solicitați un certificat VMC valabil</string>
@@ -1191,7 +1191,7 @@
     <string name="title_hint_operations">Ștergerea de operațiuni poate duce la dispariția mesajelor și la probleme de sincronizare</string>
     <string name="title_op_title_headers">Descărcarea antetelor</string>
     <string name="title_op_title_raw">Descărcarea mesajului original</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Se încarcă mesajul</string>
+    <string name="title_op_title_add">Se încarcă mesajul</string>
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>
     <string name="title_show_folders">Arată dosarele ascunse</string>
@@ -2395,9 +2395,9 @@
         <item>Punct</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Îngustă</item>
+        <item>Îngustă</item>
         <item>Medie</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Lată</item>
+        <item>Lată</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatar</item>

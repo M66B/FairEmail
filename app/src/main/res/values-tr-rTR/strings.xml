@@ -535,7 +535,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_indentation">Sohbetlerde alınan/gönderilen mesajları sola/sağa girintile</string>
     <string name="title_advanced_highlight_unread">Okunmamış iletileri vurgula</string>
     <string name="title_advanced_account_color">Bir renk şeridi veya renk noktası göster</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Renk şeridi genişliği</string>
+    <string name="title_advanced_account_color_size">Renk şeridi genişliği</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) Göster</string>
     <string name="title_advanced_bimi_vmc">Geçerli bir VMC sertifikası gerektirir</string>
@@ -1171,7 +1171,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_hint_operations">İşlemleri silmek mesajların kaybolmasına ve senkronizasyon sorunlarına neden olabilir</string>
     <string name="title_op_title_headers">Başlıklar İndiriliyor</string>
     <string name="title_op_title_raw">Ham mesaj indiriliyor</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Mesaj yükleme</string>
+    <string name="title_op_title_add">Mesaj yükleme</string>
     <string name="title_folder_name">Klasör adı</string>
     <string name="title_display_name">Görünen ad</string>
     <string name="title_show_folders">Gizli klasörleri göster</string>
@@ -2369,9 +2369,9 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
         <item>Nokta</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Dar</item>
+        <item>Dar</item>
         <item>Orta</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Geniş</item>
+        <item>Geniş</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Alıcı</item>

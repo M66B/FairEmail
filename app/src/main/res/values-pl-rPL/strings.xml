@@ -566,7 +566,7 @@
     <string name="title_advanced_indentation">Otrzymane/wysłane wiadomości z lewej/prawej strony konwersacji</string>
     <string name="title_advanced_highlight_unread">Podświetl nieprzeczytane wiadomości</string>
     <string name="title_advanced_account_color">Pokaż kolorowy pasek lub kolorową kropkę</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Szerokość paska kolorów</string>
+    <string name="title_advanced_account_color_size">Szerokość paska kolorów</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_bimi">Pokazuj \"Brand Indicators for Message Identification (BIMI)\"</string>
     <string name="title_advanced_bimi_vmc">Wymagaj ważnego certyfikatu VMC</string>
@@ -1204,7 +1204,7 @@
     <string name="title_hint_operations">Usuwanie operacji może spowodować znikanie wiadomości i problemy z synchronizacją</string>
     <string name="title_op_title_headers">Pobieranie nagłówków</string>
     <string name="title_op_title_raw">Pobieranie nieprzetworzonej wiadomości</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Przesyłanie wiadomości</string>
+    <string name="title_op_title_add">Przesyłanie wiadomości</string>
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
     <string name="title_show_folders">Pokaż ukryte foldery</string>
@@ -2409,9 +2409,9 @@
         <item>Kropka</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wąski</item>
+        <item>Wąski</item>
         <item>Średni</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Szeroki</item>
+        <item>Szeroki</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Adresat</item>

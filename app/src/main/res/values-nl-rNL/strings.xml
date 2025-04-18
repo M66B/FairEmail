@@ -535,7 +535,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_indentation">Links/rechts inspringen van ontvangen/verzonden berichten in gesprekken</string>
     <string name="title_advanced_highlight_unread">Ongelezen berichten markeren</string>
     <string name="title_advanced_account_color">Een kleurenstreep of kleurstip weergeven</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Breedte kleurstreep</string>
+    <string name="title_advanced_account_color_size">Breedte kleurstreep</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_bimi">Toon Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Vereis een geldig VMC-certificaat</string>
@@ -1170,7 +1170,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_hint_operations">Verwijderen van bewerkingen kan leiden tot het verdwijnen van berichten en synchronisatieproblemen</string>
     <string name="title_op_title_headers">Headers downloaden</string>
     <string name="title_op_title_raw">Ruw bericht downloaden</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Uploaden van bericht</string>
+    <string name="title_op_title_add">Uploaden van bericht</string>
     <string name="title_folder_name">Mapnaam</string>
     <string name="title_display_name">Weergavenaam</string>
     <string name="title_show_folders">Toon verborgen mappen</string>
@@ -1270,6 +1270,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rename">Hernoemen</string>
     <string name="title_share">Delen</string>
     <string name="title_analyze">Analyseer</string>
+    <string name="title_share_link">Deel link</string>
     <string name="title_event">Toevoegen aan agenda</string>
     <string name="title_pin">Snelkoppeling toevoegen</string>
     <string name="title_pin_label">Snelkoppeling titel</string>
@@ -2366,9 +2367,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>Stip</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Smal</item>
+        <item>Smal</item>
         <item>Middelgroot</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Breed</item>
+        <item>Breed</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Ontvanger</item>

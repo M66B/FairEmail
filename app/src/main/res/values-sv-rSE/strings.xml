@@ -531,7 +531,7 @@
     <string name="title_advanced_indentation">Vänster/höger indrag mottaget/skickade meddelanden i konversationer</string>
     <string name="title_advanced_highlight_unread">Markera olästa meddelanden</string>
     <string name="title_advanced_account_color">Visa en färgrand eller färgpunkt</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Bredd på färgband</string>
+    <string name="title_advanced_account_color_size">Bredd på färgband</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_bimi">Visa varumärkesindikatorer för meddelandeidentifiering (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Kräv ett giltigt VMC-certifikat</string>
@@ -1159,7 +1159,7 @@
     <string name="title_hint_operations">Att ta bort pågående åtgärder kan resultera i försvinnande meddelanden och synkroniseringsproblem</string>
     <string name="title_op_title_headers">Laddar ner rubriker</string>
     <string name="title_op_title_raw">Hämtar rådata för meddelande</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Laddar upp meddelande</string>
+    <string name="title_op_title_add">Laddar upp meddelande</string>
     <string name="title_folder_name">Mappnamn</string>
     <string name="title_display_name">Visningsnamn</string>
     <string name="title_show_folders">Visa dolda mappar</string>
@@ -2353,9 +2353,9 @@
         <item>Punkt</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Smal</item>
+        <item>Smal</item>
         <item>Medel</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Bred</item>
+        <item>Bred</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Mottagare</item>

@@ -567,7 +567,7 @@
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
     <string name="title_advanced_account_color">Показывать цветные полоски или точки</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Ширина цветной полосы</string>
+    <string name="title_advanced_account_color_size">Ширина цветной полосы</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_bimi">Показывать индикаторы бренда для идентификации сообщений (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Требовать действующий сертификат VMC</string>
@@ -1206,7 +1206,7 @@
     <string name="title_hint_operations">Удаление операций может привести к исчезновению сообщений и проблемам синхронизации.</string>
     <string name="title_op_title_headers">Загрузка заголовков</string>
     <string name="title_op_title_raw">Загрузка оригинала сообщения</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Отправка сообщения</string>
+    <string name="title_op_title_add">Отправка сообщения</string>
     <string name="title_folder_name">Название папки</string>
     <string name="title_display_name">Отображаемое имя</string>
     <string name="title_show_folders">Показывать скрытые папки</string>
@@ -2414,9 +2414,9 @@
         <item>Точка</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Узкая</item>
+        <item>Узкая</item>
         <item>Средняя</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Широкая</item>
+        <item>Широкая</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Получатель</item>

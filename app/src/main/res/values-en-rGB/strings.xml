@@ -55,7 +55,7 @@
     <string name="title_advanced_cards_shadow_highlight">Use highlight colour instead of accent colour</string>
     <string name="title_advanced_tabular_unread_bg">Use a grey background colour for unread messages when using table style</string>
     <string name="title_advanced_account_color">Show a colour stripe or colour dot</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Colour stripe width</string>
+    <string name="title_advanced_account_color_size">Colour stripe width</string>
     <string name="title_advanced_color_threshold">Threshold letter colour: %1$s %%</string>
     <string name="title_advanced_highlight_color">Highlight colour</string>
     <string name="title_advanced_flags_background">Show coloured background instead of coloured stars</string>

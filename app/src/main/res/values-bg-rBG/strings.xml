@@ -534,7 +534,7 @@
     <string name="title_advanced_indentation">Ляв/десен отстъп на получени/изпратени съобщения в разговори</string>
     <string name="title_advanced_highlight_unread">Маркирай непрочетените съобщения</string>
     <string name="title_advanced_account_color">Показване на цветна ивица или точка</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Ширина на цветната ивица</string>
+    <string name="title_advanced_account_color_size">Ширина на цветната ивица</string>
     <string name="title_advanced_avatars">Показване на снимки на контакт</string>
     <string name="title_advanced_bimi">Показване на „Brand Indicators for Message Identification“ (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Изисква се действащо удостоверение на VMC</string>
@@ -1172,7 +1172,7 @@
     <string name="title_hint_operations">Изтриването на операции може да доведе до изчезване на съобщения и проблеми със синхронизацията</string>
     <string name="title_op_title_headers">Изтегляне на заглавките</string>
     <string name="title_op_title_raw">Изтегляне на необработено съобщение</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Качване на съобщение</string>
+    <string name="title_op_title_add">Качване на съобщение</string>
     <string name="title_folder_name">Име на папка</string>
     <string name="title_display_name">Показвано име</string>
     <string name="title_show_folders">Показвана не скрити папки</string>
@@ -2376,9 +2376,9 @@
         <item>Точка</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Стеснено</item>
+        <item>Стеснено</item>
         <item>Среден</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Широко</item>
+        <item>Широко</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Получател</item>

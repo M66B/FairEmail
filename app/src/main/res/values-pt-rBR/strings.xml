@@ -538,7 +538,7 @@
     <string name="title_advanced_indentation">Indentatação esquerda/direita para mensagens recebido/enviado em conversas</string>
     <string name="title_advanced_highlight_unread">Destacar mensagens não lidas</string>
     <string name="title_advanced_account_color">Mostrar uma faixa colorida ou um ponto colorido</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Largura da faixa de cores</string>
+    <string name="title_advanced_account_color_size">Largura da faixa de cores</string>
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
     <string name="title_advanced_bimi">Mostrar Indicadores de Marca para Identificação de Mensagens (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Exigir um certificado VMC válido</string>
@@ -1176,7 +1176,7 @@
     <string name="title_hint_operations">Excluir operações pode resultar no desaparecimento de mensagens e problemas de sincronização</string>
     <string name="title_op_title_headers">Baixando cabeçalho</string>
     <string name="title_op_title_raw">Baixando mensagem bruta</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Enviando mensagem</string>
+    <string name="title_op_title_add">Enviando mensagem</string>
     <string name="title_folder_name">Nome da pasta</string>
     <string name="title_display_name">Nome de exibição</string>
     <string name="title_show_folders">Mostrar pastas ocultas</string>
@@ -2379,9 +2379,9 @@
         <item>Ponto</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Estreito</item>
+        <item>Estreito</item>
         <item>Médio</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Largo</item>
+        <item>Largo</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatário</item>

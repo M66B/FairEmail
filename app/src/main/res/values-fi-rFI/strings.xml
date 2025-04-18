@@ -535,7 +535,7 @@
     <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
     <string name="title_advanced_account_color">Näytä väriraita tai -piste</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Väriraidan leveys</string>
+    <string name="title_advanced_account_color_size">Väriraidan leveys</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_bimi">Näytä Brand Indicators for Message Identification (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Vaadi voimassa oleva VMC-varmenne</string>
@@ -1169,7 +1169,7 @@
     <string name="title_hint_operations">Toimenpiteiden poisto voi aiheuttaa viestien katoamista ja synkronointiongelmia</string>
     <string name="title_op_title_headers">Ladataan tunnistetietoja</string>
     <string name="title_op_title_raw">Ladataan raakaviestiä</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Lähetetään viestiä</string>
+    <string name="title_op_title_add">Lähetetään viestiä</string>
     <string name="title_folder_name">Kansion nimi</string>
     <string name="title_display_name">Näyttönimi</string>
     <string name="title_show_folders">Näytä piilotetut kansiot</string>
@@ -2356,9 +2356,9 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
         <item>Dot</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Narrow</item>
         <item>Keskikokoinen</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
+        <item>Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Vastaanottaja</item>

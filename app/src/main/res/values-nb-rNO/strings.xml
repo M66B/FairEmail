@@ -1533,9 +1533,9 @@
         <item>Dot</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Narrow</item>
         <item>Middels</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
+        <item>Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Mottaker</item>

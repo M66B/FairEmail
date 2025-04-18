@@ -540,7 +540,7 @@
     <string name="title_advanced_indentation">Danışıqlarda alınan/göndərilən mesajların sol/sağ boşluğu</string>
     <string name="title_advanced_highlight_unread">Oxunmamış mesajları vurğula</string>
     <string name="title_advanced_account_color">Rəngli bir zolaq və ya rəngli nöqtə göstər</string>
-    <string name="title_advanced_account_color_size" comment="title_advanced_account_color_size&#10;Title for option to select the width of color stripes">Rəng zolağının eni</string>
+    <string name="title_advanced_account_color_size">Rəng zolağının eni</string>
     <string name="title_advanced_avatars">Əlaqə fotolarını göstər</string>
     <string name="title_advanced_bimi">Mesaj İdentifikasiyası üçün Marka İndikatorlarını (BIMI) göstər</string>
     <string name="title_advanced_bimi_vmc">Yararlı bir VMC sertifikatını tələb et</string>
@@ -1178,7 +1178,7 @@
     <string name="title_hint_operations">Əməliyyatların silinməsi, mesajların görünməməsi və sinxronlaşdırma problemlərinin yaranması ilə nəticələnə bilər</string>
     <string name="title_op_title_headers">Başlıqlar endirilir</string>
     <string name="title_op_title_raw">Xam mesaj endirilir</string>
-    <string name="title_op_title_add" comment="title_op_title_add&#10;Name of failed operation (failed to upload a sent message)">Mesaj yüklənir</string>
+    <string name="title_op_title_add">Mesaj yüklənir</string>
     <string name="title_folder_name">Qovluq adı</string>
     <string name="title_display_name">Ekran adı</string>
     <string name="title_show_folders">Gizli qovluqları göstər</string>
@@ -2377,9 +2377,9 @@
         <item>Nöqtə</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Dar</item>
+        <item>Dar</item>
         <item>Orta</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Geniş</item>
+        <item>Geniş</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Alıcı</item>

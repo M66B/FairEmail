@@ -2355,9 +2355,9 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
         <item>點</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Narrow</item>
+        <item>Narrow</item>
         <item>中</item>
-        <item comment="accountColorSizes&#10;Choice for &quot;Color stripe width&quot;">Wide</item>
+        <item>Wide</item>
     </string-array>
     <string-array name="contactTypes">
         <item>接收者</item>
