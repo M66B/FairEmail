@@ -56,12 +56,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
 
+import com.bugsnag.android.Breadcrumb;
 import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
 import com.bugsnag.android.Client;
 import com.bugsnag.android.ErrorTypes;
 import com.bugsnag.android.Event;
+import com.bugsnag.android.OnBreadcrumbCallback;
 import com.bugsnag.android.OnErrorCallback;
+import com.bugsnag.android.OnSendCallback;
 import com.bugsnag.android.OnSessionCallback;
 import com.bugsnag.android.Session;
 import com.bugsnag.android.Severity;
@@ -448,7 +451,9 @@ public class Log {
                 @Override
                 public boolean onSession(@NonNull Session session) {
                     // opt-in
-                    return prefs.getBoolean("crash_reports", false) || Log.isTestRelease();
+                    // opt-in
+                    boolean crash_reports = prefs.getBoolean("crash_reports", false);
+                    return crash_reports || Log.isTestRelease();
                 }
             });
 
@@ -551,6 +556,24 @@ public class Log {
                     prefs.edit().putInt("crash_report_count", count).apply();
 
                     return (count <= MAX_CRASH_REPORTS);
+                }
+            });
+
+            config.addOnBreadcrumb(new OnBreadcrumbCallback() {
+                @Override
+                public boolean onBreadcrumb(@NonNull Breadcrumb breadcrumb) {
+                    // opt-in
+                    boolean crash_reports = prefs.getBoolean("crash_reports", false);
+                    return crash_reports || Log.isTestRelease();
+                }
+            });
+
+            config.addOnSend(new OnSendCallback() {
+                @Override
+                public boolean onSend(@NonNull Event event) {
+                    // opt-in
+                    boolean crash_reports = prefs.getBoolean("crash_reports", false);
+                    return crash_reports || Log.isTestRelease();
                 }
             });
 
