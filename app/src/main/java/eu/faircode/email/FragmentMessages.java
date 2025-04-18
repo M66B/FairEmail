@@ -403,6 +403,7 @@ public class FragmentMessages extends FragmentBase
     private Long lastSync = null;
 
     private Integer lastUnseen;
+    private Integer lastUnified;
     private Boolean lastRefreshing;
     private Boolean lastFolderErrors;
     private Boolean lastAccountErrors;
@@ -7333,11 +7334,14 @@ public class FragmentMessages extends FragmentBase
 
         // Get state
         int unseen = 0;
+        int unified = 0;
         boolean refreshing = false;
         boolean folderErrors = false;
         boolean accountErrors = false;
         for (TupleFolderEx folder : folders) {
             unseen += folder.unseen;
+            if (folder.unified)
+                unified++;
 
             if (folder.sync_state != null &&
                     !"downloading".equals(folder.sync_state) &&
@@ -7356,6 +7360,7 @@ public class FragmentMessages extends FragmentBase
 
         if (refreshing == swipeRefresh.isRefreshing() &&
                 Objects.equals(lastUnseen, unseen) &&
+                Objects.equals(lastUnified, unified) &&
                 Objects.equals(lastRefreshing, refreshing) &&
                 Objects.equals(lastFolderErrors, folderErrors) &&
                 Objects.equals(lastAccountErrors, accountErrors)) {
@@ -7364,6 +7369,7 @@ public class FragmentMessages extends FragmentBase
         }
 
         lastUnseen = unseen;
+        lastUnified = unified;
         lastRefreshing = refreshing;
         lastFolderErrors = folderErrors;
         lastAccountErrors = accountErrors;
