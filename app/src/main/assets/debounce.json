@@ -1,6 +1,8 @@
 [
   {
     "include": [
+      "*://cc.zdnet.com/v1/otc/*",
+      "*://cc.cnet.com/v1/otc/*",
       "*://cc.mashable.com/v1/*",
       "*://howl.me/link/?*",
       "*://www.pntrac.com/t/*",
