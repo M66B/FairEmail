@@ -5577,9 +5577,15 @@ public class FragmentMessages extends FragmentBase
         outState.putInt("fair:autoCloseCount", autoCloseCount);
         outState.putInt("fair:lastSentCount", lastSentCount);
 
-        outState.putStringArray("fair:values", values.keySet().toArray(new String[0]));
-        for (String name : values.keySet())
-            outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
+        List<String> keys = new ArrayList<>();
+        for (String name : values.keySet()) {
+            List<Long> ids = values.get(name);
+            if (ids != null) {
+                keys.add(name);
+                outState.putLongArray("fair:name:" + name, Helper.toLongArray(ids));
+            }
+        }
+        outState.putStringArray("fair:values", keys.toArray(new String[0]));
 
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
