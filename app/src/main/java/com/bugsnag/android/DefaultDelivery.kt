@@ -35,6 +35,8 @@ internal class DefaultDelivery(
         integrity: String?,
         headers: Map<String, String?>
     ): DeliveryStatus {
+        if (!System.getProperty("com.bugsnag.android.enabled").toBoolean())
+            return DeliveryStatus.FAILURE // Should not happen
 
         TrafficStats.setThreadStatsTag(1)
         if (connectivity != null && !connectivity.hasNetworkConnection()) {

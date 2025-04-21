@@ -314,6 +314,7 @@ public class Log {
 
     static void setCrashReporting(boolean enabled) {
         try {
+            System.setProperty("com.bugsnag.android.enabled", Boolean.toString(enabled));
             if (enabled)
                 Bugsnag.resumeSession();
             else
@@ -589,8 +590,10 @@ public class Log {
             Log.i("uuid=" + uuid);
             client.setUser(uuid, null, null);
 
-            if (prefs.getBoolean("crash_reports", false) || Log.isTestRelease())
+            if (prefs.getBoolean("crash_reports", false) || Log.isTestRelease()) {
+                System.setProperty("com.bugsnag.android.enabled", Boolean.toString(true));
                 Bugsnag.startSession();
+            }
         } catch (Throwable ex) {
             Log.e(ex);
             /*
