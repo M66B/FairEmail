@@ -52,6 +52,7 @@ import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.List;
 import java.util.Objects;
 
 public class FragmentFolder extends FragmentBase {
@@ -301,6 +302,9 @@ public class FragmentFolder extends FragmentBase {
                 EntityFolder parent = db.folder().getFolderByName(aid, parentName);
                 EntityFolder folder = db.folder().getFolder(id);
 
+                List<EntityFolder> children = db.folder().getChildFolders(id);
+                args.putBoolean("children", (children != null && !children.isEmpty()));
+
                 if (folder != null) {
                     EntityAccount account = db.account().getAccount(folder.account);
                     if (account != null) {
@@ -377,7 +381,8 @@ public class FragmentFolder extends FragmentBase {
 
                 deletable = (folder != null &&
                         !folder.read_only &&
-                        EntityFolder.USER.equals(folder.type));
+                        EntityFolder.USER.equals(folder.type) &&
+                        !args.getBoolean("children"));
                 invalidateOptionsMenu();
             }
 
