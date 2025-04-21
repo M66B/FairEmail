@@ -42,14 +42,13 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.net.ssl.HttpsURLConnection;
 
 public class LanguageTool {
     static final String LT_URI = "https://api.languagetool.org/v2/";
@@ -88,7 +87,7 @@ public class LanguageTool {
         Log.i("LT uri=" + uri);
 
         URL url = new URL(uri.toString());
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setDoOutput(false);
         connection.setReadTimeout(LT_TIMEOUT * 1000);
@@ -249,7 +248,7 @@ public class LanguageTool {
         Log.i("LT uri=" + uri + " request=" + request);
 
         URL url = new URL(uri.toString());
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
         connection.setReadTimeout(LT_TIMEOUT * 1000);
@@ -328,7 +327,7 @@ public class LanguageTool {
         Log.i("LT uri=" + uri + " request=" + request);
 
         URL url = new URL(uri.toString());
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
         connection.setReadTimeout(LT_TIMEOUT * 1000);
@@ -379,7 +378,7 @@ public class LanguageTool {
         Log.i("LT uri=" + uri);
 
         URL url = new URL(uri.toString());
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setDoOutput(false);
         connection.setReadTimeout(LT_TIMEOUT * 1000);
@@ -461,9 +460,9 @@ public class LanguageTool {
         return (!TextUtils.isEmpty(lt_user) && !TextUtils.isEmpty(lt_key));
     }
 
-    private static void checkStatus(HttpsURLConnection connection) throws IOException {
+    private static void checkStatus(HttpURLConnection connection) throws IOException {
         int status = connection.getResponseCode();
-        if (status != HttpsURLConnection.HTTP_OK) {
+        if (status != HttpURLConnection.HTTP_OK) {
             String error = "Error " + status + ": " + connection.getResponseMessage();
             try {
                 InputStream is = connection.getErrorStream();
