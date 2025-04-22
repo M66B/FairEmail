@@ -156,9 +156,6 @@
             tools:node="remove" />
         <!-- https://play.google.com/about/auto/developer-distribution-agreement-addendum/ -->
         <meta-data
-            android:name="com.bugsnag.android.API_KEY"
-            android:value="9d2d57476a0614974449a3ec33f2604a" />
-        <meta-data
             android:name="com.google.android.backup.api_key"
             android:value="unused" />
 

@@ -870,6 +870,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swCrashReports.setVisibility(View.GONE);
         swCrashReports.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -881,6 +882,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        tvUuid.setVisibility(View.GONE);
+
+        ibCrashReports.setVisibility(View.GONE);
         ibCrashReports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

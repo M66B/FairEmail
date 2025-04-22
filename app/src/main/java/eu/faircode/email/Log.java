@@ -32,7 +32,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.DeadObjectException;
 import android.os.DeadSystemException;
-import android.os.Debug;
 import android.os.OperationCanceledException;
 import android.os.RemoteException;
 import android.os.TransactionTooLargeException;
@@ -56,18 +55,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
 
-import com.bugsnag.android.Breadcrumb;
-import com.bugsnag.android.BreadcrumbType;
-import com.bugsnag.android.Bugsnag;
-import com.bugsnag.android.Client;
-import com.bugsnag.android.ErrorTypes;
-import com.bugsnag.android.Event;
-import com.bugsnag.android.OnBreadcrumbCallback;
-import com.bugsnag.android.OnErrorCallback;
-import com.bugsnag.android.OnSendCallback;
-import com.bugsnag.android.OnSessionCallback;
-import com.bugsnag.android.Session;
-import com.bugsnag.android.Severity;
 import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.ProtocolException;
@@ -76,7 +63,6 @@ import com.sun.mail.util.MailConnectException;
 
 import org.bouncycastle.jsse.provider.BouncyCastleJsseProvider;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
@@ -86,20 +72,14 @@ import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyStore;
 import java.security.Provider;
-import java.security.cert.CertPathValidatorException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 import java.util.concurrent.TimeoutException;
-import java.util.regex.Pattern;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.FolderClosedException;
@@ -108,8 +88,6 @@ import javax.mail.MessagingException;
 import javax.mail.StoreClosedException;
 import javax.mail.internet.InternetAddress;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLHandshakeException;
-import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
@@ -186,21 +164,6 @@ public class Log {
     }
 
     public static int e(String msg) {
-        if (BuildConfig.BETA_RELEASE)
-            try {
-                ThrowableWrapper ex = new ThrowableWrapper();
-                ex.setMessage(msg);
-                Bugsnag.notify(ex, new OnErrorCallback() {
-                    @Override
-                    public boolean onError(@NonNull Event event) {
-                        event.setSeverity(Severity.ERROR);
-                        return true;
-                    }
-                });
-            } catch (Throwable ex) {
-                Log.i(ex);
-            }
-
         org.tinylog.Logger.tag(TAG).error(msg);
         return 0;
     }
@@ -216,43 +179,11 @@ public class Log {
     }
 
     public static int w(Throwable ex) {
-        if (BuildConfig.BETA_RELEASE)
-            try {
-                final StackTraceElement[] ste = new Throwable().getStackTrace();
-                Bugsnag.notify(ex, new OnErrorCallback() {
-                    @Override
-                    public boolean onError(@NonNull Event event) {
-                        event.setSeverity(Severity.INFO);
-                        if (ste.length > 1)
-                            event.addMetadata("extra", "caller", ste[1].toString());
-                        return true;
-                    }
-                });
-            } catch (Throwable ex1) {
-                Log.i(ex1);
-            }
-
         org.tinylog.Logger.tag(TAG).warn(ex);
         return 0;
     }
 
     public static int e(Throwable ex) {
-        if (BuildConfig.BETA_RELEASE)
-            try {
-                final StackTraceElement[] ste = new Throwable().getStackTrace();
-                Bugsnag.notify(ex, new OnErrorCallback() {
-                    @Override
-                    public boolean onError(@NonNull Event event) {
-                        event.setSeverity(Severity.WARNING);
-                        if (ste.length > 1)
-                            event.addMetadata("extra", "caller", ste[1].toString());
-                        return true;
-                    }
-                });
-            } catch (Throwable ex1) {
-                Log.i(ex1);
-            }
-
         org.tinylog.Logger.tag(TAG).error(ex);
         return 0;
     }
@@ -263,37 +194,11 @@ public class Log {
     }
 
     public static int w(String prefix, Throwable ex) {
-        if (BuildConfig.BETA_RELEASE)
-            try {
-                Bugsnag.notify(ex, new OnErrorCallback() {
-                    @Override
-                    public boolean onError(@NonNull Event event) {
-                        event.setSeverity(Severity.INFO);
-                        return true;
-                    }
-                });
-            } catch (Throwable ex1) {
-                Log.i(ex1);
-            }
-
         org.tinylog.Logger.tag(TAG).warn(ex, prefix);
         return 0;
     }
 
     public static int e(String prefix, Throwable ex) {
-        if (BuildConfig.BETA_RELEASE)
-            try {
-                Bugsnag.notify(ex, new OnErrorCallback() {
-                    @Override
-                    public boolean onError(@NonNull Event event) {
-                        event.setSeverity(Severity.WARNING);
-                        return true;
-                    }
-                });
-            } catch (Throwable ex1) {
-                Log.i(ex1);
-            }
-
         org.tinylog.Logger.tag(TAG).error(ex, prefix);
         return 0;
     }
@@ -313,14 +218,6 @@ public class Log {
     }
 
     static void setCrashReporting(boolean enabled) {
-        try {
-            if (enabled)
-                Bugsnag.resumeSession();
-            else
-                Bugsnag.pauseSession();
-        } catch (Throwable ex) {
-            Log.i(ex);
-        }
     }
 
     static void forceCrashReport(Context context, Throwable fatal) {
@@ -382,7 +279,6 @@ public class Log {
                 ocrumb.put(key, val);
             }
             Log.i(sb.toString());
-            Bugsnag.leaveBreadcrumb(name, ocrumb, BreadcrumbType.LOG);
         } catch (Throwable ex) {
             Log.e(ex);
         }
@@ -405,204 +301,6 @@ public class Log {
     }
 
     private static void setupBugsnag(final Context context) {
-        try {
-            Log.i("Configuring Bugsnag");
-
-            // https://docs.bugsnag.com/platforms/android/sdk/
-            com.bugsnag.android.Configuration config =
-                    new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");
-            config.setTelemetry(Collections.emptySet());
-
-            if (BuildConfig.DEBUG)
-                config.setReleaseStage("Debug");
-            else
-                config.setReleaseStage(getReleaseType(context));
-
-            config.setAutoTrackSessions(false);
-
-            ErrorTypes etypes = new ErrorTypes();
-            etypes.setUnhandledExceptions(true);
-            etypes.setAnrs(false);
-            etypes.setNdkCrashes(false);
-            config.setEnabledErrorTypes(etypes);
-            config.setMaxBreadcrumbs(BuildConfig.PLAY_STORE_RELEASE ? 250 : 500);
-
-            Set<Pattern> discardClasses = new HashSet<>();
-            for (String clazz : IGNORE_CLASSES)
-                discardClasses.add(Pattern.compile(clazz.replace(".", "\\.")));
-            config.setDiscardClasses(discardClasses);
-
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
-
-            String no_internet = context.getString(R.string.title_no_internet);
-
-            String installer = Helper.getInstallerName(context);
-            config.addMetadata("extra", "revision", BuildConfig.REVISION);
-            config.addMetadata("extra", "installer", installer == null ? "-" : installer);
-            config.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)).toString());
-            config.addMetadata("extra", "fingerprint", Helper.hasValidFingerprint(context));
-            config.addMetadata("extra", "memory_class", am.getMemoryClass());
-            config.addMetadata("extra", "memory_class_large", am.getLargeMemoryClass());
-            config.addMetadata("extra", "build_host", Build.HOST);
-            config.addMetadata("extra", "build_time", new Date(Build.TIME));
-
-            config.addOnSession(new OnSessionCallback() {
-                @Override
-                public boolean onSession(@NonNull Session session) {
-                    // opt-in
-                    // opt-in
-                    boolean crash_reports = prefs.getBoolean("crash_reports", false);
-                    return crash_reports || Log.isTestRelease();
-                }
-            });
-
-            config.addOnError(new OnErrorCallback() {
-                @Override
-                public boolean onError(@NonNull Event event) {
-                    // opt-in
-                    boolean crash_reports = prefs.getBoolean("crash_reports", false);
-                    if (!crash_reports && !Log.isTestRelease())
-                        return false;
-
-                    Throwable ex = event.getOriginalError();
-                    boolean should = shouldNotify(ex);
-
-                    if (should) {
-                        event.addMetadata("extra", "pid", Integer.toString(android.os.Process.myPid()));
-                        event.addMetadata("extra", "thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
-                        event.addMetadata("extra", "memory_free", getFreeMemMb());
-                        event.addMetadata("extra", "memory_available", getAvailableMb());
-                        event.addMetadata("extra", "native_allocated", Debug.getNativeHeapAllocatedSize() / 1024L / 1024L);
-                        event.addMetadata("extra", "native_size", Debug.getNativeHeapSize() / 1024L / 1024L);
-                        event.addMetadata("extra", "classifier_size", MessageClassifier.getSize(context));
-
-                        Boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
-                        event.addMetadata("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));
-
-                        String theme = prefs.getString("theme", "blue_orange_system");
-                        event.addMetadata("extra", "theme", theme);
-                        event.addMetadata("extra", "package", BuildConfig.APPLICATION_ID);
-                        event.addMetadata("extra", "locale", Locale.getDefault().toString());
-
-                        Boolean foreground = Helper.isOnForeground();
-                        if (foreground != null)
-                            event.addMetadata("extra", "foreground", Boolean.toString(foreground));
-                    }
-
-                    return should;
-                }
-
-                private boolean shouldNotify(Throwable ex) {
-                    if (ex instanceof MessagingException &&
-                            (ex.getCause() instanceof IOException ||
-                                    ex.getCause() instanceof ProtocolException))
-                        // IOException includes SocketException, SocketTimeoutException
-                        // ProtocolException includes ConnectionException
-                        return false;
-
-                    if (ex instanceof MessagingException &&
-                            ("connection failure".equals(ex.getMessage()) ||
-                                    "failed to create new store connection".equals(ex.getMessage()) ||
-                                    "Failed to fetch headers".equals(ex.getMessage()) ||
-                                    "Failed to load IMAP envelope".equals(ex.getMessage()) ||
-                                    "Unable to load BODYSTRUCTURE".equals(ex.getMessage())))
-                        return false;
-
-                    if (ex instanceof IllegalStateException &&
-                            (no_internet.equals(ex.getMessage()) ||
-                                    TOKEN_REFRESH_REQUIRED.equals(ex.getMessage()) ||
-                                    "Not connected".equals(ex.getMessage()) ||
-                                    "This operation is not allowed on a closed folder".equals(ex.getMessage())))
-                        return false;
-
-                    if (ex instanceof FileNotFoundException &&
-                            ex.getMessage() != null &&
-                            (ex.getMessage().startsWith("Download image failed") ||
-                                    ex.getMessage().startsWith("http://") ||
-                                    ex.getMessage().startsWith("https://") ||
-                                    ex.getMessage().startsWith("content://")))
-                        return false;
-
-                    if (ex instanceof IOException &&
-                            ex.getCause() instanceof MessageRemovedException)
-                        return false;
-
-                    if (ex instanceof IOException &&
-                            ex.getMessage() != null &&
-                            (ex.getMessage().startsWith("HTTP status=") ||
-                                    "NetworkError".equals(ex.getMessage()) || // account manager
-                                    "Resetting to invalid mark".equals(ex.getMessage()) ||
-                                    "Mark has been invalidated.".equals(ex.getMessage())))
-                        return false;
-
-                    if (ex instanceof SSLPeerUnverifiedException ||
-                            ex instanceof EmailService.UntrustedException)
-                        return false;
-
-                    if (ex instanceof SSLHandshakeException &&
-                            ex.getCause() instanceof CertPathValidatorException)
-                        return false; // checkUpdate!
-
-                    if (ex instanceof RuntimeException &&
-                            "Illegal meta data value: the child service doesn't exist".equals(ex.getMessage()))
-                        return false;
-
-                    if (isDead(ex))
-                        return false;
-
-                    // Rate limit
-                    int count = prefs.getInt("crash_report_count", 0) + 1;
-                    prefs.edit().putInt("crash_report_count", count).apply();
-
-                    return (count <= MAX_CRASH_REPORTS);
-                }
-            });
-
-            config.addOnBreadcrumb(new OnBreadcrumbCallback() {
-                @Override
-                public boolean onBreadcrumb(@NonNull Breadcrumb breadcrumb) {
-                    // opt-in
-                    boolean crash_reports = prefs.getBoolean("crash_reports", false);
-                    return crash_reports || Log.isTestRelease();
-                }
-            });
-
-            config.addOnSend(new OnSendCallback() {
-                @Override
-                public boolean onSend(@NonNull Event event) {
-                    // opt-in
-                    boolean crash_reports = prefs.getBoolean("crash_reports", false);
-                    return crash_reports || Log.isTestRelease();
-                }
-            });
-
-            Bugsnag.start(context, config);
-
-            Client client = Bugsnag.getClient();
-
-            String uuid = prefs.getString("uuid", null);
-            if (uuid == null) {
-                uuid = UUID.randomUUID().toString();
-                prefs.edit().putString("uuid", uuid).apply();
-            }
-            Log.i("uuid=" + uuid);
-            client.setUser(uuid, null, null);
-
-            if (prefs.getBoolean("crash_reports", false) || Log.isTestRelease())
-                Bugsnag.startSession();
-        } catch (Throwable ex) {
-            Log.e(ex);
-            /*
-                java.lang.AssertionError: No NameTypeIndex match for SHORT_DAYLIGHT
-                  at android.icu.impl.TimeZoneNamesImpl$ZNames.getNameTypeIndex(TimeZoneNamesImpl.java:724)
-                  at android.icu.impl.TimeZoneNamesImpl$ZNames.getName(TimeZoneNamesImpl.java:790)
-                  at android.icu.impl.TimeZoneNamesImpl.getTimeZoneDisplayName(TimeZoneNamesImpl.java:183)
-                  at android.icu.text.TimeZoneNames.getDisplayName(TimeZoneNames.java:261)
-                  at java.util.TimeZone.getDisplayName(TimeZone.java:405)
-                  at java.util.Date.toString(Date.java:1066)
-             */
-        }
     }
 
     static @NonNull String getReleaseType(Context context) {

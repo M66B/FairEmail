@@ -6061,7 +6061,7 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkReporting() {
-        if (viewType != AdapterMessage.ViewType.UNIFIED)
+        if (viewType != AdapterMessage.ViewType.UNIFIED || true)
             return false;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

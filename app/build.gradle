@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
@@ -57,7 +56,7 @@ android {
         // https://developer.android.com/guide/practices/page-sizes
         ndkVersion "27.2.12479018" // r27c
         ndk {
-            // Bugsnag, sqlite
+            // sqlite
             // https://developer.android.com/ndk/guides/abis
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
@@ -183,7 +182,6 @@ android {
             buildConfigField "String", "TX_URI", "\"\""
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
-            buildConfigField "String", "BUGSNAG_URI", "\"\""
             buildConfigField "String", "DEV_DOMAIN", "\"\""
         }
         debug {
@@ -194,7 +192,6 @@ android {
             buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
             buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
             buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
-            buildConfigField "String", "BUGSNAG_URI", localProperties.getProperty("bugsnag.uri", "\"\"")
             buildConfigField "String", "DEV_DOMAIN", localProperties.getProperty("dev.domain", "\"\"")
         }
     }
@@ -386,15 +383,6 @@ android {
         //                    }
         //            }
         //    }
-    }
-
-    bugsnag {
-        // https://docs.bugsnag.com/build-integrations/gradle/
-        uploadJvmMappings = false // disables upload of ProGuard/DexGuard/R8 mapping files
-        uploadNdkMappings = false // disables upload of NDK mapping files
-        reportBuilds = false // disables upload of build metadata
-        overwrite = true
-        builderName = "M66B"
     }
 }
 
@@ -590,7 +578,6 @@ dependencies {
     def minidns_version = "1.0.5"
     def openpgp_version = "12.0"
     def badge_version = "1.1.22"
-    def bugsnag_version = "6.10.0"
     def biweekly_version = "0.6.8"
     def vcard_version = "0.12.1"
     def relinker_version = "1.4.5"
@@ -782,14 +769,6 @@ dependencies {
     // https://github.com/leolin310148/ShortcutBadger
     // https://mvnrepository.com/artifact/me.leolin/ShortcutBadger
     implementation "me.leolin:ShortcutBadger:$badge_version"
-
-    // https://github.com/bugsnag/bugsnag-android
-    // https://mvnrepository.com/artifact/com.bugsnag/bugsnag-android
-    implementation("com.bugsnag:bugsnag-android:$bugsnag_version") {
-        exclude group: "com.bugsnag", module: "bugsnag-plugin-android-anr"
-        exclude group: "com.bugsnag", module: "bugsnag-plugin-android-ndk"
-        exclude group: "com.bugsnag", module: "bugsnag-android-core"
-    }
 
     // https://github.com/mangstadt/biweekly
     // https://mvnrepository.com/artifact/net.sf.biweekly/biweekly

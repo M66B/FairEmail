@@ -57,7 +57,7 @@ jobs:
     - name: Check with Lint
       run: ./gradlew lintGithubRelease
     - name: Build with Gradle
-      run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease uploadBugsnagGithub-releaseMapping uploadBugsnagLarge-releaseMapping uploadBugsnagPlay-releaseMapping
+      run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease
     #https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds
     - name: Generate artifact attestation
       uses: actions/attest-build-provenance@v1
