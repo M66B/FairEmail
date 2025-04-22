@@ -10,7 +10,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:8.9.2'
         // https://github.com/bugsnag/bugsnag-android-gradle-plugin
         // https://mvnrepository.com/artifact/com.bugsnag/bugsnag-android-gradle-plugin
-        classpath "com.bugsnag:bugsnag-android-gradle-plugin:8.2.0"
+        classpath "com.bugsnag:bugsnag-android-gradle-plugin:8.1.0"
         // https://kotlinlang.org/docs/releases.html#release-details
         // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24"
