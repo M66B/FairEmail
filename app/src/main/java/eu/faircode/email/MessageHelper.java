@@ -5639,7 +5639,10 @@ public class MessageHelper {
 
             return count;
         } catch (Throwable ex) {
-            Log.e(ex);
+            if (BuildConfig.PLAY_STORE_RELEASE)
+                Log.i(ex);
+            else
+                Log.e(ex);
             return -1;
         }
     }

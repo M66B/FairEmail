@@ -562,6 +562,12 @@ class Core {
                     } catch (Throwable ex) {
                         iservice.dump(account.name + "/" + folder.name);
                         if (ex instanceof OperationCanceledException ||
+                                (ex instanceof IOException &&
+                                        "NIL".equals(ex.getMessage())) ||
+                                (ex instanceof IOException &&
+                                        context.getString(R.string.app_cake).equals(ex.getMessage())) ||
+                                (ex instanceof MessagingException &&
+                                        "Cannot load header".equals(ex.getMessage())) ||
                                 (ex instanceof IllegalArgumentException &&
                                         ex.getMessage() != null &&
                                         ex.getMessage().startsWith("Message not found for")))
@@ -720,7 +726,10 @@ class Core {
                                     (op.tries > 1 ||
                                             ex.getCause() instanceof BadCommandException ||
                                             ex.getCause() instanceof CommandFailedException))
-                                Log.e(new Throwable(msg, ex));
+                                if (BuildConfig.PLAY_STORE_RELEASE)
+                                    Log.i(new Throwable(msg, ex));
+                                else
+                                    Log.e(new Throwable(msg, ex));
 
                             try {
                                 db.beginTransaction();

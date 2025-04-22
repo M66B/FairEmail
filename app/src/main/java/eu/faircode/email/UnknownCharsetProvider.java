@@ -99,7 +99,10 @@ public class UnknownCharsetProvider extends CharsetProvider {
             String jname = MimeUtility.javaCharset(name);
             return Charset.forName(jname);
         } catch (Throwable ex) {
-            Log.e("Unknown charset " + name, ex);
+            if (BuildConfig.PLAY_STORE_RELEASE)
+                Log.i("Unknown charset " + name, ex);
+            else
+                Log.e("Unknown charset " + name, ex);
             return null;
         }
     }
