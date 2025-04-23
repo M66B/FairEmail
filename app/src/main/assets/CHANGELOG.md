@@ -28,8 +28,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
-### Next version
+### 1.2273 2025-04-23
 
+* Removed Bugsnag
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
