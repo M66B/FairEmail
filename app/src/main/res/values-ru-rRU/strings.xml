@@ -190,7 +190,7 @@
     <string name="title_setup_intro">Настройте учётную запись всего за три шага и сможете отправлять и получать письма</string>
     <string name="title_setup_simple">Нет необходимости менять другие параметры</string>
     <string name="title_setup_issue">FairEmail был разработан для того, чтобы помочь вам защитить вашу конфиденциальность и представляет буквально тысячи часов работы. Если у вас возникли проблемы, пожалуйста, свяжитесь со мной для поддержки перед тем, как оставлять плохие отзывы. Я рад помочь!</string>
-    <string name="title_setup_analytics">FairEmail не показывает рекламу, не отслеживает и не анализирует ваше поведение. Bugsnag используется для сообщений об ошибках и по умолчанию отключён.</string>
+    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail не показывает рекламу, не отслеживает и не анализирует ваше поведение.</string>
     <string name="title_setup_quick_accounts">Добавить или изменить учётные записи</string>
     <string name="title_setup_quick_support">Некоторые провайдеры затрудняют добавление учётной записи. Пожалуйста, не обвиняйте в этом FairEmail, а попросите поддержку.</string>
     <string name="title_setup_quick_hint">Введённый адрес электронной почты используется для запроса почтового сервера и autoconfig.thunderbird.net для получения сведений о конфигурации</string>

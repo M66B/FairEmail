@@ -190,7 +190,6 @@
     <string name="title_setup_intro">Nastavení účtu jsou jen tři kroky a poté již můžete posílat a přijímat e-maily</string>
     <string name="title_setup_simple">Není třeba měnit žádné další volby</string>
     <string name="title_setup_issue">FairEmail byl vyvinut tak, aby Vám pomohl chránit vaše soukromí a zabral doslova tisíce hodin práce. Pokud máte nějaké problémy, prosím kontaktujte s Vašimi dotazy nejprve mě, než se rozhodnete pro špatné hodnocení. S radostí Vám pomůžu!</string>
-    <string name="title_setup_analytics">FairEmail nezobrazuje reklamy a nezaznamenává ani neanalyzuje vaše chování. Bugsnag se používá pro hlášení chyb a je ve výchozím nastavení vypnut.</string>
     <string name="title_setup_quick_accounts">Přidat nebo upravit účty</string>
     <string name="title_setup_quick_support">Někteří poskytovatelé činí přidání účtu zbytečně obtížným. Nekřivděte prosím kvůli tomu FairEmailu, namísto toho požádejte o podporu.</string>
     <string name="title_setup_quick_hint">Zadaná e-mailová adresa se použije k dotazu na e-mailový server a autoconfig.thunderbird.net pro získání konfiguračních informací</string>

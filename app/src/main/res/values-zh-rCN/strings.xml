@@ -148,7 +148,6 @@
     <string name="title_setup_intro">设置一个账户只需三步，之后您就可以发送和接收电子邮件了</string>
     <string name="title_setup_simple">无需更改任何其他选项</string>
     <string name="title_setup_issue">FairEmail 是为了帮助您保护隐私而开发的，毫不夸张地说，我在它身上花了数千小时。如果有任何问题，请在留下差评前先联系我获取支持。我很乐意帮忙！</string>
-    <string name="title_setup_analytics">FairEmail 不会显示广告，也不会跟踪或分析您的行为。Bugsnag 用于错误报告，默认情况下是禁用的。</string>
     <string name="title_setup_quick_accounts">添加或更改账户</string>
     <string name="title_setup_quick_support">有些邮件服务提供商很难添加账户，对此请不要责怪 FairEmail，而应向提供商寻求支持。</string>
     <string name="title_setup_quick_hint">输入的邮箱地址用于查询电子邮件服务器和 autoconfig.thunderbird.net 以获取配置信息</string>

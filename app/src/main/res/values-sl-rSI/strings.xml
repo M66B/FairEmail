@@ -173,7 +173,6 @@
     <string name="title_setup_intro">Nastavitev računa vsebuje samo tri korake, nakar boste lahko prejemali in pošiljali sporočila.</string>
     <string name="title_setup_simple">Ni potrebe po spreminjanju drugih možnosti.</string>
     <string name="title_setup_issue">FairMail je bil razvit, da vam pomaga zaščititi svojo zasebnost in predstavlja praktično na tisoče ur dela.  Če imate težave, prosim najprej navežite stik z mano, preden pustite slabo oceno.  Z veseljem vam bom pomagal!</string>
-    <string name="title_setup_analytics">FairMail ne prikazuje oglasov in vam ne sledi ali preučuje vašega vedenja.  Za poročevanje o napakah se uporablja Bugsnag in je privzeto onemogočen.</string>
     <string name="title_setup_quick_accounts">Dodajte ali odstranite račune</string>
     <string name="title_setup_quick_support">Nekateri ponudniki otežujejo dodajanje računa.  Prosim, ne krivite za to FairMaila, ampak prosite za podproro.</string>
     <string name="title_setup_quick_hint">Vneseni e-poštni naslov se uporablja za povpraševanje po e-poštnem strežniku in naslovu autoconfig.thunderbird.net za podatke o nastavitvi.</string>

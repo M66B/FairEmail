@@ -8,7 +8,7 @@ Ir nepieciešams interneta savienojums, lai varētu iestatīt kontus un identit�
 
 ## Ātrā iestatīšana
 
-Tikai jāatlasa atbilstošais pakalpojumu sniedzējs vai *Cits pakalpojumu sniedzējs* un jāievada savu vārds, e-pasta adrese un parole, un tad jāpiesit *Pārbaudīt*.
+Vienkārši jāatlasa atbilstošais pakalpojumu sniedzējs vai *Cits pakalpojumu sniedzējs* un jāievada savs vārds, e-pasta adrese un parole, un tad jāpiesit *Pārbaudīt*.
 
 Tas darbojas ar vairumu e-pasta pakalpojuma sniedzēju.
 
@@ -18,24 +18,24 @@ Ja ātrā iestatīšana nedarbojas, būs nepieciešams pašrocīgi iestatīt kon
 
 Lai pievienotu kontu, jāpiesit *Pašrocīga iestatīšana un parējie iestatījumi*, tad *Konti*, tad apakšā esošajai pogai "+" un jāatlasa IMAP (vai POP3). No saraksta jāatlasa pakalpojumu sniedzējs, jāievada lietotājvārds, kas vairumā gadījumu ir e-pasta adrese, un parole. Jāpiesit *Pārbaudīt*, lai ļautu FairEmail pieslēgties e-pasta serverim un iegūt sistēmas mapju sarakstu. Pēc sistēmas mapju atlases pārskatīšanas kontu var pievienot ar piesišanu uz *Saglabāt*.
 
-Ja jūsu pakalpojumu sniedzējs nav pakalpojumu sniedzēju sarakstā, viņi ir tūkstošiem, atlasiet *Pielāgots*. Ievadiet domēna vārdu, piemēram, *inbox.lv* un noklikšķiniet *Iegūt iestatījumus*. Ja jūsu pakalpojumu sniedzējs atbalsta [automātisko atklāšanu](https://tools.ietf.org/html/rfc6186), FairEmail aizpildīs resursdatoru ar attiecīgo IP vai domēnu un porta numuru ar attiecīgo numuru. Pretējā gadījumā meklējiet sava pakalpojumu sniedzēja pareizos IMAP e-pasta servera parametrus, resursdatora IP vai domēnu, porta numuru un šifrēšanas protokolu (SSL/TLS vai STARTTLS), internetā. Lai uzzinātu vairāk par to, lūdzu skatiet [šeit](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Ja sarakstā nav vajadzīgā pakalpojumu sniedzēja, jāatlasa *Pielāgots*, ir tūkstošiem pakalpojumu sniedzēju. Jāievada domēna vārds, piemēram, *proton.me* un jāpiesit *Iegūt iestatījumus*. Ja pakalpojumu sniedzējs nodrošina [automātisko atklāšanu](https://tools.ietf.org/html/rfc6186), FairEmail aizpildīs resursdatora nosaukumu un porta numuru, pretējā gadījumā sava pakalpojumu sniedzēja norādēs jāmeklē pareizais IMAP resursdatora nosaukums, porta numurs un šifrēšanas protokols (SSL/TLS vai STARTTLS). Vairāk par to lūgums skatīt [šeit](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Iestatīt identitāti - e-pasta sūtīšanai
 
-Līdzīgi kā iepriekš, lai pievienotu identitāti, jāpiesit *Pašrocīga iestatīšana un vairāk iespēju*, tad *Identitātes* un tad apakšā esošajai "+" pogai. Ievadiet vārdu, kuru vēlaties redzēt nosūtīto e-pasta ziņojumu 'No:' laukā, un atlasiet saistīto kontu. Noklikšķiniet *Saglabāt*, lai pievienotu identitāti.
+Līdzīgi kā iepriekš, lai pievienotu identitāti, jāpiesit *Pašrocīga iestatīšana un vairāk iespēju*, tad *Identitātes* un tad apakšā esošajai "+" pogai. Jāievada vārds, kuru parādīt nosūtītāja adresē sevis nosūtītajos e-pasta ziņojumos, un jāatlasa saistītais konts. Jāpiesit *Saglabāt*, lai pievienotu identitāti.
 
-Ja konts tika iestatīts manuāli, iespējams, arī identitāti ir nepieciešams iestatīt manuāli. Ievadiet domēna vārdu, piemēram, *inbox.lv* un noklikšķiniet *Iegūt iestatījumus*. Ja jūsu pakalpojumu sniedzējs atbalsta [automātisko atklāšanu](https://tools.ietf.org/html/rfc6186), FairEmail aizpildīs resursdatoru ar attiecīgo IP vai domēnu un porta numuru ar attiecīgo numuru. Pretējā gadījumā meklējiet sava pakalpojumu sniedzēja pareizos SMTP e-pasta servera parametrus, resursdatora IP vai domēnu, porta numuru un šifrēšanas protokolu (SSL/TLS vai STARTTLS), internetā.
+Ja konts tika pašrocīgi iestatīts, visdrīzāk, ka tas ir jādara arī ar identitāti. Jāievada domēna vārds, piemēram, *proton.me* un jāpiesit *Iegūt iestatījumus*. Ja pakalpojumu sniedzējs nodrošina [automātisko atklāšanu](https://tools.ietf.org/html/rfc6186), FairEmail aizpildīs resursdatora nosaukumu un porta numuru, pretējā gadījumā sava pakalpojumu sniedzēja norādēs jāmeklē pareizais SMTP resursdatora nosaukums, porta numurs un šifrēšanas protokols (SSL/TLS vai STARTTLS).
 
-Skatiet [šo BUJ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9), lai uzzinātu vairāk par aizstājvārdu lietošanu.
+Par aizstājvārdu izmantošanu skatīt [šo BUJ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9).
 
-## Piešķirt atļaujas - lai varētu piekļūt kontaktinformācijai
+## Piešķirt atļaujas - lai piekļūtu saziņas informācijai
 
-Ja vēlāties meklēt e-pasta adreses, rādīt kontaktpersonu fotoattēlus utt., jums būs jāpiešķir FairEmail atļauja lasīt kontaktinformāciju. Vienkārši noklikšķiniet uz *Piešķirt* un atlasiet *Atļaut*.
+Ja ir vēlēšanas uzmeklēt e-pasta adreses, redzēt kontaktpersonu attēlus utt., būs nepieciešams piešķirt FairEmail atļauju lasīt saziņas informāciju. Vienkārši jāpiesit uz *Piešķirt* un jāizvēlas *Atļaut*.
 
-## Iestatīt baterijas optimizācijas - lai varētu nepārtraukti saņemt e-pastus
+## Iestatīt akumulatora optimizēšanu - lai pastāvīgi saņemtu e-pasta ziņojumus
 
-Uz jaunākajām Android versijām lietotnes tiek iemidzinātas, kad ekrāns ir izslēgts kādu laiku, lai samazinātu baterijas izmantošanu. Ja vēlaties nekavējoties saņemt jaunos e-pastus, tad vajag atslēgt FairEmail lietotnes baterijas optimizāciju. Noklikšķiniet *Pārvaldīt* un sekojiet norādījumiem.
+Nesenākās Android versijās lietotnes tiek iemidzinātas, kad ekrāns kādu laiku ir izslēgts, lai samazinātu akumulatora lietojumu. Ja ir vēlēšanās nekavējoties saņemt jaunus e-pasta ziņojumus, tad FairEmail lietotnei vajadzētu atspējot akumulatora optimizēšanu. Jāpiesit *Pārvaldīt* un jāseko norādēm.
 
-## Jautājumi vai problēmas
+## Jautājumi vai sarežģījumi
 
-Ja jums ir jautājums vai problēma, lūdzu, meklējiet atbildi [šeit](https://github.com/M66B/FairEmail/blob/master/FAQ.md).
+Ja ir kāds jautājums vai sarežģījums, lūgums meklēt palīdzību [šeit](https://github.com/M66B/FairEmail/blob/master/FAQ.md).

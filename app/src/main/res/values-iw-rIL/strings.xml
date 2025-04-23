@@ -190,7 +190,6 @@
     <string name="title_setup_intro">הגדרת חשבון נמצאת במרחק שלושה צעדים ממך ולאחריה ניתן להתחיל לשלוח ולקבל הודעות דוא״ל</string>
     <string name="title_setup_simple">אין צורך לשנות אפשרויות אחרות כלשהן</string>
     <string name="title_setup_issue">‏FairEmail פותח כדי לסייע לך להגן על הפרטיות שלך והוא מגלם בתוכו אלפי שעות עבודה. אם נתקלת בבעיה, נא ליצור אתי קשר תחילה לקבל תמיכה בטרם פרסום סקירה שלילית. אני מאוד שמח לעזור - באנגלית!</string>
-    <string name="title_setup_analytics">‏FairEmail לא מציג פרסומות ולא עוקב אחריך או מנתח את ההתנהגות שלך. Bugsnag משמש לדיווח על שגיאות והוא מושבת כברירת מחדל.</string>
     <string name="title_setup_quick_accounts">הוספה או עריכה של חשבונות</string>
     <string name="title_setup_quick_support">חלק מהספקים מקשים על הוספת חשבון. אין טעם להאשים את FailEmail בכך, אך בהחלט ניתן לבקש תמיכה.</string>
     <string name="title_setup_quick_hint">כתובת הדוא״ל שמולאה משמשת לתשאל את שרת הדוא״ל ואת autoconfig.thunderbird.net לקבלת פרטי הגדרה</string>

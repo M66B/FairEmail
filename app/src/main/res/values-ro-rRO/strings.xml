@@ -176,7 +176,7 @@
     <string name="title_setup_intro">Configurarea unui cont are doar trei pași și după aceea puteți trimite și primi e-mailuri</string>
     <string name="title_setup_simple">Nu este nevoie să schimbați alte opțiuni</string>
     <string name="title_setup_issue">FairEmail a fost dezvoltat pentru a vă ajuta să vă protejați confidențialitatea și reprezintă literalmente mii de ore de muncă. Dacă aveți probleme, vă rog să mă contactați mai întâi pentru asistență înainte de a lăsa o recenzie proastă. Sunt bucuros să vă ajut!</string>
-    <string name="title_setup_analytics">FairEmail nu afișează reclame și nu urmărește sau analizează comportamentul dumneavoastră. Bugsnag este utilizat pentru raportarea erorilor și este dezactivat în mod implicit.</string>
+    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail nu afișează reclame și nu urmărește sau analizează comportamentul dvs.</string>
     <string name="title_setup_quick_accounts">Adăugați sau modificați conturi</string>
     <string name="title_setup_quick_support">Unii furnizori fac dificilă adăugarea unui cont. Vă rugăm să nu dați vina pe FairEmail pentru acest lucru, dar solicitați asistență în schimb.</string>
     <string name="title_setup_quick_hint">Adresa de e-mail introdusă este utilizată pentru a interoga serverul de e-mail și autoconfig.thunderbird.net pentru informații de configurare</string>

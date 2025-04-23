@@ -138,7 +138,6 @@
     <string name="title_setup_intro">Kontua hiru urratsetan ezarri dezakezu eta jarraian mezuak jaso eta bidali</string>
     <string name="title_setup_simple">Ez dago aukerak aldatzeko beharrik</string>
     <string name="title_setup_issue">Fair Email zure pribatutasuna babesten laguntzeko garatu da eta literaki milaka lan orduen emaitza da. Arazoak badituzu, jarri kontaktuan eta eskatu laguntza, ez utzi mesedez kritika txar bat. laguntzen saiaten ari naiz!</string>
-    <string name="title_setup_analytics">FairEmail-ek ez ditu iragarkiak erakusten, eta ez du zure jardueraren jarraipenik egiten edo hau aztertzen. Bugsnag akatsen berri jasotzeko erabiltzen da eta zuk besterik esan ezean desgaituta dago.</string>
     <string name="title_setup_quick_accounts">Gehitu edo aldatu kontuak</string>
     <string name="title_setup_quick_support">Hornitaile batzuek zaildu egiten dute kontua gehitzea. Ez haserretu FairEmail aplikazioarekin, eskatu gaitzazu laguntza.</string>
     <string name="title_setup_quick_hint">Sartutako e-mail helbidea e-mail zerbitzariari eta autoconfig.thunderbird.net helbideari informazioa eskatzeko erabiliko da</string>

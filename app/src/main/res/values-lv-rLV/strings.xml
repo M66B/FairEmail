@@ -5,6 +5,7 @@
     <string name="app_changelog">Izmaiņu žurnāls</string>
     <string name="app_welcome">FairEmail — atvērtā pirmkoda e-pasta lietotne, kas ir vērsta uz privātumu un drošību. Šī iemesla dēļ dažas iespējas var darboties citādāk nekā pierasts.</string>
     <string name="app_limitations">Piemēram, ziņojumi pēc noklusējuma tiek pārveidoti, lai noņemtu nedrošus elementus un uzlabotu lasāmību, un saišu atvēršanu ir nepieciešams apstiprināt drošības dēļ. Abas iespējas var atspējot, ja ir tāda vēlme.</string>
+    <string name="app_unsupported">Nepilnības tieši šīs ierīces Android versijā rada avārijas</string>
     <string name="app_updated">Pēdējo reizi atjaunināta: %1$s</string>
     <string name="app_download">Lejupielādēta no: %1$s</string>
     <string name="channel_update">Atjauninājumi</string>
@@ -53,6 +54,7 @@
     <string name="title_edit_folder">Labot mapi</string>
     <string name="title_setup">Iestatījumi</string>
     <string name="title_setup_help">Palīdzība</string>
+    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail nerāda reklāmas un neizseko vai neapkopo lietotāju uzvedību.</string>
     <string name="title_setup_wizard_new">Man vajag jaunu e-pasta adresi</string>
     <string name="title_setup_accounts">Konti</string>
     <string name="title_setup_identities">Identitātes</string>
@@ -128,8 +130,12 @@
     <string name="title_advanced_haptic_feedback">Sajūtu atgriezeniskā saite svarīgām darbībām</string>
     <string name="title_advanced_language">Valoda</string>
     <string name="title_advanced_app">Lietotnes iestatījumi</string>
+    <string name="title_advanced_log_info">Atkļūdošanas žurnalēšana</string>
+    <string name="title_advanced_debug">Atkļūdošana</string>
     <string name="title_advanced_write_below_hint">Saņēmējs var palaist garām atbildi, piemēram, kad garāks ziņojums tiek saīsināts</string>
     <string name="title_advanced_validate_hint">Tas var beigties ar ziņojumu nesinhronizēšanu, piemēram, kad izmanto VPN, bet arī citos gadījumos</string>
+    <string name="title_advanced_preview_issue">Ritināšana var būt lēna nepilnības dažās Android versijās dēļ, kad rindu skaits ir lielāks par vienu</string>
+    <string name="title_advanced_debug_hint">Dažādās vietās tiks rādīt nepievilcīga atkļūdošanas informācija</string>
     <string name="title_create_folder">Izveidot mapi</string>
     <string name="title_create_folder_name">Mapes nosaukums</string>
     <string name="title_advanced_swipe_sensitivity">Pa kreisi/pa labi vilkšanas jutīgums</string>
@@ -142,6 +148,7 @@
     <string name="title_avatar">Attēls</string>
     <string name="title_domain">Domēna vārds</string>
     <string name="title_encryption">Šifrēšana</string>
+    <string name="title_keep_alive_noop">Laiku pa laikam palaist no jauna IMAP IDLE</string>
     <string name="title_reply_domain">Sūtītājs (%1$s) un atbildes domēns (%2$s) atšķiras</string>
     <string name="title_delete_account">Izdzēst kontu</string>
     <string name="title_import_file">Ievietot datni</string>
@@ -213,6 +220,7 @@
     <string name="title_submitter">Nosūtīja:</string>
     <string name="title_from">No:</string>
     <string name="title_to">Kam:</string>
+    <string name="title_stored">Saglabāts:</string>
     <string name="title_size">Izmērs:</string>
     <string name="title_language">Valoda:</string>
     <string name="title_subject">Temats:</string>
@@ -241,7 +249,14 @@
     <string name="title_pro_hide">Slēpt nelielu ziņojumu uz %1$d nedēļām</string>
     <string name="title_rules_export">Izgūt kārtulas</string>
     <string name="title_rules_import">Ievietot kārtulas</string>
+    <string name="title_debug_info">Atkļūdošanas informācija</string>
+    <string name="title_debug_info_remark">Lūgums aprakstīt sarežģījumu un norādīt tās notikšanas laiku:</string>
+    <string name="title_debug_info_issue">Sarežģījuma apraksts (nepieciešams)</string>
     <string name="title_debug_info_issue_remark">Izvērsta informācija, piemēram, paredzamais sarežģījuma laiks, tiešs kļūdas ziņojums utt., ir ļoti svarīga</string>
+    <string name="title_debug_info_contact">Kāds nesen ir vērsies pie mums saistībā ar šo sarežģījumu</string>
+    <string name="title_debug_info_send">Nosūtīt nekavējoties</string>
+    <string name="title_debug_info_send_remark">Parasti atkļūdošanas informācija vispirms tiks saglabāts kā ziņojuma melnraksts, lai būtu iespēja pārbaudīt, kas tiks nosūtīts</string>
+    <string name="title_debug_info_question">Lūgums izmantot informācijas pogu, ja ir tikai kāds jautājums</string>
     <string name="title_widget_folder">Mape</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Svarīgs</string>

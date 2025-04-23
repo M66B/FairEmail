@@ -114,7 +114,6 @@
     <string name="title_setup_intro">إعداد الحساب فقط بثلاث خطوات وبعد ذلك يمكنك إرسال واستقبال رسائل البريد الإلكتروني</string>
     <string name="title_setup_simple">لا حاجة لتغيير أي خيارات أخرى</string>
     <string name="title_setup_issue">تم تطوير FairEmail لمساعدتك على حماية خصوصيتك ويمثل حرفيا آلاف الساعات من العمل. إذا كان لديك أي مشاكل، يرجى الاتصال بي أولاً للحصول على الدعم قبل ترك مراجعة سيئة. يسعدني أن أساعد!</string>
-    <string name="title_setup_analytics">تطبيق FairEmail لا يعرض الإعلانات ولا يتتبع أو يحلل سلوكك. يتم استخدام Bugsnag للإبلاغ عن الأخطاء وهو غير ممكن بشكل افتراضي.</string>
     <string name="title_setup_quick_accounts">إضافة أو تغيير الحسابات</string>
     <string name="title_setup_quick_support">بعض مقدمي الخدمات يجعلون من الصعب إضافة حساب. الرجاء عدم إلقاء اللوم على FairEmail لهذا الغرض، بدلاً من ذلك أطلب الدعم من مزود الخدمة.</string>
     <string name="title_setup_quick_hint">يتم استخدام عنوان البريد الإلكتروني المدخل للاستعلام عن خادم البريد الإلكتروني و autoconfig.thunderbird.net لمعلومات التكوين</string>

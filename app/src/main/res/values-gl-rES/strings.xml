@@ -144,7 +144,6 @@
     <string name="title_setup_intro">Configurar unha conta son so tres pasos, e logo poderá enviar e recibir correos</string>
     <string name="title_setup_simple">Non hai necesidade de cambiar outras opcións</string>
     <string name="title_setup_issue">FairEmail foi feito para axudarlle a protexer a súa privacidade e representa milleiros de horas de traballo. Se ten problemas, por favor, contacte comigo na procura de axuda antes de deixar una mala recensión. Quero axudar!</string>
-    <string name="title_setup_analytics">FairEmail non amosa anuncios e non segue nen analiza a súa actividade. Bugsnag se emprega para os informes de fallos, e está desactivado por defecto.</string>
     <string name="title_setup_quick_accounts">Engadir ou cambiar contas</string>
     <string name="title_setup_quick_support">Algúns provedores fan difícil engadir unha conta. Por favor, non culpe a FairEmail por isto, e no seu lugar solicite axuda.</string>
     <string name="title_setup_quick_hint">A conta de correo introducida úsase para preguntar ao servidor de correo e a autoconfig.thunderbird.net sobre a información de configuración</string>

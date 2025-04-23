@@ -149,7 +149,6 @@
     <string name="title_setup_intro">Sett opp en konto på kun tre steg og begynn å send og motta eposter</string>
     <string name="title_setup_simple">Du trenger ikke å endre noen flere innstillinger</string>
     <string name="title_setup_issue">FairEmail ble utviklet for å hjelpe deg med å beskytte personvernet ditt, og representerer bokstavelig talt tusenvis av timer med jobb. Om du har noen problemer, vennligst ta kontakt med meg for hjelp før du legger igjen en dårlig anmeldelse. Jeg hjelper gjerne til!</string>
-    <string name="title_setup_analytics">FairEmail viser ikke annonser og hverken sporer eller analyserer bruksmønsteret ditt. Bugsnag brukes for feilrapportering og er slått av som standard.</string>
     <string name="title_setup_quick_accounts">Legg til eller endre kontoer</string>
     <string name="title_setup_quick_support">Noen tilbydere gjør det vanskelig å legge til en konto. Vennligst ikke gi FairEmail skylden for dette, men be om hjelp istedet.</string>
     <string name="title_setup_quick_hint">Den oppgitte epost-adressen brukes for å spørre epost-tjeneren og autoconfig.thunderbird.net etter konfigurasjonsinformasjon</string>

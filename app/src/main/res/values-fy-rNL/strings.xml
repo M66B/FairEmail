@@ -160,7 +160,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_intro">In account tafoegje kin al yn trije stappen, dêrnei kinne jo e-mailberjochten ferstjoere en ûntfange.</string>
     <string name="title_setup_simple">Dêr is gjin needsaak om oare opsjes te wizigjen</string>
     <string name="title_setup_issue">FairEmail is ûntwikkele om jo te helpen jo privacy te beskermjen en fertsjintwurdiget tûzenen oeren wurk. As jo swierrichheden hawwe, nim dan earst kontakt op mei my foar stipe, eardat jo in minne beoardieling efterlitte. Ik help jo graach!</string>
-    <string name="title_setup_analytics">FairEmail toant gjin advertinsjes en folget of analysearret jo gedrach net. Bugsnag wurdt brûkt foar flatermeldingen en is standert útskeakele.</string>
+    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail toant gjin advertinsjes en folget of analysearret jo gedrach net.</string>
     <string name="title_setup_quick_accounts">Accounts tafoegje of wizigje</string>
     <string name="title_setup_quick_support">Guon providers meitsje it dreech om in account ta te foegjen. Jou FairEmail hjir gjin skuld foar, mar freegje yn stee derfan om stipe.</string>
     <string name="title_setup_quick_hint">It ynfierde e-mailadres wurdt brûkt om de e-mailserver en autoconfig.thunderbird.net om konfiguraasje-ynformaasje te freegjen</string>

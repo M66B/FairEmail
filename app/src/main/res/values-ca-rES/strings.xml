@@ -134,7 +134,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_setup_intro">Configurar un compte són únicament tres passes, després podràs enviar i rebre correus electrònics</string>
     <string name="title_setup_simple">No cal canviar cap altra opció</string>
     <string name="title_setup_issue">FairEmail va néixer per ajudar-nos a protegir la nostra privacitat y representa literalment milers d\'hores de treball. Si teniu qualsevol problema, si us plau, contacteu amb mi primer demanant suport abans de deixar un comentari negatiu. Sóc feliç ajudant!</string>
-    <string name="title_setup_analytics">FairEmail no mostra anuncis i no et rastreja o analitza el teu comportament. Bugsnag s\'utilitza per a reportar errors, i està deshabilitat per defecte.</string>
     <string name="title_setup_quick_accounts">Afegiu o canvieu comptes</string>
     <string name="title_setup_quick_support">Alguns proveïdors posen dificultats per a afegir un compte. Per favor, no culpes a FairEmail, demana ajuda.</string>
     <string name="title_setup_quick_hint">L\'adreça de correu introduïda s\'enviarà al servidor de correu, i autoconfig.thunderbir.net per a informació de configuració</string>

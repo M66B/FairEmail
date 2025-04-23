@@ -148,7 +148,6 @@
     <string name="title_setup_intro">3 ステップのアカウント設定で、すぐにメールを送受信できます</string>
     <string name="title_setup_simple">細かな設定は必要ありません</string>
     <string name="title_setup_issue">FairEmail はあなたのプライバシーを保護するために開発され、文字通り数千時間が費やされています。何か問題があれば、低評価レビューを投稿する前にサポートに連絡してください。喜んでお手伝いします！</string>
-    <string name="title_setup_analytics">FairEmail は広告を表示せず、あなたの行動を追跡したり分析したりしません。Bugsnag がエラーレポートに使用されますが、デフォルトでは無効になっています。</string>
     <string name="title_setup_quick_accounts">アカウントを追加または変更する</string>
     <string name="title_setup_quick_support">一部のプロバイダーはアカウントを追加しにくくしています。FairEmail を非難せずに、サポートを依頼してください。</string>
     <string name="title_setup_quick_hint">入力されたメールアドレスは、設定情報を取得するためのメールサーバーと autoconfig.thunderbird.net への問い合わせに使用されます</string>

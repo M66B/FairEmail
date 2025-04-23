@@ -161,7 +161,7 @@
     <string name="title_setup_intro">A fiók létrehozása csak három lépésből áll és ezt követően e-maileket küldhet és fogadhat</string>
     <string name="title_setup_simple">Nincs szükség egyéb lehetőségek megváltoztatására</string>
     <string name="title_setup_issue">A FairEmail az Ön adatainak védelmére került fejlesztésre, és több ezer munkaóra eredménye. Ha bármilyen problémája van, kérem vegye fel velem a kapcsolatot mielőtt egy negatív értékelést írna. Örömmel segítek!</string>
-    <string name="title_setup_analytics">FairEmail nem jeneít meg reklámokat, és nem követi vagy analizálja az Ön viselkedését. A Bugsnag kizárólag hibajelentésre szolgál, és alapból ki is van kapcsolva.</string>
+    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">A FairEmail nem mutat reklámokat, nem követi önt, és nem elemzi a viselkedését.</string>
     <string name="title_setup_quick_accounts">Fiókok hozzáadása vagy módosítása</string>
     <string name="title_setup_quick_support">Egyes szolgáltatók megbonyolították a fiókok elérését. Ha emiatt nehézségekkel találkozol, inkább kérj segítséget reklamáció helyett.</string>
     <string name="title_setup_quick_hint">A megadott email-címmel lekérjük az email-kiszolgáló és az autoconfig.thunderbird.net beállításait</string>

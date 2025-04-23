@@ -162,7 +162,7 @@
     <string name="title_setup_intro">Configurar una cuenta son sólo tres pasos y después puede enviar y recibir correos electrónicos</string>
     <string name="title_setup_simple">No hay necesidad de cambiar ninguna otra opción</string>
     <string name="title_setup_issue">FairEmail fue desarrollado para ayudarle a proteger su privacidad y representa literalmente miles de horas de trabajo. Si tiene algún problema, por favor contácteme primero para obtener ayuda antes de dejar una mala revisión. ¡Estoy encantado de ayudar!</string>
-    <string name="title_setup_analytics">FairEmail no muestra anuncios y no rastrea o analiza su comportamiento. Bugsnag se utiliza para informar de errores y está deshabilitado por defecto.</string>
+    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail no muestra anuncios y no rastrea ni analiza su comportamiento.</string>
     <string name="title_setup_quick_accounts">Añadir o cambiar cuentas</string>
     <string name="title_setup_quick_support">Algunos proveedores hacen difícil añadir una cuenta. Por favor, no culpe a FairEmail por esto, en su lugar pida ayuda.</string>
     <string name="title_setup_quick_hint">La dirección de correo electrónico ingresada se utiliza para consultar al servidor de correo electrónico y autoconfig.thunderbird.net para obtener información de configuración</string>

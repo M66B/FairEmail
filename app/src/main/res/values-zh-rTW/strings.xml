@@ -148,7 +148,6 @@
     <string name="title_setup_intro">僅需三步即可設置完成帳戶，完成後即可收發郵件</string>
     <string name="title_setup_simple">不需要改變任何其他選項</string>
     <string name="title_setup_issue">FairEmail 的開發是為了幫助保護您的隱私，而這背後則是數千小時實實在在的辛勤工作。如果您遇到了任何問題，請在留下負評之前先與我聯絡以取得支援。我很樂意幫忙！</string>
-    <string name="title_setup_analytics">FairEmail 不顯示廣告，也不會追蹤或分析您的行為。Bugsnag 用於回報錯誤，且於預設情況下處於停用狀態。</string>
     <string name="title_setup_quick_accounts">新增或變更帳戶</string>
     <string name="title_setup_quick_support">有些電子郵件供應商的作法讓新增帳戶成為一件難事。請不要因此責怪 FairEmail，應轉而尋求支援。</string>
     <string name="title_setup_quick_hint">所輸入的電子郵件地址將用於查詢電子郵件伺服器及 autoconfig.thunderbird.net 以獲取設定資訊</string>

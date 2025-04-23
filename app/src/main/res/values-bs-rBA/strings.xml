@@ -176,7 +176,6 @@
     <string name="title_setup_intro">Postavljanje računa odvija se u samo tri koraka i nakon toga možete slati i primati e-poštu</string>
     <string name="title_setup_simple">Nije potrebno mijenjati druge opcije</string>
     <string name="title_setup_issue">FairEmail je razvijen kako bi zaštitio vašu privatnost i predstavlja djelo u koje je doslovno uloženo na hiljade sati. Ukoliko imate nekih problema, molim da me prvo kontaktirate za podršku, prije nego ostavite lošu recenziju. Rado ću Vam pomoći!</string>
-    <string name="title_setup_analytics">FairEmail ne prikazuje reklame i ne prati niti analizira Vaše ponašanje. Bugsnag se koristi za prijavljivanje grešaka i isključen je po zadanom.</string>
     <string name="title_setup_quick_accounts">Dodaj ili ukloni račune</string>
     <string name="title_setup_quick_support">Neki provajderi (poslužitelji) otežavaju način za dodavanje računa. Molimo da ne krivite FairEmail zbog toga, nego da zatražite podršku.</string>
     <string name="title_setup_quick_hint">Unesena adresa e-pošte koristi se za slanje upita e-mail serveru i za konfiguracijske informacije s autoconfig.thunderbird.net </string>
