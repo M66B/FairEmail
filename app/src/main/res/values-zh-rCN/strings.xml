@@ -8,7 +8,7 @@
     <string name="app_unsupported">此特定设备的该 Android 版本中的 Bug 会导致崩溃</string>
     <string name="app_data_loss">所有数据可能都会丢失</string>
     <string name="app_continue">仍然继续</string>
-    <string name="app_exit">再按一次退出</string>
+    <string name="app_exit">再按一次返回键退出</string>
     <string name="app_cake">剩余存储空间不足</string>
     <string name="app_cake_remaining">设备上剩余的存储空间： %1$s</string>
     <string name="app_cake_required">需要的最小存储空间： %1$s</string>
@@ -148,6 +148,7 @@
     <string name="title_setup_intro">设置一个账户只需三步，之后您就可以发送和接收电子邮件了</string>
     <string name="title_setup_simple">无需更改任何其他选项</string>
     <string name="title_setup_issue">FairEmail 是为了帮助您保护隐私而开发的，毫不夸张地说，我在它身上花了数千小时。如果有任何问题，请在留下差评前先联系我获取支持。我很乐意帮忙！</string>
+    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail 不会显示广告，也不会跟踪或分析您的行为。</string>
     <string name="title_setup_quick_accounts">添加或更改账户</string>
     <string name="title_setup_quick_support">有些邮件服务提供商很难添加账户，对此请不要责怪 FairEmail，而应向提供商寻求支持。</string>
     <string name="title_setup_quick_hint">输入的邮箱地址用于查询电子邮件服务器和 autoconfig.thunderbird.net 以获取配置信息</string>
@@ -415,7 +416,7 @@
     <string name="title_advanced_compose_monospaced">纯文本邮件使用等宽字体</string>
     <string name="title_advanced_auto_identity">自动选择新邮件的身份</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
-    <string name="title_advanced_prefix_count">在邮件主题的前缀“回复(Re)”后显示计数</string>
+    <string name="title_advanced_prefix_count">在邮件主题的前缀“回复（Re）”后显示计数</string>
     <string name="title_advanced_separate_reply">在回复/转发标题之前插入一条水平线</string>
     <string name="title_advanced_extended_reply">使用扩展的回复/转发头</string>
     <string name="title_advanced_template_reply">回复/转发标头模板</string>
@@ -442,7 +443,7 @@
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_plain_only_reply">仅在回复纯文本邮件时自动使用纯文本</string>
     <string name="title_advanced_flow">纯文本中采用可流动换行格式（format=flowed）</string>
-    <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
+    <string name="title_advanced_usenet_signature">Usenet 签名公约</string>
     <string name="title_advanced_remove_signatures">移除公认的签名</string>
     <string name="title_advanced_receipt">请求回执时</string>
     <string name="title_advanced_forward_new">转发时开始新对话</string>
@@ -505,7 +506,7 @@
     <string name="title_advanced_nav_pinned_count">在固定导航菜单中显示未读邮件的数量</string>
     <string name="title_advanced_show_unexposed">为新收到的未读邮件的账号/文件夹显示星标</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
-    <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
+    <string name="title_advanced_cards">使用卡片样式而非表单样式 （即主页会话间有间隔）</string>
     <string name="title_advanced_category">账户类别可以通过主设置屏幕在高级账户选项中配置</string>
     <string name="title_advanced_cards_beige">使用卡牌风格时使用米色背景(仅适用于浅色主题)</string>
     <string name="title_advanced_tabular_background">使用表格样式时，使用卡片颜色作为背景色</string>
@@ -546,7 +547,7 @@
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_replace_name">优先使用联系人姓名而不是发送用的名称</string>
     <string name="title_advanced_only_name">仅显示联系人姓名</string>
-    <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
+    <string name="title_advanced_distinguish_contacts">下划线发件人（当其为本地发送给的联系人时）</string>
     <string name="title_advanced_show_recipients">在邮件头中显示收件人</string>
     <string name="title_advanced_reverse_addresses">显示已发送邮件的收件人</string>
     <string name="title_advanced_font_size_sender">发件人文本大小</string>
@@ -689,7 +690,7 @@
     <string name="title_advanced_notify_action_flag">标星</string>
     <string name="title_advanced_notify_action_seen">已读</string>
     <string name="title_advanced_notify_action_hide">隐藏</string>
-    <string name="title_advanced_notify_action_snooze">打盹</string>
+    <string name="title_advanced_notify_action_snooze">稍后提醒</string>
     <string name="title_advanced_notify_remove">轻击通知时移除新邮件通知</string>
     <string name="title_advanced_notify_clear">查看邮件列表时移除新邮件通知</string>
     <string name="title_advanced_notify_subtext">显示账户或文件夹名称为子文本</string>
@@ -760,7 +761,8 @@
     <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_manage_keys">管理私钥</string>
     <string name="title_advanced_ca">已安装的 CA 证书</string>
-    <string name="title_advanced_manage_keys_hint">        这将打开Android安全设置页面        密钥和证书一般可以在 “高级—加密和凭证” 选项中找到
+    <string name="title_advanced_manage_keys_hint">        这将打开Android安全设置页面
+        密钥和证书一般可以在 “高级—加密和凭证” 选项中找到
     </string>
     <string name="title_advanced_power_menu">添加操作到 Android 电源菜单</string>
     <string name="title_advanced_send_self">将 \'发送给自己\' 添加到 Android 的分享菜单</string>

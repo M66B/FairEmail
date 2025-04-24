@@ -162,6 +162,7 @@
     <string name="title_setup_intro">A criação de uma conta tem apenas três passos e, depois disso, você poderá enviar e receber e-mails</string>
     <string name="title_setup_simple">Não há necessidade de alteração de nenhuma das opções</string>
     <string name="title_setup_issue">O FairEmail foi desenvolvido para ajudar a proteger sua privacidade e representa literalmente milhares de horas de trabalho. Se você tiver qualquer problema, por favor, entre em contato comigo antes de deixar uma análise ruim. Ficarei feliz em ajudar!</string>
+    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">O FairEmail não exibe anúncios e não rastreia nem analisa seu comportamento.</string>
     <string name="title_setup_quick_accounts">Adicionar ou alterar contas</string>
     <string name="title_setup_quick_support">Alguns fornecedores dificultam a adição de uma conta. Por favor, não culpe a FairEmail por isso, mas peça apoio em seu lugar.</string>
     <string name="title_setup_quick_hint">O endereço de e-mail inserido é usado para consultar o servidor de e-mail e autoconfig.thunderbird.net para informações de configuração</string>

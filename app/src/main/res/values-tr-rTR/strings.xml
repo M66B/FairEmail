@@ -158,6 +158,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_intro">Bir hesap oluşturmak sadece üç adımdan oluşur ve bundan sonra e-posta gönderip alabilirsiniz</string>
     <string name="title_setup_simple">Başka herhangi bir ayarı değiştirmeye gerek yoktur</string>
     <string name="title_setup_issue">FairEmail, gizliliğinizi korumanıza yardımcı olmak için geliştirildi ve kelimenin tam anlamıyla binlerce saatlik çalışmayı temsil ediyor. Herhangi bir sorununuz varsa, lütfen kötü bir yorum bırakmadan önce destek için benimle iletişime geçin. Yardım etmekten mutluluk duyarim!</string>
+    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail reklam göstermez ve davranışlarınızı izlemez veya analiz etmez.</string>
     <string name="title_setup_quick_accounts">Hesap ekle veya değiştir</string>
     <string name="title_setup_quick_support">Bazı sağlayıcılar hesap eklemeyi zorlaştırır. Lütfen bunun için FairEmail\'i suçlamayın, bunun yerine destek isteyin.</string>
     <string name="title_setup_quick_hint">Girilen e-posta adresi, yapılandırma bilgileri için e-posta sunucusunu ve autoconfig.thunderbird.net\'i sorgulamak için kullanılır</string>

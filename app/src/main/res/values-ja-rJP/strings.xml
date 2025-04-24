@@ -148,6 +148,7 @@
     <string name="title_setup_intro">3 ステップのアカウント設定で、すぐにメールを送受信できます</string>
     <string name="title_setup_simple">細かな設定は必要ありません</string>
     <string name="title_setup_issue">FairEmail はあなたのプライバシーを保護するために開発され、文字通り数千時間が費やされています。何か問題があれば、低評価レビューを投稿する前にサポートに連絡してください。喜んでお手伝いします！</string>
+    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail は広告を表示せず、あなたの行動を追跡したり分析したりしません。</string>
     <string name="title_setup_quick_accounts">アカウントを追加または変更する</string>
     <string name="title_setup_quick_support">一部のプロバイダーはアカウントを追加しにくくしています。FairEmail を非難せずに、サポートを依頼してください。</string>
     <string name="title_setup_quick_hint">入力されたメールアドレスは、設定情報を取得するためのメールサーバーと autoconfig.thunderbird.net への問い合わせに使用されます</string>
@@ -331,6 +332,11 @@
         初期状態では特に変更しなくてもアプリを使用できる一般的な設定になっています。
     </string>
     <string name="title_advanced_hint_remark">        設定は、外観や操作などのカテゴリーごとにタブに分類され、さらにセクションに分けられています。検索もできます。
+    </string>
+    <string name="title_advanced_hint_options">        あなたにはほとんどのオプションは必要ではなく、いくつかはあまりに特殊すぎると感じるかもしれません。
+        それぞれのオプションがどのように機能するか、すぐにはわからないことは理解できます。
+        しかし、オプションの数を見ただけでや、わからないオプションがあるという理由で低評価のレビューを残すのはお控えください。
+        すべてのオプションは (まだあなたの役には立たなくても) 誰かにとって役立つものです。
     </string>
     <string name="title_advanced_hint_setup">メイン画面のウィザードをタップするとアカウントを設定できます。</string>
     <string name="title_advanced_section_main">メイン</string>
@@ -520,6 +526,7 @@
     <string name="title_advanced_indentation">会話スレッドの中の受信/送信メッセージの左/右インデント</string>
     <string name="title_advanced_highlight_unread">未読メッセージをハイライト表示する</string>
     <string name="title_advanced_account_color">カラーストライプまたはドットを表示する</string>
+    <string name="title_advanced_account_color_size">カラーストライプの幅</string>
     <string name="title_advanced_avatars">連絡先の写真を表示する</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) を表示する</string>
     <string name="title_advanced_bimi_vmc">有効な VMC 証明書を必須にする</string>
@@ -641,6 +648,7 @@
     <string name="title_advanced_reset_importance">移動するメッセージの重要度をリセットする</string>
     <string name="title_advanced_star_snoozed">スヌーズしたメッセージに自動でスターを付ける</string>
     <string name="title_advanced_star_unsnoozed">スヌーズ解除したメッセージから自動でスターを外す</string>
+    <string name="title_advanced_important_unsnoozed">スヌーズを解除したメッセージを自動で重要にマークする</string>
     <string name="title_advanced_auto_important">スター付きメッセージを自動で重要にマークする</string>
     <string name="title_advanced_cancel_snooze">メッセージを移動するときスヌーズをキャンセルする</string>
     <string name="title_advanced_auto_block_sender">メッセージを迷惑メールとして報告したとき、差出人を自動でブロックする</string>
@@ -666,6 +674,7 @@
     <string name="title_advanced_notify_suppress_in_call">通話終了まで通知を遅らせる</string>
     <string name="title_advanced_notify_suppress_in_car">Android Auto の接続が解除されるまで通知を遅らせる</string>
     <string name="title_advanced_notify_summary">まとめ通知のみ表示する</string>
+    <string name="title_advanced_notify_subject">通知で件名を表示する</string>
     <string name="title_advanced_notify_preview">通知にメッセージプレビューを表示する</string>
     <string name="title_advanced_notify_preview_all">全文をプレビューする</string>
     <string name="title_advanced_notify_preview_only">プレビューテキストが準備できた通知のみ表示する</string>
@@ -769,6 +778,7 @@
     <string name="title_advanced_class_min_difference">最小分類差: %1$s %%</string>
     <string name="title_advanced_show_filtered">ルールが適用された場合、フィルターアイコンを表示する</string>
     <string name="title_advanced_haptic_feedback">重要なアクションでの触覚フィードバック</string>
+    <string name="title_advanced_haptic_feedback_swipe">左/右スワイプの触覚フィードバック</string>
     <string name="title_advanced_language">言語</string>
     <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_integrations_hint">以下のクラウドサービスはアプリの一部ではありません。すべての支払いはアプリ開発者ではなく、クラウドサービスに直接支払われます。</string>
@@ -1154,6 +1164,7 @@
     <string name="title_hint_operations">操作を削除するとメッセージが消失し、同期の問題が発生する可能性があります</string>
     <string name="title_op_title_headers">ヘッダーをダウンロードしています</string>
     <string name="title_op_title_raw">元のメッセージをダウンロードしています</string>
+    <string name="title_op_title_add">メッセージのアップロード中</string>
     <string name="title_folder_name">フォルダー名</string>
     <string name="title_display_name">表示名</string>
     <string name="title_show_folders">隠しフォルダーを表示する</string>
@@ -2358,9 +2369,9 @@
         <item>ドット</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item>Narrow</item>
+        <item>細</item>
         <item>標準</item>
-        <item>Wide</item>
+        <item>太</item>
     </string-array>
     <string-array name="contactTypes">
         <item>宛先</item>

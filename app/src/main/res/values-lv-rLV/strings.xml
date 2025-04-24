@@ -6,6 +6,7 @@
     <string name="app_welcome">FairEmail — atvērtā pirmkoda e-pasta lietotne, kas ir vērsta uz privātumu un drošību. Šī iemesla dēļ dažas iespējas var darboties citādāk nekā pierasts.</string>
     <string name="app_limitations">Piemēram, ziņojumi pēc noklusējuma tiek pārveidoti, lai noņemtu nedrošus elementus un uzlabotu lasāmību, un saišu atvēršanu ir nepieciešams apstiprināt drošības dēļ. Abas iespējas var atspējot, ja ir tāda vēlme.</string>
     <string name="app_unsupported">Nepilnības tieši šīs ierīces Android versijā rada avārijas</string>
+    <string name="app_data_loss">Visi dati var tikt pazaudēti</string>
     <string name="app_updated">Pēdējo reizi atjaunināta: %1$s</string>
     <string name="app_download">Lejupielādēta no: %1$s</string>
     <string name="channel_update">Atjauninājumi</string>
@@ -34,10 +35,12 @@
         <item quantity="one">%1$d pielikums</item>
         <item quantity="other">%1$d pielikumi</item>
     </plurals>
+    <string name="title_junk_hint">Tavs e-pasta pakalpojuma sniedzējs ir atbildīgs par mēstuļu aizturēšanu. E-pasta lietotnei nav visu nepieciešamo datu, lai to paveiktu uzticami.</string>
     <string name="title_block">Aizturēt %1$s</string>
     <string name="title_block_sender">Aizturēt sūtītāju</string>
     <string name="title_block_sender_domain">Aizturēt domēnu \'%1$s\'</string>
     <string name="title_blocked_senders">Aizturētie sūtītāji</string>
+    <string name="title_notification_waiting">Gaida atbilstošu savienojumu</string>
     <string name="menu_setup">Iestatījumi</string>
     <string name="menu_faq">Atbalsts</string>
     <string name="menu_translate">Palīdzēt tulkot</string>
