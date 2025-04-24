@@ -16,6 +16,8 @@
 
 package com.sun.mail.imap;
 
+import android.text.TextUtils;
+
 import java.io.*;
 
 import java.util.Enumeration;
@@ -148,6 +150,10 @@ public class IMAPBodyPart extends MimeBodyPart implements ReadableMime {
 	String filename = null;
 	if (bs.dParams != null)
 	    filename = bs.dParams.get("filename");
+	// Workaround for invalid character encoding (server error)
+	if (filename != null && filename.contains("?????") &&
+			bs.cParams != null && !TextUtils.isEmpty(bs.cParams.get("name")))
+		filename = bs.cParams.get("name");
 	if ((filename == null || filename.isEmpty()) && bs.cParams != null)
 	    filename = bs.cParams.get("name");
 	if (decodeFileName && filename != null) {
