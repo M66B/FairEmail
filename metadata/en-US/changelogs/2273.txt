@@ -28,6 +28,10 @@ For support you can use the contact form.
 
 Ceratonykus
 
+Next version
+
+* Updated AndroidX
+
 1.2273 2025-04-23
 
 * Removed Bugsnag
