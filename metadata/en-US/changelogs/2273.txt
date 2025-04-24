@@ -30,7 +30,9 @@ Ceratonykus
 
 Next version
 
+* Small improvements and minor bug fixes
 * Updated AndroidX
+* Updated translations
 
 1.2273 2025-04-23
 
