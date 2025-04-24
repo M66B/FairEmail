@@ -28,7 +28,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
-### Next version
+### 1.2274 2025-04-24
 
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
