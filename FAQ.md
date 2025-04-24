@@ -334,7 +334,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(101) What does the blue/orange dot at the bottom of the conversations mean?](#faq101)
 * [(102) How can I enable auto rotation of images?](#faq102)
 * [(103) How can I record audio?](#faq158)
-* [(104) What do I need to know about error reporting?](#faq104)
+* [~~(104) What do I need to know about error reporting?~~](#faq104)
 * [(105) How does the roam-like-at-home option work?](#faq105)
 * [(106) Which launchers can show a badge count with the number of unread messages?](#faq106)
 * [(107) How do I use colored stars?](#faq107)
@@ -3826,9 +3826,11 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 <br />
 
 <a name="faq104"></a>
-**(104) What do I need to know about error reporting?**
+**~~(104) What do I need to know about error reporting?~~**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq104)
+
+Error reporting with Bugsnag was removed in version 1.2273.
 
 * Error reports will help improve FairEmail
 * Error reporting is optional and opt-in

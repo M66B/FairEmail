@@ -74,7 +74,7 @@ This app starts a foreground service with a low-priority status bar notification
 * Confirm opening links, images and attachments
 * No special permissions required
 * No advertisements
-* No analytics and no tracking ([error reporting](https://m66b.github.io/FairEmail/#faq104) via Bugsnag is opt-in)
+* No analytics and no tracking
 * Optional [Android backup](https://developer.android.com/guide/topics/data/backup)
 * No [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging)
 * FairEmail is an original work, not a fork or a clone
@@ -214,14 +214,6 @@ See [here](https://github.com/M66B/FairEmail/blob/master/ATTRIBUTION.md) for a l
 Online translations are supported by:
 
 [![Crowdin logo](/images/localization-at-white-rounded-bordered@1x.png)](https://crowdin.com/project/open-source-email)
-
-Error reporting is sponsored by:
-
-![Bugsnag logo](/images/bugsnag_logo.png)
-
-[Bugsnag](https://www.bugsnag.com/) monitors application stability
-and is used to [help improve FairEmail](https://m66b.github.io/FairEmail/#faq104).
-Error reporting is disabled by default, see also [the privacy policy](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail).
 
 ## License
 
