@@ -21,7 +21,7 @@
     <string name="shortcut_refresh">Atsvaidzināt</string>
     <string name="shortcut_setup">Iestatījumi</string>
     <plurals name="title_notification_unseen">
-        <item quantity="zero">%1$d jaunu ziņojumu</item>
+        <item quantity="zero">%1$d jauni ziņojumi</item>
         <item quantity="one">%1$d jauns ziņojums</item>
         <item quantity="other">%1$d jauni ziņojumi</item>
     </plurals>
@@ -39,13 +39,14 @@
     <string name="title_block">Aizturēt %1$s</string>
     <string name="title_block_sender">Aizturēt sūtītāju</string>
     <string name="title_block_sender_domain">Aizturēt domēnu \'%1$s\'</string>
+    <string name="title_block_sender_remark">Liegšana nozīmē automātisku pārvietošanu uz mēstuļu mapi</string>
     <string name="title_blocked_senders">Aizturētie sūtītāji</string>
     <string name="title_notification_waiting">Gaida atbilstošu savienojumu</string>
     <string name="menu_setup">Iestatījumi</string>
     <string name="menu_faq">Atbalsts</string>
     <string name="menu_translate">Palīdzēt tulkot</string>
     <string name="menu_about">Par</string>
-    <string name="menu_pro">Lietpratēju iespējas</string>
+    <string name="menu_pro">Lietpratēju funkcionalitāte</string>
     <string name="menu_rate">Novērtēt šo lietotni</string>
     <string name="title_welcome">Laipni lūdzam</string>
     <string name="title_agree">Es piekrītu</string>

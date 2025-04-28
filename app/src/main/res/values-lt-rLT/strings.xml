@@ -1,54 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_search">Поиск по FairEmail</string>
+    <string name="app_search">Ieškoti FairEmail</string>
     <string name="app_send_self">Siųsti sau</string>
     <string name="app_changelog">Pakeitimų sąrašas</string>
-    <string name="app_welcome">FairEmail - tai atviro kodo el. pašto programėlė, kurioje ypatingas dėmesys skiriamas saugumui bei privatumui. Del šios priežasties kai kurios funkcijos gali veikti kiek kitaip nei įprastai.</string>
-    <string name="app_limitations">Pavyzdžiui, pagal nutylėjimą, žinutės performatuojamos dėl aiškesnio skaitomumo ir nesaugių elementų pašalinimo. Taip pat reikalingas patvirtinimas nuorodų atidarymui. Šios funkcijos gali būti išjungtos pagal pageidavimą.</string>
+    <string name="app_welcome">FairEmail - tai atviro kodo el. pašto programėlė, kurioje ypatingas dėmesys skiriamas saugumui bei privatumui. Todėl kai kurios funkcijos gali veikti kiek kitaip nei įprastai.</string>
+    <string name="app_limitations">Pavyzdžiui, pagal nutylėjimą, žinutės performatuojamos kad būtų aiškiau skaityti ir būtų pašalinti nesaugūsų elementai. Taip pat reikia patvirtinimo nuorodoms atidaryti. Jei norima, šias funkcijas galima išjungti.</string>
+    <string name="app_unsupported">Strigtys įvyksta dėl šio įrenginio Android versijos riktų</string>
+    <string name="app_data_loss">Visi duomenys gali būti prarasti</string>
+    <string name="app_continue">Vis tiek tęsti</string>
+    <string name="app_cake">Nepakanka laisvos vietos saugykloje</string>
+    <string name="app_updated">Paskutinįkart atnaujinta: %1$s</string>
+    <string name="app_download">Parsiųsta iš: %1$s</string>
     <string name="shortcut_refresh">Atnaujinti</string>
-    <string name="shortcut_setup">Nustatymai</string>
+    <string name="shortcut_setup">Nuostatos</string>
     <string name="title_junk_clear">Valyti</string>
-    <string name="menu_setup">Nustatymai</string>
+    <string name="menu_setup">Nuostatos</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Pagalba</string>
     <string name="menu_about">Apie</string>
     <string name="menu_pro">Pro funkcijos</string>
     <string name="title_agree">Sutinku</string>
     <string name="title_disagree">Nesutinku</string>
-    <string name="title_setup">Nustatymai</string>
-    <string name="title_setup_export">Nustatymų kopija</string>
-    <string name="title_setup_import">Įkelti nustatymus</string>
-    <string name="title_setup_options">Nustatymai</string>
-    <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
+    <string name="title_setup">Nuostatos</string>
+    <string name="title_setup_accounts">Paskyros</string>
+    <string name="title_setup_identities">Tapatybės</string>
+    <string name="title_setup_google_sign_in">Prisijungti su Google</string>
+    <string name="title_setup_other">Kitas teikėjas</string>
+    <string name="title_setup_inbound">Tik gaunami laiškai (laiškų negalima išsiųsti!)</string>
+    <string name="title_setup_imap">IMAP paskyra</string>
+    <string name="title_setup_pop3">POP3 paskyra</string>
+    <string name="title_setup_oauth_permission">Pašto paslaugos teikėjas OAuth protokolą yra patvirtinęs tik versijoms iš Play Store ir GitHub</string>
+    <string name="title_setup_export">Eksportuoti nuostatas</string>
+    <string name="title_setup_import">Įkelti nuostatas</string>
+    <string name="title_setup_options">Parinktys</string>
+    <string name="title_advanced_hint_message">Einate į sudėtingesnes parinktis.
+        Visų parinkčių numatytosios  reikšmės yra labiausiai visuotinai naudojamos, jų nereikia keisti, nebent pageidaujate kitokių.
     </string>
     <string name="title_advanced_section_backup">Atsarginė kopija</string>
     <string name="title_advanced_caption_general">Bendra</string>
-    <string name="title_advanced_notify_action_delete">Ištrinti</string>
-    <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
+    <string name="title_advanced_notify_action_delete">Trinti</string>
+    <string name="title_advanced_manage_keys_hint">Bus atidarytos Android saugos nuostatos
+Raktai ir sertifikatai paprastai būna Sudėtingesnės parinktys - Šifruotė ir prisijungimo duomenys
     </string>
-    <string name="title_advanced_cleanup">Atstatyti</string>
-    <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+    <string name="title_advanced_cleanup">Valyti</string>
+    <string name="title_inbox_root_hint">Kai kurie teikėjai reikalauja kad nauji aplankai būtų žemesni už „Gautuosius“.
+Tokiu atveju palaikykite paspaudę ant „Gautųjų“ aplanko ir pasirinkite „Naujas poaplankis“.
     </string>
     <string name="title_delete">Ištrinti</string>
     <string name="title_copy_btn">Kopijuoti</string>
-    <string name="title_ask_review_rationale">        You have been using FairEmail for a while.        It would be appreciated if you could rate FairEmail in the Play Store.
+    <string name="title_ask_review_rationale">Jau kuris laikas naudojatės FairEmail programėle.
+Būsime dėkingi jei įvertintumėte FairEmail programėle PlayStore parduotuvėje.
     </string>
     <string name="title_rule_keyword_add">Pridėti</string>
     <string name="title_rule_keyword_delete">Ištrinti</string>
     <string name="title_rule_enabled">Įjungta</string>
-    <string name="title_legend_not_junk">Raktas: title_legend_not_junk title_legend_not_junk Legenda „ne šlamštas“ piktogramos / mygtuko pavadinimas Failas: strings.xml</string>
+    <string name="title_legend_not_junk">Ne šlamštas</string>
     <string name="title_legend_delete">Ištrinti</string>
     <string name="title_add">Pridėti</string>
     <string name="title_enabled">Įjungta</string>
     <string name="title_reset">Atstatyti</string>
-    <string name="title_pro_feature">Tai PRO funkcija</string>
-    <string name="title_pro_purchase">Įsigyti</string>
+    <string name="title_pro_feature">Tai mokama funkcija</string>
+    <string name="title_pro_purchase">Pirkti</string>
     <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.        FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.
         To maintain and support FairEmail in the long run, some convenience and advanced features are not free to use.
         FairEmail shows a small message to remind you of this, which will be removed if you purchase the pro features.
     </string>
     <string name="title_log_clear">Valyti</string>
-    <string name="title_debug_info_remark">Aprašykite sutrikimą ir nurodykite sutrikimo atsiradimo laiką:</string>
+    <string name="title_debug_info_remark">Aprašykite sutrikimą nurodydami laiką kada jis įvyko:</string>
     <!-- Thunderbird -->
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
