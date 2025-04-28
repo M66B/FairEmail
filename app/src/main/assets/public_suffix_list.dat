@@ -6747,7 +6747,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2025-03-28T15:18:17Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2025-04-26T15:16:32Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -7128,10 +7128,6 @@ beauty
 // beer : Registry Services, LLC
 // https://www.iana.org/domains/root/db/beer.html
 beer
-
-// bentley : Bentley Motors Limited
-// https://www.iana.org/domains/root/db/bentley.html
-bentley
 
 // berlin : dotBERLIN GmbH & Co. KG
 // https://www.iana.org/domains/root/db/berlin.html
@@ -9545,7 +9541,7 @@ physio
 // https://www.iana.org/domains/root/db/pics.html
 pics
 
-// pictet : Pictet Europe S.A.
+// pictet : Banque Pictet & Cie SA
 // https://www.iana.org/domains/root/db/pictet.html
 pictet
 
