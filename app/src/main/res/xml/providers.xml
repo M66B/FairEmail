@@ -1633,6 +1633,7 @@
     </provider>
     <provider
         name="Mail.com"
+        domain="mail\\.com,email\\.com,usa\\.com,myself\\.com,consultant\\.com,post\\.com,europe\\.com,asia\\.com,iname\\.com,writeme\\.com,dr\\.com,cheerful\\.com,accountant\\.com,techie\\.com,engineer\\.com,linuxmail\\.org,musician\\.org,contractor\\.net,workmail\\.com,financier\\.com"
         documentation="Using third-party email clients requires a premium mail.com subscription. This is not a limitation of FairEmail."
         link="https://support.mail.com/premium/imap/server.html#indexlink_help_premium_imap">
         <imap
