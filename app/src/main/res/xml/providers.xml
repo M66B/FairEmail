@@ -1280,7 +1280,7 @@
         name="Vodafone.de/Arcor"
         appPassword="true"
         domain="arcor\\.de,vodafone\\.de,vodafonemail\\.de,nexgo\\.de"
-        link="https://www.vodafone.de/hilfe/email/abrufen-senden.html#wie-lauten-die-server-einstellungen-fuer-vodafone-e-mail"
+        link="https://www.vodafone.de/hilfe/vodafone-e-mail-cloud.html?tab=servereinstellungen&amp;icmp=hilfe:email:tab2:abrufen:servereinstellungen"
         partial="true">
         <imap
             host="imap.vodafonemail.de"
