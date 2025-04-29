@@ -337,15 +337,24 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
             EdgeToEdge.enable(this);
 
-            int colorPrimary = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimary);
+            boolean edge_to_edge = prefs.getBoolean("edge_to_edge", false);
+            int colorPrimary = (edge_to_edge
+                    ? (Helper.isDarkTheme(this) ? Color.BLACK : Color.WHITE)
+                    : Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimary));
             double lum = ColorUtils.calculateLuminance(colorPrimary);
+            EntityLog.log(this, "NAVBAR e2e=" + edge_to_edge +
+                    " color=" + Integer.toHexString(colorPrimary) +
+                    " dark=" + Helper.isDarkTheme(this) +
+                    " lum=" + lum + " light=" + (lum > LUMINANCE_THRESHOLD));
 
             WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(window, window.getDecorView());
             controller.setAppearanceLightStatusBars(lum > LUMINANCE_THRESHOLD);
             controller.setAppearanceLightNavigationBars(lum > LUMINANCE_THRESHOLD);
-            window.setNavigationBarColor(Color.TRANSPARENT);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
-                window.setNavigationBarContrastEnforced(false);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+                window.setNavigationBarColor(Color.TRANSPARENT);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                    window.setNavigationBarContrastEnforced(false);
+            }
         }
 
         String requestKey = getRequestKey();
