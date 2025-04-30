@@ -465,7 +465,7 @@ tasks.register('downloadBrave') {
 tasks.register('downloadSmime', Download) {
     // https://wiki.mozilla.org/CA/Included_Certificates
     src "https://ccadb.my.salesforce-sites.com/mozilla/IncludedRootsPEMTxt?TrustBitsInclude=Email"
-    dest new File(new File("${rootDir}", "app/src/main/assets"), "IncludedRootsPEM.txt")
+    dest new File(new File("${rootDir}", "app/src/main/assets/smime"), "MozillaCA.pem")
     overwrite true
 }
 

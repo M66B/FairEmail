@@ -45,8 +45,6 @@ import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
 public class SmimeHelper {
-    private static final String CA_LIST_NAME = "IncludedRootsPEM.txt";
-
     static boolean hasSmimeKey(Context context, List<Address> recipients, boolean all) {
         if (recipients == null || recipients.size() == 0)
             return false;
@@ -74,21 +72,29 @@ public class SmimeHelper {
 
     private static List<X509Certificate> readCACertificates(Context context) throws CertificateException, IOException {
         List<X509Certificate> result = new ArrayList<>();
-        Log.i("Reading " + CA_LIST_NAME);
+
         CertificateFactory fact = CertificateFactory.getInstance("X.509");
-        try (InputStream is = context.getAssets().open(CA_LIST_NAME)) {
-            try (PemReader reader = new PemReader(new InputStreamReader(is))) {
-                PemObject pem = reader.readPemObject();
-                while (pem != null) {
-                    ByteArrayInputStream bis = new ByteArrayInputStream(pem.getContent());
-                    X509Certificate cert = (X509Certificate) fact.generateCertificate(bis);
-                    Log.i("S/MIME cert=" + cert.getSubjectDN().getName());
-                    result.add(cert);
-                    pem = reader.readPemObject();
+        for (String name : context.getAssets().list("smime"))
+            if (name.endsWith(".pem")) {
+                Log.i("S/MIME reading=" + name);
+                int count = 0;
+                try (InputStream is = context.getAssets().open("smime/" + name)) {
+                    try (PemReader reader = new PemReader(new InputStreamReader(is))) {
+                        PemObject pem = reader.readPemObject();
+                        while (pem != null) {
+                            count++;
+                            ByteArrayInputStream bis = new ByteArrayInputStream(pem.getContent());
+                            X509Certificate cert = (X509Certificate) fact.generateCertificate(bis);
+                            //Log.i("S/MIME cert=" + cert.getSubjectDN().getName());
+                            result.add(cert);
+                            pem = reader.readPemObject();
+                        }
+                    }
                 }
+                Log.i("S/MIME certs=" + count);
             }
-        }
-        Log.i("S/MIME root certs=" + result.size());
+
+        Log.i("S/MIME total certs=" + result.size());
         return result;
     }
 
@@ -108,7 +114,7 @@ public class SmimeHelper {
 
         int idx = 1;
         for (X509Certificate ca : SmimeHelper.readCACertificates(context)) {
-            String alias = "Mozilla:" + idx++ + ":" + ca.getSubjectDN().getName();
+            String alias = "asset:" + idx++ + ":" + ca.getSubjectDN().getName();
             ks.setCertificateEntry(alias, ca);
         }
 
