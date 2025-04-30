@@ -58,7 +58,6 @@ import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
-import android.view.inputmethod.BaseInputConnection;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
