@@ -10244,8 +10244,7 @@ public class FragmentMessages extends FragmentBase
                                     KeyStore ks = null;
                                     try {
                                         // https://tools.ietf.org/html/rfc3852#section-10.2.3
-                                        ks = KeyStore.getInstance("AndroidCAStore");
-                                        ks.load(null, null);
+                                        ks = SmimeHelper.getCAStore(context);
 
                                         // https://docs.oracle.com/javase/7/docs/technotes/guides/security/certpath/CertPathProgGuide.html
                                         X509CertSelector target = new X509CertSelector();

@@ -21,9 +21,23 @@ package eu.faircode.email;
 
 import android.content.Context;
 
+import org.bouncycastle.util.io.pem.PemObject;
+import org.bouncycastle.util.io.pem.PemReader;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,6 +45,8 @@ import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
 public class SmimeHelper {
+    private static final String CA_LIST_NAME = "IncludedRootsPEM.txt";
+
     static boolean hasSmimeKey(Context context, List<Address> recipients, boolean all) {
         if (recipients == null || recipients.size() == 0)
             return false;
@@ -54,5 +70,48 @@ public class SmimeHelper {
         if (pubkey == null)
             return false;
         return Objects.equals(privkey.getAlgorithm(), pubkey.getAlgorithm());
+    }
+
+    private static List<X509Certificate> readCACertificates(Context context) throws CertificateException, IOException {
+        List<X509Certificate> result = new ArrayList<>();
+        Log.i("Reading " + CA_LIST_NAME);
+        CertificateFactory fact = CertificateFactory.getInstance("X.509");
+        try (InputStream is = context.getAssets().open(CA_LIST_NAME)) {
+            try (PemReader reader = new PemReader(new InputStreamReader(is))) {
+                PemObject pem = reader.readPemObject();
+                while (pem != null) {
+                    ByteArrayInputStream bis = new ByteArrayInputStream(pem.getContent());
+                    X509Certificate cert = (X509Certificate) fact.generateCertificate(bis);
+                    Log.i("S/MIME cert=" + cert.getSubjectDN().getName());
+                    result.add(cert);
+                    pem = reader.readPemObject();
+                }
+            }
+        }
+        Log.i("S/MIME root certs=" + result.size());
+        return result;
+    }
+
+    static KeyStore getCAStore(Context context) throws KeyStoreException, CertificateException, IOException, NoSuchAlgorithmException {
+        KeyStore aks = KeyStore.getInstance("AndroidCAStore");
+        aks.load(null, null);
+
+        KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+        ks.load(null, null);
+
+        Enumeration<String> aliases = aks.aliases();
+        while (aliases.hasMoreElements()) {
+            String alias = aliases.nextElement();
+            if (aks.isCertificateEntry(alias))
+                ks.setCertificateEntry(alias, aks.getCertificate(alias));
+        }
+
+        int idx = 1;
+        for (X509Certificate ca : SmimeHelper.readCACertificates(context)) {
+            String alias = "Mozilla:" + idx++ + ":" + ca.getSubjectDN().getName();
+            ks.setCertificateEntry(alias, ca);
+        }
+
+        return ks;
     }
 }

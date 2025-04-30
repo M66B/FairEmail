@@ -453,8 +453,7 @@ public class FragmentOptionsEncryption extends FragmentBase
                 new SimpleTask<List<String>>() {
                     @Override
                     protected List<String> onExecute(Context context, Bundle args) throws Throwable {
-                        KeyStore ks = KeyStore.getInstance("AndroidCAStore");
-                        ks.load(null, null);
+                        KeyStore ks = SmimeHelper.getCAStore(context);
 
                         List<String> issuers = new ArrayList<>();
                         Enumeration<String> aliases = ks.aliases();
