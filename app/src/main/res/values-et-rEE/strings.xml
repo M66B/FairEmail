@@ -162,6 +162,7 @@
     <string name="title_setup_intro">Konto seadistamine on vaid kolm sammu ja peale seda saad saata ja tõmmata e-kirju</string>
     <string name="title_setup_simple">Muid seadistusi pole vaja muuta</string>
     <string name="title_setup_issue">FairEmaili on arendatud, et kaitsta sinu privaatsust ja sellesse on pühendatud sõna otseses mõttes tuhandeid tunde tööd. Kui sul on probleeme, võta enne toe saamiseks minuga ühendust, enne kui jätad negatiivse arvustuse. Ma olen rõõmus aitama!</string>
+    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail ei näita reklaame ega jälgi ega analüüsi sinu tegevust.</string>
     <string name="title_setup_quick_accounts">Lisa või muuda kontosid</string>
     <string name="title_setup_quick_support">Mõni teenusepakkuja muudab konto lisamise keeruliseks. Palun ära süüdista selles FairEmaili, vaid küsi selle asemel tuge.</string>
     <string name="title_setup_quick_hint">Sisestatud e-postiaadressi kasutatakse päringu tegemiseks meiliserverisse ja autoconfig.thunderbird.net-st häälestusinfo saamiseks</string>
@@ -345,6 +346,10 @@
         Kõigil valikutel on tavaliselt kasutatavad vaikeväärtused, mida ei ole vaja muuta, kui sul ei ole teistsuguseid eelistusi.
     </string>
     <string name="title_advanced_hint_remark">        Valikud on rühmitatud vahekaartide kaupa, jaotatud jaotistesse, organiseeritud välimuse või kasutuse järgi ja otsitavad.
+    </string>
+    <string name="title_advanced_hint_options">        Sa ei vaja suuremat osa seadetest ja kuna mõned seaded on väga spetsiifilised, on arusaadav, et kõikide seadete toimimine pole koheselt selge. 
+        Palun ära jäta halba arvustust vaid paljude seadete pärast või seepärast, et sa ei mõista koheselt kõikide seadete tähendust
+        Kõik seaded on kasulikud rohkem kui mõne inimese jaoks, kuid ehk mitte sinu jaoks (veel).
     </string>
     <string name="title_advanced_hint_setup">Saad häälestada kontot toksates häälestamise peaekraanil olevat nuppu võlur.</string>
     <string name="title_advanced_section_main">Pea</string>
@@ -534,6 +539,7 @@
     <string name="title_advanced_indentation">Vastuvõetud/saadud sõnumite vasak/parempoolne taane vestlustes</string>
     <string name="title_advanced_highlight_unread">Tõsta lugemata sõnumid esile</string>
     <string name="title_advanced_account_color">Näita värvilist triipu või punkti</string>
+    <string name="title_advanced_account_color_size">Värviriba laius</string>
     <string name="title_advanced_avatars">Näita kontakti fotot</string>
     <string name="title_advanced_bimi">Näita sõnumi tunnusena Brändi tunnuseid (BIMI)</string>
     <string name="title_advanced_bimi_vmc">Nõua kehtivat VMC-sertifikaati</string>
@@ -681,6 +687,7 @@
     <string name="title_advanced_notify_suppress_in_call">Viivita kõne ajal teavitusi</string>
     <string name="title_advanced_notify_suppress_in_car">Viivita teavitusi kui Android Auto on ühendatud</string>
     <string name="title_advanced_notify_summary">Näita vaid kokkuvõtteteavitusi</string>
+    <string name="title_advanced_notify_subject">Näita teavituses teemat</string>
     <string name="title_advanced_notify_preview">Näita teavituses sõnumi eelvaadet</string>
     <string name="title_advanced_notify_preview_all">Kogu teksti eelvaade</string>
     <string name="title_advanced_notify_preview_only">Näita teavitusi vaid eelvaatetekstiga</string>

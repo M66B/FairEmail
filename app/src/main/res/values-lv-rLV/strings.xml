@@ -9,6 +9,10 @@
     <string name="app_data_loss">Visi dati var tikt pazaudēti</string>
     <string name="app_updated">Pēdējo reizi atjaunināta: %1$s</string>
     <string name="app_download">Lejupielādēta no: %1$s</string>
+    <string name="app_motd">        Ar Android 14/15 beta laiku pa laikam parādās paziņojumi \"Lietotne neatbild\".
+        Google darbojas pie labojuma.
+        Lūgums nevainot lietotni par šo Android nepilnību.
+    </string>
     <string name="channel_update">Atjauninājumi</string>
     <string name="channel_warning">Brīdinājumi</string>
     <string name="channel_error">Kļūdas</string>
@@ -21,7 +25,7 @@
     <string name="shortcut_refresh">Atsvaidzināt</string>
     <string name="shortcut_setup">Iestatījumi</string>
     <plurals name="title_notification_unseen">
-        <item quantity="zero">%1$d jauni ziņojumi</item>
+        <item quantity="zero">%1$d jaunu ziņojumu</item>
         <item quantity="one">%1$d jauns ziņojums</item>
         <item quantity="other">%1$d jauni ziņojumi</item>
     </plurals>
@@ -29,6 +33,11 @@
         <item quantity="zero">%1$d jauni</item>
         <item quantity="one">%1$d jauns</item>
         <item quantity="other">%1$d jauni</item>
+    </plurals>
+    <plurals name="title_deleting_messages">
+        <item quantity="zero">Neatgriezeniski izdzēst %1$d ziņojumu?</item>
+        <item quantity="one">Neatgriezeniski izdzēst %1$d ziņojumu?</item>
+        <item quantity="other">Neatgriezeniski izdzēst %1$d ziņojumus?</item>
     </plurals>
     <plurals name="title_attachments">
         <item quantity="zero">%1$d pielikumu</item>
@@ -41,6 +50,7 @@
     <string name="title_block_sender_domain">Aizturēt domēnu \'%1$s\'</string>
     <string name="title_block_sender_remark">Liegšana nozīmē automātisku pārvietošanu uz mēstuļu mapi</string>
     <string name="title_blocked_senders">Aizturētie sūtītāji</string>
+    <string name="title_unblock_all_remark">Tas atiestatīs visus sarakstus un iespējas, kas var beigties ar sūtītāju aizturēšanu</string>
     <string name="title_notification_waiting">Gaida atbilstošu savienojumu</string>
     <string name="menu_setup">Iestatījumi</string>
     <string name="menu_faq">Atbalsts</string>
@@ -52,14 +62,18 @@
     <string name="title_agree">Es piekrītu</string>
     <string name="title_disagree">Es nepiekrītu</string>
     <string name="title_version">Versija %1$s</string>
+    <string name="title_privacy_policy">Konfidencialitātes politika</string>
     <string name="title_list_accounts">Konti</string>
     <string name="title_list_identities">Identitātes</string>
     <string name="title_new_folder">Jauna mape</string>
     <string name="title_edit_folder">Labot mapi</string>
     <string name="title_setup">Iestatījumi</string>
     <string name="title_setup_help">Palīdzība</string>
+    <string name="title_setup_issue">FairEmail tika izstrādāta, lai palīdzētu aizsargāt lietotāju privātumu, un tā atspoguļo burtiski tūkstošiem stundu ilgu darbu. Ja ir jebākdi sarežģījumi,lūgums vispirms sazināties ar mani, pirms tiek atstāta slikta atsauksme. Būšu priecīgs palīdzēt.</string>
     <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail nerāda reklāmas un neizseko vai neapkopo lietotāju uzvedību.</string>
+    <string name="title_setup_quick_accounts">Pievienot vai rediģēt kontus</string>
     <string name="title_setup_wizard_new">Man vajag jaunu e-pasta adresi</string>
+    <string name="title_setup_wizard_hint">Ātrās iestatīšanas vednis darbojas arī augstāk esošajam \"Cits pakalpojumu sniedzējs\", un tas ir vienkāršāk, nekā visu servera datu ievadīšana.</string>
     <string name="title_setup_accounts">Konti</string>
     <string name="title_setup_identities">Identitātes</string>
     <string name="title_setup_inbound">Tikai ienākošie e-pasta ziņojumi (e-pasta ziņojumus nevar nosūtīt)</string>
@@ -76,18 +90,23 @@
     <string name="title_setup_exchange_support">Vai Microsoft Exchange tiek atbalstīts?</string>
     <string name="title_setup_identity_what">Kas ir identitāte?</string>
     <string name="title_setup_free">Vai lietotni var izmantot bez maksas?</string>
+    <string name="title_setup_permissions">Piešķirt atļaujas</string>
     <string name="title_setup_permission_import_contacts">Kā es varu ievietot kontaktpersonas?</string>
     <string name="title_setup_import_graph_contact">Outlook kontaktpersonas</string>
     <string name="title_setup_import_graph_new">Jaunas kontaktpersonas: %1$s</string>
+    <string name="title_setup_data">Datu taupītājs ir iespējots</string>
     <string name="title_setup_error">Kļūda</string>
     <string name="title_setup_pop">Lietot POP3 (nav ieteicams)</string>
+    <string name="title_setup_delete_account_hint">Konts tiks dzēsts tikai lietotnē</string>
     <string name="title_setup_export">Izgūt iestatījumus</string>
     <string name="title_setup_import">Ievietot iestatījumus</string>
     <string name="title_setup_export_remark">        Tā kā iestatījumu datne satur visus iestatījumus un konta informāciju, tā ir šifrēta ar paroli.
-        Parole ir nepieciešama, lai atkal ievietotu iestatījumus, tādēļ lūgums to neaizmirst.
+        Parole būs nepieciešama, kad ievietosiet iestatījumus pa jaunu, tādēļ lūgums to neaizmirst.
     </string>
-    <string name="title_setup_export_do">Izguves datne saturēs visus iestatījumus un datus, bet ne ziņojumus un parakstots izmantotos attēlus</string>
+    <string name="title_setup_export_do">Izguves datne saturēs visus iestatījumus un datus, bet ne ziņojumus un parakstos izmantotos attēlus</string>
+    <string name="title_setup_backup">Kā dublēt ziņojumus?</string>
     <string name="title_setup_password">Parole</string>
+    <string name="title_setup_password_repeat">Atkārtot paroli</string>
     <string name="title_setup_password_different">Paroles nesakrīt</string>
     <string name="title_setup_password_invalid">Nepareiza parole vai bojāta iestatījumu datne</string>
     <string name="title_setup_import_accounts">Ievietot kontus un identitātes</string>
@@ -109,13 +128,19 @@
     <string name="title_setup_biometrics_disable">Atspējot</string>
     <string name="title_setup_reset_files">Skatīt failus</string>
     <string name="title_setup_reset_images">Rādīt attēlus</string>
+    <string name="title_advanced_section_main">Galvenie</string>
     <string name="title_advanced_section_synchronize">Saņemt</string>
     <string name="title_advanced_section_send">Sūtīt</string>
+    <string name="title_advanced_section_connection">Savienojums</string>
     <string name="title_advanced_section_encryption">Šifrēšana</string>
     <string name="title_advanced_section_notifications">Paziņojumi</string>
+    <string name="title_advanced_section_backup">Dublēšana</string>
+    <string name="title_advanced_default">Visi iestatījumu parametri izmanto visbiežāk lietotās standarta vērtības, kuras nav jāmaina, lai lietotu lietotni</string>
     <string name="title_advanced_when">Kad</string>
     <string name="title_advanced_unseen">Visì nelasītie ziņojumi</string>
     <string name="title_advanced_flagged">Visi atzīmētie ziņojumi</string>
+    <string name="title_advanced_download_limited">Pielietot arī nemērāmiem savienojimiem</string>
+    <string name="title_advanced_caption_file">Datnes</string>
     <string name="title_advanced_nav_unseen_drafts">Pārvietošanās izvēlnē rādīt neizlasīto melnrakstu skaitu</string>
     <string name="title_advanced_account_color_size">Krāsu joslas platums</string>
     <string name="title_advanced_pdf_preview">Rādīt PDF sīktēlus</string>
@@ -127,17 +152,44 @@
     <string name="title_advanced_notify_action_move">Pārvietot</string>
     <string name="title_advanced_notify_action_reply">Atbildēt</string>
     <string name="title_advanced_notify_action_hide">Slēpt</string>
+    <string name="title_advanced_hide_timezone">Nosūtīt ziņojumus bez laika joslas datiem</string>
+    <string name="title_advanced_client_id">Nosūtīt serverim lietotnes nosaukumu un versiju</string>
     <string name="title_advanced_pin">PIN kods</string>
+    <string name="title_advanced_clear_all_hint">Tas no ierīces izdzēsīs visus lietotnes datus, tostarp iestatītos e-pasta kontus, ziņojumus, iestatījumus un jebkādus savāktos datus.</string>
+    <string name="title_advanced_mnemonic">Izdzēst datus attālināti</string>
+    <string name="title_advanced_mnemonic_hint">Jebkurš saņemtais e-pasta ziņojums, kura temats satur zemāk esošos vārdus, nekavējoties automātiski izdzēsīs lietotnes datus</string>
+    <string name="title_advanced_clear_all">Izdzēst lietotnes datus</string>
+    <string name="title_advanced_clear_all_remark">Lietotnes dati tiks neatgriezeniski izdzēsti.</string>
     <string name="title_advanced_import_pgp">Ievietot atslēgu</string>
+    <string name="title_advanced_sign_algo">Paraksta algoritms</string>
     <string name="title_advanced_encrypt_algo">Šifrēšanas algoritms</string>
+    <string name="title_advanced_manage_certificates">Pārvaldīt publiskās atslēgas</string>
     <string name="title_advanced_import_key">Ievietot privāto atslēgu</string>
+    <string name="title_advanced_manage_keys">Pārvaldīt privātās atslēgas</string>
+    <string name="title_advanced_ca">Uzstādītie CA sertifikāti</string>
     <string name="title_advanced_haptic_feedback">Sajūtu atgriezeniskā saite svarīgām darbībām</string>
     <string name="title_advanced_language">Valoda</string>
+    <string name="title_advanced_integrations_hint">Tālāk piedāvātie mākoņpakalpojumi nav lietotnes sastāvdaļa. Visa nauda nonāks tieši mākoņpakalpojuma sniedzēja kabatā, nevis lietotnes izstrādātājam.</string>
+    <string name="title_advanced_integrations_inert">Integrācija, kas nav konfigurēta, nav ievadīti jebkādi iestatījumu dati, ir pilnīgi inerta. Netiek izmantotas trešo pušu bibliotēkas, lai novērstu izsekošanu un analītiku.</string>
+    <string name="title_advanced_lt_sentence">Pārbaudīt katru teikumu</string>
+    <string name="title_advanced_lt_auto">Pārbaudīt rindkopu pēc jaunas rindas</string>
+    <string name="title_advanced_lt_description">Parādīt uznirstošo lodziņu ar nepilnības aprakstu</string>
+    <string name="title_advanced_google_backup">Izmantot Android datu rezerves kopēšanu</string>
     <string name="title_advanced_app">Lietotnes iestatījumi</string>
     <string name="title_advanced_log_info">Atkļūdošanas žurnalēšana</string>
     <string name="title_advanced_debug">Atkļūdošana</string>
+    <string name="title_advanced_quick_sync_hint">Tas samazina datu patēriņu, bet var tikt palaisti garām jauni ziņojumi, ja e-pasta serveris neievēro standartus</string>
+    <string name="title_advanced_data_usage">Tas var izraisīt milzīgu datu patēriņu.</string>
+    <string name="title_advanced_sync_kept_hint">Tas pārsūtīs papildu datus un patērēs papildu akumulatora jaudu, it īpaši, ja ierīcē tiek glabāts liels ziņojumu daudzums</string>
+    <string name="title_advanced_sync_folders_hint">Šī atspējošana kaut cik samazināš datu un akumulatora lietotjumu, bet atspējos arī mapju saraksta atjaunināšanu</string>
+    <string name="title_advanced_suggest_local_hint">Papildus kontaktpersonām, ko nodrošina Android. Kontaktpersonu dati tiks glabāti nosūtītajiem vai saņemtajiem ziņojumiem tikai tad, kad iespējots.</string>
     <string name="title_advanced_write_below_hint">Saņēmējs var palaist garām atbildi, piemēram, kad garāks ziņojums tiek saīsināts</string>
+    <string name="title_advanced_usage_hint">Tas palielināš akumulatora, datu un krātuves vietas lietojumu</string>
     <string name="title_advanced_validate_hint">Tas var beigties ar ziņojumu nesinhronizēšanu, piemēram, kad izmanto VPN, bet arī citos gadījumos</string>
+    <string name="title_advanced_free">Šis mākoņpakalpojums ir bezmaksas</string>
+    <string name="title_advanced_free_tier">Šim mākoņpakalpojumam ir bezmaksas pakalpojuma plāns</string>
+    <string name="title_advanced_paid_service">Šis mākoņpakalpojums ir maksas pakalpojums</string>
+    <string name="title_advanced_privacy_risk">Pastāv konfidencialitātes pārkāpuma risks</string>
     <string name="title_advanced_preview_issue">Ritināšana var būt lēna nepilnības dažās Android versijās dēļ, kad rindu skaits ir lielāks par vienu</string>
     <string name="title_advanced_debug_hint">Dažādās vietās tiks rādīt nepievilcīga atkļūdošanas informācija</string>
     <string name="title_create_folder">Izveidot mapi</string>
@@ -197,6 +249,7 @@
     <string name="title_importance_high">Augsts</string>
     <string name="title_important">Svarīgs</string>
     <string name="title_unimportant">Nesvarīgs</string>
+    <string name="title_save_file">Saglabāt datni</string>
     <string name="title_button_search_similar">Meklēt līdzīgus ziņojumus</string>
     <string name="title_quick_actions_low">Zems svarīgums</string>
     <string name="title_quick_actions_normal">Parasts svarīgums</string>
@@ -232,6 +285,7 @@
     <string name="title_send_auto_archive">Arhivēt ziņojumu, kad nosūta atbildi</string>
     <string name="title_no_server">\"%1$s\" netika atrasts neviens serveris</string>
     <string name="title_style_protect_size">Teksts ir pārāk garš</string>
+    <string name="title_add_image_select">Atlasīt datni</string>
     <string name="title_edit_plain_text">Rediģēt kā vienkāršu tekstu</string>
     <string name="title_size_reminder">Ziņojums (%1$s) pārsniedz servera ierobežojumu (%2$s)</string>
     <string name="title_charset">Kodējums</string>
@@ -247,10 +301,12 @@
     <string name="title_legend_enter">Atvērt</string>
     <string name="title_legend_a">Arhivēt</string>
     <string name="title_hint_important">Svarīgs</string>
+    <string name="title_issue">Vai jums ir jautājums vai problēma?</string>
     <string name="title_show">Rādīt</string>
     <string name="title_next_week">Nākamnedēļ šajā pašā laikā</string>
     <string name="title_after">Pēc %1$s</string>
     <string name="title_pro_hide">Slēpt nelielu ziņojumu uz %1$d nedēļām</string>
+    <string name="title_log">Žurnāls</string>
     <string name="title_rules_export">Izgūt kārtulas</string>
     <string name="title_rules_import">Ievietot kārtulas</string>
     <string name="title_debug_info">Atkļūdošanas informācija</string>
