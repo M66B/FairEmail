@@ -6747,7 +6747,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2025-04-26T15:16:32Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2025-04-30T15:19:32Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -8832,10 +8832,6 @@ lamborghini
 // lamer : The Estée Lauder Companies Inc.
 // https://www.iana.org/domains/root/db/lamer.html
 lamer
-
-// lancaster : LANCASTER
-// https://www.iana.org/domains/root/db/lancaster.html
-lancaster
 
 // land : Binky Moon, LLC
 // https://www.iana.org/domains/root/db/land.html
@@ -14590,6 +14586,10 @@ service.one
 simplesite.pl
 123paginaweb.pt
 123minsida.se
+
+// ONID : https://get.onid.ca
+// Submitted by ONID Engineering Team <psl@onid.ca>
+onid.ca
 
 // Open Domains : https://open-domains.net
 // Submitted by William Harrison <admin@open-domains.net>
