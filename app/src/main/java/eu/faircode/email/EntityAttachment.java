@@ -296,6 +296,9 @@ public class EntityAttachment {
         if ("gpx".equals(extension))
             return "application/gpx+xml";
 
+        if ("kml".equals(extension))
+            return "application/vnd.google-earth.kml+xml";
+
         // Adobe
 
         if ("dxf".equals(extension))
