@@ -5701,6 +5701,8 @@ If you disabled confirming links, you can enable this (temporarily) again in the
 
 Note that you might need to enable confirming links and reset questions to show the link confirmation dialog again.
 
+You can also long press a link to show the link confirmation dialog.
+
 Please see [this FAQ](#faq35) on why you should be careful when opening links.
 
 <br />
