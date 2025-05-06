@@ -791,6 +791,7 @@
     <string name="title_advanced_class_min_difference">Klassi miinimumerinevus: %1$s %%</string>
     <string name="title_advanced_show_filtered">Näita filtri ikooni, kui on rakendatud reegleid</string>
     <string name="title_advanced_haptic_feedback">Oluliste tegevuste puhul haptiline tagasiside</string>
+    <string name="title_advanced_haptic_feedback_swipe">Vasakule-paremale pühkimisel haptiline tagasiside</string>
     <string name="title_advanced_language">Keel</string>
     <string name="title_advanced_language_system">Süsteem</string>
     <string name="title_advanced_integrations_hint">Allpool olevad pilveteenused pole äpi osa. Mistahes maksed lähevad otse pilveteenusele, mitte äpi arendajale.</string>
@@ -1176,6 +1177,7 @@
     <string name="title_hint_operations">Tegevuste kustutamine võib põhjustada sõnumite kadumist ja sünkroonimisprobleeme</string>
     <string name="title_op_title_headers">Päiste allalaadimine</string>
     <string name="title_op_title_raw">Toorsõnumi alla laadimine</string>
+    <string name="title_op_title_add">Sõnumi üles laadimine</string>
     <string name="title_folder_name">Kausta nimi</string>
     <string name="title_display_name">Näidatav nimi</string>
     <string name="title_show_folders">Näita peidetud kaustu</string>
@@ -2374,9 +2376,9 @@
         <item>Punkt</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item>Narrow</item>
+        <item>Kitsas</item>
         <item>Keskmine</item>
-        <item>Wide</item>
+        <item>Lai</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Saaja</item>

@@ -4,7 +4,7 @@
     <string name="app_send_self">Enviar a sí mismo</string>
     <string name="app_changelog">Registro de cambios</string>
     <string name="app_welcome">FairEmail es una aplicación de correo electrónico de código abierto centrada en la privacidad y la seguridad. Por esta razón, algunas funciones pueden comportarse de manera diferente a lo que esté acostumbrado.</string>
-    <string name="app_limitations">Por ejemplo, los mensajes se reformatean por defecto para eliminar elementos inseguros y mejorar la legibilidad, y la apertura de enlaces debe ser confirmada por seguridad. Ambos pueden ser desactivados si se desea.</string>
+    <string name="app_limitations">Por ejemplo, los mensajes se reformatean por defecto para eliminar elementos no seguros y mejorar la legibilidad, y la apertura de enlaces debe ser confirmada por seguridad. Ambos pueden ser desactivados si se desea.</string>
     <string name="app_unsupported">Los bugs en la versión Android de este dispositivo en particular causan fallos</string>
     <string name="app_data_loss">Pueden perderse todos los datos</string>
     <string name="app_continue">Continuar de todas formas</string>

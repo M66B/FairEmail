@@ -334,7 +334,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_reset_files">Bestannen besjen</string>
     <string name="title_setup_reset_images">Ofbyldingen toane</string>
     <string name="title_setup_reset_full">Orizjinele berjochten toane</string>
-    <string name="title_check_gmail_oauth">Jo Gmail-accounts sille wurkje bliuwe nei 30 maaie 2022</string>
+    <string name="title_check_gmail_oauth">Jo Gmail-accounts sille wurkjen bliuwe nei 30 maaie 2022</string>
     <string name="title_check_gmail_password">Guon fan jo Gmail-accounts wurkje mooglik net mear nei 30 maaie 2022</string>
     <string name="title_check_outlook_oauth">Jo Outlook-accounts sille nei 16 septmber 2024 wurkje bliuwe</string>
     <string name="title_check_outlook_password">Guon fan jo Outlook-/Hotmail-/Live-accounts sille nei 16 septimber 2024 net mear wurkje</string>
