@@ -28,7 +28,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
-### 1.2274 2025-04-24
+### 1.2275 2025-05-06
+
+* Added Mozilla CA S/MIME certificates
+* Fixed navigation bar color in some cases
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2274 2025-04-24 *
 
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
