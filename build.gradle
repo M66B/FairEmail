@@ -7,7 +7,7 @@ buildscript {
 
     dependencies {
         // https://developer.android.com/studio/releases/gradle-plugin
-        classpath 'com.android.tools.build:gradle:8.9.2'
+        classpath 'com.android.tools.build:gradle:8.10.0'
         // https://kotlinlang.org/docs/releases.html#release-details
         // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24"
