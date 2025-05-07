@@ -185,6 +185,7 @@
     <string name="title_advanced_suggest_local_hint">Papildus kontaktpersonām, ko nodrošina Android. Kontaktpersonu dati tiks glabāti nosūtītajiem vai saņemtajiem ziņojumiem tikai tad, kad iespējots.</string>
     <string name="title_advanced_write_below_hint">Saņēmējs var palaist garām atbildi, piemēram, kad garāks ziņojums tiek saīsināts</string>
     <string name="title_advanced_usage_hint">Tas palielināš akumulatora, datu un krātuves vietas lietojumu</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Šī iespējošana dažās ierīcēs var radīt sarežģījumus ar savienojumu un palielināt akumulatora lietojumu</string>
     <string name="title_advanced_validate_hint">Tas var beigties ar ziņojumu nesinhronizēšanu, piemēram, kad izmanto VPN, bet arī citos gadījumos</string>
     <string name="title_advanced_free">Šis mākoņpakalpojums ir bezmaksas</string>
     <string name="title_advanced_free_tier">Šim mākoņpakalpojumam ir bezmaksas pakalpojuma plāns</string>
@@ -302,9 +303,12 @@
     <string name="title_legend_a">Arhivēt</string>
     <string name="title_hint_important">Svarīgs</string>
     <string name="title_issue">Vai jums ir jautājums vai problēma?</string>
+    <string name="title_report">Ziņot</string>
     <string name="title_show">Rādīt</string>
+    <string name="title_large_body">Šis ziņojums ir ļoti liels un var radīt sarežģījumus.</string>
     <string name="title_next_week">Nākamnedēļ šajā pašā laikā</string>
     <string name="title_after">Pēc %1$s</string>
+    <string name="title_pro_google">FairEmail uzsāk pirkumu Play Store, bet Google pilnībā pārvalda visu pirkuma gaitu, tādēļ lūgums nevainot lietotni jebkādu sarežģījumu gadījumā.</string>
     <string name="title_pro_hide">Slēpt nelielu ziņojumu uz %1$d nedēļām</string>
     <string name="title_log">Žurnāls</string>
     <string name="title_rules_export">Izgūt kārtulas</string>
