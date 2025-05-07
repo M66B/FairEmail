@@ -520,6 +520,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
+        cbNotifyActionTts.setVisibility(Helper.isPlayStoreInstall() ? View.GONE : View.VISIBLE);
         cbNotifyActionTts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {

@@ -1318,6 +1318,9 @@ public class EntityRule {
     }
 
     private static void speak(Context context, EntityRule rule, EntityMessage message) throws IOException {
+        if (Helper.isPlayStoreInstall())
+            throw new IllegalArgumentException("TTS is available in the GitHub version only because Google doesn't allow it in the Play Store :-(");
+
         Log.i("Speaking name=" + rule.name);
 
         if (message.ui_seen)

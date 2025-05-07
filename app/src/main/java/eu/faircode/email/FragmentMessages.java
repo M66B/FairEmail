@@ -3064,6 +3064,13 @@ public class FragmentMessages extends FragmentBase
                     swipes.swipe_right = null;
             }
 
+            if (Helper.isPlayStoreInstall()) {
+                if (EntityMessage.SWIPE_ACTION_TTS.equals(swipes.swipe_left))
+                    swipes.swipe_left = null;
+                if (EntityMessage.SWIPE_ACTION_TTS.equals(swipes.swipe_right))
+                    swipes.swipe_right = null;
+            }
+
             if (message.accountProtocol != EntityAccount.TYPE_IMAP)
                 return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
 

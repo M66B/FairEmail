@@ -90,6 +90,7 @@ public class FragmentDialogButtons extends FragmentDialogBase {
         cbSearch.setChecked(prefs.getBoolean("button_search", false));
         cbSearchText.setChecked(prefs.getBoolean("button_search_text", false));
         cbTranslate.setChecked(prefs.getBoolean("button_translate", true));
+        cbTts.setVisibility(Helper.isPlayStoreInstall() ? View.GONE : View.VISIBLE);
         cbTts.setChecked(prefs.getBoolean("button_tts", false));
         cbSummarize.setChecked(prefs.getBoolean("button_summarize", false));
         cbFullScreen.setChecked(prefs.getBoolean("button_full_screen", false));

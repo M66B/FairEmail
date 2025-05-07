@@ -1336,7 +1336,7 @@ class NotificationHelper {
                 wactions.add(actionSnooze.build());
             }
 
-            if (message.content && notify_tts) {
+            if (message.content && notify_tts && !Helper.isPlayStoreInstall()) {
                 Intent tts = new Intent(context, ServiceTTS.class)
                         .setAction("tts:" + message.id)
                         .putExtra(ServiceTTS.EXTRA_FLUSH, true)

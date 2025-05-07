@@ -720,7 +720,8 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_rule_answer), R.drawable.twotone_reply_24));
         if (AI.isAvailable(getContext()))
             actions.add(new Action(EntityRule.TYPE_SUMMARIZE, getString(R.string.title_rule_summarize), R.drawable.twotone_smart_toy_24));
-        actions.add(new Action(EntityRule.TYPE_TTS, getString(R.string.title_rule_tts), R.drawable.twotone_record_voice_over_24));
+        if (!Helper.isPlayStoreInstall())
+            actions.add(new Action(EntityRule.TYPE_TTS, getString(R.string.title_rule_tts), R.drawable.twotone_record_voice_over_24));
         actions.add(new Action(EntityRule.TYPE_SOUND, getString(R.string.title_rule_sound), R.drawable.twotone_play_arrow_24));
         actions.add(new Action(EntityRule.TYPE_AUTOMATION, getString(R.string.title_rule_automation), R.drawable.twotone_auto_awesome_24));
         actions.add(new Action(EntityRule.TYPE_URL, getString(R.string.title_rule_url), R.drawable.twotone_insert_link_45_24));
