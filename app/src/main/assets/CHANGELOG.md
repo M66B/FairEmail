@@ -28,6 +28,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
+### 1.2276 2025-05-07
+
+* Removed TTS from the Play Store version (only) due to Play Store policies
+* Removed external intents from the Play Store version (only) due to Play Store policies
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2275 2025-05-06
 
 * Added Mozilla CA S/MIME certificates
