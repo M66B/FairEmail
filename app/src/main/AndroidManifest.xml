@@ -14,7 +14,6 @@
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <uses-permission android:name="com.android.vending.BILLING" />
@@ -632,23 +631,6 @@
         <service
             android:name=".ServiceUI"
             android:exported="false" />
-
-        <service
-            android:name=".ServiceExternal"
-            android:exported="true"
-            android:foregroundServiceType="dataSync">
-
-            <intent-filter>
-                <action android:name="${applicationId}.POLL" />
-                <action android:name="${applicationId}.ENABLE" />
-                <action android:name="${applicationId}.DISABLE" />
-                <action android:name="${applicationId}.INTERVAL" />
-                <action android:name="${applicationId}.RULE" />
-                <action android:name="${applicationId}.TEMPLATE" />
-                <action android:name="${applicationId}.DISCONNECT.ME" />
-                <action android:name="${applicationId}.ADGUARD" />
-            </intent-filter>
-        </service>
 
         <service
             android:name=".ServiceTileClear"
