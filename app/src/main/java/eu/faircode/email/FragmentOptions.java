@@ -460,7 +460,7 @@ public class FragmentOptions extends FragmentBase {
                     } else if (view instanceof TextView) {
                         boolean extra = false;
                         if (tab == 0 && view.getId() == R.id.tvManual) {
-                            for (int e : new int[]{R.string.title_host, R.string.title_port}) {
+                            for (int e : new int[]{R.string.title_host, R.string.title_port, R.string.title_cc, R.string.title_bcc}) {
                                 String text = view.getContext().getString(e);
                                 if (text.toLowerCase().contains(query)) {
                                     extra = true;
