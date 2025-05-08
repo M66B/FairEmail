@@ -28,6 +28,10 @@ For support you can use the contact form.
 
 Ceratonykus
 
+Next version
+
+* Updated AndroidX
+
 1.2276 2025-05-07
 
 * Removed TTS from the Play Store version (only) due to Play Store policies

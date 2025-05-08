@@ -28,6 +28,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
+### Next version
+
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+
 ### 1.2276 2025-05-07
 
 * Removed TTS from the Play Store version (only) due to Play Store policies
