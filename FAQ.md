@@ -2988,7 +2988,7 @@ You can select one of these actions to apply to matching messages:
 * Delete permanently (since version 1.1801)
 * Play sound (since version 1.1803; experimental)
 * Answer/forward (with template)
-* Text-to-speech (sender and subject)
+* Text-to-speech (sender and subject, not available in the Play Store version due to Play Store policies)
 * Automation (Tasker, etc)
 * Webhook (since version 1.2107)
 
@@ -3146,6 +3146,8 @@ Since version 1.2061 it is possible to execute rules with an automation app, lik
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.RULE --es account <account name> -es rule <unique rule name>
 ```
+
+**Note**: Due to Play Store policies, automation intents are not available in the Play Store version of the app.
 
 <br />
 
@@ -3374,6 +3376,8 @@ Extras: account:Gmail
 ```
 
 Account names are case sensitive.
+
+**Note**: Due to Play Store policies, automation intents are not available in the Play Store version of the app.
 
 Scheduling is a pro feature.
 
@@ -5102,6 +5106,8 @@ This command can be sent to FairEmail from an automation app to update the prote
 Updating once a week will probably be sufficient,
 please see [here](https://github.com/disconnectme/disconnect-tracking-protection/commits/master) for recent lists changes.
 
+**Note**: Due to Play Store policies, automation intents are not available in the Play Store version of the app.
+
 <br />
 
 <a name="faq160"></a>
@@ -5633,6 +5639,8 @@ Since version 1.2068 it is possible to send a template message with an intent:
 ```
 
 **Important**: you need to configure a display name for the identity, and use this to identify the identity.
+
+**Note**: Due to Play Store policies, automation intents are not available in the Play Store version of the app.
 
 <br />
 

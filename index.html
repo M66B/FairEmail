@@ -1656,7 +1656,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <li>Delete permanently (since version 1.1801)</li>
 <li>Play sound (since version 1.1803; experimental)</li>
 <li>Answer/forward (with template)</li>
-<li>Text-to-speech (sender and subject)</li>
+<li>Text-to-speech (sender and subject, not available in the Play Store version due to Play Store policies)</li>
 <li>Automation (Tasker, etc)</li>
 <li>Webhook (since version 1.2107)</li>
 </ul>
@@ -1751,6 +1751,7 @@ $$aligned$ (since version 1.2049)</code></pre>
 <p><br /></p>
 <p>Since version 1.2061 it is possible to execute rules with an automation app, like for example Tasker.</p>
 <pre><code>(adb shell) am start-foreground-service -a eu.faircode.email.RULE --es account &lt;account name&gt; -es rule &lt;unique rule name&gt;</code></pre>
+<p><strong>Note</strong>: Due to Play Store policies, automation intents are not available in the Play Store version of the app.</p>
 <p><br /></p>
 <p>Since version 1.2107 it is possible to executed webhooks. The supported HTTP methods are GET, HEAD, OPTIONS, POST and POST. The query parameters will be sent as body in the case of POST and PUT. Note that execution of webhooks won’t be retried. So, don’t use this for anything critical.</p>
 <p>This website might be useful for testing webhooks:</p>
@@ -1849,6 +1850,7 @@ Target: Service</code></pre>
 <p>To enable/disable an account with the name <em>Gmail</em>:</p>
 <pre><code>Extras: account:Gmail</code></pre>
 <p>Account names are case sensitive.</p>
+<p><strong>Note</strong>: Due to Play Store policies, automation intents are not available in the Play Store version of the app.</p>
 <p>Scheduling is a pro feature.</p>
 <p><br /></p>
 <p><a name="faq79"></a> <strong>(79) How do I use synchronize on demand (manual)?</strong></p>
@@ -2606,6 +2608,7 @@ https://favicon.yandex.net/favicon/{domain}</code></pre>
 <p>This command can be sent to FairEmail from an automation app to update the protection lists:</p>
 <pre><code>(adb shell) am start-foreground-service -a eu.faircode.email.DISCONNECT.ME</code></pre>
 <p>Updating once a week will probably be sufficient, please see <a href="https://github.com/disconnectme/disconnect-tracking-protection/commits/master">here</a> for recent lists changes.</p>
+<p><strong>Note</strong>: Due to Play Store policies, automation intents are not available in the Play Store version of the app.</p>
 <p><br /></p>
 <p><a name="faq160"></a> <strong>(160) Can you add permanent deletion of messages without confirmation?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq160">Google Translate</a></p>
@@ -2864,6 +2867,7 @@ _submission._tcp SRV 0 1 587 smtp.example.com.</code></pre>
 <p>Since version 1.2068 it is possible to send a template message with an intent:</p>
 <pre><code>(adb shell) am start-foreground-service -a eu.faircode.email.TEMPLATE --es template &lt;template name&gt; --es identity &lt;identity display name&gt; --es to &lt;email address&gt; --es cc &lt;email address&gt; --es subject &lt;subject&gt;</code></pre>
 <p><strong>Important</strong>: you need to configure a display name for the identity, and use this to identify the identity.</p>
+<p><strong>Note</strong>: Due to Play Store policies, automation intents are not available in the Play Store version of the app.</p>
 <p><br /></p>
 <p><a name="faq180"></a> <strong>(180) How do I use LanguageTool?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq180">Google Translate</a></p>
