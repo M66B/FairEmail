@@ -121,7 +121,6 @@
     <application
         android:name=".ApplicationSecure"
         android:allowBackup="true"
-        android:allowCrossUidActivitySwitchFromBelow="false"
         android:appCategory="productivity"
         android:backupAgent=".FairEmailBackupAgent"
         android:dataExtractionRules="@xml/data_extraction_rules"
