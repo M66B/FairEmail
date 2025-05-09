@@ -507,8 +507,8 @@
 
         <activity
             android:name=".ActivityDMARC"
-            android:enabled="true"
             android:description="@string/title_advanced_dmarc_viewer"
+            android:enabled="true"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_dmarc"
