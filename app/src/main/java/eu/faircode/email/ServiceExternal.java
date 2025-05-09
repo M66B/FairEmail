@@ -60,7 +60,7 @@ public class ServiceExternal extends ServiceBase {
     // adb shell am start-foreground-service -a eu.faircode.email.ENABLE --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes {0, 15, 30, 60, 120, 240, 480, 1440}
-    // adb shell am start-foreground-service -a eu.faircode.email.RULE --es account Gmail -es rule Test
+    // adb shell am start-foreground-service -a eu.faircode.email.RULE --es account Gmail --es rule Test
     // adb shell am start-foreground-service -a eu.faircode.email.TEMPLATE --es template ... --es identity ... --es to ... --es cc ... --es subject ...
     // adb shell am start-foreground-service -a eu.faircode.email.DISCONNECT
     // adb shell am start-foreground-service -a eu.faircode.email.ADGUARD
