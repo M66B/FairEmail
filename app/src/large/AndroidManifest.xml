@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:installLocation="internalOnly">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.DETECT_SCREEN_RECORDING" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+    <!-- OAuth -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission
+        android:name="android.permission.USE_CREDENTIALS"
+        android:maxSdkVersion="22" />
+
+    <!-- https://github.com/leolin310148/ShortcutBadger/pull/368 -->
+    <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" />
+
+    <!-- https://developer.android.com/guide/topics/manifest/uses-feature-element#features-reference -->
+    <uses-feature
+        android:name="android.software.app_widgets"
+        android:required="false" />
+    <!--uses-feature
+        android:name="android.software.webview"
+        android:required="false" /-->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.fingerprint"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <!-- https://developer.android.com/topic/arc -->
+
+    <!-- Android 11: https://developer.android.com/preview/privacy/package-visibility -->
+    <!-- https://developer.android.com/training/package-visibility/use-cases -->
+    <queries>
+        <!-- Customtabs -->
+        <!-- https://developers.google.com/web/updates/2020/07/custom-tabs-android-11#detecting_browsers_that_support_custom_tabs -->
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService" />
+        </intent>
+
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+
+        <intent>
+            <action android:name="android.intent.action.INSERT" />
+        </intent>
+
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+            <category android:name="android.intent.category.OPENABLE" />
+            <data android:mimeType="*/*" />
+        </intent>
+
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+
+        <intent>
+            <action android:name="android.provider.MediaStore.RECORD_SOUND" />
+        </intent>
+
+        <package android:name="com.android.vending" />
+
+        <package android:name="org.sufficientlysecure.keychain" />
+        <package android:name="org.sufficientlysecure.keychain.debug" />
+
+        <package android:name="eu.faircode.netguard" />
+
+        <package android:name="com.google.android.gm" />
+
+        <intent>
+            <action android:name="org.openintents.openpgp.IOpenPgpService2" />
+        </intent>
+
+        <!-- https://android-developers.googleblog.com/2015/10/in-app-translations-in-android.html -->
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT" />
+            <data android:mimeType="text/plain" />
+        </intent>
+
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME" />
+        </intent>
+
+        <provider
+            android:name="androidx.car.app.connection.provider"
+            android:authorities="androidx.car.app.connection"
+            tools:ignore="MissingClass" />
+    </queries>
+
+    <application
+        android:name=".ApplicationSecure"
+        android:allowBackup="true"
+        android:appCategory="productivity"
+        android:backupAgent=".FairEmailBackupAgent"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:description="@string/app_name"
+        android:extractNativeLibs="true"
+        android:forceDarkAllowed="false"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="${largeHeap}"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:resizeableActivity="true"
+        android:restoreAnyVersion="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.TranslucentSplash">
+        <!-- https://developer.samsung.com/samsung-dex/modify-optimizing.html -->
+
+        <!-- https://firebase.google.com/docs/analytics/configure-data-collection?platform=android -->
+        <meta-data
+            android:name="firebase_analytics_collection_deactivated"
+            android:value="true" />
+        <!-- https://firebase.google.com/docs/perf-mon/disable-sdk?platform=android -->
+        <meta-data
+            android:name="firebase_performance_collection_deactivated"
+            android:value="true" />
+
+        <!-- https://developer.android.com/guide/webapps/managing-webview#metrics -->
+        <meta-data
+            android:name="android.webkit.WebView.MetricsOptOut"
+            android:value="true" />
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" />
+        <meta-data
+            android:name="android.allow_multiple_resumed_activities"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/car" />
+        <!-- https://play.google.com/about/auto/developer-distribution-agreement-addendum/ -->
+        <meta-data
+            android:name="com.google.android.backup.api_key"
+            android:value="unused" />
+
+        <activity
+            android:name=".ActivityMain"
+            android:description="@string/app_name"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:theme="@style/Theme.AppCompat.Translucent">
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.APP_EMAIL" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="${applicationId}.REFRESH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter>
+                <!-- legacy -->
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="message" />
+                <data android:host="${applicationId}" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="message" />
+                <data android:host="email.faircode.eu" />
+            </intent-filter>
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="https" />
+                <data android:host="link.fairemail.net" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivitySetup"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:parentActivityName=".ActivityMain"
+            android:resizeableActivity="true"
+            android:taskAffinity="${applicationId}.SETUP">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.NOTIFICATION_PREFERENCES" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivitySignature"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:parentActivityName=".ActivitySetup"
+            android:resizeableActivity="true"
+            android:taskAffinity="${applicationId}.SETUP" />
+
+        <activity
+            android:name=".ActivityWidget"
+            android:exported="true"
+            android:resizeableActivity="true">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityWidgetSync"
+            android:exported="true"
+            android:resizeableActivity="true">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityWidgetUnified"
+            android:exported="true"
+            android:resizeableActivity="true">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityView"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:parentActivityName=".ActivityMain"
+            android:resizeableActivity="true" />
+
+        <activity
+            android:name=".ActivitySearch"
+            android:enabled="false"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_search"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true"
+            android:theme="@style/Theme.AppCompat.Translucent">
+
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="${namespace}.search" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityAnswer"
+            android:enabled="false"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:icon="@drawable/twotone_reply_24"
+            android:label="@string/app_answer"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityCompose"
+            android:description="@string/app_name"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:parentActivityName=".ActivityView"
+            android:resizeableActivity="true"
+            android:taskAffinity="${applicationId}.COMPOSE">
+            <meta-data
+                android:name="android.service.chooser.chooser_target_service"
+                android:value="androidx.sharetarget.ChooserTargetServiceCompat" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="mailto" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="mailto" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivitySendSelf"
+            android:enabled="false"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_send_self"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true"
+            android:theme="@style/Theme.AppCompat.Translucent">
+            <meta-data
+                android:name="android.service.chooser.chooser_target_service"
+                android:value="androidx.sharetarget.ChooserTargetServiceCompat" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="mailto" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="mailto" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityClear"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true" />
+
+        <activity
+            android:name=".ActivityError"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true" />
+
+        <activity
+            android:name=".ActivityEML"
+            android:description="@string/app_name"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:mimeType="message/rfc822" />
+                <data android:host="*" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:mimeType="*/*" />
+                <data android:host="*" />
+                <data android:pathPattern="/.*\\.eml" />
+                <data android:pathPattern="/.*\\..*\\.eml" />
+                <data android:pathPattern="/.*\\..*\\..*\\.eml" />
+                <data android:pathPattern="/.*\\..*\\..*\\..*\\.eml" />
+                <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.eml" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityDSN"
+            android:description="@string/app_name"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:mimeType="message/delivery-status" />
+                <data android:mimeType="message/disposition-notification" />
+                <data android:mimeType="text/rfc822-headers" />
+                <data android:host="*" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityAMP"
+            android:description="@string/app_name"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:mimeType="text/x-amp-html" />
+                <data android:host="*" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityCode"
+            android:description="@string/app_name"
+            android:exported="false"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true" />
+
+        <activity
+            android:name=".ActivityDMARC"
+            android:description="@string/title_advanced_dmarc_viewer"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_dmarc"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:mimeType="text/xml" />
+                <data android:mimeType="application/xml" />
+                <data android:host="*" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityBilling"
+            android:exported="false"
+            android:icon="@mipmap/ic_launcher"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true"
+            android:taskAffinity="${applicationId}.BILLING" />
+
+        <!-- https://developer.android.com/training/permissions/explaining-access -->
+        <activity
+            android:name=".ActivityRationale"
+            android:description="@string/app_name"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:permission="android.permission.START_VIEW_PERMISSION_USAGE"
+            android:resizeableActivity="true"
+            android:theme="@style/Theme.AppCompat.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE_FOR_PERIOD" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="net.openid.appauth.RedirectUriReceiverActivity"
+            android:exported="true"
+            android:resizeableActivity="true"
+            android:taskAffinity="${applicationId}.SETUP"
+            tools:node="replace">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="oauth.faircode.eu"
+                    android:scheme="https" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="${namespace}" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="auth"
+                    android:scheme="msauth.${namespace}" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="${namespace}"
+                    android:path="/xSLzBBuLJunOQPB89rtzM54FXx4="
+                    android:scheme="msauth" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="net.openid.appauth.AuthorizationManagementActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboard|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true"
+            android:taskAffinity="${applicationId}.SETUP"
+            android:theme="@style/Theme.AppCompat.Translucent.NoTitleBar"
+            tools:node="replace" />
+
+        <activity
+            android:name="com.canhub.cropper.CropImageActivity"
+            android:exported="false"
+            tools:node="replace" />
+
+        <service
+            android:name=".ServiceSynchronize"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="FairEmail is an email app. Users expect to receive instant new email notifications, and the app to be auto-started. A foreground service is required to keep a continuous connection to email servers to listen for push messages via IMAP IDLE, for which there is no Firebase Cloud Messaging integration. Other foreground service types do not fit this use case, or can't be used on Android 15 because there are time limits or auto-starting on boot is not allowed. Using the Android work manager isn't an option either." />
+        </service>
+
+        <service
+            android:name=".ServiceSend"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="FairEmail is an email app. Users expect to receive instant new email notifications, and the app to be auto-started. A foreground service is required to keep a continuous connection to email servers to listen for push messages via IMAP IDLE, for which there is no Firebase Cloud Messaging integration. Other foreground service types do not fit this use case, or can't be used on Android 15 because there are time limits or auto-starting on boot is not allowed. Using the Android work manager isn't an option either." />
+        </service>
+
+        <service
+            android:name=".ServiceUI"
+            android:exported="false" />
+
+        <service
+            android:name=".ServiceTTS"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <service
+            android:name=".ServiceExternal"
+            android:exported="true"
+            android:foregroundServiceType="dataSync">
+
+            <intent-filter>
+                <action android:name="${applicationId}.POLL" />
+                <action android:name="${applicationId}.ENABLE" />
+                <action android:name="${applicationId}.DISABLE" />
+                <action android:name="${applicationId}.INTERVAL" />
+                <action android:name="${applicationId}.RULE" />
+                <action android:name="${applicationId}.TEMPLATE" />
+                <action android:name="${applicationId}.DISCONNECT.ME" />
+                <action android:name="${applicationId}.ADGUARD" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".ServiceTileClear"
+            android:exported="true"
+            android:icon="@drawable/twotone_warning_24"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".ServiceTileSynchronize"
+            android:exported="true"
+            android:icon="@drawable/twotone_sync_disabled_24"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".ServiceTileUnseen"
+            android:exported="true"
+            android:icon="@drawable/twotone_mail_outline_24"
+            android:label="@string/tile_unseen"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".ServicePowerControl"
+            android:enabled="false"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_CONTROLS">
+            <intent-filter>
+                <action android:name="android.service.controls.ControlsProviderService" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="WidgetUnifiedService"
+            android:exported="true"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <provider
+            android:name=".FileProviderEx"
+            android:authorities="${applicationId}"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider_paths" />
+        </provider>
+
+        <!-- https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration -->
+        <!-- https://issuetracker.google.com/issues/138465476 -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
+
+        <receiver
+            android:name=".Widget"
+            android:exported="true"
+            android:label="@string/title_widget_title_count">
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".WidgetUnified"
+            android:exported="true"
+            android:label="@string/title_widget_title_list">
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_unified" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".WidgetSync"
+            android:exported="true"
+            android:label="@string/title_widget_title_sync">
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_sync" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".ReceiverAutoStart"
+            android:exported="true">
+
+            <!-- https://developer.android.com/guide/topics/manifest/intent-filter-element.html#priority -->
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
