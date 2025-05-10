@@ -4,6 +4,11 @@
 
 ### Notices
 
+It is quite disappointing that people leave a bad review in the Play Store because the F-Droid version is behind, when developers have no control over that.
+The whole principle of F-Droid is that building is independent of developers.
+
+<br>
+
 People keep asking me to add new, often exotic, features to the app, to whom I often say "no", and other people complain about too many features.
 Both groups of people leave bad reviews for this, which is frustrating, also because there are already enough bad reviews for the wrong reasons
 (email server problems, which unfortunately happen too often, etc.).
