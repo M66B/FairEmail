@@ -51,6 +51,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 import javax.mail.Address;
@@ -507,14 +508,15 @@ public class ExpressionHelper {
             Boolean result = null;
 
             String flag = parameterValues[0].getStringValue();
-            if (message != null) {
-                if ("seen".equalsIgnoreCase(flag))
+            if (message != null && !TextUtils.isEmpty(flag)) {
+                flag = flag.trim().toLowerCase(Locale.ROOT);
+                if ("seen".equals(flag))
                     result = message.ui_seen;
-                else if ("answered".equalsIgnoreCase(flag))
+                else if ("answered".equals(flag))
                     result = message.ui_answered;
-                else if ("flagged".equalsIgnoreCase(flag))
+                else if ("flagged".equals(flag))
                     result = message.ui_flagged;
-                else if ("deleted".equalsIgnoreCase(flag))
+                else if ("deleted".equals(flag))
                     result = message.ui_deleted;
             }
 
