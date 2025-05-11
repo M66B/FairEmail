@@ -509,15 +509,17 @@ public class ExpressionHelper {
 
             String flag = parameterValues[0].getStringValue();
             if (message != null && !TextUtils.isEmpty(flag)) {
-                flag = flag.trim().toLowerCase(Locale.ROOT);
-                if ("seen".equals(flag))
+                flag = flag.trim();
+                if ("seen".equalsIgnoreCase(flag))
                     result = message.ui_seen;
-                else if ("answered".equals(flag))
+                else if ("answered".equalsIgnoreCase(flag))
                     result = message.ui_answered;
-                else if ("flagged".equals(flag))
+                else if ("flagged".equalsIgnoreCase(flag))
                     result = message.ui_flagged;
-                else if ("deleted".equals(flag))
+                else if ("deleted".equalsIgnoreCase(flag))
                     result = message.ui_deleted;
+                else if (message.keywords != null)
+                    result = Arrays.asList(message.keywords).contains(flag);
             }
 
             Log.i("EXPR is(" + flag + ")=" + result);
