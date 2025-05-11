@@ -116,6 +116,7 @@ public class ExpressionHelper {
         SizeFunction fSize = new SizeFunction();
         KnownFunction fKnown = new KnownFunction(context, message);
         AIFunction fAI = new AIFunction(context, message, doc);
+        IsFunction fIs = new IsFunction(message);
 
         ContainsOperator oContains = new ContainsOperator(false);
         ContainsOperator oMatches = new ContainsOperator(true);
@@ -132,6 +133,7 @@ public class ExpressionHelper {
         configuration.getFunctionDictionary().addFunction("Size", fSize);
         configuration.getFunctionDictionary().addFunction("knownContact", fKnown);
         configuration.getFunctionDictionary().addFunction("AI", fAI);
+        configuration.getFunctionDictionary().addFunction("Is", fIs);
 
         configuration.getOperatorDictionary().addOperator("Contains", oContains);
         configuration.getOperatorDictionary().addOperator("Matches", oMatches);
@@ -488,6 +490,36 @@ public class ExpressionHelper {
 
             Log.i("EXPR AI()=" + result);
             return expression.convertValue(result);
+        }
+    }
+
+    @FunctionParameter(name = "value")
+    public static class IsFunction extends AbstractFunction {
+        private final EntityMessage message;
+
+        IsFunction(EntityMessage message) {
+            this.message = message;
+        }
+
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token functionToken, EvaluationValue... parameterValues) {
+            Boolean result = null;
+
+            String flag = parameterValues[0].getStringValue();
+            if (message != null) {
+                if ("seen".equalsIgnoreCase(flag))
+                    result = message.ui_seen;
+                else if ("answered".equalsIgnoreCase(flag))
+                    result = message.ui_answered;
+                else if ("flagged".equalsIgnoreCase(flag))
+                    result = message.ui_flagged;
+                else if ("deleted".equalsIgnoreCase(flag))
+                    result = message.ui_deleted;
+            }
+
+            Log.i("EXPR is(" + flag + ")=" + result);
+            return expression.convertValue(Boolean.TRUE.equals(result));
         }
     }
 
