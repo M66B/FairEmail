@@ -4,17 +4,17 @@
     <string name="app_send_self">Enviar a sí mismo</string>
     <string name="app_changelog">Registro de cambios</string>
     <string name="app_welcome">FairEmail es una aplicación de correo electrónico de código abierto centrada en la privacidad y la seguridad. Por esta razón, algunas funciones pueden comportarse de manera diferente a lo que esté acostumbrado.</string>
-    <string name="app_limitations">Por ejemplo, los mensajes se reformatean por defecto para eliminar elementos no seguros y mejorar la legibilidad, y la apertura de enlaces debe ser confirmada por seguridad. Ambos pueden ser desactivados si se desea.</string>
+    <string name="app_limitations">Por ejemplo, los mensajes se reformatean por defecto para eliminar elementos no seguros y mejorar la legibilidad, y la apertura de enlaces debe ser confirmada por seguridad. Ambas opciones pueden ser desactivadas si se desea.</string>
     <string name="app_unsupported">Los bugs en la versión Android de este dispositivo en particular causan fallos</string>
     <string name="app_data_loss">Pueden perderse todos los datos</string>
     <string name="app_continue">Continuar de todas formas</string>
-    <string name="app_exit">Volver \'atrás\' para salir</string>
+    <string name="app_exit">Volver \'atrás\' de nuevo para salir</string>
     <string name="app_cake">Espacio de almacenamiento insuficiente</string>
     <string name="app_cake_remaining">Espacio de almacenamiento restante en el dispositivo: %1$s</string>
     <string name="app_cake_required">Espacio de almacenamiento mínimo requerido: %1$s</string>
     <string name="app_updated">Última actualización: %1$s</string>
     <string name="app_download">Descargado de: %1$s</string>
-    <string name="app_motd">        En Android 14/15 beta, pueden aparecer notificaciones de \'La app no está respondiendo\'.
+    <string name="app_motd">        En Android 14/15 beta, pueden aparecer ocasionalmente notificaciones de \'La app no está respondiendo\'.
         Google está trabajando en una solución.
         ¡Por favor no culpe a la app por este problema de Android!
     </string>

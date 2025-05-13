@@ -14,6 +14,10 @@
     <string name="app_cake_required">الحد الأدنى لمساحة التخزين المطلوبة: %1$s</string>
     <string name="app_updated">آخر تحديث: %1$s</string>
     <string name="app_download">نُزّل من: %1$s</string>
+    <string name="app_motd">        مع أندرويد 14/15 beta، \"التطبيق لا يستجيب\" الإشعارات تحدث أحيانا.
+    حوجل يعمل جوجل على إصلاح.
+        من فضلك لا تلوم التطبيق على  مشكلة الأندرويد هذه!
+    </string>
     <string name="channel_service">المتابع</string>
     <string name="channel_send">أرسل</string>
     <string name="channel_notification">البريد الإلكتروني</string>
@@ -344,6 +348,7 @@
     <string name="title_advanced_advanced">الإعدادات المتقدمة</string>
     <string name="title_advanced_no_date">رسائل دون تاريخ</string>
     <string name="title_advanced_unseen">جميع الرسائل غير المقروءة</string>
+    <string name="title_advanced_check_mx">التحقق من عناوين البريد الإلكتروني للمرسل عند مزامنة الرسائل</string>
     <string name="title_advanced_send_reminders">إظهار التذكيرات</string>
     <string name="title_advanced_save_revisions">حفظ مسودة التنقيحات للتراجع وإعادة الاستخدام</string>
     <string name="title_advanced_auto_save_paragraph">قم بحفظ مسودة بشكل آلي بعد كل فقرة</string>
@@ -365,6 +370,7 @@
     <string name="title_advanced_signature_location">موضوع التوقيع</string>
     <string name="title_advanced_plain_only_reply">تلقائياً نص عادي فقط عند الرد على رسالة نص عادي فقط</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
+    <string name="title_advanced_roaming">تحميل الرسائل والمرفقات أثناء التجوال</string>
     <string name="title_advanced_ssl_harden_strict">يتطلب TLS 1.3</string>
     <string name="title_advanced_caption_general">الاعدادات العامة</string>
     <string name="title_advanced_caption_list">قائمة</string>
