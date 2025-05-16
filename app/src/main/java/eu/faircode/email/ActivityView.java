@@ -259,6 +259,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         boolean canFold = Helper.canFold(this);
         boolean close_pane = prefs.getBoolean("close_pane", !duo && !canFold);
         boolean nav_categories = prefs.getBoolean("nav_categories", false);
+        boolean edge_to_edge = prefs.getBoolean("edge_to_edge", false);
 
         // 1=small, 2=normal, 3=large, 4=xlarge
         if (layout > 0)
@@ -747,6 +748,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     });
             }
         });
+
+        if (edge_to_edge)
+            findViewById(R.id.nav).setPadding(0, 0, 0, Helper.dp2pixels(this, 24 + 2 * 8));
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
         getOnBackPressedDispatcher().addCallback(this, backPressedCallback);
