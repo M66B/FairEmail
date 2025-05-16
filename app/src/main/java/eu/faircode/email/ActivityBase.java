@@ -249,6 +249,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                         content.setPaddingRelative(
                                 content.getPaddingStart(), content.getPaddingTop(),
                                 content.getPaddingEnd(), pad);
+
+                    View navmenu = findViewById(R.id.navmenu);
+                    if (navmenu != null && navmenu.getPaddingBottom() != nav.bottom - nav.top)
+                        navmenu.setPaddingRelative(
+                                navmenu.getPaddingStart(), navmenu.getPaddingTop(),
+                                navmenu.getPaddingEnd(), nav.bottom - nav.top);
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
