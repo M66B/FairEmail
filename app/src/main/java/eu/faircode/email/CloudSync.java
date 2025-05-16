@@ -777,7 +777,8 @@ public class CloudSync {
 
     private static byte[] getIv(long revision) {
         byte[] iv = ByteBuffer.allocate(12)
-                .putLong(revision)
+                .putLong(revision) // 8 bytes
+                .putInt(0) // 4 bytes
                 .array();
         return iv;
     }
@@ -785,7 +786,7 @@ public class CloudSync {
     private static byte[] getAd(String key, long revision) throws NoSuchAlgorithmException {
         byte[] k = MessageDigest.getInstance("SHA256").digest(key.getBytes());
         byte[] ad = ByteBuffer.allocate(8 + 8)
-                .putLong(revision)
+                .putLong(revision) // 8 bytes
                 .put(Arrays.copyOfRange(k, 0, 8))
                 .array();
         return ad;
