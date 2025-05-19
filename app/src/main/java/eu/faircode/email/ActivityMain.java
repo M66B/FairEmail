@@ -367,7 +367,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                         Bundle args = new Bundle();
                                         if (intent.hasExtra("intent"))
                                             args.putParcelable("intent", intent.getParcelableExtra("intent"));
-                                        boot.execute(ActivityMain.this, args, "main:accounts");
+                                        boot.execute(ActivityMain.this, args, "main:accounts:auth");
                                     }
                                 },
                                 new RunnableEx("auth:cancelled") {
