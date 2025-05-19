@@ -270,9 +270,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         // VX-N3
                         // https://developer.android.com/docs/quality-guidelines/core-app-quality
                         boolean restore_on_launch = prefs.getBoolean("restore_on_launch", true);
-                        if (!restore_on_launch)
-                            view.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        else {
+                        if (restore_on_launch) {
                             String last_activity = prefs.getString("last_activity", null);
                             long composing = prefs.getLong("last_composing", -1L);
                             if (ActivityCompose.class.getName().equals(last_activity) && composing >= 0)
@@ -280,7 +278,8 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                         .putExtra("action", "edit")
                                         .putExtra("id", composing);
-                        }
+                        } else
+                            view.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                         Intent saved = args.getParcelable("intent");
                         if (saved == null) {
