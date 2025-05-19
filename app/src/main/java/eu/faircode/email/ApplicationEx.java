@@ -1102,6 +1102,11 @@ public class ApplicationEx extends Application
             editor.remove("color_stripe_wide");
         }
 
+        if (version < 2277) {
+            if (!prefs.contains("restore_on_launch"))
+                editor.putBoolean("restore_on_launch", false);
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
 

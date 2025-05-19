@@ -1149,7 +1149,7 @@
         Android may ask for permission to access the selected folder, even though the app doesn\'t need it.
         You can cancel the selection dialog to restore the default folder (usually the \'Download\' folder).
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Restore last app state when restarted via the launcher icon within %1$d minutes</string>
+    <string name="title_advanced_restore_on_launch_hint">Restore last app state if possible when restarted via the launcher icon</string>
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
     <string name="title_advanced_expandall_hint">The answer button will not be shown when multiple messages are expanded because it is unclear which message the button applies to</string>
     <string name="title_advanced_autoseen_hint">Automatically marking messages as read on expanding can be disabled in the advanced account settings of each account</string>

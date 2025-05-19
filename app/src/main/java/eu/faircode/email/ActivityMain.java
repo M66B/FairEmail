@@ -43,8 +43,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 public class ActivityMain extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
-    static final int RESTORE_STATE_INTERVAL = 3; // minutes
-
     private static final long SPLASH_DELAY = 1500L; // milliseconds
     private static final long SERVICE_START_DELAY = 5 * 1000L; // milliseconds
     private static final long IGNORE_STORAGE_SPACE = 24 * 60 * 60 * 1000L; // milliseconds
@@ -271,10 +269,8 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                         // VX-N3
                         // https://developer.android.com/docs/quality-guidelines/core-app-quality
-                        long now = new Date().getTime();
-                        long last = prefs.getLong("last_launched", 0L);
-                        boolean restore_on_launch = prefs.getBoolean("restore_on_launch", false);
-                        if (!restore_on_launch || now - last > RESTORE_STATE_INTERVAL * 60 * 1000L)
+                        boolean restore_on_launch = prefs.getBoolean("restore_on_launch", true);
+                        if (!restore_on_launch)
                             view.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         else {
                             String last_activity = prefs.getString("last_activity", null);
@@ -288,7 +284,6 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                         Intent saved = args.getParcelable("intent");
                         if (saved == null) {
-                            prefs.edit().putLong("last_launched", now).apply();
                             startActivity(view, options);
                             if (sync_on_launch)
                                 ServiceUI.sync(ActivityMain.this, null);

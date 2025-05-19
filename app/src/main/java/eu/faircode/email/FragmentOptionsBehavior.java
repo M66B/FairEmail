@@ -59,7 +59,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private View view;
     private ImageButton ibHelp;
     private SwitchCompat swRestoreOnLaunch;
-    private TextView tvRestoreOnLaunchHint;
     private SwitchCompat swSyncOnlaunch;
     private SwitchCompat swDoubleBack;
     private SwitchCompat swConversationActions;
@@ -147,7 +146,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         ibHelp = view.findViewById(R.id.ibHelp);
         swRestoreOnLaunch = view.findViewById(R.id.swRestoreOnLaunch);
-        tvRestoreOnLaunchHint = view.findViewById(R.id.tvRestoreOnLaunchHint);
         swSyncOnlaunch = view.findViewById(R.id.swSyncOnlaunch);
         swDoubleBack = view.findViewById(R.id.swDoubleBack);
         swConversationActions = view.findViewById(R.id.swConversationActions);
@@ -224,7 +222,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        tvRestoreOnLaunchHint.setText(getString(R.string.title_advanced_restore_on_launch_hint, ActivityMain.RESTORE_STATE_INTERVAL));
         swRestoreOnLaunch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -729,7 +726,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-            swRestoreOnLaunch.setChecked(prefs.getBoolean("restore_on_launch", false));
+            swRestoreOnLaunch.setChecked(prefs.getBoolean("restore_on_launch", true));
             swSyncOnlaunch.setChecked(prefs.getBoolean("sync_on_launch", false));
             swDoubleBack.setChecked(prefs.getBoolean("double_back", false));
             swConversationActions.setChecked(prefs.getBoolean("conversation_actions", Helper.isGoogle()));
