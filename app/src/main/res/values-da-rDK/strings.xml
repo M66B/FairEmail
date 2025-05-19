@@ -919,7 +919,6 @@
     <string name="title_advanced_default_folder_hint">        Android kan bede om adgangstilladelse til den valgte mappe, selvom appen ikke behøver den.
         Valgdialogen kan annulleres for at gendanne standardmappen (normalt mappen \'Download\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Gendan seneste app-tilstand ved genstart inden for %1$d minutter via app-ikonet</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
     <string name="title_advanced_expandall_hint">Svar-knappen vises ikke, når flere beskeder er udvidet, da det vil være uklart, hvilken besked knappen gælder for</string>
     <string name="title_advanced_autoseen_hint">Automarkering af beskeder som læst ved udvidelse kan deaktiveres i de individuelle kontoindstillinger</string>

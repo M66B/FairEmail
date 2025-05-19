@@ -932,7 +932,6 @@
     <string name="title_advanced_default_folder_hint">        Android može tražiti dozvole za pristup izabranom folderu, iako to aplikacija ne traži.
         Možete otkazati dijaloški okvir selekcije za vraćanje zadanog foldera (obično je to folder preuzimanja tj. \'Download\' folder).
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Vrati posljednje stanje aplikacije kada se ona ponovo pokrene dodirom na ikonicu početnog ekrana unutar %1$d minute(a)</string>
     <string name="title_advanced_autoexpand_hint">Automatski otvori poruku kada se u konverzaciji nalazi samo jedna poruka ili samo jedna nepročitana poruka</string>
     <string name="title_advanced_expandall_hint">Dugme za odgovor neće se prikazivati kada se prošire višestruke poruke, jer nije jasno na koju od poruka se odnosi to dugme</string>
     <string name="title_advanced_autoseen_hint">Automatsko označavanje poruke kao pročitane pri proširivanju je opcija koja se može isključiti u naprednim postavkama svakog računa</string>

@@ -931,7 +931,6 @@
     <string name="title_advanced_default_folder_hint">        Android poate solicita permisiunea de a accesa directorul selectat, chiar dacă aplicația nu are nevoie de ea.
         Puteți anula dialogul de selectare pentru a restaura directorul implicit (de obicei \'Descărcare\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Restaurează ultima stare a aplicației la repornirea prin pictograma lansator în %1$d minute</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_expandall_hint">Butonul de răspuns nu va fi afișat atunci când sunt extinse mai multe mesaje, deoarece nu este clar la ce mesaj se aplică butonul</string>
     <string name="title_advanced_autoseen_hint">Marcarea automată a mesajelor ca fiind citite la extindere poate fi dezactivată în setările avansate ale fiecărui cont</string>

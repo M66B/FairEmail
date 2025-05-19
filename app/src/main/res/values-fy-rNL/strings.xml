@@ -913,7 +913,6 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_default_folder_hint">        Android kin tastimming freegje foar tagong ta de selektearre map, ek al hat de app dit net nedich.
         Jo kinne it seleksjefinster annulearje om de standert map te werstellen (meastentiids de map ‘Download’).
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Werstel lêste app-steat by opnij starten fia it launcher-piktogram binnen %1$d minuten</string>
     <string name="title_advanced_autoexpand_hint">Berjocht automatysk iepenje as der mar ien berjocht of mar ien net-lêzen berjocht yn in petear is</string>
     <string name="title_advanced_expandall_hint">De antwurdknop sil net werjûn wurde wannear’t meardere berjochten iepenklapt wurde, omdat it dan net dúdlik is op hokker berjocht de knop fan tapassing is</string>
     <string name="title_advanced_autoseen_hint">Berjochten automatysk as lêzen markearje by útwreidzjen kin útskeakele wurde yn de avansearre accountynstellingen fan elk account</string>

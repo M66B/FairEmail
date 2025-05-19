@@ -690,7 +690,6 @@
     <string name="title_advanced_inline_hint">Hình ảnh tích hợp là hình ảnh được bao gồm trong thư</string>
     <string name="compressed">Nội dung các tệp đã nén (%1$s) có nhiều hơn %2$s tệp hoặc có tệp lớn hơn %3$s sẽ không được hiện</string>
     <string name="title_advanced_parse_classes_hint">Cái này sẽ hiển thị thư chính xác hơn, nhưng có thể có độ trễ</string>
-    <string name="title_advanced_restore_on_launch_hint">Khôi phục trạng thái ứng dụng khi khởi động lại bằng biểu tượng trên launcher trong vòng %1$d phút</string>
     <string name="title_advanced_autoexpand_hint">Tự động mở thư khi chỉ cỏ một thư hoặc một thư chưa đọc trong một cuộc hội thoại</string>
     <string name="title_advanced_expandall_hint">Nút trả lời sẽ không được hiện khi nhiều thư được mở rộng vì không rõ là nút đó áp dụng cho thư nào</string>
     <string name="title_advanced_autoseen_hint">Việc tự động đánh dấu thư là đã đọc khi mở rộng có thể được tắt trong cài đặt tài khoản nâng cao của mỗi tài khoản</string>

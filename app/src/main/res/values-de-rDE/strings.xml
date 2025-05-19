@@ -920,7 +920,6 @@
     <string name="title_advanced_default_folder_hint">        Android kann um Erlaubnis zum Zugriff auf den ausgewählten Ordner bitten, auch wenn die App sie nicht braucht.
         Sie können den Auswahldialog abbrechen, um den Standardordner (normalerweise den Download-Ordner) wiederherzustellen.
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Letzten App-Status wiederherstellen, wenn innerhalb von %1$d Minuten über das Startsymbol neu gestartet wird</string>
     <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einer Unterhaltung enthalten ist</string>
     <string name="title_advanced_expandall_hint">Die Schaltfläche »Antworten« wird nicht angezeigt, wenn mehrere Nachrichten ausgeklappt sind, da unklar ist, für welche Nachricht die Schaltfläche gelten soll.</string>
     <string name="title_advanced_autoseen_hint">Das automatische »Als gelesen kennzeichnen« von Nachrichten beim Ausklappen kann in den erweiterten Kontoeinstellungen des jeweiligen Kontos deaktiviert werden</string>

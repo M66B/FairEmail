@@ -871,7 +871,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_default_folder_hint">        Android mungkin akan menanyakan untuk perizinan untuk mengakses folder yang dipilih, meskipun aplikasi tidak membutuhkannya.
         Anda dapat membatalkan dialog pemilihan untuk mengembalikan folder default (biasanya folder \'Download\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Pulihkan status aplikasi terakhir saat dimulai ulang melalui ikon peluncur di dalamnya %1$d menit</string>
     <string name="title_advanced_autoexpand_hint">Secara otomatis membuka pesan ketika hanya ada satu pesan atau hanya satu pesan yang belum dibaca dalam percakapan</string>
     <string name="title_advanced_expandall_hint">Tombol balas tidak ditampilkan saat beberapa pesan dilebarkan karena tombol pesan menjadi tidak jelas pesan mana yang dituju</string>
     <string name="title_advanced_autoseen_hint">Secara otomatis menandai pesan sebagai telah dibaca ketika memperluasnya, bisa dinonaktifkan pada pengaturan akun setiap individu</string>

@@ -901,7 +901,6 @@
     <string name="title_advanced_default_folder_hint">        Android kan be om behörighet att komma åt den valda mappen, även om appen inte behöver det.
         Du kan avbryta urvalsdialogen för att återställa standardmappen (vanligtvis mappen \'Nedladdningar\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Återställ senaste app-status när den startas om via ikonen för launcher inom %1$d minuter</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_expandall_hint">Svarsknappen kommer inte att visas när flera meddelanden visas i utökat läge eftersom det är oklart vilket meddelande knappen gäller</string>
     <string name="title_advanced_autoseen_hint">Automatiskt markering av meddelanden som lästa när du expanderar dem kan inaktiveras i avancerade kontoinställningar för varje konto</string>

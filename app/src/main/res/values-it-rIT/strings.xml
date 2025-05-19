@@ -919,7 +919,6 @@
     <string name="title_advanced_default_folder_hint">        Android potrebbe richiedere l\'autorizzazione ad accedere alla cartella selezionata, anche se l\'app non la necessita.
         Puoi annullare la finestra di selezione per ripristinare la cartella predefinita (solitamente la cartella \'Download\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Quando riavviato tramite l\'icona del launcher, ripristina l\'ultimo stato dell\'app entro %1$d minuti</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando ce n\'è solo uno o c\'è solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_expandall_hint">Il pulsante di risposta non sarà mostrato quando sono espansi più messaggi perché non è chiaro a quale messaggio si applichi il tasto</string>
     <string name="title_advanced_autoseen_hint">Dalle impostazioni avanzate di ogni account è possibile disabilitare la funzione che segna automaticamente i messaggi come letti alla loro apertura.</string>

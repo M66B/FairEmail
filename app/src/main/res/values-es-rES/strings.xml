@@ -917,7 +917,6 @@
     <string name="title_advanced_default_folder_hint">        Puede que Android solicite permiso para acceder a la carpeta seleccionada, aunque la aplicación no lo necesite.
         Puede cancelar el diálogo de selección para restaurar la carpeta predeterminada (por lo general la carpeta \'Descargas\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Restaurar el último estado de la aplicación cuando se reinicie mediante el icono del lanzador dentro de los %1$d minutos</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_expandall_hint">El botón de respuesta no se mostrará cuando se expandan varios mensajes porque no está claro a qué mensaje aplica el botón</string>
     <string name="title_advanced_autoseen_hint">Marcar automáticamente los mensajes como leídos al expandir puede desactivarse en la configuración avanzada de cada cuenta</string>

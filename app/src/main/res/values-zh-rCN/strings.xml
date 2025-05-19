@@ -904,7 +904,6 @@
     <string name="title_advanced_default_folder_hint">        Android 可能请求访问选定文件夹的权限，即使应用程序不需要它。
         您可以取消选择对话框以恢复默认文件夹 (通常是“下载”文件夹)。
     </string>
-    <string name="title_advanced_restore_on_launch_hint">在 %1$d 分钟内通过图标重新启动 FairEmail 时恢复上次应用状态</string>
     <string name="title_advanced_autoexpand_hint">对话中只有一封邮件或只有一封未读邮件时自动打开邮件</string>
     <string name="title_advanced_expandall_hint">展开多封邮件时不会显示回复按钮，因为这样会无法确定回复哪封邮件</string>
     <string name="title_advanced_autoseen_hint">可以在每个账号的高级账号设置中禁用展开时自动将邮件标记为已读</string>

@@ -912,7 +912,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_default_folder_hint">        Android kan toestemming vragen voor toegang tot de geselecteerde map, ook al heeft de app dit niet nodig.
         U kunt het selectievenster annuleren om de standaard map te herstellen (meestal de \'Download\' map).
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Herstel laatste app-status bij herstart via het start-pictogram binnen %1$d minuten</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_expandall_hint">De antwoordknop zal niet worden weergegeven wanneer meerdere berichten worden opengeklapt omdat het dan onduidelijk is op welk bericht de knop van toepassing is</string>
     <string name="title_advanced_autoseen_hint">Automatisch berichten markeren als gelezen bij uitvouwen kan worden uitgeschakeld in de geavanceerde accountinstellingen van elk account</string>

@@ -946,7 +946,6 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_default_folder_hint">        Android může požádat o oprávnění pro přístup k vybrané složce, i když to aplikace nepotřebuje.
         Můžete zrušit dialog výběru pro obnovení výchozí složky (obvykle složky \'Download\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Obnovit poslední stav aplikace při restartování přes ikonu spouštěče během %1$d minut</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu, je-li v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
     <string name="title_advanced_expandall_hint">Tlačítko odpovědi nebude zobrazeno, pokud je rozbaleno více zpráv, protože není jasné na které zprávy se toto tlačítko vztahuje</string>
     <string name="title_advanced_autoseen_hint">Automatické označování zpráv jako přečtených při rozbalení lze zakázat v pokročilém nastavení jednotlivých účtů</string>

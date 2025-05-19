@@ -913,7 +913,6 @@
     <string name="title_advanced_default_folder_hint">        A rendzser rákérdezhet a bizonyos mappához vlaó hozzáférést, akkoris ha az app számára nincs szükség engedélyre.
         Kiveheti a kijelölést az alap mappa visszaállításához (többnyire ez a \"Letöltés\" mappa).
     </string>
-    <string name="title_advanced_restore_on_launch_hint">%1$d percen belül a legutolsó app státusz visszaállítása az indító ikonra nyomva</string>
     <string name="title_advanced_autoexpand_hint">Üzenetek automatikus megnyitása, ha összesen egy, vagy csak egy olvasatlan üzetetet tartalmaz a beszélgetés</string>
     <string name="title_advanced_expandall_hint">Több üzenet kibontásánál nem fog megjelenni a válasz gomb, mert nem egyértelmű, hogy melyik üzenetre vonatkozik a válasz</string>
     <string name="title_advanced_autoseen_hint">Üzenetek kibontásánál olvasottnak tekintést ki lehet kapcsolni minden fiók saját haladó beállításainál</string>

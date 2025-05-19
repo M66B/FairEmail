@@ -916,7 +916,6 @@
     <string name="title_advanced_default_folder_hint">        O Android pode pedir permissão para acessar a pasta selecionada, mesmo que o app não precise dela.
         Você pode cancelar a caixa de diálogo de seleção para restaurar a pasta padrão (geralmente a pasta \'Download\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Restaurar o último estado do app quando reiniciar via ícone do lançador dentro de %1$d minutos</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
     <string name="title_advanced_expandall_hint">O botão de resposta não será mostrado quando várias mensagens forem expandidas porque não está claro a qual mensagem o botão se aplica</string>
     <string name="title_advanced_autoseen_hint">A marcação automática de mensagens como lidas ao expandir pode ser desativada nas configurações individuais de cada conta</string>

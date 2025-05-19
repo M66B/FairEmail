@@ -908,7 +908,6 @@
     <string name="title_advanced_default_folder_hint">        Android voi pyytää lupaa käyttää valittua kansiota, vaikka sovellus ei tarvitse sitä.
         Voit sulkea valintaikkunan palauttaaksesi oletuskansion (yleensä \'Lataukset\'-kansio).
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Palauta viimeisin sovelluksen tila, kun käynnistetään uudelleen käynnistyskuvakkeella %1$d minuutin kuluessa</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
     <string name="title_advanced_expandall_hint">Vastauspainiketta ei näytetä, kun useita viestejä on laajennettuna, koska on epäselvää, mihin viestiin halutaan vastata</string>
     <string name="title_advanced_autoseen_hint">Viestien merkitseminen luetuksi laajennettaessa voidaan kytkeä erikseen pois tilien edistyneissä asetuksissa</string>

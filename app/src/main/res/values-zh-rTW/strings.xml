@@ -898,7 +898,6 @@
     <string name="title_advanced_parse_classes_hint">訊息顯示更精準，但可能會延後</string>
     <string name="title_advanced_default_folder_hint">Android 可能會要求訪問所選資料夾的權限，儘管應用程式並不需要該權限。
 您可以取消選擇對話框以恢復預設資料夾（通常是「下載」資料夾）。    </string>
-    <string name="title_advanced_restore_on_launch_hint">在 %1$d 分鐘內透過啟動器圖示重新啟動時，恢復上次的應用程式狀態</string>
     <string name="title_advanced_autoexpand_hint">當會話中只有一則訊息或僅一則未讀時自動開啟訊息</string>
     <string name="title_advanced_expandall_hint">當展開多封訊息時，不會顯示回覆按鈕，因為這樣會無法確定回覆的是哪個訊息</string>
     <string name="title_advanced_autoseen_hint">展開時自動標記訊息為已讀功能可於各帳戶進階帳戶設定中停用</string>

@@ -945,7 +945,6 @@
     <string name="title_advanced_default_folder_hint">        Android עשוי לבקש הרשאה לגשת לתיקייה הנבחרת, למרות שהיישומון לא זקוק לזה.
         אפשר לבטל את חלונית הבחירה כדי להחזיר את תיקיית ברירת המחדל (בדרך כלל זאת תיקיית ה‚הורדות’).
     </string>
-    <string name="title_advanced_restore_on_launch_hint">שחזור המצב האחרון של היישומון כאשר הוא מופעל מחדש דרך הסמל במשגר תוך %1$d דקות</string>
     <string name="title_advanced_autoexpand_hint">לפתוח הודעות אוטומטית כשיש רק הודעה אחת או רק הודעה אחת שלא נקראה בדיון</string>
     <string name="title_advanced_expandall_hint">כפתור המענה לא יופיע כאשר מספר הודעות מורחבות כיוון שלא ברור לאיזו הודעה הכפתור מתייחס</string>
     <string name="title_advanced_autoseen_hint">אפשר להשבית את סימון ההודעות כנקראו אוטומטית בעת ההרחבה בהגדרות החשבון המתקדמות של כל חשבון בנפרד</string>

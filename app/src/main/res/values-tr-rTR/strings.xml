@@ -913,7 +913,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_default_folder_hint">        Android, uygulamanın ihtiyacı olmasa bile seçilen klasöre erişim izni isteyebilir.
         Varsayılan klasörü (genellikle \'İndirilenler\' klasöründedir) geri yüklemek için seçim iletişim kutusunu iptal edebilirsiniz.
     </string>
-    <string name="title_advanced_restore_on_launch_hint">%1$d dakika içinde başlatıcı simgesi aracılığıyla yeniden başlatıldığında son uygulama durumunu geri yükle</string>
     <string name="title_advanced_autoexpand_hint">Bir sohbette yalnızca bir ileti veya yalnızca bir okunmamış ileti olduğunda iletiyi otomatik olarak aç</string>
     <string name="title_advanced_expandall_hint">Düğmenin hangi mesaja uygulanacağı belirsiz olduğundan, birden fazla mesaj genişletildiğinde cevap düğmesi gösterilmeyecektir</string>
     <string name="title_advanced_autoseen_hint">Genişletme sırasında okunan mesajları otomatik olarak işaretleme, bireysel hesap ayarlarında devre dışı bırakılabilir</string>

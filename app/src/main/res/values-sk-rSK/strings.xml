@@ -916,7 +916,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_default_folder_hint">Systém Android môže požiadať o povolenie prístupu k vybranému priečinku, aj keď ho aplikácia nepotrebuje.
         Dialógové okno výberu môžete zrušiť a obnoviť predvolený priečinok (zvyčajne priečinok \"Prevziať\").
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Obnoví posledný stav aplikácie po opätovnom spustení cez ikonu launcheru do %1$d minút</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otvoriť správu ak konverzácia obsahuje len jednu</string>
     <string name="title_advanced_expandall_hint">Tlačidlo odpovedať nebude zobrazené, keď je rozbalených viac správ, pretože nie je jasné, na ktorú správu chcete odpovedať</string>
     <string name="title_advanced_autoseen_hint">Automatické označovanie správ ako prečítaných po rozbalení môžete zakázať cez pokročilé nastavenia každého účtu zvlášť</string>

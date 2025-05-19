@@ -775,7 +775,6 @@
     <string name="title_advanced_default_folder_hint">        Android vas bo morda vprašal za dovoljenje za dostop do izbrane mape čeprav ga program ne potrebuje.
         Pogovorno okno za izbiro lahko prekličete, da obnovite privzeto mapo (običanjo je to mapa \'Prenosi\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint">Obnovi zadnje stanje programa, ko je ponovno zagnan z ikono zaganjalnika v %1$d-h minutah.</string>
     <string name="title_advanced_autoexpand_hint">Samodejno odpri sporočilo, ko je v pogovoru samo eno sporočilo ali eno neprebrano sporočilo.</string>
     <string name="title_advanced_expandall_hint">Gumb za odgovor ne bo prikazan, kadar je razširjenih več sporočil, ker potem ni jasno, za katero sporočilo to velja.</string>
     <string name="title_advanced_autoseen_hint">Samodejno označevanje sporočil kot prebranih ob razširitvi lahko onemogočite v naprednih nastavitvah za posamezni račun.</string>
