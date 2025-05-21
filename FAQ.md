@@ -5993,7 +5993,7 @@ This feature is experimental and requires version 1.2053 or later for the GitHub
 
 You can download and keep older messages in the unified inbox folders by using *Fetch more messages* in the three-dots overflow menu of the start screen.
 For other folders, you can long press the folder in the folder list of the account (tap on the account name in the navigation menu = left side menu).
-When you long press on a parent folder, there will be a subfolders option with a menu item to fetch more messages for all child folders.
+When you long press on a parent folder, there will be a subfolders sub-menu with a fetch more messages option for all child folders.
 Please read the remark in the confirmation dialog box.
 
 Note that starred (favorite) messages will be kept on your device "forever".
