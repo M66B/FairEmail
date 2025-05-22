@@ -24,13 +24,14 @@ import static androidx.recyclerview.selection.Shared.DEBUG;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
 import androidx.recyclerview.selection.Range.RangeType;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver;
+
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,6 @@ import java.util.Set;
  * {@link SelectionPredicate#canSelectMultiple()}.
  *
  * @param <K> Selection key type. @see {@link StorageStrategy} for supported types.
- * @hide
  */
 @RestrictTo(LIBRARY)
 @SuppressWarnings("unchecked")
@@ -191,7 +191,7 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
     private Selection<K> clearSelectionQuietly() {
         mRange = null;
 
-        MutableSelection<K> prevSelection = new MutableSelection();
+        MutableSelection<K> prevSelection = new MutableSelection<>();
         if (hasSelection()) {
             copySelection(prevSelection);
             mSelection.clear();
@@ -394,6 +394,11 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
 
     @SuppressWarnings({"WeakerAccess", "unchecked"}) /* synthetic access */
     void onDataSetChanged() {
+        if (mSelection.isEmpty()) {
+            Log.d(TAG, "Ignoring onDataSetChange. No active selection.");
+            return;
+        }
+
         //mSelection.clearProvisionalSelection();
 
         notifySelectionRefresh();
@@ -401,10 +406,12 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
         List<K> toRemove = null;
         for (K key : mSelection) {
             // If the underlying data set has changed, before restoring
-            // selection we must re-verify that it can be selected.
+            // selection we must re-verify that the items are present
+            // and if so, can still be selected.
             // Why? Because if the dataset has changed, then maybe the
-            // selectability of an item has changed.
-            if (!canSetState(key, true)) {
+            // selectability of an item has changed, or item disappeared.
+            if (mKeyProvider.getPosition(key) == RecyclerView.NO_POSITION
+                    || !canSetState(key, true)) {
                 if (toRemove == null) {
                     toRemove = new ArrayList<>();
                 }
@@ -420,10 +427,13 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
 
         if (toRemove != null) {
             for (K key : toRemove) {
+                // TODO(b/163840879): Calling deselect fires onSelectionChanged
+                //     once per call. Meaning we're firing it n+1 times when deselecting.
                 deselect(key);
             }
         }
 
+        // TODO: Send onSelectionCleared if empty in 2.0 release.
         notifySelectionChanged();
     }
 
@@ -552,7 +562,7 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
             return;
         }
 
-        @Nullable Bundle selectionState = state.getBundle(getInstanceStateKey());
+        Bundle selectionState = state.getBundle(getInstanceStateKey());
         if (selectionState == null) {
             return;
         }
@@ -613,6 +623,10 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
         public void onItemRangeRemoved(int startPosition, int itemCount) {
             if (mSelectionTracker.isOverlapping(startPosition, itemCount))
                 mSelectionTracker.endRange();
+            // Since SelectionTracker deals in keys, not positions, we turn
+            // to the `onDataSetChanged` sledge hammer.
+            // DefaultSelectionTracker will validate and update it's selection.
+            mSelectionTracker.onDataSetChanged();
         }
 
         @Override

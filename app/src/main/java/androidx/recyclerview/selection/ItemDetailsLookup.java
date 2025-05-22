@@ -20,10 +20,11 @@ import static androidx.annotation.RestrictTo.Scope.LIBRARY;
 
 import android.view.MotionEvent;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 /**
  * The Selection library calls {@link #getItemDetails(MotionEvent)} when it needs
@@ -70,7 +71,6 @@ public abstract class ItemDetailsLookup<K> {
 
     /**
      * @return true if there is an item w/ a stable ID at the event coordinates.
-     * @hide
      */
     @RestrictTo(LIBRARY)
     protected boolean overItemWithSelectionKey(@NonNull MotionEvent e) {
@@ -100,7 +100,7 @@ public abstract class ItemDetailsLookup<K> {
      * @return the adapter position of the item at the event coordinates.
      */
     final int getItemPosition(@NonNull MotionEvent e) {
-        @Nullable ItemDetails<?> item = getItemDetails(e);
+        ItemDetails<?> item = getItemDetails(e);
         return item != null
                 ? item.getPosition()
                 : RecyclerView.NO_POSITION;
@@ -172,7 +172,8 @@ public abstract class ItemDetailsLookup<K> {
 
         /**
          * Returns the adapter position of the item. See
-         * {@link RecyclerView.ViewHolder#getAdapterPosition() ViewHolder.getAdapterPosition}
+         * {@link RecyclerView.ViewHolder#getAbsoluteAdapterPosition() ViewHolder
+         * .getAbsoluteAdapterPosition}
          *
          * @return the position of an item.
          */

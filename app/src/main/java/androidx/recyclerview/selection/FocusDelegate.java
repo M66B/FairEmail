@@ -16,9 +16,10 @@
 
 package androidx.recyclerview.selection;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.selection.ItemDetailsLookup.ItemDetails;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.jspecify.annotations.NonNull;
 
 /**
  * Override methods in this class to provide application specific behaviors
@@ -28,7 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public abstract class FocusDelegate<K> {
 
-    static <K> FocusDelegate<K> dummy() {
+    static <K> FocusDelegate<K> stub() {
         return new FocusDelegate<K>() {
             @Override
             public void focusItem(@NonNull ItemDetails<K> item) {

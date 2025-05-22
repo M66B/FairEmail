@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 The Android Open Source Project
+ * Copyright 2019 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,39 +18,26 @@ package androidx.recyclerview.selection;
 
 import static androidx.core.util.Preconditions.checkArgument;
 
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener;
 
 import org.jspecify.annotations.NonNull;
 
 /**
- * A class responsible for routing MotionEvents to tool-type specific handlers.
- * Individual tool-type specific handlers are added after the class is constructed.
- *
- * <p>
- * EventRouter takes its name from
- * {@link RecyclerView#addOnItemTouchListener(OnItemTouchListener)}. Despite "Touch"
- * being in the name, it receives MotionEvents for all types of tools.
+ * A wrapper class for GestureDetector allowing it interact with SelectionTracker
+ * and its dependencies (like RecyclerView) on terms more amenable to SelectionTracker.
  */
-final class EventRouter implements OnItemTouchListener, Resettable {
+final class GestureDetectorWrapper implements RecyclerView.OnItemTouchListener, Resettable {
 
-    private final ToolSourceHandlerRegistry<OnItemTouchListener> mDelegates;
+    private final GestureDetector mDetector;
     private boolean mDisallowIntercept;
 
-    EventRouter() {
-        mDelegates = new ToolSourceHandlerRegistry<>(new StubOnItemTouchListener());
-    }
+    GestureDetectorWrapper(@NonNull GestureDetector detector) {
+        checkArgument(detector != null);
 
-    /**
-     * @param key      Either a TOOL_TYPE or a combination of TOOL_TYPE and SOURCE
-     * @param delegate An {@link OnItemTouchListener} to receive events of {@code ToolSourceKey}.
-     */
-    void set(@NonNull ToolSourceKey key, @NonNull OnItemTouchListener delegate) {
-        checkArgument(delegate != null);
-
-        mDelegates.set(key, delegate);
+        mDetector = detector;
     }
 
     @Override
@@ -59,14 +46,17 @@ final class EventRouter implements OnItemTouchListener, Resettable {
         if (mDisallowIntercept && MotionEvents.isActionDown(e)) {
             mDisallowIntercept = false;
         }
-        return !mDisallowIntercept && mDelegates.get(e).onInterceptTouchEvent(rv, e);
+
+        // While the idea of "intercepting" an event stream isn't consistent
+        // with the world-view of GestureDetector, failure to return true here
+        // resulted in a bug where a context menu shown on an item view was not
+        // visible...despite returning reporting that the menu was shown.
+        // See b/143494310 for further details.
+        return !mDisallowIntercept && mDetector.onTouchEvent(e);
     }
 
     @Override
     public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-        if (!mDisallowIntercept) {
-            mDelegates.get(e).onTouchEvent(rv, e);
-        }
     }
 
     @Override
@@ -80,16 +70,30 @@ final class EventRouter implements OnItemTouchListener, Resettable {
         // with disallowIntercept=true. mDisallowIntercept is reset on UP or CANCEL
         // events in onInterceptTouchEvent.
         mDisallowIntercept = disallowIntercept;
-    }
 
+
+        // GestureDetector may have internal state (such as timers) that can
+        // result in subsequent event handlers being called, even after
+        // we receive a request to disallow intercept (e.g. LONG_PRESS).
+        // For that reason we proactively reset GestureDetector.
+        sendCancelEvent();
+    }
 
     @Override
     public boolean isResetRequired() {
-        return mDisallowIntercept;
+        // Always resettable as we don't know the specifics of GD's internal state.
+        return true;
     }
 
     @Override
     public void reset() {
         mDisallowIntercept = false;
+        sendCancelEvent();
+    }
+
+    private void sendCancelEvent() {
+        // GestureDetector does not provide a public affordance for resetting
+        // it's internal state, so we send it a synthetic ACTION_CANCEL event.
+        mDetector.onTouchEvent(MotionEvents.createCancelEvent());
     }
 }

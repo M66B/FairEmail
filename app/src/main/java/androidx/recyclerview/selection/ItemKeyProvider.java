@@ -19,9 +19,10 @@ package androidx.recyclerview.selection;
 import static androidx.core.util.Preconditions.checkArgument;
 
 import androidx.annotation.IntDef;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -79,7 +80,8 @@ public abstract class ItemKeyProvider<K> {
     public abstract @Nullable K getKey(int position);
 
     /**
-     * @return the position corresponding to the selection key, or RecyclerView.NO_POSITION.
+     * @return the position corresponding to the selection key, or RecyclerView.NO_POSITION
+     * if the key is unrecognized.
      */
     public abstract int getPosition(@NonNull K key);
 }

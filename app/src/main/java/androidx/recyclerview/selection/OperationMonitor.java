@@ -24,8 +24,9 @@ import static androidx.recyclerview.selection.Shared.DEBUG;
 import android.util.Log;
 
 import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
+
+import org.jspecify.annotations.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +53,7 @@ public final class OperationMonitor {
     // Ideally OperationMonitor would implement Resettable
     // directly, but Metalava couldn't understand that
     // `OperationMonitor` was public API while `Resettable` was
-    // not. This is our klunkuy workaround.
+    // not. This is our clever workaround :)
     private final Resettable mResettable = new Resettable() {
 
         @Override
@@ -68,55 +69,65 @@ public final class OperationMonitor {
 
     private int mNumOps = 0;
 
+    private final Object mLock = new Object();
+
     @MainThread
-    synchronized void start() {
-        mNumOps++;
+    void start() {
+        synchronized (mLock) {
+            mNumOps++;
 
-        if (mNumOps == 1) {
-            notifyStateChanged();
+            if (mNumOps == 1) {
+                notifyStateChanged();
+            }
+
+            if (DEBUG) Log.v(TAG, "Incremented content lock count to " + mNumOps + ".");
         }
-
-        if (DEBUG) Log.v(TAG, "Incremented content lock count to " + mNumOps + ".");
     }
 
     @MainThread
-    synchronized void stop() {
-        if (mNumOps == 0) {
-            if (DEBUG) Log.w(TAG, "Stop called whith opt count of 0.");
-            return;
-        }
+    void stop() {
+        synchronized (mLock) {
+            if (mNumOps == 0) {
+                if (DEBUG) Log.w(TAG, "Stop called whith opt count of 0.");
+                return;
+            }
 
-        mNumOps--;
-        if (DEBUG) Log.v(TAG, "Decremented content lock count to " + mNumOps + ".");
+            mNumOps--;
+            if (DEBUG) Log.v(TAG, "Decremented content lock count to " + mNumOps + ".");
 
-        if (mNumOps == 0) {
-            notifyStateChanged();
+            if (mNumOps == 0) {
+                notifyStateChanged();
+            }
         }
     }
 
-    /** @hide */
     @RestrictTo(LIBRARY)
     @MainThread
-    synchronized void reset() {
-        if (DEBUG) Log.d(TAG, "Received reset request.");
-        if (mNumOps > 0) {
-            Log.w(TAG, "Resetting OperationMonitor with " + mNumOps + " active operations.");
+    void reset() {
+        synchronized (mLock) {
+            if (DEBUG) Log.d(TAG, "Received reset request.");
+            if (mNumOps > 0) {
+                Log.w(TAG, "Resetting OperationMonitor with " + mNumOps + " active operations.");
+            }
+            mNumOps = 0;
+            notifyStateChanged();
         }
-        mNumOps = 0;
-        notifyStateChanged();
     }
 
-    /** @hide */
     @RestrictTo(LIBRARY)
-    synchronized boolean isResetRequired() {
-        return isStarted();
+    boolean isResetRequired() {
+        synchronized (mLock) {
+            return isStarted();
+        }
     }
 
     /**
      * @return true if there are any running operations.
      */
-    public synchronized boolean isStarted() {
-        return mNumOps > 0;
+    public boolean isStarted() {
+        synchronized (mLock) {
+            return mNumOps > 0;
+        }
     }
 
     /**
@@ -154,7 +165,6 @@ public final class OperationMonitor {
 
     /**
      * Work around b/139109223.
-     * @hide
      */
     @RestrictTo(LIBRARY)
     @NonNull Resettable asResettable() {

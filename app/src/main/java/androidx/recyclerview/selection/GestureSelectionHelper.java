@@ -24,12 +24,12 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
-import androidx.core.view.ViewCompat;
 import androidx.recyclerview.selection.SelectionTracker.SelectionPredicate;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener;
+
+import org.jspecify.annotations.NonNull;
 
 /**
  * GestureSelectionHelper provides logic that interprets a combination
@@ -96,7 +96,6 @@ final class GestureSelectionHelper implements OnItemTouchListener, Resettable {
     }
 
     @Override
-    /** @hide */
     public boolean onInterceptTouchEvent(@NonNull RecyclerView unused, @NonNull MotionEvent e) {
         // MotionEvents that aren't ACTION_DOWN are only ever passed to either onInterceptTouchEvent
         // or onTouchEvent; never to both, so events delivered to this method are effectively
@@ -120,7 +119,6 @@ final class GestureSelectionHelper implements OnItemTouchListener, Resettable {
     }
 
     @Override
-    /** @hide */
     public void onTouchEvent(@NonNull RecyclerView unused, @NonNull MotionEvent e) {
         if (!mStarted) {
             if (VERBOSE) Log.i(TAG, "Ignoring input event. Not started.");
@@ -147,7 +145,6 @@ final class GestureSelectionHelper implements OnItemTouchListener, Resettable {
     }
 
     @Override
-    /** @hide */
     public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
     }
 
@@ -268,11 +265,12 @@ final class GestureSelectionHelper implements OnItemTouchListener, Resettable {
 
         @Override
         int getLastGlidedItemPosition(@NonNull MotionEvent e) {
-            // If user has moved his pointer to the bottom-right empty pane (ie. to the right of the
-            // last item of the recycler view), we would want to set that as the currentItemPos
+            // If user has moved their pointer to the bottom-right empty pane (ie. to the
+            // right of the last item of the recycler view), we would want to set that as
+            // the currentItemPos
             View lastItem = mRecyclerView.getLayoutManager()
                     .getChildAt(mRecyclerView.getLayoutManager().getChildCount() - 1);
-            int direction = ViewCompat.getLayoutDirection(mRecyclerView);
+            int direction = mRecyclerView.getLayoutDirection();
             final boolean pastLastItem = isPastLastItem(lastItem.getTop(),
                     lastItem.getLeft(),
                     lastItem.getRight(),

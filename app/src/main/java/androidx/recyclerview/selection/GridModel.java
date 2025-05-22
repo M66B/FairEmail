@@ -17,6 +17,7 @@
 package androidx.recyclerview.selection;
 
 import static androidx.core.util.Preconditions.checkArgument;
+import static androidx.core.util.Preconditions.checkState;
 
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -25,11 +26,12 @@ import android.util.SparseArray;
 import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.selection.SelectionTracker.SelectionPredicate;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener;
+
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -145,6 +147,7 @@ final class GridModel<K> {
 
         mIsActive = true;
         mPointer = mHost.createAbsolutePoint(relativeOrigin);
+
         mRelOrigin = createRelativePoint(mPointer);
         mRelPointer = createRelativePoint(mPointer);
         computeCurrentSelection();
@@ -171,7 +174,11 @@ final class GridModel<K> {
      */
     void resizeSelection(Point relativePointer) {
         mPointer = mHost.createAbsolutePoint(relativePointer);
-        updateModel();
+        // Should probably never been empty at this point, yet we guard against
+        // known exceptions because wholesome goodness.
+        if (!isEmpty()) {
+            updateModel();
+        }
     }
 
     /**
@@ -191,7 +198,12 @@ final class GridModel<K> {
         mPointer.x += dx;
         mPointer.y += dy;
         recordVisibleChildren();
-        updateModel();
+
+        // Should probably never been empty at this point, yet we guard against
+        // known exceptions because wholesome goodness.
+        if (!isEmpty()) {
+            updateModel();
+        }
     }
 
     /**
@@ -258,7 +270,9 @@ final class GridModel<K> {
      * in a selection change and, if it has, notifies listeners of this change.
      */
     private void updateModel() {
+        checkState(!isEmpty());
         RelativePoint old = mRelPointer;
+
         mRelPointer = createRelativePoint(mPointer);
         if (mRelPointer.equals(old)) {
             return;
@@ -590,6 +604,11 @@ final class GridModel<K> {
     }
 
     RelativePoint createRelativePoint(Point point) {
+        // mColumnBounds and mRowBounds is empty when there are no items in the view.
+        // Clients have to verify items exist before calling this method.
+        checkState(!mColumnBounds.isEmpty(), "Column bounds not established.");
+        checkState(!mRowBounds.isEmpty(), "Row bounds not established.");
+
         return new RelativePoint(
                 new RelativeCoordinate(mColumnBounds, point.x),
                 new RelativeCoordinate(mRowBounds, point.y));
@@ -603,14 +622,6 @@ final class GridModel<K> {
 
         final RelativeCoordinate mX;
         final RelativeCoordinate mY;
-
-        RelativePoint(
-                @NonNull List<Limits> columnLimits,
-                @NonNull List<Limits> rowLimits, Point point) {
-
-            this.mX = new RelativeCoordinate(columnLimits, point.x);
-            this.mY = new RelativeCoordinate(rowLimits, point.y);
-        }
 
         RelativePoint(@NonNull RelativeCoordinate x, @NonNull RelativeCoordinate y) {
             this.mX = x;

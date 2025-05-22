@@ -1,0 +1,149 @@
+diff --git b/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java a/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java
+index 88418ace1d..ffc0f8736a 100644
+--- b/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java
++++ a/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java
+@@ -379,6 +379,10 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
+         return mRange != null;
+     }
+ 
++    boolean isOverlapping(int position, int count) {
++        return (mRange != null && mRange.isOverlapping(position, count));
++    }
++
+     private boolean canSetState(@NonNull K key, boolean nextState) {
+         return mSelectionPredicate.canSetStateForKey(key, nextState);
+     }
+@@ -395,7 +399,7 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
+             return;
+         }
+ 
+-        mSelection.clearProvisionalSelection();
++        //mSelection.clearProvisionalSelection();
+ 
+         notifySelectionRefresh();
+ 
+@@ -611,12 +615,14 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
+ 
+         @Override
+         public void onItemRangeInserted(int startPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
++                mSelectionTracker.endRange();
+         }
+ 
+         @Override
+         public void onItemRangeRemoved(int startPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
++                mSelectionTracker.endRange();
+             // Since SelectionTracker deals in keys, not positions, we turn
+             // to the `onDataSetChanged` sledge hammer.
+             // DefaultSelectionTracker will validate and update it's selection.
+@@ -625,7 +631,9 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements R
+ 
+         @Override
+         public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(fromPosition, itemCount) ||
++                    mSelectionTracker.isOverlapping(toPosition, itemCount))
++                mSelectionTracker.endRange();
+         }
+     }
+ }
+diff --git b/app/src/main/java/androidx/recyclerview/selection/GestureRouter.java a/app/src/main/java/androidx/recyclerview/selection/GestureRouter.java
+index 9f6068f7bf..72e5c948cd 100644
+--- b/app/src/main/java/androidx/recyclerview/selection/GestureRouter.java
++++ a/app/src/main/java/androidx/recyclerview/selection/GestureRouter.java
+@@ -94,7 +94,28 @@ final class GestureRouter<T extends OnGestureListener & OnDoubleTapListener>
+ 
+     @Override
+     public void onLongPress(@NonNull MotionEvent e) {
+-        mDelegates.get(e).onLongPress(e);
++        try {
++            mDelegates.get(e).onLongPress(e);
++        } catch (Throwable ex) {
++            eu.faircode.email.Log.w(ex);
++            /*
++                java.lang.IllegalStateException: Cannot call this method while RecyclerView is computing a layout or scrolling eu.faircode.email.FixedRecyclerView{239c688b VFED.... ........ 0,0-800,1162 #7f0a04da app:id/rvMessage}, adapter:eu.faircode.email.AdapterMessage@209415c5, layout:eu.faircode.email.FragmentMessages$7@190d7b1a, context:eu.faircode.email.ActivityView@3e8522fb
++                        at androidx.recyclerview.widget.RecyclerView.assertNotInLayoutOrScroll(SourceFile:3)
++                        at androidx.recyclerview.widget.RecyclerView$RecyclerViewDataObserver.onItemRangeChanged(SourceFile:1)
++                        at androidx.recyclerview.widget.RecyclerView$AdapterDataObservable.notifyItemRangeChanged(SourceFile:3)
++                        at androidx.recyclerview.widget.RecyclerView$Adapter.notifyItemChanged(SourceFile:2)
++                        at androidx.recyclerview.selection.EventBridge$TrackerToAdapterBridge.onItemStateChanged(SourceFile:3)
++                        at androidx.recyclerview.selection.DefaultSelectionTracker.notifyItemStateChanged(SourceFile:3)
++                        at androidx.recyclerview.selection.DefaultSelectionTracker.select(SourceFile:8)
++                        at androidx.recyclerview.selection.MotionInputHandler.selectItem(SourceFile:4)
++                        at androidx.recyclerview.selection.TouchInputHandler.onLongPress(SourceFile:10)
++                        at androidx.recyclerview.selection.GestureRouter.onLongPress(SourceFile:1)
++                        at android.view.GestureDetector.dispatchLongPress(GestureDetector.java:700)
++                        at android.view.GestureDetector.access$200(GestureDetector.java:40)
++                        at android.view.GestureDetector$GestureHandler.handleMessage(GestureDetector.java:273)
++                        at android.os.Handler.dispatchMessage(Handler.java:102)
++             */
++        }
+     }
+ 
+     @Override
+diff --git b/app/src/main/java/androidx/recyclerview/selection/Range.java a/app/src/main/java/androidx/recyclerview/selection/Range.java
+index 6a53b1f4fc..dc372bad93 100644
+--- b/app/src/main/java/androidx/recyclerview/selection/Range.java
++++ a/app/src/main/java/androidx/recyclerview/selection/Range.java
+@@ -170,6 +170,11 @@ final class Range {
+         mCallbacks.updateForRange(begin, end, selected, type);
+     }
+ 
++    boolean isOverlapping(int position, int count) {
++        return (position >= mBegin && position <= mEnd) ||
++                (position + count >= mBegin && position + count <= mEnd);
++    }
++
+     @Override
+     public String toString() {
+         return "Range{begin=" + mBegin + ", end=" + mEnd + "}";
+diff --git b/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java a/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
+index 41ddefa9b1..8c86d4adbc 100644
+--- b/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
++++ a/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
+@@ -529,7 +529,7 @@ public abstract class SelectionTracker<K> {
+         private OnContextClickListener mOnContextClickListener;
+ 
+         private BandPredicate mBandPredicate;
+-        private int mBandOverlayId = R.drawable.selection_band_overlay;
++        private int mBandOverlayId = eu.faircode.email.R.drawable.selection_band_overlay;
+ 
+         // TODO(b/144500333): Remove support for overriding gesture and pointer tooltypes.
+         private int[] mGestureToolTypes = new int[]{
+@@ -675,7 +675,7 @@ public abstract class SelectionTracker<K> {
+          * @deprecated GestureSelection is best bound to {@link MotionEvent#TOOL_TYPE_FINGER},
+          * and only that tool type. This method will be removed in a future release.
+          */
+-        @Deprecated
++        //@Deprecated
+         public @NonNull Builder<K> withGestureTooltypes(int @NonNull ... toolTypes) {
+             Log.w(TAG, "Setting gestureTooltypes is likely to result in unexpected behavior.");
+             mGestureToolTypes = toolTypes;
+@@ -713,7 +713,7 @@ public abstract class SelectionTracker<K> {
+          * @deprecated PointerSelection is best bound to {@link MotionEvent#TOOL_TYPE_MOUSE},
+          * and only that tool type. This method will be removed in a future release.
+          */
+-        @Deprecated
++        //@Deprecated
+         public @NonNull Builder<K> withPointerTooltypes(int @NonNull ... toolTypes) {
+             Log.w(TAG, "Setting pointerTooltypes is likely to result in unexpected behavior.");
+             mPointerToolTypes = toolTypes;
+diff --git b/app/src/main/java/androidx/recyclerview/selection/ViewAutoScroller.java a/app/src/main/java/androidx/recyclerview/selection/ViewAutoScroller.java
+index 4701bef30c..7b6551f8e2 100644
+--- b/app/src/main/java/androidx/recyclerview/selection/ViewAutoScroller.java
++++ a/app/src/main/java/androidx/recyclerview/selection/ViewAutoScroller.java
+@@ -108,6 +108,11 @@ final class ViewAutoScroller extends AutoScroller {
+ 
+         if (VERBOSE) Log.v(TAG, "Running in background using event location @ " + mLastLocation);
+ 
++        if (mLastLocation == null) {
++            eu.faircode.email.Log.w("ViewAutoScroller.mLastLocation is null");
++            return;
++        }
++
+         // Compute the number of pixels the pointer's y-coordinate is past the view.
+         // Negative values mean the pointer is at or before the top of the view, and
+         // positive values mean that the pointer is at or after the bottom of the view. Note
