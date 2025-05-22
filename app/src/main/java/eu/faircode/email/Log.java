@@ -997,6 +997,25 @@ public class Log {
                  */
             return false;
 
+        if (ex instanceof NullPointerException &&
+                stack.length > 0 &&
+                "android.widget.SelectionActionModeHelper".equals(stack[0].getClassName()) &&
+                "convertSelectionToRectangles".equals(stack[0].getMethodName()))
+                /*
+                    java.lang.NullPointerException: Attempt to invoke virtual method 'void android.text.Layout.getSelection(int, int, android.text.Layout$SelectionRectangleConsumer)' on a null object reference
+                        at android.widget.SelectionActionModeHelper.convertSelectionToRectangles(SelectionActionModeHelper.java:387)
+                        at android.widget.SelectionActionModeHelper.startSelectionActionModeWithSmartSelectAnimation(SelectionActionModeHelper.java:354)
+                        at android.widget.SelectionActionModeHelper.$r8$lambda$WxwcOVXRkmcO5hEAhdpLDMsPIw4(Unknown Source:0)
+                        at android.widget.SelectionActionModeHelper$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+                        at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.onPostExecute(SelectionActionModeHelper.java:1054)
+                        at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.onPostExecute(SelectionActionModeHelper.java:1002)
+                        at android.os.AsyncTask.finish(AsyncTask.java:771)
+                        at android.os.AsyncTask.-$$Nest$mfinish(Unknown Source:0)
+                        at android.os.AsyncTask$InternalHandler.handleMessage(AsyncTask.java:788)
+                        at android.os.Handler.dispatchMessage(Handler.java:107)
+                 */
+            return false;
+
         if (ex instanceof NullPointerException)
             for (StackTraceElement ste : stack)
                 if ("java.lang.Daemons$FinalizerWatchdogDaemon".equals(ste.getClassName()))
