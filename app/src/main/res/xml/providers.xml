@@ -2414,4 +2414,46 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Optonline.net"
+        domain="optonline\\.net"
+        link="https://www.optimum.net/FAQ/#/answers/a_id/216"
+        useip="false">
+        <imap
+            host="mail.optonline.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.optonline.net"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
+        name="Optimum.net"
+        domain="optimum\\.net"
+        link="https://www.optimum.net/FAQ/#/answers/a_id/216"
+        useip="false">
+        <imap
+            host="mail.optimum.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.optimum.net"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
+        name="Suddenlink.net"
+        domain="suddenlink\\.net"
+        link="https://www.optimum.net/FAQ/#/answers/a_id/216"
+        useip="false">
+        <imap
+            host="imap.suddenlink.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.suddenlink.net"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
