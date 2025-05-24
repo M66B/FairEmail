@@ -439,6 +439,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(206) How can I move or copy messages from one account to another?](#faq206)
 * [(207) What does 'Authentication failed' mean?](#faq207)
 * [(208) What does 'about:blank#blocked' mean when I click on a link?](#faq208)
+* [(209) Why is using a VPN often problematic?](#faq209)
 
 [I have another question.](#get-support)
 
@@ -6358,6 +6359,18 @@ If you get '*about:blank#blocked*' when you click on a link, for some reason the
 Note that the original message view is displayed by the installed browser. It may look like it's part of the app, but it's not.
 
 You can probably workaround this by switching back to the reformatted message view via the '\] \[' button just above the message text on the right.
+
+<br>
+
+<a name="faq209"></a>
+**(209) Why is using a VPN often problematic?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq209)
+
+When you use a VPN, you share one network address with many people and not all those people will always behave nicely.
+Email servers often automatically block network addresses (IP addresses) when abuse is detected, for example when someone tries to send spam messages.
+The result is that logins are blocked for everyone using the same network address and the email server issues an error message such as "*Authentication failed*".
+This is also why the app warns against using a VPN.
 
 <br>
 
