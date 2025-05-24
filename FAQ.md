@@ -2104,7 +2104,7 @@ Since the images are downloaded from the source server [in real-time](https://bl
 this is even less secure, because Google is involved, too, without providing much benefit.
 
 You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
-You might need to reset the questions via a button in the miscellaneous-settings tab page.
+You might need to reset the questions via a button in the miscellaneous-settings tab page, as well as to disable *Remove tracking parameters by default*.
 
 <br />
 
