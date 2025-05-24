@@ -617,7 +617,7 @@ public abstract class DB extends RoomDatabase {
                                 dropTriggers(db);
 
                             createTriggers(db);
-                            dataUpdates(db);
+                            dataUpdates(db, context);
 
                             ContentValues cv = new ContentValues();
                             cv.put("host", "imap.mnet-online.de");
@@ -741,14 +741,23 @@ public abstract class DB extends RoomDatabase {
                 " END");
     }
 
-    private static void dataUpdates(SupportSQLiteDatabase db) {
+    private static void dataUpdates(SupportSQLiteDatabase db, Context context) {
         try {
-            db.execSQL("UPDATE identity" +
-                    " SET use_ip = 0" +
-                    " WHERE use_ip = 1 AND " +
-                    "(host = 'mail.optonline.net'" +
-                    " OR host = 'mail.optimum.net'" +
-                    " OR host = 'smtp.suddenlink.net')");
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            int dataVersion = prefs.getInt("data_version", 0);
+            int newVersion = 1;
+            if (dataVersion < 1) {
+                db.execSQL("UPDATE identity" +
+                        " SET use_ip = 0" +
+                        " WHERE use_ip = 1 AND " +
+                        "(host = 'mail.optonline.net'" +
+                        " OR host = 'mail.optimum.net'" +
+                        " OR host = 'smtp.suddenlink.net')");
+            }
+            if (dataVersion < newVersion) {
+                Log.i("Updating from data version " + dataVersion + " to " + newVersion);
+                prefs.edit().putInt("data_version", newVersion).apply();
+            }
         } catch (Throwable ex) {
             Log.e(ex);
         }
