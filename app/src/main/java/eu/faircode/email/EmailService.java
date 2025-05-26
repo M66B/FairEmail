@@ -944,7 +944,7 @@ public class EmailService implements AutoCloseable {
         return TextUtils.join(".", c);
     }
 
-    List<EntityFolder> getFolders() throws MessagingException {
+    List<EntityFolder> getFolders(String host) throws MessagingException {
         List<EntityFolder> folders = new ArrayList<>();
 
         try {
@@ -958,7 +958,7 @@ public class EmailService implements AutoCloseable {
                     folders.add(new EntityFolder(fullName, type));
             }
 
-            EntityFolder.guessTypes(folders);
+            EntityFolder.guessTypes(folders, host);
         } catch (MessagingException ex) {
             if (ex.getMessage() != null &&
                     ex.getMessage().contains("LIST processing failed")) {

@@ -491,7 +491,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                 }
                             }
 
-                            folders = iservice.getFolders();
+                            folders = iservice.getFolders(provider.imap.host);
 
                             if (!check) {
                                 boolean drafts = false;
@@ -555,7 +555,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                         if (!junk)
                                             istore.getFolder(n + EntityFolder.JUNK).create(Folder.HOLDS_MESSAGES);
 
-                                        folders = iservice.getFolders();
+                                        folders = iservice.getFolders(provider.imap.host);
                                     } catch (Throwable ex) {
                                         Log.e(ex);
                                     }

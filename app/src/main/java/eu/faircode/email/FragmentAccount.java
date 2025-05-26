@@ -873,14 +873,14 @@ public class FragmentAccount extends FragmentBase {
                             iservice.hasCapability("UTF8=ACCEPT") ||
                                     iservice.hasCapability("UTF8=ONLY");
 
-                    for (EntityFolder f : iservice.getFolders()) {
+                    for (EntityFolder f : iservice.getFolders(host)) {
                         EntityFolder folder = db.folder().getFolderByName(id, f.name);
                         if (folder == null)
                             folder = new EntityFolder(f.name, f.type);
                         result.folders.add(folder);
                     }
 
-                    EntityFolder.guessTypes(result.folders);
+                    EntityFolder.guessTypes(result.folders, host);
 
                     if (result.folders.size() > 0)
                         Collections.sort(result.folders, result.folders.get(0).getComparator(null));
@@ -1283,7 +1283,7 @@ public class FragmentAccount extends FragmentBase {
                                 user, password,
                                 certificate, fingerprint);
 
-                        for (EntityFolder f : iservice.getFolders())
+                        for (EntityFolder f : iservice.getFolders(host))
                             if (EntityFolder.INBOX.equals(f.type)) {
                                 inbox = new EntityFolder();
                                 inbox.name = f.name;

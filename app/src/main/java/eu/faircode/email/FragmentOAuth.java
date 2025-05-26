@@ -932,7 +932,7 @@ public class FragmentOAuth extends FragmentBase {
                     if (pop)
                         folders = EntityFolder.getPopFolders(context);
                     else
-                        folders = aservice.getFolders();
+                        folders = aservice.getFolders(inbound.host);
                 }
 
                 Long max_size = null;

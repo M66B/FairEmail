@@ -245,6 +245,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         put("sent", new TypeScore(EntityFolder.SENT, 100));
         put("Gesendet", new TypeScore(EntityFolder.SENT, 100));
         put("envoyé", new TypeScore(EntityFolder.SENT, 100));
+        put("OUTBOX", new TypeScore(EntityFolder.SENT, 100, "imap.laposte.net"));
         put("Отправленные", new TypeScore(EntityFolder.SENT, 100));
         put("Inviata", new TypeScore(EntityFolder.SENT, 100));
         put("wysłane", new TypeScore(EntityFolder.SENT, 100)); // Polish
@@ -324,6 +325,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
         if ("poczta.o2.pl".equals(account.host) && INBOX.equals(name))
             poll = true;
+
+        if ("imap.laposte.net".equals(account.host) && "INBOX/OUTBOX".equals(name))
+            display = "Envoyés";
     }
 
     void inheritFrom(EntityFolder parent) {
@@ -548,10 +552,17 @@ public class EntityFolder extends EntityOrder implements Serializable {
         @NonNull
         private String type;
         private int score;
+        private String host;
 
         TypeScore(@NonNull String type, int score) {
             this.score = score;
             this.type = type;
+        }
+
+        TypeScore(@NonNull String type, int score, String host) {
+            this.score = score;
+            this.type = type;
+            this.host = host;
         }
     }
 
@@ -572,7 +583,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         }
     }
 
-    static void guessTypes(List<EntityFolder> folders) {
+    static void guessTypes(List<EntityFolder> folders, String host) {
         List<String> types = new ArrayList<>();
         Map<String, List<FolderScore>> typeFolderScore = new HashMap<>();
 
@@ -581,6 +592,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
                 for (String guess : GUESS_FOLDER_TYPE.keySet())
                     if (folder.name.toLowerCase(Locale.ROOT).contains(guess.toLowerCase(Locale.ROOT))) {
                         TypeScore score = GUESS_FOLDER_TYPE.get(guess);
+                        if (score.host != null && !score.host.equals(host))
+                            continue;
                         if (!typeFolderScore.containsKey(score.type))
                             typeFolderScore.put(score.type, new ArrayList<>());
                         typeFolderScore.get(score.type).add(new FolderScore(folder, score.score));
