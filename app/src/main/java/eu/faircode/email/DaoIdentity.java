@@ -70,7 +70,8 @@ public interface DaoIdentity {
 
     @Query("SELECT * FROM identity" +
             " WHERE account = :account" +
-            " AND email = :email COLLATE NOCASE")
+            " AND email = :email COLLATE NOCASE" +
+            " AND identity.synchronize")
     List<EntityIdentity> getIdentities(long account, String email);
 
     @Query("SELECT identity.* FROM identity" +
