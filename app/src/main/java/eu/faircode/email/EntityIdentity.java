@@ -22,7 +22,6 @@ package eu.faircode.email;
 import static androidx.room.ForeignKey.CASCADE;
 
 import android.text.TextUtils;
-import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -204,38 +203,6 @@ public class EntityIdentity {
         }
 
         return false;
-    }
-
-    Pair<String, String> getAliases() {
-        if (sign_key_alias == null)
-            return null;
-
-        String encrypt = null;
-        String decrypt = null;
-        try {
-            JSONObject jalias = new JSONObject(sign_key_alias);
-            if (jalias.has("encrypt"))
-                encrypt = jalias.getString("encrypt");
-            if (jalias.has("decrypt"))
-                decrypt = jalias.getString("decrypt");
-        } catch (JSONException ex) {
-            Log.w(ex);
-            encrypt = sign_key_alias;
-            decrypt = sign_key_alias;
-        }
-
-        return new Pair<>(encrypt, decrypt);
-    }
-
-    void setAlias(String alias, boolean encrypt) throws JSONException {
-        Pair<String, String> aliases = getAliases();
-        JSONObject jaliases = new JSONObject();
-        if (aliases != null && aliases.first != null)
-            jaliases.put("encrypt", aliases.first);
-        if (aliases != null && aliases.second != null)
-            jaliases.put("decrypt", aliases.second);
-        jaliases.put(encrypt ? "encrypt" : "decrypt", alias);
-        sign_key_alias = jaliases.toString();
     }
 
     public JSONObject toJSON() throws JSONException {

@@ -9436,8 +9436,7 @@ public class FragmentMessages extends FragmentBase
                     if (auto && identity == null)
                         return;
 
-                    Pair<String, String> aliases = (identity == null ? null : identity.getAliases());
-                    String alias = (aliases == null ? null : aliases.second);
+                    String alias = (identity == null ? null : identity.sign_key_alias);
                     Helper.selectKeyAlias(getActivity(), getViewLifecycleOwner(), alias, new Helper.IKeyAlias() {
                         @Override
                         public void onSelected(String alias) {
@@ -10766,17 +10765,10 @@ public class FragmentMessages extends FragmentBase
                     db.message().setMessageStored(message.id, new Date().getTime());
                     db.message().setMessageFts(message.id, false);
 
-                    if (alias != null && !duplicate && message.identity != null) {
-                        EntityIdentity identity = db.identity().getIdentity(message.identity);
-                        if (identity != null) {
-                            identity.setAlias(alias, false);
-                            db.identity().setIdentitySignKeyAlias(identity.id, identity.sign_key_alias);
-                        }
-                    }
+                    if (alias != null && !duplicate && message.identity != null)
+                        db.identity().setIdentitySignKeyAlias(message.identity, alias);
 
                     db.setTransactionSuccessful();
-                } catch (JSONException ex) {
-                    Log.e(ex);
                 } catch (SQLiteConstraintException ex) {
                     // Message removed
                     Log.w(ex);
