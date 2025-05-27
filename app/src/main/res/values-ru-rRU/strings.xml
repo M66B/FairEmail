@@ -190,7 +190,7 @@
     <string name="title_setup_intro">Настройте учётную запись всего за три шага и сможете отправлять и получать письма</string>
     <string name="title_setup_simple">Нет необходимости менять другие параметры</string>
     <string name="title_setup_issue">FairEmail был разработан для того, чтобы помочь вам защитить вашу конфиденциальность и представляет буквально тысячи часов работы. Если у вас возникли проблемы, пожалуйста, свяжитесь со мной для поддержки перед тем, как оставлять плохие отзывы. Я рад помочь!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail не показывает рекламу, не отслеживает и не анализирует ваше поведение.</string>
+    <string name="title_setup_analytics">FairEmail не показывает рекламу, не отслеживает и не анализирует ваше поведение.</string>
     <string name="title_setup_quick_accounts">Добавить или изменить учётные записи</string>
     <string name="title_setup_quick_support">Некоторые провайдеры затрудняют добавление учётной записи. Пожалуйста, не обвиняйте в этом FairEmail, а попросите поддержку.</string>
     <string name="title_setup_quick_hint">Введённый адрес электронной почты используется для запроса почтового сервера и autoconfig.thunderbird.net для получения сведений о конфигурации</string>
@@ -946,6 +946,7 @@
     <string name="title_advanced_default_folder_hint">        Android может запросить разрешение на доступ к выбранной папке, даже если приложению это не нужно.
         Вы можете отменить выбор, чтобы восстановить папку по умолчанию (обычно это папка \"Download\").
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">По возможности восстанавливать последнее состояние приложения при перезапуске с помощью значка на рабочем столе</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_expandall_hint">Кнопка ответа не будет отображаться, если развёрнуто несколько сообщений, поскольку будет неясно, к какому сообщению она относится</string>
     <string name="title_advanced_autoseen_hint">Автоматическая пометка сообщений прочитанными при развёртывании может быть отключена в настройках для каждой учётной записи</string>
@@ -2009,7 +2010,7 @@
     <string name="title_hint_folder_actions">Длительное нажатие на папку откроет другие действия, например, добавление папки в меню навигации для быстрого доступа.</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика по умолчанию синхронизируются не все папки и сообщения.</string>
     <string name="title_hint_airplane">Режим полета включён</string>
-    <string name="title_hint_vpn_active">VPN включён</string>
+    <string name="title_hint_vpn_active">Включён VPN</string>
     <string name="title_hint_notifications">Отсутствует разрешение на отображение уведомлений</string>
     <string name="title_hint_notifications_remark">Разрешения на уведомления также необходимы для предупреждений (учётной записи). Уведомления о новых сообщениях можно отключить в настройках.</string>
     <string name="title_hint_battery_optimizations">Оптимизация энергопотребления всё ещё включена</string>

@@ -190,7 +190,7 @@
     <string name="title_setup_intro">Nastavení účtu jsou jen tři kroky a poté již můžete posílat a přijímat e-maily</string>
     <string name="title_setup_simple">Není třeba měnit žádné další volby</string>
     <string name="title_setup_issue">FairEmail byl vyvinut tak, aby Vám pomohl chránit vaše soukromí a zabral doslova tisíce hodin práce. Pokud máte nějaké problémy, prosím kontaktujte s Vašimi dotazy nejprve mě, než se rozhodnete pro špatné hodnocení. S radostí Vám pomůžu!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail nezobrazuje reklamy a nesleduje ani neanalyzuje vaše chování.</string>
+    <string name="title_setup_analytics">FairEmail nezobrazuje reklamy a nesleduje ani neanalyzuje vaše chování.</string>
     <string name="title_setup_quick_accounts">Přidat nebo upravit účty</string>
     <string name="title_setup_quick_support">Někteří poskytovatelé činí přidání účtu zbytečně obtížným. Nekřivděte prosím kvůli tomu FairEmailu, namísto toho požádejte o podporu.</string>
     <string name="title_setup_quick_hint">Zadaná e-mailová adresa se použije k dotazu na e-mailový server a autoconfig.thunderbird.net pro získání konfiguračních informací</string>
@@ -946,6 +946,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_default_folder_hint">        Android může požádat o oprávnění pro přístup k vybrané složce, i když to aplikace nepotřebuje.
         Můžete zrušit dialog výběru pro obnovení výchozí složky (obvykle složky \'Download\').
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Obnovení posledního stavu aplikace, pokud je to možné, při opětovném spuštění pomocí ikony spouštěče</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu, je-li v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
     <string name="title_advanced_expandall_hint">Tlačítko odpovědi nebude zobrazeno, pokud je rozbaleno více zpráv, protože není jasné na které zprávy se toto tlačítko vztahuje</string>
     <string name="title_advanced_autoseen_hint">Automatické označování zpráv jako přečtených při rozbalení lze zakázat v pokročilém nastavení jednotlivých účtů</string>

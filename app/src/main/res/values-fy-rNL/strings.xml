@@ -160,7 +160,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_intro">In account tafoegje kin al yn trije stappen, dêrnei kinne jo e-mailberjochten ferstjoere en ûntfange.</string>
     <string name="title_setup_simple">Dêr is gjin needsaak om oare opsjes te wizigjen</string>
     <string name="title_setup_issue">FairEmail is ûntwikkele om jo te helpen jo privacy te beskermjen en fertsjintwurdiget tûzenen oeren wurk. As jo swierrichheden hawwe, nim dan earst kontakt op mei my foar stipe, eardat jo in minne beoardieling efterlitte. Ik help jo graach!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail toant gjin advertinsjes en folget of analysearret jo gedrach net.</string>
+    <string name="title_setup_analytics">FairEmail toant gjin advertinsjes en folget of analysearret jo gedrach net.</string>
     <string name="title_setup_quick_accounts">Accounts tafoegje of wizigje</string>
     <string name="title_setup_quick_support">Guon providers meitsje it dreech om in account ta te foegjen. Jou FairEmail hjir gjin skuld foar, mar freegje yn stee derfan om stipe.</string>
     <string name="title_setup_quick_hint">It ynfierde e-mailadres wurdt brûkt om de e-mailserver en autoconfig.thunderbird.net om konfiguraasje-ynformaasje te freegjen</string>
@@ -913,6 +913,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_default_folder_hint">        Android kin tastimming freegje foar tagong ta de selektearre map, ek al hat de app dit net nedich.
         Jo kinne it seleksjefinster annulearje om de standert map te werstellen (meastentiids de map ‘Download’).
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Werstel wannear mooglik de lêste app-status wannear’t opnij opstart fia it launcher-piktogram</string>
     <string name="title_advanced_autoexpand_hint">Berjocht automatysk iepenje as der mar ien berjocht of mar ien net-lêzen berjocht yn in petear is</string>
     <string name="title_advanced_expandall_hint">De antwurdknop sil net werjûn wurde wannear’t meardere berjochten iepenklapt wurde, omdat it dan net dúdlik is op hokker berjocht de knop fan tapassing is</string>
     <string name="title_advanced_autoseen_hint">Berjochten automatysk as lêzen markearje by útwreidzjen kin útskeakele wurde yn de avansearre accountynstellingen fan elk account</string>

@@ -162,7 +162,7 @@
     <string name="title_setup_intro">Configurare un account richiede solo tre passaggi per poter inviare e ricevere email</string>
     <string name="title_setup_simple">Non serve cambiare altre opzioni</string>
     <string name="title_setup_issue">FairEmail è stata sviluppata per aiutare a proteggere la propria privacy e sono state necessarie letteralmente migliaia di ore di lavoro. Se si riscontrano problemi, contattare lo sviluppatore per supporto prima di lasciare una brutta recensione. Sarà felice di dare una mano!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail non mostra pubblicità e non traccia né analizza il tuo comportamento.</string>
+    <string name="title_setup_analytics">FairEmail non mostra pubblicità e non traccia né analizza il tuo comportamento.</string>
     <string name="title_setup_quick_accounts">Aggiungere o cambiare gli account</string>
     <string name="title_setup_quick_support">Alcuni provider rendono difficile aggiungere un account. Di questo non è responsabile FairEmail, semmai è necessario chiedere supporto.</string>
     <string name="title_setup_quick_hint">L\'indirizzo email inserito è usato per interrogare il server email e autoconfig.thunderbird.net per le informazioni di configurazione</string>
@@ -919,6 +919,7 @@
     <string name="title_advanced_default_folder_hint">        Android potrebbe richiedere l\'autorizzazione ad accedere alla cartella selezionata, anche se l\'app non la necessita.
         Puoi annullare la finestra di selezione per ripristinare la cartella predefinita (solitamente la cartella \'Download\').
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Se possibile, riapri l\'app sull\'ultima schermata usata quando viene riavviata dall\'icona del launcher.</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando ce n\'è solo uno o c\'è solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_expandall_hint">Il pulsante di risposta non sarà mostrato quando sono espansi più messaggi perché non è chiaro a quale messaggio si applichi il tasto</string>
     <string name="title_advanced_autoseen_hint">Dalle impostazioni avanzate di ogni account è possibile disabilitare la funzione che segna automaticamente i messaggi come letti alla loro apertura.</string>

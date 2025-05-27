@@ -146,7 +146,7 @@
     <string name="title_setup_intro">تنظیم کردن حساب تنها سه مرحله دارد و پس از آن شما می‌توانید ایمیل بفرستید یا دریافت کنید</string>
     <string name="title_setup_simple">نیازی به تغییر هیچ یک از تنظیمات نیست</string>
     <string name="title_setup_issue">FairEmail به منظور حفاظت از حریم شخصی شما توسعه پیدا کرده و حاصل هزاران ساعت کار و تلاش است. در صورت مواجهه با هرگونه مشکلی، لطفا پیش از نوشتن نظرات منفی، با من تماس بگیرید. خوشحال می‌شوم که کمکتان کنم!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail تبلیغات نشان نمی‌دهد و رفتار شما را رهگیری و بررسی نمی‌کند.</string>
+    <string name="title_setup_analytics">FairEmail تبلیغات نشان نمی‌دهد و رفتار شما را رهگیری و بررسی نمی‌کند.</string>
     <string name="title_setup_quick_accounts">افزودن یا تغییر حساب‌ها</string>
     <string name="title_setup_quick_support">برخی از ارائه‌دهندگان ایمیل، افزودن حساب را دشوار می‌کنند. لطفا تقصیر را گردن FairEmail نیاندازید و به جای آن خواستار پشتیبانی شوید.</string>
     <string name="title_setup_quick_hint">آدرس ایمیل وارد شده برای پرس و جوی سرور و autoconfig.thunderbird.net استفاده می‌شود تا اطلاعات پیکربندی شوند</string>

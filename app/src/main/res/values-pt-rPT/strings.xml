@@ -162,7 +162,7 @@
     <string name="title_setup_intro">A configuração de uma conta consiste em três passos podendo, logo após isso, enviar e receber e-mails</string>
     <string name="title_setup_simple">Não é necessária a alteração doutras opções</string>
     <string name="title_setup_issue">O FairEmail foi desenvolvido para o ajudar a proteger a sua privacidade e representa, literalmente, milhares de horas de trabalho. Caso tenha algum problema, peço que me contacte primeiro para assistência antes de deixar uma avaliação negativa. Tenho todo o gosto em ajudar!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail não exibe anúncios e não rastreia ou analisa o seu comportamento.</string>
+    <string name="title_setup_analytics">FairEmail não exibe anúncios e não rastreia ou analisa o seu comportamento.</string>
     <string name="title_setup_quick_accounts">Adicionar ou alterar contas</string>
     <string name="title_setup_quick_support">Alguns provedores tornam difícil adicionar uma conta. Por favor, não culpe o FairEmail por isso, peça-lhes suporte.</string>
     <string name="title_setup_quick_hint">O endereço de e-mail inserido é usado para consultar o servidor de e-mail e autoconfig.thunderbird.net para informações de configuração</string>
@@ -917,6 +917,7 @@
     <string name="title_advanced_default_folder_hint">        O dispositivo Android pode solicitar permissão para aceder à pasta selecionada, mesmo que a aplicação não precise dela.
         Pode cancelar o diálogo de seleção para restaurar a pasta padrão (geralmente a pasta \"Transferir\").
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Restaurar o último estado da aplicação, se possível, quando reiniciado através do ícone do iniciador</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensagem automaticamente quando houver apenas uma mensagem ou uma mensagem não lida numa conversa</string>
     <string name="title_advanced_expandall_hint">O botão de resposta não será mostrado quando várias mensagens são expandidas porque não está claro a qual mensagem o botão se aplica</string>
     <string name="title_advanced_autoseen_hint">Marcar mensagens automaticamente como lidas ao expandir pode ser desativado nas configurações avançadas de cada conta</string>

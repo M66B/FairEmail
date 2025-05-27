@@ -18,9 +18,16 @@
         Google darbojas pie labojuma.
         Lūgums nevainot lietotni par šo Android nepilnību.
     </string>
+    <string name="channel_service">Pārraugs</string>
+    <string name="channel_progress">Izpilde</string>
     <string name="channel_update">Atjauninājumi</string>
+    <string name="channel_announcements">Paziņojumi</string>
     <string name="channel_warning">Brīdinājumi</string>
     <string name="channel_error">Kļūdas</string>
+    <string name="channel_alert">Servera brīdinājumi</string>
+    <string name="channel_service_description">Kontu sinhronizēšana un pārraudzīšana</string>
+    <string name="channel_send_description">Ziņojumu nosūtīšana</string>
+    <string name="channel_progress_description">Izpildes paziņojumi par ilgāk notiekošām darbībām</string>
     <plurals name="page_message">
         <item quantity="zero">Ziņojumi</item>
         <item quantity="one">Ziņojums</item>
@@ -29,6 +36,11 @@
     <string name="page_folders">Mapes</string>
     <string name="shortcut_refresh">Atsvaidzināt</string>
     <string name="shortcut_setup">Iestatījumi</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="zero">Pārrauga %1$d kontu</item>
+        <item quantity="one">Pārrauga %1$d kontu</item>
+        <item quantity="other">Pārrauga %1$d kontus</item>
+    </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="zero">%1$d jaunu ziņojumu</item>
         <item quantity="one">%1$d jauns ziņojums</item>
@@ -58,7 +70,12 @@
     <string name="title_unblock_all_remark">Tas atiestatīs visus sarakstus un iespējas, kas var beigties ar sūtītāju aizturēšanu</string>
     <string name="title_unblock_all_hint">Jāņem vērā, ka lietotne nevar atturēt e-pasta serveri no ziņojumu pārvietošanas uz mēstuļu mapi.</string>
     <string name="title_junk_clear_hint">Tas izdzēsīs visas sūtītāja liegšanas kārtulas</string>
+    <string name="title_notification_sending">Nosūta ziņojumus</string>
     <string name="title_notification_waiting">Gaida atbilstošu savienojumu</string>
+    <string name="title_notification_alert">Servera brīdinājums: \"%1$s\"</string>
+    <string name="title_notification_sending_left">Atlikušie mēģinājumi: %1$d</string>
+    <string name="title_notification_sending_retry">Nosūtīšana tiks mēģināta atkārtoti pēc savienojuma ar internetu izmaiņām vai pavelkot uz leju izsūtnē</string>
+    <string name="title_notification_sending_failed">Nosūtīšana %1$s neizdevās</string>
     <string name="menu_setup">Iestatījumi</string>
     <string name="menu_faq">Atbalsts</string>
     <string name="menu_translate">Palīdzēt tulkot</string>
@@ -77,7 +94,7 @@
     <string name="title_setup">Iestatījumi</string>
     <string name="title_setup_help">Palīdzība</string>
     <string name="title_setup_issue">FairEmail tika izstrādāta, lai palīdzētu aizsargāt lietotāju privātumu, un tā atspoguļo burtiski tūkstošiem stundu ilgu darbu. Ja ir jebākdi sarežģījumi,lūgums vispirms sazināties ar mani, pirms tiek atstāta slikta atsauksme. Būšu priecīgs palīdzēt.</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail nerāda reklāmas un neizseko vai neapkopo lietotāju uzvedību.</string>
+    <string name="title_setup_analytics">FairEmail nerāda reklāmas un neizseko vai neapkopo lietotāju uzvedību.</string>
     <string name="title_setup_quick_accounts">Pievienot vai rediģēt kontus</string>
     <string name="title_setup_wizard_new">Man vajag jaunu e-pasta adresi</string>
     <string name="title_setup_wizard_hint">Ātrās iestatīšanas vednis darbojas arī augstāk esošajam \"Cits pakalpojumu sniedzējs\", un tas ir vienkāršāk, nekā visu servera datu ievadīšana.</string>
@@ -86,6 +103,7 @@
     <string name="title_setup_inbound">Tikai ienākošie e-pasta ziņojumi (e-pasta ziņojumus nevar nosūtīt)</string>
     <string name="title_setup_imap">IMAP konts</string>
     <string name="title_setup_pop3">POP3 konts</string>
+    <string name="title_setup_gmail_permissions">Google vaicās atļaujas lai lasītu, sastādītu, nosūtītu un neatgriezeniski izdzēstu visu e-pastu. FairEmail nekad neizdzēsīs ziņojumus bez tiešas piekrišanas.</string>
     <string name="title_setup_oauth_authorize">Pilnvarot</string>
     <string name="title_setup_select_account">Atlasīt kontu</string>
     <string name="title_setup_instructions">Iestatīšanas norādes</string>
@@ -101,6 +119,7 @@
     <string name="title_setup_permission_import_contacts">Kā es varu ievietot kontaktpersonas?</string>
     <string name="title_setup_import_graph_contact">Outlook kontaktpersonas</string>
     <string name="title_setup_import_graph_new">Jaunas kontaktpersonas: %1$s</string>
+    <string name="title_setup_doze_explanation">Lietotnei vajadzētu būt atspējotai akumulatora optimizēšanai, lai fonā nodrošinātu uzticamu ziņojumu nosūtīšanu un saņemšanu</string>
     <string name="title_setup_data">Datu taupītājs ir iespējots</string>
     <string name="title_setup_error">Kļūda</string>
     <string name="title_setup_pop">Lietot POP3 (nav ieteicams)</string>
@@ -148,16 +167,28 @@
     <string name="title_advanced_when">Kad</string>
     <string name="title_advanced_unseen">Visì nelasītie ziņojumi</string>
     <string name="title_advanced_flagged">Visi atzīmētie ziņojumi</string>
+    <string name="title_advanced_delete_unseen">Izdzēst vecus nelasītos ziņojumus</string>
+    <string name="title_advanced_send_delayed">Novilcināt ziņojumu nosūtīšanu</string>
+    <string name="title_advanced_send_undo">Rādīt nosūtīšanas atcelšanas iespēju</string>
+    <string name="title_advanced_send_retry_max">Lielākais pieļaujamais nosūtīšanas mēģinājumu skaits</string>
+    <string name="title_advanced_send_retry_hint">Nosūtīšana tiks veikta atkārtoti pēc savienojuma izmaiņām</string>
+    <string name="title_advanced_send_partial">Nosūtīšanas laikā neņemt vērā nederīgas adreses</string>
+    <string name="title_advanced_send_partial_hint">Ja kādas no adresēm būs nederīgas, ziņojums joprojām tiks nosūtīts uz pārējām adresēm</string>
+    <string name="title_advanced_lookup_mx">Pirms nosūtīšanas pārbaudīt saņēmēju e-pasta adreses</string>
     <string name="title_advanced_download_limited">Pielietot arī nemērāmiem savienojimiem</string>
     <string name="title_advanced_caption_file">Datnes</string>
     <string name="title_advanced_nav_unseen_drafts">Pārvietošanās izvēlnē rādīt neizlasīto melnrakstu skaitu</string>
     <string name="title_advanced_account_color_size">Krāsu joslas platums</string>
+    <string name="title_advanced_ddg">Rādīt DuckDuckGo ikonas</string>
     <string name="title_advanced_pdf_preview">Rādīt PDF sīktēlus</string>
     <string name="title_advanced_video_preview">Rādīt video sīktēlus</string>
     <string name="title_advanced_double_back">Divkāršs \"atpakaļ\", lai izietu</string>
+    <string name="title_advanced_autoclose_send">Automātiski aizvērt sarunas pēc ziņojumu nosūtīšanas</string>
     <string name="title_advanced_reset_importance">Atiestatīt svarīgumu pēc ziņojumu pārvietošanas</string>
     <string name="title_advanced_important_unsnoozed">Automātiski padarīt nesnaudošos ziņojumus par svarīgiem</string>
     <string name="title_advanced_auto_important">Automātiski padarīt atzīmētos ziņojumus par svarīgiem</string>
+    <string name="title_advanced_notifications_service">Pārraudzības kanāls</string>
+    <string name="title_advanced_notify_subject">Rādīt tēmu paziņojumos</string>
     <string name="title_advanced_notify_action_delete">Dzēst</string>
     <string name="title_advanced_notify_action_move">Pārvietot</string>
     <string name="title_advanced_notify_action_reply">Atbildēt</string>
@@ -177,6 +208,7 @@
     <string name="title_advanced_import_key">Ievietot privāto atslēgu</string>
     <string name="title_advanced_manage_keys">Pārvaldīt privātās atslēgas</string>
     <string name="title_advanced_ca">Uzstādītie CA sertifikāti</string>
+    <string name="title_advanced_fts_indexed">Indeksēti %1$d no %2$d ziņojumiem (%3$s)</string>
     <string name="title_advanced_haptic_feedback">Sajūtu atgriezeniskā saite svarīgām darbībām</string>
     <string name="title_advanced_language">Valoda</string>
     <string name="title_advanced_integrations_hint">Tālāk piedāvātie mākoņpakalpojumi nav lietotnes sastāvdaļa. Visa nauda nonāks tieši mākoņpakalpojuma sniedzēja kabatā, nevis lietotnes izstrādātājam.</string>
@@ -184,6 +216,7 @@
     <string name="title_advanced_lt_sentence">Pārbaudīt katru teikumu</string>
     <string name="title_advanced_lt_auto">Pārbaudīt rindkopu pēc jaunas rindas</string>
     <string name="title_advanced_lt_description">Parādīt uznirstošo lodziņu ar sarežģījuma aprakstu</string>
+    <string name="title_advanced_announcements">Pārbaudīt, vai ir pieejami paziņojumi</string>
     <string name="title_advanced_google_backup">Izmantot Android datu rezerves kopēšanu</string>
     <string name="title_advanced_app">Lietotnes iestatījumi</string>
     <string name="title_advanced_log_info">Atkļūdošanas žurnalēšana</string>
@@ -205,6 +238,9 @@
     <string name="title_advanced_privacy_risk">Pastāv konfidencialitātes pārkāpuma risks</string>
     <string name="title_advanced_preview_issue">Ritināšana var būt lēna nepilnības dažās Android versijās dēļ, kad rindu skaits ir lielāks par vienu</string>
     <string name="title_advanced_envelope_from_hint">Šī adrese tiks izmantota SMTP MAIL FROM</string>
+    <string name="title_advanced_notify_manage_service_hint">Lai atspējotu pārraudzīšanas paziņojumu</string>
+    <string name="title_advanced_fts_hint">Šī iespējošana uzlabo meklēšanas veiktspēju, bet arī palielina akumulatora un krātuves vietas lietojumu</string>
+    <string name="title_advanced_protocol_hint">Tas būtiski palielinās akumulatora un krātuves vietas lietojumu.</string>
     <string name="title_advanced_debug_hint">Dažādās vietās tiks rādīt nepievilcīga atkļūdošanas informācija</string>
     <string name="title_create_folder">Izveidot mapi</string>
     <string name="title_create_folder_name">Mapes nosaukums</string>
@@ -223,12 +259,19 @@
     <string name="title_avatar">Attēls</string>
     <string name="title_domain">Domēna vārds</string>
     <string name="title_encryption">Šifrēšana</string>
+    <string name="title_password_storage">Kā tiek glabātas paroles?</string>
     <string name="title_keep_alive_noop">Laiku pa laikam palaist no jauna IMAP IDLE</string>
     <string name="title_reply_domain">Sūtītājs (%1$s) un atbildes domēns (%2$s) atšķiras</string>
     <string name="title_delete_account">Izdzēst kontu</string>
     <string name="title_import_file">Ievietot datni</string>
+    <string name="title_storage_quota">Servera krātuves lietojums: %1$s/%2$s</string>
+    <string name="title_pop_warning">Ja POP3 serveris neatbalsta UIDL komandu, varētu būt liels datu patēriņš, tādēļ zemāk attiecīgi jāpielāgo vaicājumu biežums.</string>
     <string name="title_hint_accounts">Ilgi jāpiespiež uz konta, lai attēlotu iespējas, piemēram, lai atspējotu vai izdzēstu kontu</string>
     <string name="title_synchronize_subfolders">Apakšmapes</string>
+    <string name="title_synchronize_more_hint2">        Ziņojumi tiks iegūti tik ātri, cik ātri e-pasta serveris var tos piegādāt, un saglabāti tik ātri, cik ātri ierīce var tos saglabāt un indeksēt.
+        Ierobežojošā īpatnība parasti ir ierīces iekšējās krātuves vietas ātrums.
+    </string>
+    <string name="title_synchronize_more_hint3">Lūgums paturēt prātā, ka liela daudzuma (desmit tūkstoši vai vairāk) ziņojumu glabāšana ierīcē var izraisīt aizkaves, jo iekšējās krātuves vieta nav bezgalīgi ātra.</string>
     <string name="title_synchronize_enabled">Sinhronizēt</string>
     <string name="title_empty_trash">Iztukšot atkritni</string>
     <string name="title_edit_color">Labot krāsu</string>
@@ -240,7 +283,7 @@
     <string name="title_export_contacts">Izgūt vCards</string>
     <string name="title_create_sub_folder">Izveidot apakšmapi</string>
     <string name="title_hint_operations">Darbību izdzēšana var beigties ar pazūdošiem ziņojumiem un sinhronizēšanas sarežgījumiem</string>
-    <string name="title_op_title_add">Augšupielādē ziņojumu</string>
+    <string name="title_op_title_add">Augšupielādēt ziņojumu</string>
     <string name="title_folder_name">Mapes nosaukums</string>
     <string name="title_edit_account_name">Labot konta nosaukumu</string>
     <string name="title_edit_account_color">Labot konta krāsu</string>
@@ -290,6 +333,7 @@
     <string name="title_reply_to_sender">Atbildēt sūtītājam</string>
     <string name="title_reply_to_all">Atbildēt visiem</string>
     <string name="title_move_undo">Pārvieto uz %1$s (%2$d)</string>
+    <string name="title_no_saf">Krātuves piekļuves satvars nav pieejams</string>
     <string name="title_no_folder">Mape nepastāv</string>
     <string name="title_complex_search">Atlasīt mapi izvērstajai meklēšanai</string>
     <string name="title_report_remark">Šo atskaiti, īpaši noformētu e-pasta ziņojumu, e-pasta serveris nosūtīja, jo nosūtīto ziņojumu nevarēja piegādāt saņēmējam, piemēram, jo pastkaste ir pilna vai e-pasta adrese (vairs) nepastāv.</string>
@@ -297,17 +341,22 @@
     <string name="title_submitter">Nosūtīja:</string>
     <string name="title_from">No:</string>
     <string name="title_to">Kam:</string>
+    <string name="title_via_identity">Konts:</string>
+    <string name="title_sent">Nosūtīts:</string>
+    <string name="title_received">Saņemts:</string>
     <string name="title_stored">Saglabāts:</string>
     <string name="title_size">Izmērs:</string>
     <string name="title_language">Valoda:</string>
     <string name="title_subject">Temats:</string>
     <string name="title_body_hint">Jūsu ziņojums</string>
+    <string name="title_send_via">Sūtīt, izmantojot</string>
     <string name="title_send_auto_archive">Arhivēt ziņojumu, kad nosūta atbildi</string>
     <string name="title_no_server">\"%1$s\" netika atrasts neviens serveris</string>
     <string name="title_style_protect_size">Teksts ir pārāk garš</string>
     <string name="title_add_image_select">Atlasīt datni</string>
     <string name="title_edit_plain_text">Rediģēt kā vienkāršu tekstu</string>
     <string name="title_size_reminder">Ziņojums (%1$s) pārsniedz servera ierobežojumu (%2$s)</string>
+    <string name="title_ask_send_via">Vai nosūtīt ziņojumu %1$s, izmantojot %2$s?</string>
     <string name="title_charset">Kodējums</string>
     <string name="title_filter_trash">Miskastē</string>
     <string name="title_answer_hide">Slēpt izvēlnēs</string>
@@ -320,9 +369,11 @@
     <string name="title_legend_folder_type">Mapes tips</string>
     <string name="title_legend_enter">Atvērt</string>
     <string name="title_legend_a">Arhivēt</string>
+    <string name="title_hint_notifications_remark">Paziņojumu atļaujas ir nepieciešamas arī (konta) brīdinājumiem. Iestatījumos var izslēgt paziņojumus par jauniem ziņojumiem.</string>
     <string name="title_hint_vpn">E-pasta serveri daržeriez liedz savienojumus caur VPN. Ja tas notiek, to var atrisināt tikai e-pasta pakalpojuma sniedzējs.</string>
     <string name="title_hint_support">Ja ir kādi jautājumi vai sarežģījumi, lūgums izmantot atbalsta izvēlni, lai iegūtu palīdzību</string>
     <string name="title_hint_important">Svarīgs</string>
+    <string name="title_hint_sync_note">Pēc noklusējuma ne visi ziņojumi tiks lejupielādēti, lai ierobežotu krātuves vietas, akumulatora un datu lietojumu. To var mainīt ar ilgu piespiešanu uz mapes sarakstā un \"Iegūt vairāk ziņojumu\" atlasīšanu.</string>
     <string name="title_issue">Vai ir kādi jautājumi vai sarežģijumi?</string>
     <string name="title_report">Ziņot</string>
     <string name="title_show">Rādīt</string>
@@ -355,6 +406,16 @@
     <string name="title_accessibility_hide_addresses">Slēpt adreses</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="undoNames">
+        <item>Off</item>
+        <item>2.5 s</item>
+        <item>5 s</item>
+        <item>7.5 s</item>
+        <item>10 s</item>
+        <item>15 s</item>
+        <item>30 sek.</item>
+        <item>60 sek.</item>
+    </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->

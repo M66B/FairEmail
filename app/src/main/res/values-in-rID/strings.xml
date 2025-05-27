@@ -148,6 +148,7 @@
     <string name="title_setup_intro">Menyiapkan akun hanya dengan tiga langkah dan setelah itu Anda sudah bisa mengirim dan menerima surel</string>
     <string name="title_setup_simple">Tidak perlu melakukan perubahan pada opsi lain</string>
     <string name="title_setup_issue">FairEmail dikembangkan untuk melindungi privasi dan secara harfiah mewakili ribuan jam kerja. Jika Anda mengalami kendala, silakan hubungi saya terlebih dahulu untuk membantu anda sebelum memberikan tinjauan buruk. Saya senang membantu Anda!</string>
+    <string name="title_setup_analytics">FairEmail does not display ads and does not track or analyze your behavior.</string>
     <string name="title_setup_quick_accounts">Tambah atau ganti akun</string>
     <string name="title_setup_quick_support">Beberapa penyedia layanan email mempersulit penambahan akun. Mohon jangan menyalahkan FairEmail untuk ini, tetapi mintalah dukungan sebagai gantinya.</string>
     <string name="title_setup_quick_hint">Alamat email yang dimasukkan digunakan untuk meminta server email dan autoconfig.thunderbird.net untuk informasi konfigurasi</string>

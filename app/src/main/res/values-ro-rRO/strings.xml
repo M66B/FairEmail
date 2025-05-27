@@ -176,7 +176,7 @@
     <string name="title_setup_intro">Configurarea unui cont are doar trei pași și după aceea puteți trimite și primi e-mailuri</string>
     <string name="title_setup_simple">Nu este nevoie să schimbați alte opțiuni</string>
     <string name="title_setup_issue">FairEmail a fost dezvoltat pentru a vă ajuta să vă protejați confidențialitatea și reprezintă literalmente mii de ore de muncă. Dacă aveți probleme, vă rog să mă contactați mai întâi pentru asistență înainte de a lăsa o recenzie proastă. Sunt bucuros să vă ajut!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail nu afișează reclame și nu urmărește sau analizează comportamentul dvs.</string>
+    <string name="title_setup_analytics">FairEmail nu afișează reclame și nu urmărește sau analizează comportamentul dvs.</string>
     <string name="title_setup_quick_accounts">Adăugați sau modificați conturi</string>
     <string name="title_setup_quick_support">Unii furnizori fac dificilă adăugarea unui cont. Vă rugăm să nu dați vina pe FairEmail pentru acest lucru, dar solicitați asistență în schimb.</string>
     <string name="title_setup_quick_hint">Adresa de e-mail introdusă este utilizată pentru a interoga serverul de e-mail și autoconfig.thunderbird.net pentru informații de configurare</string>
@@ -931,6 +931,7 @@
     <string name="title_advanced_default_folder_hint">        Android poate solicita permisiunea de a accesa directorul selectat, chiar dacă aplicația nu are nevoie de ea.
         Puteți anula dialogul de selectare pentru a restaura directorul implicit (de obicei \'Descărcare\').
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Restaurează ultima stare a aplicației dacă este posibilă la repornirea din pictograma lansator</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_expandall_hint">Butonul de răspuns nu va fi afișat atunci când sunt extinse mai multe mesaje, deoarece nu este clar la ce mesaj se aplică butonul</string>
     <string name="title_advanced_autoseen_hint">Marcarea automată a mesajelor ca fiind citite la extindere poate fi dezactivată în setările avansate ale fiecărui cont</string>

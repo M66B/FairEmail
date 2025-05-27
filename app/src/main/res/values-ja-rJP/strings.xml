@@ -148,7 +148,7 @@
     <string name="title_setup_intro">3 ステップのアカウント設定で、すぐにメールを送受信できます</string>
     <string name="title_setup_simple">細かな設定は必要ありません</string>
     <string name="title_setup_issue">FairEmail はあなたのプライバシーを保護するために開発され、文字通り数千時間が費やされています。何か問題があれば、低評価レビューを投稿する前にサポートに連絡してください。喜んでお手伝いします！</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail は広告を表示せず、あなたの行動を追跡したり分析したりしません。</string>
+    <string name="title_setup_analytics">FairEmail は広告を表示せず、あなたの行動を追跡したり分析したりしません。</string>
     <string name="title_setup_quick_accounts">アカウントを追加または変更する</string>
     <string name="title_setup_quick_support">一部のプロバイダーはアカウントを追加しにくくしています。FairEmail を非難せずに、サポートを依頼してください。</string>
     <string name="title_setup_quick_hint">入力されたメールアドレスは、設定情報を取得するためのメールサーバーと autoconfig.thunderbird.net への問い合わせに使用されます</string>
@@ -904,6 +904,7 @@
     <string name="title_advanced_default_folder_hint">        Android が選択されたフォルダーへのアクセス権限について、アプリが必要としていないのに確認する場合があります。
         選択ダイアログをキャンセルしてデフォルトのフォルダー (ほとんどは 「Download フォルダー」) を復元できます。
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">ランチャーアイコンからアプリを再起動したとき、直前の状態へ復元を試みます</string>
     <string name="title_advanced_autoexpand_hint">会話スレッド内のメッセージが 1 つだけ、または未読メッセージが 1 つだけの場合に自動でメッセージを開きます</string>
     <string name="title_advanced_expandall_hint">複数のメッセージが展開されている場合、ボタンがどのメッセージに適用されるかが明確でないため、返信ボタンは表示されません</string>
     <string name="title_advanced_autoseen_hint">展開したメッセージを自動で既読にする機能は、アカウント設定の詳細設定から無効にできます</string>

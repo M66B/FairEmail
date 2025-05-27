@@ -163,7 +163,7 @@
     <string name="title_setup_intro">Die Einrichtung eines Kontos ist mit nur drei Schritten erledigt und danach können Sie bereits E-Mails senden und empfangen</string>
     <string name="title_setup_simple">Es ist nicht notwendig, andere Optionen zu ändern</string>
     <string name="title_setup_issue">FairEmail wurde entwickelt, um Ihnen zu helfen, Ihre Privatsphäre zu schützen, und erforderte buchstäblich Tausende von Arbeitsstunden. Sollten Sie irgendwelche Probleme haben, wenden Sie sich bitte zuerst an mich, bevor Sie eine schlechte Bewertung abgeben. Ich bin gerne bereit zu helfen!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail zeigt keine Werbung und verfolgt oder analysiert auch nicht Ihr Verhalten.</string>
+    <string name="title_setup_analytics">FairEmail zeigt keine Werbung und verfolgt oder analysiert auch nicht Ihr Verhalten.</string>
     <string name="title_setup_quick_accounts">Konten hinzufügen oder ändern</string>
     <string name="title_setup_quick_support">Einige Anbieter erschweren das Hinzufügen eines Kontos. Bitte geben Sie nicht FairEmail dafür die Schuld, sondern bitten Sie stattdessen um Unterstützung.</string>
     <string name="title_setup_quick_hint">Die eingegebene E-Mail-Adresse wird verwendet, um den E-Mail-Server und autoconfig.thunderbird.net für Konfigurationsinformationen abzufragen</string>
@@ -920,6 +920,7 @@
     <string name="title_advanced_default_folder_hint">        Android kann um Erlaubnis zum Zugriff auf den ausgewählten Ordner bitten, auch wenn die App sie nicht braucht.
         Sie können den Auswahldialog abbrechen, um den Standardordner (normalerweise den Download-Ordner) wiederherzustellen.
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Wenn möglich, den letzten Zustand der Anwendung wiederherstellen, wenn sie über das Startmenü-Symbol neu gestartet wird</string>
     <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einer Unterhaltung enthalten ist</string>
     <string name="title_advanced_expandall_hint">Die Schaltfläche »Antworten« wird nicht angezeigt, wenn mehrere Nachrichten ausgeklappt sind, da unklar ist, für welche Nachricht die Schaltfläche gelten soll.</string>
     <string name="title_advanced_autoseen_hint">Das automatische »Als gelesen kennzeichnen« von Nachrichten beim Ausklappen kann in den erweiterten Kontoeinstellungen des jeweiligen Kontos deaktiviert werden</string>

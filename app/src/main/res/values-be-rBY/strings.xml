@@ -190,7 +190,7 @@
     <string name="title_setup_intro">Наладжванне ўліковага запісу складаецца ўсяго з трох крокаў, пасля чаго вы можаце адпраўляць і атрымліваць электронную пошту</string>
     <string name="title_setup_simple">Іншыя параметры мяняць не трэба</string>
     <string name="title_setup_issue">FairEmail быў распрацаваны, каб дапамагчы вам абараніць вашу канфідэнцыяльнасць, праца па яго стварэнні заняла літаральна тысячы гадзін. Калі ў вас узніклі праблемы, перш чым пакінуць адмоўны водгук, звярніцеся да мяне па падтрымку. Я рады дапамагчы!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail не паказвае рэкламу, не адсочвае і не аналізуе вашы паводзіны.</string>
+    <string name="title_setup_analytics">FairEmail не паказвае рэкламу, не адсочвае і не аналізуе вашы паводзіны.</string>
     <string name="title_setup_quick_accounts">Дадаванне або змяненне ўліковых запісаў</string>
     <string name="title_setup_quick_support">Некаторыя правайдары абцяжарваюць дадаванне ўліковага запісу. Калі ласка, не абвінавачвайце ў гэтым FairEmail — вы можаце звярнуцца па дапамогу.</string>
     <string name="title_setup_quick_hint">Уведзены адрас электроннай пошты выкарыстоўваецца для адпраўкі запытаў на сервер электроннай пошты і атрымання інфармацыі аб канфігурацыі з autoconfig.thunderbird.net</string>

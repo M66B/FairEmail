@@ -162,7 +162,7 @@
     <string name="title_setup_intro">Konto seadistamine on vaid kolm sammu ja peale seda saad saata ja tõmmata e-kirju</string>
     <string name="title_setup_simple">Muid seadistusi pole vaja muuta</string>
     <string name="title_setup_issue">FairEmaili on arendatud, et kaitsta sinu privaatsust ja sellesse on pühendatud sõna otseses mõttes tuhandeid tunde tööd. Kui sul on probleeme, võta enne toe saamiseks minuga ühendust, enne kui jätad negatiivse arvustuse. Ma olen rõõmus aitama!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail ei näita reklaame ega jälgi ega analüüsi sinu tegevust.</string>
+    <string name="title_setup_analytics">FairEmail ei näita reklaame ega jälgi ega analüüsi sinu tegevust.</string>
     <string name="title_setup_quick_accounts">Lisa või muuda kontosid</string>
     <string name="title_setup_quick_support">Mõni teenusepakkuja muudab konto lisamise keeruliseks. Palun ära süüdista selles FairEmaili, vaid küsi selle asemel tuge.</string>
     <string name="title_setup_quick_hint">Sisestatud e-postiaadressi kasutatakse päringu tegemiseks meiliserverisse ja autoconfig.thunderbird.net-st häälestusinfo saamiseks</string>

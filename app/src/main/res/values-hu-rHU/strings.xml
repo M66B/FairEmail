@@ -161,7 +161,7 @@
     <string name="title_setup_intro">A fiók létrehozása csak három lépésből áll és ezt követően e-maileket küldhet és fogadhat</string>
     <string name="title_setup_simple">Nincs szükség egyéb lehetőségek megváltoztatására</string>
     <string name="title_setup_issue">A FairEmail az Ön adatainak védelmére került fejlesztésre, és több ezer munkaóra eredménye. Ha bármilyen problémája van, kérem vegye fel velem a kapcsolatot mielőtt egy negatív értékelést írna. Örömmel segítek!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">A FairEmail nem mutat reklámokat, nem követi önt, és nem elemzi a viselkedését.</string>
+    <string name="title_setup_analytics">A FairEmail nem mutat reklámokat, nem követi önt, és nem elemzi a viselkedését.</string>
     <string name="title_setup_quick_accounts">Fiókok hozzáadása vagy módosítása</string>
     <string name="title_setup_quick_support">Egyes szolgáltatók megbonyolították a fiókok elérését. Ha emiatt nehézségekkel találkozol, inkább kérj segítséget reklamáció helyett.</string>
     <string name="title_setup_quick_hint">A megadott email-címmel lekérjük az email-kiszolgáló és az autoconfig.thunderbird.net beállításait</string>
@@ -913,6 +913,7 @@
     <string name="title_advanced_default_folder_hint">        A rendzser rákérdezhet a bizonyos mappához vlaó hozzáférést, akkoris ha az app számára nincs szükség engedélyre.
         Kiveheti a kijelölést az alap mappa visszaállításához (többnyire ez a \"Letöltés\" mappa).
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Az indító ikonnal történő újraindításkor állítsa vissza a korábbi alkalmazás állapotot, amennyiben lehetséges</string>
     <string name="title_advanced_autoexpand_hint">Üzenetek automatikus megnyitása, ha összesen egy, vagy csak egy olvasatlan üzetetet tartalmaz a beszélgetés</string>
     <string name="title_advanced_expandall_hint">Több üzenet kibontásánál nem fog megjelenni a válasz gomb, mert nem egyértelmű, hogy melyik üzenetre vonatkozik a válasz</string>
     <string name="title_advanced_autoseen_hint">Üzenetek kibontásánál olvasottnak tekintést ki lehet kapcsolni minden fiók saját haladó beállításainál</string>

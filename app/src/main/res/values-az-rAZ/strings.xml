@@ -162,7 +162,7 @@
     <string name="title_setup_intro">Bir hesabın hazırlanması üç addımdan ibarətdir və bundan sonra e-poçtları göndərə və ala bilərsiniz</string>
     <string name="title_setup_simple">Başqa hər hansısa bir seçimi dəyişdirməyə ehtiyac yoxdur</string>
     <string name="title_setup_issue">FairEmail, gizliliyinizi qorumağa kömək etməsi üçün təkmilləşdirildi və sözün əsl mənasında minlərlə saatlıq çalışmanı təmsil edir. Əgər tətbiqlə bağlı hər hansısa probleminiz varsa, mənfi bir rəy bildirməzdən əvvəl zəhmət olmasa dəstək üçün mənimlə əlaqə saxlayın. Məmnuniyyətlə kömək edərəm!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail reklam göstərmir, davranışlarınızı izləmir və ya təhlil etmir.</string>
+    <string name="title_setup_analytics">FairEmail reklam göstərmir, davranışlarınızı izləmir və ya təhlil etmir.</string>
     <string name="title_setup_quick_accounts">Hesab əlavə et və ya dəyişdir</string>
     <string name="title_setup_quick_support">Bəzi provayderlər hesab əlavə etməyi çətinləşdirir. Xahiş edirik, buna görə \"FairEmail\"i günahlandırmayın, əvəzində dəstək istəyin.</string>
     <string name="title_setup_quick_hint">Daxil edilmiş e-poçt ünvanı, konfiqurasiya məlumatları üçün e-poçt serverini və autoconfig.thunderbird.net-i sorğulamaq üçün istifadə olunur</string>
@@ -918,6 +918,7 @@
     <string name="title_advanced_default_folder_hint">        Android, tətbiqin buna ehtiyacı olmasa belə, seçilmiş qovluğa müraciət üçün icazə istəyə bilər.
         İlkin qovluğu (adətən \"Endirmə\" qovluğu olur) bərpa etmək üçün seçim dialoqunu ləğv edə bilərsiniz.
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Başladıcı ikonu ilə yenidən başladıldığı zaman mümkün olduqda son tətbiq statusunu bərpa et</string>
     <string name="title_advanced_autoexpand_hint">Bir danışıqda sadəcə bir mesaj və ya sadəcə bir oxunmamış mesaj olanda mesajı avtomatik aç</string>
     <string name="title_advanced_expandall_hint">Düymənin hansı mesaja tətbiq ediləcəyi qeyri-müəyyən olduğuna görə, bir neçə mesaj genişləndiriləndə cavab düyməsi göstərilməyəcək</string>
     <string name="title_advanced_autoseen_hint">Genişləndirəndə mesajları avtomatik olaraq oxundu kimi işarələmə, hər hesabın qabaqcıl hesab ayarlarında sıradan çıxarıla bilər</string>

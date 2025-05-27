@@ -191,7 +191,7 @@
     <string name="title_setup_intro">Налаштування облікового запису займе лише три кроки, і після цього ви зможете відправляти та отримувати листи</string>
     <string name="title_setup_simple">Нема потреби змінювати будь-які інші параметри</string>
     <string name="title_setup_issue">FairEmail створено для захисту ваших особистих даних, на його розробку було витрачено тисячі годин роботи. Якщо у вас виникнуть проблеми з додатком, перш ніж залишити поганий відгук, зв\'яжіться, будь ласка, зі мною. Буду радий допомогти!</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail не показує рекламу, не відстежує та не аналізує вашу поведінку.</string>
+    <string name="title_setup_analytics">FairEmail не показує рекламу, не відстежує та не аналізує вашу поведінку.</string>
     <string name="title_setup_quick_accounts">Додавання/зміна облікових записів</string>
     <string name="title_setup_quick_support">Деякі провайдери ускладнюють додавання рахунку. Будь ласка, не звинувачуйте у цьому Fairemail, а попросіть допомогу у Вашій службі підтримки.</string>
     <string name="title_setup_quick_hint">Введена адреса електронної пошти використовується для запиту на сервер електронної пошти та для запиту конфігураційної інформації з autoconfig.thunderbird.net</string>
@@ -945,6 +945,7 @@
     <string name="title_advanced_default_folder_hint">        Android може попросити дозвіл на доступ до вибраної теки, навіть якщо застосунку це не потрібно.
         Ви можете скасувати діалогове вікно вибору для відновлення стандартної теки (зазвичай, теки «Завантаження»).
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Відновлювати останній стан, якщо це можливо, після перезапуску через іконку лаунчера</string>
     <string name="title_advanced_autoexpand_hint">Автоматично відкривати повідомлення, коли є тільки одне повідомлення або тільки одне непрочитане повідомлення в розмові</string>
     <string name="title_advanced_expandall_hint">Кнопка відповіді не буде показана коли розкрито кілька повідомлень, тому що не зрозуміло, до котрого з них вона має бути застосована</string>
     <string name="title_advanced_autoseen_hint">Автоматичне маркування повідомлень прочитаними при розкриванні може бути відключено в розширених налаштуваннях кожного з облікових записів</string>

@@ -162,7 +162,7 @@
     <string name="title_setup_intro">La configuration d\'un compte se fait en trois étapes seulement et après cela, vous pouvez envoyer et recevoir des e-mails</string>
     <string name="title_setup_simple">Il n\'est pas nécessaire de modifier d\'autres options</string>
     <string name="title_setup_issue">FairEmail a été développé pour vous aider à protéger votre vie privée et représente littéralement des milliers d\'heures de travail. Si vous avez des problèmes, veuillez me contacter d\'abord pour obtenir de l\'aide avant de laisser une mauvaise évaluation. Je serai heureux de vous aider !</string>
-    <string name="title_setup_analytics" comment="title_setup_analytics&#10;Notice text in the welcome section of the main settings screen.&#10;The remark about Bugsnag was removed because Bugsnag was removed.">FairEmail n\'affiche pas de publicités, il ne vous piste pas et n\'analyse pas votre comportement.</string>
+    <string name="title_setup_analytics">FairEmail n\'affiche pas de publicités, il ne vous piste pas et n\'analyse pas votre comportement.</string>
     <string name="title_setup_quick_accounts">Ajouter ou modifier des comptes</string>
     <string name="title_setup_quick_support">Certains fournisseurs rendent difficile l\'ajout d\'un compte. Ne blâmez pas FairEmail pour ceci mais demandez de l\'aide à la place.</string>
     <string name="title_setup_quick_hint">L\'adresse e-mail saisie est utilisée pour obtenir des informations de configuration du serveur de messagerie et de autoconfig.thunderbird.net</string>
@@ -919,6 +919,7 @@
     <string name="title_advanced_default_folder_hint">        Android peut demander l\'autorisation d\'accès au dossier sélectionné, même si l\'application n\'en a pas besoin.
         Vous pouvez annuler la boîte de dialogue de sélection pour revenir au dossier par défaut (habituellement le dossier \'Téléchargement\' ou \'Download\').
     </string>
+    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Si possible, restaurer le dernier état de l\'application au redémarrage via l\'icône du lanceur</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message s’il n’y a qu’un seul message ou un seul message non lu dans une conversation</string>
     <string name="title_advanced_expandall_hint">Le bouton de réponse n\'est pas affiché lorsque plusieurs messages sont dépliés car on ne peut pas savoir à quel message le bouton s\'applique</string>
     <string name="title_advanced_autoseen_hint">Le marquage automatique des messages comme lus lors de leur ouverture peut être désactivé dans les paramètres avancés de chaque compte</string>
