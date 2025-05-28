@@ -244,7 +244,7 @@
     <string name="title_setup_oauth_permission">The email provider has approved OAuth only for the Play Store and GitHub version</string>
     <string name="title_setup_gmail_support">Authorizing Google accounts will work in the Play Store and GitHub version only because Android checks the digital app signature</string>
     <string name="title_setup_gmail_rationale">Please grant permissions to select an account and read your name</string>
-    <string name="title_setup_gmail_permissions">Google will ask for permissions to read, compose, send and permanently delete all your email. FairEmail will never delete your messages without your explicit consent.</string>
+    <string name="title_setup_gmail_permissions">Google will ask for permissions to read (to show messages to you), compose (to save draft messages), send and permanently delete all your email. FairEmail will never delete your messages without your explicit consent. Only you and no one else has access to your messages.</string>
     <string name="title_setup_gmail_login">If Chrome is signed in to an account, a new account can only be added through Android. This can be avoided by logging out of Chrome via the Chrome sync settings.</string>
     <string name="title_setup_gmail_max">In case of the error message \"You\'re signed in to the maximum number of accounts\", you need to log out the browser from all Google accounts.</string>
     <string name="title_setup_outlook_hint">In the case of an alias address, the Office 365 wizard should probably be used.</string>
