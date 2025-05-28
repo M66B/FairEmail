@@ -1913,6 +1913,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             @Override
             protected void onExecuted(Bundle args, Void data) {
                 prefs.edit().putBoolean("cloud_activated", true).apply();
+                String command = args.getString("command");
+                if ("sync".equals(command))
+                    ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -1933,7 +1936,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                         builder.setMessage(message);
                     builder.show();
                 } else
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex, !("sync".equals(command)));
+                // java.io.IOException: Error 500: Internal Server Error {"debug":false,"error":"The level of configured provisioned throughput for the table was exceeded. Consider increasing your provisioning level with the UpdateTable API."}
             }
         }.execute(FragmentOptionsBackup.this, args, "cloud");
     }
