@@ -177,9 +177,18 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             if (identity.sign_key != null)
                 sb.append(Long.toHexString(identity.sign_key));
             if (identity.sign_key_alias != null) {
-                if (sb.length() != 0)
-                    sb.append(", ");
-                sb.append(identity.sign_key_alias);
+                String s = identity.getAlias(EntityMessage.SMIME_SIGNONLY);
+                String e = identity.getAlias(EntityMessage.SMIME_SIGNENCRYPT);
+                if (s != null) {
+                    if (sb.length() != 0)
+                        sb.append(", ");
+                    sb.append(s);
+                }
+                if (e != null && !e.equals(s)) {
+                    if (sb.length() != 0)
+                        sb.append(", ");
+                    sb.append(e);
+                }
             }
 
             tvSignKeyId.setText(context.getString(R.string.title_sign_key, sb.toString()));

@@ -3213,6 +3213,7 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 protected EntityIdentity onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
+                    int type = args.getInt("type");
 
                     DB db = DB.getInstance(context);
                     EntityMessage draft = db.message().getMessage(id);
@@ -3220,10 +3221,14 @@ public class FragmentCompose extends FragmentBase {
                         return null;
 
                     EntityIdentity identity = db.identity().getIdentity(draft.identity);
-                    if (identity != null && identity.sign_key_alias != null)
+                    if (identity != null)
                         try {
-                            PrivateKey key = KeyChain.getPrivateKey(context, identity.sign_key_alias);
-                            args.putBoolean("available", key != null);
+                            String alias = identity.getAlias(type);
+                            if (alias != null) {
+                                args.putString("alias", alias);
+                                PrivateKey key = KeyChain.getPrivateKey(context, alias);
+                                args.putBoolean("available", key != null);
+                            }
                         } catch (Throwable ex) {
                             Log.w(ex);
                         }
@@ -3238,13 +3243,13 @@ public class FragmentCompose extends FragmentBase {
 
                     boolean available = args.getBoolean("available");
                     if (available) {
-                        args.putString("alias", identity.sign_key_alias);
                         onSmime(args, action, extras);
                         return;
                     }
 
-                    if (interactive)
-                        Helper.selectKeyAlias(getActivity(), getViewLifecycleOwner(), identity.sign_key_alias, new Helper.IKeyAlias() {
+                    if (interactive) {
+                        String alias = args.getString("alias");
+                        Helper.selectKeyAlias(getActivity(), getViewLifecycleOwner(), alias, new Helper.IKeyAlias() {
                             @Override
                             public void onSelected(String alias) {
                                 args.putString("alias", alias);
@@ -3269,6 +3274,7 @@ public class FragmentCompose extends FragmentBase {
                                 snackbar.show();
                             }
                         });
+                    }
                 }
 
                 @Override
@@ -4463,7 +4469,8 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 // Store selected alias
-                db.identity().setIdentitySignKeyAlias(identity.id, alias);
+                identity.setAlias(alias, type);
+                db.identity().setIdentitySignKeyAlias(identity.id, identity.sign_key_alias);
 
                 // Build content
                 File sinput = new File(tmp, draft.id + ".smime_sign");

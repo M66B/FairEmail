@@ -205,6 +205,38 @@ public class EntityIdentity {
         return false;
     }
 
+    void setAlias(String alias, int type) throws JSONException {
+        JSONObject jaliases;
+        if (sign_key_alias == null)
+            jaliases = new JSONObject();
+        else
+            try {
+                jaliases = new JSONObject(sign_key_alias);
+            } catch (JSONException ex) {
+                Log.w(ex);
+                jaliases = new JSONObject();
+                jaliases.put("s", sign_key_alias);
+                jaliases.put("e", sign_key_alias);
+            }
+
+        jaliases.put(type == EntityMessage.SMIME_SIGNONLY ? "s" : "e", alias);
+        sign_key_alias = jaliases.toString();
+    }
+
+    String getAlias(int type) {
+        if (sign_key_alias == null)
+            return null;
+
+        try {
+            JSONObject jaliases = new JSONObject(sign_key_alias);
+            String key = (type == EntityMessage.SMIME_SIGNONLY ? "s" : "e");
+            return (jaliases.has(key) ? jaliases.getString(key) : null);
+        } catch (JSONException ex) {
+            Log.w(ex);
+            return sign_key_alias;
+        }
+    }
+
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);
