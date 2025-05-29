@@ -3228,6 +3228,14 @@ public class FragmentCompose extends FragmentBase {
                                 args.putString("alias", alias);
                                 PrivateKey key = KeyChain.getPrivateKey(context, alias);
                                 args.putBoolean("available", key != null);
+                                if (type == EntityMessage.SMIME_SIGNENCRYPT) {
+                                    String salias = identity.getAlias(EntityMessage.SMIME_SIGNONLY);
+                                    if (salias != null && !salias.equals(alias)) {
+                                        PrivateKey skey = KeyChain.getPrivateKey(context, salias);
+                                        if (skey != null)
+                                            args.putString("salias", salias);
+                                    }
+                                }
                             }
                         } catch (Throwable ex) {
                             Log.w(ex);
@@ -4355,6 +4363,7 @@ public class FragmentCompose extends FragmentBase {
                 long id = args.getLong("id");
                 int type = args.getInt("type");
                 String alias = args.getString("alias");
+                String salias = args.getString("salias");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean check_certificate = prefs.getBoolean("check_certificate", true);
@@ -4416,6 +4425,14 @@ public class FragmentCompose extends FragmentBase {
                     throw new IllegalArgumentException("Private key missing");
                 Log.i("S/MIME privkey algo=" + privkey.getAlgorithm());
 
+                PrivateKey sprivkey = privkey;
+                if (salias != null && !salias.equals(alias))
+                    try {
+                        sprivkey = KeyChain.getPrivateKey(context, salias);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+
                 // Get public key
                 X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
                 if (chain == null || chain.length == 0)
@@ -4423,16 +4440,24 @@ public class FragmentCompose extends FragmentBase {
                 for (X509Certificate cert : chain)
                     Log.i("S/MIME cert sign algo=" + cert.getSigAlgName() + " " + cert.getSigAlgOID());
 
+                X509Certificate[] schain = chain;
+                if (salias != null)
+                    try {
+                        schain = KeyChain.getCertificateChain(context, salias);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+
                 if (check_certificate && !EntityMessage.SMIME_ENCRYPTONLY.equals(type)) {
                     // Check public key validity
                     try {
-                        chain[0].checkValidity();
+                        schain[0].checkValidity();
 
                         if (check_key_usage && experiments) {
                             // Signing Key: Key Usage: Digital Signature, Non-Repudiation
                             // Encrypting Key: Key Usage: Key Encipherment, Data Encipherment
 
-                            boolean[] usage = chain[0].getKeyUsage();
+                            boolean[] usage = schain[0].getKeyUsage();
                             if (usage != null && usage.length > 0) {
                                 // https://datatracker.ietf.org/doc/html/rfc3280#section-4.2.1.3
                                 // https://datatracker.ietf.org/doc/html/rfc3850#section-4.4.2
@@ -4453,7 +4478,7 @@ public class FragmentCompose extends FragmentBase {
 
                     // Check public key email
                     boolean known = false;
-                    List<String> emails = EntityCertificate.getEmailAddresses(chain[0]);
+                    List<String> emails = EntityCertificate.getEmailAddresses(schain[0]);
                     for (String email : emails)
                         if (email.equalsIgnoreCase(identity.email)) {
                             known = true;
@@ -4504,13 +4529,13 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     // Sign
-                    Store store = new JcaCertStore(Arrays.asList(chain));
+                    Store store = new JcaCertStore(Arrays.asList(schain));
                     CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
                     cmsGenerator.addCertificates(store);
 
                     signAlgorithm = prefs.getString("sign_algo_smime", "SHA-256");
 
-                    String algorithm = privkey.getAlgorithm();
+                    String algorithm = sprivkey.getAlgorithm();
 
                     if (TextUtils.isEmpty(algorithm))
                         algorithm = "RSA";
@@ -4521,11 +4546,11 @@ public class FragmentCompose extends FragmentBase {
                     Log.i("S/MIME using sign algo=" + algorithm);
 
                     ContentSigner contentSigner = new JcaContentSignerBuilder(algorithm)
-                            .build(privkey);
+                            .build(sprivkey);
                     DigestCalculatorProvider digestCalculator = new JcaDigestCalculatorProviderBuilder()
                             .build();
                     SignerInfoGenerator signerInfoGenerator = new JcaSignerInfoGeneratorBuilder(digestCalculator)
-                            .build(contentSigner, chain[0]);
+                            .build(contentSigner, schain[0]);
                     cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
 
                     CMSTypedData cmsData = new CMSProcessableFile(sinput);
