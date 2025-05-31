@@ -1106,6 +1106,10 @@ You can long press an identity in the list of identities (via manual setup in th
 To allow different private keys for the same email address, for example, a key for signing and a key for encryption,
 FairEmail will always let you select a key when there are multiple identities with the same email address for the same account.
 
+From version 1.2278 the app can store a sign and an encryption key.
+To configure this properly, please reset the keys (see above for about how to),
+sign a message and select the signing key, and encrypt a message, and select the encryption key.
+
 Public keys are stored by FairEmail and can be imported when verifying a signature for the first time or via the encryption settings (PEM or DER format).
 
 FairEmail verifies both the signature and the complete certificate chain.
