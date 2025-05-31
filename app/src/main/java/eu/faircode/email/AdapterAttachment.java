@@ -53,13 +53,22 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sun.mail.imap.IMAPFolder;
+
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Properties;
 
+import javax.mail.Folder;
+import javax.mail.Message;
 import javax.mail.Part;
+import javax.mail.Session;
+import javax.mail.internet.MimeMessage;
 
 public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.ViewHolder> {
     private Fragment parentFragment;
@@ -268,7 +277,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             if (attachment == null || !attachment.available)
                 return false;
 
-            if (readonly)
+            if (readonly && !"message/rfc822".equals(attachment.type))
                 return onShare(attachment);
             else {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
@@ -280,8 +289,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 }
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_share, 3, R.string.title_share);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_zip, 4, R.string.title_zip)
-                        .setEnabled(!attachment.isInline() && !attachment.isCompressed());
+                if ("message/rfc822".equals(attachment.type))
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_save, 4, R.string.title_save);
+                if (parentFragment instanceof FragmentCompose)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_zip, 5, R.string.title_zip)
+                            .setEnabled(!attachment.isInline() && !attachment.isCompressed());
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -293,6 +305,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                             return onEdit(attachment);
                         else if (itemId == R.string.title_share)
                             return onShare(attachment);
+                        else if (itemId == R.string.title_save)
+                            return onEML(attachment);
                         else if (itemId == R.string.title_zip)
                             return onZip(attachment);
                         return false;
@@ -348,6 +362,66 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                 Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 return false;
             }
+        }
+
+        private boolean onEML(final EntityAttachment attachment) {
+            Bundle args = new Bundle();
+            args.putLong("id", attachment.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityAttachment attachment = db.attachment().getAttachment(id);
+                    if (attachment == null)
+                        return null;
+                    EntityMessage message = db.message().getMessage(attachment.message);
+                    if (message == null)
+                        return null;
+                    EntityAccount account = db.account().getAccount(message.account);
+                    if (account == null)
+                        return null;
+                    EntityFolder inbox = db.folder().getFolderByType(message.account, EntityFolder.INBOX);
+                    if (inbox == null)
+                        return null;
+
+                    try (InputStream is = new FileInputStream(attachment.getFile(context))) {
+                        Properties props = MessageHelper.getSessionProperties(true);
+                        Session isession = Session.getInstance(props, null);
+                        MimeMessage imessage = new MimeMessage(isession, is);
+
+                        try (EmailService iservice = new EmailService(context, account, EmailService.PURPOSE_USE, true)) {
+                            iservice.setPartialFetch(account.partial_fetch);
+                            iservice.setRawFetch(account.raw_fetch);
+                            iservice.setIgnoreBodyStructureSize(account.ignore_size);
+                            iservice.connect(account);
+
+                            IMAPFolder ifolder = (IMAPFolder) iservice.getStore().getFolder(inbox.name);
+                            ifolder.open(Folder.READ_WRITE);
+                            ifolder.appendMessages(new Message[]{imessage});
+                        }
+                    }
+
+                    EntityOperation.sync(context, inbox.id, true);
+                    ServiceSynchronize.eval(context, "EML");
+
+                    return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "attachment:eml");
+
+            return true;
         }
 
         private boolean onZip(final EntityAttachment attachment) {
