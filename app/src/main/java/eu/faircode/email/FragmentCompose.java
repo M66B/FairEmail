@@ -62,6 +62,8 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.security.KeyChain;
+import android.security.keystore.KeyInfo;
+import android.security.keystore.KeyProperties;
 import android.system.ErrnoException;
 import android.text.Editable;
 import android.text.Html;
@@ -186,6 +188,7 @@ import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.security.InvalidKeyException;
+import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -4369,6 +4372,7 @@ public class FragmentCompose extends FragmentBase {
                 boolean check_certificate = prefs.getBoolean("check_certificate", true);
                 boolean check_key_usage = prefs.getBoolean("check_key_usage", false);
                 boolean experiments = prefs.getBoolean("experiments", false);
+                boolean debug = prefs.getBoolean("debug", false);
 
                 File tmp = Helper.ensureExists(context, "encryption");
 
@@ -4424,6 +4428,27 @@ public class FragmentCompose extends FragmentBase {
                 if (privkey == null)
                     throw new IllegalArgumentException("Private key missing");
                 Log.i("S/MIME privkey algo=" + privkey.getAlgorithm());
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && (BuildConfig.DEBUG || debug)) {
+                    KeyFactory keyFactory = KeyFactory.getInstance(privkey.getAlgorithm(), "AndroidKeyStore");
+                    KeyInfo info = keyFactory.getKeySpec(privkey, KeyInfo.class);
+                    if (info != null) {
+                        int p = info.getPurposes();
+                        List<String> purposes = new ArrayList<>();
+                        if ((p & KeyProperties.PURPOSE_SIGN) != 0)
+                            purposes.add("sign");
+                        else if ((p & KeyProperties.PURPOSE_VERIFY) != 0)
+                            purposes.add("verify");
+                        if ((p & KeyProperties.PURPOSE_ENCRYPT) != 0)
+                            purposes.add("encrypt");
+                        if ((p & KeyProperties.PURPOSE_DECRYPT) != 0)
+                            purposes.add("decrypt");
+                        Log.i("Private key info" +
+                                " size=" + info.getKeySize() +
+                                " hardware=" + info.isInsideSecureHardware() +
+                                " purposes=0x" + Integer.toHexString(p) + "/" + TextUtils.join(",", purposes));
+                    }
+                }
 
                 PrivateKey sprivkey = privkey;
                 if (salias != null && !salias.equals(alias))
