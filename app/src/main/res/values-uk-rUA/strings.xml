@@ -221,7 +221,7 @@
     <string name="title_setup_oauth_permission">Постачальник електронної пошти схвалив OAuth тільки для версій з Play Store та GitHub</string>
     <string name="title_setup_gmail_support">Авторизація облікових записів Google працюватиме тільки в версіях з Play Store та GitHub, тому що Android перевіряє цифровий підпис додатка</string>
     <string name="title_setup_gmail_rationale">Будь ласка, надайте дозвіл для вибору облікового запису та читання вашого імені</string>
-    <string name="title_setup_gmail_permissions">Google буде запитувати про дозволи на читання, створення, надсилання та остаточне видаляння всієї вашої електронної пошти. FairEmail ніколи не буде видаляти ваші повідомлення без вашої явної згоди.</string>
+    <string name="title_setup_gmail_permissions">Google запитає дозволу на читання (щоб показувати вам повідомлення), створення (щоб зберігати чернетки повідомлень), відправку і остаточне видалення всієї вашої електронної пошти. FairEmail ніколи не видалить ваші повідомлення без вашої явної згоди. Тільки ви і ніхто інший має доступ до ваших повідомлень.</string>
     <string name="title_setup_gmail_login">Якщо Chrome увійшов до облікового запису, то новий обліковий запис можна додавати лише через Android. Цього можна уникнути, виходячи з Chrome за допомогою налаштувань синхронізації Chrome.</string>
     <string name="title_setup_gmail_max">У випадку повідомлення про помилку \"Ви ввійшли з досягненням максимальної кількості одночасних авторизацій для облікового запису\", Вам потрібно вийти з браузера з усіх облікових записів Google.</string>
     <string name="title_setup_outlook_hint">У разі використання адреси-псевдоніма, ймовірно слід скористатись майстром Office 365.</string>
@@ -945,7 +945,7 @@
     <string name="title_advanced_default_folder_hint">        Android може попросити дозвіл на доступ до вибраної теки, навіть якщо застосунку це не потрібно.
         Ви можете скасувати діалогове вікно вибору для відновлення стандартної теки (зазвичай, теки «Завантаження»).
     </string>
-    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Відновлювати останній стан, якщо це можливо, після перезапуску через іконку лаунчера</string>
+    <string name="title_advanced_restore_on_launch_hint">Відновлювати останній стан, якщо це можливо, після перезапуску через іконку лаунчера</string>
     <string name="title_advanced_autoexpand_hint">Автоматично відкривати повідомлення, коли є тільки одне повідомлення або тільки одне непрочитане повідомлення в розмові</string>
     <string name="title_advanced_expandall_hint">Кнопка відповіді не буде показана коли розкрито кілька повідомлень, тому що не зрозуміло, до котрого з них вона має бути застосована</string>
     <string name="title_advanced_autoseen_hint">Автоматичне маркування повідомлень прочитаними при розкриванні може бути відключено в розширених налаштуваннях кожного з облікових записів</string>

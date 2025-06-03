@@ -160,7 +160,6 @@
     <string name="title_setup_pop3">POP3 kontua</string>
     <string name="title_setup_gmail_support">Google kontuak baimentzeak Play Store eta Github bertsioetan bakarrik funtzionatuko du, Androidek aplikazioaren sinadura digitala egiaztatzen duelako</string>
     <string name="title_setup_gmail_rationale">Eman baimena kontu bat aukeratu eta zure izena irakurtzeko</string>
-    <string name="title_setup_gmail_permissions">Google-k zure posta elektronikoa irakurri, konposatu, bidali eta ezabatzeko baimenak eskatuko ditu. FairEmail-ek ez ditu zure mezuak ezabatuko baimen espliziturik gabe.</string>
     <string name="title_setup_office_auth">\'AUTENTIFIKAZIOAK huts egin du\' errorea sistema administratzaileak IMAP/SMTP desgaitu duelako izan daiteke</string>
     <string name="title_setup_oauth_rationale">Baimendu zure %1$s kontura sarbidea</string>
     <string name="title_setup_oauth_update">Berriro baimendu lehendik dagoen kontu bat (bestela sortu kontu berri bat)</string>

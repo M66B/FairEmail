@@ -160,7 +160,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_setup_oauth_permission">El proveïdor de correu ha aprovat OAuth només per a les versions de Play Store i GitHub</string>
     <string name="title_setup_gmail_support">Autoritzar comptes de Google només funciona en la versió de Play Store i GitHub ja que Android comprova la signatura digital de l\'aplicació</string>
     <string name="title_setup_gmail_rationale">Doneu permís per seleccionar un compte i llegir el vostre nom</string>
-    <string name="title_setup_gmail_permissions">Google sol·licitarà permisos per llegir, compondre, enviar i suprimir tot el vostre correu electrònic. FairEmail mai suprimirà els vostres missatges sense el vostre consentiment explícit.</string>
     <string name="title_setup_gmail_login">Si Chrome ha iniciat sessió en un compte, només es poden afegir comptes nous a través d\'Android. Açò es pot canviar tancant la sessió a la configuració de sincronització de Chrome.</string>
     <string name="title_setup_gmail_max">Si es mostra l\'error \"Has iniciat sessió en el nombre màxim de comptes\", has de tancar la sessió de tots els comptes de Google.</string>
     <string name="title_setup_gmail_on_device">Per què necessite seleccionar un compte del dispositiu?</string>

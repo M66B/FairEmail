@@ -177,7 +177,6 @@
     <string name="title_setup_oauth_permission">이메일 제공업체가 Play 스토어 및 Github 버전의 OAuth만 승인했습니다</string>
     <string name="title_setup_gmail_support">Android에서는 디지털 앱 서명을 확인하므로 Google 계정 인증은 Play 스토어 및 Github 버전에서만 동작합니다</string>
     <string name="title_setup_gmail_rationale">계정을 설정하고 이름을 읽기 위해 권한을 허용해 주세요</string>
-    <string name="title_setup_gmail_permissions">Google은 이메일 읽기, 쓰기, 보내기 및 영구 삭제 권한을 요구합니다. FairEmail은 당신의 허락 없이는 절대로 이메일을 삭제하지 않습니다.</string>
     <string name="title_setup_gmail_login">크롬이 계정에 로그인 되어 있는 경우 새 계정은 Android를 통해서만 추가할 수 있습니다. 이는 크롬 동기화 설정을 통해 크롬에서 로그아웃하여 피할 수 있습니다.</string>
     <string name="title_setup_gmail_max">\"최대 계정 수에 로그인되어 있습니다\"라는 오류 메시지의 경우, 브라우저에서 모든 Google 계정을 로그 아웃해야 합니다.</string>
     <string name="title_setup_outlook_hint">별칭 주소의 경우 Office 365 마법사를 사용해야 합니다．</string>

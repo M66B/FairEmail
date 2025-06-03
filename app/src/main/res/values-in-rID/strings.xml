@@ -178,7 +178,6 @@
     <string name="title_setup_oauth_permission">Pengelola surel ini telah menerima OAuth hanya untuk aplikasi versi Play Store dan GitHub</string>
     <string name="title_setup_gmail_support">Memberi otorisasi pada akun Google hanya akan berfungsi pada versi Play Store dan GitHub karena Android memeriksa tanda tangan aplikasi</string>
     <string name="title_setup_gmail_rationale">Mohon berikan izin untuk memilih akun dan membaca nama Anda.</string>
-    <string name="title_setup_gmail_permissions">Google akan meminta izin untuk membaca, menulis, mengirim dan menghapus semua email Anda secara permanen. FairEmail tidak akan pernah menghapus pesan tanpa persetujuan tegas dari Anda.</string>
     <string name="title_setup_gmail_login">Jika Chrome masuk ke akun, hanya akun baru yang dapat ditambahkan melalui Android. Ini dapat dihindari dengan keluar dari Chrome melalui pengaturan sinkronisasi Chrome.</string>
     <string name="title_setup_gmail_max">Jika muncul pesan error \"Anda masuk dengan jumlah akun maksimum\", Anda harus keluar dari semua akun Google di peramban.</string>
     <string name="title_setup_outlook_hint">Dalam kasus alamat alias, panduan Office 365 mungkin harus digunakan.</string>

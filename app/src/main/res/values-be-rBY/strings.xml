@@ -220,7 +220,6 @@
     <string name="title_setup_oauth_permission">Правайдар электроннай пошты ўхваліў OAuth толькі для версій з Крамы Play і GitHub</string>
     <string name="title_setup_gmail_support">Аўтарызацыя ўліковых запісаў Google будзе працаваць толькі ў версіях з Крамы Play і GitHub, так як Android правярае лічбавы подпіс праграмы</string>
     <string name="title_setup_gmail_rationale">Калі ласка, дайце дазвол на выбар уліковага запісу і чытанне вашага імя</string>
-    <string name="title_setup_gmail_permissions">Google запытае дазвол на чытанне, напісанне, адпраўку і незваротнае выдаленне ўсёй вашай электроннай пошты. FairEmail ніколі не выдаліць вашыя паведамленні без вашай відавочнай згоды.</string>
     <string name="title_setup_gmail_login">Калі ў Chrome выкананы ўваход ва ўліковы запіс, новы ўліковы запіс можна дадаць толькі праз Android. Гэтага можна пазбегнуць, выйшаўшы з уліковага запісу ў Chrome праз налады сінхранізацыі.</string>
     <string name="title_setup_gmail_max">У выпадку з\'яўлення паведамлення пра памылку \"Вы ўвайшлі ў максімальную колькасць уліковых запісаў\", вам неабходна выйсці з усіх уліковых запісаў Google у браўзеры.</string>
     <string name="title_setup_outlook_hint">У выпадку выкарыстання псеўданіма варта выкарыстоўваць майстар Office 365.</string>

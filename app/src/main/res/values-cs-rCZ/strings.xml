@@ -220,7 +220,7 @@
     <string name="title_setup_oauth_permission">Poskytovatel e-mailu schválil OAuth pouze pro Google Play a GitHub verzi</string>
     <string name="title_setup_gmail_support">Autorizace účtů Google bude fungovat pouze v Google Play a GitHub verzi, protože Android kontroluje digitální podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
-    <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
+    <string name="title_setup_gmail_permissions">Google vás požádá o oprávnění ke čtení (aby vám mohl zobrazovat zprávy), sestavování (aby mohl ukládat koncepty zpráv), odesílání a trvalému mazání všech vašich e-mailů. FairEmail nikdy nesmaže vaše zprávy bez vašeho výslovného souhlasu. K vašim zprávám máte přístup pouze vy a nikdo jiný.</string>
     <string name="title_setup_gmail_login">Pokud je Chrome přihlášený k účtu, nový účet může být přidán pouze přes Android. Tomu lze předejít odhlášením z Chrome přes nastavení synchronizace Chrome.</string>
     <string name="title_setup_gmail_max">V případě chybové zprávy \"Jste přihlášeni k maximálnímu počtu účtů\", se musíte odhlásit 
 v prohlížeči ze všech Google účtů.</string>
@@ -946,7 +946,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_default_folder_hint">        Android může požádat o oprávnění pro přístup k vybrané složce, i když to aplikace nepotřebuje.
         Můžete zrušit dialog výběru pro obnovení výchozí složky (obvykle složky \'Download\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Obnovení posledního stavu aplikace, pokud je to možné, při opětovném spuštění pomocí ikony spouštěče</string>
+    <string name="title_advanced_restore_on_launch_hint">Obnovení posledního stavu aplikace, pokud je to možné, při opětovném spuštění pomocí ikony spouštěče</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu, je-li v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
     <string name="title_advanced_expandall_hint">Tlačítko odpovědi nebude zobrazeno, pokud je rozbaleno více zpráv, protože není jasné na které zprávy se toto tlačítko vztahuje</string>
     <string name="title_advanced_autoseen_hint">Automatické označování zpráv jako přečtených při rozbalení lze zakázat v pokročilém nastavení jednotlivých účtů</string>

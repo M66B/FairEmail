@@ -220,7 +220,7 @@
     <string name="title_setup_oauth_permission">Dostawca poczty e-mail zatwierdził OAuth tylko dla wersji Sklep Play i GitHub</string>
     <string name="title_setup_gmail_support">Autoryzacja kont Google będzie działać tylko w wersji Sklep Play i GitHub, ponieważ Android sprawdza podpis aplikacji cyfrowej</string>
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać twoje imię</string>
-    <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do odczytu, tworzenia, wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez Twojej wyraźnej zgody.</string>
+    <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do czytania (wyświetlania wiadomości), tworzenia (zapisywania wersji roboczych wiadomości), wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez twojej wyraźnej zgody. Tylko ty i nikt inny masz dostęp do swoich wiadomości.</string>
     <string name="title_setup_gmail_login">Jeśli Chrome jest zalogowany do konta, nowe konto można dodać tylko przez Androida. Można tego uniknąć wylogowując się z Chrome poprzez ustawienia synchronizacji Chrome.</string>
     <string name="title_setup_gmail_max">W przypadku komunikatu o błędzie \"Zalogowano się do maksymalnej liczby kont\", musisz wylogować się przeglądarką ze wszystkich kont Google.</string>
     <string name="title_setup_outlook_hint">W przypadku aliasu należy prawdopodobnie użyć kreatora Office 365.</string>
@@ -944,7 +944,7 @@
     <string name="title_advanced_default_folder_hint">        Android może poprosić o pozwolenie na dostęp do wybranego folderu, nawet jeśli aplikacja tego nie potrzebuje.
         Możesz anulować okno dialogowe wyboru, aby przywrócić domyślny folder (zazwyczaj folder \"Pobrane\").
     </string>
-    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Przywrócenie ostatniego stanu aplikacji, jeśli to możliwe, po ponownym uruchomieniu za pomocą ikony programu uruchamiającego</string>
+    <string name="title_advanced_restore_on_launch_hint">Przywrócenie ostatniego stanu aplikacji, jeśli to możliwe, po ponownym uruchomieniu za pomocą ikony programu uruchamiającego</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w konwersacji jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_expandall_hint">Przycisk odpowiedzi nie będzie wyświetlany, gdy zostanie rozwinięte wiele wiadomości, ponieważ nie jest jasne, do której wiadomości odnosi się przycisk</string>
     <string name="title_advanced_autoseen_hint">Automatycznie oznaczanie wiadomości jako przeczytane po rozwinięciu może być wyłączone w zaawansowanych ustawieniach konta dla każdego konta</string>

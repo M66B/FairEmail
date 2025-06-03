@@ -178,7 +178,7 @@
     <string name="title_setup_oauth_permission">电子邮件提供商仅批准了 Play 商店和 GitHub 版本使用 OAuth</string>
     <string name="title_setup_gmail_support">只有 Play 商店和 GitHub 版本才支持授权 Google 账户，因为 Android 会检查应用的数字签名</string>
     <string name="title_setup_gmail_rationale">请授予权限来选择一个账户并读取您的姓名</string>
-    <string name="title_setup_gmail_permissions">Google 会请求读取、撰写、发送和永久删除您的所有电子邮件的权限。相比之下，未经您的明确同意，FairEmail 永远不会删除您的邮件。</string>
+    <string name="title_setup_gmail_permissions">Google 将请求读取（以便向您显示邮件）、撰写（以便保存草稿邮件）、发送以及永久删除您所有邮件的权限。FairEmail 绝不会在未经您明确同意的情况下删除您的邮件。只有您本人可以能访问您的邮件，其他任何人都无法访问。</string>
     <string name="title_setup_gmail_login">如果 Chrome 登录到 Google 账户，那么只能通过 Android 添加一个新账户。 通过 Chrome 同步设置退出 Chrome 账户登录可以避免这种情况。</string>
     <string name="title_setup_gmail_max">如果出现错误消息“您登录的账号数已达上限”，您需要从浏览器登出所有 Google 账号。</string>
     <string name="title_setup_outlook_hint">对于别名地址，也许应使用 Office 365 向导。</string>
@@ -904,7 +904,7 @@
     <string name="title_advanced_default_folder_hint">        Android 可能请求访问选定文件夹的权限，即使应用程序不需要它。
         您可以取消选择对话框以恢复默认文件夹 (通常是“下载”文件夹)。
     </string>
-    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">通过启动器图标重启时，如果可能恢复上次的应用状态</string>
+    <string name="title_advanced_restore_on_launch_hint">通过启动器图标重启时，如果可能恢复上次的应用状态</string>
     <string name="title_advanced_autoexpand_hint">对话中只有一封邮件或只有一封未读邮件时自动打开邮件</string>
     <string name="title_advanced_expandall_hint">展开多封邮件时不会显示回复按钮，因为这样会无法确定回复哪封邮件</string>
     <string name="title_advanced_autoseen_hint">可以在每个账号的高级账号设置中禁用展开时自动将邮件标记为已读</string>

@@ -113,7 +113,6 @@
     <string name="title_setup_identities">Идентитети</string>
     <string name="title_setup_other">Остали провајдери</string>
     <string name="title_setup_gmail_rationale">Одобрите дозволе да се одабере налог и чита Ваше име</string>
-    <string name="title_setup_gmail_permissions">Гугл ће питати за дозволе за читање, састављае, слање и трајно брисање свих Ваших мејлова. FairEmail никад неће обрисати Ваше поруке без Вашег експлицитног одобрења.</string>
     <string name="title_setup_oauth_authorize">Ауторизуј</string>
     <string name="title_setup_select_account">Изабери налог</string>
     <string name="title_setup_instructions">Упутства за поставку</string>

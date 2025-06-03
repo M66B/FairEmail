@@ -206,7 +206,6 @@
     <string name="title_setup_oauth_permission">E-mail provajder je odobrio OAuth provjeru saamo za verziju iz Play trgovine i GitHub-a</string>
     <string name="title_setup_gmail_support">Autorizacija Google računa radit će samo u verzijama Play trgovine i GitHub-a, jer Android provjerava digitalne potpise aplikacija</string>
     <string name="title_setup_gmail_rationale">Molimo da potvrdite dopuštenja za izbor računa i čitanje vašeg imena</string>
-    <string name="title_setup_gmail_permissions">Google će pitati za dopuštenja za čitanje, pisanje, slanje i trajno brisanje svih vaših poruka. FairEmail nikada neće brisati vaše poruke bez vaše saglasnosti.</string>
     <string name="title_setup_gmail_login">Ako je u Chrome-u prijavljen račun, novi račun (nalog) može se dodati samo u postavkama Androida. Da biste izbjegli ovu situaciju, odjavite se iz Chrome-a preko postavki za sinhronizaciju.</string>
     <string name="title_setup_gmail_max">U slučaju poruke o greški \"Prijavljeni ste s maksimalnim brojem računa\", trebate se odjaviti sa svih Google računa u pregledniku.</string>
     <string name="title_setup_outlook_hint">U slučaju korištenja aliasa adrese, treba koristiti čarobnjak paketa Office 365.</string>
@@ -932,7 +931,7 @@
     <string name="title_advanced_default_folder_hint">        Android može tražiti dozvole za pristup izabranom folderu, iako to aplikacija ne traži.
         Možete otkazati dijaloški okvir selekcije za vraćanje zadanog foldera (obično je to folder preuzimanja tj. \'Download\' folder).
     </string>
-    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Po mogućnosti vrati posljednje stanje aplikacije, kada se restartuje putem ikonice u launcher-u</string>
+    <string name="title_advanced_restore_on_launch_hint">Po mogućnosti vrati posljednje stanje aplikacije, kada se restartuje putem ikonice u launcher-u</string>
     <string name="title_advanced_autoexpand_hint">Automatski otvori poruku kada se u konverzaciji nalazi samo jedna poruka ili samo jedna nepročitana poruka</string>
     <string name="title_advanced_expandall_hint">Dugme za odgovor neće se prikazivati kada se prošire višestruke poruke, jer nije jasno na koju od poruka se odnosi to dugme</string>
     <string name="title_advanced_autoseen_hint">Automatsko označavanje poruke kao pročitane pri proširivanju je opcija koja se može isključiti u naprednim postavkama svakog računa</string>

@@ -84,7 +84,7 @@
         <item quantity="other">%1$d berjochten as net-winske behannelje?</item>
     </plurals>
     <string name="title_ask_spam_who">Berjocht fan %1$s as spam behannelje?</string>
-    <string name="title_junk_hint">Dyn e-mailprovider is ferantwurdlik foar it filterjen fan spam. In e-mailapp hat net alle gegevens om dit betrouber te dwaan.</string>
+    <string name="title_junk_hint">Jo e-mailprovider is ferantwurdlik foar it filterjen fan spam. In e-mailapp hat net alle gegevens om dit betrouber te dwaan.</string>
     <string name="title_junk_pop_hint">Berjochten fan blokkearre ôfstjoerders wurde net download.
         As ‘Berjochten op de server stean litte’ net ynskeakele is, gean dizze berjochten permanint ferlern!    </string>
     <string name="title_block">%1$s blokkearje</string>
@@ -190,7 +190,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_oauth_permission">De e-mailprovider hat OAuth allinnich goedkard foar de Play Store- en GitHub-ferzje</string>
     <string name="title_setup_gmail_support">Autorisearjen fan Google-accounts sil allinnich yn offisjele ferzjes wurkje omdat Android de app-hantekening kontrolearret</string>
     <string name="title_setup_gmail_rationale">Jou tagongsrjochten om in account te selektearjen en jo namme te lêzen</string>
-    <string name="title_setup_gmail_permissions">Google sil om tagongsrjochten freegje om al jo e-mail te lêzen, op te stellen, te ferstjoeren en te wiskjen. FairEmail sil jo berjochten nea wiskje sûnder jo eksplisite tastimming.</string>
+    <string name="title_setup_gmail_permissions">Google freget tastimming om jo e-mailberjochten te lêzen (om berichten oan jo te toanen), gear te stallen (om konseptberjochten te bewarjen), te ferstjoeren en om al jo e-mailberjochten definityf fuort te smiten. FairEmail sil nea jo berjochten fuortsmite sûnder jo eksplisite tastimming. Allinnich jo en nearne oars hat tagong ta jo berjochten.</string>
     <string name="title_setup_gmail_login">As Chrome oanmeld is by in account, kin in nij account allinnich fia Android tafoege wurde. Dit kin foarkommen wurde troch ôf te melden út Chrome fia de Chrome-syngronisaasjeynstellingen.</string>
     <string name="title_setup_gmail_max">Yn it gefal fan de flatermelding \"Jo binne oanmeld by it maksimale oantal accounts\", moat de browser ôfmeld wurde fan alle Google-accounts.</string>
     <string name="title_setup_outlook_hint">Yn it gefal fan in aliasadres moat wierskynlik de Office 365-wizard brûkt wurde.</string>
@@ -201,7 +201,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_office_auth_5_7_3">Probearje de ‘Oare provider’-assistint.</string>
     <string name="title_setup_office_auth_5_7_139">Probearje de ‘Outlook/Hotmail/Live’-ynstelassistint.</string>
     <string name="title_setup_office_not_connected">De flatermelding ‘User is authenticated but not connected’ betsjut meastentiids dat IMAP útskeakele is.
-        Gean yn it gefal fan in Outlook-account foar konsuminten nei de Outlook-website, tik op it ynstellingentsjil rjochts boppe, selektearje \'Mail\', selektearje \'Forwarding en IMAP\' en yn de seksje \'POP en IMAP\' skeakelje \'Laat apparaten en apps IMAP brûke\' yn.
+        Gean yn it gefal fan in Outlook-account foar konsuminten nei de Outlook-website, tik op it ynstellingentsjil rjochts boppe, selektearje ‘Mail’, selektearje ‘Forwarding en IMAP’ en yn de seksje ‘POP en IMAP’ skeakelje ‘Laat apparaten en apps IMAP gebruiken’ yn.
         Nim yn it gefal fan in bedriuws-, ûnderwiis-, ensfh. account kontakt op mei de systeembehearder fan de mailserver.    </string>
     <string name="title_setup_oauth_rationale">Autorisearje tagong ta jo %1$s-account</string>
     <string name="title_setup_oauth_update">Autorisearje in besteand account opnij (oars in nij account oanmeitsje)</string>
@@ -913,7 +913,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_default_folder_hint">        Android kin tastimming freegje foar tagong ta de selektearre map, ek al hat de app dit net nedich.
         Jo kinne it seleksjefinster annulearje om de standert map te werstellen (meastentiids de map ‘Download’).
     </string>
-    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Werstel wannear mooglik de lêste app-status wannear’t opnij opstart fia it launcher-piktogram</string>
+    <string name="title_advanced_restore_on_launch_hint">Werstel wannear mooglik de lêste app-status wannear’t opnij opstart fia it launcher-piktogram</string>
     <string name="title_advanced_autoexpand_hint">Berjocht automatysk iepenje as der mar ien berjocht of mar ien net-lêzen berjocht yn in petear is</string>
     <string name="title_advanced_expandall_hint">De antwurdknop sil net werjûn wurde wannear’t meardere berjochten iepenklapt wurde, omdat it dan net dúdlik is op hokker berjocht de knop fan tapassing is</string>
     <string name="title_advanced_autoseen_hint">Berjochten automatysk as lêzen markearje by útwreidzjen kin útskeakele wurde yn de avansearre accountynstellingen fan elk account</string>
@@ -1072,7 +1072,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_no_inbox">Postfek YN net fûn</string>
     <string name="title_no_drafts">Gjin konseptmap</string>
     <string name="title_no_junk_folder">Der is gjin spam-map selektearre foar dizze account</string>
-    <string name="title_default_composable">It e-mailadres fan dyn haadidentiteit fan jo haadaccount wurdt brûkt as standertadres</string>
+    <string name="title_default_composable">It e-mailadres fan jo haadidentiteit fan jo haadaccount wurdt brûkt as standertadres</string>
     <string name="title_no_composable">Om berjochten te ferstjoeren, hawwe jo in identiteit en in konseptmap nedich yn jo accountynstellingsen</string>
     <string name="title_no_standard">Dizze oanbieder brûkt in eigen e-mailprotokol en dêrom is it net mooglik e-mailclients fan tredden te brûken</string>
     <string name="title_no_idle">Dizze provider stipet gjin pushberjochten. Dit sil de ûntfangst fan nije berjochten fertrage en it batterijgebrûk ferheegje.</string>
@@ -2100,7 +2100,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_pro_activated">Alle pro-funksjes binne aktivearre</string>
     <string name="title_pro_valid">Alle pro-funksjes aktivearre</string>
     <string name="title_pro_invalid">Unjildich antwurd</string>
-    <string name="title_pro_support">FairEmail hat dyn help nedich. Tikje om pro-funksjes te keapjen troch dit projekt te stypjen of dit berjocht út te skeakeljen.</string>
+    <string name="title_pro_support">FairEmail hat jo help nedich. Tik om pro-funksjes te keapjen troch dit projekt te stypjen of dit berjocht út te skeakeljen.</string>
     <string name="title_boundary_error">Flater by it downloaden fan berjochten fan de e-mailserver</string>
     <string name="title_boundary_retry">Opnij probearje</string>
     <string name="title_unexpected_error">Net ferwachte flater</string>

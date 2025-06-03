@@ -190,6 +190,7 @@
     <string name="title_setup_intro">הגדרת חשבון נמצאת במרחק שלושה צעדים ממך ולאחריה ניתן להתחיל לשלוח ולקבל הודעות דוא״ל</string>
     <string name="title_setup_simple">אין צורך לשנות אפשרויות אחרות כלשהן</string>
     <string name="title_setup_issue">‏FairEmail פותח כדי לסייע לך להגן על הפרטיות שלך והוא מגלם בתוכו אלפי שעות עבודה. אם נתקלת בבעיה, נא ליצור אתי קשר תחילה לקבל תמיכה בטרם פרסום סקירה שלילית. אני מאוד שמח לעזור - באנגלית!</string>
+    <string name="title_setup_analytics">FairEmail לא מציג פרסומות ואינו עוקב או מנתח את ההתנהגות שלך.</string>
     <string name="title_setup_quick_accounts">הוספה או עריכה של חשבונות</string>
     <string name="title_setup_quick_support">חלק מהספקים מקשים על הוספת חשבון. אין טעם להאשים את FailEmail בכך, אך בהחלט ניתן לבקש תמיכה.</string>
     <string name="title_setup_quick_hint">כתובת הדוא״ל שמולאה משמשת לתשאל את שרת הדוא״ל ואת autoconfig.thunderbird.net לקבלת פרטי הגדרה</string>
@@ -219,7 +220,7 @@
     <string name="title_setup_oauth_permission">ספק הדוא״ל אישר OAuth רק לגרסאות שבחנות Play וב־GitHub</string>
     <string name="title_setup_gmail_support">אימות חשבונות Google יעבוד רק עם גרסה מחנות Play או מ־GitHub כיוון ש־Android בודק את חתימת היישומון</string>
     <string name="title_setup_gmail_rationale">נא להרשות לבחור חשבון ולקרוא את שמך</string>
-    <string name="title_setup_gmail_permissions">Google יבקש לקרוא, לכתוב, לשלוח, ולמחוק את כל ההודעות שלך לצמיתות. Fairmail לעולם לא ימחק ללא הסכמתך המפורשת.</string>
+    <string name="title_setup_gmail_permissions">Google יבקש ממך הרשאות לקרוא (להציג לך הודעות), לכתוב (כדי לשמור הודעות טיוטה), לשלוח ולמחוק לצמיתות את כל הודעות הדוא״ל שלך. FairEmail אף פעם לא ימחק את ההודעות שלך ללא הסכמתך המפורשת. רק לך יש גישה להודעות שלך, לא לאף אחד אחר.</string>
     <string name="title_setup_gmail_login">אם נכנסת לחשבון ב־Chrome אפשר להוסיף חשבון חדש רק דרך Android. אפשר להימנע מזה על ידי יציאה מהחשבון ב־Chrome דרך הגדרות הסנכרון של Chrome.</string>
     <string name="title_setup_gmail_max">אם מופיעה הודעת השגיאה „נכנסת לכמות המרבית של חשבונות”, יש להוציא את הדפדפן מכל חשבונות Google.</string>
     <string name="title_setup_outlook_hint">אם זאת כתובת כינוי, עדיף להשתמש באשף Office 365.</string>
@@ -945,6 +946,7 @@
     <string name="title_advanced_default_folder_hint">        Android עשוי לבקש הרשאה לגשת לתיקייה הנבחרת, למרות שהיישומון לא זקוק לזה.
         אפשר לבטל את חלונית הבחירה כדי להחזיר את תיקיית ברירת המחדל (בדרך כלל זאת תיקיית ה‚הורדות’).
     </string>
+    <string name="title_advanced_restore_on_launch_hint">לשחזר את מצב היישומון האחרון דרך סמל המשגר</string>
     <string name="title_advanced_autoexpand_hint">לפתוח הודעות אוטומטית כשיש רק הודעה אחת או רק הודעה אחת שלא נקראה בדיון</string>
     <string name="title_advanced_expandall_hint">כפתור המענה לא יופיע כאשר מספר הודעות מורחבות כיוון שלא ברור לאיזו הודעה הכפתור מתייחס</string>
     <string name="title_advanced_autoseen_hint">אפשר להשבית את סימון ההודעות כנקראו אוטומטית בעת ההרחבה בהגדרות החשבון המתקדמות של כל חשבון בנפרד</string>

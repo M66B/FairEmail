@@ -192,7 +192,6 @@
     <string name="title_setup_oauth_permission">E-posti teenusepakkuja on OAuth\'i heaks kiitnud vaid Play Store ja GitHub versiooni puhul</string>
     <string name="title_setup_gmail_support">Google konto autoriseerimine toimib vaid Play poe ja GitHubi versioonides, sest Android kontrollib rakenduse digitaalset allkirja</string>
     <string name="title_setup_gmail_rationale">Palun anna luba, et valida konto ja lugeda su nime</string>
-    <string name="title_setup_gmail_permissions">Google küsib lugemise, loomise, saatmise ja kõigi kirjade jäädava kustutamise luba. FairEmail ei kustuta kunagi su kirju ilma su otsese nõusolekuta.</string>
     <string name="title_setup_gmail_login">Kui Chromega on kontosse sisse logitud, saab uut kontot lisada vaid Androidi kaudu. Seda saab vältida, kui logida Chrome sünkroniseerimisseadetes Chromest välja.</string>
     <string name="title_setup_gmail_max">Veateate \"Oled sisse logitud maksimaalsele arvule kontodele\" korral pead veebilehitsejas välja logima kõikidest Google\'i kontodest.</string>
     <string name="title_setup_outlook_hint">Alias-aadressi korral tuleks tõenäoliselt kasutada Office 365 viisardit.</string>

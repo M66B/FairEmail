@@ -193,7 +193,6 @@
     <string name="title_setup_oauth_permission">مزود البريد الإلكتروني وافق على OAuth فقط لإصدارة متجر Play وإصدارة GitHub</string>
     <string name="title_setup_gmail_support">تفويض حسابات جوجل سيعمل فقط مع إصدارة متجر Play وإصدارة GitHub لأن أندرويد يفحص توقيع التطبيق الرقمي</string>
     <string name="title_setup_gmail_rationale">الرجاء منح الصلاحيات لتحديد الحساب وقراءة اسمك</string>
-    <string name="title_setup_gmail_permissions">جوجل سوف تطلب موافقتك لقراءة, تأليف, أرسال وحذف نهائي لكل الرسائل. فيرميل لن يمسح رسائلك ابدا بدون موافقتك.</string>
     <string name="title_setup_gmail_login">إذا تم تسجيل الدخول بحساب جوجل في متصفح كروم، يمكن إضافة حساب جديد فقط من خلال أندرويد. يمكن تجنب هذا عن طريق تسجيل الخروج من حساب جوجل في متصفح كروم عن طريق إعدادات مزامنة كروم.</string>
     <string name="title_setup_gmail_max">في حالة ظهور رسالة الخطأ \"لقد قمت بتسجيل الدخول إلى الحد الأقصى لعدد الحسابات\"، فأنت بحاجة إلى تسجيل الخروج من المتصفح من جميع حسابات غوغل.</string>
     <string name="title_setup_gmail_on_device">لماذا أحتاج إلى اختيار حساب على الجهاز؟</string>

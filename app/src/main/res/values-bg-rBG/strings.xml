@@ -191,7 +191,6 @@
     <string name="title_setup_oauth_permission">Доставчикът на имейл одобрил OAuth само за версии на Play Store и GitHub</string>
     <string name="title_setup_gmail_support">Упълномощаването на акаунти в Google ще работи само във версии на Play Store и GitHub, защото Android проверява цифровия подпис на приложението</string>
     <string name="title_setup_gmail_rationale">Дайте позволения за избиране на акаунт и прочетете името си</string>
-    <string name="title_setup_gmail_permissions">Google ще поиска разрешения за четене, съставяне, изпращане и изтриване за постоянно на целия ви имейл. FairEmail никога няма да изтрива съобщенията ви без изричното ви съгласие.</string>
     <string name="title_setup_gmail_login">Ако в Chrome е изпълнено влизане в акаунт, то нов акаунт може да се добави само през Android. Това може да се избегне, излизайки от акаунта в Chrome чрез настройките му за синхронизиране.</string>
     <string name="title_setup_gmail_max">В случай на съобщение за грешка \"Влезли сте в максималния брой акаунти\", то трябва да излезете от всичките си Google акаунти в браузъра.</string>
     <string name="title_setup_outlook_hint">В случай на псевдоним на имейл, вълшебникът на Office 365 вероятно трябва да се употребява.</string>

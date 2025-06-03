@@ -174,7 +174,6 @@
     <string name="title_setup_oauth_permission">سرویس دهنده ی ایمیل OAuth را فقط برای نسخه پلی استور و گیت هاب تایید کرده</string>
     <string name="title_setup_gmail_support">حساب های گوگل فقط در نسخه‌های پلی استور و گیت هاب مجاز می‌شوند چون اندروید امضای برنامه را بررسی می‌کند</string>
     <string name="title_setup_gmail_rationale">لطفا مجوز برای انتخاب حساب و خواندن نام شما را اعطا کنید</string>
-    <string name="title_setup_gmail_permissions">گوگل برای خواندن، نوشتن، فرستادن و حذف همیشگی همه ایمیل‌های شما درخواست دسترسی خواهد کرد. FairEmail هیچ‌وقت بدون رضایت آشکار شما پیام‌های شما را حذف نخواهد کرد.</string>
     <string name="title_setup_gmail_on_device">چرا لازم است که یک حساب روی دستگاه انتخاب کنم؟</string>
     <string name="title_setup_gmail_password">می‌خواهم به جای حسابی روی دستگاه، به یک حساب با رمز عبور اجازه بدهم</string>
     <string name="title_setup_office_auth">خطای \'AUTHENTICATE failed\' می‌تواند به‌دلیل غیرفعال بودن IMAP/SMTP به‌ دست مدیر سیستم باشد</string>

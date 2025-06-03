@@ -170,7 +170,6 @@
     <string name="title_setup_oauth_permission">O provedor de correo só aprobou OAuth para as versións de Play Store e GitHub</string>
     <string name="title_setup_gmail_support">Autorizar contas de Google só funcionará nas versións de Play Store e GitHub desta aplicación porque Android verifica a súa sinatura dixital</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar unha conta e ler o seu nome</string>
-    <string name="title_setup_gmail_permissions">Google pedirá permisos para ler, redactar, enviar e borrar permanentemente todo o seu correo. FairEmail nunca eliminará as súas mensaxes sen o seu consentimento explícito.</string>
     <string name="title_setup_gmail_on_device">Por que é necesario seleccionar unha conta interna de dispositivo?</string>
     <string name="title_setup_gmail_password">Quero autorizar unha conta con un contrasinal no canto da conta interna de dispositivo</string>
     <string name="title_setup_office_auth">O erro \'AUTHENTICATE failed\' pode estar causado porque IMAP/SMTP estea desactivado polo administrador do sistema</string>

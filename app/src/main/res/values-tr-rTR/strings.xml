@@ -188,7 +188,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_oauth_permission">E-posta sağlayıcısı, yalnızca Play Store ve GitHub sürümü için OAuth\'u onayladı</string>
     <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek Android dijital uygulama imzasını kontrol ettiğinden, yalnızca Play Store ve GitHub sürümünde çalışır</string>
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
-    <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
+    <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak (mesajları size göstermek için), oluşturmak (taslak mesajları kaydetmek için), göndermek ve kalıcı olarak silmek için izinler isteyecektir. FairEmail, açık izniniz olmadan mesajlarınızı asla silmeyecektir. Sadece siz ve başka hiç kimse mesajlarınıza erişemez.</string>
     <string name="title_setup_gmail_login">Chrome bir hesapta oturum açtıysa, yalnızca Android üzerinden yeni bir hesap eklenebilir. Bu, Chrome senkronizasyon ayarları aracılığıyla Chrome\'dan çıkış yapılarak önlenebilir.</string>
     <string name="title_setup_gmail_max">\"Maksimum sayıda hesapta oturum açtınız\" hata mesajının görüntülenmesi durumunda, tarayıcınızdan tüm Google hesaplarından çıkış yapmanız gerekir.</string>
     <string name="title_setup_outlook_hint">Bir takma ad adresi söz konusu olduğunda, Office 365 sihirbazı muhtemelen kullanılmalıdır.</string>
@@ -913,7 +913,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_default_folder_hint">        Android, uygulamanın ihtiyacı olmasa bile seçilen klasöre erişim izni isteyebilir.
         Varsayılan klasörü (genellikle \'İndirilenler\' klasöründedir) geri yüklemek için seçim iletişim kutusunu iptal edebilirsiniz.
     </string>
-    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Başlatıcı simgesi aracılığıyla yeniden başlatıldığında mümkünse son uygulama durumunu geri yükleyin</string>
+    <string name="title_advanced_restore_on_launch_hint">Başlatıcı simgesi aracılığıyla yeniden başlatıldığında mümkünse son uygulama durumunu geri yükleyin</string>
     <string name="title_advanced_autoexpand_hint">Bir sohbette yalnızca bir ileti veya yalnızca bir okunmamış ileti olduğunda iletiyi otomatik olarak aç</string>
     <string name="title_advanced_expandall_hint">Düğmenin hangi mesaja uygulanacağı belirsiz olduğundan, birden fazla mesaj genişletildiğinde cevap düğmesi gösterilmeyecektir</string>
     <string name="title_advanced_autoseen_hint">Genişletme sırasında okunan mesajları otomatik olarak işaretleme, bireysel hesap ayarlarında devre dışı bırakılabilir</string>

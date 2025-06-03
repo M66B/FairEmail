@@ -191,7 +191,6 @@
     <string name="title_setup_oauth_permission">E-postleverantören har godkänt OAuth endast för Play Store- och GitHub-versionen</string>
     <string name="title_setup_gmail_support">Auktorisera Google-konton kommer endast att fungera i Play Store- och GitHub-versionen eftersom Android kontrollerar den digitala app-signaturen</string>
     <string name="title_setup_gmail_rationale">Vänligen bevilja behörigheter för att välja ett konto och läsa ditt namn</string>
-    <string name="title_setup_gmail_permissions">Google kommer att be om behörighet att läsa, komponera, skicka och permanent ta bort all din e-post. FairEmail kommer aldrig att ta bort dina meddelanden utan ditt uttryckliga medgivande.</string>
     <string name="title_setup_gmail_login">Om Chrome är inloggad på ett konto kan ett nytt konto endast läggas till via Android. Detta kan undvikas genom att logga ut från Chrome via Chromes synkroniseringsinställningar.</string>
     <string name="title_setup_gmail_max">Vid felmeddelandet \"Du är inloggad på det maximala antalet konton\", så måste du logga ut webbläsaren från alla Google-konton.</string>
     <string name="title_setup_outlook_hint">När det gäller en alias-adress, bör förmodligen Office 365 guiden användas.</string>

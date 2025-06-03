@@ -192,7 +192,7 @@
     <string name="title_setup_oauth_permission">Le fournisseur de messagerie a approuvé OAuth uniquement pour les versions Play Store et GitHub</string>
     <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement avec les versions Play Store et GitHub parce qu\'Android vérifie la signature numérique de l\'application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
-    <string name="title_setup_gmail_permissions">Google vous demandera l’autorisation pour lire, rédiger, envoyer et supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>
+    <string name="title_setup_gmail_permissions">Google demandera l\'autorisation de lire (pour vous afficher les messages), de rédiger (pour enregistrer les brouillons de messages), d\'envoyer et de supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre consentement explicite. Seul vous et personne d\'autre a accès à vos messages.</string>
     <string name="title_setup_gmail_login">Si Chrome est connecté à un compte, un nouveau compte ne peut être ajouté que via Android. Ceci peut être évité en vous déconnectant de Chrome via les paramètres de synchronisation de Chrome.</string>
     <string name="title_setup_gmail_max">En cas de message d\'erreur \"Vous êtes connecté au nombre maximum de comptes\", vous devez vous déconnecter de tous les comptes Google dans le navigateur.</string>
     <string name="title_setup_outlook_hint">Dans le cas d\'une adresse alias, l\'assistant Office 365 devrait probablement être utilisé.</string>
@@ -919,7 +919,7 @@
     <string name="title_advanced_default_folder_hint">        Android peut demander l\'autorisation d\'accès au dossier sélectionné, même si l\'application n\'en a pas besoin.
         Vous pouvez annuler la boîte de dialogue de sélection pour revenir au dossier par défaut (habituellement le dossier \'Téléchargement\' ou \'Download\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Si possible, restaurer le dernier état de l\'application au redémarrage via l\'icône du lanceur</string>
+    <string name="title_advanced_restore_on_launch_hint">Si possible, restaurer le dernier état de l\'application au redémarrage via l\'icône du lanceur</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message s’il n’y a qu’un seul message ou un seul message non lu dans une conversation</string>
     <string name="title_advanced_expandall_hint">Le bouton de réponse n\'est pas affiché lorsque plusieurs messages sont dépliés car on ne peut pas savoir à quel message le bouton s\'applique</string>
     <string name="title_advanced_autoseen_hint">Le marquage automatique des messages comme lus lors de leur ouverture peut être désactivé dans les paramètres avancés de chaque compte</string>

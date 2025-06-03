@@ -178,7 +178,6 @@
     <string name="title_setup_oauth_permission">Denne epost-leverandøren har godkjent OAuth kun for Play Store og GitHub-versjonen</string>
     <string name="title_setup_gmail_support">Autorisering av Google-kontoer fungerer bare i Play Store og GitHub versjonen fordi Android sjekker den digitale appens signatur</string>
     <string name="title_setup_gmail_rationale">Gi tillatelser til å velge en konto og lese navnet ditt</string>
-    <string name="title_setup_gmail_permissions">Google vil be om tillatelser til å lese, komponere, sende og slette all e-postmeldingen din permanent. FairEmail vil aldri slette meldingene dine uten ditt eksplisitte samtykke.</string>
     <string name="title_setup_gmail_on_device">Hvorfor må jeg velge en bruker på enheten?</string>
     <string name="title_setup_office_auth">Feilen \'AUTHENTICATE failed\' kan skyldes at IMAP/SMTP er deaktivert av systemadministratoren</string>
     <string name="title_setup_office_auth_5_7_3">Prøv \'Annen leverandør\' hurtigoppsettsveiviseren.</string>

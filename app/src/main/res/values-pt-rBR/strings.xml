@@ -192,7 +192,7 @@
     <string name="title_setup_oauth_permission">O provedor de e-mail aprovou OAuth apenas para a versão Play Store e GitHub</string>
     <string name="title_setup_gmail_support">A autorização de contas Google funcionará apenas nas versões Play Store e GitHub porque o Android verifica a assinatura do aplicativo digital</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
-    <string name="title_setup_gmail_permissions">Google pedirá permissão para ler, compor, enviar e excluir permanentemente todo seu e-mail. O FairEmail nunca apagará suas mensagens sem o seu consentimento explícito.</string>
+    <string name="title_setup_gmail_permissions">O Google solicitará permissões para ler (para mostrar mensagens para você), redigir (para salvar rascunhos de mensagens), enviar e excluir permanentemente todos os seus e-mails. O FairEmail nunca excluirá suas mensagens sem o seu consentimento explícito. Somente você e mais ninguém tem acesso às suas mensagens.</string>
     <string name="title_setup_gmail_login">Se o Chrome estiver conectado a uma conta, uma nova conta só poderá ser adicionada através do Android. Isso pode ser evitado saindo do Chrome através das configurações de sincronização do Chrome.</string>
     <string name="title_setup_gmail_max">No caso da mensagem de erro \"Você está conectado ao número máximo de contas\", você precisa sair no navegador de todas as contas do Google.</string>
     <string name="title_setup_outlook_hint">No caso de um endereço de alias, o assistente do Office 365 provavelmente deverá ser usado.</string>
@@ -916,7 +916,7 @@
     <string name="title_advanced_default_folder_hint">        O Android pode pedir permissão para acessar a pasta selecionada, mesmo que o app não precise dela.
         Você pode cancelar a caixa de diálogo de seleção para restaurar a pasta padrão (geralmente a pasta \'Download\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Restaurar o último estado do aplicativo, se possível, quando reiniciado através do ícone do lançador</string>
+    <string name="title_advanced_restore_on_launch_hint">Restaurar o último estado do aplicativo, se possível, quando reiniciado através do ícone do lançador</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
     <string name="title_advanced_expandall_hint">O botão de resposta não será mostrado quando várias mensagens forem expandidas porque não está claro a qual mensagem o botão se aplica</string>
     <string name="title_advanced_autoseen_hint">A marcação automática de mensagens como lidas ao expandir pode ser desativada nas configurações individuais de cada conta</string>

@@ -219,7 +219,6 @@
     <string name="title_setup_oauth_permission">Poskytovateľ schválil použitie oauth len pre verzie z obchodu Play a Github</string>
     <string name="title_setup_gmail_support">Autorizácia účtov Google funguje len vo verziách z obchodu Play a Github, pretože systém Android kontroluje podpis aplikácií</string>
     <string name="title_setup_gmail_rationale">Prosím o udelenie povolenia na výberr účtu a načítanie Vášho mena</string>
-    <string name="title_setup_gmail_permissions">Google sa opýta na povolenia pre čítanie, písanie, odosielanie a trvalé vymazanie všetkých vašich e-mailov. FairEmail nikdy nevymaže vaše správy bez vášho vysloveného súhlasu.</string>
     <string name="title_setup_gmail_login">Ak ste do účtu prihlásení v prehliadači Google Chrome, nový účet je možné pridať len zo systému android. Môžete sa tomu vyhnúť tak, že sa odhlásite v prehliadači Google Chrome cez Nastavenia synchronizácie.</string>
     <string name="title_setup_gmail_max">V prípade chybového hlásenia \"Ste prihlásený do maximálneho počtu účtov\" je potrebné odhlásiť prehliadač zo všetkých účtov Google.</string>
     <string name="title_setup_outlook_hint">V prípade, že pridávate adresu aliasu, mali by ste použiť sprievodcu Office 365.</string>

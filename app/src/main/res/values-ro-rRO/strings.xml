@@ -206,7 +206,6 @@
     <string name="title_setup_oauth_permission">Furnizorul de e-mail a aprobat OAuth doar pentru versiunea Play Store și GitHub</string>
     <string name="title_setup_gmail_support">Autorizarea conturilor Google va funcționa în versiunea Play Store și GitHub doar pentru că Android verifică semnătura digitală a aplicației</string>
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
-    <string name="title_setup_gmail_permissions">Google va cere permisiunea de a citi, compune, trimite și șterge în mod permanent mesajele dumneavoastră. de email. FairEmail nu vă va șterge niciodată mesajele fără consimțământul dumneavoastră explicit.</string>
     <string name="title_setup_gmail_login">Dacă Chrome este conectat la un cont, un nou cont poate fi adăugat doar prin Android. Acest lucru poate fi evitat prin deconectarea de la Chrome prin intermediul setărilor de sincronizare Chrome.</string>
     <string name="title_setup_gmail_max">În cazul în care apare mesajul de eroare \"V-ați conectat la numărul maxim de conturi\", trebuie să vă deconectați din browser de la toate conturile Google.</string>
     <string name="title_setup_outlook_hint">În cazul unei adrese alias, probabil ar trebui folosit expertul Office 365.</string>
@@ -931,7 +930,7 @@
     <string name="title_advanced_default_folder_hint">        Android poate solicita permisiunea de a accesa directorul selectat, chiar dacă aplicația nu are nevoie de ea.
         Puteți anula dialogul de selectare pentru a restaura directorul implicit (de obicei \'Descărcare\').
     </string>
-    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">Restaurează ultima stare a aplicației dacă este posibilă la repornirea din pictograma lansator</string>
+    <string name="title_advanced_restore_on_launch_hint">Restaurează ultima stare a aplicației dacă este posibilă la repornirea din pictograma lansator</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_expandall_hint">Butonul de răspuns nu va fi afișat atunci când sunt extinse mai multe mesaje, deoarece nu este clar la ce mesaj se aplică butonul</string>
     <string name="title_advanced_autoseen_hint">Marcarea automată a mesajelor ca fiind citite la extindere poate fi dezactivată în setările avansate ale fiecărui cont</string>

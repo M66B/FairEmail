@@ -199,7 +199,6 @@
     <string name="title_setup_oauth_permission">E-poštni ponudnik je OAuth odobril samo za različico iz Trgovine Play in GitHuba.</string>
     <string name="title_setup_gmail_support">Overjanje računov Google bo delovalo samo v različici iz Trgovine Play in GitHuba, ker Android preveri digitalni podpis programa.</string>
     <string name="title_setup_gmail_rationale">Odobrite dovoljenja za izbiro računa in branje vašega imena.</string>
-    <string name="title_setup_gmail_permissions">Google vas bo vprašal za dovoljenje za branje, sestavljanje, pošiljanje in trajno brisanje vaše e-pošte.  FairEmail brez vašega izrecnega dovoljenja ne bo nikoli izbrisal sporočil.</string>
     <string name="title_setup_gmail_login">Če ste v Chromeu prijavljeni v račun, lahko nov račun dodate samo preko Androida.  Temu se lahko izognete z odjavo v Chromeu v Chromeovih nastavitvah snhronizacije.</string>
     <string name="title_setup_gmail_max">V primeru sporočila o napaki \"Vpisani ste v največjo dovoljeno število računov\" se morate odjaviti iz vseh Googlovih računov v brskalniku.</string>
     <string name="title_setup_gmail_on_device">Zakaj moram izbrati sistemski račun?</string>

@@ -178,7 +178,6 @@
     <string name="title_setup_oauth_permission">OAuth 認証はメールプロバイダーより Play ストア版と GitHub版でのみ承認されています</string>
     <string name="title_setup_gmail_support">Android がアプリの署名を確認するため、Google アカウントで認可する機能は Play ストア版と GitHub 版でのみ動作します</string>
     <string name="title_setup_gmail_rationale">アカウントを選択してアクセス権限を付与してください</string>
-    <string name="title_setup_gmail_permissions">Google はすべてのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmail が明示的な同意なしにメッセージを削除することはありません。</string>
     <string name="title_setup_gmail_login">Chrome でアカウントにログインしている場合、新しいアカウントは Android の設定から追加する必要があります。Chrome の同期設定からログアウトすると回避できます。</string>
     <string name="title_setup_gmail_max">「最大ログイン アカウント数に達しています」というエラーメッセージが表示される場合、ブラウザーのすべての Google アカウントからログアウトする必要があります。</string>
     <string name="title_setup_outlook_hint">エイリアスの場合、Office 365 ウィザードを使用する必要があります。</string>
@@ -904,7 +903,7 @@
     <string name="title_advanced_default_folder_hint">        Android が選択されたフォルダーへのアクセス権限について、アプリが必要としていないのに確認する場合があります。
         選択ダイアログをキャンセルしてデフォルトのフォルダー (ほとんどは 「Download フォルダー」) を復元できます。
     </string>
-    <string name="title_advanced_restore_on_launch_hint" comment="title_advanced_restore_on_launch_hint&#10;Remark for the option 'Restart app state on launch' on the behavior settings tab page">ランチャーアイコンからアプリを再起動したとき、直前の状態へ復元を試みます</string>
+    <string name="title_advanced_restore_on_launch_hint">ランチャーアイコンからアプリを再起動したとき、直前の状態へ復元を試みます</string>
     <string name="title_advanced_autoexpand_hint">会話スレッド内のメッセージが 1 つだけ、または未読メッセージが 1 つだけの場合に自動でメッセージを開きます</string>
     <string name="title_advanced_expandall_hint">複数のメッセージが展開されている場合、ボタンがどのメッセージに適用されるかが明確でないため、返信ボタンは表示されません</string>
     <string name="title_advanced_autoseen_hint">展開したメッセージを自動で既読にする機能は、アカウント設定の詳細設定から無効にできます</string>
