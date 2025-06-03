@@ -385,6 +385,10 @@
     <string name="title_queued">Nosūta ziņojumu</string>
     <string name="title_charset">Kodējums</string>
     <string name="title_filter_trash">Miskastē</string>
+    <string name="title_pwned_remark">Tas pārbaudīs paroli bez tās nosūtīšanas (izmantojot k-anonimizāciju), bet ne e-pasta adresi.</string>
+    <string name="title_edit_signature_image_hint">        Kad ziņojums tiek nosūtīts, attēls tiek ievietots ziņojumā no atlasītās atrašanās vietas.
+        Tādēļ attēla datni nevajadzētu izdzēst.
+    </string>
     <string name="title_answer_hide">Slēpt izvēlnēs</string>
     <string name="title_rule_hide">Slēpt</string>
     <string name="title_rule_importance">Iestatīt svarīgumu</string>
@@ -401,6 +405,7 @@
     <string name="title_hint_notifications_remark">Paziņojumu atļaujas ir nepieciešamas arī (konta) brīdinājumiem. Iestatījumos var izslēgt paziņojumus par jauniem ziņojumiem.</string>
     <string name="title_hint_vpn">E-pasta serveri daržeriez liedz savienojumus caur VPN. Ja tas notiek, to var atrisināt tikai e-pasta pakalpojuma sniedzējs.</string>
     <string name="title_hint_support">Ja ir kādi jautājumi vai sarežģījumi, lūgums izmantot atbalsta izvēlni, lai iegūtu palīdzību</string>
+    <string name="title_hint_outbox">Var pavilkt pa labi vai kreisi, lai atceltu nosūtīšanu</string>
     <string name="title_hint_important">Svarīgs</string>
     <string name="title_hint_sync_note">Pēc noklusējuma ne visi ziņojumi tiks lejupielādēti, lai ierobežotu krātuves vietas, akumulatora un datu lietojumu. To var mainīt ar ilgu piespiešanu uz mapes sarakstā un \"Iegūt vairāk ziņojumu\" atlasīšanu.</string>
     <string name="title_issue">Vai ir kādi jautājumi vai sarežģijumi?</string>
@@ -409,6 +414,9 @@
     <string name="title_no_ask_again">Turpmāk nejautāt šo</string>
     <string name="title_no_ask_for_again">Turpmāk nejautāt šo, ja sūta %1$s</string>
     <string name="title_large_body">Šis ziņojums ir ļoti liels un var radīt sarežģījumus.</string>
+    <string name="title_more_overflow">Vēl &#8230;</string>
+    <string name="title_today_at">Šodien %1$s</string>
+    <string name="title_tomorrow_at">Rīt %1$s</string>
     <string name="title_next_week">Nākamnedēļ šajā pašā laikā</string>
     <string name="title_after">Pēc %1$s</string>
     <string name="title_pro_google">FairEmail uzsāk pirkumu Play Store, bet Google pilnībā pārvalda visu pirkuma gaitu, tādēļ lūgums nevainot lietotni jebkādu sarežģījumu gadījumā.</string>
@@ -435,6 +443,17 @@
     <string name="title_accessibility_folders">Mapes</string>
     <string name="title_accessibility_forwarded">Pārsūtīts</string>
     <string name="title_accessibility_hide_addresses">Slēpt adreses</string>
+    <string-array name="sendDelayedNames">
+        <item>Nē</item>
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+    </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="undoNames">
