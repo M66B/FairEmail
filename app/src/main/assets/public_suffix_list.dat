@@ -15285,10 +15285,6 @@ srht.site
 apps.lair.io
 *.stolos.io
 
-// SparrowHost : https://sparrowhost.in/
-// Submitted by Anant Pandey <info@sparrowhost.in>
-ind.mom
-
 // SpeedPartner GmbH : https://www.speedpartner.de/
 // Submitted by Stefan Neufeind <info@speedpartner.de>
 customer.speedpartner.de
@@ -15463,6 +15459,10 @@ taveusercontent.com
 // Submitted by tawk.to developer team <dev-accounts@tawk.to>
 p.tawk.email
 p.tawkto.email
+
+// Tche.br : https://tche.br
+// Submitted by Bruno Lorensi <suporte@tche.br>
+tche.br
 
 // team.blue : https://team.blue
 // Submitted by Cedric Dubois <cedric.dubois@team.blue>
