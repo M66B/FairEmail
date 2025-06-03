@@ -28,6 +28,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
+### Next release
+
+* Added support for separate S/MIME sign and encrypt certificates, see [the FAQ](https://m66b.github.io/FairEmail/#faq12) for details
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2277 2025-05-28
 
 * Small improvements and minor bug fixes
