@@ -3944,7 +3944,7 @@ public class FragmentCompose extends FragmentBase {
         if (clipData == null) {
             Uri uri = data.getData();
             if (uri != null)
-                result.add(new UriType(uri, null));
+                result.add(new UriType(uri, data.getType()));
         } else {
             ClipDescription description = clipData.getDescription();
             for (int i = 0; i < clipData.getItemCount(); i++) {
