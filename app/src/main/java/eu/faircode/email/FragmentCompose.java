@@ -652,11 +652,13 @@ public class FragmentCompose extends FragmentBase {
                 Log.i("Received input uri=" + uri);
                 boolean resize_paste = prefs.getBoolean("resize_paste", true);
                 int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
+                boolean resize_width_only = prefs.getBoolean("resize_width_only", false);
                 onAddAttachment(
                         Arrays.asList(uri),
                         type == null ? null : new String[]{type},
                         true,
                         resize_paste ? resize : 0,
+                        resize_width_only,
                         false,
                         false);
             }
@@ -3386,7 +3388,7 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_ATTACHMENT:
                 case REQUEST_RECORD_AUDIO:
                     if (resultCode == RESULT_OK && data != null)
-                        onAddAttachment(getUris(data), null, false, 0, false, false);
+                        onAddAttachment(getUris(data), null, false, 0, false, false, false);
                     break;
                 case REQUEST_OPENPGP:
                     if (resultCode == RESULT_OK && data != null)
@@ -3735,18 +3737,20 @@ public class FragmentCompose extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean add_inline = prefs.getBoolean("add_inline", true);
         boolean resize_images = prefs.getBoolean("resize_images", true);
+        boolean resize_width_only = prefs.getBoolean("resize_width_only", false);
         boolean privacy_images = prefs.getBoolean("privacy_images", false);
         int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
-        onAddAttachment(uri, null, add_inline, resize_images ? resize : 0, privacy_images, focus);
+        onAddAttachment(uri, null, add_inline, resize_images ? resize : 0, resize_width_only, privacy_images, focus);
     }
 
-    private void onAddAttachment(List<Uri> uris, String[] types, boolean image, int resize, boolean privacy, boolean focus) {
+    private void onAddAttachment(List<Uri> uris, String[] types, boolean image, int resize, boolean resize_width_only, boolean privacy, boolean focus) {
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putParcelableArrayList("uris", new ArrayList<>(uris));
         args.putStringArray("types", types);
         args.putBoolean("image", image);
         args.putInt("resize", resize);
+        args.putBoolean("resize_width_only", resize_width_only);
         args.putInt("zoom", zoom);
         args.putBoolean("privacy", privacy);
         args.putCharSequence("body", etBody.getText());
@@ -3761,6 +3765,7 @@ public class FragmentCompose extends FragmentBase {
                 String[] types = args.getStringArray("types");
                 boolean image = args.getBoolean("image");
                 int resize = args.getInt("resize");
+                boolean resize_width_only = args.getBoolean("resize_width_only");
                 int zoom = args.getInt("zoom");
                 boolean privacy = args.getBoolean("privacy");
                 CharSequence body = args.getCharSequence("body");
@@ -3777,7 +3782,7 @@ public class FragmentCompose extends FragmentBase {
                     Uri uri = uris.get(i);
                     String type = (types != null && i < types.length ? types[i] : null);
 
-                    EntityAttachment attachment = addAttachment(context, id, uri, type, image, resize, privacy);
+                    EntityAttachment attachment = addAttachment(context, id, uri, type, image, resize, resize_width_only, privacy);
                     if (attachment == null)
                         continue;
                     if (!image || !attachment.isImage())
@@ -3897,7 +3902,7 @@ public class FragmentCompose extends FragmentBase {
                         if (info.isImage())
                             images.add(uri);
                         else
-                            addAttachment(context, id, uri, null, false, 0, false);
+                            addAttachment(context, id, uri, null, false, 0, false, false);
                     } catch (IOException ex) {
                         Log.e(ex);
                     }
@@ -5372,8 +5377,8 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private static EntityAttachment addAttachment(
-            Context context, long id, Uri uri, String type, boolean image, int resize, boolean privacy) throws IOException, SecurityException {
-        Log.w("Add attachment uri=" + uri + " image=" + image + " resize=" + resize + " privacy=" + privacy);
+            Context context, long id, Uri uri, String type, boolean image, int resize, boolean resize_width_only, boolean privacy) throws IOException, SecurityException {
+        Log.w("Add attachment uri=" + uri + " image=" + image + " resize=" + resize + "/" + resize_width_only + " privacy=" + privacy);
 
         NoStreamException.check(uri, context);
 
@@ -5500,7 +5505,7 @@ public class FragmentCompose extends FragmentBase {
                 Log.i("Authority=" + uri.getAuthority());
 
             if (resize > 0)
-                resizeAttachment(context, attachment, resize);
+                resizeAttachment(context, attachment, resize, resize_width_only);
 
             if (privacy)
                 try {
@@ -5577,7 +5582,7 @@ public class FragmentCompose extends FragmentBase {
         return attachment;
     }
 
-    private static void resizeAttachment(Context context, EntityAttachment attachment, int resize) throws IOException {
+    private static void resizeAttachment(Context context, EntityAttachment attachment, int resize, boolean resize_width_only) throws IOException {
         File file = attachment.getFile(context);
         if (!file.exists()) // Upload cancelled;
             return;
@@ -5604,7 +5609,7 @@ public class FragmentCompose extends FragmentBase {
 
         int factor = 1;
         while (options.outWidth / factor > resize ||
-                options.outHeight / factor > resize)
+                (!resize_width_only && options.outHeight / factor > resize))
             factor *= 2;
 
         Matrix rotation = ("image/jpeg".equals(attachment.type) ? ImageHelper.getImageRotation(file) : null);
@@ -6455,7 +6460,7 @@ public class FragmentCompose extends FragmentBase {
                                 if (info.isImage())
                                     images.add(uri);
                                 else
-                                    addAttachment(context, data.draft.id, uri, null, false, 0, false);
+                                    addAttachment(context, data.draft.id, uri, null, false, 0, false, false);
                             } catch (IOException | SecurityException ex) {
                                 Log.e(ex);
                             }
@@ -6517,7 +6522,7 @@ public class FragmentCompose extends FragmentBase {
 
                                     if (resize_reply &&
                                             ("reply".equals(action) || "reply_all".equals(action)))
-                                        resizeAttachment(context, attachment, REDUCED_IMAGE_SIZE);
+                                        resizeAttachment(context, attachment, REDUCED_IMAGE_SIZE, true);
                                 } else
                                     args.putBoolean("incomplete", true);
                             }

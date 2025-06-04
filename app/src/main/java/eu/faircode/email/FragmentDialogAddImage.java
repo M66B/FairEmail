@@ -55,6 +55,7 @@ public class FragmentDialogAddImage extends FragmentDialogBase {
         boolean add_inline = prefs.getBoolean("add_inline", true);
         boolean resize_images = prefs.getBoolean("resize_images", true);
         int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
+        boolean resize_width_only = prefs.getBoolean("resize_width_only", false);
         boolean privacy_images = prefs.getBoolean("privacy_images", false);
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
 
@@ -65,6 +66,7 @@ public class FragmentDialogAddImage extends FragmentDialogBase {
         final CheckBox cbResize = dview.findViewById(R.id.cbResize);
         final ImageButton ibResize = dview.findViewById(R.id.ibResize);
         final Spinner spResize = dview.findViewById(R.id.spResize);
+        final CheckBox cbResizeWidthOnly = dview.findViewById(R.id.cbResizeWidthOnly);
         final TextView tvResize = dview.findViewById(R.id.tvResize);
         final TextView tvResizeRemark = dview.findViewById(R.id.tvResizeRemark);
         final CheckBox cbPrivacy = dview.findViewById(R.id.cbPrivacy);
@@ -76,6 +78,7 @@ public class FragmentDialogAddImage extends FragmentDialogBase {
         rgAction.check(add_inline ? R.id.rbInline : R.id.rbAttach);
         cbResize.setChecked(resize_images);
         spResize.setEnabled(resize_images);
+        cbResizeWidthOnly.setChecked(resize_width_only);
         tvResizeRemark.setText(getString(R.string.title_add_image_resize_remark, "JPEG, PNG, WebP"));
         cbPrivacy.setChecked(privacy_images);
 
@@ -130,6 +133,13 @@ public class FragmentDialogAddImage extends FragmentDialogBase {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("resize").apply();
+            }
+        });
+
+        cbResizeWidthOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("resize_width_only", isChecked).apply();
             }
         });
 

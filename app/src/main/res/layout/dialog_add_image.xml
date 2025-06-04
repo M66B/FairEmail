@@ -106,6 +106,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbResize" />
 
+        <CheckBox
+            android:id="@+id/cbResizeWidthOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_add_image_resize_width_only"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="@id/spResize"
+            app:layout_constraintTop_toBottomOf="@id/spResize" />
+
         <TextView
             android:id="@+id/tvResize"
             android:layout_width="wrap_content"
@@ -124,7 +134,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spResize" />
+            app:layout_constraintTop_toBottomOf="@id/cbResizeWidthOnly" />
 
         <CheckBox
             android:id="@+id/cbPrivacy"
