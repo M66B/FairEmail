@@ -30,6 +30,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next release
 
+* Added option to limit the width only when resizing images
 * Added support for separate S/MIME sign and encrypt certificates, see [the FAQ](https://m66b.github.io/FairEmail/#faq12) for details
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)

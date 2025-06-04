@@ -30,6 +30,7 @@ Ceratonykus
 
 Next release
 
+* Added option to limit the width only when resizing images
 * Added support for separate S/MIME sign and encrypt certificates, see the FAQ for details
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
