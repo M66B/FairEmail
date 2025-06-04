@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.app.NotificationManager;
 import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -248,15 +249,17 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             if (!TextUtils.isEmpty(html))
                 args.putString("body", html);
 
-            ArrayList<Uri> uris = new ArrayList<>();
+            ArrayList<UriType> uris = new ArrayList<>();
 
             ClipData clip = intent.getClipData();
+            ClipDescription description = (clip == null ? null : clip.getDescription());
             if (clip != null)
                 for (int i = 0; i < clip.getItemCount(); i++) {
                     ClipData.Item item = clip.getItemAt(i);
                     Uri stream = (item == null ? null : item.getUri());
                     if (stream != null)
-                        uris.add(stream);
+                        uris.add(new UriType(stream,
+                                description != null && i < description.getMimeTypeCount() ? description.getMimeType(i) : null));
                 }
 
             if (intent.hasExtra(Intent.EXTRA_STREAM)) {
@@ -268,13 +271,13 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                     for (Uri stream : streams)
                         if (stream != null) {
                             boolean found = false;
-                            for (Uri e : uris)
-                                if (stream.equals(e)) {
+                            for (UriType e : uris)
+                                if (stream.equals(e.getUri())) {
                                     found = true;
                                     break;
                                 }
                             if (!found)
-                                uris.add(stream);
+                                uris.add(new UriType(stream, streams.size() == 1 ? intent.getType() : null));
                         }
                 }
             }

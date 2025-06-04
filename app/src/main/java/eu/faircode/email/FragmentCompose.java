@@ -28,6 +28,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -392,7 +393,7 @@ public class FragmentCompose extends FragmentBase {
         pickImages =
                 registerForActivityResult(new ActivityResultContracts.PickMultipleVisualMedia(max), uris -> {
                     if (!uris.isEmpty())
-                        onAddImageFile(uris, false);
+                        onAddImageFile(UriType.getList(uris), false);
                 });
     }
 
@@ -654,8 +655,7 @@ public class FragmentCompose extends FragmentBase {
                 int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
                 boolean resize_width_only = prefs.getBoolean("resize_width_only", false);
                 onAddAttachment(
-                        Arrays.asList(uri),
-                        type == null ? null : new String[]{type},
+                        Arrays.asList(new UriType(uri, type)),
                         true,
                         resize_paste ? resize : 0,
                         resize_width_only,
@@ -3382,13 +3382,13 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_TAKE_PHOTO:
                     if (resultCode == RESULT_OK) {
                         if (photoURI != null)
-                            onAddImageFile(Arrays.asList(photoURI), false);
+                            onAddImageFile(Arrays.asList(new UriType(photoURI, null)), false);
                     }
                     break;
                 case REQUEST_ATTACHMENT:
                 case REQUEST_RECORD_AUDIO:
                     if (resultCode == RESULT_OK && data != null)
-                        onAddAttachment(getUris(data), null, false, 0, false, false, false);
+                        onAddAttachment(getUris(data), false, 0, false, false, false);
                     break;
                 case REQUEST_OPENPGP:
                     if (resultCode == RESULT_OK && data != null)
@@ -3733,21 +3733,20 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    private void onAddImageFile(List<Uri> uri, boolean focus) {
+    private void onAddImageFile(List<UriType> uri, boolean focus) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean add_inline = prefs.getBoolean("add_inline", true);
         boolean resize_images = prefs.getBoolean("resize_images", true);
         boolean resize_width_only = prefs.getBoolean("resize_width_only", false);
         boolean privacy_images = prefs.getBoolean("privacy_images", false);
         int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
-        onAddAttachment(uri, null, add_inline, resize_images ? resize : 0, resize_width_only, privacy_images, focus);
+        onAddAttachment(uri, add_inline, resize_images ? resize : 0, resize_width_only, privacy_images, focus);
     }
 
-    private void onAddAttachment(List<Uri> uris, String[] types, boolean image, int resize, boolean resize_width_only, boolean privacy, boolean focus) {
+    private void onAddAttachment(List<UriType> uris, boolean image, int resize, boolean resize_width_only, boolean privacy, boolean focus) {
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putParcelableArrayList("uris", new ArrayList<>(uris));
-        args.putStringArray("types", types);
         args.putBoolean("image", image);
         args.putInt("resize", resize);
         args.putBoolean("resize_width_only", resize_width_only);
@@ -3761,8 +3760,7 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected Spanned onExecute(Context context, Bundle args) throws IOException, SecurityException {
                 final long id = args.getLong("id");
-                List<Uri> uris = args.getParcelableArrayList("uris");
-                String[] types = args.getStringArray("types");
+                List<UriType> uris = args.getParcelableArrayList("uris");
                 boolean image = args.getBoolean("image");
                 int resize = args.getInt("resize");
                 boolean resize_width_only = args.getBoolean("resize_width_only");
@@ -3779,10 +3777,9 @@ public class FragmentCompose extends FragmentBase {
                     start = s.length();
 
                 for (int i = 0; i < uris.size(); i++) {
-                    Uri uri = uris.get(i);
-                    String type = (types != null && i < types.length ? types[i] : null);
+                    UriType uri = uris.get(i);
 
-                    EntityAttachment attachment = addAttachment(context, id, uri, type, image, resize, resize_width_only, privacy);
+                    EntityAttachment attachment = addAttachment(context, id, uri, image, resize, resize_width_only, privacy);
                     if (attachment == null)
                         continue;
                     if (!image || !attachment.isImage())
@@ -3884,25 +3881,25 @@ public class FragmentCompose extends FragmentBase {
         }.serial().execute(this, args, "compose:attachment:add");
     }
 
-    void onSharedAttachments(ArrayList<Uri> uris) {
+    void onSharedAttachments(ArrayList<UriType> uris) {
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putParcelableArrayList("uris", uris);
 
-        new SimpleTask<ArrayList<Uri>>() {
+        new SimpleTask<ArrayList<UriType>>() {
             @Override
-            protected ArrayList<Uri> onExecute(Context context, Bundle args) throws Throwable {
+            protected ArrayList<UriType> onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
-                List<Uri> uris = args.getParcelableArrayList("uris");
+                List<UriType> uris = args.getParcelableArrayList("uris");
 
-                ArrayList<Uri> images = new ArrayList<>();
-                for (Uri uri : uris)
+                ArrayList<UriType> images = new ArrayList<>();
+                for (UriType uri : uris)
                     try {
                         Helper.UriInfo info = Helper.getInfo(uri, context);
                         if (info.isImage())
                             images.add(uri);
                         else
-                            addAttachment(context, id, uri, null, false, 0, false, false);
+                            addAttachment(context, id, uri, false, 0, false, false);
                     } catch (IOException ex) {
                         Log.e(ex);
                     }
@@ -3911,7 +3908,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
             @Override
-            protected void onExecuted(Bundle args, ArrayList<Uri> images) {
+            protected void onExecuted(Bundle args, ArrayList<UriType> images) {
                 if (images.size() == 0)
                     return;
 
@@ -3940,20 +3937,22 @@ public class FragmentCompose extends FragmentBase {
         }.serial().execute(this, args, "compose:shared");
     }
 
-    private List<Uri> getUris(Intent data) {
-        List<Uri> result = new ArrayList<>();
+    private List<UriType> getUris(Intent data) {
+        List<UriType> result = new ArrayList<>();
 
         ClipData clipData = data.getClipData();
         if (clipData == null) {
             Uri uri = data.getData();
             if (uri != null)
-                result.add(uri);
+                result.add(new UriType(uri, null));
         } else {
+            ClipDescription description = clipData.getDescription();
             for (int i = 0; i < clipData.getItemCount(); i++) {
                 ClipData.Item item = clipData.getItemAt(i);
                 Uri uri = item.getUri();
                 if (uri != null)
-                    result.add(uri);
+                    result.add(new UriType(uri,
+                            description != null && i < description.getMimeTypeCount() ? description.getMimeType(i) : null));
             }
         }
 
@@ -3963,7 +3962,7 @@ public class FragmentCompose extends FragmentBase {
         if (result.size() == 0 && data.hasExtra("media-uri-list"))
             try {
                 List<Uri> uris = data.getParcelableArrayListExtra("media-uri-list");
-                result.addAll(uris);
+                result.addAll(UriType.getList(uris));
             } catch (Throwable ex) {
                 Log.e(ex);
             }
@@ -5377,25 +5376,22 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private static EntityAttachment addAttachment(
-            Context context, long id, Uri uri, String type, boolean image, int resize, boolean resize_width_only, boolean privacy) throws IOException, SecurityException {
+            Context context, long id, UriType uri, boolean image, int resize, boolean resize_width_only, boolean privacy) throws IOException, SecurityException {
         Log.w("Add attachment uri=" + uri + " image=" + image + " resize=" + resize + "/" + resize_width_only + " privacy=" + privacy);
 
-        NoStreamException.check(uri, context);
+        NoStreamException.check(uri.getUri(), context);
 
         EntityAttachment attachment = new EntityAttachment();
         Helper.UriInfo info = Helper.getInfo(uri, context);
 
         EntityLog.log(context, "Add attachment" +
-                " uri=" + uri + " type=" + type + " image=" + image + " resize=" + resize + " privacy=" + privacy +
+                " uri=" + uri + " image=" + image + " resize=" + resize + " privacy=" + privacy +
                 " name=" + info.name + " type=" + info.type + " size=" + info.size);
 
-        if (type == null)
-            type = info.type;
-
         String ext = Helper.getExtension(info.name);
-        if (info.name != null && ext == null && type != null) {
+        if (info.name != null && ext == null && uri.getType() != null) {
             String guessed = MimeTypeMap.getSingleton()
-                    .getExtensionFromMimeType(type.toLowerCase(Locale.ROOT));
+                    .getExtensionFromMimeType(uri.getType().toLowerCase(Locale.ROOT));
             if (!TextUtils.isEmpty(guessed)) {
                 ext = guessed;
                 info.name += '.' + ext;
@@ -5418,7 +5414,7 @@ public class FragmentCompose extends FragmentBase {
                 attachment.name = "img" + attachment.sequence + (ext == null ? "" : "." + ext);
             else
                 attachment.name = info.name;
-            attachment.type = type;
+            attachment.type = info.type;
             attachment.disposition = (image ? Part.INLINE : Part.ATTACHMENT);
             attachment.size = info.size;
             attachment.progress = 0;
@@ -5439,7 +5435,7 @@ public class FragmentCompose extends FragmentBase {
             InputStream is = null;
             OutputStream os = null;
             try {
-                is = context.getContentResolver().openInputStream(uri);
+                is = context.getContentResolver().openInputStream(uri.getUri());
                 os = new FileOutputStream(file);
 
                 if (is == null)
@@ -5494,15 +5490,15 @@ public class FragmentCompose extends FragmentBase {
 
             db.attachment().setDownloaded(attachment.id, size);
 
-            if (BuildConfig.APPLICATION_ID.equals(uri.getAuthority()) &&
-                    uri.getPathSegments().size() > 0 &&
-                    "photo".equals(uri.getPathSegments().get(0))) {
+            if (BuildConfig.APPLICATION_ID.equals(uri.getUri().getAuthority()) &&
+                    uri.getUri().getPathSegments().size() > 0 &&
+                    "photo".equals(uri.getUri().getPathSegments().get(0))) {
                 // content://eu.faircode.email/photo/nnn.jpg
-                File tmp = new File(context.getFilesDir(), uri.getPath());
+                File tmp = new File(context.getFilesDir(), uri.getUri().getPath());
                 Log.i("Deleting " + tmp);
                 Helper.secureDelete(tmp);
             } else
-                Log.i("Authority=" + uri.getAuthority());
+                Log.i("Authority=" + uri.getUri().getAuthority());
 
             if (resize > 0)
                 resizeAttachment(context, attachment, resize, resize_width_only);
@@ -5710,7 +5706,7 @@ public class FragmentCompose extends FragmentBase {
             String external_body = args.getString("body", "");
             String external_text = args.getString("text");
             CharSequence selected_text = args.getCharSequence("selected");
-            ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
+            ArrayList<UriType> uris = args.getParcelableArrayList("attachments");
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean plain_only = prefs.getBoolean("plain_only", false);
@@ -6453,14 +6449,14 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     if ("new".equals(action) && uris != null) {
-                        ArrayList<Uri> images = new ArrayList<>();
-                        for (Uri uri : uris)
+                        ArrayList<UriType> images = new ArrayList<>();
+                        for (UriType uri : uris)
                             try {
                                 Helper.UriInfo info = Helper.getInfo(uri, context);
                                 if (info.isImage())
                                     images.add(uri);
                                 else
-                                    addAttachment(context, data.draft.id, uri, null, false, 0, false, false);
+                                    addAttachment(context, data.draft.id, uri, false, 0, false, false);
                             } catch (IOException | SecurityException ex) {
                                 Log.e(ex);
                             }
@@ -6896,7 +6892,7 @@ public class FragmentCompose extends FragmentBase {
                         if (draft.content && state == State.NONE) {
                             Runnable postShow = null;
                             if (args.containsKey("images")) {
-                                ArrayList<Uri> images = args.getParcelableArrayList("images");
+                                ArrayList<UriType> images = args.getParcelableArrayList("images");
                                 args.remove("images"); // once
 
                                 postShow = new Runnable() {
