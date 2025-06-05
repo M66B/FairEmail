@@ -2819,11 +2819,15 @@ but if you like you can enable this in the settings.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq70)
 
-When navigation to a conversation one message will be expanded if:
+When navigation to a conversation one message will be auto expanded when:
 
+* All messages are read
 * There is just one message in the conversation
 * There is exactly one unread message in the conversation
-* There is exactly one starred (favorite) message in the conversation (since version 1.1508)
+* There is exactly one starred (favorite) message in the conversation and no unread messages (since version 1.1508)
+
+In general, the most recent message will be auto expanded, regardless of the folder where the message is stored,
+and no messages will be auto expanded if there are multiple unread messages, to avoid missing unread messages.
 
 There is one exception: the message was not downloaded yet
 and the message is too large to download automatically on a metered (mobile) connection.

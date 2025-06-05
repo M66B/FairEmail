@@ -1553,12 +1553,14 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p><br /></p>
 <p><a name="faq70"></a> <strong>(70) When will messages be auto expanded?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq70">Google Translate</a></p>
-<p>When navigation to a conversation one message will be expanded if:</p>
+<p>When navigation to a conversation one message will be auto expanded when:</p>
 <ul>
+<li>All messages are read</li>
 <li>There is just one message in the conversation</li>
 <li>There is exactly one unread message in the conversation</li>
-<li>There is exactly one starred (favorite) message in the conversation (since version 1.1508)</li>
+<li>There is exactly one starred (favorite) message in the conversation and no unread messages (since version 1.1508)</li>
 </ul>
+<p>In general, the most recent message will be auto expanded, regardless of the folder where the message is stored, and no messages will be auto expanded if there are multiple unread messages, to avoid missing unread messages.</p>
 <p>There is one exception: the message was not downloaded yet and the message is too large to download automatically on a metered (mobile) connection. You can set or disable the maximum message size on the ‘connection’ settings tab.</p>
 <p>Duplicate (archived) messages, trashed messages and draft messages are not counted.</p>
 <p>Messages will automatically be marked read on expanding, unless this was disabled in the individual account settings.</p>
