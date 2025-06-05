@@ -1501,6 +1501,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_add_image_inline">Ynfoegje</string>
     <string name="title_add_image_attach">Taheakje</string>
     <string name="title_add_image_resize">Grutte wizigje</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Allinnich breedte beheine</string>
     <string name="title_add_image_privacy">Privacygefoelige gegevens fuortsmite</string>
     <string name="title_add_image_privacy_remark">Geografyske lokaasje, searjenûmers, bestânsnammen, ensfh.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>

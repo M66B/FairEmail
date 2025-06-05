@@ -1492,6 +1492,7 @@
     <string name="title_add_image_inline">插入</string>
     <string name="title_add_image_attach">附件</string>
     <string name="title_add_image_resize">调整大小</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">仅限制宽度</string>
     <string name="title_add_image_privacy">移除隐私敏感数据</string>
     <string name="title_add_image_privacy_remark">地理位置、序列号、文件名等</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>

@@ -8,7 +8,7 @@ Configurare FairEmail è semplice. Aggiungi almeno un profilo (account di posta)
 
 ## Configurazione rapida
 
-Basta selezionare il provider appropriato o *Altri provider* e inserire il tuo nome, l'indirizzo email e la password, e toccare *Controlla*:
+Seleziona il tuo provider dalla lista o tocca *Altri provider*, inserisci i tuoi dati di accesso e infine tocca *Controlla*.
 
 non sarà necessario configurare altro.
 

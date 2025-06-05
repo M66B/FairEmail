@@ -192,7 +192,7 @@
     <string name="title_setup_oauth_permission">Le fournisseur de messagerie a approuvé OAuth uniquement pour les versions Play Store et GitHub</string>
     <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement avec les versions Play Store et GitHub parce qu\'Android vérifie la signature numérique de l\'application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
-    <string name="title_setup_gmail_permissions">Google demandera l\'autorisation de lire (pour vous afficher les messages), de rédiger (pour enregistrer les brouillons de messages), d\'envoyer et de supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre consentement explicite. Seul vous et personne d\'autre a accès à vos messages.</string>
+    <string name="title_setup_gmail_permissions">Google demandera l\'autorisation de lire (pour afficher les messages), de rédiger (pour enregistrer les brouillons de messages), d\'envoyer et de supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre consentement explicite. Seul vous et personne d\'autre a accès à vos messages.</string>
     <string name="title_setup_gmail_login">Si Chrome est connecté à un compte, un nouveau compte ne peut être ajouté que via Android. Ceci peut être évité en vous déconnectant de Chrome via les paramètres de synchronisation de Chrome.</string>
     <string name="title_setup_gmail_max">En cas de message d\'erreur \"Vous êtes connecté au nombre maximum de comptes\", vous devez vous déconnecter de tous les comptes Google dans le navigateur.</string>
     <string name="title_setup_outlook_hint">Dans le cas d\'une adresse alias, l\'assistant Office 365 devrait probablement être utilisé.</string>
@@ -1511,6 +1511,7 @@
     <string name="title_add_image_inline">Inclure</string>
     <string name="title_add_image_attach">Joindre</string>
     <string name="title_add_image_resize">Redimensionner</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Redimensionner seulement sur la largeur</string>
     <string name="title_add_image_privacy">Supprimer les informations confidentielles sensibles</string>
     <string name="title_add_image_privacy_remark">Emplacement géographique, numéros de série, noms de fichiers, etc.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>

@@ -1536,6 +1536,7 @@
     <string name="title_add_image_inline">Вставити</string>
     <string name="title_add_image_attach">Долучити</string>
     <string name="title_add_image_resize">Змінити розмір</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Обмежити лише ширину</string>
     <string name="title_add_image_privacy">Вилучити конфіденційні дані</string>
     <string name="title_add_image_privacy_remark">Географічне розташування, серійні номери, назви файлів тощо</string>
     <string name="title_add_resize_pixels">&lt; %1$d пікселів</string>

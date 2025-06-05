@@ -25,6 +25,7 @@
     <string name="channel_warning">Brīdinājumi</string>
     <string name="channel_error">Kļūdas</string>
     <string name="channel_alert">Servera brīdinājumi</string>
+    <string name="channel_group_contacts">Kontaktpersonas</string>
     <string name="channel_service_description">Kontu sinhronizēšana un pārraudzīšana</string>
     <string name="channel_send_description">Ziņojumu nosūtīšana</string>
     <string name="channel_progress_description">Izpildes paziņojumi par ilgāk notiekošām darbībām</string>
@@ -76,6 +77,7 @@
     <string name="title_notification_sending_left">Atlikušie mēģinājumi: %1$d</string>
     <string name="title_notification_sending_retry">Nosūtīšana tiks mēģināta atkārtoti pēc savienojuma ar internetu izmaiņām vai pavelkot uz leju izsūtnē</string>
     <string name="title_notification_sending_failed">Nosūtīšana %1$s neizdevās</string>
+    <string name="menu_contacts">Vietējās kontaktpersonas</string>
     <string name="menu_setup">Iestatījumi</string>
     <string name="menu_faq">Atbalsts</string>
     <string name="menu_translate">Palīdzēt tulkot</string>
@@ -115,6 +117,7 @@
     <string name="title_setup_identity_what">Kas ir identitāte?</string>
     <string name="title_setup_free">Vai lietotni var izmantot bez maksas?</string>
     <string name="title_setup_permissions">Piešķirt atļaujas</string>
+    <string name="title_setup_permissions_explanation">Ir nepieciešamas kontaktpersonu atļaujas, lai uzmeklētu kontaktpersonu informāciju un ieteiktu kontaktpersonas</string>
     <string name="title_setup_permission_import_contacts">Kā es varu ievietot kontaktpersonas?</string>
     <string name="title_setup_import_graph_contact">Outlook kontaktpersonas</string>
     <string name="title_setup_import_graph_new">Jaunas kontaktpersonas: %1$s</string>
@@ -167,6 +170,8 @@
     <string name="title_advanced_unseen">Visì nelasītie ziņojumi</string>
     <string name="title_advanced_flagged">Visi atzīmētie ziņojumi</string>
     <string name="title_advanced_delete_unseen">Izdzēst vecus nelasītos ziņojumus</string>
+    <string name="title_advanced_suggest_local">Ieteikt vietēji glabātās kontatkpersonas</string>
+    <string name="title_advanced_auto_delete_local">Automātiski izdzēst vietējās kontaktpersonas, kas ir vecākas kā un izmantotas mazāk kā:</string>
     <string name="title_advanced_send_delayed">Novilcināt ziņojumu nosūtīšanu</string>
     <string name="title_advanced_send_undo">Rādīt nosūtīšanas atcelšanas iespēju</string>
     <string name="title_advanced_send_retry_max">Lielākais pieļaujamais nosūtīšanas mēģinājumu skaits</string>
@@ -179,6 +184,7 @@
     <string name="title_advanced_nav_unseen_drafts">Pārvietošanās izvēlnē rādīt neizlasīto melnrakstu skaitu</string>
     <string name="title_advanced_account_color_size">Krāsu joslas platums</string>
     <string name="title_advanced_ddg">Rādīt DuckDuckGo ikonas</string>
+    <string name="title_advanced_distinguish_contacts">Pasvītrot sūtītāju, kad tas ir zināms kā vietēja \"kam\" kontaktpersona</string>
     <string name="title_advanced_pdf_preview">Rādīt PDF sīktēlus</string>
     <string name="title_advanced_video_preview">Rādīt video sīktēlus</string>
     <string name="title_advanced_double_back">Divkāršs \"atpakaļ\", lai izietu</string>
@@ -187,6 +193,7 @@
     <string name="title_advanced_important_unsnoozed">Automātiski padarīt nesnaudošos ziņojumus par svarīgiem</string>
     <string name="title_advanced_auto_important">Automātiski padarīt atzīmētos ziņojumus par svarīgiem</string>
     <string name="title_advanced_notifications_service">Pārraudzības kanāls</string>
+    <string name="title_advanced_notify_known">Rādīt paziņojumus tikai par ziņojumiem no kontaktpersonām</string>
     <string name="title_advanced_notify_subject">Rādīt tēmu paziņojumos</string>
     <string name="title_advanced_notify_action_delete">@string/title_delete</string>
     <string name="title_advanced_notify_action_move">Pārvietot</string>
@@ -212,6 +219,7 @@
     <string name="title_advanced_import_key">Ievietot privāto atslēgu</string>
     <string name="title_advanced_manage_keys">Pārvaldīt privātās atslēgas</string>
     <string name="title_advanced_ca">Uzstādītie CA sertifikāti</string>
+    <string name="title_advanced_shortcuts">Rādīt bieži izmantotas kontaktpersonas Androdi kopīgošanas izvēlnē</string>
     <string name="title_advanced_fts_indexed">Indeksēti %1$d no %2$d ziņojumiem (%3$s)</string>
     <string name="title_advanced_haptic_feedback">Sajūtu atgriezeniskā saite svarīgām darbībām</string>
     <string name="title_advanced_language">Valoda</string>
@@ -229,7 +237,9 @@
     <string name="title_advanced_data_usage">Tas var izraisīt milzīgu datu patēriņu.</string>
     <string name="title_advanced_sync_kept_hint">Tas pārsūtīs papildu datus un patērēs papildu akumulatora jaudu, it īpaši, ja ierīcē tiek glabāts liels ziņojumu daudzums</string>
     <string name="title_advanced_sync_folders_hint">Šī atspējošana kaut cik samazināš datu un akumulatora lietotjumu, bet atspējos arī mapju saraksta atjaunināšanu</string>
+    <string name="title_advanced_suggest_names_hint">Ja atspējots, tikai e-pasta adreses tiks izmantotas kontaktpersonu atlasīšanā</string>
     <string name="title_advanced_suggest_local_hint">Papildus kontaktpersonām, ko nodrošina Android. Kontaktpersonu dati tiks glabāti nosūtītajiem vai saņemtajiem ziņojumiem tikai tad, kad iespējots.</string>
+    <string name="title_advanced_suggest_account_hint">Šis attiecas tikai uz vietējām kotaktpersonām, ko Android adrešu grāmatā esošās nav sasaistītas ar noteiktiem kontiem</string>
     <string name="title_advanced_write_below_hint">Saņēmējs var palaist garām atbildi, piemēram, kad garāks ziņojums tiek saīsināts</string>
     <string name="title_advanced_metered_warning">Šīs iespējas atspējošana izslēgts ziņojumu saņemšanu un nosūtīšanu mobilajos interneta savienojumos</string>
     <string name="title_advanced_usage_hint">Tas palielināš akumulatora, datu un krātuves vietas lietojumu</string>
@@ -250,6 +260,7 @@
     <string name="title_advanced_fts_hint">Šī iespējošana uzlabo meklēšanas veiktspēju, bet arī palielina akumulatora un krātuves vietas lietojumu</string>
     <string name="title_advanced_protocol_hint">Tas būtiski palielinās akumulatora un krātuves vietas lietojumu.</string>
     <string name="title_advanced_debug_hint">Dažādās vietās tiks rādīt nepievilcīga atkļūdošanas informācija</string>
+    <string name="title_advanced_never_favorite">Nekad neievietot izlasē</string>
     <string name="title_create_folder">Izveidot mapi</string>
     <string name="title_create_folder_name">Mapes nosaukums</string>
     <string name="title_advanced_swipe_sensitivity">Pa kreisi/pa labi vilkšanas jutīgums</string>
@@ -296,6 +307,8 @@
     <string name="title_import_contacts">Ievietot vCards</string>
     <string name="title_export_contacts">Izgūt vCards</string>
     <string name="title_create_sub_folder">Izveidot apakšmapi</string>
+    <string name="title_delete_contacts">Izdzēst visas vietējās kontaktpersonas?</string>
+    <string name="title_delete_contacts_remark">Visas rādītās un nerādītās kontaktpersonas tiks izdzēstas, pat ja meklētas.</string>
     <string name="title_hint_operations">Darbību izdzēšana var beigties ar pazūdošiem ziņojumiem un sinhronizēšanas sarežgījumiem</string>
     <string name="title_op_title_add">Augšupielādēt ziņojumu</string>
     <string name="title_folder_name">Mapes nosaukums</string>
@@ -335,6 +348,7 @@
     <string name="title_quick_actions_high">Augsts svarīgums</string>
     <string name="title_copy_to">Kopēt uz &#8230;</string>
     <string name="title_delete">Izdzēst</string>
+    <string name="title_delete_all">Izdzēst visu</string>
     <string name="title_move">Pārvietot</string>
     <string name="title_copy_btn">Kopēt</string>
     <string name="title_keywords_btn">Atslēgvārdi</string>
@@ -375,7 +389,10 @@
     <string name="title_send_auto_archive">Arhivēt ziņojumu, kad nosūta atbildi</string>
     <string name="title_no_server">\"%1$s\" netika atrasts neviens serveris</string>
     <string name="title_style_protect_size">Teksts ir pārāk garš</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Ierobežot tikai platumu</string>
     <string name="title_add_image_select">Atlasīt datni</string>
+    <string name="title_manage_android_contacts">Pārvaldīt Android kontaktpersonas</string>
+    <string name="title_manage_local_contacts">Pārvaldīt vietējās kontaktperonas</string>
     <string name="title_edit_plain_text">Rediģēt kā vienkāršu tekstu</string>
     <string name="title_noreply_reminder">Sūta uz \"no-reply\" adresi</string>
     <string name="title_external_reminder">Sūta uz ārēju adresi</string>
@@ -397,6 +414,7 @@
     <string name="title_legend_section_folders">Mapes</string>
     <string name="title_legend_importance">Ir svarīgs</string>
     <string name="title_legend_importance_low">Nav svarīgs</string>
+    <string name="title_legend_contacts">Pārvaldīt kontaktpersonas</string>
     <string name="title_legend_hide">Slēpt saturu</string>
     <string name="title_legend_delete">@string/title_delete</string>
     <string name="title_legend_folder_type">Mapes tips</string>

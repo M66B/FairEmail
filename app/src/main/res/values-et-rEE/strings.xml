@@ -192,6 +192,7 @@
     <string name="title_setup_oauth_permission">E-posti teenusepakkuja on OAuth\'i heaks kiitnud vaid Play Store ja GitHub versiooni puhul</string>
     <string name="title_setup_gmail_support">Google konto autoriseerimine toimib vaid Play poe ja GitHubi versioonides, sest Android kontrollib rakenduse digitaalset allkirja</string>
     <string name="title_setup_gmail_rationale">Palun anna luba, et valida konto ja lugeda su nime</string>
+    <string name="title_setup_gmail_permissions">Google küsib õigust lugeda (näidata sulle sõnumeid), luua (salvestada sõnumite mustandeid), saata ja püsivalt kustutada kõiki sinu kirju. FairEmail ei kustuta mitte kunagi sinu sõnumeid ilma sinu selge nõusolekuta. Ainult sina pääsed oma kirjadele ligi, mitte keegi teine.</string>
     <string name="title_setup_gmail_login">Kui Chromega on kontosse sisse logitud, saab uut kontot lisada vaid Androidi kaudu. Seda saab vältida, kui logida Chrome sünkroniseerimisseadetes Chromest välja.</string>
     <string name="title_setup_gmail_max">Veateate \"Oled sisse logitud maksimaalsele arvule kontodele\" korral pead veebilehitsejas välja logima kõikidest Google\'i kontodest.</string>
     <string name="title_setup_outlook_hint">Alias-aadressi korral tuleks tõenäoliselt kasutada Office 365 viisardit.</string>
@@ -916,6 +917,7 @@
     <string name="title_advanced_default_folder_hint">        Android võib küsida luba valitud kaustale ligi pääsemiseks, kuigi äpp ei vaja seda.
         Saad tühistada valimisdialoogi, et vaikekaust taastada (harilikult allalaadimiste kaust).
     </string>
+    <string name="title_advanced_restore_on_launch_hint">Kui võimalik taasta äpi eelmine olek, kui taaskäivitatakse avakuva ikooni kaudu</string>
     <string name="title_advanced_autoexpand_hint">Ava sõnum automaatselt, kui vestluses on ainult üks sõnum või ainult üks lugemata sõnum</string>
     <string name="title_advanced_expandall_hint">Kui laiendatud on mitu sõnumit, ei näidata vastamise nuppu, sest on ebaselge, millisele neist nupp rakenduks</string>
     <string name="title_advanced_autoseen_hint">Laiendamisel sõnumite automaatselt loetuks märkimise saab iga konto täpsemate seadete alt keelata</string>
@@ -1507,6 +1509,7 @@
     <string name="title_add_image_inline">Lisa juurde</string>
     <string name="title_add_image_attach">Manusta</string>
     <string name="title_add_image_resize">Muuda suurust</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Piira vaid laiust</string>
     <string name="title_add_image_privacy">Eemalda privaatsustundlik info</string>
     <string name="title_add_image_privacy_remark">Geograafilised asukohad, seerianumbrid, failinimed jne.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pikslit</string>

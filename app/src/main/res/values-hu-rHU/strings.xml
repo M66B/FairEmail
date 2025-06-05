@@ -191,6 +191,7 @@
     <string name="title_setup_oauth_permission">Az e-mail szolgáltató az OAuth-ot csak a Play Store és GitHub verziókra engedélyezte</string>
     <string name="title_setup_gmail_support">Google fiókok engedélyezése csak a Play Store és GitHub verzióknál engedélyezett, mert az Android rendszer ellenőrzi az app digitális aláírását</string>
     <string name="title_setup_gmail_rationale">Kérem adja meg a szükséges engedélyeket hogy a kijelölhessen egy fiókot, illetve az alkalmazás hozzáférjen</string>
+    <string name="title_setup_gmail_permissions">A Google engedélyt fog kérni a levelei elolvasására (üzenetek megjelenítése), írására (üzenetek mentése piszkozatként), levelek küldésére és végleges törlésére. A FairEmail sosem fogja az üzeneteit törölni kifejezett engedélye nélkül. Csak ön, senki más nem fér hozzá az üzeneteihez.</string>
     <string name="title_setup_gmail_login">Ha be van jelentkezve a Chrome-ban, akkor új fiókot csak az Androidban adhat hozzá. Mindez elkerülhető, ha a Chrome szinkronizálási beállításainál kijelentkezik.</string>
     <string name="title_setup_gmail_max">A \"Bejelentkezések száma elérte a maximumot\" hibaüzenet esetén a böngészőben jelentkezzen ki az összes Google fiókból.</string>
     <string name="title_setup_outlook_hint">Alias cím esetén valószínűleg az Office 365 varázslóját érdemes használni.</string>
@@ -1500,6 +1501,7 @@
     <string name="title_add_image_inline">Beszúrás</string>
     <string name="title_add_image_attach">Csatolás</string>
     <string name="title_add_image_resize">Átméretezés</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Csak szélesség korlátozása</string>
     <string name="title_add_image_privacy">Magán jellegű adatok törlése</string>
     <string name="title_add_image_privacy_remark">Földrajzi helyzet, sorozatszámok, azonosítók, stb.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixel</string>

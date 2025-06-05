@@ -206,6 +206,7 @@
     <string name="title_setup_oauth_permission">E-mail provajder je odobrio OAuth provjeru saamo za verziju iz Play trgovine i GitHub-a</string>
     <string name="title_setup_gmail_support">Autorizacija Google računa radit će samo u verzijama Play trgovine i GitHub-a, jer Android provjerava digitalne potpise aplikacija</string>
     <string name="title_setup_gmail_rationale">Molimo da potvrdite dopuštenja za izbor računa i čitanje vašeg imena</string>
+    <string name="title_setup_gmail_permissions">Google će tražiti dozvole za čitanje (prikaz poruka za Vas), sastavljanje (snimanje nacrta poruka), slanje i trajno brisanje svih vaših mail-ova. FairEmail nikada neće brisati vaše poruke bez vašeg izričitog pristanka. Samo Vi i niko drugi može pristupiti vašim porukama.</string>
     <string name="title_setup_gmail_login">Ako je u Chrome-u prijavljen račun, novi račun (nalog) može se dodati samo u postavkama Androida. Da biste izbjegli ovu situaciju, odjavite se iz Chrome-a preko postavki za sinhronizaciju.</string>
     <string name="title_setup_gmail_max">U slučaju poruke o greški \"Prijavljeni ste s maksimalnim brojem računa\", trebate se odjaviti sa svih Google računa u pregledniku.</string>
     <string name="title_setup_outlook_hint">U slučaju korištenja aliasa adrese, treba koristiti čarobnjak paketa Office 365.</string>
@@ -1523,6 +1524,7 @@
     <string name="title_add_image_inline">Ubaci</string>
     <string name="title_add_image_attach">Priloži</string>
     <string name="title_add_image_resize">Promijeni veličinu</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Ograniči samo širinu</string>
     <string name="title_add_image_privacy">Ukloni osjetljive podatke</string>
     <string name="title_add_image_privacy_remark">Geografska lokacija, serijski brojevi, nazivi datoteka, itd.</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksela</string>

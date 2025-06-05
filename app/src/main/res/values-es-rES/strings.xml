@@ -192,6 +192,7 @@
     <string name="title_setup_oauth_permission">El proveedor de correo electrónico ha aprobado OAuth sólo para las versiones de Play Store y GitHub</string>
     <string name="title_setup_gmail_support">Autorizar cuentas de Google sólo funcionará en las versiones de Play Store y GitHub porque Android comprueba la firma digital de la aplicación</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
+    <string name="title_setup_gmail_permissions">Google solicitará permisos para leer (para mostrarle mensajes), redactar (para guardar borradores), enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su consentimiento explícito. Sólo usted y nadie más tienen acceso a sus mensajes.</string>
     <string name="title_setup_gmail_login">Si Chrome ha iniciado sesión en una cuenta, sólo se puede añadir una nueva cuenta a través de Android. Esto se puede evitar desconectando Chrome a través de los ajustes de sincronización de Chrome.</string>
     <string name="title_setup_gmail_max">En el caso del mensaje de error \"Has iniciado sesión con el número máximo de cuentas\", tú necesitas cerrar sesión en el navegador de todas las cuentas de Google.</string>
     <string name="title_setup_outlook_hint">En el caso de una dirección alias, probablemente debería utilizar el asistente de Office 365.</string>
@@ -916,6 +917,7 @@
     <string name="title_advanced_default_folder_hint">        Puede que Android solicite permiso para acceder a la carpeta seleccionada, aunque la aplicación no lo necesite.
         Puede cancelar el diálogo de selección para restaurar la carpeta predeterminada (por lo general la carpeta \'Descargas\').
     </string>
+    <string name="title_advanced_restore_on_launch_hint">Restaurar el último estado de la aplicación si es posible cuando se reinicia mediante el icono del lanzador</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_expandall_hint">El botón de respuesta no se mostrará cuando se expandan varios mensajes porque no está claro a qué mensaje aplica el botón</string>
     <string name="title_advanced_autoseen_hint">Marcar automáticamente los mensajes como leídos al expandir puede desactivarse en la configuración avanzada de cada cuenta</string>
@@ -1505,6 +1507,7 @@
     <string name="title_add_image_inline">Insertar</string>
     <string name="title_add_image_attach">Adjuntar</string>
     <string name="title_add_image_resize">Redimensionar</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Limitar sólo el ancho</string>
     <string name="title_add_image_privacy">Eliminar datos de privacidad sensibles</string>
     <string name="title_add_image_privacy_remark">Ubicación geográfica, números de serie, nombres de archivos, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d píxeles</string>

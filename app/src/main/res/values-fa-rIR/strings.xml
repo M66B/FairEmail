@@ -1061,6 +1061,7 @@
     <string name="title_add_image_inline">درج</string>
     <string name="title_add_image_attach">پیوست</string>
     <string name="title_add_image_resize">تغییر اندازه</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">فقط عرض را محدود کن</string>
     <string name="title_add_image_privacy">حذف کردن داده شخصی حساس</string>
     <string name="title_add_resize_pixels">&lt;%1$d پیکسل</string>
     <string name="title_add_image_resize_remark">پشتیبانی از تغییر اندازه برای: %1$s</string>

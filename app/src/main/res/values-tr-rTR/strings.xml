@@ -1498,6 +1498,9 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_add_image_inline">Ekle</string>
     <string name="title_add_image_attach">Ekle</string>
     <string name="title_add_image_resize">Yeniden boyutlandır</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Başlık resim ekle yalnızca genişliği yeniden boyutlandır
+Görüntü ekleme iletişim kutusunda yalnızca görüntünün genişliğine göre yeniden boyutlandırma seçeneği (onay kutusu) için başlık.
+Dosya: strings. xml</string>
     <string name="title_add_image_privacy">Mahremiyetiniz için önemli verileri sil</string>
     <string name="title_add_image_privacy_remark">Coğrafi konum, seri numaraları, dosya adları vb</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>

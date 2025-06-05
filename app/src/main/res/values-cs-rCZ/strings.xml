@@ -1536,6 +1536,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_add_image_inline">Vložit</string>
     <string name="title_add_image_attach">Přiložit</string>
     <string name="title_add_image_resize">Změnit velikost</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Pouze omezená šířka</string>
     <string name="title_add_image_privacy">Odebrat citlivé osobní údaje</string>
     <string name="title_add_image_privacy_remark">Zeměpisná poloha, sériová čísla, názvy souborů, apod.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelů</string>

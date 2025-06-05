@@ -1509,6 +1509,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_add_image_inline">Inserir</string>
     <string name="title_add_image_attach">Anexar</string>
     <string name="title_add_image_resize">Redimensionar</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Limite apenas a largura</string>
     <string name="title_add_image_privacy">Remover dados confidenciais da imagem</string>
     <string name="title_add_image_privacy_remark">Localização geográfica, números de série, nomes de ficheiro, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeis</string>

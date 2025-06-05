@@ -1512,6 +1512,7 @@
     <string name="title_add_image_inline">Einfügen</string>
     <string name="title_add_image_attach">Anhängen</string>
     <string name="title_add_image_resize">Größe ändern</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Nur Breite begrenzen</string>
     <string name="title_add_image_privacy">Vertrauliche Daten entfernen</string>
     <string name="title_add_image_privacy_remark">Geografischer Aufnahmeort, Lizenzschlüssel, Dateinamen usw.</string>
     <string name="title_add_resize_pixels">&lt; %1$d Pixel</string>
