@@ -217,7 +217,7 @@ Online translations are supported by:
 
 ## License
 
-Copyright &copy; 2018-2024 Marcel Bokhorst. All rights reserved.
+Copyright &copy; 2018-2025 Marcel Bokhorst. All rights reserved.
 
 [GNU General Public License version 3](https://www.gnu.org/licenses/gpl.txt)
 
