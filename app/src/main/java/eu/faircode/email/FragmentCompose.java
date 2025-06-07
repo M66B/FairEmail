@@ -4276,6 +4276,8 @@ public class FragmentCompose extends FragmentBase {
                                 throw new IllegalStateException("Unknown action=" + data.getAction());
 
                         case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
+                            if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction()))
+                                db.identity().setIdentitySignKey(identity.id, null);
                             args.putBoolean("interactive", largs.getBoolean("interactive"));
                             return result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
 
