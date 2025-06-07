@@ -1527,13 +1527,14 @@
     <string name="title_style_link_image">Wstaw jako obraz</string>
     <string name="title_style_link_title">Tytuł</string>
     <string name="title_style_link_metadata">Pobierz tytuł</string>
-    <string name="title_style_link_metadata_remark">Spowoduje to pobranie tytułu pod wprowadzonym adresem</string>
+    <string name="title_style_link_metadata_remark" comment="title_style_link_metadata_remark&#10;Remark for link insertion dialog box. Entered address refers to the link entered and the title to the link text as fetched from the internet.">Spowoduje to pobranie tytułu pod wprowadzonym adresem</string>
     <string name="title_style_link_send_dlimit">Limit pobierania (%1$s)</string>
     <string name="title_style_link_send_tlimit">Czas trwania (%1$s)</string>
     <string name="title_add_image">Dodaj obraz</string>
     <string name="title_add_image_inline">Wstaw</string>
     <string name="title_add_image_attach">Załącz</string>
     <string name="title_add_image_resize">Zmień rozmiar</string>
+    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Ograniczaj tylko szerokość</string>
     <string name="title_add_image_privacy">Usuń wrażliwe prywatne dane</string>
     <string name="title_add_image_privacy_remark">Lokalizacja geograficzna, numery seryjne, nazwy plików itp</string>
     <string name="title_add_resize_pixels">&lt; %1$d pikseli</string>

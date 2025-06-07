@@ -192,7 +192,7 @@
     <string name="title_setup_oauth_permission">Le fournisseur de messagerie a approuvé OAuth uniquement pour les versions Play Store et GitHub</string>
     <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement avec les versions Play Store et GitHub parce qu\'Android vérifie la signature numérique de l\'application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
-    <string name="title_setup_gmail_permissions">Google demandera l\'autorisation de lire (pour afficher les messages), de rédiger (pour enregistrer les brouillons de messages), d\'envoyer et de supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre consentement explicite. Seul vous et personne d\'autre a accès à vos messages.</string>
+    <string name="title_setup_gmail_permissions">Google demandera l\'autorisation de lire (pour afficher les messages), de rédiger (pour enregistrer les brouillons de messages), d\'envoyer et de supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre consentement explicite. Seul vous et personne d\'autre avez accès à vos messages.</string>
     <string name="title_setup_gmail_login">Si Chrome est connecté à un compte, un nouveau compte ne peut être ajouté que via Android. Ceci peut être évité en vous déconnectant de Chrome via les paramètres de synchronisation de Chrome.</string>
     <string name="title_setup_gmail_max">En cas de message d\'erreur \"Vous êtes connecté au nombre maximum de comptes\", vous devez vous déconnecter de tous les comptes Google dans le navigateur.</string>
     <string name="title_setup_outlook_hint">Dans le cas d\'une adresse alias, l\'assistant Office 365 devrait probablement être utilisé.</string>
@@ -1504,7 +1504,7 @@
     <string name="title_style_link_image">Insérer en tant qu\'image</string>
     <string name="title_style_link_title">Titre</string>
     <string name="title_style_link_metadata">Récupérer le titre</string>
-    <string name="title_style_link_metadata_remark">Ceci récupérera le titre à l\'adresse saisie</string>
+    <string name="title_style_link_metadata_remark" comment="title_style_link_metadata_remark&#10;Remark for link insertion dialog box. Entered address refers to the link entered and the title to the link text as fetched from the internet.">Ceci récupérera le titre à l\'adresse saisie</string>
     <string name="title_style_link_send_dlimit">Limite de téléchargement (%1$s)</string>
     <string name="title_style_link_send_tlimit">Limite de durée (%1$s)</string>
     <string name="title_add_image">Ajouter une image</string>
