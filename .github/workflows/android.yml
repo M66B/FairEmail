@@ -63,11 +63,11 @@ jobs:
       uses: actions/attest-build-provenance@v1
       with:
         subject-path: 'app/build/outputs/apk/**/release/*.apk'
-    - name: Upload to BitBucket
-      run: |
-        ./gradlew upload -Ptarget=play-preview-${{ github.event.inputs.branch }}
-        ./gradlew upload -Ptarget=github-snapshot-${{ github.event.inputs.branch }}
-        ./gradlew upload -Ptarget=large-snapshot-${{ github.event.inputs.branch }}
+    #- name: Upload to BitBucket
+    #  run: |
+    #    ./gradlew upload -Ptarget=play-preview-${{ github.event.inputs.branch }}
+    #    ./gradlew upload -Ptarget=github-snapshot-${{ github.event.inputs.branch }}
+    #    ./gradlew upload -Ptarget=large-snapshot-${{ github.event.inputs.branch }}
     #https://github.com/actions/upload-artifact
     - uses: actions/upload-artifact@v4
       with:
