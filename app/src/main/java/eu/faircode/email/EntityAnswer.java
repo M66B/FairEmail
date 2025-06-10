@@ -580,7 +580,7 @@ public class EntityAnswer implements Serializable {
             for (Uri file : attachments)
                 try {
                     EntityAttachment attachment = new EntityAttachment();
-                    Helper.UriInfo info = Helper.getInfo(new UriType(file, null, null), context);
+                    Helper.UriInfo info = Helper.getInfo(new UriType(file, (String) null, null), context);
 
                     attachment.message = id;
                     attachment.sequence = db.attachment().getAttachmentSequence(id) + 1;

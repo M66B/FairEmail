@@ -3382,7 +3382,7 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_TAKE_PHOTO:
                     if (resultCode == RESULT_OK) {
                         if (photoURI != null)
-                            onAddImageFile(Arrays.asList(new UriType(photoURI, null, null)), false);
+                            onAddImageFile(Arrays.asList(new UriType(photoURI, (String) null, getContext())), false);
                     }
                     break;
                 case REQUEST_ATTACHMENT:
@@ -3951,9 +3951,7 @@ public class FragmentCompose extends FragmentBase {
                 ClipData.Item item = clipData.getItemAt(i);
                 Uri uri = item.getUri();
                 if (uri != null)
-                    result.add(new UriType(uri,
-                            description != null && i < description.getMimeTypeCount() ? description.getMimeType(i) : null,
-                            getContext()));
+                    result.add(new UriType(uri, description, getContext()));
             }
         }
 
