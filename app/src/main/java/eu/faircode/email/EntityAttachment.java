@@ -251,14 +251,17 @@ public class EntityAttachment {
     }
 
     String getMimeType() {
+        if (encryption != null)
+            return type;
+        return getMimeType(type, name);
+    }
+
+    static String getMimeType(String type, String name) {
         // Try to guess a better content type
         // For example, sometimes PDF files are sent as application/octet-stream
 
         // https://android.googlesource.com/platform/libcore/+/refs/tags/android-9.0.0_r49/luni/src/main/java/libcore/net/MimeUtils.java
         // https://docs.microsoft.com/en-us/archive/blogs/vsofficedeveloper/office-2007-file-format-mime-types-for-http-content-streaming-2
-
-        if (encryption != null)
-            return type;
 
         if ("audio/mid".equals(type))
             return "audio/midi";

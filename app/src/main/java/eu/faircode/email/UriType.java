@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2025 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -38,10 +39,15 @@ public class UriType implements Parcelable {
         this.type = in.readString();
     }
 
-    public UriType(Uri uri, String type) {
+    public UriType(Uri uri, String type, Context context) {
         this.uri = uri;
         if (!TextUtils.isEmpty(type))
             this.type = type;
+
+        if (context != null) {
+            Helper.UriInfo info = Helper.getInfo(this, context);
+            this.type = EntityAttachment.getMimeType(type, info.name);
+        }
     }
 
     public Uri getUri() {
@@ -75,10 +81,11 @@ public class UriType implements Parcelable {
         }
     };
 
-    public static List<UriType> getList(List<Uri> uris) {
+    public static List<UriType> getList(List<Uri> uris, Context context) {
         List<UriType> result = new ArrayList<>();
-        for (Uri uri : uris)
-            result.add(new UriType(uri, null));
+        if (uris != null)
+            for (Uri uri : uris)
+                result.add(new UriType(uri, null, context));
         return result;
     }
 

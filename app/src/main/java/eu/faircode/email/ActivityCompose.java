@@ -259,7 +259,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                     Uri stream = (item == null ? null : item.getUri());
                     if (stream != null)
                         uris.add(new UriType(stream,
-                                description != null && i < description.getMimeTypeCount() ? description.getMimeType(i) : null));
+                                description != null && i < description.getMimeTypeCount() ? description.getMimeType(i) : null, this));
                 }
 
             if (intent.hasExtra(Intent.EXTRA_STREAM)) {
@@ -277,7 +277,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                                     break;
                                 }
                             if (!found)
-                                uris.add(new UriType(stream, streams.size() == 1 ? intent.getType() : null));
+                                uris.add(new UriType(stream, streams.size() == 1 ? intent.getType() : null, this));
                         }
                 }
             }

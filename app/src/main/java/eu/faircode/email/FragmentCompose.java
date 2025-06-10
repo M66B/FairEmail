@@ -393,7 +393,7 @@ public class FragmentCompose extends FragmentBase {
         pickImages =
                 registerForActivityResult(new ActivityResultContracts.PickMultipleVisualMedia(max), uris -> {
                     if (!uris.isEmpty())
-                        onAddImageFile(UriType.getList(uris), false);
+                        onAddImageFile(UriType.getList(uris, getContext()), false);
                 });
     }
 
@@ -655,7 +655,7 @@ public class FragmentCompose extends FragmentBase {
                 int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
                 boolean resize_width_only = prefs.getBoolean("resize_width_only", false);
                 onAddAttachment(
-                        Arrays.asList(new UriType(uri, type)),
+                        Arrays.asList(new UriType(uri, type, etBody.getContext())),
                         true,
                         resize_paste ? resize : 0,
                         resize_width_only,
@@ -3382,7 +3382,7 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_TAKE_PHOTO:
                     if (resultCode == RESULT_OK) {
                         if (photoURI != null)
-                            onAddImageFile(Arrays.asList(new UriType(photoURI, null)), false);
+                            onAddImageFile(Arrays.asList(new UriType(photoURI, null, null)), false);
                     }
                     break;
                 case REQUEST_ATTACHMENT:
@@ -3944,7 +3944,7 @@ public class FragmentCompose extends FragmentBase {
         if (clipData == null) {
             Uri uri = data.getData();
             if (uri != null)
-                result.add(new UriType(uri, data.getType()));
+                result.add(new UriType(uri, data.getType(), getContext()));
         } else {
             ClipDescription description = clipData.getDescription();
             for (int i = 0; i < clipData.getItemCount(); i++) {
@@ -3952,7 +3952,8 @@ public class FragmentCompose extends FragmentBase {
                 Uri uri = item.getUri();
                 if (uri != null)
                     result.add(new UriType(uri,
-                            description != null && i < description.getMimeTypeCount() ? description.getMimeType(i) : null));
+                            description != null && i < description.getMimeTypeCount() ? description.getMimeType(i) : null,
+                            getContext()));
             }
         }
 
@@ -3962,7 +3963,7 @@ public class FragmentCompose extends FragmentBase {
         if (result.size() == 0 && data.hasExtra("media-uri-list"))
             try {
                 List<Uri> uris = data.getParcelableArrayListExtra("media-uri-list");
-                result.addAll(UriType.getList(uris));
+                result.addAll(UriType.getList(uris, getContext()));
             } catch (Throwable ex) {
                 Log.e(ex);
             }
