@@ -856,7 +856,7 @@ public class MessageHelper {
 
     static Pair<String, String> getExtra(String email, String extra) {
         String name = null;
-        int comma = extra.indexOf(',');
+        int comma = extra.lastIndexOf(',');
         if (comma >= 0) {
             name = extra.substring(0, comma).trim();
             extra = extra.substring(comma + 1).trim();
