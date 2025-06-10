@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -801,8 +802,9 @@ public class EditTextCompose extends FixedEditText {
                         info.requestPermission();
 
                     String type = null;
-                    if (info.getDescription().getMimeTypeCount() > 0)
-                        type = info.getDescription().getMimeType(0);
+                    ClipDescription description = info.getDescription();
+                    if (description != null && description.getMimeTypeCount() > 0)
+                        type = description.getMimeType(0);
 
                     inputContentListener.onInputContent(info.getContentUri(), type);
                     return true;
