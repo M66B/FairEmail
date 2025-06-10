@@ -49,10 +49,10 @@ public class UriType implements Parcelable {
         if (!TextUtils.isEmpty(type))
             this.type = type;
 
-        if (context != null) {
-            Helper.UriInfo info = Helper.getInfo(this, context);
-            this.type = EntityAttachment.getMimeType(type, info.name);
-        }
+        //if (context != null) {
+        //    Helper.UriInfo info = Helper.getInfo(this, context);
+        //    this.type = EntityAttachment.getMimeType(type, info.name);
+        //}
     }
 
     public Uri getUri() {
