@@ -44,6 +44,11 @@
         <item quantity="one">Pārrauga %1$d kontu</item>
         <item quantity="other">Pārrauga %1$d kontus</item>
     </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="zero">%1$d ierindotu darbību</item>
+        <item quantity="one">%1$d ierindota darbība</item>
+        <item quantity="other">%1$d ierindotas darbības</item>
+    </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="zero">%1$d jaunu ziņojumu</item>
         <item quantity="one">%1$d jauns ziņojums</item>
@@ -79,6 +84,7 @@
     <string name="title_notification_sending_left">Atlikušie mēģinājumi: %1$d</string>
     <string name="title_notification_sending_retry">Nosūtīšana tiks mēģināta atkārtoti pēc savienojuma ar internetu izmaiņām vai pavelkot uz leju izsūtnē</string>
     <string name="title_notification_sending_failed">Nosūtīšana %1$s neizdevās</string>
+    <string name="menu_operations">Darbības</string>
     <string name="menu_contacts">Vietējās kontaktpersonas</string>
     <string name="menu_setup">Iestatījumi</string>
     <string name="menu_faq">Atbalsts</string>
@@ -240,6 +246,7 @@
     <string name="title_advanced_app">Lietotnes iestatījumi</string>
     <string name="title_advanced_log_info">Atkļūdošanas žurnalēšana</string>
     <string name="title_advanced_debug">Atkļūdošana</string>
+    <string name="title_advanced_poll_hint">Jaunu ziņojumu pārbaudīšana ik pēc noteikta laika katru reizi salīdzinās vietējos un attālos ziņojumus, kas ir resursietilpīga darbība, kas var beigties ar akumulatora papildu lietojumu, it īpaši, ja ir daudz ziņojumu. Saņemšana vienmēr šo novērsīs ar nepārtrauktu sekošanu izmaiņām.</string>
     <string name="title_advanced_quick_sync_hint">Tas samazina datu patēriņu, bet var tikt palaisti garām jauni ziņojumi, ja e-pasta serveris neievēro standartus</string>
     <string name="title_advanced_data_usage">Tas var izraisīt milzīgu datu patēriņu.</string>
     <string name="title_advanced_sync_kept_hint">Tas pārsūtīs papildu datus un patērēs papildu akumulatora jaudu, it īpaši, ja ierīcē tiek glabāts liels ziņojumu daudzums</string>
@@ -316,10 +323,20 @@
     <string name="title_import_contacts">Ievietot vCards</string>
     <string name="title_export_contacts">Izgūt vCards</string>
     <string name="title_create_sub_folder">Izveidot apakšmapi</string>
+    <string name="title_delete_operation_title">Izdzēst darbības</string>
+    <string name="title_delete_operation_error">Ar kļūdas ziņojumu</string>
+    <string name="title_delete_operation_fetch">Iegūt darbības</string>
+    <string name="title_delete_operation_move">Pārvietot darbības</string>
+    <string name="title_delete_operation_flag">Atzīmēt darbības</string>
+    <string name="title_delete_operation_delete">Izdzēst darbības</string>
+    <string name="title_delete_operation_send">Nosūtīt darbības</string>
+    <string name="title_delete_operation_deleted">Izdzēstas %1$d darbības</string>
     <string name="title_delete_contacts">Izdzēst visas vietējās kontaktpersonas?</string>
     <string name="title_delete_contacts_remark">Visas rādītās un nerādītās kontaktpersonas tiks izdzēstas, pat ja meklētas.</string>
+    <string name="title_no_operations">Nav ierindotu darbību</string>
+    <string name="title_check_operations">Pārbauda darbības</string>
     <string name="title_hint_operations">Darbību izdzēšana var beigties ar pazūdošiem ziņojumiem un sinhronizēšanas sarežgījumiem</string>
-    <string name="title_op_title_add">Augšupielādēt ziņojumu</string>
+    <string name="title_op_title_add">Augšupielādē ziņojumu</string>
     <string name="title_folder_name">Mapes nosaukums</string>
     <string name="title_edit_account_name">Labot konta nosaukumu</string>
     <string name="title_edit_account_color">Labot konta krāsu</string>
@@ -437,8 +454,10 @@
     <string name="title_rule_tts_data">Uzstādīt balss datus</string>
     <string name="title_legend_section_folders">Mapes</string>
     <string name="title_legend_section_compose">Sastādīt</string>
+    <string name="title_legend_executing">Izpilda darbības</string>
     <string name="title_legend_importance">Ir svarīgs</string>
     <string name="title_legend_importance_low">Nav svarīgs</string>
+    <string name="title_legend_browsed">Tiek pārlūkots vai meklēts</string>
     <string name="title_legend_contacts">Pārvaldīt kontaktpersonas</string>
     <string name="title_legend_hide">Slēpt saturu</string>
     <string name="title_legend_delete">@string/title_delete</string>
