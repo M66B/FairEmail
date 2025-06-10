@@ -276,7 +276,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                                     break;
                                 }
                             if (!found)
-                                uris.add(new UriType(stream, streams.size() == 1 ? intent.getType() : null, this));
+                                uris.add(new UriType(stream, intent.getType(), this));
                         }
                 }
             }

@@ -393,7 +393,7 @@ public class FragmentCompose extends FragmentBase {
         pickImages =
                 registerForActivityResult(new ActivityResultContracts.PickMultipleVisualMedia(max), uris -> {
                     if (!uris.isEmpty())
-                        onAddImageFile(UriType.getList(uris, getContext()), false);
+                        onAddImageFile(UriType.getList(uris, null), false);
                 });
     }
 
@@ -655,7 +655,7 @@ public class FragmentCompose extends FragmentBase {
                 int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
                 boolean resize_width_only = prefs.getBoolean("resize_width_only", false);
                 onAddAttachment(
-                        Arrays.asList(new UriType(uri, type, etBody.getContext())),
+                        Arrays.asList(new UriType(uri, type, null)),
                         true,
                         resize_paste ? resize : 0,
                         resize_width_only,
@@ -3382,7 +3382,7 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_TAKE_PHOTO:
                     if (resultCode == RESULT_OK) {
                         if (photoURI != null)
-                            onAddImageFile(Arrays.asList(new UriType(photoURI, (String) null, getContext())), false);
+                            onAddImageFile(Arrays.asList(new UriType(photoURI, (String) null, null)), false);
                     }
                     break;
                 case REQUEST_ATTACHMENT:
@@ -3961,7 +3961,7 @@ public class FragmentCompose extends FragmentBase {
         if (result.size() == 0 && data.hasExtra("media-uri-list"))
             try {
                 List<Uri> uris = data.getParcelableArrayListExtra("media-uri-list");
-                result.addAll(UriType.getList(uris, getContext()));
+                result.addAll(UriType.getList(uris, null));
             } catch (Throwable ex) {
                 Log.e(ex);
             }
