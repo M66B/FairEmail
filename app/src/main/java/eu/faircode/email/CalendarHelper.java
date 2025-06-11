@@ -356,8 +356,8 @@ public class CalendarHelper {
                             avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_DECLINED);
                         else if ("TENTATIVE".equals(pstatus))
                             avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_TENTATIVE);
-                        else if ("NEEDS-ACTION".equals(pstatus))
-                            avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_NONE);
+                        else  // NEEDS-ACTION
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_INVITED);
 
                         avalues.put(CalendarContract.Attendees.EVENT_ID, eventId);
 
