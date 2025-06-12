@@ -114,7 +114,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExternalAnswer;
     private SwitchCompat swShortcuts;
     private SwitchCompat swICalTentative;
-    private ImageButton ibICalTentative;
+    private SwitchCompat swICalEmail;
+    private ImageButton ibICal;
     private SwitchCompat swFts;
     private ImageButton ibFts;
     private TextView tvFtsIndexed;
@@ -287,7 +288,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private static final long MIN_FILE_SIZE = 1024 * 1024L;
 
     final static List<String> RESET_OPTIONS = Collections.unmodifiableList(Arrays.asList(
-            "sort_answers", "shortcuts", "ical_tentative", "fts",
+            "sort_answers", "shortcuts", "ical_tentative", "ical_email", "fts",
             "classification", "class_min_probability", "class_min_difference",
             "show_filtered", "haptic_feedback", "haptic_feedback_swipe",
             "language",
@@ -383,7 +384,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExternalAnswer = view.findViewById(R.id.swExternalAnswer);
         swShortcuts = view.findViewById(R.id.swShortcuts);
         swICalTentative = view.findViewById(R.id.swICalTentative);
-        ibICalTentative = view.findViewById(R.id.ibICalTentative);
+        swICalEmail = view.findViewById(R.id.swICalEmail);
+        ibICal = view.findViewById(R.id.ibICal);
         swFts = view.findViewById(R.id.swFts);
         ibFts = view.findViewById(R.id.ibFts);
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
@@ -614,7 +616,15 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        ibICalTentative.setOnClickListener(new View.OnClickListener() {
+        swICalEmail.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        swICalEmail.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("ical_email", checked).apply();
+            }
+        });
+
+        ibICal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 186);
@@ -2473,6 +2483,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
             swICalTentative.setChecked(prefs.getBoolean("ical_tentative", true));
             swFts.setChecked(prefs.getBoolean("fts", false));
+            swICalEmail.setChecked(prefs.getBoolean("ical_email", false));
 
             swClassification.setChecked(prefs.getBoolean("classification", false));
 

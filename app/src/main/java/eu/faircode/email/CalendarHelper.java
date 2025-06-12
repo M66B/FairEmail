@@ -323,6 +323,9 @@ public class CalendarHelper {
                     eventId = existId;
                 }
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean ical_email = prefs.getBoolean("ical_email", false);
+
                 for (Attendee a : event.getAttendees())
                     try {
                         String email = a.getEmail();
@@ -334,8 +337,9 @@ public class CalendarHelper {
 
                         ContentValues avalues = new ContentValues();
 
-                        //if (!TextUtils.isEmpty(email))
-                        //    avalues.put(CalendarContract.Attendees.ATTENDEE_EMAIL, email);
+                        if (!TextUtils.isEmpty(email) && ical_email)
+                            avalues.put(CalendarContract.Attendees.ATTENDEE_EMAIL, email);
+
                         if (TextUtils.isEmpty(name))
                             name = email;
                         if (!TextUtils.isEmpty(name))
