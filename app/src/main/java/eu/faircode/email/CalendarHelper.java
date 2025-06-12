@@ -334,9 +334,10 @@ public class CalendarHelper {
 
                         ContentValues avalues = new ContentValues();
 
-                        if (!TextUtils.isEmpty(email))
-                            avalues.put(CalendarContract.Attendees.ATTENDEE_EMAIL, email);
-
+                        //if (!TextUtils.isEmpty(email))
+                        //    avalues.put(CalendarContract.Attendees.ATTENDEE_EMAIL, email);
+                        if (TextUtils.isEmpty(name))
+                            name = email;
                         if (!TextUtils.isEmpty(name))
                             avalues.put(CalendarContract.Attendees.ATTENDEE_NAME, name);
 
