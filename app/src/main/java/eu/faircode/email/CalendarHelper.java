@@ -264,7 +264,6 @@ public class CalendarHelper {
                     values.put(CalendarContract.Events.DESCRIPTION, description);
                 if (!TextUtils.isEmpty(location))
                     values.put(CalendarContract.Events.EVENT_LOCATION, location);
-                values.put(CalendarContract.Events.ACCESS_LEVEL, CalendarContract.Events.ACCESS_PRIVATE);
                 values.put(CalendarContract.Events.STATUS, status);
 
                 long eventId;
