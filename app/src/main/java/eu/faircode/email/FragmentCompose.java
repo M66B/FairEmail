@@ -493,11 +493,7 @@ public class FragmentCompose extends FragmentBase {
                             if (permissions == null)
                                 return false;
                             UriType uriType = new UriType(uri, event.getClipDescription(), activity);
-                            Helper.UriInfo info = Helper.getInfo(uriType, activity);
-                            if (info.isImage())
-                                onAddImageFile(Arrays.asList(uriType), false);
-                            else
-                                onAddAttachment(Arrays.asList(uriType), false, 0, false, false, false);
+                            onSharedAttachments(new ArrayList<>(Arrays.asList(uriType)));
                             return true;
                         default:
                             return false;
