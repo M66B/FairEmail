@@ -482,10 +482,12 @@ public interface DaoMessage {
 
     @Query("SELECT message.* FROM message" +
             " LEFT JOIN message AS base ON base.id = :id" +
+            " LEFT JOIN folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
             " AND (message.id = :id" +
             " OR (message.msgid = :msgid AND message.folder <> base.folder)" +
-            " OR (NOT :hash IS NULL AND message.hash IS :hash))")
+            " OR (NOT :hash IS NULL AND message.hash IS :hash))" +
+            " AND folder.type <> '" + EntityFolder.OUTBOX + "'")
     List<EntityMessage> getMessagesBySimilarity(long account, long id, String msgid, String hash);
 
     @Query("SELECT DISTINCT keywords FROM message WHERE folder = :folder")
