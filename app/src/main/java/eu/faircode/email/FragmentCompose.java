@@ -471,40 +471,6 @@ public class FragmentCompose extends FragmentBase {
         final float dp3 = Helper.dp2pixels(getContext(), 3);
 
         // Wire controls
-
-        // https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/multi-window
-        etBody.setOnDragListener(new View.OnDragListener() {
-            @Override
-            public boolean onDrag(View view, DragEvent event) {
-                try {
-                    switch (event.getAction()) {
-                        case DragEvent.ACTION_DROP:
-                            FragmentActivity activity = getActivity();
-                            if (activity == null)
-                                return false;
-                            ClipData data = event.getClipData();
-                            if (data == null)
-                                return false;
-                            ClipData.Item item = data.getItemAt(0);
-                            Uri uri = item.getUri();
-                            if (uri == null)
-                                return false;
-                            DragAndDropPermissionsCompat permissions = ActivityCompat.requestDragAndDropPermissions(activity, event);
-                            if (permissions == null)
-                                return false;
-                            UriType uriType = new UriType(uri, event.getClipDescription(), activity);
-                            onSharedAttachments(new ArrayList<>(Arrays.asList(uriType)));
-                            return true;
-                        default:
-                            return false;
-                    }
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                    return false;
-                }
-            }
-        });
-
         spIdentity.setOnItemSelectedListener(identitySelected);
 
         View.OnTouchListener onTouchListener = new View.OnTouchListener() {
@@ -698,6 +664,39 @@ public class FragmentCompose extends FragmentBase {
                         resize_width_only,
                         false,
                         false);
+            }
+        });
+
+        // https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/multi-window
+        etBody.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View view, DragEvent event) {
+                try {
+                    switch (event.getAction()) {
+                        case DragEvent.ACTION_DROP:
+                            FragmentActivity activity = getActivity();
+                            if (activity == null)
+                                return false;
+                            ClipData data = event.getClipData();
+                            if (data == null)
+                                return false;
+                            ClipData.Item item = data.getItemAt(0);
+                            Uri uri = item.getUri();
+                            if (uri == null)
+                                return false;
+                            DragAndDropPermissionsCompat permissions = ActivityCompat.requestDragAndDropPermissions(activity, event);
+                            if (permissions == null)
+                                return false;
+                            UriType uriType = new UriType(uri, event.getClipDescription(), activity);
+                            onSharedAttachments(new ArrayList<>(Arrays.asList(uriType)));
+                            return true;
+                        default:
+                            return false;
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    return false;
+                }
             }
         });
 
