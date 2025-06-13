@@ -654,16 +654,8 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onInputContent(Uri uri, String type) {
                 Log.i("Received input uri=" + uri);
-                boolean resize_paste = prefs.getBoolean("resize_paste", true);
-                int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
-                boolean resize_width_only = prefs.getBoolean("resize_width_only", false);
-                onAddAttachment(
-                        Arrays.asList(new UriType(uri, type, null)),
-                        true,
-                        resize_paste ? resize : 0,
-                        resize_width_only,
-                        false,
-                        false);
+                UriType uriType = new UriType(uri, type, null);
+                onSharedAttachments(new ArrayList<>(Arrays.asList(uriType)));
             }
         });
 
