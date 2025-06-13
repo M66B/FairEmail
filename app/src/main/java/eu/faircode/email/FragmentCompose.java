@@ -82,6 +82,7 @@ import android.text.style.RelativeSizeSpan;
 import android.text.style.URLSpan;
 import android.util.Pair;
 import android.util.TypedValue;
+import android.view.DragEvent;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.HapticFeedbackConstants;
@@ -121,8 +122,10 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.view.DragAndDropPermissionsCompat;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -468,6 +471,39 @@ public class FragmentCompose extends FragmentBase {
         final float dp3 = Helper.dp2pixels(getContext(), 3);
 
         // Wire controls
+
+        // https://developer.android.com/develop/ui/views/touch-and-input/drag-drop/multi-window
+        etBody.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View view, DragEvent event) {
+                try {
+                    switch (event.getAction()) {
+                        case DragEvent.ACTION_DROP:
+                            FragmentActivity activity = getActivity();
+                            if (activity == null)
+                                return false;
+                            ClipData data = event.getClipData();
+                            if (data == null)
+                                return false;
+                            ClipData.Item item = data.getItemAt(0);
+                            Uri uri = item.getUri();
+                            if (uri == null)
+                                return false;
+                            DragAndDropPermissionsCompat permissions = ActivityCompat.requestDragAndDropPermissions(activity, event);
+                            if (permissions == null)
+                                return false;
+                            onAddAttachment(Arrays.asList(new UriType(uri, event.getClipDescription(), activity)), false, 0, false, false, false);
+                            return true;
+                        default:
+                            return false;
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    return false;
+                }
+            }
+        });
+
         spIdentity.setOnItemSelectedListener(identitySelected);
 
         View.OnTouchListener onTouchListener = new View.OnTouchListener() {
