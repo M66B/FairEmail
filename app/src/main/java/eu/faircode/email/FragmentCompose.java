@@ -492,7 +492,12 @@ public class FragmentCompose extends FragmentBase {
                             DragAndDropPermissionsCompat permissions = ActivityCompat.requestDragAndDropPermissions(activity, event);
                             if (permissions == null)
                                 return false;
-                            onAddAttachment(Arrays.asList(new UriType(uri, event.getClipDescription(), activity)), false, 0, false, false, false);
+                            UriType uriType = new UriType(uri, event.getClipDescription(), activity);
+                            Helper.UriInfo info = Helper.getInfo(uriType, activity);
+                            if (info.isImage())
+                                onAddImageFile(Arrays.asList(uriType), false);
+                            else
+                                onAddAttachment(Arrays.asList(uriType), false, 0, false, false, false);
                             return true;
                         default:
                             return false;
