@@ -79,6 +79,7 @@ public class FragmentDialogDuration extends FragmentDialogBase {
         final TextView tvDuration = dview.findViewById(R.id.tvDuration);
         final TimePicker timePicker = dview.findViewById(R.id.timePicker);
         final DatePicker datePicker = dview.findViewById(R.id.datePicker);
+        final TextView tvSnoozeDoze = dview.findViewById(R.id.tvSnoozeDoze);
 
         final int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
         final int textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
@@ -108,6 +109,16 @@ public class FragmentDialogDuration extends FragmentDialogBase {
             timePicker.setHour(cal.get(Calendar.HOUR_OF_DAY));
             timePicker.setMinute(cal.get(Calendar.MINUTE));
         }
+
+        boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(context));
+        tvSnoozeDoze.setVisibility(isIgnoring ? View.GONE : View.VISIBLE);
+        tvSnoozeDoze.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+            }
+        });
 
         Dialog dialog = new AlertDialog.Builder(context)
                 .setIcon(R.drawable.twotone_timelapse_24)

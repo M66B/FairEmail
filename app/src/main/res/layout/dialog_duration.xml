@@ -73,5 +73,19 @@
             app:layout_constraintHeight_max="180dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/timePicker" />
+
+        <TextView
+            android:id="@+id/tvSnoozeDoze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:drawableEnd="@drawable/twotone_settings_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_snooze_doze"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/datePicker" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
