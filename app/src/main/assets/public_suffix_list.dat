@@ -11303,9 +11303,10 @@ adobeaemcloud.com
 aem.live
 hlx.live
 adobeaemcloud.net
+aem.network
 aem.page
 hlx.page
-hlx3.page
+aem.reviews
 
 // Adobe Developer Platform : https://developer.adobe.com
 // Submitted by Jesse MacFadyen<jessem@adobe.com>
@@ -15668,6 +15669,10 @@ now.sh
 // Virtual-Info : https://www.virtual-info.info/
 // Submitted by Adnan RIHAN <hostmaster@v-info.info>
 v-info.info
+
+// VistaBlog : https://vistablog.ir/
+// Submitted by Hossein Piri <info@vistablog.ir>
+vistablog.ir
 
 // Viva Republica, Inc. : https://toss.im/
 // Submitted by Deus Team <deus@toss.im>
