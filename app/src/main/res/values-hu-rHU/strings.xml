@@ -436,7 +436,6 @@
     <string name="title_advanced_quote_reply">Megválaszolt szöveg idézése</string>
     <string name="title_advanced_limit_reply">A beágyazott idézetek számának korlátozása</string>
     <string name="title_advanced_resize_reply">Képek átméretezése válaszolt szövegben</string>
-    <string name="title_advanced_resize_paste">Beillesztett képek átméretezése</string>
     <string name="title_advanced_signature_location">Aláírás pozíció</string>
     <string name="title_advanced_signature_new">Aláírás használata az új üzenetekhez</string>
     <string name="title_advanced_signature_reply">Aláírás használata válaszoláskor</string>
@@ -780,6 +779,7 @@
     <string name="title_advanced_sort_answers">Válaszsablonok sorba rendezése használati gyakoriság alapján</string>
     <string name="title_advanced_shortcuts">Gyakran használt névjegyek megjelenítése az Android megosztás menüjében</string>
     <string name="title_advanced_ical_tentative">Kapott meghívások előzetes mentése</string>
+    <string name="title_advanced_ical_email">Résztvevők email címének tárolása</string>
     <string name="title_advanced_fts">Keresési index létrehozása</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d üzenet indexelve (%3$s)</string>
     <string name="title_advanced_classification">Üzenetek osztályozása</string>
@@ -1501,7 +1501,7 @@
     <string name="title_add_image_inline">Beszúrás</string>
     <string name="title_add_image_attach">Csatolás</string>
     <string name="title_add_image_resize">Átméretezés</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Csak szélesség korlátozása</string>
+    <string name="title_add_image_resize_width_only">Csak szélesség korlátozása</string>
     <string name="title_add_image_privacy">Magán jellegű adatok törlése</string>
     <string name="title_add_image_privacy_remark">Földrajzi helyzet, sorozatszámok, azonosítók, stb.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixel</string>
@@ -2059,6 +2059,7 @@
     <string name="title_via">Ezen keresztül: %1$s</string>
     <string name="title_1hour">1 óra</string>
     <string name="title_1day">1 nap</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Kérem kapcsolja ki az energiatakarékos üzemmódot az alapbeállítások 3. lépése segítségével</string>
     <string name="title_more_overflow">Továbbiak &#8230;</string>
     <string name="title_today_at">Ma %1$s-kor</string>
     <string name="title_tomorrow_at">Holnap %1$s-kor</string>

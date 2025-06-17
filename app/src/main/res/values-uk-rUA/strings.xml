@@ -468,7 +468,6 @@
     <string name="title_advanced_quote_reply">Цитувати текст, на який ви відповідаєте</string>
     <string name="title_advanced_limit_reply">Обмежити кількість вкладених цитувань</string>
     <string name="title_advanced_resize_reply">Змінити розмір зображень в тексті відповіді</string>
-    <string name="title_advanced_resize_paste">Змінити розмір вставлених зображень</string>
     <string name="title_advanced_signature_location">Положення підпису</string>
     <string name="title_advanced_signature_new">Використовувати підпис для нових повідомлень</string>
     <string name="title_advanced_signature_reply">Використовувати підпис під час відповіді</string>
@@ -812,6 +811,7 @@
     <string name="title_advanced_sort_answers">Сортувати шаблони відповідей за частотою використання</string>
     <string name="title_advanced_shortcuts">Показувати контакти, які часто використовуються, в системному меню «Поділитися»</string>
     <string name="title_advanced_ical_tentative">Зберігати отримані запрошення як попередні</string>
+    <string name="title_advanced_ical_email">Зберігати адресу електронної пошти відвідувачів</string>
     <string name="title_advanced_fts">Створювати індекс для пошуку</string>
     <string name="title_advanced_fts_indexed">%1$d з %2$d повідомлень проіндексовано (%3$s)</string>
     <string name="title_advanced_classification">Класифікувати повідомлення</string>
@@ -1536,7 +1536,7 @@
     <string name="title_add_image_inline">Вставити</string>
     <string name="title_add_image_attach">Долучити</string>
     <string name="title_add_image_resize">Змінити розмір</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Обмежити лише ширину</string>
+    <string name="title_add_image_resize_width_only">Обмежити лише ширину</string>
     <string name="title_add_image_privacy">Вилучити конфіденційні дані</string>
     <string name="title_add_image_privacy_remark">Географічне розташування, серійні номери, назви файлів тощо</string>
     <string name="title_add_resize_pixels">&lt; %1$d пікселів</string>
@@ -2094,6 +2094,7 @@
     <string name="title_via">Через: %1$s</string>
     <string name="title_1hour">1 година</string>
     <string name="title_1day">1 день</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Будь ласка, вимкніть оптимізацію живлення через крок 3 параметрів основного екрана</string>
     <string name="title_more_overflow">Більше &#8230;</string>
     <string name="title_today_at">Сьогодні о %1$s</string>
     <string name="title_tomorrow_at">Завтра о %1$s</string>

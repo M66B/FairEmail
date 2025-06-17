@@ -388,7 +388,6 @@
     <string name="title_advanced_quote_reply">متن پاسخ نقل قول شده</string>
     <string name="title_advanced_limit_reply">محدود کردن تعداد نقل‌قول‌های تودرتو</string>
     <string name="title_advanced_resize_reply">تغییر اندازه تصاویر در متن پاسخ داده شده</string>
-    <string name="title_advanced_resize_paste">تغییر اندازه تصاویر کپی شده</string>
     <string name="title_advanced_signature_location">موقعیت امضاء</string>
     <string name="title_advanced_signature_new">برای پیام‌های جدید از امضا استفاده کن</string>
     <string name="title_advanced_signature_reply">هنگام پاسخ از امضا استفاده کن</string>
@@ -629,6 +628,7 @@
     <string name="title_advanced_sort_answers">قالب‌های پاسخ‌گویی را بر اساس تناوب استفاده از آنها مرتب کن</string>
     <string name="title_advanced_shortcuts">نمایش مخاطبین مکررا استفاده شده در فهرست اشتراک‌گذاری اندروید</string>
     <string name="title_advanced_ical_tentative">ثبت آزمایشی دعوت‌نامه‌های دریافتی</string>
+    <string name="title_advanced_ical_email">ذخیره نشانی ایمیل شرکت‌کنندگان</string>
     <string name="title_advanced_fts">ساخت شاخص جستجو</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d پیام ایندکس شد (%3$s)</string>
     <string name="title_advanced_show_filtered">آیکون فیلتر را زمانی که قاعده‌ای اعمال می‌شود نشان بده</string>
@@ -1061,7 +1061,7 @@
     <string name="title_add_image_inline">درج</string>
     <string name="title_add_image_attach">پیوست</string>
     <string name="title_add_image_resize">تغییر اندازه</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">فقط عرض را محدود کن</string>
+    <string name="title_add_image_resize_width_only">فقط عرض را محدود کن</string>
     <string name="title_add_image_privacy">حذف کردن داده شخصی حساس</string>
     <string name="title_add_resize_pixels">&lt;%1$d پیکسل</string>
     <string name="title_add_image_resize_remark">پشتیبانی از تغییر اندازه برای: %1$s</string>
@@ -1455,6 +1455,7 @@
     <string name="title_via">از طریق: %1$s</string>
     <string name="title_1hour">۱ ساعت</string>
     <string name="title_1day">۱ روز</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">لطفا بهینه‌سازی باتری را از طریق مرحله ۳ در صفحه تنظیمات اصلی غیرفعال کنید</string>
     <string name="title_now">هم اکنون</string>
     <string name="title_after">پس از %1$s</string>
     <string name="title_reset">بازنشانی</string>

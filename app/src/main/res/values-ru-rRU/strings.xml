@@ -467,7 +467,6 @@
     <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
     <string name="title_advanced_limit_reply">Ограничивать количество вложенных кавычек</string>
     <string name="title_advanced_resize_reply">Изменять размер изображений в ответе</string>
-    <string name="title_advanced_resize_paste">Изменять размер вставляемых изображений</string>
     <string name="title_advanced_signature_location">Расположение подписи</string>
     <string name="title_advanced_signature_new">Использовать подпись для новых сообщений</string>
     <string name="title_advanced_signature_reply">Использовать подпись при ответе</string>
@@ -812,6 +811,7 @@
     <string name="title_advanced_sort_answers">Сортировать шаблоны ответов по частоте использования</string>
     <string name="title_advanced_shortcuts">Показывать часто используемые контакты в меню \"Поделиться\" Android</string>
     <string name="title_advanced_ical_tentative">Сохранять полученные приглашения как предварительные</string>
+    <string name="title_advanced_ical_email">Сохранять адреса электронной почты участников</string>
     <string name="title_advanced_fts">Создавать индекс поиска</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d сообщений проиндексировано (%3$s)</string>
     <string name="title_advanced_classification">Классифицировать сообщения</string>
@@ -1538,7 +1538,7 @@
     <string name="title_add_image_inline">Вставить</string>
     <string name="title_add_image_attach">Прикрепить</string>
     <string name="title_add_image_resize">Изменить размер</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Ограничить только ширину</string>
+    <string name="title_add_image_resize_width_only">Ограничить только ширину</string>
     <string name="title_add_image_privacy">Удалить конфиденциальные данные</string>
     <string name="title_add_image_privacy_remark">Географическое положение, серийные номера, имена файлов и т.п.</string>
     <string name="title_add_resize_pixels">&lt; %1$d пикс.</string>
@@ -2096,6 +2096,7 @@
     <string name="title_via">Через: %1$s</string>
     <string name="title_1hour">1 час</string>
     <string name="title_1day">1 день</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Отключите оптимизацию энергопотребления на 3 шаге настроек на главном экране</string>
     <string name="title_more_overflow">Ещё&#8230;</string>
     <string name="title_today_at">Сегодня в %1$s</string>
     <string name="title_tomorrow_at">Завтра в %1$s</string>

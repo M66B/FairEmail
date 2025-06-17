@@ -438,7 +438,6 @@
     <string name="title_advanced_quote_reply">Citar texto respondido</string>
     <string name="title_advanced_limit_reply">Limitar o número de cotações aninhadas</string>
     <string name="title_advanced_resize_reply">Redimensionar imagens em texto respondido</string>
-    <string name="title_advanced_resize_paste">Redimensionar imagens coladas</string>
     <string name="title_advanced_signature_location">Posição da assinatura</string>
     <string name="title_advanced_signature_new">Usar assinatura para novas mensagens</string>
     <string name="title_advanced_signature_reply">Usar assinatura quando responder</string>
@@ -782,6 +781,7 @@
     <string name="title_advanced_sort_answers">Ordenar modelos de resposta por frequência de uso</string>
     <string name="title_advanced_shortcuts">Mostrar contatos usados com frequência no menu de compartilhamento do Android</string>
     <string name="title_advanced_ical_tentative">Armazenar convites recebidos como tentativas</string>
+    <string name="title_advanced_ical_email">Armazenar e-mail dos participantes</string>
     <string name="title_advanced_fts">Construir índice de busca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
     <string name="title_advanced_classification">Classificar mensagens</string>
@@ -1506,7 +1506,7 @@
     <string name="title_add_image_inline">Inserir</string>
     <string name="title_add_image_attach">Anexar</string>
     <string name="title_add_image_resize">Redimensionar</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Limitar apenas a largura</string>
+    <string name="title_add_image_resize_width_only">Limitar apenas a largura</string>
     <string name="title_add_image_privacy">Remover dados confidenciais</string>
     <string name="title_add_image_privacy_remark">Localização geográfica, números de série, nomes de arquivos, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
@@ -2064,6 +2064,7 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 hora</string>
     <string name="title_1day">1 dia</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Desative as otimizações de bateria via passo 3 da tela de configurações principais</string>
     <string name="title_more_overflow">Mais &#8230;</string>
     <string name="title_today_at">Hoje às %1$s</string>
     <string name="title_tomorrow_at">Amanhã às %1$s</string>

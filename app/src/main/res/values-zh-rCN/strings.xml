@@ -425,7 +425,6 @@
     <string name="title_advanced_quote_reply">回复引用的文本</string>
     <string name="title_advanced_limit_reply">限制嵌套引用层级</string>
     <string name="title_advanced_resize_reply">调整回复文本中图像的大小</string>
-    <string name="title_advanced_resize_paste">调整粘贴图像的大小</string>
     <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_new">对新邮件使用签名</string>
     <string name="title_advanced_signature_reply">回复时使用签名</string>
@@ -770,6 +769,7 @@
     <string name="title_advanced_sort_answers">按使用频率对回复模板进行排序</string>
     <string name="title_advanced_shortcuts">在安卓的分享菜单中显示常用联系人</string>
     <string name="title_advanced_ical_tentative">将收到的邀请保存为待处理</string>
+    <string name="title_advanced_ical_email">存储参加者的电子邮件地址</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 邮件已索引(%3$s)</string>
     <string name="title_advanced_classification">对邮件进行分类</string>
@@ -1492,7 +1492,7 @@
     <string name="title_add_image_inline">插入</string>
     <string name="title_add_image_attach">附件</string>
     <string name="title_add_image_resize">调整大小</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">仅限制宽度</string>
+    <string name="title_add_image_resize_width_only">仅限制宽度</string>
     <string name="title_add_image_privacy">移除隐私敏感数据</string>
     <string name="title_add_image_privacy_remark">地理位置、序列号、文件名等</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>
@@ -2050,6 +2050,7 @@
     <string name="title_via">通过: %1$s</string>
     <string name="title_1hour">1 小时</string>
     <string name="title_1day">1 天</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">请通过主设置屏幕的步骤 3 禁用电池优化</string>
     <string name="title_more_overflow">更多 &#8230;</string>
     <string name="title_today_at">今天的 %1$s</string>
     <string name="title_tomorrow_at">明天的 %1$s</string>

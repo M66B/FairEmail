@@ -439,7 +439,6 @@
     <string name="title_advanced_quote_reply">Vastatava teksti tsiteerimine</string>
     <string name="title_advanced_limit_reply">Piira pesastatud tsiteerimiste arvu</string>
     <string name="title_advanced_resize_reply">Muuda vastustekstis piltide suurust</string>
-    <string name="title_advanced_resize_paste">Kleebitud piltide suuruse muutmine</string>
     <string name="title_advanced_signature_location">Allkirja asukoht</string>
     <string name="title_advanced_signature_new">Kasuta uutes sõnumites allkirja</string>
     <string name="title_advanced_signature_reply">Kasuta vastamisel allkirja</string>
@@ -1509,7 +1508,7 @@
     <string name="title_add_image_inline">Lisa juurde</string>
     <string name="title_add_image_attach">Manusta</string>
     <string name="title_add_image_resize">Muuda suurust</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Piira vaid laiust</string>
+    <string name="title_add_image_resize_width_only">Piira vaid laiust</string>
     <string name="title_add_image_privacy">Eemalda privaatsustundlik info</string>
     <string name="title_add_image_privacy_remark">Geograafilised asukohad, seerianumbrid, failinimed jne.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pikslit</string>

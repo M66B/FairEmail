@@ -179,6 +179,7 @@
     <string name="title_hint_design">The design is intentionally not distracting, but kept highly functional. There are many options to customise the appearance, but please understand that it is impossible to make everybody completely happy at the same time.</string>
     <string name="title_enable">Enable</string>
     <string name="title_disable">Disable</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Please disable battery optimisations via step 3 of the main settings screen</string>
     <string name="title_snooze_now">Snooze</string>
     <string name="title_pro_info">        Developing FairEmail took literally thousands of hours and, despite that, most of the features are free to use.
         FairEmail takes your privacy seriously and doesn\'t show ads and doesn\'t use tracking or analytics to earn money.

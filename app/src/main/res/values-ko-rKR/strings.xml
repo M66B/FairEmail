@@ -419,7 +419,6 @@
     <string name="title_advanced_quote_reply">답장된 텍스트 인용</string>
     <string name="title_advanced_limit_reply">중첩 인용의 수를 제한합니다</string>
     <string name="title_advanced_resize_reply">답장된 텍스트의 이미지 크기를 조정</string>
-    <string name="title_advanced_resize_paste">붙여넣은 이미지 크기 조정</string>
     <string name="title_advanced_signature_location">서명 위치</string>
     <string name="title_advanced_signature_new">새 메시지에 서명 사용</string>
     <string name="title_advanced_signature_reply">답장 시 서명 사용</string>

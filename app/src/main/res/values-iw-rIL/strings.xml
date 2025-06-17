@@ -336,7 +336,7 @@
     <string name="title_setup_biometrics">אימות ביומטרי</string>
     <string name="title_setup_biometrics_enable">הפעלה</string>
     <string name="title_setup_biometrics_disable">השבתה</string>
-    <string name="title_setup_biometrics_unlock">שחרור</string>
+    <string name="title_setup_biometrics_unlock">ביטול נעילה</string>
     <string name="title_setup_theme">נא לבחור ערכת עיצוב</string>
     <string name="title_setup_theme_blue_orange">כחול/כתום</string>
     <string name="title_setup_theme_yellow_purple">צהוב/סגול</string>
@@ -468,7 +468,6 @@
     <string name="title_advanced_quote_reply">ציטוט הטקסט לתגובה</string>
     <string name="title_advanced_limit_reply">הגבלת מספר הציטוטים המקוננים</string>
     <string name="title_advanced_resize_reply">שינוי גודל התמונות בטקסט התגובה</string>
-    <string name="title_advanced_resize_paste">שינוי גודל תמונה מודבקת</string>
     <string name="title_advanced_signature_location">מיקום החתימה</string>
     <string name="title_advanced_signature_new">להשתמש בחתימה להודעות חדשות</string>
     <string name="title_advanced_signature_reply">להשתמש בחתימה לתגובות</string>
@@ -813,6 +812,7 @@
     <string name="title_advanced_sort_answers">סידור תבניות המענה לפי תדירות השימוש</string>
     <string name="title_advanced_shortcuts">הצגת אנשי קשר בשימוש תדיר בתפריט השיתוף של Android</string>
     <string name="title_advanced_ical_tentative">אחסון הזמנות שהתקבלו כטנטטיביות</string>
+    <string name="title_advanced_ical_email">אחסון כתובות הדוא״ל של המשתתפים</string>
     <string name="title_advanced_fts">בניית אינדקס חיפוש</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d תועדו באינדקס (%3$s)</string>
     <string name="title_advanced_classification">סיווג הודעות</string>
@@ -1538,6 +1538,7 @@
     <string name="title_add_image_inline">הוספה</string>
     <string name="title_add_image_attach">צירוף</string>
     <string name="title_add_image_resize">שינוי גודל</string>
+    <string name="title_add_image_resize_width_only">הגבלת רוחב בלבד</string>
     <string name="title_add_image_privacy">הסרת נתוני פרטיות רגישים</string>
     <string name="title_add_image_privacy_remark">מיקום גאוגרפי, מספרים סידוריים, שמות קבצים ועוד</string>
     <string name="title_add_resize_pixels">&lt; %1$d פיקסלים</string>
@@ -2095,6 +2096,7 @@
     <string name="title_via">דרך: %1$s</string>
     <string name="title_1hour">שעה</string>
     <string name="title_1day">יום</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">נא להשבית מיטובי סוללה דרך של 3 של מסך ההגדרות הראשי</string>
     <string name="title_more_overflow">עוד &#8230;</string>
     <string name="title_today_at">היום ב־%1$s</string>
     <string name="title_tomorrow_at">מחר ב־%1$s</string>
@@ -2124,8 +2126,8 @@
     <string name="title_pro_purchase">רכישה</string>
     <string name="title_pro_one_time">%1$s (רכישה חד־פעמית)</string>
     <string name="title_pro_no_play">חנות Play לא נמצאה</string>
-    <string name="title_pro_info">        פיתוח FairEmail דרש אלפי שעות אדם ולמרות זאת, רוב היכולות חופשיות לשימוש.
-        FairEmail מתייחס לפרטיות שלך במלוא הרצינות ולא מציכ פרסומות או משתמש במעקב או ניתוח התנהגות כדי להרוויח כסף.
+    <string name="title_pro_info">פיתוח FairEmail דרש אלפי שעות עבודה ולמרות זאת, רוב היכולות חופשיות לשימוש.
+        FairEmail מתייחס לפרטיות שלך במלוא הרצינות ולא מציג פרסומות או משתמש במעקב או ניתוח התנהגות כדי להרוויח כסף.
         כדי לתחזק ולתמוך ב־FairEmail בטווח הארוך, חלק מהיכולות הנוחות והמתקדמות אינן חופשיות לשימוש.
         FairEmail מציג הודעה קטנה כדי להזכיר לך על כך, היא תוסר עם רכישת יכולות המקצוענים.
     </string>

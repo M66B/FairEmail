@@ -435,7 +435,6 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_quote_reply">Sitearje beäntwurde tekst</string>
     <string name="title_advanced_limit_reply">Behein it tal oanhelle sitaten</string>
     <string name="title_advanced_resize_reply">Wizigje de grutte fan ôfbyldingen yn beäntwurde tekst</string>
-    <string name="title_advanced_resize_paste">Formaat plakte ôfbyldingen wizigje</string>
     <string name="title_advanced_signature_location">Posysje hantekening</string>
     <string name="title_advanced_signature_new">Brûk hantekening foar nije berjochten</string>
     <string name="title_advanced_signature_reply">Brûk hantekening by beäntwurdzjen</string>
@@ -780,6 +779,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_sort_answers">Antwurdsjabloanen op brûksfrekwinse sortearje</string>
     <string name="title_advanced_shortcuts">Faak brûkte kontakten yn Android-dielmenu toane</string>
     <string name="title_advanced_ical_tentative">Untfongen útnûgingen as foarearst bewarje</string>
+    <string name="title_advanced_ical_email">E-mailadres fan dielnimmers bewarje</string>
     <string name="title_advanced_fts">Sykyndeks opbouwe</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berjochten yndeksearre (%3$s)</string>
     <string name="title_advanced_classification">Berjochten klassifisearje</string>
@@ -1501,7 +1501,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_add_image_inline">Ynfoegje</string>
     <string name="title_add_image_attach">Taheakje</string>
     <string name="title_add_image_resize">Grutte wizigje</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Allinnich breedte beheine</string>
+    <string name="title_add_image_resize_width_only">Allinnich breedte beheine</string>
     <string name="title_add_image_privacy">Privacygefoelige gegevens fuortsmite</string>
     <string name="title_add_image_privacy_remark">Geografyske lokaasje, searjenûmers, bestânsnammen, ensfh.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
@@ -2057,6 +2057,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_via">Fia: %1$s</string>
     <string name="title_1hour">1 oere</string>
     <string name="title_1day">1 dei</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Skeakelje fia stap 3 fan it haadynstellingenfinster batterijoptimalisaasjes út</string>
     <string name="title_more_overflow">Mear&#8230;</string>
     <string name="title_today_at">Hjoed om %1$s</string>
     <string name="title_tomorrow_at">Moarn om %1$s</string>

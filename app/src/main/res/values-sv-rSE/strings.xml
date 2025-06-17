@@ -429,7 +429,6 @@
     <string name="title_advanced_quote_reply">Citera svarstext</string>
     <string name="title_advanced_limit_reply">Begränsa antalet nästlade citat</string>
     <string name="title_advanced_resize_reply">Ändra storlek på bilder i svarande text</string>
-    <string name="title_advanced_resize_paste">Ändra storlek på inklistrade bilder</string>
     <string name="title_advanced_signature_location">Signaturens position</string>
     <string name="title_advanced_signature_new">Använd signatur för nya meddelanden</string>
     <string name="title_advanced_signature_reply">Använd signatur vid svar</string>
@@ -769,6 +768,7 @@
     <string name="title_advanced_sort_answers">Sortera svarsmallar efter användningsfrekvens</string>
     <string name="title_advanced_shortcuts">Visa ofta använda kontakter i Android dela-menyn</string>
     <string name="title_advanced_ical_tentative">Lagra mottagna inbjudningar som preliminära</string>
+    <string name="title_advanced_ical_email">Lagra deltagares e-postadress</string>
     <string name="title_advanced_fts">Bygg sökindex</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meddelanden indexerade (%3$s)</string>
     <string name="title_advanced_classification">Klassificera meddelanden</string>
@@ -2034,6 +2034,7 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 timme</string>
     <string name="title_1day">1 dag</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Vänligen inaktivera batterioptimeringar via steg 3 i huvudskärmen för inställningar</string>
     <string name="title_more_overflow">Mer &#8230;</string>
     <string name="title_today_at">Idag %1$s</string>
     <string name="title_tomorrow_at">Imorgon kl. %1$s</string>

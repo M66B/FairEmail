@@ -144,7 +144,7 @@
     <string name="menu_rate">App bewerten</string>
     <string name="title_welcome">Willkommen</string>
     <string name="title_eula">Endbenutzer-Lizenzvereinbarung</string>
-    <string name="title_license">Quelloffene Lizenz</string>
+    <string name="title_license">Open-Source-Lizenz</string>
     <string name="title_contributors">Mitwirkende</string>
     <string name="title_agree">Ich stimme zu</string>
     <string name="title_disagree">Ich stimme nicht zu</string>
@@ -441,7 +441,6 @@
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
     <string name="title_advanced_limit_reply">Anzahl der verschachtelten Zitate begrenzen</string>
     <string name="title_advanced_resize_reply">Größe der Bilder im Antworttext ändern</string>
-    <string name="title_advanced_resize_paste">Größe eingefügter Bilder ändern</string>
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_new">Signatur für neue Nachrichten verwenden</string>
     <string name="title_advanced_signature_reply">Signatur beim Antworten verwenden</string>
@@ -786,6 +785,7 @@
     <string name="title_advanced_sort_answers">Antwortvorlagen nach Verwendungshäufigkeit sortieren</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
     <string name="title_advanced_ical_tentative">Erhaltene Einladungen als „Unter Vorbehalt” speichern</string>
+    <string name="title_advanced_ical_email">E-Mail-Adresse der Teilnehmer speichern</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
     <string name="title_advanced_classification">Nachrichten klassifizieren</string>
@@ -1512,7 +1512,7 @@
     <string name="title_add_image_inline">Einfügen</string>
     <string name="title_add_image_attach">Anhängen</string>
     <string name="title_add_image_resize">Größe ändern</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Nur Breite begrenzen</string>
+    <string name="title_add_image_resize_width_only">Nur Breite begrenzen</string>
     <string name="title_add_image_privacy">Vertrauliche Daten entfernen</string>
     <string name="title_add_image_privacy_remark">Geografischer Aufnahmeort, Lizenzschlüssel, Dateinamen usw.</string>
     <string name="title_add_resize_pixels">&lt; %1$d Pixel</string>
@@ -2070,6 +2070,7 @@
     <string name="title_via">über %1$s</string>
     <string name="title_1hour">1 Stunde</string>
     <string name="title_1day">1 Tag</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Bitte deaktivieren Sie die Akku-Optimierung über Schritt 3 der Grundeinstellungen</string>
     <string name="title_more_overflow">Mehr &#8230;</string>
     <string name="title_today_at">Heute um %1$s</string>
     <string name="title_tomorrow_at">Morgen um %1$s</string>

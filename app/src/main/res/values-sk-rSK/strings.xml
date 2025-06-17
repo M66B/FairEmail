@@ -452,7 +452,6 @@
     <string name="title_advanced_quote_reply">Citovať text odpovede</string>
     <string name="title_advanced_limit_reply">Obmedziť počet vnorených citácií</string>
     <string name="title_advanced_resize_reply">Upraviť veľkosť obrázkov v texte odpovedi</string>
-    <string name="title_advanced_resize_paste">Zmeniť rozmery vložených obrázkov</string>
     <string name="title_advanced_signature_location">Umiestnenie podpisu</string>
     <string name="title_advanced_signature_new">V nových správať používať podpis</string>
     <string name="title_advanced_signature_reply">Používať podpis pri odpovedi</string>

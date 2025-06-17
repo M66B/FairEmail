@@ -466,7 +466,6 @@
     <string name="title_advanced_quote_reply">Cytuj treść w odpowiedzi</string>
     <string name="title_advanced_limit_reply">Ogranicz liczbę zagnieżdżonych cytatów</string>
     <string name="title_advanced_resize_reply">Zmień rozmiar zdjęć w treści odpowiedzi</string>
-    <string name="title_advanced_resize_paste">Zmień rozmiar wklejonych obrazów</string>
     <string name="title_advanced_signature_location">Pozycja podpisu</string>
     <string name="title_advanced_signature_new">Użyj podpisu dla nowych wiadomości</string>
     <string name="title_advanced_signature_reply">Użyj podpisu podczas odpowiadania</string>
@@ -810,6 +809,7 @@
     <string name="title_advanced_sort_answers">Sortuj szablony odpowiedzi według częstotliwości ich używania</string>
     <string name="title_advanced_shortcuts">Pokaż często używane kontakty w menu udostępniania Androida</string>
     <string name="title_advanced_ical_tentative">Przechowuj otrzymane zaproszenia jako wstępne</string>
+    <string name="title_advanced_ical_email">Przechowuj adresy e-mail uczestników</string>
     <string name="title_advanced_fts">Utwórz indeks wyszukiwania</string>
     <string name="title_advanced_fts_indexed">Zindeksowano %1$d / %2$d Wiadomości (%3$s)</string>
     <string name="title_advanced_classification">Klasyfikuj wiadomości</string>
@@ -1527,14 +1527,14 @@
     <string name="title_style_link_image">Wstaw jako obraz</string>
     <string name="title_style_link_title">Tytuł</string>
     <string name="title_style_link_metadata">Pobierz tytuł</string>
-    <string name="title_style_link_metadata_remark" comment="title_style_link_metadata_remark&#10;Remark for link insertion dialog box. Entered address refers to the link entered and the title to the link text as fetched from the internet.">Spowoduje to pobranie tytułu pod wprowadzonym adresem</string>
+    <string name="title_style_link_metadata_remark">Spowoduje to pobranie tytułu pod wprowadzonym adresem</string>
     <string name="title_style_link_send_dlimit">Limit pobierania (%1$s)</string>
     <string name="title_style_link_send_tlimit">Czas trwania (%1$s)</string>
     <string name="title_add_image">Dodaj obraz</string>
     <string name="title_add_image_inline">Wstaw</string>
     <string name="title_add_image_attach">Załącz</string>
     <string name="title_add_image_resize">Zmień rozmiar</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Ograniczaj tylko szerokość</string>
+    <string name="title_add_image_resize_width_only">Ograniczaj tylko szerokość</string>
     <string name="title_add_image_privacy">Usuń wrażliwe prywatne dane</string>
     <string name="title_add_image_privacy_remark">Lokalizacja geograficzna, numery seryjne, nazwy plików itp</string>
     <string name="title_add_resize_pixels">&lt; %1$d pikseli</string>
@@ -2093,6 +2093,7 @@
     <string name="title_via">Przez: %1$s</string>
     <string name="title_1hour">1 godzina</string>
     <string name="title_1day">1 dzień</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Wyłącz optymalizację baterii zgodnie z 3 krokiem na głównym ekranie ustawień</string>
     <string name="title_more_overflow">Więcej &#8230;</string>
     <string name="title_today_at">Dziś o %1$s</string>
     <string name="title_tomorrow_at">Jutro o %1$s</string>

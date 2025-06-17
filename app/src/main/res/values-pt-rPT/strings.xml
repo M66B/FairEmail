@@ -439,7 +439,6 @@
     <string name="title_advanced_quote_reply">Citar texto respondido</string>
     <string name="title_advanced_limit_reply">Limitar o número de citações encadeadas</string>
     <string name="title_advanced_resize_reply">Redimensionar imagens no texto da resposta</string>
-    <string name="title_advanced_resize_paste">Redimensionar imagens coladas</string>
     <string name="title_advanced_signature_location">Posição da assinatura</string>
     <string name="title_advanced_signature_new">Usar assinatura em novas mensagens</string>
     <string name="title_advanced_signature_reply">Usar assinatura quando responder</string>
@@ -784,6 +783,7 @@
     <string name="title_advanced_sort_answers">Ordenar modelos de respostas por frequência de utilização</string>
     <string name="title_advanced_shortcuts">Mostrar contactos usados com frequência no menu de partilha do Android</string>
     <string name="title_advanced_ical_tentative">Armazenar convites recebidos como tentativas</string>
+    <string name="title_advanced_ical_email">Guarde o endereço de e-mail dos participantes</string>
     <string name="title_advanced_fts">Construir índice de pesquisa</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensagens indexadas (%3$s)</string>
     <string name="title_advanced_classification">Classificar mensagens</string>
@@ -1509,7 +1509,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_add_image_inline">Inserir</string>
     <string name="title_add_image_attach">Anexar</string>
     <string name="title_add_image_resize">Redimensionar</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Limite apenas a largura</string>
+    <string name="title_add_image_resize_width_only">Limite apenas a largura</string>
     <string name="title_add_image_privacy">Remover dados confidenciais da imagem</string>
     <string name="title_add_image_privacy_remark">Localização geográfica, números de série, nomes de ficheiro, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeis</string>
@@ -2067,6 +2067,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_via">Através: %1$s</string>
     <string name="title_1hour">1 hora</string>
     <string name="title_1day">1 dia</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Desative as otimizações da bateria no passo 3 do ecrã de definições principal</string>
     <string name="title_more_overflow">Mais &#8230;</string>
     <string name="title_today_at">Hoje às %1$s</string>
     <string name="title_tomorrow_at">Amanhã às %1$s</string>

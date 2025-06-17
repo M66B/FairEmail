@@ -439,7 +439,6 @@
     <string name="title_advanced_quote_reply">Παράθεση του προς απάντηση κειμένου</string>
     <string name="title_advanced_limit_reply">Περιορισμός του αριθμού των ιεραρχημένων παραθεμάτων</string>
     <string name="title_advanced_resize_reply">Αναπροσαρμογή των εικόνων στο προς απάντηση κείμενο</string>
-    <string name="title_advanced_resize_paste">Αλλαγή μεγέθους επικολλημένων εικόνων</string>
     <string name="title_advanced_signature_location">Θέση της υπογραφής</string>
     <string name="title_advanced_signature_new">Χρήση υπογραφής για νέα μηνύματα</string>
     <string name="title_advanced_signature_reply">Χρήση υπογραφής κατά την απάντηση</string>
@@ -1499,14 +1498,14 @@
     <string name="title_style_link_image">Εισαγωγή ως εικόνα</string>
     <string name="title_style_link_title">Τίτλος</string>
     <string name="title_style_link_metadata">Ανάκτηση τίτλου</string>
-    <string name="title_style_link_metadata_remark" comment="title_style_link_metadata_remark&#10;Remark for link insertion dialog box. Entered address refers to the link entered and the title to the link text as fetched from the internet.">Με αυτό θα γίνει ανάκτηση του τίτλου και της εισαχθείσας διεύθυνσης</string>
+    <string name="title_style_link_metadata_remark">Με αυτό θα γίνει ανάκτηση του τίτλου και της εισαχθείσας διεύθυνσης</string>
     <string name="title_style_link_send_dlimit">Όριο λήψεων (%1$s)</string>
     <string name="title_style_link_send_tlimit">Χρονικό όριο (%1$s)</string>
     <string name="title_add_image">Προσθήκη εικόνας</string>
     <string name="title_add_image_inline">Εισαγωγή</string>
     <string name="title_add_image_attach">Επισύναψη</string>
     <string name="title_add_image_resize">Προσαρμογή μεγέθους</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Όριο πλάτους μόνο</string>
+    <string name="title_add_image_resize_width_only">Όριο πλάτους μόνο</string>
     <string name="title_add_image_privacy">Αφαίρεση ευαίσθητων προσωπικών δεδομένων</string>
     <string name="title_add_image_privacy_remark">Γεωγραφική θέση, σειριακοί αριθμοί, ονόματα αρχείων, κλπ</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>

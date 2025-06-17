@@ -432,7 +432,6 @@
     <string name="title_advanced_quote_reply">Цитиране на отговорения текст</string>
     <string name="title_advanced_limit_reply">Ограничаване на броя на вложени цитирания</string>
     <string name="title_advanced_resize_reply">Преоразмеряване на образите в отговорения текст</string>
-    <string name="title_advanced_resize_paste">Преоразмеряване на поставените образи</string>
     <string name="title_advanced_signature_location">Положение на подписа</string>
     <string name="title_advanced_signature_new">Употреба на подпис за нови съобщения</string>
     <string name="title_advanced_signature_reply">Употреба на подпис при отговор</string>

@@ -423,7 +423,6 @@
     <string name="title_advanced_quote_reply">引用回覆的文字</string>
     <string name="title_advanced_limit_reply">限制嵌套引用的數量</string>
     <string name="title_advanced_resize_reply">在回覆文字中重調圖片大小</string>
-    <string name="title_advanced_resize_paste">調整貼上的圖片大小</string>
     <string name="title_advanced_signature_location">簽名位置</string>
     <string name="title_advanced_signature_new">套用簽名至新訊息</string>
     <string name="title_advanced_signature_reply">當回覆時使用簽名</string>

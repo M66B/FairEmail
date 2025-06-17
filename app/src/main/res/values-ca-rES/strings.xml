@@ -376,7 +376,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_quote_reply">Text amb resposta a la cita</string>
     <string name="title_advanced_limit_reply">Limita el nombre de cometes imbricades</string>
     <string name="title_advanced_resize_reply">Redimensiona les imatges del text de resposta</string>
-    <string name="title_advanced_resize_paste">Realimensionar les imatges enganxades</string>
     <string name="title_advanced_signature_location">Posició de la signatura</string>
     <string name="title_advanced_signature_new">Fer servir la signatura per a missatges nous</string>
     <string name="title_advanced_signature_reply">Utilitzeu la signatura per respondre</string>

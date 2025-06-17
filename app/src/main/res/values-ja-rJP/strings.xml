@@ -426,7 +426,6 @@
     <string name="title_advanced_quote_reply">引用したテキストに引用符を付けて返信する</string>
     <string name="title_advanced_limit_reply">入れ子になった引用の数を制限する</string>
     <string name="title_advanced_resize_reply">引用した本文の画像の大きさを調整する</string>
-    <string name="title_advanced_resize_paste">貼り付けた画像の大きさを調整する</string>
     <string name="title_advanced_signature_location">署名の位置</string>
     <string name="title_advanced_signature_new">新規メッセージに署名を使用する</string>
     <string name="title_advanced_signature_reply">返信に署名を使用する</string>
@@ -1489,14 +1488,14 @@
     <string name="title_style_link_image">画像として挿入する</string>
     <string name="title_style_link_title">タイトル</string>
     <string name="title_style_link_metadata">タイトルを取得</string>
-    <string name="title_style_link_metadata_remark" comment="title_style_link_metadata_remark&#10;Remark for link insertion dialog box. Entered address refers to the link entered and the title to the link text as fetched from the internet.">入力されたアドレスのタイトルを取得します</string>
+    <string name="title_style_link_metadata_remark">入力されたアドレスのタイトルを取得します</string>
     <string name="title_style_link_send_dlimit">ダウンロード期限 (%1$s)</string>
     <string name="title_style_link_send_tlimit">時間制限 (%1$s)</string>
     <string name="title_add_image">画像を追加</string>
     <string name="title_add_image_inline">挿入</string>
     <string name="title_add_image_attach">添付</string>
     <string name="title_add_image_resize">リサイズ</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">幅のみ合わせる</string>
+    <string name="title_add_image_resize_width_only">幅のみ合わせる</string>
     <string name="title_add_image_privacy">プライバシーデータを削除する</string>
     <string name="title_add_image_privacy_remark">位置情報、シリアル番号、ファイル名など</string>
     <string name="title_add_resize_pixels">&lt; %1$d ピクセル</string>

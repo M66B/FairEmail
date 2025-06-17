@@ -440,7 +440,6 @@
     <string name="title_advanced_quote_reply">Citat af svartekst</string>
     <string name="title_advanced_limit_reply">Begræns antallet af indlejrede citater</string>
     <string name="title_advanced_resize_reply">Skalér billedstørrelse i tekstsvaret</string>
-    <string name="title_advanced_resize_paste">Ændr størrelse på indsatte billeder</string>
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_new">Brug signatur til nye beskeder</string>
     <string name="title_advanced_signature_reply">Benyt signatur i svar</string>
@@ -785,6 +784,7 @@
     <string name="title_advanced_sort_answers">Sortér svarskabeloner efter anvendelsesfrekvens</string>
     <string name="title_advanced_shortcuts">Vis ofte anvendte kontakter i Android-delingsmenuen</string>
     <string name="title_advanced_ical_tentative">Gem modtagne invitationer som foreløbige</string>
+    <string name="title_advanced_ical_email">Gem e-mailadresse for deltagere</string>
     <string name="title_advanced_fts">Opbyg søgeindeks</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d beskeder indekseret (%3$s)</string>
     <string name="title_advanced_classification">Klassificér beskeder</string>
@@ -1504,14 +1504,14 @@
     <string name="title_style_link_image">Indsæt et billede</string>
     <string name="title_style_link_title">Titel</string>
     <string name="title_style_link_metadata">Hent titel</string>
-    <string name="title_style_link_metadata_remark" comment="title_style_link_metadata_remark&#10;Remark for link insertion dialog box. Entered address refers to the link entered and the title to the link text as fetched from the internet.">Dette henter titlen på den angivne adresse</string>
+    <string name="title_style_link_metadata_remark">Dette henter titlen på den angivne adresse</string>
     <string name="title_style_link_send_dlimit">Download-grænse (%1$s)</string>
     <string name="title_style_link_send_tlimit">Download-tidsfrist (%1$s)</string>
     <string name="title_add_image">Tilføj billede</string>
     <string name="title_add_image_inline">Indsæt</string>
     <string name="title_add_image_attach">Vedhæft</string>
     <string name="title_add_image_resize">Skalér</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Begræns kun bredde</string>
+    <string name="title_add_image_resize_width_only">Begræns kun bredde</string>
     <string name="title_add_image_privacy">Fjern personsensitive data</string>
     <string name="title_add_image_privacy_remark">Geografisk placering, serienumre, filnavne mv.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
@@ -2069,6 +2069,7 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 time</string>
     <string name="title_1day">1 dag</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Deaktivér venligst batterioptimeringer via trin 3 på hovedindstillingsskærmen</string>
     <string name="title_more_overflow">Flere &#8230;</string>
     <string name="title_today_at">I dag kl. %1$s</string>
     <string name="title_tomorrow_at">I morgen kl. %1$s</string>

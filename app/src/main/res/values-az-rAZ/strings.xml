@@ -440,7 +440,6 @@
     <string name="title_advanced_quote_reply">Cavablanan mətndən sitat gətir</string>
     <string name="title_advanced_limit_reply">Gətirilən sitatların sayını məhdudlaşdır</string>
     <string name="title_advanced_resize_reply">Cavablanan mətndəki təsvirləri təkrar ölçüləndir</string>
-    <string name="title_advanced_resize_paste">Yapışdırılan təsvirlərin ölçüsünü dəyişdir</string>
     <string name="title_advanced_signature_location">İmza mövqeyi</string>
     <string name="title_advanced_signature_new">Yeni mesajlar üçün imza istifadə edin</string>
     <string name="title_advanced_signature_reply">Cavablayanda imza istifadə et</string>
@@ -1503,14 +1502,14 @@
     <string name="title_style_link_image">Şəkil olaraq daxil et</string>
     <string name="title_style_link_title">Başlıq</string>
     <string name="title_style_link_metadata">Başlığı gətir</string>
-    <string name="title_style_link_metadata_remark" comment="title_style_link_metadata_remark&#10;Remark for link insertion dialog box. Entered address refers to the link entered and the title to the link text as fetched from the internet.">Bu, daxil edilən ünvandakı başlığı gətirəcək</string>
+    <string name="title_style_link_metadata_remark">Bu, daxil edilən ünvandakı başlığı gətirəcək</string>
     <string name="title_style_link_send_dlimit">Endirmə limiti (%1$s)</string>
     <string name="title_style_link_send_tlimit">Vaxt limiti (%1$s)</string>
     <string name="title_add_image">Təsvir əlavə et</string>
     <string name="title_add_image_inline">Daxil et</string>
     <string name="title_add_image_attach">Qoşma</string>
     <string name="title_add_image_resize">Yenidən ölçüləndir</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Yalnız eni limitlə</string>
+    <string name="title_add_image_resize_width_only">Yalnız eni limitlə</string>
     <string name="title_add_image_privacy">Gizliliyiniz üçün həssas verilənləri silin</string>
     <string name="title_add_image_privacy_remark">Coğrafi yerləşmə, seriya nömrələri, fayl adları və s.</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>

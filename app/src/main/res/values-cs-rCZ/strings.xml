@@ -468,7 +468,6 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_quote_reply">Citovat text odpovědi</string>
     <string name="title_advanced_limit_reply">Omezit počet vnořených citací</string>
     <string name="title_advanced_resize_reply">Upravit velikost obrázků v textu odpovědi</string>
-    <string name="title_advanced_resize_paste">Změna velikosti vložených obrázků</string>
     <string name="title_advanced_signature_location">Umístění podpisu</string>
     <string name="title_advanced_signature_new">Použít podpis pro nové zprávy</string>
     <string name="title_advanced_signature_reply">Použít podpis při odpovědi</string>
@@ -812,6 +811,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_sort_answers">Seřadit šablony odpovědí podle frekvence používání</string>
     <string name="title_advanced_shortcuts">Zobrazit často používané kontakty v nabídce sdílení Androidu</string>
     <string name="title_advanced_ical_tentative">Uložit obdržené pozvánky jako předběžné</string>
+    <string name="title_advanced_ical_email">Uložení e-mailové adresy účastníků</string>
     <string name="title_advanced_fts">Sestavit index vyhledávání</string>
     <string name="title_advanced_fts_indexed">Indexováno %1$d / %2$d zpráv (%3$s)</string>
     <string name="title_advanced_classification">Klasifikovat zprávy</string>
@@ -1536,7 +1536,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_add_image_inline">Vložit</string>
     <string name="title_add_image_attach">Přiložit</string>
     <string name="title_add_image_resize">Změnit velikost</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Pouze omezená šířka</string>
+    <string name="title_add_image_resize_width_only">Pouze omezená šířka</string>
     <string name="title_add_image_privacy">Odebrat citlivé osobní údaje</string>
     <string name="title_add_image_privacy_remark">Zeměpisná poloha, sériová čísla, názvy souborů, apod.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelů</string>
@@ -2094,6 +2094,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_via">Přes: %1$s</string>
     <string name="title_1hour">1 hodina</string>
     <string name="title_1day">1 den</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Vypněte optimalizaci baterie v kroku 3 na hlavní obrazovce nastavení</string>
     <string name="title_more_overflow">Více&#8230;</string>
     <string name="title_today_at">Dnes v %1$s</string>
     <string name="title_tomorrow_at">Zítra v %1$s</string>

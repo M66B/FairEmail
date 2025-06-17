@@ -439,7 +439,6 @@
     <string name="title_advanced_quote_reply">Citar texto a responder</string>
     <string name="title_advanced_limit_reply">Limitar el número de citas anidadas</string>
     <string name="title_advanced_resize_reply">Redimensionar imágenes en el texto de respuesta</string>
-    <string name="title_advanced_resize_paste">Redimensionar imágenes pegadas</string>
     <string name="title_advanced_signature_location">Posición de la firma</string>
     <string name="title_advanced_signature_new">Usar firma para nuevos mensajes</string>
     <string name="title_advanced_signature_reply">Usar firma al responder</string>
@@ -1507,7 +1506,7 @@
     <string name="title_add_image_inline">Insertar</string>
     <string name="title_add_image_attach">Adjuntar</string>
     <string name="title_add_image_resize">Redimensionar</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Limitar sólo el ancho</string>
+    <string name="title_add_image_resize_width_only">Limitar sólo el ancho</string>
     <string name="title_add_image_privacy">Eliminar datos de privacidad sensibles</string>
     <string name="title_add_image_privacy_remark">Ubicación geográfica, números de serie, nombres de archivos, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d píxeles</string>

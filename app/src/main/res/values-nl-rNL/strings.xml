@@ -435,7 +435,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_quote_reply">Haal beantwoorde tekst aan</string>
     <string name="title_advanced_limit_reply">Beperk het aantal geneste citaten</string>
     <string name="title_advanced_resize_reply">Wijzig de grootte van de afbeeldingen in beantwoorde tekst</string>
-    <string name="title_advanced_resize_paste">Formaat van geplakte afbeeldingen wijzigen</string>
     <string name="title_advanced_signature_location">Positie handtekening</string>
     <string name="title_advanced_signature_new">Gebruik handtekening voor nieuwe berichten</string>
     <string name="title_advanced_signature_reply">Gebruik handtekening bij antwoorden</string>
@@ -778,6 +777,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_sort_answers">Sorteer antwoordsjablonen op gebruiksfrequentie</string>
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
     <string name="title_advanced_ical_tentative">Bewaar ontvangen uitnodigingen als voorlopig</string>
+    <string name="title_advanced_ical_email">E-mailadres van deelnemers opslaan</string>
     <string name="title_advanced_fts">Zoekindex opbouwen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
     <string name="title_advanced_classification">Berichten classificeren</string>
@@ -1499,7 +1499,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_add_image_inline">Invoegen</string>
     <string name="title_add_image_attach">Bijlage</string>
     <string name="title_add_image_resize">Grootte aanpassen</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Alleen breedte beperken</string>
+    <string name="title_add_image_resize_width_only">Alleen breedte beperken</string>
     <string name="title_add_image_privacy">Verwijder privacy gevoelige gegevens</string>
     <string name="title_add_image_privacy_remark">Geografische locatie, serienummers, bestandsnamen, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
@@ -2053,6 +2053,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 uur</string>
     <string name="title_1day">1 dag</string>
+    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Schakel via stap 3 van het hoofdinstellingenscherm batterijoptimalisaties uit</string>
     <string name="title_more_overflow">Meer &#8230;</string>
     <string name="title_today_at">Vandaag om %1$s</string>
     <string name="title_tomorrow_at">Morgen om %1$s</string>

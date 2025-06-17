@@ -454,7 +454,6 @@
     <string name="title_advanced_quote_reply">Citiraj tekst \"odgovorene poruke\"</string>
     <string name="title_advanced_limit_reply">Ograniči broj ugniježđenih citata</string>
     <string name="title_advanced_resize_reply">Promijeni veličinu slika u tekstu odgovora</string>
-    <string name="title_advanced_resize_paste">Promijeni veličinu zalijepljenih slika</string>
     <string name="title_advanced_signature_location">Mjesto potpisa</string>
     <string name="title_advanced_signature_new">Koristi potpis za nove poruke</string>
     <string name="title_advanced_signature_reply">Koristi potpis za odgovore</string>
@@ -1524,7 +1523,7 @@
     <string name="title_add_image_inline">Ubaci</string>
     <string name="title_add_image_attach">Priloži</string>
     <string name="title_add_image_resize">Promijeni veličinu</string>
-    <string name="title_add_image_resize_width_only" comment="title_add_image_resize_width_only&#10;Title for option (checkbox) in image insertion dialog box to resize based on the width of the image only.">Ograniči samo širinu</string>
+    <string name="title_add_image_resize_width_only">Ograniči samo širinu</string>
     <string name="title_add_image_privacy">Ukloni osjetljive podatke</string>
     <string name="title_add_image_privacy_remark">Geografska lokacija, serijski brojevi, nazivi datoteka, itd.</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksela</string>

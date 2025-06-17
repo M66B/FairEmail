@@ -409,7 +409,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_quote_reply">Kutip teks balasan</string>
     <string name="title_advanced_limit_reply">Batasi jumlah kutipan bertingkat</string>
     <string name="title_advanced_resize_reply">Ubah ukuran gambar dalam teks balasan</string>
-    <string name="title_advanced_resize_paste">Ubah ukuran gambar yang ditempel</string>
     <string name="title_advanced_signature_location">Posisi tanda tangan</string>
     <string name="title_advanced_signature_new">Gunakan tanda tangan untuk pesan baru</string>
     <string name="title_advanced_signature_reply">Gunakan tanda tangan saat membalas</string>
