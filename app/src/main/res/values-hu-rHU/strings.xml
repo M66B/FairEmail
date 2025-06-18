@@ -2059,7 +2059,7 @@
     <string name="title_via">Ezen keresztül: %1$s</string>
     <string name="title_1hour">1 óra</string>
     <string name="title_1day">1 nap</string>
-    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Kérem kapcsolja ki az energiatakarékos üzemmódot az alapbeállítások 3. lépése segítségével</string>
+    <string name="title_snooze_doze">Kérem kapcsolja ki az energiatakarékos üzemmódot az alapbeállítások 3. lépése segítségével</string>
     <string name="title_more_overflow">Továbbiak &#8230;</string>
     <string name="title_today_at">Ma %1$s-kor</string>
     <string name="title_tomorrow_at">Holnap %1$s-kor</string>

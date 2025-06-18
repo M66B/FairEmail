@@ -1455,7 +1455,7 @@
     <string name="title_via">از طریق: %1$s</string>
     <string name="title_1hour">۱ ساعت</string>
     <string name="title_1day">۱ روز</string>
-    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">لطفا بهینه‌سازی باتری را از طریق مرحله ۳ در صفحه تنظیمات اصلی غیرفعال کنید</string>
+    <string name="title_snooze_doze">لطفا بهینه‌سازی باتری را از طریق مرحله ۳ در صفحه تنظیمات اصلی غیرفعال کنید</string>
     <string name="title_now">هم اکنون</string>
     <string name="title_after">پس از %1$s</string>
     <string name="title_reset">بازنشانی</string>

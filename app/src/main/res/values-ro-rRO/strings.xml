@@ -206,6 +206,7 @@
     <string name="title_setup_oauth_permission">Furnizorul de e-mail a aprobat OAuth doar pentru versiunea Play Store și GitHub</string>
     <string name="title_setup_gmail_support">Autorizarea conturilor Google va funcționa în versiunea Play Store și GitHub doar pentru că Android verifică semnătura digitală a aplicației</string>
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
+    <string name="title_setup_gmail_permissions">Google va solicita permisiuni de citire (pentru a vă afișa mesaje), de compunere (pentru a salva mesajele schițate), de trimitere și ștergere permanentă a tuturor e-mailurilor dvs. FairEmail nu va șterge niciodată mesajele tale fără consimțământul tău explicit. Doar tu și nimeni altcineva nu are acces la mesajele tale.</string>
     <string name="title_setup_gmail_login">Dacă Chrome este conectat la un cont, un nou cont poate fi adăugat doar prin Android. Acest lucru poate fi evitat prin deconectarea de la Chrome prin intermediul setărilor de sincronizare Chrome.</string>
     <string name="title_setup_gmail_max">În cazul în care apare mesajul de eroare \"V-ați conectat la numărul maxim de conturi\", trebuie să vă deconectați din browser de la toate conturile Google.</string>
     <string name="title_setup_outlook_hint">În cazul unei adrese alias, probabil ar trebui folosit expertul Office 365.</string>
@@ -795,6 +796,7 @@
     <string name="title_advanced_sort_answers">Sortați șabloanele de răspuns în funcție de frecvența de utilizare</string>
     <string name="title_advanced_shortcuts">Arată contactele utilizate frecvent în meniul de partajare Android</string>
     <string name="title_advanced_ical_tentative">Păstrează invitațiile primite ca \"poate\"</string>
+    <string name="title_advanced_ical_email">Salvați adresa de e-mail a participanților</string>
     <string name="title_advanced_fts">Creează index de căutare</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaje indexate (%3$s)</string>
     <string name="title_advanced_classification">Clasifică mesajele</string>
@@ -1519,6 +1521,7 @@
     <string name="title_add_image_inline">Inserare</string>
     <string name="title_add_image_attach">Atașare</string>
     <string name="title_add_image_resize">Redimensionare</string>
+    <string name="title_add_image_resize_width_only">Doar lățimea limitei</string>
     <string name="title_add_image_privacy">Elimină datele confidențiale</string>
     <string name="title_add_image_privacy_remark">Locație geografică, numere de serie, nume de fișiere etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeli</string>
@@ -2076,6 +2079,7 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">O oră</string>
     <string name="title_1day">O zi</string>
+    <string name="title_snooze_doze">Vă rugăm să dezactivați optimizările bateriei prin pasul 3 al ecranului principal de setări</string>
     <string name="title_more_overflow">Mai mult &#8230;</string>
     <string name="title_today_at">Astăzi la %1$s</string>
     <string name="title_tomorrow_at">Mâine la %1$s</string>

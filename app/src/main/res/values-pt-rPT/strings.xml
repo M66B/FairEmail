@@ -2067,7 +2067,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_via">Através: %1$s</string>
     <string name="title_1hour">1 hora</string>
     <string name="title_1day">1 dia</string>
-    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Desative as otimizações da bateria no passo 3 do ecrã de definições principal</string>
+    <string name="title_snooze_doze">Desative as otimizações da bateria no passo 3 do ecrã de definições principal</string>
     <string name="title_more_overflow">Mais &#8230;</string>
     <string name="title_today_at">Hoje às %1$s</string>
     <string name="title_tomorrow_at">Amanhã às %1$s</string>

@@ -2070,7 +2070,7 @@
     <string name="title_via">über %1$s</string>
     <string name="title_1hour">1 Stunde</string>
     <string name="title_1day">1 Tag</string>
-    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Bitte deaktivieren Sie die Akku-Optimierung über Schritt 3 der Grundeinstellungen</string>
+    <string name="title_snooze_doze">Bitte deaktivieren Sie die Akku-Optimierung über Schritt 3 der Grundeinstellungen</string>
     <string name="title_more_overflow">Mehr &#8230;</string>
     <string name="title_today_at">Heute um %1$s</string>
     <string name="title_tomorrow_at">Morgen um %1$s</string>

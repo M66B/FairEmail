@@ -2053,7 +2053,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 uur</string>
     <string name="title_1day">1 dag</string>
-    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Schakel via stap 3 van het hoofdinstellingenscherm batterijoptimalisaties uit</string>
+    <string name="title_snooze_doze">Schakel via stap 3 van het hoofdinstellingenscherm batterijoptimalisaties uit</string>
     <string name="title_more_overflow">Meer &#8230;</string>
     <string name="title_today_at">Vandaag om %1$s</string>
     <string name="title_tomorrow_at">Morgen om %1$s</string>

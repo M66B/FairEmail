@@ -2094,7 +2094,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_via">Přes: %1$s</string>
     <string name="title_1hour">1 hodina</string>
     <string name="title_1day">1 den</string>
-    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Vypněte optimalizaci baterie v kroku 3 na hlavní obrazovce nastavení</string>
+    <string name="title_snooze_doze">Vypněte optimalizaci baterie v kroku 3 na hlavní obrazovce nastavení</string>
     <string name="title_more_overflow">Více&#8230;</string>
     <string name="title_today_at">Dnes v %1$s</string>
     <string name="title_tomorrow_at">Zítra v %1$s</string>

@@ -2096,7 +2096,7 @@
     <string name="title_via">Через: %1$s</string>
     <string name="title_1hour">1 час</string>
     <string name="title_1day">1 день</string>
-    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Отключите оптимизацию энергопотребления на 3 шаге настроек на главном экране</string>
+    <string name="title_snooze_doze">Отключите оптимизацию энергопотребления на 3 шаге настроек на главном экране</string>
     <string name="title_more_overflow">Ещё&#8230;</string>
     <string name="title_today_at">Сегодня в %1$s</string>
     <string name="title_tomorrow_at">Завтра в %1$s</string>

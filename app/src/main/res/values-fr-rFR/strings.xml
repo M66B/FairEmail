@@ -2069,7 +2069,7 @@
     <string name="title_via">Via : %1$s</string>
     <string name="title_1hour">1 heure</string>
     <string name="title_1day">1 jour</string>
-    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Veuillez désactiver les optimisations de batterie via l\'étape 3 de l\'écran principal des paramètres</string>
+    <string name="title_snooze_doze">Veuillez désactiver les optimisations de batterie via l\'étape 3 de l\'écran principal des paramètres</string>
     <string name="title_more_overflow">Plus&#8230;</string>
     <string name="title_today_at">Aujourd\'hui à %1$s</string>
     <string name="title_tomorrow_at">Demain à %1$s</string>

@@ -2050,7 +2050,7 @@
     <string name="title_via">通过: %1$s</string>
     <string name="title_1hour">1 小时</string>
     <string name="title_1day">1 天</string>
-    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">请通过主设置屏幕的步骤 3 禁用电池优化</string>
+    <string name="title_snooze_doze">请通过主设置屏幕的步骤 3 禁用电池优化</string>
     <string name="title_more_overflow">更多 &#8230;</string>
     <string name="title_today_at">今天的 %1$s</string>
     <string name="title_tomorrow_at">明天的 %1$s</string>

@@ -2096,7 +2096,7 @@
     <string name="title_via">דרך: %1$s</string>
     <string name="title_1hour">שעה</string>
     <string name="title_1day">יום</string>
-    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">נא להשבית מיטובי סוללה דרך של 3 של מסך ההגדרות הראשי</string>
+    <string name="title_snooze_doze">נא להשבית מיטובי סוללה דרך של 3 של מסך ההגדרות הראשי</string>
     <string name="title_more_overflow">עוד &#8230;</string>
     <string name="title_today_at">היום ב־%1$s</string>
     <string name="title_tomorrow_at">מחר ב־%1$s</string>

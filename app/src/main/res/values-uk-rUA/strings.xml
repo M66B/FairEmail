@@ -2094,7 +2094,7 @@
     <string name="title_via">Через: %1$s</string>
     <string name="title_1hour">1 година</string>
     <string name="title_1day">1 день</string>
-    <string name="title_snooze_doze" comment="title_snooze_doze&#10;Remark for snooze dialog box">Будь ласка, вимкніть оптимізацію живлення через крок 3 параметрів основного екрана</string>
+    <string name="title_snooze_doze">Будь ласка, вимкніть оптимізацію живлення через крок 3 параметрів основного екрана</string>
     <string name="title_more_overflow">Більше &#8230;</string>
     <string name="title_today_at">Сьогодні о %1$s</string>
     <string name="title_tomorrow_at">Завтра о %1$s</string>
