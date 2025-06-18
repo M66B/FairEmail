@@ -28,7 +28,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
-### Next version
+### 1.2281 2025-06-18
 
 * Added dropping files/images into the message editor
 * Small improvements and minor bug fixes
