@@ -220,6 +220,7 @@
     <string name="title_setup_oauth_permission">Правайдар электроннай пошты ўхваліў OAuth толькі для версій з Крамы Play і GitHub</string>
     <string name="title_setup_gmail_support">Аўтарызацыя ўліковых запісаў Google будзе працаваць толькі ў версіях з Крамы Play і GitHub, так як Android правярае лічбавы подпіс праграмы</string>
     <string name="title_setup_gmail_rationale">Калі ласка, дайце дазвол на выбар уліковага запісу і чытанне вашага імя</string>
+    <string name="title_setup_gmail_permissions">Google будзе запытваць дазволы на чытанне (адлюстраванне вашых паведамленняў), стварэнне (захоўванне чарнавікоў), адпраўку і беззваротнае выдаленне усёй вашай электроннай пошты. FairEmail ніколі не выдаліць вашы паведамленні без вашай відавочнай згоды. Доступ да вашых паведамленняў маеце толькі вы і ніхто іншы.</string>
     <string name="title_setup_gmail_login">Калі ў Chrome выкананы ўваход ва ўліковы запіс, новы ўліковы запіс можна дадаць толькі праз Android. Гэтага можна пазбегнуць, выйшаўшы з уліковага запісу ў Chrome праз налады сінхранізацыі.</string>
     <string name="title_setup_gmail_max">У выпадку з\'яўлення паведамлення пра памылку \"Вы ўвайшлі ў максімальную колькасць уліковых запісаў\", вам неабходна выйсці з усіх уліковых запісаў Google у браўзеры.</string>
     <string name="title_setup_outlook_hint">У выпадку выкарыстання псеўданіма варта выкарыстоўваць майстар Office 365.</string>
@@ -812,6 +813,7 @@
     <string name="title_advanced_sort_answers">Сартаваць шаблоны адказаў паводле частаты выкарыстання</string>
     <string name="title_advanced_shortcuts">Паказваць кантакты, якія часта выкарыстоўваюцца, у меню абагульвання Android</string>
     <string name="title_advanced_ical_tentative">Захоўваць запрашэнні як папярэднія</string>
+    <string name="title_advanced_ical_email">Захоўваць адрасы электроннай пошты ўдзельнікаў</string>
     <string name="title_advanced_fts">Стварыць пошукавы індэкс</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d паведамленняў праіндэксавана (%3$s)</string>
     <string name="title_advanced_classification">Класіфікаваць паведамленні</string>
@@ -946,6 +948,7 @@
        Вы можаце скасаваць дыялогавае акно выбару, каб аднавіць прадвызначаную папку (звычайна гэта папка «Спампоўкі»).
     
     </string>
+    <string name="title_advanced_restore_on_launch_hint">Па магчымасці аднаўляць апошні стан праграмы пры перазапуску з дапамогай значка на працоўным стале</string>
     <string name="title_advanced_autoexpand_hint">Аўтаматычна адкрываць паведамленне, калі ў размове ёсць толькі адно паведамленне або толькі адно непрачытанае паведамленне</string>
     <string name="title_advanced_expandall_hint">Кнопка адказу не будзе паказвацца пры разгортванні некалькіх паведамленняў, таму што незразумела, да якога паведамлення будзе прымяняцца кнопка</string>
     <string name="title_advanced_autoseen_hint">Аўтаматычнае адзначэнне паведамленняў як прачытаных пры разгортванні можна адключыць у дадатковых наладах кожнага з уліковых запісаў</string>
@@ -1538,6 +1541,7 @@
     <string name="title_add_image_inline">Уставіць</string>
     <string name="title_add_image_attach">Укласці</string>
     <string name="title_add_image_resize">Змяніць памер</string>
+    <string name="title_add_image_resize_width_only">Абмежаваць толькі шырыню</string>
     <string name="title_add_image_privacy">Выдаліць канфідэнцыяльныя даныя</string>
     <string name="title_add_image_privacy_remark">Геаграфічнае месцазнаходжанне, серыйныя нумары, назвы файлаў і г.д.</string>
     <string name="title_add_resize_pixels">&lt; %1$d пікселяў</string>
@@ -2095,6 +2099,7 @@
     <string name="title_via">Праз: %1$s</string>
     <string name="title_1hour">1 гадзіна</string>
     <string name="title_1day">1 дзень</string>
+    <string name="title_snooze_doze">Калі ласка, адключыце аптымізацыю батарэі на 3 кроку галоўнага экрана налад</string>
     <string name="title_more_overflow">Больш &#8230;</string>
     <string name="title_today_at">Сёння а %1$s</string>
     <string name="title_tomorrow_at">Заўтра а %1$s</string>

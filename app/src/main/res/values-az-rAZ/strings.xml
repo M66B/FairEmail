@@ -784,6 +784,7 @@
     <string name="title_advanced_sort_answers">Cavab şablonlarını istifadə tezliyinə görə sırala</string>
     <string name="title_advanced_shortcuts">Tez-tez istifadə olunan əlaqələri Android paylaşma menyusunda göstər</string>
     <string name="title_advanced_ical_tentative">Mağaza, dəvətləri şərti olaraq aldı</string>
+    <string name="title_advanced_ical_email">İştirakçıların e-poçt ünvanlarını saxla</string>
     <string name="title_advanced_fts">Axtarış indeksini quraşdır</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d mesaj indeksləndi (%3$s)</string>
     <string name="title_advanced_classification">Mesajları sinifləşdir</string>
@@ -2067,6 +2068,7 @@
     <string name="title_via">%1$s ilə</string>
     <string name="title_1hour">1 saat</string>
     <string name="title_1day">1 gün</string>
+    <string name="title_snooze_doze">Lütfən əsas ayarlar ekranının 3-cü addımı ilə batareya optimallaşdırmalarını sıradan çıxardın</string>
     <string name="title_more_overflow">Daha çox &#8230;</string>
     <string name="title_today_at">Bu gün %1$s</string>
     <string name="title_tomorrow_at">Sabah %1$s</string>

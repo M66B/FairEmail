@@ -129,7 +129,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         this.criteria = criteria;
         this.pageSize = pageSize;
 
-        if (this.folder != null || EntityFolder.INBOX.equals(this.criteria.with_folder_type))
+        if (this.folder != null || server || EntityFolder.INBOX.equals(this.criteria.with_folder_type))
             this.criteria.with_folder_type = null;
     }
 

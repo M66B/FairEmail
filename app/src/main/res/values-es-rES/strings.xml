@@ -782,6 +782,7 @@
     <string name="title_advanced_sort_answers">Ordenar plantillas de respuesta por frecuencia de uso</string>
     <string name="title_advanced_shortcuts">Mostrar contactos frecuentes en el menú compartir de Android</string>
     <string name="title_advanced_ical_tentative">Almacenar invitaciones recibidas como tentativas</string>
+    <string name="title_advanced_ical_email">Guardar direcciones de correo electrónico de los asistentes</string>
     <string name="title_advanced_fts">Crear índice de búsqueda</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mensajes indexados (%3$s)</string>
     <string name="title_advanced_classification">Clasificar mensajes</string>
@@ -2063,6 +2064,7 @@
     <string name="title_via">Vía: %1$s</string>
     <string name="title_1hour">1 hora</string>
     <string name="title_1day">1 día</string>
+    <string name="title_snooze_doze">Por favor desactive las optimizaciones de la batería a través del paso 3 de la pantalla de configuración principal</string>
     <string name="title_more_overflow">Más&#8230;</string>
     <string name="title_today_at">Hoy a las %1$s</string>
     <string name="title_tomorrow_at">Mañana a las %1$s</string>
