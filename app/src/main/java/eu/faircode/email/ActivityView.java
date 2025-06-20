@@ -2348,6 +2348,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
         criteria.with_flagged = true;
         criteria.with_flag_color = args.getInt("color");
+        criteria.with_folder_type = args.getString("type");
 
         final long account = args.getLong("account", -1);
         final long folder = args.getLong("folder", -1);

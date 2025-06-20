@@ -73,6 +73,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final Bundle args = getArguments();
         final long account = args.getLong("account", -1);
         final long folder = args.getLong("folder", -1);
+        final String type = args.getString("type");
 
         final Context context = getContext();
         final boolean pro = ActivityBilling.isPro(context);
@@ -473,6 +474,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                             criteria.in_filenames = cbFileNames.isChecked();
                             criteria.in_headers = cbHeaders.isChecked();
                             criteria.in_html = cbHtml.isChecked();
+                            criteria.with_folder_type = type;
                             criteria.with_unseen = cbUnseen.isChecked();
                             criteria.with_flagged = cbFlagged.isChecked();
                             criteria.with_hidden = cbHidden.isChecked();
@@ -586,6 +588,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 dialog.dismiss();
 
                 BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
+                criteria.with_folder_type = type;
                 int id = v.getId();
                 if (id == R.id.ibFlagged)
                     criteria.with_flagged = true;
@@ -638,6 +641,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 dialog.dismiss();
 
                 BoundaryCallbackMessages.SearchCriteria criteria = new BoundaryCallbackMessages.SearchCriteria();
+                criteria.with_folder_type = type;
                 criteria.touched = RECENTLY_TOUCHED;
 
                 FragmentMessages.search(

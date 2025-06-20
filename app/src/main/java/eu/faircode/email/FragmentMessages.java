@@ -6760,6 +6760,7 @@ public class FragmentMessages extends FragmentBase
         Bundle args = new Bundle();
         args.putLong("account", account);
         args.putLong("folder", folder);
+        args.putString("type", type);
 
         FragmentDialogSearch fragment = new FragmentDialogSearch();
         fragment.setArguments(args);

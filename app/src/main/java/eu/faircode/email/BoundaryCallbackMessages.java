@@ -128,6 +128,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         this.server = server;
         this.criteria = criteria;
         this.pageSize = pageSize;
+
+        if (this.folder != null || EntityFolder.INBOX.equals(this.criteria.with_folder_type))
+            this.criteria.with_folder_type = null;
     }
 
     State setCallback(IBoundaryCallbackMessages intf) {
@@ -829,6 +832,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 return false;
         }
 
+        if (criteria.with_folder_type != null) {
+            DB db = DB.getInstance(context);
+            EntityFolder folder = db.folder().getFolder(message.folder);
+            if (folder != null && !criteria.with_folder_type.equals(folder.type))
+                return false;
+        }
+
         if (criteria.in_senders) {
             if (contains(message.from, criteria.query, partial))
                 return true;
@@ -1059,6 +1069,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         Long after = null;
         Long before = null;
         Integer touched = null;
+        String with_folder_type = null;
 
         private static final String FROM = "from:";
         private static final String TO = "to:";
@@ -1318,6 +1329,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         Helper.humanReadableByteCount(with_size)));
             if (touched != null)
                 flags.add(context.getString(R.string.title_search_flag_touched));
+            if (with_folder_type != null)
+                flags.add(EntityFolder.localizeType(context, with_folder_type));
             return (query == null ? "" : query + " ")
                     + (flags.size() > 0 ? "+" : "")
                     + TextUtils.join(",", flags);
@@ -1351,7 +1364,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         this.in_junk == other.in_junk &&
                         Objects.equals(this.after, other.after) &&
                         Objects.equals(this.before, other.before) &&
-                        Objects.equals(this.touched, other.touched));
+                        Objects.equals(this.touched, other.touched) &&
+                        Objects.equals(this.with_folder_type, other.with_folder_type));
             } else
                 return false;
         }
@@ -1405,6 +1419,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
             if (touched != null)
                 json.put("touched", touched);
+
+            if (with_folder_type != null)
+                json.put("with_folder_type", with_folder_type);
 
             return json;
         }
@@ -1460,6 +1477,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             if (json.has("touched"))
                 criteria.touched = json.getInt("touched");
 
+            if (json.has("with_folder_type"))
+                criteria.with_folder_type = json.getString("with_folder_type");
+
             return criteria;
         }
 
@@ -1489,7 +1509,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     " junk=" + in_junk +
                     " after=" + (after == null ? "" : new Date(after)) +
                     " before=" + (before == null ? "" : new Date(before)) +
-                    " touched=" + touched;
+                    " touched=" + touched +
+                    " folder_type=" + with_folder_type;
         }
     }
 }
