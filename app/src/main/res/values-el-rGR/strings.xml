@@ -781,6 +781,7 @@
     <string name="title_advanced_sort_answers">Ταξινόμηση προτύπων απάντησης κατά συχνότητα χρήσης</string>
     <string name="title_advanced_shortcuts">Προβολή των πιο συχνά χρησιμοποιούμενων επαφών στο μενού \"Κοινοποίηση\" του Android</string>
     <string name="title_advanced_ical_tentative">Αποθήκευση των ειλημμένων προσκλήσεων ως ανεπιβεβαίωτων</string>
+    <string name="title_advanced_ical_email">Να αποθηκεύονται οι διευθύνσεις ηλ. ταχυδρομείου των συμμετεχόντων</string>
     <string name="title_advanced_fts">Κατασκευή ευρετηρίου αναζήτησης</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d μηνύματα ευρετηριασμένα (%3$s)</string>
     <string name="title_advanced_classification">Ταξινόμηση μηνυμάτων</string>
@@ -2063,6 +2064,7 @@
     <string name="title_via">Μέσω: %1$s</string>
     <string name="title_1hour">1 ώρα</string>
     <string name="title_1day">1 ημέρα</string>
+    <string name="title_snooze_doze">Παρακαλούμε, απενεργοποιήστε τις βελτιστοποιήσεις μπαταρίας μέσω του βήματος 3 από την κύρια οθόνη ρυθμίσεων</string>
     <string name="title_more_overflow">Περισσότερα &#8230;</string>
     <string name="title_today_at">Σήμερα στις/στη %1$s</string>
     <string name="title_tomorrow_at">Αύριο στις/στη %1$s</string>
