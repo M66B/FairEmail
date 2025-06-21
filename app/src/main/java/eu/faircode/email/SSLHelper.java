@@ -82,6 +82,7 @@ public class SSLHelper {
                 ? new CTTrustManagerBuilder((X509TrustManager) tms[0])
                 .setDiskCache(new AndroidDiskCache(context))
                 .setLogger(logger)
+                .setFailOnError(!Helper.isPlayStoreInstall())
                 .build()
                 : (X509TrustManager) tms[0]);
 
