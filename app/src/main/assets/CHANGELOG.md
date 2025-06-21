@@ -28,6 +28,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
+### 1.2283 2025-06-21
+
+* Disabled Certficate Transparency because Google broke it. 'Thanks' for all the 1-star ratings :-(
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2282 2025-06-20
 
 * Small improvements and minor bug fixes
