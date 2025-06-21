@@ -606,6 +606,8 @@ This can be caused by using an incorrect host name, so first double-check the ho
 Please see the documentation of the email provider about the right host name.
 Sometimes the right host name is in the error message.
 
+Another possible cause is [Certificate transparency](https://github.com/appmattus/certificatetransparency) failing, so try disabling it in the connection settings tab page.
+
 You should try to fix this by contacting your provider or by getting a valid security certificate
 because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
 If money is an obstacle, you can get free security certificates from [Let’s Encrypt](https://letsencrypt.org).
