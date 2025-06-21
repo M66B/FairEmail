@@ -576,7 +576,7 @@ dependencies {
     def biometric_version = "1.2.0-alpha05" // 1.4.0-alpha04
     def billingclient_version = "6.0.1" // 6.2.0
     def playservicesbasement_version = "18.5.0";
-    def transparency_version = "2.5.73"
+    def transparency_version = "2.6.5"
     def javamail_version = "1.6.7"
     def jsoup_version = "1.18.3"
     def jsonpath_version = "2.9.0"

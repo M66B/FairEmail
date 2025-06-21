@@ -10,8 +10,8 @@ buildscript {
         classpath 'com.android.tools.build:gradle:8.10.1'
         // https://kotlinlang.org/docs/releases.html#release-details
         // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.9.24"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.21"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:2.1.21"
         // https://plugins.gradle.org/plugin/de.undercouch.download
         classpath "de.undercouch:gradle-download-task:5.6.0"
     }
