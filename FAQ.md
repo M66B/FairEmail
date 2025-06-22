@@ -3037,7 +3037,7 @@ $domain$
 $group$ (since version 1.2030)
 ```
 
-$user$ is the domain name of the 'from' email address,
+$user$ is the user name of the 'from' email address,
 and $domain$ is the domain name of the 'from' email address: *user@domain*.
 
 $extra$ is the part after the plus sign if the username: *user+extra$example.org*.
