@@ -1103,7 +1103,7 @@
                     android:id="@+id/tvMoveCreateRemark"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="$year$ $month$ $week$ $day$ $domain$"
+                    android:text="$year$ $month$ $week$ $day$ $user$ $extra$ $domain$ $group$"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
                     app:layout_constraintStart_toStartOf="parent"
