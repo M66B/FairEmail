@@ -2962,7 +2962,7 @@ The following extra functions are available:
 * *blocklist()* (version 1.2176-1.2178; deprecated, use *onBlocklist()* instead)
 * *onBlocklist()* (returns a boolean indicating if the sender/server is on a DNS blocklist; since version 1.2179)
 * *hasMx()* (returns a boolean indicating if the from/reply-to address has an associated MX record; since version 1.2179)
-* *attachments(regex)* (returns an integer indicating number of attachments; since version 1.2179; optional regex since version 1.2194)
+* *attachments(regex)* (returns an integer indicating number of attachments; since version 1.2179; optional regex to select the names since version 1.2194)
 * *Jsoup()* (returns an array of selected strings; since version 1.2179)
 * *Size(array)* (returns the number of items in an array; since version 1.2179)
 * *knownContact()* (returns a boolean indicating that the from/reply-to address is in the Android address book or in the local contacts database)
@@ -3040,7 +3040,7 @@ $group$ (since version 1.2030)
 $user$ is the user name of the 'from' email address,
 and $domain$ is the domain name of the 'from' email address: *user@domain*.
 
-$extra$ is the part after the plus sign if the username: *user+extra$example.org*.
+$extra$ is the part after the plus sign if the username: *user+extra@example.org*.
 
 $group$ will be replaced with the contact group name of the sender, provided that the related contact is assigned to one contact group only.
 Note that the Android contact provider isn't very fast, so using this placeholder can slow down fetching messages.

@@ -1630,7 +1630,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <li><em>blocklist()</em> (version 1.2176-1.2178; deprecated, use <em>onBlocklist()</em> instead)</li>
 <li><em>onBlocklist()</em> (returns a boolean indicating if the sender/server is on a DNS blocklist; since version 1.2179)</li>
 <li><em>hasMx()</em> (returns a boolean indicating if the from/reply-to address has an associated MX record; since version 1.2179)</li>
-<li><em>attachments(regex)</em> (returns an integer indicating number of attachments; since version 1.2179; optional regex since version 1.2194)</li>
+<li><em>attachments(regex)</em> (returns an integer indicating number of attachments; since version 1.2179; optional regex to select the names since version 1.2194)</li>
 <li><em>Jsoup()</em> (returns an array of selected strings; since version 1.2179)</li>
 <li><em>Size(array)</em> (returns the number of items in an array; since version 1.2179)</li>
 <li><em>knownContact()</em> (returns a boolean indicating that the from/reply-to address is in the Android address book or in the local contacts database)</li>
@@ -1683,7 +1683,7 @@ $extra$ (since version 1.2265)
 $domain$
 $group$ (since version 1.2030)</code></pre>
 <p><span class="math inline"><em>u</em><em>s</em><em>e</em><em>r</em></span> is the user name of the ‘from’ email address, and <span class="math inline"><em>d</em><em>o</em><em>m</em><em>a</em><em>i</em><em>n</em></span> is the domain name of the ‘from’ email address: <em>user@domain</em>.</p>
-<p><span class="math inline"><em>e</em><em>x</em><em>t</em><em>r</em><em>a</em></span> is the part after the plus sign if the username: <em>user+extra$example.org</em>.</p>
+<p><span class="math inline"><em>e</em><em>x</em><em>t</em><em>r</em><em>a</em></span> is the part after the plus sign if the username: <em>user+extra@example.org</em>.</p>
 <p><span class="math inline"><em>g</em><em>r</em><em>o</em><em>u</em><em>p</em></span> will be replaced with the contact group name of the sender, provided that the related contact is assigned to one contact group only. Note that the Android contact provider isn’t very fast, so using this placeholder can slow down fetching messages.</p>
 <p><br /></p>
 <p>Since version 1.2132 it is possible to use the following placeholders in keywords:</p>
