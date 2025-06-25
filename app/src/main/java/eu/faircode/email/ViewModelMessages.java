@@ -132,6 +132,8 @@ public class ViewModelMessages extends ViewModel {
                                 args.group_category,
                                 args.sort1, args.sort2, args.ascending,
                                 args.filter_seen,
+                                args.filter_unseen,
+                                args.filter_flagged,
                                 args.filter_unflagged,
                                 args.filter_unknown,
                                 args.filter_snoozed,
@@ -147,6 +149,8 @@ public class ViewModelMessages extends ViewModel {
                                 args.group_category,
                                 args.sort1, args.sort2, args.ascending,
                                 args.filter_seen,
+                                args.filter_unseen,
+                                args.filter_flagged,
                                 args.filter_unflagged,
                                 args.filter_unknown,
                                 args.filter_snoozed,
@@ -169,6 +173,8 @@ public class ViewModelMessages extends ViewModel {
                                 args.folder, args.threading,
                                 args.sort1, args.sort2, args.ascending,
                                 args.filter_seen,
+                                args.filter_unseen,
+                                args.filter_flagged,
                                 args.filter_unflagged,
                                 args.filter_unknown,
                                 args.filter_snoozed,
@@ -181,6 +187,8 @@ public class ViewModelMessages extends ViewModel {
                                 args.folder, args.threading,
                                 args.sort1, args.sort2, args.ascending,
                                 args.filter_seen,
+                                args.filter_unseen,
+                                args.filter_flagged,
                                 args.filter_unflagged,
                                 args.filter_unknown,
                                 args.filter_snoozed,
@@ -218,7 +226,7 @@ public class ViewModelMessages extends ViewModel {
                                     null, null,
                                     args.threading, false,
                                     criteria == null || criteria.touched == null ? "time" : "touched", "", false,
-                                    false, false, false, false, false,
+                                    false, false, false, false, false, false, false,
                                     null,
                                     true,
                                     args.debug);
@@ -227,7 +235,7 @@ public class ViewModelMessages extends ViewModel {
                                     null, null,
                                     args.threading, false,
                                     criteria == null || criteria.touched == null ? "time" : "touched", "", false,
-                                    false, false, false, false, false,
+                                    false, false, false, false, false, false, false,
                                     null,
                                     true,
                                     args.debug);
@@ -237,7 +245,7 @@ public class ViewModelMessages extends ViewModel {
                             pager = db.message().pagedFolderJson(
                                     args.folder, args.threading,
                                     criteria == null || criteria.touched == null ? "time" : "touched", "", false,
-                                    false, false, false, false, false,
+                                    false, false, false, false, false, false, false,
                                     null,
                                     true,
                                     args.debug);
@@ -245,7 +253,7 @@ public class ViewModelMessages extends ViewModel {
                             pager = db.message().pagedFolder(
                                     args.folder, args.threading,
                                     criteria == null || criteria.touched == null ? "time" : "touched", "", false,
-                                    false, false, false, false, false,
+                                    false, false, false, false, false, false, false,
                                     null,
                                     true,
                                     args.debug);
@@ -576,6 +584,8 @@ public class ViewModelMessages extends ViewModel {
         private String sort2;
         private boolean ascending;
         private boolean filter_seen;
+        private boolean filter_unseen;
+        private boolean filter_flagged;
         private boolean filter_unflagged;
         private boolean filter_unknown;
         private boolean filter_snoozed;
@@ -617,6 +627,8 @@ public class ViewModelMessages extends ViewModel {
                 this.sort1 = "sender";
 
             this.filter_seen = prefs.getBoolean(FragmentMessages.getFilter(context, "seen", viewType, type), false);
+            this.filter_unseen = prefs.getBoolean(FragmentMessages.getFilter(context, "unseen", viewType, type), false);
+            this.filter_flagged = prefs.getBoolean(FragmentMessages.getFilter(context, "flagged", viewType, type), false);
             this.filter_unflagged = prefs.getBoolean(FragmentMessages.getFilter(context, "unflagged", viewType, type), false);
             this.filter_unknown = prefs.getBoolean(FragmentMessages.getFilter(context, "unknown", viewType, type), false);
             this.filter_snoozed = prefs.getBoolean(FragmentMessages.getFilter(context, "snoozed", viewType, type), true);
@@ -648,6 +660,8 @@ public class ViewModelMessages extends ViewModel {
                         Objects.equals(this.sort2, other.sort2) &&
                         this.ascending == other.ascending &&
                         this.filter_seen == other.filter_seen &&
+                        this.filter_unseen == other.filter_unseen &&
+                        this.filter_flagged == other.filter_flagged &&
                         this.filter_unflagged == other.filter_unflagged &&
                         this.filter_unknown == other.filter_unknown &&
                         this.filter_snoozed == other.filter_snoozed &&
@@ -668,8 +682,8 @@ public class ViewModelMessages extends ViewModel {
                     " threading=" + threading +
                     " category=" + group_category +
                     " sort=" + sort1 + "/" + sort2 + ":" + ascending +
-                    " filter seen=" + filter_seen +
-                    " unflagged=" + filter_unflagged +
+                    " filter seen=" + filter_seen + "/" + filter_unseen +
+                    " flagged=" + filter_flagged + "/" + filter_unflagged +
                     " unknown=" + filter_unknown +
                     " snoozed=" + filter_snoozed +
                     " archive=" + filter_archive +

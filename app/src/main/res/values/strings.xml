@@ -2045,6 +2045,8 @@
 
     <string name="title_filter">Filter out</string>
     <string name="title_filter_seen">Read</string>
+    <string name="title_filter_unseen">Unread</string>
+    <string name="title_filter_flagged">Starred</string>
     <string name="title_filter_unflagged">Unstarred</string>
     <string name="title_filter_unknown">Unknown senders</string>
     <string name="title_filter_hidden">Hidden</string>

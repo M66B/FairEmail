@@ -1396,7 +1396,7 @@ public class FragmentMessages extends FragmentBase
             public void onClick(View v) {
                 String name = getFilter(v.getContext(), "seen", viewType, type);
                 boolean filter = prefs.getBoolean(name, true);
-                onMenuFilter(name, !filter);
+                onMenuFilter("seen", viewType, type, !filter);
             }
         });
 
@@ -1405,7 +1405,7 @@ public class FragmentMessages extends FragmentBase
             public void onClick(View v) {
                 String name = getFilter(v.getContext(), "unflagged", viewType, type);
                 boolean filter = prefs.getBoolean(name, true);
-                onMenuFilter(name, !filter);
+                onMenuFilter("unflagged", viewType, type, !filter);
             }
         });
 
@@ -1414,7 +1414,7 @@ public class FragmentMessages extends FragmentBase
             public void onClick(View v) {
                 String name = getFilter(v.getContext(), "snoozed", viewType, type);
                 boolean filter = prefs.getBoolean(name, true);
-                onMenuFilter(name, !filter);
+                onMenuFilter("snoozed", viewType, type, !filter);
             }
         });
 
@@ -6401,6 +6401,8 @@ public class FragmentMessages extends FragmentBase
             String sort = prefs.getString(getSort(context, viewType, type), "time");
             boolean ascending = prefs.getBoolean(getSortOrder(context, viewType, type), outbox);
             boolean filter_seen = prefs.getBoolean(getFilter(context, "seen", viewType, type), false);
+            boolean filter_unseen = prefs.getBoolean(getFilter(context, "unseen", viewType, type), false);
+            boolean filter_flagged = prefs.getBoolean(getFilter(context, "flagged", viewType, type), false);
             boolean filter_unflagged = prefs.getBoolean(getFilter(context, "unflagged", viewType, type), false);
             boolean filter_unknown = prefs.getBoolean(getFilter(context, "unknown", viewType, type), false);
             boolean filter_snoozed = prefs.getBoolean(getFilter(context, "snoozed", viewType, type), true);
@@ -6423,7 +6425,9 @@ public class FragmentMessages extends FragmentBase
                     (viewType == AdapterMessage.ViewType.UNIFIED ||
                             (viewType == AdapterMessage.ViewType.FOLDER && !outbox));
 
-            boolean filter_active = (filter_seen || filter_unflagged || filter_unknown ||
+            boolean filter_active = (filter_seen || filter_unseen ||
+                    filter_flagged || filter_unflagged ||
+                    filter_unknown ||
                     (language_detection && !TextUtils.isEmpty(filter_language)));
             int filterColor = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
             float filterLighten = 0.7f - (float) ColorUtils.calculateLuminance(filterColor);
@@ -6506,6 +6510,8 @@ public class FragmentMessages extends FragmentBase
 
             menu.findItem(R.id.menu_filter).setVisible(viewType != AdapterMessage.ViewType.SEARCH && !outbox);
             menu.findItem(R.id.menu_filter_seen).setVisible(folder);
+            menu.findItem(R.id.menu_filter_unseen).setVisible(folder);
+            menu.findItem(R.id.menu_filter_flagged).setVisible(folder);
             menu.findItem(R.id.menu_filter_unflagged).setVisible(folder);
             menu.findItem(R.id.menu_filter_unknown).setVisible(folder && !drafts && !sent);
             menu.findItem(R.id.menu_filter_snoozed).setVisible(folder && !drafts);
@@ -6515,6 +6521,8 @@ public class FragmentMessages extends FragmentBase
             menu.findItem(R.id.menu_filter_trash).setVisible(viewType == AdapterMessage.ViewType.THREAD);
 
             menu.findItem(R.id.menu_filter_seen).setChecked(filter_seen);
+            menu.findItem(R.id.menu_filter_unseen).setChecked(filter_unseen);
+            menu.findItem(R.id.menu_filter_flagged).setChecked(filter_flagged);
             menu.findItem(R.id.menu_filter_unflagged).setChecked(filter_unflagged);
             menu.findItem(R.id.menu_filter_unknown).setChecked(filter_unknown);
             menu.findItem(R.id.menu_filter_snoozed).setChecked(filter_snoozed);
@@ -6594,8 +6602,8 @@ public class FragmentMessages extends FragmentBase
             ibUnflagged.setImageResource(filter_unflagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
             ibSnoozed.setImageResource(filter_snoozed ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
 
-            ibSeen.setImageTintList(ColorStateList.valueOf(filter_seen ? colorAccent : colorControlNormal));
-            ibUnflagged.setImageTintList(ColorStateList.valueOf(filter_unflagged ? colorAccent : colorControlNormal));
+            ibSeen.setImageTintList(ColorStateList.valueOf(filter_seen || filter_unseen ? colorAccent : colorControlNormal));
+            ibUnflagged.setImageTintList(ColorStateList.valueOf(filter_flagged || filter_unflagged ? colorAccent : colorControlNormal));
             ibSnoozed.setImageTintList(ColorStateList.valueOf(filter_snoozed ? colorControlNormal : colorAccent));
 
             ibSeen.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
@@ -6678,19 +6686,25 @@ public class FragmentMessages extends FragmentBase
             onMenuAscending(!item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_seen) {
-            onMenuFilter(getFilter(getContext(), "seen", viewType, type), !item.isChecked());
+            onMenuFilter("seen", viewType, type, !item.isChecked());
+            return true;
+        } else if (itemId == R.id.menu_filter_unseen) {
+            onMenuFilter("unseen", viewType, type, !item.isChecked());
+            return true;
+        } else if (itemId == R.id.menu_filter_flagged) {
+            onMenuFilter("flagged", viewType, type, !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_unflagged) {
-            onMenuFilter(getFilter(getContext(), "unflagged", viewType, type), !item.isChecked());
+            onMenuFilter("unflagged", viewType, type, !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_unknown) {
-            onMenuFilter(getFilter(getContext(), "unknown", viewType, type), !item.isChecked());
+            onMenuFilter("unknown", viewType, type, !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_snoozed) {
-            onMenuFilter(getFilter(getContext(), "snoozed", viewType, type), !item.isChecked());
+            onMenuFilter("snoozed", viewType, type, !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_deleted) {
-            onMenuFilter(getFilter(getContext(), "deleted", viewType, type), !item.isChecked());
+            onMenuFilter("deleted", viewType, type, !item.isChecked());
             return true;
         } else if (itemId == R.id.menu_filter_language) {
             onMenuFilterLanguage();
@@ -6880,9 +6894,25 @@ public class FragmentMessages extends FragmentBase
         loadMessages(true);
     }
 
-    private void onMenuFilter(String name, boolean filter) {
+    private void onMenuFilter(String name, AdapterMessage.ViewType viewType, String type, boolean filter) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putBoolean(name, filter).apply();
+        prefs.edit().putBoolean(getFilter(getContext(), name, viewType, type), filter).apply();
+        if ("seen".equals(name)) {
+            String altName = getFilter(getContext(), "unseen", viewType, type);
+            prefs.edit().putBoolean(altName, false).apply();
+        }
+        if ("unseen".equals(name)) {
+            String altName = getFilter(getContext(), "seen", viewType, type);
+            prefs.edit().putBoolean(altName, false).apply();
+        }
+        if ("flagged".equals(name)) {
+            String altName = getFilter(getContext(), "unflagged", viewType, type);
+            prefs.edit().putBoolean(altName, false).apply();
+        }
+        if ("unflagged".equals(name)) {
+            String altName = getFilter(getContext(), "flagged", viewType, type);
+            prefs.edit().putBoolean(altName, false).apply();
+        }
         invalidateOptionsMenu();
         if (selectionTracker != null)
             selectionTracker.clearSelection();

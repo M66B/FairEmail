@@ -105,6 +105,16 @@
                     android:title="@string/title_filter_seen" />
 
                 <item
+                    android:id="@+id/menu_filter_unseen"
+                    android:checkable="true"
+                    android:title="@string/title_filter_unseen" />
+
+                <item
+                    android:id="@+id/menu_filter_flagged"
+                    android:checkable="true"
+                    android:title="@string/title_filter_flagged" />
+
+                <item
                     android:id="@+id/menu_filter_unflagged"
                     android:checkable="true"
                     android:title="@string/title_filter_unflagged" />
