@@ -237,6 +237,11 @@ public interface DaoFolder {
     EntityFolder getFolderByType(long account, String type);
 
     @Query("SELECT folder.* FROM folder" +
+            " WHERE account = :account AND type = :type" +
+            " ORDER BY folder.id")
+    List<EntityFolder> getFoldersByType(long account, String type);
+
+    @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE account.synchronize" +
             " AND type = :type")

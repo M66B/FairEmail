@@ -2992,9 +2992,16 @@ class Core {
                 try {
                     db.beginTransaction();
 
-                    if (EntityFolder.INBOX.equals(type)) // Case insensitive
-                        folder = db.folder().getFolderByType(account.id, type);
-                    else
+                    if (EntityFolder.INBOX.equals(type)) { // Case insensitive
+                        List<EntityFolder> inboxes = db.folder().getFoldersByType(account.id, type);
+                        if (inboxes == null || inboxes.isEmpty())
+                            folder = null;
+                        else {
+                            folder = inboxes.get(0);
+                            for (int i = 1; i < inboxes.size(); i++)
+                                db.folder().deleteFolder(inboxes.get(i).id);
+                        }
+                    } else
                         folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
                         EntityFolder parent = null;
