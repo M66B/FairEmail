@@ -2992,7 +2992,10 @@ class Core {
                 try {
                     db.beginTransaction();
 
-                    folder = db.folder().getFolderByName(account.id, fullName);
+                    if (EntityFolder.INBOX.equals(type)) // Case insensitive
+                        folder = db.folder().getFolderByType(account.id, type);
+                    else
+                        folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
                         EntityFolder parent = null;
                         char separator = ifolder.first.getSeparator();
@@ -3035,6 +3038,12 @@ class Core {
                         Log.i(folder.name + " exists type=" + folder.type);
                         if (!Objects.equals(type, folder.type))
                             EntityLog.log(context, "Folder name=" + folder.name + " type old=" + folder.type + " new=" + type);
+
+                        if (EntityFolder.INBOX.equals(folder.type) &&
+                                !Objects.equals(fullName, folder.name)) {
+                            folder.name = fullName;
+                            db.folder().setFolderName(folder.id, folder.name);
+                        }
 
                         folder.namespace = ifolder.first.getFullName();
                         folder.separator = ifolder.first.getSeparator();
