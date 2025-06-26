@@ -171,6 +171,7 @@ public class MediaPlayerHelper {
 
     static void startMusic(Context context, Uri uri, Runnable onCompleted) throws IOException {
         synchronized (lock) {
+            Log.i("startMusic uri=" + uri);
             stopMusic(context);
 
             MediaPlayerHelper.uri = uri;
@@ -189,12 +190,14 @@ public class MediaPlayerHelper {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
                     // https://issuetracker.google.com/issues/36921987
+                    Log.i("startMusic prepared");
                     mp.start();
                 }
             });
             MediaPlayerHelper.player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
+                    Log.i("startMusic completed");
                     stopMusic(context);
                 }
             });
@@ -214,6 +217,7 @@ public class MediaPlayerHelper {
                 }
             MediaPlayerHelper.uri = null;
             if (MediaPlayerHelper.onCompleted != null) {
+                Log.i("startMusic onCompletion");
                 MediaPlayerHelper.onCompleted.run();
                 MediaPlayerHelper.onCompleted = null;
             }
