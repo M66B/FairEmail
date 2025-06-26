@@ -195,7 +195,7 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                                 Log.w(ex);
                                 return context.getDrawable(R.drawable.twotone_ondemand_video_24);
                             }
-                        } else {
+                        } else if (type != null && type.startsWith("image/")) {
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             boolean barcode_preview = prefs.getBoolean("barcode_preview", true);
 
@@ -250,7 +250,8 @@ public class AdapterMedia extends RecyclerView.Adapter<AdapterMedia.ViewHolder> 
                             if (bm == null)
                                 return null;
                             return new BitmapDrawable(context.getResources(), bm);
-                        }
+                        } else
+                            return null;
                     }
 
                     @Override
