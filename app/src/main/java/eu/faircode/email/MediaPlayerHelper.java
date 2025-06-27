@@ -100,6 +100,13 @@ public class MediaPlayerHelper {
 
         MediaPlayer mediaPlayer = new MediaPlayer();
         try {
+            mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+                @Override
+                public boolean onError(MediaPlayer mp, int what, int extra) {
+                    Log.e("mediaPlayer error what=" + what + " extra=" + extra);
+                    return false;
+                }
+            });
             mediaPlayer.setAudioAttributes(attrs);
             mediaPlayer.setDataSource(context.getApplicationContext(), uri);
             mediaPlayer.setLooping(loop);
@@ -178,6 +185,13 @@ public class MediaPlayerHelper {
             MediaPlayerHelper.onCompleted = onCompleted;
 
             MediaPlayerHelper.player = new MediaPlayer();
+            MediaPlayerHelper.player.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+                @Override
+                public boolean onError(MediaPlayer mp, int what, int extra) {
+                    Log.e("startMusic error what=" + what + " extra=" + extra);
+                    return false;
+                }
+            });
             MediaPlayerHelper.player.setAudioAttributes(
                     new AudioAttributes.Builder()
                             .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
