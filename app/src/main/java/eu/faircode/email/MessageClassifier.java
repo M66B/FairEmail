@@ -757,7 +757,7 @@ public class MessageClassifier {
                     long m = max.get(clazz);
                     long avg = total.get(clazz) / count.get(clazz);
                     Frequency freq = wordClassFrequency.get(account).get(word).get(clazz);
-                    if (freq.count < m / 5000) {
+                    if (freq.count < m / 1000) {
                         dropped++;
                         wordClassFrequency.get(account).get(word).remove(clazz);
                     } else if (freq.count < avg / 2 && false) {
