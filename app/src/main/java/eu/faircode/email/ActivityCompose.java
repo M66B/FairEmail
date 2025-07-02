@@ -258,7 +258,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                     ClipData.Item item = clip.getItemAt(i);
                     Uri stream = (item == null ? null : item.getUri());
                     if (stream != null)
-                        uris.add(new UriType(stream, description, this));
+                        uris.add(new UriType(stream, intent.getType(), description, this));
                 }
 
             if (intent.hasExtra(Intent.EXTRA_STREAM)) {

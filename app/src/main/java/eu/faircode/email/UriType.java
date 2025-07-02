@@ -40,8 +40,17 @@ public class UriType implements Parcelable {
         this.type = in.readString();
     }
 
-    public UriType(Uri uri, ClipDescription description, Context context) {
-        this(uri, description == null || description.getMimeTypeCount() <= 0 ? null : description.getMimeType(0), context);
+    public UriType(Uri uri, String type, ClipDescription description, Context context) {
+        this.uri = uri;
+        if (TextUtils.isEmpty(type)) {
+            if (description != null) {
+                if (description.getMimeTypeCount() > 0)
+                    this.type = description.getMimeType(0);
+                for (int i = 0; i < description.getMimeTypeCount(); i++)
+                    Log.i("Type #" + i + " " + description.getMimeType(i) + " " + uri);
+            }
+        } else
+            this.type = type;
     }
 
     public UriType(Uri uri, String type, Context context) {

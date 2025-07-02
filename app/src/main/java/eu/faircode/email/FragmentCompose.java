@@ -679,7 +679,7 @@ public class FragmentCompose extends FragmentBase {
                             DragAndDropPermissionsCompat permissions = ActivityCompat.requestDragAndDropPermissions(activity, event);
                             if (permissions == null)
                                 return false;
-                            UriType uriType = new UriType(uri, event.getClipDescription(), activity);
+                            UriType uriType = new UriType(uri, null, event.getClipDescription(), activity);
                             onSharedAttachments(new ArrayList<>(Arrays.asList(uriType)));
                             return true;
                         default:
@@ -3979,7 +3979,7 @@ public class FragmentCompose extends FragmentBase {
                 ClipData.Item item = clipData.getItemAt(i);
                 Uri uri = item.getUri();
                 if (uri != null)
-                    result.add(new UriType(uri, description, getContext()));
+                    result.add(new UriType(uri, data.getType(), description, getContext()));
             }
         }
 
