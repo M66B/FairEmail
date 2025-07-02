@@ -28,7 +28,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
-### Next version
+### 1.2284 2025-07-02
 
 * Added filtering out unread or starred messages
 * Added workaround for incorrectly shared files (Xiaomi gallery)
