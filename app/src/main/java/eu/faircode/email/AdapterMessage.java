@@ -4094,7 +4094,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     CalendarHelper.insert(context, icalendar, event,
                                             CalendarContract.Events.STATUS_CONFIRMED, account, message);
                                 else if (action == R.id.btnCalendarDecline)
-                                    CalendarHelper.delete(context, event, message);
+                                    CalendarHelper.delete(context, icalendar, event, account, message);
                                 else if (action == R.id.btnCalendarMaybe)
                                     CalendarHelper.insert(context, icalendar, event,
                                             CalendarContract.Events.STATUS_TENTATIVE, account, message);

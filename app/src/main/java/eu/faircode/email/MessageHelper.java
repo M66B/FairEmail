@@ -4760,7 +4760,7 @@ public class MessageHelper {
                     // https://www.rfc-editor.org/rfc/rfc5546#section-3.2
                     Method method = icalendar.getMethod();
                     if (method != null && method.isCancel())
-                        CalendarHelper.delete(context, event, message);
+                        CalendarHelper.delete(context, icalendar, event, account, message);
                     else if (method == null || method.isRequest()) {
                         if (ical_tentative)
                             CalendarHelper.insert(context, icalendar, event,

@@ -28,6 +28,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.CalendarContract;
 import android.text.TextUtils;
+import android.util.Pair;
 
 import androidx.preference.PreferenceManager;
 
@@ -61,6 +62,7 @@ import biweekly.property.Action;
 import biweekly.property.Attendee;
 import biweekly.property.ICalProperty;
 import biweekly.property.RawProperty;
+import biweekly.property.RecurrenceId;
 import biweekly.property.RecurrenceRule;
 import biweekly.property.Trigger;
 import biweekly.util.Duration;
@@ -166,21 +168,22 @@ public class CalendarHelper {
         }
     }
 
-    static Long insert(Context context, ICalendar icalendar, VEvent event, int status,
-                       EntityAccount account, EntityMessage message) {
-        String selectedAccount;
-        String selectedName;
+    static Pair<String, String> getSelectedCalendar(EntityAccount account) {
         try {
             JSONObject jselected = new JSONObject(account.calendar);
-            selectedAccount = jselected.getString("account");
-            selectedName = jselected.optString("name", null);
+            return new Pair<>(
+                    jselected.getString("account"),
+                    jselected.optString("name", null));
         } catch (Throwable ex) {
             Log.i(ex);
-            selectedAccount = account.calendar;
-            selectedName = null;
+            return new Pair<>(account.calendar, null);
         }
+    }
 
-        return insert(context, icalendar, event, status, selectedAccount, selectedName, message);
+    static Long insert(Context context, ICalendar icalendar, VEvent event, int status,
+                       EntityAccount account, EntityMessage message) {
+        Pair<String, String> selected = getSelectedCalendar(account);
+        return insert(context, icalendar, event, status, selected.first, selected.second, message);
     }
 
     static Long insert(Context context, ICalendar icalendar, VEvent event, int status,
@@ -493,10 +496,35 @@ public class CalendarHelper {
         }
     }
 
-    static void delete(Context context, VEvent event, EntityMessage message) {
+    static void delete(Context context, ICalendar icalendar, VEvent event, EntityAccount account, EntityMessage message) {
         String uid = (event.getUid() == null ? null : event.getUid().getValue());
         if (TextUtils.isEmpty(uid))
             return;
+
+        RecurrenceId recurrenceId = event.getProperty(biweekly.property.RecurrenceId.class);
+        if (recurrenceId != null) {
+            ICalDate start = recurrenceId.getValue();
+            if (!start.hasTime())
+                return;
+
+            Pair<String, String> selected = getSelectedCalendar(account);
+            Long existId = exists(context, selected.first, selected.second, uid);
+            if (existId == null)
+                return;
+
+            ContentValues values = new ContentValues();
+            values.put(CalendarContract.Events.ORIGINAL_INSTANCE_TIME, start.getTime());
+            values.put(CalendarContract.Events.EVENT_TIMEZONE, "UTC");
+            values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_CANCELED);
+            Uri uri = Uri.withAppendedPath(CalendarContract.Events.CONTENT_EXCEPTION_URI,
+                    String.valueOf(existId));
+            ContentResolver resolver = context.getContentResolver();
+            Uri cancel = resolver.insert(uri, values);
+            EntityLog.log(context, EntityLog.Type.General, message, "Inserted recurring event cancel" +
+                    " start=" + new Date(start.getTime()) +
+                    " uri=" + cancel);
+            return;
+        }
 
         ContentResolver resolver = context.getContentResolver();
         try (Cursor cursor = resolver.query(CalendarContract.Events.CONTENT_URI,
