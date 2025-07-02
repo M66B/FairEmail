@@ -1689,6 +1689,8 @@
     <string name="title_sort_on_last_applied">Последно приложено</string>
     <string name="title_filter">Филтрирай по</string>
     <string name="title_filter_seen">Прочетени</string>
+    <string name="title_filter_unseen">Непрочетено</string>
+    <string name="title_filter_flagged">Със звезда</string>
     <string name="title_filter_unflagged">Без звезда</string>
     <string name="title_filter_unknown">Неизвестни податели</string>
     <string name="title_filter_hidden">Скрий</string>

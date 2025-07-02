@@ -1698,6 +1698,8 @@
     <string name="title_sort_on_last_applied">Τελευταία εφαρμογή</string>
     <string name="title_filter">Φιλτράρισμα (αποκλεισμός)</string>
     <string name="title_filter_seen">Αναγνωσμένα</string>
+    <string name="title_filter_unseen">Μη αναγνωσμένο</string>
+    <string name="title_filter_flagged">Με αστέρι</string>
     <string name="title_filter_unflagged">Χωρίς αστέρι</string>
     <string name="title_filter_unknown">Άγνωστοι αποστολείς</string>
     <string name="title_filter_hidden">Κρυφά</string>

@@ -1733,6 +1733,8 @@
     <string name="title_sort_on_last_applied">Апошняга ўжывання</string>
     <string name="title_filter">Адфільтраваць</string>
     <string name="title_filter_seen">Прачытаныя</string>
+    <string name="title_filter_unseen">Стану (непрачытаныя)</string>
+    <string name="title_filter_flagged">Пазнакі</string>
     <string name="title_filter_unflagged">Не пазначаныя</string>
     <string name="title_filter_unknown">Невядомыя адпраўнікі</string>
     <string name="title_filter_hidden">Схаваныя</string>

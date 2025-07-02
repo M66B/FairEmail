@@ -1693,6 +1693,8 @@
     <string name="title_sort_on_last_applied">Uóljára alkalmazva</string>
     <string name="title_filter">Kiszűrés</string>
     <string name="title_filter_seen">Olvasott</string>
+    <string name="title_filter_unseen">Olvasatlan</string>
+    <string name="title_filter_flagged">Csillagozott</string>
     <string name="title_filter_unflagged">Csillagozatlan</string>
     <string name="title_filter_unknown">Ismeretlen feladók</string>
     <string name="title_filter_hidden">Rejtett</string>

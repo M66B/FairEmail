@@ -1333,6 +1333,8 @@
     <string name="title_sort_on_order">Orde</string>
     <string name="title_filter">Sen coincidencia nos filtros</string>
     <string name="title_filter_seen">Lido</string>
+    <string name="title_filter_unseen">Sen ler</string>
+    <string name="title_filter_flagged">Destacadas</string>
     <string name="title_filter_unflagged">Sen destacar</string>
     <string name="title_filter_unknown">Remitente descoñecido</string>
     <string name="title_filter_hidden">Agochado</string>

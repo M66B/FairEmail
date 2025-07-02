@@ -1008,6 +1008,8 @@
     <string name="title_sort_on_order">Rekkefølge</string>
     <string name="title_filter">Filtrere ut</string>
     <string name="title_filter_seen">Les</string>
+    <string name="title_filter_unseen">Ulest</string>
+    <string name="title_filter_flagged">Stjernemerkede</string>
     <string name="title_filter_unflagged">Ikke med stjerne</string>
     <string name="title_filter_unknown">Ukjente avsendere</string>
     <string name="title_filter_hidden">Skjult</string>

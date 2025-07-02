@@ -1703,6 +1703,8 @@
     <string name="title_sort_on_last_applied">Ultima applicazione</string>
     <string name="title_filter">Filtra</string>
     <string name="title_filter_seen">Letti</string>
+    <string name="title_filter_unseen">Da leggere</string>
+    <string name="title_filter_flagged">Con stella</string>
     <string name="title_filter_unflagged">Senza stella</string>
     <string name="title_filter_unknown">Mittenti sconosciuti</string>
     <string name="title_filter_hidden">Nascosti</string>

@@ -60,6 +60,11 @@
         <item quantity="one">%1$d jauns</item>
         <item quantity="other">%1$d jauni</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="zero">Pārvietot %1$d ziņojumus?</item>
+        <item quantity="one">Pārvietot %1$d ziņojumu?</item>
+        <item quantity="other">Pārvietot %1$d ziņojumus?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="zero">Neatgriezeniski izdzēst %1$d ziņojumus?</item>
         <item quantity="one">Neatgriezeniski izdzēst %1$d ziņojumu?</item>
@@ -208,6 +213,8 @@
     <string name="title_advanced_compose_color">Noklusējuma teksta krāsa</string>
     <string name="title_advanced_compose_font">Noklusējuma fonts</string>
     <string name="title_advanced_compose_monospaced">Izmantot vienplatuma fontu vienkārša teksta ziņojumos</string>
+    <string name="title_advanced_reply_move">Pēc atbildēšanas uz ziņojumu saglabāt atbildi tajā pašā mapē</string>
+    <string name="title_advanced_reply_move_inbox">Arī ziņojumiem iesūtnē</string>
     <string name="title_advanced_send_retry_max">Lielākais pieļaujamais nosūtīšanas mēģinājumu skaits</string>
     <string name="title_advanced_send_retry_hint">Nosūtīšana tiks veikta atkārtoti pēc savienojuma izmaiņām</string>
     <string name="title_advanced_send_partial">Nosūtīšanas laikā neņemt vērā nederīgas adreses</string>
@@ -224,6 +231,7 @@
     <string name="title_advanced_pdf_preview">Rādīt PDF sīktēlus</string>
     <string name="title_advanced_video_preview">Rādīt video sīktēlus</string>
     <string name="title_advanced_double_back">Divkāršs \"atpakaļ\", lai izietu</string>
+    <string name="title_advanced_swipe_move">Pavilkt uz augšu, lai pārvietotu sarunu</string>
     <string name="title_advanced_autoclose_send">Automātiski aizvērt sarunas pēc ziņojumu nosūtīšanas</string>
     <string name="title_advanced_autounstar">Automātiski noņemt zvaigznes no ziņojumiem to pārvietošanas laikā</string>
     <string name="title_advanced_reset_importance">Atiestatīt svarīgumu pēc ziņojumu pārvietošanas</string>
@@ -231,6 +239,8 @@
     <string name="title_advanced_important_unsnoozed">Automātiski padarīt nesnaudošos ziņojumus par svarīgiem</string>
     <string name="title_advanced_auto_important">Automātiski padarīt atzīmētos ziņojumus par svarīgiem</string>
     <string name="title_advanced_auto_block_sender">Automātiski liegt sūtītāju, kad ziņo par mēstuli</string>
+    <string name="title_advanced_move_thread_all">Kad pārvieto atlasītas sarunas, pārvietot visus ziņojumus</string>
+    <string name="title_advanced_move_thread_sent">Kad pārvieto sarunu, pārvietot arī nosūtītos ziņojumus</string>
     <string name="title_advanced_notifications_service">Pārraudzības kanāls</string>
     <string name="title_advanced_notify_known">Rādīt paziņojumus tikai par ziņojumiem no kontaktpersonām</string>
     <string name="title_advanced_notify_subject">Rādīt tēmu paziņojumos</string>
@@ -285,6 +295,7 @@
     <string name="title_advanced_suggest_names_hint">Ja atspējots, tikai e-pasta adreses tiks izmantotas kontaktpersonu atlasīšanā</string>
     <string name="title_advanced_suggest_local_hint">Papildus kontaktpersonām, ko nodrošina Android. Kontaktpersonu dati tiks glabāti nosūtītajiem vai saņemtajiem ziņojumiem tikai tad, kad iespējots.</string>
     <string name="title_advanced_suggest_account_hint">Šis attiecas tikai uz vietējām kotaktpersonām, ko Android adrešu grāmatā esošās nav sasaistītas ar noteiktiem kontiem</string>
+    <string name="title_advanced_reply_move_hint">E-pasta serveris joprojām var pievienot ziņojumus nosūtīto ziņojumu mapē</string>
     <string name="title_advanced_compose_color_hint">Ļoti gaišas vai ļoti tumšas krāsas var beigties ar saņēmējam grūti salasāmiem ziņojumiem</string>
     <string name="title_advanced_compose_font_hint">Noklusējuma nozīmē saņēmēja pusē atlasītā fonta ievērošanu</string>
     <string name="title_advanced_write_below_hint">Saņēmējs var palaist garām atbildi, piemēram, kad garāks ziņojums tiek saīsināts</string>
@@ -307,6 +318,7 @@
     <string name="title_advanced_internal_hint">Būs brīdinājums, kad notiks sūtīšana uz citu domēnu</string>
     <string name="title_advanced_notify_remove_hint">Paziņojumi par jauniem ziņojumuiem vienmēr tiks noņemti pēc pavilkšanas prom un ziņojumu atzīmēšanas kā izlasītus</string>
     <string name="title_advanced_notify_manage_service_hint">Lai atspējotu pārraudzīšanas paziņojumu</string>
+    <string name="title_advanced_move_hint">Mērķa mapi var konfigurēt konta iestatījumos</string>
     <string name="title_advanced_fts_hint">Šī iespējošana uzlabo meklēšanas veiktspēju, bet arī palielina akumulatora un krātuves vietas lietojumu</string>
     <string name="title_advanced_protocol_hint">Tas būtiski palielinās akumulatora un krātuves vietas lietojumu.</string>
     <string name="title_advanced_debug_hint">Dažādās vietās tiks rādīt nepievilcīga atkļūdošanas informācija</string>
@@ -342,6 +354,7 @@
     <string name="title_identity_delete">Vai tiešām neatgriezeniski dzēst šo identitāti?</string>
     <string name="title_import_file">Ievietot datni</string>
     <string name="title_storage_quota">Servera krātuves lietojums: %1$s/%2$s</string>
+    <string name="title_pop_support">POP3 protokols var tikai lejupielādēt un izdzēst ziņojumus no iesūtnes. Nav iespējams atzīmēt ziņojumus kā izlasītus, ziņot par mēstulēm, pārvietot ziņojumus utt.. Jāapsver IMAP protokola izmantošana, kad vien iespējams.</string>
     <string name="title_pop_warning">Ja POP3 serveris neatbalsta UIDL komandu, varētu būt liels datu patēriņš, tādēļ zemāk attiecīgi jāpielāgo vaicājumu biežums.</string>
     <string name="title_hint_accounts">Ilgi jāpiespiež uz konta, lai attēlotu iespējas, piemēram, lai atspējotu vai izdzēstu kontu</string>
     <string name="title_service_token">VPN, ugunsmūris, reklāmu aizturētājs var aizturēt Android kontu pārvaldnieku, neļaujot tam iegūt piekļuves pilnvaru</string>
@@ -385,8 +398,10 @@
     <string name="title_navigation_folder">Rādīt pārvietošanās izvēlnē</string>
     <string name="title_navigation_folder_hide">Paslēpt pārvietošanās izvēlnē</string>
     <string name="title_synchronize_folder">Sinhronizēt (saņemt ziņojumus)</string>
+    <string name="title_auto_classify_target">Automātiski pārvietot šķirotos ziņojumus uz šo mapi</string>
     <string name="title_sync_days_remark">Šīs vērtības palielināšana palielināš akumulatora un datu lietojumu</string>
     <string name="title_keep_days_remark">Veci ziņojumi tiks noņemti no ierīces, bet tie paliks serverī</string>
+    <string name="title_auto_trash">Automātiski pārvietot vecos ziņojumus uz atkritni</string>
     <string name="title_auto_delete">Automātiski neatgriezeniski dzēst vecos ziņojumus</string>
     <string name="title_folder_delete">Vai tiešām neatgriezeniski dzēst šo mapi un visus tajā esošos ziņojumus?</string>
     <string name="title_months">mēnešus</string>
@@ -498,12 +513,14 @@
     <string name="title_edit_signature_image_hint">        Kad ziņojums tiek nosūtīts, attēls tiek ievietots ziņojumā no atlasītās atrašanās vietas.
         Tādēļ attēla datni nevajadzētu izdzēst.
     </string>
-    <string name="title_answer_hide">Slēpt izvēlnēs</string>
+    <string name="title_answer_hide">Paslēpt izvēlnēs</string>
     <string name="title_rule_hide">Slēpt</string>
     <string name="title_rule_importance">Iestatīt svarīgumu</string>
     <string name="title_rule_keyword_delete">@string/title_delete</string>
     <string name="title_rule_notes">Vietējās piezīmes</string>
+    <string name="title_rule_move">Pārvietot</string>
     <string name="title_rule_delete">Neatgriezeniski dzēst</string>
+    <string name="title_rule_thread">Visi ziņojumi tajā pašā sarunā un mapē</string>
     <string name="title_rule_resend">Nosūtīt atkārtoti</string>
     <string name="title_rule_notes_missing">Trūkst vietējo piezīmju</string>
     <string name="title_rule_tts_data">Uzstādīt balss datus</string>

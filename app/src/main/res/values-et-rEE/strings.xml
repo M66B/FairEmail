@@ -1700,6 +1700,8 @@
     <string name="title_sort_on_last_applied">Viimati rakendatud</string>
     <string name="title_filter">Filtreeri</string>
     <string name="title_filter_seen">Loetud</string>
+    <string name="title_filter_unseen">Lugemata</string>
+    <string name="title_filter_flagged">Starred</string>
     <string name="title_filter_unflagged">Tärnita</string>
     <string name="title_filter_unknown">Saatjad tundmatud</string>
     <string name="title_filter_hidden">Peidetud</string>

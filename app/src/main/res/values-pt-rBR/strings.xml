@@ -1698,6 +1698,8 @@
     <string name="title_sort_on_last_applied">Última aplicada</string>
     <string name="title_filter">Filtrar</string>
     <string name="title_filter_seen">Lido</string>
+    <string name="title_filter_unseen">Não lida</string>
+    <string name="title_filter_flagged">Favorita(s)</string>
     <string name="title_filter_unflagged">Sem Estrela</string>
     <string name="title_filter_unknown">Remetentes desconhecidos</string>
     <string name="title_filter_hidden">Oculto</string>

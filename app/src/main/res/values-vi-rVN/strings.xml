@@ -1337,6 +1337,8 @@
     <string name="title_sort_on_order">Thứ tự</string>
     <string name="title_filter">Lọc ra</string>
     <string name="title_filter_seen">Đã đọc</string>
+    <string name="title_filter_unseen">Chưa đọc</string>
+    <string name="title_filter_flagged">Được gắn sao</string>
     <string name="title_filter_unflagged">Chưa gắn sao</string>
     <string name="title_filter_unknown">Người gửi không xác định</string>
     <string name="title_filter_hidden">Ẩn</string>

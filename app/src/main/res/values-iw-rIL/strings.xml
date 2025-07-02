@@ -1730,6 +1730,8 @@
     <string name="title_sort_on_last_applied">החלה אחרונה</string>
     <string name="title_filter">סינון החוצה</string>
     <string name="title_filter_seen">נקראו</string>
+    <string name="title_filter_unseen">לא נקרא</string>
+    <string name="title_filter_flagged">בכוכב</string>
     <string name="title_filter_unflagged">ללא כוכב</string>
     <string name="title_filter_unknown">מוענים בלתי ידועים</string>
     <string name="title_filter_hidden">מוסתר</string>

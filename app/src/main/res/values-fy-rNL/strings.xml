@@ -1693,6 +1693,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_sort_on_last_applied">Lêst tapast</string>
     <string name="title_filter">Utfilterje</string>
     <string name="title_filter_seen">Lêzen</string>
+    <string name="title_filter_unseen">Net lêzen</string>
+    <string name="title_filter_flagged">Mei stjer</string>
     <string name="title_filter_unflagged">Sûnder stjer</string>
     <string name="title_filter_unknown">Unbekende ôfstjoerders</string>
     <string name="title_filter_hidden">Ferstoppe</string>

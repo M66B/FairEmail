@@ -1698,6 +1698,8 @@
     <string name="title_sort_on_last_applied">Última aplicación</string>
     <string name="title_filter">Excluir</string>
     <string name="title_filter_seen">Leído</string>
+    <string name="title_filter_unseen">No leído</string>
+    <string name="title_filter_flagged">Destacado</string>
     <string name="title_filter_unflagged">No destacado</string>
     <string name="title_filter_unknown">Remitentes desconocidos</string>
     <string name="title_filter_hidden">Oculto</string>

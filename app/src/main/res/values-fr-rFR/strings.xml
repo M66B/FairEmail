@@ -1703,6 +1703,8 @@
     <string name="title_sort_on_last_applied">Dernièrement utilisé</string>
     <string name="title_filter">Filtrer (exclure)</string>
     <string name="title_filter_seen">Lus</string>
+    <string name="title_filter_unseen">Non lus</string>
+    <string name="title_filter_flagged">Suivis</string>
     <string name="title_filter_unflagged">Non suivis</string>
     <string name="title_filter_unknown">Expéditeurs inconnus</string>
     <string name="title_filter_hidden">Masqués</string>

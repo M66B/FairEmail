@@ -1462,6 +1462,8 @@
     <string name="title_sort_on_order">Vrstni red</string>
     <string name="title_filter">Izključi</string>
     <string name="title_filter_seen">Prebrana</string>
+    <string name="title_filter_unseen">Neprebrano</string>
+    <string name="title_filter_flagged">Z zvezdico</string>
     <string name="title_filter_unflagged">Brez zvezdice</string>
     <string name="title_filter_unknown">Z neznanimi pošiljatelji</string>
     <string name="title_filter_hidden">Skrita</string>

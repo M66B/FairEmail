@@ -1673,6 +1673,8 @@
     <string name="title_sort_on_last_applied">最後應用時間</string>
     <string name="title_filter">篩選</string>
     <string name="title_filter_seen">已讀取</string>
+    <string name="title_filter_unseen">未讀取</string>
+    <string name="title_filter_flagged">已加星號</string>
     <string name="title_filter_unflagged">未加星號</string>
     <string name="title_filter_unknown">不明寄件者</string>
     <string name="title_filter_hidden">隱藏</string>

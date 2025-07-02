@@ -1680,6 +1680,8 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
     <string name="title_sort_on_last_applied">Viimeksi käytetty</string>
     <string name="title_filter">Suodata pois</string>
     <string name="title_filter_seen">Luettu</string>
+    <string name="title_filter_unseen">Lukematon</string>
+    <string name="title_filter_flagged">Tähdellinen</string>
     <string name="title_filter_unflagged">Tähdetön</string>
     <string name="title_filter_unknown">Tuntemattomat lähettäjät</string>
     <string name="title_filter_hidden">Piilotettu</string>

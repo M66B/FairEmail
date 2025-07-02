@@ -676,6 +676,8 @@
     <string name="title_sort_on_order">Редослед</string>
     <string name="title_filter">Филтрирај по</string>
     <string name="title_filter_seen">Прочитаним</string>
+    <string name="title_filter_unseen">Непрочитано</string>
+    <string name="title_filter_flagged">Озвездано</string>
     <string name="title_filter_unflagged">Без звездице</string>
     <string name="title_filter_unknown">Непознати пошиљаоци</string>
     <string name="title_filter_hidden">Сакривеним</string>

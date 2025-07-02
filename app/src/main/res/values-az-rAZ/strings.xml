@@ -1702,6 +1702,8 @@
     <string name="title_sort_on_last_applied">Son tətbiq edilmə</string>
     <string name="title_filter">Filtrləmə</string>
     <string name="title_filter_seen">Oxunan</string>
+    <string name="title_filter_unseen">Oxunmadı</string>
+    <string name="title_filter_flagged">Ulduzlu</string>
     <string name="title_filter_unflagged">Ulduzlu olmayan</string>
     <string name="title_filter_unknown">Bilinməyən göndərənlər</string>
     <string name="title_filter_hidden">Gizli</string>

@@ -1715,6 +1715,8 @@
     <string name="title_sort_on_last_applied">Zadnje potvrđeno</string>
     <string name="title_filter">Izdvoji</string>
     <string name="title_filter_seen">Pročitano</string>
+    <string name="title_filter_unseen">Nepročitano</string>
+    <string name="title_filter_flagged">Favoritima</string>
     <string name="title_filter_unflagged">Bez zvjezdice</string>
     <string name="title_filter_unknown">Nepoznati pošiljaoci</string>
     <string name="title_filter_hidden">Skrivenom</string>

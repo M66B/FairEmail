@@ -1133,6 +1133,8 @@
     <string name="title_sort_on_order">Ordena</string>
     <string name="title_filter">Iragazi</string>
     <string name="title_filter_seen">Irakurrita</string>
+    <string name="title_filter_unseen">Irakurri gabea</string>
+    <string name="title_filter_flagged">Izarduna</string>
     <string name="title_filter_unflagged">Izarrik gabe</string>
     <string name="title_filter_unknown">Bidaltzaile ezezagunak</string>
     <string name="title_filter_hidden">Ezkutuan</string>

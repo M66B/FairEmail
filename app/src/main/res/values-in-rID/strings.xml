@@ -1636,6 +1636,8 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_sort_on_last_applied">Terakhir diterapkan</string>
     <string name="title_filter">Filter</string>
     <string name="title_filter_seen">Sudah dibaca</string>
+    <string name="title_filter_unseen">Belum dibaca</string>
+    <string name="title_filter_flagged">Berbintang</string>
     <string name="title_filter_unflagged">Tidak berbintang</string>
     <string name="title_filter_unknown">Pengirim tidak dikenal</string>
     <string name="title_filter_hidden">Tersembunyi</string>

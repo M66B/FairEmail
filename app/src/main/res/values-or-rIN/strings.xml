@@ -622,6 +622,8 @@
     <string name="title_sort_on_applied">ପ୍ରୟୋଗ ଗଣନା</string>
     <string name="title_sort_on_last_applied">ଗତ ପ୍ରୟୋଗ</string>
     <string name="title_filter_seen">ପଠିତ</string>
+    <string name="title_filter_unseen">ପଢ଼ି ନାହାଁନ୍ତି</string>
+    <string name="title_filter_flagged">ତାରାଙ୍କିତ</string>
     <string name="title_filter_unflagged">ଅଣତାରାଙ୍କିତ</string>
     <string name="title_filter_hidden">ଲୁକ୍କାୟିତ</string>
     <string name="title_filter_deleted">ବିଲୋପିତ</string>

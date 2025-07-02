@@ -1672,6 +1672,8 @@
     <string name="title_sort_on_last_applied">Senast tillämpad</string>
     <string name="title_filter">Filtrera bort</string>
     <string name="title_filter_seen">Läst</string>
+    <string name="title_filter_unseen">Olästa</string>
+    <string name="title_filter_flagged">Stjärnmärkta</string>
     <string name="title_filter_unflagged">Utan stjärnmärkning</string>
     <string name="title_filter_unknown">Okända avsändare</string>
     <string name="title_filter_hidden">Dold</string>

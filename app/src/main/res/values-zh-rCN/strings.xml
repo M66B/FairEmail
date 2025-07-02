@@ -1684,6 +1684,8 @@
     <string name="title_sort_on_last_applied">上次应用</string>
     <string name="title_filter">滤除</string>
     <string name="title_filter_seen">已读</string>
+    <string name="title_filter_unseen">未读</string>
+    <string name="title_filter_flagged">星标</string>
     <string name="title_filter_unflagged">未标星</string>
     <string name="title_filter_unknown">未知发件人</string>
     <string name="title_filter_hidden">隐藏</string>

@@ -1690,6 +1690,8 @@ Dosya: strings. xml</string>
     <string name="title_sort_on_last_applied">Son başvuru</string>
     <string name="title_filter">Filtreleme</string>
     <string name="title_filter_seen">Okunmuş</string>
+    <string name="title_filter_unseen">Okunmadı</string>
+    <string name="title_filter_flagged">Yıldızlı</string>
     <string name="title_filter_unflagged">Yıldızlı Olmayan</string>
     <string name="title_filter_unknown">Bilinmeyen gönderenler</string>
     <string name="title_filter_hidden">Gizli</string>

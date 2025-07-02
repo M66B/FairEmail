@@ -1728,6 +1728,8 @@
     <string name="title_sort_on_last_applied">Востаннє застосовано</string>
     <string name="title_filter">Приховати</string>
     <string name="title_filter_seen">Прочитані</string>
+    <string name="title_filter_unseen">Непрочитані</string>
+    <string name="title_filter_flagged">Обрані</string>
     <string name="title_filter_unflagged">Необрані</string>
     <string name="title_filter_unknown">Невідомі відправники</string>
     <string name="title_filter_hidden">Приховані</string>

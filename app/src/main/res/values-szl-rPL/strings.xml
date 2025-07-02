@@ -1726,6 +1726,8 @@
     <string name="title_sort_on_last_applied">Ostatnio zastosowane</string>
     <string name="title_filter">Odfiltruj</string>
     <string name="title_filter_seen">Przeczytana</string>
+    <string name="title_filter_unseen">Nieprzeczytane</string>
+    <string name="title_filter_flagged">Oznaczone</string>
     <string name="title_filter_unflagged">Nie oznaczona</string>
     <string name="title_filter_unknown">Nieznani nadawcy</string>
     <string name="title_filter_hidden">Ukryta</string>

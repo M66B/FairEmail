@@ -785,7 +785,7 @@
     <string name="title_advanced_sort_answers">Antwortvorlagen nach Verwendungshäufigkeit sortieren</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
     <string name="title_advanced_ical_tentative">Erhaltene Einladungen als „Unter Vorbehalt” speichern</string>
-    <string name="title_advanced_ical_email">E-Mail-Adresse der Teilnehmer speichern</string>
+    <string name="title_advanced_ical_email">E-Mail-Adressen der Teilnehmenden speichern</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
     <string name="title_advanced_classification">Nachrichten klassifizieren</string>
@@ -1704,6 +1704,8 @@
     <string name="title_sort_on_last_applied">Zuletzt angewendet</string>
     <string name="title_filter">Ausfiltern</string>
     <string name="title_filter_seen">Gelesen</string>
+    <string name="title_filter_unseen">Ungelesen</string>
+    <string name="title_filter_flagged">Markiert</string>
     <string name="title_filter_unflagged">Nicht markiert</string>
     <string name="title_filter_unknown">Unbekannte Absender</string>
     <string name="title_filter_hidden">Verborgen</string>

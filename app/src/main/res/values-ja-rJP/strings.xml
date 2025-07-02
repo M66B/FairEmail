@@ -770,6 +770,7 @@
     <string name="title_advanced_sort_answers">返信テンプレートを使用頻度で並べ替える</string>
     <string name="title_advanced_shortcuts">Android 共有メニューに頻繁に使用する連絡先を表示する</string>
     <string name="title_advanced_ical_tentative">受信した招待を未定として保存する</string>
+    <string name="title_advanced_ical_email">参加者のメールアドレスを保存する</string>
     <string name="title_advanced_fts">検索インデックスを作成する</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 個のメッセージがインデックスされました (%3$s)</string>
     <string name="title_advanced_classification">メッセージを分類する</string>
@@ -1687,6 +1688,8 @@
     <string name="title_sort_on_last_applied">最終適用</string>
     <string name="title_filter">除外</string>
     <string name="title_filter_seen">既読</string>
+    <string name="title_filter_unseen">未読</string>
+    <string name="title_filter_flagged">スター付き</string>
     <string name="title_filter_unflagged">スターなし</string>
     <string name="title_filter_unknown">連絡先にいない差出人</string>
     <string name="title_filter_hidden">非表示のメッセージ</string>
@@ -2053,6 +2056,7 @@
     <string name="title_via">経由: %1$s</string>
     <string name="title_1hour">1 時間</string>
     <string name="title_1day">1 日</string>
+    <string name="title_snooze_doze">メイン設定の画面のステップ 3 でバッテリー最適化を無効にしてください</string>
     <string name="title_more_overflow">その他&#8230;</string>
     <string name="title_today_at">今日の %1$s</string>
     <string name="title_tomorrow_at">明日の %1$s</string>

@@ -1728,6 +1728,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_sort_on_last_applied">Naposledy použito</string>
     <string name="title_filter">Odfiltrovat</string>
     <string name="title_filter_seen">Přečteno</string>
+    <string name="title_filter_unseen">Nepřečteno</string>
+    <string name="title_filter_flagged">S hvězdičkou</string>
     <string name="title_filter_unflagged">Bez hvězdičky</string>
     <string name="title_filter_unknown">Neznámí odesílatelé</string>
     <string name="title_filter_hidden">Skryto</string>

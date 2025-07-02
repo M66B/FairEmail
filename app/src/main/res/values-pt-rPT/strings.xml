@@ -1701,6 +1701,8 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_sort_on_last_applied">Última aplicada</string>
     <string name="title_filter">Filtrar (excluir)</string>
     <string name="title_filter_seen">Lida</string>
+    <string name="title_filter_unseen">Não lidas</string>
+    <string name="title_filter_flagged">Com estrela</string>
     <string name="title_filter_unflagged">Sem estrela</string>
     <string name="title_filter_unknown">Remetentes desconhecidos</string>
     <string name="title_filter_hidden">Oculta</string>

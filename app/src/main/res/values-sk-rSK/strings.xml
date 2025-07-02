@@ -1684,6 +1684,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_sort_on_last_applied">Naposledy použité</string>
     <string name="title_filter">Filtrovať</string>
     <string name="title_filter_seen">Prečítané</string>
+    <string name="title_filter_unseen">Neprečítané</string>
+    <string name="title_filter_flagged">Obľúbené</string>
     <string name="title_filter_unflagged">Odstránené z obľúbených</string>
     <string name="title_filter_unknown">Neznámy odosielatelia</string>
     <string name="title_filter_hidden">Skryté</string>

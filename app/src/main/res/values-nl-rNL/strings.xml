@@ -1689,6 +1689,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_sort_on_last_applied">Laatst toegepast</string>
     <string name="title_filter">Uitfilteren</string>
     <string name="title_filter_seen">Gelezen</string>
+    <string name="title_filter_unseen">Ongelezen</string>
+    <string name="title_filter_flagged">Met ster</string>
     <string name="title_filter_unflagged">Zonder ster</string>
     <string name="title_filter_unknown">Onbekende afzenders</string>
     <string name="title_filter_hidden">Verborgen</string>

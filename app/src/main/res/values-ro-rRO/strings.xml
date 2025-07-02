@@ -1713,6 +1713,8 @@
     <string name="title_sort_on_last_applied">Ultima aplicatie</string>
     <string name="title_filter">Exclude</string>
     <string name="title_filter_seen">Citit</string>
+    <string name="title_filter_unseen">Necitit</string>
+    <string name="title_filter_flagged">Cu stea</string>
     <string name="title_filter_unflagged">Fără stea</string>
     <string name="title_filter_unknown">Expeditori necunoscuți</string>
     <string name="title_filter_hidden">Ascuns</string>

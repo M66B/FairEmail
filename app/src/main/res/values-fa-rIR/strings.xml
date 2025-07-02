@@ -1196,6 +1196,8 @@
     <string name="title_sort_on_order">سفارش</string>
     <string name="title_filter">پالودن</string>
     <string name="title_filter_seen">خوانده شده</string>
+    <string name="title_filter_unseen">خوانده نشده</string>
+    <string name="title_filter_flagged">ستاره‌دار</string>
     <string name="title_filter_unflagged">بدون ستاره شده</string>
     <string name="title_filter_unknown">فرستندگان ناشناس</string>
     <string name="title_filter_hidden">پنهان</string>

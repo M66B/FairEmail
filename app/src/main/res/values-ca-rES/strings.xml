@@ -1065,6 +1065,8 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_sort_on_order">Ordre</string>
     <string name="title_filter">Filtrar per</string>
     <string name="title_filter_seen">Llegir</string>
+    <string name="title_filter_unseen">Sense llegir</string>
+    <string name="title_filter_flagged">Destacats</string>
     <string name="title_filter_unflagged">Sense destacat</string>
     <string name="title_filter_unknown">Remitents desconeguts</string>
     <string name="title_filter_hidden">Ocult</string>
