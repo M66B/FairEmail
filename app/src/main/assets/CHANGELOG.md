@@ -28,6 +28,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
+### Next version
+
+* Added filtering out unread or starred messages
+* Added workaround for incorrectly shared files (Xiaomi gallery)
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2283 2025-06-21 *
 
 * Disabled Certficate Transparency because Google broke it. 'Thanks' for all the 1-star ratings :-(
