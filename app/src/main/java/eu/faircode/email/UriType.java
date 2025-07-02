@@ -51,17 +51,23 @@ public class UriType implements Parcelable {
             }
         } else
             this.type = type;
+        fixMimeType(context);
     }
 
     public UriType(Uri uri, String type, Context context) {
+        type = "image/*";
         this.uri = uri;
         if (!TextUtils.isEmpty(type))
             this.type = type;
+        fixMimeType(context);
+    }
 
-        //if (context != null) {
-        //    Helper.UriInfo info = Helper.getInfo(this, context);
-        //    this.type = EntityAttachment.getMimeType(type, info.name);
-        //}
+    private void fixMimeType(Context context) {
+        if (context != null &&
+                (type == null || type.endsWith("/*"))) {
+            Helper.UriInfo info = Helper.getInfo(this, context);
+            this.type = EntityAttachment.getMimeType(type, info.name);
+        }
     }
 
     public Uri getUri() {
