@@ -574,7 +574,7 @@ dependencies {
     def work_version = "2.10.2"
     def exif_version = "1.4.1"
     def biometric_version = "1.2.0-alpha05" // 1.4.0-alpha04
-    def billingclient_version = "6.0.1" // 6.2.0
+    def billingclient_version = "7.1.1" // 8.0.0
     def playservicesbasement_version = "18.5.0";
     def transparency_version = "2.7.0"
     def javamail_version = "1.6.7"
@@ -724,6 +724,7 @@ dependencies {
     implementation "androidx.biometric:biometric:$biometric_version"
 
     // https://developer.android.com/google/play/billing/billing_library_releases_notes
+    // https://developer.android.com/google/play/billing/migrate-gpblv7
     // https://android-developers.googleblog.com/2020/06/meet-google-play-billing-library.html
     playImplementation "com.android.billingclient:billing:$billingclient_version"
 

@@ -51,6 +51,7 @@ import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.ConsumeParams;
 import com.android.billingclient.api.ConsumeResponseListener;
+import com.android.billingclient.api.PendingPurchasesParams;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesResponseListener;
 import com.android.billingclient.api.PurchasesUpdatedListener;
@@ -114,7 +115,7 @@ public class ActivityBilling extends ActivityBase implements
             try {
                 Log.i("IAB start");
                 billingClient = BillingClient.newBuilder(getApplicationContext())
-                        .enablePendingPurchases()
+                        .enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())
                         .setListener(this)
                         .build();
                 billingClient.startConnection(this);
