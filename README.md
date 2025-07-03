@@ -156,6 +156,8 @@ One line command to display certificate fingerprints:
 
 ```unzip -p fairemail.apk META-INF/CERT.RSA | keytool -printcert```
 
+Alternatively, you can use [this online tool](https://github.com/kkoiwai/ApkFingerprintReader).
+
 I do not hand over the signing keys of my apps to Google.
 Please see [this Google blog](https://android-developers.googleblog.com/2021/06/the-future-of-android-app-bundles-is.html)
 and [this article](https://commonsware.com/blog/2020/09/23/uncomfortable-questions-app-signing.html)
