@@ -69,15 +69,15 @@ jobs:
     #    ./gradlew upload -Ptarget=github-snapshot-${{ github.event.inputs.branch }}
     #    ./gradlew upload -Ptarget=large-snapshot-${{ github.event.inputs.branch }}
     #https://github.com/actions/upload-artifact
-    #- uses: actions/upload-artifact@v4
-    #  with:
-    #    name: Mapping files
-    #    path: app/build/outputs/mapping/**/mapping.txt
-    #- uses: actions/upload-artifact@v4
-    #  with:
-    #    name: Native debug symbols
-    #    path: app/build/outputs/native-debug-symbols/**/native-debug-symbols.zip
-    #- uses: actions/upload-artifact@v4
-    #  with:
-    #    name: APK files
-    #    path: app/build/outputs/apk/**/release/*.apk
+    - uses: actions/upload-artifact@v4
+      with:
+        name: Mapping files
+        path: app/build/outputs/mapping/**/mapping.txt
+    - uses: actions/upload-artifact@v4
+      with:
+        name: Native debug symbols
+        path: app/build/outputs/native-debug-symbols/**/native-debug-symbols.zip
+    - uses: actions/upload-artifact@v4
+      with:
+        name: APK files
+        path: app/build/outputs/apk/**/release/*.apk
