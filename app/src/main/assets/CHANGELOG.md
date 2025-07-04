@@ -28,9 +28,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
+### 1.2285 2025-07-04
+
+* Fixed workaround for incorrectly shared files
+
 ### 1.2284 2025-07-02
 
-* Added filtering out unread or starred messages
+* Added filtering out unread / starred messages
 * Added workaround for incorrectly shared files (Xiaomi gallery)
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)

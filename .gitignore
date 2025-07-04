@@ -20,6 +20,7 @@ crowdin.properties
 .idea/deploymentTargetSelector.xml
 .idea/other.xml
 .idea/runConfigurations.xml
+.kotlin
 app/.cxx/
 build
 captures
