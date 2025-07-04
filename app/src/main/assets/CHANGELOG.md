@@ -28,6 +28,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
+### 1.2286 2025-07-04
+
+* Fixed workaround for multiple inboxes
+
 ### 1.2285 2025-07-04
 
 * Fixed workaround for incorrectly shared files
