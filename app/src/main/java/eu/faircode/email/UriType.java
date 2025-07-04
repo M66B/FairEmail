@@ -55,7 +55,6 @@ public class UriType implements Parcelable {
     }
 
     public UriType(Uri uri, String type, Context context) {
-        type = "image/*";
         this.uri = uri;
         if (!TextUtils.isEmpty(type))
             this.type = type;
