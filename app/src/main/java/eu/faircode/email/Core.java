@@ -2992,7 +2992,15 @@ class Core {
                 try {
                     db.beginTransaction();
 
-                    folder = db.folder().getFolderByName(account.id, fullName);
+                    if (EntityFolder.INBOX.equalsIgnoreCase(fullName)) {
+                        List<EntityFolder> inboxes = db.folder().getFoldersByName(account.id, fullName);
+                        Log.i(account.name + ":" + fullName + " count=" + (inboxes == null ? -1 : inboxes.size()));
+                        if (inboxes != null && inboxes.size() == 1)
+                            folder = inboxes.get(0);
+                        else
+                            folder = db.folder().getFolderByName(account.id, fullName);
+                    } else
+                        folder = db.folder().getFolderByName(account.id, fullName);
                     if (folder == null) {
                         EntityFolder parent = null;
                         char separator = ifolder.first.getSeparator();

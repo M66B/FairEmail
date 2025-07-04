@@ -232,6 +232,9 @@ public interface DaoFolder {
     @Query("SELECT * FROM folder WHERE account = :account AND name = :name")
     EntityFolder getFolderByName(Long account, String name);
 
+    @Query("SELECT * FROM folder WHERE account = :account AND name = :name COLLATE NOCASE")
+    List<EntityFolder> getFoldersByName(Long account, String name);
+
     @Query("SELECT folder.* FROM folder" +
             " WHERE account = :account AND type = :type")
     EntityFolder getFolderByType(long account, String type);
