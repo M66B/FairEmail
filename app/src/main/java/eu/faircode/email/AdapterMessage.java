@@ -2402,6 +2402,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean full = properties.getValue("full", message.id);
                     boolean dark = Helper.isDarkTheme(context);
                     boolean force_light = properties.getValue("force_light", message.id);
+                    boolean tts = properties.getValue("tts", message.id, false);
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean expand_all = prefs.getBoolean("expand_all", false);
@@ -2464,6 +2465,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibSearch.setVisibility(tools && !outbox && button_search && (froms > 0 || tos > 0) ? View.VISIBLE : View.GONE);
                     ibTranslate.setVisibility(tools && !outbox && button_translate && DeepL.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
                     ibTts.setVisibility(tools && !outbox && button_tts && message.content && !Helper.isPlayStoreInstall() ? View.VISIBLE : View.GONE);
+                    ibTts.setImageResource(tts ? R.drawable.twotone_stop_24 : R.drawable.twotone_play_arrow_24);
                     ibSummarize.setVisibility(tools && !outbox && button_summarize && AI.isAvailable(context) && message.content ? View.VISIBLE : View.GONE);
                     ibFullScreen.setVisibility(tools && full && button_full_screen && message.content ? View.VISIBLE : View.GONE);
                     ibForceLight.setVisibility(tools && (full || experiments) && dark && button_force_light && message.content ? View.VISIBLE : View.GONE);
@@ -7504,10 +7506,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionTts(TupleMessageEx message) {
-            boolean tts = properties.getValue("tts", message.id, false);
-            properties.setValue("tts", message.id, !tts);
+            boolean tts = !properties.getValue("tts", message.id, false);
+            properties.setValue("tts", message.id, tts);
+            ibTts.setImageResource(tts ? R.drawable.twotone_stop_24 : R.drawable.twotone_play_arrow_24);
 
-            if (tts) {
+            if (!tts) {
                 Intent intent = new Intent(context, ServiceTTS.class)
                         .setAction("tts:" + message.id)
                         .putExtra(ServiceTTS.EXTRA_FLUSH, true)

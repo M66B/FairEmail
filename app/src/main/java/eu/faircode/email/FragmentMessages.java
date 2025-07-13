@@ -9396,6 +9396,9 @@ public class FragmentMessages extends FragmentBase
                 long id = Long.parseLong(utteranceId.substring("tts:".length()));
                 Log.i("TTS completed id=" + id);
                 iProperties.setValue("tts", id, false);
+                int pos = adapter.getPositionForKey(id);
+                if (pos != NO_POSITION)
+                    adapter.notifyItemChanged(pos);
             } catch (Throwable ex) {
                 Log.e(ex);
             }
