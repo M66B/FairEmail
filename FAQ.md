@@ -1522,6 +1522,8 @@ See also [this FAQ](#faq15).
 
 Please see the Play store description of the app or [see here](https://email.faircode.eu/#pro) for a complete list of pro features.
 
+Note that all current and future pro features can be purchased with a one-time payment, and that there is no subscription.
+
 The right question is "*why are there so many taxes and fees?*":
 
 * VAT: 25 % (depending on your country)
