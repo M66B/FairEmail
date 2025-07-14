@@ -1531,11 +1531,14 @@ The right question is "*why are there so many taxes and fees?*":
 
 So, what is left for the developer is just a fraction of what you pay.
 
+In addition, there are significant recurring costs associated with the project.
+For example, Google requires a rather expensive annual security assesment.
+
 Also note that most free apps will appear not to be sustainable in the end, whereas FairEmail is properly maintained and supported,
 and that free apps may have a catch, like sending privacy sensitive information to the internet.
 There are no privacy violating ads in the app either.
 
-I have been working on FairEmail almost every day for more than four years, so I think the price is more than reasonable.
+I have been working on FairEmail almost every day for more than five years, so I think the price is more than reasonable.
 For this reason there won't be discounts either.
 
 <br />
