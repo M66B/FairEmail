@@ -97,6 +97,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
     private ViewGroup view;
 
     private TextView tvWelcome;
+    private TextView tvFree;
     private TextView tvPrivacy;
     private TextView tvSupport;
     private ImageButton ibWelcome;
@@ -118,7 +119,6 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
     private TextView tvExchangeSupport;
     private TextView tvIdentityWhat;
     private Button btnInbox;
-    private TextView tvFree;
     private TextView tvNoComposable;
 
     private TextView tvCalendarPermissions;
@@ -194,6 +194,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         // Get controls
 
         tvWelcome = view.findViewById(R.id.tvWelcome);
+        tvFree = view.findViewById(R.id.tvFree);
         tvPrivacy = view.findViewById(R.id.tvPrivacy);
         tvSupport = view.findViewById(R.id.tvSupport);
         ibWelcome = view.findViewById(R.id.ibWelcome);
@@ -215,7 +216,6 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         tvExchangeSupport = view.findViewById(R.id.tvExchangeSupport);
         tvIdentityWhat = view.findViewById(R.id.tvIdentityWhat);
         btnInbox = view.findViewById(R.id.btnInbox);
-        tvFree = view.findViewById(R.id.tvFree);
         tvNoComposable = view.findViewById(R.id.tvNoComposable);
 
         tvCalendarPermissions = view.findViewById(R.id.tvCalendarPermissions);
@@ -270,6 +270,14 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                 ibWelcome.setPressed(true);
                 ibWelcome.setPressed(false);
                 ibWelcome.performClick();
+            }
+        });
+
+        tvFree.setPaintFlags(tvFree.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvFree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 19);
             }
         });
 
@@ -548,14 +556,6 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                     ((ActivitySetup) activity).onExit();
                 else
                     ((FragmentBase) getParentFragment()).finish();
-            }
-        });
-
-        tvFree.setPaintFlags(tvFree.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        tvFree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 19);
             }
         });
 

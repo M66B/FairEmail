@@ -131,6 +131,21 @@
                     app:layout_constraintTop_toBottomOf="@+id/issue" />
 
                 <TextView
+                    android:id="@+id/tvFree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_setup_free"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/analytics" />
+
+                <TextView
                     android:id="@+id/tvPrivacy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -143,7 +158,7 @@
                     app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintEnd_toStartOf="@+id/tvSupport"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/analytics" />
+                    app:layout_constraintTop_toBottomOf="@id/tvFree" />
 
                 <TextView
                     android:id="@+id/tvSupport"
@@ -158,7 +173,7 @@
                     app:drawableTint="?android:attr/textColorLink"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tvPrivacy"
-                    app:layout_constraintTop_toBottomOf="@id/analytics" />
+                    app:layout_constraintTop_toBottomOf="@id/tvFree" />
 
                 <ImageButton
                     android:id="@+id/ibWelcome"
@@ -592,21 +607,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvNoComposable" />
-
-                <TextView
-                    android:id="@+id/tvFree"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:drawableEnd="@drawable/twotone_open_in_new_12"
-                    android:drawablePadding="6dp"
-                    android:text="@string/title_setup_free"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?android:attr/textColorLink"
-                    app:drawableTint="?android:attr/textColorLink"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnInbox" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
