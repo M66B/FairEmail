@@ -7004,6 +7004,20 @@ public class FragmentCompose extends FragmentBase {
 
             DB db = DB.getInstance(context);
 
+            if (auto_identity && to != null && to.length > 0) {
+                String email = ((InternetAddress) to[0]).getAddress();
+                List<Long> ids = null;
+                if (suggest_sent)
+                    ids = db.contact().getIdentities(email, EntityContact.TYPE_TO);
+                if (suggest_received && (ids == null || ids.size() == 0))
+                    ids = db.contact().getIdentities(email, EntityContact.TYPE_FROM);
+                if (ids != null && ids.size() == 1) {
+                    EntityIdentity identity = db.identity().getIdentity(ids.get(0));
+                    if (identity != null)
+                        return identity;
+                }
+            }
+
             if (from != null && from.length > 0) {
                 for (Address sender : from)
                     for (EntityIdentity identity : identities)
@@ -7034,20 +7048,6 @@ public class FragmentCompose extends FragmentBase {
                             EntityLog.log(context, "Selected similer */identity");
                             return identity;
                         }
-            }
-
-            if (auto_identity && to != null && to.length > 0) {
-                String email = ((InternetAddress) to[0]).getAddress();
-                List<Long> ids = null;
-                if (suggest_sent)
-                    ids = db.contact().getIdentities(email, EntityContact.TYPE_TO);
-                if (suggest_received && (ids == null || ids.size() == 0))
-                    ids = db.contact().getIdentities(email, EntityContact.TYPE_FROM);
-                if (ids != null && ids.size() == 1) {
-                    EntityIdentity identity = db.identity().getIdentity(ids.get(0));
-                    if (identity != null)
-                        return identity;
-                }
             }
 
             for (EntityIdentity identity : identities)
