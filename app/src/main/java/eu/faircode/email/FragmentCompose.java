@@ -5748,9 +5748,6 @@ public class FragmentCompose extends FragmentBase {
             boolean write_below = prefs.getBoolean("write_below", false);
             boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
             boolean save_drafts = prefs.getBoolean("save_drafts", perform_expunge);
-            boolean auto_identity = prefs.getBoolean("auto_identity", false);
-            boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
-            boolean suggest_received = prefs.getBoolean("suggest_received", false);
             boolean forward_new = prefs.getBoolean("forward_new", false);
             boolean markdown = prefs.getBoolean("markdown", false);
 
@@ -5805,106 +5802,27 @@ public class FragmentCompose extends FragmentBase {
                                 break;
                             }
 
-                    if (ref != null) {
-                        Address[] refto;
-                        boolean self = ref.replySelf(data.identities, ref.account);
-                        if (ref.to == null || ref.to.length == 0 || self)
-                            refto = ref.from;
-                        else
-                            refto = ref.to;
-                        Log.i("Ref self=" + self +
-                                " to=" + MessageHelper.formatAddresses(refto));
-                        if (refto != null && refto.length > 0) {
-                            if (selected == null)
-                                for (Address sender : refto)
-                                    for (EntityIdentity identity : data.identities)
-                                        if (identity.account.equals(aid) &&
-                                                identity.sameAddress(sender)) {
-                                            selected = identity;
-                                            EntityLog.log(context, "Selected same account/identity");
-                                            break;
-                                        }
-
-                            if (selected == null)
-                                for (Address sender : refto)
-                                    for (EntityIdentity identity : data.identities)
-                                        if (identity.account.equals(aid) &&
-                                                identity.similarAddress(sender)) {
-                                            selected = identity;
-                                            EntityLog.log(context, "Selected similar account/identity");
-                                            break;
-                                        }
-
-                            if (selected == null)
-                                for (Address sender : refto)
-                                    for (EntityIdentity identity : data.identities)
-                                        if (identity.sameAddress(sender)) {
-                                            selected = identity;
-                                            EntityLog.log(context, "Selected same */identity");
-                                            break;
-                                        }
-
-                            if (selected == null)
-                                for (Address sender : refto)
-                                    for (EntityIdentity identity : data.identities)
-                                        if (identity.similarAddress(sender)) {
-                                            selected = identity;
-                                            EntityLog.log(context, "Selected similer */identity");
-                                            break;
-                                        }
+                    if (selected == null) {
+                        Address[] refto = null;
+                        if (ref != null) {
+                            boolean self = ref.replySelf(data.identities, ref.account);
+                            if (ref.to == null || ref.to.length == 0 || self)
+                                refto = ref.from;
+                            else
+                                refto = ref.to;
+                            Log.i("Ref self=" + self +
+                                    " to=" + MessageHelper.formatAddresses(refto));
                         }
-                    }
 
-                    if (selected == null && auto_identity)
+                        Address[] tos = null;
                         try {
-                            Address[] tos = MessageHelper.parseAddresses(context, to);
-                            if (tos != null && tos.length > 0) {
-                                String email = ((InternetAddress) tos[0]).getAddress();
-                                List<Long> identities = null;
-                                if (suggest_sent)
-                                    identities = db.contact().getIdentities(email, EntityContact.TYPE_TO);
-                                if (suggest_received && (identities == null || identities.size() == 0))
-                                    identities = db.contact().getIdentities(email, EntityContact.TYPE_FROM);
-                                if (identities != null && identities.size() == 1) {
-                                    EntityIdentity identity = db.identity().getIdentity(identities.get(0));
-                                    if (identity != null)
-                                        selected = identity;
-                                }
-                            }
+                            tos = MessageHelper.parseAddresses(context, to);
                         } catch (AddressException ex) {
                             Log.i(ex);
                         }
 
-                    if (selected == null)
-                        for (EntityIdentity identity : data.identities)
-                            if (identity.account.equals(aid) && identity.primary) {
-                                selected = identity;
-                                EntityLog.log(context, "Selected primary account/identity");
-                                break;
-                            }
-
-                    if (selected == null)
-                        for (EntityIdentity identity : data.identities)
-                            if (identity.account.equals(aid)) {
-                                selected = identity;
-                                EntityLog.log(context, "Selected account/identity");
-                                break;
-                            }
-
-                    if (selected == null)
-                        for (EntityIdentity identity : data.identities)
-                            if (identity.primary) {
-                                selected = identity;
-                                EntityLog.log(context, "Selected primary */identity");
-                                break;
-                            }
-
-                    if (selected == null)
-                        for (EntityIdentity identity : data.identities) {
-                            selected = identity;
-                            EntityLog.log(context, "Selected */identity");
-                            break;
-                        }
+                        selected = getIdentity(context, aid, data.identities, refto, tos);
+                    }
 
                     if (selected == null)
                         throw new OperationCanceledException(context.getString(R.string.title_no_composable));
@@ -6585,17 +6503,12 @@ public class FragmentCompose extends FragmentBase {
 
                     // External draft
                     if (data.draft.identity == null) {
-                        for (EntityIdentity identity : data.identities)
-                            if (identity.account.equals(data.draft.account))
-                                if (identity.primary) {
-                                    data.draft.identity = identity.id;
-                                    break;
-                                } else if (data.draft.identity == null)
-                                    data.draft.identity = identity.id;
-
-                        if (data.draft.identity != null)
+                        EntityIdentity selected = getIdentity(context, aid, data.identities, data.draft.from, data.draft.to);
+                        if (selected != null) {
+                            data.draft.identity = selected.id;
                             db.message().setMessageIdentity(data.draft.id, data.draft.identity);
-                        Log.i("Selected external identity=" + data.draft.identity);
+                            EntityLog.log(context, "Selected external identity=" + selected.email);
+                        }
                     }
 
                     if (data.draft.revision == null || data.draft.revisions == null) {
@@ -7081,6 +6994,86 @@ public class FragmentCompose extends FragmentBase {
                 snackbar.show();
             } else
                 handleException(ex);
+        }
+
+        private EntityIdentity getIdentity(Context context, long aid, List<TupleIdentityEx> identities, Address[] from, Address[] to) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean auto_identity = prefs.getBoolean("auto_identity", false);
+            boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
+            boolean suggest_received = prefs.getBoolean("suggest_received", false);
+
+            DB db = DB.getInstance(context);
+
+            if (from != null && from.length > 0) {
+                for (Address sender : from)
+                    for (EntityIdentity identity : identities)
+                        if (identity.account.equals(aid) &&
+                                identity.sameAddress(sender)) {
+                            EntityLog.log(context, "Selected same account/identity");
+                            return identity;
+                        }
+
+                for (Address sender : from)
+                    for (EntityIdentity identity : identities)
+                        if (identity.account.equals(aid) &&
+                                identity.similarAddress(sender)) {
+                            EntityLog.log(context, "Selected similar account/identity");
+                            return identity;
+                        }
+
+                for (Address sender : from)
+                    for (EntityIdentity identity : identities)
+                        if (identity.sameAddress(sender)) {
+                            EntityLog.log(context, "Selected same */identity");
+                            return identity;
+                        }
+
+                for (Address sender : from)
+                    for (EntityIdentity identity : identities)
+                        if (identity.similarAddress(sender)) {
+                            EntityLog.log(context, "Selected similer */identity");
+                            return identity;
+                        }
+            }
+
+            if (auto_identity && to != null && to.length > 0) {
+                String email = ((InternetAddress) to[0]).getAddress();
+                List<Long> ids = null;
+                if (suggest_sent)
+                    ids = db.contact().getIdentities(email, EntityContact.TYPE_TO);
+                if (suggest_received && (ids == null || ids.size() == 0))
+                    ids = db.contact().getIdentities(email, EntityContact.TYPE_FROM);
+                if (ids != null && ids.size() == 1) {
+                    EntityIdentity identity = db.identity().getIdentity(ids.get(0));
+                    if (identity != null)
+                        return identity;
+                }
+            }
+
+            for (EntityIdentity identity : identities)
+                if (identity.account.equals(aid) && identity.primary) {
+                    EntityLog.log(context, "Selected primary account/identity");
+                    return identity;
+                }
+
+            for (EntityIdentity identity : identities)
+                if (identity.account.equals(aid)) {
+                    EntityLog.log(context, "Selected account/identity");
+                    return identity;
+                }
+
+            for (EntityIdentity identity : identities)
+                if (identity.primary) {
+                    EntityLog.log(context, "Selected primary */identity");
+                    return identity;
+                }
+
+            for (EntityIdentity identity : identities) {
+                EntityLog.log(context, "Selected */identity");
+                return identity;
+            }
+
+            return null;
         }
     }.serial();
 
