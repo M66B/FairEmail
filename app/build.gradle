@@ -18,13 +18,13 @@ if (rootProject.file("local.properties").exists())
 android {
     //compileSdkExtension 4 // https://developer.android.com/guide/sdk-extensions
     //compileSdkPreview "VanillaIceCream"
-    namespace 'eu.faircode.email'
+    namespace = 'eu.faircode.email'
 
     // https://apilevels.com/
     // https://developer.android.com/studio/releases#api-level-support
     defaultConfig {
         applicationId "eu.faircode.email"
-        compileSdk 36
+        compileSdk = 36
         minSdkVersion 21
         targetSdkVersion 36
         //targetSdkPreview "VanillaIceCream"
@@ -54,7 +54,7 @@ android {
 
         // https://developer.android.com/ndk/downloads
         // https://developer.android.com/guide/practices/page-sizes
-        ndkVersion "27.2.12479018" // r27c
+        ndkVersion = "27.2.12479018" // r27c
         ndk {
             // sqlite
             // https://developer.android.com/ndk/guides/abis
@@ -88,8 +88,8 @@ android {
     lint {
         // https://developer.android.com/studio/write/lint
         // https://developer.android.com/reference/tools/gradle-api/8.0/com/android/build/api/dsl/LintOptions
-        abortOnError true
-        checkReleaseBuilds false
+        abortOnError = true
+        checkReleaseBuilds = false
         //checkDependencies false
         disable 'MissingTranslation'
         fatal 'StringFormatInvalid', 'StringFormatMatches', 'StringFormatCount'
@@ -99,7 +99,7 @@ android {
     compileOptions {
         // https://developer.android.com/studio/write/java8-support#groovy
         // sudo update-alternatives --install /usr/bin/java java /usr/local/android-studio/jbr/bin/java 1
-        coreLibraryDesugaringEnabled true
+        coreLibraryDesugaringEnabled = true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -109,7 +109,7 @@ android {
 
     externalNativeBuild {
         cmake {
-            version "3.22.1"
+            version = "3.22.1"
             path "CMakeLists.txt"
         }
     }
@@ -153,8 +153,8 @@ android {
                 storePassword keystoreProperties['storePassword']
                 keyAlias keystoreProperties['keyAlias']
                 keyPassword keystoreProperties['keyPassword']
-                v1SigningEnabled true
-                v2SigningEnabled true
+                v1SigningEnabled = true
+                v2SigningEnabled = true
             }
         }
     }
@@ -178,7 +178,7 @@ android {
             debuggable = false
             minifyEnabled = true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            signingConfig = signingConfigs.release
             buildConfigField "String", "TX_URI", "\"\""
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
@@ -490,7 +490,7 @@ tasks.register('upload', Exec) {
 repositories {
     google()
     mavenCentral()
-    maven { url "https://jitpack.io" }
+    maven { url = "https://jitpack.io" }
     //maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     //maven { url "https://jakarta.oss.sonatype.org/content/repositories/snapshots/" }
 }

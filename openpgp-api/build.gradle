@@ -2,10 +2,10 @@ apply plugin: 'com.android.library'
 //apply plugin: 'bintray-release' // must be applied after your artifact generating plugin (eg. java / com.android.library)
 
 android {
-    namespace 'org.openintents.openpgp'
+    namespace = 'org.openintents.openpgp'
 
     defaultConfig {
-        compileSdk 34
+        compileSdk = 34
         minSdkVersion 21
         targetSdkVersion 34
         versionCode 9
@@ -14,7 +14,7 @@ android {
 
     // Do not abort build if lint finds errors
     lintOptions {
-        abortOnError false
+        abortOnError = false
     }
 
     buildTypes {
@@ -25,7 +25,7 @@ android {
     }
 
     buildFeatures {
-        aidl true
+        aidl = true
     }
 }
 
