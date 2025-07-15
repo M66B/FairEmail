@@ -148,6 +148,7 @@
     <string name="title_setup_intro">새 계정을 설정하는 것은 오직 3단계이며 그 후에는 이메일을 보내거나 받을 수 있습니다.</string>
     <string name="title_setup_simple">다른 설정을 변경할 필요가 없습니다.</string>
     <string name="title_setup_issue">FairEmail은 당신의 개인정보를 보호하기 위해 만들어 졌으며 몇천 시간의 일을 의미합니다. 문제가 있으시다면 나쁜 별점을 남기시기 전에 저에게 먼저 연락해 주세요. 저의 최선을 다해 도와드리겠습니다!</string>
+    <string name="title_setup_analytics">FairEmail은 광고를 표시하지 않으며 사용자 행동을 추적하거나 분석하지 않습니다.</string>
     <string name="title_setup_quick_accounts">계정 추가 및 변경</string>
     <string name="title_setup_quick_support">몇몇 제공업체들은 계정 추가하기를 어렵도록 설계해 두었습니다. FairEmail을 탓하지 마시고, 대신 도움을 요청해 주세요.</string>
     <string name="title_setup_quick_hint">입력한 이메일 주소는 구성 정보를 가져 오기 위해 이메일 서버와 autoconfig.thunderbird.net에 문의하는 데 사용됩니다.</string>

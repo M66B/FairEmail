@@ -798,6 +798,7 @@
     <string name="title_advanced_sort_answers">Sortiraj prijedloške za odgovore prema učestalosti korištenja</string>
     <string name="title_advanced_shortcuts">Prikaži često korištene kontakte u Android meniju za dijeljenje</string>
     <string name="title_advanced_ical_tentative">Čuvaj primljene pozivnice kao privremene</string>
+    <string name="title_advanced_ical_email">Sačuvaj e-mail adrese učesnika</string>
     <string name="title_advanced_fts">Kreiraj indeks pretraživanja</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d poruke/a indeksirano (%3$s)</string>
     <string name="title_advanced_classification">Klasifikacija poruka</string>
@@ -2083,6 +2084,7 @@
     <string name="title_via">Preko: %1$s</string>
     <string name="title_1hour">1 sat</string>
     <string name="title_1day">1 dan</string>
+    <string name="title_snooze_doze">Molimo da onemogućite optimizaciju baterije u 3. koraku na ekranu glavnih postavki</string>
     <string name="title_more_overflow">Više &#8230;</string>
     <string name="title_today_at">Danas u %1$s</string>
     <string name="title_tomorrow_at">Sutra u %1$s</string>
