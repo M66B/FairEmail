@@ -28,7 +28,14 @@ For support you can use the contact form.
 
 Ceratonykus
 
-1.2286 2025-07-04
+Next version (Work in progress)
+
+* Small improvements and minor bug fixes
+* Updated S/MIME root certificates
+* Updated Public Suffix List
+* Updated translations
+
+1.2286 2025-07-04 *
 
 * Fixed workaround for multiple inboxes
 

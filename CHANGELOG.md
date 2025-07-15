@@ -28,7 +28,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
-### 1.2286 2025-07-04
+### Next version (Work in progress)
+
+* Small improvements and minor bug fixes
+* Updated [S/MIME root certificates](https://wiki.mozilla.org/CA/Included_Certificates)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2286 2025-07-04 *
 
 * Fixed workaround for multiple inboxes
 
