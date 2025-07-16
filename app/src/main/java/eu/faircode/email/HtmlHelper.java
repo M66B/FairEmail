@@ -4203,6 +4203,8 @@ public class HtmlHelper {
                         continue;
                 }
                 if ((text.getSpanFlags(o) & Spanned.SPAN_COMPOSING) != 0) {
+                    if ("android.view.inputmethod.ComposingText".equals(o.getClass().getName()))
+                        continue;
                     text.removeSpan(o);
                 }
             }
