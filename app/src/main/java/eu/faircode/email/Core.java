@@ -1863,7 +1863,7 @@ class Core {
         }
 
         try {
-            if (account.isGmail() && gmail_delete_all) {
+            if (perform_expunge && account.isGmail() && gmail_delete_all) {
                 EntityFolder trash = db.folder().getFolderByType(account.id, EntityFolder.TRASH);
                 if (trash != null) {
                     Map<String, Long> folders = new HashMap<>();
