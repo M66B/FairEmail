@@ -1858,9 +1858,7 @@ the [storage access framework](https://developer.android.com/guide/topics/provid
 This might be because your custom ROM does not include it or because it was actively removed (debloated).
 Note that this will result in similar problems in other apps too.
 
-FairEmail does not request storage permissions, so this framework is required to select files and folders.
-No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
-Moreover, recent Android versions disallow access to all files for apps, except, under specific conditions, for file managers.
+Try restarting your device first as this often solves the problem after updates are installed (see also the next paragraph).
 
 To resolve this problem, the system component Google Play Services may need to be updated.
 Please [see here](https://support.google.com/googleplay/answer/9037938?hl=en) on how.
@@ -1876,6 +1874,10 @@ pm install -k --user 0 com.android.documentsui
 ```
 
 Alternatively, you might be able to enable the *Files* app again using the Android app settings.
+
+FairEmail does not request storage permissions, so this framework is required to select files and folders.
+No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+Moreover, recent Android versions disallow access to all files for apps, except, under specific conditions, for file managers.
 
 <br />
 
