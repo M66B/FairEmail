@@ -26,6 +26,7 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -251,7 +252,10 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
                         message.account, null,
                         message.bimi_selector, Boolean.TRUE.equals(message.dmarc),
                         message.isForwarder() ? message.submitter : message.from);
-                views.setImageViewBitmap(R.id.avatar, info.length == 0 ? null : info[0].getPhotoBitmap());
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.BAKLAVA)
+                    views.setImageViewBitmap(R.id.avatar, info.length == 0 ? null : info[0].getPhotoBitmap());
+                else
+                    views.setImageViewIcon(R.id.avatar, Icon.createWithBitmap(info[0].getPhotoBitmap()));
             }
             views.setViewVisibility(R.id.avatar, avatars ? View.VISIBLE : View.GONE);
 
