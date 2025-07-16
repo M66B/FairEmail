@@ -1173,7 +1173,7 @@
     <string name="title_advanced_notify_remove_hint">New message notifications will always be removed on being swiped away and on marking messages read</string>
     <string name="title_advanced_notify_manage_hint">Tap on the channel name to set the channel properties</string>
     <string name="title_advanced_notify_samsung_hint">To manage notification channels, you may need to enable this Android setting: Notification, Advanced settings, Manage notification categories for each app</string>
-    <string name="title_advanced_notify_manage_default_hint">To set the default sound, etc.</string>
+    <string name="title_advanced_notify_manage_default_hint">To set the default sound, configure DND (do not disturb), etc.</string>
     <string name="title_advanced_notify_manage_service_hint">To disable the \'monitoring\' notification</string>
     <string name="title_advanced_notify_separate_hint">How do I configure notifications for accounts, folders and senders?</string>
     <string name="title_advanced_notify_preview_all_hint">For wearables that can show the full text (up to 5,000 characters)</string>
