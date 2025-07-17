@@ -30,6 +30,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2287 2025-07-17
+
+* Resolved all reported bugs
 * Small improvements and minor bug fixes
 * Updated [S/MIME root certificates](https://wiki.mozilla.org/CA/Included_Certificates)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
