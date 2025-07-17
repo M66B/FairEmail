@@ -860,7 +860,7 @@
         The encryption method can be selected before sending in the send options dialog box (long press the send button).
     </string>
     <string name="title_advanced_sign_default">Sign by default</string>
-    <string name="title_advanced_encrypt_default">Encrypt by default</string>
+    <string name="title_advanced_encrypt_default">Sign and encrypt by default</string>
     <string name="title_advanced_encrypt_auto">Automatically encrypt when all recipients\' keys are available</string>
     <string name="title_advanced_encrypt_reply">Automatically encrypt when replying to an encrypted message</string>
     <string name="title_advanced_auto_verify">Automatically verify signed messages</string>
