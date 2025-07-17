@@ -719,7 +719,6 @@
     <string name="title_advanced_notify_action_hint">Mostraranse tres accións como máximo</string>
     <string name="title_advanced_notify_remove_hint">As novas notificacións de mensaxes borraranse sempre cando se arrastren e cando se marquen as mensaxes como lidas</string>
     <string name="title_advanced_notify_manage_hint">Premer no nome da canle para axustar as súas propiedades</string>
-    <string name="title_advanced_notify_manage_default_hint">Para configurar os sons predeterminados, etc</string>
     <string name="title_advanced_notify_manage_service_hint">Para desactivar a notificación de \'monitorización\'</string>
     <string name="title_advanced_notify_separate_hint">Como configuro as notificacións para contas, cartafoles e remitentes?</string>
     <string name="title_advanced_notify_preview_all_hint">Para que os aparellos vestibles poidan mostrar o texto completo (até 5.000 caracteres)</string>

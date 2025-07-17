@@ -968,7 +968,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_notify_remove_hint">Oznámení nových zpráv budou při odtažení prstem a při označení zpráv jako přečtených odebrána vždy</string>
     <string name="title_advanced_notify_manage_hint">Pro nastavení vlastností kanálu se dotkněte jeho názvu</string>
     <string name="title_advanced_notify_samsung_hint">Pro správu oznamovacích kanálů budete muset povolit toto nastavení Androidu: Oznámení, Pokročilé nastavení, Správa oznamovacích kategorií pro každou aplikaci</string>
-    <string name="title_advanced_notify_manage_default_hint">Pro nastavení výchozího zvuku, apod</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Chcete-li nastavit výchozí zvuk, nastavte DND (Nerušit), atd.</string>
     <string name="title_advanced_notify_manage_service_hint">Pro vypnutí oznámení o „monitorování“</string>
     <string name="title_advanced_notify_separate_hint">Jak konfigurovat oznámení pro účty, složky a odesílatele?</string>
     <string name="title_advanced_notify_preview_all_hint">Pro nositelná zařízení umějící zobrazit celý text (až 5,000 znaků)</string>

@@ -934,7 +934,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_notify_remove_hint">Kaydırıldığında ya da mesajlar okundu olarak işaretlendiğinde yeni mesaj bildirimleri her zaman kaldırılacaktır</string>
     <string name="title_advanced_notify_manage_hint">Kanal özelliklerini ayarlamak için kanal adına dokunun</string>
     <string name="title_advanced_notify_samsung_hint">Bildirim kanallarını yönetmek için bu Android ayarını etkinleştirmeniz gerekebilir: Bildirim, Gelişmiş ayarlar, Her uygulama için bildirim kategorilerini yönet</string>
-    <string name="title_advanced_notify_manage_default_hint">Varsayılan sesi ayarlamak için, vs</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Varsayılan sesi ayarlamak, DND\'yi (rahatsız etmeyin) yapılandırmak vb. için.</string>
     <string name="title_advanced_notify_manage_service_hint">\'İzleme\' bildirimini devre dışı bırakmak için</string>
     <string name="title_advanced_notify_separate_hint">Hesaplar, klasörler ve gönderenler için bildirimleri nasıl yapılandırırım?</string>
     <string name="title_advanced_notify_preview_all_hint">Tüm metni gösterebilen giyilebilir cihazlar için (5.000 karaktere kadar)</string>

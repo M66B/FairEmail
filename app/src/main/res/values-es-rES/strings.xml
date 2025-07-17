@@ -939,7 +939,7 @@
     <string name="title_advanced_notify_remove_hint">Las notificaciones de nuevos mensajes siempre serán eliminadas al deslizarlas y al marcar mensajes como leídos</string>
     <string name="title_advanced_notify_manage_hint">Toca en el nombre del canal para establecer las propiedades del canal</string>
     <string name="title_advanced_notify_samsung_hint">Para administrar los canales de notificación, puede que necesite habilitar esta configuración de Android: Notificaciones, Configuración Avanzada, Gestionar categorías de notificaciones para cada aplicación</string>
-    <string name="title_advanced_notify_manage_default_hint">Para configurar el sonido por defecto, etc</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Para establecer el sonido por defecto, configure DND (no molestar), etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Para desactivar la notificación de \'monitoreo\'</string>
     <string name="title_advanced_notify_separate_hint">¿Cómo puedo configurar las notificaciones de cuentas, carpetas y remitentes?</string>
     <string name="title_advanced_notify_preview_all_hint">Para los wearables que pueden mostrar el texto completo (hasta 5.000 caracteres)</string>

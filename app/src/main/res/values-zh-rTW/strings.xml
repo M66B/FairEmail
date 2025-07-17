@@ -917,7 +917,6 @@
     <string name="title_advanced_notify_remove_hint">在被劃掉和在標示訊息為已讀取後，新訊息通知總是會被移除</string>
     <string name="title_advanced_notify_manage_hint">輕觸頻道名稱以設定頻道屬性</string>
     <string name="title_advanced_notify_samsung_hint">若要管理通知頻道，您可能需要啟用此 Android 設定：通知 > 進階設定 > 管理每個應用程式的通知類別</string>
-    <string name="title_advanced_notify_manage_default_hint">設定預設音效等等</string>
     <string name="title_advanced_notify_manage_service_hint">選擇關閉以停用‘正在監視’通知</string>
     <string name="title_advanced_notify_separate_hint">如何針對帳戶、資料夾和寄件者配置通知？</string>
     <string name="title_advanced_notify_preview_all_hint">針對可顯示全文的穿戴式裝置 (最多5000個字元)</string>

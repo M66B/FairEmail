@@ -927,7 +927,6 @@
     <string name="title_advanced_notify_remove_hint">Ilmoitukset uusista viesteistä poistetaan aina pyyhkäisemällä tai merkitsemällä viestit luetuiksi</string>
     <string name="title_advanced_notify_manage_hint">Aseta kanavan ominaisuudet napauttamalla sen nimeä</string>
     <string name="title_advanced_notify_samsung_hint">Hallitaksesi ilmoituskanavia, saatat joutua ottamaan käyttöön tämän Android-asetuksen: Ilmoitukset, Lisäasetukset, Hallitse ilmoitusluokkia jokaiselle sovellukselle</string>
-    <string name="title_advanced_notify_manage_default_hint">Oletusäänten jne. asettamiseksi</string>
     <string name="title_advanced_notify_manage_service_hint">Seurantailmoituksen käytöstä poistamiseksi</string>
     <string name="title_advanced_notify_separate_hint">Miten voin määrittää ilmoitukset tileille, kansioille ja lähettäjille?</string>
     <string name="title_advanced_notify_preview_all_hint">Puettaville laitteille, jotka voivat näyttää koko tekstin (5 000 merkkiin asti)</string>

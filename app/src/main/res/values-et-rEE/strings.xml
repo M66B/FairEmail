@@ -938,7 +938,6 @@
     <string name="title_advanced_notify_remove_hint">Uute sõnumite teated eemaldatakse alati, kui neid libistatakse eemale või kui sõnumeid märgitakse loetuks</string>
     <string name="title_advanced_notify_manage_hint">Toksa kanali nimel, et määrata kanali omadusi</string>
     <string name="title_advanced_notify_samsung_hint">Teavituskanalite haldamiseks võib olla vajalik lubada see Androidi seadistus: Teavitused, Täpsemad seaded, Halda rakenduste kategooriaid</string>
-    <string name="title_advanced_notify_manage_default_hint">Et määrata vaikeheli jm.</string>
     <string name="title_advanced_notify_manage_service_hint">Monitoorimise teavituse keelamiseks</string>
     <string name="title_advanced_notify_separate_hint">Kuidas ma häälestan teavitusi kontode, kaustade ja saatjate jaoks?</string>
     <string name="title_advanced_notify_preview_all_hint">Kandeseadmete jaoks, mis suudavad näidata kogu teksti (kuni 5000 märki)</string>

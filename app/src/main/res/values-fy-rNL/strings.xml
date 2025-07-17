@@ -935,7 +935,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_notify_remove_hint">Notifikaasjes oer nije berjochten sille altyd fuortsmiten as se fuortfeie wurde en as berjochten as lêzen markearre wurde</string>
     <string name="title_advanced_notify_manage_hint">Tikje op de kanaalnamme om de kanaaleigenskippen yn te stellen</string>
     <string name="title_advanced_notify_samsung_hint">Om meldingskanalen te behearen, moatte jo mooglik dizze Android-ynstelling ynskeakelje: Melding, Geavanceerde instellingen, Beheer meldingscategorieën voor elke app</string>
-    <string name="title_advanced_notify_manage_default_hint">Om it standertlûd, ensfh. yn te stellen</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Om it standert lûd yn te stellen, DND (net steure) konfigurearje, ensfh.</string>
     <string name="title_advanced_notify_manage_service_hint">Om de bewakingsnotifikaasje út te skeakeljen</string>
     <string name="title_advanced_notify_separate_hint">Hoe stel ik meldingen yn foar accounts, mappen en ôfstjoerders?</string>
     <string name="title_advanced_notify_preview_all_hint">Foar wearables dy’t de folsleine tekst toane kinne (oant 5.000 tekens)</string>

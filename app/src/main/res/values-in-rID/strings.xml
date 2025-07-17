@@ -890,7 +890,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_notify_car_hint">Terhubung berarti ada sesuatu yang diproyeksikan, seperti peta untuk navigasi</string>
     <string name="title_advanced_notify_remove_hint">Notifikasi pesan baru akan selalu dihapuskan ketika digeser dan ketika menandai pesan telah dibaca</string>
     <string name="title_advanced_notify_manage_hint">Tekan nama channel untuk mengatur properti channel</string>
-    <string name="title_advanced_notify_manage_default_hint">Untuk mengatur suara standar, dll</string>
     <string name="title_advanced_notify_manage_service_hint">Untuk menonaktifkan notifikasi \'pemantauan\'</string>
     <string name="title_advanced_notify_separate_hint">Bagaimana saya mengkonfigurasi pemberitahuan sebuah akun, map dan pengirim?</string>
     <string name="title_advanced_notify_preview_all_hint">Untuk perangkat yang dapat digunakan yang dapat memperlihatkan teks penuh (sampai dengan 5,000 karakter)</string>

@@ -535,7 +535,6 @@
     <string name="title_advanced_notify_action_hint">Høyst tre handlinger vil bli vist</string>
     <string name="title_advanced_notify_remove_hint">Varsler om nye meldinger vil alltid bli fjernet når de blir sveipet og når merking av meldinger er lest</string>
     <string name="title_advanced_notify_manage_hint">Trykk på kanalnavnet for å angi kanalegenskapene</string>
-    <string name="title_advanced_notify_manage_default_hint">Slik angir du standardlyden, osv</string>
     <string name="title_advanced_notify_manage_service_hint">For å deaktivere \'overvåking\' varsling</string>
     <string name="title_advanced_notify_preview_all_hint">For wearables som kan vise fulltekst (opptil 5000 tegn)</string>
     <string name="title_advanced_notify_preview_only_hint">Dette forsinker visning av varsler til meldingsteksten er lastet ned</string>

@@ -967,7 +967,7 @@
     <string name="title_advanced_notify_remove_hint">Сповіщення про нові повідомлення завжди будуть вилучатися при змахуванні вбік та при відмічанні повідомлення прочитаним</string>
     <string name="title_advanced_notify_manage_hint">Натисніть на назву каналу, щоб встановити його властивості</string>
     <string name="title_advanced_notify_samsung_hint">Щоб керувати каналами сповіщень, вам може знадобитися увімкнути цей параметр в налаштуваннях Android: Сповіщення, Додаткові налаштування, Керування категоріями сповіщень для кожного застосунку</string>
-    <string name="title_advanced_notify_manage_default_hint">Щоб встановити звук за замовчуванням тощо</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Щоб встановити стандартний звук, налаштуйте DND (не турбувати) тощо.</string>
     <string name="title_advanced_notify_manage_service_hint">Щоб вимкнути сповіщення «монітор»</string>
     <string name="title_advanced_notify_separate_hint">Як налаштувати сповіщення для облікових записів, тек і відправників?</string>
     <string name="title_advanced_notify_preview_all_hint">Для носимих пристроїв, які можуть показувати повний текст (до 5 000 символів)</string>

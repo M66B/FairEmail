@@ -968,7 +968,7 @@
     <string name="title_advanced_notify_remove_hint">התראות על הודעות חשבות תמיד תוסרנה עם החלקה כלפי חוץ ועם סימון הודעות כנקראו</string>
     <string name="title_advanced_notify_manage_hint">יש לגעת בשם הערוץ כדי להגדיר את מאפייניו</string>
     <string name="title_advanced_notify_samsung_hint">כדי לנהל ערוצי התראות, כנראה שיהיה עליך להפעיל את הגדרת ה־Android הזאת: התראה, הגדרות מתקדמות, ניהול קטגוריות התראה לכל יישום</string>
-    <string name="title_advanced_notify_manage_default_hint">כדי להגדיר את צלילי ברירת המחדל וכו׳.</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">כדי להגדיר את צליל ברירת המחדל, להגדיר מצב „לא להפריע”, וכו׳.</string>
     <string name="title_advanced_notify_manage_service_hint">כדי להשבית את התראת ה‚מעקב’</string>
     <string name="title_advanced_notify_separate_hint">איך אפשר להגדיר התראות לחשבונות, תיקיות ומוענים?</string>
     <string name="title_advanced_notify_preview_all_hint">להתקנים לבישים שיכולים להציג את התוכן במלואו (עד 5,000 תווים)</string>

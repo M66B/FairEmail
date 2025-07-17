@@ -934,7 +934,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_notify_car_hint">Pripojené znamená, že pravdepodobne prebieha výpočet, napr. trasy pre navigáciu</string>
     <string name="title_advanced_notify_remove_hint">Upozornenia na nové správy budú vždy odstránené, keď ich odmietnete potiahnutím a po označení správy ako prečítanej</string>
     <string name="title_advanced_notify_manage_hint">Kliknite na názov kanálu pre nastavenie jeho vlastností</string>
-    <string name="title_advanced_notify_manage_default_hint">Pre nastavenie predvoleného zvuku atď</string>
     <string name="title_advanced_notify_manage_service_hint">Zakázať upozornenie monitorovanie účtov</string>
     <string name="title_advanced_notify_separate_hint">Ako nastaviť upozornenia pre jednotlivé účty, priečinky a odosielateľov?</string>
     <string name="title_advanced_notify_preview_all_hint">Pre nositeľné zariadenia, ktoré dokážu zobraziť celý text (do 5000 znakov)</string>

@@ -934,7 +934,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_notify_remove_hint">Meldingen van nieuwe berichten worden altijd verwijderd als ze worden weggeveegd en als berichten worden gemarkeerd als gelezen</string>
     <string name="title_advanced_notify_manage_hint">Tik op de kanaalnaam om de kanaaleigenschappen in te stellen</string>
     <string name="title_advanced_notify_samsung_hint">Om meldingskanalen te beheren, moet u mogelijk deze Android-instelling inschakelen: Melding, Geavanceerde instellingen, Beheer meldingscategorieën voor elke app</string>
-    <string name="title_advanced_notify_manage_default_hint">Om het standaardgeluid, etc in te stellen</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Om het standaardgeluid in te stellen, DND (niet storen) te configureren, enz.</string>
     <string name="title_advanced_notify_manage_service_hint">Om de bewakingsmelding uit te schakelen</string>
     <string name="title_advanced_notify_separate_hint">Hoe stel ik meldingen in voor accounts, mappen en afzenders?</string>
     <string name="title_advanced_notify_preview_all_hint">Voor wearables die de volledige tekst kunnen weergeven (tot 5.000 tekens)</string>

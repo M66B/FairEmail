@@ -966,7 +966,7 @@
     <string name="title_advanced_notify_remove_hint">Powiadomienia o nowych wiadomościach będą zawsze usuwane po przesunięciu i oznaczeniu wiadomości jako przeczytane</string>
     <string name="title_advanced_notify_manage_hint">Dotknij nazwę kanału, aby ustawić właściwości kanału</string>
     <string name="title_advanced_notify_samsung_hint">Aby zarządzać kanałami powiadomień, może być konieczne włączenie tego ustawienia w systemie Android: Powiadomienia, Zaawansowane ustawienia, Zarządzaj kategoriami powiadomień dla każdej aplikacji</string>
-    <string name="title_advanced_notify_manage_default_hint">Aby ustawić domyślny dźwięk, itp.</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Aby ustawić domyślny dźwięk, skonfiguruj funkcję DND (nie przeszkadzać) itp.</string>
     <string name="title_advanced_notify_manage_service_hint">Aby wyłączyć powiadomienie \"monitorowanie\"</string>
     <string name="title_advanced_notify_separate_hint">Jak skonfigurować powiadomienia dla kont, folderów i nadawców?</string>
     <string name="title_advanced_notify_preview_all_hint">Dla urządzeń do noszenia, które mogą wyświetlać pełny tekst (do 5000 znaków)</string>

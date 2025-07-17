@@ -691,7 +691,7 @@
     <string name="title_advanced_user_agent_hint">بعضی از سرورها، یک رشته عامل کاربری ژنریک و عمومی را قبول نمی‌کنند</string>
     <string name="title_advanced_badge_hint">تنها روی راه‌اندازهای پشتیبانی‌شده در دسترس است</string>
     <string name="title_advanced_notify_action_hint">حداکثر سه کنش نشان داده خواهد شد</string>
-    <string name="title_advanced_notify_manage_default_hint">برای تنظیم صدای پیش‌فرض، وغیره</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">برای تعیین صدای پیش‌فرض، DND (مزاحم نشوید) و غیره را تنظیم کنید.</string>
     <string name="title_advanced_notify_sensitive_hint">نیازمند غیرفعال کردن اعلان‌های حساس در تنظیمات اندروید</string>
     <string name="title_advanced_notify_no_grouping">این نگارش اندروید گروه‌بندی اعلان را پشتیبانی نمی‌کند</string>
     <string name="title_advanced_notify_no_channels">این نگارش اندروید کانال‌های اعلان را پشتیبانی نمی‌کند</string>

@@ -700,7 +700,6 @@
     <string name="title_advanced_notify_action_hint">Prikazat će se najviše tri akcije</string>
     <string name="title_advanced_notify_remove_hint">Obavijesti o novim porukama uvijek će se uklanjati nakon što ih povučete i označite kao pročitane poruke</string>
     <string name="title_advanced_notify_manage_hint">Dodirnite naziv kanala da biste postavili svojstva kanala</string>
-    <string name="title_advanced_notify_manage_default_hint">Postavljanje zadanog zvuka itd</string>
     <string name="title_advanced_notify_manage_service_hint">Za onemogućavanje obavijesti o \'nadzoru\'</string>
     <string name="title_advanced_notify_separate_hint">Kako da podesim obavijesti za račune, mape i pošiljatelje?</string>
     <string name="title_advanced_notify_preview_all_hint">Za nošnjive uređaje koji mogu prikazati cijeli tekst (do 5.000 znakova)</string>

@@ -930,7 +930,6 @@
     <string name="title_advanced_notify_remove_hint">Новите известия за съобщенията ще бъдат премахнати при изтриване и маркиране на прочетените съобщения</string>
     <string name="title_advanced_notify_manage_hint">Чукнете върху името на канала, за да зададете свойствата на канала</string>
     <string name="title_advanced_notify_samsung_hint">За управление на каналите известия може да е необходимо да включите тази настройка на Android: Известия, Разширени настройки, Управление на категориите с известия за всяко приложение</string>
-    <string name="title_advanced_notify_manage_default_hint">Задаване звука по подразбиране и т.н.</string>
     <string name="title_advanced_notify_manage_service_hint">За изключване на известието „наблюдение“</string>
     <string name="title_advanced_notify_separate_hint">Как да конфигурирам известията за акаунти, папки и податели?</string>
     <string name="title_advanced_notify_preview_all_hint">За преносими, които могат да показват целия текст (до 5000 знака)</string>

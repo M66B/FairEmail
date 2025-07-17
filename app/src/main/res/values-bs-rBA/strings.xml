@@ -954,7 +954,7 @@
     <string name="title_advanced_notify_remove_hint">Obavještenja o novim porukama će se uvijek skloniti kada se prevuku preko ekrana ili označavanjem poruka kao \'pročitane\'</string>
     <string name="title_advanced_notify_manage_hint">Dodirnite naziv kanala za postavljanje svojstava kanala</string>
     <string name="title_advanced_notify_samsung_hint">Za upravljanje kanalima obavještenja, možda trebate uključiti ovu postavku Androida: Obavještenja, Napredne postavke, Upravljaj kategorijama obavještenja za svaku aplikaciju</string>
-    <string name="title_advanced_notify_manage_default_hint">Za postavljanje zadanog zvuka, itd.</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Za postavljanje zadanog zvuka, podesite DND (ne uznemiravaj), itd.</string>
     <string name="title_advanced_notify_manage_service_hint">Za isključivanje obavještenja o \'nadzoru\'</string>
     <string name="title_advanced_notify_separate_hint">Kako da podesim obavještenja za račune, foldere i pošiljaoce?</string>
     <string name="title_advanced_notify_preview_all_hint">Za nosive uređaje koji prikazuju cijeli tekst (do 5000 znakova)</string>

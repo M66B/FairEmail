@@ -941,7 +941,7 @@
     <string name="title_advanced_notify_remove_hint">Les notifications de nouveaux messages seront toujours supprimées lors de leur balayage et du marquage des messages comme lus</string>
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom d’un canal pour définir ses propriétés</string>
     <string name="title_advanced_notify_samsung_hint">Pour gérer les canaux de notification, vous devrez peut-être activer ce paramètre Android : Notifications, Paramètres avancés, Gérer les catégories de notifications pour chaque application</string>
-    <string name="title_advanced_notify_manage_default_hint">Pour définir le son par défaut, etc.</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Pour régler le son par défaut, configurer DND (ne pas déranger), etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Pour désactiver la notification « Surveillance »</string>
     <string name="title_advanced_notify_separate_hint">Comment configurer les notifications pour les comptes, dossiers et expéditeurs ?</string>
     <string name="title_advanced_notify_preview_all_hint">Pour les appareils connectés qui peuvent afficher le texte complet (jusqu\'à 5 000 caractères)</string>

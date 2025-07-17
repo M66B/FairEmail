@@ -935,7 +935,7 @@
     <string name="title_advanced_notify_remove_hint">Az új üzenet értesitések mindig törlődnek azok oldalra csúsztatásával, vagy az üzenet olvasottként való megjelölésével</string>
     <string name="title_advanced_notify_manage_hint">Koppintson a csatorna nevére a tulajdonságai beállításához</string>
     <string name="title_advanced_notify_samsung_hint">Az értesítési csatornák kezeléséhez lehetséges, hogy engedélyeznie kell ezt az Android beállítást: Értesítések, Haladó beállítások, Alkalmazásonkénti értesítési kategóriák kezelése</string>
-    <string name="title_advanced_notify_manage_default_hint">Alapértelmezett hang beállítása, stb</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Alapértelmezett hang megadása, Ne zavarjanak mód beállítása, stb.</string>
     <string name="title_advanced_notify_manage_service_hint">A \'figyelés\' értesítés kikapcsolásához</string>
     <string name="title_advanced_notify_separate_hint">Hogyan állítom be a fiók, könyvtár és küldő specifikus értesítéseket?</string>
     <string name="title_advanced_notify_preview_all_hint">Olyan hordhatóknak amik meg tudják jeleníteni a teljes szöveget (akár 5,000 karakter)</string>
