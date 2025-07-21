@@ -783,6 +783,7 @@
     <string name="title_advanced_sort_answers">Sordi vastamismalle kasutamissageduse alusel</string>
     <string name="title_advanced_shortcuts">Näita sagedasti kasutatud kontakte Androidi jagamismenüüs</string>
     <string name="title_advanced_ical_tentative">Salvesta saadud kutsed kui ebalevad</string>
+    <string name="title_advanced_ical_email">Salvesta osalejate e-postiaadressid</string>
     <string name="title_advanced_fts">Loo otsimisindeks</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d sõnumist indekseeritud (%3$s)</string>
     <string name="title_advanced_classification">Sõnumite klassifitseerimine</string>
@@ -938,6 +939,7 @@
     <string name="title_advanced_notify_remove_hint">Uute sõnumite teated eemaldatakse alati, kui neid libistatakse eemale või kui sõnumeid märgitakse loetuks</string>
     <string name="title_advanced_notify_manage_hint">Toksa kanali nimel, et määrata kanali omadusi</string>
     <string name="title_advanced_notify_samsung_hint">Teavituskanalite haldamiseks võib olla vajalik lubada see Androidi seadistus: Teavitused, Täpsemad seaded, Halda rakenduste kategooriaid</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Et määrata vaikeheli, häälestada MH (mitte häirida) jms.</string>
     <string name="title_advanced_notify_manage_service_hint">Monitoorimise teavituse keelamiseks</string>
     <string name="title_advanced_notify_separate_hint">Kuidas ma häälestan teavitusi kontode, kaustade ja saatjate jaoks?</string>
     <string name="title_advanced_notify_preview_all_hint">Kandeseadmete jaoks, mis suudavad näidata kogu teksti (kuni 5000 märki)</string>
@@ -2067,6 +2069,7 @@
     <string name="title_via">%1$s kaudu</string>
     <string name="title_1hour">1 tund</string>
     <string name="title_1day">1 päev</string>
+    <string name="title_snooze_doze">Palun keela peamise häälestuse ekraanil 3 aku optimeerimine</string>
     <string name="title_more_overflow">Veel &#8230;</string>
     <string name="title_today_at">Täna kell %1$s</string>
     <string name="title_tomorrow_at">Homme kell %1$s</string>

@@ -940,6 +940,7 @@
     <string name="title_advanced_notify_remove_hint">Yeni mesaj bildirişləri, sürüşdürüləndə və oxundu kimi işarələnəndə həmişə silənəcək</string>
     <string name="title_advanced_notify_manage_hint">Kanal xüsusiyyətlərini ayarlamaq üçün kanal adına toxunun</string>
     <string name="title_advanced_notify_samsung_hint">Bildiriş kanallarını idarə etmək üçün bu Android ayarını fəallaşdırmağınız lazım gələ bilər: Bildiriş, Qabaqcıl ayarlar, Hər tətbiq üçün bildiriş kateqoriyalarını idarə et</string>
+    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">İlkin səsi ayarlamaq üçün DND (narahat etməyin) rejimini və sairə konfiqurasiya edin</string>
     <string name="title_advanced_notify_manage_service_hint">\"Müşahidə\" bildirişini sıradan çıxartmaq üçün</string>
     <string name="title_advanced_notify_separate_hint">Hesablar, qovluqlar və göndərənlər üçün bildirişləri necə konfiqurasiya edə bilərəm?</string>
     <string name="title_advanced_notify_preview_all_hint">Tam mətni göstərə bilən geyinilə bilən cihazlar üçün (5,000 simvola qədər)</string>
