@@ -344,18 +344,20 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             EdgeToEdge.enable(this);
 
             boolean edge_to_edge = prefs.getBoolean("edge_to_edge", false);
-            int colorPrimary = (edge_to_edge
-                    ? (Helper.isDarkTheme(this) ? Color.BLACK : Color.WHITE)
-                    : Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimary));
-            double lum = ColorUtils.calculateLuminance(colorPrimary);
+            int colorStatus = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimary);
+            int colorNavigation = (edge_to_edge
+                    ? (Helper.isDarkTheme(this) ? Color.BLACK : Color.WHITE) : colorStatus);
+            double lumStatus = ColorUtils.calculateLuminance(colorStatus);
+            double lumNavigation = ColorUtils.calculateLuminance(colorNavigation);
             EntityLog.log(this, "NAVBAR e2e=" + edge_to_edge +
-                    " color=" + Integer.toHexString(colorPrimary) +
+                    " color=" + Integer.toHexString(colorStatus) + "/" + Integer.toHexString(colorNavigation) +
                     " dark=" + Helper.isDarkTheme(this) +
-                    " lum=" + lum + " light=" + (lum > LUMINANCE_THRESHOLD));
+                    " lum=" + lumStatus + "/" + lumNavigation +
+                    " light=" + (lumStatus > LUMINANCE_THRESHOLD) + "/" + (lumNavigation > LUMINANCE_THRESHOLD));
 
             WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(window, window.getDecorView());
-            controller.setAppearanceLightStatusBars(lum > LUMINANCE_THRESHOLD);
-            controller.setAppearanceLightNavigationBars(lum > LUMINANCE_THRESHOLD);
+            controller.setAppearanceLightStatusBars(lumStatus > LUMINANCE_THRESHOLD);
+            controller.setAppearanceLightNavigationBars(lumNavigation > LUMINANCE_THRESHOLD);
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM) {
                 window.setNavigationBarColor(Color.TRANSPARENT);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
