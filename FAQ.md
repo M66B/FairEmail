@@ -4636,6 +4636,13 @@ Note that FairEmail does support replying to calendar invites (a pro feature) an
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq139)
 
+<br>
+
+Firstly, please check if the *Tenant ID* field below the email address field is empty,
+and when you need to use it, please ensure the correct Tennant ID is entered.
+
+<br>
+
 The confusing Microsoft specific server error *User is authenticated but not connected* might occur if:
 
 **Consumer Outlook/Hotmail/Live account**
