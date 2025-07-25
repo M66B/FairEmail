@@ -865,24 +865,41 @@ public class EntityRule {
             create = create.replace("$week$", week);
             create = create.replace("$day$", day);
 
-            String user = null;
-            String extra = null;
-            String domain = null;
+            String fromUser = null;
+            String fromExtra = null;
+            String fromDomain = null;
             if (message.from != null &&
                     message.from.length > 0 &&
                     message.from[0] instanceof InternetAddress) {
                 InternetAddress from = (InternetAddress) message.from[0];
-                user = UriHelper.getEmailUser(from.getAddress());
-                domain = UriHelper.getEmailDomain(from.getAddress());
-                if (user != null) {
-                    int plus = user.indexOf('+');
-                    if (plus > 0)
-                        extra = user.substring(plus + 1);
-                }
+                fromUser = UriHelper.getEmailUser(from.getAddress());
+                fromExtra = UriHelper.getEmailExtra(from.getAddress());
+                fromDomain = UriHelper.getEmailDomain(from.getAddress());
             }
-            create = create.replace("$user$", user == null ? "" : user);
-            create = create.replace("$extra$", extra == null ? "" : extra);
-            create = create.replace("$domain$", domain == null ? "" : domain);
+
+            String toUser = null;
+            String toExtra = null;
+            String toDomain = null;
+            if (message.to != null &&
+                    message.to.length > 0 &&
+                    message.to[0] instanceof InternetAddress) {
+                InternetAddress to = (InternetAddress) message.to[0];
+                toUser = UriHelper.getEmailUser(to.getAddress());
+                toExtra = UriHelper.getEmailExtra(to.getAddress());
+                toDomain = UriHelper.getEmailDomain(to.getAddress());
+            }
+
+            create = create.replace("$user$", fromUser == null ? "" : fromUser);
+            create = create.replace("$extra$", fromExtra == null ? "" : fromExtra);
+            create = create.replace("$domain$", fromDomain == null ? "" : fromDomain);
+
+            create = create.replace("$user:from$", fromUser == null ? "" : fromUser);
+            create = create.replace("$extra:from$", fromExtra == null ? "" : fromExtra);
+            create = create.replace("$domain:from$", fromDomain == null ? "" : fromDomain);
+
+            create = create.replace("$user:to$", toUser == null ? "" : toUser);
+            create = create.replace("$extra:to$", toExtra == null ? "" : toExtra);
+            create = create.replace("$domain:to$", toDomain == null ? "" : toDomain);
 
             if (create.contains("$group$")) {
                 EntityContact local = null;

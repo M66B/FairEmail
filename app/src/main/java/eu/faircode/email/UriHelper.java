@@ -187,6 +187,17 @@ public class UriHelper {
         return null;
     }
 
+    static String getEmailExtra(String email) {
+        if (TextUtils.isEmpty(email))
+            return null;
+
+        int plus = email.indexOf('+');
+        if (plus < 0)
+            return null;
+
+        return email.substring(plus + 1);
+    }
+
     static String getEmailDomain(String address) {
         if (address == null)
             return null;
