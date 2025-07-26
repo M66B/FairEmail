@@ -1629,19 +1629,19 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 </ul>
 <p>The following extra functions are available:</p>
 <ul>
-<li><em>header(name)</em> (returns an array of header values for the named header)</li>
+<li><em>header(“name”)</em> (returns an array of header values for the named header)</li>
 <li><em>blocklist()</em> (version 1.2176-1.2178; deprecated, use <em>onBlocklist()</em> instead)</li>
 <li><em>onBlocklist()</em> (returns a boolean indicating if the sender/server is on a DNS blocklist; since version 1.2179)</li>
 <li><em>hasMx()</em> (returns a boolean indicating if the from/reply-to address has an associated MX record; since version 1.2179)</li>
-<li><em>attachments(regex)</em> (returns an integer indicating number of attachments; since version 1.2179; optional regex to select the names since version 1.2194)</li>
+<li><em>attachments(“regex”)</em> (returns an integer indicating number of attachments; since version 1.2179; optional regex to select the names since version 1.2194)</li>
 <li><em>Jsoup()</em> (returns an array of selected strings; since version 1.2179)</li>
 <li><em>Size(array)</em> (returns the number of items in an array; since version 1.2179)</li>
 <li><em>knownContact()</em> (returns a boolean indicating that the from/reply-to address is in the Android address book or in the local contacts database)</li>
 <li><em>AI(prompt)</em> (perform interference with the configured AI model using the specified prompt, returning the result as a string; since version 1.2243)</li>
-<li><em>Is(flag)</em> (flag is one of seen, answered, flagged, deleted; to check if a message is read (seen), starred (flagged), etc.; since version 1.2277)</li>
+<li><em>Is(“flag”)</em> (flag is one of seen, answered, flagged, deleted; to check if a message is read (seen), starred (flagged), etc.; since version 1.2277)</li>
 </ul>
 <p>Example conditions:</p>
-<p><code>header("X-Mailer") contains "Open-Xchange" &amp;&amp; from matches ".*service@.*"</code></p>
+<p><code>header("X-Mailer") contains "Open-Xchange" &amp;&amp; from matches ".*service@.*" &amp;&amp; Is("seen")</code></p>
 <p><code>!onBlocklist() &amp;&amp; hasMx() &amp;&amp; attachments() &gt; 0</code></p>
 <p><code>(received + 7*24*60*60*1000) &lt; DT_DATE_TO_EPOCH(DT_NOW())</code></p>
 <p><code>AI("Is the message below a scam? Answer in English with just yes or no.") contains "yes"</code></p>

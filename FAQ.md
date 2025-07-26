@@ -2966,20 +2966,20 @@ The following extra operators are available:
 
 The following extra functions are available:
 
-* *header(name)* (returns an array of header values for the named header)
+* *header("name")* (returns an array of header values for the named header)
 * *blocklist()* (version 1.2176-1.2178; deprecated, use *onBlocklist()* instead)
 * *onBlocklist()* (returns a boolean indicating if the sender/server is on a DNS blocklist; since version 1.2179)
 * *hasMx()* (returns a boolean indicating if the from/reply-to address has an associated MX record; since version 1.2179)
-* *attachments(regex)* (returns an integer indicating number of attachments; since version 1.2179; optional regex to select the names since version 1.2194)
+* *attachments("regex")* (returns an integer indicating number of attachments; since version 1.2179; optional regex to select the names since version 1.2194)
 * *Jsoup()* (returns an array of selected strings; since version 1.2179)
 * *Size(array)* (returns the number of items in an array; since version 1.2179)
 * *knownContact()* (returns a boolean indicating that the from/reply-to address is in the Android address book or in the local contacts database)
 * *AI(prompt)* (perform interference with the configured AI model using the specified prompt, returning the result as a string; since version 1.2243)
-* *Is(flag)* (flag is one of seen, answered, flagged, deleted; to check if a message is read (seen), starred (flagged), etc.; since version 1.2277)
+* *Is("flag")* (flag is one of seen, answered, flagged, deleted; to check if a message is read (seen), starred (flagged), etc.; since version 1.2277)
 
 Example conditions:
 
-```header("X-Mailer") contains "Open-Xchange" && from matches ".*service@.*"```
+```header("X-Mailer") contains "Open-Xchange" && from matches ".*service@.*" && Is("seen")```
 
 ```!onBlocklist() && hasMx() && attachments() > 0```
 
