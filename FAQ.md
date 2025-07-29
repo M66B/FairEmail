@@ -3042,6 +3042,9 @@ $year$
 $user$ (since version 1.2265)
 $extra$ (since version 1.2265)
 $domain$
+$user:to$ (since version 1.2289)
+$extra:to$ (since version 1.2289)
+$domain:to$ (since version 1.2289)
 $group$ (since version 1.2030)
 ```
 
