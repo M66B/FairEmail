@@ -30,6 +30,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Small improvements and minor bug fixes
+* Updated [Brave's debounce list](https://github.com/brave/brave-browser/wiki/Debouncing)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2288 2025-07-21
 
 * Fixed status bar color in some cases

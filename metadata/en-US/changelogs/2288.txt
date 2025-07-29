@@ -30,6 +30,11 @@ Ceratonykus
 
 Next version (Work in progress)
 
+* Small improvements and minor bug fixes
+* Updated Brave's debounce list
+* Updated Public Suffix List
+* Updated translations
+
 1.2288 2025-07-21
 
 * Fixed status bar color in some cases
