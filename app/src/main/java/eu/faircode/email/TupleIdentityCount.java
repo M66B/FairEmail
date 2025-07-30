@@ -20,6 +20,6 @@ package eu.faircode.email;
 */
 
 public class TupleIdentityCount {
-    public long identity;
+    public Long identity;
     public int count;
 }

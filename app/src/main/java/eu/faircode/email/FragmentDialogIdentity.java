@@ -50,6 +50,7 @@ import java.util.List;
 
 public class FragmentDialogIdentity extends FragmentDialogBase {
     private static final int MIN_IDENTITY_MESSAGES = 20;
+    private static final float MIN_IDENTITY_THRESHOLD = 0.66f; // percentage
 
     @NonNull
     @Override
@@ -236,10 +237,23 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                 long folder = args.getLong("folder");
                 if (folder >= 0) {
                     List<TupleIdentityCount> counts = db.message().getIdentitiesByFolder(folder);
-                    if (counts != null &&
-                            counts.size() == 1 &&
-                            counts.get(0).count >= MIN_IDENTITY_MESSAGES)
-                        args.putLong("identity", counts.get(0).identity);
+                    if (counts != null) {
+                        int total = 0;
+                        TupleIdentityCount first = null;
+                        for (TupleIdentityCount entry : counts) {
+                            total += entry.count;
+                            if (first == null && entry.identity != null)
+                                first = entry;
+                            Log.i("Dominant identity=" + entry.identity + " count=" + entry.count);
+                        }
+                        Log.i("Dominant " + counts.size() + " identities " + total + " messages");
+                        if (first != null && first.count >= MIN_IDENTITY_MESSAGES) {
+                            float percentage = first.count / (float) total;
+                            Log.i("Dominant identity percentage=" + percentage);
+                            if (percentage > MIN_IDENTITY_THRESHOLD)
+                                args.putLong("identity", first.identity);
+                        }
+                    }
                 }
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

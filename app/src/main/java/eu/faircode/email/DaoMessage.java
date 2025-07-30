@@ -356,7 +356,9 @@ public interface DaoMessage {
     @Query("SELECT identity, COUNT(*) AS count" +
             " FROM message" +
             " WHERE folder = :folder" +
-            " GROUP BY identity")
+            " AND NOT ui_hide" +
+            " GROUP BY identity" +
+            " ORDER BY COUNT(*) DESC")
     List<TupleIdentityCount> getIdentitiesByFolder(long folder);
 
     @Transaction
