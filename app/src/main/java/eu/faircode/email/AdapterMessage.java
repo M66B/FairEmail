@@ -4665,7 +4665,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } else if (id == R.id.ibTts) {
                     onActionTts(message);
                 } else if (id == R.id.ibSummarize) {
-                    onActionSummarize(message, ibSummarize);
+                    onActionSummarize(message, ibSummarize, null);
                 } else if (id == R.id.ibFullScreen)
                     onActionOpenFull(message);
                 else if (id == R.id.ibForceLight) {
@@ -4870,9 +4870,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onMenuShareHtml(message);
                 return true;
             } else if (id == R.id.ibSummarize) {
-                context.startActivity(new Intent(context, ActivitySetup.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                        .putExtra("tab", "integrations"));
+                Bundle args = new Bundle();
+                args.putLong("id", message.id);
+                FragmentDialogBase fragment = new FragmentDialogPrompt();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_PROMPT);
+                fragment.show(parentFragment.getParentFragmentManager(), "prompt");
                 return true;
             } else if (id == R.id.ibFull) {
                 boolean full = properties.getValue("full", message.id);
@@ -6592,7 +6595,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onActionTranslate(message);
                         return true;
                     } else if (itemId == R.id.menu_summarize) {
-                        onActionSummarize(message, null);
+                        onActionSummarize(message, null, null);
                         return true;
                     } else if (itemId == R.id.menu_force_light) {
                         onActionForceLight(message);
@@ -7564,8 +7567,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "tts");
         }
 
-        private void onActionSummarize(TupleMessageEx message, View anchor) {
-            FragmentDialogSummarize.summarize(message, parentFragment.getParentFragmentManager(), anchor, owner);
+        private void onActionSummarize(TupleMessageEx message, View anchor, String prompt) {
+            FragmentDialogSummarize.summarize(message, parentFragment.getParentFragmentManager(), anchor, owner, prompt);
         }
 
         private void onActionForceLight(TupleMessageEx message) {

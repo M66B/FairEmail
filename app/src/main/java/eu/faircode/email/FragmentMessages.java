@@ -456,6 +456,7 @@ public class FragmentMessages extends FragmentBase
     static final int REQUEST_EDIT_SUBJECT = 30;
     private static final int REQUEST_ANSWER_SETTINGS = 31;
     private static final int REQUEST_DESELECT = 32;
+    static final int REQUEST_PROMPT = 33;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_VERIFYDECRYPT = BuildConfig.APPLICATION_ID + ".VERIFYDECRYPT";
@@ -1660,7 +1661,7 @@ public class FragmentMessages extends FragmentBase
                 if (result == null || result.single == null || !result.single.content)
                     return;
 
-                FragmentDialogSummarize.summarize(result.single, getParentFragmentManager(), ibSummarize, getViewLifecycleOwner());
+                FragmentDialogSummarize.summarize(result.single, getParentFragmentManager(), ibSummarize, getViewLifecycleOwner(), null);
             }
         });
 
@@ -3818,7 +3819,7 @@ public class FragmentMessages extends FragmentBase
         private void onSwipeSummarize(final @NonNull TupleMessageEx message) {
             final Context context = getContext();
             if (AI.isAvailable(context))
-                FragmentDialogSummarize.summarize(message, getParentFragmentManager(), null, getViewLifecycleOwner());
+                FragmentDialogSummarize.summarize(message, getParentFragmentManager(), null, getViewLifecycleOwner(), null);
             else
                 context.startActivity(new Intent(context, ActivitySetup.class)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
@@ -9661,6 +9662,10 @@ public class FragmentMessages extends FragmentBase
                     if (selectionTracker != null)
                         selectionTracker.clearSelection();
                     break;
+                case REQUEST_PROMPT:
+                    if (resultCode == RESULT_OK)
+                        onActionSummarize(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -11189,6 +11194,29 @@ public class FragmentMessages extends FragmentBase
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "edit:subject");
+    }
+
+    private void onActionSummarize(Bundle args) {
+        new SimpleTask<EntityMessage>() {
+            @Override
+            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                DB db = DB.getInstance(context);
+                return db.message().getMessage(id);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityMessage message) {
+                if (message == null)
+                    return;
+                FragmentDialogSummarize.summarize(message, getParentFragmentManager(), null, getViewLifecycleOwner(), args.getString("prompt"));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "prompt");
     }
 
     private void onMoveAskAcross(final ArrayList<MessageTarget> result) {

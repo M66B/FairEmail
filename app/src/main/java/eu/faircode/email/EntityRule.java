@@ -1638,7 +1638,7 @@ public class EntityRule {
         }
 
         try {
-            Spanned summary = AI.getSummaryText(context, message, -1L);
+            Spanned summary = AI.getSummaryText(context, message, -1L, null);
             if (summary != null)
                 message.preview = summary.toString().trim();
         } catch (Throwable ex) {
