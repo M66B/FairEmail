@@ -30,6 +30,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2289 2025-08-02
+
 * Fixed all reported bugs
 * Small improvements and minor bug fixes
 * Updated [Brave's debounce list](https://github.com/brave/brave-browser/wiki/Debouncing)
