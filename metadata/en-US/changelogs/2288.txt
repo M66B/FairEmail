@@ -30,8 +30,10 @@ Ceratonykus
 
 Next version (Work in progress)
 
+* Fixed all reported bugs
 * Small improvements and minor bug fixes
 * Updated Brave's debounce list
+* Updated AndroidX
 * Updated Public Suffix List
 * Updated translations
 
