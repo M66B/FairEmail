@@ -892,7 +892,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 Address[] rcptto = MessageHelper.removeGroups(recipients.toArray(new Address[0]));
 
                 String via = "via " + ident.host + "/" + ident.user +
-                        " rcptto=" + TextUtils.join(", ", recipients);
+                        " rcptto=" + TextUtils.join(", ", recipients) +
+                        " from=" + MessageHelper.formatAddresses(imessage.getFrom());
 
                 iservice.setReporter(new TraceOutputStream.IReport() {
                     private int progress = -1;
