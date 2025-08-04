@@ -29,6 +29,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -135,6 +136,9 @@ public class FragmentPop extends FragmentBase {
     private String calendar = null;
     private boolean saving = false;
 
+    private int colorWarning;
+    private int textColorSecondary;
+
     private static final int REQUEST_COLOR = 1;
     private static final int REQUEST_AVATAR = 2;
     private static final int REQUEST_CALENDAR = 3;
@@ -216,6 +220,9 @@ public class FragmentPop extends FragmentBase {
         grpError = view.findViewById(R.id.grpError);
 
         pbWait = view.findViewById(R.id.pbWait);
+
+        this.colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
+        this.textColorSecondary = Helper.resolveColor(getContext(), android.R.attr.textColorSecondary);
 
         rgEncryption.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -369,6 +376,10 @@ public class FragmentPop extends FragmentBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 cbClientDelete.setEnabled(!isChecked);
+                cbLeaveServer.setTextColor(isChecked ? textColorSecondary : colorWarning);
+                cbLeaveServer.setTypeface(isChecked ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+                cbLeaveServer.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        0, 0, isChecked ? 0 : R.drawable.twotone_warning_24, 0);
             }
         });
 
@@ -958,6 +969,11 @@ public class FragmentPop extends FragmentBase {
                     cbAutoSeen.setChecked(account == null ? true : account.auto_seen);
 
                     cbLeaveServer.setChecked(account == null ? true : account.leave_on_server);
+                    cbLeaveServer.setTextColor(cbLeaveServer.isChecked() ? textColorSecondary : colorWarning);
+                    cbLeaveServer.setTypeface(cbLeaveServer.isChecked() ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+                    cbLeaveServer.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            0, 0, cbLeaveServer.isChecked() ? 0 : R.drawable.twotone_warning_24, 0);
+
                     cbClientDelete.setChecked(account == null ? false : account.client_delete);
                     cbClientDelete.setEnabled(!cbLeaveServer.isChecked());
                     cbLeaveDeleted.setChecked(account == null ? true : account.leave_deleted);
