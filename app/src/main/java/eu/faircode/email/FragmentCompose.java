@@ -7358,7 +7358,7 @@ public class FragmentCompose extends FragmentBase {
                     if (dirty) {
                         // Update draft
                         draft.identity = ident;
-                        draft.extra = extra;
+                        draft.extra = (identity.sender_extra ? extra : null);
                         draft.from = afrom;
                         draft.to = ato;
                         draft.cc = acc;
