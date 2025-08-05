@@ -185,6 +185,7 @@ import org.openintents.openpgp.OpenPgpSignatureResult;
 import org.openintents.openpgp.util.OpenPgpApi;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -10805,6 +10806,14 @@ public class FragmentMessages extends FragmentBase
                     db.message().setMessageRevision(message.id, protect_subject == null ? 1 : -1);
                     db.message().setMessageStored(message.id, new Date().getTime());
                     db.message().setMessageFts(message.id, false);
+
+                    if (BuildConfig.DEBUG || debug) {
+                        File raw = message.getRawFile(context);
+                        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(raw))) {
+                            imessage.writeTo(os);
+                        }
+                        db.message().setMessageRaw(message.id, true);
+                    }
 
                     if (alias != null && !duplicate && message.identity != null) {
                         EntityIdentity identity = db.identity().getIdentity(message.identity);
