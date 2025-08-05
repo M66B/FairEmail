@@ -10395,6 +10395,18 @@ public class FragmentMessages extends FragmentBase
                                 ? "Signature could not be verified"
                                 : "Certificates and signatures do not match");
 
+                    if (sdata && result != null) {
+                        String fingerprint = EntityCertificate.getFingerprintSha256(result);
+                        List<String> emails = EntityCertificate.getEmailAddresses(result);
+                        for (String email : emails) {
+                            EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
+                            if (record == null) {
+                                args.putBoolean("signed_data", true);
+                                break;
+                            }
+                        }
+                    }
+
                     if (is != null)
                         decodeMessage(context, is, message, args);
                 } else {
@@ -10521,6 +10533,7 @@ public class FragmentMessages extends FragmentBase
                             Date time = (Date) args.getSerializable("time");
                             boolean known = args.getBoolean("known");
                             boolean valid = args.getBoolean("valid");
+                            boolean signed_data = args.getBoolean("signed_data");
                             String reason = args.getString("reason");
                             String algo = args.getString("algo");
                             String algooid = args.getString("algooid");
@@ -10540,10 +10553,10 @@ public class FragmentMessages extends FragmentBase
                                     break;
                                 }
 
-                            if (!info && known && !record.isExpired(time) && match && valid)
+                            if (!info && known && !record.isExpired(time) && match && valid && !signed_data)
                                 Helper.setSnackbarOptions(Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG))
                                         .show();
-                            else if (!auto) {
+                            else if (!auto || signed_data) {
                                 Context context = getContext();
                                 LayoutInflater inflator = LayoutInflater.from(context);
                                 View dview = inflator.inflate(R.layout.dialog_certificate, null);
