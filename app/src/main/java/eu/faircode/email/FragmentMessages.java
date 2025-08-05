@@ -10701,6 +10701,41 @@ public class FragmentMessages extends FragmentBase
                         Helper.setSnackbarOptions(
                                         Snackbar.make(view, algo, Snackbar.LENGTH_LONG))
                                 .show();
+                    if (cert != null)
+                        try {
+                            args.putByteArray("encoded", cert.getEncoded());
+
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                    byte[] encoded = args.getByteArray("encoded");
+
+                                    X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
+                                            .generateCertificate(new ByteArrayInputStream(encoded));
+
+                                    DB db = DB.getInstance(context);
+
+                                    String fingerprint = EntityCertificate.getFingerprintSha256(cert);
+                                    List<String> emails = EntityCertificate.getEmailAddresses(cert);
+                                    for (String email : emails) {
+                                        EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
+                                        if (record == null) {
+                                            record = EntityCertificate.from(cert, email);
+                                            record.id = db.certificate().insertCertificate(record);
+                                        }
+                                    }
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Log.unexpectedError(getParentFragmentManager(), ex);
+                                }
+                            }.execute(FragmentMessages.this, args, "certificate:store");
+                        } catch (Throwable ex) {
+                            Log.unexpectedError(FragmentMessages.this, ex);
+                        }
                 }
             }
 
