@@ -2984,8 +2984,8 @@ public class Helper {
             result.name = uri.getUri().getLastPathSegment();
 
         // Check type
-        if (uri.getType() != null)
-            result.type = uri.getType();
+        if (TextUtils.isEmpty(result.type) && uri.getType() != null)
+            result.type = uri.getType(); // Shared type when no document type
         if (!TextUtils.isEmpty(result.type))
             try {
                 new ContentType(result.type);
