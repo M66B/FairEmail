@@ -68,7 +68,7 @@ public interface DaoMessage {
             ", SUM(message.attachments) AS totalAttachments" +
             ", SUM(message.total) AS totalSize" +
             ", message.priority AS ui_priority" +
-            ", message.importance AS ui_importance" +
+            ", MAX(message.importance) AS ui_importance" +
             ", MAX(CASE WHEN" +
             "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "')" +
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
@@ -97,7 +97,7 @@ public interface DaoMessage {
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
             " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0)" +
-            " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(message.importance, 1) END" +
+            " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(MAX(message.importance), 1) END" +
             ", CASE WHEN :group_category THEN account.category ELSE '' END COLLATE NOCASE" +
             ", CASE" +
             "   WHEN 'unread' = :sort1 THEN SUM(1 - message.ui_seen) = 0" +
@@ -150,7 +150,7 @@ public interface DaoMessage {
             ", SUM(message.attachments) AS totalAttachments" +
             ", SUM(message.total) AS totalSize" +
             ", message.priority AS ui_priority" +
-            ", message.importance AS ui_importance" +
+            ", MAX(message.importance) AS ui_importance" +
             ", MAX(CASE WHEN" +
             "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "')" +
             "   OR (NOT :found AND folder.id = :folder)" +
@@ -178,7 +178,7 @@ public interface DaoMessage {
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
             " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0 OR " + is_outbox + ")" +
-            " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(message.importance, 1) END" +
+            " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(MAX(message.importance), 1) END" +
             ", CASE" +
             "   WHEN 'unread' = :sort1 THEN SUM(1 - message.ui_seen) = 0" +
             "   WHEN 'starred' = :sort1 THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
@@ -1132,7 +1132,7 @@ public interface DaoMessage {
             ", SUM(message.attachments) AS totalAttachments" +
             ", SUM(message.total) AS totalSize" +
             ", message.priority AS ui_priority" +
-            ", message.importance AS ui_importance" +
+            ", MAX(message.importance) AS ui_importance" +
             ", MAX(CASE WHEN" +
             "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "')" +
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
@@ -1161,7 +1161,7 @@ public interface DaoMessage {
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
             " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0)" +
-            " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(message.importance, 1) END" +
+            " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(MAX(message.importance), 1) END" +
             ", CASE WHEN :group_category THEN account.category ELSE '' END COLLATE NOCASE" +
             ", CASE" +
             "   WHEN 'unread' = :sort1 THEN SUM(1 - message.ui_seen) = 0" +
@@ -1215,7 +1215,7 @@ public interface DaoMessage {
             ", SUM(message.attachments) AS totalAttachments" +
             ", SUM(message.total) AS totalSize" +
             ", message.priority AS ui_priority" +
-            ", message.importance AS ui_importance" +
+            ", MAX(message.importance) AS ui_importance" +
             ", MAX(CASE WHEN" +
             "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "')" +
             "   OR (NOT :found AND folder.id = :folder)" +
@@ -1243,7 +1243,7 @@ public interface DaoMessage {
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
             " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0 OR " + is_outbox + ")" +
-            " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(message.importance, 1) END" +
+            " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(MAX(message.importance), 1) END" +
             ", CASE" +
             "   WHEN 'unread' = :sort1 THEN SUM(1 - message.ui_seen) = 0" +
             "   WHEN 'starred' = :sort1 THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +

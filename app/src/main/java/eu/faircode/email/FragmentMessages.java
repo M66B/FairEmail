@@ -5062,7 +5062,7 @@ public class FragmentMessages extends FragmentBase
                             continue;
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
-                                message.account, message.thread, threading ? null : id, message.folder);
+                                message.account, message.thread, threading ? null : id, null);
                         for (EntityMessage threaded : messages) {
                             db.message().setMessageImportance(threaded.id, importance);
 
@@ -11897,7 +11897,7 @@ public class FragmentMessages extends FragmentBase
                                 result.color = Color.TRANSPARENT;
                     }
 
-                    int i = (message.importance == null ? EntityMessage.PRIORITIY_NORMAL : message.importance);
+                    int i = (threaded.importance == null ? EntityMessage.PRIORITIY_NORMAL : threaded.importance);
                     if (result.importance == null)
                         result.importance = i;
                     else if (!result.importance.equals(i))
