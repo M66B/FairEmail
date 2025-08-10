@@ -417,7 +417,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(182) How can I select how a link should be opened?](#faq182)
 * [(183) How do I use Send?](#faq183)
 * [(184) How do I password protect content?](#faq184)
-* [(185) Can I install FairEmail on Windows?](#faq185)
+* [~~(185) Can I install FairEmail on Windows?~~](#faq185)
 * [(186) How can I let the app auto store iCalendar invitations?](#faq186)
 * [(187) Are colored stars synchronized across devices?](#faq187)
 * [~~(188) Why is Google backup disabled?~~](#faq188)
@@ -5806,13 +5806,15 @@ Sending protected content is a pro feature, decrypting protected content is a fr
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq185)
 
-Yes, you can if you use Windows 11 or later and install the [Windows Subsystem for Android](https://learn.microsoft.com/en-us/windows/android/wsa/).
+**Starting March 5, 2025, Windows Subsystem for Android™ and the Amazon Appstore are no longer available in the Microsoft Store.**
 
-You'll need to [download the GitHub version](https://github.com/M66B/FairEmail/releases) of the app and sideload it,
-which means that you need to enable developer mode, please [see here](https://learn.microsoft.com/en-us/windows/android/wsa/#test-and-debug),
-and that you need to install adb (platform tools), [see here](https://developer.android.com/studio/command-line/adb).
+~~Yes, you can if you use Windows 11 or later and install the [Windows Subsystem for Android](https://learn.microsoft.com/en-us/windows/android/wsa/).~~
 
-You can install the app via the Windows command line like this:
+~~You'll need to [download the GitHub version](https://github.com/M66B/FairEmail/releases) of the app and sideload it,~~
+~~which means that you need to enable developer mode, please [see here](https://learn.microsoft.com/en-us/windows/android/wsa/#test-and-debug),~~
+~~and that you need to install adb (platform tools), [see here](https://developer.android.com/studio/command-line/adb).~~
+
+~~You can install the app via the Windows command line like this:~~
 
 ```
 cd /path/to/platform-tools
@@ -5820,7 +5822,7 @@ adb connect 127.0.0.1:58526
 adb install /path/to/FairEmail-xxx.apk
 ```
 
-It is also possible to install the Play Store, but this is more complicated.
+~~It is also possible to install the Play Store, but this is more complicated.~~
 
 The app isn't available in the Amazon store because Amazon rebuilds all Android apps, and unfortunately, the app doesn't work correctly after rebuilding anymore.
 Amazon never responded to an issue reported about this.

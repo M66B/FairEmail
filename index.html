@@ -413,7 +413,7 @@
 <li><a href="#faq182">(182) How can I select how a link should be opened?</a></li>
 <li><a href="#faq183">(183) How do I use Send?</a></li>
 <li><a href="#faq184">(184) How do I password protect content?</a></li>
-<li><a href="#faq185">(185) Can I install FairEmail on Windows?</a></li>
+<li><a href="#faq185"><del>(185) Can I install FairEmail on Windows?</del></a></li>
 <li><a href="#faq186">(186) How can I let the app auto store iCalendar invitations?</a></li>
 <li><a href="#faq187">(187) Are colored stars synchronized across devices?</a></li>
 <li><a href="#faq188"><del>(188) Why is Google backup disabled?</del></a></li>
@@ -2932,13 +2932,14 @@ _submission._tcp SRV 0 1 587 smtp.example.com.</code></pre>
 <p><br /></p>
 <p><a name="faq185"></a> <strong>(185) Can I install FairEmail on Windows?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq185">Google Translate</a></p>
-<p>Yes, you can if you use Windows 11 or later and install the <a href="https://learn.microsoft.com/en-us/windows/android/wsa/">Windows Subsystem for Android</a>.</p>
-<p>You’ll need to <a href="https://github.com/M66B/FairEmail/releases">download the GitHub version</a> of the app and sideload it, which means that you need to enable developer mode, please <a href="https://learn.microsoft.com/en-us/windows/android/wsa/#test-and-debug">see here</a>, and that you need to install adb (platform tools), <a href="https://developer.android.com/studio/command-line/adb">see here</a>.</p>
-<p>You can install the app via the Windows command line like this:</p>
+<p><strong>Starting March 5, 2025, Windows Subsystem for Android™ and the Amazon Appstore are no longer available in the Microsoft Store.</strong></p>
+<p><del>Yes, you can if you use Windows 11 or later and install the <a href="https://learn.microsoft.com/en-us/windows/android/wsa/">Windows Subsystem for Android</a>.</del></p>
+<p><del>You’ll need to <a href="https://github.com/M66B/FairEmail/releases">download the GitHub version</a> of the app and sideload it,</del> <del>which means that you need to enable developer mode, please <a href="https://learn.microsoft.com/en-us/windows/android/wsa/#test-and-debug">see here</a>,</del> <del>and that you need to install adb (platform tools), <a href="https://developer.android.com/studio/command-line/adb">see here</a>.</del></p>
+<p><del>You can install the app via the Windows command line like this:</del></p>
 <pre><code>cd /path/to/platform-tools
 adb connect 127.0.0.1:58526
 adb install /path/to/FairEmail-xxx.apk</code></pre>
-<p>It is also possible to install the Play Store, but this is more complicated.</p>
+<p><del>It is also possible to install the Play Store, but this is more complicated.</del></p>
 <p>The app isn’t available in the Amazon store because Amazon rebuilds all Android apps, and unfortunately, the app doesn’t work correctly after rebuilding anymore. Amazon never responded to an issue reported about this.</p>
 <p><br /></p>
 <p><a name="faq186"></a> <strong>(186) How can I let the app auto store iCalendar invitations?</strong></p>
