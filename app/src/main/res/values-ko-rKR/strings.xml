@@ -178,6 +178,7 @@
     <string name="title_setup_oauth_permission">이메일 제공업체가 Play 스토어 및 Github 버전의 OAuth만 승인했습니다</string>
     <string name="title_setup_gmail_support">Android에서는 디지털 앱 서명을 확인하므로 Google 계정 인증은 Play 스토어 및 Github 버전에서만 동작합니다</string>
     <string name="title_setup_gmail_rationale">계정을 설정하고 이름을 읽기 위해 권한을 허용해 주세요</string>
+    <string name="title_setup_gmail_permissions">Google은 모든 이메일을 읽고(사용자에게 메시지를 표시하기 위해), 작성하고(초안 메시지를 저장하기 위해), 전송하고 영구적으로 삭제할 수 있는 권한을 요청합니다. FairEmail은 사용자의 명시적인 동의 없이는 절대로 사용자의 메시지를 삭제하지 않습니다. 사용자 본인만 메시지에 액세스할 수 있으며 다른 그 누구도 메시지에 액세스할 수 없습니다.</string>
     <string name="title_setup_gmail_login">크롬이 계정에 로그인 되어 있는 경우 새 계정은 Android를 통해서만 추가할 수 있습니다. 이는 크롬 동기화 설정을 통해 크롬에서 로그아웃하여 피할 수 있습니다.</string>
     <string name="title_setup_gmail_max">\"최대 계정 수에 로그인되어 있습니다\"라는 오류 메시지의 경우, 브라우저에서 모든 Google 계정을 로그 아웃해야 합니다.</string>
     <string name="title_setup_outlook_hint">별칭 주소의 경우 Office 365 마법사를 사용해야 합니다．</string>
@@ -332,6 +333,10 @@
     </string>
     <string name="title_advanced_hint_remark">        옵션은 탭으로 분류되고, 섹션으로 나누어져 있으며, 형태나 용도별로 구성되며, 검색 가능합니다.
     </string>
+    <string name="title_advanced_hint_options">        대부분의 옵션이 필요하지 않으며 일부 옵션은 매우 구체적이기 때문에 
+        모든 옵션의 기능이 즉시 명확하지 않더라도 이해할 수 있습니다.
+        옵션의 개수만 보거나 모든 옵션을 바로 이해하지 못했다고 해서 나쁜 리뷰를 남기지 마세요.
+        모든 옵션이 몇몇 사람에게는 유용할지 모르지만, 여러분에게는 (아직) 유용하지 않을 수도 있습니다.</string>
     <string name="title_advanced_hint_setup">메인 설정 화면에서 마법사 버튼을 눌러 계정을 편집할 수 있습니다.</string>
     <string name="title_advanced_section_main">메인</string>
     <string name="title_advanced_section_synchronize">수신</string>
@@ -443,6 +448,8 @@
     <string name="title_advanced_forward_new">메일 전달 시 새로운 대화 시작하기</string>
     <string name="title_advanced_lookup_mx">발송 전 받는사람의 이메일 주소를 확인하세요</string>
     <string name="title_advanced_metered">과금 연결 사용</string>
+    <string name="title_advanced_download">최대 다음의 용량까지 모바일 데이터 연결에서 메시지 및 첨부 파일 자동 다운로드</string>
+    <string name="title_advanced_download_limited">Wi-Fi 연결에서도 적용하기</string>
     <string name="title_advanced_roaming">데이터 사용 중에 메시지 및 첨부 파일 다운로드</string>
     <string name="title_advanced_rlah">EU 내 무제한 로밍</string>
     <string name="title_advanced_download_headers">모든 메시지 제목 다운로드</string>
@@ -502,9 +509,11 @@
     <string name="title_advanced_category">계정 카테고리는 기본 설정 화면을 통해 고급 계정 옵션에서 설정할 수 있습니다</string>
     <string name="title_advanced_cards_beige">카드 스타일 사용 시 베이지색 배경 사용 (라이트 테마만 해당)</string>
     <string name="title_advanced_tabular_background">표 스타일을 사용할 때 카드 색상을 배경색으로 사용</string>
+    <string name="title_advanced_cards_shadow">카드 스타일을 사용할 때 읽지 않은 메시지에 그림자 사용하기</string>
     <string name="title_advanced_cards_shadow_border">테두리 표시</string>
     <string name="title_advanced_cards_shadow_highlight">강조 색상 대신 하이라이트 색상 사용하기</string>
     <string name="title_advanced_tabular_dividers">태블릿 스타일 사용 중 구분선 표시</string>
+    <string name="title_advanced_tabular_unread_bg">표 스타일을 사용할 때 읽지 않은 메시지에 회색 배경을 사용하기</string>
     <string name="title_advanced_date_header">날짜로 그룹화하기</string>
     <string name="title_advanced_date_week">하루가 아닌 일주일 단위로 그룹화하기</string>
     <string name="title_advanced_date_fixed">날짜를 상단 헤더에 고정적으로 표시</string>
@@ -514,7 +523,10 @@
     <string name="title_advanced_threading_unread">대화에서 읽지 않은 메시지 갯수 표시</string>
     <string name="title_advanced_indentation">대화에서 받은/보낸 메시지를 왼쪽/오른쪽 들여쓰기</string>
     <string name="title_advanced_highlight_unread">읽지 않은 메세지 강조 표시</string>
+    <string name="title_advanced_account_color">색이 있는 선 또는 점 표시하기</string>
+    <string name="title_advanced_account_color_size">색이 있는 선의 너비</string>
     <string name="title_advanced_avatars">연락처 사진 표시</string>
+    <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) 표시하기</string>
     <string name="title_advanced_bimi_unverified">확인되지 않은 발신자</string>
     <string name="title_advanced_bimi_verified">확인된 발신자</string>
     <string name="title_advanced_gravatars">그라바타 표시</string>
@@ -522,6 +534,8 @@
     <string name="title_advanced_favicons">파비콘 표시</string>
     <string name="title_advanced_favicons_partial">웹 페이지의 첫 %1$s만 스캔</string>
     <string name="title_advanced_favicons_manifest">웹 앱 매니페스트 스캔하기</string>
+    <string name="title_advanced_ddg">DuckDuckGo로 아이콘 표시하기</string>
+    <string name="title_advanced_favicons_dmarc">외부 이미지에 DMARC 인증 요구하기</string>
     <string name="title_advanced_generated_icons">생성된 아이콘 표시</string>
     <string name="title_advanced_identicons">아이덴티콘 표시</string>
     <string name="title_advanced_circular">둥근 아이콘 표시</string>
@@ -529,6 +543,7 @@
     <string name="title_advanced_color_value">밝기: %1$s %%</string>
     <string name="title_advanced_color_threshold">글자 색 임계값: %1$s %%</string>
     <string name="title_advanced_name_email">이름 및 이메일 주소 표시</string>
+    <string name="title_advanced_only_name">연락처 이름만 표시</string>
     <string name="title_advanced_distinguish_contacts">보낸사람이 로컬 연락처에 있을 때 발신인에게 밑줄을 표시합니다</string>
     <string name="title_advanced_show_recipients">메시지 헤더에 받는사람 표시</string>
     <string name="title_advanced_reverse_addresses">보낸 메시지에 받는사람 표시</string>
@@ -539,13 +554,16 @@
     <string name="title_advanced_highlight_subject">제목 강조</string>
     <string name="title_advanced_font_size_subject">제목 크기</string>
     <string name="title_advanced_subject_ellipsize">필요한 경우 제목을 단축하여 표시합니다</string>
+    <string name="title_advanced_compact_mode_remark">컴팩트 모드 전용</string>
     <string name="title_advanced_highlight_color">강조 색</string>
     <string name="title_advanced_keywords">메시지 헤더에 키워드 표시</string>
     <string name="title_advanced_labels">메시지 헤더에 Gmail 레이블 표시</string>
     <string name="title_advanced_flags">즐겨찾기 보기</string>
+    <string name="title_advanced_flags_background">색칠된 별표 대신 색칠된 배경 보여주기</string>
     <string name="title_advanced_preview">메시지 미리보기 표시</string>
     <string name="title_advanced_preview_italic">메시지 미리보기를 기울임꼴로 표시</string>
     <string name="title_advanced_preview_lines">미리보기 줄 수</string>
+    <string name="title_advanced_align_header">키워드, 미리보기 텍스트, 메모를 수직으로 정렬하기</string>
     <string name="title_advanced_addresses">주소 상세정보를 기본으로 펼치기</string>
     <string name="title_advanced_hide_attachments">첨부 파일을 자동으로 숨기기</string>
     <string name="title_advanced_unzip">압축한 첨부 파일의 내용 표시</string>
@@ -553,9 +571,11 @@
     <string name="title_advanced_thumbnails">메시지 텍스트 이후에 이미지 썸네일 표시</string>
     <string name="title_advanced_pdf_preview">PDF 썸네일 표시</string>
     <string name="title_advanced_video_preview">영상 썸네일 표시</string>
+    <string name="title_advanced_audio_preview">미니 오디오 플레이어 표시하기</string>
     <string name="title_advanced_barcode_preview">바코드 내용 표시</string>
     <string name="title_advanced_message_text_zoom2">기본 메시지 글자 배율: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">메시지 글자 배율을 메시지 편집기에도 적용</string>
+    <string name="title_advanced_overview_mode">화면에 맞춰 원본 메시지를 조정하기</string>
     <string name="title_advanced_hyphenation">하이픈 자동 삽입</string>
     <string name="title_advanced_contrast">메시지 텍스트에 고대비 적용</string>
     <string name="title_advanced_monospaced">기본적으로 메시지 텍스트에 고정폭 글꼴 사용</string>
@@ -571,12 +591,18 @@
     <string name="title_advanced_image_placeholders">사진 자리표시자 표시</string>
     <string name="title_advanced_images_inline">자동으로 인라인 사진 표시</string>
     <string name="title_advanced_button_extra">메시지 하단에 추가 버튼 표시</string>
+    <string name="title_advanced_seekbar">관련있는 대화의 위치를 점으로 보여주기</string>
+    <string name="title_advanced_actionbar">대화 액션 바 보여주기</string>
     <string name="title_advanced_actionbar_swap">휴지통과 보관 버튼 바꾸기</string>
+    <string name="title_advanced_actionbar_color">계정 색상을 대화 액션 바의 배경색으로 사용</string>
     <string name="title_advanced_category_header">계정 카테고리로 그룹화하기</string>
+    <string name="title_advanced_list_count">상단 액션 바에 메시지나 대화의 수를 보여주기</string>
     <string name="title_advanced_bundled_fonts">번들 글꼴 사용</string>
+    <string name="title_advanced_narrow_fonts">얇은 글꼴 사용</string>
     <string name="title_advanced_parse_classes">CSS 구문 분석</string>
     <string name="title_advanced_authentication">인증 경고 표시</string>
     <string name="title_advanced_authentication_hint">수신 설정에서 확인 내용을 설정할 수 있습니다</string>
+    <string name="title_advanced_authentication_indicator">인증 상태 표시기를 표시하기</string>
     <string name="title_advanced_authentication_none">인증 없음</string>
     <string name="title_advanced_authentication_some">부분적 인증</string>
     <string name="title_advanced_authentication_all">완전한 인증</string>

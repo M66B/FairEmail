@@ -28,9 +28,9 @@ Hesab əllə konfiqurasiya edilibsə, böyük ehtimalla kimliyi də əllə konfi
 
 Ləqəb istifadəsi haqqında [TSS](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9)-a baxın.
 
-## Verilən icazələr - əlaqə məlumatlarına müraciət etmək üçün
+## Verilən icazələr - kontakt məlumatlarına erişmək üçün
 
-E-poçt ünvanlarını axtarmaq, əlaqə fotolarının göstərilməsini və s. istəyirsinizsə, "FairEmail"ə əlaqə məlumatlarını oxumaq üçün icazə verməlisiniz. Sadəcə *Verilən icazələr* toxunun və *İcazə ver*i seçin.
+E-poçt ünvanlarını axtarmaq, kontakt fotolarının göstərilməsini və sairə istəyirsinizsə, "FairEmail"ə kontakt məlumatlarını oxumaq üçün icazə verməlisiniz. Sadəcə *Verilən icazələr* toxunun və *İcazə ver*i seçin.
 
 ## Batareya optimallaşdırmasını quraşdırma - davamlı e-poçtları almaq üçün
 
