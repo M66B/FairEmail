@@ -248,7 +248,7 @@ class ImageHelper {
         Canvas canvas = new Canvas(round);
 
         Paint paint = new Paint();
-        paint.setAntiAlias(false);
+        paint.setAntiAlias(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU); // August 15, 2022
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(Color.GRAY);
         if (radius == null)
