@@ -644,9 +644,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         @Override
                         public void onLongPress(@NonNull MotionEvent event) {
-                            boolean confirm_links = prefs.getBoolean("confirm_links", true);
-                            if (!confirm_links)
-                                onClick(event, true);
+                            onClick(event, true);
                         }
 
                         private boolean onClick(MotionEvent event, boolean longClick) {
