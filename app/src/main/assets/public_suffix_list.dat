@@ -14157,8 +14157,10 @@ oya.to
 co.de
 
 // Laravel Holdings, Inc. : https://laravel.com
-// Submitted by André Valentin <security@laravel.com>
+// Submitted by André Valentin & James Brooks <security@laravel.com>
 laravel.cloud
+on-forge.com
+on-vapor.com
 
 // LCube - Professional hosting e.K. : https://www.lcube-webhosting.de
 // Submitted by Lars Laehn <info@lcube.de>
@@ -14957,6 +14959,11 @@ qualifioapp.com
 // Submitted by Vasyl Tsalko <vtsalko@qualityunit.com>
 ladesk.com
 
+// Qualy : https://qualyhq.com
+// Submitted by Raphael Arias <security@qualyhq.com>
+*.qualyhqpartner.com
+*.qualyhqportal.com
+
 // QuickBackend : https://www.quickbackend.com
 // Submitted by Dani Biro <dani@pymet.com>
 qbuser.com
@@ -15556,6 +15563,11 @@ tabitorder.co.il
 // TAIFUN Software AG : http://taifun-software.de
 // Submitted by Bjoern Henke <dev-server@taifun-software.de>
 taifun-dns.de
+
+// Tailor Inc. : https://www.tailor.tech
+// Submitted by Ryuzo Yamamoto <psl-maintainers@tailor.tech>
+erp.dev
+web.erp.dev
 
 // Tailscale Inc. : https://www.tailscale.com
 // Submitted by David Anderson <infra+public-suffix-list@tailscale.com>
