@@ -30,6 +30,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2291 2025-08-13 *
+
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+
 ### 1.2290 2025-08-11
 
 * Fixed all reported bugs
