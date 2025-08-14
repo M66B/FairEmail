@@ -656,7 +656,7 @@
     <provider
         name="Ionos (1und1)"
         appPassword="true"
-        documentation="Für Ionos müssen Sie ein E-Mail-Passwort anstelle Ihres normalen Kontopassworts verwenden, &lt;a href=&quot;https://www.ionos.de/hilfe/e-mail/problemloesungen-mail-basicmail-business/passwort-fuer-e-mail-konto-bei-11-ionos-aendern/&quot;&gt;siehe hier&lt;/a&gt;."
+        documentation="Für Ionos müssen Sie ein E-Mail-Passwort anstelle Ihres normalen Kontopassworts verwenden, &lt;a href=&quot;https://www.ionos.de/hilfe/e-mail/problemloesungen-mail-basicmail-business/passwort-fuer-e-mail-konto-bei-ionos-aendern/&quot;&gt;siehe hier&lt;/a&gt;."
         domain="ionos\\.de,ionos\\.com,online\\.de"
         keepalive="12"
         link="https://www.ionos.de/hilfe/e-mail/allgemeine-themen/serverinformationen-fuer-imap-pop-und-smtp/">
