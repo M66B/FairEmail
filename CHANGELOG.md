@@ -30,6 +30,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+
 ### 1.2291 2025-08-13 *
 
 * Small improvements and minor bug fixes

@@ -30,6 +30,9 @@ Ceratonykus
 
 Next version (Work in progress)
 
+* Small improvements and minor bug fixes
+* Updated AndroidX
+
 1.2291 2025-08-13 *
 
 * Small improvements and minor bug fixes
