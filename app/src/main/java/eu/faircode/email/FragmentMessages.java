@@ -3980,6 +3980,8 @@ public class FragmentMessages extends FragmentBase
                         EntityFolder targetFolder = db.folder().getFolder(tid);
                         if (targetFolder == null)
                             throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
+                        if (targetFolder.account == null)
+                            return result;
 
                         EntityAccount targetAccount = db.account().getAccount(targetFolder.account);
                         if (targetAccount == null)
