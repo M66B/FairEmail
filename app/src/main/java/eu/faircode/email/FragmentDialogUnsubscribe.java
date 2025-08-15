@@ -87,6 +87,7 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                     protected String onExecute(Context context, Bundle args) throws Throwable {
                         final String uri = args.getString("uri");
                         final String request = "List-Unsubscribe=One-Click";
+                        Log.i("Unsubscribe request=" + request + " uri=" + uri);
 
                         // https://datatracker.ietf.org/doc/html/rfc8058
 
@@ -108,10 +109,12 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                             int status = connection.getResponseCode();
                             if (status < 200 || status > 299) {
                                 String error = "Error " + status + ": " + connection.getResponseMessage();
+                                Log.i("Unsubscribe error=" + error);
                                 InputStream stream = connection.getErrorStream();
-                                String detail = (stream == null ? null : Helper.readStream(stream));
+                                String detail = (stream == null || status == 404 ? null : Helper.readStream(stream));
                                 throw new IOException(error + " " + detail);
-                            }
+                            } else
+                                Log.i("Unsubscribe status=" + status);
 
                             return Helper.readStream(connection.getInputStream());
                         } finally {

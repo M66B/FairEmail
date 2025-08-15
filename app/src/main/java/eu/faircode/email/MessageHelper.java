@@ -2975,6 +2975,7 @@ public class MessageHelper {
 
             list = MimeUtility.unfold(list);
             list = decodeMime(list);
+            list = list.replaceAll("\\s+", "");
 
             if (list == null || list.startsWith("NO"))
                 return null;
@@ -2985,6 +2986,7 @@ public class MessageHelper {
             if (post != null) {
                 post = MimeUtility.unfold(post);
                 post = decodeMime(post);
+                post = post.replaceAll("\\s+", "");
                 oneclick = "List-Unsubscribe=One-Click".equalsIgnoreCase(post.trim());
             }
 
