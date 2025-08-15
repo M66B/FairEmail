@@ -54,7 +54,6 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
         final TextView tvUri = view.findViewById(R.id.tvUri);
 
         tvSender.setText(from);
-        tvUri.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         tvUri.setText(uri);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context)
