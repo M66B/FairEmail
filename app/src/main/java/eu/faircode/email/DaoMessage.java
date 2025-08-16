@@ -795,6 +795,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET fts = :fts WHERE id = :id AND NOT (fts IS :fts)")
     int setMessageFts(long id, boolean fts);
 
+    @Query("UPDATE message SET `from` = :from WHERE id = :id AND NOT (`from` IS :from)")
+    int setMessageFrom(long id, String from);
+
     @Query("UPDATE message SET `to` = :to WHERE id = :id AND NOT (`to` IS :to)")
     int setMessageTo(long id, String to);
 

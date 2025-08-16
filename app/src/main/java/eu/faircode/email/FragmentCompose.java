@@ -6506,7 +6506,9 @@ public class FragmentCompose extends FragmentBase {
                         EntityIdentity selected = getIdentity(context, aid, data.identities, data.draft.from, data.draft.to);
                         if (selected != null) {
                             data.draft.identity = selected.id;
+                            data.draft.from = new InternetAddress[]{new InternetAddress(selected.email, selected.name, StandardCharsets.UTF_8.name())};
                             db.message().setMessageIdentity(data.draft.id, data.draft.identity);
+                            db.message().setMessageFrom(data.draft.id, DB.Converters.encodeAddresses(data.draft.from));
                             EntityLog.log(context, "Selected external identity=" + selected.email);
                         }
                     }
