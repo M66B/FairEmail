@@ -3032,7 +3032,7 @@ public class MessageHelper {
                 e = list.indexOf('>', s + 1);
             }
 
-            if (!BuildConfig.DEBUG || link != null && !link.startsWith("https://"))
+            if (link != null && !link.startsWith("https://"))
                 oneclick = false;
 
             if (link != null)
