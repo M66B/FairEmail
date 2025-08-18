@@ -78,6 +78,7 @@ public class FragmentDialogAddImage extends FragmentDialogBase {
         rgAction.check(add_inline ? R.id.rbInline : R.id.rbAttach);
         cbResize.setChecked(resize_images);
         spResize.setEnabled(resize_images);
+        cbResizeWidthOnly.setEnabled(resize_images);
         cbResizeWidthOnly.setChecked(resize_width_only);
         tvResizeRemark.setText(getString(R.string.title_add_image_resize_remark, "JPEG, PNG, WebP"));
         cbPrivacy.setChecked(privacy_images);
@@ -113,6 +114,7 @@ public class FragmentDialogAddImage extends FragmentDialogBase {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("resize_images", isChecked).apply();
                 spResize.setEnabled(isChecked);
+                cbResizeWidthOnly.setEnabled(isChecked);
             }
         });
 
