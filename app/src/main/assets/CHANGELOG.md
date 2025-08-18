@@ -30,10 +30,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2292 2025-08-18 *
+
+* Fixed unchanged external drafts being saved
+* Added support for "one-click" unsubscribe
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 
-### 1.2291 2025-08-13 *
+### 1.2291 2025-08-13
 
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
