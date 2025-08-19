@@ -5915,7 +5915,7 @@ Existing accounts or identities will never be deleted
 Please note that accounts are only considered the same if they are cloud synced and never if the same account is configured on different devices.
 
 All data is [end-to-end encrypted](https://en.wikipedia.org/wiki/End-to-end_encryption),
-which means that the cloud server, currently powered by AWS, can't see the data contents.
+which means that the cloud server, currently powered by [AWS](https://aws.amazon.com/), can't see the data contents.
 The used encryption method is [AES-GCM-SIV](https://en.wikipedia.org/wiki/AES-GCM-SIV)
 using a 256 bit key derived from the username and password with [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) using SHA256 and 310,000 iterations.
 
