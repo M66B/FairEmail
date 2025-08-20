@@ -758,7 +758,6 @@
     <string name="title_advanced_default_encryption">        Predvolená metóda šifrovania (PGP alebo S/MIME) bude po odoslaní prvej podpísanej alebo šifrovanej správy uložená pre každú totožnosť zvlášť.
         Tesne pred odoslaním správy je potom možné zmeniť metódu šifrovania v dialógu Možnosti odoslania (dlhé stlačenie tlačidla Odoslať).    </string>
     <string name="title_advanced_sign_default">Predvolene podpisovať správy</string>
-    <string name="title_advanced_encrypt_default">Predvolene šifrovať správy</string>
     <string name="title_advanced_encrypt_auto">Automatické šifrovanie, keď sú k dispozícii kľúče všetkých príjemcov</string>
     <string name="title_advanced_encrypt_reply">Šifrovať automaticky pri odpovedaní na zašifrovanú správu</string>
     <string name="title_advanced_auto_verify">Automaticky overovať podpísané správy</string>

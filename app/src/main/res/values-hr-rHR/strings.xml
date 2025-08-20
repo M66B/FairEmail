@@ -578,7 +578,6 @@
     <string name="title_advanced_clear_all">Izbriši podatke aplikacije</string>
     <string name="title_advanced_clear_all_remark">Podaci aplikacije biti će nepovratno izbrisani!</string>
     <string name="title_advanced_sign_default">Zadani potpis</string>
-    <string name="title_advanced_encrypt_default">Zadano šifriranje</string>
     <string name="title_advanced_auto_decrypt">Automatski dešifriraj poruke</string>
     <string name="title_advanced_auto_undo_decrypt">Poništi dešifriranje pri zatvaranju razgovora</string>
     <string name="title_advanced_openpgp">Pružatelj OpenPGP</string>

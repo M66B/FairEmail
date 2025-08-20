@@ -14,6 +14,7 @@
     <string name="app_cake_required">Minimální požadovaná kapacita úložiště: %1$s</string>
     <string name="app_updated">Poslední aktualizace: %1$s</string>
     <string name="app_download">Staženo z: %1$s</string>
+    <string name="app_error">Většina chybových hlášení má vnější příčiny (síť, server atd.) nebo je způsobena nesprávnou, často nestandardní konfigurací. Špatná recenze takové problémy neřeší. Vyžádání podpory je téměř vždy účinnější.</string>
     <string name="app_motd">        S Androidem 14/15 beta se občas objeví oznámení \"Aplikace neodpovídá\".
         Google pracuje na opravě.
         Neobviňujte prosím aplikaci z tohoto problému s Androidem!
@@ -781,7 +782,7 @@ v prohlížeči ze všech Google účtů.</string>
         Metodu šifrování lze vybrat před odesláním v dialogovém okně možností odeslání (dlouhým stisknutím tlačítka Odeslat).
     </string>
     <string name="title_advanced_sign_default">Automaticky podepisovat</string>
-    <string name="title_advanced_encrypt_default">Automaticky šifrovat</string>
+    <string name="title_advanced_encrypt_default">Podepsat a šifrovat ve výchozím nastavení</string>
     <string name="title_advanced_encrypt_auto">Automaticky zašifrovat, když jsou k dispozici klíče všech příjemců</string>
     <string name="title_advanced_encrypt_reply">Automaticky šifrovat při odpovědi na šifrovanou zprávu</string>
     <string name="title_advanced_auto_verify">Automaticky ověřovat podepsané zprávy</string>
@@ -968,7 +969,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_notify_remove_hint">Oznámení nových zpráv budou při odtažení prstem a při označení zpráv jako přečtených odebrána vždy</string>
     <string name="title_advanced_notify_manage_hint">Pro nastavení vlastností kanálu se dotkněte jeho názvu</string>
     <string name="title_advanced_notify_samsung_hint">Pro správu oznamovacích kanálů budete muset povolit toto nastavení Androidu: Oznámení, Pokročilé nastavení, Správa oznamovacích kategorií pro každou aplikaci</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Chcete-li nastavit výchozí zvuk, nastavte DND (Nerušit), atd.</string>
+    <string name="title_advanced_notify_manage_default_hint">Chcete-li nastavit výchozí zvuk, nastavte DND (Nerušit), atd.</string>
     <string name="title_advanced_notify_manage_service_hint">Pro vypnutí oznámení o „monitorování“</string>
     <string name="title_advanced_notify_separate_hint">Jak konfigurovat oznámení pro účty, složky a odesílatele?</string>
     <string name="title_advanced_notify_preview_all_hint">Pro nositelná zařízení umějící zobrazit celý text (až 5,000 znaků)</string>

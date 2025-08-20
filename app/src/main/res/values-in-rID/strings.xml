@@ -716,7 +716,6 @@ Contextrequest</string>
         Metode enkripsi dapat dipilih sebelum mengirim pada pengaturan kirim di kolom dialog (tekan lama tombol kirim).
     </string>
     <string name="title_advanced_sign_default">Masuk secara bawaan</string>
-    <string name="title_advanced_encrypt_default">Enkripsi secara bawaan</string>
     <string name="title_advanced_encrypt_auto">Enkripsi secara otomatis saat seluruh kunci penerima tersedia</string>
     <string name="title_advanced_encrypt_reply">Secara otomatis mengenkripsi ketika membalas pesan terenkripsi</string>
     <string name="title_advanced_auto_verify">Verifikasi pesan yang ditandai secara otomatis</string>

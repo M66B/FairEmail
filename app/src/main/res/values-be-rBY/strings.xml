@@ -782,7 +782,6 @@
          Метад шыфравання можна выбраць перад адпраўкай у дыялогавым акне параметраў адпраўкі (выклікаецца доўгім націсканнем на кнопку адпраўкі).
     </string>
     <string name="title_advanced_sign_default">Падпісваць па змаўчанні</string>
-    <string name="title_advanced_encrypt_default">Шыфраваць па змаўчанні</string>
     <string name="title_advanced_encrypt_auto">Аўтаматычна шыфраваць, калі ключы ўсіх атрымальнікаў даступныя</string>
     <string name="title_advanced_encrypt_reply">Аўтаматычна шыфраваць пры адказе на зашыфраванае паведамленне</string>
     <string name="title_advanced_auto_verify">Аўтаматычна правяраць падпісаныя паведамленні</string>
@@ -970,6 +969,7 @@
     <string name="title_advanced_notify_remove_hint">Апавяшчэнні аб новых паведамленнях заўсёды будуць выдаляцца пры іх ссоўванні і адзначэнні паведамленняў прачытанымі</string>
     <string name="title_advanced_notify_manage_hint">Націсніце на назву канала, каб задаць яго ўласцівасці</string>
     <string name="title_advanced_notify_samsung_hint">Каб кіраваць каналамі апавяшчэнняў, вам можа спатрэбіцца ўключыць наступную опцыю у наладах Android: Апавяшчэнні - Дадатковыя налады - Кіраванне катэгорыямі апавяшчэнняў для кожнай праграмы</string>
+    <string name="title_advanced_notify_manage_default_hint">Каб прызначыць гук па змаўчанні, наладзьце рэжым DND (не турбаваць) і г. д.</string>
     <string name="title_advanced_notify_manage_service_hint">Дазваляе адключыць \'маніторынгавае\' апавяшчэнне</string>
     <string name="title_advanced_notify_separate_hint">Як мне наладзіць апавяшчэнні для ўліковых запісаў, папак і адпраўнікоў?</string>
     <string name="title_advanced_notify_preview_all_hint">Для партатыўных прылад, якія могуць паказваць поўны тэкст (да 5000 знакаў)</string>

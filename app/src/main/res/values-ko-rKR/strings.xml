@@ -733,7 +733,6 @@
         메시지를 보내기 전에 전송 설정 대화 상자에서 암호화 방법을 선택할 수 있습니다(전송 버튼을 길게 누르세요).
     </string>
     <string name="title_advanced_sign_default">자동으로 서명</string>
-    <string name="title_advanced_encrypt_default">자동으로 암호화</string>
     <string name="title_advanced_encrypt_auto">모든 수신인의 키를 사용할 수 있을 때 자동으로 암호화</string>
     <string name="title_advanced_encrypt_reply">암호화된 메시지에 답장할 때 자동으로 암호화</string>
     <string name="title_advanced_auto_verify">서명된 메시지 자동으로 인증 확인</string>

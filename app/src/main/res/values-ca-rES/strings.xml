@@ -569,7 +569,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
     <string name="title_advanced_sign_default">Signa per defecte</string>
-    <string name="title_advanced_encrypt_default">Xifra per defecte</string>
     <string name="title_advanced_auto_decrypt">Xifra automàticament els missatges</string>
     <string name="title_advanced_openpgp">Proveïdor d’OpenPGP</string>
     <string name="title_advanced_autocrypt">Utilitzeu Autocript</string>

@@ -739,7 +739,6 @@
         暗号化方法は、(送信ボタンを長押しすると表示される) 送信ダイアログボックスで送信前に選択できます。
     </string>
     <string name="title_advanced_sign_default">デフォルトでデジタル署名する</string>
-    <string name="title_advanced_encrypt_default">デフォルトで暗号化する</string>
     <string name="title_advanced_encrypt_auto">すべての宛先の鍵が有効なときは自動で暗号化する</string>
     <string name="title_advanced_encrypt_reply">暗号化されたメッセージには暗号化して返信する</string>
     <string name="title_advanced_auto_verify">デジタル署名されたメッセージを自動で検証する</string>
@@ -926,7 +925,7 @@
     <string name="title_advanced_notify_remove_hint">新着メッセージ通知はこの設定に関係なく、スワイプしたり、メッセージを既読にすると削除されます</string>
     <string name="title_advanced_notify_manage_hint">チャンネル名をタップして、チャンネルのプロパティを設定します</string>
     <string name="title_advanced_notify_samsung_hint">通知チャンネルを管理するには、Android の設定で: 通知 > 詳細設定 > 各アプリの[通知カテゴリ]を管理 を有効にする必要がある場合があります</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">。</string>
+    <string name="title_advanced_notify_manage_default_hint">。</string>
     <string name="title_advanced_notify_manage_service_hint">「モニター」通知を無効にします</string>
     <string name="title_advanced_notify_separate_hint">アカウント、フォルダ、差出人の通知を設定するにはどうすればよいですか？</string>
     <string name="title_advanced_notify_preview_all_hint">全文を表示できるウェアラブル (最大 5,000 文字) 向け</string>

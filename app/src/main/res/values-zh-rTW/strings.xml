@@ -735,7 +735,6 @@
         可以在傳送前於傳送選項對話框中選擇加密方法（長按傳送按鈕）。
     </string>
     <string name="title_advanced_sign_default">預設簽名</string>
-    <string name="title_advanced_encrypt_default">預設加密</string>
     <string name="title_advanced_encrypt_auto">當所有收件者的金鑰可用時自動加密</string>
     <string name="title_advanced_encrypt_reply">回覆加密訊息時自動加密</string>
     <string name="title_advanced_auto_verify">自動驗證已簽署的訊息</string>

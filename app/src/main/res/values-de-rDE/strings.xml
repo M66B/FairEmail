@@ -14,6 +14,7 @@
     <string name="app_cake_required">Minimaler erforderlicher Speicherplatz: %1$s</string>
     <string name="app_updated">Zuletzt aktualisiert: %1$s</string>
     <string name="app_download">Heruntergeladen von: %1$s</string>
+    <string name="app_error">Die meisten Fehlermeldungen haben externe Ursachen (Netzwerk, Server usw.) oder werden durch eine fehlerhafte, oft nicht standardisierte Konfiguration verursacht. Eine schlechte Bewertung löst solche Probleme nicht. Es ist fast immer effektiver, Unterstützung anzufordern.</string>
     <string name="app_motd">        Unter Android 14 / 15 Beta kann es gelegentlich zur Fehlermeldung »App reagiert nicht« kommen.
         Google arbeitet bereits an einer Lösung.
         Bitte machen Sie nicht die App für dieses Problem verantwortlich!
@@ -754,7 +755,7 @@
         Die Verschlüsselungsmethode kann vor dem Senden in den Sendeoptionen ausgewählt werden (»Senden« gedrückt halten).
     </string>
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
-    <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
+    <string name="title_advanced_encrypt_default">Standardmäßig signieren und verschlüsseln</string>
     <string name="title_advanced_encrypt_auto">Automatisch verschlüsseln, wenn alle Empfängerschlüssel verfügbar sind</string>
     <string name="title_advanced_encrypt_reply">Beim Antworten auf eine verschlüsselte Nachricht automatisch verschlüsseln</string>
     <string name="title_advanced_auto_verify">Signierte Nachrichten automatisch überprüfen</string>
@@ -942,7 +943,7 @@
     <string name="title_advanced_notify_remove_hint">Eingangsbenachrichtigungen werden immer entfernt, wenn sie weggewischt oder als gelesen gekennzeichnet werden</string>
     <string name="title_advanced_notify_manage_hint">Auf den Kanalnamen tippen, um die Kanaleigenschaften festzulegen</string>
     <string name="title_advanced_notify_samsung_hint">Um Benachrichtigungskanäle verwalten zu können, müssen Sie möglicherweise diese Android-Einstellung aktivieren: Benachrichtigung ➔ Erweiterte Einstellungen ➔ Benachrichtigungskategorien für jede App verwalten</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Um den Standardton festzulegen, »Bitte nicht stören« usw. konfigurieren.</string>
+    <string name="title_advanced_notify_manage_default_hint">Um den Standardton festzulegen, »Bitte nicht stören« usw. konfigurieren.</string>
     <string name="title_advanced_notify_manage_service_hint">Zum Deaktivieren der Benachrichtigung für die App-Überwachung</string>
     <string name="title_advanced_notify_separate_hint">Wie konfiguriere ich Benachrichtigungen für Konten, Ordner und Absender?</string>
     <string name="title_advanced_notify_preview_all_hint">Für Wearables, die den kompletten Text anzeigen können (bis zu 5.000 Zeichen)</string>

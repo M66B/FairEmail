@@ -14,6 +14,7 @@
     <string name="app_cake_required">Minimalno zahtijevani skladišni prostor: %1$s</string>
     <string name="app_updated">Posljednje ažuriranje: %1$s</string>
     <string name="app_download">Preuzeto sa: %1$s</string>
+    <string name="app_error">Najviše poruka o greškama izazivaju vanjski uzroci (mreža, server itd.) ili su uzrokovane netačnim, često nestandardnim podešavanjem. Loša ocjena ne može pomoći u rješavanju takvih problema. Stoga je traženje podrške gotovo uvijek učinkovitije.</string>
     <string name="app_motd">        U Androidu 14/15 beta, obavještenja \'Aplikacija ne reaguje\' mogu se povremeno javiti.
         Google radi na ovoj ispravci.
         Nemojte kriviti aplikaciju zbog problema s Androidom!
@@ -767,7 +768,7 @@
         Metoda šifriranja može se izabrati prije slanja u dijaloškom okviru opcije za slanje (držite prst dugo na dugme \'pošalji\').
     </string>
     <string name="title_advanced_sign_default">Potpiši po zadanom</string>
-    <string name="title_advanced_encrypt_default">Šifriraj po zadanom</string>
+    <string name="title_advanced_encrypt_default">Potpiši i šifriraj po defaultu</string>
     <string name="title_advanced_encrypt_auto">Automatski šifriraj kada svi ključevi primalaca budu dostupni</string>
     <string name="title_advanced_encrypt_reply">Automatsko šifriranje tokom odgovora na šifriranu poruku</string>
     <string name="title_advanced_auto_verify">Automatski provjeri potpisane poruke</string>
@@ -954,7 +955,7 @@
     <string name="title_advanced_notify_remove_hint">Obavještenja o novim porukama će se uvijek skloniti kada se prevuku preko ekrana ili označavanjem poruka kao \'pročitane\'</string>
     <string name="title_advanced_notify_manage_hint">Dodirnite naziv kanala za postavljanje svojstava kanala</string>
     <string name="title_advanced_notify_samsung_hint">Za upravljanje kanalima obavještenja, možda trebate uključiti ovu postavku Androida: Obavještenja, Napredne postavke, Upravljaj kategorijama obavještenja za svaku aplikaciju</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Za postavljanje zadanog zvuka, podesite DND (ne uznemiravaj), itd.</string>
+    <string name="title_advanced_notify_manage_default_hint">Za postavljanje zadanog zvuka, podesite DND (ne uznemiravaj), itd.</string>
     <string name="title_advanced_notify_manage_service_hint">Za isključivanje obavještenja o \'nadzoru\'</string>
     <string name="title_advanced_notify_separate_hint">Kako da podesim obavještenja za račune, foldere i pošiljaoce?</string>
     <string name="title_advanced_notify_preview_all_hint">Za nosive uređaje koji prikazuju cijeli tekst (do 5000 znakova)</string>

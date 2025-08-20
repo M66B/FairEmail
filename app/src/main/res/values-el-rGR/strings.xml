@@ -752,7 +752,6 @@
         Η μέθοδος κρυπτογράφησης μπορεί να επιλεχθεί πριν την αποστολή, στο παράθυρο διαλόγου των επιλογών αποστολής (παρατεταμένο πάτημα στο κουμπί αποστολής).
     </string>
     <string name="title_advanced_sign_default">Υπογραφή από προεπιλογή</string>
-    <string name="title_advanced_encrypt_default">Κρυπτογράφηση από προεπιλογή</string>
     <string name="title_advanced_encrypt_auto">Αυτόματη κρυπτογράφηση όταν τα κλειδιά όλων των παραληπτών είναι διαθέσιμα</string>
     <string name="title_advanced_encrypt_reply">Αυτόματη κρυπτογράφηση κατά την απάντηση σε ένα κρυπτογραφημένο μήνυμα</string>
     <string name="title_advanced_auto_verify">Αυτόματη επαλήθευση υπογεγραμμένων μηνυμάτων</string>
@@ -937,7 +936,7 @@
     <string name="title_advanced_notify_remove_hint">Οι ειδοποιήσεις νέων μηνυμάτων θα απομακρύνονται πάντα, όταν σαρώνονται με το δάχτυλο και όταν τα μηνύματα επισημαίνονται ως αναγνωσμένα</string>
     <string name="title_advanced_notify_manage_hint">Πατήστε στο όνομα ενός καναλιού για να ορίσετε τις ιδιότητές του</string>
     <string name="title_advanced_notify_samsung_hint">Για να διαχειριστείτε τα κανάλια ειδοποιήσεων, ίσως χρειαστεί να ενεργοποιήσετε αυτήν τη ρύθμιση Android: Ειδοποίηση, Ρυθμίσεις για προχωρημένους, Διαχείριση κατηγοριών ειδοποιήσεων για κάθε εφαρμογή</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Για να ορίσετε τον προεπιλεγμένο ήχο, ρυθμίστε το \"Μην ενοχλείτε\", κλπ.</string>
+    <string name="title_advanced_notify_manage_default_hint">Για να ορίσετε τον προεπιλεγμένο ήχο, ρυθμίστε το \"Μην ενοχλείτε\", κλπ.</string>
     <string name="title_advanced_notify_manage_service_hint">Για να απενεργοποιηθεί η ειδοποίηση: \"Χ λογαριασμοί παρακολουθούνται\"</string>
     <string name="title_advanced_notify_separate_hint">Πώς ρυθμίζω τις ειδοποιήσεις για λογαριασμούς, φακέλους και αποστολείς;</string>
     <string name="title_advanced_notify_preview_all_hint">Για φορετές συσκευές που μπορούν να προβάλλουν ολόκληρο το κείμενο (μέχρι 5.000 χαρακτήρες)</string>

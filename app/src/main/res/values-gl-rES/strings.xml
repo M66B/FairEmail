@@ -596,7 +596,6 @@
     <string name="title_advanced_clear_all">Eliminar os datos da aplicación</string>
     <string name="title_advanced_clear_all_remark">Os datos da aplicación borraranse irremisiblemente!</string>
     <string name="title_advanced_sign_default">Asinar por defecto</string>
-    <string name="title_advanced_encrypt_default">Cifrar por defecto</string>
     <string name="title_advanced_encrypt_auto">Cifrar automaticamente cando todas as chaves dos destinatarios estean dispoñibles</string>
     <string name="title_advanced_auto_decrypt">Descifrar mensaxes automaticamente</string>
     <string name="title_advanced_auto_undo_decrypt">Desfacer o descifrado ao pechar a conversa</string>

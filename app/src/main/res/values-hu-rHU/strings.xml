@@ -14,6 +14,7 @@
     <string name="app_cake_required">Minimális szükséges tárhely: %1$s</string>
     <string name="app_updated">Utoljára frissítve: %1$s</string>
     <string name="app_download">Letöltve innen: %1$s</string>
+    <string name="app_error">A legtöbb hibaüzenetnek külső oka van (hálózat, kiszolgáló, stb.), vagy helytelen, gyakran nem szabványos beállítás okozza. Egy rossz értékelés nem oldja meg ezeket a problémákat. Támogatás kérése szinte mindig hatékonyabb.</string>
     <string name="app_motd">        Az Android 14/15 béta esetén \'Alkalmazás nem válaszol\' hibaüzenet előfordulhat.
         A Google már dolgozik a javításon.
         Kérem, ne az alkalmazást okolja az Android hiba miatt!
@@ -749,7 +750,7 @@
         A titkosítási mód küldés előtt kiválasztható a küldési beállítások párbeszédablakban (hosszan nyomva a küldés gombot).
     </string>
     <string name="title_advanced_sign_default">Aláírás alapértelmezés szerint</string>
-    <string name="title_advanced_encrypt_default">Titkosítás alapértelmezés szerint</string>
+    <string name="title_advanced_encrypt_default">Aláírás és titkosítás legyen alapértelmezett</string>
     <string name="title_advanced_encrypt_auto">Automatikus titkosítás ha az összes címzett kulcsa rendelkezésre áll</string>
     <string name="title_advanced_encrypt_reply">Automatikusan titkosítsa a választ, ha a kapott üzenet titkosított</string>
     <string name="title_advanced_auto_verify">Aláírt üzenetek automatikus ellenőrzése</string>
@@ -935,7 +936,7 @@
     <string name="title_advanced_notify_remove_hint">Az új üzenet értesitések mindig törlődnek azok oldalra csúsztatásával, vagy az üzenet olvasottként való megjelölésével</string>
     <string name="title_advanced_notify_manage_hint">Koppintson a csatorna nevére a tulajdonságai beállításához</string>
     <string name="title_advanced_notify_samsung_hint">Az értesítési csatornák kezeléséhez lehetséges, hogy engedélyeznie kell ezt az Android beállítást: Értesítések, Haladó beállítások, Alkalmazásonkénti értesítési kategóriák kezelése</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Alapértelmezett hang megadása, Ne zavarjanak mód beállítása, stb.</string>
+    <string name="title_advanced_notify_manage_default_hint">Alapértelmezett hang megadása, Ne zavarjanak mód beállítása, stb.</string>
     <string name="title_advanced_notify_manage_service_hint">A \'figyelés\' értesítés kikapcsolásához</string>
     <string name="title_advanced_notify_separate_hint">Hogyan állítom be a fiók, könyvtár és küldő specifikus értesítéseket?</string>
     <string name="title_advanced_notify_preview_all_hint">Olyan hordhatóknak amik meg tudják jeleníteni a teljes szöveget (akár 5,000 karakter)</string>

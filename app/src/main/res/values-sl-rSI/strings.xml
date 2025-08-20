@@ -656,7 +656,6 @@
     <string name="title_advanced_clear_all">Izbriši podatke programa</string>
     <string name="title_advanced_clear_all_remark">Podatki programa bodo neobnovljivo izbrisani!</string>
     <string name="title_advanced_sign_default">Privzeto podpiši</string>
-    <string name="title_advanced_encrypt_default">Privzeto šifriraj</string>
     <string name="title_advanced_encrypt_auto">Samodejno šifriraj, kadar so na voljo ključi vseh prejemnikov</string>
     <string name="title_advanced_auto_decrypt">Samodejno odšifriraj sporočila</string>
     <string name="title_advanced_auto_undo_decrypt">Razveljavi šifriranje ob zapiranju programa</string>

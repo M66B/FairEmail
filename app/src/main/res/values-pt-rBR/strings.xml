@@ -14,6 +14,7 @@
     <string name="app_cake_required">Espaço mínimo de armazenamento necessário: %1$s</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Baixado de: %1$s</string>
+    <string name="app_error">A maioria das mensagens de erro tem causas externas (rede, servidor, etc.) ou são causadas por uma configuração incorreta, frequentemente fora do padrão. Uma avaliação negativa não resolve esses problemas. Solicitar suporte é quase sempre mais eficaz.</string>
     <string name="app_motd">        Com o Android 14/15 beta, ocorrem ocasionalmente notificações de ‘aplicativo não responde’.
         O Google está trabalhando em uma correção.
         Por favor, não culpe o aplicativo por esse problema do Android!
@@ -751,7 +752,7 @@
         O método de criptografia pode ser selecionado antes do envio na caixa de diálogo de opções de envio (pressione longamente o botão enviar).
     </string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
-    <string name="title_advanced_encrypt_default">Criptografar por padrão</string>
+    <string name="title_advanced_encrypt_default">Assinar e criptografar por padrão</string>
     <string name="title_advanced_encrypt_auto">Criptografar automaticamente quando as chaves de todos os destinatários estiverem disponíveis</string>
     <string name="title_advanced_encrypt_reply">Criptografar automaticamente ao responder a uma mensagem criptografada</string>
     <string name="title_advanced_auto_verify">Verifique automaticamente as mensagens assinadas</string>
@@ -938,7 +939,7 @@
     <string name="title_advanced_notify_remove_hint">Novas notificações de mensagem serão sempre removidas ao serem arrastadas e ao marcar mensagens lidas</string>
     <string name="title_advanced_notify_manage_hint">Toque no nome do canal para definir as propriedades do canal</string>
     <string name="title_advanced_notify_samsung_hint">Para gerenciar os canais de notificação, você pode precisar habilitar esta configuração do Android: Notificações, Configurações Avançadas, Gerenciar categorias de notificação para cada app</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Para definir o som padrão, configure DND (não perturbe), etc.</string>
+    <string name="title_advanced_notify_manage_default_hint">Para definir o som padrão, configure DND (não perturbe), etc.</string>
     <string name="title_advanced_notify_manage_service_hint">Para desativar a notificação de \"monitorando\"</string>
     <string name="title_advanced_notify_separate_hint">Como faço para configurar notificações para contas, pastas e remetentes?</string>
     <string name="title_advanced_notify_preview_all_hint">Para wearables que podem mostrar o texto completo (até 5.000 caracteres)</string>

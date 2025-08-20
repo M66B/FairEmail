@@ -14,6 +14,7 @@
     <string name="app_cake_required">Мінімальний потрібний розмір сховища: %1$s</string>
     <string name="app_updated">Останнє оновлення: %1$s</string>
     <string name="app_download">Завантажено з: %1$s</string>
+    <string name="app_error">Більшість повідомлень про помилки мають зовнішні причини (мережа, сервер і т. д.) або спричинені некоректною, часто нестандартною, конфігурацією. Негативний відгук не розв\'язує такі проблеми. Звернення в службу підтримки майже завжди є більш ефективним.</string>
     <string name="app_motd">        В Android 14/15 (бета-версії) іноді з\'являються сповіщення \"Додаток не відповідає\".
         Google працює над виправленням.
         Будь ласка, не звинувачуйте застосунок у цій проблемі Android!
@@ -781,7 +782,7 @@
          Метод шифрування можна вибрати перед надсиланням у діалоговому вікні параметрів надсилання (натисніть і утримуйте кнопку «Надіслати»).
     </string>
     <string name="title_advanced_sign_default">Підписувати за замовчуванням</string>
-    <string name="title_advanced_encrypt_default">Шифрувати за замовчуванням</string>
+    <string name="title_advanced_encrypt_default">Підписувати шифрувати за замовчуванням</string>
     <string name="title_advanced_encrypt_auto">Автоматично шифрувати при доступності всіх ключів одержувачів</string>
     <string name="title_advanced_encrypt_reply">Автоматично шифрувати при відповіді на зашифроване повідомлення</string>
     <string name="title_advanced_auto_verify">Автоматично перевіряти підписані повідомлення</string>
@@ -967,7 +968,7 @@
     <string name="title_advanced_notify_remove_hint">Сповіщення про нові повідомлення завжди будуть вилучатися при змахуванні вбік та при відмічанні повідомлення прочитаним</string>
     <string name="title_advanced_notify_manage_hint">Натисніть на назву каналу, щоб встановити його властивості</string>
     <string name="title_advanced_notify_samsung_hint">Щоб керувати каналами сповіщень, вам може знадобитися увімкнути цей параметр в налаштуваннях Android: Сповіщення, Додаткові налаштування, Керування категоріями сповіщень для кожного застосунку</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Щоб встановити стандартний звук, налаштуйте DND (не турбувати) тощо.</string>
+    <string name="title_advanced_notify_manage_default_hint">Щоб встановити стандартний звук, налаштуйте DND (не турбувати) тощо.</string>
     <string name="title_advanced_notify_manage_service_hint">Щоб вимкнути сповіщення «монітор»</string>
     <string name="title_advanced_notify_separate_hint">Як налаштувати сповіщення для облікових записів, тек і відправників?</string>
     <string name="title_advanced_notify_preview_all_hint">Для носимих пристроїв, які можуть показувати повний текст (до 5 000 символів)</string>

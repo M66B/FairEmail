@@ -14,6 +14,7 @@
     <string name="app_cake_required">کمترین مقدار فضای ذخیره‌سازی لازم: %1$s</string>
     <string name="app_updated">آخرین به روز رسانی: %1$s</string>
     <string name="app_download">در حال دانلود از %1$s</string>
+    <string name="app_error">بیشتر پیام‌های خطا دلایل خارجی (شبکه، سرور و غیره) دارند یا ناشی از پیکربندی نادرست و اغلب غیر استاندارد هستند. نوشتن نظری منفی چنین مشکلاتی را حل نمی‌کند. درخواست پشتیبانی تقریباً همیشه مؤثرتر است.</string>
     <string name="app_motd">        در اندروید ۱۴/۱۵ بتا، گهگاه اعلان‌های «برنامه پاسخ نمی‌دهد» رخ می‌دهد.
         گوگل در حال کار برای حل آن است.
         لطفا برنامه را به خاطر این مشکل اندروید سرزنش نکنید!
@@ -610,7 +611,7 @@
     <string name="title_advanced_clear_all">حذف اطلاعات اپلیکیشن</string>
     <string name="title_advanced_clear_all_remark">اطلاعات اپلیکیشن به طور برگشت‌ناپذیر پاک خواهد شد!</string>
     <string name="title_advanced_sign_default">امضاء به‌صورت پیش‌فرض</string>
-    <string name="title_advanced_encrypt_default">رمزگذاری به‌صورت پیش‌فرض</string>
+    <string name="title_advanced_encrypt_default">امضا و رمزگذاری به صورت پیش‌فرض</string>
     <string name="title_advanced_encrypt_reply">رمزگذاری خودکار هنگام پاسخ‌دهی به پیام‌های رمزگذاری شده</string>
     <string name="title_advanced_auto_verify">صحت‌سنجی خودکار پیام‌های امضاشده</string>
     <string name="title_advanced_auto_decrypt">رمزگشایی خودکار پیام‌ها</string>
@@ -691,7 +692,7 @@
     <string name="title_advanced_user_agent_hint">بعضی از سرورها، یک رشته عامل کاربری ژنریک و عمومی را قبول نمی‌کنند</string>
     <string name="title_advanced_badge_hint">تنها روی راه‌اندازهای پشتیبانی‌شده در دسترس است</string>
     <string name="title_advanced_notify_action_hint">حداکثر سه کنش نشان داده خواهد شد</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">برای تعیین صدای پیش‌فرض، DND (مزاحم نشوید) و غیره را تنظیم کنید.</string>
+    <string name="title_advanced_notify_manage_default_hint">برای تعیین صدای پیش‌فرض، DND (مزاحم نشوید) و غیره را تنظیم کنید.</string>
     <string name="title_advanced_notify_sensitive_hint">نیازمند غیرفعال کردن اعلان‌های حساس در تنظیمات اندروید</string>
     <string name="title_advanced_notify_no_grouping">این نگارش اندروید گروه‌بندی اعلان را پشتیبانی نمی‌کند</string>
     <string name="title_advanced_notify_no_channels">این نگارش اندروید کانال‌های اعلان را پشتیبانی نمی‌کند</string>

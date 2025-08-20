@@ -418,7 +418,6 @@
     <string name="title_advanced_sound">إختر نغمة التنبيه</string>
     <string name="title_advanced_generic_user_agent">استخدام اعدادات المستخدم العامة في المتصفح</string>
     <string name="title_advanced_clear_all_hint">سيؤدي هذا إلى حذف جميع بيانات التطبيق من جهازك، بما في ذلك حسابات البريد الإلكتروني والرسائل والإعدادات التي تم تكوينها وأي بيانات تم جمعها.</string>
-    <string name="title_advanced_encrypt_default">تشفير بشكل افتراضي</string>
     <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
     </string>
     <string name="title_advanced_language_system">النظام</string>

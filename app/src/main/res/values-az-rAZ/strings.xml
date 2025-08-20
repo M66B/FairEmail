@@ -14,6 +14,7 @@
     <string name="app_cake_required">Tələb olunan minimum anbar sahəsi: %1$s</string>
     <string name="app_updated">Son güncəlləmə: %1$s</string>
     <string name="app_download">%1$s üzərindən endirildi</string>
+    <string name="app_error">Əksər xəta mesajları, xarici səbəblərə (şəbəkə, server və s.) görə baş verir və ya yanlış, çox vaxt standart olmayan, konfiqurasiyadan qaynaqlanır. Mənfi bir rəy vermək belə problemləri həll etmir. Dəstək tələb etmək, hər zaman daha təsirli olur.</string>
     <string name="app_motd">        Android 14/15 beta versiyalarında, arada \'Tətbiq cavab vermir\' bildirişləri üzə çıxır.
         Google bunu düzəltmək üçün çalışır.
         Lütfən bu Android probleminə görə tətbiqi günahlandırmayın!
@@ -753,7 +754,7 @@
         Şifrələmə üsulu, göndərmə seçimləri dialoq qutusunda göndərməzdən əvvəl seçilə bilər (göndərmə düyməsinə uzun basın).
     </string>
     <string name="title_advanced_sign_default">İlkin olaraq imzala</string>
-    <string name="title_advanced_encrypt_default">İlkin olaraq şifrələ</string>
+    <string name="title_advanced_encrypt_default">İlkin olaraq imzala və şifrələ</string>
     <string name="title_advanced_encrypt_auto">Bütün alıcıların açarları əlçatan olduqda avtomatik şifrələ</string>
     <string name="title_advanced_encrypt_reply">Şifrələnmiş bir mesaja cavab verdikdə avtomatik şifrələ</string>
     <string name="title_advanced_auto_verify">İmzalı mesajları avtomatik doğrula</string>
@@ -940,7 +941,7 @@
     <string name="title_advanced_notify_remove_hint">Yeni mesaj bildirişləri, sürüşdürüləndə və oxundu kimi işarələnəndə həmişə silənəcək</string>
     <string name="title_advanced_notify_manage_hint">Kanal xüsusiyyətlərini ayarlamaq üçün kanal adına toxunun</string>
     <string name="title_advanced_notify_samsung_hint">Bildiriş kanallarını idarə etmək üçün bu Android ayarını fəallaşdırmağınız lazım gələ bilər: Bildiriş, Qabaqcıl ayarlar, Hər tətbiq üçün bildiriş kateqoriyalarını idarə et</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">İlkin səsi ayarlamaq üçün DND (narahat etməyin) rejimini və sairə konfiqurasiya edin</string>
+    <string name="title_advanced_notify_manage_default_hint">İlkin səsi ayarlamaq üçün DND (narahat etməyin) rejimini və sairə konfiqurasiya edin</string>
     <string name="title_advanced_notify_manage_service_hint">\"Müşahidə\" bildirişini sıradan çıxartmaq üçün</string>
     <string name="title_advanced_notify_separate_hint">Hesablar, qovluqlar və göndərənlər üçün bildirişləri necə konfiqurasiya edə bilərəm?</string>
     <string name="title_advanced_notify_preview_all_hint">Tam mətni göstərə bilən geyinilə bilən cihazlar üçün (5,000 simvola qədər)</string>

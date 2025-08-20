@@ -509,7 +509,6 @@
     <string name="title_advanced_mnemonic_hint">Gaiaren lerroan hitz hauek dituen edozein mezu elektronikok automatikoki eta berehala ezabatuko ditu aplikazioaren datuak</string>
     <string name="title_advanced_clear_all">Ezabatu aplikazioaren datuak</string>
     <string name="title_advanced_sign_default">Besterik ezean sinatu</string>
-    <string name="title_advanced_encrypt_default">Besterik ezean zifratu</string>
     <string name="title_advanced_auto_decrypt">Desenkriptatu mezuak automatikoki</string>
     <string name="title_advanced_openpgp">OpenPGP hornitzailea</string>
     <string name="title_advanced_autocrypt">Erabili Autocrypt</string>

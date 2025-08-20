@@ -745,7 +745,6 @@
         Криптиращият начин може да е избран преди изпращането в диалоговия прозорец с опции за изпращане, натискайки дълго копчето за изпращане.
     </string>
     <string name="title_advanced_sign_default">Подписване по подразбиране</string>
-    <string name="title_advanced_encrypt_default">Криптиране по подразбиране</string>
     <string name="title_advanced_encrypt_auto">Автоматично криптиране при налични ключове на всички получатели</string>
     <string name="title_advanced_encrypt_reply">Автоматично криптиране, отговаряйки на криптирано съобщение</string>
     <string name="title_advanced_auto_verify">Автоматична проверка на подписаните съобщения</string>

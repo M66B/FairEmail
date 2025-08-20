@@ -14,6 +14,7 @@
     <string name="app_cake_required">Минимально необходимое место: %1$s</string>
     <string name="app_updated">Последнее обновление: %1$s</string>
     <string name="app_download">Загружено из: %1$s</string>
+    <string name="app_error">Большинство сообщений об ошибках имеют внешние причины (сеть, сервер и т.д.) или вызваны неправильной, часто нестандартной конфигурацией. Плохой отзыв не решает такие проблемы. Обращение в службу поддержки почти всегда более эффективно.</string>
     <string name="app_motd">        На Android 14/15 beta иногда появляется уведомление \"Приложение не отвечает\".
         Google работает над исправлением данной ошибки.
         Пожалуйста, не вините приложение из-за проблемы в Android!
@@ -780,7 +781,7 @@
         Можно выбрать метод шифрования непосредственно перед отправкой в диалоговом окне \"Параметры отправки\", вызываемом долгим нажатием кнопки \"Отправить\".
     </string>
     <string name="title_advanced_sign_default">Подписывать по умолчанию</string>
-    <string name="title_advanced_encrypt_default">Шифровать по умолчанию</string>
+    <string name="title_advanced_encrypt_default">Подписывать и шифровать по умолчанию</string>
     <string name="title_advanced_encrypt_auto">Автоматически шифровать, если доступны ключи всех получателей</string>
     <string name="title_advanced_encrypt_reply">Автоматически шифровать при ответе на зашифрованное сообщение</string>
     <string name="title_advanced_auto_verify">Автоматически проверять подписанные сообщения</string>
@@ -968,7 +969,7 @@
     <string name="title_advanced_notify_remove_hint">Уведомления о новых о сообщениях всегда будут удаляться при смахивании сообщения и пометке о прочтении</string>
     <string name="title_advanced_notify_manage_hint">Нажмите на название канала, чтобы установить его свойства</string>
     <string name="title_advanced_notify_samsung_hint">Для управления каналами уведомлений может потребоваться включить данную настройку Android: Уведомления → Дополнительные настройки → Управление категориями уведомлений для каждого приложения</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Чтобы установить звук по умолчанию, настройте DND (не беспокоить) и т.д.</string>
+    <string name="title_advanced_notify_manage_default_hint">Чтобы установить звук по умолчанию, настройте DND (не беспокоить) и т.д.</string>
     <string name="title_advanced_notify_manage_service_hint">Для отключения контролирующего уведомления</string>
     <string name="title_advanced_notify_separate_hint">Как настроить уведомления для учётных записей, папок и отправителей?</string>
     <string name="title_advanced_notify_preview_all_hint">Для носимых устройств, которые могут показывать полный текст (до 5000 символов)</string>

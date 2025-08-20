@@ -458,7 +458,6 @@
     <string name="title_advanced_disconnect_links">Bruk lister til å advare om sporingslenker</string>
     <string name="title_advanced_disconnect_images">Bruk lister til å gjenkjenne sporingsbilder</string>
     <string name="title_advanced_sign_default">Signer som standard</string>
-    <string name="title_advanced_encrypt_default">Krypter som standard</string>
     <string name="title_advanced_auto_decrypt">Dekrypter meldinger automatisk</string>
     <string name="title_advanced_auto_undo_decrypt">Angre dekryptering på avsluttende samtale</string>
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>

@@ -738,7 +738,6 @@
     <string name="title_advanced_clear_all">Ta bort appdata</string>
     <string name="title_advanced_clear_all_remark">Appens data kommer att tas bort oåterkalleligt!</string>
     <string name="title_advanced_sign_default">Signera som standard</string>
-    <string name="title_advanced_encrypt_default">Kryptera som standard</string>
     <string name="title_advanced_encrypt_auto">Kryptera automatiskt när alla mottagares nycklar är tillgängliga</string>
     <string name="title_advanced_encrypt_reply">Kryptera ditt meddelande automatiskt när du svarar på ett krypterat meddelande</string>
     <string name="title_advanced_auto_verify">Verifiera signerade meddelanden automatiskt</string>

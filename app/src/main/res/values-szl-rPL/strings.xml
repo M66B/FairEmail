@@ -14,6 +14,7 @@
     <string name="app_cake_required">Minimalna wymagana ilość miejsca na dysku: %1$s</string>
     <string name="app_updated">Ostatnia aktualizacja: %1$s</string>
     <string name="app_download">Pobrano z: %1$s</string>
+    <string name="app_error">Większość komunikatów o błędach ma przyczyny zewnętrzne (sieć, serwer itp.) lub wynika z nieprawidłowej, często niestandardowej konfiguracji. Negatywna recenzja nie rozwiązuje takich problemów. Skorzystanie z pomocy technicznej jest prawie zawsze skuteczniejsze.</string>
     <string name="app_motd">        Z Androidem 14/15 beta, powiadomienia \'Aplikacja nie odpowiada\' występują sporadycznie.
         Google pracuje nad poprawką.
         Proszę nie winić aplikacji za problem, który jest problemem systemu Android!
@@ -779,7 +780,7 @@
         Metoda szyfrowania może być wybrana przed wysłaniem w oknie dialogowym opcji wysyłania (przytrzymując przycisk wyślij).
     </string>
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
-    <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
+    <string name="title_advanced_encrypt_default">Podpisuj i szyfruj domyślnie</string>
     <string name="title_advanced_encrypt_auto">Automatycznie zaszyfruj, gdy wszystkie klucze odbiorców są dostępne</string>
     <string name="title_advanced_encrypt_reply">Automatycznie zaszyfruj przy odpowiadaniu na zaszyfrowaną wiadomość</string>
     <string name="title_advanced_auto_verify">Automatycznie weryfikuj podpisane wiadomości</string>
@@ -966,7 +967,7 @@
     <string name="title_advanced_notify_remove_hint">Powiadomienia o nowych wiadomościach będą zawsze usuwane po przesunięciu i oznaczeniu wiadomości jako przeczytane</string>
     <string name="title_advanced_notify_manage_hint">Dotknij nazwę kanału, aby ustawić właściwości kanału</string>
     <string name="title_advanced_notify_samsung_hint">Aby zarządzać kanałami powiadomień, może być konieczne włączenie tego ustawienia w systemie Android: Powiadomienia, Zaawansowane ustawienia, Zarządzaj kategoriami powiadomień dla każdej aplikacji</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Aby ustawić domyślny dźwięk, skonfiguruj funkcję DND (nie przeszkadzać) itp.</string>
+    <string name="title_advanced_notify_manage_default_hint">Aby ustawić domyślny dźwięk, skonfiguruj funkcję DND (nie przeszkadzać) itp.</string>
     <string name="title_advanced_notify_manage_service_hint">Aby wyłączyć powiadomienie \"monitorowanie\"</string>
     <string name="title_advanced_notify_separate_hint">Jak skonfigurować powiadomienia dla kont, folderów i nadawców?</string>
     <string name="title_advanced_notify_preview_all_hint">Dla urządzeń do noszenia, które mogą wyświetlać pełny tekst (do 5000 znaków)</string>

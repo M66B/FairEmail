@@ -14,6 +14,7 @@
     <string name="app_cake_required">Minimum vereiste opslagruimte: %1$s</string>
     <string name="app_updated">Laatst bijgewerkt: %1$s</string>
     <string name="app_download">Gedownload van: %1$s</string>
+    <string name="app_error">De meeste foutmeldingen hebben externe oorzaken (netwerk, server, enz.) of worden veroorzaakt door een onjuiste, vaak niet-standaard configuratie. Een slechte beoordeling lost dergelijke problemen niet op. Ondersteuning aanvragen is bijna altijd effectiever.</string>
     <string name="app_motd">        Onder Android 14/15 beta, kan soms de melding ‘App reageert niet’ verschijnen.
         Google werkt aan een oplossing.
         Geef FairEmail alstublieft niet de schuld voor dit Android probleem!
@@ -747,7 +748,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_default_encryption">De standaard versleutelingsmethode (PGP of S/MIME) wordt per identiteit opgeslagen na het verzenden van een ondertekend of versleuteld bericht.
          De versleutelingsmethode kan voor verzending worden geselecteerd in het dialoogvenster met verzendopties (houd de knop Verzenden lang ingedrukt).    </string>
     <string name="title_advanced_sign_default">Standaard ondertekenen</string>
-    <string name="title_advanced_encrypt_default">Standaard versleutelen</string>
+    <string name="title_advanced_encrypt_default">Standaard ondertekenen en versleutelen</string>
     <string name="title_advanced_encrypt_auto">Automatisch versleutelen wanneer alle sleutels van de ontvanger beschikbaar zijn</string>
     <string name="title_advanced_encrypt_reply">Automatisch versleutelen bij antwoorden op een versleuteld bericht</string>
     <string name="title_advanced_auto_verify">Ondertekende berichten automatisch verifiëren</string>
@@ -934,7 +935,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_notify_remove_hint">Meldingen van nieuwe berichten worden altijd verwijderd als ze worden weggeveegd en als berichten worden gemarkeerd als gelezen</string>
     <string name="title_advanced_notify_manage_hint">Tik op de kanaalnaam om de kanaaleigenschappen in te stellen</string>
     <string name="title_advanced_notify_samsung_hint">Om meldingskanalen te beheren, moet u mogelijk deze Android-instelling inschakelen: Melding, Geavanceerde instellingen, Beheer meldingscategorieën voor elke app</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Om het standaardgeluid in te stellen, DND (niet storen) te configureren, enz.</string>
+    <string name="title_advanced_notify_manage_default_hint">Om het standaardgeluid in te stellen, DND (niet storen) te configureren, enz.</string>
     <string name="title_advanced_notify_manage_service_hint">Om de bewakingsmelding uit te schakelen</string>
     <string name="title_advanced_notify_separate_hint">Hoe stel ik meldingen in voor accounts, mappen en afzenders?</string>
     <string name="title_advanced_notify_preview_all_hint">Voor wearables die de volledige tekst kunnen weergeven (tot 5.000 tekens)</string>

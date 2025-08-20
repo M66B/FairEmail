@@ -14,6 +14,7 @@
     <string name="app_cake_required">需要的最小存储空间： %1$s</string>
     <string name="app_updated">上次更新：%1$s</string>
     <string name="app_download">下载自：%1$s</string>
+    <string name="app_error">大多数错误消息都是由外部原因（网络、服务器等）或不正确（通常为非标准）的配置引起的。差评并不能解决此类问题。请求支持几乎总是更有效。</string>
     <string name="app_motd">        在 Android 14/15 beta 中，偶尔会出现“应用程序未响应”通知。
         Google 正在进行修复。
         请不要将这个 Android 问题归咎于本应用！
@@ -738,7 +739,7 @@
         发送前可以在发送选项对话框中选择加密方式（长按发送按钮）
     </string>
     <string name="title_advanced_sign_default">使用默认签名</string>
-    <string name="title_advanced_encrypt_default">使用默认加密</string>
+    <string name="title_advanced_encrypt_default">默认签名并加密</string>
     <string name="title_advanced_encrypt_auto">当所有收件人的公钥可用时自动加密</string>
     <string name="title_advanced_encrypt_reply">回复加密消息时自动加密</string>
     <string name="title_advanced_auto_verify">自动验证已签名的邮件</string>
@@ -926,7 +927,7 @@
     <string name="title_advanced_notify_remove_hint">滑走或标为已读时将总会移除新邮件通知</string>
     <string name="title_advanced_notify_manage_hint">点击频道名称来设置频道属性</string>
     <string name="title_advanced_notify_samsung_hint">要管理通知渠道，您可能需要启用此 Android 设置：通知、高级设置、管理每个应用的通知类别</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">要设置默认声音，请配置勿扰模式等。</string>
+    <string name="title_advanced_notify_manage_default_hint">要设置默认声音，请配置勿扰模式等。</string>
     <string name="title_advanced_notify_manage_service_hint">禁用“监视”通知</string>
     <string name="title_advanced_notify_separate_hint">如何配置账户、文件夹和发送者的通知？</string>
     <string name="title_advanced_notify_preview_all_hint">为可穿戴设备显示完整文本(最多5,000个字符)</string>

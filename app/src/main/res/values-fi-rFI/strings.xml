@@ -744,7 +744,6 @@
         Salausmenetelmä voidaan valita ennen lähettämistä painamalla pitkään lähetä-painiketta.
     </string>
     <string name="title_advanced_sign_default">Allekirjoita oletuksena</string>
-    <string name="title_advanced_encrypt_default">Salaa oletuksena</string>
     <string name="title_advanced_encrypt_auto">Salaa automaattisesti, kun kaikkien vastaanottajien avaimet ovat saatavilla</string>
     <string name="title_advanced_encrypt_reply">Salaa automaattisesti, kun vastaat salattuun viestiin</string>
     <string name="title_advanced_auto_verify">Todenna allekirjoitetut viestit automaattisesti</string>

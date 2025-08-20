@@ -583,7 +583,6 @@
     <string name="title_advanced_clear_all">Xóa dữ liệu ứng dụng</string>
     <string name="title_advanced_clear_all_remark">Dữ liệu ứng dụng sẽ bị xóa và không thể phục hồi!</string>
     <string name="title_advanced_sign_default">Ký theo mặc định</string>
-    <string name="title_advanced_encrypt_default">Mã hoá theo mặc định</string>
     <string name="title_advanced_auto_decrypt">Tự động giải mã thư</string>
     <string name="title_advanced_auto_undo_decrypt">Hoàn tác giải mã khi đóng cuộc hội thoại</string>
     <string name="title_advanced_openpgp">Nhà cung cấp OpenPGP</string>

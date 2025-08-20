@@ -14,6 +14,7 @@
     <string name="app_cake_required">Krævet minimum af lagerplads: %1$s</string>
     <string name="app_updated">Senest opdateret: %1$s</string>
     <string name="app_download">Downloadet fra: %1$s</string>
+    <string name="app_error">De fleste fejlmeddelelser skyldes eksterne forhold (netværk, server mv.) eller er forårsaget af en forkert, ofte ikke-standard, opsætning. En dårlig bedømmelse løser ikke sådanne problemer. Anmodning om support er næsten altid mere effektivt.</string>
     <string name="app_motd">        Med Android 14/15 beta forekommer lejlighedsvise \'App svarer ikke\'-notifikationer.
         Google arbejder på en rettelse.
         Bebrejd derfor ikke appen for dette Android-problem!
@@ -753,7 +754,7 @@
         Krypteringsmetoden kan vælges før afsendelse via dialogboksen send (langt tryk på knappen Send).
     </string>
     <string name="title_advanced_sign_default">Signér som standard</string>
-    <string name="title_advanced_encrypt_default">Kryptér som standard</string>
+    <string name="title_advanced_encrypt_default">Signér og kryptér som standard</string>
     <string name="title_advanced_encrypt_auto">Kryptér automatisk, når alle modtageres nøgler er tilgængelige</string>
     <string name="title_advanced_encrypt_reply">Kryptér automatisk, når en krypteret besked besvares</string>
     <string name="title_advanced_auto_verify">Bekræft automatisk signerede beskeder</string>

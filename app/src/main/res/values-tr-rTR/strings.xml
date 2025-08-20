@@ -14,6 +14,7 @@
     <string name="app_cake_required">Minimum gerekli depolama alanı: %1$s</string>
     <string name="app_updated">Son güncelleme %1$s</string>
     <string name="app_download">Şuradan indirildi: %1$s</string>
+    <string name="app_error">Çoğu hata mesajının harici nedenleri vardır (ağ, sunucu vb.) veya yanlış, genellikle standart olmayan bir yapılandırmadan kaynaklanır. Kötü bir inceleme bu tür sorunları çözmez. Destek istemek neredeyse her zaman daha etkilidir.</string>
     <string name="app_motd">Android 14/15 beta sürümünde zaman zaman \'Uygulama yanıt vermiyor\' bildirimleri ortaya çıkıyor. Google bir düzeltme üzerinde çalışıyor. Lütfen bu Android sorunu için uygulamayı suçlamayın!    </string>
     <string name="channel_service">Monitör</string>
     <string name="channel_send">Gönder</string>
@@ -748,7 +749,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         Şifreleme yöntemi, gönderme seçenekleri iletişim kutusunda göndermeden önce seçilebilir (gönder düğmesine uzun basın).
     </string>
     <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
-    <string name="title_advanced_encrypt_default">Varsayılan olarak şifrele</string>
+    <string name="title_advanced_encrypt_default">Varsayılan olarak imzala ve şifrele</string>
     <string name="title_advanced_encrypt_auto">Tüm alıcıların anahtarları kullanılabilir olduğunda otomatik olarak şifrele</string>
     <string name="title_advanced_encrypt_reply">Şifrelenmiş bir mesaja yanıt verirken otomatik olarak şifreleme</string>
     <string name="title_advanced_auto_verify">İmzalı mesajları otomatik olarak doğrula</string>
@@ -934,7 +935,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_notify_remove_hint">Kaydırıldığında ya da mesajlar okundu olarak işaretlendiğinde yeni mesaj bildirimleri her zaman kaldırılacaktır</string>
     <string name="title_advanced_notify_manage_hint">Kanal özelliklerini ayarlamak için kanal adına dokunun</string>
     <string name="title_advanced_notify_samsung_hint">Bildirim kanallarını yönetmek için bu Android ayarını etkinleştirmeniz gerekebilir: Bildirim, Gelişmiş ayarlar, Her uygulama için bildirim kategorilerini yönet</string>
-    <string name="title_advanced_notify_manage_default_hint" comment="title_advanced_notify_manage_default_hint&#10;Remark for the default notification channel settings button">Varsayılan sesi ayarlamak, DND\'yi (rahatsız etmeyin) yapılandırmak vb. için.</string>
+    <string name="title_advanced_notify_manage_default_hint">Varsayılan sesi ayarlamak, DND\'yi (rahatsız etmeyin) yapılandırmak vb. için.</string>
     <string name="title_advanced_notify_manage_service_hint">\'İzleme\' bildirimini devre dışı bırakmak için</string>
     <string name="title_advanced_notify_separate_hint">Hesaplar, klasörler ve gönderenler için bildirimleri nasıl yapılandırırım?</string>
     <string name="title_advanced_notify_preview_all_hint">Tüm metni gösterebilen giyilebilir cihazlar için (5.000 karaktere kadar)</string>
