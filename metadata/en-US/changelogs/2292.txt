@@ -30,6 +30,10 @@ Ceratonykus
 
 Next version (Work in progress)
 
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
 1.2292 2025-08-18 *
 
 * Fixed unchanged external drafts being saved
