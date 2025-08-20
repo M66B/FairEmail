@@ -98,6 +98,7 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                         connection.setDoOutput(true);
                         connection.setReadTimeout(UNSUBSCRIBE_TIMEOUT);
                         connection.setConnectTimeout(UNSUBSCRIBE_TIMEOUT);
+                        connection.setInstanceFollowRedirects(true);
                         ConnectionHelper.setUserAgent(context, connection);
                         connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
                         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -107,7 +108,7 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                             connection.getOutputStream().write(request.getBytes());
 
                             int status = connection.getResponseCode();
-                            if (status < 200 || status > 299) {
+                            if (status >= 400) {
                                 String error = "Error " + status + ": " + connection.getResponseMessage();
                                 Log.i("Unsubscribe error=" + error);
                                 InputStream stream = connection.getErrorStream();
