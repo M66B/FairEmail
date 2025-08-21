@@ -104,6 +104,7 @@
 
     <style name="AppThemeBaseDark" parent="Theme.AppCompat.NoActionBar">
         <item name="themeName">dark</item>
+        <item name="isLightTheme">false</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="android:windowSplashScreenBackground" tools:targetApi="s">
             @color/splashBackground
