@@ -1639,6 +1639,7 @@
     <string name="title_keywords_btn">Keywords</string>
     <string name="title_labels_btn">Labels (Gmail only)</string>
     <string name="title_unsubscribe">Unsubscribe</string>
+    <string name="title_unsubscribe_error">The unsubscribe link in the message does not work. Error %1$s</string>
     <string name="title_message_rule">Create rule</string>
     <string name="title_no_junk">Not spam</string>
     <string name="title_edit_subject">Edit subject &#8230;</string>

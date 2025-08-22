@@ -108,12 +108,10 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                             connection.getOutputStream().write(request.getBytes());
 
                             int status = connection.getResponseCode();
-                            if (status >= 400) {
-                                String error = "Error " + status + ": " + connection.getResponseMessage();
+                            if (status >= 300) {
+                                String error = status + ": " + connection.getResponseMessage();
                                 Log.i("Unsubscribe error=" + error);
-                                InputStream stream = connection.getErrorStream();
-                                String detail = (stream == null || status == 404 ? null : Helper.readStream(stream));
-                                throw new IOException(error + " " + detail);
+                                throw new IllegalArgumentException(error);
                             } else
                                 Log.i("Unsubscribe status=" + status);
 
@@ -132,7 +130,12 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         dialog.dismiss();
-                        Log.unexpectedError(getParentFragmentManager(), ex);
+                        if (ex instanceof IllegalArgumentException)
+                            ToastEx.makeText(context,
+                                    context.getString(R.string.title_unsubscribe_error, ex.getMessage()),
+                                    Toast.LENGTH_LONG).show();
+                        else
+                            Log.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }.execute(FragmentDialogUnsubscribe.this, args, "unsubscribe");
             }
