@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,9 +33,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -87,38 +87,58 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                     protected String onExecute(Context context, Bundle args) throws Throwable {
                         final String uri = args.getString("uri");
                         final String request = "List-Unsubscribe=One-Click";
-                        Log.i("Unsubscribe request=" + request + " uri=" + uri);
 
                         // https://datatracker.ietf.org/doc/html/rfc8058
 
+                        int redirects = 0;
                         URL url = new URL(uri);
-                        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-                        connection.setRequestMethod("POST");
-                        connection.setDoInput(true);
-                        connection.setDoOutput(true);
-                        connection.setReadTimeout(UNSUBSCRIBE_TIMEOUT);
-                        connection.setConnectTimeout(UNSUBSCRIBE_TIMEOUT);
-                        connection.setInstanceFollowRedirects(true);
-                        ConnectionHelper.setUserAgent(context, connection);
-                        connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
-                        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                        connection.connect();
+                        do {
+                            Log.i("Unsubscribe request=" + request + " uri=" + uri);
 
-                        try {
-                            connection.getOutputStream().write(request.getBytes());
+                            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                            connection.setRequestMethod("POST");
+                            connection.setDoInput(true);
+                            connection.setDoOutput(true);
+                            connection.setReadTimeout(UNSUBSCRIBE_TIMEOUT);
+                            connection.setConnectTimeout(UNSUBSCRIBE_TIMEOUT);
+                            connection.setInstanceFollowRedirects(true);
+                            ConnectionHelper.setUserAgent(context, connection);
+                            connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
+                            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                            connection.connect();
 
-                            int status = connection.getResponseCode();
-                            if (status >= 300) {
-                                String error = status + ": " + connection.getResponseMessage();
-                                Log.i("Unsubscribe error=" + error);
-                                throw new IllegalArgumentException(error);
-                            } else
-                                Log.i("Unsubscribe status=" + status);
+                            try {
+                                connection.getOutputStream().write(request.getBytes());
 
-                            return Helper.readStream(connection.getInputStream());
-                        } finally {
-                            connection.disconnect();
-                        }
+                                int status = connection.getResponseCode();
+                                if (status == HttpURLConnection.HTTP_MOVED_PERM ||
+                                        status == HttpURLConnection.HTTP_MOVED_TEMP ||
+                                        status == HttpURLConnection.HTTP_SEE_OTHER ||
+                                        status == 307 /* Temporary redirect */ ||
+                                        status == 308 /* Permanent redirect */) {
+                                    String header = connection.getHeaderField("Location");
+                                    if (header != null) {
+                                        String location = URLDecoder.decode(header, StandardCharsets.UTF_8.name());
+                                        Log.i("Unsubscribe redirect=" + location);
+                                        url = new URL(url, location);
+                                        continue;
+                                    }
+                                }
+
+                                if (status >= 300) {
+                                    String error = status + ": " + connection.getResponseMessage();
+                                    Log.i("Unsubscribe error=" + error);
+                                    throw new IllegalArgumentException(error);
+                                } else
+                                    Log.i("Unsubscribe status=" + status);
+
+                                return Helper.readStream(connection.getInputStream());
+                            } finally {
+                                connection.disconnect();
+                            }
+                        } while (++redirects <= ConnectionHelper.MAX_REDIRECTS);
+
+                        return null;
                     }
 
                     @Override
