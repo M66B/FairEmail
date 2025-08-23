@@ -30,6 +30,7 @@ Ceratonykus
 
 Next version (Work in progress)
 
+* One-click unsubscribe improvements
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
 * Updated translations

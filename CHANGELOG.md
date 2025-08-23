@@ -30,6 +30,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* One-click unsubscribe improvements
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
