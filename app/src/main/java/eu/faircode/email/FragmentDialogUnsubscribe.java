@@ -101,7 +101,6 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                             connection.setDoOutput(true);
                             connection.setReadTimeout(UNSUBSCRIBE_TIMEOUT);
                             connection.setConnectTimeout(UNSUBSCRIBE_TIMEOUT);
-                            connection.setInstanceFollowRedirects(true);
                             ConnectionHelper.setUserAgent(context, connection);
                             connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
                             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
