@@ -236,7 +236,7 @@ or.at
 
 // au : https://www.iana.org/domains/root/db/au.html
 // https://www.auda.org.au/
-// Confirmed by registry <general@auda.org.au> 2024-11-17
+// Confirmed by registry <general@auda.org.au> 2025-07-16
 au
 // 2LDs
 asn.au
@@ -279,7 +279,7 @@ vic.gov.au
 wa.gov.au
 // 4LDs
 // education.tas.edu.au - Removed at the request of the Department of Education Tasmania
-schools.nsw.edu.au
+// schools.nsw.edu.au - Removed at the request of the New South Wales Department of Education.
 
 // aw : https://www.iana.org/domains/root/db/aw.html
 aw
