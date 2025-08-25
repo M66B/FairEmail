@@ -1336,6 +1336,7 @@
     <string name="title_keywords_btn">Parole chiave</string>
     <string name="title_labels_btn">Etichette (solo Gmail)</string>
     <string name="title_unsubscribe">Disiscriviti</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Il link presente nel messaggio per cancellare l\'iscrizione non funziona. Errore %1$s</string>
     <string name="title_message_rule">Crea una regola</string>
     <string name="title_no_junk">Non spam</string>
     <string name="title_edit_subject">Modifica l\'oggetto&#8230;</string>

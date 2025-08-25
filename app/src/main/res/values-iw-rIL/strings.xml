@@ -14,6 +14,7 @@
     <string name="app_cake_required">נפח האחסון המזערי הנחוץ: %1$s</string>
     <string name="app_updated">עדכון אחרון: %1$s</string>
     <string name="app_download">מקור ההורדה: %1$s</string>
+    <string name="app_error">רוב הודעות השגיאה נובעות ממקורות חיצוניים (רשת, שרת וכו׳) או מהגדרות שגויות ומיוחדות. ביקורת שלילית לא עוזרת לפתור בעיות כאלה. בקשת תמיכה כמעט תמיד יעילה יותר.</string>
     <string name="app_motd">        עם הבטא של Android 14/15, עולות לפעמים הודעות ‚היישומון לא מגיב’.
         Google עובדים על תיקון.
         אנחנו לא אשמים בתקלה הזאת מצד Android!
@@ -781,6 +782,7 @@
         אפשר לבחור את שיטת ההצפנה בטרם השליחה בחלונית אפשרויות השליחה (לחיצה ארוכה על כפתור השליחה).
     </string>
     <string name="title_advanced_sign_default">חתימה כברירת מחדל</string>
+    <string name="title_advanced_encrypt_default">חתימה והצפנה כברירת מחדל</string>
     <string name="title_advanced_encrypt_auto">להצפין אוטומטית כשכל מפתחות הנמענים זמינים</string>
     <string name="title_advanced_encrypt_reply">להצפין אוטומטית בעת כתיבת תשובה להודעה מוצפנת</string>
     <string name="title_advanced_auto_verify">לאמת הודעות חתומות אוטומטית</string>
@@ -1361,6 +1363,7 @@
     <string name="title_keywords_btn">מילות מפתח</string>
     <string name="title_labels_btn">תוויות (Gmail בלבד)</string>
     <string name="title_unsubscribe">ביטול מינוי</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">הקישור לביטול המינוי בהודעה לא עובד. שגיאה: %1$s</string>
     <string name="title_message_rule">יצירת כלל</string>
     <string name="title_no_junk">לא ספאם</string>
     <string name="title_edit_subject">עריכת הנושא&#8230;</string>

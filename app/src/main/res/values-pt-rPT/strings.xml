@@ -1334,6 +1334,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_keywords_btn">Palavras-chave</string>
     <string name="title_labels_btn">Etiquetas (só no Gmail)</string>
     <string name="title_unsubscribe">Cancelar Subscrição</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">O link na mensagem para cancelar a subscrição não funciona. Erro %1$s</string>
     <string name="title_message_rule">Criar regra</string>
     <string name="title_no_junk">Não é spam</string>
     <string name="title_edit_subject">Editar assunto &#8230;</string>

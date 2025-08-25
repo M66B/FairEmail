@@ -1337,6 +1337,7 @@
     <string name="title_keywords_btn">Schlagwörter</string>
     <string name="title_labels_btn">Labels (nur für Gmail)</string>
     <string name="title_unsubscribe">Abbestellen</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Der Abbestellen-Link in der Nachricht funktioniert nicht. Fehler %1$s</string>
     <string name="title_message_rule">Regel erstellen</string>
     <string name="title_no_junk">Kein Spam</string>
     <string name="title_edit_subject">Betreff bearbeiten &#8230;</string>

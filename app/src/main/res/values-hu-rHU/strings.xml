@@ -1328,6 +1328,7 @@
     <string name="title_keywords_btn">Kulcsszavak</string>
     <string name="title_labels_btn">Címkék (csak Gmail)</string>
     <string name="title_unsubscribe">Leiratkozás</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">A leiratkozás hivatkozás az üzenetben nem működik. Hibaüzenet: %1$s</string>
     <string name="title_message_rule">Szabály létrehozása</string>
     <string name="title_no_junk">Nem levélszemét</string>
     <string name="title_edit_subject">Tárgy szerkesztése &#8230;</string>

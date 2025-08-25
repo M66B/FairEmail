@@ -940,6 +940,7 @@
     <string name="title_copy_btn">روگرفت</string>
     <string name="title_labels_btn">برچسب (فقط جیمیل)</string>
     <string name="title_unsubscribe">لغو اشتراک</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">لینک لغو اشتراک در پیام کار نمی‌کند. خطای %1$s</string>
     <string name="title_message_rule">ساخت قانون</string>
     <string name="title_no_junk">هرزنامه نیست</string>
     <string name="title_edit_subject">ویرایش موضوع &#8230;</string>

@@ -1318,6 +1318,7 @@
     <string name="title_keywords_btn">关键词</string>
     <string name="title_labels_btn">标签 (仅 Gmail)</string>
     <string name="title_unsubscribe">取消订阅</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">消息中的取消订阅链接不工作。错误 %1$s</string>
     <string name="title_message_rule">创建规则</string>
     <string name="title_no_junk">不是垃圾邮件</string>
     <string name="title_edit_subject">编辑标题 &#8230;</string>

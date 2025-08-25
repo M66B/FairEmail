@@ -1335,6 +1335,7 @@
     <string name="title_keywords_btn">Açar sözlər</string>
     <string name="title_labels_btn">Etiketlər (yalnız Gmail)</string>
     <string name="title_unsubscribe">Abunəlikdən çıx</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Mesajdakı abunəlikdən çıxma keçidi işləmir. Xəta %1$s</string>
     <string name="title_message_rule">Qayda yarat</string>
     <string name="title_no_junk">Spam deyil</string>
     <string name="title_edit_subject">Mövzuya düzəliş et &#8230;</string>

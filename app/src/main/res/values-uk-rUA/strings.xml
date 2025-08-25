@@ -1362,6 +1362,7 @@
     <string name="title_keywords_btn">Ключові слова</string>
     <string name="title_labels_btn">Мітки (тільки для Gmail)</string>
     <string name="title_unsubscribe">Відписатися</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Посилання для відписки, що міститься в повідомленні, не працює. Помилка %1$s</string>
     <string name="title_message_rule">Створити правило</string>
     <string name="title_no_junk">Не спам</string>
     <string name="title_edit_subject">Редагувати тему &#8230;</string>
