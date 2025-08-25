@@ -42,7 +42,7 @@ import java.util.Objects;
 
 public class Gemini {
     // https://ai.google.dev/models/gemini
-    static final String DEFAULT_MODEL = "gemini-pro";
+    static final String DEFAULT_MODEL = "gemini-2.5-pro";
     static final float DEFAULT_TEMPERATURE = 0.9f;
     static final String DEFAULT_SUMMARY_PROMPT = "Summarize the following text:";
     static final String DEFAULT_ANSWER_PROMPT = "Answer this message:";
