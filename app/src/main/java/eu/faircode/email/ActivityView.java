@@ -1823,7 +1823,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             JSONObject jasset = jassets.getJSONObject(i);
                             if (jasset.has("name") && !jasset.isNull("name")) {
                                 String name = jasset.getString("name");
-                                if (name.endsWith(".apk") && name.contains("github")) {
+                                if (name.endsWith(".apk") &&
+                                        (Boolean.TRUE.equals(Helper.isLarge(context))
+                                                ? name.contains("large") : name.contains("github"))) {
                                     info.download_url = jasset.optString("browser_download_url");
                                     Log.i("Latest version=" + info.tag_name);
                                     if (BuildConfig.DEBUG)

@@ -437,13 +437,7 @@ public class DebugHelper {
                     Helper.formatDuration(running), Helper.formatDuration(cpu), util));
         }
 
-        Boolean largeHeap;
-        try {
-            ApplicationInfo info = pm.getApplicationInfo(context.getPackageName(), 0);
-            largeHeap = (info.flags & ApplicationInfo.FLAG_LARGE_HEAP) != 0;
-        } catch (Throwable ex) {
-            largeHeap = null;
-        }
+        Boolean largeHeap = Helper.isLarge(context);
 
         ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();

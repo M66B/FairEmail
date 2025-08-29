@@ -1830,6 +1830,16 @@ public class Helper {
         return (Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE);
     }
 
+    static Boolean isLarge(Context context) {
+        try {
+            PackageManager pm = context.getPackageManager();
+            ApplicationInfo info = pm.getApplicationInfo(context.getPackageName(), 0);
+            return (info.flags & ApplicationInfo.FLAG_LARGE_HEAP) != 0;
+        } catch (Throwable ex) {
+            return null;
+        }
+    }
+
     static String getMIUIVersion() {
         try {
             Class<?> c = Class.forName("android.os.SystemProperties");
