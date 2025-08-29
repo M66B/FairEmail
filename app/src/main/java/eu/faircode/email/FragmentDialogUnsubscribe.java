@@ -33,6 +33,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
+import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
@@ -149,7 +150,7 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         dialog.dismiss();
-                        if (ex instanceof IllegalArgumentException)
+                        if (ex instanceof IllegalArgumentException || ex instanceof ConnectException)
                             ToastEx.makeText(context,
                                     context.getString(R.string.title_unsubscribe_error, ex.getMessage()),
                                     Toast.LENGTH_LONG).show();
