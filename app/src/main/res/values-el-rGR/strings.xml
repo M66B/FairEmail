@@ -14,6 +14,7 @@
     <string name="app_cake_required">Ελάχιστος απαιτούμενος χώρος αποθήκευσης: %1$s</string>
     <string name="app_updated">Τελευταία ενημέρωση: %1$s</string>
     <string name="app_download">Λήφθηκε από: %1$s</string>
+    <string name="app_error">Τα περισσότερα μηνύματα σφάλματος έχουν εξωτερικές αιτίες (δίκτυο, διακομιστής κλπ) ή προκαλούνται από μια εσφαλμένη, συνήθως μη τυπική, ρύθμιση. Μια κακή κριτική δεν επιλύει τέτοια προβλήματα. Ένα αίτημα για υποστήριξη είναι σχεδόν πάντα πιο αποτελεσματικό.</string>
     <string name="app_motd">        Με την beta έκδοση του Android 14/15, περιστασιακά εμφανίζονται ειδοποιήσεις \"Η εφαρμογή δεν ανταποκρίνεται\".
         Η Google προσπαθεί να το διορθώσει.
         Παρακαλούμε μην κατηγορείτε την εφαρμογή για αυτό το πρόβλημα του Android!
@@ -752,6 +753,7 @@
         Η μέθοδος κρυπτογράφησης μπορεί να επιλεχθεί πριν την αποστολή, στο παράθυρο διαλόγου των επιλογών αποστολής (παρατεταμένο πάτημα στο κουμπί αποστολής).
     </string>
     <string name="title_advanced_sign_default">Υπογραφή από προεπιλογή</string>
+    <string name="title_advanced_encrypt_default">Υπογραφή και κρυπτογράφηση από προεπιλογή</string>
     <string name="title_advanced_encrypt_auto">Αυτόματη κρυπτογράφηση όταν τα κλειδιά όλων των παραληπτών είναι διαθέσιμα</string>
     <string name="title_advanced_encrypt_reply">Αυτόματη κρυπτογράφηση κατά την απάντηση σε ένα κρυπτογραφημένο μήνυμα</string>
     <string name="title_advanced_auto_verify">Αυτόματη επαλήθευση υπογεγραμμένων μηνυμάτων</string>
@@ -1329,6 +1331,7 @@
     <string name="title_keywords_btn">Λέξεις-κλειδιά</string>
     <string name="title_labels_btn">Ετικέτες (μόνο στο Gmail)</string>
     <string name="title_unsubscribe">Κατάργηση συνδρομής</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Ο σύνδεσμος κατάργησης συνδρομής εντός του μηνύματος δεν λειτουργεί. Σφάλμα %1$s</string>
     <string name="title_message_rule">Δημιουργία κανόνα</string>
     <string name="title_no_junk">Όχι ανεπιθύμητο</string>
     <string name="title_edit_subject">Επεξεργασία θέματος &#8230;</string>
