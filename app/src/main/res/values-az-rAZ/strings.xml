@@ -3,7 +3,7 @@
     <string name="app_search">FairEmail axtarışı</string>
     <string name="app_send_self">Özünə göndər</string>
     <string name="app_changelog">Dəyişiklik jurnalı</string>
-    <string name="app_welcome">FairEmail, gizlilik və təhlükəsizliyə fokuslanmış bir açıq mənbəli e-poçt tətbiqidir. Buna görə də bəzi xüsusiyyətlər, istifadə etdiyinizdən fərqli şəkildə işləyə bilər.</string>
+    <string name="app_welcome">FairEmail, məxfilik və təhlükəsizliyə fokuslanmış bir açıq mənbəli e-poçt tətbiqidir. Buna görə də bəzi özəlliklər, istifadə etdiyinizdən fərqli şəkildə işləyə bilər.</string>
     <string name="app_limitations">Nümunə üçün, güvənli olmayan elementləri çıxartmaq və oxunaqlılığı artırmaq üçün mesajlar ilkin olaraq yenidən formatlanır və keçidlərin açılmasının güvənlik baxımından təsdiqlənməsi lazım olur. İstəsəniz, hər ikisini sıradan çıxarda bilərsiniz.</string>
     <string name="app_unsupported">Bu cihazın Android versiyasındakı xətalar çökmələrə səbəb olur</string>
     <string name="app_data_loss">Bütün verilər itə bilər</string>
@@ -138,7 +138,7 @@
     <string name="menu_translate">Tərcüməyə kömək</string>
     <string name="menu_issue">Problemi bildir</string>
     <string name="menu_attribution">Xüsusiyyət</string>
-    <string name="menu_privacy">Gizlilik</string>
+    <string name="menu_privacy">Məxfilik</string>
     <string name="menu_about">Haqqında</string>
     <string name="menu_pro">Pro xüsusiyyətlər</string>
     <string name="menu_rate">Bu tətbiqi qiymətləndir</string>
@@ -149,7 +149,7 @@
     <string name="title_agree">Razıyam</string>
     <string name="title_disagree">Razı deyiləm</string>
     <string name="title_version">Versiya %1$s</string>
-    <string name="title_privacy_policy">Gizlilik siyasəti</string>
+    <string name="title_privacy_policy">Məxfilik siyasəti</string>
     <string name="title_list_accounts">Hesablar</string>
     <string name="title_list_identities">Kimliklər</string>
     <string name="title_edit_account">Hesaba düzəliş et</string>
@@ -162,7 +162,7 @@
     <string name="title_setup_quick">Cəld quraşdırma</string>
     <string name="title_setup_intro">Bir hesabın hazırlanması üç addımdan ibarətdir və bundan sonra e-poçtları göndərə və ala bilərsiniz</string>
     <string name="title_setup_simple">Başqa hər hansısa bir seçimi dəyişdirməyə ehtiyac yoxdur</string>
-    <string name="title_setup_issue">FairEmail, gizliliyinizi qorumağa kömək etməsi üçün təkmilləşdirildi və sözün əsl mənasında minlərlə saatlıq çalışmanı təmsil edir. Əgər tətbiqlə bağlı hər hansısa probleminiz varsa, mənfi bir rəy bildirməzdən əvvəl lütfən dəstək üçün mənimlə əlaqə saxlayın. Məmnuniyyətlə kömək edərəm!</string>
+    <string name="title_setup_issue">FairEmail, məxfiliyinizi qorumağınıza kömək etmək üçün təkmilləşdirilib və sözün əsl mənasında minlərlə saatlıq çalışmanı təmsil edir. Əgər tətbiqlə bağlı hər hansısa probleminiz varsa, mənfi bir rəy bildirməzdən əvvəl lütfən dəstək üçün mənimlə əlaqə saxlayın. Məmnuniyyətlə kömək edəcəm!</string>
     <string name="title_setup_analytics">FairEmail reklam göstərmir, davranışlarınızı izləmir və ya təhlil etmir.</string>
     <string name="title_setup_quick_accounts">Hesab əlavə et və ya dəyişdir</string>
     <string name="title_setup_quick_support">Bəzi provayderlər hesab əlavə etməyi çətinləşdirir. Xahiş edirik, buna görə \"FairEmail\"i günahlandırmayın, əvəzində dəstək istəyin.</string>
@@ -210,7 +210,7 @@
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişməsi üçün səlahiyyət verin</string>
     <string name="title_setup_oauth_update">Mövcud bir hesaba yenidən səlahiyyət verin (əks halda yeni bir hesab yaradın)</string>
     <string name="title_setup_oauth_updated">Hesab səlahiyyətləndirmə güncəlləndi</string>
-    <string name="title_setup_oauth_edge">Edge brauzeri istifadə edərkən \"Gizlilik, güvənlik və xidmətlər\" ayarlarında \"Xarici tətbiqlərin açılmasını əngəllə\" ayarının \"Bağlı\" olduğuna əmin olun.</string>
+    <string name="title_setup_oauth_edge">Edge brauzerini istifadə edərkən \"Məxfilik, təhlükəsizlik və xidmətlər\" ayarlarında \"Xarici tətbiqlərin açılmasını əngəllə\" ayarının \"Bağlı\" olduğuna əmin olun.</string>
     <string name="title_setup_oauth_brave">Brave brauzeri istifadə edərkən tətbiq keçidlərinin Brave xaricindəki tətbiqlərdə açılmasına icazə vermək üçün Brave-in ayarlarındakı seçimi fəallaşdırmalısınız</string>
     <string name="title_setup_oauth_browser">Səlahiyyətləndirmə, tətbiq keçidlərini (adətən təhlükəsizlik ayarını) açmağa imkan verən bir brauzer tələb edir, beləliklə, nəhayət səlahiyyətləndirmə tokeni tətbiqə köçürülə bilər</string>
     <string name="title_setup_oauth_authorize">Səlahiyyət ver</string>
@@ -360,7 +360,7 @@
     <string name="title_advanced_section_connection">Bağlantı</string>
     <string name="title_advanced_section_display">Görüntü</string>
     <string name="title_advanced_section_behavior">Davranış</string>
-    <string name="title_advanced_section_privacy">Gizlilik</string>
+    <string name="title_advanced_section_privacy">Məxfilik</string>
     <string name="title_advanced_section_encryption">Şifrələmə</string>
     <string name="title_advanced_section_notifications">Bildirişlər</string>
     <string name="title_advanced_section_misc">Qarışıq</string>
@@ -773,8 +773,8 @@
     <string name="title_advanced_check_certificate">Göndərəndə ictimai açarları yoxla</string>
     <string name="title_advanced_check_key_usage">Göndərərkən açar istifadə göstəricilərini yoxla</string>
     <string name="title_advanced_manage_certificates">İctimai açarları idarə et</string>
-    <string name="title_advanced_import_key">Şəxsi açarı daxilə köçür</string>
-    <string name="title_advanced_manage_keys">Şəxsi açarları idarə et</string>
+    <string name="title_advanced_import_key">Private açarı daxilə köçür</string>
+    <string name="title_advanced_manage_keys">Private açarları idarə et</string>
     <string name="title_advanced_ca">Quraşdırılmış CA sertifikatları</string>
     <string name="title_advanced_manage_keys_hint">        Bu, Android güvənlik ayarlarını açır.
         Açar və sertifikatlar adətən Qabaqcıl - Şifrələmə və kimlik məlumatları altında tapıla bilər.
@@ -905,7 +905,7 @@
     <string name="title_advanced_free">Bu bulud xidmətinin istifadəsi ödənişsizdir</string>
     <string name="title_advanced_free_tier">Bu bulud xidmətinin ödənişsiz bir qatı var</string>
     <string name="title_advanced_paid_service">Bu bulud xidməti ödəniş tələb edir</string>
-    <string name="title_advanced_privacy_risk">Bir gizlilik riski ola bilər</string>
+    <string name="title_advanced_privacy_risk">Bir məxfilik riski ola bilər</string>
     <string name="title_advanced_name_email_hint">Adlar, yalnız mövcud olanda göstəriləcək</string>
     <string name="title_advanced_preview_hint">Yalnız mesaj mətni endiriləndə əlçatandır</string>
     <string name="title_advanced_preview_lines_hint">Cəmi maksimum %s simvol</string>
@@ -930,7 +930,7 @@
     <string name="title_advanced_internal_hint">Başqa bir domenə göndəriləndə bir xəbərdarlıq olacaq</string>
     <string name="title_advanced_uri">Seçilmiş kontaktın detalları vCard qoşmaları üçün istifadə olunacaq</string>
     <string name="title_advanced_e2e_encryption">Bir ucdan digər uca kimi şifrələmə üçün seçimlər</string>
-    <string name="title_advanced_display_harmful_hint">Bu seçimi sıradan çıxartmaq, gizliliyiniz üçün zərərli ola bilər</string>
+    <string name="title_advanced_display_harmful_hint">Bu seçimi sıradan çıxartmaq, məxfiliyiniz üçün zərərli ola bilər</string>
     <string name="title_advanced_display_hidden_hint">Bu, qəribə görünən və təkrarlanan mətnlərə səbəb ola bilər</string>
     <string name="title_advanced_display_pin_hint">PIN, biometrik kimlik doğrulamasından əvvəl gəlir</string>
     <string name="title_advanced_user_agent_hint">Bəzi istifadəçilər ümumi istifadəçi agent sətrini qəbul etmir</string>
@@ -1405,11 +1405,11 @@
     <string name="title_ask_delete_rule">Qayda birdəfəlik silinsin?</string>
     <string name="title_ask_delete_attachments">Bütün qoşmalar silinsin?</string>
     <string name="title_ask_discard">Qaralama silinsin?</string>
-    <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, gizlilik həssaslı məlumatları sızdıra bilər</string>
+    <string name="title_ask_show_html">Orijinal mesajın göstərilməsi, məxfilik həssaslı məlumatları sızdıra bilər</string>
     <string name="title_ask_show_html_remark">Orijinal mesajın tünd arxaplanda görüntülənməsi mümkün deyildir, çünki tünd tema mətn və təsvirlərin görünməz olmasına səbəb ola bilər</string>
     <string name="title_ask_show_html_images">Orijinal mesajları göstərəndə təsvirləri həmişə göstər</string>
     <string name="title_ask_show_html_always">İlkin olaraq orijinal mesajları göstər</string>
-    <string name="title_ask_show_image">Təsvirlərin göstərilməsi, gizlilik həssaslı məlumatların sızdıra bilər</string>
+    <string name="title_ask_show_image">Təsvirlərin göstərilməsi, məxfilik həssaslı məlumatları sızdıra bilər</string>
     <string name="title_ask_show_images_always">İlkin olaraq təsvirləri göstər</string>
     <string name="title_ask_show_image_hint">İzləmə təsvirləri kimi bilinən təsvirlər göstərilməyəcək</string>
     <string name="title_ask_show_amp">Mesajın AMP variantı göstərilsin?</string>
@@ -1513,7 +1513,7 @@
     <string name="title_add_image_attach">Qoşma</string>
     <string name="title_add_image_resize">Yenidən ölçüləndir</string>
     <string name="title_add_image_resize_width_only">Yalnız eni limitlə</string>
-    <string name="title_add_image_privacy">Gizlilik üçün həssas veriləri silin</string>
+    <string name="title_add_image_privacy">Məxfilik üzrə həssas veriləri silin</string>
     <string name="title_add_image_privacy_remark">Coğrafi yerləşmə, seriya nömrələri, fayl adları və s.</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>
     <string name="title_add_image_resize_remark">%1$s üçün yenidən ölçüləndirmə dəstəklənir</string>
@@ -1555,9 +1555,9 @@
     <string name="title_select_certificate">İctimai açar seç</string>
     <string name="title_certificate_missing">%1$s üçün ictimai açar yoxdur</string>
     <string name="title_certificate_invalid">%1$s üçün ictimai açar yararsızdır</string>
-    <string name="title_no_key">Şəxsi açar yoxdur</string>
-    <string name="title_invalid_key">Yararsız şəxsi açar</string>
-    <string name="title_unknown_key">Şəxsi açar, heç bir şifrələmə açarı ilə uyuşmur</string>
+    <string name="title_no_key">Private açar yoxdur</string>
+    <string name="title_invalid_key">Yararsız private açar</string>
+    <string name="title_unknown_key">Private açar, heç bir şifrələmə açarı ilə uyuşmur</string>
     <string name="title_key_missing">%1$s üçün açar yoxdur</string>
     <string name="title_send_reminder_remark">Xatırladıcılar göndəriş ayarlarında yenidən fəallaşdırıla bilər</string>
     <string name="title_send_plain_text">Yalnız düz mətn</string>
@@ -1906,8 +1906,8 @@
     <string name="title_legend_draft">Qaralaması var</string>
     <string name="title_legend_priority">Yüksək əhəmiyyətə sahibdir</string>
     <string name="title_legend_priority_low">Aşağı əhəmiyyətə sahibdir</string>
-    <string name="title_legend_sensitivity_personal">Şəxsidir</string>
-    <string name="title_legend_sensitivity_private">Şəxsidir</string>
+    <string name="title_legend_sensitivity_personal">Fərdidir</string>
+    <string name="title_legend_sensitivity_private">Məxfidir</string>
     <string name="title_legend_sensitivity_confidential">Məxfidir</string>
     <string name="title_legend_importance">Vacib</string>
     <string name="title_legend_importance_low">Vacib deyil</string>
@@ -2006,7 +2006,7 @@
     <string name="title_hint_sync">Mesajların endirilməsi provayderinizin sürətindən, internet bağlantınızdan və mesaj sayından asılı olaraq bir az vaxt apara bilər. Mesajları endirərkən tətbiq yavaş cavab verə bilər.</string>
     <string name="title_hint_sync_note">İlkin olaraq, anbar sahəsini, batareya və veri istifadəsini məhdudlaşdırmaq üçün bütün mesajlar endirilmir. Bunu, qovluq siyahınızda bir qovluğa uzun basaraq və \"Daha çox mesaj yüklə\"ni seçərək dəyişdirə bilərsiniz.</string>
     <string name="title_hint_battery">FairEmail ilkin olaraq həmişə mesajları aldığı üçün, Android \"FairEmail\"in həmişə aktiv olduğunu bildirəcək. Buna görə də, FairEmail həmişə batareyanın enerjisini istehlak edirmiş kimi görünür, ancaq əslində bu belə deyil.</string>
-    <string name="title_hint_reformat">İlkin olaraq, FairEmail, mesajları gizlilik və güvənlik səbəbinə görə yenidən format edir. Orijinal mesaja baxmaq üçün, mesaj mətninin üstündəki \"tam ekran\" nişanına toxunun.</string>
+    <string name="title_hint_reformat">İlkin olaraq, FairEmail, mesajları məxfilik və təhlükəsizlik səbəbinə görə yenidən format edir. Orijinal mesaja baxmaq üçün, mesaj mətninin üstündəki \"tam ekran\" nişanına toxunun.</string>
     <string name="title_hint_design">Dizayn qəsdən diqqəti yayındırmır, lakin yüksək dərəcədə funksional saxlayır. Görünüşü özəlləşdirmək üçün bir neçə seçim var, ancaq hər kəsi eyni anda xoşbəxt etməyin mümkün olmadığını anlamağınızı istəyirik.</string>
     <string name="title_hint_junk">Spam filtrləmə, e-poçt serveri tərəfindən edilməlidir və məhdud imkanlara sahib batareyalı bir cihazda açıq şəkildə edilə bilməz.</string>
     <string name="title_hint_junk_learn">Mesajları spam qovluğuna və qovluğundan köçürərək, e-poçt serveri, spamın nə olduğunu \"öyrənir\"</string>
@@ -2065,7 +2065,7 @@
     <string name="title_no_ask_again">Bunu bir də soruşma</string>
     <string name="title_no_ask_for_again">%1$s üçün bunu bir də soruşma</string>
     <string name="title_no_show_again">Bunu bir də göstərmə</string>
-    <string name="title_undo_privacy">Bu, gizlilik ayarları vərəqi səhifəsindən geri alına bilər</string>
+    <string name="title_undo_privacy">Bu, məxfilik ayarları vərəqi səhifəsindən geri alına bilər</string>
     <string name="title_no_body">Heç bir mesaj mətni tapılmadı</string>
     <string name="title_large_body">Bu mesaj çox böyükdür və problemlər yarada bilər!</string>
     <string name="title_no_charset">Dəstəklənməyən kodlaşdırma: %1$s</string>
@@ -2102,8 +2102,8 @@
     <string name="title_pro_purchase">Satın al</string>
     <string name="title_pro_one_time">%1$s (birdəfəlik satın alma)</string>
     <string name="title_pro_no_play">Play Store tapılmadı</string>
-    <string name="title_pro_info">        \"FairEmail\"in təkmilləşdirilməsi sözün əsl mənasında minlərlə saat vaxt apardı və buna baxmayaraq, xüsusiyyətlərin əskəriyyəti ödənişsizdir.
-        FairEmail gizliliyinizi ciddiyə alır, reklamlar göstərmir və pul qazanmaq üçün izləmə və ya analitikanı istifadə etmir.
+    <string name="title_pro_info">        \"FairEmail\"in təkmilləşdirilməsi sözün əsl mənasında minlərlə saat vaxt apardı və buna baxmayaraq, özəlliklərin əskəriyyəti ödənişsizdir.
+        FairEmail məxfiliyinizi ciddiyə alır, reklamlar göstərmir və pul qazanmaq üçün izləmə və ya analitikanı istifadə etmir.
         \"FairEmail\"i uzun müddət qorumaq və dəstəkləmək üçün bəzi rahatlığa yönələn və qabaqcıl özəlliklərdən istifadə ödənişsiz deyil.
         FairEmail, bunu xatırlatmaq üçün kiçik bir mesaj göstərir və Pro özəllikləri satın alsanız bu mesaj görünməyəcək.
     </string>
@@ -2174,7 +2174,7 @@
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Vacib</string>
     <string name="title_keyword_label2">İş</string>
-    <string name="title_keyword_label3">Şəxsi</string>
+    <string name="title_keyword_label3">Fərdi</string>
     <string name="title_keyword_label4">Edilməli</string>
     <string name="title_keyword_label5">Sonra</string>
     <string name="title_keyword_displayed">Görüntüləndi</string>
@@ -2304,8 +2304,8 @@
     </string-array>
     <string-array name="sensitivityNames">
         <item>Normal</item>
-        <item>Şəxsi</item>
-        <item>Şəxsi</item>
+        <item>Fərdi</item>
+        <item>Məxfi</item>
         <item>Məxfi</item>
     </string-array>
     <string-array name="fontSizeNames">
