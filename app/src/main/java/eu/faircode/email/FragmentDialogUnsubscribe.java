@@ -21,6 +21,9 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +35,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.lifecycle.Lifecycle;
 
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
@@ -42,6 +46,7 @@ import java.nio.charset.StandardCharsets;
 import javax.net.ssl.HttpsURLConnection;
 
 public class FragmentDialogUnsubscribe extends FragmentDialogBase {
+    private TextView tvNoInternet;
     private static final int UNSUBSCRIBE_TIMEOUT = 20 * 1000;
 
     @NonNull
@@ -58,6 +63,7 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
         final TextView tvUri = view.findViewById(R.id.tvUri);
         final Button btnUnsubscribe = view.findViewById(R.id.btnUnsubscribe);
         final ProgressBar pbUnsubscribe = view.findViewById(R.id.pbUnsubscribe);
+        tvNoInternet = view.findViewById(R.id.tvNoInternet);
 
         tvSender.setText(from);
         tvUri.setText(uri);
@@ -88,6 +94,10 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                     protected String onExecute(Context context, Bundle args) throws Throwable {
                         final String uri = args.getString("uri");
                         final String request = "List-Unsubscribe=One-Click";
+
+                        boolean connected = ConnectionHelper.getNetworkState(getContext()).isConnected();
+                        if (!connected)
+                            throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                         // https://datatracker.ietf.org/doc/html/rfc8058
 
@@ -150,7 +160,9 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         dialog.dismiss();
-                        if (ex instanceof IllegalArgumentException || ex instanceof ConnectException)
+                        if (ex instanceof IllegalStateException)
+                            ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
+                        else if (ex instanceof IllegalArgumentException || ex instanceof ConnectException)
                             ToastEx.makeText(context,
                                     context.getString(R.string.title_unsubscribe_error, ex.getMessage()),
                                     Toast.LENGTH_LONG).show();
@@ -161,7 +173,66 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
             }
         });
 
-
         return dialog;
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        checkInternet.run();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
+            cm.registerDefaultNetworkCallback(networkCallback);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
+            cm.unregisterNetworkCallback(networkCallback);
+        }
+    }
+
+    private final ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+        @Override
+        public void onAvailable(@NonNull Network network) {
+            check();
+        }
+
+        @Override
+        public void onLost(@NonNull Network network) {
+            check();
+        }
+
+        private void check() {
+            ApplicationEx.getMainHandler().post(new Runnable() {
+                @Override
+                public void run() {
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        checkInternet.run();
+                }
+            });
+        }
+    };
+
+    private final Runnable checkInternet = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                ConnectionHelper.NetworkState state = ConnectionHelper.getNetworkState(getContext());
+                tvNoInternet.setVisibility(state.isConnected() ? View.GONE : View.VISIBLE);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
+    };
 }

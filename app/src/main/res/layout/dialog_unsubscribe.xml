@@ -65,5 +65,20 @@
             app:layout_constraintStart_toEndOf="@id/btnUnsubscribe"
             app:layout_constraintTop_toTopOf="@id/btnUnsubscribe" />
 
+        <TextView
+            android:id="@+id/tvNoInternet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/twotone_warning_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_no_internet"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnUnsubscribe" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
