@@ -911,6 +911,12 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        checkInternet.run();
+    }
+
+    @Override
     public void onDestroyView() {
         PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
         super.onDestroyView();
@@ -1493,31 +1499,37 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         }
     };
 
-    private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+    private final ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
-        public void onAvailable(Network network) {
-            getMainHandler().post(new Runnable() {
-                @Override
-                public void run() {
-                    updateInternet(true);
-                }
-            });
+        public void onAvailable(@NonNull Network network) {
+            check();
         }
 
         @Override
         public void onLost(@NonNull Network network) {
+            check();
+        }
+
+        private void check() {
             getMainHandler().post(new Runnable() {
                 @Override
                 public void run() {
-                    updateInternet(false);
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        checkInternet.run();
                 }
             });
         }
+    };
 
-        private void updateInternet(boolean available) {
-            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                return;
-            tvNoInternet.setVisibility(available ? View.GONE : View.VISIBLE);
+    private final Runnable checkInternet = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                ConnectionHelper.NetworkState state = ConnectionHelper.getNetworkState(getContext());
+                tvNoInternet.setVisibility(state.isConnected() ? View.GONE : View.VISIBLE);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
         }
     };
 }
