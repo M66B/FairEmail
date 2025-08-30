@@ -1988,7 +1988,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbCalendarWait.setVisibility(View.GONE);
         }
 
-        private void bindSeen(TupleMessageEx message) {
+        void bindSeen(TupleMessageEx message) {
             if (cards && shadow_unread && shadow_border) {
                 boolean shadow = (message.unseen > 0);
                 int color = (shadow

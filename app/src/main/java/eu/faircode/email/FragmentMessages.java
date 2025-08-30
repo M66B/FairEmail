@@ -8438,8 +8438,22 @@ public class FragmentMessages extends FragmentBase
         view.postDelayed(new RunnableEx("seen_delay") {
             @Override
             public void delegate() {
-                if (values.containsKey("expanded") && values.get("expanded").contains(id))
+                if (values.containsKey("expanded") && values.get("expanded").contains(id)) {
+                    int pos = adapter.getPositionForKey(id);
+                    if (pos != NO_POSITION) {
+                        TupleMessageEx message = adapter.getItemAtPosition(pos);
+                        AdapterMessage.ViewHolder holder =
+                                (AdapterMessage.ViewHolder) rvMessage.findViewHolderForAdapterPosition(pos);
+                        if (message != null && holder != null) {
+                            message.unseen = 0;
+                            message.ui_seen = true;
+                            message.visible_unseen = 0;
+                            message.ui_unsnoozed = false;
+                            holder.bindSeen(message);
+                        }
+                    }
                     taskExpand.execute(FragmentMessages.this, dargs, "messages:seen_delay");
+                }
             }
         }, seen_delay);
 
