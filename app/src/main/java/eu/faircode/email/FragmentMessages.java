@@ -1203,8 +1203,6 @@ public class FragmentMessages extends FragmentBase
                         public void onLongPress(@NonNull MotionEvent e) {
                             if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                                 return;
-                            if (swiping)
-                                return;
 
                             int x = Math.round(e.getX());
                             int y = Math.round(e.getY());
@@ -1259,6 +1257,9 @@ public class FragmentMessages extends FragmentBase
 
             @Override
             public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                if (swiping)
+                    e = MotionEvent.obtain(e.getDownTime(), e.getEventTime(),
+                            MotionEvent.ACTION_CANCEL, e.getX(), e.getY(), 0);
                 gestureDetector.onTouchEvent(e);
                 return false;
             }
