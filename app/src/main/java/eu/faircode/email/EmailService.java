@@ -1012,6 +1012,8 @@ public class EmailService implements AutoCloseable {
     List<String> getCapabilities() throws MessagingException {
         List<String> result = new ArrayList<>();
 
+        // https://www.iana.org/assignments/imap-capabilities/imap-capabilities.xhtml
+
         Map<String, String> capabilities;
         if (iservice instanceof IMAPStore)
             capabilities = ((IMAPStore) iservice).getCapabilities();
