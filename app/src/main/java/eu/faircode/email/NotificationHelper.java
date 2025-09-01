@@ -139,7 +139,7 @@ class NotificationHelper {
                 NotificationManager.IMPORTANCE_HIGH);
         notification.setDescription(context.getString(R.string.channel_notification_description));
         notification.enableLights(true);
-        notification.setLightColor(Color.YELLOW);
+        notification.setLightColor(Color.GREEN);
         notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         //notification.setBypassDnd(true);
         createNotificationChannel(nm, notification);
@@ -1384,7 +1384,7 @@ class NotificationHelper {
     }
 
     private static void setLight(NotificationCompat.Builder builder) {
-        builder.setLights(Color.YELLOW, 500, 500);
+        builder.setLights(Color.GREEN, 500, 500);
         Log.i("Notify light enabled");
     }
 
