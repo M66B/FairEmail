@@ -30,7 +30,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
-### 1.2294 2025-08-30 *
+### 1.2295 2025-09-01 *
+
+* Fixed scroll issues with delayed marking read
+* Fixed selecting messages when swiping a message
+
+### 1.2294 2025-08-30
 
 * One-click unsubscribe improvements
 * Small improvements and minor bug fixes
