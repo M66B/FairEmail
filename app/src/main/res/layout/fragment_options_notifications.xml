@@ -463,7 +463,7 @@
                     android:id="@+id/grpProperties"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="swLight,btnSound" />
+                    app:constraint_referenced_ids="btnSound" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpScreenOn"

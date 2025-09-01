@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2025 by Marcel Bokhorst (M66B)
 */
 
-import static androidx.core.app.NotificationCompat.DEFAULT_LIGHTS;
 import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
 
 import android.Manifest;
@@ -819,9 +818,11 @@ class NotificationHelper {
             if (notify_summary) {
                 builder.setOnlyAlertOnce(new_messages <= 0);
 
+                if (light)
+                    setLight(builder);
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
                     if (new_messages > 0)
-                        setLightAndSound(builder, light, sound);
+                        setSound(builder, sound);
                     else
                         builder.setSound(null);
             } else {
@@ -1015,8 +1016,10 @@ class NotificationHelper {
                         .setGroupSummary(false)
                         .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
+            if (light)
+                setLight(mbuilder);
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-                setLightAndSound(mbuilder, light, sound);
+                setSound(mbuilder, sound);
 
             Address[] afrom = messageFrom.get(message.id);
             String from = MessageHelper.formatAddresses(afrom, email_format, false);
@@ -1380,13 +1383,13 @@ class NotificationHelper {
         return message.accountColor;
     }
 
-    private static void setLightAndSound(NotificationCompat.Builder builder, boolean light, String sound) {
-        int def = 0;
+    private static void setLight(NotificationCompat.Builder builder) {
+        builder.setLights(Color.YELLOW, 500, 500);
+        Log.i("Notify light enabled");
+    }
 
-        if (light) {
-            def |= DEFAULT_LIGHTS;
-            Log.i("Notify light enabled");
-        }
+    private static void setSound(NotificationCompat.Builder builder, String sound) {
+        int def = 0;
 
         if (!"".equals(sound)) {
             // Not silent sound
