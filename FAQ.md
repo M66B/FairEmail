@@ -4137,7 +4137,7 @@ So, basically, the only thing I can do, is suggest some things:
 * Open the Play store app and wait at least a minute to give it time to synchronize with the Google servers
 * Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases; sometimes it helps to tap the *buy* button
 
-You can also try to clear the cache of the Play store app via the Android apps settings.
+You can also try to clear the cache of the Play store app via the Android apps settings (Android Settings → Apps → Google Play Store → Storage → Clear Cache).
 Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
 Note that:
