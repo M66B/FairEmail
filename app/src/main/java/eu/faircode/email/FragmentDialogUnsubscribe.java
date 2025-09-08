@@ -106,7 +106,7 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                         do {
                             Log.i("Unsubscribe request=" + request + " uri=" + uri);
 
-                            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                             connection.setRequestMethod("POST");
                             connection.setDoInput(true);
                             connection.setDoOutput(true);
