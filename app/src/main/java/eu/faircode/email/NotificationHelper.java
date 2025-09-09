@@ -379,7 +379,7 @@ class NotificationHelper {
         DB db = DB.getInstance(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean badge = prefs.getBoolean("badge", true);
+        boolean badge = prefs.getBoolean("badge", Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM);
         boolean notify_background_only = prefs.getBoolean("notify_background_only", false);
         boolean notify_summary = prefs.getBoolean("notify_summary", false);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);

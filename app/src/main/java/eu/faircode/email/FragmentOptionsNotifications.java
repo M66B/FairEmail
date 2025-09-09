@@ -917,7 +917,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             swLight.setChecked(prefs.getBoolean("light", false));
             swNotifyScreenOn.setChecked(prefs.getBoolean("notify_screen_on", false));
 
-            swBadge.setChecked(prefs.getBoolean("badge", true));
+            swBadge.setChecked(prefs.getBoolean("badge", Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM));
             swUnseenIgnored.setChecked(prefs.getBoolean("unseen_ignored", false));
             swNotifyGrouping.setChecked(prefs.getBoolean("notify_grouping", true));
             swNotifyPrivate.setChecked(prefs.getBoolean("notify_private", true));

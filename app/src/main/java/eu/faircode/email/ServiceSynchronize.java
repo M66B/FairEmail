@@ -985,7 +985,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 Widget.update(ServiceSynchronize.this);
 
-                boolean badge = prefs.getBoolean("badge", true);
+                boolean badge = prefs.getBoolean("badge", Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM);
                 boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);
 
                 int count = 0;
@@ -2349,7 +2349,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                                                                 try {
                                                                     ifolder = iservice.getStore().getFolder(folder.name);
-                                                                } catch (IllegalStateException | MessagingException ex) {
+                                                                } catch (IllegalStateException |
+                                                                         MessagingException ex) {
                                                                     if ("Not connected".equals(ex.getMessage())) {
                                                                         Log.i(ex);
                                                                         return; // Store closed

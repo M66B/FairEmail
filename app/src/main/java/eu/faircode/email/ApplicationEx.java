@@ -1110,6 +1110,11 @@ public class ApplicationEx extends Application
         if (version < 2283)
             editor.remove("cert_transparency");
 
+        if (version < 2296) {
+            if (!prefs.contains("badge"))
+                editor.putBoolean("badge", true);
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
 
