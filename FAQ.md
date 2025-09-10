@@ -4796,6 +4796,8 @@ Voice notes will automatically be attached.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq145)
 
+**Note that Android 16 always groups notifications, which is something the app unfortunately can't change.**
+
 Account:
 
 * ~~Version 1.1927-: enable *Separate notifications* in the advanced account settings~~
