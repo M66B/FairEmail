@@ -888,6 +888,7 @@ Please see [this FAQ](#faq111) about OAuth support.
 Identities represent email addresses you are sending *from* via an email (SMTP) server.
 
 Some providers allow you to have multiple aliases addresses.
+Unfortunately, an email app cannot automatically discover alias email addresses, which means you have to configure them yourself.
 
 The easiest way to create an alias address is to use the mini *Create alias* wizard.
 For this, please go to the settings via the navigation menu (left side menu),
