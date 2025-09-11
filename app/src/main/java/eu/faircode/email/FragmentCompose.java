@@ -3740,7 +3740,11 @@ public class FragmentCompose extends FragmentBase {
             if (photo_picker && Helper.hasPhotoPicker())
                 try {
                     Log.i("Using photo picker");
-                    pickImages.launch(new PickVisualMediaRequest.Builder()
+                    int colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
+                    pickImages.launch(new PickVisualMediaRequest
+                            .Builder()
+                            .setAccentColor(colorAccent)
+                            .setOrderedSelection(true)
                             .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
                             .build());
                     return;
