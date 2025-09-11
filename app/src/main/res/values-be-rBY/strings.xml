@@ -14,6 +14,7 @@
     <string name="app_cake_required">Мінімальна патрэбны памер сховішча: %1$s</string>
     <string name="app_updated">Апошняе абнаўленне: %1$s</string>
     <string name="app_download">Спампавана з %1$s</string>
+    <string name="app_error">Большасць апавяшчэнняў пра памылкі маюць знешнія прычыны (сетка, сервер і г. д.) або выкліканыя няправільнай, часта нестандартнай канфігурацыяй. Дрэнны водгук не вырашае такіх праблем. Зварот у службу падтрымкі амаль заўсёды больш эфектыўны.</string>
     <string name="app_motd">        У бэта-версіі Android 14/15 перыядычна з\'яўляюцца апавяшчэнні «Праграма не адказвае».
          Google працуе над выпраўленнем памылкі.
          Калі ласка, не абвінавачвайце праграму ў гэтай праблеме Android!
@@ -782,6 +783,7 @@
          Метад шыфравання можна выбраць перад адпраўкай у дыялогавым акне параметраў адпраўкі (выклікаецца доўгім націсканнем на кнопку адпраўкі).
     </string>
     <string name="title_advanced_sign_default">Падпісваць па змаўчанні</string>
+    <string name="title_advanced_encrypt_default">Падпісваць і шыфраваць па змаўчанні</string>
     <string name="title_advanced_encrypt_auto">Аўтаматычна шыфраваць, калі ключы ўсіх атрымальнікаў даступныя</string>
     <string name="title_advanced_encrypt_reply">Аўтаматычна шыфраваць пры адказе на зашыфраванае паведамленне</string>
     <string name="title_advanced_auto_verify">Аўтаматычна правяраць падпісаныя паведамленні</string>
@@ -1364,6 +1366,7 @@
     <string name="title_keywords_btn">Ключавыя словы</string>
     <string name="title_labels_btn">Ярлыкі (толькі Gmail)</string>
     <string name="title_unsubscribe">Адпісацца</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Спасылка для адпіскі ад рассылкі ў паведамленні не працуе. Памылка %1$s</string>
     <string name="title_message_rule">Стварыць правіла</string>
     <string name="title_no_junk">Не спам</string>
     <string name="title_edit_subject">Рэдагаваць тэму &#8230;</string>

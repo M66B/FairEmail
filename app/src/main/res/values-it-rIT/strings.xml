@@ -525,7 +525,7 @@
     <string name="title_advanced_category">La categoria dell\'account è configurabile nelle opzioni avanzate dell\'account tramite la schermata delle impostazioni principali</string>
     <string name="title_advanced_cards_beige">Usa lo sfondo beige quando è attivo lo stile a tessera (solo per temi chiari)</string>
     <string name="title_advanced_tabular_background">Usa il colore della tessera come colore di sfondo quando è attivo lo stile tabulare</string>
-    <string name="title_advanced_cards_shadow">Usa l\'ombreggiatura per i messaggi da leggere quando è attivo lo stile a tessera</string>
+    <string name="title_advanced_cards_shadow">Evidenzia i messaggi da leggere quando è attivo lo stile a tessera</string>
     <string name="title_advanced_cards_shadow_border">Mostra un bordo</string>
     <string name="title_advanced_cards_shadow_highlight">Usa il colore di evidenziazione invece del colore di accento</string>
     <string name="title_advanced_tabular_dividers">Usa le linee divisorie quando è attivo lo stile tabulare</string>

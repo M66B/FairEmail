@@ -725,7 +725,7 @@
     <string name="title_advanced_biometrics_timeout">生体認証のタイムアウト</string>
     <string name="title_advanced_autolock">画面をオフにしたときにアプリもロックする</string>
     <string name="title_advanced_autolock_nav">アプリ終了時にロックする</string>
-    <string name="title_advanced_generic_user_agent">一般的なブラウザーのユーザーエージェントを使用する</string>
+    <string name="title_advanced_generic_user_agent">一般的なブラウザーのユーザーエージェント文字列を使用する</string>
     <string name="title_advanced_load_emoji">Google Play 開発者サービスから更新された絵文字を読み込む</string>
     <string name="title_advanced_disconnect_auto_update">リストを自動で毎週更新する</string>
     <string name="title_advanced_disconnect_links">リストを使用してトラッキングリンクについて警告する</string>
@@ -925,7 +925,7 @@
     <string name="title_advanced_notify_remove_hint">新着メッセージ通知はこの設定に関係なく、スワイプしたり、メッセージを既読にすると削除されます</string>
     <string name="title_advanced_notify_manage_hint">チャンネル名をタップして、チャンネルのプロパティを設定します</string>
     <string name="title_advanced_notify_samsung_hint">通知チャンネルを管理するには、Android の設定で: 通知 > 詳細設定 > 各アプリの[通知カテゴリ]を管理 を有効にする必要がある場合があります</string>
-    <string name="title_advanced_notify_manage_default_hint">。</string>
+    <string name="title_advanced_notify_manage_default_hint">デフォルトの音、サイレントモード (Do not disturb) などを設定します。</string>
     <string name="title_advanced_notify_manage_service_hint">「モニター」通知を無効にします</string>
     <string name="title_advanced_notify_separate_hint">アカウント、フォルダ、差出人の通知を設定するにはどうすればよいですか？</string>
     <string name="title_advanced_notify_preview_all_hint">全文を表示できるウェアラブル (最大 5,000 文字) 向け</string>
