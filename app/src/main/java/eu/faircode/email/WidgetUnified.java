@@ -197,7 +197,12 @@ public class WidgetUnified extends AppWidgetProvider {
             views.setViewPadding(R.id.content, dp6, 0, dp6, 0);
 
             appWidgetManager.updateAppWidget(appWidgetId, views);
-            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
+            ApplicationEx.getMainHandler().postDelayed(new RunnableEx("widget") {
+                @Override
+                protected void delegate() {
+                    appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
+                }
+            }, 1000L);
         }
     }
 
