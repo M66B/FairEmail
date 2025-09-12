@@ -2,9 +2,1527 @@ Changelog
 
 --------------------
 
+Notices
+
+People keep asking me to add new, often exotic, features to the app, to whom I often say "no", and other people complain about too many features.
+Both groups of people leave bad reviews for this, which is frustrating, also because there are already enough bad reviews for the wrong reasons
+(email server problems, which unfortunately happen too often, etc.).
+The main problem is that more features now make more people unhappy than happy.
+Therefore, the rules for new features will be strictly followed from today.
+
+No worries, the app will continue to be maintained and supported as usual.
+
+---
+
+Google requires FairEmail to undergo an annual CASA security audit,
+which must be conducted by an authorized assessor (this year TAC Security.
+Besides being time-consuming, this is no longer free as of this year.
+This is one of the reasons why the app cannot be completely free, meaning some features must be paid for in order to pay for an annual security audit.
+To be clear, nothing will be changed for now.
+
+The security audit revealed no problems, so Google accounts can continue to be used as usual for a year.
+
+---
+
 For support you can use the contact form.
 
-Ubirajara
+Ceratonykus
+
+Next version (Work in progress)
+
+1.2296 2025-09-12
+
+* Fixed all reported bugs
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2295 2025-09-01 *
+
+* Fixed scroll issues with delayed marking read
+* Fixed selecting messages when swiping a message
+
+1.2294 2025-08-30
+
+* One-click unsubscribe improvements
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2293 2025-08-25
+
+* One-click unsubscribe improvements
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2292 2025-08-18 *
+
+* Fixed unchanged external drafts being saved
+* Added support for "one-click" unsubscribe
+* Small improvements and minor bug fixes
+* Updated AndroidX
+
+1.2291 2025-08-13
+
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+
+1.2290 2025-08-11
+
+* Fixed all reported bugs
+* A conversation will be important if any message is marked important
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2289 2025-08-02
+
+* Fixed all reported bugs
+* Small improvements and minor bug fixes
+* Updated Brave's debounce list
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2288 2025-07-21
+
+* Fixed status bar color in some cases
+* Updated Public Suffix List
+* Updated translations
+
+1.2287 2025-07-17
+
+* Resolved all reported bugs
+* Small improvements and minor bug fixes
+* Updated S/MIME root certificates
+* Updated Public Suffix List
+* Updated translations
+
+1.2286 2025-07-04 *
+
+* Fixed workaround for multiple inboxes
+
+1.2285 2025-07-04
+
+* Fixed workaround for incorrectly shared files
+
+1.2284 2025-07-02
+
+* Added filtering out unread / starred messages
+* Added workaround for incorrectly shared files (Xiaomi gallery)
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2283 2025-06-21 *
+
+* Disabled Certficate Transparency because Google broke it. 'Thanks' for all the 1-star ratings :-(
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2282 2025-06-20
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2281 2025-06-18
+
+* Added dropping files/images into the message editor
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2280 2025-06-10
+
+* Fixed mime type of shared files
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2279 2025-06-09
+
+* Added auto-reset of PGP keys
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2278 2025-06-05
+
+* Added option to limit the width only when resizing images
+* Added support for separate S/MIME sign/encrypt certificates, see the FAQ for details
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2277 2025-05-28
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2276 2025-05-07 *
+
+* Removed TTS from the Play Store version (only) due to Play Store policies
+* Removed external intents from the Play Store version (only) due to Play Store policies
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2275 2025-05-06
+
+* Added Mozilla CA S/MIME certificates
+* Fixed navigation bar color in some cases
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2274 2025-04-24 *
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2273 2025-04-23
+
+* Removed Bugsnag
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2272 2025-04-08 *
+
+* Fixed back gestures for Hyper OS
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2271 2025-04-08
+
+* Added option for narrow color stripes
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2270 2025-03-31
+
+* Fixed widgets for some Android variants
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2269 2025-03-27
+
+* Fixed all reported issues
+* Targeting Android 16 Baklava
+* Added optional TTS button / notification action
+* Improved accessibility
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2268 2025-03-14 *
+
+* Fixed delayed marking read
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2267 2025-03-12
+
+* Reverted to ShortcutBadger
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2266 2025-03-11
+
+* Fixed all reported issues
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2265 2025-03-07
+
+* Fixed all reported issues
+* Switched to ShortcutBadgerX
+* Small improvements and minor bug fixes
+* Updated build tools (Android Studio, gradle)
+* Updated Public Suffix List
+* Updated translations
+
+Barsboldia
+
+1.2264 2025-03-03
+
+* Fixed saving drafts on the server in some circumstances
+* Fixed VPN-only account option not being applied always
+* Added mark-read option to hide rule action
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2263 2025-03-01
+
+* Fixed all reported bugs
+* Added S/MIME encrypt-only
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2262 2025-01-30
+
+* Fixed deleting sent messages in some cases
+
+1.2261 2025-01-30
+
+* Released expression conditions as non-experimental
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2260 2025-01-23
+
+* Disabled viewport height limitation
+* Small improvements and minor bug fixes
+* Updated libraries, including EvalEx
+* Updated Public Suffix List
+* Updated translations
+
+1.2259 2025-01-16
+
+* Added resize to basic image editor
+* Added dialog box for message editor AI actions
+* Added loop sound option to play sound rule actions
+* Updated build tools
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2258 2025-01-08 *
+
+* Fixed S/MIME decrypt in some cases
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2257 2025-01-07
+
+* Added sort on sender name (Android 14+ only)
+* Added basic image editor (slowly tap twice on an inserted image in the message editor)
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2256 2025-01-01 *
+
+* Happy New Year
+* Fixed force light of reformatted message view
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2254 2024-12-31
+
+* Added experimental force light for reformatted message view
+* Updated libraries, including Jsoup
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2253 2024-12-23 *
+
+* Fixed showing S/MIME digest algorithm
+* Added option to select default font size for sending
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2252 2024-12-18
+
+* Fixed in-app changelog
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2251 2024-12-14
+
+* Added S/MIME UTF-8 support
+* Updated Brave's debounce list
+* Improved internationalized email address support
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2250 2024-12-05
+
+* Fixed all reported bugs
+* Added long press folder - mark all read
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2249 2024-11-20 *
+
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2248 2024-11-17
+
+* Fixed crash on removing privacy sensitive info from images (reverted to previous EXIF library)
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2247 2024-11-16
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2246 2024-11-13
+
+* Added fast *forward to*, see the FAQ
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2245 2024-11-08
+
+* Added manage keywords for multiple selected messages
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2244 2024-11-01
+
+* Fixed deleting old unread messages
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated translations
+
+1.2243 2024-11-01
+
+* Added AI interference to expression conditions
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2242 2024-10-29
+
+* Updated MiniDNS to version 1.1.1
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2241 2024-10-24
+
+* Fixed interaction sharing email / biometric authentication
+* Added trash/archive to swipe/ask popup menu
+* Added confirmation for signature deletion
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2240 2024-10-19
+
+* Fixed newlines for messages sent with Outlook 2024
+
+1.2239 2024-10-18
+
+* Fixed workaround for invalid PGP messages
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2238 2024-10-17
+
+* Fixed zooming with always shown inline images
+* Added copying of POP3 accounts
+* Removed inline build of MiniDNS
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2237 2024-10-14
+
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2236 2024-10-08
+
+* Disabled workaround for Gmail
+* Fixed sort order folders
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2235 2024-10-05
+
+* Added option to show stars in message list widgets (requires Android 12 or later)
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2234 2024-09-28 *
+
+* Added option for undo send bar/action
+* Small improvements and minor bug fixes
+* Updated libraries
+* Updated Public Suffix List
+* Updated translations
+
+1.2233 2024-09-26
+
+* Improved foldable devices support
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+Acantholipan
+
+1.2232 2024-09-16
+
+* Fixed resuming sending after restarting the device
+
+1.2231 2024-09-16
+
+* Fixed downloading raw message files (EML files) in some situations
+* Added detection of screen recording (Android 15+)
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2230 2024-09-11
+
+* Fixed text-to-speak stops working on some devices
+* Fixed duplicate sent-messages in some cases for Yahoo
+* Added option to prefer IPv6 over IPv4
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2229 - 2024-09-07
+
+* Fixed foreground service permission
+* Updated translations
+
+1.2228 - 2024-09-07
+
+* Accessibility improvements (thanks @pvagner)
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2227 - 2024-08-31 *
+
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated translations
+
+1.2226 - 2024-08-27
+
+* Added Fastmail OAuth
+* Added text-to-speech swipe action
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2225 - 2024-08-24
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2224 - 2024-08-20
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2223 - 2024-08-17
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2222 - 2024-08-16
+
+* Fixed bug in JavaMail causing iCloud move issues
+* Added reply/forward header template option
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2221 - 2024-08-13
+
+* Fixed bug in JavaMail causing iCloud sync issues
+* Fixed back navigation for older Android versions
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2220 - 2024-08-07 *
+
+* Fixed verifying PGP signature in some cases
+* Updated Public Suffix List
+* Updated translations
+
+1.2219 - 2024-08-04
+
+* Fixed right-to-left script support
+* Small improvements and minor bug fixes
+* Updated libraries, including EvalEx
+* Updated Public Suffix List
+* Updated translations
+
+1.2218 - 2024-08-03
+
+* Fixed rule expression conditions
+* Added option for color dot instead of color stripe
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2217 - 2024-08-02
+
+* Added inbox per account category to navigation menu (optional)
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2216 - 2024-07-27
+
+* Added support for SVG data URI images
+* Added option to automatically unstar on unsnooze
+* Added option to auto-encrypt on replying to an encrypted message
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2215 - 2024-07-20 *
+
+* Small improvements and minor bug fixes
+
+1.2214 - 2024-07-18
+
+* Fixed all reported bugs
+* Performance improvements
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2213 - 2024-07-13
+
+* Added white theme
+* Small improvements and minor bug fixes
+* Updated build tools (Android Studio, gradle)
+* Updated Public Suffix List
+* Updated translations
+
+1.2212 - 2024-07-11
+
+* Added resizing of contact photos to avoid using a lot of memory
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2211 - 2024-07-10
+
+* Added workaround for drop-down menu focus
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2210 - 2024-07-09
+
+* Added optional DuckDuckGo favicons (GitHub version only)
+* Fixed two memory leaks
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2209 - 2024-07-03
+
+* Added account images (avatars)
+* Added APK file attestation, see the FAQ
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2208 - 2024-06-22 *
+
+* Changed copy signature button into edit signature button
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2207 - 2024-06-20
+
+* Fixed DANE with SHA-384 and CNAME TLSA
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2206 - 2024-06-19
+
+* Reverted AndroidX Lifecycle to fix a crash
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2205 - 2024-06-15
+
+* Added attachments to templates
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2204 - 2024-06-14 *
+
+* Fixed downloading message for POP3 accounts
+* Updated translations
+
+1.2203 - 2024-06-14 *
+
+* Fixed downloading message/button
+* Updated build tools
+* Updated translations
+
+1.2202 - 2024-06-13 *
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2201 - 2024-06-13 *
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2200 - 2024-06-12
+
+* Fixed keyboard inset for some devices
+* Updated build tools
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2199 - 2024-06-10
+
+* Fixed original message view for Android 8 and before
+* Added a button to retry downloading the message text
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2198 - 2024-06-06 *
+
+* Fixed crash
+* Added printing of file type icons
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2197 - 2024-06-06
+
+* Fixed toolbar height on some Samsung devices
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2196 - 2024-06-04
+
+* Fixed cancel of download attachments dialog
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2195 - 2024-06-04
+
+* Fixed browsing old messages
+* Added download attachments dialog (when replying/forwarding)
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2194 - 2024-06-03
+
+* Fixed all reported bugs
+* Added Android backup agent (optional)
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2193 - 2024-05-30 *
+
+* Fixed deleting of old unread messages (regression)
+
+1.2192 - 2024-05-30 *
+
+* Fixed repeated new message notifications for old unread messages in some situations
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2191 - 2024-05-29 *
+
+* Added "AI" templates
+* Fixed darker navigation bar color
+* Fixed top action bar when using DeX on some Samsung devices
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2190 - 2024-05-28 *
+
+* Fixed navigation bar color
+* Fixed background color of tabular layout
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2189 - 2024-05-28 *
+
+* Fixed all reported problems
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2188 - 2024-05-27 *
+
+* Fixed keyboard inset in some cases
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2187 - 2024-05-26
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2186 - 2024-05-24
+
+* Fixed jitter when hiding the top toolbar
+* Fixed Android navigation bar color for some Android versions (regression)
+* Reverted AndroidX fragment to version 1.6.2 again due to instability
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2185 - 2024-05-22
+
+* Fixed constraint violation when inserting identity
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2184 - 2024-05-22
+
+* Fixed keyboard inset (regression)
+* Fixed black background of black and white theme (regression)
+* Using account color as default for inbox folder color
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2183 - 2024-05-21
+
+* Prepared for Android 15
+* Added "AI" summarize rule action
+* Listing NOT rule conditions
+* Reverted AndroidX fragment to version 1.6.2
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated translations
+
+1.2182 - 2024-05-15
+
+* Added optional "AI" summarize quick action
+* Added optional "AI" summarize swipe action
+* Changed default OpenAI model to gpt-4o
+* Improved OpenAI integration (added multimodal support)
+* Improved Gemini integration
+* Made "AI" integrations available in the Play Store version
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2181 - 2024-05-13
+
+* Reverted AndroidX ROOM
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2180 - 2024-05-13
+
+* Improved Gemini integration
+* Performance improvements
+* Small improvements and minor bug fixes
+* Updated NDK
+* Updated Public Suffix List
+* Updated translations
+
+1.2179 - 2024-05-08
+
+* Added option to change "AI" summarize prompt
+* Added expression condition functions, see the FAQ
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated AndroidX
+* Updated libraries (including Bouncy Castle
+* Updated Public Suffix List
+* Updated translations
+
+1.2178 - 2024-04-29
+
+* Added "AI" summarization of received messages (*)
+* Small improvements and minor bug fixes
+* Updated translations
+
+<sup>(*) Via the horizontal three-dots button just above the message text. ChatGPT or Gemini needs to be configured in the integrations-settings tab page for this.</sub>
+
+1.2177 - 2024-04-27
+
+* Added Have I Been Pwned?
+* Added identity option to configure envelope-from (*MAIL FROM*)
+* Small improvements and minor bug fixes
+* Updated translations
+
+<sub>(*) Via the three-dots overflow menu of the account list under "*Manual setup and account options*" in the main settings screen (GitHub version only)</sub>
+
+Zby
+
+1.2176 - 2024-04-22 *
+
+* Fixed British English translation
+* Small improvements and minor bug fixes
+
+1.2175 - 2024-04-20
+
+* Fixed primary inbox navigation
+* Updated Public Suffix List
+* Updated translations
+
+1.2174 - 2024-04-19
+
+* Added expression conditions to rules, see the FAQ
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2173 - 2024-04-16
+
+* Added *primary inbox* start screen option
+* Added *NOT* option to rule conditions
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2172 - 2024-04-08
+
+* Improved handling of messages via email forwarders (*)
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+<sub>(*) Currently supported email forwarders:</sub>
+
+* addy.io
+* DuckDuckGo Email Protection
+* Firefox Relay
+* SimpleLogin
+
+1.2171 - 2024-03-30
+
+* Added Gemini integration
+* Added answer button to buttons configuration
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2170 - 2024-03-23
+
+* Added Arabic to DeepL translation targets
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated Public Suffix List
+* Updated translations
+
+1.2169 - 2024-03-16
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2168 - 2024-03-14 *
+
+* Added option to ignore invalid addresses when sending
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2167 - 2024-03-09
+
+* Fixed showing images in external drafts in some cases
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2166 - 2024-03-08
+
+* Added sorting on unread/starred and starred/unread messages
+* Added option to configure number of send attempts
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2165 - 2024-03-05
+
+* Fixed widget incompatibility (< Android 11)
+
+1.2164 - 2024-03-05
+
+* Fixed widget incompatibility
+
+1.2163 - 2024-03-05
+
+* Added option to show a star for accounts/folders with newly received unread messages (since last viewed)
+* Added UceProtect
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated Public Suffix List
+* Updated translations
+
+1.2162 - 2024-02-22 *
+
+* Added option for a gray background color for unread messages when using table style
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2161 - 2024-02-20
+
+* Added experimental
+* Added option to enable showing folders on the accounts start screen (three-dots overflow menu)
+* Small improvements and minor bug fixes
+
+1.2160 - 2024-02-19
+
+* Added showing folders on the accounts start screen
+* Added automatic deletion of old local contacts
+* Added importing of mbox files into POP3 folders
+* Added long press links to open confirmation dialog box
+* Added long press archive / bottom action bar to move conversations
+* Small improvements and minor bug fixes
+* Updated translations
+
+Ypupiara
+
+1.2159 - 2024-02-15
+
+* Added optional reply/answer quick action
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2158 - 2024-02-10
+
+* Added image barcode decoding (requires Android 7+)
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2157 - 2024-02-08
+
+* Added widget option to show messages/folders standalone
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2156 - 2024-02-03 *
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2155 - 2024-02-03
+
+* Added title input fields for widgets
+* Using high priority notifications for high importance messages
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2154 - 2024-02-01
+
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2153 - 2024-01-27 *
+
+* Added mini audio player position
+* Added showing duration of audio/video files
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2152 - 2024-01-26
+
+* Added mini audio player
+* Added video preview image
+* Small improvements and minor bug fixes
+* Updated libraries (JsonPath)
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2151 - 2024-01-22
+
+* Fixed crash on some devices
+
+1.2150 - 2024-01-22
+
+* Added rule action to silence notifications, see the FAQ
+* Added option to disable Gmail labels button
+* Performance optimizations
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2149 - 2024-01-08
+
+* Added option to delay automatically marking messages as read
+* Replaced javadns
+* Added account/identity options to enforce DNSSEC and/or DANE, see the FAQ
+* Small improvements and minor bug fixes
+* Updated biweekly
+* Updated translations
+
+Wintonotitan
+
+1.2148 - 2024-01-08 *
+
+* Fixed accepting EULA in some cases
+* Fixed unified/primary folders navigation
+
+1.2147 - 2024-01-04 *
+
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated Material design library
+* Updated translations
+
+1.2146 - 2024-01-02
+
+* Happy New Year!
+* Added *Certificate transparency*, see the FAQ
+* Small improvements and minor bug fixes
+* Updated libraries (Apache Compress, Bugsnag, Bouncy Castle, Jsoup)
+* Updated translations
+
+<!-- truncate here -->
+
+1.2145 - 2023-12-30
+
+* Added Adguard filter list to remove tracking parameters from links, see the FAQ
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2144 - 2023-12-27
+
+* Using Brave browser lists to filter URLs
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2143 - 2023-12-22
+
+* Fixed searching in single folder
+* Added button to unblock all
+* Added importance to swipe-ask popup menu
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2142 - 2023-12-20
+
+* Fixed performance issues
+* Restored storing attachments on external storage
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2141 - 2023-12-19
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2140 - 2023-12-17
+
+* Fixed sometimes failing biometric authentication
+* Switched to tinylog
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2139 - 2023-12-13
+
+* Enabled TLSv1.3 by default
+* Added option to limit download size also for unmetered connections
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2138 - 2023-12-12
+
+* Fixed *No protocols enabled* error
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2137 - 2023-12-12
+
+* Optimized database for storing many messages
+* Automatically update SSL provider
+* Removed custom trust manager to comply with Play Store policies (Play Store version only)
+* Removed external storage option of attachments to comply with Play Store policies (all versions)
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2136 - 2023-12-07
+
+* Preventing XML external entity injection
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2135 - 2023-12-04
+
+* Added swipe action to change importance
+* Added group headings for important and unimportant messages
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2134 - 2023-12-02
+
+* Fixed clearing settings values
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2133 - 2023-12-01
+
+* Fixed memory leak
+* Improved Linked Data
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2132 - 2023-12-01
+
+* Added basic support for Linked Data
+* Added date/time placeholders for keyword rules (see the FAQ
+* Added option to disable saving revisions for undo/redo
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated AndroidX
+* Updated translations
+
+Vallibonavenatrix
+
+1.2131 - 2023-11-27 *
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2130 - 2023-11-25
+
+* Fixed styling of reformatted message view
+* Updated translations
+
+1.2129 - 2023-11-25
+
+* Added optional print margin
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2128 - 2023-11-19
+
+* Restored old behavior of move-to quick action
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2127 - 2023-11-16
+
+* Fixed move / quick action bar
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2126 - 2023-11-15
+
+* Fixed compatibility with Android 5 Lollipop
+* Small improvements and minor bug fixes
+
+1.2125 - 2023-11-15
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2124 - 2023-11-14
+
+* Fixed swipe / ask what to do
+* Added moving POP3 messages to IMAP accounts
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2123 - 2023-11-13
+
+* Added integrations-settings tab page
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2122 - 2023-11-11
+
+* Fixed swipe to mark read/unread
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2121 - 2023-11-11
+
+* Added option to disable haptic feedback
+* Fixed swipe to mark read/unread
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2120 - 2023-11-09
+
+* Added removing Gmail and Outlook style signatures (send settings)
+* Reduced database traffic
+* Small improvements and minor bug fixes
+* Updated build tools and libraries
+* Updated translations
+
+1.2119 - 2023-11-06
+
+* Added folder selection for new message count widget
+* Added dark mode, showing colors, check HTML and searching to message source view
+* Added option for ASCII-only notifications (for some smartwatches)
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2118 - 2023-11-04
+
+* Added native *View source* (HTML) with syntax highlighting, etc.
+* Added configurable button for *View source*
+* Added resizing of WebP
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2117 - 2023-11-02
+
+* Improved identity selector
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2116 - 2023-10-30
+
+* Fixed a crash in the JSoup library on Android 7.0 and earlier
+* Updated translations
+
+1.2115 - 2023-10-30
+
+* Added option to disable storing invitations tentatively, see the FAQ
+* Fixed time zone of some calendar events
+* Small improvements and minor bug fixes
+* Updated libraries, including JSoup
+* Updated Public Suffix List
+* Updated translations
+
+1.2114 - 2023-10-25
+
+* Added tap on title/subtitle to open/switch to inbox
+* Addded option to disable showing recipient for sent messages
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2113 - 2023-10-21
+
+* Added '*More options*' to send dialog box
+* Added option to disable PDF preview (display settings)
+* Added option to suggest local contacts for the current account only (send settings)
+* Android 14: using Material You background color
+* Fixed back navigation in some circumstances
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2112 - 2023-10-16 *
+
+* Small improvements and minor bug fixes
+
+1.2111 - 2023-10-16
+
+* Added swipe to delete local contacts
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2110 - 2023-10-14
+
+* Added PDF thumbnail preview (mini gallery)
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2109 - 2023-10-14
+
+* Small improvements and minor bug fixes
+
+1.2108 - 2023-10-12
+
+* Added Liberation Sans Narrow
+* Added *$weekday$* placeholder for templates
+* Added option to disabling printing of block quotes lines
+* Added accessibility actions to mark a message read/unread and to trash a conversation
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2107 - 2023-10-04
+
+* Added rule action to execute webhooks
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2106 - 2023-09-27
+
+* Added option to use up/down arrows for next/previous conversation
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2105 - 2023-09-23
+
+* Added advanced identity option for default sensitivity
+* Ignoring maximum width media queries
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2104 - 2023-09-21
+
+* Improved SVG support
+* Small improvements and minor bug fixes
+* Updated libraries
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2103 - 2023-09-18 *
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2102 - 2023-09-16
+
+* Fixed back navigation search
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2101 - 2023-09-15
+
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2100 - 2023-09-14
+
+* Fixed VPN only option
+* Added option for LanguageTool problem description popup
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2099 - 2023-09-13
+
+* Fixed POP3 sync issue
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2098 - 2023-09-12
+
+* Added support for *text/markdown* message parts
+* Added support for *text/x-diff* and *text/x-patch* message parts
+* Small improvements and minor bug fixes
+* Updated libraries
+* Updated translations
+
+1.2097 - 2023-09-02
+
+* Added LanguageTool option to check every sentence
+* Added read/delivery receipt type selection to advanced identity settings
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2096 - 2023-08-31
+
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2095 - 2023-08-26
+
+* Added workaround for opening *audio/x-wav* attachments (not supported by all sound players)
+* Added batch enable/disable downloading of headers only for all child folders
+* Added notification to disable alarm sound initiated by filter rules
+* Improved CSS processing for reformatted message view
+* Restoring conversation thread on rotation changes from/to one/two rows/columns
+* Disabled Android app chooser by default because of a bug in MIUI
+* Fixed decoding of POP3 messages when *Content-Type* is missing due to truncated TOP headers
+* Fixed multi term search with non-alphanumeric characters
+* Fixed deleting of *message/rfc822* attachments (GitHub version only)
+* Fixed option to disable Android photo picker with a workaround
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
+1.2094 - 2023-08-14
+
+* Added rule action to add local notes
+* Removed a workaround for an Android issue that caused side effects
+* Updated translations
+
+1.2093 - 2023-08-14
+
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated AndroidX
+* Updated translations
+
+1.2092 - 2023-08-12
+
+* Replace address element link
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2091 - 2023-08-05
+
+* Fixed crash
+* Small improvements and minor bug fixes
+* Updated translations
+
+1.2090 - 2023-08-04
+
+* Small improvements and minor bug fixes
+* Updated Bouncy Castle
+* Updated Public Suffix List
+* Updated translations
+
+1.2089 - 2023-08-01
+
+* Fixed S/MIME encrypt+sign
+* Fixed selecting images on older Android versions
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
+1.2088 - 2023-07-28
+
+* Improved Android 14 compatibility
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
+1.2087 - 2023-07-19
+
+* Fixed duplicate sent messages for Outlook in some cases
+* Small improvements and minor bug fixes
 
 1.2086 - 2023-07-19
 
@@ -1002,7 +2520,7 @@ Kinnareemimus
 * Small improvements and minor bug fixes
 * Updated translations
 
-(*) Due to Play store policies this feature is not available in the Play store version; Android version 6 or later is required
+<sub>(*) Due to Play store policies this feature is not available in the Play store version; Android version 6 or later is required</sub>
 
 1.1930 - 2022-07-04
 
