@@ -25,6 +25,7 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -37,13 +38,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Lifecycle;
 
-import java.net.ConnectException;
+import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-
-import javax.net.ssl.HttpsURLConnection;
 
 public class FragmentDialogUnsubscribe extends FragmentDialogBase {
     private TextView tvNoInternet;
@@ -162,9 +161,10 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                         dialog.dismiss();
                         if (ex instanceof IllegalStateException)
                             ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
-                        else if (ex instanceof IllegalArgumentException || ex instanceof ConnectException)
+                        else if (ex instanceof IllegalArgumentException || ex instanceof IOException)
                             ToastEx.makeText(context,
-                                    context.getString(R.string.title_unsubscribe_error, ex.getMessage()),
+                                    context.getString(R.string.title_unsubscribe_error,
+                                            Log.formatThrowable(ex, false)),
                                     Toast.LENGTH_LONG).show();
                         else
                             Log.unexpectedError(getParentFragmentManager(), ex);
