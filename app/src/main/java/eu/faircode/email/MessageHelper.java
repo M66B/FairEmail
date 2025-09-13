@@ -1651,15 +1651,15 @@ public class MessageHelper {
     String getDeliveredTo() throws MessagingException {
         ensureHeaders();
 
-        String header = imessage.getHeader("Envelope-To", null);
+        String header = imessage.getHeader("Delivered-To", null);
+        if (header == null)
+            header = imessage.getHeader("X-Delivered-To", null);
+        if (header == null)
+            header = imessage.getHeader("Envelope-To", null);
         if (header == null)
             header = imessage.getHeader("X-Envelope-To", null);
         if (header == null)
             header = imessage.getHeader("X-Original-To", null);
-        if (header == null)
-            header = imessage.getHeader("Delivered-To", null);
-        if (header == null)
-            header = imessage.getHeader("X-Delivered-To", null);
 
         return (header == null ? null : MimeUtility.unfold(header));
     }
