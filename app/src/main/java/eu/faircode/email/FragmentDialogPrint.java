@@ -27,7 +27,9 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
@@ -57,8 +59,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -67,6 +71,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
@@ -251,6 +256,23 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                                     } finally {
                                         if (connection != null)
                                             connection.disconnect();
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+
+                                try {
+                                    Uri uri = Uri.parse(src);
+                                    String path = uri.getPath();
+                                    if (path != null && path.toLowerCase(Locale.ROOT).endsWith(".svg")) {
+                                        int scaleToPixels = context.getResources().getDisplayMetrics().widthPixels;
+                                        Bitmap bm;
+                                        try (InputStream is = new FileInputStream(out)) {
+                                            bm = ImageHelper.renderSvg(is, Color.WHITE, scaleToPixels);
+                                        }
+                                        try (OutputStream os = new FileOutputStream(out)) {
+                                            bm.compress(Bitmap.CompressFormat.PNG, 100, os);
+                                        }
                                     }
                                 } catch (Throwable ex) {
                                     Log.w(ex);
