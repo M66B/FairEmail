@@ -58,7 +58,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     private IWebView intf;
     private Runnable onPageLoaded;
     private String hash;
-
+    private Boolean show_images;
     private static String userAgent = null;
 
     static final int DEFAULT_VIEWPORT_HEIGHT = 8000;
@@ -247,8 +247,10 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     void setImages(boolean show_images, boolean inline) {
         WebSettings settings = getSettings();
 
-        if (settings.getLoadsImagesAutomatically() != (show_images || inline))
+        if (!Objects.equals(this.show_images, show_images)) {
             this.hash = null;
+            this.show_images = show_images;
+        }
 
         settings.setLoadsImagesAutomatically(show_images || inline);
         settings.setBlockNetworkLoads(!show_images);
