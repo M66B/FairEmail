@@ -1669,6 +1669,10 @@ This might be caused by a not updated Exchange server, see [here](https://blogs.
 The errors *... Read error ...* (sometimes combined with *BAD_DECRYPT* / *DECRYPTION_FAILED_OR_BAD_RECORD_MAC*),
 *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
 
+The error *...ENETUNREACH (Network is unreachable)...*" means that no route to the target network exists.
+The local network the email server (the target network) is using might be offline, for example, due to a power cut,
+or the local network your device is using (the source network) might have internet connectivity issues.
+
 <a name="connectiondropped"></a>
 The error *... Connection dropped by server? ...* means that the email server unexpectedly terminated the connection.
 This sometimes happen when there were too many (simultaneous) connections in a too short time or when a wrong password was used too often.
