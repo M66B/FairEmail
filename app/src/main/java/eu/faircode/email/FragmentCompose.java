@@ -2706,11 +2706,11 @@ public class FragmentCompose extends FragmentBase {
                                         etBody.getText().append(spanned);
                                     } else
                                         etBody.getText().insert(start, spanned);
-
-                                    int pos = getAutoPos(start, spanned.length());
-                                    if (pos >= 0)
-                                        etBody.setSelection(pos);
                                 }
+
+                                int pos = getAutoPos(start, spanned.length());
+                                if (pos >= 0)
+                                    etBody.setSelection(pos);
 
                                 StyleHelper.markAsInserted(etBody.getText(), start, start + spanned.length());
                             }
