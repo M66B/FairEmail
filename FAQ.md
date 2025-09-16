@@ -1669,7 +1669,7 @@ This might be caused by a not updated Exchange server, see [here](https://blogs.
 The errors *... Read error ...* (sometimes combined with *BAD_DECRYPT* / *DECRYPTION_FAILED_OR_BAD_RECORD_MAC*),
 *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
 
-The error *...ENETUNREACH (Network is unreachable)...*" means that no route to the target network exists.
+The error *...ENETUNREACH (Network is unreachable) ...*" means that no route to the target network exists.
 The local network the email server (the target network) is using might be offline, for example, due to a power cut,
 or the local network your device is using (the source network) might have internet connectivity issues.
 
@@ -2323,7 +2323,7 @@ The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VE
 might be caused by enabling **hardening connections** or **Bouncy Castle** in the connection settings tab page,
 or by Android not supporting older protocols anymore, like SSLv3 and TLSv1.
 
-The error '*Handshake failed ... UNSUPPORTED_PROTOCOL' means that the email server and Android do not have a common SSL/TLS protocol or a common cipher.
+The error '*Handshake failed ... UNSUPPORTED_PROTOCOL ...*' means that the email server and Android do not have a common SSL/TLS protocol or a common cipher.
 The cipher set the server offers might be limited or the server might support the old (and insecure) SSL protocols only.
 
 The error '*javax.net.ssl.SSLHandshakeException: Read error: ... CERT_LENGTH_MISMATCH*' means that there is something wrong with the email server setup.
