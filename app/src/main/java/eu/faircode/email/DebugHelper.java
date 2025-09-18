@@ -171,6 +171,11 @@ public class DebugHelper {
             "networkaddress.cache.negative.ttl"
     ));
 
+    private static final List<String> SECURITY_PROPS = Collections.unmodifiableList(Arrays.asList(
+            "jdk.tls.disabledAlgorithms",
+            "jdk.tls.client.protocols"
+    ));
+
     static boolean isAvailable() {
         return true;
     }
@@ -1795,6 +1800,14 @@ public class DebugHelper {
                 for (String prop : NETWORK_PROPS)
                     size += write(os, prop + "=" + System.getProperty(prop) + "\r\n");
                 size += write(os, "\r\n");
+
+                try {
+                    for (String prop : SECURITY_PROPS)
+                        size += write(os, prop + "=" + Security.getProperty(prop) + "\r\n");
+                    size += write(os, "\r\n");
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
 
                 ApplicationInfo ai = context.getApplicationInfo();
                 if (ai != null)
