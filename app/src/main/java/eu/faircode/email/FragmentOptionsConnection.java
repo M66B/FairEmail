@@ -666,7 +666,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         tvNetworkMetered.setVisibility(View.GONE);
         tvNetworkRoaming.setVisibility(View.GONE);
         grpCustomDns.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-        grpBC.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        grpBC.setVisibility(debug || BuildConfig.DEBUG || true ? View.VISIBLE : View.GONE);
         grpCustomSsl.setVisibility(SSLHelper.customTrustManager() ? View.VISIBLE : View.GONE);
         cardDebug.setVisibility(View.GONE);
 
