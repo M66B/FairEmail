@@ -742,15 +742,16 @@ public class EmailService implements AutoCloseable {
                     ((ErrnoException) ex.getCause().getCause()).errno == OsConstants.EACCES)
                 throw new SecurityException("EACCES Please check 'Restrict data usage' in the Android app settings", ex);
 
-            if (!ssl_harden && ConnectionHelper.isUnsupportedProtocol(ex)) {
-                EntityLog.log(context, EntityLog.Type.Network, "Unsuported protocol");
+            if (Helper.isPlayStoreInstall() && ConnectionHelper.isUnsupportedProtocol(ex)) {
+                EntityLog.log(context, EntityLog.Type.Network, "Connect ex=" +
+                        ex.getClass().getName() + ":" +
+                        ex + "\n" + android.util.Log.getStackTraceString(ex));
                 try {
-                    this.insecure = true;
                     factory = new SSLSocketFactoryService(context,
                             host, port, true, false,
                             false, false, false, false,
                             false,
-                            true, true,
+                            true, false,
                             factory.key, factory.chain, factory.trustedFingerprint);
                     properties.put("mail." + protocol + ".ssl.socketFactory", factory);
                     _connect(main, port, require_id, user, factory);
