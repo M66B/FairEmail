@@ -591,7 +591,7 @@ dependencies {
     def markwon_version = "4.6.2"
     def commonmark_version = "0.22.0"
     def flexmark_version = "0.64.8"
-    def bouncycastle_version = "1.79"
+    def bouncycastle_version = "1.82"
     def colorpicker_version = "0.0.15"
     def overscroll_version = "1.1.1"
     def appauth_version = "0.11.1"
