@@ -62,6 +62,7 @@ import java.net.UnknownHostException;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.PrivateKey;
+import java.security.Security;
 import java.security.cert.CertPathValidatorException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -167,6 +168,11 @@ public class EmailService implements AutoCloseable {
 
     // TLS_FALLBACK_SCSV https://tools.ietf.org/html/rfc7507
     // TLS_EMPTY_RENEGOTIATION_INFO_SCSV https://tools.ietf.org/html/rfc5746
+
+    static {
+        Security.setProperty("jdk.tls.disabledAlgorithms", "");
+        Security.setProperty("jdk.tls.client.protocols", "TLSv1.3,TLSv1.2,TLSv1.1,TLSv1,SSLv3");
+    }
 
     private EmailService() {
         // Prevent instantiation
