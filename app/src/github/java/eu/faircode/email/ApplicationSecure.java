@@ -38,9 +38,10 @@ public class ApplicationSecure extends ApplicationEx implements ProviderInstalle
     public void onCreate() {
         super.onCreate();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean ssl_update = prefs.getBoolean("ssl_update", Helper.isPlayStoreInstall());
+        boolean ssl_update = prefs.getBoolean("ssl_update", false);
         if (ssl_update) {
             Log.i("Security provider check");
+            // https://developer.android.com/privacy-and-security/security-gms-provider
             ProviderInstaller.installIfNeededAsync(this, this);
         } else
             lock.countDown();
