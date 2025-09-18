@@ -73,6 +73,7 @@ import javax.mail.MessagingException;
 import javax.net.SocketFactory;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
@@ -501,6 +502,17 @@ public class ConnectionHelper {
             ex = ex.getCause();
         }
 
+        return false;
+    }
+
+    static boolean isUnsupportedProtocol(Throwable ex) {
+        while (ex != null) {
+            if (ex instanceof SSLHandshakeException &&
+                    ex.getMessage() != null &&
+                    ex.getMessage().contains("UNSUPPORTED_PROTOCOL"))
+                return true;
+            ex = ex.getCause();
+        }
         return false;
     }
 
