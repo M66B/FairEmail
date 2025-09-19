@@ -119,6 +119,9 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                         EntityMessage message = db.message().getMessage(id);
                         if (message == null)
                             continue;
+                        if (ids.length == 1)
+                            args.putString("subject",
+                                    EntityMessage.getSubject(context, message.language, message.subject, true));
 
                         EntityFolder folder = db.folder().getFolder(message.folder);
                         if (folder == null)
@@ -193,6 +196,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                             ld.removeObserver(this);
                             getArguments().putLong("account", args.getLong("account"));
                             getArguments().putLongArray("ids", ids);
+                            getArguments().putString("subject", args.getString("subject"));
 
                             enabled = true;
 
@@ -236,7 +240,8 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                     public void onClick(DialogInterface dialog, int which) {
                         long account = getArguments().getLong("account", -1L);
                         long[] ids = getArguments().getLongArray("ids");
-                        send(account, ids);
+                        String subject = getArguments().getString("subject");
+                        send(account, ids, subject);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
@@ -285,7 +290,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
         super.onSaveInstanceState(outState);
     }
 
-    private void send(long account, long[] ids) {
+    private void send(long account, long[] ids, String subject) {
         try {
             final Context context = getContext();
             ArrayList<Uri> uris = new ArrayList<>();
@@ -302,6 +307,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
             send.setType("message/rfc822");
             send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             send.putExtra("fair:account", account);
+            send.putExtra(Intent.EXTRA_SUBJECT, subject);
 
             startActivity(send);
         } catch (Throwable ex) {
