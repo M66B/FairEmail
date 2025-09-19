@@ -151,7 +151,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
                         for (EntityMessage thread : messages) {
                             EntityLog.log(context, "Fetching raw id=" + thread.id + " subject=" + thread.subject);
                             if (threads) {
-                                String hash = (message.hash == null ? message.msgid : message.hash);
+                                String hash = (thread.hash == null ? thread.msgid : thread.hash);
                                 if (hashes.contains(hash))
                                     continue;
                                 hashes.add(hash);
