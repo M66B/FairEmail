@@ -42,6 +42,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 
 public class FragmentDialogUnsubscribe extends FragmentDialogBase {
@@ -162,12 +163,13 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                         if (ex instanceof IllegalStateException)
                             ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
                         else if (ex instanceof IllegalArgumentException || ex instanceof IOException)
-                            ToastEx.makeText(context,
-                                    context.getString(R.string.title_unsubscribe_error,
-                                            Log.formatThrowable(ex, false)),
-                                    Toast.LENGTH_LONG).show();
-                        else
-                            Log.unexpectedError(getParentFragmentManager(), ex);
+                            if (!(ex instanceof UnknownHostException)) {
+                                ToastEx.makeText(context,
+                                        context.getString(R.string.title_unsubscribe_error,
+                                                Log.formatThrowable(ex, false)),
+                                        Toast.LENGTH_LONG).show();
+                            } else
+                                Log.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }.execute(FragmentDialogUnsubscribe.this, args, "unsubscribe");
             }
