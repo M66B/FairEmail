@@ -194,6 +194,17 @@ public class TupleKeyword {
                 return context.getString(R.string.title_keyword_complaint);
             case MessageHelper.FLAG_PHISHING:
                 return context.getString(R.string.title_keyword_phishing);
+            case MessageHelper.FLAG_OPENX_RED:
+            case MessageHelper.FLAG_OPENX_BLUE:
+            case MessageHelper.FLAG_OPENX_GREEN:
+            case MessageHelper.FLAG_OPENX_GRAY:
+            case MessageHelper.FLAG_OPENX_PURPLE:
+            case MessageHelper.FLAG_OPENX_LIGHT_GREEN:
+            case MessageHelper.FLAG_OPENX_ORANGE:
+            case MessageHelper.FLAG_OPENX_PINK:
+            case MessageHelper.FLAG_OPENX_LIGHT_BLUE:
+            case MessageHelper.FLAG_OPENX_YELLOW:
+                return keyword.replace("$cl", "color");
             default:
                 return keyword;
         }
@@ -220,6 +231,28 @@ public class TupleKeyword {
             case MessageHelper.FLAG_COMPLAINT:
             case MessageHelper.FLAG_PHISHING:
                 return Helper.resolveColor(context, androidx.appcompat.R.attr.colorError);
+
+            // https://en.wikipedia.org/wiki/Web_colors
+            case MessageHelper.FLAG_OPENX_RED:
+                return Color.rgb(255, 0, 0);
+            case MessageHelper.FLAG_OPENX_BLUE:
+                return Color.rgb(0, 0, 255);
+            case MessageHelper.FLAG_OPENX_GREEN:
+                return Color.rgb(0, 128, 0);
+            case MessageHelper.FLAG_OPENX_GRAY:
+                return Color.rgb(128, 128, 128);
+            case MessageHelper.FLAG_OPENX_PURPLE:
+                return Color.rgb(128, 0, 128);
+            case MessageHelper.FLAG_OPENX_LIGHT_GREEN:
+                return Color.rgb(144, 238, 144);
+            case MessageHelper.FLAG_OPENX_ORANGE:
+                return Color.rgb(255, 165, 0);
+            case MessageHelper.FLAG_OPENX_PINK:
+                return Color.rgb(255, 192, 203);
+            case MessageHelper.FLAG_OPENX_LIGHT_BLUE:
+                return Color.rgb(173, 216, 230);
+            case MessageHelper.FLAG_OPENX_YELLOW:
+                return Color.rgb(255, 255, 0);
 
             default:
                 return null;

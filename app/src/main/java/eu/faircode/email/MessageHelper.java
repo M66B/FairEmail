@@ -255,6 +255,18 @@ public class MessageHelper {
     static final String FLAG_PHISHING = "$Phishing"; // Gmail
     static final String CATEGORY_PREFIX = "$category:";
 
+    // https://documentation.open-xchange.com/7.10.6/middleware/mail/mail_flagging.html
+    static final String FLAG_OPENX_RED = "$cl_1";
+    static final String FLAG_OPENX_BLUE = "$cl_2";
+    static final String FLAG_OPENX_GREEN = "$cl_3";
+    static final String FLAG_OPENX_GRAY = "$cl_4";
+    static final String FLAG_OPENX_PURPLE = "$cl_5"; // Violet
+    static final String FLAG_OPENX_LIGHT_GREEN = "$cl_6";
+    static final String FLAG_OPENX_ORANGE = "$cl_7";
+    static final String FLAG_OPENX_PINK = "$cl_8";
+    static final String FLAG_OPENX_LIGHT_BLUE = "$cl_9"; // Cyan
+    static final String FLAG_OPENX_YELLOW = "$cl_10";
+
     // https://www.iana.org/assignments/imap-jmap-keywords/imap-jmap-keywords.xhtml
     // Not black listed: Gmail $Phishing
     private static final List<String> FLAG_BLACKLIST = Collections.unmodifiableList(Arrays.asList(
