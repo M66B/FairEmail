@@ -1901,11 +1901,12 @@ class Core {
                     itrash.open(READ_WRITE);
                     try {
                         List<Message> trashed = new ArrayList<>();
-                        for (EntityMessage message : messages) {
-                            Message[] itrashed = itrash.search(new MessageIDTerm(message.msgid));
-                            if (itrashed != null && itrashed.length == 1)
-                                trashed.add(itrashed[0]);
-                        }
+                        for (EntityMessage message : messages)
+                            if (!TextUtils.isEmpty(message.msgid)) {
+                                Message[] itrashed = itrash.search(new MessageIDTerm(message.msgid));
+                                if (itrashed != null && itrashed.length == 1)
+                                    trashed.add(itrashed[0]);
+                            }
 
                         itrash.setFlags(trashed.toArray(new Message[0]), new Flags(Flags.Flag.DELETED), true);
                         if (perform_expunge)
