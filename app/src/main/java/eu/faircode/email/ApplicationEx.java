@@ -184,6 +184,8 @@ public class ApplicationEx extends Application
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(@NonNull Thread thread, @NonNull Throwable ex) {
+                WebViewEx.checkLayer(ApplicationEx.this, ex);
+
                 if (!crash_reports && Log.isOwnFault(ex)) {
                     Log.e(ex);
 

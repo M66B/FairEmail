@@ -280,11 +280,6 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        // java.lang.IllegalStateException: Unable to create layer for WebViewEx, size 768x4864 max size 8192 color type 4 has context 1
-        //        at android.os.MessageQueue.nativePollOnce(MessageQueue.java:-2)
-        //        at android.os.MessageQueue.next(MessageQueue.java:326)
-        //        at android.os.Looper.loop(Looper.java:183)
-        //        at android.app.ActivityThread.main(ActivityThread.java:7266)
         if (viewportHeight == 0)
             heightMeasureSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
         else
@@ -488,10 +483,11 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     static int getDefaultViewportHeight(Context context) {
-        if (Helper.isGoogle() && Build.VERSION.SDK_INT > Build.VERSION_CODES.UPSIDE_DOWN_CAKE /* Android 14 */)
-            return DEFAULT_VIEWPORT_HEIGHT * 2;
-        else
+        if ((Helper.isSamsung() || Helper.isHuawei()) &&
+                Build.VERSION.SDK_INT <= Build.VERSION_CODES.P /* Android 9 */)
             return DEFAULT_VIEWPORT_HEIGHT;
+        else
+            return 0;
     }
 
     @NonNull
@@ -523,6 +519,26 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         boolean large = context.getResources().getConfiguration()
                 .isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE);
         return (large ? "Mozilla/5.0" : "Mozilla/5.0 (Mobile)");
+    }
+
+    static void checkLayer(Context context, Throwable ex) {
+        // java.lang.IllegalStateException: Unable to create layer for WebViewEx, size 768x4864 max size 8192 color type 4 has context 1
+        //        at android.os.MessageQueue.nativePollOnce(MessageQueue.java:-2)
+        //        at android.os.MessageQueue.next(MessageQueue.java:326)
+        //        at android.os.Looper.loop(Looper.java:183)
+        //        at android.app.ActivityThread.main(ActivityThread.java:7266)
+        try {
+            if (ex == null)
+                return;
+            if (ex instanceof IllegalStateException &&
+                    ex.getMessage() != null &&
+                    ex.getMessage().contains("Unable to create layer")) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                prefs.edit().putInt("viewport_height", DEFAULT_VIEWPORT_HEIGHT).commit();
+            } else
+                checkLayer(context, ex.getCause());
+        } catch (Throwable ignored) {
+        }
     }
 
     interface IWebView {
