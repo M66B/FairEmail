@@ -30,6 +30,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2298 2025-09-22
+
+* Added support for Open Xchange flag colors
+* Improved scroll behavior of original message view for most devices
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+
 ### 1.2297 2025-09-18
 
 * Fixed all reported bugs
