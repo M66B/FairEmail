@@ -30,6 +30,8 @@ Ceratonykus
 
 Next version (Work in progress)
 
+* Updated AndroidX
+
 1.2298 2025-09-22
 
 * Added support for Open Xchange flag colors

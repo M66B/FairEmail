@@ -30,6 +30,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+
 ### 1.2298 2025-09-22
 
 * Added support for Open Xchange flag colors
