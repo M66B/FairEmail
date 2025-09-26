@@ -2250,7 +2250,7 @@ public class MessageHelper {
             else {
                 String signer2 = getSigner(header);
                 if (!signer.equals(signer2)) {
-                    Log.i("Different signer=" + signer + "/" + signer2);
+                    Log.i("Different signer=" + signer + "/" + signer2 + " type=" + type);
                     break;
                 }
             }
@@ -2260,6 +2260,8 @@ public class MessageHelper {
                 continue;
 
             String value = val[0].toLowerCase(Locale.ROOT);
+            if (!"pass".equals(value))
+                Log.i("Authentication " + type + "=" + value + " header=" + header);
             switch (value) {
                 case "none":
                     return null;
