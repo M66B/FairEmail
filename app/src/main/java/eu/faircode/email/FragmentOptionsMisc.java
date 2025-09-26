@@ -2362,7 +2362,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_default) {
-            FragmentOptions.reset(getContext(), RESET_OPTIONS, null);
+            Context context = getContext();
+            Helper.enableComponent(context, ServicePowerControl.class, false);
+            Helper.enableComponent(context, ActivitySendSelf.class, false);
+            Helper.enableComponent(context, ActivitySearch.class, BuildConfig.DEBUG);
+            Helper.enableComponent(context, ActivityAnswer.class, false);
+            Helper.enableComponent(context, ReceiverAutoStart.class, true);
+            Helper.enableComponent(context, ActivityDMARC.class, !Helper.isPlayStoreInstall());
+            FragmentOptions.reset(context, RESET_OPTIONS, null);
             return true;
         }
         return super.onOptionsItemSelected(item);
