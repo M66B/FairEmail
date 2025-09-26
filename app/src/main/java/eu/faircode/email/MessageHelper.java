@@ -2239,21 +2239,10 @@ public class MessageHelper {
         if (headers == null || headers.length == 0)
             return null;
 
-        String signer = null;
         for (String header : headers) {
             String v = getKeyValues(header).get(type);
             if (v == null)
                 continue;
-
-            if (signer == null)
-                signer = getSigner(header);
-            else {
-                String signer2 = getSigner(header);
-                if (!signer.equals(signer2)) {
-                    Log.i("Different signer=" + signer + "/" + signer2 + " type=" + type);
-                    break;
-                }
-            }
 
             String[] val = v.split("[^A-za-z]+");
             if (val.length == 0)
@@ -2264,14 +2253,14 @@ public class MessageHelper {
                 Log.i("Authentication " + type + "=" + value + " header=" + header);
             switch (value) {
                 case "none":
-                    return null;
+                    break;
                 case "pass":
                     return true;
                 case "fail":
                 case "policy":
                     return false;
                 case "neutral":
-                    return null;
+                    break;
                 case "temperror":
                     return null;
                 case "permerror":
