@@ -4804,7 +4804,8 @@ Voice notes will automatically be attached.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq145)
 
-**Note that Android 16 always groups notifications, which is something the app unfortunately can't change.**
+**Note that Android 16 always groups notifications, which is a choice of Google and something the app can't change.**
+**Android 16 also [removed notification icon theming](https://www.reddit.com/r/android_beta/comments/1ks3nc5/android_16_qpr1_beta_1_removed_notification_icon/), which means account colors won't be shown anymore.**
 
 Account:
 
