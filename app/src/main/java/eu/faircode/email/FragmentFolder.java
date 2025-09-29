@@ -321,6 +321,9 @@ public class FragmentFolder extends FragmentBase {
                 EntityFolder folder = data.second;
                 int interval = args.getInt("interval", EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
 
+                int sync_days = (folder == null ? (parent == null ? EntityFolder.DEFAULT_SYNC : parent.sync_days) : folder.sync_days);
+                int keep_days = (folder == null ? (parent == null ? EntityFolder.DEFAULT_KEEP : parent.keep_days) : folder.keep_days);
+
                 if (savedInstanceState == null) {
                     etName.setText(folder == null ? null : folder.name);
                     etDisplay.setText(folder == null ? null : folder.display);
@@ -339,11 +342,11 @@ public class FragmentFolder extends FragmentBase {
                     cbDownload.setChecked(folder == null ? true : folder.download);
                     cbAutoClassifySource.setChecked(folder == null ? false : folder.auto_classify_source);
                     cbAutoClassifyTarget.setChecked(folder == null ? false : folder.auto_classify_target);
-                    etSyncDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_SYNC : folder.sync_days));
-                    if (folder != null && folder.keep_days == Integer.MAX_VALUE)
+                    etSyncDays.setText(Integer.toString(sync_days));
+                    if (keep_days == Integer.MAX_VALUE)
                         cbKeepAll.setChecked(true);
                     else
-                        etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_KEEP : folder.keep_days));
+                        etKeepDays.setText(Integer.toString(keep_days));
                     cbAutoDelete.setChecked(folder != null && folder.auto_delete);
                 }
 
