@@ -938,7 +938,7 @@ public class ConnectionHelper {
         }
     }
 
-    static SSLSocket starttls(Socket socket, String host, int port, Context context) throws IOException {
+    static SSLSocket starttls(SSLSocketFactory sslFactory, Socket socket, String host, int port, Context context) throws IOException {
         String response;
         String command;
         boolean has = false;
@@ -1006,7 +1006,6 @@ public class ConnectionHelper {
             } while (response != null &&
                     !(response.startsWith("A001 OK") || response.startsWith("220 ")));
 
-            SSLSocketFactory sslFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
             return (SSLSocket) sslFactory.createSocket(socket, host, port, false);
         } else
             throw new SocketException("No STARTTLS");

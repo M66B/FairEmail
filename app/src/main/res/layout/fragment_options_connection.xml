@@ -917,6 +917,26 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPort" />
 
+                <CheckBox
+                    android:id="@+id/cbInsecure"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_allow_insecure"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etPort" />
+
+                <CheckBox
+                    android:id="@+id/cbDane"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_dane"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbInsecure" />
+
                 <Button
                     android:id="@+id/btnCheck"
                     style="?android:attr/buttonStyleSmall"
@@ -925,7 +945,7 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/title_check"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etPort" />
+                    app:layout_constraintTop_toBottomOf="@id/cbDane" />
 
                 <TextView
                     android:id="@+id/tvNetworkInfo"

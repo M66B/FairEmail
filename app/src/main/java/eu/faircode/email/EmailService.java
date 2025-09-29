@@ -170,8 +170,11 @@ public class EmailService implements AutoCloseable {
     // TLS_EMPTY_RENEGOTIATION_INFO_SCSV https://tools.ietf.org/html/rfc5746
 
     static {
+        // https://downloads.bouncycastle.org/fips-java/docs/BC-FJA-%28D%29TLSUserGuide-1.0.4.pdf
         Security.setProperty("jdk.tls.disabledAlgorithms", "");
         Security.setProperty("jdk.tls.client.protocols", "TLSv1.3,TLSv1.2,TLSv1.1,TLSv1,SSLv3");
+        System.setProperty("org.bouncycastle.jsse.client.dh.unrestrictedGroups", "true");
+        System.setProperty("org.bouncycastle.jsse.client.dh.minimumPrimeBits", "1024");
     }
 
     private EmailService() {
@@ -1124,7 +1127,7 @@ public class EmailService implements AutoCloseable {
         }
     }
 
-    private static class SSLSocketFactoryService extends SSLSocketFactory {
+    static class SSLSocketFactoryService extends SSLSocketFactory {
         // openssl s_client -connect host:port < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin
         // nmap --script ssl-enum-ciphers -Pn -p port host
         private String server;
@@ -1195,8 +1198,7 @@ public class EmailService implements AutoCloseable {
 
         @Override
         public Socket createSocket() throws IOException {
-            Log.e("createSocket");
-            throw new IOException("createSocket");
+            return configure(factory.createSocket());
         }
 
         @Override

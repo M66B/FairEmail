@@ -44,6 +44,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -122,6 +123,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private EditText etHost;
     private RadioGroup rgEncryption;
     private EditText etPort;
+    private CheckBox cbInsecure;
+    private CheckBox cbDane;
     private Button btnCheck;
     private TextView tvNetworkInfo;
 
@@ -196,6 +199,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         etHost = view.findViewById(R.id.etHost);
         rgEncryption = view.findViewById(R.id.rgEncryption);
         etPort = view.findViewById(R.id.etPort);
+        cbInsecure = view.findViewById(R.id.cbInsecure);
+        cbDane = view.findViewById(R.id.cbDane);
         btnCheck = view.findViewById(R.id.btnCheck);
         tvNetworkInfo = view.findViewById(R.id.tvNetworkInfo);
 
@@ -545,12 +550,17 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                 else
                     encryption = "none";
 
+                boolean insecure = cbInsecure.isChecked();
+                boolean dane = cbDane.isChecked();
+
                 int timeout = prefs.getInt("timeout", EmailService.DEFAULT_CONNECT_TIMEOUT) * 1000;
 
                 Bundle args = new Bundle();
                 args.putString("host", host);
                 args.putInt("port", port == null ? 0 : port);
                 args.putString("encryption", encryption);
+                args.putBoolean("insecure", insecure);
+                args.getBoolean("dane", dane);
                 args.putInt("timeout", timeout);
 
                 new SimpleTask<StringBuilder>() {
@@ -569,7 +579,17 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                         String host = args.getString("host");
                         int port = args.getInt("port");
                         String encryption = args.getString("encryption");
+                        boolean insecure = args.getBoolean("insecure");
+                        boolean dane = args.getBoolean("dane");
                         int timeout = args.getInt("timeout");
+
+                        boolean ssl_harden = prefs.getBoolean("ssl_harden", false);
+                        boolean ssl_harden_strict = prefs.getBoolean("ssl_harden_strict", false);
+                        boolean cert_strict = prefs.getBoolean("cert_strict", true);
+                        boolean cert_transparency = prefs.getBoolean("cert_transparency", false);
+                        boolean check_names = prefs.getBoolean("check_names", !BuildConfig.PLAY_STORE_RELEASE);
+                        boolean bc = prefs.getBoolean("bouncy_castle", false);
+                        boolean fips = prefs.getBoolean("bc_fips", false);
 
                         StringBuilder sb = new StringBuilder();
                         sb.append("Host: ").append(host).append('\n');
@@ -577,9 +597,12 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                         sb.append("Encryption: ").append(encryption).append('\n');
 
                         InetSocketAddress address = new InetSocketAddress(host, port);
+                        SSLSocketFactory sslFactory = new EmailService.SSLSocketFactoryService(
+                                context, host, port, insecure, dane,
+                                ssl_harden, ssl_harden_strict, cert_strict, cert_transparency, check_names,
+                                bc, fips, null, null, null);
                         SocketFactory factory = (!"ssl".equals(encryption)
-                                ? SocketFactory.getDefault()
-                                : SSLSocketFactory.getDefault());
+                                ? SocketFactory.getDefault() : sslFactory);
                         try (Socket socket = factory.createSocket()) {
                             socket.connect(address, timeout);
                             socket.setSoTimeout(timeout);
@@ -588,7 +611,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                                 SSLSocket sslSocket = null;
                                 try {
                                     if ("starttls".equals(encryption))
-                                        sslSocket = ConnectionHelper.starttls(socket, host, port, context);
+                                        sslSocket = ConnectionHelper.starttls(sslFactory, socket, host, port, context);
                                     else
                                         sslSocket = (SSLSocket) socket;
 
