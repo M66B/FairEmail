@@ -421,13 +421,10 @@ public class DnsHelper {
 
     static List<String> getDnsServers(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean dns_custom = prefs.getBoolean("dns_custom", false);
         String dns_extra = prefs.getString("dns_extra", null);
 
         List<String> result = new ArrayList<>();
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q || dns_custom)
-            result.addAll(_getDnsServers(context));
+        result.addAll(_getDnsServers(context));
 
         if (!TextUtils.isEmpty(dns_extra)) {
             String[] extras = dns_extra.replaceAll("\\s+", "").split(",");
