@@ -30,7 +30,10 @@ Ceratonykus
 
 Next version (Work in progress)
 
+* Fixed all reported bugs
+* Small improvements and minor bug fixes
 * Updated AndroidX
+* Updated Public Suffix List
 
 1.2298 2025-09-22
 
