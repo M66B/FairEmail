@@ -12446,6 +12446,8 @@ cafjs.com
 canva-apps.cn
 my.canvasite.cn
 canva-apps.com
+rice-labs.com
+canva.run
 my.canva.site
 
 // Carrd : https://carrd.co
@@ -12528,10 +12530,12 @@ cloudns.asia
 cloudns.be
 cloud-ip.biz
 cloudns.biz
+cloud-ip.cc
 cloudns.cc
 cloudns.ch
 cloudns.cl
 cloudns.club
+abrdns.com
 dnsabr.com
 ip-ddns.com
 cloudns.cx
@@ -14165,6 +14169,12 @@ leadpages.co
 lpages.co
 lpusercontent.com
 
+// Leapcell : https://leapcell.io/
+// Submitted by Leapcell Team <support@leapcell.io>
+leapcell.app
+leapcell.dev
+leapcell.online
+
 // Liara : https://liara.ir
 // Submitted by Amirhossein Badinloo <info@liara.ir>
 liara.run
@@ -15437,10 +15447,11 @@ myspreadshop.se
 myspreadshop.co.uk
 
 // StackBlitz : https://stackblitz.com
-// Submitted by Dominic Elm <hello@stackblitz.com>
+// Submitted by Dominic Elm & Albert Pai <security@bolt.new>
 w-corp-staticblitz.com
 w-credentialless-staticblitz.com
 w-staticblitz.com
+bolt.host
 
 // Stackhero : https://www.stackhero.io
 // Submitted by Adrien Gillon <adrien+public-suffix-list@stackhero.io>
@@ -15610,6 +15621,10 @@ s3.teckids.org
 telebit.app
 telebit.io
 *.telebit.xyz
+
+// Teleport : https://goteleport.com
+// Submitted by Rob Picard <security@goteleport.com>
+teleport.sh
 
 // Thingdust AG : https://thingdust.com/
 // Submitted by Adrian Imboden <adi@thingdust.com>
@@ -15907,6 +15922,7 @@ js.wpenginepowered.com
 
 // XenonCloud GbR : https://xenoncloud.net
 // Submitted by Julian Uphoff <publicsuffixlist@xenoncloud.net>
+*.xenonconnect.de
 half.host
 
 // XnBay Technology : http://www.xnbay.com/
