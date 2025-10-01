@@ -10504,6 +10504,12 @@ public class FragmentMessages extends FragmentBase
                                         } catch (CMSException ex) {
                                             Log.w(ex);
                                             last = ex;
+                                        } catch (Throwable ex) {
+                                            // java.lang.ClassCastException: org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient cannot be cast to org.bouncycastle.cms.KeyAgreeRecipient
+                                            //    at org.bouncycastle.cms.KeyAgreeRecipientInformation.getRecipientOperator(Unknown Source:1)
+                                            //    at org.bouncycastle.cms.RecipientInformation.getContentStream(Unknown Source:0)
+                                            Log.e(ex);
+                                            last = ex;
                                         }
                                         break; // only one try
                                     }
@@ -10519,6 +10525,12 @@ public class FragmentMessages extends FragmentBase
                                         break;
                                     } catch (CMSException ex) {
                                         Log.w(ex);
+                                        last = ex;
+                                    } catch (Throwable ex) {
+                                        // java.lang.ClassCastException: org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient cannot be cast to org.bouncycastle.cms.KeyAgreeRecipient
+                                        //    at org.bouncycastle.cms.KeyAgreeRecipientInformation.getRecipientOperator(Unknown Source:1)
+                                        //    at org.bouncycastle.cms.RecipientInformation.getContentStream(Unknown Source:0)
+                                        Log.e(ex);
                                         last = ex;
                                     }
                                 } else
