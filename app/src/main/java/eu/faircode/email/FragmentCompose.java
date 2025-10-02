@@ -4727,7 +4727,8 @@ public class FragmentCompose extends FragmentBase {
                             chain[0].getPublicKey(),
                             CMSAlgorithm.AES128_WRAP);
                     for (X509Certificate cert : certs)
-                        gen.addRecipient(cert);
+                        if (SmimeHelper.match(privkey, cert))
+                            gen.addRecipient(cert);
                     cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
                     // https://security.stackexchange.com/a/53960
                     // https://stackoverflow.com/questions/7073319/
@@ -4763,6 +4764,7 @@ public class FragmentCompose extends FragmentBase {
                 Log.i("S/MIME selected encryption algo=" + encryptAlgorithm + " OID=" + encryptionOID);
 
                 OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(encryptionOID)
+                        .setEnableSha256HKdf(true)
                         .build();
                 CMSEnvelopedData cmsEnvelopedData = cmsEnvelopedDataGenerator
                         .generate(msg, encryptor);
