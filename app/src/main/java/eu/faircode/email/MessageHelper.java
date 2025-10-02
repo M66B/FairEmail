@@ -5076,7 +5076,7 @@ public class MessageHelper {
                     if (content instanceof String)
                         content = tryParseMultipart((String) content, part.getContentType());
                     else if (content instanceof com.sun.mail.imap.IMAPInputStream)
-                        content = tryParseMultipart(Helper.readStream((com.sun.mail.imap.IMAPInputStream) content), part.getContentType());
+                        content = tryParseMultipart((com.sun.mail.imap.IMAPInputStream) content, part.getContentType());
 
                     if (content instanceof Multipart) {
                         Multipart mp = (Multipart) content;
@@ -5124,7 +5124,7 @@ public class MessageHelper {
                         if (content instanceof String)
                             content = tryParseMultipart((String) content, part.getContentType());
                         else if (content instanceof com.sun.mail.imap.IMAPInputStream)
-                            content = tryParseMultipart(Helper.readStream((com.sun.mail.imap.IMAPInputStream) content), part.getContentType());
+                            content = tryParseMultipart((com.sun.mail.imap.IMAPInputStream) content, part.getContentType());
 
                         if (content instanceof Multipart) {
                             Multipart multipart = (Multipart) content;
@@ -5176,7 +5176,7 @@ public class MessageHelper {
                         if (content instanceof String)
                             content = tryParseMultipart((String) content, part.getContentType());
                         else if (content instanceof com.sun.mail.imap.IMAPInputStream)
-                            content = tryParseMultipart(Helper.readStream((com.sun.mail.imap.IMAPInputStream) content), part.getContentType());
+                            content = tryParseMultipart((com.sun.mail.imap.IMAPInputStream) content, part.getContentType());
 
                         if (content instanceof Multipart) {
                             Multipart multipart = (Multipart) content;
@@ -5215,7 +5215,7 @@ public class MessageHelper {
                         if (TextUtils.isEmpty(smimeType)) {
                             String xmailer = imessage.getHeader("X-Mailer", null);
                             if (xmailer != null && xmailer.contains("Kerio Outlook Connector")) {
-                                Object content = tryParseMultipart(Helper.readStream(part.getInputStream()), part.getContentType());
+                                Object content = tryParseMultipart(part.getInputStream(), part.getContentType());
                                 if (content instanceof Multipart) {
                                     Multipart multipart = (Multipart) content;
                                     int count = multipart.getCount();
@@ -5316,7 +5316,7 @@ public class MessageHelper {
                 if (content instanceof String)
                     content = tryParseMultipart((String) content, part.getContentType());
                 else if (content instanceof com.sun.mail.imap.IMAPInputStream)
-                    content = tryParseMultipart(Helper.readStream((com.sun.mail.imap.IMAPInputStream) content), part.getContentType());
+                    content = tryParseMultipart((com.sun.mail.imap.IMAPInputStream) content, part.getContentType());
 
                 if (content instanceof Multipart) {
                     multipart = (Multipart) content;
@@ -5535,11 +5535,15 @@ public class MessageHelper {
     }
 
     private Object tryParseMultipart(String text, String contentType) {
+        return tryParseMultipart(new ByteArrayInputStream(text.getBytes(StandardCharsets.ISO_8859_1)), contentType);
+    }
+
+    private Object tryParseMultipart(InputStream is, String contentType) {
         try {
             return new MimeMultipart(new DataSource() {
                 @Override
                 public InputStream getInputStream() throws IOException {
-                    return new ByteArrayInputStream(text.getBytes(StandardCharsets.ISO_8859_1));
+                    return is;
                 }
 
                 @Override
@@ -5559,7 +5563,7 @@ public class MessageHelper {
             });
         } catch (MessagingException ex) {
             Log.e(ex);
-            return text;
+            return ex;
         }
     }
 
