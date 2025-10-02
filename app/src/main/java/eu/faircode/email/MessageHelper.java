@@ -5213,13 +5213,31 @@ public class MessageHelper {
                         // https://datatracker.ietf.org/doc/html/rfc2634#section-2
                     } else {
                         if (TextUtils.isEmpty(smimeType)) {
-                            String name = ct.getParameter("name");
-                            if ("smime.p7m".equalsIgnoreCase(name)) {
-                                getMessageParts(null, part, parts, EntityAttachment.SMIME_MESSAGE);
-                                return parts;
-                            } else if ("smime.p7s".equalsIgnoreCase(name)) {
-                                getMessageParts(null, part, parts, EntityAttachment.SMIME_SIGNED_DATA);
-                                return parts;
+                            String xmailer = imessage.getHeader("X-Mailer", null);
+                            if (xmailer != null && xmailer.contains("Kerio Outlook Connector")) {
+                                Object content = tryParseMultipart(Helper.readStream(part.getInputStream()), part.getContentType());
+                                if (content instanceof Multipart) {
+                                    Multipart multipart = (Multipart) content;
+                                    int count = multipart.getCount();
+                                    for (int i = 0; i < count; i++)
+                                        try {
+                                            BodyPart child = multipart.getBodyPart(i);
+                                            getMessageParts(part, child, parts, null);
+                                        } catch (ParseException ex) {
+                                            Log.w(ex);
+                                            parts.warnings.add(Log.formatThrowable(ex, false));
+                                        }
+                                    return parts;
+                                }
+                            } else {
+                                String name = ct.getParameter("name");
+                                if ("smime.p7m".equalsIgnoreCase(name)) {
+                                    getMessageParts(null, part, parts, EntityAttachment.SMIME_MESSAGE);
+                                    return parts;
+                                } else if ("smime.p7s".equalsIgnoreCase(name)) {
+                                    getMessageParts(null, part, parts, EntityAttachment.SMIME_SIGNED_DATA);
+                                    return parts;
+                                }
                             }
                         }
                         StringBuilder sb = new StringBuilder();
