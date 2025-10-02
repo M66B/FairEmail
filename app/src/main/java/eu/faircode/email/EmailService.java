@@ -173,8 +173,22 @@ public class EmailService implements AutoCloseable {
         // https://downloads.bouncycastle.org/fips-java/docs/BC-FJA-%28D%29TLSUserGuide-1.0.4.pdf
         Security.setProperty("jdk.tls.disabledAlgorithms", "");
         Security.setProperty("jdk.tls.client.protocols", "TLSv1.3,TLSv1.2,TLSv1.1,TLSv1,SSLv3");
+
+        // https://downloads.bouncycastle.org/fips-java/docs/BC-FJA-%28D%29TLSUserGuide-1.0.8.pdf
         System.setProperty("org.bouncycastle.jsse.client.dh.unrestrictedGroups", "true");
         System.setProperty("org.bouncycastle.jsse.client.dh.minimumPrimeBits", "1024");
+        // org.bouncycastle.jsse.client.dh.minimumPrimeBits: Integer property, default 2048,
+        //   can be configured in the range 1024 to 16384.
+        // org.bouncycastle.jsse.client.dh.unrestrictedGroups: boolean property, default false,
+        //   if set (exact string) to "true" will accept any DH group meeting the size requirement
+        //   (i.e. minimumPrimeBits above).
+        // org.bouncycastle.jsse.fips.allowRSAKeyExchange: boolean property, default true,
+        //   if set to “true” will allow the use of cipher suites based on the use of RSA key exchange in fips mode.
+        //   Note: the default value for this property will become “false” when the SP 800-131A transition away
+        //   from RSA key exchange in TLS takes effect.
+        // org.bouncycastle.jsse.ec.disableChar2: boolean property, default false,
+        //   if set (exact string) to “true” will disable the use of any characteristic 2, or F2m, curves
+        //   in TLS handshakes and key exchanges.
     }
 
     private EmailService() {
