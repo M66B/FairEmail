@@ -219,6 +219,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         put("Bozze", new TypeScore(EntityFolder.DRAFTS, 100));
         put("Szkice lokalne", new TypeScore(EntityFolder.DRAFTS, 100)); // Polish
         put("Wersje robocze", new TypeScore(EntityFolder.DRAFTS, 100)); // Polish
+        put("draftbox", new TypeScore(EntityFolder.DRAFTS, 50)); // mailo.com
 
         put("trash", new TypeScore(EntityFolder.TRASH, 100));
         put("Deleted", new TypeScore(EntityFolder.TRASH, 100));

@@ -259,6 +259,7 @@ public class FragmentCompose extends FragmentBase {
     private EditText etSubject;
     private ImageButton ibCcBcc;
     private ImageButton ibRemoveAttachments;
+    private ImageButton ibExpanderAttachments;
     private RecyclerView rvAttachment;
     private TextView tvNoInternetAttachments;
     private TextView tvDsn;
@@ -293,6 +294,7 @@ public class FragmentCompose extends FragmentBase {
     private Group grpReferenceHint;
 
     private ContentResolver resolver;
+    private TwoStateOwner ownerAttachment;
     private AdapterAttachment adapter;
     private MarkwonEditorTextWatcher markwonWatcher;
 
@@ -420,6 +422,7 @@ public class FragmentCompose extends FragmentBase {
         etSubject = view.findViewById(R.id.etSubject);
         ibCcBcc = view.findViewById(R.id.ibCcBcc);
         ibRemoveAttachments = view.findViewById(R.id.ibRemoveAttachments);
+        ibExpanderAttachments = view.findViewById(R.id.ibExpanderAttachments);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
         tvDsn = view.findViewById(R.id.tvDsn);
@@ -1515,6 +1518,19 @@ public class FragmentCompose extends FragmentBase {
                 fragment.setArguments(args);
                 fragment.setTargetFragment(FragmentCompose.this, REQUEST_REMOVE_ATTACHMENTS);
                 fragment.show(getParentFragmentManager(), "compose:discard");
+            }
+        });
+
+        ownerAttachment = new TwoStateOwner(getViewLifecycleOwner(), "attachments");
+        ownerAttachment.start();
+        ibExpanderAttachments.setVisibility(View.GONE);
+        ibExpanderAttachments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean hide_attachments = !Boolean.TRUE.equals(ibExpanderAttachments.getTag());
+                ibExpanderAttachments.setTag(hide_attachments);
+                ibExpanderAttachments.setImageLevel(hide_attachments ? 1 /* more */ : 0 /* less */);
+                ownerAttachment.restart();
             }
         });
 
@@ -6681,14 +6697,16 @@ public class FragmentCompose extends FragmentBase {
                 for (EntityAttachment attachment : last_attachments)
                     map.put(attachment.id, attachment);
 
-            db.attachment().liveAttachments(data.draft.id).observe(getViewLifecycleOwner(),
+            db.attachment().liveAttachments(data.draft.id).observe(ownerAttachment,
                     new Observer<List<EntityAttachment>>() {
                         @Override
                         public void onChanged(@Nullable List<EntityAttachment> attachments) {
                             if (attachments == null)
                                 attachments = new ArrayList<>();
 
-                            List<EntityAttachment> a = new ArrayList<>(attachments);
+                            boolean hide_attachments = Boolean.TRUE.equals(ibExpanderAttachments.getTag());
+
+                            List<EntityAttachment> a = (hide_attachments ? new ArrayList<>() : new ArrayList<>(attachments));
                             rvAttachment.post(new Runnable() {
                                 @Override
                                 public void run() {
@@ -6719,7 +6737,9 @@ public class FragmentCompose extends FragmentBase {
                                 }
                             });
 
-                            ibRemoveAttachments.setVisibility(attachments.size() > 2 ? View.VISIBLE : View.GONE);
+                            ibRemoveAttachments.setVisibility(attachments.size() > 2 && !hide_attachments ? View.VISIBLE : View.GONE);
+                            ibExpanderAttachments.setVisibility(attachments.size() > 1 ? View.VISIBLE : View.GONE);
+                            ibExpanderAttachments.setImageLevel(hide_attachments ? 1 /* more */ : 0 /* less */);
                             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
                             boolean downloading = false;
