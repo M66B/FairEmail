@@ -4258,6 +4258,9 @@ public class HtmlHelper {
                 switch (key) {
                     case "text-align":
                         sb.append(" display:block;");
+                        Element next = span.nextElementSibling();
+                        if (next != null && next.tagName().equals("br"))
+                            next.remove();
                         // fall through
                     default:
                         sb.append(param).append(';');
