@@ -1534,6 +1534,8 @@ public class FragmentCompose extends FragmentBase {
                 ibExpanderAttachments.setTag(hide_attachments);
                 ibExpanderAttachments.setImageLevel(hide_attachments ? 1 /* more */ : 0 /* less */);
                 ownerAttachment.restart();
+                if (!hide_attachments)
+                    prefs.edit().remove("compose_hide_attachments").apply();
             }
         });
         ibExpanderAttachments.setOnLongClickListener(new View.OnLongClickListener() {
