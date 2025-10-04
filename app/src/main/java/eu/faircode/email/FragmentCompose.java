@@ -3907,6 +3907,13 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, final Spanned body) {
+                // Show attachments
+                boolean hide_attachments = Boolean.TRUE.equals(ibExpanderAttachments.getTag());
+                if (hide_attachments) {
+                    ibExpanderAttachments.setTag(null);
+                    ownerAttachment.restart();
+                }
+
                 // Update text
                 if (body != null)
                     etBody.setText(body);
@@ -3957,6 +3964,13 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, ArrayList<UriType> images) {
+                // Show attachments
+                boolean hide_attachments = Boolean.TRUE.equals(ibExpanderAttachments.getTag());
+                if (hide_attachments) {
+                    ibExpanderAttachments.setTag(null);
+                    ownerAttachment.restart();
+                }
+
                 if (images.size() == 0)
                     return;
 
