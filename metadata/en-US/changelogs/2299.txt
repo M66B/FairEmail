@@ -30,6 +30,9 @@ Ceratonykus
 
 Next version (Work in progress)
 
+* Fixed all reported bugs
+* Added collapsible attachments for the message editor
+
 1.2299 2025-09-30
 
 * Fixed all reported bugs
