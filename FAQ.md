@@ -5359,7 +5359,6 @@ Deleting messages from the server and restoring them later could result in losin
 
 DeepL offers free translation of 500,000 characters (~100,000 words; ~250 pages) every month.
 
-1. Make sure you have the latest version of the app installed
 1. Check if [DeepL](https://www.deepl.com/) supports your language
 1. Enable DeepL support in the integration settings
 1. [Sign up](https://www.deepl.com/en/signup) to use [DeepL API Free](https://www.deepl.com/en/pro-api) "*Get started for free*" (credit card required for verification; won't be charged)
@@ -5371,12 +5370,13 @@ Note that DeepL seems to be hiding the DeepL API Free plan. It is still there, t
 This feature requires an internet connection.
 
 Note that you can't use [the regular pro plans](https://www.deepl.com/pro).
-The error *403 forbidden* means that the key and/or plan in invalid.
+The error *403 forbidden* means that the key and/or plan is invalid.
 
 Note that when reading a message, you can use the horizontal three-dots menu to translate too.
 If you use this frequently, you can configure a button for this.
 
-Some people have asked to add Google Translate on the assumption that it is free to use, but that is not the case if it is integrated into an app.
+Some people have asked to add Google Translate on the assumption that it is free to use,
+but [that is not the case](https://cloud.google.com/translate/pricing) if it is integrated into an app.
 Apart from that, DeepL is much easier to configure and the translations are of better quality.
 
 <br />
