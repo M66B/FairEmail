@@ -90,6 +90,8 @@ class NotificationHelper {
     private static final int MAX_PREVIEW = 5000; // characters
     private static final long NOTIFY_DELAY = 1250L / DEFAULT_MAX_NOTIFICATION_ENQUEUE_RATE; // milliseconds
 
+    private static final long WHEN_PERIOD = 7 * 24 * 3600 * 1000L; // milliseconds
+
     private static final List<String> PERSISTENT_IDS = Collections.unmodifiableList(Arrays.asList(
             "service",
             "send",
@@ -695,6 +697,7 @@ class NotificationHelper {
         if (messages == null || messages.size() == 0 || nm == null)
             return notifications;
 
+        long now = new Date().getTime();
         boolean pro = ActivityBilling.isPro(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -954,8 +957,6 @@ class NotificationHelper {
                             .addExtras(args)
                             .setSmallIcon(R.drawable.baseline_mail_white_24)
                             .setContentIntent(piContent)
-                            .setWhen(message.received)
-                            .setShowWhen(true)
                             .setSortKey(sortKey)
                             .setDeleteIntent(piIgnore)
                             .setPriority(EntityMessage.PRIORITIY_HIGH.equals(message.importance)
@@ -967,6 +968,9 @@ class NotificationHelper {
                                     : NotificationCompat.VISIBILITY_PUBLIC)
                             .setOnlyAlertOnce(alert_once)
                             .setAllowSystemGeneratedContextualActions(false);
+
+            if (message.received > now - WHEN_PERIOD)
+                mbuilder.setWhen(message.received).setShowWhen(true);
 
             if (message.ui_silent) {
                 mbuilder.setSilent(true);
