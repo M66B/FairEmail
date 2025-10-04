@@ -260,6 +260,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibCcBcc;
     private ImageButton ibRemoveAttachments;
     private ImageButton ibExpanderAttachments;
+    private TextView tvAttachments;
     private RecyclerView rvAttachment;
     private TextView tvNoInternetAttachments;
     private TextView tvDsn;
@@ -423,6 +424,7 @@ public class FragmentCompose extends FragmentBase {
         ibCcBcc = view.findViewById(R.id.ibCcBcc);
         ibRemoveAttachments = view.findViewById(R.id.ibRemoveAttachments);
         ibExpanderAttachments = view.findViewById(R.id.ibExpanderAttachments);
+        tvAttachments = view.findViewById(R.id.tvAttachments);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
         tvDsn = view.findViewById(R.id.tvDsn);
@@ -1533,6 +1535,8 @@ public class FragmentCompose extends FragmentBase {
                 ownerAttachment.restart();
             }
         });
+
+        tvAttachments.setVisibility(View.GONE);
 
         rvAttachment.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -6754,6 +6758,9 @@ public class FragmentCompose extends FragmentBase {
                             ibRemoveAttachments.setVisibility(attachments.size() > 2 && !hide_attachments ? View.VISIBLE : View.GONE);
                             ibExpanderAttachments.setVisibility(attachments.size() > 1 ? View.VISIBLE : View.GONE);
                             ibExpanderAttachments.setImageLevel(hide_attachments ? 1 /* more */ : 0 /* less */);
+                            tvAttachments.setText(getResources()
+                                    .getQuantityString(R.plurals.title_attachments, attachments.size(), attachments.size()));
+                            tvAttachments.setVisibility(attachments.size() > 0 && hide_attachments ? View.VISIBLE : View.GONE);
                             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
                             boolean downloading = false;

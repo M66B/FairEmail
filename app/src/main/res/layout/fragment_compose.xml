@@ -278,13 +278,25 @@
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorAttachments"
                     app:srcCompat="@drawable/expander" />
 
+                <TextView
+                    android:id="@+id/tvAttachments"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:text="10 attachments"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibExpanderAttachments" />
+
                 <eu.faircode.email.FixedRecyclerView
                     android:id="@+id/rvAttachment"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ibExpanderAttachments"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAttachments"
                     app:layout_goneMarginTop="6dp" />
 
                 <TextView
