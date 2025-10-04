@@ -1525,6 +1525,7 @@ public class FragmentCompose extends FragmentBase {
 
         ownerAttachment = new TwoStateOwner(getViewLifecycleOwner(), "attachments");
         ownerAttachment.start();
+        ibExpanderAttachments.setTag(prefs.getBoolean("compose_hide_attachments", false));
         ibExpanderAttachments.setVisibility(View.GONE);
         ibExpanderAttachments.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1533,6 +1534,17 @@ public class FragmentCompose extends FragmentBase {
                 ibExpanderAttachments.setTag(hide_attachments);
                 ibExpanderAttachments.setImageLevel(hide_attachments ? 1 /* more */ : 0 /* less */);
                 ownerAttachment.restart();
+            }
+        });
+        ibExpanderAttachments.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                boolean hide_attachments = !Boolean.TRUE.equals(ibExpanderAttachments.getTag());
+                ibExpanderAttachments.setTag(hide_attachments);
+                ibExpanderAttachments.setImageLevel(hide_attachments ? 1 /* more */ : 0 /* less */);
+                ownerAttachment.restart();
+                prefs.edit().putBoolean("compose_hide_attachments", hide_attachments).apply();
+                return true;
             }
         });
 
