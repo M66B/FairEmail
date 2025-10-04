@@ -3246,8 +3246,10 @@ public class HtmlHelper {
 
             StringBuilder sb = new StringBuilder();
             for (String word : query.trim().split("\\s+")) {
-                if (word.startsWith("+") || word.startsWith("-"))
+                if (word.startsWith("-"))
                     continue;
+                if (word.startsWith("+"))
+                    word = word.substring(1);
                 for (String w : Fts4DbHelper.breakText(word).split("\\s+")) {
                     if (sb.length() > 0)
                         sb.append("\\s*");
