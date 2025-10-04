@@ -3923,13 +3923,6 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, final Spanned body) {
-                // Show attachments
-                boolean hide_attachments = Boolean.TRUE.equals(ibExpanderAttachments.getTag());
-                if (hide_attachments) {
-                    ibExpanderAttachments.setTag(null);
-                    ownerAttachment.restart();
-                }
-
                 // Update text
                 if (body != null)
                     etBody.setText(body);
@@ -3980,13 +3973,6 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, ArrayList<UriType> images) {
-                // Show attachments
-                boolean hide_attachments = Boolean.TRUE.equals(ibExpanderAttachments.getTag());
-                if (hide_attachments) {
-                    ibExpanderAttachments.setTag(null);
-                    ownerAttachment.restart();
-                }
-
                 if (images.size() == 0)
                     return;
 
@@ -6729,10 +6715,16 @@ public class FragmentCompose extends FragmentBase {
 
             db.attachment().liveAttachments(data.draft.id).observe(ownerAttachment,
                     new Observer<List<EntityAttachment>>() {
+                        private Integer lastAttachments = null;
+
                         @Override
                         public void onChanged(@Nullable List<EntityAttachment> attachments) {
                             if (attachments == null)
                                 attachments = new ArrayList<>();
+
+                            if (lastAttachments != null && attachments.size() > lastAttachments)
+                                ibExpanderAttachments.setTag(false);
+                            lastAttachments = attachments.size();
 
                             boolean hide_attachments = Boolean.TRUE.equals(ibExpanderAttachments.getTag());
 
