@@ -5417,13 +5417,18 @@ public class MessageHelper {
                 contentType = new ContentType(Helper.guessMimeType(filename));
             }
 
+            boolean attach = false;
             String ct = contentType.getBaseType();
             if (("text/plain".equalsIgnoreCase(ct) || "text/html".equalsIgnoreCase(ct)) &&
-                    TextUtils.isEmpty(filename) &&
                     !Part.ATTACHMENT.equalsIgnoreCase(disposition) &&
                     (size <= MAX_MESSAGE_SIZE || size == Integer.MAX_VALUE)) {
                 parts.text.add(new PartHolder(part, contentType));
-            } else {
+                if ("text/plain".equalsIgnoreCase(ct) && !TextUtils.isEmpty(filename))
+                    attach = true;
+            } else
+                attach = true;
+
+            if (attach) {
                 // Workaround for NIL message content type
                 if ("application/octet-stream".equals(ct) && part instanceof MimeMessage) {
                     ContentType plain = new ContentType("text/plain");
