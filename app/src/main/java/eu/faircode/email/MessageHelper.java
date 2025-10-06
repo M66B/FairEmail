@@ -3976,7 +3976,9 @@ public class MessageHelper {
                     }
             }
 
-            parts.addAll(extra);
+            for (PartHolder part : extra)
+                if (!part.isMarkdown() || text.isEmpty())
+                    parts.add(part);
 
             boolean first = true;
             for (PartHolder h : parts) {
