@@ -676,6 +676,7 @@
     <string name="title_advanced_notify_suppress_in_call">Inaktivera aviseringar under pågående telefonsamtal</string>
     <string name="title_advanced_notify_suppress_in_car">Fördröj aviseringar medan Android Auto är ansluten</string>
     <string name="title_advanced_notify_summary">Visa enbart en sammanställning av aviseringar</string>
+    <string name="title_advanced_notify_subject">Visa ämne i notiser</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_preview_all">Förhandsgranska all text</string>
     <string name="title_advanced_notify_preview_only">Visa endast aviseringar med förhandsvisningar</string>
@@ -738,6 +739,7 @@
     <string name="title_advanced_clear_all">Ta bort appdata</string>
     <string name="title_advanced_clear_all_remark">Appens data kommer att tas bort oåterkalleligt!</string>
     <string name="title_advanced_sign_default">Signera som standard</string>
+    <string name="title_advanced_encrypt_default">Signera och kryptera som standard</string>
     <string name="title_advanced_encrypt_auto">Kryptera automatiskt när alla mottagares nycklar är tillgängliga</string>
     <string name="title_advanced_encrypt_reply">Kryptera ditt meddelande automatiskt när du svarar på ett krypterat meddelande</string>
     <string name="title_advanced_auto_verify">Verifiera signerade meddelanden automatiskt</string>

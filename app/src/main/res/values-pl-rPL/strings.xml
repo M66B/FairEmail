@@ -107,7 +107,7 @@
         <item quantity="other">Zgłosić %1$d wiadomości jako spam?</item>
     </plurals>
     <string name="title_ask_spam_who">Zgłosić wiadomość od %1$s jako spam?</string>
-    <string name="title_junk_hint">Twój dostawca poczty e-mail jest odpowiedzialny za filtrowanie spamu. Aplikacja poczty e-mail nie ma wystarczających danych, aby wykonać tę operację.</string>
+    <string name="title_junk_hint">Twój dostawca poczty elektronicznej jest odpowiedzialny za filtrowanie mielonki. Aplikacja poczty elektronicznej nie ma wszystkich wystarczających danych, aby robić to niezawodnie.</string>
     <string name="title_junk_pop_hint">        Wiadomości od zablokowanych nadawców nie zostaną pobrane.
         Jeśli opcja \"Zostaw wiadomości na serwerze\" nie jest włączona, te wiadomości zostaną trwale utracone!
     </string>

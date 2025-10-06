@@ -739,6 +739,7 @@
         暗号化方法は、(送信ボタンを長押しすると表示される) 送信ダイアログボックスで送信前に選択できます。
     </string>
     <string name="title_advanced_sign_default">デフォルトでデジタル署名する</string>
+    <string name="title_advanced_encrypt_default">デフォルトでデジタル署名し暗号化する</string>
     <string name="title_advanced_encrypt_auto">すべての宛先の鍵が有効なときは自動で暗号化する</string>
     <string name="title_advanced_encrypt_reply">暗号化されたメッセージには暗号化して返信する</string>
     <string name="title_advanced_auto_verify">デジタル署名されたメッセージを自動で検証する</string>
