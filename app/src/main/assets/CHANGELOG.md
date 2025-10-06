@@ -30,8 +30,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2300 2025-10-06
+
 * Fixed all reported bugs
 * Added collapsible attachments for the message editor
+* Updated [S/MIME root certificates](https://wiki.mozilla.org/CA/Included_Certificates)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2299 2025-09-30
 
