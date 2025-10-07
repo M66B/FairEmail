@@ -2453,6 +2453,22 @@ public class HtmlHelper {
 
         String width = img.attr("width").replace("px", "").trim();
         String height = img.attr("height").replace("px", "").trim();
+        String style = img.attr("style"); // style="max-width: 1px; width: 100%;"
+
+        if (!TextUtils.isEmpty(style))
+            for (String param : style.split(";")) {
+                int colon = param.indexOf(':');
+                if (colon < 0)
+                    continue;
+
+                String key = param.substring(0, colon).trim().toLowerCase(Locale.ROOT);
+                String value = param.substring(colon + 1).trim().toLowerCase(Locale.ROOT);
+                if (value.endsWith("px") && ("max-width".equals(key) || "max-height".equals(key))) {
+                    Integer w = Helper.parseInt(value.replace("px", ""));
+                    if (w != null && w <= 1)
+                        return true;
+                }
+            }
 
         if (TextUtils.isEmpty(width) || TextUtils.isEmpty(height))
             return false;
