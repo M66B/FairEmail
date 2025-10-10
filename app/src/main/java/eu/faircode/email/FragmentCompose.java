@@ -1875,6 +1875,8 @@ public class FragmentCompose extends FragmentBase {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        draftLoader.sync();
+
         outState.putLong("fair:working", working);
         outState.putBoolean("fair:show_images", show_images);
         outState.putParcelable("fair:photo", photoURI);
@@ -6623,6 +6625,7 @@ public class FragmentCompose extends FragmentBase {
 
             ServiceSynchronize.eval(context, "compose/draft");
 
+            working = data.draft.id;
             return data;
         }
 

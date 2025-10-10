@@ -366,6 +366,15 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         return !this.destroyed;
     }
 
+    void sync() {
+        try {
+            if (future != null)
+                future.get();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
     void cancel(Context context) {
         try {
             ExecutorService executor = getExecutor(context);
