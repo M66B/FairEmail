@@ -2037,10 +2037,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         fetch(folder, ifolder, e.getMessages(), false, false, "added");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
-                                        Log.e(folder.name, ex);
-                                        EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
-                                                account.name + "/" + folder.name + " added " + Log.formatThrowable(ex, false));
-                                        EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
+                                        if (ex instanceof FolderClosedException)
+                                            state.error(ex);
+                                        else {
+                                            Log.e(folder.name, ex);
+                                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
+                                                    account.name + "/" + folder.name + " added " + Log.formatThrowable(ex, false));
+                                            EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
+                                        }
                                     } finally {
                                         if (wlMessage.isHeld())
                                             wlMessage.release();
@@ -2058,9 +2062,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
-                                                account.name + "/" + folder.name + " removed " + Log.formatThrowable(ex, false));
-                                        EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
+                                        if (ex instanceof FolderClosedException)
+                                            state.error(ex);
+                                        else {
+                                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
+                                                    account.name + "/" + folder.name + " removed " + Log.formatThrowable(ex, false));
+                                            EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
+                                        }
                                     } finally {
                                         if (wlMessage.isHeld())
                                             wlMessage.release();
@@ -2084,9 +2092,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
-                                                account.name + "/" + folder.name + " changed " + Log.formatThrowable(ex, false));
-                                        EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
+                                        if (ex instanceof FolderClosedException)
+                                            state.error(ex);
+                                        else {
+                                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
+                                                    account.name + "/" + folder.name + " changed " + Log.formatThrowable(ex, false));
+                                            EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
+                                        }
                                     } finally {
                                         if (wlMessage.isHeld())
                                             wlMessage.release();
