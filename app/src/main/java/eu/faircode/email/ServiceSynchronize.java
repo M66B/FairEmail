@@ -2034,17 +2034,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     long start = new Date().getTime();
                                     try {
                                         wlMessage.acquire(Helper.WAKELOCK_MAX);
-                                        fetch(folder, ifolder, e.getMessages(), false, false, "added");
+                                        fetch(state, folder, ifolder, e.getMessages(), false, false, "added");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
-                                        if (ex instanceof FolderClosedException)
-                                            state.error(ex);
-                                        else {
-                                            Log.e(folder.name, ex);
-                                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
-                                                    account.name + "/" + folder.name + " added " + Log.formatThrowable(ex, false));
-                                            EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
-                                        }
+                                        Log.e(folder.name, ex);
+                                        EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
+                                                account.name + "/" + folder.name + " added " + Log.formatThrowable(ex, false));
+                                        EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
                                         if (wlMessage.isHeld())
                                             wlMessage.release();
@@ -2058,17 +2054,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     long start = new Date().getTime();
                                     try {
                                         wlMessage.acquire(Helper.WAKELOCK_MAX);
-                                        fetch(folder, ifolder, e.getMessages(), false, true, "removed");
+                                        fetch(state, folder, ifolder, e.getMessages(), false, true, "removed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        if (ex instanceof FolderClosedException)
-                                            state.error(ex);
-                                        else {
-                                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
-                                                    account.name + "/" + folder.name + " removed " + Log.formatThrowable(ex, false));
-                                            EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
-                                        }
+                                        EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
+                                                account.name + "/" + folder.name + " removed " + Log.formatThrowable(ex, false));
+                                        EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
                                         if (wlMessage.isHeld())
                                             wlMessage.release();
@@ -2088,17 +2080,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     try {
                                         wlMessage.acquire(Helper.WAKELOCK_MAX);
                                         Message imessage = e.getMessage();
-                                        fetch(folder, ifolder, new Message[]{imessage}, true, false, "changed");
+                                        fetch(state, folder, ifolder, new Message[]{imessage}, true, false, "changed");
                                         Thread.sleep(FETCH_YIELD_DURATION);
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);
-                                        if (ex instanceof FolderClosedException)
-                                            state.error(ex);
-                                        else {
-                                            EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
-                                                    account.name + "/" + folder.name + " changed " + Log.formatThrowable(ex, false));
-                                            EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
-                                        }
+                                        EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, folder,
+                                                account.name + "/" + folder.name + " changed " + Log.formatThrowable(ex, false));
+                                        EntityOperation.sync(ServiceSynchronize.this, folder.id, false);
                                     } finally {
                                         if (wlMessage.isHeld())
                                             wlMessage.release();
@@ -2951,7 +2939,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         }
     }
 
-    private void fetch(EntityFolder folder, IMAPFolder ifolder, Message[] messages, boolean invalidate, boolean deleted, String reason) throws MessagingException {
+    private void fetch(Core.State state, EntityFolder folder, IMAPFolder ifolder, Message[] messages, boolean invalidate, boolean deleted, String reason) throws MessagingException {
         Log.i(folder.name + " " + messages.length + " messages " + reason);
 
         List<Long> uids = new ArrayList<>();
@@ -2961,6 +2949,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 uids.add(uid);
             } catch (MessageRemovedException ex) {
                 Log.w(ex);
+            } catch (Throwable ex) {
+                Log.w(ex);
+                if (ex instanceof FolderClosedException) {
+                    state.error(ex);
+                    return;
+                } else
+                    throw ex;
             }
 
         Log.i(folder.name + " messages " + reason + " uids=" + TextUtils.join(",", uids));
