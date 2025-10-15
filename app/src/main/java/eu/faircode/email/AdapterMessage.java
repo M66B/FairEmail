@@ -3695,7 +3695,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         onCopy();
                                         break;
                                     default:
-                                        raction.getActionIntent().send(); // PendingIntentCompat.send()
+                                        raction.getActionIntent().send(Helper.getBackgroundActivityOptions());
                                 }
                             } catch (Throwable ex) {
                                 Log.e(ex);
