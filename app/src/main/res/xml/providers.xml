@@ -2456,4 +2456,18 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Yourhosting.nl"
+        domain="yourhosting\\.nl"
+        link="https://www.yourhosting.nl/kennisbank/e-mail/gegevens-om-mail-in-te-stellen/"
+        mx=".*\\.yourfilter\\.nl">
+        <imap
+            host="mail.yourhosting.nl"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.yourhosting.nl"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
