@@ -1738,6 +1738,7 @@
         name="StartMail"
         appPassword="true"
         domain="startmail\\.com"
+        documentation="You must use &lt;a href=&quot;https://support.startmail.com/hc/en-us/articles/360006536217-Configure-a-trusted-device-IMAP-password&quot;&gt;the IMAP password&lt;/a&gt; instead of your account password."
         link="https://support.startmail.com/hc/en-us/articles/360006596718-Server-addresses">
         <imap
             host="imap.startmail.com"
