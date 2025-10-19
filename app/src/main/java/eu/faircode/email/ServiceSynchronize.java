@@ -3505,7 +3505,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (!found) {
             if (BuildConfig.DEBUG)
                 Log.i("@@@ not found");
-            return null;
+            return new long[]{0, 0}; // no day found
         }
 
         long start = calStart.getTimeInMillis();
