@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Icon;
@@ -86,7 +87,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private boolean allColors;
     private List<TupleMessageWidget> messages = new ArrayList<>();
 
-    private static final int MAX_WIDGET_MESSAGES = 500;
+    private static final int MAX_WIDGET_MESSAGES = 100;
 
     WidgetUnifiedRemoteViewsFactory(final Context context, Intent intent) {
         this.context = context;
@@ -252,10 +253,17 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
                         message.account, null,
                         message.bimi_selector, Boolean.TRUE.equals(message.dmarc),
                         message.isForwarder() ? message.submitter : message.from);
+                Bitmap bm = (info.length == 0 ? null : info[0].getPhotoBitmap());
+                if (bm != null) {
+                    int w = bm.getWidth();
+                    int h = bm.getHeight();
+                    int dp36 = Helper.dp2pixels(context, 36);
+                    bm = Bitmap.createScaledBitmap(bm, dp36, bm.getHeight() * dp36 / bm.getWidth(), true);
+                }
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.BAKLAVA)
-                    views.setImageViewBitmap(R.id.avatar, info.length == 0 ? null : info[0].getPhotoBitmap());
+                    views.setImageViewBitmap(R.id.avatar, bm);
                 else
-                    views.setImageViewIcon(R.id.avatar, Icon.createWithBitmap(info[0].getPhotoBitmap()));
+                    views.setImageViewIcon(R.id.avatar, bm == null ? null : Icon.createWithBitmap(bm));
             }
             views.setViewVisibility(R.id.avatar, avatars ? View.VISIBLE : View.GONE);
 
