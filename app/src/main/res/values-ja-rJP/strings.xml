@@ -14,6 +14,7 @@
     <string name="app_cake_required">最低限必要な空き容量: %1$s</string>
     <string name="app_updated">最終更新: %1$s</string>
     <string name="app_download">ダウンロード元: %1$s</string>
+    <string name="app_error">ほとんどのエラーメッセージは、外的要因 (ネットワーク、サーバー) または非標準などの誤った設定によるものです。低評価のレビューをつけてもこのような問題は解決しません。まずはサポートに問い合わせてみてください。</string>
     <string name="app_motd">        Android 14/15 beta では「アプリが応答しません」という通知がときどき表示されます。
         Google が修正に取り組んでいます。
         Android 側の問題のため、アプリを非難しないでください！
@@ -1320,6 +1321,7 @@
     <string name="title_keywords_btn">キーワード</string>
     <string name="title_labels_btn">ラベル (Gmail のみ)</string>
     <string name="title_unsubscribe">購読解除</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">メッセージの購読解除リンクが動作しません。エラー: %1$s</string>
     <string name="title_message_rule">ルールを作成</string>
     <string name="title_no_junk">迷惑メールでないと報告</string>
     <string name="title_edit_subject">件名を編集&#8230;</string>

@@ -4,21 +4,21 @@
     <string name="app_send_self">Kendine gönder</string>
     <string name="app_changelog">Değişiklik günlüğü</string>
     <string name="app_welcome">FairEmail gizlilik ve güvenlik odaklı açık kaynaklı bir e-posta uygulamasıdır. Bu nedenle, bazı özellikler alışkın olduğunuzdan farklı şekilde çalışabilir.</string>
-    <string name="app_limitations">Örneğin, güvenli olmayan öğeleri kaldırmak ve okunabilirliği artırmak için mesajlar varsayılan olarak yeniden biçimlendirilir ve güvenlik için bağlantıların açılması onaylanmalıdır. İstenirse ikisi de devre dışı bırakılabilir.</string>
+    <string name="app_limitations">Örneğin, güvenli olmayan öğeleri kaldırmak ve okunabilirliği artırmak için mesajlar varsayılan olarak yeniden biçimlendirilir ve güvenlik için bağlantıların açılması onaylanmalıdır. İkisi de isteğe göre devre dışı bırakılabilir.</string>
     <string name="app_unsupported">Bu cihazın Android sürümündeki hatalar çökmelere neden oluyor</string>
     <string name="app_data_loss">Tüm veriler kaybolabilir</string>
     <string name="app_continue">Yine de devam et</string>
-    <string name="app_exit">Çıkmak için tekrar \'Geri\'yi tıklayın</string>
-    <string name="app_cake">Yeterli depolama alanı kalmadı</string>
+    <string name="app_exit">Çıkmak için Geri\'ye tekrar basın</string>
+    <string name="app_cake">Depolama alanı yetersiz</string>
     <string name="app_cake_remaining">Cihazda kalan depolama alanı: %1$s</string>
     <string name="app_cake_required">Minimum gerekli depolama alanı: %1$s</string>
-    <string name="app_updated">Son güncelleme %1$s</string>
+    <string name="app_updated">Son güncelleme: %1$s</string>
     <string name="app_download">Şuradan indirildi: %1$s</string>
-    <string name="app_error">Çoğu hata mesajının harici nedenleri vardır (ağ, sunucu vb.) veya yanlış, genellikle standart olmayan bir yapılandırmadan kaynaklanır. Kötü bir inceleme bu tür sorunları çözmez. Destek istemek neredeyse her zaman daha etkilidir.</string>
-    <string name="app_motd">Android 14/15 beta sürümünde zaman zaman \'Uygulama yanıt vermiyor\' bildirimleri ortaya çıkıyor. Google bir düzeltme üzerinde çalışıyor. Lütfen bu Android sorunu için uygulamayı suçlamayın!    </string>
-    <string name="channel_service">Monitör</string>
+    <string name="app_error">Çoğu hata mesajının harici nedenleri vardır (ağ, sunucu vb.) veya yanlış, genellikle standart dışı bir yapılandırmadan kaynaklanır. Kötü bir inceleme bu tür sorunları çözmez. Destek istemek neredeyse her zaman daha etkilidir.</string>
+    <string name="app_motd">Android 14/15 beta sürümünde zaman zaman \'Uygulama yanıt vermiyor\' bildirimleri ortaya çıkıyor. Google bir düzeltme üzerinde çalışıyor. Lütfen Android\'in bu sorunu için uygulamayı suçlamayın!    </string>
+    <string name="channel_service">Denetle</string>
     <string name="channel_send">Gönder</string>
-    <string name="channel_notification">e-posta</string>
+    <string name="channel_notification">E-posta</string>
     <string name="channel_progress">İlerleme</string>
     <string name="channel_update">Güncellemeler</string>
     <string name="channel_announcements">Duyurular</string>
@@ -27,9 +27,9 @@
     <string name="channel_alert">Sunucu uyarıları</string>
     <string name="channel_group_contacts">Rehber</string>
     <string name="channel_service_description">Hesapların senkronizasyonu ve izlenmesi</string>
-    <string name="channel_send_description">Mesajların gönderilmesi</string>
-    <string name="channel_notification_description">Yeni mesaj bildirimleri</string>
-    <string name="channel_progress_description">Daha uzun süren aktivitelerin ilerleme bildirimleri</string>
+    <string name="channel_send_description">İletilerin gönderilmesi</string>
+    <string name="channel_notification_description">Yeni ileti bildirimleri</string>
+    <string name="channel_progress_description">Daha uzun süren etkinliklerin ilerleme bildirimleri</string>
     <plurals name="page_conversation">
         <item quantity="one">Sohbet</item>
         <item quantity="other">Sohbetler</item>
@@ -39,11 +39,11 @@
         <item quantity="other">İletiler</item>
     </plurals>
     <string name="page_folders">Klasörler</string>
-    <string name="page_compose">Eposta Oluştur</string>
+    <string name="page_compose">Yaz</string>
     <string name="tile_synchronize">Senkronize et</string>
     <string name="tile_unseen">Yeni iletiler</string>
     <string name="shortcut_refresh">Yenile</string>
-    <string name="shortcut_compose">Eposta Oluştur</string>
+    <string name="shortcut_compose">Yaz</string>
     <string name="shortcut_setup">Ayarlar</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">%1$d hesap izleniyor</item>
@@ -66,8 +66,8 @@
         <item quantity="other">%1$d yeni</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="one">%1$d mesaj taşınsın mı?</item>
-        <item quantity="other">%1$d mesaj taşınsın mı?</item>
+        <item quantity="one">%1$d ileti taşınsın mı?</item>
+        <item quantity="other">%1$d ileti taşınsın mı?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">%1$d ileti kalıcı olarak silinsin mi?</item>
@@ -779,6 +779,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sort_answers">Yanıt şablonlarını kullanım sıklığına göre sırala</string>
     <string name="title_advanced_shortcuts">Sık kullanılan kişileri Android\'in paylaşma menüsünde göster</string>
     <string name="title_advanced_ical_tentative">Alınan davetiyeleri geçici olarak sakla</string>
+    <string name="title_advanced_ical_email">Katılımcıların e-posta adreslerini sakla</string>
     <string name="title_advanced_fts">Arama indeksini oluştur</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaj indekslendi (%3$s)</string>
     <string name="title_advanced_classification">İletileri sınıflandır</string>
@@ -1325,6 +1326,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_keywords_btn">Anahtar Sözcükler/Kelimeler</string>
     <string name="title_labels_btn">Etiketler (yalnızca Gmail)</string>
     <string name="title_unsubscribe">Abonelikten çık</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">İletinin içerisindeki üyelikten çıkma linki çalışmıyor. Hata kodu: %1$s</string>
     <string name="title_message_rule">Kural oluştur</string>
     <string name="title_no_junk">Spam değil</string>
     <string name="title_edit_subject">Konuyu düzenle &#8230;</string>
@@ -2058,6 +2060,7 @@ Dosya: strings. xml</string>
     <string name="title_via">Şu yol ile: %1$s</string>
     <string name="title_1hour">1 saat</string>
     <string name="title_1day">1 gün</string>
+    <string name="title_snooze_doze">Lütfen ana ayarlar ekranının 3. adımında belirtilen şekilde pil optimizasyonunu devre dışı bırakın.</string>
     <string name="title_more_overflow">Daha fazla &#8230;</string>
     <string name="title_today_at">Bugün %1$s\'de</string>
     <string name="title_tomorrow_at">Yarın %1$s\'de</string>
