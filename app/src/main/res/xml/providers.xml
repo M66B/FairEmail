@@ -558,7 +558,7 @@
             starttls="true" />
     </provider>
     <provider
-        name="Mail.de/fr"
+        name="Mail.de"
         domain="mail\\.de"
         link="https://mail.de/hilfe/pop3-imap-einstellungen">
         <imap
@@ -567,6 +567,19 @@
             starttls="false" />
         <smtp
             host="smtp.mail.de"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
+        name="Mail.fr"
+        domain="mail\\.fr"
+        link="https://mail.fr/en/help/messages/external_e-mail_clients/pop3-imap_settings">
+        <imap
+            host="imap.mail.fr"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.mail.fr"
             port="465"
             starttls="false" />
     </provider>
