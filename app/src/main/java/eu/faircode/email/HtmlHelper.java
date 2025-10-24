@@ -727,8 +727,10 @@ public class HtmlHelper {
                             if (us >= 0 && ue > us) {
                                 url = url.substring(us + 4, ue);
                                 if ((url.startsWith("'") && url.endsWith("'")) ||
-                                        (url.startsWith("\"") && url.endsWith("\"")))
-                                    url = url.substring(1, url.length() - 1);
+                                        (url.startsWith("\"") && url.endsWith("\""))) {
+                                    if (url.length() > 1)
+                                        url = url.substring(1, url.length() - 1);
+                                }
                                 Element img = document.createElement("img")
                                         .attr("src", url);
                                 element.prependElement("br");
