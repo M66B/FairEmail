@@ -6762,9 +6762,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }.execute(context, owner, args, "message:external");
 
                         return true;
-                    }
-
-                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                    } else if ("mailto".equals(scheme)) {
+                        TupleMessageEx message = getMessage();
+                        if (message != null) {
+                            String mailto = uri.toString();
+                            if (mailto.indexOf('?') < 0)
+                                mailto += "?aid=" + message.account;
+                            else
+                                mailto += "&aid=" + message.account;
+                            uri = Uri.parse(mailto);
+                        }
+                    } else if ("cid".equals(scheme) || "data".equals(uri.getScheme()))
                         return false;
 
                     boolean confirm_links = prefs.getBoolean("confirm_links", true);

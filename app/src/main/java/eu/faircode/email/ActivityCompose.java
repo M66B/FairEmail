@@ -183,6 +183,12 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                             args.putString("bcc", address.get(0));
                         else if ("in-reply-to".equalsIgnoreCase(key))
                             args.putString("inreplyto", address.get(0));
+                        else if ("aid".equals(key))
+                            try {
+                                args.putLong("account", Long.parseLong(address.get(0)));
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
                     }
 
                 String body = mailto.getBody();
@@ -313,8 +319,9 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         if (isShared(action)) {
             intent.putExtra("fair:shared", true);
             args.putString("action", "new");
-            args.putLong("account",
-                    intent.getLongExtra("fair:account", -1L));
+            if (!args.containsKey("account"))
+                args.putLong("account",
+                        intent.getLongExtra("fair:account", -1L));
         }
 
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
