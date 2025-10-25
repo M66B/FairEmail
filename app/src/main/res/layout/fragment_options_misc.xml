@@ -1481,6 +1481,18 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swImapCompress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_imap_compress"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swUidExpunge"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swAuthPlain"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1489,7 +1501,7 @@
                     android:text="@string/title_advanced_auth_plain"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swUidExpunge"
+                    app:layout_constraintTop_toBottomOf="@id/swImapCompress"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

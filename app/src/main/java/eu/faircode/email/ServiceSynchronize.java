@@ -182,7 +182,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             "ssl_harden", "ssl_harden_strict", "cert_strict", "cert_transparency", "check_names", "bouncy_castle", "bc_fips", // force reconnect
             "experiments", "debug", "protocol", // force reconnect
             //"restart_interval", // force reconnect
-            "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", // force reconnect
+            "imap_compress", "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", // force reconnect
             "keep_alive_poll", "empty_pool", "idle_done", // force reconnect
             "exact_alarms" // force schedule
     ));

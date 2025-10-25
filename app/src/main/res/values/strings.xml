@@ -998,6 +998,7 @@
     <string name="title_advanced_expunge" translatable="false">AUTO EXPUNGE</string>
     <string name="title_advanced_uid_expunge" translatable="false">UID EXPUNGE</string>
     <string name="title_advanced_hide_deleted" translatable="false">Hide deleted messages</string>
+    <string name="title_advanced_imap_compress" translatable="false">COMPRESS</string>
     <string name="title_advanced_auth_plain" translatable="false">PLAIN</string>
     <string name="title_advanced_auth_login" translatable="false">LOGIN</string>
     <string name="title_advanced_auth_ntlm" translatable="false">NTLM</string>

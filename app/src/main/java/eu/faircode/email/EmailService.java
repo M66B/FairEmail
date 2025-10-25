@@ -219,6 +219,7 @@ public class EmailService implements AutoCloseable {
         this.cert_transparency = prefs.getBoolean("cert_transparency", false);
         this.check_names = prefs.getBoolean("check_names", !BuildConfig.PLAY_STORE_RELEASE);
 
+        boolean imap_compress = prefs.getBoolean("imap_compress", true);
         boolean auth_plain = prefs.getBoolean("auth_plain", true);
         boolean auth_login = prefs.getBoolean("auth_login", true);
         boolean auth_ntlm = prefs.getBoolean("auth_ntlm", true);
@@ -311,7 +312,7 @@ public class EmailService implements AutoCloseable {
 
             // https://tools.ietf.org/html/rfc4978
             // https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html
-            properties.put("mail." + protocol + ".compress.enable", "true");
+            properties.put("mail." + protocol + ".compress.enable", Boolean.toString(imap_compress));
             //properties.put("mail.imaps.compress.level", "-1");
             //properties.put("mail.imaps.compress.strategy", "0");
 
