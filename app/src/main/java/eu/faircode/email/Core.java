@@ -138,6 +138,7 @@ class Core {
     private static final long LOCAL_RETRY_DELAY = 5 * 1000L; // milliseconds
     private static final int TOTAL_RETRY_MAX = LOCAL_RETRY_MAX * 5;
     private static final long EXISTS_RETRY_DELAY = 20 * 1000L; // milliseconds
+    private static final long EXISTS_RETRY_DELAY_OUTLOOK = 3 * 60 * 1000L; // milliseconds
     private static final int FIND_RETRY_COUNT = 3; // times
     private static final long FIND_RETRY_DELAY = 5 * 1000L; // milliseconds
     private static final int POP3_KEEP_EXTRA = 100; // messages
@@ -2469,7 +2470,7 @@ class Core {
                     " found=" + (imessages == null ? null : imessages.length) +
                     " host=" + account.host);
         else if (imessages == null || imessages.length == 0) {
-            long next = new Date().getTime() + EXISTS_RETRY_DELAY;
+            long next = new Date().getTime() + (account.isOutlook() ? EXISTS_RETRY_DELAY_OUTLOOK : EXISTS_RETRY_DELAY);
 
             Intent intent = new Intent(context, ServiceSynchronize.class);
             intent.setAction("exists:" + message.id);
