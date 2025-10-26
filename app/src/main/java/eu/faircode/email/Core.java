@@ -3025,7 +3025,7 @@ class Core {
                         folder.setSpecials(account);
 
                         if (selectable) {
-                            folder.inheritFrom(parent);
+                            folder.inheritFrom(parent, context);
                             if (user && sync_added_folders && EntityFolder.USER.equals(type)) {
                                 folder.synchronize = true;
                                 folder.notify = true;

@@ -554,7 +554,7 @@ public class FragmentDialogSelectFolder extends FragmentDialogBase {
                         folder.type = EntityFolder.USER;
                         folder.parent = (parent == null ? null : parent.id);
                         folder.setProperties();
-                        folder.inheritFrom(parent);
+                        folder.inheritFrom(parent, context);
                         folder.id = db.folder().insertFolder(folder);
                     }
 

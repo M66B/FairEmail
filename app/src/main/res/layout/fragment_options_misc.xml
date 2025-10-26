@@ -2309,6 +2309,17 @@
                     app:layout_constraintTop_toBottomOf="@id/swDeleteNotification" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAutoFolderNav"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_auto_folder_nav"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDeleteNotificationHint"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swDmarcViewer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -2316,7 +2327,7 @@
                     android:text="@string/title_advanced_dmarc_viewer"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDeleteNotificationHint"
+                    app:layout_constraintTop_toBottomOf="@id/swAutoFolderNav"
                     app:switchPadding="12dp" />
 
                 <EditText

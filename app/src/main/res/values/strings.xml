@@ -1046,6 +1046,7 @@
     <string name="title_advanced_delete_confirmation" translatable="false">Permanent deletion confirmation</string>
     <string name="title_advanced_delete_notification" translatable="false">Delete permanently from notifications</string>
     <string name="title_advanced_deletion_confirmation_hint" translatable="false">If you change this setting, please do not complain if you accidentally deleted messages irreversibly</string>
+    <string name="title_auto_folder_nav" translatable="false">Add new folders automatically to the navigation menu</string>
     <string name="title_advanced_dmarc_viewer" translatable="false">DMARC viewer</string>
     <string name="title_advanced_global_keywords" translatable="false">Global keywords</string>
     <string name="title_advanced_test_iab" translatable="false">Test IAB</string>

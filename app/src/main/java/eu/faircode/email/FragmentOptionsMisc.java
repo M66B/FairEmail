@@ -253,6 +253,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAdjacentLandscape;
     private SwitchCompat swDeleteConfirmation;
     private SwitchCompat swDeleteNotification;
+    private SwitchCompat swAutoFolderNav;
     private SwitchCompat swDmarcViewer;
     private EditText etKeywords;
     private SwitchCompat swTestIab;
@@ -318,7 +319,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "easy_correct", "paste_plain", "paste_quote", "favicon_uri", "infra", "email_junk", "tld_flags", "json_ld", "dup_msgids", "thread_byref", "save_user_flags", "mdn",
             "app_chooser", "app_chooser_share", "share_task",
             "adjacent_links", "adjacent_documents", "adjacent_portrait", "adjacent_landscape",
-            "delete_confirmation", "delete_notification", "global_keywords", "test_iab"
+            "delete_confirmation", "delete_notification", "auto_folder_nav", "global_keywords", "test_iab"
     ));
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -526,6 +527,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAdjacentLandscape = view.findViewById(R.id.swAdjacentLandscape);
         swDeleteConfirmation = view.findViewById(R.id.swDeleteConfirmation);
         swDeleteNotification = view.findViewById(R.id.swDeleteNotification);
+        swAutoFolderNav = view.findViewById(R.id.swAutoFolderNav);
         swDmarcViewer = view.findViewById(R.id.swDmarcViewer);
         etKeywords = view.findViewById(R.id.etKeywords);
         swTestIab = view.findViewById(R.id.swTestIab);
@@ -1887,6 +1889,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swAutoFolderNav.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auto_folder_nav", checked).apply();
+            }
+        });
+
         swDmarcViewer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2676,6 +2685,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swAdjacentLandscape.setChecked(prefs.getBoolean("adjacent_landscape", false));
             swDeleteConfirmation.setChecked(prefs.getBoolean("delete_confirmation", true));
             swDeleteNotification.setChecked(prefs.getBoolean("delete_notification", false));
+            swAutoFolderNav.setChecked(prefs.getBoolean("auto_folder_nav", false));
             swDmarcViewer.setChecked(Helper.isComponentEnabled(getContext(), ActivityDMARC.class));
             etKeywords.setText(prefs.getString("global_keywords", null));
             swTestIab.setChecked(prefs.getBoolean("test_iab", false));
