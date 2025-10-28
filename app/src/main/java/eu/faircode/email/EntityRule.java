@@ -1467,7 +1467,7 @@ public class EntityRule {
         boolean loop = jargs.optBoolean("loop");
         boolean alarm = jargs.optBoolean("alarm");
         int duration = jargs.optInt("duration", MediaPlayerHelper.DEFAULT_ALARM_DURATION);
-        Log.i("Sound uri=" + uri + " loop=" + loop + " alarm=" + alarm + " duration=" + duration);
+        Log.i("Sound uri=" + uri + " loop=" + loop + " alarm=" + alarm + " duration=" + duration + " browsed=" + browsed);
 
         if (browsed)
             return false;
