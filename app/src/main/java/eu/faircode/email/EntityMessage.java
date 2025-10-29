@@ -614,7 +614,8 @@ public class EntityMessage implements Serializable {
             template_reply = template_reply.replace("$to$", MessageHelper.formatAddresses(to));
             template_reply = template_reply.replace("$cc$", MessageHelper.formatAddresses(cc));
             template_reply = template_reply.replace("$time$", date);
-            template_reply = template_reply.replace("$subject$", subject);
+            if (subject != null)
+                template_reply = template_reply.replace("$subject$", subject);
             p.html(template_reply);
         }
 
