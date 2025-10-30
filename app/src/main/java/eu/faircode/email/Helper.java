@@ -294,7 +294,7 @@ public class Helper {
 
     static ExecutorService getDownloadTaskExecutor() {
         if (sDownloadExecutor == null)
-            sDownloadExecutor = getBackgroundExecutor(0, "download");
+            sDownloadExecutor = getBackgroundExecutor(5, "download");
         return sDownloadExecutor;
     }
 
