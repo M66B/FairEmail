@@ -4800,7 +4800,7 @@ public class FragmentCompose extends FragmentBase {
                 Log.i("S/MIME selected encryption algo=" + encryptAlgorithm + " OID=" + encryptionOID);
 
                 OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(encryptionOID)
-                        .setEnableSha256HKdf(true)
+                        //.setEnableSha256HKdf(true)
                         .build();
                 CMSEnvelopedData cmsEnvelopedData = cmsEnvelopedDataGenerator
                         .generate(msg, encryptor);
