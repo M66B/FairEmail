@@ -6261,7 +6261,7 @@ This is not a complete and exhaustive list.
 
 Please see [this article](https://www.zivver.com/blog/why-cisos-and-security-professionals-can-no-longer-rely-on-regular-email-for-the-sharing-of-personal-information) about why DANE is important.
 
-Note that DNSSEC and DANE are available in the GitHub version only.
+Note that DNSSEC and DANE are available in the GitHub version only and require Android 8.0 or later.
 
 <br>
 
