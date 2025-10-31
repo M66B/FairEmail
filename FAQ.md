@@ -6241,7 +6241,7 @@ Alternatively, see [this Wikipedia article](https://en.wikipedia.org/wiki/DNS-ba
 
 You can use [this tool](https://ssl-tools.net/tlsa-generator) to generate TLSA DNS records for DANE (select either PKIX-EE or DANE-EE).
 
-You can enable enforcing DNSSEC and/or DANA in the (advanced) account and identity settings (since version 1.2149).
+You can enable enforcing DNSSEC and/or DANE in the (advanced) account and identity settings (since version 1.2149).
 
 Note that only some email providers support DANE and that only a limited number of DNS servers support DNSSEC (January 2024: ~30%), which is required for DANE.
 Most private DNS providers support DNSSEC, though. You can configure private DNS in the Android network settings (since Android 9).

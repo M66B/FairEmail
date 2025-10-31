@@ -3118,7 +3118,7 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <p>Please see <a href="https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">this Wikipedia article</a> about what DNSSEC is.</p>
 <p>Please see <a href="https://github.com/internetstandards/toolbox-wiki/blob/main/DANE-for-SMTP-how-to.md">this article</a> about what DANE is. Alternatively, see <a href="https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">this Wikipedia article</a>.</p>
 <p>You can use <a href="https://ssl-tools.net/tlsa-generator">this tool</a> to generate TLSA DNS records for DANE (select either PKIX-EE or DANE-EE).</p>
-<p>You can enable enforcing DNSSEC and/or DANA in the (advanced) account and identity settings (since version 1.2149).</p>
+<p>You can enable enforcing DNSSEC and/or DANE in the (advanced) account and identity settings (since version 1.2149).</p>
 <p>Note that only some email providers support DANE and that only a limited number of DNS servers support DNSSEC (January 2024: ~30%), which is required for DANE. Most private DNS providers support DNSSEC, though. You can configure private DNS in the Android network settings (since Android 9). To be sure that private DNS is being used, better configure a host name like <em>dns.google</em>, <em>1dot1dot1dot1.cloudflare-dns.com</em> or <em>dns.quad9.net</em>. An alternative is using Certificate Transparency, see the previous FAQ.</p>
 <p>Some email providers known to support DANE for client-to-server traffic:</p>
 <ul>
