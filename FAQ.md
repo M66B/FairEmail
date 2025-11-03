@@ -2262,6 +2262,9 @@ an account will automatically be switched to periodically checking for new messa
 * The email server does not support push messages
 * The keep-alive interval is lower than 12 minutes
 
+Some people are asking for [UnifiedPush](https://unifiedpush.org/) to be added to reduce battery consumption.
+However, the app can only receive push notifications if the email server sends them.
+
 <br />
 
 <a name="faq40"></a>
