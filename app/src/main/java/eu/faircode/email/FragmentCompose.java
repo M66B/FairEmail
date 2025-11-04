@@ -1399,10 +1399,13 @@ public class FragmentCompose extends FragmentBase {
                                 item.avatar = cursor.getString(2);
                                 item.times_contacted = (cursor.getInt(3) == 0 ? 0 : Integer.MAX_VALUE);
                                 item.last_contacted = 0L;
-                                EntityContact existing = map.get(item.email);
-                                if (existing == null ||
-                                        (existing.avatar == null && item.avatar != null))
-                                    map.put(item.email, item);
+                                if (!TextUtils.isEmpty(item.email)) {
+                                    String key = item.email.toLowerCase(Locale.ROOT);
+                                    EntityContact existing = map.get(key);
+                                    if (existing == null ||
+                                            (existing.avatar == null && item.avatar != null))
+                                        map.put(key, item);
+                                }
                             }
                         }
                     }
@@ -1416,15 +1419,17 @@ public class FragmentCompose extends FragmentBase {
                                 suggest_account ? FragmentCompose.this.account : null, EntityContact.TYPE_FROM, wildcard))
                             if (!MessageHelper.isNoReply(item.email))
                                 items.add(item);
-                    for (EntityContact item : items) {
-                        EntityContact existing = map.get(item.email);
-                        if (existing == null)
-                            map.put(item.email, item);
-                        else {
-                            existing.times_contacted = Math.max(existing.times_contacted, item.times_contacted);
-                            existing.last_contacted = Math.max(existing.last_contacted, item.last_contacted);
+                    for (EntityContact item : items)
+                        if (!TextUtils.isEmpty(item.email)) {
+                            String key = item.email.toLowerCase(Locale.ROOT);
+                            EntityContact existing = map.get(key);
+                            if (existing == null)
+                                map.put(key, item);
+                            else {
+                                existing.times_contacted = Math.max(existing.times_contacted, item.times_contacted);
+                                existing.last_contacted = Math.max(existing.last_contacted, item.last_contacted);
+                            }
                         }
-                    }
 
                     items = new ArrayList<>(map.values());
 
