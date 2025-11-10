@@ -3063,6 +3063,7 @@ $user$ is the user name of the 'from' email address,
 and $domain$ is the domain name of the 'from' email address: *user@domain*.
 
 $extra$ is the part after the plus sign if the username: *user+extra@example.org*.
+The 'to' user, extra and domain placeholders apply to the 'to' email address and the other placeholders apply to 'from' email address.
 
 $group$ will be replaced with the contact group name of the sender, provided that the related contact is assigned to one contact group only.
 Note that the Android contact provider isn't very fast, so using this placeholder can slow down fetching messages.
