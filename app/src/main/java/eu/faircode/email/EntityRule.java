@@ -977,6 +977,11 @@ public class EntityRule {
             String name = folder.name + (folder.separator == null ? "" : folder.separator) + create;
             EntityFolder created = db.folder().getFolderByName(folder.account, name);
             if (created == null) {
+                EntityLog.log(context, "Creating folder=" + name +
+                        " parent=" + folder.name +
+                        " separator=" + folder.separator +
+                        " pattern=" + jargs.optString("create"));
+
                 created = new EntityFolder();
                 created.tbc = true;
                 created.account = folder.account;
