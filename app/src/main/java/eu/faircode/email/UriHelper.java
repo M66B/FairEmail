@@ -195,7 +195,11 @@ public class UriHelper {
         if (plus < 0)
             return null;
 
-        return email.substring(plus + 1);
+        int at = email.indexOf('@', plus + 1);
+        if (at < 0)
+            return null;
+
+        return email.substring(plus + 1, at);
     }
 
     static String getEmailDomain(String address) {
