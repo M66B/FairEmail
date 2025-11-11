@@ -1559,6 +1559,10 @@ public class Log {
                             ex.getCause().getMessage().contains("Socket is closed")))
                 return null;
 
+            if ((ex instanceof MessagingException || ex instanceof ProtocolException) &&
+                    ex.getMessage() != null && ex.getMessage().contains("System Error (Failure)"))
+                return null; // Gmail
+
             // javax.mail.MessagingException: AU3 BAD User is authenticated but not connected.;
             //   nested exception is:
             //  com.sun.mail.iap.BadCommandException: AU3 BAD User is authenticated but not connected.
