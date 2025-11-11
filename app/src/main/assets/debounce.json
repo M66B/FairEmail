@@ -206,6 +206,7 @@
   },
   {
     "include": [
+      "*://t.lever-analytics.com/email-link?",
       "*://cat.criteo.com/beacon?*"
     ],
     "exclude": [
