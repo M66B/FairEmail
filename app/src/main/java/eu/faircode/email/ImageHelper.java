@@ -925,7 +925,7 @@ class ImageHelper {
         }
 
         if (bm != null) {
-            Matrix rotation = getImageRotation(file);
+            Matrix rotation = getImageRotation(mimeType, file);
             if (rotation != null) {
                 Bitmap rotated = Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(), rotation, true);
                 bm.recycle();
@@ -953,10 +953,11 @@ class ImageHelper {
         return drawable;
     }
 
-    static Matrix getImageRotation(File file) {
+    static Matrix getImageRotation(String mimeType, File file) {
         try {
             ExifInterface exif = new ExifInterface(file);
             int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+            Log.i("Image Exif orientation=" + orientation + " type=" + mimeType);
 
             Matrix matrix = new Matrix();
             switch (orientation) {
