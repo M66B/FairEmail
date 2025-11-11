@@ -30,6 +30,9 @@ Ceratonykus
 
 Next version (Work in progress)
 
+* Fixed all reported bugs
+* Added resizing of HEIC/HEIF encoded images
+
 1.2302 2025-10-30
 
 * Fixed all reported bugs

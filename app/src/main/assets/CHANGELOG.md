@@ -30,6 +30,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Fixed all reported bugs
+* Added resizing of HEIC/HEIF encoded images
+
 ### 1.2302 2025-10-30
 
 * Fixed all reported bugs
