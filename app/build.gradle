@@ -609,6 +609,7 @@ dependencies {
     def zxing_version = "3.5.3"
     def evalex_version = "3.4.0"
     def image_cropper_version = "4.6.0"
+    def heifwriter_version = "1.1.0"
 
     // https://mvnrepository.com/artifact/com.android.tools/desugar_jdk_libs?repo=google
     coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$desugar_version"
@@ -889,4 +890,7 @@ dependencies {
     // https://github.com/CanHub/Android-Image-Cropper
     // https://mvnrepository.com/artifact/com.vanniktech/android-image-cropper
     implementation "com.vanniktech:android-image-cropper:$image_cropper_version"
+
+    // https://developer.android.com/jetpack/androidx/releases/heifwriter
+    implementation "androidx.heifwriter:heifwriter:$heifwriter_version"
 }

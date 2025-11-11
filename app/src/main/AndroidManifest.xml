@@ -45,6 +45,8 @@
         android:required="false" />
     <!-- https://developer.android.com/topic/arc -->
 
+    <uses-sdk tools:overrideLibrary="androidx.heifwriter" />
+
     <!-- Android 11: https://developer.android.com/preview/privacy/package-visibility -->
     <!-- https://developer.android.com/training/package-visibility/use-cases -->
     <queries>

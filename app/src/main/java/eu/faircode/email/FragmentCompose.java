@@ -135,6 +135,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.heifwriter.HeifWriter;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
@@ -5662,7 +5663,10 @@ public class FragmentCompose extends FragmentBase {
         if (!"image/jpg".equals(attachment.type) &&
                 !"image/jpeg".equals(attachment.type) &&
                 !"image/png".equals(attachment.type) &&
-                !"image/webp".equals(attachment.type)) {
+                !"image/webp".equals(attachment.type) &&
+                !(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
+                        ("image/heic".equals(attachment.type) ||
+                                "image/heif".equals(attachment.type)))) {
             Log.i("Skipping resize of type=" + attachment.type);
             return;
         }
@@ -5685,7 +5689,7 @@ public class FragmentCompose extends FragmentBase {
             factor *= 2;
 
         Matrix rotation = ("image/jpeg".equals(attachment.type) ? ImageHelper.getImageRotation(file) : null);
-        Log.i("Image type=" + attachment.type + " rotation=" + rotation);
+        Log.i("Image type=" + attachment.type + " factor=" + factor + " rotation=" + rotation);
         if (factor > 1 || rotation != null) {
             options.inJustDecodeBounds = false;
             options.inSampleSize = factor;
@@ -5701,26 +5705,47 @@ public class FragmentCompose extends FragmentBase {
                     resized = rotated;
                 }
 
-                Bitmap.CompressFormat format;
-                if ("image/jpg".equals(attachment.type) ||
-                        "image/jpeg".equals(attachment.type))
-                    format = Bitmap.CompressFormat.JPEG;
-                else if ("image/png".equals(attachment.type))
-                    format = Bitmap.CompressFormat.PNG;
-                else if ("image/webp".equals(attachment.type))
-                    format = Bitmap.CompressFormat.WEBP;
-                else
-                    throw new IllegalArgumentException("Invalid format type=" + attachment.type);
-
                 File tmp = new File(file.getAbsolutePath() + ".tmp");
-                try (OutputStream out = new BufferedOutputStream(new FileOutputStream(tmp))) {
-                    if (!resized.compress(format, ImageHelper.DEFAULT_PNG_COMPRESSION, out))
-                        throw new IOException("compress");
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                    Helper.secureDelete(tmp);
-                } finally {
-                    resized.recycle();
+
+                if ("image/heic".equals(attachment.type) ||
+                        "image/heif".equals(attachment.type)) {
+                    // https://developer.android.com/reference/androidx/heifwriter/HeifWriter
+                    Log.i("Image heif writer");
+                    try (HeifWriter writer = new HeifWriter.Builder(tmp.getAbsolutePath(),
+                            resized.getWidth(), resized.getHeight(), HeifWriter.INPUT_MODE_BITMAP)
+                            .setMaxImages(1)
+                            .build()) {
+                        writer.start();
+                        writer.addBitmap(resized);
+                        writer.stop(5000L);
+                        Log.i("Image heif writer done");
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                        Helper.secureDelete(tmp);
+                    } finally {
+                        resized.recycle();
+                    }
+                } else {
+                    Bitmap.CompressFormat format;
+                    if ("image/jpg".equals(attachment.type) ||
+                            "image/jpeg".equals(attachment.type))
+                        format = Bitmap.CompressFormat.JPEG;
+                    else if ("image/png".equals(attachment.type))
+                        format = Bitmap.CompressFormat.PNG;
+                    else if ("image/webp".equals(attachment.type))
+                        format = Bitmap.CompressFormat.WEBP;
+                    else
+                        throw new IllegalArgumentException("Invalid format type=" + attachment.type);
+
+                    try (OutputStream out = new BufferedOutputStream(new FileOutputStream(tmp))) {
+                        if (!resized.compress(format, ImageHelper.DEFAULT_PNG_COMPRESSION, out))
+                            throw new IOException("compress");
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                        Helper.secureDelete(tmp);
+                    } finally {
+                        resized.recycle();
+                    }
                 }
 
                 if (tmp.exists() && tmp.length() > 0) {
