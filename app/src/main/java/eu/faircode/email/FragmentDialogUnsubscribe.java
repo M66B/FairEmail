@@ -160,16 +160,13 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         dialog.dismiss();
-                        if (ex instanceof IllegalStateException)
+                        if (ex instanceof IllegalStateException || ex instanceof UnknownHostException)
                             ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
                         else if (ex instanceof IllegalArgumentException || ex instanceof IOException)
-                            if (!(ex instanceof UnknownHostException)) {
-                                ToastEx.makeText(context,
-                                        context.getString(R.string.title_unsubscribe_error,
-                                                Log.formatThrowable(ex, false)),
-                                        Toast.LENGTH_LONG).show();
-                            } else
-                                Log.unexpectedError(getParentFragmentManager(), ex);
+                            ToastEx.makeText(context,
+                                    context.getString(R.string.title_unsubscribe_error,
+                                            Log.formatThrowable(ex, false)),
+                                    Toast.LENGTH_LONG).show();
                     }
                 }.execute(FragmentDialogUnsubscribe.this, args, "unsubscribe");
             }
