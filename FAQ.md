@@ -1699,6 +1699,9 @@ The error *... Invalid ID Token Issued at time is more than 10 minutes before or
 means that the clock time of the device deviates too much from the clock time of the email server.
 Please make sure the clock time, including the time zone, of the device is correct.
 
+The error *... No close_notify alert received before connection closed ...* means that the email server of something between the email server and the app didn't proper close a secure connection.
+This is an error in the SSL/TLS protocol implementation. It is typically caused by a faulty VPN implementation. So, if there is a VPN app active, please try to disable it.
+
 Please [see here](#faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
 Please [see here](#faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
