@@ -136,9 +136,8 @@ public class FragmentDialogUnsubscribe extends FragmentDialogBase {
                                 }
 
                                 if (status >= 300) {
-                                    String error = status + ": " + connection.getResponseMessage();
-                                    Log.i("Unsubscribe error=" + error);
-                                    throw new IllegalArgumentException(error);
+                                    Log.w("Unsubscribe status=" + status + " " + connection.getResponseMessage());
+                                    throw new IllegalArgumentException("HTTP status " + status);
                                 } else
                                     Log.i("Unsubscribe status=" + status);
 
