@@ -2211,6 +2211,10 @@ so that the mechanism as described in [this FAQ](#faq123) is used faster.
 [On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 3) to keep connections to email servers open.
 In fact, leaving battery optimizations enabled can result in extra battery usage for all devices, even though this sounds contradictory!
 
+The Adaptive Battery feature in recent Android versions stops apps running in the background, even when battery optimizations are disabled.
+When the app is stopped, it will no longer receive new messages.
+When the app is manually restarted, a full sync is forced, but Android will later stop the app again because Android AI deems this to be better for battery usage.
+
 Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages.
 So, to reduce the battery usage, set the number of days to synchronize message for to a lower value,
 especially if there are a lot of recent messages in a folder.
