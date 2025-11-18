@@ -49,9 +49,12 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
+import android.view.inputmethod.TextAttribute;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.inputmethod.EditorInfoCompat;
 import androidx.core.view.inputmethod.InputConnectionCompat;
@@ -780,6 +783,39 @@ public class EditTextCompose extends FixedEditText {
             public boolean deleteSurroundingTextInCodePoints(int beforeLength, int afterLength) {
                 try {
                     return super.deleteSurroundingTextInCodePoints(beforeLength, afterLength);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                    return true;
+                }
+            }
+
+            @Override
+            public boolean commitText(CharSequence text, int newCursorPosition) {
+                try {
+                    return super.commitText(text, newCursorPosition);
+                } catch (Throwable ex) {
+                    // java.lang.NullPointerException: Attempt to invoke interface method 'java.lang.String java.lang.CharSequence.toString()' on a null object reference
+                    //    at android.view.inputmethod.SemBaseInputConnectionUtil.isAllBracketChars(SemBaseInputConnectionUtil.java:151)
+                    //    at android.view.inputmethod.SemBaseInputConnectionUtil.convertAllBrackets(SemBaseInputConnectionUtil.java:22)
+                    //    at android.view.inputmethod.BaseInputConnection.replaceTextInternal(BaseInputConnection.java:1026)
+                    //    at android.view.inputmethod.BaseInputConnection.replaceText(BaseInputConnection.java:962)
+                    //    at android.view.inputmethod.BaseInputConnection.commitText(BaseInputConnection.java:241)
+                    //    at com.android.internal.inputmethod.EditableInputConnection.commitText(EditableInputConnection.java:220)
+                    //    at android.view.inputmethod.InputConnectionWrapper.commitText(InputConnectionWrapper.java:207)
+                    //    at android.view.inputmethod.InputConnectionWrapper.commitText(InputConnectionWrapper.java:207)
+                    //    at android.view.inputmethod.InputConnectionWrapper.commitText(InputConnectionWrapper.java:207)
+                    //    at android.view.inputmethod.RemoteInputConnectionImpl.lambda$commitText$17(RemoteInputConnectionImpl.java:669)
+                    //    at android.view.inputmethod.RemoteInputConnectionImpl.$r8$lambda$jNtA8MXobPnaECkNr8D9WTYrxk0(Unknown Source:0)
+                    //    at android.view.inputmethod.RemoteInputConnectionImpl$$ExternalSyntheticLambda46.run(D8$$SyntheticClass:0)
+                    Log.w(ex);
+                    return true;
+                }
+            }
+
+            @Override
+            public boolean commitText(@NonNull CharSequence text, int newCursorPosition, @Nullable TextAttribute textAttribute) {
+                try {
+                    return super.commitText(text, newCursorPosition, textAttribute);
                 } catch (Throwable ex) {
                     Log.w(ex);
                     return true;
