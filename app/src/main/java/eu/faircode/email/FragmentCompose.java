@@ -7926,12 +7926,14 @@ public class FragmentCompose extends FragmentBase {
                         });
 
                         if (extras.getBoolean("archive")) {
+                            EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.DRAFTS);
                             EntityFolder archive = db.folder().getFolderByType(draft.account, EntityFolder.ARCHIVE);
                             if (archive != null) {
                                 List<EntityMessage> messages = db.message().getMessagesByMsgId(draft.account, draft.inreplyto);
                                 if (messages != null)
                                     for (EntityMessage message : messages)
-                                        EntityOperation.queue(context, message, EntityOperation.MOVE, archive.id);
+                                        if (drafts == null || !Objects.equals(message.folder, drafts.id))
+                                            EntityOperation.queue(context, message, EntityOperation.MOVE, archive.id);
                             }
                         }
                     }
