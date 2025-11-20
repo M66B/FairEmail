@@ -1866,6 +1866,7 @@ class Core {
         try {
             if (perform_expunge && account.isGmail() && gmail_delete_all) {
                 EntityFolder trash = db.folder().getFolderByType(account.id, EntityFolder.TRASH);
+                EntityFolder drafts = db.folder().getFolderByType(account.id, EntityFolder.DRAFTS);
                 if (trash != null) {
                     Map<String, Long> folders = new HashMap<>();
                     EntityFolder archive = db.folder().getFolderByType(account.id, EntityFolder.ARCHIVE);
@@ -1873,9 +1874,12 @@ class Core {
                         folders.put(archive.name, archive.id);
 
                     List<Long> uids = new ArrayList<>();
-                    for (EntityMessage message : messages)
-                        if (message.uid != null)
+                    for (EntityMessage message : new ArrayList<EntityMessage>(messages))
+                        if (message.uid != null &&
+                                (drafts == null || !Objects.equals(message.folder, drafts.id))) {
                             uids.add(message.uid);
+                            messages.remove(message);
+                        }
 
                     IMAPFolder itrash = (IMAPFolder) istore.getFolder(trash.name);
                     Message[] imessages = ifolder.getMessagesByUID(Helper.toLongArray(uids));
@@ -1920,7 +1924,8 @@ class Core {
                     for (long fid : folders.values())
                         EntityOperation.sync(context, fid, false);
 
-                    return;
+                    if (messages.isEmpty())
+                        return;
                 }
             }
 
