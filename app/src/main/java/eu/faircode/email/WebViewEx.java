@@ -410,8 +410,8 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
                 }
             }
         }
-        if (viewportHeight == 0)
-            intercept = false;
+        //if (viewportHeight == 0)
+        //    intercept = false;
         getParent().requestDisallowInterceptTouchEvent(intercept || event.getPointerCount() > 1);
 
         lastX = event.getX();
