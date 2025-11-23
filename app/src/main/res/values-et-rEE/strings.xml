@@ -14,6 +14,7 @@
     <string name="app_cake_required">Miinimu vajalik talletusruum: %1$s</string>
     <string name="app_updated">Viimati uuendatud: %1$s</string>
     <string name="app_download">Laaditud kohast: %1$s</string>
+    <string name="app_error">Enamike vigade põhjused on välised (võrk, server, jne) või on põhjustatud ebakorrektse, tihti mittestandardse, häälestuse poolt. Negatiivne arvustus ei lahenda selliseid probleeme. Toe taotlemine on peaaegu alati efektiivsem.</string>
     <string name="app_motd">        Android 14/15 beetaga juhtuvad vahel teated \'Äpp ei vasta\'.
         Google töötab paranduse kallal.
         Palun ära süüdista äppi selle Androidi probleemi pärast!
@@ -752,6 +753,7 @@
         Krüpteerimismeetodi saab valida enne saatmist saatmisvalikute dialoogiboksis (vajutage pikalt nuppu saatmine).
     </string>
     <string name="title_advanced_sign_default">Allkirjasta vaikimisi</string>
+    <string name="title_advanced_encrypt_default">Signeeri ja krüpteeri vaikimisi</string>
     <string name="title_advanced_encrypt_auto">Krüpteeri automaatselt, kui kõigi saajate võtmed on saadaval</string>
     <string name="title_advanced_encrypt_reply">Automaatne krüpteerimine kui vastatakse krüpteeritud sõnumile</string>
     <string name="title_advanced_auto_verify">Kontrolli allkirjastatud sõnumeid automaatselt</string>
@@ -1332,6 +1334,7 @@
     <string name="title_keywords_btn">Märksõnad</string>
     <string name="title_labels_btn">Sildid (vaid Gmail)</string>
     <string name="title_unsubscribe">Loobu tellimusest</string>
+    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Sõnumis olev tellimuse lõpetamise link ei toimi. Viga %1$s</string>
     <string name="title_message_rule">Loo reegel</string>
     <string name="title_no_junk">Pole spämm</string>
     <string name="title_edit_subject">Muuda teemat &#8230;</string>
