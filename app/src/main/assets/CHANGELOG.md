@@ -32,7 +32,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 * Fixed all reported bugs
 * Small improvements and minor bug fixes
-* Added resizing of HEIC/HEIF encoded images
+* Added resizing of HEIC/HEIF encoded images (Android 9 or later only)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [Brave's debounce list](https://github.com/brave/brave-browser/wiki/Debouncing)
 

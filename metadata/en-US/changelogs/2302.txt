@@ -32,7 +32,8 @@ Next version (Work in progress)
 
 * Fixed all reported bugs
 * Small improvements and minor bug fixes
-* Added resizing of HEIC/HEIF encoded images
+* Added resizing of HEIC/HEIF encoded images (Android 9 or later only)
+* Updated translations
 * Updated Public Suffix List
 * Updated Brave's debounce list
 
