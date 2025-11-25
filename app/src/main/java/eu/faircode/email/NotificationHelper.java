@@ -969,7 +969,7 @@ class NotificationHelper {
                             .setOnlyAlertOnce(alert_once)
                             .setAllowSystemGeneratedContextualActions(false);
 
-            if (message.received > now - WHEN_PERIOD)
+            if (message.received > now - WHEN_PERIOD && !Boolean.TRUE.equals(message.ui_unsnoozed))
                 mbuilder.setWhen(message.received).setShowWhen(true);
 
             if (message.ui_silent) {
