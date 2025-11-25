@@ -621,6 +621,13 @@ public class EditTextCompose extends FixedEditText {
 
                 ClipData.Item item = cbm.getPrimaryClip().getItemAt(0);
 
+                Uri uri = item.getUri();
+                if (inputContentListener != null && uri != null) {
+                    String type = Helper.guessMimeType(uri.getLastPathSegment());
+                    inputContentListener.onInputContent(uri, type);
+                    return true;
+                }
+
                 final String html;
                 String h = null;
                 if (raw || (!BuildConfig.PLAY_STORE_RELEASE && length() == 0)) {
