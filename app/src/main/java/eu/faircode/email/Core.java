@@ -589,10 +589,11 @@ class Core {
                             op.error = Log.formatThrowable(ex, !EntityOperation.BODY.equals(op.name));
                             db.operation().setOperationError(op.id, op.error);
 
-                            if (message != null &&
+                            if (message != null && op.error != null &&
                                     !EntityOperation.FETCH.equals(op.name) &&
                                     !EntityOperation.ATTACHMENT.equals(op.name) &&
-                                    !(ex instanceof IllegalArgumentException))
+                                    !(ex instanceof IllegalArgumentException) &&
+                                    !(account.isGmail() && op.error.toLowerCase(Locale.ROOT).contains("system error")))
                                 db.message().setMessageError(message.id, op.error);
 
                             db.setTransactionSuccessful();
