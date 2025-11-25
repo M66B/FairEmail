@@ -26,9 +26,11 @@ The security audit revealed no problems, so Google accounts [can continue to be 
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
+### [Diuqin](https://en.wikipedia.org/wiki/Diuqin)
 
 ### Next version (Work in progress)
+
+### 1.2303 2025-11-25
 
 * Fixed all reported bugs
 * Small improvements and minor bug fixes
@@ -48,6 +50,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Fixed all reported bugs
 * Updated [translations](https://crowdin.com/project/open-source-email)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
+
+### [Ceratonykus](https://en.wikipedia.org/wiki/Ceratonykus)
 
 ### 1.2300 2025-10-06
 
