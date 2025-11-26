@@ -804,9 +804,9 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swUnseenIgnored.setVisibility(Helper.isXiaomi() ? View.GONE : View.VISIBLE);
         swAlertOnce.setVisibility(Helper.isXiaomi() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
-        int notity_rate_limit = prefs.getInt("notity_rate_limit", 0);
+        int notify_rate_limit = prefs.getInt("notify_rate_limit", 0);
         for (int pos = 0; pos < undoValues.length; pos++)
-            if (undoValues[pos] == notity_rate_limit) {
+            if (undoValues[pos] == notify_rate_limit) {
                 spRateLimit.setSelection(pos);
                 break;
             }
