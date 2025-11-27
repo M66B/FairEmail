@@ -3787,7 +3787,7 @@ public class FragmentCompose extends FragmentBase {
                             .Builder()
                             .setAccentColor(colorAccent)
                             .setOrderedSelection(true)
-                            .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
+                            .setMediaType(ActivityResultContracts.PickVisualMedia.ImageAndVideo.INSTANCE)
                             .build());
                     return;
                 } catch (Throwable ex) {
