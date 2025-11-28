@@ -1875,11 +1875,13 @@ class Core {
                         folders.put(archive.name, archive.id);
 
                     List<Long> uids = new ArrayList<>();
-                    for (EntityMessage message : new ArrayList<EntityMessage>(messages))
+                    List<EntityMessage> process = new ArrayList<>();
+                    for (EntityMessage message : new ArrayList<>(messages))
                         if (message.uid != null &&
                                 (drafts == null || !Objects.equals(message.folder, drafts.id))) {
                             uids.add(message.uid);
                             messages.remove(message);
+                            process.add(message);
                         }
 
                     IMAPFolder itrash = (IMAPFolder) istore.getFolder(trash.name);
@@ -1907,7 +1909,7 @@ class Core {
                     itrash.open(READ_WRITE);
                     try {
                         List<Message> trashed = new ArrayList<>();
-                        for (EntityMessage message : messages)
+                        for (EntityMessage message : process)
                             if (!TextUtils.isEmpty(message.msgid)) {
                                 Message[] itrashed = itrash.search(new MessageIDTerm(message.msgid));
                                 if (itrashed != null && itrashed.length == 1)
