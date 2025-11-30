@@ -4984,6 +4984,8 @@ Since version 1.1556 it is possible to export all messages of a POP3 folder in m
 which might be useful to backup sent messages if the email server doesn't (which is risky because breaking or losing your device, means losing your sent messages!).
 For this, please long press on the folder in the folder list of an account (tap on the account name in the navigation menu).
 
+**Warning**: the app will export messages downloaded to the device only!
+
 Since version 1.2160 it is possible to import messages in an mbox file conforming to [RFC4155](https://www.ietf.org/rfc/rfc4155.txt) into a POP3 folder.
 Note that imported messages won't be uploaded to the email server because this is not possible with POP3.
 
