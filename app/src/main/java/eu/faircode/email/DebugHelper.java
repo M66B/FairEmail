@@ -1514,7 +1514,7 @@ public class DebugHelper {
                                 Notification.VISIBILITY_SECRET));
                 size += write(os, String.format("Interruption filter\r\n"));
                 size += write(os, String.format("- All: no notifications are suppressed.\r\n"));
-                size += write(os, String.format("- Priority: all notifications are suppressed except those that match the priority criteria. Some audio streams are muted.\r\n"));
+                size += write(os, String.format("- Priority: all notifications are suppressed except those that match the priority criteria (=do-not-disturb). Some audio streams are muted.\r\n"));
                 size += write(os, String.format("- None: all notifications are suppressed and all audio streams (except those used for phone calls) and vibrations are muted.\r\n"));
                 size += write(os, String.format("- Alarm: all notifications except those of category alarm are suppressed. Some audio streams are muted.\r\n"));
             }
