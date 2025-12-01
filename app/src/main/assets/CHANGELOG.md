@@ -30,6 +30,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2305 2025-12-01
+
+* Fixed deleting Gmail labels
+
 ### 1.2304 2025-11-28
 
 * Fixed all reported bugs
