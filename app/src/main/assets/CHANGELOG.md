@@ -30,6 +30,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2306 2025-12-02
+
+* Fixed scroll issues with the original message view
+
 ### 1.2305 2025-12-01
 
 * Fixed deleting Gmail labels
