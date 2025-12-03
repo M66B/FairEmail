@@ -30,6 +30,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Added option to select space between messages
+
 ### 1.2306 2025-12-02
 
 * Fixed scroll issues with the original message view
