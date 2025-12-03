@@ -519,7 +519,7 @@ public class FragmentMessages extends FragmentBase
         threading = (prefs.getBoolean("threading", true) ||
                 args.getBoolean("force_threading"));
         swipenav = prefs.getBoolean("swipenav", true);
-        spacing = prefs.getInt("spacing", 0);
+        spacing = Helper.dp2pixels(getContext(), prefs.getInt("spacing", 0) * 12);
         seekbar = prefs.getBoolean("seekbar", false);
         move_thread_all = prefs.getBoolean("move_thread_all", false);
         move_thread_sent = (move_thread_all || prefs.getBoolean("move_thread_sent", false));
@@ -993,9 +993,15 @@ public class FragmentMessages extends FragmentBase
 
         DividerItemDecoration spacingDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
             @Override
+            public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+            }
+
+            @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
                 int pos = parent.getChildAdapterPosition(view);
-                outRect.top = (pos == 0 ? 0 : Helper.dp2pixels(view.getContext(), spacing * 12));
+                if (pos > 0)
+                    outRect.top += spacing;
             }
         };
         rvMessage.addItemDecoration(spacingDecorator);
