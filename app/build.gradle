@@ -399,8 +399,8 @@ preBuild.dependsOn copyMarkdown
 tasks.register('copyChangelog', Copy) {
     from "${rootDir}"
     into "../metadata/en-US/changelogs"
-    include "CHANGELOG.md"
-    rename "CHANGELOG.md", getVersionCode() + ".txt"
+    include "fdroid.txt"
+    rename "fdroid.txt", getVersionCode() + ".txt"
     filter { String line ->
         line
                 .replaceAll(".*Google Translate.*", "--------------------")
