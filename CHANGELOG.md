@@ -31,6 +31,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### Next version (Work in progress)
 
 * Added option to select space between messages
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 
 ### 1.2306 2025-12-02
 
