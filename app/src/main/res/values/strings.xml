@@ -702,6 +702,7 @@
     <string name="title_advanced_image_placeholders">Show image placeholders</string>
     <string name="title_advanced_images_inline">Automatically show inline images</string>
     <string name="title_advanced_button_extra">Show extra buttons at the bottom of a message</string>
+    <string name="title_advanced_spacing">Space between messages and conversations</string>
     <string name="title_advanced_seekbar">Show relative conversation position with a dot</string>
     <string name="title_advanced_actionbar">Show conversation action bar</string>
     <string name="title_advanced_actionbar_swap">Swap trash and archive button</string>
@@ -2839,6 +2840,12 @@
         <item>Small</item>
         <item>Medium</item>
         <item>Large</item>
+    </string-array>
+
+    <string-array name="spacingNames">
+        <item>Compact</item>
+        <item>Medium</item>
+        <item>Roomy</item>
     </string-array>
 
     <string name="title_size_tiny">Tiny</string>

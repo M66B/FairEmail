@@ -147,7 +147,7 @@ public class FragmentOptions extends FragmentBase {
             "portrait2", "portrait2c", "portrait_min_size", "landscape", "landscape_min_size",
             "column_width",
             "hide_toolbar", "edge_to_edge", "nav_categories", "nav_last_sync", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "show_unexposed",
-            "indentation", "date", "date_week", "date_fixed", "date_bold", "date_time", "threading", "threading_unread",
+            "spacing", "indentation", "date", "date_week", "date_fixed", "date_bold", "date_time", "threading", "threading_unread",
             "show_filtered",
             "highlight_unread", "highlight_color", "account_color", "account_color_size",
             "avatars", "bimi", "gravatars", "libravatars", "favicons", "favicons_partial", "favicons_manifest", "generated_icons", "identicons",

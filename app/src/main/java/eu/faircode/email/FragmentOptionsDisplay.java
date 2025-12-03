@@ -104,6 +104,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swThreading;
     private SwitchCompat swThreadingUnread;
     private SwitchCompat swIndentation;
+    private Spinner spSpacing;
     private SwitchCompat swSeekbar;
     private SwitchCompat swActionbar;
     private SwitchCompat swActionbarSwap;
@@ -221,7 +222,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_border", "shadow_highlight", "dividers", "tabular_unread_bg",
             "portrait2", "portrait2c", "landscape", "close_pane", "column_width",
             "hide_toolbar", "edge_to_edge", "nav_options", "nav_categories", "nav_last_sync", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "show_unexposed",
-            "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_swap", "actionbar_color",
+            "threading", "threading_unread", "indentation", "spacing", "seekbar", "actionbar", "actionbar_swap", "actionbar_color",
             "highlight_unread", "highlight_color", "account_color", "account_color_size",
             "avatars", "bimi", "bimi_vmc", "gravatars", "libravatars", "favicons", "favicons_partial", "favicons_manifest", "ddg_icons", "favicons_dmarc", "generated_icons", "identicons",
             "circular", "saturation", "brightness", "threshold",
@@ -289,6 +290,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swThreading = view.findViewById(R.id.swThreading);
         swThreadingUnread = view.findViewById(R.id.swThreadingUnread);
         swIndentation = view.findViewById(R.id.swIndentation);
+        spSpacing = view.findViewById(R.id.spSpacing);
         swSeekbar = view.findViewById(R.id.swSeekbar);
         swActionbar = view.findViewById(R.id.swActionbar);
         swActionbarSwap = view.findViewById(R.id.swActionbarSwap);
@@ -725,6 +727,18 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("indentation", checked).apply();
+            }
+        });
+
+        spSpacing.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                prefs.edit().putInt("spacing", position).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("spacing").apply();
             }
         });
 
@@ -1642,6 +1656,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swThreadingUnread.setEnabled(swThreading.isChecked());
             swIndentation.setChecked(prefs.getBoolean("indentation", false));
             swIndentation.setEnabled(swCards.isChecked() && swThreading.isChecked());
+            spSpacing.setSelection(prefs.getInt("spacing", 0));
             swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
             swActionbar.setChecked(prefs.getBoolean("actionbar", true));
             swActionbarSwap.setChecked(prefs.getBoolean("actionbar_swap", false));
