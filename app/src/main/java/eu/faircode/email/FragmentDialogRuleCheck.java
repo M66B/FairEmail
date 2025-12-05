@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,17 +50,18 @@ public class FragmentDialogRuleCheck extends FragmentDialogBase {
         String condition = getArguments().getString("condition");
         String action = getArguments().getString("action");
 
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_rule_match, null);
+        final Context context = getContext();
+        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_rule_match, null);
         final TextView tvNoMessages = dview.findViewById(R.id.tvNoMessages);
         final RecyclerView rvMessage = dview.findViewById(R.id.rvMessage);
         final Button btnExecute = dview.findViewById(R.id.btnExecute);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
         rvMessage.setHasFixedSize(false);
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        LinearLayoutManager llm = new LinearLayoutManager(context);
         rvMessage.setLayoutManager(llm);
 
-        final AdapterRuleMatch adapter = new AdapterRuleMatch(getContext(), getViewLifecycleOwner());
+        final AdapterRuleMatch adapter = new AdapterRuleMatch(context, getViewLifecycleOwner());
         rvMessage.setAdapter(adapter);
 
         tvNoMessages.setVisibility(View.GONE);
@@ -76,12 +78,17 @@ public class FragmentDialogRuleCheck extends FragmentDialogBase {
         btnExecute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!ActivityBilling.isPro(context)) {
+                    startActivity(new Intent(context, ActivityBilling.class));
+                    return;
+                }
+
                 new SimpleTask<Integer>() {
                     private Toast toast = null;
 
                     @Override
                     protected void onPreExecute(Bundle args) {
-                        toast = ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG);
+                        toast = ToastEx.makeText(context, R.string.title_executing, Toast.LENGTH_LONG);
                         toast.show();
                     }
 
@@ -131,7 +138,7 @@ public class FragmentDialogRuleCheck extends FragmentDialogBase {
                     @Override
                     protected void onExecuted(Bundle args, Integer applied) {
                         dismiss();
-                        ToastEx.makeText(getContext(), getString(R.string.title_rule_applied, applied), Toast.LENGTH_LONG).show();
+                        ToastEx.makeText(context, getString(R.string.title_rule_applied, applied), Toast.LENGTH_LONG).show();
                     }
 
                     @Override
@@ -204,7 +211,7 @@ public class FragmentDialogRuleCheck extends FragmentDialogBase {
             }
         }.execute(this, args, "rule:check");
 
-        return new AlertDialog.Builder(getContext())
+        return new AlertDialog.Builder(context)
                 .setIcon(R.drawable.baseline_mail_outline_24)
                 .setTitle(R.string.title_rule_matched)
                 .setView(dview)
