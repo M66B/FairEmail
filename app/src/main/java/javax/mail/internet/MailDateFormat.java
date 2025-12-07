@@ -125,7 +125,7 @@ import com.sun.mail.util.MailLogger;
 public class MailDateFormat extends SimpleDateFormat {
 
     private static final long serialVersionUID = -8148227605210628779L;
-    private static final String PATTERN = "EEE, d MMM yyyy HH:mm:ss Z (z)";
+    private static final String PATTERN = "EEE, d MMM yyyy HH:mm:ss Z";
 
     private static final MailLogger LOGGER = new MailLogger(
             MailDateFormat.class, "DEBUG", false, System.out);
@@ -168,6 +168,9 @@ public class MailDateFormat extends SimpleDateFormat {
             throws IOException, ClassNotFoundException {
         in.defaultReadObject();
         super.applyPattern(PATTERN);
+        // Gmail:   Sun, 7 Dec 2025 18:04:14 +0100
+        // Default: Sun, 7 Dec 2025 18:05:19 +0100
+        // Private: Sun, 7 Dec 2025 17:06:22 +0000
     }
 
     /**
