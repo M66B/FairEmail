@@ -1582,7 +1582,7 @@
     <provider
         name="Libero Aiuto"
         domain="libero\\.it,iol\\.it"
-        link="https://aiuto.libero.it/articolo/mail/parametri-di-configurazione-per-il-client-di-posta/">
+        link="https://aiuto.libero.it/articolo/mail/configurare-libero-mail-con-client-di-posta-imap-e-smtp/">
         <imap
             host="imapmail.libero.it"
             port="993"
