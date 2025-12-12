@@ -47,7 +47,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class OpenAI {
-    static final String DEFAULT_MODEL = "gpt-5.1";
+    static final String DEFAULT_MODEL = "gpt-5.2";
     static final float DEFAULT_TEMPERATURE = 0.5f;
     static final String DEFAULT_SUMMARY_PROMPT = "Summarize the following text:";
     static final String DEFAULT_ANSWER_PROMPT = "Answer this message:";
