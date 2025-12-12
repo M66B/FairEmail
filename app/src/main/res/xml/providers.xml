@@ -1582,6 +1582,7 @@
     <provider
         name="Libero Aiuto"
         domain="libero\\.it,iol\\.it"
+        documentation="Quando l'autenticazione a due fattori è abilitata, è necessario utilizzare una password speciale per l'app/e-mail, &lt;a href=&quot;https://aiuto.libero.it/articolo/sicurezza/password-sicura-specifica-applicazioni-client/&quot;&gt;vedere qui&lt;/a&gt;&lt;/b&gt;"
         link="https://aiuto.libero.it/articolo/mail/configurare-libero-mail-con-client-di-posta-imap-e-smtp/">
         <imap
             host="imapmail.libero.it"
