@@ -548,6 +548,7 @@ dependencies {
     def startup_version = "1.2.0"
     def annotation_version_experimental = "1.5.0"
     def core_version = "1.17.0"
+    def core_remoteviews_version = "1.1.0"
     def appcompat_version = "1.7.1"
     def emoji_version = "1.6.0"
     def flatbuffers_version = "2.0.0"
@@ -624,6 +625,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/androidx.core/core
     implementation "androidx.core:core:$core_version"
+
+    // https://mvnrepository.com/artifact/androidx.core/core-remoteviews
+    implementation "androidx.core:core-remoteviews:$core_remoteviews_version"
 
     // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
     // https://mvnrepository.com/artifact/androidx.activity/activity

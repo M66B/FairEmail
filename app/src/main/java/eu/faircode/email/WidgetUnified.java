@@ -34,179 +34,201 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 import androidx.core.graphics.ColorUtils;
+import androidx.core.widget.RemoteViewsCompat;
 import androidx.preference.PreferenceManager;
 
+import java.util.concurrent.ExecutorService;
+
 public class WidgetUnified extends AppWidgetProvider {
-    @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "widget");
+
+    private static RemoteViews getRemoteViews(Context context, int appWidgetId, WidgetUnifiedRemoteViewsFactory factory) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         int colorWidgetForeground = context.getResources().getColor(R.color.colorWidgetForeground);
         int lightColorSeparator = context.getResources().getColor(R.color.lightColorSeparator);
         int darkColorSeparator = context.getResources().getColor(R.color.darkColorSeparator);
 
-        for (int appWidgetId : appWidgetIds) {
-            String name = prefs.getString("widget." + appWidgetId + ".name", null);
-            long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
-            long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
-            String type = prefs.getString("widget." + appWidgetId + ".type", null);
-            boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
-            boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
-            int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
-            boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
-            int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
-            int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
-            boolean caption = prefs.getBoolean("widget." + appWidgetId + ".caption", true);
-            boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
-            boolean compose = prefs.getBoolean("widget." + appWidgetId + ".compose", false);
-            boolean standalone = prefs.getBoolean("widget." + appWidgetId + ".standalone", false);
-            int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
+        String name = prefs.getString("widget." + appWidgetId + ".name", null);
+        long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
+        long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
+        String type = prefs.getString("widget." + appWidgetId + ".type", null);
+        boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
+        boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
+        int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+        boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
+        int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
+        int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
+        boolean caption = prefs.getBoolean("widget." + appWidgetId + ".caption", true);
+        boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
+        boolean compose = prefs.getBoolean("widget." + appWidgetId + ".compose", false);
+        boolean standalone = prefs.getBoolean("widget." + appWidgetId + ".standalone", false);
+        int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
 
-            if (version <= 1550)
-                semi = true; // Legacy
-            if (font == 0)
-                font = 2; // Default medium
-            if (padding == 0)
-                padding = 2; // Default medium
+        if (version <= 1550)
+            semi = true; // Legacy
+        if (font == 0)
+            font = 2; // Default medium
+        if (padding == 0)
+            padding = 2; // Default medium
 
-            Intent view = new Intent(context, ActivityView.class);
-            if (account < 0 && folder < 0 && type == null)
-                view.setAction("unified");
-            else {
-                view.setAction("folder:" + folder);
-                view.putExtra("account", account);
-                view.putExtra("type", type);
-            }
-            view.putExtra("standalone", standalone);
-            view.putExtra("refresh", true);
-            view.putExtra("version", version);
-            view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            PendingIntent pi = PendingIntentCompat.getActivity(
-                    context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent view = new Intent(context, ActivityView.class);
+        if (account < 0 && folder < 0 && type == null)
+            view.setAction("unified");
+        else {
+            view.setAction("folder:" + folder);
+            view.putExtra("account", account);
+            view.putExtra("type", type);
+        }
+        view.putExtra("standalone", standalone);
+        view.putExtra("refresh", true);
+        view.putExtra("version", version);
+        view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pi = PendingIntentCompat.getActivity(
+                context, appWidgetId, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            Intent sync = new Intent(context, ServiceUI.class);
-            sync.setAction("widget:" + appWidgetId);
-            sync.putExtra("account", account);
-            sync.putExtra("folder", folder);
-            PendingIntent piSync = PendingIntentCompat.getService(
-                    context, appWidgetId, sync, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent sync = new Intent(context, ServiceUI.class);
+        sync.setAction("widget:" + appWidgetId);
+        sync.putExtra("account", account);
+        sync.putExtra("folder", folder);
+        PendingIntent piSync = PendingIntentCompat.getService(
+                context, appWidgetId, sync, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            Intent edit = new Intent(context, ActivityCompose.class);
-            edit.setAction("widget:" + appWidgetId);
-            edit.putExtra("action", "new");
-            edit.putExtra("account", account);
-            edit.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            PendingIntent piCompose = PendingIntentCompat.getActivity(
-                    context, appWidgetId, edit, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent edit = new Intent(context, ActivityCompose.class);
+        edit.setAction("widget:" + appWidgetId);
+        edit.putExtra("action", "new");
+        edit.putExtra("account", account);
+        edit.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent piCompose = PendingIntentCompat.getActivity(
+                context, appWidgetId, edit, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
 
-            views.setTextViewTextSize(R.id.title, TypedValue.COMPLEX_UNIT_SP, getFontSizeSp(font));
+        views.setTextViewTextSize(R.id.title, TypedValue.COMPLEX_UNIT_SP, getFontSizeSp(font));
 
-            int px = getPaddingPx(padding, context);
-            views.setViewPadding(R.id.title, px, px, px, px);
+        int px = getPaddingPx(padding, context);
+        views.setViewPadding(R.id.title, px, px, px, px);
 
-            if (caption) {
-                if (name == null)
-                    views.setTextViewText(R.id.title, context.getString(R.string.title_folder_unified));
-                else
-                    views.setTextViewText(R.id.title, name);
-            } else
-                views.setTextViewText(R.id.title, null);
-            views.setViewVisibility(R.id.title, caption || refresh || compose ? View.VISIBLE : View.GONE);
-            views.setViewVisibility(R.id.padding, caption || refresh || compose ? View.GONE : View.VISIBLE);
+        if (caption) {
+            if (name == null)
+                views.setTextViewText(R.id.title, context.getString(R.string.title_folder_unified));
+            else
+                views.setTextViewText(R.id.title, name);
+        } else
+            views.setTextViewText(R.id.title, null);
+        views.setViewVisibility(R.id.title, caption || refresh || compose ? View.VISIBLE : View.GONE);
+        views.setViewVisibility(R.id.padding, caption || refresh || compose ? View.GONE : View.VISIBLE);
 
-            views.setOnClickPendingIntent(R.id.title, pi);
+        views.setOnClickPendingIntent(R.id.title, pi);
 
-            views.setViewVisibility(R.id.refresh, refresh ? View.VISIBLE : View.GONE);
-            views.setViewPadding(R.id.refresh, px, px, px, px);
-            views.setOnClickPendingIntent(R.id.refresh, piSync);
+        views.setViewVisibility(R.id.refresh, refresh ? View.VISIBLE : View.GONE);
+        views.setViewPadding(R.id.refresh, px, px, px, px);
+        views.setOnClickPendingIntent(R.id.refresh, piSync);
 
-            views.setViewVisibility(R.id.compose, compose ? View.VISIBLE : View.GONE);
-            views.setViewPadding(R.id.compose, px, px, px, px);
-            views.setOnClickPendingIntent(R.id.compose, piCompose);
+        views.setViewVisibility(R.id.compose, compose ? View.VISIBLE : View.GONE);
+        views.setViewPadding(R.id.compose, px, px, px, px);
+        views.setOnClickPendingIntent(R.id.compose, piCompose);
 
-            Intent service = new Intent(context, WidgetUnifiedService.class);
-            service.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-            service.setData(Uri.parse(service.toUri(Intent.URI_INTENT_SCHEME)));
+        // https://developer.android.com/reference/kotlin/androidx/core/widget/RemoteViewsCompat.RemoteCollectionItems.Builder
+        RemoteViewsCompat.RemoteCollectionItems.Builder builder =
+                new RemoteViewsCompat.RemoteCollectionItems.Builder()
+                        .setHasStableIds(factory.hasStableIds())
+                        .setViewTypeCount(factory.getViewTypeCount());
+        for (int i = 0; i < factory.getCount(); i++)
+            builder.addItem(factory.getItemId(i), factory.getViewAt(i));
 
-            views.setRemoteAdapter(R.id.lv, service);
+        // https://developer.android.com/reference/kotlin/androidx/core/widget/RemoteViewsCompat#setRemoteAdapter(android.content.Context,android.widget.RemoteViews,kotlin.Int,kotlin.Int,androidx.core.widget.RemoteViewsCompat.RemoteCollectionItems)
+        RemoteViewsCompat.setRemoteAdapter(context, views, appWidgetId, R.id.lv, builder.build());
 
-            Intent thread = new Intent(context, ActivityView.class);
-            thread.setPackage(BuildConfig.APPLICATION_ID);
-            thread.setAction("widget:" + appWidgetId);
-            thread.putExtra("widget_account", account);
-            thread.putExtra("widget_folder", folder);
-            thread.putExtra("widget_type", type);
-            thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(type));
-            thread.putExtra("standalone", standalone);
-            thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            PendingIntent piItem = PendingIntentCompat.getActivity(
-                    context, ActivityView.PI_WIDGET, thread, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
+        Intent thread = new Intent(context, ActivityView.class);
+        thread.setPackage(BuildConfig.APPLICATION_ID);
+        thread.setAction("widget:" + appWidgetId);
+        thread.putExtra("widget_account", account);
+        thread.putExtra("widget_folder", folder);
+        thread.putExtra("widget_type", type);
+        thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(type));
+        thread.putExtra("standalone", standalone);
+        thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent piItem = PendingIntentCompat.getActivity(
+                context, ActivityView.PI_WIDGET, thread, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
 
-            views.setPendingIntentTemplate(R.id.lv, piItem);
+        views.setPendingIntentTemplate(R.id.lv, piItem);
 
-            boolean syncing = prefs.getBoolean("widget." + appWidgetId + ".syncing", false);
-            views.setImageViewResource(R.id.refresh, syncing
-                    ? R.drawable.twotone_compare_arrows_24
-                    : R.drawable.twotone_sync_24);
+        boolean syncing = prefs.getBoolean("widget." + appWidgetId + ".syncing", false);
+        views.setImageViewResource(R.id.refresh, syncing
+                ? R.drawable.twotone_compare_arrows_24
+                : R.drawable.twotone_sync_24);
 
-            // https://developer.android.com/guide/topics/ui/look-and-feel/darktheme
-            if (!daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                views.setColorStateListAttr(R.id.background, "setBackgroundTintList", 0);
-                views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", 0);
-            }
+        // https://developer.android.com/guide/topics/ui/look-and-feel/darktheme
+        if (!daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            views.setColorStateListAttr(R.id.background, "setBackgroundTintList", 0);
+            views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", 0);
+        }
 
-            if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                views.setInt(R.id.background, "setBackgroundColor", Color.WHITE);
-                views.setColorStateListAttr(R.id.background, "setBackgroundTintList", android.R.attr.colorBackground);
-                views.setColorStateListAttr(R.id.title, "setTextColor", android.R.attr.textColorPrimary);
-                views.setInt(R.id.separator, "setBackgroundColor", Color.WHITE);
-                views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", android.R.attr.colorControlNormal);
-                views.setColorAttr(R.id.refresh, "setColorFilter", android.R.attr.textColorPrimary);
-                views.setColorAttr(R.id.compose, "setColorFilter", android.R.attr.textColorPrimary);
-            } else if (background == Color.TRANSPARENT) {
-                if (semi)
-                    views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
-                else
-                    views.setInt(R.id.background, "setBackgroundColor", background);
-
-                views.setTextColor(R.id.title, colorWidgetForeground);
-                views.setInt(R.id.separator, "setBackgroundColor", lightColorSeparator);
-                views.setInt(R.id.refresh, "setColorFilter", colorWidgetForeground);
-                views.setInt(R.id.compose, "setColorFilter", colorWidgetForeground);
-            } else {
-                float lum = (float) ColorUtils.calculateLuminance(background);
-
-                if (semi)
-                    background = ColorUtils.setAlphaComponent(background, 127);
-
+        if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            views.setInt(R.id.background, "setBackgroundColor", Color.WHITE);
+            views.setColorStateListAttr(R.id.background, "setBackgroundTintList", android.R.attr.colorBackground);
+            views.setColorStateListAttr(R.id.title, "setTextColor", android.R.attr.textColorPrimary);
+            views.setInt(R.id.separator, "setBackgroundColor", Color.WHITE);
+            views.setColorStateListAttr(R.id.separator, "setBackgroundTintList", android.R.attr.colorControlNormal);
+            views.setColorAttr(R.id.refresh, "setColorFilter", android.R.attr.textColorPrimary);
+            views.setColorAttr(R.id.compose, "setColorFilter", android.R.attr.textColorPrimary);
+        } else if (background == Color.TRANSPARENT) {
+            if (semi)
+                views.setInt(R.id.background, "setBackgroundResource", R.drawable.widget_background);
+            else
                 views.setInt(R.id.background, "setBackgroundColor", background);
 
-                int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
-                views.setTextColor(R.id.title, fg);
-                views.setInt(R.id.separator, "setBackgroundColor",
-                        lum > 0.7f ? darkColorSeparator : lightColorSeparator);
-                views.setInt(R.id.refresh, "setColorFilter", fg);
-                views.setInt(R.id.compose, "setColorFilter", fg);
-            }
+            views.setTextColor(R.id.title, colorWidgetForeground);
+            views.setInt(R.id.separator, "setBackgroundColor", lightColorSeparator);
+            views.setInt(R.id.refresh, "setColorFilter", colorWidgetForeground);
+            views.setInt(R.id.compose, "setColorFilter", colorWidgetForeground);
+        } else {
+            float lum = (float) ColorUtils.calculateLuminance(background);
 
-            views.setViewVisibility(R.id.separator, caption && separators ? View.VISIBLE : View.GONE);
+            if (semi)
+                background = ColorUtils.setAlphaComponent(background, 127);
 
-            int dp6 = Helper.dp2pixels(context, 6);
-            views.setViewPadding(R.id.content, dp6, 0, dp6, 0);
+            views.setInt(R.id.background, "setBackgroundColor", background);
 
-            appWidgetManager.updateAppWidget(appWidgetId, views);
-
-            RunnableEx update = new RunnableEx("widget") {
-                @Override
-                protected void delegate() {
-                    appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
-                }
-            };
-            ApplicationEx.getMainHandler().removeCallbacks(update);
-            ApplicationEx.getMainHandler().postDelayed(update, 1000L);
+            int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
+            views.setTextColor(R.id.title, fg);
+            views.setInt(R.id.separator, "setBackgroundColor",
+                    lum > 0.7f ? darkColorSeparator : lightColorSeparator);
+            views.setInt(R.id.refresh, "setColorFilter", fg);
+            views.setInt(R.id.compose, "setColorFilter", fg);
         }
+
+        views.setViewVisibility(R.id.separator, caption && separators ? View.VISIBLE : View.GONE);
+
+        int dp6 = Helper.dp2pixels(context, 6);
+        views.setViewPadding(R.id.content, dp6, 0, dp6, 0);
+
+        return views;
+    }
+
+    @Override
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        executor.submit(new RunnableEx("widget") {
+            @Override
+            protected void delegate() {
+                for (int appWidgetId : appWidgetIds) {
+                    Intent service = new Intent(context, WidgetUnifiedService.class);
+                    service.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+                    service.setData(Uri.parse(service.toUri(Intent.URI_INTENT_SCHEME)));
+                    WidgetUnifiedRemoteViewsFactory factory = new WidgetUnifiedRemoteViewsFactory(context.getApplicationContext(), service);
+                    factory.onDataSetChanged();
+
+                    ApplicationEx.getMainHandler().post(new RunnableEx("widget:" + appWidgetId) {
+                        @Override
+                        protected void delegate() {
+                            RemoteViews views = getRemoteViews(context, appWidgetId, factory);
+                            appWidgetManager.updateAppWidget(appWidgetId, views);
+                        }
+                    });
+                }
+            }
+        });
     }
 
     @Override
@@ -278,7 +300,8 @@ public class WidgetUnified extends AppWidgetProvider {
 
             try {
                 int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
-                appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
+                for (int appWidgetId : appWidgetIds)
+                    init(context, appWidgetId);
                 EntityLog.log(context, "Updated widget data count=" + appWidgetIds.length);
             } catch (Throwable ex) {
                 Log.e(ex);
