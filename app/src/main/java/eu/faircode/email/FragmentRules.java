@@ -508,7 +508,7 @@ public class FragmentRules extends FragmentBase {
                             }
                             break;
                         case EntityRule.TYPE_ANSWER:
-                            long identity = jaction.getLong("identity");
+                            long identity = jaction.optLong("identity");
                             long answer = jaction.optLong("answer", -1L);
                             EntityIdentity i = db.identity().getIdentity(identity);
                             EntityAnswer t = db.answer().getAnswer(answer);
