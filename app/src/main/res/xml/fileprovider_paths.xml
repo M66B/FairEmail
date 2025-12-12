@@ -24,4 +24,7 @@
     <files-path
         name="shared"
         path="shared" />
+    <external-files-path
+        name="avatars"
+        path="avatars" />
 </paths>

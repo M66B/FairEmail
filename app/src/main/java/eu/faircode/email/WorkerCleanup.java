@@ -225,6 +225,7 @@ public class WorkerCleanup extends Worker {
             cleanupMessageFiles(db, manual, Helper.ensureExists(context, "encryption").listFiles());
             cleanupMessageFiles(db, manual, Helper.ensureExists(context, "photo").listFiles());
             cleanupMessageFiles(db, manual, Helper.ensureExists(context, "calendar").listFiles());
+            cleanupMessageFiles(db, manual, new File(Helper.getExternalFilesDir(context), "avatars").listFiles());
 
             // Cleanup raw message files
             if (!download_eml) {
