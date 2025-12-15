@@ -2,6 +2,15 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FCHANGELOG.md)
 
+### Latest version
+
+* Fixed message list widget flickering on some devices
+* Added option to select space between messages (display settings tab page)
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+
 ### Notices
 
 People keep asking me to add new, often exotic, features to the app, to whom I often say "no", and other people complain about too many features.
@@ -30,10 +39,16 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
-* Added option to select space between messages
-* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+### 1.2307 2025-12-15
 
-### 1.2306 2025-12-02
+* Fixed message list widget flickering on some devices
+* Added option to select space between messages (display settings tab page)
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+
+### 1.2306 2025-12-02 *
 
 * Fixed scroll issues with the original message view
 
