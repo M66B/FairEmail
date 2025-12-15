@@ -1460,6 +1460,11 @@
         <item>Middels</item>
         <item>Stor</item>
     </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Middels</item>
+        <item comment="spacingNames choice for space between messages">Roomy</item>
+    </string-array>
     <string-array name="receiptNames">
         <item>Les kvittering</item>
         <item>Leveringsbekreftelse</item>

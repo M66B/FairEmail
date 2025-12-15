@@ -609,6 +609,7 @@
     <string name="title_advanced_image_placeholders">Vis billedpladsholdere</string>
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
     <string name="title_advanced_button_extra">Vis ekstra knapper nederst i en besked</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Afstand mellem beskeder og samtaler</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
     <string name="title_advanced_actionbar_swap">Ombyt papirkurv- og arkiv-knap</string>
@@ -1336,7 +1337,7 @@
     <string name="title_keywords_btn">Nøgleord</string>
     <string name="title_labels_btn">Etiketter (kun Gmail)</string>
     <string name="title_unsubscribe">Afmeld</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Afmeldingslinket i beskeden virker ikke. Fejl %1$s</string>
+    <string name="title_unsubscribe_error">Afmeldingslinket i beskeden virker ikke. Fejl %1$s</string>
     <string name="title_message_rule">Opret regel</string>
     <string name="title_no_junk">Ikke spam</string>
     <string name="title_edit_subject">Redigér emne &#8230;</string>
@@ -2321,6 +2322,11 @@
         <item>Lille</item>
         <item>Mellem</item>
         <item>Stor</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Kompakt</item>
+        <item>Medium</item>
+        <item comment="spacingNames choice for space between messages">Rummelig</item>
     </string-array>
     <string name="title_size_tiny">Meget lille</string>
     <string-array name="receiptNames">

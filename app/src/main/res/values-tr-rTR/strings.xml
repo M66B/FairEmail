@@ -1326,7 +1326,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_keywords_btn">Anahtar Sözcükler/Kelimeler</string>
     <string name="title_labels_btn">Etiketler (yalnızca Gmail)</string>
     <string name="title_unsubscribe">Abonelikten çık</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">İletinin içerisindeki üyelikten çıkma linki çalışmıyor. Hata kodu: %1$s</string>
+    <string name="title_unsubscribe_error">İletinin içerisindeki üyelikten çıkma linki çalışmıyor. Hata kodu: %1$s</string>
     <string name="title_message_rule">Kural oluştur</string>
     <string name="title_no_junk">Spam değil</string>
     <string name="title_edit_subject">Konuyu düzenle &#8230;</string>
@@ -2307,6 +2307,11 @@ Dosya: strings. xml</string>
         <item>Küçük</item>
         <item>Orta</item>
         <item>Büyük</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Orta</item>
+        <item comment="spacingNames choice for space between messages">Roomy</item>
     </string-array>
     <string name="title_size_tiny">Küçücük</string>
     <string-array name="receiptNames">

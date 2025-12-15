@@ -1334,7 +1334,7 @@
     <string name="title_keywords_btn">Märksõnad</string>
     <string name="title_labels_btn">Sildid (vaid Gmail)</string>
     <string name="title_unsubscribe">Loobu tellimusest</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Sõnumis olev tellimuse lõpetamise link ei toimi. Viga %1$s</string>
+    <string name="title_unsubscribe_error">Sõnumis olev tellimuse lõpetamise link ei toimi. Viga %1$s</string>
     <string name="title_message_rule">Loo reegel</string>
     <string name="title_no_junk">Pole spämm</string>
     <string name="title_edit_subject">Muuda teemat &#8230;</string>
@@ -2312,6 +2312,11 @@
         <item>Väike</item>
         <item>Keskmine</item>
         <item>Suur</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Keskmine</item>
+        <item comment="spacingNames choice for space between messages">Roomy</item>
     </string-array>
     <string name="title_size_tiny">Tilluke</string>
     <string-array name="receiptNames">

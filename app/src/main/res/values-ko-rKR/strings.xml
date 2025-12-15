@@ -527,6 +527,7 @@
     <string name="title_advanced_account_color_size">색이 있는 선의 너비</string>
     <string name="title_advanced_avatars">연락처 사진 표시</string>
     <string name="title_advanced_bimi">Brand Indicators for Message Identification (BIMI) 표시하기</string>
+    <string name="title_advanced_bimi_vmc">유효한 VMC 인증서가 필요합니다</string>
     <string name="title_advanced_bimi_unverified">확인되지 않은 발신자</string>
     <string name="title_advanced_bimi_verified">확인된 발신자</string>
     <string name="title_advanced_gravatars">그라바타 표시</string>
@@ -543,6 +544,7 @@
     <string name="title_advanced_color_value">밝기: %1$s %%</string>
     <string name="title_advanced_color_threshold">글자 색 임계값: %1$s %%</string>
     <string name="title_advanced_name_email">이름 및 이메일 주소 표시</string>
+    <string name="title_advanced_replace_name">보낸 이름보다 연락처에 저장된 이름을 우선시 합니다</string>
     <string name="title_advanced_only_name">연락처 이름만 표시</string>
     <string name="title_advanced_distinguish_contacts">보낸사람이 로컬 연락처에 있을 때 발신인에게 밑줄을 표시합니다</string>
     <string name="title_advanced_show_recipients">메시지 헤더에 받는사람 표시</string>
@@ -591,6 +593,7 @@
     <string name="title_advanced_image_placeholders">사진 자리표시자 표시</string>
     <string name="title_advanced_images_inline">자동으로 인라인 사진 표시</string>
     <string name="title_advanced_button_extra">메시지 하단에 추가 버튼 표시</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">메시지와 대화 사이 간격</string>
     <string name="title_advanced_seekbar">관련있는 대화의 위치를 점으로 보여주기</string>
     <string name="title_advanced_actionbar">대화 액션 바 보여주기</string>
     <string name="title_advanced_actionbar_swap">휴지통과 보관 버튼 바꾸기</string>
@@ -627,6 +630,8 @@
     <string name="title_advanced_expand_first">대화를 읽을 때 첫 메시지를 자동으로 펼치기</string>
     <string name="title_advanced_expand_all">모든 메시지를 자동으로 펼치기</string>
     <string name="title_advanced_expand_one">한 번에 하나의 메시지만 펼치기</string>
+    <string name="title_advanced_collapse_multiple">뒤로가기를 누르면 여러 메시지가 포함된 대화를 접습니다</string>
+    <string name="title_advanced_seen_delay">메시지를 자동으로 \'읽음\' 으로 표시하기 전에 잠시 기다립니다</string>
     <string name="title_advanced_autoclose">자동으로 대화 닫기</string>
     <string name="title_advanced_autoclose_send">메세지 전송 후 자동으로 대화 닫기</string>
     <string name="title_advanced_onclose">대화를 닫을 시</string>
@@ -668,6 +673,7 @@
     <string name="title_advanced_notify_suppress_in_call">통화 중 알림을 표시하지 않음</string>
     <string name="title_advanced_notify_suppress_in_car">Android Auto에 연결되면 알림 미루기</string>
     <string name="title_advanced_notify_summary">요약돤 알림만 표시</string>
+    <string name="title_advanced_notify_subject">알림에 제목을 표시합니다</string>
     <string name="title_advanced_notify_preview">알림에 메세지 미리보기 표시</string>
     <string name="title_advanced_notify_preview_all">모든 내용 미리보기</string>
     <string name="title_advanced_notify_preview_only">알림에 미리보기 텍스트만 표시</string>
@@ -733,6 +739,7 @@
         메시지를 보내기 전에 전송 설정 대화 상자에서 암호화 방법을 선택할 수 있습니다(전송 버튼을 길게 누르세요).
     </string>
     <string name="title_advanced_sign_default">자동으로 서명</string>
+    <string name="title_advanced_encrypt_default">기본 설정으로 서명 및 암호화를 사용합니다</string>
     <string name="title_advanced_encrypt_auto">모든 수신인의 키를 사용할 수 있을 때 자동으로 암호화</string>
     <string name="title_advanced_encrypt_reply">암호화된 메시지에 답장할 때 자동으로 암호화</string>
     <string name="title_advanced_auto_verify">서명된 메시지 자동으로 인증 확인</string>
@@ -762,6 +769,8 @@
     <string name="title_advanced_external_search">안드로이드 텍스트 선택 메뉴에 \'FairEmail 검색\' 추가</string>
     <string name="title_advanced_sort_answers">답장 템플릿을 사용 빈도순으로 정렬</string>
     <string name="title_advanced_shortcuts">안드로이드 공유 메뉴에 자주 사용한 연락처 보이기</string>
+    <string name="title_advanced_ical_tentative">수신한 초대를 \'미정\' 으로 저장합니다</string>
+    <string name="title_advanced_ical_email">회의 참석자의 이메일 주소를 저장합니다</string>
     <string name="title_advanced_fts">검색 인덱스를 적용합니다</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 메시지 분류 완료 (저장 공간 %3$s 사용)</string>
     <string name="title_advanced_classification">메시지를 분류합니다</string>
@@ -791,10 +800,15 @@
     <string name="title_advanced_answer_prompt">답변 프롬프트</string>
     <string name="title_advanced_default_prompt">기본 프롬프트</string>
     <string name="title_advanced_ai">AI</string>
+    <string name="title_advanced_ai_input_body">메시지 내용을 입력하세요</string>
+    <string name="title_advanced_entered_text">입력된 텍스트</string>
+    <string name="title_advanced_sdcard">SD 카드를 사용하시기 바랍니다</string>
     <string name="title_advanced_watchdog">주기적으로 FairEmail이 활성화 상태인지 확인하기</string>
     <string name="title_advanced_updates">GitHub 업데이트 확인</string>
     <string name="title_advanced_check_weekly">매일이 아닌 매주 확인합니다</string>
+    <string name="title_advanced_beta">BigBucket에서 테스트 버전을 확인하세요</string>
     <string name="title_advanced_changelog">업데이트 후 변경 로그 표시</string>
+    <string name="title_advanced_announcements">공지를 확인하세요</string>
     <string name="title_advanced_experiments">실험적 기능 사용해보기</string>
     <string name="title_advanced_crash_reports">오류 보고서 보내기</string>
     <string name="title_advanced_cleanup_attachments">오래된 메세지의 첨부파일 삭제하기</string>
@@ -802,7 +816,9 @@
     <string name="title_advanced_google_backup">Android 데이터 백업 사용</string>
     <string name="title_advanced_app">앱 설정</string>
     <string name="title_advanced_more">설정 더보기</string>
+    <string name="title_advanced_main_log">메인 로깅</string>
     <string name="title_advanced_main_log_mem">로그 메모리 사용량</string>
+    <string name="title_advanced_protocol">프로토콜 로깅</string>
     <string name="title_advanced_log_info">디버그 기록</string>
     <string name="title_advanced_debug">디버그 모드</string>
     <string name="title_advanced_manual_hint">메시지 수신이 비활성화된 경우에도 메시지 목록을 밑으로 내려 수동으로 메시지를 수신할 수 있습니다</string>
@@ -825,7 +841,10 @@
     <string name="title_advanced_check_authentication_hint">이메일 서버에서 수행한 DKIM, SPF, DMARC 인증 결과를 확인합니다</string>
     <string name="title_advanced_check_tls_hint">메시지가 모든 서버에서 안전하게 전송된 경우에만 녹색 방패 아이콘이 표시됩니다.</string>
     <string name="title_advanced_check_reply_hint">보낸사람의 도메인 이름과 답장할 주소가 동일한지 확인합니다</string>
+    <string name="title_advanced_lookup_mx_hint">DNS MX 레코드가 존재하는지 확인합니다</string>
     <string name="title_advanced_sync_delay_hint">메시지 동기화 속도가 느려집니다</string>
+    <string name="title_advanced_folder_nav_hint">메시지 목록 화면에서 뒤로 이동하면 항상 관련 계정의 폴더 목록으로 이동합니다</string>
+    <string name="title_advanced_pull_all_hint">폴더 또는 계정 목록을 아래로 당길 때</string>
     <string name="title_advanced_suggest_names_hint">비활성화된 경우 연락처 선택 시 이메일 주소만 사용됩니다</string>
     <string name="title_advanced_suggest_local_hint">Android에서 제공하는 연락처 이외. 활성화된 경우에만 새로 보내거나 받은 메시지에 대해 연락처 데이터가 저장됩니다.</string>
     <string name="title_advanced_suggest_account_hint">Android 주소록의 연락처가 특정 계정에 연결되어 있지 않기 때문에 이는 로컬 연락처에만 적용됩니다</string>
@@ -833,10 +852,12 @@
     <string name="title_advanced_send_reminders_hint">메시지 텍스트 또는 제목이 비어 있거나 파일 첨부에 실패했을 가능성이 있는 경우 경고를 표시합니다</string>
     <string name="title_advanced_reply_move_hint">이메일 서버는 계속해서 보낸 메시지 폴더에 메시지를 추가할 수 있습니다</string>
     <string name="title_advanced_compose_color_hint">색상이 매우 밝거나 매우 어두운 경우 받는사람 측에서 읽기 어려운 메시지가 표시됩니다</string>
+    <string name="title_advanced_compose_font_hint">기본값에서는 받는 쪽에서 설정한 폰트가 적용됩니다</string>
     <string name="title_advanced_write_below_hint">긴 메시지가 잘리는 등의 경우 받는사람이 답장을 보지 못할 수 있습니다</string>
     <string name="title_advanced_attach_new_hint">그렇지 않으면 공유 주소 또는 파일을 현재 임시저장 메시지에 추가합니다</string>
     <string name="title_advanced_usenet_hint">텍스트와 서명 사이에 \'-- \' 문자열 삽입</string>
     <string name="title_advanced_remove_signature_hint">텍스트가 너무 적게 또는 많이 제거될 수 있습니다</string>
+    <string name="title_advanced_metered_hint">요금이 부과되는 연결은 보통 모바일 데이터나 유료 와이파이 핫스팟입니다</string>
     <string name="title_advanced_metered_warning">비활성화할 경우 모바일 데이터로 메시지를 주고받을 수 없습니다</string>
     <string name="title_advanced_usage_hint">이는 배터리, 데이터 및 저장 공간 사용량을 증가시킵니다</string>
     <string name="title_advanced_plain_hint">데이터 사용량이 감소하지만 메시지에서 스타일과 이미지가 제거됩니다</string>
@@ -844,8 +865,10 @@
     <string name="title_advanced_validate_hint">이로 인해 VPN을 사용하는 등의 상황에서 메시지가 동기화되지 않을 수 있습니다.</string>
     <string name="title_advanced_timeout_hint">읽기/쓰기 타임아웃은 접속 타임아웃의 두 배로 설정됩니다. 값을 크게 하면 배터리 사용이 증가합니다.</string>
     <string name="title_advanced_cert_strict_hint">설정을 끄면 서버 인증서 체크를 느슨하게 하게 됩니다</string>
+    <string name="title_advanced_open_safe_hint">이 설정을 켜면 이미지 등 콘텐츠를 다운로드 할 때 보안 연결을 사용합니다.</string>
     <string name="title_advanced_roaming_hint">로밍 시 메시지 헤더를 항상 불러옵니다. 기기의 로밍 설정을 사용하여 로밍 중에 인터넷을 비활성화할 수 있습니다.</string>
     <string name="title_advanced_browse_hint">아래로 스크롤하여 메시지 더보기</string>
+    <string name="title_advanced_startup_hint">통합메일함에 폴더 목록의 폴더를 추가 또는 제거하려면 길게 누르세요</string>
     <string name="title_advanced_date_hint">메시지가 시간별로 정렬된 경우 날짜별로만 그룹화됩니다</string>
     <string name="title_advanced_split_min_hint">폴더블 기기를 위한 조건입니다</string>
     <string name="title_advanced_threading_hint">서로 관련된 메시지를 그룹화하기</string>
@@ -865,13 +888,16 @@
     <string name="title_advanced_autoseen_hint">각 계정의 고급 계정 설정에서 메시지를 펼칠 때 읽음으로 자동 표시하는 기능을 끌 수 있습니다</string>
     <string name="title_advanced_autoclose_hint">모든 메시지가 보관, 발송 또는 삭제될 때 대화를 자동 종료합니다</string>
     <string name="title_advanced_sender_hint">대부분의 제공업체가 수정된 보낸사람 주소를 허용하지 않습니다</string>
+    <string name="title_advanced_envelope_from_hint">SMTP MAIL FROM에 이 주소가 사용됩니다</string>
     <string name="title_advanced_badge_hint">지원되는 런처에서만 사용 가능</string>
     <string name="title_advanced_notify_action_hint">최대 3개의 동작이 표시됩니다</string>
     <string name="title_advanced_notify_car_hint">\'연결\'이란 지도나 내비게이션을 표시하는 상태임을 의미합니다</string>
+    <string name="title_advanced_notify_manage_default_hint">기본 알림음이나 방해금지 (Do Not Disturb) 등을 설정하려면.</string>
     <string name="title_advanced_notify_separate_hint">계정, 폴더 및 보낸사람에 대한 알림은 어떻게 설정하나요?</string>
     <string name="title_advanced_move_hint">계정 설정에서 해당 폴더를 편집할 수 있습니다</string>
     <string name="title_advanced_notify_no_grouping">이 Android 버전은 알림 그룹화를 지원하지 않습니다</string>
     <string name="title_advanced_fts_hint">이 기능을 사용하면 검색 성능이 향상되지만 배터리 및 저장 공간 사용량도 증가합니다</string>
+    <string name="title_advanced_english_hint">앱이 재시작 됩니다</string>
     <string name="title_advanced_protocol_hint">이로 인해 배터리와 저장 공간 사용량이 크게 증가합니다!</string>
     <string name="title_advanced_debug_hint">이를 활성화하면 지저분한 디버그 정보가 여러 곳에서 표시됩니다</string>
     <string name="title_advanced_cleanup_attachments_hint">수동 정리할 때는 더 이상 동기화되지 않은 메시지에서 첨부 파일이 제거됩니다</string>
@@ -1797,6 +1823,11 @@
         <item>작게</item>
         <item>보통</item>
         <item>크게</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>보통</item>
+        <item comment="spacingNames choice for space between messages">Roomy</item>
     </string-array>
     <string name="title_size_tiny">매우 작음</string>
     <string-array name="receiptNames">

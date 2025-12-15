@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">फेयारमेल से ढुंडे</string>
+    <string name="app_send_self">स्वयं को भेजें</string>
     <string name="app_changelog">परिवर्तन लॉग</string>
     <string name="app_welcome">फेयारमेल एक खुला स्रोत आप है जो एकांत(प्राइभेसी) और सुरक्षा को ध्यान रखता है।इसी कारण से इसी के कुछ लक्षण आप के पूर्व परिचित रूप से अलग ब्यबहार कर सकता है।</string>
     <string name="app_limitations">उदाहरण के लिए, असुरक्षित तत्वों को हटाने और पठनीयता में सुधार के लिए संदेशों को डिफ़ॉल्ट रूप से पुन: स्वरूपित किया जाता है, और सुरक्षा के लिए लिंक खोलने की पुष्टि की जानी चाहिए। यदि वांछित हो तो दोनों को अक्षम किया जा सकता है.</string>
     <string name="app_unsupported">इस विशेष डिवाइस के Android संस्करण में बग क्रैश का कारण बनते हैं</string>
+    <string name="app_data_loss">सभी डेटा खो सकता है</string>
     <string name="app_continue">वैसे ही जारी रखें</string>
     <string name="app_exit">बाहर निकलने के लिए फिर से \'वापस\' पर क्लिक करें।</string>
     <string name="app_cake">नाकाफी स्टोरेज 	जगह</string>
+    <string name="app_cake_remaining">डिवाइस पर शेष संग्रहण स्थान%1$s</string>
+    <string name="app_cake_required">न्यूनतम आवश्यक भंडारण स्थान%1$s</string>
     <string name="app_updated">अंतिम अपडेट: %1$s</string>
     <string name="app_download">%1$s से डाउनलोड किया गया है</string>
+    <string name="app_error">अधिकांश त्रुटि संदेशों के बाहरी कारण होते हैं (नेटवर्क, सर्वर आदि) या ये एक गलत, अक्सर गैर-मानक कॉन्फ़िगरेशन के कारण होते हैं। एक खराब समीक्षा ऐसी समस्याओं का समाधान नहीं करती। सहायता मांगना लगभग हमेशा अधिक प्रभावी होता है।</string>
+    <string name="app_motd">        एंड्रॉइड 14/15 बीटा के साथ, \'ऐप प्रतिक्रिया नहीं दे रहा है\' सूचनाएं कभी-कभी आती हैं।
+        गूगल एक समाधान पर काम कर रहा है।
+        कृपया इस Android समस्या के लिए ऐप को दोष न दें!
+    </string>
     <string name="channel_service">निगरानी</string>
     <string name="channel_send">भेजें</string>
     <string name="channel_notification">ईमेल</string>
@@ -80,9 +89,75 @@
     <string name="title_disagree">मैं असहमत हूं</string>
     <string name="title_setup">सेटिंग्स</string>
     <string name="title_setup_help">सहायता</string>
+    <string name="title_setup_simple">किसी अन्य विकल्प को बदलने की कोई आवश्यकता नहीं है</string>
+    <string name="title_setup_issue">FairEmail आपकी प्राइवेसी को सुरक्षित रखने में मदद करने के लिए बनाया गया था और यह सचमुच हज़ारों घंटों की मेहनत को दिखाता है। अगर आपको कोई दिक्कत है, तो बुरा रिव्यू लिखने से पहले सपोर्ट के लिए मुझसे कॉन्टैक्ट करें। मुझे मदद करके खुशी होगी!</string>
     <string name="title_setup_identity_remark">ईमेल भेजें</string>
+    <string name="title_setup_office_auth_5_7_139">कृपया \'Outlook/Hotmail/Live\' त्वरित सेटअप विज़ार्ड आज़माएँ।</string>
+    <string name="title_setup_office_not_connected">        त्रुटि \'यूज़र प्रमाणित है लेकिन कनेक्ट नहीं है\' का अधिकांश अर्थ है कि IMAP अक्षम है
+        उपभोक्ता Outlook खाते के मामले में, कृपया Outlook वेबसाइट पर जाएँ, ऊपर दाईं ओर सेटिंग्स व्हील पर टैप करें, \'मेल\' चुनें, \'फॉरवर्डिंग और IMAP\' चुनें, और \'POP और IMAP\' अनुभाग में \'डिवाइस और ऐप्स को IMAP का उपयोग करने दें\' सक्षम करें
+        कॉर्पोरेट, शिक्षा, आदि खाते के मामले में, कृपया ईमेल सर्वर के सिस्टम प्रशासक से संपर्क करें।
+    </string>
+    <string name="title_setup_oauth_rationale">अपने %1$s खाते तक पहुँच अधिकृत करें</string>
+    <string name="title_setup_oauth_update">मौजूदा खाते को फिर से अधिकृत करें (अन्यथा एक नया खाता बनाएँ)</string>
+    <string name="title_setup_oauth_updated">खाता प्राधिकरण अपडेट किया गया।</string>
+    <string name="title_setup_oauth_edge">जब Edge ब्राउज़र का उपयोग करें, तो सुनिश्चित करें कि \'Privacy, security and services\' सेटिंग्स में \'Block opening external apps\' \'Off\' हो।</string>
+    <string name="title_setup_oauth_brave">Brave ब्राउज़र का उपयोग करते समय, आपको Brave की सेटिंग्स में वह विकल्प सक्षम करना होगा जो ऐप लिंक को Brave के बाहर की ऐप्स में खोलने की अनुमति देता है।</string>
+    <string name="title_setup_oauth_browser">अधिकृत करने के लिए एक ऐसे ब्राउज़र की आवश्यकता होती है जो ऐप लिंक खोलने की अनुमति देता हो (अक्सर एक सुरक्षा सेटिंग), ताकि अंत में अधिकृतकरण टोकन ऐप में स्थानांतरित किया जा सके।</string>
+    <string name="title_setup_oauth_authorize">अधिकृत करें</string>
+    <string name="title_setup_select_account">खाता चुनें</string>
+    <string name="title_setup_instructions">सेटअप निर्देश</string>
+    <string name="title_setup_no_settings">डोमेन के लिए कोई सेटिंग्स नहीं मिलीं%1$s</string>
+    <string name="title_setup_no_settings_hint">अपने ईमेल प्रदाता द्वारा प्रदान की गई सेटिंग्स का उपयोग करके मैन्युअल रूप से एक खाता सेट अप करने का प्रयास करें</string>
+    <string name="title_setup_no_auth_hint">कृपया अपना ईमेल पता और पासवर्ड दोबारा जांचें और सुनिश्चित करें कि आपके खाते के लिए बाहरी पहुँच (IMAP/SMTP) सक्षम है</string>
+    <string name="title_setup_no_auth_outlook">आपको इस खाते के लिए Outlook / Office 365 क्विक सेटअप विज़ार्ड का उपयोग करना होगा (माइक्रोसॉफ्ट द्वारा आवश्यक)</string>
+    <string name="title_setup_app_password_hint">इस प्रदाता को खाते के पासवर्ड के बजाय ऐप पासवर्ड की आवश्यकता है, कृपया अपने प्रदाता के निर्देशों की जाँच करें।</string>
+    <string name="title_setup_no_inbox">इनबॉक्स नहीं मिला</string>
+    <string name="title_setup_advanced_protection">जब उन्नत सुरक्षा कार्यक्रम में नामांकित होते हैं, तो तृतीय-पक्ष ईमेल ऐप का उपयोग करना संभव नहीं है। यह प्रतिबंध Google द्वारा लगाया गया है।</string>
+    <string name="title_setup_quick_success">एक खाता सफलतापूर्वक जोड़ दिया गया है।</string>
+    <string name="title_setup_quick_no_sent">कोई भी भेजे गए संदेशों का फ़ोल्डर चयनित नहीं किया गया है। भेजे गए संदेश संग्रहीत नहीं हो सकते हैं।</string>
+    <string name="title_setup_quick_configure">नाम, रंग, स्वाइप क्रियाएँ आदि संपादित करने के लिए।</string>
+    <string name="title_setup_manage">प्रबंध करें</string>
+    <string name="title_setup_grant">अनुदान</string>
+    <string name="title_setup_import_graph_new">नए संपर्क: %1$s</string>
+    <string name="title_setup_doze">बैटरी अनुकूलन अक्षम करें</string>
+    <string name="title_setup_doze_remark">पृष्ठभूमि में ईमेल को विश्वसनीय रूप से भेजने और प्राप्त करने के लिए</string>
+    <string name="title_setup_doze_explanation">ऐप में बैटरी ऑप्टिमाइज़ेशन को अक्षम करना चाहिए ताकि बैकग्राउंड में संदेशों को विश्वसनीय रूप से भेजा और प्राप्त किया जा सके</string>
+    <string name="title_setup_doze_battery">बहुत अधिक बैटरी उपयोग?</string>
+    <string name="title_setup_doze_stopped">सिंक रुक गया?</string>
+    <string name="title_setup_doze_device">यह शायद इस डिवाइस के लिए आवश्यक है।</string>
+    <string name="title_setup_alarm_12">ऐप ठीक से काम नहीं करेगी।</string>
+    <string name="title_setup_fg_15">ऐप स्वचालित रूप से शुरू नहीं हो सकती।</string>
+    <string name="title_setup_inexact">अलार्म और &amp; रिमाइंडर अक्षम हैं</string>
+    <string name="title_setup_background">पृष्ठभूमि प्रतिबंध सक्षम हैं</string>
+    <string name="title_setup_data">डेटा सेवर सक्षम है</string>
+    <string name="title_setup_always">तत्काल नए संदेश सूचनाएं</string>
+    <string name="title_setup_always_remark">यदि सक्षम किया गया हो, तो अस्थिर कनेक्शन, पुराना नेटवर्क हार्डवेयर आदि बैटरी की अधिक खपत का कारण बन सकते हैं।</string>
+    <string name="title_setup_advanced_options">उन्नत विकल्प दिखाएँ</string>
+    <string name="title_setup_inbox">इनबॉक्स पर जाएँ</string>
+    <string name="title_setup_go">जाओ </string>
+    <string name="title_setup_to_do">करने के लिए</string>
+    <string name="title_setup_done">हो गया</string>
+    <string name="title_setup_still">अभी बाकी</string>
+    <string name="title_setup_error">त्रुटि</string>
+    <string name="title_setup_manual_setup">मैनुअल सेटअप</string>
+    <string name="title_setup_pop">POP3 का उपयोग करें (अनुशंसित नहीं)</string>
+    <string name="title_setup_recent">कई ईमेल क्लाइंट्स के लिए \'हाल का\' का उपयोग करें।</string>
+    <string name="title_setup_configuring">खाता विन्यास&#8230;</string>
+    <string name="title_setup_app_password">आपको ऐप पासवर्ड का उपयोग करने की आवश्यकता हो सकती है।</string>
+    <string name="title_setup_extra">अतिरिक्त</string>
+    <string name="title_setup_delete_account_hint">यह केवल ऐप से खाते हटाएगा।</string>
+    <string name="title_setup_close">सेटिंग्स बंद करें</string>
     <string name="title_setup_export">सेटिंग्स निर्यात</string>
     <string name="title_setup_import">सेटिंग्स आयात करें</string>
+    <string name="title_setup_export_remark">        चूंकि सेटिंग्स फ़ाइल में सभी सेटिंग्स और खाता जानकारी होती है, इसलिए इसे एक पासवर्ड से एन्क्रिप्ट किया जाता है।
+        सेटिंग्स को फिर से आयात करने के लिए पासवर्ड आवश्यक है, इसलिए कृपया इसे न भूलें!
+    </string>
+    <string name="title_setup_export_do">निर्यात फ़ाइल में सभी सेटिंग्स और डेटा शामिल होंगे, लेकिन संदेश और हस्ताक्षरों में संदर्भित कोई भी छवियाँ शामिल नहीं होंगी।</string>
+    <string name="title_setup_scroll">इनपुट डायलॉग्स स्क्रॉल करने योग्य हो सकते हैं!</string>
+    <string name="title_setup_backup">संदेशों का बैकअप कैसे करें?</string>
+    <string name="title_setup_password">पासवर्ड</string>
+    <string name="title_setup_password_chars">पासवर्ड में नियंत्रण या रिक्त स्थान वर्ण शामिल हैं।</string>
+    <string name="title_setup_password_repeat">पासवर्ड दोहराएँ</string>
     <string name="title_setup_options">विकल्प</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>

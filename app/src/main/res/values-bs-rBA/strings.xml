@@ -623,6 +623,7 @@
     <string name="title_advanced_image_placeholders">Prikaži mjesta za prikaz slika</string>
     <string name="title_advanced_images_inline">Automatski prikaži poravnate slike</string>
     <string name="title_advanced_button_extra">Prikaži dodatna dugmad na dnu poruke</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Razmak između poruka i konverzacija</string>
     <string name="title_advanced_seekbar">Tačkom prikaži relativnu poziciju konverzacije</string>
     <string name="title_advanced_actionbar">Prikaži radnu traku za konverzaciju</string>
     <string name="title_advanced_actionbar_swap">Zamijeni dugmad za otpad i arhiviranje</string>
@@ -1349,7 +1350,7 @@
     <string name="title_keywords_btn">Ključne riječi</string>
     <string name="title_labels_btn">Oznake (samo za Gmail)</string>
     <string name="title_unsubscribe">Otkaži pretplatu</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Veza za otkazivanje pretplate ne radi unutar poruke. Greška %1$s</string>
+    <string name="title_unsubscribe_error">Veza za otkazivanje pretplate ne radi unutar poruke. Greška %1$s</string>
     <string name="title_message_rule">Kreiraj pravilo</string>
     <string name="title_no_junk">Nije spam</string>
     <string name="title_edit_subject">Uredi predmet &#8230;</string>
@@ -2328,6 +2329,11 @@
         <item>Mali</item>
         <item>Srednji</item>
         <item>Veliki</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Kompaktan</item>
+        <item>Srednji</item>
+        <item comment="spacingNames choice for space between messages">Prostran</item>
     </string-array>
     <string name="title_size_tiny">Mali</string>
     <string-array name="receiptNames">

@@ -2282,6 +2282,11 @@ FairEmail 會顯示一則小訊息提醒你這點，購買專業功能後該訊�
         <item>中</item>
         <item>大</item>
     </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>中</item>
+        <item comment="spacingNames choice for space between messages">Roomy</item>
+    </string-array>
     <string name="title_size_tiny">極小</string>
     <string-array name="receiptNames">
         <item>僅已讀回條</item>

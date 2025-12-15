@@ -604,6 +604,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_image_placeholders">Ofbyldingplakhâlders toane</string>
     <string name="title_advanced_images_inline">Inline ôfbyldingen automatysk toane</string>
     <string name="title_advanced_button_extra">Ekstra knoppen ûnderoan in berjocht toane</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Romte tusken berjochten en petearen</string>
     <string name="title_advanced_seekbar">Relative posysje fan petear mei in punt toane</string>
     <string name="title_advanced_actionbar">Petearaksjebalke toane</string>
     <string name="title_advanced_actionbar_swap">Jiskefet- en argivearknop wikselje</string>
@@ -1327,7 +1328,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_keywords_btn">Kaaiwurden</string>
     <string name="title_labels_btn">Labels (allinnich foar Gmail)</string>
     <string name="title_unsubscribe">Ofmelde</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">De ôfmeldkeppeling yn it berjocht wurket net. Flater %1$s</string>
+    <string name="title_unsubscribe_error">De ôfmeldkeppeling yn it berjocht wurket net. Flater %1$s</string>
     <string name="title_message_rule">Regel meitsje</string>
     <string name="title_no_junk">Net net-winske</string>
     <string name="title_edit_subject">Underwerp &#8230; bewurkje</string>
@@ -2308,6 +2309,11 @@ https://en.wikipedia.org/wiki/ASCII</string>
         <item>Lyts</item>
         <item>Gemiddeld</item>
         <item>Grut</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Kompakt</item>
+        <item>Gemiddeld</item>
+        <item comment="spacingNames choice for space between messages">Rom</item>
     </string-array>
     <string name="title_size_tiny">Tin</string>
     <string-array name="receiptNames">

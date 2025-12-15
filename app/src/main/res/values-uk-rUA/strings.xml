@@ -637,6 +637,7 @@
     <string name="title_advanced_image_placeholders">Показувати заповнювачі для зображень</string>
     <string name="title_advanced_images_inline">Автоматично показувати вбудовані зображення</string>
     <string name="title_advanced_button_extra">Показувати додаткові кнопки внизу повідомлення</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Проміжок між повідомленнями та розмовами</string>
     <string name="title_advanced_seekbar">Відмітити крапкою відносне положення розмови</string>
     <string name="title_advanced_actionbar">Показувати панель дій для розмови</string>
     <string name="title_advanced_actionbar_swap">Поміняти місцями кнопки Кошик та Архів</string>
@@ -1362,7 +1363,7 @@
     <string name="title_keywords_btn">Ключові слова</string>
     <string name="title_labels_btn">Мітки (тільки для Gmail)</string>
     <string name="title_unsubscribe">Відписатися</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Посилання для відписки, що міститься в повідомленні, не працює. Помилка %1$s</string>
+    <string name="title_unsubscribe_error">Посилання для відписки, що міститься в повідомленні, не працює. Помилка %1$s</string>
     <string name="title_message_rule">Створити правило</string>
     <string name="title_no_junk">Не спам</string>
     <string name="title_edit_subject">Редагувати тему &#8230;</string>
@@ -2348,6 +2349,11 @@
         <item>Малий</item>
         <item>Середній</item>
         <item>Великий</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Компактний</item>
+        <item>Середній</item>
+        <item comment="spacingNames choice for space between messages">Просторий</item>
     </string-array>
     <string name="title_size_tiny">Дрібний</string>
     <string-array name="receiptNames">

@@ -608,6 +608,7 @@
     <string name="title_advanced_image_placeholders">Mostrar espaços reservados da imagem</string>
     <string name="title_advanced_images_inline">Mostrar automaticamente imagens embutidas</string>
     <string name="title_advanced_button_extra">Mostrar botões extras na parte inferior de uma mensagem</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Espaço entre mensagens e conversas</string>
     <string name="title_advanced_seekbar">Mostrar a posição relativa da conversa com um ponto</string>
     <string name="title_advanced_actionbar">Mostrar barra de acção de conversa</string>
     <string name="title_advanced_actionbar_swap">Trocar botão de lixo e arquivo</string>
@@ -1334,7 +1335,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_keywords_btn">Palavras-chave</string>
     <string name="title_labels_btn">Etiquetas (só no Gmail)</string>
     <string name="title_unsubscribe">Cancelar Subscrição</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">O link na mensagem para cancelar a subscrição não funciona. Erro %1$s</string>
+    <string name="title_unsubscribe_error">O link na mensagem para cancelar a subscrição não funciona. Erro %1$s</string>
     <string name="title_message_rule">Criar regra</string>
     <string name="title_no_junk">Não é spam</string>
     <string name="title_edit_subject">Editar assunto &#8230;</string>
@@ -2312,6 +2313,11 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
         <item>Pequeno</item>
         <item>Médio</item>
         <item>Grande</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compacto</item>
+        <item>Médio</item>
+        <item comment="spacingNames choice for space between messages">Espaçoso</item>
     </string-array>
     <string name="title_size_tiny">Muito pequeno</string>
     <string-array name="receiptNames">

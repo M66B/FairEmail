@@ -636,6 +636,7 @@
     <string name="title_advanced_image_placeholders">Показывать места расположения изображений</string>
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
     <string name="title_advanced_button_extra">Показывать дополнительные кнопки внизу сообщения</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Промежуток между сообщениями и диалогами</string>
     <string name="title_advanced_seekbar">Показывать относительное положение диалога точкой</string>
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
     <string name="title_advanced_actionbar_swap">Поменять местами кнопки \"Корзина\" и \"Архив\"</string>
@@ -1363,7 +1364,7 @@
     <string name="title_keywords_btn">Ключевые слова</string>
     <string name="title_labels_btn">Метки (только Gmail)</string>
     <string name="title_unsubscribe">Отписаться</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Ссылка отказа от подписки в сообщении не работает. Ошибка %1$s</string>
+    <string name="title_unsubscribe_error">Ссылка отказа от подписки в сообщении не работает. Ошибка %1$s</string>
     <string name="title_message_rule">Создать правило</string>
     <string name="title_no_junk">Не спам</string>
     <string name="title_edit_subject">Изменить тему&#8230;</string>
@@ -2350,6 +2351,11 @@
         <item>Мелкий</item>
         <item>Средний</item>
         <item>Крупный</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Компактный</item>
+        <item>Средний</item>
+        <item comment="spacingNames choice for space between messages">Просторный</item>
     </string-array>
     <string name="title_size_tiny">Минимальный</string>
     <string-array name="receiptNames">

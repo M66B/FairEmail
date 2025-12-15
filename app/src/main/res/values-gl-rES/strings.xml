@@ -1867,6 +1867,11 @@
         <item>Mediano</item>
         <item>Grande</item>
     </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Mediano</item>
+        <item comment="spacingNames choice for space between messages">Roomy</item>
+    </string-array>
     <string name="title_size_tiny">Minúsculo</string>
     <string-array name="receiptNames">
         <item>Só acuse de lectura</item>

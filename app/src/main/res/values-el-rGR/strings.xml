@@ -608,6 +608,7 @@
     <string name="title_advanced_image_placeholders">Να προβάλλονται οι κρατημένες για εικόνες θέσεις</string>
     <string name="title_advanced_images_inline">Να προβάλλονται αυτόματα οι ένθετες εικόνες</string>
     <string name="title_advanced_button_extra">Εμφάνιση επιπλέον κουμπιών στο κάτω μέρος ενός μηνύματος</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Διάστημα μεταξύ μηνυμάτων και συζητήσεων</string>
     <string name="title_advanced_seekbar">Επισήμανση της σχετικής θέσης στη συζήτηση με μία τελεία</string>
     <string name="title_advanced_actionbar">Προβολή της γραμμής ενεργειών της συζήτησης</string>
     <string name="title_advanced_actionbar_swap">Εναλλαγή των κουμπιών απορριμμάτων και αρχειοθέτησης</string>
@@ -1331,7 +1332,7 @@
     <string name="title_keywords_btn">Λέξεις-κλειδιά</string>
     <string name="title_labels_btn">Ετικέτες (μόνο στο Gmail)</string>
     <string name="title_unsubscribe">Κατάργηση συνδρομής</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Ο σύνδεσμος κατάργησης συνδρομής εντός του μηνύματος δεν λειτουργεί. Σφάλμα %1$s</string>
+    <string name="title_unsubscribe_error">Ο σύνδεσμος κατάργησης συνδρομής εντός του μηνύματος δεν λειτουργεί. Σφάλμα %1$s</string>
     <string name="title_message_rule">Δημιουργία κανόνα</string>
     <string name="title_no_junk">Όχι ανεπιθύμητο</string>
     <string name="title_edit_subject">Επεξεργασία θέματος &#8230;</string>
@@ -2315,6 +2316,11 @@
         <item>Μικρό</item>
         <item>Μεσαίο</item>
         <item>Μεγάλο</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Συμπαγές</item>
+        <item>Μεσαίο</item>
+        <item comment="spacingNames choice for space between messages">Ευρύχωρο</item>
     </string-array>
     <string name="title_size_tiny">Μικροσκοπικό</string>
     <string-array name="receiptNames">

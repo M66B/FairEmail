@@ -894,6 +894,11 @@
         <item>ମଧ୍ୟମ</item>
         <item>ବଡ଼</item>
     </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>ମଧ୍ୟମ</item>
+        <item comment="spacingNames choice for space between messages">Roomy</item>
+    </string-array>
     <string name="title_size_tiny">ସାନ</string>
     <string-array name="receiptNames">
         <item>କେଵଳ ପଠନ ପାଉତି</item>

@@ -534,6 +534,7 @@
     <string name="title_advanced_collapse_quotes">بستن متن نقل شده</string>
     <string name="title_advanced_image_placeholders">نمایش placeholder تصاویر</string>
     <string name="title_advanced_images_inline">تصاویر درون خطی را خودکار نمایش بده</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">فضای بین پیام‌ها و مکالمات</string>
     <string name="title_advanced_actionbar">نمایش نوار کنش گفتگو</string>
     <string name="title_advanced_actionbar_color">از رنگ حساب به‌عنوان رنگ پس‌زمینه برای نوار کنش گفتگو استفاده کن</string>
     <string name="title_advanced_category_header">دسته‌بندی بر اساس طبقه‌بندی حساب</string>
@@ -940,7 +941,7 @@
     <string name="title_copy_btn">روگرفت</string>
     <string name="title_labels_btn">برچسب (فقط جیمیل)</string>
     <string name="title_unsubscribe">لغو اشتراک</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">لینک لغو اشتراک در پیام کار نمی‌کند. خطای %1$s</string>
+    <string name="title_unsubscribe_error">لینک لغو اشتراک در پیام کار نمی‌کند. خطای %1$s</string>
     <string name="title_message_rule">ساخت قانون</string>
     <string name="title_no_junk">هرزنامه نیست</string>
     <string name="title_edit_subject">ویرایش موضوع &#8230;</string>
@@ -1663,6 +1664,11 @@
         <item>کوچک</item>
         <item>متوسط</item>
         <item>بزرگ</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">فشرده</item>
+        <item>متوسط</item>
+        <item comment="spacingNames choice for space between messages">جادار</item>
     </string-array>
     <string name="title_size_tiny">ریز</string>
     <string-array name="receiptNames">

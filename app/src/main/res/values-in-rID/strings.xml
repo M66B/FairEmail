@@ -1316,7 +1316,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_keywords_btn">Kata kunci</string>
     <string name="title_labels_btn">Label (khusus Gmail)</string>
     <string name="title_unsubscribe">Berhenti langganan</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Tautan berhenti berlanganan dalam pesan tidak berfungsi. Kesalahan %1$s</string>
+    <string name="title_unsubscribe_error">Tautan berhenti berlanganan dalam pesan tidak berfungsi. Kesalahan %1$s</string>
     <string name="title_message_rule">Buat aturan</string>
     <string name="title_no_junk">Bukan spam</string>
     <string name="title_edit_subject">Sunting subjek &#8230;</string>
@@ -2295,6 +2295,11 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
         <item>Kecil</item>
         <item>Sedang</item>
         <item>Besar</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Sedang</item>
+        <item comment="spacingNames choice for space between messages">Roomy</item>
     </string-array>
     <string name="title_size_tiny">Sangat Kecil</string>
     <string-array name="receiptNames">

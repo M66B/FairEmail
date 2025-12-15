@@ -609,6 +609,7 @@
     <string name="title_advanced_image_placeholders">Mostra i segnaposti delle immagini</string>
     <string name="title_advanced_images_inline">Mostra automaticamente le immagini in linea</string>
     <string name="title_advanced_button_extra">Mostra i pulsanti extra in fondo a un messaggio</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Spaziatura tra messaggi e conversazioni</string>
     <string name="title_advanced_seekbar">Mostra la posizione relativa della conversazione con un puntino</string>
     <string name="title_advanced_actionbar">Mostra la barra delle azioni della conversazione</string>
     <string name="title_advanced_actionbar_swap">Scambia i pulsanti cestino e archivio</string>
@@ -1336,7 +1337,7 @@
     <string name="title_keywords_btn">Parole chiave</string>
     <string name="title_labels_btn">Etichette (solo Gmail)</string>
     <string name="title_unsubscribe">Disiscriviti</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Il link presente nel messaggio per cancellare l\'iscrizione non funziona. Errore %1$s</string>
+    <string name="title_unsubscribe_error">Il link presente nel messaggio per cancellare l\'iscrizione non funziona. Errore %1$s</string>
     <string name="title_message_rule">Crea una regola</string>
     <string name="title_no_junk">Non spam</string>
     <string name="title_edit_subject">Modifica l\'oggetto&#8230;</string>
@@ -2321,6 +2322,11 @@
         <item>Piccolo</item>
         <item>Medio</item>
         <item>Grande</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compatta</item>
+        <item>Normale</item>
+        <item comment="spacingNames choice for space between messages">Ampia</item>
     </string-array>
     <string name="title_size_tiny">Minuscolo</string>
     <string-array name="receiptNames">

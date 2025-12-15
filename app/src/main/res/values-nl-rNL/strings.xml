@@ -604,6 +604,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_image_placeholders">Plaatsvervangers van afbeelding weergeven</string>
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
     <string name="title_advanced_button_extra">Toon extra knoppen onderaan een bericht</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Ruimte tussen berichten en gesprekken</string>
     <string name="title_advanced_seekbar">Toon relatieve gesprekspositie met een punt</string>
     <string name="title_advanced_actionbar">Toon gespreksactiebalk</string>
     <string name="title_advanced_actionbar_swap">Prullenbak en archief knop verwisselen</string>
@@ -1327,7 +1328,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_keywords_btn">Sleutelwoorden</string>
     <string name="title_labels_btn">Labels (alleen voor Gmail)</string>
     <string name="title_unsubscribe">Uitschrijven</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">De afmeldlink in het bericht werkt niet. Fout %1$s</string>
+    <string name="title_unsubscribe_error">De afmeldlink in het bericht werkt niet. Fout %1$s</string>
     <string name="title_message_rule">Maak regel</string>
     <string name="title_no_junk">Geen spam</string>
     <string name="title_edit_subject">Bewerk onderwerp &#8230;</string>
@@ -2303,6 +2304,11 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>Klein</item>
         <item>Gemiddeld</item>
         <item>Groot</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Gemiddeld</item>
+        <item comment="spacingNames choice for space between messages">Ruim</item>
     </string-array>
     <string name="title_size_tiny">Heel klein</string>
     <string-array name="receiptNames">

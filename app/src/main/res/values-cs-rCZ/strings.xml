@@ -637,6 +637,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_image_placeholders">Zobrazit zástupné symboly obrázků</string>
     <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
     <string name="title_advanced_button_extra">Zobrazit další tlačítka v dolní části zprávy</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Prostor mezi zprávami a konverzacemi</string>
     <string name="title_advanced_seekbar">Zobrazit relativní pozici v konverzaci puntíkem</string>
     <string name="title_advanced_actionbar">Zobrazit panel akcí konverzací</string>
     <string name="title_advanced_actionbar_swap">Prohodit tlačítka Koš a Archiv</string>
@@ -1362,7 +1363,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_keywords_btn">Klíčová slova</string>
     <string name="title_labels_btn">Štítky (pouze Gmail)</string>
     <string name="title_unsubscribe">Odhlásit odběr</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Odkaz pro odhlášení ve zprávě nefunguje. Chyba %1$s</string>
+    <string name="title_unsubscribe_error">Odkaz pro odhlášení ve zprávě nefunguje. Chyba %1$s</string>
     <string name="title_message_rule">Vytvořit pravidlo</string>
     <string name="title_no_junk">Není spam</string>
     <string name="title_edit_subject">Upravit předmět &#8230;</string>
@@ -2347,6 +2348,11 @@ v prohlížeči ze všech Google účtů.</string>
         <item>Malé</item>
         <item>Střední</item>
         <item>Velké</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Kompaktní</item>
+        <item>Střední</item>
+        <item comment="spacingNames choice for space between messages">Prostorný</item>
     </string-array>
     <string name="title_size_tiny">Nejmenší</string>
     <string-array name="receiptNames">

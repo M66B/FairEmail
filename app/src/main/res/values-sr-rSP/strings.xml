@@ -1071,6 +1071,11 @@
         <item>Средња</item>
         <item>Велика</item>
     </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Средња</item>
+        <item comment="spacingNames choice for space between messages">Roomy</item>
+    </string-array>
     <string name="title_size_tiny">Сићушно</string>
     <string-array name="signatureNames">
         <item>Изнад текста</item>

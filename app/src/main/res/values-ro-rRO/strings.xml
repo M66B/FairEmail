@@ -622,6 +622,7 @@
     <string name="title_advanced_image_placeholders">Afișați înlocuitorul imaginii</string>
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
     <string name="title_advanced_button_extra">Arată butoane suplimentare în partea de jos a mesajului</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Spațiu între mesaje și conversații</string>
     <string name="title_advanced_seekbar">Arată poziția relativă în conversație cu un punct</string>
     <string name="title_advanced_actionbar">Arată bara de acțiuni pentru conversație</string>
     <string name="title_advanced_actionbar_swap">Schimbă coșul de gunoi și butonul de arhivă</string>
@@ -1347,7 +1348,7 @@
     <string name="title_keywords_btn">Cuvinte cheie</string>
     <string name="title_labels_btn">Etichete (doar Gmail)</string>
     <string name="title_unsubscribe">Dezabonare</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Link-ul de dezabonare din mesaj nu funcționează. Eroare %1$s</string>
+    <string name="title_unsubscribe_error">Link-ul de dezabonare din mesaj nu funcționează. Eroare %1$s</string>
     <string name="title_message_rule">Creare regulă</string>
     <string name="title_no_junk">Nu este spam</string>
     <string name="title_edit_subject">Editează subiectul &#8230;</string>
@@ -2331,6 +2332,11 @@
         <item>Mică</item>
         <item>Medie</item>
         <item>Mare</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Medie</item>
+        <item comment="spacingNames choice for space between messages">Spațios</item>
     </string-array>
     <string name="title_size_tiny">Mic</string>
     <string-array name="receiptNames">

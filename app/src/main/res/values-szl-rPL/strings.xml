@@ -635,6 +635,7 @@
     <string name="title_advanced_image_placeholders">Pokaż symbole zastępcze obrazu</string>
     <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
     <string name="title_advanced_button_extra">Pokaż dodatkowe przyciski na dole wiadomości</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Odstęp pomiędzy wiadomościami a rozmowami</string>
     <string name="title_advanced_seekbar">Pokaż względną pozycję konwersacji za pomocą kropki</string>
     <string name="title_advanced_actionbar">Pokaż pasek akcji konwersacji</string>
     <string name="title_advanced_actionbar_swap">Zamień miejscami przycisk kosza i archiwum</string>
@@ -1360,7 +1361,7 @@
     <string name="title_keywords_btn">Słowa kluczowe</string>
     <string name="title_labels_btn">Etykiety (tylko Gmail)</string>
     <string name="title_unsubscribe">Anuluj subskrypcję</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Link do rezygnacji z subskrypcji w wiadomości nie działa. Błąd %1$s</string>
+    <string name="title_unsubscribe_error">Link do rezygnacji z subskrypcji w wiadomości nie działa. Błąd %1$s</string>
     <string name="title_message_rule">Utwórz regułę</string>
     <string name="title_no_junk">To nie jest spam</string>
     <string name="title_edit_subject">Edytuj temat &#8230;</string>
@@ -2345,6 +2346,11 @@
         <item>Mała</item>
         <item>Średnia</item>
         <item>Duża</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Kompaktowy</item>
+        <item>Średni</item>
+        <item comment="spacingNames choice for space between messages">Przestronny</item>
     </string-array>
     <string name="title_size_tiny">Drobna</string>
     <string-array name="receiptNames">

@@ -595,6 +595,7 @@
     <string name="title_advanced_image_placeholders">画像のプレースホルダーを表示する</string>
     <string name="title_advanced_images_inline">インライン画像を自動で表示する</string>
     <string name="title_advanced_button_extra">メッセージの下部に追加ボタンを表示する</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">メッセージ間のスペース</string>
     <string name="title_advanced_seekbar">ドットで相対的な会話スレッドの位置を表示する</string>
     <string name="title_advanced_actionbar">会話スレッド アクションバーを表示する</string>
     <string name="title_advanced_actionbar_swap">ごみ箱とアーカイブのボタンを入れ替える</string>
@@ -1321,7 +1322,7 @@
     <string name="title_keywords_btn">キーワード</string>
     <string name="title_labels_btn">ラベル (Gmail のみ)</string>
     <string name="title_unsubscribe">購読解除</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">メッセージの購読解除リンクが動作しません。エラー: %1$s</string>
+    <string name="title_unsubscribe_error">メッセージの購読解除リンクが動作しません。エラー: %1$s</string>
     <string name="title_message_rule">ルールを作成</string>
     <string name="title_no_junk">迷惑メールでないと報告</string>
     <string name="title_edit_subject">件名を編集&#8230;</string>
@@ -2305,6 +2306,11 @@
         <item>小</item>
         <item>標準</item>
         <item>大</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">コンパクト</item>
+        <item>標準</item>
+        <item comment="spacingNames choice for space between messages">ワイド</item>
     </string-array>
     <string name="title_size_tiny">極小</string>
     <string-array name="receiptNames">

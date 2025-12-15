@@ -2283,6 +2283,11 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
         <item>Keskikokoinen</item>
         <item>Suuri</item>
     </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Keskikokoinen</item>
+        <item comment="spacingNames choice for space between messages">Roomy</item>
+    </string-array>
     <string name="title_size_tiny">Erittäin pieni</string>
     <string-array name="receiptNames">
         <item>Vastaanottokuittaus</item>

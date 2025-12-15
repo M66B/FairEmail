@@ -610,6 +610,7 @@
     <string name="title_advanced_image_placeholders">Platzhalter für Bilder anzeigen</string>
     <string name="title_advanced_images_inline">Eingebettete Bilder automatisch anzeigen</string>
     <string name="title_advanced_button_extra">Zusätzliche Schaltflächen am unteren Rand einer Nachricht anzeigen</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Abstand zwischen Nachrichten und Unterhaltungen</string>
     <string name="title_advanced_seekbar">Relative Unterhaltungsposition mit einem Punkt kennzeichnen</string>
     <string name="title_advanced_actionbar">Aktionsleiste in Unterhaltung anzeigen</string>
     <string name="title_advanced_actionbar_swap">Schaltflächen »Papierkorb« und »Archiv« tauschen</string>
@@ -1337,7 +1338,7 @@
     <string name="title_keywords_btn">Schlagwörter</string>
     <string name="title_labels_btn">Labels (nur für Gmail)</string>
     <string name="title_unsubscribe">Abbestellen</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">Der Abbestellen-Link in der Nachricht funktioniert nicht. Fehler %1$s</string>
+    <string name="title_unsubscribe_error">Der Abbestellen-Link in der Nachricht funktioniert nicht. Fehler %1$s</string>
     <string name="title_message_rule">Regel erstellen</string>
     <string name="title_no_junk">Kein Spam</string>
     <string name="title_edit_subject">Betreff bearbeiten &#8230;</string>
@@ -2322,6 +2323,11 @@
         <item>Klein</item>
         <item>Mittel</item>
         <item>Groß</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">Kompakt</item>
+        <item>Mittel</item>
+        <item comment="spacingNames choice for space between messages">Großzügig</item>
     </string-array>
     <string name="title_size_tiny">Winzig</string>
     <string-array name="receiptNames">

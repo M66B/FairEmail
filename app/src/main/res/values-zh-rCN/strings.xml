@@ -5,7 +5,7 @@
     <string name="app_changelog">更新日志</string>
     <string name="app_welcome">FairEmail 是一款专注于隐私与安全的开源电子邮件应用。所以，某些功能的工作方式可能与您的习惯不同。</string>
     <string name="app_limitations">例如，默认情况下，邮件会重新格式化以移除不安全的元素并提高可读性，并且为了安全起见，需要确认打开链接。如果需要，这两个选项都可以禁用。</string>
-    <string name="app_unsupported">此特定设备的该 Android 版本中的 Bug 会导致崩溃</string>
+    <string name="app_unsupported">此特定设备的 Android 版本中的 Bug 会导致崩溃</string>
     <string name="app_data_loss">所有数据可能都会丢失</string>
     <string name="app_continue">仍然继续</string>
     <string name="app_exit">再按一次返回键退出</string>
@@ -594,6 +594,7 @@
     <string name="title_advanced_image_placeholders">显示图像占位符</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_button_extra">在邮件底部显示额外按钮</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">消息和对话间的间距</string>
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
     <string name="title_advanced_actionbar">显示对话操作栏</string>
     <string name="title_advanced_actionbar_swap">交换回收站和归档按钮</string>
@@ -1318,7 +1319,7 @@
     <string name="title_keywords_btn">关键词</string>
     <string name="title_labels_btn">标签 (仅 Gmail)</string>
     <string name="title_unsubscribe">取消订阅</string>
-    <string name="title_unsubscribe_error" comment="title_unsubscribe_error&#10;Error message for when an unsubscribe link doesn't work. At the end, the http response code will be filled in for diagnostic purposes.">消息中的取消订阅链接不工作。错误 %1$s</string>
+    <string name="title_unsubscribe_error">消息中的取消订阅链接不工作。错误 %1$s</string>
     <string name="title_message_rule">创建规则</string>
     <string name="title_no_junk">不是垃圾邮件</string>
     <string name="title_edit_subject">编辑标题 &#8230;</string>
@@ -2299,6 +2300,11 @@
         <item>小</item>
         <item>中</item>
         <item>大</item>
+    </string-array>
+    <string-array name="spacingNames">
+        <item comment="spacingNames choice for space between messages">紧凑</item>
+        <item>中</item>
+        <item comment="spacingNames choice for space between messages">宽敞</item>
     </string-array>
     <string name="title_size_tiny">极小</string>
     <string-array name="receiptNames">
