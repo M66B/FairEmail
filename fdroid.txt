@@ -1,1 +1,0 @@
-Please see here for the changelog: https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md
