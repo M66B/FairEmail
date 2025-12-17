@@ -3421,7 +3421,7 @@ public class FragmentMessages extends FragmentBase
                 } else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
                     onSwipeSnooze(message, viewHolder);
                 else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
-                    onActionHide(message);
+                    onActionHide(message, true);
                 else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action)) {
                     redraw(viewHolder);
                     onSwipeMove(message);
@@ -3623,7 +3623,7 @@ public class FragmentMessages extends FragmentBase
                                             onMenuSnooze();
                                             return true;
                                         } else if (itemId == R.string.title_hide || itemId == R.string.title_unhide) {
-                                            onActionHide(message);
+                                            onActionHide(message, false);
                                             return true;
                                         } else if (itemId == R.string.title_flag) {
                                             onActionFlagSelection(true, Color.TRANSPARENT, message.id, false);
@@ -4926,7 +4926,7 @@ public class FragmentMessages extends FragmentBase
         }.execute(this, args, "messages:seen");
     }
 
-    private void onActionHide(TupleMessageEx message) {
+    private void onActionHide(TupleMessageEx message, boolean undo) {
         Bundle args = new Bundle();
         args.putLong("account", message.account);
         args.putString("thread", message.thread);
@@ -4934,6 +4934,7 @@ public class FragmentMessages extends FragmentBase
         args.putLong("duration", message.ui_snoozed == null ? Long.MAX_VALUE : 0);
         args.putLong("time", message.ui_snoozed == null ? Long.MAX_VALUE : 0);
         args.putBoolean("hide", true);
+        args.putBoolean("undo", undo);
 
         onSnoozeOrHide(args);
     }
@@ -11400,6 +11401,8 @@ public class FragmentMessages extends FragmentBase
         long time = args.getLong("time");
         args.putLong("wakeup", duration == 0 ? -1 : time);
 
+        final Context context = getContext();
+
         new SimpleTask<Long>() {
             @Override
             protected Long onExecute(Context context, Bundle args) {
@@ -11457,6 +11460,27 @@ public class FragmentMessages extends FragmentBase
             protected void onExecuted(Bundle args, Long wakeup) {
                 if (wakeup != null && args.getBoolean("finish"))
                     finish();
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean filter_snoozed = prefs.getBoolean(getFilter(context, "snoozed", viewType, type), true);
+                if (duration == Long.MAX_VALUE && filter_snoozed && args.getBoolean("undo")) {
+                    FragmentActivity activity = getActivity();
+                    if (activity instanceof ActivityView)
+                        ((ActivityView) activity).undo(getString(R.string.title_hide), args, null,
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                        args.putLong("duration", 0);
+                                        args.putLong("time", 0);
+                                        onSnoozeOrHide(args);
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Log.unexpectedError(getParentFragmentManager(), ex);
+                                    }
+                                });
+                }
             }
 
             @Override
