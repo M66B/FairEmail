@@ -1832,7 +1832,7 @@ public class StyleHelper {
         if (faces.contains("tinos"))
             return "Tinos, \"Times New Roman\", Times, serif";
         if (faces.contains("cousine"))
-            return "Cousine, \"Courier New\", Courier, monospace";
+            return "Cousine, \"Courier New\", Courier";
         if (faces.contains("lato"))
             return "Lato, Carlito, Calibri, Aptos, sans-serif";
         if (faces.contains("caladea"))
@@ -1888,6 +1888,10 @@ public class StyleHelper {
                         faces.contains("times") ||
                         faces.contains("times new roman"))
                     return ResourcesCompat.getFont(context.getApplicationContext(), R.font.tinos);
+
+                // Some Android versions use an incorrect monospace font
+                if (faces.contains("monospace"))
+                    return ResourcesCompat.getFont(context.getApplicationContext(), R.font.roboto_mono);
 
                 if (faces.contains("cousine") ||
                         faces.contains("courier") ||
