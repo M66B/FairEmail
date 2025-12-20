@@ -6907,6 +6907,7 @@ public class FragmentCompose extends FragmentBase {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             final boolean plain_only = prefs.getBoolean("plain_only", false);
+            final Typeface monospace = StyleHelper.getTypeface("monospace", getContext());
 
             db.message().liveMessage(data.draft.id).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
                 @Override
@@ -6967,10 +6968,10 @@ public class FragmentCompose extends FragmentBase {
 
                         if (compose_monospaced) {
                             if (draft.isPlainOnly())
-                                etBody.setTypeface(Typeface.MONOSPACE);
+                                etBody.setTypeface(monospace);
                             else {
                                 Typeface tf = etBody.getTypeface();
-                                if (tf == Typeface.MONOSPACE)
+                                if (tf == monospace)
                                     etBody.setTypeface(StyleHelper.getTypeface(compose_font, etBody.getContext()));
                             }
                         }

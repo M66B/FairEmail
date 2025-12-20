@@ -101,7 +101,7 @@ public class ActivitySignature extends ActivityBase {
         style_bar = findViewById(R.id.style_bar);
         bottom_navigation = findViewById(R.id.bottom_navigation);
 
-        etText.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
+        etText.setTypeface(monospaced ? StyleHelper.getTypeface("monospace", this) : Typeface.DEFAULT);
 
         etText.setSelectionListener(new EditTextCompose.ISelection() {
             @Override
@@ -234,7 +234,7 @@ public class ActivitySignature extends ActivityBase {
     @Override
     protected void onResume() {
         super.onResume();
-        etText.setTypeface(etText.isRaw() ? Typeface.MONOSPACE : Typeface.DEFAULT);
+        etText.setTypeface(etText.isRaw() ? StyleHelper.getTypeface("monospace", this) : Typeface.DEFAULT);
     }
 
     @Override
@@ -431,7 +431,7 @@ public class ActivitySignature extends ActivityBase {
 
         tvHtmlRemark.setVisibility(raw ? View.VISIBLE : View.GONE);
         etText.setRaw(raw);
-        etText.setTypeface(raw ? Typeface.MONOSPACE : Typeface.DEFAULT);
+        etText.setTypeface(raw ? StyleHelper.getTypeface("monospace", this) : Typeface.DEFAULT);
         load(html);
 
         if (raw)
