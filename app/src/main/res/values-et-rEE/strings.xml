@@ -608,6 +608,7 @@
     <string name="title_advanced_image_placeholders">Näita piltide kohatähiseid</string>
     <string name="title_advanced_images_inline">Näita tekstisiseseid pilte automaatselt</string>
     <string name="title_advanced_button_extra">Näita sõnumi lõpus lisanuppe</string>
+    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Ruum sõnumite ja vestluse vahel</string>
     <string name="title_advanced_seekbar">Näita vestluse suhtelist asukohta punktiga</string>
     <string name="title_advanced_actionbar">Näita vestluse tegevusriba</string>
     <string name="title_advanced_actionbar_swap">Vaheta nupud prügi ja arhiiv</string>
@@ -2314,9 +2315,9 @@
         <item>Suur</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item comment="spacingNames choice for space between messages">Kompaktne</item>
         <item>Keskmine</item>
-        <item comment="spacingNames choice for space between messages">Roomy</item>
+        <item comment="spacingNames choice for space between messages">Ruumikas</item>
     </string-array>
     <string name="title_size_tiny">Tilluke</string>
     <string-array name="receiptNames">

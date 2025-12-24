@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_search">Пошук FairEmail</string>
+    <string name="app_search">Пошук у FairEmail</string>
     <string name="app_send_self">Адправіць сабе</string>
     <string name="app_changelog">Журнал змяненняў</string>
     <string name="app_welcome">FairEmail - гэта праграма электроннай пошты з адкрытым зыходным кодам, яркая арыентавана на прыватнасць і бяспеку. Па гэтай прычыне некаторыя функцыі могуць адрознівацца ад функцый, якія вы выкарыстоўваеце ў іншых падобных праграмах.</string>
