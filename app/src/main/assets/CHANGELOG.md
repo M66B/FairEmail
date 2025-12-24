@@ -4,11 +4,11 @@
 
 ### Latest version
 
-* Fixed message list widget flickering on some devices
-* Added option to select space between messages (display settings tab page)
+* Added undo to swipe to hide
+* Added Roboto monospace font for devices without monospace font
 * Small improvements and minor bug fixes
+* Updated build tools
 * Updated [translations](https://crowdin.com/project/open-source-email)
-* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 
 ### Notices
@@ -38,6 +38,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### [Diuqin](https://en.wikipedia.org/wiki/Diuqin)
 
 ### Next version (Work in progress)
+
+### 1.2308 2025-12-24
+
+* Added undo to swipe to hide
+* Added Roboto monospace font for devices without monospace font
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated [translations](https://crowdin.com/project/open-source-email)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
 
 ### 1.2307 2025-12-15
 
