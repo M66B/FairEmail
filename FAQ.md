@@ -5395,6 +5395,12 @@ Some people have asked to add Google Translate on the assumption that it is free
 but [that is not the case](https://cloud.google.com/translate/pricing) if it is integrated into an app.
 Apart from that, DeepL is much easier to configure and the translations are of better quality.
 
+All translation services, including Google Translate, require a credit card, which is to prevent abuse. So, that's something that can't be avoided.
+
+Note that the app is basically provided for free and therefore it isn't possible to offer free translation services.
+In fact, translation services for more than personal usage (in an app for many people) are rather expensive.
+It can't be financed with a one-time purchase by a fraction of a percent of the users of the app.
+
 <br />
 
 <a name="faq168"></a>
