@@ -6285,6 +6285,9 @@ Please see [this article](https://www.zivver.com/blog/why-cisos-and-security-pro
 
 Note that DNSSEC and DANE are available in the GitHub version only and require Android 8.0 or later.
 
+Android doesn't support DNSSEC and therefore the MiniDNS library is used for this.
+You can report issues [here](https://github.com/MiniDNS/minidns/issues).
+
 <br>
 
 <a name="faq203"></a>
