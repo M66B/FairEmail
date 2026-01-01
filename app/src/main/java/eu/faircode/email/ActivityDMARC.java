@@ -447,7 +447,7 @@ public class ActivityDMARC extends ActivityBase {
             Integer start = null;
             SpannableStringBuilder extra = new SpannableStringBuilderEx();
 
-            spf = lookupSpf(context, lastDomain, extra);
+            spf = lookupSpf(context, lastDomain, 1, extra);
             for (Pair<String, DnsHelper.DnsRecord> p : spf) {
                 ssb.append(p.first).append(' ')
                         .append(p.second.response).append("\n\n");
@@ -573,8 +573,13 @@ public class ActivityDMARC extends ActivityBase {
             }
         }
 
-        private static List<Pair<String, DnsHelper.DnsRecord>> lookupSpf(Context context, String domain, SpannableStringBuilder ssb) {
+        private static List<Pair<String, DnsHelper.DnsRecord>> lookupSpf(Context context, String domain, int depth, SpannableStringBuilder ssb) {
             List<Pair<String, DnsHelper.DnsRecord>> result = new ArrayList<>();
+
+            Log.i("Lookup SPF domain=" + domain + " depth=" + depth);
+
+            if (depth > 5)
+                return result;
 
             try {
                 DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "txt:v=spf1 ");
@@ -584,7 +589,10 @@ public class ActivityDMARC extends ActivityBase {
                     for (String part : r.response.split("\\s+"))
                         if (part.toLowerCase(Locale.ROOT).startsWith("include:")) {
                             String sub = part.substring("include:".length());
-                            result.addAll(lookupSpf(context, sub, ssb));
+                            result.addAll(lookupSpf(context, sub, depth + 1, ssb));
+                        } else if (part.toLowerCase(Locale.ROOT).startsWith("redirect=")) {
+                            String redir = part.substring("redirect=".length());
+                            result.addAll(lookupSpf(context, redir, depth + 1, ssb));
                         }
                 }
             } catch (Throwable ex) {
