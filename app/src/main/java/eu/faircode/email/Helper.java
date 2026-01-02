@@ -1290,9 +1290,12 @@ public class Helper {
             }
         } else {
             int colorPrimary = resolveColor(context, androidx.appcompat.R.attr.colorPrimary);
+            int colorPrimaryDark = resolveColor(context, androidx.appcompat.R.attr.colorPrimaryDark);
 
             CustomTabColorSchemeParams.Builder schemes = new CustomTabColorSchemeParams.Builder()
-                    .setToolbarColor(colorPrimary);
+                    .setToolbarColor(colorPrimary)
+                    .setSecondaryToolbarColor(colorPrimaryDark)
+                    .setNavigationBarColor(colorPrimaryDark);
 
             // https://developer.chrome.com/multidevice/android/customtabs
             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder()
