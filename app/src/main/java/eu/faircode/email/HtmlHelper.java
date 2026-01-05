@@ -52,6 +52,8 @@ import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
+import android.text.style.SubscriptSpan;
+import android.text.style.SuperscriptSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
@@ -4075,10 +4077,59 @@ public class HtmlHelper {
                 if (start == end)
                     return;
                 int len = ssb.length();
-                if (start >= 0 && start < len && end <= len)
+                if (start >= 0 && start < len && end <= len) {
+                    Object[] spans = ssb.getSpans(start, ssb.length(), Object.class);
+                    if (spans != null)
+                        for (Object s : spans)
+                            if (equal(s, span)) {
+                                int sstart = ssb.getSpanStart(s);
+                                int send = ssb.getSpanEnd(s);
+                                int sflags = ssb.getSpanFlags(s);
+                                if (sstart == start && send == ssb.length() && sflags == flags) {
+                                    Log.i("Duplicate span " + s.getClass() + " " + sstart + "..." + send);
+                                    ssb.removeSpan(s);
+                                }
+                            }
+
                     ssb.setSpan(span, start, end, flags);
-                else
+                } else
                     Log.e("Invalid span " + start + "..." + end + " len=" + len + " type=" + span.getClass().getName());
+            }
+
+            private boolean equal(Object span, Object existing) {
+                if (!span.getClass().equals(existing.getClass()))
+                    return false;
+
+                if (span instanceof StyleSpan) {
+                    if (((StyleSpan) span).getStyle() == ((StyleSpan) existing).getStyle() &&
+                            ((StyleSpan) span).getFontWeightAdjustment() == ((StyleSpan) existing).getFontWeightAdjustment())
+                        return true;
+                } else if (span instanceof UnderlineSpan)
+                    return true;
+                else if (span instanceof RelativeSizeSpan)
+                    return false;
+                else if (span instanceof BackgroundColorSpan || span instanceof ForegroundColorSpan)
+                    return true;
+                else if (span instanceof AlignmentSpan || span instanceof AlignmentSpan.Standard)
+                    return true;
+                else if (span instanceof BulletSpan || span instanceof NumberSpan)
+                    return false;
+                else if (span instanceof QuoteSpan || span instanceof IndentSpan)
+                    return false;
+                else if (span instanceof SubscriptSpan || span instanceof SuperscriptSpan)
+                    return false;
+                else if (span instanceof StrikethroughSpan)
+                    return true;
+                else if (span instanceof URLSpan)
+                    return false;
+                else if (span instanceof TypefaceSpan)
+                    return true;
+                else if (span instanceof StyleHelper.MarkSpan)
+                    return true;
+                else if (span instanceof StyleHelper.InsertedSpan)
+                    return false;
+
+                return false;
             }
         }, document.body());
 
