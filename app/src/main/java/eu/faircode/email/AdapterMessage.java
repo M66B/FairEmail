@@ -309,6 +309,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean align_header;
     private boolean large_buttons;
     private int message_zoom;
+    private int line_spacing;
     private boolean attachments_alt;
     private boolean thumbnails;
     private boolean pdf_preview;
@@ -3569,6 +3570,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 public void run() {
                                     try {
                                         tvBody.setText((Spanned) result);
+                                        if (line_spacing != 100)
+                                            tvBody.setLineSpacing(0, line_spacing / 100.0f);
                                         vwRipple.setVisibility(View.VISIBLE);
 
                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
@@ -8557,6 +8560,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.preview_lines = prefs.getInt("preview_lines", 1);
         this.align_header = prefs.getBoolean("align_header", false);
         this.message_zoom = prefs.getInt("message_zoom", 100);
+        this.line_spacing = prefs.getInt("line_spacing", 100);
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.thumbnails = prefs.getBoolean("thumbnails", true);
         this.pdf_preview = prefs.getBoolean("pdf_preview", true);

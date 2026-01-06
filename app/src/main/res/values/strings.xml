@@ -687,6 +687,7 @@
     <string name="title_advanced_message_text_zoom2">Default message text zoom: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zoom message text also in the message editor</string>
     <string name="title_advanced_overview_mode">Zoom original messages to fit the screen</string>
+    <string name="title_advanced_line_spacing">Line spacing: %1$s %%</string>
     <string name="title_advanced_hyphenation">Use automatic hyphenation</string>
     <string name="title_advanced_contrast">Use high contrast for message text</string>
     <string name="title_advanced_monospaced">Use monospaced font for message text by default</string>

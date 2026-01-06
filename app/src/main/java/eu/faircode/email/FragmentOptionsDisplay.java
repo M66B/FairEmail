@@ -176,6 +176,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SeekBar sbMessageZoom;
     private SwitchCompat swEditorZoom;
     private SwitchCompat swOverviewMode;
+    private TextView tvLineSpacing;
+    private SeekBar sbLineSpacing;
 
     private SwitchCompat swContrast;
     private SwitchCompat swHyphenation;
@@ -232,7 +234,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines", "align_header",
             "addresses", "hide_attachments",
-            "message_zoom", "editor_zoom", "overview_mode",
+            "message_zoom", "editor_zoom", "overview_mode", "line_spacing",
             "hyphenation", "display_font", "contrast", "monospaced_pre",
             "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images", "button_extra",
@@ -361,6 +363,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         sbMessageZoom = view.findViewById(R.id.sbMessageZoom);
         swEditorZoom = view.findViewById(R.id.swEditorZoom);
         swOverviewMode = view.findViewById(R.id.swOverviewMode);
+        tvLineSpacing = view.findViewById(R.id.tvLineSpacing);
+        sbLineSpacing = view.findViewById(R.id.sbLineSpacing);
         swContrast = view.findViewById(R.id.swContrast);
         swHyphenation = view.findViewById(R.id.swHyphenation);
         tvHyphenationHint = view.findViewById(R.id.tvHyphenationHint);
@@ -1311,6 +1315,28 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        sbLineSpacing.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int line_spacing = progress + 50;
+                if (line_spacing == 100)
+                    prefs.edit().remove("line_spacing").apply();
+                else
+                    prefs.edit().putInt("line_spacing", line_spacing).apply();
+                tvLineSpacing.setText(getString(R.string.title_advanced_line_spacing, NF.format(line_spacing)));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+        });
+
         swContrast.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1559,6 +1585,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         if ("message_zoom".equals(key))
             return;
+        if ("line_spacing".equals(key))
+            return;
 
         getMainHandler().removeCallbacks(update);
         getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
@@ -1780,6 +1808,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
             swEditorZoom.setChecked(prefs.getBoolean("editor_zoom", true));
             swOverviewMode.setChecked(prefs.getBoolean("overview_mode", false));
+
+            int line_spacing = prefs.getInt("line_spacing", 100);
+            tvLineSpacing.setText(getString(R.string.title_advanced_line_spacing, NF.format(line_spacing)));
+            if (line_spacing >= 50 && line_spacing <= 150)
+                sbLineSpacing.setProgress(line_spacing - 50);
 
             swContrast.setChecked(prefs.getBoolean("contrast", false));
             swHyphenation.setChecked(prefs.getBoolean("hyphenation", false));
