@@ -39,6 +39,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Added option for line spacing
+* Performance improvements
+* Accessibility improvements
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2308 2025-12-24
 
 * Added undo to swipe to hide
