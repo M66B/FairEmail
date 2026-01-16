@@ -1717,7 +1717,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 EntityLog.log(ServiceSynchronize.this, EntityLog.Type.Account, account,
                                         account.name + " alert: " + message);
 
-                                if (!ConnectionHelper.isMaxConnections(message))
+                                if (!ConnectionHelper.isMaxConnections(message) &&
+                                        prefs.getBoolean("server_alerts", !Helper.isPlayStoreInstall()))
                                     try {
                                         NotificationManager nm =
                                                 Helper.getSystemService(ServiceSynchronize.this, NotificationManager.class);
