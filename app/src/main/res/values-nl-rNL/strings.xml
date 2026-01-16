@@ -589,6 +589,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_message_text_zoom2">Standaard berichttekst zoom: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zoom berichttekst ook in de berichteditor</string>
     <string name="title_advanced_overview_mode">Zoom oorspronkelijke berichten zodat ze op het scherm passen</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Regelafstand: %1$s %%</string>
     <string name="title_advanced_hyphenation">Gebruik automatische koppeltekens</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
     <string name="title_advanced_monospaced">Gebruik standaard vaste breedte lettertype voor berichttekst</string>
@@ -604,7 +605,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_image_placeholders">Plaatsvervangers van afbeelding weergeven</string>
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
     <string name="title_advanced_button_extra">Toon extra knoppen onderaan een bericht</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Ruimte tussen berichten en gesprekken</string>
+    <string name="title_advanced_spacing">Ruimte tussen berichten en gesprekken</string>
     <string name="title_advanced_seekbar">Toon relatieve gesprekspositie met een punt</string>
     <string name="title_advanced_actionbar">Toon gespreksactiebalk</string>
     <string name="title_advanced_actionbar_swap">Prullenbak en archief knop verwisselen</string>
@@ -2306,9 +2307,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
         <item>Groot</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Compact</item>
         <item>Gemiddeld</item>
-        <item comment="spacingNames choice for space between messages">Ruim</item>
+        <item>Ruim</item>
     </string-array>
     <string name="title_size_tiny">Heel klein</string>
     <string-array name="receiptNames">

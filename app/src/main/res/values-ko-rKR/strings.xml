@@ -593,7 +593,7 @@
     <string name="title_advanced_image_placeholders">사진 자리표시자 표시</string>
     <string name="title_advanced_images_inline">자동으로 인라인 사진 표시</string>
     <string name="title_advanced_button_extra">메시지 하단에 추가 버튼 표시</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">메시지와 대화 사이 간격</string>
+    <string name="title_advanced_spacing">메시지와 대화 사이 간격</string>
     <string name="title_advanced_seekbar">관련있는 대화의 위치를 점으로 보여주기</string>
     <string name="title_advanced_actionbar">대화 액션 바 보여주기</string>
     <string name="title_advanced_actionbar_swap">휴지통과 보관 버튼 바꾸기</string>
@@ -1825,9 +1825,9 @@
         <item>크게</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Compact</item>
         <item>보통</item>
-        <item comment="spacingNames choice for space between messages">Roomy</item>
+        <item>Roomy</item>
     </string-array>
     <string name="title_size_tiny">매우 작음</string>
     <string-array name="receiptNames">

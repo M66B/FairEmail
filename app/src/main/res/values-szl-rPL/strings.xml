@@ -620,6 +620,7 @@
     <string name="title_advanced_message_text_zoom2">Domyślne powiększenie tekstu wiadomości: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Powiększ tekst wiadomości również w edytorze wiadomości</string>
     <string name="title_advanced_overview_mode">Powiększ oryginalne wiadomości, aby dopasować je do ekranu</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Odstęp linii: %1$s %%</string>
     <string name="title_advanced_hyphenation">Użyj automatycznego dzielenia wyrazów</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced">Domyślnie użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
@@ -635,7 +636,7 @@
     <string name="title_advanced_image_placeholders">Pokaż symbole zastępcze obrazu</string>
     <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
     <string name="title_advanced_button_extra">Pokaż dodatkowe przyciski na dole wiadomości</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Odstęp pomiędzy wiadomościami a rozmowami</string>
+    <string name="title_advanced_spacing">Odstęp pomiędzy wiadomościami a rozmowami</string>
     <string name="title_advanced_seekbar">Pokaż względną pozycję konwersacji za pomocą kropki</string>
     <string name="title_advanced_actionbar">Pokaż pasek akcji konwersacji</string>
     <string name="title_advanced_actionbar_swap">Zamień miejscami przycisk kosza i archiwum</string>
@@ -2348,9 +2349,9 @@
         <item>Duża</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Kompaktowy</item>
+        <item>Kompaktowy</item>
         <item>Średni</item>
-        <item comment="spacingNames choice for space between messages">Przestronny</item>
+        <item>Przestronny</item>
     </string-array>
     <string name="title_size_tiny">Drobna</string>
     <string-array name="receiptNames">

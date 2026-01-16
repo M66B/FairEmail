@@ -593,6 +593,7 @@
     <string name="title_advanced_message_text_zoom2">Zoom padrão do texto da mensagem %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Ampliar o texto da mensagem também no editor de mensagens</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para caber na tela</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Espaço entre linhas: %1$s %%</string>
     <string name="title_advanced_hyphenation">Usar Hifenização Automática</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
     <string name="title_advanced_monospaced">Usar a fonte monospaced para o texto da mensagem por padrão</string>
@@ -608,7 +609,7 @@
     <string name="title_advanced_image_placeholders">Mostrar espaços reservados da imagem</string>
     <string name="title_advanced_images_inline">Mostrar automaticamente imagens embutidas</string>
     <string name="title_advanced_button_extra">Mostrar botões extras na parte inferior de uma mensagem</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Espaço entre mensagens e conversas</string>
+    <string name="title_advanced_spacing">Espaço entre mensagens e conversas</string>
     <string name="title_advanced_seekbar">Mostrar a posição relativa da conversa com um ponto</string>
     <string name="title_advanced_actionbar">Mostrar barra de acção de conversa</string>
     <string name="title_advanced_actionbar_swap">Trocar botão de lixo e arquivo</string>
@@ -2315,9 +2316,9 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
         <item>Grande</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Compacto</item>
+        <item>Compacto</item>
         <item>Médio</item>
-        <item comment="spacingNames choice for space between messages">Espaçoso</item>
+        <item>Espaçoso</item>
     </string-array>
     <string name="title_size_tiny">Muito pequeno</string>
     <string-array name="receiptNames">

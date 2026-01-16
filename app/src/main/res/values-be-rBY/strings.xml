@@ -623,6 +623,7 @@
     <string name="title_advanced_message_text_zoom2">Стандартны маштаб тэксту паведамлення: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Павялічваць тэкст паведамлення таксама ў рэдактары паведамленняў</string>
     <string name="title_advanced_overview_mode">Павялічваць маштаб арыгінальных паведамленняў пад памер экрана</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Міжрадковы інтэрвал: %1$s %%</string>
     <string name="title_advanced_hyphenation">Выкарыстоўваць аўтаматычны перанос</string>
     <string name="title_advanced_contrast">Ужываць высокі кантраст да тэксту паведамлення</string>
     <string name="title_advanced_monospaced">Выкарыстоўваць шрыфт аднолькавай шырыні для тэксту паведамлення па змаўчанні</string>
@@ -638,7 +639,7 @@
     <string name="title_advanced_image_placeholders">Паказваць запаўняльнікі выяў</string>
     <string name="title_advanced_images_inline">Аўтаматычна паказваць убудаваныя выявы</string>
     <string name="title_advanced_button_extra">Паказваць дадатковыя кнопкі пад паведамленнем</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Прамежак паміж паведамленнямі і размовамі</string>
+    <string name="title_advanced_spacing">Прамежак паміж паведамленнямі і размовамі</string>
     <string name="title_advanced_seekbar">Паказваць з дапамогай кропкі адносную пазіцыю размовы</string>
     <string name="title_advanced_actionbar">Паказваць панэль дзеянняў для размовы</string>
     <string name="title_advanced_actionbar_swap">Памяняць месцамі кнопкі выдалення і архівацыі</string>
@@ -2349,9 +2350,9 @@
         <item>Вялікі</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Кампактны</item>
+        <item>Кампактны</item>
         <item>Сярэдні</item>
-        <item comment="spacingNames choice for space between messages">Шырокі</item>
+        <item>Шырокі</item>
     </string-array>
     <string name="title_size_tiny">Мінімальны</string>
     <string-array name="receiptNames">

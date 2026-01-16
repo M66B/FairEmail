@@ -1844,9 +1844,9 @@
         <item>Veliko</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Compact</item>
         <item>Srednje</item>
-        <item comment="spacingNames choice for space between messages">Roomy</item>
+        <item>Roomy</item>
     </string-array>
     <string name="title_size_tiny">Sićušna</string>
     <string-array name="receiptNames">

@@ -594,6 +594,7 @@
     <string name="title_advanced_message_text_zoom2">Standard beskedtekstzoom %1$s%%</string>
     <string name="title_advanced_editor_text_zoom">Zoom også beskedtekst i besked-editoren</string>
     <string name="title_advanced_overview_mode">Zoom originale beskeder for skærmtilpasning</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Linjeafstand: %1$s%%</string>
     <string name="title_advanced_hyphenation">Brug automatisk orddeling</string>
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
     <string name="title_advanced_monospaced">Benyt som standard monospatieret skrifttype til beskedtekst</string>
@@ -609,7 +610,7 @@
     <string name="title_advanced_image_placeholders">Vis billedpladsholdere</string>
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
     <string name="title_advanced_button_extra">Vis ekstra knapper nederst i en besked</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Afstand mellem beskeder og samtaler</string>
+    <string name="title_advanced_spacing">Afstand mellem beskeder og samtaler</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
     <string name="title_advanced_actionbar_swap">Ombyt papirkurv- og arkiv-knap</string>
@@ -2324,9 +2325,9 @@
         <item>Stor</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Kompakt</item>
+        <item>Kompakt</item>
         <item>Medium</item>
-        <item comment="spacingNames choice for space between messages">Rummelig</item>
+        <item>Rummelig</item>
     </string-array>
     <string name="title_size_tiny">Meget lille</string>
     <string-array name="receiptNames">

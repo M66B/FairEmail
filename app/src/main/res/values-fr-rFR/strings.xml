@@ -594,6 +594,7 @@
     <string name="title_advanced_message_text_zoom2">Zoom du texte du message par défaut : %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zoomer le texte du message également dans l\'éditeur de message</string>
     <string name="title_advanced_overview_mode">Zoomer sur les messages originaux pour les adapter à l\'écran</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Interligne : %1$s %%</string>
     <string name="title_advanced_hyphenation">Utiliser la césure automatique</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser une police à espacement fixe pour le texte du message</string>
@@ -609,7 +610,7 @@
     <string name="title_advanced_image_placeholders">Afficher les espaces réservés aux images</string>
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_button_extra">Afficher des boutons supplémentaires en bas du message</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Intervalle entre les messages et les conversations</string>
+    <string name="title_advanced_spacing">Intervalle entre les messages et les conversations</string>
     <string name="title_advanced_seekbar">Indiquer la position relative de la conversation avec un point</string>
     <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
     <string name="title_advanced_actionbar_swap">Inverser les boutons de la corbeille et des archives</string>
@@ -2324,9 +2325,9 @@
         <item>Grande</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Compact</item>
         <item>Moyen</item>
-        <item comment="spacingNames choice for space between messages">Grand</item>
+        <item>Grand</item>
     </string-array>
     <string name="title_size_tiny">Très petite</string>
     <string-array name="receiptNames">

@@ -595,7 +595,7 @@
     <string name="title_advanced_image_placeholders">画像のプレースホルダーを表示する</string>
     <string name="title_advanced_images_inline">インライン画像を自動で表示する</string>
     <string name="title_advanced_button_extra">メッセージの下部に追加ボタンを表示する</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">メッセージ間のスペース</string>
+    <string name="title_advanced_spacing">メッセージ間のスペース</string>
     <string name="title_advanced_seekbar">ドットで相対的な会話スレッドの位置を表示する</string>
     <string name="title_advanced_actionbar">会話スレッド アクションバーを表示する</string>
     <string name="title_advanced_actionbar_swap">ごみ箱とアーカイブのボタンを入れ替える</string>
@@ -2308,9 +2308,9 @@
         <item>大</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">コンパクト</item>
+        <item>コンパクト</item>
         <item>標準</item>
-        <item comment="spacingNames choice for space between messages">ワイド</item>
+        <item>ワイド</item>
     </string-array>
     <string name="title_size_tiny">極小</string>
     <string-array name="receiptNames">

@@ -621,6 +621,7 @@
     <string name="title_advanced_message_text_zoom2">Масштаб текста сообщения по умолчанию: %1$s%%</string>
     <string name="title_advanced_editor_text_zoom">Масштабировать текст сообщения в редакторе</string>
     <string name="title_advanced_overview_mode">Изменять масштаб исходных сообщений к размеру экрана</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Межстрочный интервал: %1$s %%</string>
     <string name="title_advanced_hyphenation">Автоматическая расстановка переносов</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
     <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения по умолчанию</string>
@@ -636,7 +637,7 @@
     <string name="title_advanced_image_placeholders">Показывать места расположения изображений</string>
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
     <string name="title_advanced_button_extra">Показывать дополнительные кнопки внизу сообщения</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Промежуток между сообщениями и диалогами</string>
+    <string name="title_advanced_spacing">Промежуток между сообщениями и диалогами</string>
     <string name="title_advanced_seekbar">Показывать относительное положение диалога точкой</string>
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
     <string name="title_advanced_actionbar_swap">Поменять местами кнопки \"Корзина\" и \"Архив\"</string>
@@ -2353,9 +2354,9 @@
         <item>Крупный</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Компактный</item>
+        <item>Компактный</item>
         <item>Средний</item>
-        <item comment="spacingNames choice for space between messages">Просторный</item>
+        <item>Просторный</item>
     </string-array>
     <string name="title_size_tiny">Минимальный</string>
     <string-array name="receiptNames">

@@ -520,6 +520,7 @@
     <string name="title_advanced_message_text_zoom2">بزرگ‌نمایی پیش‌فرض متن پیام: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">متن پیام را نیز در ویرایشگر پیام بزرگنمایی کنید</string>
     <string name="title_advanced_overview_mode">بزرگنمایی پیام‌های اصلی متناسب با اندازه صفحه</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">فاصله خطوط: %1$s %%</string>
     <string name="title_advanced_hyphenation">از خط تیره گذاری خودکار استفاده کن</string>
     <string name="title_advanced_contrast">از کنتراست زیاد برای متن پیام استفاده کن</string>
     <string name="title_advanced_monospaced">استفاده از فونت تک‌فاصله (monospaced) برای متن پیام به طور پیش‌فرض</string>
@@ -534,7 +535,7 @@
     <string name="title_advanced_collapse_quotes">بستن متن نقل شده</string>
     <string name="title_advanced_image_placeholders">نمایش placeholder تصاویر</string>
     <string name="title_advanced_images_inline">تصاویر درون خطی را خودکار نمایش بده</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">فضای بین پیام‌ها و مکالمات</string>
+    <string name="title_advanced_spacing">فضای بین پیام‌ها و مکالمات</string>
     <string name="title_advanced_actionbar">نمایش نوار کنش گفتگو</string>
     <string name="title_advanced_actionbar_color">از رنگ حساب به‌عنوان رنگ پس‌زمینه برای نوار کنش گفتگو استفاده کن</string>
     <string name="title_advanced_category_header">دسته‌بندی بر اساس طبقه‌بندی حساب</string>
@@ -1666,9 +1667,9 @@
         <item>بزرگ</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">فشرده</item>
+        <item>فشرده</item>
         <item>متوسط</item>
-        <item comment="spacingNames choice for space between messages">جادار</item>
+        <item>جادار</item>
     </string-array>
     <string name="title_size_tiny">ریز</string>
     <string-array name="receiptNames">

@@ -2285,9 +2285,9 @@
         <item>Stor</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Compact</item>
         <item>Medel</item>
-        <item comment="spacingNames choice for space between messages">Roomy</item>
+        <item>Roomy</item>
     </string-array>
     <string name="title_size_tiny">Mycket liten</string>
     <string-array name="receiptNames">

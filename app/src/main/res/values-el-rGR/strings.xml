@@ -608,7 +608,7 @@
     <string name="title_advanced_image_placeholders">Να προβάλλονται οι κρατημένες για εικόνες θέσεις</string>
     <string name="title_advanced_images_inline">Να προβάλλονται αυτόματα οι ένθετες εικόνες</string>
     <string name="title_advanced_button_extra">Εμφάνιση επιπλέον κουμπιών στο κάτω μέρος ενός μηνύματος</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Διάστημα μεταξύ μηνυμάτων και συζητήσεων</string>
+    <string name="title_advanced_spacing">Διάστημα μεταξύ μηνυμάτων και συζητήσεων</string>
     <string name="title_advanced_seekbar">Επισήμανση της σχετικής θέσης στη συζήτηση με μία τελεία</string>
     <string name="title_advanced_actionbar">Προβολή της γραμμής ενεργειών της συζήτησης</string>
     <string name="title_advanced_actionbar_swap">Εναλλαγή των κουμπιών απορριμμάτων και αρχειοθέτησης</string>
@@ -2318,9 +2318,9 @@
         <item>Μεγάλο</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Συμπαγές</item>
+        <item>Συμπαγές</item>
         <item>Μεσαίο</item>
-        <item comment="spacingNames choice for space between messages">Ευρύχωρο</item>
+        <item>Ευρύχωρο</item>
     </string-array>
     <string name="title_size_tiny">Μικροσκοπικό</string>
     <string-array name="receiptNames">

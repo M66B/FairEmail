@@ -623,7 +623,7 @@
     <string name="title_advanced_image_placeholders">Prikaži mjesta za prikaz slika</string>
     <string name="title_advanced_images_inline">Automatski prikaži poravnate slike</string>
     <string name="title_advanced_button_extra">Prikaži dodatna dugmad na dnu poruke</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Razmak između poruka i konverzacija</string>
+    <string name="title_advanced_spacing">Razmak između poruka i konverzacija</string>
     <string name="title_advanced_seekbar">Tačkom prikaži relativnu poziciju konverzacije</string>
     <string name="title_advanced_actionbar">Prikaži radnu traku za konverzaciju</string>
     <string name="title_advanced_actionbar_swap">Zamijeni dugmad za otpad i arhiviranje</string>
@@ -2331,9 +2331,9 @@
         <item>Veliki</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Kompaktan</item>
+        <item>Kompaktan</item>
         <item>Srednji</item>
-        <item comment="spacingNames choice for space between messages">Prostran</item>
+        <item>Prostran</item>
     </string-array>
     <string name="title_size_tiny">Mali</string>
     <string-array name="receiptNames">

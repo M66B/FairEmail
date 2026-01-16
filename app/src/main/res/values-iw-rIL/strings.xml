@@ -622,6 +622,7 @@
     <string name="title_advanced_message_text_zoom2">תקריב טקסט ההודעות כברירת מחדל: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">התמקדות על טקסט ההודעה גם בעורך ההודעות</string>
     <string name="title_advanced_overview_mode">התאמת התקריב של ההודעות המקוריות לגודל המסך</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">ריווח שורות: %1$s %%</string>
     <string name="title_advanced_hyphenation">להשתמש במיקוף אוטומטי</string>
     <string name="title_advanced_contrast">להשתמש בניגודיות גבוהה לטקסט ההודעות</string>
     <string name="title_advanced_monospaced">להשתמש בגופן ברוחב אחיד לטקסט ההודעה כברירת מחדל</string>
@@ -637,7 +638,7 @@
     <string name="title_advanced_image_placeholders">הצגת ממלאי מקום תמונות</string>
     <string name="title_advanced_images_inline">להציג תמונות מובנות אוטומטית</string>
     <string name="title_advanced_button_extra">להציג כפתורים נוספים בתחתית ההודעה</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">רווח בין הודעות ודיונים</string>
+    <string name="title_advanced_spacing">רווח בין הודעות ודיונים</string>
     <string name="title_advanced_seekbar">הצגת המיקום היחסי בדיון עם נקודה</string>
     <string name="title_advanced_actionbar">הצגת סרגל פעולות דיון</string>
     <string name="title_advanced_actionbar_swap">החלפה בין כפתורי האשפה והארכיון</string>
@@ -2346,9 +2347,9 @@
         <item>גודל</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">מצומצם</item>
+        <item>מצומצם</item>
         <item>בינוני</item>
-        <item comment="spacingNames choice for space between messages">מרווח</item>
+        <item>מרווח</item>
     </string-array>
     <string name="title_size_tiny">זעיר</string>
     <string-array name="receiptNames">

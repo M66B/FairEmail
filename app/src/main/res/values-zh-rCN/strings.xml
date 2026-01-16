@@ -579,6 +579,7 @@
     <string name="title_advanced_message_text_zoom2">默认邮件文本缩放：%1$s %%</string>
     <string name="title_advanced_editor_text_zoom">同时也在邮件编辑窗中缩放内容文本</string>
     <string name="title_advanced_overview_mode">缩放原始邮件以适应屏幕</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">行间距: %1$s %%</string>
     <string name="title_advanced_hyphenation">使用自动连字符</string>
     <string name="title_advanced_contrast">对邮件文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">默认对邮件文本使用等宽字体</string>
@@ -594,7 +595,7 @@
     <string name="title_advanced_image_placeholders">显示图像占位符</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_button_extra">在邮件底部显示额外按钮</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">消息和对话间的间距</string>
+    <string name="title_advanced_spacing">消息和对话间的间距</string>
     <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
     <string name="title_advanced_actionbar">显示对话操作栏</string>
     <string name="title_advanced_actionbar_swap">交换回收站和归档按钮</string>
@@ -2302,9 +2303,9 @@
         <item>大</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">紧凑</item>
+        <item>紧凑</item>
         <item>中</item>
-        <item comment="spacingNames choice for space between messages">宽敞</item>
+        <item>宽敞</item>
     </string-array>
     <string name="title_size_tiny">极小</string>
     <string-array name="receiptNames">

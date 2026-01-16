@@ -622,7 +622,7 @@
     <string name="title_advanced_image_placeholders">Afișați înlocuitorul imaginii</string>
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
     <string name="title_advanced_button_extra">Arată butoane suplimentare în partea de jos a mesajului</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Spațiu între mesaje și conversații</string>
+    <string name="title_advanced_spacing">Spațiu între mesaje și conversații</string>
     <string name="title_advanced_seekbar">Arată poziția relativă în conversație cu un punct</string>
     <string name="title_advanced_actionbar">Arată bara de acțiuni pentru conversație</string>
     <string name="title_advanced_actionbar_swap">Schimbă coșul de gunoi și butonul de arhivă</string>
@@ -2334,9 +2334,9 @@
         <item>Mare</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Compact</item>
         <item>Medie</item>
-        <item comment="spacingNames choice for space between messages">Spațios</item>
+        <item>Spațios</item>
     </string-array>
     <string name="title_size_tiny">Mic</string>
     <string-array name="receiptNames">

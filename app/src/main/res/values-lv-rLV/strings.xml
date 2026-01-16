@@ -604,9 +604,9 @@
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Compact</item>
+        <item>Compact</item>
         <item>Vidējs</item>
-        <item comment="spacingNames choice for space between messages">Roomy</item>
+        <item>Roomy</item>
     </string-array>
     <string-array name="undoNames">
         <item>Off</item>

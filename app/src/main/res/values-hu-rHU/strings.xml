@@ -590,6 +590,7 @@
     <string name="title_advanced_message_text_zoom2">Szöveg nagyítás alapértelmezett érték: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Az üzenetszerkesztőben is állítható a szöveg nagyítása</string>
     <string name="title_advanced_overview_mode">Eredeti üzenetek kinagyítására teljes képernyőre</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Sorköz: %1$s %%</string>
     <string name="title_advanced_hyphenation">Automatikus elválasztás használata</string>
     <string name="title_advanced_contrast">Magas kontraszt használata az üzenetek szövegéhez</string>
     <string name="title_advanced_monospaced">Fix szélességű betűtípus használata az üzenetek szövegéhez</string>
@@ -605,7 +606,7 @@
     <string name="title_advanced_image_placeholders">Kép helyettesítők megjelenítése</string>
     <string name="title_advanced_images_inline">Beágyazott képek automatikus megjelenitese</string>
     <string name="title_advanced_button_extra">Egyéb gombok megjelenítése az üzenet alján</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Üzenetek és beszélgetések közötti rés</string>
+    <string name="title_advanced_spacing">Üzenetek és beszélgetések közötti rés</string>
     <string name="title_advanced_seekbar">Relatív beszélgetés-pozíció ponttal váló megjelenítése</string>
     <string name="title_advanced_actionbar">Beszélgetési művelet sáv megjelenítése</string>
     <string name="title_advanced_actionbar_swap">A kuka és archiválás gombok felcserélése</string>
@@ -2313,9 +2314,9 @@
         <item>Nagy</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Tömör</item>
+        <item>Tömör</item>
         <item>Közepes</item>
-        <item comment="spacingNames choice for space between messages">Szellős</item>
+        <item>Szellős</item>
     </string-array>
     <string name="title_size_tiny">Apró</string>
     <string-array name="receiptNames">

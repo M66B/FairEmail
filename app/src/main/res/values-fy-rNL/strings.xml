@@ -589,6 +589,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_message_text_zoom2">Standert zoom berjochttekst: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Berjochttekst ek yn de berjochtbewurker zoome</string>
     <string name="title_advanced_overview_mode">Zoom orizjinele berjochten om op it skerm te passen</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Regelôfstân: %1$s %%</string>
     <string name="title_advanced_hyphenation">Automatyske keppeltekens brûke</string>
     <string name="title_advanced_contrast">Heech kontrast foar berjochttekst brûke</string>
     <string name="title_advanced_monospaced">Standert monospaced lettertype foar berjochttekst brûke</string>
@@ -604,7 +605,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_image_placeholders">Ofbyldingplakhâlders toane</string>
     <string name="title_advanced_images_inline">Inline ôfbyldingen automatysk toane</string>
     <string name="title_advanced_button_extra">Ekstra knoppen ûnderoan in berjocht toane</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Romte tusken berjochten en petearen</string>
+    <string name="title_advanced_spacing">Romte tusken berjochten en petearen</string>
     <string name="title_advanced_seekbar">Relative posysje fan petear mei in punt toane</string>
     <string name="title_advanced_actionbar">Petearaksjebalke toane</string>
     <string name="title_advanced_actionbar_swap">Jiskefet- en argivearknop wikselje</string>
@@ -2311,9 +2312,9 @@ https://en.wikipedia.org/wiki/ASCII</string>
         <item>Grut</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Kompakt</item>
+        <item>Kompakt</item>
         <item>Gemiddeld</item>
-        <item comment="spacingNames choice for space between messages">Rom</item>
+        <item>Rom</item>
     </string-array>
     <string name="title_size_tiny">Tin</string>
     <string-array name="receiptNames">

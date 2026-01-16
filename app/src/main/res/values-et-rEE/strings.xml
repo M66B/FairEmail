@@ -593,6 +593,7 @@
     <string name="title_advanced_message_text_zoom2">Sõnumieksti vaikesuum: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Suumi sõnumi teksti ka sõnumitoimetajas</string>
     <string name="title_advanced_overview_mode">Sõnumite ekraanile mahutamiseks suumi algseid sõnumeid</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Rea kõrgus: %1$s %%</string>
     <string name="title_advanced_hyphenation">Kasuta automaatpoolitamist</string>
     <string name="title_advanced_contrast">Kasuta sõnumi teksti puhul kõrgkontrasti</string>
     <string name="title_advanced_monospaced">Kasuta vaikimisi sõnumi teksti puhul püsisammkirja</string>
@@ -608,7 +609,7 @@
     <string name="title_advanced_image_placeholders">Näita piltide kohatähiseid</string>
     <string name="title_advanced_images_inline">Näita tekstisiseseid pilte automaatselt</string>
     <string name="title_advanced_button_extra">Näita sõnumi lõpus lisanuppe</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Ruum sõnumite ja vestluse vahel</string>
+    <string name="title_advanced_spacing">Ruum sõnumite ja vestluse vahel</string>
     <string name="title_advanced_seekbar">Näita vestluse suhtelist asukohta punktiga</string>
     <string name="title_advanced_actionbar">Näita vestluse tegevusriba</string>
     <string name="title_advanced_actionbar_swap">Vaheta nupud prügi ja arhiiv</string>
@@ -2315,9 +2316,9 @@
         <item>Suur</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Kompaktne</item>
+        <item>Kompaktne</item>
         <item>Keskmine</item>
-        <item comment="spacingNames choice for space between messages">Ruumikas</item>
+        <item>Ruumikas</item>
     </string-array>
     <string name="title_size_tiny">Tilluke</string>
     <string-array name="receiptNames">

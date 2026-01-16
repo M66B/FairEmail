@@ -594,6 +594,7 @@
     <string name="title_advanced_message_text_zoom2">İlkin mesajın mətn yaxınlaşdırması: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Mesajın mətnini redaktorda da yaxınlaşdır</string>
     <string name="title_advanced_overview_mode">Orijinal mesajı tam ekrana qədər yaxınlaşdır</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Sətir boşluğu: %1$s %%</string>
     <string name="title_advanced_hyphenation">Avto-defis istifadə et</string>
     <string name="title_advanced_contrast">Mesaj mətni üçün yüksək ziddiyyət istifadə et</string>
     <string name="title_advanced_monospaced">Mesaj mətni üçün ilkin olaraq tək boşluqlu şrift istifadə et</string>
@@ -609,7 +610,7 @@
     <string name="title_advanced_image_placeholders">Təsvir yertutanlarını göstər</string>
     <string name="title_advanced_images_inline">Sətiriçi təsvirləri avtomatik göstər</string>
     <string name="title_advanced_button_extra">Mesajın altında əlavə düymələr göstər</string>
-    <string name="title_advanced_spacing" comment="title_advanced_spacing Title for option to configure the space between messages">Mesajlar və danışıqlar arasındakı boşluq</string>
+    <string name="title_advanced_spacing">Mesajlar və danışıqlar arasındakı boşluq</string>
     <string name="title_advanced_seekbar">Bir nöqtə ilə əlaqəli danışıq mövqeyini göstər</string>
     <string name="title_advanced_actionbar">Danışıq əməliyyat sətrini göstər</string>
     <string name="title_advanced_actionbar_swap">Tullantı və arxiv düymələrini dəyişdir</string>
@@ -2316,9 +2317,9 @@
         <item>Böyük</item>
     </string-array>
     <string-array name="spacingNames">
-        <item comment="spacingNames choice for space between messages">Yığcam</item>
+        <item>Yığcam</item>
         <item>Orta</item>
-        <item comment="spacingNames choice for space between messages">Geniş</item>
+        <item>Geniş</item>
     </string-array>
     <string name="title_size_tiny">Çox kiçik</string>
     <string-array name="receiptNames">
