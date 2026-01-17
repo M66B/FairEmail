@@ -1081,9 +1081,7 @@ public class HtmlHelper {
 
                         case "white-space":
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/white-space
-                            if ("pre".equals(value) ||
-                                    "pre-wrap".equals(value) ||
-                                    "break-spaces".equals(value))
+                            if ("pre".equals(value) || "pre-wrap".equals(value))
                                 element.attr("x-plain", "true");
                             break;
                     }
