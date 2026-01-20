@@ -4099,8 +4099,7 @@ public class HtmlHelper {
                     return false;
 
                 if (span instanceof StyleSpan) {
-                    if (((StyleSpan) span).getStyle() == ((StyleSpan) existing).getStyle() &&
-                            ((StyleSpan) span).getFontWeightAdjustment() == ((StyleSpan) existing).getFontWeightAdjustment())
+                    if (((StyleSpan) span).getStyle() == ((StyleSpan) existing).getStyle())
                         return true;
                 } else if (span instanceof UnderlineSpan)
                     return true;
