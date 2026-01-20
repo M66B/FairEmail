@@ -4,12 +4,11 @@
 
 ### Latest version
 
-* Added undo to swipe to hide
-* Added Roboto monospace font for devices without monospace font
+* Added option for line spacing
+* Performance optimizations
+* Accessibility improvements
 * Small improvements and minor bug fixes
-* Updated build tools
 * Updated [translations](https://crowdin.com/project/open-source-email)
-* Updated [Public Suffix List](https://github.com/publicsuffix/list)
 
 ### Notices
 
@@ -39,8 +38,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2309 2026-01-20
+
 * Added option for line spacing
-* Performance improvements
+* Performance optimizations
 * Accessibility improvements
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
