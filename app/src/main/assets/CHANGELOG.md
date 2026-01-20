@@ -38,6 +38,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2310 2026-01-20
+
+* Fixed crash on older Android versions
+
 ### 1.2309 2026-01-20
 
 * Added option for line spacing
