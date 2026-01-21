@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/twotone_smart_toy_24"
             android:drawablePadding="6dp"
+            android:maxLines="3"
             android:text="@string/title_summarize"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorPrimary"
