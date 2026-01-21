@@ -393,29 +393,29 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         try {
             boolean task_description = prefs.getBoolean("task_description", true);
-            int colorPrimary = (task_description
-                    ? Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark)
-                    : getColor(R.color.lightBluePrimary));
-            if (colorPrimary != 0 && Color.alpha(colorPrimary) != 255) {
-                Log.w("Task color primary=" + Integer.toHexString(colorPrimary));
-                colorPrimary = ColorUtils.setAlphaComponent(colorPrimary, 255);
+            if (task_description) {
+                int colorPrimary = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark);
+                if (colorPrimary != 0 && Color.alpha(colorPrimary) != 255) {
+                    Log.w("Task color primary=" + Integer.toHexString(colorPrimary));
+                    colorPrimary = ColorUtils.setAlphaComponent(colorPrimary, 255);
+                }
+
+                double lum = ColorUtils.calculateLuminance(colorPrimary);
+
+                Drawable d = getDrawable(R.drawable.baseline_mail_24);
+                Bitmap bm = Bitmap.createBitmap(
+                        d.getIntrinsicWidth(),
+                        d.getIntrinsicHeight(),
+                        Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bm);
+                d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                d.setTint(lum > LUMINANCE_THRESHOLD ? Color.BLACK : Color.WHITE);
+                d.draw(canvas);
+
+                ActivityManager.TaskDescription td = new ActivityManager.TaskDescription(
+                        null, bm, colorPrimary);
+                setTaskDescription(td);
             }
-
-            double lum = ColorUtils.calculateLuminance(colorPrimary);
-
-            Drawable d = getDrawable(R.drawable.baseline_mail_24);
-            Bitmap bm = Bitmap.createBitmap(
-                    d.getIntrinsicWidth(),
-                    d.getIntrinsicHeight(),
-                    Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(bm);
-            d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-            d.setTint(lum > LUMINANCE_THRESHOLD ? Color.BLACK : Color.WHITE);
-            d.draw(canvas);
-
-            ActivityManager.TaskDescription td = new ActivityManager.TaskDescription(
-                    null, bm, colorPrimary);
-            setTaskDescription(td);
         } catch (Throwable ex) {
             Log.e(ex);
         }
