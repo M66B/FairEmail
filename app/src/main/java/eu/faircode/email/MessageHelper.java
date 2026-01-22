@@ -554,7 +554,10 @@ public class MessageHelper {
 
             // Delivery/read request
             if (message.receipt_request != null && message.receipt_request) {
-                String to = (identity.replyto == null ? identity.email : identity.replyto);
+                String email = identity.email;
+                if (ourFrom instanceof InternetAddress)
+                    email = ((InternetAddress) ourFrom).getAddress();
+                String to = (identity.replyto == null ? email : identity.replyto);
 
                 // 0=Read receipt
                 // 1=Delivery receipt
