@@ -103,6 +103,7 @@ public class Adguard {
                 while (dollar > 0 && line.charAt(dollar - 1) == '\\')
                     dollar = line.indexOf('$', dollar + 1);
                 if (dollar < 0) {
+                    // ||https-filtering-check.adtidy.org^
                     if (!line.contains("##"))
                         Log.w("Adguard command missing line=" + line);
                     continue;

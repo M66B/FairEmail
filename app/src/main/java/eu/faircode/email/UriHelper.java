@@ -356,6 +356,14 @@ public class UriHelper {
             Uri result = (s > 0 && e > s ? Uri.parse(Uri.decode(path.substring(s + 1, e))) : null);
             changed = (result != null && isHyperLink(result));
             url = (changed ? result : uri);
+        } else if (uri.getHost() != null && uri.getHost().equalsIgnoreCase("urldefense.com")) {
+            // https://urldefense.com/v3/__<url>__;!!
+            String path = uri.toString();
+            int s = path.indexOf("/v3/__");
+            int e = path.indexOf("__;", s + 6);
+            Uri result = (s >= 0 && e > s ? Uri.parse(Uri.decode(path.substring(s + 6, e))) : null);
+            changed = (result != null && isHyperLink(result));
+            url = (changed ? result : uri);
         } else {
             Uri result = getBraveDebounce(context, uri);
 
