@@ -6041,6 +6041,11 @@ It is possible to use **DeepInfra** too (since version 1.2132).
 * Create an account on the [DeepInfra website](https://deepinfra.com/) and deploy a model, for example, *meta-llama/Llama-2-13b-chat-hf*
 * In the integration settings enter the URI https://api.deepinfra.com/v1/openai, an API key and the model name
 
+You can also use **Mistral**:
+
+* Create an account [via here](https://console.mistral.ai)
+* In the integration settings enter the URI https://api.mistral.ai/v1/, an API key and the model name
+
 <br>
 
 <br>
