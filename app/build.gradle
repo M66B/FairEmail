@@ -552,7 +552,7 @@ dependencies {
     def appcompat_version = "1.7.1"
     def emoji_version = "1.6.0"
     def flatbuffers_version = "2.0.0"
-    def activity_version = "1.11.0" // 1.12.2 (depends on life-cycle 2.9.4)
+    def activity_version = "1.11.0" // 1.12.3 (depends on life-cycle 2.9.4)
     def fragment_version = "1.8.9"
     def windows_version = "1.4.0" // 1.5.1 (requires min SDK 23)
     def webkit_version = "1.14.0" // 1.15.0 (requires min SDK 23)
@@ -570,9 +570,9 @@ dependencies {
     def room_version = "2.4.3" // 2.5.2/2.6.1/2.7.2/2.8.4
     def sqlite_version = "2.5.1" // 2.5.2/2.6.2
     def requery_version = "3.39.2"
-    def paging_version = "2.1.2" // 3.3.6/3.4.0-alpha04
+    def paging_version = "2.1.2" // 3.3.6/3.4.0
     def preference_version = "1.2.1"
-    def work_version = "2.10.5" // 2.11.0 (requires min SDK 23)
+    def work_version = "2.10.5" // 2.11.1 (requires min SDK 23)
     def exif_version = "1.4.2"
     def biometric_version = "1.2.0-alpha05" // Version 1.4.0-alpha05
     def billingclient_version = "7.1.1" // 8.0.0
