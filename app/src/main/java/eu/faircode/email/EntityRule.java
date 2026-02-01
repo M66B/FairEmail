@@ -184,7 +184,7 @@ public class EntityRule {
             try {
                 JSONObject jaction = new JSONObject(rule.action);
                 int type = jaction.getInt("type");
-                if (type == TYPE_SUMMARIZE)
+                if (type == TYPE_SUMMARIZE || type == TYPE_AUTOMATION)
                     return true;
 
                 JSONObject jcondition = new JSONObject(rule.condition);
