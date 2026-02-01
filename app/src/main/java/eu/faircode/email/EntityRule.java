@@ -680,7 +680,7 @@ public class EntityRule {
             case TYPE_TTS:
                 return onActionTts(context, message, browsed, jaction);
             case TYPE_AUTOMATION:
-                return onActionAutomation(context, message, jaction);
+                return onActionAutomation(context, message, jaction, html);
             case TYPE_DELETE:
                 return onActionDelete(context, message, jaction);
             case TYPE_SOUND:
@@ -1285,7 +1285,7 @@ public class EntityRule {
         ServiceSend.schedule(context, SEND_DELAY);
     }
 
-    private boolean onActionAutomation(Context context, EntityMessage message, JSONObject jargs) {
+    private boolean onActionAutomation(Context context, EntityMessage message, JSONObject jargs, String html) {
         InternetAddress iaddr =
                 (message.from == null || message.from.length == 0
                         ? null : ((InternetAddress) message.from[0]));
@@ -1294,13 +1294,16 @@ public class EntityRule {
         DateFormat DTF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         DTF.setTimeZone(java.util.TimeZone.getTimeZone("Zulu"));
 
+        String text = HtmlHelper.getFullText(context, html);
+        String preview = HtmlHelper.getPreview(text);
+
         Intent automation = new Intent(ACTION_AUTOMATION);
         automation.putExtra(EXTRA_RULE, name);
         automation.putExtra(EXTRA_RECEIVED, DTF.format(message.received));
         automation.putExtra(EXTRA_SENDER, iaddr == null ? null : iaddr.getAddress());
         automation.putExtra(EXTRA_NAME, iaddr == null ? null : iaddr.getPersonal());
         automation.putExtra(EXTRA_SUBJECT, message.subject);
-        automation.putExtra(EXTRA_PREVIEW, message.preview);
+        automation.putExtra(EXTRA_PREVIEW, preview);
 
         List<String> extras = Log.getExtras(automation.getExtras());
         EntityLog.log(context, EntityLog.Type.Rules, message,
