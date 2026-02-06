@@ -1490,8 +1490,10 @@ public class MessageHelper {
                         attachmentPart.setDisposition(attachment.disposition);
                     if (attachment.cid != null)
                         attachmentPart.setHeader("Content-ID", attachment.cid);
-                    //if ("message/rfc822".equals(attachment.type))
-                    //    attachmentPart.setHeader("Content-Transfer-Encoding", "base64");
+
+                    // Prevent transformation of newlines
+                    if ("text/plain".equals(attachment.type))
+                        attachmentPart.setHeader("Content-Transfer-Encoding", "base64");
 
                     if (attachment.isInline())
                         relatedMultiPart.addBodyPart(attachmentPart);
