@@ -2,14 +2,6 @@
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FCHANGELOG.md)
 
-### Latest version
-
-* Added option for line spacing
-* Performance optimizations
-* Accessibility improvements
-* Small improvements and minor bug fixes
-* Updated [translations](https://crowdin.com/project/open-source-email)
-
 ### Notices
 
 People keep asking me to add new, often exotic, features to the app, to whom I often say "no", and other people complain about too many features.
@@ -37,6 +29,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### [Diuqin](https://en.wikipedia.org/wiki/Diuqin)
 
 ### Next version (Work in progress)
+
+### 1.2311 2026-02-07
+
+* Fixed all reported bugs
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
 
 ### 1.2310 2026-01-20
 
