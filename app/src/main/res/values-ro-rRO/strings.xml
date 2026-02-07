@@ -607,6 +607,7 @@
     <string name="title_advanced_message_text_zoom2">Zoom implicit al textului mesajului: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Măriți și textul mesajului în editorul de mesaje</string>
     <string name="title_advanced_overview_mode">Măriți mesajele originale pentru a se potrivi cu ecranul</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Spațiere: %1$s %%</string>
     <string name="title_advanced_hyphenation">Folosește despărțirea în silabe automată</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
     <string name="title_advanced_monospaced">Folosește implicit fontul proporțional pentru textul mesajului</string>

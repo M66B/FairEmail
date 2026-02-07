@@ -593,6 +593,7 @@
     <string name="title_advanced_message_text_zoom2">Μεγέθυνση κειμένου μηνύματος από προεπιλογή: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Μεγέθυνση του κειμένου του μηνύματος και κατά την επεξεργασία του μηνύματος</string>
     <string name="title_advanced_overview_mode">Μεγέθυνση αρχικού μηνύματος για προσαρμογή στην οθόνη</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Απόσταση μεταξύ γραμμών: %1$s %%</string>
     <string name="title_advanced_hyphenation">Χρήση αυτόματου συλλαβισμού</string>
     <string name="title_advanced_contrast">Χρήση υψηλής αντίθεσης για το κείμενο του μηνύματος</string>
     <string name="title_advanced_monospaced">Χρήση γραμματοσειράς σταθερού πλάτους από προεπιλογή</string>

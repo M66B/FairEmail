@@ -32,6 +32,22 @@
     <string name="channel_send_description">جارٍ إرسال الرسائل</string>
     <string name="channel_notification_description">إشعارات الرسائل الجديدة</string>
     <string name="channel_progress_description">اشعارات لحظية عن العمليات التي تأخذ وقت طويل</string>
+    <plurals name="page_conversation">
+        <item quantity="zero">محادثة</item>
+        <item quantity="one">محادثة</item>
+        <item quantity="two">محادثتان</item>
+        <item quantity="few">هدة محادثات</item>
+        <item quantity="many">الكثير من المحادثات</item>
+        <item quantity="other">محادثات</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="zero">الرسائل</item>
+        <item quantity="one">رسالة</item>
+        <item quantity="two">رسالتان</item>
+        <item quantity="few">الرسائل</item>
+        <item quantity="many">الرسائل</item>
+        <item quantity="other">رسائل</item>
+    </plurals>
     <string name="page_folders">الملفات</string>
     <string name="page_compose">إنشاء</string>
     <string name="tile_synchronize">المزامنة</string>
