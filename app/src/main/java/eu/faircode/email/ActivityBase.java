@@ -392,7 +392,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         prefs.registerOnSharedPreferenceChangeListener(this);
 
         try {
-            boolean task_description = prefs.getBoolean("task_description", true);
+            boolean task_description = prefs.getBoolean("task_description", false);
             if (task_description) {
                 int colorPrimary = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark);
                 if (colorPrimary != 0 && Color.alpha(colorPrimary) != 255) {

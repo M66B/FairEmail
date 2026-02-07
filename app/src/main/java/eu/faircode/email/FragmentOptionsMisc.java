@@ -2582,7 +2582,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swAutostart.setChecked(Helper.isComponentEnabled(getContext(), ReceiverAutoStart.class));
             swEmergency.setChecked(prefs.getBoolean("emergency_file", true));
             swWorkManager.setChecked(prefs.getBoolean("work_manager", true));
-            swTaskDescription.setChecked(prefs.getBoolean("task_description", true));
+            swTaskDescription.setChecked(prefs.getBoolean("task_description", false));
             swExternalStorage.setChecked(prefs.getBoolean("external_storage", false));
 
             swIntegrity.setChecked(prefs.getBoolean("sqlite_integrity_check", false));
