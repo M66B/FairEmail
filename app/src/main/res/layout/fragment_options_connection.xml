@@ -455,6 +455,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:tag="nosuggest"
                     android:text="@string/title_advanced_dns_custom"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -468,6 +469,7 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="48dp"
+                    android:tag="nosuggest"
                     android:text="@string/title_advanced_dns"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:attr/textColorPrimary"
@@ -493,6 +495,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:tag="nosuggest"
                     android:text="@string/title_advanced_dns_clear"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -763,7 +766,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="
-                    swDnsCustom,tvDnsExtra,etDnsExtra" />
+                    swDnsCustom,tvDnsExtra,etDnsExtra,swDnsClear" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpBC"
