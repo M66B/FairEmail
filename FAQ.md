@@ -601,6 +601,7 @@ Therefore, this issue can only be resolved by your email provider,
 or by installing the GitHub version of the app (as an update) and enabling insecure connections in the account/identity settings.** -->
 
 *... Untrusted ... not in certificate ...*<br />
+*... Untrusted ... Unacceptable certificate ...*<br />
 *... Invalid security certificate (Can't verify identity of server) ...*<br />
 *... Chain validation failed ... timestamp check failed ... Certificate expired at ...*<br />
 
