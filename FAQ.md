@@ -5112,7 +5112,10 @@ Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-i
 
 Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
 
-**SMTP est désactivé par défaut**, veuillez [voir ici](https://free.fr/assistance/2406.html) comment il peut être activé.
+**SMTP est désactivé par défaut!** Pour activer l'authentification SMTP:
+
+* Rendez-vous sur l'interface de gestion de l'adresse eMail désirée, l'identifiant (login) étant ici ce qui précède @free.fr et non un numéro Freebox.
+* Cliquez sur Gestion du SMTP authentifié puis sur Activer.
 
 Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/configurer-smtp-free-fr) pour un guide détaillé.
 
