@@ -284,6 +284,8 @@
     <provider
         name="mailbox.org"
         domain="mailbox\\.org"
+        appPassword="true"
+        documentation="When two-factor authentication is enabled, you must use &lt;a href=&quot;https://kb.mailbox.org/en/private/security-and-privacy/application-passwords-for-external-programs/&quot;&gt;an app password&lt;/a&gt; instead of your account password."
         link="https://kb.mailbox.org/display/BMBOKB/E-Mail-Einrichtung+mit+Mozilla+Thunderbird">
         <imap
             host="imap.mailbox.org"
