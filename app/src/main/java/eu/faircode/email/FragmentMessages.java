@@ -7707,7 +7707,7 @@ public class FragmentMessages extends FragmentBase
     }
 
     private void loadMessagesNext(final boolean top) {
-        if (top)
+        if (top && false)
             adapter.gotoTop();
 
         ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
