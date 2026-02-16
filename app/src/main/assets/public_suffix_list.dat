@@ -6418,6 +6418,7 @@ hanoi.vn
 hatinh.vn
 haugiang.vn
 hoabinh.vn
+hue.vn
 hungyen.vn
 khanhhoa.vn
 kiengiang.vn
@@ -6814,7 +6815,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2026-01-29T15:35:06Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2026-02-15T15:24:49Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -8391,10 +8392,6 @@ goldpoint
 // golf : Binky Moon, LLC
 // https://www.iana.org/domains/root/db/golf.html
 golf
-
-// goo : NTT DOCOMO, INC.
-// https://www.iana.org/domains/root/db/goo.html
-goo
 
 // goodyear : The Goodyear Tire & Rubber Company
 // https://www.iana.org/domains/root/db/goodyear.html
@@ -10776,10 +10773,6 @@ winners
 // https://www.iana.org/domains/root/db/wme.html
 wme
 
-// wolterskluwer : Wolters Kluwer N.V.
-// https://www.iana.org/domains/root/db/wolterskluwer.html
-wolterskluwer
-
 // woodside : Woodside Petroleum Limited
 // https://www.iana.org/domains/root/db/woodside.html
 woodside
@@ -12766,7 +12759,11 @@ ctfcloud.net
 // Submitted by James Cowling <security@convex.dev>
 convex.app
 convex.cloud
+eu-west-1.convex.cloud
+us-east-1.convex.cloud
 convex.site
+eu-west-1.convex.site
+us-east-1.convex.site
 
 // Coordination Center for TLD RU and XN--P1AI : https://cctld.ru/en/domains/domens_ru/reserved/
 // Submitted by George Georgievsky <gug@cctld.ru>
@@ -12878,6 +12875,7 @@ definima.net
 deno.dev
 deno-staging.dev
 deno.net
+sandbox.deno.net
 
 // deSEC : https://desec.io/
 // Submitted by Peter Thomassen <peter@desec.io>
@@ -14064,6 +14062,7 @@ iliadboxos.it
 
 // Imagine : https://imagine.dev
 // Submitted by Steven Nguyen <security@imagine.dev>
+imagine.diy
 imagine-proxy.work
 
 // Incsub, LLC : https://incsub.com/
