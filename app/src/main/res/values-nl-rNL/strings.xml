@@ -171,7 +171,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_quick_smtp">SMTP-server om berichten te verzenden</string>
     <string name="title_setup_quick_certificates">Server certificaten</string>
     <string name="title_setup_wizard">Wizard</string>
-    <string name="title_setup_wizard_intro">In de meeste gevallen kan de wizard knop gebruikt worden om een account toe te voegen, anders kunnen de serveradressen handmatig worden ingevoerd of gewijzigd via de handmatige instelling</string>
+    <string name="title_setup_wizard_intro">In de meeste gevallen kan de wizardknop gebruikt worden om een account toe te voegen, anders kunnen de serveradressen handmatig worden ingevoerd of gewijzigd via de handmatige instelling</string>
     <string name="title_setup_wizard_tutorials">Handleidingen</string>
     <string name="title_setup_wizard_multiple">De wizard kan meerdere keren gebruikt worden om meerdere accounts in te stellen</string>
     <string name="title_setup_wizard_new">Ik heb een nieuw e-mailadres nodig</string>
@@ -232,8 +232,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_free">Is deze app gratis te gebruiken?</string>
     <string name="title_setup_permissions">Toestemmingen verlenen</string>
     <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
-    <string name="title_setup_permissions_calendar">Om uitnodigingen opslaan (optioneel)</string>
-    <string name="title_setup_permissions_explanation">Contact machtigingen zijn vereist voor het opzoeken van contactinformatie en het voorstellen van contacten</string>
+    <string name="title_setup_permissions_calendar">Om uitnodigingen op te slaan (optioneel)</string>
+    <string name="title_setup_permissions_explanation">Contactmachtigingen zijn vereist voor het opzoeken van contactinformatie en het voorstellen van contacten</string>
     <string name="title_setup_permissions_notify">Om meldingen voor nieuwe berichten te tonen (optioneel)</string>
     <string name="title_setup_permissions_notify_explanation">Machtigingen voor meldingen zijn vereist om meldingen voor nieuwe berichten in de statusbalk te tonen</string>
     <string name="title_setup_permission_why">Welke machtigingen zijn nodig en waarom?</string>
@@ -394,7 +394,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_use_blocklist">Verplaats berichten van domeinen op een blokkeerlijst naar de spammap</string>
     <string name="title_advanced_use_blocklist_pop3">Sla berichten van domeinen op een bloklijst over (alleen POP3)</string>
     <string name="title_advanced_tune_keep_alive">De keep-alive interval automatisch aanpassen</string>
-    <string name="title_advanced_blocklist_warning">Blokkeer lijsten zijn niet perfect en kunnen meer blokkeren dan alleen spam!</string>
+    <string name="title_advanced_blocklist_warning">Blokkeerlijsten zijn niet perfect en kunnen meer blokkeren dan alleen spam!</string>
     <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>
     <string name="title_advanced_keyboard_margin">Voeg een marge boven het toetsenbord toe</string>
     <string name="title_advanced_keyboard_no_fullscreen">Toetsenbord in volledige scherm voorkomen</string>
@@ -519,7 +519,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>
     <string name="title_advanced_category">De accountcategorie kan worden geconfigureerd in de geavanceerde accountopties via het hoofdinstellingen scherm</string>
     <string name="title_advanced_cards_beige">Gebruik een beige achtergrond bij het gebruik van de kaartstijl (alleen lichte thema\'s)</string>
-    <string name="title_advanced_tabular_background">Gebruik kaart kleur als achtergrondkleur bij gebruik van tabulaire stijl</string>
+    <string name="title_advanced_tabular_background">Gebruik kaartkleur als achtergrondkleur bij gebruik van tabulaire stijl</string>
     <string name="title_advanced_cards_shadow">Gebruik schaduw voor ongelezen berichten bij gebruik van kaartstijl</string>
     <string name="title_advanced_cards_shadow_border">Toon rand</string>
     <string name="title_advanced_cards_shadow_highlight">Gebruik markeerkleur in plaats van accentkleur</string>
@@ -594,7 +594,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
     <string name="title_advanced_monospaced">Gebruik standaard vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_monospaced_pre">Gebruik vaste breedte lettertype voor vooraf opgemaakte tekst</string>
-    <string name="title_advanced_background_color">Gebruik achtergrond kleuren</string>
+    <string name="title_advanced_background_color">Gebruik achtergrondkleuren</string>
     <string name="title_advanced_text_color">Gebruik tekstkleuren</string>
     <string name="title_advanced_text_size">Gebruik tekstgrootte</string>
     <string name="title_advanced_text_font">Gebruik lettertypen</string>
@@ -608,7 +608,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_spacing">Ruimte tussen berichten en gesprekken</string>
     <string name="title_advanced_seekbar">Toon relatieve gesprekspositie met een punt</string>
     <string name="title_advanced_actionbar">Toon gespreksactiebalk</string>
-    <string name="title_advanced_actionbar_swap">Prullenbak en archief knop verwisselen</string>
+    <string name="title_advanced_actionbar_swap">Prullenbak en archiefknop verwisselen</string>
     <string name="title_advanced_actionbar_color">Gebruik de accountkleur als achtergrond voor de gespreksactiebalk</string>
     <string name="title_advanced_category_header">Groeperen op account categorie</string>
     <string name="title_advanced_list_count">Toon het aantal berichten of gesprekken in de bovenste actiebalk</string>
@@ -745,8 +745,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_clear_all_hint">Hiermee worden alle app-gegevens van uw apparaat verwijderd, inclusief geconfigureerde e-mailaccounts, berichten, instellingen en alle verzamelde gegevens.</string>
     <string name="title_advanced_mnemonic">Gegevens op afstand verwijderen</string>
     <string name="title_advanced_mnemonic_hint">Elke e-mail ontvangen met de onderstaande woorden in de onderwerpregel zal automatisch en onmiddellijk de app gegevens verwijderen</string>
-    <string name="title_advanced_clear_all">Verwijder de app gegevens</string>
-    <string name="title_advanced_clear_all_remark">De app gegevens worden onomkeerbaar verwijderd!</string>
+    <string name="title_advanced_clear_all">Verwijder de app-gegevens</string>
+    <string name="title_advanced_clear_all_remark">De app-gegevens worden onomkeerbaar verwijderd!</string>
     <string name="title_advanced_default_encryption">De standaard versleutelingsmethode (PGP of S/MIME) wordt per identiteit opgeslagen na het verzenden van een ondertekend of versleuteld bericht.
          De versleutelingsmethode kan voor verzending worden geselecteerd in het dialoogvenster met verzendopties (houd de knop Verzenden lang ingedrukt).    </string>
     <string name="title_advanced_sign_default">Standaard ondertekenen</string>
@@ -837,7 +837,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_main_log_mem">Log geheugengebruik</string>
     <string name="title_advanced_protocol">Protocol logging</string>
     <string name="title_advanced_log_info">Debug logging</string>
-    <string name="title_advanced_debug">Foutopsporing modus</string>
+    <string name="title_advanced_debug">Foutopsporingsmodus</string>
     <string name="title_advanced_manual_hint">Als het ontvangen van berichten is uitgeschakeld, is het nog steeds mogelijk om handmatig berichten te ontvangen door de berichtenlijst omlaag te trekken</string>
     <string name="title_advanced_poll_battery">Dit kan een hoog batterijgebruik veroorzaken!</string>
     <string name="title_advanced_poll_hint">Periodiek controleren op nieuwe berichten zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is die kan resulteren in extra batterijgebruik, vooral als er veel berichten zijn. Altijd ontvangen zal dit voorkomen door continu veranderingen te volgen.</string>

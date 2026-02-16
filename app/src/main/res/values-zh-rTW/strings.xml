@@ -14,6 +14,7 @@
     <string name="app_cake_required">所需要的最少儲存空間：%1$s</string>
     <string name="app_updated">最近更新於: %1$s</string>
     <string name="app_download">下載自：%1$s</string>
+    <string name="app_error">大多數錯誤訊息都是由外部因素（如網絡、伺服器等）引起，或是因為錯誤、通常是非標準的設定所導致。留下負面評價無法解決這類問題，尋求支援幾乎總是更有效。</string>
     <string name="app_motd">        在 Android 14／15 Beta 中，偶爾會出現「應用程式未回應」通知。
         Google 正在努力修復。
         請不要將此 Android 問題歸咎於應用程式！
@@ -148,6 +149,7 @@
     <string name="title_setup_intro">僅需三步即可設置完成帳戶，完成後即可收發郵件</string>
     <string name="title_setup_simple">不需要改變任何其他選項</string>
     <string name="title_setup_issue">FairEmail 的開發是為了幫助保護您的隱私，而這背後則是數千小時實實在在的辛勤工作。如果您遇到了任何問題，請在留下負評之前先與我聯絡以取得支援。我很樂意幫忙！</string>
+    <string name="title_setup_analytics">FairEmail 不顯示廣告，也不會追蹤或分析您的使用行為。</string>
     <string name="title_setup_quick_accounts">新增或變更帳戶</string>
     <string name="title_setup_quick_support">有些電子郵件供應商的作法讓新增帳戶成為一件難事。請不要因此責怪 FairEmail，應轉而尋求支援。</string>
     <string name="title_setup_quick_hint">所輸入的電子郵件地址將用於查詢電子郵件伺服器及 autoconfig.thunderbird.net 以獲取設定資訊</string>
@@ -177,6 +179,7 @@
     <string name="title_setup_oauth_permission">電子郵件提供商僅批准 Play 商店和 GitHub 版本使用 OAuth</string>
     <string name="title_setup_gmail_support">因為 Android 會檢查程式的數字簽名，所以只有 FairEmail 在 Play Store 和 GitHub 發布的版本支持授權 Google 帳戶</string>
     <string name="title_setup_gmail_rationale">請授予權限以選擇帳戶並讀取您的姓名</string>
+    <string name="title_setup_gmail_permissions">Google 會要求取得讀取（向您顯示郵件）、撰寫（儲存草稿）、傳送以及永久刪除您所有電子郵件的權限。FairEmail 在未經您明確同意的情況下，絕不會刪除您的郵件。只有您本人能存取您的郵件，其他任何人都無法存取。</string>
     <string name="title_setup_gmail_login">如果 Chrome 已登入帳戶，則只能透過 Android 新增新帳戶。可透過 Chrome 同步設定登出來避免這個問題。</string>
     <string name="title_setup_gmail_max">若出現「您已登入最大數量的帳戶」錯誤訊息，您需要從所有 Google 帳戶中登出瀏覽器。</string>
     <string name="title_setup_outlook_hint">在使用別名地址的情況下，應使用 Office 365 精靈。</string>
@@ -522,6 +525,7 @@
     <string name="title_advanced_indentation">使用左/右縮進形式來表示會話中的已接收/傳送訊息</string>
     <string name="title_advanced_highlight_unread">標亮未讀訊息</string>
     <string name="title_advanced_account_color">顯示顏色條或顏色點</string>
+    <string name="title_advanced_account_color_size">色條寬度</string>
     <string name="title_advanced_avatars">顯示聯絡人照片</string>
     <string name="title_advanced_bimi">顯示訊息識別的品牌指標（BIMI）</string>
     <string name="title_advanced_bimi_vmc">需要有效的 VMC 憑證</string>
@@ -575,6 +579,7 @@
     <string name="title_advanced_message_text_zoom2">預設訊息本文文字縮放: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">在訊息編輯器中也放大訊息文字</string>
     <string name="title_advanced_overview_mode">縮放原始訊息以適配螢幕</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">行距：%1$s %%</string>
     <string name="title_advanced_hyphenation">使用自動連字符號</string>
     <string name="title_advanced_contrast">應用高對比於訊息本文上</string>
     <string name="title_advanced_monospaced">訊息本文預設使用等寬字型</string>
@@ -590,6 +595,7 @@
     <string name="title_advanced_image_placeholders">顯示圖片占位符</string>
     <string name="title_advanced_images_inline">自動顯示行內圖片</string>
     <string name="title_advanced_button_extra">在訊息底部顯示額外的按鈕</string>
+    <string name="title_advanced_spacing">郵件及對話之間的行距</string>
     <string name="title_advanced_seekbar">以小圓點顯示相對會話位置</string>
     <string name="title_advanced_actionbar">顯示會話工具列</string>
     <string name="title_advanced_actionbar_swap">交換垃圾箱和存檔按鈕</string>

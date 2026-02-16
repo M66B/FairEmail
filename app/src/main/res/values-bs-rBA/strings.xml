@@ -608,6 +608,7 @@
     <string name="title_advanced_message_text_zoom2">Zadani nivo zumiranja teksta: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zumiraj tekst poruke i u uređivaču poruka</string>
     <string name="title_advanced_overview_mode">Zumiraj originalne poruke da popune ekran</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Linijski razmak: %1$s %%</string>
     <string name="title_advanced_hyphenation">Koristi automatsko umetanje crtica</string>
     <string name="title_advanced_contrast">Koristi visoki kontrast za tekst poruke</string>
     <string name="title_advanced_monospaced">Koristi po zadanom font jednake širine (monospace) za tekst poruke</string>

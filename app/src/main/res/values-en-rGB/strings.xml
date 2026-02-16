@@ -9,9 +9,9 @@
     <string name="title_list_identities">Identities</string>
     <string name="title_setup_quick">Quick setup</string>
     <string name="title_setup_analytics">FairEmail does not display ads and does not track or analyse your behaviour.</string>
-    <string name="title_setup_account_identity_hint">You can configure the name, colour and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_account_identity_hint">You can configure the name, colour, and swipe actions in the account settings, and configure a signature in the identity settings</string>
     <string name="title_setup_gmail_support">Authorising Google accounts will work in the Play Store and GitHub version only because Android checks the digital app signature</string>
-    <string name="title_setup_outlook_modern">Due to changes in Microsoft\'s security policies, from 16 September 2024, only the Outlook/Hotmail/Live wizard will work.</string>
+    <string name="title_setup_outlook_modern">Due to changes in Microsoft\'s security policies, from 16th September 2024, only the Outlook/Hotmail/Live wizard will work.</string>
     <string name="title_setup_gmail_password">I want to authorise an account with a password instead of an on-device account</string>
     <string name="title_setup_oauth_rationale">Authorise access to your %1$s account</string>
     <string name="title_setup_oauth_update">Authorise an existing account again (otherwise create a new account)</string>
