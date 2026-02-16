@@ -30,6 +30,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2312 2026-02-16
+
+* Fixed all reported bugs
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+
 ### 1.2311 2026-02-07
 
 * Fixed all reported bugs
