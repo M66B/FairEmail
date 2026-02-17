@@ -4807,7 +4807,7 @@ This requires a compatible audio recorder app to be installed.
 In particular [this common intent](https://developer.android.com/reference/android/provider/MediaStore.Audio.Media.html#RECORD_SOUND_ACTION)
 needs to be supported.
 
-~~For example [this audio recorder](https://f-droid.org/app/com.github.axet.audiorecorder) is compatible.~~
+For example [this audio recorder](https://f-droid.org/en/packages/io.github.leonidius20.recorder.lite/) is compatible.
 
 Voice notes will automatically be attached.
 
@@ -5132,7 +5132,7 @@ To take photos and to record audio a camera and an audio recorder app are needed
 The following apps are open source cameras and audio recorders:
 
 * [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) ([F-Droid](https://f-droid.org/en/packages/net.sourceforge.opencamera/))
-* ~~[Audio Recorder version 3.3.24+](https://play.google.com/store/apps/details?id=com.github.axet.audiorecorder) ([F-Droid](https://f-droid.org/packages/com.github.axet.audiorecorder/))~~
+* [Recording Studio Lite](https://f-droid.org/en/packages/io.github.leonidius20.recorder.lite/)
 
 To take photos, the camera app needs to support [MediaStore.ACTION_IMAGE_CAPTURE](https://developer.android.com/media/camera/camera-intents#take_a_photo_with_a_camera_app).
 Not all camera apps support this, unfortunately.
