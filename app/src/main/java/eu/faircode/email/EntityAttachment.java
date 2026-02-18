@@ -346,6 +346,9 @@ public class EntityAttachment {
 
         // Audio
 
+        if ("m4a".equals(extension))
+            return "audio/mp4";
+
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Configuring_servers_for_Ogg_media
 
         if ("oga".equals(extension))
