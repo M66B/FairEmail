@@ -126,7 +126,7 @@ import javax.mail.search.SentDateTerm;
 
 class Core {
     static final int DEFAULT_RANGE_SIZE = 1000;
-    static final int DEFAULT_CHUNK_SIZE = 50;
+    static final int DEFAULT_CHUNK_SIZE = 20;
 
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
