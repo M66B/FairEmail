@@ -283,9 +283,9 @@
     <!-- needs subscription -->
     <provider
         name="mailbox.org"
-        domain="mailbox\\.org"
         appPassword="true"
         documentation="When two-factor authentication is enabled, you must use &lt;a href=&quot;https://kb.mailbox.org/en/private/security-and-privacy/application-passwords-for-external-programs/&quot;&gt;an app password&lt;/a&gt; instead of your account password."
+        domain="mailbox\\.org"
         link="https://kb.mailbox.org/display/BMBOKB/E-Mail-Einrichtung+mit+Mozilla+Thunderbird">
         <imap
             host="imap.mailbox.org"
@@ -488,6 +488,8 @@
     </provider>
     <provider
         name="Infomaniak"
+        appPassword="true"
+        documentation="The <u>generated</u> password on the Infomaniak dashboard must be used, not the account password!"
         link="https://www.infomaniak.com/fr/support/faq/search?q=imap">
         <imap
             host="mail.infomaniak.com"
@@ -1583,8 +1585,8 @@
     </provider>
     <provider
         name="Libero Aiuto"
-        domain="libero\\.it,iol\\.it"
         documentation="Quando l'autenticazione a due fattori è abilitata, è necessario utilizzare una password speciale per l'app/e-mail, &lt;a href=&quot;https://aiuto.libero.it/articolo/sicurezza/password-sicura-specifica-applicazioni-client/&quot;&gt;vedere qui&lt;/a&gt;&lt;/b&gt;"
+        domain="libero\\.it,iol\\.it"
         link="https://aiuto.libero.it/articolo/mail/configurare-libero-mail-con-client-di-posta-imap-e-smtp/">
         <imap
             host="imapmail.libero.it"
