@@ -57,6 +57,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean accept_unsupported = prefs.getBoolean("accept_unsupported", false);
         long accept_space = prefs.getLong("accept_space", 0);
+        boolean sync_on_launch = prefs.getBoolean("sync_on_launch", false);
 
         long cake = Helper.getAvailableStorageSpace();
         if (cake < Helper.MIN_REQUIRED_SPACE && accept_space < now) {
@@ -159,6 +160,8 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                     finish();
 
                     if (message == null) {
+                        if (sync_on_launch)
+                            ServiceUI.sync(ActivityMain.this, null);
                         startActivity(new Intent(ActivityMain.this, ActivityView.class));
                         return;
                     }
@@ -189,7 +192,6 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
         }
 
         boolean eula = prefs.getBoolean("eula", false);
-        boolean sync_on_launch = prefs.getBoolean("sync_on_launch", false);
 
         prefs.registerOnSharedPreferenceChangeListener(this);
 
