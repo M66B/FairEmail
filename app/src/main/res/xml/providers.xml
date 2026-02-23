@@ -489,7 +489,7 @@
     <provider
         name="Infomaniak"
         appPassword="true"
-        documentation="The <u>generated</u> password on the Infomaniak dashboard must be used, not the account password!"
+        documentation="The &lt;u&gt;generated&lt;/u&gt; password on the Infomaniak dashboard must be used, not the account password!"
         link="https://www.infomaniak.com/fr/support/faq/search?q=imap">
         <imap
             host="mail.infomaniak.com"
