@@ -119,12 +119,14 @@ Supported download locations:
 * [GitHub](https://github.com/M66B/FairEmail/releases)
 * [Play store](https://play.google.com/store/apps/details?id=eu.faircode.email)
 * [Play store](https://play.google.com/apps/testing/eu.faircode.email) (test)
-* [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) (the F-Droid app can be downloaded [here](https://f-droid.org/))
+* [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) &mdash; **Please read [this FAQ](https://m66b.github.io/FairEmail/#faq147)**
 * [IzzyOnDroid](https://apt.izzysoft.de/fdroid/index/apk/eu.faircode.email) (verified GitHub release)
 * ~~[AppGallery](https://wap3.hispace.hicloud.com/uowap/index.jsp#/detailApp/C101678151) (the AppGallery app can be downloaded [here](https://huaweimobileservices.com/appgallery/))~~
 * ~~[Amazon](https://www.amazon.com/gp/product/B0983R6MH2)~~ (the APK file repackaged by Amazon is incomplete! An issue report was never answered by Amazon.)
 
 Please see [this FAQ](https://m66b.github.io/FairEmail/#faq173) about the differences between the different releases.
+
+**Important**: Only the versions in the Play Store and GitHub are official releases. Support for other releases from alternative app stores, etc. is limited.
 
 **Important**: after enrolling in the [Advanced Protection Program](https://landing.google.com/advancedprotection/)
 you cannot use third party email apps anymore, please see [this FAQ](https://m66b.github.io/FairEmail/#faq22) for more information.
