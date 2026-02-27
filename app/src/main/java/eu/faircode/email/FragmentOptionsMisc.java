@@ -2602,7 +2602,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             sbSqliteCache.setProgress(sqlite_cache);
 
             swCacheLists.setChecked(prefs.getBoolean("cache_lists", true));
-            swOauthTabs.setChecked(prefs.getBoolean("oauth_tabs", true));
+            swOauthTabs.setChecked(prefs.getBoolean("oauth_tabs", false));
 
             int start_delay = prefs.getInt("start_delay", 0);
             tvStartDelay.setText(getString(R.string.title_advanced_start_delay, start_delay));

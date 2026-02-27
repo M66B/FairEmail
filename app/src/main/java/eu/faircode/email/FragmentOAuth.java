@@ -405,7 +405,7 @@ public class FragmentOAuth extends FragmentBase {
             EmailProvider.OAuth oauth = (graph ? provider.graph : provider.oauth);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean oauth_tabs = prefs.getBoolean("oauth_tabs", true);
+            boolean oauth_tabs = prefs.getBoolean("oauth_tabs", false);
 
             AppAuthConfiguration.Builder appAuthConfig = new AppAuthConfiguration.Builder();
 
