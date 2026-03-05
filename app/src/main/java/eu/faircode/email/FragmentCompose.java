@@ -1890,6 +1890,12 @@ public class FragmentCompose extends FragmentBase {
         outState.putInt("fair:pickRequest", pickRequest);
         outState.putParcelable("fair:pickUri", pickUri);
 
+        if (pgpUserIds != null)
+            outState.putStringArray("fair:pgpUserIds", pgpUserIds);
+        if (pgpKeyIds != null)
+            outState.putLongArray("fair:pgpKeyIds", pgpKeyIds);
+        outState.putLong("fair:pgpSignKeyId", pgpSignKeyId);
+
         // Focus was lost at this point
         outState.putInt("fair:selection", etBody == null ? 0 : etBody.getSelectionStart());
 
@@ -1954,6 +1960,10 @@ public class FragmentCompose extends FragmentBase {
 
                 pickRequest = savedInstanceState.getInt("fair:pickRequest");
                 pickUri = savedInstanceState.getParcelable("fair:pickUri");
+
+                pgpUserIds = savedInstanceState.getStringArray("fair:pgpUserIds");
+                pgpKeyIds = savedInstanceState.getLongArray("fair:pgpKeyIds");
+                pgpSignKeyId = savedInstanceState.getLong("fair:pgpSignKeyId");
 
                 Bundle args = new Bundle();
                 args.putString("action", working < 0 ? "new" : "edit");
