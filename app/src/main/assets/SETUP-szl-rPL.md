@@ -1,4 +1,4 @@
-# Pomoc instalacyjna
+# Pomoc w konfiguracji
 
 Konfiguracja FairEmail jest całkiem prosta. Musisz dodać co najmniej jedno konto, aby otrzymywać wiadomości email i przynajmniej jedną tożsamość, jeśli chcesz wysłać wiadomości e-mail. Szybka konfiguracja doda konto i tożsamość w jednym kroku dla większości głównych dostawców.
 

@@ -456,7 +456,7 @@
     <string name="title_advanced_sent_partially">Il messaggio non è stato inviato a tutti i destinatari</string>
     <string name="title_advanced_auto_link">Crea automaticamente i link</string>
     <string name="title_advanced_plain_only">Invia sempre in formato solo testo semplice</string>
-    <string name="title_advanced_plain_only_reply">Testo semplice automatico soltanto alla risposta a un messaggio di solo testo semplice</string>
+    <string name="title_advanced_plain_only_reply">Usa automaticamente solo testo semplice quando si risponde a un messaggio di solo testo semplice</string>
     <string name="title_advanced_flow">Usa «format flowed» per il testo semplice</string>
     <string name="title_advanced_usenet_signature">Segui la convenzione di firma di Usenet</string>
     <string name="title_advanced_remove_signatures">Rimuovi le firme riconosciute</string>

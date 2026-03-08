@@ -700,7 +700,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_swipe_reply">Přejeďte rozbalené zprávy doprava pro odpověď</string>
     <string name="title_advanced_move_thread_all">Při přesunu vybraných konverzací přesuňte všechny zprávy</string>
     <string name="title_advanced_move_thread_sent">Při přesunu konverzace také přesunout odeslané zprávy</string>
-    <string name="title_advanced_swipe_trash_all">Při přejsunu konverzace do koše vyhoďte do něj všechny zprávy</string>
+    <string name="title_advanced_swipe_trash_all">Při přesunu konverzace do koše vyhoďte do něj všechny zprávy</string>
     <string name="title_advanced_gmail_delete_all">Při permanentním smazání zprávy odstranit všechny Gmail štítky</string>
     <string name="title_advanced_default_snooze">Výchozí doba odložení/zpoždění</string>
     <string name="title_advanced_default_folder">Vybrat výchozí složku</string>
