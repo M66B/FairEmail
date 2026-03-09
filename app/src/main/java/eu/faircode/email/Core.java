@@ -4977,7 +4977,7 @@ class Core {
             if (mdn && helper.isReport())
                 try {
                     MessageHelper.Report r = parts.getReport(context);
-                    boolean client_id = prefs.getBoolean("client_id", true);
+                    boolean client_id = prefs.getBoolean("client_id", false);
                     String we = "dns;" + (client_id ? EmailService.getDefaultEhlo() : "example.com");
                     if (r != null && !we.equals(r.reporter)) {
                         String label = null;
