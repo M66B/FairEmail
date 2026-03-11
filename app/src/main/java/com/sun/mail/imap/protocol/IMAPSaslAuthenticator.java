@@ -57,7 +57,10 @@ public class IMAPSaslAuthenticator implements SaslAuthenticator {
             final String authzid, final String u,
             final String p) throws ProtocolException {
 
-        if (!pr.hasCapability("AUTH=CRAM-MD5"))
+        boolean isCramMD5 = pr.hasCapability("AUTH=CRAM-MD5");
+        boolean isExternal = pr.hasCapability("AUTH=EXTERNAL");
+
+        if (!isCramMD5 && !isExternal)
             throw new UnsupportedOperationException("SASL not supported");
 
         List<Response> v = new ArrayList<>();
@@ -66,9 +69,13 @@ public class IMAPSaslAuthenticator implements SaslAuthenticator {
         boolean done = false;
 
         try {
-            Log.i("SASL IMAP command=AUTHENTICATE");
+            Log.i("SASL IMAP AUTHENTICATE isCramMD5=" + isCramMD5 + " isExternal=" + isExternal);
             Argument args = new Argument();
-            args.writeAtom("CRAM-MD5");
+            // https://datatracker.ietf.org/doc/html/rfc4959
+            if (isExternal)
+                args.writeAtom("EXTERNAL =");
+            else
+                args.writeAtom("CRAM-MD5");
             tag = pr.writeCommand("AUTHENTICATE", args);
             Log.i("SASL IMAP tag=" + tag);
         } catch (Exception ex) {
@@ -81,6 +88,8 @@ public class IMAPSaslAuthenticator implements SaslAuthenticator {
                 r = pr.readResponse();
                 Log.i("SASL IMAP response=" + r);
                 if (r.isContinuation()) {
+                    if (isExternal)
+                        throw new UnsupportedOperationException("SASL unexpected response");
                     byte[] nonce = Base64.decode(r.getRest(), Base64.NO_WRAP);
                     Log.i("SASL IMAP nonce=" + new String(nonce));
                     String hmac = Helper.HMAC("MD5", 64, p.getBytes(), nonce);
@@ -92,6 +101,8 @@ public class IMAPSaslAuthenticator implements SaslAuthenticator {
                     done = true;
                 else if (r.isBYE())
                     done = true;
+                else if (r.isNO() || r.isBAD())
+                    throw new UnsupportedOperationException("SASL " + r);
             } catch (Exception ex) {
                 r = Response.byeResponse(ex);
                 done = true;
