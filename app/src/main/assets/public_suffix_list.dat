@@ -13451,9 +13451,11 @@ relay.evervault.app
 relay.evervault.dev
 
 // Expo : https://expo.dev/
-// Submitted by James Ide <psl@expo.dev>
+// Submitted by Phil Pluckthun <psl@expo.dev>
 expo.app
+on.expo.app
 staging.expo.app
+on.staging.expo.app
 
 // Fabrica Technologies, Inc. : https://www.fabrica.dev/
 // Submitted by Eric Jiang <eric@fabrica.dev>
@@ -14298,10 +14300,6 @@ us1-plenit.com
 // Submitted by Camilo Sperberg <tech@webador.com>
 webadorsite.com
 jouwweb.site
-
-// Joyent : https://www.joyent.com/
-// Submitted by Brian Bennett <brian.bennett@joyent.com>
-*.triton.zone
 
 // JS.ORG : http://dns.js.org
 // Submitted by Stefan Keim <admin@js.org>
@@ -15977,6 +15975,10 @@ lima.zone
 *.transurl.eu
 site.transip.me
 *.transurl.nl
+
+// Triton Data Center project : https://tritondatacenter.com
+// Submitted by Triton Data Center staff <tickets@tritondatacenter.com>
+*.triton.zone
 
 // Tunnelmole: https://tunnelmole.com
 // Submitted by Robbie Cahill <support@tunnelmole.com>
