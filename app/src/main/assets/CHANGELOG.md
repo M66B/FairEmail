@@ -30,6 +30,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Added [EXTERNAL](https://datatracker.ietf.org/doc/html/rfc4959) authentication method
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+
 ### 1.2313 2026-03-08
 
 * Fixed all reported bugs

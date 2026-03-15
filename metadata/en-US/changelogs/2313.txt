@@ -30,6 +30,11 @@ Diuqin
 
 Next version (Work in progress)
 
+* Added EXTERNAL authentication method
+* Small improvements and minor bug fixes
+* Updated translations
+* Updated Public Suffix List
+
 1.2313 2026-03-08
 
 * Fixed all reported bugs
