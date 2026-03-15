@@ -589,6 +589,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_message_text_zoom2">Varsayılan mesaj metni yakınlaştırma: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Mesaj metnini mesaj düzenleyicide de yakınlaştırın</string>
     <string name="title_advanced_overview_mode">Orijinal mesajları ekrana sığacak şekilde yakınlaştırın</string>
+    <string name="title_advanced_line_spacing" comment="title_advanced_line_spacing Title with value (a percentage) for line spacing of the message text">Satır aralığı: %1$s %%</string>
     <string name="title_advanced_hyphenation">Otomatik hecelemeyi kullan</string>
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
     <string name="title_advanced_monospaced">İleti metninde varsayılan olarak sabit genişlikli yazı tipi kullan</string>
@@ -604,6 +605,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_image_placeholders">Görüntü yer tutucularını göster</string>
     <string name="title_advanced_images_inline">İletideki görselleri otomatik olarak göster</string>
     <string name="title_advanced_button_extra">Mesajın altında fazladan düğmeler göster</string>
+    <string name="title_advanced_spacing">Mesajlar ve konuşmalar arasındaki boşluk</string>
     <string name="title_advanced_seekbar">Göreli konuşma konumunu nokta ile göster</string>
     <string name="title_advanced_actionbar">Sohbet eylem çubuğunu göster</string>
     <string name="title_advanced_actionbar_swap">Çöp ve arşiv düğmesini değiştir</string>
@@ -2309,9 +2311,9 @@ Dosya: strings. xml</string>
         <item>Büyük</item>
     </string-array>
     <string-array name="spacingNames">
-        <item>Compact</item>
+        <item>Kompakt</item>
         <item>Orta</item>
-        <item>Roomy</item>
+        <item>Ferah</item>
     </string-array>
     <string name="title_size_tiny">Küçücük</string>
     <string-array name="receiptNames">
