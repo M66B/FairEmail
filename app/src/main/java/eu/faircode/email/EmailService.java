@@ -914,7 +914,7 @@ public class EmailService implements AutoCloseable {
             if (istore.hasCapability("ID"))
                 try {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean client_id = prefs.getBoolean("client_id", false);
+                    boolean client_id = prefs.getBoolean("client_id", true);
                     Map<String, String> sid = istore.id(client_id ? getId(context) : null);
                     if (sid != null) {
                         Map<String, String> crumb = new HashMap<>();

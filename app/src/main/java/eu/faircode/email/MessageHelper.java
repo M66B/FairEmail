@@ -943,7 +943,7 @@ public class MessageHelper {
             report.addBodyPart(plainPart);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean client_id = prefs.getBoolean("client_id", false);
+            boolean client_id = prefs.getBoolean("client_id", true);
 
             String from = null;
             if (message.from != null && message.from.length > 0)
@@ -988,7 +988,7 @@ public class MessageHelper {
             report.addBodyPart(plainPart);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean client_id = prefs.getBoolean("client_id", false);
+            boolean client_id = prefs.getBoolean("client_id", true);
 
             String from = null;
             if (message.from != null && message.from.length > 0)
