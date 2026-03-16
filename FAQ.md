@@ -1715,6 +1715,7 @@ See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTU
 
 The error *... connect failed: EACCES (Permission denied) ...* means that  *Restrict data usage* was disabled in the Android MIUI app settings for FairEmail.
 On Samsung, and possible other devices, also check: Android settings > Battery > Battery manager / Unmonitored apps.
+Another possible cause is using a VPN with the Android VPN option "*Block connections without VPN*" enabled.
 
 Possible causes are:
 
