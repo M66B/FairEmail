@@ -47,8 +47,10 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
 
 import javax.mail.Authenticator;
 import javax.mail.MessagingException;
@@ -61,6 +63,8 @@ public class ServiceAuthenticator extends Authenticator {
     private String user;
     private String password;
     private IAuthenticated intf;
+
+    private static final ConcurrentHashMap<String, ReentrantLock> locks = new ConcurrentHashMap<>();
 
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
@@ -164,6 +168,8 @@ public class ServiceAuthenticator extends Authenticator {
 
     static void OAuthRefresh(Context context, String id, int auth_type, String user, AuthState authState, boolean forceRefresh)
             throws MessagingException {
+        ReentrantLock lock = locks.computeIfAbsent(id, k -> new ReentrantLock());
+        lock.lock();
         try {
             long now = new Date().getTime();
 
@@ -254,6 +260,8 @@ public class ServiceAuthenticator extends Authenticator {
             }
         } catch (Exception ex) {
             throw new MessagingException("OAuth refresh provider=" + id + ":" + getAuthTypeName(auth_type), ex);
+        } finally {
+            lock.unlock();
         }
     }
 
