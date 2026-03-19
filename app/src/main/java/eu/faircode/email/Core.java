@@ -4810,11 +4810,12 @@ class Core {
             message.priority = helper.getPriority();
             message.sensitivity = helper.getSensitivity();
 
+            message.importance = null;
             for (String keyword : keywords)
-                if (MessageHelper.FLAG_LOW_IMPORTANCE.equals(keyword))
-                    message.importance = EntityMessage.PRIORITIY_LOW;
-                else if (MessageHelper.FLAG_HIGH_IMPORTANCE.equals(keyword))
+                if (MessageHelper.FLAG_HIGH_IMPORTANCE.equals(keyword))
                     message.importance = EntityMessage.PRIORITIY_HIGH;
+                else if (MessageHelper.FLAG_LOW_IMPORTANCE.equals(keyword))
+                    message.importance = EntityMessage.PRIORITIY_LOW;
 
             message.auto_submitted = helper.getAutoSubmitted();
             message.receipt_request = helper.getReceiptRequested();
@@ -5214,6 +5215,15 @@ class Core {
                 message.keywords = keywords;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid +
                         " keywords=" + TextUtils.join(" ", keywords));
+
+                message.importance = null;
+                for (String keyword : keywords)
+                    if (MessageHelper.FLAG_HIGH_IMPORTANCE.equals(keyword))
+                        message.importance = EntityMessage.PRIORITIY_HIGH;
+                    else if (MessageHelper.FLAG_LOW_IMPORTANCE.equals(keyword))
+                        message.importance = EntityMessage.PRIORITIY_LOW;
+
+                syncSimilar = true;
             }
 
             if (!Helper.equal(message.labels, labels)) {
@@ -5326,6 +5336,18 @@ class Core {
                     Log.i(folder.name + " Synchronize similar id=" + similar.id + " flagged=" + message.flagged);
                     db.message().setMessageFlagged(similar.id, message.flagged);
                     db.message().setMessageUiFlagged(similar.id, message.flagged, flagged ? similar.color : null);
+                }
+
+                if (!Helper.equal(similar.keywords, message.keywords)) {
+                    Log.i(folder.name + " Synchronize similar id=" + similar.id +
+                            " keywords=" + (message.keywords == null ? null : String.join(",", message.keywords)));
+                    similar.keywords = message.keywords;
+                    db.message().updateMessage(similar);
+                }
+                if (!Objects.equals(similar.importance, message.importance)) {
+                    Log.i(folder.name + " Synchronize similar id=" + similar.id + " importance=" + message.importance);
+                    similar.importance = message.importance;
+                    db.message().updateMessage(similar);
                 }
             }
 
