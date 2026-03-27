@@ -1403,6 +1403,10 @@ In the case of the error '*User is authenticated but not connected*', please see
 
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting "*Outlook/Office 365 (OAuth)*".
 
+To use third-party email apps for consumer Outlook accounts, IMAP must be enabled.
+For this, please go to the Outlook website, tap on the settings wheel at the top right,
+select 'Mail', select 'Forwarding and IMAP', and in the section 'POP and IMAP' enable 'Let devices and apps use IMAP'.
+
 **Important**: a personal and a business account can have the same email address, but have different mailboxes (folders). So, please make sure you select the right option.
 
 Microsoft said "*We have turned off SMTP AUTH for millions of tenants not using it*", which can result in this error message:
