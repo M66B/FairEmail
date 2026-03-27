@@ -58,6 +58,9 @@ Searching for *IMAP* and the name of the provider is mostly sufficient to find t
 In some cases, you'll need to enable external access to your account and/or to use a special (app) password,
 for instance when two-factor authentication is enabled.
 
+When you copy and paste a password, make sure you do not copy any whitespace (spaces, etc.).
+Please also keep in mind that a password manager may fill in an old password and overwrite what you have pasted or typed, without this being visible.
+
 For authorizing:
 
 * Gmail / G suite, see [question 6](#faq6)
