@@ -565,5 +565,15 @@
     "prepend_scheme": "https",
     "action": "regex-path",
     "param": "^/navigation-tracking/(.*);.html$"
+  },
+  {
+    "include": [
+      "*://y2u.be/*"
+    ],
+    "exclude": [
+    ],
+    "action": "regex-path-template",
+    "param": "^/([^/]+)$",
+    "redirect_url_template": "https://www.youtube.com/watch?v=$1"
   }
 ]
