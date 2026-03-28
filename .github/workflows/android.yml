@@ -25,11 +25,11 @@ jobs:
     #https://github.com/actions/checkout
     #https://github.com/actions/setup-java
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         ref: ${{ github.event.inputs.branch }}
     - name: set up JDK 17
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v5
       with:
         java-version: '17'
         distribution: 'temurin'
@@ -59,8 +59,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease
     #https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds
+    #https://github.com/actions/attest-build-provenance
     - name: Generate artifact attestation
-      uses: actions/attest-build-provenance@v1
+      uses: actions/attest-build-provenance@v4
       with:
         subject-path: 'app/build/outputs/apk/**/release/*.apk'
     #- name: Upload to BitBucket
@@ -69,15 +70,15 @@ jobs:
     #    ./gradlew upload -Ptarget=github-snapshot-${{ github.event.inputs.branch }}
     #    ./gradlew upload -Ptarget=large-snapshot-${{ github.event.inputs.branch }}
     #https://github.com/actions/upload-artifact
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v6
       with:
         name: Mapping files
         path: app/build/outputs/mapping/**/mapping.txt
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v6
       with:
         name: Native debug symbols
         path: app/build/outputs/native-debug-symbols/**/native-debug-symbols.zip
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v6
       with:
         name: APK files
         path: app/build/outputs/apk/**/release/*.apk
