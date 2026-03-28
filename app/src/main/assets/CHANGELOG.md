@@ -30,10 +30,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2314 2026-03-28
+
+* Fixed all reported bugs
 * Added [EXTERNAL](https://datatracker.ietf.org/doc/html/rfc4959) authentication method
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [Brave's debounce list](https://github.com/brave/brave-browser/wiki/Debouncing)
 
 ### 1.2313 2026-03-08
 
