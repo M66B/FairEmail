@@ -73,7 +73,7 @@ public class ServiceAuthenticator extends Authenticator {
 
     static final long MIN_REFRESH_INTERVAL = 15 * 60 * 1000L;
     static final long MIN_FORCE_REFRESH_INTERVAL = 15 * 60 * 1000L;
-    static final long FORCE_REFRESH_INTERVAL = 60 * 60 * 1000L;
+    static final long FORCE_REFRESH_INTERVAL = 15 * 60 * 1000L;
     static final int MAX_TOKEN_WAIT = 90; // seconds
 
     ServiceAuthenticator(
@@ -186,7 +186,7 @@ public class ServiceAuthenticator extends Authenticator {
                 needsRefresh = true;
 
             if (!needsRefresh && forceRefresh &&
-                    (last_force < 0 || last_force + FORCE_REFRESH_INTERVAL > now)) {
+                    (last_force < 0 || last_force + FORCE_REFRESH_INTERVAL < now)) {
                 needsRefresh = true;
                 prefs.edit().putLong(key_last_force, new Date().getTime()).apply();
             }
