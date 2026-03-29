@@ -714,8 +714,10 @@ public class EmailService implements AutoCloseable {
             crumb.put("exception", ex + "\n" + android.util.Log.getStackTraceString(ex));
             Log.breadcrumb("Connection failed", crumb);
 
-            if (ex.getMessage() != null && ex.getMessage().contains("Session invalidated"))
-                throw new AuthenticationFailedException("Session invalidated", ex);
+            if (ex.getMessage() != null &&
+                    (ex.getMessage().contains("Session invalidated") ||
+                            ex.getMessage().contains("Command Error. 12")))
+            throw new AuthenticationFailedException(ex.getMessage(), ex);
 
             /*
                 com.sun.mail.util.MailConnectException: Couldn't connect to host, port: 74.125.140.108, 993; timeout 20000;
