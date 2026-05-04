@@ -30,6 +30,9 @@ Diuqin
 
 Next version (Work in progress)
 
+* Adapted for Android 17
+* Small improvements and minor bug fixes
+
 1.2315 2026-04-27
 
 * Fixed all reported bugs

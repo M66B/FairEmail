@@ -30,6 +30,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Adapted for [Android 17](https://developer.android.com/about/versions/17)
+* Small improvements and minor bug fixes
+
 ### 1.2315 2026-04-27
 
 * Fixed all reported bugs
