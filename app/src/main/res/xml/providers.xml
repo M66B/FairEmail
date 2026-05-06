@@ -787,10 +787,9 @@
             starttls="false" />
     </provider>
     <provider
-        name="Zoho personal"
+        name="Zoho"
         documentation="You might need to &lt;a href=&quot;https://www.zoho.com/mail/help/imap-access.html#EnableIMAP&quot;&gt;enable IMAP&lt;/a&gt; and use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
         domain="zoho\\.com"
-        id="zoho"
         link="https://www.zoho.com/mail/help/imap-access.html"
         maxtls="1.2">
         <imap
@@ -801,54 +800,6 @@
             host="smtp.zoho.com"
             port="465"
             starttls="false" />
-        <!-- https://www.zoho.com/mail/help/api/using-oauth-2.html -->
-        <oauth
-            askAccount="true"
-            authorizationEndpoint="https://accounts.zoho.com/oauth/v2/auth"
-            clientId="1000.54H0AT9HC009NH4487PTRMJ0OBZG3E"
-            clientSecret="0df0714db9cfaf52f79902172351dcd956ebffa111"
-            enabled="true"
-            privacy="https://www.zoho.com/privacy.html"
-            prompt="consent"
-            redirectUri="https://oauth.faircode.eu/"
-            scopes="ZohoMail.messages.ALL"
-            tokenEndpoint="https://accounts.zoho.com/oauth/v2/token"
-            tokenScopes="false">
-            <parameter
-                key="access_type"
-                value="offline" />
-        </oauth>
-    </provider>
-    <provider
-        name="Zoho pro"
-        documentation="You might need to &lt;a href=&quot;https://www.zoho.com/mail/help/imap-access.html#EnableIMAP&quot;&gt;enable IMAP&lt;/a&gt; and use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
-        id="zohopro"
-        link="https://www.zoho.com/mail/help/imap-access.html"
-        maxtls="1.2">
-        <imap
-            host="imappro.zoho.com"
-            port="993"
-            starttls="false" />
-        <smtp
-            host="smtppro.zoho.com"
-            port="465"
-            starttls="false" />
-        <oauth
-            askAccount="true"
-            authorizationEndpoint="https://accounts.zoho.com/oauth/v2/auth"
-            clientId="1000.54H0AT9HC009NH4487PTRMJ0OBZG3E"
-            clientSecret="0df0714db9cfaf52f79902172351dcd956ebffa111"
-            enabled="true"
-            privacy="https://www.zoho.com/privacy.html"
-            prompt="consent"
-            redirectUri="https://oauth.faircode.eu/"
-            scopes="ZohoMail.messages.ALL"
-            tokenEndpoint="https://accounts.zoho.com/oauth/v2/token"
-            tokenScopes="false">
-            <parameter
-                key="access_type"
-                value="offline" />
-        </oauth>
     </provider>
     <provider
         name="Zoho EU"
@@ -876,6 +827,19 @@
             starttls="false" />
         <smtp
             host="smtp.zoho.com.au"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
+        name="Zoho pro"
+        documentation="You might need to &lt;a href=&quot;https://www.zoho.com/mail/help/imap-access.html#EnableIMAP&quot;&gt;enable IMAP&lt;/a&gt; and use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
+        maxtls="1.2">
+        <imap
+            host="imappro.zoho.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtppro.zoho.com"
             port="465"
             starttls="false" />
     </provider>
