@@ -5210,11 +5210,13 @@ class Core {
 
             if (!Helper.equal(message.keywords, keywords) &&
                     !folder.read_only &&
-                    (ifolder.getPermanentFlags().contains(Flags.Flag.USER) || keywords.length > 0)) {
+                    (ifolder.getPermanentFlags().contains(Flags.Flag.USER) || MessageHelper.hasUserKeywords(keywords))) {
+                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid +
+                        " flags=" + ifolder.getPermanentFlags().contains(Flags.Flag.USER) +
+                        " keywords=" + (message.keywords == null ? null : TextUtils.join(" ", message.keywords)) +
+                        "/" + TextUtils.join(" ", keywords));
                 update = true;
                 message.keywords = keywords;
-                Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid +
-                        " keywords=" + TextUtils.join(" ", keywords));
 
                 message.importance = null;
                 for (String keyword : keywords)
