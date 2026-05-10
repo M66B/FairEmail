@@ -302,6 +302,13 @@ public class MessageHelper {
             "$social" // mailbox.org
     ));
 
+    private static final List<String> FLAG_USER = Collections.unmodifiableList(Arrays.asList(
+            FLAG_CLASSIFIED,
+            FLAG_FILTERED,
+            FLAG_LOW_IMPORTANCE,
+            FLAG_HIGH_IMPORTANCE
+    ));
+
     // https://tools.ietf.org/html/rfc4021
 
     static void setSystemProperties(Context context) {
@@ -1589,6 +1596,22 @@ public class MessageHelper {
                 return false;
 
         return true;
+    }
+
+    static boolean hasUserKeywords(String[] keywords) {
+        if (keywords == null)
+            return false;
+        for (String keyword : keywords) {
+            if (TextUtils.isEmpty(keyword))
+                continue;
+            if (FLAG_USER.contains(keyword))
+                return true;
+            if (FLAG_BLACKLIST.contains(keyword))
+                continue;
+            if (!keyword.startsWith("$"))
+                return true;
+        }
+        return false;
     }
 
     String getMessageID() throws MessagingException {
