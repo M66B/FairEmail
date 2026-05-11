@@ -26,7 +26,7 @@ android {
     defaultConfig {
         applicationId "eu.faircode.email"
         compileSdk = 37
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 37
         //targetSdkPreview "VanillaIceCream"
         versionCode getVersionCode()
