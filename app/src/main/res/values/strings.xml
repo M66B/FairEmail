@@ -417,6 +417,10 @@
         You are navigating to the more advanced options.
         All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
+    <string name="title_advanced_hint_configure">
+        You don\'t need to be here to configure an account. Please use the quick setup wizard button for this.
+        The quick setup wizard almost always works, but if it doesn\'t, you can use the classic manual setup a little below the wizard button.
+    </string>
     <string name="title_advanced_hint_remark">
         The options are categorized by tab, divided into sections, organized by appearance or use, and searchable.
     </string>
@@ -2749,7 +2753,7 @@
     </string-array>
 
     <string-array name="onCloseValues" translatable="false">
-        <item></item>
+        <item>none</item>
         <item>previous</item>
         <item>next</item>
     </string-array>

@@ -190,6 +190,8 @@ public class FragmentOptions extends FragmentBase {
         super.onCreate(savedInstanceState);
         Context context = getContext();
         this.dp24 = (context == null ? -48 : Helper.dp2pixels(context, 24));
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove("setup_advanced").apply();
     }
 
     @Override
