@@ -34,6 +34,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Dropped support for Android 5 Lollipop (the Android support libraries do not support this anymore either)
 * Added searching for important messages
 * Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2315 2026-04-27
 

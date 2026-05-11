@@ -34,6 +34,8 @@ Next version (Work in progress)
 * Dropped support for Android 5 Lollipop (the Android support libraries do not support this anymore either)
 * Added searching for important messages
 * Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
 
 1.2315 2026-04-27
 
