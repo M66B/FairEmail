@@ -354,6 +354,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         criteria.with_unseen,
                         criteria.with_flagged,
                         criteria.with_hidden,
+                        criteria.with_importance,
                         criteria.with_encrypted,
                         criteria.with_attachments,
                         criteria.with_notes,
@@ -793,6 +794,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 return false;
         }
 
+        if (criteria.with_importance != null)
+            if (!Objects.equals(message.importance, criteria.with_importance))
+                return false;
+
         if (criteria.with_encrypted) {
             if (message.encrypt == null ||
                     EntityMessage.ENCRYPT_NONE.equals(message.encrypt))
@@ -1060,6 +1065,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean with_flagged;
         Integer with_flag_color;
         boolean with_hidden;
+        Integer with_importance;
         boolean with_encrypted;
         boolean with_attachments;
         boolean with_notes;
@@ -1314,6 +1320,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 flags.add(context.getString(R.string.title_search_flag_flagged));
             if (with_hidden)
                 flags.add(context.getString(R.string.title_search_flag_hidden));
+            if (with_importance != null) {
+                if (with_importance.equals(EntityMessage.PRIORITIY_LOW))
+                    flags.add(context.getString(R.string.title_importance_low));
+                else if (with_importance.equals(EntityMessage.PRIORITIY_NORMAL))
+                    flags.add(context.getString(R.string.title_importance_normal));
+                else if (with_importance.equals(EntityMessage.PRIORITIY_HIGH))
+                    flags.add(context.getString(R.string.title_importance_high));
+            }
             if (with_encrypted)
                 flags.add(context.getString(R.string.title_search_flag_encrypted));
             if (with_attachments)
@@ -1356,6 +1370,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         this.with_flagged == other.with_flagged &&
                         Objects.equals(this.with_flag_color, other.with_flag_color) &&
                         this.with_hidden == other.with_hidden &&
+                        Objects.equals(this.with_importance, other.with_importance) &&
                         this.with_encrypted == other.with_encrypted &&
                         this.with_attachments == other.with_attachments &&
                         this.with_notes == other.with_notes &&
@@ -1389,6 +1404,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             if (with_flag_color != null)
                 json.put("with_flag_color", with_flag_color);
             json.put("with_hidden", with_hidden);
+            if (with_importance != null)
+                json.put("with_importance", with_importance);
             json.put("with_encrypted", with_encrypted);
             json.put("with_attachments", with_attachments);
             json.put("with_notes", with_notes);
@@ -1446,6 +1463,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             if (json.has("with_flag_color"))
                 criteria.with_flag_color = json.getInt("with_flag_color");
             criteria.with_hidden = json.optBoolean("with_hidden");
+            if (json.has("with_importance"))
+                criteria.with_importance = json.getInt("with_importance");
             criteria.with_encrypted = json.optBoolean("with_encrypted");
             criteria.with_attachments = json.optBoolean("with_attachments");
             criteria.with_notes = json.optBoolean("with_notes");
@@ -1501,6 +1520,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     " unseen=" + with_unseen +
                     " flagged=" + with_flagged + ":" + with_flag_color +
                     " hidden=" + with_hidden +
+                    " importance=" + with_importance +
                     " encrypted=" + with_encrypted +
                     " w/attachments=" + with_attachments +
                     " w/notes=" + with_notes +

@@ -31,6 +31,7 @@ Diuqin
 Next version (Work in progress)
 
 * Adapted for Android 17
+* Added searching for important messages
 * Small improvements and minor bug fixes
 
 1.2315 2026-04-27

@@ -1998,6 +1998,7 @@
     <string name="title_search_with_unseen">Unread</string>
     <string name="title_search_with_flagged">Starred</string>
     <string name="title_search_with_hidden">Hidden (on device only)</string>
+    <string name="title_search_with_importance">Importance (on device only)</string>
     <string name="title_search_with_encrypted">Encrypted (on device only)</string>
     <string name="title_search_with_attachments">With attachments (on device only)</string>
     <string name="title_search_with_size">Message size larger than</string>

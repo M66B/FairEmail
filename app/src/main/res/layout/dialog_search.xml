@@ -478,6 +478,28 @@
             app:layout_constraintTop_toBottomOf="@id/cbFlagged" />
 
         <CheckBox
+            android:id="@+id/cbImportance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_search_with_importance"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbHidden" />
+
+        <eu.faircode.email.SpinnerEx
+            android:id="@+id/spImportance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="6dp"
+            android:entries="@array/priorityNames"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbImportance" />
+
+        <CheckBox
             android:id="@+id/cbEncrypted"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -486,7 +508,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbHidden" />
+            app:layout_constraintTop_toBottomOf="@id/spImportance" />
 
         <CheckBox
             android:id="@+id/cbAttachments"
@@ -609,7 +631,7 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
             cbSearchIndex,tvSearchIndexHint,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,tvSearchTextHint,tvSearchTextUnsupported,cbNotes,cbFileNames,
-            tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbAttachments,
+            tvAnd,cbUnseen,cbFlagged,cbHidden,cbImportance,spImportance,cbEncrypted,cbAttachments,
             tvDate,btnAfter,btnBefore,tvBefore,tvAfter,cbSearchDevice" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

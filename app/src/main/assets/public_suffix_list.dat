@@ -6821,7 +6821,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2026-04-15T16:04:02Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2026-04-30T16:18:08Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -7007,7 +7007,7 @@ anquan
 // https://www.iana.org/domains/root/db/anz.html
 anz
 
-// aol : Yahoo Inc.
+// aol : AOL Media LLC
 // https://www.iana.org/domains/root/db/aol.html
 aol
 
@@ -12817,10 +12817,6 @@ craft.me
 // Submitted by Ales Krajnik <ales.krajnik@craynic.com>
 realm.cz
 
-// Crisp IM SAS : https://crisp.chat/
-// Submitted by Baptiste Jamin <hostmaster@crisp.chat>
-on.crisp.email
-
 // Cryptonomic : https://cryptonomic.net/
 // Submitted by Andrew Cady <public-suffix-list@cryptonomic.net>
 *.cryptonomic.net
@@ -15659,6 +15655,12 @@ pp.ua
 // Submitted by Information Administration <info@sasf.org.cn>
 as.sh.cn
 
+// Shanghai Oray Information Technology Co., Ltd.: https://www.oray.com/
+// Submitted by: Shanghai Oray Information Technology Co., Ltd. <registrar@oray.com>
+vicp.fun
+yicp.fun
+zicp.fun
+
 // Sheezy.Art : https://sheezy.art
 // Submitted by Nyoom <admin@sheezy.art>
 sheezy.games
@@ -16346,6 +16348,8 @@ zeabur.app
 // Zerops : https://zerops.io/
 // Submitted by Zerops Team <security@zerops.io>
 *.zerops.app
+prg1-zerops.zone
+*.zerops.zone
 
 // Zine EOOD : https://zine.bg/
 // Submitted by Martin Angelov <martin@zine.bg>

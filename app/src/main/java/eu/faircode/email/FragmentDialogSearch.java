@@ -126,6 +126,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final CheckBox cbUnseen = dview.findViewById(R.id.cbUnseen);
         final CheckBox cbFlagged = dview.findViewById(R.id.cbFlagged);
         final CheckBox cbHidden = dview.findViewById(R.id.cbHidden);
+        final CheckBox cbImportance = dview.findViewById(R.id.cbImportance);
+        final Spinner spImportance = dview.findViewById(R.id.spImportance);
         final CheckBox cbEncrypted = dview.findViewById(R.id.cbEncrypted);
         final CheckBox cbAttachments = dview.findViewById(R.id.cbAttachments);
         final Spinner spMessageSize = dview.findViewById(R.id.spMessageSize);
@@ -441,6 +443,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbFileNames.setChecked(last_search_filenames);
         cbSearchTrash.setChecked(last_search_trash);
         cbSearchJunk.setChecked(last_search_junk);
+        spImportance.setSelection(1);
         tvAfter.setText(null);
         tvBefore.setText(null);
         cbSearchDevice.setChecked(last_search_device);
@@ -478,6 +481,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                             criteria.with_unseen = cbUnseen.isChecked();
                             criteria.with_flagged = cbFlagged.isChecked();
                             criteria.with_hidden = cbHidden.isChecked();
+                            criteria.with_importance = (cbImportance.isChecked() ? spImportance.getSelectedItemPosition() : null);
                             criteria.with_encrypted = cbEncrypted.isChecked();
                             criteria.with_attachments = cbAttachments.isChecked();
 

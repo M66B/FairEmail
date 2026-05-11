@@ -2093,6 +2093,7 @@ public class FragmentMessages extends FragmentBase
         if (viewType != AdapterMessage.ViewType.SEARCH ||
                 criteria == null ||
                 criteria.with_hidden ||
+                criteria.with_importance != null ||
                 criteria.with_encrypted ||
                 criteria.with_attachments ||
                 criteria.with_notes ||
