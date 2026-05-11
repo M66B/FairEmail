@@ -90,6 +90,7 @@ public class FragmentAccount extends FragmentBase {
 
     private Spinner spProvider;
     private TextView tvGmailHint;
+    private TextView tvDocumentation;
 
     private EditText etDomain;
     private Button btnAutoConfig;
@@ -219,6 +220,8 @@ public class FragmentAccount extends FragmentBase {
         // Get controls
         spProvider = view.findViewById(R.id.spProvider);
         tvGmailHint = view.findViewById(R.id.tvGmailHint);
+        tvDocumentation = view.findViewById(R.id.tvDocumentation);
+        tvDocumentation.setMovementMethod(LinkMovementMethodCompat.getInstance());
 
         etDomain = view.findViewById(R.id.etDomain);
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
@@ -314,6 +317,8 @@ public class FragmentAccount extends FragmentBase {
                 tvGmailHint.setVisibility(
                         auth == AUTH_TYPE_PASSWORD && "gmail".equals(provider.id)
                                 ? View.VISIBLE : View.GONE);
+                tvDocumentation.setText(provider.documentation == null ? null : HtmlHelper.fromHtml(provider.documentation.toString(), view.getContext()));
+                tvDocumentation.setVisibility(provider.documentation == null ? View.GONE : View.VISIBLE);
                 grpServer.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 grpCalendar.setVisibility(position > 0 && !BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
 
@@ -662,6 +667,7 @@ public class FragmentAccount extends FragmentBase {
         Helper.setViewsEnabled(view, false);
 
         tvGmailHint.setVisibility(View.GONE);
+        tvDocumentation.setVisibility(View.GONE);
 
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);
