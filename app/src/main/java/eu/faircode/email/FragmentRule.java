@@ -1006,6 +1006,17 @@ public class FragmentRule extends FragmentBase {
                 data.identities = db.identity().getSynchronizingIdentities(aid);
                 data.answers = db.answer().getAnswers(false);
 
+                if (data.account == null)
+                    throw new IllegalArgumentException("Account not available");
+                if (data.folder == null)
+                    throw new IllegalArgumentException("Folder not available");
+                if (data.groups == null)
+                    throw new IllegalArgumentException("Groups not available");
+                if (data.identities == null)
+                    throw new IllegalArgumentException("Identities not available");
+                if (data.answers == null)
+                    throw new IllegalArgumentException("Templates not available");
+
                 return data;
             }
 
