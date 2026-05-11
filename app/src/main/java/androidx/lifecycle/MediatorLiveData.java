@@ -18,9 +18,10 @@ package androidx.lifecycle;
 
 import androidx.annotation.CallSuper;
 import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.arch.core.internal.SafeIterableMap;
+
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import java.util.Map;
 

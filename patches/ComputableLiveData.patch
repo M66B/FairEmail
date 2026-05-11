@@ -1,8 +1,8 @@
 diff --git a/app/src/main/java/androidx/lifecycle/ComputableLiveData.kt b/app/src/main/java/androidx/lifecycle/ComputableLiveData.kt
-index 94aa8d7f72..ebdb5de278 100644
+index 397e28a23f..79e893b93b 100644
 --- a/app/src/main/java/androidx/lifecycle/ComputableLiveData.kt
 +++ b/app/src/main/java/androidx/lifecycle/ComputableLiveData.kt
-@@ -69,13 +69,26 @@ constructor(
+@@ -65,13 +65,26 @@ constructor(internal val executor: Executor = ArchTaskExecutor.getIOThreadExecut
                  // as long as it is invalid, keep computing.
                  try {
                      var value: T? = null
@@ -29,3 +29,39 @@ index 94aa8d7f72..ebdb5de278 100644
                  } finally {
                      // release compute lock
                      computing.set(false)
+diff --git a/patches/ComputableLiveData.patch b/patches/ComputableLiveData.patch
+index 8d56d192e9..e69de29bb2 100644
+--- a/patches/ComputableLiveData.patch
++++ b/patches/ComputableLiveData.patch
+@@ -1,31 +0,0 @@
+-diff --git a/app/src/main/java/androidx/lifecycle/ComputableLiveData.kt b/app/src/main/java/androidx/lifecycle/ComputableLiveData.kt
+-index 94aa8d7f72..ebdb5de278 100644
+---- a/app/src/main/java/androidx/lifecycle/ComputableLiveData.kt
+-+++ b/app/src/main/java/androidx/lifecycle/ComputableLiveData.kt
+-@@ -69,13 +69,26 @@ constructor(
+-                 // as long as it is invalid, keep computing.
+-                 try {
+-                     var value: T? = null
+-+                    var once = true;
+-+                    var last = android.os.SystemClock.elapsedRealtime()
+-                     while (invalid.compareAndSet(true, false)) {
+-+                        var now = android.os.SystemClock.elapsedRealtime()
+-+                        if (value != null && (once || last + 2500 < now)) {
+-+                            eu.faircode.email.Log.i(liveData.toString() + " post once=" + once + " age=" + (now - last) + " ms")
+-+                            once = false;
+-+                            last = now;
+-+                            liveData.postValue(value);
+-+                        }
+-                         computed = true
+-                         value = compute()
+-                     }
+-                     if (computed) {
+-                         liveData.postValue(value)
+-                     }
+-+                } catch (ex: Throwable) {
+-+                    // java.lang.IllegalStateException: Couldn't read row xxx column yyy
+-+                    eu.faircode.email.Log.e(ex);
+-+                    invalid.set(true);
+-                 } finally {
+-                     // release compute lock
+-                     computing.set(false)

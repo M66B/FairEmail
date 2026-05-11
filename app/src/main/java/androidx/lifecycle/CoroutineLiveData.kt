@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:Suppress("FacadeClassJvmName") // Cannot be updated, the Kt name has been released
+
 package androidx.lifecycle
 
 import android.annotation.SuppressLint
@@ -47,7 +49,6 @@ public interface LiveDataScope<T> {
      * Note that this function suspends until the value is set on the [LiveData].
      *
      * @param value The new value for the [LiveData]
-     *
      * @see emitSource
      */
     public suspend fun emit(value: T)
@@ -57,8 +58,7 @@ public interface LiveDataScope<T> {
      * method will remove any source that was yielded before via [emitSource].
      *
      * @param source The [LiveData] instance whose values will be dispatched from the current
-     * [LiveData].
-     *
+     *   [LiveData].
      * @see emit
      * @see MediatorLiveData.addSource
      * @see MediatorLiveData.removeSource
@@ -68,18 +68,18 @@ public interface LiveDataScope<T> {
     /**
      * References the current value of the [LiveData].
      *
-     * If the block never `emit`ed a value, [latestValue] will be `null`. You can use this
-     * value to check what was then latest value `emit`ed by your `block` before it got cancelled.
+     * If the block never `emit`ed a value, [latestValue] will be `null`. You can use this value to
+     * check what was then latest value `emit`ed by your `block` before it got cancelled.
      *
-     * Note that if the block called [emitSource], then `latestValue` will be last value
-     * dispatched by the `source` [LiveData].
+     * Note that if the block called [emitSource], then `latestValue` will be last value dispatched
+     * by the `source` [LiveData].
      */
     public val latestValue: T?
 }
 
 internal class LiveDataScopeImpl<T>(
     internal var target: CoroutineLiveData<T>,
-    context: CoroutineContext
+    context: CoroutineContext,
 ) : LiveDataScope<T> {
 
     override val latestValue: T?
@@ -95,47 +95,41 @@ internal class LiveDataScopeImpl<T>(
         }
 
     @SuppressLint("NullSafeMutableLiveData")
-    override suspend fun emit(value: T) = withContext(coroutineContext) {
-        target.clearSource()
-        target.value = value
-    }
+    override suspend fun emit(value: T) =
+        withContext(coroutineContext) {
+            target.clearSource()
+            target.value = value
+        }
 }
 
 internal suspend fun <T> MediatorLiveData<T>.addDisposableSource(
     source: LiveData<T>
-): EmittedSource = withContext(Dispatchers.Main.immediate) {
-    addSource(source) {
-        value = it
+): EmittedSource =
+    withContext(Dispatchers.Main.immediate) {
+        addSource(source) { value = it }
+        EmittedSource(source = source, mediator = this@addDisposableSource)
     }
-    EmittedSource(
-        source = source,
-        mediator = this@addDisposableSource
-    )
-}
 
 /**
- * Holder class that keeps track of the previously dispatched [LiveData].
- * It implements [DisposableHandle] interface while also providing a suspend clear function
- * that we can use internally.
+ * Holder class that keeps track of the previously dispatched [LiveData]. It implements
+ * [DisposableHandle] interface while also providing a suspend clear function that we can use
+ * internally.
  */
 internal class EmittedSource(
     private val source: LiveData<*>,
-    private val mediator: MediatorLiveData<*>
+    private val mediator: MediatorLiveData<*>,
 ) : DisposableHandle {
     // @MainThread
     private var disposed = false
+
     /**
      * Unlike [dispose] which cannot be sync because it not a coroutine (and we do not want to
      * lock), this version is a suspend function and does not return until source is removed.
      */
-    suspend fun disposeNow() = withContext(Dispatchers.Main.immediate) {
-        removeSource()
-    }
+    suspend fun disposeNow() = withContext(Dispatchers.Main.immediate) { removeSource() }
 
     override fun dispose() {
-        CoroutineScope(Dispatchers.Main.immediate).launch {
-            removeSource()
-        }
+        CoroutineScope(Dispatchers.Main.immediate).launch { removeSource() }
     }
 
     @MainThread
@@ -149,15 +143,13 @@ internal class EmittedSource(
 
 internal typealias Block<T> = suspend LiveDataScope<T>.() -> Unit
 
-/**
- * Handles running a block at most once to completion.
- */
+/** Handles running a block at most once to completion. */
 internal class BlockRunner<T>(
     private val liveData: CoroutineLiveData<T>,
     private val block: Block<T>,
     private val timeoutInMs: Long,
     private val scope: CoroutineScope,
-    private val onDone: () -> Unit
+    private val onDone: () -> Unit,
 ) {
     // currently running block job.
     private var runningJob: Job? = null
@@ -172,11 +164,12 @@ internal class BlockRunner<T>(
         if (runningJob != null) {
             return
         }
-        runningJob = scope.launch {
-            val liveDataScope = LiveDataScopeImpl(liveData, coroutineContext)
-            block(liveDataScope)
-            onDone()
-        }
+        runningJob =
+            scope.launch {
+                val liveDataScope = LiveDataScopeImpl(liveData, coroutineContext)
+                block(liveDataScope)
+                onDone()
+            }
     }
 
     @MainThread
@@ -184,29 +177,33 @@ internal class BlockRunner<T>(
         if (cancellationJob != null) {
             error("Cancel call cannot happen without a maybeRun")
         }
-        cancellationJob = scope.launch(Dispatchers.Main.immediate) {
-            delay(timeoutInMs)
-            if (!liveData.hasActiveObservers()) {
-                // one last check on active observers to avoid any race condition between starting
-                // a running coroutine and cancelation
-                runningJob?.cancel()
-                runningJob = null
+        cancellationJob =
+            scope.launch(Dispatchers.Main.immediate) {
+                delay(timeoutInMs)
+                if (!liveData.hasActiveObservers()) {
+                    // one last check on active observers to avoid any race condition between
+                    // starting
+                    // a running coroutine and cancelation
+                    runningJob?.cancel()
+                    runningJob = null
+                }
             }
-        }
     }
 }
 
 internal class CoroutineLiveData<T>(
     context: CoroutineContext = EmptyCoroutineContext,
     timeoutInMs: Long = DEFAULT_TIMEOUT,
-    block: Block<T>
+    block: Block<T>,
 ) : MediatorLiveData<T>() {
     private var blockRunner: BlockRunner<T>?
     private var emittedSource: EmittedSource? = null
 
     init {
-        // use an intermediate supervisor job so that if we cancel individual block runs due to losing
-        // observers, it won't cancel the given context as we only cancel w/ the intention of possibly
+        // use an intermediate supervisor job so that if we cancel individual block runs due to
+        // losing
+        // observers, it won't cancel the given context as we only cancel w/ the intention of
+        // possibly
         // relaunching using the same parent context.
         val supervisorJob = SupervisorJob(context[Job])
 
@@ -214,14 +211,10 @@ internal class CoroutineLiveData<T>(
         // We default to Main dispatcher but developer can override it.
         // The supervisor job is added last to isolate block runs.
         val scope = CoroutineScope(Dispatchers.Main.immediate + context + supervisorJob)
-        blockRunner = BlockRunner(
-            liveData = this,
-            block = block,
-            timeoutInMs = timeoutInMs,
-            scope = scope
-        ) {
-            blockRunner = null
-        }
+        blockRunner =
+            BlockRunner(liveData = this, block = block, timeoutInMs = timeoutInMs, scope = scope) {
+                blockRunner = null
+            }
     }
 
     internal suspend fun emitSource(source: LiveData<T>): DisposableHandle {
@@ -251,17 +244,17 @@ internal class CoroutineLiveData<T>(
  * Builds a LiveData that has values yielded from the given [block] that executes on a
  * [LiveDataScope].
  *
- * The [block] starts executing when the returned [LiveData] becomes [active](LiveData.onActive).
- * If the [LiveData] becomes [inactive](LiveData.onInactive) while the [block] is executing, it
- * will be cancelled after [timeoutInMs] milliseconds unless the [LiveData] becomes active again
- * before that timeout (to gracefully handle cases like Activity rotation). Any value
- * [LiveDataScope.emit]ed from a cancelled [block] will be ignored.
+ * The [block] starts executing when the returned [LiveData] becomes [active](LiveData.onActive). If
+ * the [LiveData] becomes [inactive](LiveData.onInactive) while the [block] is executing, it will be
+ * cancelled after [timeoutInMs] milliseconds unless the [LiveData] becomes active again before that
+ * timeout (to gracefully handle cases like Activity rotation). Any value [LiveDataScope.emit]ed
+ * from a cancelled [block] will be ignored.
  *
  * After a cancellation, if the [LiveData] becomes active again, the [block] will be re-executed
  * from the beginning. If you would like to continue the operations based on where it was stopped
- * last, you can use the [LiveDataScope.latestValue] function to get the last
- * [LiveDataScope.emit]ed value.
-
+ * last, you can use the [LiveDataScope.latestValue] function to get the last [LiveDataScope.emit]ed
+ * value.
+ *
  * If the [block] completes successfully *or* is cancelled due to reasons other than [LiveData]
  * becoming inactive, it *will not* be re-executed even after [LiveData] goes through active
  * inactive cycle.
@@ -345,34 +338,34 @@ internal class CoroutineLiveData<T>(
  * ```
  *
  * @param context The CoroutineContext to run the given block in. Defaults to
- * [EmptyCoroutineContext] combined with
- * [Dispatchers.Main.immediate][kotlinx.coroutines.MainCoroutineDispatcher.immediate]
+ *   [EmptyCoroutineContext] combined with
+ *   [Dispatchers.Main.immediate][kotlinx.coroutines.MainCoroutineDispatcher.immediate]
  * @param timeoutInMs The timeout in ms before cancelling the block if there are no active observers
- * ([LiveData.hasActiveObservers]. Defaults to [DEFAULT_TIMEOUT].
+ *   ([LiveData.hasActiveObservers]. Defaults to [DEFAULT_TIMEOUT].
  * @param block The block to run when the [LiveData] has active observers.
  */
 @JvmOverloads
 public fun <T> liveData(
     context: CoroutineContext = EmptyCoroutineContext,
     timeoutInMs: Long = DEFAULT_TIMEOUT,
-    block: suspend LiveDataScope<T>.() -> Unit
+    block: suspend LiveDataScope<T>.() -> Unit,
 ): LiveData<T> = CoroutineLiveData(context, timeoutInMs, block)
 
 /**
  * Builds a LiveData that has values yielded from the given [block] that executes on a
  * [LiveDataScope].
  *
- * The [block] starts executing when the returned [LiveData] becomes [active](LiveData.onActive).
- * If the [LiveData] becomes [inactive](LiveData.onInactive) while the [block] is executing, it
- * will be cancelled after the [timeout] duration unless the [LiveData] becomes active again
- * before that timeout (to gracefully handle cases like Activity rotation). Any value
- * [LiveDataScope.emit]ed from a cancelled [block] will be ignored.
+ * The [block] starts executing when the returned [LiveData] becomes [active](LiveData.onActive). If
+ * the [LiveData] becomes [inactive](LiveData.onInactive) while the [block] is executing, it will be
+ * cancelled after the [timeout] duration unless the [LiveData] becomes active again before that
+ * timeout (to gracefully handle cases like Activity rotation). Any value [LiveDataScope.emit]ed
+ * from a cancelled [block] will be ignored.
  *
  * After a cancellation, if the [LiveData] becomes active again, the [block] will be re-executed
  * from the beginning. If you would like to continue the operations based on where it was stopped
- * last, you can use the [LiveDataScope.latestValue] function to get the last
- * [LiveDataScope.emit]ed value.
-
+ * last, you can use the [LiveDataScope.latestValue] function to get the last [LiveDataScope.emit]ed
+ * value.
+ *
  * If the [block] completes successfully *or* is cancelled due to reasons other than [LiveData]
  * becoming inactive, it *will not* be re-executed even after [LiveData] goes through active
  * inactive cycle.
@@ -381,11 +374,11 @@ public fun <T> liveData(
  * coroutines documentation for details
  * https://kotlinlang.org/docs/reference/coroutines/cancellation-and-timeouts.html.
  *
- * The [timeout] can be changed to fit different use cases better, for example increasing it
- * will give more time to the [block] to complete even if [LiveData] is inactive. It is good for
- * cases when [block] is finite (meaning it can complete successfully) and is costly to restart.
- * Otherwise if a [block] is cheap to restart, decreasing the [timeout] value will allow to
- * yield less values that aren't consumed by anything.
+ * The [timeout] can be changed to fit different use cases better, for example increasing it will
+ * give more time to the [block] to complete even if [LiveData] is inactive. It is good for cases
+ * when [block] is finite (meaning it can complete successfully) and is costly to restart. Otherwise
+ * if a [block] is cheap to restart, decreasing the [timeout] value will allow to yield less values
+ * that aren't consumed by anything.
  *
  * ```
  * // a simple LiveData that receives value 3, 3 seconds after being observed for the first time.
@@ -456,10 +449,10 @@ public fun <T> liveData(
  * ```
  *
  * @param context The CoroutineContext to run the given block in. Defaults to
- * [EmptyCoroutineContext] combined with
- * [Dispatchers.Main.immediate][kotlinx.coroutines.MainCoroutineDispatcher.immediate].
+ *   [EmptyCoroutineContext] combined with
+ *   [Dispatchers.Main.immediate][kotlinx.coroutines.MainCoroutineDispatcher.immediate].
  * @param timeout The timeout duration before cancelling the block if there are no active observers
- * ([LiveData.hasActiveObservers].
+ *   ([LiveData.hasActiveObservers].
  * @param block The block to run when the [LiveData] has active observers.
  */
 @RequiresApi(Build.VERSION_CODES.O)
@@ -467,7 +460,7 @@ public fun <T> liveData(
 public fun <T> liveData(
     timeout: Duration,
     context: CoroutineContext = EmptyCoroutineContext,
-    block: suspend LiveDataScope<T>.() -> Unit
+    block: suspend LiveDataScope<T>.() -> Unit,
 ): LiveData<T> = CoroutineLiveData(context, Api26Impl.toMillis(timeout), block)
 
 @RequiresApi(26)

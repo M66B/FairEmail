@@ -20,10 +20,11 @@ import static androidx.lifecycle.Lifecycle.State.DESTROYED;
 import static androidx.lifecycle.Lifecycle.State.STARTED;
 
 import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.arch.core.executor.ArchTaskExecutor;
 import androidx.arch.core.internal.SafeIterableMap;
+
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -240,7 +241,7 @@ public abstract class LiveData<T> {
      * @param observer The Observer to receive events.
      */
     @MainThread
-    public void removeObserver(@NonNull final Observer<? super T> observer) {
+    public void removeObserver(final @NonNull Observer<? super T> observer) {
         assertMainThread("removeObserver");
         ObserverWrapper removed = mObservers.remove(observer);
         if (removed == null) {
@@ -257,7 +258,7 @@ public abstract class LiveData<T> {
      */
     @SuppressWarnings("WeakerAccess")
     @MainThread
-    public void removeObservers(@NonNull final LifecycleOwner owner) {
+    public void removeObservers(final @NonNull LifecycleOwner owner) {
         assertMainThread("removeObservers");
         for (Map.Entry<Observer<? super T>, ObserverWrapper> entry : mObservers) {
             if (entry.getValue().isAttachedTo(owner)) {
@@ -317,9 +318,8 @@ public abstract class LiveData<T> {
      *
      * @return the current value or null if {@link #isInitialized()} is false
      */
-    @SuppressWarnings("unchecked")
-    @Nullable
-    public T getValue() {
+    @SuppressWarnings({"unchecked", "GetterSetterNullability"})
+    public @Nullable T getValue() {
         Object data = mData;
         if (data != NOT_SET) {
             return (T) data;
@@ -413,8 +413,7 @@ public abstract class LiveData<T> {
     }
 
     class LifecycleBoundObserver extends ObserverWrapper implements LifecycleEventObserver {
-        @NonNull
-        final LifecycleOwner mOwner;
+        final @NonNull LifecycleOwner mOwner;
 
         LifecycleBoundObserver(@NonNull LifecycleOwner owner, Observer<? super T> observer) {
             super(observer);
@@ -428,7 +427,7 @@ public abstract class LiveData<T> {
 
         @Override
         public void onStateChanged(@NonNull LifecycleOwner source,
-                @NonNull Lifecycle.Event event) {
+                Lifecycle.@NonNull Event event) {
             Lifecycle.State currentState = mOwner.getLifecycle().getCurrentState();
             if (currentState == DESTROYED) {
                 removeObserver(mObserver);
