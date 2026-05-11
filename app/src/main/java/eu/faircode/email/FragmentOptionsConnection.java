@@ -209,6 +209,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         grpBC = view.findViewById(R.id.grpBC);
         grpCustomSsl = view.findViewById(R.id.grpCustomSsl);
 
+        etHost.setText("imap.vodafonemail.de");
+        etPort.setText("993");
+
         setOptions();
 
         // Wire controls
