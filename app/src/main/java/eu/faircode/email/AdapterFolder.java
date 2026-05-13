@@ -54,6 +54,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.view.MenuCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
@@ -635,24 +636,24 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_spam, order++, R.string.title_empty_spam);
 
                 if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, order++, R.string.title_synchronize_enabled)
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_synchronize_enabled, order++, R.string.title_synchronize_enabled)
                             .setCheckable(true).setChecked(folder.synchronize);
 
                 if (folder.account != null) {
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, order++, R.string.title_notify_folder)
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_notify_folder, order++, R.string.title_notify_folder)
                             .setCheckable(true).setChecked(folder.notify);
 
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, order++, R.string.title_unified_folder)
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_unified_folder, order++, R.string.title_unified_folder)
                             .setCheckable(true).setChecked(folder.unified);
 
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_navigation_folder, order++, R.string.title_navigation_folder)
+                    popupMenu.getMenu().add(Menu.FIRST, R.string.title_navigation_folder, order++, R.string.title_navigation_folder)
                             .setCheckable(true).setChecked(folder.navigation);
                 }
 
                 if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
                     boolean subscriptions = prefs.getBoolean("subscriptions", false);
                     if (subscriptions && !folder.read_only)
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_subscribe, order++, R.string.title_subscribe)
+                        popupMenu.getMenu().add(Menu.FIRST, R.string.title_subscribe, order++, R.string.title_subscribe)
                                 .setCheckable(true).setChecked(folder.subscribed != null && folder.subscribed);
 
                     if (!folder.read_only) {
@@ -1464,6 +1465,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
             });
 
+            MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
             popupMenu.show();
 
             return true;
