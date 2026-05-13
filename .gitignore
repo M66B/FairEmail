@@ -21,6 +21,7 @@ crowdin.properties
 .idea/other.xml
 .idea/runConfigurations.xml
 .idea/deviceManager.xml
+.idea/studiobot.xml
 .kotlin
 app/.cxx/
 build
