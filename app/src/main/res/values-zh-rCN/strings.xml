@@ -331,6 +331,9 @@
     <string name="title_advanced_hint_title">更多高级选项</string>
     <string name="title_advanced_hint_message">        您正在前往更多的高级选项        所有选项默认使用常用的标准值，若有特别偏好则可更改。
     </string>
+    <string name="title_advanced_hint_configure">        无须在此配置账户。 请对此使用快速设置向导。
+        快速设置向导几乎不会出问题，万一出了问题可以使用经典手动设置（在向导按钮下面一点点)
+    </string>
     <string name="title_advanced_hint_remark">        各个选项按照标签页分类，标签页内又分为多个部分，按外观或用途进行整理，并且可搜索。
     </string>
     <string name="title_advanced_hint_options">        大多数选项你都用不到，并且因为一些选项相当有针对性，
@@ -800,10 +803,10 @@
     <string name="title_advanced_openai_temperature">温度：%1$s</string>
     <string name="title_advanced_openai_moderation">内容审核</string>
     <string name="title_advanced_gemini">Gemini 集成</string>
-    <string name="title_advanced_multi_modal">多模型</string>
-    <string name="title_advanced_summarize_prompt">总结提示</string>
-    <string name="title_advanced_answer_prompt">回答提示</string>
-    <string name="title_advanced_system_instructions">系统指南</string>
+    <string name="title_advanced_multi_modal">多模态</string>
+    <string name="title_advanced_summarize_prompt">总结目的的提示词</string>
+    <string name="title_advanced_answer_prompt">回复提示词</string>
+    <string name="title_advanced_system_instructions">系统提示词</string>
     <string name="title_advanced_default_prompt">默认提示</string>
     <string name="title_advanced_ai">AI</string>
     <string name="title_advanced_ai_input_system">输入系统提示</string>
@@ -830,7 +833,7 @@
     <string name="title_advanced_protocol">协议日志</string>
     <string name="title_advanced_log_info">调试日志</string>
     <string name="title_advanced_debug">调试模式</string>
-    <string name="title_advanced_manual_hint">如果禁用接收邮件，仍然可以通过下拉邮件列表手动接收邮件</string>
+    <string name="title_advanced_manual_hint">如果禁用了自动接收消息，仍然可以通过下拉消息列表来手动接收消息</string>
     <string name="title_advanced_poll_battery">这可能会导致高耗电量！</string>
     <string name="title_advanced_poll_hint">定期检查新邮件会每次比较本地和远程邮件，这比较耗时并可能消耗更多电量，尤其是在邮件很多的情况下。始终接收将通过不断关注邮件变化来防止这种情况。</string>
     <string name="title_advanced_optimize_hint">这可能会改变同步频率以节省电池用量，取决于电子邮件服务器的功能和行为</string>
@@ -1640,6 +1643,7 @@
     <string name="title_search_with_unseen">未读邮件</string>
     <string name="title_search_with_flagged">星标邮件</string>
     <string name="title_search_with_hidden">隐藏邮件 (仅设备上)</string>
+    <string name="title_search_with_importance">重要性 (仅在设备上)</string>
     <string name="title_search_with_encrypted">加密邮件 (仅设备上)</string>
     <string name="title_search_with_attachments">有附件的邮件 (仅设备上)</string>
     <string name="title_search_with_size">邮件大小大于</string>
@@ -2340,7 +2344,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>关闭</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25 秒</item>
+        <item>1.25 秒</item>
         <item>2.5 秒</item>
         <item>5 秒</item>
         <item>7.5 秒</item>

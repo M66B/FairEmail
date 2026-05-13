@@ -309,6 +309,9 @@
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
+    <string name="title_advanced_hint_configure">        شما برای تنظیمات حساب‌تان نیازی به حضور در اینجا ندارید. لطفا از دکمه تنظیمات سریع برای این منظور استفاده کنید.
+        بخش تنظیمات سریع حساب تقریبا همواره پاسخگوی نیازتان خواهد بود اما اگر نبود، می‌توانید اندکی از دکمه تنظیمات دستی کلاسیک در پایین استفاده کنید.
+    </string>
     <string name="title_advanced_hint_options">        شما به بیشتر گزینه‌ها نیاز نخواهید داشت و از آنجایی که برخی از گزینه‌ها کاملا خاص هستند،
         اگر عملکرد همه گزینه‌ها بلافاصله مشخص نباشد قابل درک است.
         لطفاً فقط به دلیل تعداد گزینه‌ها یا برای اینکه همه گزینه‌ها را فورا متوجه نشده‌اید، نظر بدی نگذارید.
@@ -1159,6 +1162,7 @@
     <string name="title_search_with_unseen">خوانده نشده</string>
     <string name="title_search_with_flagged">ستاره‌دار</string>
     <string name="title_search_with_hidden">پنهان (فقط روی دستگاه)</string>
+    <string name="title_search_with_importance">اهمیت (فقط روی دستگاه)</string>
     <string name="title_search_with_encrypted">رمزگذاری شده(فقط روی دستگاه)</string>
     <string name="title_search_with_attachments">همراه پیوست‌ها (فقط روی دستگاه)</string>
     <string name="title_search_with_size">اندازه پیام بزرگ‌تر از</string>
@@ -1704,7 +1708,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>خاموش</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25 s</item>
+        <item>1.25 s</item>
         <item>2.5 s</item>
         <item>5 s</item>
         <item>7.5 s</item>

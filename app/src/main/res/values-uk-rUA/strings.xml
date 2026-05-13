@@ -374,6 +374,9 @@
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.        Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
     </string>
+    <string name="title_advanced_hint_configure">        Для налаштування облікового запису не обов\'язково бути присутнім тут. Для цього скористайтеся кнопкою «Майстер налаштування».
+        Майстер швидкого налаштування працює майже завжди, але якщо це не вдається, ви можете скористатися класичним ручним налаштуванням, яке знаходиться трохи нижче кнопки майстра.
+    </string>
     <string name="title_advanced_hint_remark">       Параметри класифіковані за вкладками, розділені на секції, організовані за зовнішнім виглядом або за використанням, та доступні для пошуку.
     </string>
     <string name="title_advanced_hint_options">        Більшість опцій Вам не знадобляться, а оскільки деякі з них досить специфічні,
@@ -1288,10 +1291,10 @@
     <string name="title_flag">До обраного</string>
     <string name="title_flag_color">Кольорова зірка &#8230;</string>
     <string name="title_unflag">Вилучити з обраних</string>
-    <string name="title_set_importance">Встановити пріоритет</string>
-    <string name="title_importance_low">Низький</string>
-    <string name="title_importance_normal">Звичайний</string>
-    <string name="title_importance_high">Високий</string>
+    <string name="title_set_importance">Встановити важливість</string>
+    <string name="title_importance_low">Низька</string>
+    <string name="title_importance_normal">Звичайна</string>
+    <string name="title_importance_high">Висока</string>
     <string name="title_important">Важливі</string>
     <string name="title_unimportant">Неважливі</string>
     <string name="title_search_in_text">Шукати в тексті &#8230;</string>
@@ -1344,9 +1347,9 @@
     <string name="title_configure_buttons">Налаштувати кнопки &#8230;</string>
     <string name="title_quick_actions">Вибрати дії</string>
     <string name="title_quick_actions_hint">Буде показано до %1$d дій</string>
-    <string name="title_quick_actions_low">Низький пріоритет</string>
-    <string name="title_quick_actions_normal">Звичайний пріоритет</string>
-    <string name="title_quick_actions_high">Високий пріоритет</string>
+    <string name="title_quick_actions_low">Низька важливість</string>
+    <string name="title_quick_actions_normal">Звичайна важливість</string>
+    <string name="title_quick_actions_high">Висока важливість</string>
     <string name="title_quick_actions_snooze">Відкласти</string>
     <string name="title_quick_actions_clear">Очистити вибір після дії</string>
     <string name="title_trash">В кошик</string>
@@ -1684,6 +1687,7 @@
     <string name="title_search_with_unseen">Непрочитані</string>
     <string name="title_search_with_flagged">Обрані</string>
     <string name="title_search_with_hidden">Приховані (лише на пристрої)</string>
+    <string name="title_search_with_importance">Важливість (лише на пристрої)</string>
     <string name="title_search_with_encrypted">Зашифровані (лише на пристрої)</string>
     <string name="title_search_with_attachments">З вкладеннями (лише на пристрої)</string>
     <string name="title_search_with_size">Розмір повідомлення більше ніж</string>
@@ -1791,7 +1795,7 @@
     <string name="title_rule_ignore">Вимкнути сповіщення</string>
     <string name="title_rule_snooze">Відкласти</string>
     <string name="title_rule_flag">До обраного</string>
-    <string name="title_rule_importance">Встановити пріоритет</string>
+    <string name="title_rule_importance">Встановити важливість</string>
     <string name="title_rule_keyword">Ключове слово</string>
     <string name="title_rule_keyword_add">Додати</string>
     <string name="title_rule_keyword_delete">Вилучити</string>
@@ -2389,7 +2393,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>Вимкнено</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1,25 с</item>
+        <item>1,25 с</item>
         <item>2,5 с</item>
         <item>5 с</item>
         <item>7,5 с</item>

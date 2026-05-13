@@ -1686,6 +1686,7 @@
     <string name="title_search_with_unseen">לא נקראו</string>
     <string name="title_search_with_flagged">עם כוכב</string>
     <string name="title_search_with_hidden">מוסתר (במכשיר בלבד)</string>
+    <string name="title_search_with_importance">חשיבות (במכשיר בלבד)</string>
     <string name="title_search_with_encrypted">מוצפן (במכשיר בלבד)</string>
     <string name="title_search_with_attachments">עם קבצים מצורפים (במכשיר בלבד)</string>
     <string name="title_search_with_size">גודל ההודעה עובר את</string>
@@ -2384,7 +2385,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>כבוי</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25 s</item>
+        <item>1.25 s</item>
         <item>2.5 שנ׳</item>
         <item>5 שנ׳</item>
         <item>7.5 שנ׳</item>

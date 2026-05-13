@@ -343,6 +343,9 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_hint_message">        Jo navigearje nei de mear avansearre opsjes.
         Alle opsjes hawwe faak standertwearden brûkt dy’t wizige wurde kinne as jo in oare foarkar hawwe.
     </string>
+    <string name="title_advanced_hint_configure">        Jo hoege hjir net te wêzen om in account te konfigurearjen. Brûk dêrfoar de wizard-/assistintknop.
+        De wizard/assistent wurket hast altyd, mar as it net wurket, brûk dan de klassike, hânmjittige ynstellingen krekt ûnder de wizardknop.
+    </string>
     <string name="title_advanced_hint_remark">        De opsjes binne kategorisearre op ljepblêd, ferdield yn seksjes, organisearre op uterlik of gebrûk en trochsykber.
     </string>
     <string name="title_advanced_hint_options">Jo sille de measte opsjes net nedich hawwe en omdat guon opsjes frij spesifyk binne, is it begryplik as de wurking fan net alle opsjes net daliks dúdlik is. Lit gjin minne beoardieling foar allinnich it oantal opsjes of foar it net begripen fan alle opsjes efter.
@@ -1649,6 +1652,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_search_with_unseen">Net lêzen</string>
     <string name="title_search_with_flagged">Mei stjer</string>
     <string name="title_search_with_hidden">Ferstoppe (allinnich op apparaat)</string>
+    <string name="title_search_with_importance">Wichtichheid (allinnich op apparaat)</string>
     <string name="title_search_with_encrypted">Fersifere (allinnich op apparaat)</string>
     <string name="title_search_with_attachments">Mei bylagen (allinnich op apparaat)</string>
     <string name="title_search_with_size">Berjochtgrutte grutter as</string>
@@ -2349,7 +2353,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     </string-array>
     <string-array name="undoNames">
         <item>Ut</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1,25 s</item>
+        <item>1,25 s</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>

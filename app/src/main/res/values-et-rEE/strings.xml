@@ -346,6 +346,10 @@
     <string name="title_advanced_hint_message">        Liigud edasijõudnute valikute juurde.
         Kõigil valikutel on tavaliselt kasutatavad vaikeväärtused, mida ei ole vaja muuta, kui sul ei ole teistsuguseid eelistusi.
     </string>
+    <string name="title_advanced_hint_configure">        
+Sa ei pea olema siin, et kontot häälestada. Palun kasuta selleks kiirseadistamise abilise nuppu.
+        Kiirseadistamise abiline töötab peaaegu alati. Kuid kui see ei tööta, siis saad kasutada klassikalist käsitsi häälestamist, mis asub abilise nupust veidi allpool.
+    </string>
     <string name="title_advanced_hint_remark">        Valikud on rühmitatud vahekaartide kaupa, jaotatud jaotistesse, organiseeritud välimuse või kasutuse järgi ja otsitavad.
     </string>
     <string name="title_advanced_hint_options">        Sa ei vaja suuremat osa seadetest ja kuna mõned seaded on väga spetsiifilised, on arusaadav, et kõikide seadete toimimine pole koheselt selge. 
@@ -1657,6 +1661,7 @@
     <string name="title_search_with_unseen">Lugemata</string>
     <string name="title_search_with_flagged">Tärniga</string>
     <string name="title_search_with_hidden">Peidetud (vaid seadmes)</string>
+    <string name="title_search_with_importance">Olulisus (vaid seadmel)</string>
     <string name="title_search_with_encrypted">Krüpteeritud (vaid seadmes olev)</string>
     <string name="title_search_with_attachments">Manusega (vaid seadmes)</string>
     <string name="title_search_with_size">Sõnum on suurem kui</string>
@@ -2353,7 +2358,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>Väljas</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25 s</item>
+        <item>1,25 s</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>

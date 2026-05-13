@@ -122,7 +122,7 @@
     <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
     <string name="title_notification_idle">Leerlauf</string>
     <string name="title_notification_failed">Konto »%1$s« fehlgeschlagen</string>
-    <string name="title_notification_alert">Serverwarnung: \'%1$s\'</string>
+    <string name="title_notification_alert">Serverwarnung: »%1$s«</string>
     <string name="title_notification_sending_left">Verbleibende Versuche: %1$d</string>
     <string name="title_notification_sending_retry">Das Senden wird erneut versucht, wenn sich die Internetverbindung ändert oder der Postausgang heruntergezogen wird</string>
     <string name="title_notification_sending_failed">Senden an %1$s fehlgeschlagen</string>
@@ -787,7 +787,7 @@
     <string name="title_advanced_external_search">»FairEmail-Suche« zum Android-Textauswahlmenü hinzufügen</string>
     <string name="title_advanced_sort_answers">Antwortvorlagen nach Verwendungshäufigkeit sortieren</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
-    <string name="title_advanced_ical_tentative">Erhaltene Einladungen als „Unter Vorbehalt” speichern</string>
+    <string name="title_advanced_ical_tentative">Erhaltene Einladungen als »Unter Vorbehalt« speichern</string>
     <string name="title_advanced_ical_email">E-Mail-Adressen der Teilnehmenden speichern</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
@@ -1660,6 +1660,7 @@
     <string name="title_search_with_unseen">Ungelesen</string>
     <string name="title_search_with_flagged">Markiert</string>
     <string name="title_search_with_hidden">Verborgen (nur auf dem Gerät)</string>
+    <string name="title_search_with_importance">Wichtigkeit (nur auf dem Gerät)</string>
     <string name="title_search_with_encrypted">Verschlüsselt (nur auf dem Gerät)</string>
     <string name="title_search_with_attachments">Mit Anhängen (nur auf dem Gerät)</string>
     <string name="title_search_with_size">Nachrichtengröße größer als</string>
@@ -2013,7 +2014,7 @@
     <string name="title_hint_reformat">Standardmäßig formatiert FairEmail Nachrichten aus Datenschutz- und Sicherheitsgründen neu. Um die Originalnachricht anzuzeigen, tippen Sie über dem Nachrichtentext auf das Vollbildsymbol »Original anzeigen«.</string>
     <string name="title_hint_design">Das Design ist bewusst nicht ablenkend, sondern sehr funktional gestaltet. Es gibt viele Optionen, um das Erscheinungsbild anzupassen, aber bitte haben Sie Verständnis dafür, dass es unmöglich ist, alle zufriedenzustellen.</string>
     <string name="title_hint_junk">Das Filtern von Spam sollte durch den E-Mail-Server erfolgen und kann auf einem akkubetriebenen Gerät mit begrenzten Kapazitäten nicht zuverlässig durchgeführt werden.</string>
-    <string name="title_hint_junk_learn">Durch das Verschieben von Nachrichten in und aus dem Spam-Ordner „erlernt” der E-Mail-Server, welche Nachrichten Spam sind</string>
+    <string name="title_hint_junk_learn">Durch das Verschieben von Nachrichten in und aus dem Spam-Ordner »erlernt« der E-Mail-Server, welche Nachrichten Spam sind</string>
     <string name="title_hint_contact_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_hint_eml">        Dies ist eine Zusammenfassung des Inhalts einer Rohnachrichtendatei.
         Über die Schaltfläche unten rechts können Sie die Nachricht im Posteingang speichern, um den gesamten Inhalt anzuzeigen.
@@ -2363,7 +2364,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>Aus</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25 s</item>
+        <item>1,25 s</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>

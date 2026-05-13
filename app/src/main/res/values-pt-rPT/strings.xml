@@ -346,6 +346,9 @@
     <string name="title_advanced_hint_title">Mais opções avançadas</string>
     <string name="title_advanced_hint_message">Está a navegar para as opções mais avançadas.        Todas as opções têm valores padrão geralmente utilizados que podem ser alterados se tiver uma preferência diferente.
     </string>
+    <string name="title_advanced_hint_configure">Não precisa de estar aqui para configurar uma conta. Utilize o botão do assistente de configuração rápida para isso.
+O assistente de configuração rápida funciona quase sempre, mas se não funcionar, pode utilizar a configuração manual clássica, um pouco abaixo do botão do assistente.
+    </string>
     <string name="title_advanced_hint_remark">        As opções são categorizadas por separador, divididas em secções, organizadas por aspeto ou uso, e pesquisáveis.
     </string>
     <string name="title_advanced_hint_options">Não precisará da maioria das opções e, como algumas opções são bastante específicas, 
@@ -1657,6 +1660,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_search_with_unseen">Não lidas</string>
     <string name="title_search_with_flagged">Com estrela</string>
     <string name="title_search_with_hidden">Ocultas (apenas no dispositivo)</string>
+    <string name="title_search_with_importance">Importância (apenas no dispositivo)</string>
     <string name="title_search_with_encrypted">Encriptadas (apenas no dispositivo)</string>
     <string name="title_search_with_attachments">Com anexos (apenas no dispositivo)</string>
     <string name="title_search_with_size">Tamanho da mensagem maior do que</string>
@@ -2353,7 +2357,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     </string-array>
     <string-array name="undoNames">
         <item>Desligado</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25 s</item>
+        <item>1.25 s</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>

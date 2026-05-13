@@ -1890,7 +1890,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>Tắt</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25 s</item>
+        <item>1.25 s</item>
         <item>2,5 giây</item>
         <item>5 giây</item>
         <item>7.5 giây</item>

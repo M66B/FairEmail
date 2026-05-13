@@ -2155,7 +2155,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>끄기</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25초</item>
+        <item>1.25초</item>
         <item>2.5초</item>
         <item>5초</item>
         <item>7.5초</item>

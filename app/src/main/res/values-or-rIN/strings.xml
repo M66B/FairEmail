@@ -932,7 +932,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>ବନ୍ଦ</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25 s</item>
+        <item>1.25 s</item>
         <item>୨.୫ ସେକେଣ୍ଡ</item>
         <item>୫ ସେକେଣ୍ଡ</item>
         <item>୭.୫ ସେକେଣ୍ଡ</item>

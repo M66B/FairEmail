@@ -346,6 +346,9 @@
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har alm. brugte standardværdier, som kun behøver ændring ifm. en evt. anden præference.
     </string>
+    <string name="title_advanced_hint_configure">        Det er ikke nødvendigt at være her for at opsætte en konto. Benyt blot hurtigopsætningsguiden til dette.
+        Hurtigopsætningsguiden virker som regel, men gør den ikke, benyt den klassiske manuelle opsætning  nedenfor guide-knappen.
+    </string>
     <string name="title_advanced_hint_remark">        Indstillingerne er kategoriseret efter fane, opdelt i afsnit, organiseret efter udseende/brug, og er søgbare.
     </string>
     <string name="title_advanced_hint_options">        Man behøver ikke de fleste af mulighederne, og da nogle heraf er ret specifikke,
@@ -1659,6 +1662,7 @@
     <string name="title_search_with_unseen">Ulæst</string>
     <string name="title_search_with_flagged">Stjernemarkeret</string>
     <string name="title_search_with_hidden">Skjult (kun på enheden)</string>
+    <string name="title_search_with_importance">Vigtighed (kun på enhed)</string>
     <string name="title_search_with_encrypted">Krypteret (kun på enheden)</string>
     <string name="title_search_with_attachments">Med vedhæftninger (kun på enheden)</string>
     <string name="title_search_with_size">Beskedstørrelse over</string>
@@ -2362,7 +2366,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>Fra</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1,25 s</item>
+        <item>1,25 s</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>

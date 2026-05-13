@@ -345,6 +345,9 @@
     <string name="title_advanced_hint_title">Opciones más avanzadas</string>
     <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.        Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
     </string>
+    <string name="title_advanced_hint_configure">        No necesita estar aquí para configurar una cuenta. Por favor use el botón del asistente de configuración rápida para eso.
+        El asistente de configuración rápida funciona casi siempre, pero si no, puede usar la configuración clásica manual debajo del botón del asistente.
+    </string>
     <string name="title_advanced_hint_remark">        Las opciones se clasifican en pestañas, divididas en secciones, organizadas por apariencia o uso y buscables.
     </string>
     <string name="title_advanced_hint_options">        Usted no necesitará la mayoría de las opciones y dado que la mayoría son bastante específicas,
@@ -1654,6 +1657,7 @@
     <string name="title_search_with_unseen">No leído</string>
     <string name="title_search_with_flagged">Destacado</string>
     <string name="title_search_with_hidden">Oculto (en el dispositivo solamente)</string>
+    <string name="title_search_with_importance">Importancia (en el dispositivo solamente)</string>
     <string name="title_search_with_encrypted">Cifrado (en el dispositivo solamente)</string>
     <string name="title_search_with_attachments">Con archivos adjuntos (sólo en el dispositivo)</string>
     <string name="title_search_with_size">Tamaño del mensaje mayor que</string>
@@ -2356,7 +2360,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>Desactivado</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25 s</item>
+        <item>1,25 s</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>

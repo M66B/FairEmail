@@ -346,6 +346,9 @@
     <string name="title_advanced_hint_message">        Stai entrando nelle opzioni più avanzate.
         Tutte le opzioni hanno valori standard di uso comune, che non vanno modificate a meno che si non abbia una preferenza differente.
     </string>
+    <string name="title_advanced_hint_configure">        Non è necessario passare da questa pagina per configurare un account. Usare il pulsante della procedura guidata per una configurazione rapida.
+        La procedura guidata rapida funziona quasi sempre ma, in caso contrario, si può usare la configurazione manuale classica, disponibile poco sotto il pulsante della procedura guidata.
+    </string>
     <string name="title_advanced_hint_remark">        Le opzioni sono categorizzate dalla scheda, divise in sezioni, organizzate per aspetto o uso e ricercabili.
     </string>
     <string name="title_advanced_hint_options">        La maggior parte delle opzioni non sono necessarie. Poiché alcune sono abbastanza specifiche,
@@ -1659,6 +1662,7 @@
     <string name="title_search_with_unseen">Da leggere</string>
     <string name="title_search_with_flagged">Con stella</string>
     <string name="title_search_with_hidden">Nascosto (solo su dispositivo)</string>
+    <string name="title_search_with_importance">Importanza (solo sul dispositivo)</string>
     <string name="title_search_with_encrypted">Cifrato (solo su dispositivo)</string>
     <string name="title_search_with_attachments">Con allegati (solo su dispositivo)</string>
     <string name="title_search_with_size">Dimensione del messaggio maggiore di</string>
@@ -2362,7 +2366,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>Off</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1,25 s</item>
+        <item>1,25 s</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>

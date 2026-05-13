@@ -343,6 +343,8 @@
     <string name="title_advanced_hint_title">További haladó opciók</string>
     <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.        Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.
     </string>
+    <string name="title_advanced_hint_configure">        A fiók konfigurálásához nem szükséges itt bármit beállítani. Kerem, ehhez a gyorsbeállítás varázsló gombot használja.
+        A gyorsbeállítás varázsló szinte mindig működik, de ha mégsem, akkor használhatja a hagyományos kézi beállítást, kicsivel a varázsló gombja alatt.    </string>
     <string name="title_advanced_hint_remark">        Az opciók fülekre vannak osztva, és azok tovább szekciókra, kinézet szerint rendezve, és mind kereshető.
     </string>
     <string name="title_advanced_hint_options">        A legtöbb beállításra nem lesz szüksége, és mivel egyes beállítások elég specifikusak,
@@ -1649,6 +1651,7 @@
     <string name="title_search_with_unseen">Olvasatlan</string>
     <string name="title_search_with_flagged">Csillagozott</string>
     <string name="title_search_with_hidden">Rejtett (csak az eszközön)</string>
+    <string name="title_search_with_importance">Fontosság (csak az eszközön)</string>
     <string name="title_search_with_encrypted">Titkosított (csak az eszközön)</string>
     <string name="title_search_with_attachments">Melléklete van (csak az eszközön)</string>
     <string name="title_search_with_size">Üzenetméret nagyobb, mint</string>
@@ -2351,7 +2354,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>Ki</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1,25 mp</item>
+        <item>1,25 mp</item>
         <item>2,5 mp</item>
         <item>5 mp</item>
         <item>7,5 mp</item>

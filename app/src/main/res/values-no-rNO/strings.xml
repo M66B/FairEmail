@@ -1497,7 +1497,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>Av</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25 s</item>
+        <item>1.25 s</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>

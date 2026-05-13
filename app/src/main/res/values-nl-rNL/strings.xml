@@ -155,7 +155,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_edit_identity">Bewerk identiteit</string>
     <string name="title_new_folder">Nieuwe map</string>
     <string name="title_edit_folder">Bewerk map</string>
-    <string name="title_disable_gmail">Gmail app uitschakelen</string>
+    <string name="title_disable_gmail">Gmail-app uitschakelen</string>
     <string name="title_setup">Instellingen</string>
     <string name="title_setup_help">Help</string>
     <string name="title_setup_quick">Snel instellen</string>
@@ -190,7 +190,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_imap">IMAP account</string>
     <string name="title_setup_pop3">POP3 account</string>
     <string name="title_setup_oauth_permission">De e-mailprovider heeft OAuth alleen goedgekeurd voor de Play Store en GitHub versie</string>
-    <string name="title_setup_gmail_support">Autoriseren van Google accounts werkt alleen in de Play Store en GitHub versie omdat Android de digitale app handtekening controleert</string>
+    <string name="title_setup_gmail_support">Autoriseren van Google-accounts werkt alleen in de Play Store en GitHub-versie omdat Android de digitale apphandtekening controleert</string>
     <string name="title_setup_gmail_rationale">Geef a.u.b. toestemming om een account te selecteren en uw naam te lezen</string>
     <string name="title_setup_gmail_permissions">Google vraagt toestemming om je mails te lezen (om berichten aan je te tonen), samen te stellen (om conceptberichten op te slaan), te versturen en om al je mails definitief te verwijderen. FairEmail zal nooit jouw berichten verwijderen zonder jouw expliciete toestemming. Alleen jij en niemand anders heeft toegang tot jouw berichten.</string>
     <string name="title_setup_gmail_login">Als Chrome is aangemeld bij een account, kan een nieuwe account alleen via Android worden toegevoegd. Dit kan worden voorkomen door uit te loggen uit Chrome via de Chrome synchronisatie-instellingen.</string>
@@ -336,12 +336,15 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_reset_files">Bekijk bestanden</string>
     <string name="title_setup_reset_images">Toon afbeeldingen</string>
     <string name="title_setup_reset_full">Toon originele berichten</string>
-    <string name="title_check_gmail_oauth">Uw Gmail accounts zullen blijven werken na 30 mei 2022</string>
-    <string name="title_check_gmail_password">Sommige van uw Gmail accounts werken mogelijk niet meer na 30 mei 2022</string>
+    <string name="title_check_gmail_oauth">Uw Gmail-accounts zullen blijven werken na 30 mei 2022</string>
+    <string name="title_check_gmail_password">Sommige van uw Gmail-accounts werken mogelijk niet meer na 30 mei 2022</string>
     <string name="title_check_outlook_oauth">Uw Outlook accounts zullen blijven werken na 16 september 2024</string>
     <string name="title_check_outlook_password">Sommige van uw Outlook/Hotmail/Live accounts zullen na 16 september 2024 niet meer werken</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.        Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
+    </string>
+    <string name="title_advanced_hint_configure">        Je hoeft hier niet te zijn om een account te configureren. Gebruik daarvoor de wizard-/assistentknop.
+        De wizard/assistent werkt bijna altijd, maar als het niet werkt, gebruik dan de klassieke, handmatige instellingen net onder de wizardknop.
     </string>
     <string name="title_advanced_hint_remark">        De opties zijn gecategoriseerd op tabblad, verdeeld in secties, georganiseerd op uiterlijk of gebruik en doorzoekbaar.
     </string>
@@ -378,7 +381,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_flagged">Alle berichten met een ster</string>
     <string name="title_advanced_delete_unseen">Verwijder oude, ongelezen berichten</string>
     <string name="title_advanced_kept_removed">Controleer of oude berichten van de server werden verwijderd</string>
-    <string name="title_advanced_gmail_thread">Gmail bericht groeperingsstijl voor Gmail accounts</string>
+    <string name="title_advanced_gmail_thread">Groeperingsstijl Gmail-bericht voor Gmail-accounts</string>
     <string name="title_advanced_subject_threading">Berichten groeperen op afzender en onderwerp</string>
     <string name="title_advanced_outlook_categories">Outlook-categorieën synchroniseren</string>
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
@@ -570,7 +573,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_compact_mode_remark">Alleen compacte modus</string>
     <string name="title_advanced_highlight_color">Markeerkleur</string>
     <string name="title_advanced_keywords">Toon sleutelwoorden in de berichtkop</string>
-    <string name="title_advanced_labels">Toon Gmail labels in de berichtkop</string>
+    <string name="title_advanced_labels">Toon Gmail-labels in de berichtkop</string>
     <string name="title_advanced_flags">Toon sterren</string>
     <string name="title_advanced_flags_background">Toon gekleurde achtergrond in plaats van gekleurde sterren</string>
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
@@ -984,7 +987,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_identity_octetmime">8BITMIME toestaan</string>
     <string name="title_identity_max_size">Maximale berichtgrootte (MB)</string>
     <string name="title_identity_receipt">Standaard ontvangst/leesbevestiging vragen</string>
-    <string name="title_identity_receipt_legacy">Gebruik legacy ontvangstverzoek headers</string>
+    <string name="title_identity_receipt_legacy">Gebruik verouderde ontvangstverzoekkoppen</string>
     <string name="title_identity_use_ip_hint">In geval van \'invalid greeting\', \'requires valid address\' of een soortgelijke fout, probeer deze instelling te wijzigen</string>
     <string name="title_identity_self_hint">Voorkomt ook dat u aan uzelf antwoordt</string>
     <string name="title_optional">Optioneel</string>
@@ -1171,7 +1174,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
     <string name="title_check_operations">Controleren op bewerkingen</string>
     <string name="title_hint_operations">Verwijderen van bewerkingen kan leiden tot het verdwijnen van berichten en synchronisatieproblemen</string>
-    <string name="title_op_title_headers">Headers downloaden</string>
+    <string name="title_op_title_headers">Koppen downloaden</string>
     <string name="title_op_title_raw">Ruw bericht downloaden</string>
     <string name="title_op_title_add">Uploaden van bericht</string>
     <string name="title_folder_name">Mapnaam</string>
@@ -1291,7 +1294,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_raw_send_thread">Gesprek</string>
     <string name="title_manage_keywords">Sleutelwoorden beheren</string>
     <string name="title_manage_keywords_pop">Met POP3 kunnen sleutelwoorden niet worden opgeslagen op de mailserver!</string>
-    <string name="title_manage_labels">Gmail labels beheren</string>
+    <string name="title_manage_labels">Gmail-labels beheren</string>
     <string name="title_add_keyword">Sleutelwoord toevoegen</string>
     <string name="title_show_inline">Toon inline bijlagen</string>
     <string name="title_download_all">Alles downloaden</string>
@@ -1645,6 +1648,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_search_with_unseen">Ongelezen</string>
     <string name="title_search_with_flagged">Met ster</string>
     <string name="title_search_with_hidden">Verborgen (alleen op apparaat)</string>
+    <string name="title_search_with_importance">Belangrijkheid (alleen op apparaat)</string>
     <string name="title_search_with_encrypted">Versleuteld (alleen op apparaat)</string>
     <string name="title_search_with_attachments">Met bijlagen (alleen op apparaat)</string>
     <string name="title_search_with_size">Berichtgrootte groter dan</string>
@@ -2344,7 +2348,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     </string-array>
     <string-array name="undoNames">
         <item>Uit</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1,25 s</item>
+        <item>1,25 s</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>

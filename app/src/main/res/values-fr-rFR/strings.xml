@@ -346,6 +346,9 @@
     <string name="title_advanced_hint_message">        Vous parcourez les paramètres avancés.
         Toutes les options ont des valeurs par défaut couramment utilisées que vous n\'avez pas besoin de modifier sauf si vous avez une préférence différente.
     </string>
+    <string name="title_advanced_hint_configure">        Il n\'est pas nécessaire de passer par cette procédure pour configurer un compte. Utilisez de préférence l\'assistant de configuration rapide pour celà.
+        L\'assistant de configuration rapide fonctionne la plupart du temps, mais si ce n\'est pas le cas, vous pouvez utiliser la configuration classique manuelle située en dessous du bouton de l\'assistant.
+    </string>
     <string name="title_advanced_hint_remark">        Les options sont rangées par catégories dans des onglets divisés en sections, elles sont organisées selon l\'apparence ou l\'usage et peuvent être recherchées.
     </string>
     <string name="title_advanced_hint_options">        Vous n\'aurez pas besoin de la plupart des options car certaines sont assez spécifiques et
@@ -1659,6 +1662,7 @@
     <string name="title_search_with_unseen">Non lus</string>
     <string name="title_search_with_flagged">Suivis</string>
     <string name="title_search_with_hidden">Masqués (uniquement sur l\'appareil)</string>
+    <string name="title_search_with_importance">Importance (uniquement sur l\'appareil)</string>
     <string name="title_search_with_encrypted">Chiffrés (uniquement sur l\'appareil)</string>
     <string name="title_search_with_attachments">Avec des pièces jointes (uniquement sur l\'appareil)</string>
     <string name="title_search_with_size">Taille de message supérieure à</string>
@@ -2362,7 +2366,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>Désactivé</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1,25 s</item>
+        <item>1,25 s</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>

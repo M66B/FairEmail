@@ -359,6 +359,9 @@
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.        Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
+    <string name="title_advanced_hint_configure">        Nu trebuie să fiți aici pentru a configura un cont. Vă rugăm să folosiți butonul de configurare rapidă pentru acest lucru.
+        Asistentul de configurare rapidă funcţionează aproape întotdeauna dar dacă nu, puteți folosi setarea manuală clasică puțin sub butonul de asistent.
+    </string>
     <string name="title_advanced_hint_remark">        Opțiunile sunt clasificate pe file, împărțite în secțiuni, organizate în funcție de aspect sau utilizare și pot fi căutate.
     </string>
     <string name="title_advanced_hint_options">        Nu veți avea nevoie de majoritatea opțiunilor și deoarece unele opțiuni sunt destul de specifice,
@@ -1669,6 +1672,7 @@
     <string name="title_search_with_unseen">Necitit</string>
     <string name="title_search_with_flagged">Marcat</string>
     <string name="title_search_with_hidden">Ascuns (doar pe dispozitiv)</string>
+    <string name="title_search_with_importance">Importanță (doar pe dispozitiv)</string>
     <string name="title_search_with_encrypted">Criptat (doar pe dispozitiv)</string>
     <string name="title_search_with_attachments">Cu atașamente (doar pe dispozitiv)</string>
     <string name="title_search_with_size">Dimensiune mesaj mai mare decât</string>
@@ -2372,7 +2376,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>Oprit</item>
-        <item comment="undoNames Number of seconds to show the undo popup">1.25 s</item>
+        <item>1,25 sec</item>
         <item>2,5 s</item>
         <item>5 s</item>
         <item>7,5 s</item>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">Facebook</string>
     <string name="channel_service_description">Synchronising and monitoring of accounts</string>
     <string name="tile_synchronize">Synchronise</string>
     <string name="menu_test">Test programme</string>
