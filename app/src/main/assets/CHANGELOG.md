@@ -20,24 +20,30 @@ Besides being time-consuming, this is no longer free as of this year.
 This is one of the reasons why the app cannot be completely free, meaning some features must be paid for in order to pay for an annual security audit.
 To be clear, nothing will be changed for now.
 
-The security audit revealed no problems, so Google accounts [can continue to be used](https://support.google.com/cloud/answer/13464325) as usual for a year.
+The security audit (2026) revealed no problems, so Google accounts [can continue to be used](https://support.google.com/cloud/answer/13464325) as usual for a year.
 
 <br>
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### [Diuqin](https://en.wikipedia.org/wiki/Diuqin)
+### [Elopteryx](https://en.wikipedia.org/wiki/Elopteryx)
 
 ### Next version (Work in progress)
+
+### 1.2316 2026-05-13
 
 * Adapted for [Android 17](https://developer.android.com/about/versions/17)
 * Dropped support for Android 5 Lollipop (the Android support libraries do not support this anymore either)
 * Added searching for important messages
 * Small improvements and minor bug fixes
+* Updated [NDK](https://developer.android.com/ndk/downloads)
+* Updated [BouncyCastle](https://www.bouncycastle.org/)
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
-### 1.2315 2026-04-27
+### [Diuqin](https://en.wikipedia.org/wiki/Diuqin)
+
+### 1.2315 2026-04-27 *
 
 * Fixed all reported bugs
 * Limit the width of images to the screen width on the receiver side
@@ -64,7 +70,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Updated [translations](https://crowdin.com/project/open-source-email)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 
-### 1.2312 2026-02-16
+### 1.2312 2026-02-16 #
 
 * Fixed all reported bugs
 * Small improvements and minor bug fixes
