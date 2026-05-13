@@ -1296,7 +1296,7 @@
     <provider
         name="Vodafone.de/Arcor"
         appPassword="true"
-        domain="arcor\\.de,vodafone\\.de,vodafonemail\\.de,nexgo\\.de"
+        domain="arcor\\.de,vodafone\\.de,vodafonemail\\.de,unity-mail\\.de,nexgo\\.de"
         link="https://www.vodafone.de/hilfe/vodafone-e-mail-cloud.html?tab=servereinstellungen&amp;icmp=hilfe:email:tab2:abrufen:servereinstellungen"
         partial="true">
         <imap
