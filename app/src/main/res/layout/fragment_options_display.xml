@@ -1624,19 +1624,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvSubjectEllipsize" />
 
-                <TextView
-                    android:id="@+id/tvSubjectEllipsizeRemark"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_compact_mode_remark"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spSubjectEllipsize" />
-
                 <View
                     android:id="@+id/vSeparatorOther"
                     android:layout_width="0dp"
@@ -1645,7 +1632,7 @@
                     android:background="?attr/colorSeparator"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSubjectEllipsizeRemark" />
+                    app:layout_constraintTop_toBottomOf="@id/spSubjectEllipsize" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swKeywords"

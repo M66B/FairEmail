@@ -804,19 +804,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (tvSubject != null) {
                 tvSubject.setTextColor(colorSubject);
 
-                if (compact) {
-                    boolean full = "full".equals(subject_ellipsize);
-                    tvSubject.setSingleLine(!full);
+                boolean full = "full".equals(subject_ellipsize);
+                tvSubject.setSingleLine(!full);
 
-                    if ("start".equals(subject_ellipsize))
-                        tvSubject.setEllipsize(TextUtils.TruncateAt.START);
-                    else if ("end".equals(subject_ellipsize))
-                        tvSubject.setEllipsize(TextUtils.TruncateAt.END);
-                    else if ("middle".equals(subject_ellipsize))
-                        tvSubject.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-                    else
-                        tvSubject.setEllipsize(null);
-                }
+                if ("start".equals(subject_ellipsize))
+                    tvSubject.setEllipsize(TextUtils.TruncateAt.START);
+                else if ("end".equals(subject_ellipsize))
+                    tvSubject.setEllipsize(TextUtils.TruncateAt.END);
+                else if ("middle".equals(subject_ellipsize))
+                    tvSubject.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+                else
+                    tvSubject.setEllipsize(null);
             }
 
             if (tvKeywords != null) {
@@ -9215,8 +9213,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void setCompact(boolean compact) {
-        if (this.compact != compact) {
+        String sender_ellipsize = prefs.getString("sender_ellipsize", compact ? "end" : "full");
+        String subject_ellipsize = prefs.getString("subject_ellipsize", "full");
+
+        if (this.compact != compact ||
+                !Objects.equals(this.sender_ellipsize, sender_ellipsize) ||
+                !Objects.equals(this.subject_ellipsize, subject_ellipsize)) {
             this.compact = compact;
+            this.sender_ellipsize = sender_ellipsize;
+            this.subject_ellipsize = subject_ellipsize;
             properties.refresh();
         }
     }

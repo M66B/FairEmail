@@ -7103,7 +7103,8 @@ public class FragmentMessages extends FragmentBase
         boolean compact = !prefs.getBoolean("compact", false);
         prefs.edit()
                 .putBoolean("compact", compact)
-                .remove("sender_ellipsize")
+                .putString("sender_ellipsize", compact ? "end" : "full")
+                .putString("subject_ellipsize", "full")
                 .apply();
 
         int zoom = (compact ? 0 : 1);

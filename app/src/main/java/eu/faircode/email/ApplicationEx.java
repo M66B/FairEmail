@@ -1129,8 +1129,10 @@ public class ApplicationEx extends Application
 
         if (version < 2317 && "a".equals(BuildConfig.REVISION)) {
             boolean compact = prefs.getBoolean("compact", false);
-            if (!compact)
+            if (!compact) {
                 editor.remove("sender_ellipsize");
+                editor.remove("subject_ellipsize");
+            }
         }
 
         if (version < BuildConfig.VERSION_CODE)
