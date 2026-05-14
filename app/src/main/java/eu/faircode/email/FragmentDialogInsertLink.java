@@ -95,6 +95,18 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         Bundle args = getArguments();
         Uri uri = args.getParcelable("uri");
         String title = args.getString("title");
+        Log.i("Insert link uri=" + uri + " title=" + title);
+
+        if (uri == null)
+            try {
+                Uri u = Uri.parse(title);
+                if (UriHelper.isHyperLink(u)) {
+                    uri = u;
+                    title = null;
+                }
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
 
         final Context context = getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_insert_link, null);
