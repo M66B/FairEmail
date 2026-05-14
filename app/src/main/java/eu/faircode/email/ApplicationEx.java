@@ -1127,6 +1127,12 @@ public class ApplicationEx extends Application
                 editor.putInt("viewport_height", 0);
         }
 
+        if (version < 2317 && "a".equals(BuildConfig.REVISION)) {
+            boolean compact = prefs.getBoolean("compact", false);
+            if (!compact)
+                editor.remove("sender_ellipsize");
+        }
+
         if (version < BuildConfig.VERSION_CODE)
             editor.putInt("previous_version", version);
         editor.putInt("version", BuildConfig.VERSION_CODE);

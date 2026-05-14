@@ -1773,7 +1773,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                     break;
                 }
 
-            String sender_ellipsize = prefs.getString("sender_ellipsize", "end");
+            boolean compact = prefs.getBoolean("compact", false);
+            String sender_ellipsize = prefs.getString("sender_ellipsize", compact ? "end" : "full");
             for (int pos = 0; pos < ellipsizeValues.length; pos++)
                 if (ellipsizeValues[pos].equals(sender_ellipsize)) {
                     spSenderEllipsize.setSelection(pos);

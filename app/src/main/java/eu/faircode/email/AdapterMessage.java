@@ -788,19 +788,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 vwColor.getLayoutParams().width = colorStripeWidth;
 
             if (tvFrom != null) {
-                if (compact) {
-                    boolean full = "full".equals(sender_ellipsize);
-                    tvFrom.setSingleLine(!full);
+                boolean full = "full".equals(sender_ellipsize);
+                tvFrom.setSingleLine(!full);
 
-                    if ("start".equals(sender_ellipsize))
-                        tvFrom.setEllipsize(TextUtils.TruncateAt.START);
-                    else if ("end".equals(sender_ellipsize))
-                        tvFrom.setEllipsize(TextUtils.TruncateAt.END);
-                    else if ("middle".equals(sender_ellipsize))
-                        tvFrom.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-                    else
-                        tvFrom.setEllipsize(null);
-                }
+                if ("start".equals(sender_ellipsize))
+                    tvFrom.setEllipsize(TextUtils.TruncateAt.START);
+                else if ("end".equals(sender_ellipsize))
+                    tvFrom.setEllipsize(TextUtils.TruncateAt.END);
+                else if ("middle".equals(sender_ellipsize))
+                    tvFrom.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+                else
+                    tvFrom.setEllipsize(null);
             }
 
             if (tvSubject != null) {
@@ -8548,7 +8546,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             font_size_subject = Helper.getTextSize(context, fz_subject);
 
         this.subject_italic = prefs.getBoolean("subject_italic", true);
-        this.sender_ellipsize = prefs.getString("sender_ellipsize", "end");
+        this.sender_ellipsize = prefs.getString("sender_ellipsize", compact ? "end" : "full");
         this.subject_ellipsize = prefs.getString("subject_ellipsize", "full");
         this.show_filtered = prefs.getBoolean("show_filtered", false);
         this.keywords_header = prefs.getBoolean("keywords_header", false);

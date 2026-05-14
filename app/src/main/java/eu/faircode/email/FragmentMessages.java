@@ -7101,7 +7101,10 @@ public class FragmentMessages extends FragmentBase
     private void onMenuCompact() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean compact = !prefs.getBoolean("compact", false);
-        prefs.edit().putBoolean("compact", compact).apply();
+        prefs.edit()
+                .putBoolean("compact", compact)
+                .remove("sender_ellipsize")
+                .apply();
 
         int zoom = (compact ? 0 : 1);
         int padding = (compact || !cards ? 0 : 1);
