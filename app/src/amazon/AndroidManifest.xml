@@ -4,6 +4,9 @@
     android:installLocation="internalOnly">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.ACCESS_LOCAL_NETWORK"
+        android:minSdkVersion="37" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -499,8 +502,8 @@
 
         <activity
             android:name=".ActivityDMARC"
-            android:enabled="false"
             android:description="@string/title_advanced_dmarc_viewer"
+            android:enabled="false"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_dmarc"
@@ -795,8 +798,8 @@
 
         <receiver
             android:name="com.amazon.device.iap.ResponseReceiver"
-            android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY"
-            android:exported="true">
+            android:exported="true"
+            android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY">
             <intent-filter>
                 <action android:name="com.amazon.inapp.purchasing.NOTIFY" />
             </intent-filter>

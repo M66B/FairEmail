@@ -476,6 +476,7 @@ The following Android permissions are **required**:
 * *ask to ignore battery optimizations* (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS): to disable battery optimizations, please see [this FAQ](#faq175) for more information
 * *allow the app to show notifications* (POST_NOTIFICATIONS): to show new message notifications and (account) warnings and errors (Android 13 and later only)
 * *Google Play (in-app) billing service* (BILLING): for in-app purchases
+* *Nearby devices* (ACCESS_LOCAL_NETWORK): to access email servers via local network addresses (Android 17 and later only; not available in the Play Store release)
 
 <br />
 
