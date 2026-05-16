@@ -986,7 +986,10 @@ public class FragmentOAuth extends FragmentBase {
                         int at = account.user.indexOf('@');
                         String user = account.user.substring(0, at);
 
-                        account.name = provider.name + "/" + user;
+                        if (TextUtils.isEmpty(provider.name))
+                            account.name = account.user;
+                        else
+                            account.name = provider.name + "/" + user;
 
                         account.synchronize = true;
                         account.primary = (primary == null);
