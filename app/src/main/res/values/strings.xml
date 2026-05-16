@@ -578,6 +578,7 @@
     <string name="title_advanced_http_redirect">Allow connection redirection</string>
     <string name="title_advanced_bouncy_castle">Use Bouncy Castle\'s secure socket provider (JSSE)</string>
     <string name="title_advanced_fips_mode" translatable="false">FIPS mode</string>
+    <string name="title_advanced_local_network">Local network permissions</string>
     <string name="title_advanced_manage_connectivity">Manage connectivity</string>
 
     <string name="title_advanced_caption_general">General</string>

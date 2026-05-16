@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2026 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -115,6 +116,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swBouncyCastle;
     private SwitchCompat swFipsMode;
     private ImageButton ibBouncyCastle;
+    private Button btnLocalNetwork;
     private Button btnManage;
     private TextView tvNetworkMetered;
     private TextView tvNetworkRoaming;
@@ -189,6 +191,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swBouncyCastle = view.findViewById(R.id.swBouncyCastle);
         swFipsMode = view.findViewById(R.id.swFipsMode);
         ibBouncyCastle = view.findViewById(R.id.ibBouncyCastle);
+        btnLocalNetwork = view.findViewById(R.id.btnLocalNetwork);
         btnManage = view.findViewById(R.id.btnManage);
 
         tvNetworkMetered = view.findViewById(R.id.tvNetworkMetered);
@@ -509,6 +512,16 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             }
         });
 
+        btnLocalNetwork.setVisibility(BuildConfig.PLAY_STORE_RELEASE || Build.VERSION.SDK_INT < Build.VERSION_CODES.CINNAMON_BUN
+                ? View.GONE : View.VISIBLE);
+        btnLocalNetwork.setEnabled(!Helper.hasPermission(getContext(), Manifest.permission.ACCESS_LOCAL_NETWORK));
+        btnLocalNetwork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_LOCAL_NETWORK}, REQUEST_PERMISSIONS);
+            }
+        });
+
         final Intent manage = getIntentConnectivity();
         PackageManager pm = getContext().getPackageManager();
         btnManage.setVisibility(
@@ -767,6 +780,11 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        btnLocalNetwork.setEnabled(!Helper.hasPermission(getContext(), Manifest.permission.ACCESS_LOCAL_NETWORK));
     }
 
     private void setOptions() {

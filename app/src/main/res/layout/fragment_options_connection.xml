@@ -718,6 +718,18 @@
                     app:srcCompat="@drawable/twotone_info_24" />
 
                 <Button
+                    android:id="@+id/btnLocalNetwork"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_security_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_advanced_local_network"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibBouncyCastle" />
+
+                <Button
                     android:id="@+id/btnManage"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
@@ -727,7 +739,7 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_advanced_manage_connectivity"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibBouncyCastle" />
+                    app:layout_constraintTop_toBottomOf="@id/btnLocalNetwork" />
 
                 <TextView
                     android:id="@+id/tvNetworkMetered"

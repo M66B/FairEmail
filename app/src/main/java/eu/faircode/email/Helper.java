@@ -512,8 +512,6 @@ public class Helper {
         permissions.add(Manifest.permission.READ_CONTACTS);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
             permissions.add(Manifest.permission.POST_NOTIFICATIONS);
-        if (!BuildConfig.PLAY_STORE_RELEASE)
-            permissions.add(Manifest.permission.ACCESS_LOCAL_NETWORK);
 
         try {
             PackageManager pm = context.getPackageManager();
