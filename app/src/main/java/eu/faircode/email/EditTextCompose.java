@@ -622,7 +622,7 @@ public class EditTextCompose extends FixedEditText {
                 ClipData.Item item = cbm.getPrimaryClip().getItemAt(0);
 
                 Uri uri = item.getUri();
-                if (inputContentListener != null && uri != null) {
+                if (inputContentListener != null && uri != null && "content".equals(uri.getScheme())) {
                     String type = Helper.guessMimeType(uri.getLastPathSegment());
                     inputContentListener.onInputContent(uri, type);
                     return true;
@@ -839,6 +839,9 @@ public class EditTextCompose extends FixedEditText {
                 try {
                     if (inputContentListener == null)
                         throw new IllegalArgumentException("InputContent listener not set");
+
+                    if (!"content".equals(info.getContentUri().getScheme()))
+                        throw new IllegalArgumentException("Invalid uri=" + info.getContentUri());
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1 &&
                             (flags & InputConnectionCompat.INPUT_CONTENT_GRANT_READ_URI_PERMISSION) != 0)

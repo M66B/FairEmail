@@ -660,7 +660,7 @@ public class FragmentCompose extends FragmentBase {
         etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
             @Override
             public void onInputContent(Uri uri, String type) {
-                Log.i("Received input uri=" + uri);
+                Log.i("Received input uri=" + uri + " type=" + type);
                 UriType uriType = new UriType(uri, type, null);
                 onSharedAttachments(new ArrayList<>(Arrays.asList(uriType)));
             }
