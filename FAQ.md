@@ -1330,6 +1330,9 @@ Using the search index is a pro feature.
 
 In the case of the error '*User is authenticated but not connected*', please see [this FAQ](#faq139).
 
+In the case of the error '... *The user could not be authenticated as the grant is expired. The user must sign in again.* ...',
+please go to the settings via the navigation menu (left side menu), tap on the wizard button, select *Outlook/Office* and follow the steps to authenticate the account again.
+
 <br>
 
 >
