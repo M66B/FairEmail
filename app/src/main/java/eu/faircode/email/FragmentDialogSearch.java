@@ -455,6 +455,30 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbSearchTrash.setVisibility(View.GONE);
         cbSearchJunk.setVisibility(View.GONE);
 
+        final Runnable checkOnDevice = new RunnableEx("checkOnDevice") {
+            @Override
+            protected void delegate() {
+              boolean device = cbSearchDevice.isChecked();
+              cbNotes.setEnabled(device);
+              cbFileNames.setEnabled(device);
+              cbHeaders.setEnabled(device);
+              cbHtml.setEnabled(device);
+              cbHidden.setEnabled(device);
+              cbImportance.setEnabled(device);
+              spImportance.setEnabled(device);
+              cbEncrypted.setEnabled(device);
+              cbAttachments.setEnabled(device);
+            }
+        };
+
+        checkOnDevice.run();
+        cbSearchDevice.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
+                checkOnDevice.run();
+            }
+        });
+
         final AlertDialog dialog = new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
