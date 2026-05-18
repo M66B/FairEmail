@@ -795,7 +795,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         if (criteria.with_importance != null)
-            if (!Objects.equals(message.importance, criteria.with_importance))
+            if (!Objects.equals(message.importance, criteria.with_importance) &&
+                    !(EntityMessage.PRIORITIY_NORMAL.equals(criteria.with_importance) && message.importance == null))
                 return false;
 
         if (criteria.with_encrypted) {

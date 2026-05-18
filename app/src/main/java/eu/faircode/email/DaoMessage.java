@@ -392,7 +392,7 @@ public interface DaoMessage {
             " AND (NOT :unseen OR NOT ui_seen)" +
             " AND (NOT :flagged OR ui_flagged)" +
             " AND (NOT :hidden OR NOT ui_snoozed IS NULL OR ui_unsnoozed)" +
-            " AND (:importance IS NULL OR importance = :importance)" +
+            " AND (:importance IS NULL OR importance = :importance OR (:importance = 1 AND importance IS NULL))" +
             " AND (NOT :encrypted OR ui_encrypt > 0)" +
             " AND (NOT :with_attachments OR attachments > 0)" +
             " AND (NOT :with_notes OR NOT `notes` IS NULL)" +
