@@ -8152,6 +8152,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibTrash,
                             context.getString(R.string.title_trash)));
 
+                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibTrashBottom,
+                            context.getString(R.string.title_trash_conversation)));
+
                     if (properties.getSelectionCount() > 0)
                         info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibDelete,
                                 context.getString(R.string.title_trash_selection)));
@@ -8224,6 +8227,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return true;
                 } else if (action == R.id.ibTrash) {
                     onActionTrash(message, false);
+                    return true;
+                } else if (action == R.id.ibTrashBottom) {
+                    properties.move(-1L, EntityFolder.TRASH);
                     return true;
                 } else if (action == R.id.ibDelete) {
                     properties.moveSelection(EntityFolder.TRASH, false);

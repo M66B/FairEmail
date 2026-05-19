@@ -1511,74 +1511,6 @@ public class FragmentMessages extends FragmentBase
                 return false;
             }
 
-            private void onActionMove(String folderType) {
-                Bundle args = new Bundle();
-                args.putLong("account", account);
-                args.putString("thread", thread);
-                args.putLong("id", id);
-                args.putString("type", folderType);
-                args.putBoolean("move_thread_sent", move_thread_sent);
-                args.putBoolean("filter_archive", filter_archive);
-
-                new SimpleTask<ArrayList<MessageTarget>>() {
-                    @Override
-                    protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
-                        long aid = args.getLong("account");
-                        String thread = args.getString("thread");
-                        long id = args.getLong("id");
-                        String type = args.getString("type");
-                        boolean move_thread_sent = args.getBoolean("move_thread_sent");
-                        boolean filter_archive = args.getBoolean("filter_archive");
-
-                        ArrayList<MessageTarget> result = new ArrayList<>();
-
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            EntityAccount account = db.account().getAccount(aid);
-                            if (account == null)
-                                return result;
-
-                            EntityFolder targetFolder = db.folder().getFolderByType(aid, type);
-                            if (targetFolder == null)
-                                return result;
-
-                            List<EntityMessage> messages = db.message().getMessagesByThread(
-                                    aid, thread, threading ? null : id, null);
-                            for (EntityMessage threaded : messages) {
-                                EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
-                                if (sourceFolder != null && !sourceFolder.read_only &&
-                                        !targetFolder.id.equals(threaded.folder) &&
-                                        (!filter_archive || !EntityFolder.ARCHIVE.equals(sourceFolder.type)) &&
-                                        !EntityFolder.DRAFTS.equals(sourceFolder.type) && !EntityFolder.OUTBOX.equals(sourceFolder.type) &&
-                                        !(EntityFolder.SENT.equals(sourceFolder.type) && EntityFolder.ARCHIVE.equals(targetFolder.type)) &&
-                                        !(EntityFolder.SENT.equals(sourceFolder.type) && EntityFolder.JUNK.equals(targetFolder.type)) &&
-                                        (!EntityFolder.SENT.equals(sourceFolder.type) || !EntityFolder.TRASH.equals(targetFolder.type) || move_thread_sent) &&
-                                        !EntityFolder.TRASH.equals(sourceFolder.type) && !EntityFolder.JUNK.equals(sourceFolder.type))
-                                    result.add(new MessageTarget(context, threaded, account, sourceFolder, account, targetFolder));
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return result;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                        moveAsk(result, false);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragmentManager(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:move");
-            }
-
             private void onActionSnooze() {
                 Long time = null;
                 List<TupleMessageEx> list = adapter.getCurrentList();
@@ -2861,6 +2793,11 @@ public class FragmentMessages extends FragmentBase
 
         @Override
         public void move(long id, String type) {
+            if (id < 0 && EntityFolder.TRASH.equals(type)) {
+                onActionMove(EntityFolder.TRASH);
+                return;
+            }
+
             Bundle args = new Bundle();
             args.putLong("id", id);
             args.putString("type", type);
@@ -5252,6 +5189,74 @@ public class FragmentMessages extends FragmentBase
         ask.setArguments(args);
         ask.setTargetFragment(FragmentMessages.this, REQUEST_BLOCK_SENDERS);
         ask.show(getParentFragmentManager(), "messages:block");
+    }
+
+    private void onActionMove(String folderType) {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+        args.putString("thread", thread);
+        args.putLong("id", id);
+        args.putString("type", folderType);
+        args.putBoolean("move_thread_sent", move_thread_sent);
+        args.putBoolean("filter_archive", filter_archive);
+
+        new SimpleTask<ArrayList<MessageTarget>>() {
+            @Override
+            protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
+                long aid = args.getLong("account");
+                String thread = args.getString("thread");
+                long id = args.getLong("id");
+                String type = args.getString("type");
+                boolean move_thread_sent = args.getBoolean("move_thread_sent");
+                boolean filter_archive = args.getBoolean("filter_archive");
+
+                ArrayList<MessageTarget> result = new ArrayList<>();
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityAccount account = db.account().getAccount(aid);
+                    if (account == null)
+                        return result;
+
+                    EntityFolder targetFolder = db.folder().getFolderByType(aid, type);
+                    if (targetFolder == null)
+                        return result;
+
+                    List<EntityMessage> messages = db.message().getMessagesByThread(
+                            aid, thread, threading ? null : id, null);
+                    for (EntityMessage threaded : messages) {
+                        EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
+                        if (sourceFolder != null && !sourceFolder.read_only &&
+                                !targetFolder.id.equals(threaded.folder) &&
+                                (!filter_archive || !EntityFolder.ARCHIVE.equals(sourceFolder.type)) &&
+                                !EntityFolder.DRAFTS.equals(sourceFolder.type) && !EntityFolder.OUTBOX.equals(sourceFolder.type) &&
+                                !(EntityFolder.SENT.equals(sourceFolder.type) && EntityFolder.ARCHIVE.equals(targetFolder.type)) &&
+                                !(EntityFolder.SENT.equals(sourceFolder.type) && EntityFolder.JUNK.equals(targetFolder.type)) &&
+                                (!EntityFolder.SENT.equals(sourceFolder.type) || !EntityFolder.TRASH.equals(targetFolder.type) || move_thread_sent) &&
+                                !EntityFolder.TRASH.equals(sourceFolder.type) && !EntityFolder.JUNK.equals(sourceFolder.type))
+                            result.add(new MessageTarget(context, threaded, account, sourceFolder, account, targetFolder));
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return result;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
+                moveAsk(result, false);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:move");
     }
 
     private void onActionMoveSelection(final String type, boolean block) {
