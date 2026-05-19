@@ -757,7 +757,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                     AdapterPackage adapter = new AdapterPackage(getContext(), pkgs);
                     spOpenWith.setAdapter(adapter);
 
-                    String main = args.getString("main", null);
+                    boolean selected = false;
                     String open_with_pkg = prefs.getString("open_with_pkg", null);
                     boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
                     Log.i("Open with selected=" + open_with_pkg + " tabs=" + open_with_tabs);
@@ -765,10 +765,21 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         Package pkg = pkgs.get(position);
                         if (Objects.equals(pkg.name, open_with_pkg) && pkg.tabs == open_with_tabs) {
                             spOpenWith.setSelection(position);
+                            selected = true;
                             break;
                         }
-                        if (Objects.equals(main, pkg.name))
-                            spOpenWith.setSelection(position);
+                    }
+
+                    if (!selected) {
+                        String main = args.getString("main", null);
+                        for (int position = 0; position < pkgs.size(); position++) {
+                            Package pkg = pkgs.get(position);
+                            if (Objects.equals(main, pkg.name)) {
+                                spOpenWith.setSelection(position);
+                                if (!pkg.tabs)
+                                    break;
+                            }
+                        }
                     }
                 }
 
