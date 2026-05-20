@@ -480,7 +480,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 String[] values = getResources().getStringArray(R.array.onCloseValues);
                 String value = values[position];
-                if (TextUtils.isEmpty(value))
+                if ("none".equals(value))
                     prefs.edit().remove("onclose").apply();
                 else
                     prefs.edit().putString("onclose", value).apply();

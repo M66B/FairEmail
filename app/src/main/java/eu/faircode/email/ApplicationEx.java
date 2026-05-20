@@ -1144,6 +1144,10 @@ public class ApplicationEx extends Application
             editor.remove("setup_reminder");
         editor.putInt("last_sdk", Build.VERSION.SDK_INT);
 
+        String onclose = prefs.getString("onclose", null);
+        if ("none".equals(onclose))
+            editor.remove("onclose");
+
         editor.apply();
     }
 
