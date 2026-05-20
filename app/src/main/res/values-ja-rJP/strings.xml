@@ -332,6 +332,9 @@
     <string name="title_advanced_hint_message">        詳細設定に移動しています。
         初期状態では特に変更しなくてもアプリを使用できる一般的な設定になっています。
     </string>
+    <string name="title_advanced_hint_configure">        アカウントの設定を行うために、わざわざこの画面にいる必要はありません。「クイックセットアップウィザード」ボタンを使用してください。
+        ほとんどの場合、このウィザードで問題なく設定できますが、うまくいかない場合は、ウィザードボタンの少し下にある「手動セットアップ」をご利用ください。
+    </string>
     <string name="title_advanced_hint_remark">        設定は、外観や操作などのカテゴリーごとにタブに分類され、さらにセクションに分けられています。検索もできます。
     </string>
     <string name="title_advanced_hint_options">        あなたにはほとんどのオプションは必要ではなく、いくつかはあまりに特殊すぎると感じるかもしれません。

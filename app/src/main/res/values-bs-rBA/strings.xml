@@ -360,6 +360,9 @@
     <string name="title_advanced_hint_message">        Prebacujete se na više naprednih opcija.
         Sve opcije imaju postavljene uobičajene standardne vrijednosti, koje ne trebate mijenjati osim ako ne preferirate drugačije.
     </string>
+    <string name="title_advanced_hint_configure">        Nema potrebe da ovdje podešavate račun. Molimo da koristite dugme Čarobnjak, za brzo postavljanje računa.
+        Čarobnjak za brzo postavljanje gotovo uvijek radi, ali ukoliko ne radi, možete izabrati klasično ručno postavljanje računa, koje se nalazi ispod dugmeta čarobnjaka.
+    </string>
     <string name="title_advanced_hint_remark">        Opcije su kategorisane prema kartici (tabu), podijeljene u odjeljke, organizovane prema izgledu ili upotrebi i mogu se pretraživati.
     </string>
     <string name="title_advanced_hint_options">        Nećete trebati većinu opcija i zbog toga što su neke opcije vrlo specifične,
@@ -1672,6 +1675,7 @@
     <string name="title_search_with_unseen">Nepročitano</string>
     <string name="title_search_with_flagged">Favorite (zvjezdice)</string>
     <string name="title_search_with_hidden">Skriveno (samo na uređaju)</string>
+    <string name="title_search_with_importance">Značaj (samo na uređaju)</string>
     <string name="title_search_with_encrypted">Šifrirano (samo na uređaju)</string>
     <string name="title_search_with_attachments">Poruke s prilozima (samo na uređaju)</string>
     <string name="title_search_with_size">Poruke veličine preko</string>

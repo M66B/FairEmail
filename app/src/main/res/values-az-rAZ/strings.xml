@@ -1658,6 +1658,7 @@
     <string name="title_search_with_unseen">Oxunmadı</string>
     <string name="title_search_with_flagged">Ulduzlu</string>
     <string name="title_search_with_hidden">Gizli (yalnız cihazda)</string>
+    <string name="title_search_with_importance">Vacib (yalnız cihazda)</string>
     <string name="title_search_with_encrypted">Şifrəli (yalnız cihazda)</string>
     <string name="title_search_with_attachments">Qoşmalar ilə (yalnız cihazda)</string>
     <string name="title_search_with_size">Mesaj həcmi daha böyükdür</string>

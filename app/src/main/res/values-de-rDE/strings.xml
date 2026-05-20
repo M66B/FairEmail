@@ -490,6 +490,7 @@
     <string name="title_advanced_open_safe">Nur sichere Verbindungen öffnen</string>
     <string name="title_advanced_http_redirect">Verbindungsumleitung zulassen</string>
     <string name="title_advanced_bouncy_castle">Sicheren Socket-Anbieter (JSSE) von »Bouncy Castle« verwenden</string>
+    <string name="title_advanced_local_network" comment="title_advanced_local_network&#10;Title for button (so please keep it short!) to request local network permissions to be able to access email servers on LAN network addresses on Android 17 and later.">LAN-Berechtigungen</string>
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
     <string name="title_advanced_caption_general">Allgemein</string>
     <string name="title_advanced_caption_navigation">Navigation</string>

@@ -487,6 +487,7 @@
     <string name="title_advanced_open_safe">Csak biztonságos kapcsolatok megnyitása</string>
     <string name="title_advanced_http_redirect">Engedélyezi a kapcsolat-átirányítást</string>
     <string name="title_advanced_bouncy_castle">A Bouncy Castle biztonságos kapcsolat szolgáltatást (JSSE) használja</string>
+    <string name="title_advanced_local_network" comment="title_advanced_local_network&#10;Title for button (so please keep it short!) to request local network permissions to be able to access email servers on LAN network addresses on Android 17 and later.">Helyi hálózat elérése</string>
     <string name="title_advanced_manage_connectivity">Adatkapcsolat kezelése</string>
     <string name="title_advanced_caption_general">Általános</string>
     <string name="title_advanced_caption_navigation">Navigáció</string>

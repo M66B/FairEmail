@@ -487,6 +487,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_open_safe">Allinnich befeilige ferbiningen iepenje</string>
     <string name="title_advanced_http_redirect">Ferbiningsomlieding tastean</string>
     <string name="title_advanced_bouncy_castle">Brûk de feilige socketprovider fan Bouncy Castle (JSSE)</string>
+    <string name="title_advanced_local_network" comment="title_advanced_local_network&#10;Title for button (so please keep it short!) to request local network permissions to be able to access email servers on LAN network addresses on Android 17 and later.">Lokale netwurkrjochten</string>
     <string name="title_advanced_manage_connectivity">Konnektiviteit beheare</string>
     <string name="title_advanced_caption_general">Algemien</string>
     <string name="title_advanced_caption_navigation">Navigaasje</string>

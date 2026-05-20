@@ -477,6 +477,7 @@
     <string name="title_advanced_open_safe">仅打开安全连接</string>
     <string name="title_advanced_http_redirect">允许连接重定向</string>
     <string name="title_advanced_bouncy_castle">使用 Bouncy Castle 的安全套接字提供商 (JSSE)</string>
+    <string name="title_advanced_local_network" comment="title_advanced_local_network&#10;Title for button (so please keep it short!) to request local network permissions to be able to access email servers on LAN network addresses on Android 17 and later.">本地网络权限</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_caption_general">常规​​​​​</string>
     <string name="title_advanced_caption_navigation">导航栏</string>

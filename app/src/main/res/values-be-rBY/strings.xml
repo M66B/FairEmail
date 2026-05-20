@@ -375,6 +375,9 @@
     <string name="title_advanced_hint_message">        Вы пераходзіце да пашыраных параметраў.
         Усе параметры звычайна маюць стандартныя значэнні, якія вам не трэба мяняць, калі ў вас няма іншых патрабаванняў.
     </string>
+    <string name="title_advanced_hint_configure">        Тут неабавязкова наладжваць уліковы запіс. Калі ласка, скарыстайцеся кнопкай майстра хуткага наладжвання.
+        Майстар хуткага наладжвання амаль заўсёды працуе. У адваротным выпадку вы можаце скарыстацца класічным ручным наладжваннем крыху ніжэй кнопкі майстра.
+    </string>
     <string name="title_advanced_hint_remark">        Параметры размеркаваны па ўкладках, падзелены на раздзелы, упарадкаваны паводле знешняга выгляду або выкарыстання і даступны для пошуку.
     </string>
     <string name="title_advanced_hint_options">         Вам не спатрэбіцца большасць опцый, а паколькі некаторыя опцыі даволі спецыфічныя,
@@ -518,6 +521,7 @@
     <string name="title_advanced_open_safe">Адкрываць толькі бяспечныя злучэнні</string>
     <string name="title_advanced_http_redirect">Дазволіць пераадрасаванне злучэння</string>
     <string name="title_advanced_bouncy_castle">Выкарыстанне правайдэра бяспечных сокетаў Bouncy Castle (JSSE)</string>
+    <string name="title_advanced_local_network" comment="title_advanced_local_network&#10;Title for button (so please keep it short!) to request local network permissions to be able to access email servers on LAN network addresses on Android 17 and later.">Доступу да лакальнай сеткі</string>
     <string name="title_advanced_manage_connectivity">Кіраванне злучэннем</string>
     <string name="title_advanced_caption_general">Асноўнае</string>
     <string name="title_advanced_caption_navigation">Навігацыя</string>
@@ -1689,6 +1693,7 @@
     <string name="title_search_with_unseen">Непрачытаныя</string>
     <string name="title_search_with_flagged">Пазначаныя</string>
     <string name="title_search_with_hidden">Схаваныя (толькі на прыладзе)</string>
+    <string name="title_search_with_importance">Важнасць (толькі на прыладзе)</string>
     <string name="title_search_with_encrypted">Зашыфраваныя (толькі на прыладзе)</string>
     <string name="title_search_with_attachments">З укладаннямі (толькі на прыладзе)</string>
     <string name="title_search_with_size">Памер паведамлення перавышае</string>
