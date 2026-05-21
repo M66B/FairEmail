@@ -2924,6 +2924,15 @@ public class FragmentMessages extends FragmentBase
         }
 
         @Override
+        public boolean select(long id, boolean unselect) {
+            if (selectionTracker == null)
+                return false;
+            if (unselect)
+                selectionTracker.clearSelection();
+            return selectionTracker.select(id);
+        }
+
+        @Override
         public void moveSelection(String type, boolean block) {
             onActionMoveSelection(type, block);
         }
