@@ -710,8 +710,9 @@ public class HtmlHelper {
                     String value = param.substring(colon + 1)
                             .replace("!important", "")
                             .trim()
-                            .toLowerCase(Locale.ROOT)
                             .replaceAll("\\s+", " ");
+                    if (!"background-image".equals(key))
+                        value = value.toLowerCase(Locale.ROOT);
                     kv.put(key, value);
                 }
 
@@ -733,10 +734,17 @@ public class HtmlHelper {
                                     if (url.length() > 1)
                                         url = url.substring(1, url.length() - 1);
                                 }
+
                                 Element img = document.createElement("img")
                                         .attr("src", url);
-                                element.prependElement("br");
-                                element.prependChild(img);
+                                if ("table".equals(element.tagName()))
+                                    element.before(img);
+                                else if ("tr".equals(element.tagName()))
+                                    element.prependElement("td").prependChild(img);
+                                else {
+                                    element.prependElement("br");
+                                    element.prependChild(img);
+                                }
                             }
                             break;
                         case "color":
