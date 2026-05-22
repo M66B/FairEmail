@@ -1012,6 +1012,8 @@ public class EntityRule {
             target = created.id;
         }
 
+        EntityOperation.subscribe(context, target, true);
+
         List<EntityMessage> messages = db.message().getMessagesByThread(
                 message.account, message.thread, thread ? null : message.id, message.folder);
         for (EntityMessage threaded : messages)
