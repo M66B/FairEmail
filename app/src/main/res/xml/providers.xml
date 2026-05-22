@@ -2505,7 +2505,7 @@
     </provider>
     <provider
         name="Soverin"
-        mx=".*\\.soverin\\.net">
+        mx=".*\\.soverin\\.net"
         link="https://soverin.nl/help/setup">
         <imap
             host="imap.soverin.net"
