@@ -35,6 +35,9 @@ public class ReceiverAutoStart extends BroadcastReceiver {
                 Intent.ACTION_MY_PACKAGE_REPLACED.equals(action)) {
             EntityLog.log(context, "Received " + intent);
 
+            if (Intent.ACTION_BOOT_COMPLETED.equals(action))
+                DnsHelper.clear(context);
+
             if (Intent.ACTION_MY_PACKAGE_REPLACED.equals(action))
                 ApplicationEx.upgrade(context);
 
