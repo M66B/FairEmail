@@ -45,7 +45,6 @@ import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.BulletSpan;
 import android.text.style.CharacterStyle;
-import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
@@ -59,7 +58,6 @@ import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
