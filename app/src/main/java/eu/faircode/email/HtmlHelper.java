@@ -553,6 +553,7 @@ public class HtmlHelper {
                 .addTags("hr", "abbr", "big", "font", "dfn", "ins", "del", "s", "tt", "mark", "address", "input", "samp")
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
+                .addAttributes(":all", "background")
                 .addAttributes("span", "dir")
                 .addAttributes("li", "dir")
                 .addAttributes("div", "x-plain")
@@ -735,16 +736,7 @@ public class HtmlHelper {
                                         url = url.substring(1, url.length() - 1);
                                 }
 
-                                Element img = document.createElement("img")
-                                        .attr("src", url);
-                                if ("table".equals(element.tagName()))
-                                    element.before(img);
-                                else if ("tr".equals(element.tagName()))
-                                    element.prependElement("td").prependChild(img);
-                                else {
-                                    element.prependElement("br");
-                                    element.prependChild(img);
-                                }
+                                insertImage(url, element, document);
                             }
                             break;
                         case "color":
@@ -1109,6 +1101,13 @@ public class HtmlHelper {
                     if (BuildConfig.DEBUG)
                         Log.i("Style=" + sb);
                 }
+            }
+
+            String background = element.attr("background");
+            if (!TextUtils.isEmpty(background)) {
+                // 30-year-old standard use by AliExpress ...
+                if (UriHelper.isHyperLink(background))
+                    insertImage(background, element, document);
             }
 
             if (element.isBlock() &&
@@ -1522,6 +1521,18 @@ public class HtmlHelper {
         document.body(); // Normalise document
 
         return document;
+    }
+
+    private static void insertImage(String url, Element element, Document document) {
+        Element img = document.createElement("img").attr("src", url);
+        if ("table".equals(element.tagName()))
+            element.before(img);
+        else if ("tr".equals(element.tagName()))
+            element.prependElement("td").prependChild(img);
+        else {
+            element.prependElement("br");
+            element.prependChild(img);
+        }
     }
 
     static void removeRelativeLinks(Document document) {

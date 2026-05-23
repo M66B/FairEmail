@@ -602,6 +602,18 @@ public class UriHelper {
                         "https".equalsIgnoreCase(uri.getScheme())));
     }
 
+    static boolean isHyperLink(String uri) {
+        try {
+            if (uri == null)
+                return false;
+            Uri u = Uri.parse(uri);
+            if (u != null && isHyperLink(u))
+                return true;
+        } catch (Throwable ignored) {
+        }
+        return false;
+    }
+
     static boolean isMail(Uri uri) {
         return (uri.isOpaque() && "mailto".equalsIgnoreCase(uri.getScheme()));
     }
