@@ -3048,8 +3048,7 @@ public class MessageHelper {
                     mailto = "mailto:" + unsubscribe;
                 else {
                     if (link == null) {
-                        Uri uri = Uri.parse(unsubscribe);
-                        if (UriHelper.isHyperLink(uri))
+                        if (UriHelper.isHyperLink(unsubscribe))
                             link = unsubscribe;
                         else {
                             Pattern p =

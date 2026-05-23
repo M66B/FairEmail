@@ -1361,8 +1361,7 @@ public class StyleHelper {
 
         Editable edit = etBody.getText();
         if (image) {
-            Uri uri = Uri.parse(url);
-            if (!UriHelper.isHyperLink(uri))
+            if (!UriHelper.isHyperLink(url))
                 return false;
 
             SpannableStringBuilder ssb = new SpannableStringBuilderEx(edit);
