@@ -6154,7 +6154,6 @@ k12.mo.us
 k12.ms.us
 k12.mt.us
 k12.nc.us
-// k12.nd.us - Bug 1028347 - Removed at request of Travis Rosso <trossow@nd.gov>
 k12.ne.us
 k12.nh.us
 k12.nj.us
@@ -6236,8 +6235,6 @@ cc.mt.us
 lib.mt.us
 cc.nc.us
 lib.nc.us
-cc.nd.us
-lib.nd.us
 cc.ne.us
 lib.ne.us
 cc.nh.us
@@ -14058,6 +14055,10 @@ ltd.ng
 ngo.ng
 plc.ng
 
+// Hostinger : https://hostinger.com
+// Submitted by Valentinas Cirba <domains@hostinger.com>
+hstgr.cloud
+
 // HostyHosting : https://hostyhosting.com
 hostyhosting.io
 
@@ -16001,6 +16002,11 @@ reservd.testing.thingdust.io
 // ticket i/O GmbH : https://ticket.io
 // Submitted by Christian Franke <it@ticket.io>
 tickets.io
+
+// Tigris Data, Inc. : https://www.tigrisdata.com
+// Submitted by Bo Cao <security@tigrisdata.com>
+t3.storage.dev
+t3.storageapi.dev
 
 // Tlon.io : https://tlon.io
 // Submitted by Mark Staarink <mark@tlon.io>
