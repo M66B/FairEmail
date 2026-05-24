@@ -59,8 +59,11 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.os.LocaleList;
 import android.os.PowerManager;
+import android.os.StatFs;
 import android.os.SystemClock;
 import android.os.ext.SdkExtensions;
+import android.os.storage.StorageManager;
+import android.os.storage.StorageVolume;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.security.NetworkSecurityPolicy;
@@ -480,6 +483,29 @@ public class DebugHelper {
                 Helper.humanReadableByteCount(ext_storage_total - ext_storage_available),
                 Helper.humanReadableByteCount(ext_storage_total),
                 ext));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+            try {
+                StorageManager storageManager = (StorageManager) context.getSystemService(Context.STORAGE_SERVICE);
+                List<StorageVolume> volumes = storageManager.getStorageVolumes();
+
+                for (StorageVolume volume : volumes) {
+                    File dir = volume.getDirectory();
+                    StatFs stats = (dir == null ? null : new StatFs(dir.getAbsolutePath()));
+                    long total = (stats == null ? 0 : stats.getTotalBytes());
+                    long available = (stats == null ? 0 : stats.getAvailableBytes());
+                    sb.append(String.format("%s: %s/%s mounted=%b readonly=%b removable=%b path=%s\r\n",
+                            volume.getDescription(context),
+                            Helper.humanReadableByteCount(total - available),
+                            Helper.humanReadableByteCount(total),
+                            volume.getState().equals(Environment.MEDIA_MOUNTED),
+                            volume.getState().equals(Environment.MEDIA_MOUNTED_READ_ONLY),
+                            volume.isRemovable(),
+                            (dir == null ? "?" : dir.getAbsolutePath())));
+                }
+            } catch (Throwable ex) {
+                sb.append(ex).append("\r\n");
+            }
 
         long cache_used = Helper.getSizeUsed(context.getCacheDir());
         long cache_quota = Helper.getCacheQuota(context);
