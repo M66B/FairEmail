@@ -467,10 +467,19 @@ public class DebugHelper {
         long storage_available = Helper.getAvailableStorageSpace();
         long storage_total = Helper.getTotalStorageSpace();
         long storage_used = Helper.getSizeUsed(context.getFilesDir());
-        sb.append(String.format("Storage space: %s/%s App: %s\r\n",
+        sb.append(String.format("Storage space: %s/%s App: %s Dir: %s\r\n",
                 Helper.humanReadableByteCount(storage_total - storage_available),
                 Helper.humanReadableByteCount(storage_total),
-                Helper.humanReadableByteCount(storage_used)));
+                Helper.humanReadableByteCount(storage_used),
+                Environment.getDataDirectory().getAbsolutePath()));
+
+        String ext = Environment.getExternalStorageDirectory().getAbsolutePath();
+        long ext_storage_available = Helper.getAvailableStorageSpace(ext);
+        long ext_storage_total = Helper.getTotalStorageSpace(ext);
+        sb.append(String.format("External storage space: %s/%s Dir: %s\r\n",
+                Helper.humanReadableByteCount(ext_storage_total - ext_storage_available),
+                Helper.humanReadableByteCount(ext_storage_total),
+                ext));
 
         long cache_used = Helper.getSizeUsed(context.getCacheDir());
         long cache_quota = Helper.getCacheQuota(context);

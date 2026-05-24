@@ -3161,12 +3161,20 @@ public class Helper {
     }
 
     static long getAvailableStorageSpace() {
-        StatFs stats = new StatFs(Environment.getDataDirectory().getAbsolutePath());
-        return stats.getAvailableBlocksLong() * stats.getBlockSizeLong();
+        return getAvailableStorageSpace(Environment.getDataDirectory().getAbsolutePath());
+    }
+
+    static long getAvailableStorageSpace(String dir) {
+        StatFs stats = new StatFs(dir);
+        return stats.getAvailableBytes();
     }
 
     static long getTotalStorageSpace() {
-        StatFs stats = new StatFs(Environment.getDataDirectory().getAbsolutePath());
+        return getTotalStorageSpace(Environment.getDataDirectory().getAbsolutePath());
+    }
+
+    static long getTotalStorageSpace(String dir) {
+        StatFs stats = new StatFs(dir);
         return stats.getTotalBytes();
     }
 
