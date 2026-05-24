@@ -374,6 +374,9 @@
     <string name="title_advanced_hint_message">        בחרת לנווט אל האפשרויות המתקדמות יותר.
         כל האפשרויות מוגדרות לפי ערכים מקובלים, שאין צורך לשנות אותם אלא אם כן יש לך העדפות שונות.
     </string>
+    <string name="title_advanced_hint_configure">        לא צריך להיכנס לכאן כדי להגדיר חשבון. נא להשתמש בכפתור אשף ההגדרות המהירות לשם כך.
+        אשף ההגדרות המהירות עובד כמעט תמיד, אבל אם לא, אפשר להשתמש בהגדרות הידניות הקלסיות קצת מתחת לכפתור האשף
+    </string>
     <string name="title_advanced_hint_remark">        האפשרויות מסודרות בקטגוריות לפי לשונית, בחלוקה לסעיפים ובסידור לפי הופעה או שימוש כולל אפשרות לחיפוש.
     </string>
     <string name="title_advanced_hint_options">        רוב האפשרויות אינן נחוצות ומאחר שחלק מהאפשרויות הן מאוד נקודתיות, 
@@ -517,6 +520,7 @@
     <string name="title_advanced_open_safe">פתיחת חיבורים מאובטחים בלבד</string>
     <string name="title_advanced_http_redirect">לאפשר הפניית חיבורים</string>
     <string name="title_advanced_bouncy_castle">להשתמש בספק השקע המאובטח של Bouncy Castle‏ (JSSE)</string>
+    <string name="title_advanced_local_network">הרשאות לרשת המקומית</string>
     <string name="title_advanced_manage_connectivity">ניהול קישוריות</string>
     <string name="title_advanced_caption_general">כללי</string>
     <string name="title_advanced_caption_navigation">ניווט</string>
@@ -1351,6 +1355,7 @@
     <string name="title_quick_actions_snooze">השהיה</string>
     <string name="title_quick_actions_clear">פינוי הבחירה לאחר פעולה</string>
     <string name="title_trash">אשפה</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">השלכת הדיון לאשפה</string>
     <string name="title_trash_selection">העברת הבחירה לאשפה</string>
     <string name="title_copy">העתקה&#8230;</string>
     <string name="title_copy_to">העתקה אל&#8230;</string>
@@ -2385,12 +2390,12 @@
     </string-array>
     <string-array name="undoNames">
         <item>כבוי</item>
-        <item>1.25 s</item>
+        <item>1.25 שנ׳</item>
         <item>2.5 שנ׳</item>
         <item>5 שנ׳</item>
         <item>7.5 שנ׳</item>
         <item>10 שנ׳</item>
-        <item>15 s</item>
+        <item>15 שנ׳</item>
         <item>30 שניות</item>
         <item>60 שניות</item>
     </string-array>

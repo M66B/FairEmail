@@ -492,7 +492,7 @@
     <string name="title_advanced_open_safe">Apri solo connessioni sicure</string>
     <string name="title_advanced_http_redirect">Consenti il reindirizzamento delle connessioni</string>
     <string name="title_advanced_bouncy_castle">Usa il provider di socket sicuro (JSSE) di Bouncy Castle</string>
-    <string name="title_advanced_local_network" comment="title_advanced_local_network&#10;Title for button (so please keep it short!) to request local network permissions to be able to access email servers on LAN network addresses on Android 17 and later.">Permessi di rete locale</string>
+    <string name="title_advanced_local_network">Permessi di rete locale</string>
     <string name="title_advanced_manage_connectivity">Gestione delle connessioni</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_navigation">Navigazione</string>
@@ -701,7 +701,7 @@
     <string name="title_advanced_notify_transliterate">Traslittera nell\'alfabeto latino</string>
     <string name="title_advanced_notify_ascii">Solo testo ASCII</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
-    <string name="title_advanced_notify_action_trash">Cestina</string>
+    <string name="title_advanced_notify_action_trash"></string>
     <string name="title_advanced_notify_action_delete">Elimina</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archivia</string>
@@ -1327,7 +1327,8 @@
     <string name="title_quick_actions_high">Importanza elevata</string>
     <string name="title_quick_actions_snooze">Posticipa</string>
     <string name="title_quick_actions_clear">Annulla la selezione dopo un\'azione</string>
-    <string name="title_trash">Cestino</string>
+    <string name="title_trash">Cestina</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Cestina la conversazione</string>
     <string name="title_trash_selection">Cestina la selezione</string>
     <string name="title_copy">Copia&#8230;</string>
     <string name="title_copy_to">Copia in&#8230;</string>
@@ -1985,7 +1986,7 @@
     <string name="title_legend_enter">Apri</string>
     <string name="title_legend_a">Archivio</string>
     <string name="title_legend_c">Scrivi</string>
-    <string name="title_legend_d">Cestino (elimina)</string>
+    <string name="title_legend_d">Cestina (elimina)</string>
     <string name="title_legend_m">Menu (selezione multipla)</string>
     <string name="title_legend_n">Successivo</string>
     <string name="title_legend_p">Precedente</string>

@@ -487,7 +487,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_open_safe">Alleen beveiligde verbindingen openen</string>
     <string name="title_advanced_http_redirect">Verbindingsomleiding toestaan</string>
     <string name="title_advanced_bouncy_castle">Gebruik de secure socket provider van Bouncy Castle (JSSE)</string>
-    <string name="title_advanced_local_network" comment="title_advanced_local_network&#10;Title for button (so please keep it short!) to request local network permissions to be able to access email servers on LAN network addresses on Android 17 and later.">Lokale netwerkrechten</string>
+    <string name="title_advanced_local_network">Lokale netwerkrechten</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
     <string name="title_advanced_caption_general">Algemeen</string>
     <string name="title_advanced_caption_navigation">Navigatie</string>
@@ -1319,6 +1319,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_quick_actions_snooze">Sluimeren</string>
     <string name="title_quick_actions_clear">Selectie wissen na actie</string>
     <string name="title_trash">Prullenbak</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Gesprek verwijderen</string>
     <string name="title_trash_selection">Verwijder selectie</string>
     <string name="title_copy">Kopieer &#8230;</string>
     <string name="title_copy_to">Kopieer naar &#8230;</string>

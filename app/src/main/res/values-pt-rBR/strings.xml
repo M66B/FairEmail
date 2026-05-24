@@ -490,7 +490,7 @@
     <string name="title_advanced_open_safe">Abrir apenas conexões seguras</string>
     <string name="title_advanced_http_redirect">Permitir redirecionamento de conexão</string>
     <string name="title_advanced_bouncy_castle">Use o provedor de soquete seguro (JSSE) do Bouncy Castle</string>
-    <string name="title_advanced_local_network" comment="title_advanced_local_network&#10;Title for button (so please keep it short!) to request local network permissions to be able to access email servers on LAN network addresses on Android 17 and later.">Permissões de rede local</string>
+    <string name="title_advanced_local_network">Permissões de rede local</string>
     <string name="title_advanced_manage_connectivity">Gerenciar conectividade</string>
     <string name="title_advanced_caption_general">Geral</string>
     <string name="title_advanced_caption_navigation">Navegação</string>
@@ -1324,6 +1324,7 @@
     <string name="title_quick_actions_snooze">Soneca</string>
     <string name="title_quick_actions_clear">Limpar seleção após ação</string>
     <string name="title_trash">Lixeira</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Conversa Fiada</string>
     <string name="title_trash_selection">Seleção para o lixo</string>
     <string name="title_copy">Copiar &#8230;</string>
     <string name="title_copy_to">Copiar para &#8230;</string>

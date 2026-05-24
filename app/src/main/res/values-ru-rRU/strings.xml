@@ -519,7 +519,7 @@
     <string name="title_advanced_open_safe">Только безопасные подключения</string>
     <string name="title_advanced_http_redirect">Разрешать перенаправление подключений</string>
     <string name="title_advanced_bouncy_castle">Использовать провайдера защищённых сокетов Bouncy Castle (JSSE)</string>
-    <string name="title_advanced_local_network" comment="title_advanced_local_network&#10;Title for button (so please keep it short!) to request local network permissions to be able to access email servers on LAN network addresses on Android 17 and later.">Доступ к локальной сети</string>
+    <string name="title_advanced_local_network">Доступ к локальной сети</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_caption_general">По умолчанию</string>
     <string name="title_advanced_caption_navigation">Навигация</string>
@@ -1355,6 +1355,7 @@
     <string name="title_quick_actions_snooze">Отложить</string>
     <string name="title_quick_actions_clear">Очистить выбор после действия</string>
     <string name="title_trash">Корзина</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Удалить диалог</string>
     <string name="title_trash_selection">Удалить выбранное</string>
     <string name="title_copy">Копировать&#8230;</string>
     <string name="title_copy_to">Копировать в&#8230;</string>

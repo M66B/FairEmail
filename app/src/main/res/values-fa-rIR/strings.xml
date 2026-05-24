@@ -934,6 +934,7 @@
     <string name="title_quick_actions_high">با اهمیت</string>
     <string name="title_quick_actions_snooze">تعویق</string>
     <string name="title_trash">سطل آشغال</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">انتقال مکالمه به سطل آشغال</string>
     <string name="title_trash_selection">انتخاب سطل آشغال</string>
     <string name="title_copy">کپی &#8230;</string>
     <string name="title_copy_to">کپی به &#8230;</string>

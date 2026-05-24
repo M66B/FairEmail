@@ -346,6 +346,9 @@
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.
         Bütün seçimlər, fərqli bir tərcihiniz olmadığı müddətcə dəyişdirməyinizə ehtiyac olmayan və geniş istifadə olunan standart dəyərlərə sahibdir.
     </string>
+    <string name="title_advanced_hint_configure">        Hesabınızı konfiqurasiya etmək üçün burada olmağınız lazım deyil. Bunun üçün lütfən cəld quraşdırma sehrbazını istifadə edin.
+        Cəld quraşdırma sehrbazı, demək olar ki həmişə çalışır, ancaq çalışmasa, sehrbaz düyməsinin altındakı klassik manual quraşdırma düyməsini istifadə edə bilərsiniz.
+    </string>
     <string name="title_advanced_hint_remark">        Seçimlər, vərəqlərə görə kateqoriyalandırılıb, bölmələrə ayrılıb, görünüş və ya istifadəyə görə sinifləndirilib və axtarıla biləndir.
     </string>
     <string name="title_advanced_hint_options">        Variantların əksəriyyətinə ehtiyacınız olmayacaq və bəzi variantlar olduqca spesifik olduğundan,
@@ -489,6 +492,7 @@
     <string name="title_advanced_open_safe">Yalnız güvənli bağlantıları aç</string>
     <string name="title_advanced_http_redirect">Bağlantının təkrar yönləndirilməsinə icazə ver</string>
     <string name="title_advanced_bouncy_castle">\"Bouncy Castle\"ın güvənlik socket provayderini istifadə et (JSSE)</string>
+    <string name="title_advanced_local_network">Lokal şəbəkə icazələri</string>
     <string name="title_advanced_manage_connectivity">Bağlantını idarə et</string>
     <string name="title_advanced_caption_general">Ümumi</string>
     <string name="title_advanced_caption_navigation">Hərəkət</string>
@@ -1323,6 +1327,7 @@
     <string name="title_quick_actions_snooze">Ertələ</string>
     <string name="title_quick_actions_clear">Əməliyyatdan sonra seçimi təmizlə</string>
     <string name="title_trash">Tullantı</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Danışığı sil</string>
     <string name="title_trash_selection">Tullantı seçimi</string>
     <string name="title_copy">Kopyala &#8230;</string>
     <string name="title_copy_to">Kopyala &#8230;</string>

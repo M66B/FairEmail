@@ -121,6 +121,7 @@
     <string name="title_raw_send_thread">Conversation</string>
     <string name="title_quick_actions_snooze">Snooze</string>
     <string name="title_trash">Delete</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Delete conversation</string>
     <string name="title_trash_selection">Delete selection</string>
     <string name="title_delete">Remove</string>
     <string name="title_spam">Spam</string>

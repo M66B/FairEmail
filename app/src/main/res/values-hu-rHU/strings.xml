@@ -487,7 +487,7 @@
     <string name="title_advanced_open_safe">Csak biztonságos kapcsolatok megnyitása</string>
     <string name="title_advanced_http_redirect">Engedélyezi a kapcsolat-átirányítást</string>
     <string name="title_advanced_bouncy_castle">A Bouncy Castle biztonságos kapcsolat szolgáltatást (JSSE) használja</string>
-    <string name="title_advanced_local_network" comment="title_advanced_local_network&#10;Title for button (so please keep it short!) to request local network permissions to be able to access email servers on LAN network addresses on Android 17 and later.">Helyi hálózat elérése</string>
+    <string name="title_advanced_local_network">Helyi hálózat elérése</string>
     <string name="title_advanced_manage_connectivity">Adatkapcsolat kezelése</string>
     <string name="title_advanced_caption_general">Általános</string>
     <string name="title_advanced_caption_navigation">Navigáció</string>
@@ -1319,6 +1319,7 @@
     <string name="title_quick_actions_snooze">Szundi</string>
     <string name="title_quick_actions_clear">Kijelölés megszüntetése a művelet után</string>
     <string name="title_trash">Kuka</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Beszélgetés törlése</string>
     <string name="title_trash_selection">Kijelöltek törlése</string>
     <string name="title_copy">Másolás &#8230;</string>
     <string name="title_copy_to">Másolás ide &#8230;</string>

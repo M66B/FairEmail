@@ -492,7 +492,7 @@
     <string name="title_advanced_open_safe">Åbn kun sikre forbindelser</string>
     <string name="title_advanced_http_redirect">Tillad forbindelsesomdirigering</string>
     <string name="title_advanced_bouncy_castle">Brug Bouncy Castles secure socket-udbyder (JSSE)</string>
-    <string name="title_advanced_local_network" comment="title_advanced_local_network&#10;Title for button (so please keep it short!) to request local network permissions to be able to access email servers on LAN network addresses on Android 17 and later.">Lokale netværkstilladelser</string>
+    <string name="title_advanced_local_network">Lokale netværkstilladelser</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_caption_general">Generelt</string>
     <string name="title_advanced_caption_navigation">Navigering</string>
@@ -1328,6 +1328,7 @@
     <string name="title_quick_actions_snooze">Udsæt</string>
     <string name="title_quick_actions_clear">Ryd valg efter handling</string>
     <string name="title_trash">Papirkurv</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Skrot samtale</string>
     <string name="title_trash_selection">Papirkurvsvalg</string>
     <string name="title_copy">Kopiér &#8230;</string>
     <string name="title_copy_to">Kopiér til &#8230;</string>
