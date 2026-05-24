@@ -1736,12 +1736,19 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onReferenceEdit() {
-        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), ibReferenceEdit);
+        Context context = getContext();
+        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), ibReferenceEdit);
 
-        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_plain_text, 1, R.string.title_edit_plain_text);
-        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_formatted_text, 2, R.string.title_edit_formatted_text);
-        popupMenu.getMenu().add(Menu.NONE, R.string.title_clipboard_copy, 3, R.string.title_clipboard_copy);
-        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 4, R.string.title_delete);
+        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_plain_text, 1, R.string.title_edit_plain_text)
+                .setIcon(R.drawable.twotone_image_not_supported_24);
+        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_formatted_text, 2, R.string.title_edit_formatted_text)
+                .setIcon(R.drawable.twotone_image_24);
+        popupMenu.getMenu().add(Menu.NONE, R.string.title_clipboard_copy, 3, R.string.title_clipboard_copy)
+                .setIcon(R.drawable.twotone_file_copy_24);
+        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 4, R.string.title_delete)
+                .setIcon(R.drawable.twotone_delete_forever_24);
+
+        PopupMenuLifecycle.insertIcons(context, popupMenu.getMenu(), false);
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
