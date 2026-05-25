@@ -1457,7 +1457,15 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                     });
         } catch (Throwable ex) {
             EntityLog.log(context, "Graph/contacts ex=" + Log.formatThrowable(ex, false));
-            Log.unexpectedError(getParentFragmentManager(), ex);
+            boolean report = true;
+            if (ex instanceof AuthorizationException) {
+                // {"type":1,"code":1002,"error":"access_denied","errorDescription":"The user has denied access to the scope requested by the client application."}
+                AuthorizationException auth = (AuthorizationException) ex;
+                Log.w("Authorization type=" + auth.type + " code=" + auth.code + " error=" + auth.error + ": " + auth.errorDescription);
+                if (auth.type == 1 && auth.code == 1002 && "access_denied".equals(auth.error))
+                    report = false;
+            }
+            Log.unexpectedError(getParentFragmentManager(), ex, report);
         }
     }
 
