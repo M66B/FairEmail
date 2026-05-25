@@ -2505,8 +2505,8 @@
     </provider>
     <provider
         name="Soverin"
-        mx=".*\\.soverin\\.net"
-        link="https://soverin.nl/help/setup">
+        link="https://soverin.nl/help/setup"
+        mx=".*\\.soverin\\.net">
         <imap
             host="imap.soverin.net"
             port="993"
@@ -2527,6 +2527,19 @@
             starttls="false" />
         <smtp
             host="wp-xxxxxxx.mailout.server-he.de"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
+        name="Hostinger"
+        link="https://www.hostinger.com/support/4768584-how-to-set-up-hostinger-email-on-mozilla-thunderbird-desktop-windows/"
+        mx=".*\\.hostinger\\.com">
+        <imap
+            host="imap.hostinger.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.hostinger.com"
             port="465"
             starttls="false" />
     </provider>
