@@ -536,7 +536,7 @@
     </select-->
     <provider
         name="gmx.de"
-        documentation="Ist &lt;a href=&quot;https://hilfe.gmx.net/pop-imap/einschalten.html&quot;&gt;IMAP aktiviert&lt;/a&gt;? Die Zwei-Faktor-Authentifizierung erfordert &lt;a href=&quot;https://hilfe.gmx.net/sicherheit/2fa/anwendungsspezifisches-passwort.html&quot;&gt;ein App-Passwort&lt;/a&gt;!"
+        documentation="Ist &lt;a href=&quot;https://hilfe.gmx.net/pop-imap/einschalten.html&quot;&gt;IMAP aktiviert&lt;/a&gt;? In vielen Fällen ist nun &lt;a href=&quot;https://hilfe.gmx.net/sicherheit/2fa/anwendungsspezifisches-passwort.html&quot;&gt;ein App-Passwort&lt;/a&gt; erforderlich!"
         domain="gmx\\.de,gmx\\.net,mein\\.gmx,gmx\\.at,gmx\\.ch,mail\\.gmx,email\\.gmx,gmx\\.eu,gmx\\.org,gmx\\.info,gmx\\.biz"
         keepalive="12"
         link="https://hilfe.gmx.net/pop-imap/imap/imap-serverdaten.html#indexlink_help_pop-imap_imap">
