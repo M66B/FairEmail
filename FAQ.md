@@ -5599,6 +5599,9 @@ Since apps can't update themselves, updates can't be automatically installed.
 However, you can easily install an update via a button in the update available notification.
 You could use the [IzzyOnDroid F-Droid Repository](https://apt.izzysoft.de/fdroid/) to manage GitHub updates.
 
+The GitHub "[large](https://developer.android.com/guide/topics/manifest/application-element#largeHeap)" version will request more working memory from Android,
+which may be necessary when more than 10-20 accounts are configured.
+
 <br />
 
 <a name="faq174"></a>
