@@ -460,6 +460,7 @@ public class EntityMessage implements Serializable {
         return "duck.com".equals(domain) ||
                 "simplelogin.co".equals(domain) ||
                 "anonaddy.me".equals(domain) ||
+                "mailer.me".equals(domain) || // AnonAddy
                 domain.endsWith(".mozmail.com");
     }
 

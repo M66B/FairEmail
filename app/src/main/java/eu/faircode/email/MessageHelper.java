@@ -2923,6 +2923,9 @@ public class MessageHelper {
         if (sender == null)
             sender = getAddressHeader("X-SimpleLogin-Original-From");
         if (sender == null)
+            // X-AnonAddy-Original-Sender: <email>
+            // X-AnonAddy-Original-Envelope-From: <email>
+            // X-AnonAddy-Original-From-Header: <name>
             sender = getAddressHeader("X-AnonAddy-Original-From-Header");
         if (sender == null)
             sender = getAddressHeader("Sender");
