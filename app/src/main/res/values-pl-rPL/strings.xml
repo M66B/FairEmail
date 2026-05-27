@@ -1352,7 +1352,7 @@
     <string name="title_quick_actions_snooze">Odłóż</string>
     <string name="title_quick_actions_clear">Wyczyść zaznaczenie po akcji</string>
     <string name="title_trash">Kosz</string>
-    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Usunięta rozmowa</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Usuń rozmowę</string>
     <string name="title_trash_selection">Wybór kosza</string>
     <string name="title_copy">Kopiuj &#8230;</string>
     <string name="title_copy_to">Kopiuj do &#8230;</string>

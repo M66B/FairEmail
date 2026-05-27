@@ -1319,6 +1319,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_quick_actions_snooze">Slommerje</string>
     <string name="title_quick_actions_clear">Seleksje nei aksje wiskje</string>
     <string name="title_trash">Jiskefet</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Petear fuortsmite</string>
     <string name="title_trash_selection">Seleksje fuortsmite</string>
     <string name="title_copy">Kopiearje&#8230;</string>
     <string name="title_copy_to">Kopiearje nei&#8230;</string>
