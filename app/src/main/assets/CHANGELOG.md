@@ -30,6 +30,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2317 2026-05-27
+
 * Fixed all reported issues
 * Added button to request local network permission (Android 17 and later)
 * Compiling with Java 21
