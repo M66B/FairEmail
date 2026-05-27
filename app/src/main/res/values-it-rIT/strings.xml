@@ -701,7 +701,7 @@
     <string name="title_advanced_notify_transliterate">Traslittera nell\'alfabeto latino</string>
     <string name="title_advanced_notify_ascii">Solo testo ASCII</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
-    <string name="title_advanced_notify_action_trash"></string>
+    <string name="title_advanced_notify_action_trash">Cestino</string>
     <string name="title_advanced_notify_action_delete">Elimina</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archivia</string>
@@ -1327,7 +1327,7 @@
     <string name="title_quick_actions_high">Importanza elevata</string>
     <string name="title_quick_actions_snooze">Posticipa</string>
     <string name="title_quick_actions_clear">Annulla la selezione dopo un\'azione</string>
-    <string name="title_trash">Cestina</string>
+    <string name="title_trash">Cestino</string>
     <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Cestina la conversazione</string>
     <string name="title_trash_selection">Cestina la selezione</string>
     <string name="title_copy">Copia&#8230;</string>
@@ -1986,7 +1986,7 @@
     <string name="title_legend_enter">Apri</string>
     <string name="title_legend_a">Archivio</string>
     <string name="title_legend_c">Scrivi</string>
-    <string name="title_legend_d">Cestina (elimina)</string>
+    <string name="title_legend_d">Cestino (elimina)</string>
     <string name="title_legend_m">Menu (selezione multipla)</string>
     <string name="title_legend_n">Successivo</string>
     <string name="title_legend_p">Precedente</string>
