@@ -3713,6 +3713,9 @@ you can enable native DKIM in the debug panel, which appears when you enable deb
 In this case, the shield will be green only when DKIM passes and the signer domain matches that of the sender (=alignment).
 Please be aware that this option will increase both data and battery usage.
 
+Note that a service like [mail tester](https://mail-tester.com/) basically performs the same checks as an email server can but not must do to populate the *Authentication-Results* header.
+This means that such a service can say 'all okay' while the app reports 'inconclusive' because the email server didn't perform the checks.
+
 FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server.
 This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
 
