@@ -35,6 +35,7 @@ import android.view.InputDevice;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.accessibility.AccessibilityEvent;
 import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
 import android.webkit.RenderProcessGoneDetail;
@@ -166,6 +167,11 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             @Override
             public void onPageFinished(WebView view, String url) {
                 Log.i("Finished url=" + url);
+                try {
+                    view.sendAccessibilityEvent(AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
             }
 
             @Override
