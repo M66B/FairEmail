@@ -171,7 +171,7 @@ Related questions:
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23redmi)
 
-On some Xiaomi Redmi (Note) devices, some Realme devices, some OnePlus devices, some Oppo devices, some Samsung devices, some Sony (Xperia) devices, some Motorola devices, and possibly other devices running Android 12,
+On some Xiaomi Redmi (Note) devices, some Realme devices, some OnePlus devices, some Oppo devices, some Samsung devices, some Sony (Xperia) devices, some Motorola devices, and possibly other devices running Android 12 or 13,
 the database occasionally gets corrupted, especially after installing an update,
 resulting in total data loss (on the device only, unless you are using a POP3 account with the option *Leave messages on server* disabled).
 
