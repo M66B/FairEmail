@@ -1325,6 +1325,7 @@
     <string name="title_quick_actions_snooze">Posponer</string>
     <string name="title_quick_actions_clear">Borrar selección después de la acción</string>
     <string name="title_trash">Papelera</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Mover conversación a la papelera</string>
     <string name="title_trash_selection">Selección de papelera</string>
     <string name="title_copy">Copiar &#8230;</string>
     <string name="title_copy_to">Copiar a &#8230;</string>

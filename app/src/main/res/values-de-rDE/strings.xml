@@ -347,6 +347,9 @@
     <string name="title_advanced_hint_message">        Sie navigieren zu den erweiterten Optionen.
         Alle Optionen haben allgemein gebräuchliche Standardwerte, die nicht geändert werden müssen, es sei denn, Sie haben eine andere Präferenz.
     </string>
+    <string name="title_advanced_hint_configure">        Sie müssen nicht hier sein, um ein Konto zu konfigurieren. Bitte verwenden Sie dazu den Schnelleinstellungs-Assistenten.
+        Der Schnelleinstellungs-Assistent funktioniert fast immer, aber wenn nicht, können Sie die klassische manuelle Einrichtung ein wenig unterhalb des Assistenten-Knopfes verwenden.
+    </string>
     <string name="title_advanced_hint_remark">        Die Optionen sind nach Registerkarten kategorisiert, in Abschnitte unterteilt, nach Erscheinungsbild oder Verwendung geordnet und durchsuchbar.
     </string>
     <string name="title_advanced_hint_options">        Die meisten Optionen müssen von Ihnen nicht geändert werden. Einige sind sehr spezifisch,
