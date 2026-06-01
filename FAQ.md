@@ -1294,6 +1294,10 @@ This will result in searching in the subject or text (only) like this:
 ("apple" AND "banana" AND NOT "cherry") OR "nuts"
 ```
 
+This will **only** work for searching on the server!
+
+<br>
+
 Since version 1.1980 it is possible to use these prefixes as a search expression:
 
 ```
@@ -1305,6 +1309,10 @@ keyword:<keyword>
 ```
 
 There should be <ins>no space</ins> between the prefix and the search term, which will be applied as an AND-condition.
+
+This will **only** work for searching on the server!
+
+<br>
 
 Only AND conditions (+) and NOT conditions (-) can be used for on-device searching (since version 1.1981).
 If you try to use other search expressions, you get the error *Select a folder for a complex search*,

@@ -859,6 +859,8 @@ openssl pkcs12 -export -legacy -in certbag.pem &gt;legacy.p12</code></pre>
 <pre><code>apple +banana -cherry ?nuts</code></pre>
 <p>This will result in searching in the subject or text (only) like this:</p>
 <pre><code>(&quot;apple&quot; AND &quot;banana&quot; AND NOT &quot;cherry&quot;) OR &quot;nuts&quot;</code></pre>
+<p>This will <strong>only</strong> work for searching on the server!</p>
+<p><br></p>
 <p>Since version 1.1980 it is possible to use these prefixes as a search expression:</p>
 <pre><code>from:&lt;email address&gt;
 to:&lt;email address&gt;
@@ -866,6 +868,8 @@ cc:&lt;email address&gt;
 bcc:&lt;email address&gt;
 keyword:&lt;keyword&gt;</code></pre>
 <p>There should be <ins>no space</ins> between the prefix and the search term, which will be applied as an AND-condition.</p>
+<p>This will <strong>only</strong> work for searching on the server!</p>
+<p><br></p>
 <p>Only AND conditions (+) and NOT conditions (-) can be used for on-device searching (since version 1.1981). If you try to use other search expressions, you get the error <em>Select a folder for a complex search</em>, which means that a folder in an account’s folder list must be selected in order to perform the search on the server.</p>
 <p><br></p>
 <p>Since version 1.1733 it is possible to save searches, which means that a named entry in the navigation menu will be created to repeat the same search later. You can save a search after searching by tapping on the save button in the top action bar. After repeating a search there will be a delete button at the same place to delete a saved search again. A saved search might be useful to quickly search for starred messages, or for messages from a specific email address, etc.</p>
