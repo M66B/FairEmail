@@ -40,12 +40,14 @@ import androidx.preference.PreferenceManager;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
 
+import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -248,12 +250,32 @@ public class ActivityAMP extends ActivityBase {
                 if (message != null)
                     HtmlHelper.embedInlineImages(context, message.id, d, true);
 
-                for (Element script : d.select("script")) {
-                    String src = script.attr("src");
-                    Uri u = Uri.parse(src);
-                    String host = (u.isHierarchical() ? u.getHost() : null);
-                    if (host == null || !ALLOWED_SCRIPT_HOSTS.contains(host.toLowerCase(Locale.ROOT)))
-                        script.removeAttr("src");
+                for (Element elm : d.select("*")) {
+                    if ("script".equals(elm.tagName())) {
+                        String src = elm.attr("src");
+
+                        if (src.isEmpty()) {
+                            elm.remove();
+                            continue;
+                        }
+
+                        Uri u = Uri.parse(src);
+                        String host = (u.isHierarchical() ? u.getHost() : null);
+                        if (host == null || !ALLOWED_SCRIPT_HOSTS.contains(host.toLowerCase(Locale.ROOT))) {
+                            elm.remove();
+                            continue;
+                        }
+                    }
+
+                    List<String> toRemove = new ArrayList<>();
+                    for (Attribute attr : elm.attributes()) {
+                        String key = attr.getKey().toLowerCase(Locale.ROOT);
+                        String val = attr.getValue().trim().toLowerCase();
+                        if (val.startsWith("javascript:") || key.startsWith("on"))
+                            toRemove.add(attr.getKey());
+                    }
+
+                    toRemove.forEach(elm::removeAttr);
                 }
 
                 return d.html();
