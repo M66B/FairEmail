@@ -331,8 +331,8 @@ public class EntityIdentity {
         identity.user = json.getString("user");
         identity.password = json.getString("password");
         identity.login = json.optBoolean("login");
-        if (json.has("certificate_alias") && !json.isNull("certificate_alias"))
-            identity.certificate_alias = json.getString("certificate_alias");
+        //if (json.has("certificate_alias") && !json.isNull("certificate_alias"))
+        //    identity.certificate_alias = json.getString("certificate_alias");
         if (json.has("realm") && !json.isNull("realm"))
             identity.realm = json.getString("realm");
         if (json.has("fingerprint") && !json.isNull("fingerprint"))
