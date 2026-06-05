@@ -26,3 +26,4 @@ crowdin.properties
 app/.cxx/
 build
 captures
+gradle
