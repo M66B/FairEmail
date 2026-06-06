@@ -591,8 +591,21 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 try {
-                    FragmentDialogSelectUnifiedFolder fragment = new FragmentDialogSelectUnifiedFolder();
-                    fragment.show(getParentFragmentManager(), "unified:select");
+                    if (viewType == AdapterMessage.ViewType.SEARCH) {
+                        Bundle args = new Bundle();
+                        args.putLong("account", account);
+                        args.putLong("folder", folder);
+                        args.putString("type", type);
+                        args.putSerializable("criteria", criteria);
+                        args.putBoolean("server", server);
+
+                        FragmentDialogSearch fragment = new FragmentDialogSearch();
+                        fragment.setArguments(args);
+                        fragment.show(getParentFragmentManager(), "search");
+                    } else {
+                        FragmentDialogSelectUnifiedFolder fragment = new FragmentDialogSelectUnifiedFolder();
+                        fragment.show(getParentFragmentManager(), "unified:select");
+                    }
                 } catch (Throwable ex) {
                     /*
                         Exception java.lang.IllegalStateException:
