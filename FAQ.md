@@ -1294,8 +1294,6 @@ This will result in searching in the subject or text (only) like this:
 ("apple" AND "banana" AND NOT "cherry") OR "nuts"
 ```
 
-This will **only** work for searching on the server!
-
 <br>
 
 Since version 1.1980 it is possible to use these prefixes as a search expression:
