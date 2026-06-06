@@ -1710,7 +1710,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_filter_trash">Verwijderde</string>
     <string name="title_compact">Compacte weergave</string>
     <string name="title_zoom">Tekstgrootte</string>
-    <string name="title_padding">Opvul grootte</string>
+    <string name="title_padding">Opvulgrootte</string>
     <string name="title_large_buttons">Grotere knoppen</string>
     <string name="title_select_language">Selecteer taal</string>
     <string name="title_select_all">Selecteer alles</string>
@@ -2147,7 +2147,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_flagged">Alleen berichten met een ster</string>
     <string name="title_widget_show_flagged">Toon sterren</string>
     <string name="title_widget_font_size">Tekstgrootte</string>
-    <string name="title_widget_padding">Opvul grootte</string>
+    <string name="title_widget_padding">Opvulgrootte</string>
     <string name="title_widget_separator_lines">Gebruik scheidingslijnen</string>
     <string name="title_widget_semi_transparent">Semi transparante achtergrond</string>
     <string name="title_widget_count_top">Toon aantal ongelezen bovenin</string>

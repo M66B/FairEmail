@@ -492,6 +492,7 @@ Sa ei pea olema siin, et kontot häälestada. Palun kasuta selleks kiirseadistam
     <string name="title_advanced_open_safe">Ava vaid turvatud ühendusi</string>
     <string name="title_advanced_http_redirect">Luba ühenduste edasisuunamist</string>
     <string name="title_advanced_bouncy_castle">Kasuta Bouncy Castle\'i turvalise socketi pakkujat (JSSE)</string>
+    <string name="title_advanced_local_network">Kohtvõrgu õigus</string>
     <string name="title_advanced_manage_connectivity">Ühenduvuse haldamine</string>
     <string name="title_advanced_caption_general">Üldine</string>
     <string name="title_advanced_caption_navigation">Navigeerimine</string>
@@ -1326,6 +1327,7 @@ Sa ei pea olema siin, et kontot häälestada. Palun kasuta selleks kiirseadistam
     <string name="title_quick_actions_snooze">Tukasta</string>
     <string name="title_quick_actions_clear">Peale tegevust eemalda valik</string>
     <string name="title_trash">Prügi</string>
+    <string name="title_trash_conversation" comment="title_trash_conversation&#10;Title for an accessibility action to move a conversation to the trash messages folder.&#10;It could be translated as &quot;Remove conversation&quot;.">Vestlus prügiks</string>
     <string name="title_trash_selection">Kustuta valik</string>
     <string name="title_copy">Kopeeri &#8230;</string>
     <string name="title_copy_to">Kopeeri kohta &#8230;</string>
