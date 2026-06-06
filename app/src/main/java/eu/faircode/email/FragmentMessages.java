@@ -8304,9 +8304,8 @@ public class FragmentMessages extends FragmentBase
         MenuItem next = bottom_navigation.getMenu().findItem(R.id.action_next);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean reversed = prefs.getBoolean("reversed", false);
-
         if (prefs.getBoolean("updown", true)) {
+            boolean reversed = prefs.getBoolean("reversed", false);
             prev.setIcon(prev.isEnabled()
                     ? (reversed ? R.drawable.twotone_north_24 : R.drawable.twotone_south_24)
                     : R.drawable.twotone_horizontal_rule_24);
@@ -8321,9 +8320,6 @@ public class FragmentMessages extends FragmentBase
                     ? R.drawable.twotone_play_arrow_24
                     : R.drawable.twotone_horizontal_rule_24);
         }
-
-        prev.setTitle(reversed ? R.string.title_next : R.string.title_previous);
-        next.setTitle(reversed ? R.string.title_previous : R.string.title_next);
     }
 
     private void updateCompose() {
