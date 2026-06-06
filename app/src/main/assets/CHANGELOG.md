@@ -30,7 +30,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
-### 1.2318 2026-05-28
+### 1.2319 2026-06-06
+
+* Fixed [XSS](https://github.com/M66B/FairEmail/security/advisories/GHSA-r8ff-qr7g-pvw6) for [AMP Email](https://amp.dev/about/email)
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2318 2026-05-30
 
 * Fixed Italian translation
 * Small improvements and minor bug fixes
