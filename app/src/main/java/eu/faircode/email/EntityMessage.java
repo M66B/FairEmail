@@ -402,7 +402,7 @@ public class EntityMessage implements Serializable {
     }
 
     boolean isFiltered() {
-        return hasKeyword(MessageHelper.FLAG_FILTERED);
+        return (hasKeyword(MessageHelper.FLAG_FILTERED) || Boolean.TRUE.equals(blocklist));
     }
 
     boolean isSigned() {
