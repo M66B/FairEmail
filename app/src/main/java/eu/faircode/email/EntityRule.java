@@ -654,7 +654,7 @@ public class EntityRule {
 
         switch (type) {
             case TYPE_NOOP:
-                return true;
+                return false;
             case TYPE_SEEN:
                 return onActionSeen(context, message, true);
             case TYPE_UNSEEN:
