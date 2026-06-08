@@ -517,7 +517,7 @@ dependencies {
     def desugar_version = "2.0.4"
     def startup_version = "1.2.0"
     def annotation_version_experimental = "1.6.0"
-    def core_version = "1.18.0" // 1.19.0-alpha01
+    def core_version = "1.19.0"
     def core_remoteviews_version = "1.1.0"
     def appcompat_version = "1.7.1" // 1.8.0-alpha01
     def emoji_version = "1.6.0"
@@ -535,10 +535,10 @@ dependencies {
     def lbm_version = "1.1.0"
     def swiperefresh_version = "1.2.0-beta01" // 1.2.0
     def documentfile_version = "1.1.0"
-    def lifecycle_version = "2.10.0" // 2.11.0-beta01
+    def lifecycle_version = "2.10.0" // 2.11.0-rc01
     def lifecycle_extensions_version = "2.2.0"
     def room_version = "2.4.3" // 2.5.2/2.6.1/2.7.2/2.8.4/3.0.0-alpha04
-    def sqlite_version = "2.5.1" // 2.5.2/2.6.2/2.7.0-alpha04
+    def sqlite_version = "2.5.1" // 2.5.2/2.6.2/2.7.0-alpha06
     def requery_version = "3.39.2"
     def paging_version = "2.1.2" // 3.3.6/3.4.1/3.5.0
     def preference_version = "1.2.1"
