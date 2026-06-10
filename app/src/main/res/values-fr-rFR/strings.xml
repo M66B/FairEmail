@@ -346,7 +346,7 @@
     <string name="title_advanced_hint_message">        Vous parcourez les paramètres avancés.
         Toutes les options ont des valeurs par défaut couramment utilisées que vous n\'avez pas besoin de modifier sauf si vous avez une préférence différente.
     </string>
-    <string name="title_advanced_hint_configure">        Il n\'est pas nécessaire de passer par cette procédure pour configurer un compte. Utilisez de préférence l\'assistant de configuration rapide pour celà.
+    <string name="title_advanced_hint_configure">        Il n\'est pas nécessaire de passer par cette procédure pour configurer un compte. Utilisez de préférence l\'assistant de configuration rapide pour cela.
         L\'assistant de configuration rapide fonctionne la plupart du temps, mais si ce n\'est pas le cas, vous pouvez utiliser la configuration classique manuelle située en dessous du bouton de l\'assistant.
     </string>
     <string name="title_advanced_hint_remark">        Les options sont rangées par catégories dans des onglets divisés en sections, elles sont organisées selon l\'apparence ou l\'usage et peuvent être recherchées.
@@ -492,7 +492,7 @@
     <string name="title_advanced_open_safe">Ouvrir uniquement des connexions sécurisées</string>
     <string name="title_advanced_http_redirect">Autoriser la redirection de connexion</string>
     <string name="title_advanced_bouncy_castle">Utiliser le fournisseur de socket sécurisé de Bouncy Castle (JSSE)</string>
-    <string name="title_advanced_local_network">Autorisations au réseau local</string>
+    <string name="title_advanced_local_network">Autorisations d\'accès au réseau local</string>
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
     <string name="title_advanced_caption_general">Général</string>
     <string name="title_advanced_caption_navigation">Navigation</string>

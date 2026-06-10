@@ -82,8 +82,8 @@
     <string name="title_block_sender">封鎖寄件者</string>
     <string name="title_block_sender_domain">封鎖域名 \'%1$s\'</string>
     <string name="title_block_sender_remark">封鎖意味著自動移動至垃圾郵件資料夾</string>
-    <string name="title_block_sender_hint">        封鎖寄件者是一項免費功能。
-        使用篩選器規則封鎖寄件者網域則是一項專業版功能。
+    <string name="title_block_sender_hint">       “ 封鎖寄件”者是一項免費功能。
+        “使用篩選器規則封鎖寄件者網域”則是一項專業版功能。
     </string>
     <string name="title_blocked_senders">已封鎖的寄件者</string>
     <string name="title_unblock_all">解除封鎖全部</string>
