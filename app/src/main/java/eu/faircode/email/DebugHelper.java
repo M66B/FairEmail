@@ -1211,7 +1211,7 @@ public class DebugHelper {
                 boolean ssl_harden = prefs.getBoolean("ssl_harden", false);
                 boolean ssl_harden_strict = (ssl_harden && prefs.getBoolean("ssl_harden_strict", false));
                 boolean cert_strict = prefs.getBoolean("cert_strict", true);
-                boolean cert_transparency = prefs.getBoolean("cert_transparency", false);
+                boolean cert_transparency = (prefs.getBoolean("cert_transparency", false) && false);
                 boolean open_safe = prefs.getBoolean("open_safe", false);
 
                 size += write(os, "timeout=" + timeout + "s" + (timeout == EmailService.DEFAULT_CONNECT_TIMEOUT ? "" : " !!!") + "\r\n");

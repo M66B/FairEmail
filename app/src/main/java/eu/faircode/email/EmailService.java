@@ -216,7 +216,7 @@ public class EmailService implements AutoCloseable {
         this.ssl_harden = prefs.getBoolean("ssl_harden", false);
         this.ssl_harden_strict = prefs.getBoolean("ssl_harden_strict", false);
         this.cert_strict = prefs.getBoolean("cert_strict", true);
-        this.cert_transparency = prefs.getBoolean("cert_transparency", false);
+        this.cert_transparency = (prefs.getBoolean("cert_transparency", false) && false);
         this.check_names = prefs.getBoolean("check_names", !BuildConfig.PLAY_STORE_RELEASE);
 
         boolean imap_compress = prefs.getBoolean("imap_compress", true);

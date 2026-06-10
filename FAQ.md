@@ -6284,6 +6284,7 @@ visible as a short delay between tapping on a link and the link confirmation dia
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq201)
 
+**Unfortunately, the Certificate Transparency library isn't maintained anymore, and therefore Certificate Transparency has been disabled in version 1.2320.**
 
 Please see [this article](https://certificate.transparency.dev/howctworks/) about what certificate transparency is.
 Alternatively, see [this Wikipedia article](https://en.wikipedia.org/wiki/Certificate_Transparency).
