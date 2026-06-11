@@ -76,7 +76,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         final long folder = args.getLong("folder", -1);
         final String type = args.getString("type");
 
-        final BoundaryCallbackMessages.SearchCriteria criteria = args.getSerializable("criteria", BoundaryCallbackMessages.SearchCriteria.class);
+        final BoundaryCallbackMessages.SearchCriteria criteria = (BoundaryCallbackMessages.SearchCriteria) args.getSerializable("criteria");
         final boolean server = args.getBoolean("server");
 
         final Context context = getContext();
