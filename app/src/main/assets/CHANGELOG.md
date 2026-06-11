@@ -30,6 +30,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2321 2026-06-11
+
+* Fixed search dialog crashing on Android 12 and before
+
 ### 1.2320 2026-06-10
 
 * Disabled Certificate Transparency because of [unsupported library](https://github.com/appmattus/certificatetransparency) causing errors
