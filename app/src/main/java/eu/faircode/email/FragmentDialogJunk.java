@@ -55,6 +55,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -344,7 +345,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                 String email = ((InternetAddress) from).getAddress();
                 String domain = UriHelper.getEmailDomain(email);
                 if (domain != null)
-                    domain = domain.trim();
+                    domain = domain.trim().toLowerCase(Locale.ROOT);
                 if (TextUtils.isEmpty(domain) || domains.contains(domain))
                     continue;
                 String parent = UriHelper.getParentDomain(context, domain);
