@@ -230,7 +230,7 @@
             android:layout_marginTop="6dp"
             android:text="@string/title_poll_folder_remark"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
+            android:textColor="?attr/colorWarning"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPoll" />
