@@ -163,6 +163,7 @@ public class ActivityDMARC extends ActivityBase {
         // https://tools.ietf.org/id/draft-kucherawy-dmarc-base-13.xml#xml_schema
         private DateFormat DTF;
         private int colorWarning;
+        private int colorVerified;
         private int colorSeparator;
         private float stroke;
 
@@ -182,6 +183,7 @@ public class ActivityDMARC extends ActivityBase {
         SpannableStringBuilder load(Context context, InputStream is) throws XmlPullParserException, IOException {
             DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);
             colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+            colorVerified = Helper.resolveColor(context, R.attr.colorVerified);
             colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
             stroke = context.getResources().getDisplayMetrics().density;
 
@@ -326,10 +328,10 @@ public class ActivityDMARC extends ActivityBase {
                                             text = "<null>";
                                         ssb.append(text);
 
-                                        if (!"pass".equals(text.toLowerCase(Locale.ROOT)) &&
-                                                ("dkim".equals(name) || "spf".equals(name))) {
+                                        if ("dkim".equals(name) || "spf".equals(name)) {
+                                            boolean pass = "pass".equals(text.toLowerCase(Locale.ROOT));
                                             ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
-                                            ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
+                                            ssb.setSpan(new ForegroundColorSpan(pass ? colorVerified : colorWarning), start, ssb.length(), 0);
                                         }
 
                                         ssb.append(' ');
@@ -348,10 +350,9 @@ public class ActivityDMARC extends ActivityBase {
                                         text = "<null>";
                                     ssb.append(text);
 
-                                    if (!"pass".equals(text.toLowerCase(Locale.ROOT))) {
-                                        ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
-                                        ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
-                                    }
+                                    boolean pass = "pass".equals(text.toLowerCase(Locale.ROOT));
+                                    ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                                    ssb.setSpan(new ForegroundColorSpan(pass ? colorVerified : colorWarning), start, ssb.length(), 0);
 
                                     ssb.append(' ');
                                 }
@@ -549,13 +550,11 @@ public class ActivityDMARC extends ActivityBase {
 
                 int start = ssb.length();
                 ssb.append(Boolean.TRUE.equals(valid) ? "valid" : "invalid");
+                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                ssb.setSpan(new ForegroundColorSpan(Boolean.TRUE.equals(valid) ? colorVerified : colorWarning), start, ssb.length(), 0);
+
                 if (because != null)
                     ssb.append(" (").append(because).append(')');
-
-                if (!Boolean.TRUE.equals(valid)) {
-                    ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
-                    ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
-                }
 
                 ssb.append(' ');
             } catch (Throwable ex) {
