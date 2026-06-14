@@ -573,7 +573,7 @@ dependencies {
     def rxjava2_version = "2.2.21"
     def svg_version = "1.4"
     def compress_version = "1.27.1"
-    def ipaddress_version = "5.5.1"
+    def ipaddress_version = "5.6.2"
     def canary_version = "2.14"
     def ws_version = "2.14"
     def tinylog_version = "2.7.0"
