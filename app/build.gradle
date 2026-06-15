@@ -3,7 +3,7 @@ plugins {
     id 'de.undercouch.download'
 }
 
-def getVersionCode = { -> return 2321 }
+def getVersionCode = { -> return 2322 }
 def getRevision = { -> return "a" }
 def getReleaseName = { -> return "Elopteryx" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera

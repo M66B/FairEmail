@@ -30,6 +30,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2322 2026-06-15
+
+* Updated [IPAddress library](https://seancfoley.github.io/IPAddress/) to fix an issue
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2321 2026-06-11
 
 * Fixed search dialog crashing on Android 12 and before
