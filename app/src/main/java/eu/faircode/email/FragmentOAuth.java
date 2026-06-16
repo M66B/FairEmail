@@ -526,7 +526,7 @@ public class FragmentOAuth extends FragmentBase {
             @Override
             public boolean matches(@NonNull BrowserDescriptor descriptor) {
 
-                if (BuildConfig.DEBUG) {
+                if (BuildConfig.DEBUG && false) {
                     boolean test = (descriptor.useCustomTab &&
                             "com.duckduckgo.mobile.android".equals(descriptor.packageName));
                     Log.i("MMM " + descriptor.packageName + ":" + descriptor.useCustomTab + "=" + test);
