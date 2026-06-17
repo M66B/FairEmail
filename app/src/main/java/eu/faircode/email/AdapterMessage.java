@@ -169,6 +169,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -7709,6 +7710,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             intent.putExtra(CalendarContract.Events.TITLE, (String) data.get("subject"));
                         if (data.containsKey("text"))
                             intent.putExtra(CalendarContract.Events.DESCRIPTION, (String) data.get("text"));
+                        Calendar cal = Calendar.getInstance();
+                        cal.set(Calendar.MILLISECOND, 0);
+                        cal.set(Calendar.SECOND, 0);
+                        cal.set(Calendar.MINUTE, 0);
+                        cal.add(Calendar.HOUR_OF_DAY, 1);
+                        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, cal.getTimeInMillis());
+                        cal.add(Calendar.HOUR_OF_DAY, 1);
+                        intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, cal.getTimeInMillis());
                     } else {
                         intent.setAction(Intent.ACTION_SEND);
                         intent.setType("text/plain");
