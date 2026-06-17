@@ -63,7 +63,7 @@ public class UriType implements Parcelable {
 
     private void fixMimeType(Context context) {
         if (context != null &&
-                (type == null || type.endsWith("/*"))) {
+                (type == null || type.equals("*/*") || type.endsWith("/*") || type.startsWith("message/"))) {
             Helper.UriInfo info = Helper.getInfo(this, context);
             this.type = EntityAttachment.getMimeType(type, info.name);
         }
