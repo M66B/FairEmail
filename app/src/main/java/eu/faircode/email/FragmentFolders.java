@@ -1148,6 +1148,10 @@ public class FragmentFolders extends FragmentBase {
                     if (folder == null)
                         return null;
 
+                    int count = db.operation().getOperationCount(id, null);
+                    if (count > 0)
+                        throw new IllegalArgumentException("Operations pending");
+
                     db.folder().setFolderTbd(folder.id);
 
                     db.setTransactionSuccessful();
@@ -1162,7 +1166,7 @@ public class FragmentFolders extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IllegalArgumentException));
             }
         }.execute(this, args, "folder:delete");
     }
