@@ -4911,25 +4911,24 @@ To solve this, long press the folder(s) in the folder list and select *Delete lo
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq147)
 
-You likely came here because you are using a third party build of FairEmail.
+You likely came here because you are using a third-party build of FairEmail.
 
-There is **only support** on the latest Play store version, the latest GitHub release and
-the F-Droid build, but **only if** the version number of the F-Droid build is the same as the version number of the latest GitHub release.
+There is **only support** for the latest Play Store version and the latest GitHub release because those are the releases that can be built and released at any time.
 
 F-Droid builds irregularly, which can be problematic if there is an important update.
-Therefore you are advised to switch to the GitHub release.
+Therefore, you are advised to switch to the GitHub release.
 F-Droid isn't as secure as you might think anyway, [see here](https://privsec.dev/posts/android/f-droid-security-issues/).
 
 Note that developers have no control over F-Droid builds and the F-Droid infrastructure (apps, forums, etc.).
 
-OAuth access is available only for Play Store and Github releases
+OAuth access is available only for Play Store and GitHub releases
 because email providers permitted the use of OAuth for these releases only.
-The responsible for a release, for the F-Droid build this is the F-Droid organization, needs to ask for OAuth permissions,
+The responsible for a release, for the F-Droid build, this is the F-Droid organization, needs to ask for OAuth permissions,
 which mostly involves signing a contract with binding terms and conditions,
 often with the clause that the use of OAuth is exclusive.
 
 Note that you'll need to uninstall the F-Droid build first before you can install a GitHub release
-because Android refuses to install ("*App was not installed*") the same app with a different signature for security reasons.
+because Android refuses to install ("*App was not installed*", etc.) the same app with a different signature for security reasons.
 
 At the start of 2024, the Play Store app started to update all apps, including apps not installed via the Play Store.
 Since the F-Droid build is signed by the F-Droid organization, which basically means the F-Droid build is another app, updating the F-Droid build will fail.
@@ -4938,16 +4937,16 @@ Unfortunately, there is no way to resolve this.
 Note that the GitHub version will automatically check for updates.
 When desired, this can be turned off in the miscellaneous settings.
 
-Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) for all download option
+Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) for all download options
 and [see here](#faq173) for the differences between the different release types.
 
 If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
 You can see the source of the app in *About* of the navigation menu (left side menu),
-either *Play store*, *GitHub*, *F-Droid*, or *?* (for example in the case of a custom build).
+either *Play Store*, *GitHub*, *F-Droid*, or *?* (for example, in the case of a custom build).
 
 [IzzyOnDroid](https://apt.izzysoft.de/fdroid/) hosts the GitHub release of the app.
-[Aurora Store](https://f-droid.org/packages/com.aurora.store/) hosts the Play store version of the app,
+[Aurora Store](https://f-droid.org/packages/com.aurora.store/) hosts the Play Store version of the app,
 even though the Aurora Store app was downloaded from F-Droid.
 
 Please [see here](https://forum.f-droid.org/t/help-wanted-how-to-create-a-reproducible-build-fairemail/8860) why reproducible F-Droid builds are not an option.
