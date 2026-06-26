@@ -1577,9 +1577,28 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
+        final View.OnLayoutChangeListener marginFixer = new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                try {
+                    if (snackbar.isShownOrQueued()) {
+                        ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) content.getLayoutParams();
+                        int snackbarHeight = snackbar.getView().getHeight();
+                        if (snackbarHeight > 0 && lparam.bottomMargin != snackbarHeight) {
+                            lparam.bottomMargin = snackbarHeight;
+                            content.setLayoutParams(lparam);
+                        }
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        };
+
         snackbar.addCallback(new Snackbar.Callback() {
             @Override
             public void onShown(Snackbar sb) {
+                content.addOnLayoutChangeListener(marginFixer);
                 ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) content.getLayoutParams();
                 lparam.bottomMargin = snackbar.getView().getHeight();
                 content.setLayoutParams(lparam);
@@ -1587,6 +1606,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             public void onDismissed(Snackbar transientBottomBar, int event) {
+                content.removeOnLayoutChangeListener(marginFixer);
                 ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) content.getLayoutParams();
                 lparam.bottomMargin = 0;
                 content.setLayoutParams(lparam);
