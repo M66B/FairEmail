@@ -231,6 +231,7 @@ android {
             buildConfigField "String", "PWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
             buildConfigField "String", "PWNED_URI", "\"https://haveibeenpwned.com/\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
+            getIsDefault().set(true)
         }
         large {
             dimension "all"
@@ -319,7 +320,6 @@ android {
             buildConfigField "String", "PWNED_ENDPOINT", "\"https://api.pwnedpasswords.com/\""
             buildConfigField "String", "PWNED_URI", "\"https://haveibeenpwned.com/\""
             buildConfigField "String", "FDROID", "\"\""
-            getIsDefault().set(true)
         }
         amazon {
             dimension "all"
